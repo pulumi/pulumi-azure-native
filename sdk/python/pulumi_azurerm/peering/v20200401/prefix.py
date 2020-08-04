@@ -35,7 +35,7 @@ class Prefix(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, peering_service_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, peering_service_name=None, peering_service_prefix_key=None, prefix=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The peering service prefix class.
 
@@ -43,13 +43,9 @@ class Prefix(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the prefix.
         :param pulumi.Input[str] peering_service_name: The name of the peering service.
-        :param pulumi.Input[dict] properties: Gets or sets the peering prefix properties.
+        :param pulumi.Input[str] peering_service_prefix_key: The peering service prefix key
+        :param pulumi.Input[str] prefix: The prefix from which your traffic originates.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-
-        The **properties** object supports the following:
-
-          * `peering_service_prefix_key` (`pulumi.Input[str]`) - The peering service prefix key
-          * `prefix` (`pulumi.Input[str]`) - The prefix from which your traffic originates.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,10 +70,12 @@ class Prefix(pulumi.CustomResource):
             if peering_service_name is None:
                 raise TypeError("Missing required property 'peering_service_name'")
             __props__['peering_service_name'] = peering_service_name
-            __props__['properties'] = properties
+            __props__['peering_service_prefix_key'] = peering_service_prefix_key
+            __props__['prefix'] = prefix
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Prefix, __self__).__init__(
             'azurerm:peering/v20200401:Prefix',

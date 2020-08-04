@@ -29,21 +29,17 @@ class FileShare(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, file_share_properties=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, metadata=None, name=None, resource_group_name=None, share_quota=None, __props__=None, __name__=None, __opts__=None):
         """
         Properties of the file share, including Id, resource name, resource type, Etag.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[dict] file_share_properties: Properties of the file share.
+        :param pulumi.Input[dict] metadata: A name-value pair to associate with the share as metadata.
         :param pulumi.Input[str] name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-
-        The **file_share_properties** object supports the following:
-
-          * `metadata` (`pulumi.Input[dict]`) - A name-value pair to associate with the share as metadata.
-          * `share_quota` (`pulumi.Input[float]`) - The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
+        :param pulumi.Input[float] share_quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,13 +61,14 @@ class FileShare(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            __props__['file_share_properties'] = file_share_properties
+            __props__['metadata'] = metadata
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['share_quota'] = share_quota
             __props__['etag'] = None
             __props__['properties'] = None
             __props__['type'] = None

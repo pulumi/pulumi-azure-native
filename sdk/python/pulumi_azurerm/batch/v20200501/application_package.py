@@ -31,7 +31,7 @@ class ApplicationPackage(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, application_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, application_name=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         An application package which represents a particular version of an application.
 
@@ -40,7 +40,6 @@ class ApplicationPackage(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the Batch account.
         :param pulumi.Input[str] application_name: The name of the application. This must be unique within the account.
         :param pulumi.Input[str] name: The version of the application.
-        :param pulumi.Input[dict] properties: The properties associated with the Application Package.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
         """
         if __name__ is not None:
@@ -69,11 +68,11 @@ class ApplicationPackage(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(ApplicationPackage, __self__).__init__(
             'azurerm:batch/v20200501:ApplicationPackage',

@@ -79,58 +79,61 @@ class Policy(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, custom_rules=None, etag=None, location=None, managed_rules=None, name=None, policy_settings=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Defines web application firewall policy.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] custom_rules: Describes custom rules inside the policy.
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[dict] managed_rules: Describes managed rules inside the policy.
         :param pulumi.Input[str] name: The name of the Web Application Firewall Policy.
-        :param pulumi.Input[dict] properties: Properties of the web application firewall policy.
+        :param pulumi.Input[dict] policy_settings: Describes settings for the policy.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[dict] tags: Resource tags.
 
-        The **properties** object supports the following:
+        The **custom_rules** object supports the following:
 
-          * `custom_rules` (`pulumi.Input[dict]`) - Describes custom rules inside the policy.
-            * `rules` (`pulumi.Input[list]`) - List of rules
-              * `action` (`pulumi.Input[str]`) - Describes what action to be applied when rule matches.
-              * `enabled_state` (`pulumi.Input[str]`) - Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
-              * `match_conditions` (`pulumi.Input[list]`) - List of match conditions.
-                * `match_values` (`pulumi.Input[list]`) - Match value.
-                * `match_variables` (`pulumi.Input[list]`) - List of match variables.
-                  * `selector` (`pulumi.Input[str]`) - The selector of match variable.
-                  * `variable_name` (`pulumi.Input[str]`) - Match Variable.
+          * `rules` (`pulumi.Input[list]`) - List of rules
+            * `action` (`pulumi.Input[str]`) - Describes what action to be applied when rule matches.
+            * `enabled_state` (`pulumi.Input[str]`) - Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+            * `match_conditions` (`pulumi.Input[list]`) - List of match conditions.
+              * `match_values` (`pulumi.Input[list]`) - Match value.
+              * `match_variables` (`pulumi.Input[list]`) - List of match variables.
+                * `selector` (`pulumi.Input[str]`) - The selector of match variable.
+                * `variable_name` (`pulumi.Input[str]`) - Match Variable.
 
-                * `negation_conditon` (`pulumi.Input[bool]`) - Whether this is negate condition or not.
-                * `operator` (`pulumi.Input[str]`) - The operator to be matched.
-                * `transforms` (`pulumi.Input[list]`) - List of transforms.
+              * `negation_conditon` (`pulumi.Input[bool]`) - Whether this is negate condition or not.
+              * `operator` (`pulumi.Input[str]`) - The operator to be matched.
+              * `transforms` (`pulumi.Input[list]`) - List of transforms.
 
-              * `name` (`pulumi.Input[str]`) - Describes the name of the rule.
-              * `priority` (`pulumi.Input[float]`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
-              * `rate_limit_duration_in_minutes` (`pulumi.Input[float]`) - Time window for resetting the rate limit count. Default is 1 minute.
-              * `rate_limit_threshold` (`pulumi.Input[float]`) - Number of allowed requests per client within the time window.
-              * `rule_type` (`pulumi.Input[str]`) - Describes type of rule.
+            * `name` (`pulumi.Input[str]`) - Describes the name of the rule.
+            * `priority` (`pulumi.Input[float]`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+            * `rate_limit_duration_in_minutes` (`pulumi.Input[float]`) - Time window for resetting the rate limit count. Default is 1 minute.
+            * `rate_limit_threshold` (`pulumi.Input[float]`) - Number of allowed requests per client within the time window.
+            * `rule_type` (`pulumi.Input[str]`) - Describes type of rule.
 
-          * `managed_rules` (`pulumi.Input[dict]`) - Describes managed rules inside the policy.
-            * `managed_rule_sets` (`pulumi.Input[list]`) - List of rule sets.
-              * `rule_group_overrides` (`pulumi.Input[list]`) - Defines the rule group overrides to apply to the rule set.
-                * `rule_group_name` (`pulumi.Input[str]`) - The managed rule group to override.
-                * `rules` (`pulumi.Input[list]`) - List of rules that will be disabled. If none specified, all rules in the group will be disabled.
-                  * `rule_id` (`pulumi.Input[str]`) - Identifier for the managed rule.
-                  * `state` (`pulumi.Input[str]`) - The state of the managed rule. Defaults to Disabled if not specified.
+        The **managed_rules** object supports the following:
 
-              * `rule_set_type` (`pulumi.Input[str]`) - Defines the rule set type to use.
-              * `rule_set_version` (`pulumi.Input[str]`) - Defines the version of the rule set to use.
+          * `managed_rule_sets` (`pulumi.Input[list]`) - List of rule sets.
+            * `rule_group_overrides` (`pulumi.Input[list]`) - Defines the rule group overrides to apply to the rule set.
+              * `rule_group_name` (`pulumi.Input[str]`) - The managed rule group to override.
+              * `rules` (`pulumi.Input[list]`) - List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+                * `rule_id` (`pulumi.Input[str]`) - Identifier for the managed rule.
+                * `state` (`pulumi.Input[str]`) - The state of the managed rule. Defaults to Disabled if not specified.
 
-          * `policy_settings` (`pulumi.Input[dict]`) - Describes settings for the policy.
-            * `file_upload_limit_in_mb` (`pulumi.Input[float]`) - Maximum file upload size in Mb for WAF.
-            * `max_request_body_size_in_kb` (`pulumi.Input[float]`) - Maximum request body size in Kb for WAF.
-            * `mode` (`pulumi.Input[str]`) - The mode of the policy.
-            * `request_body_check` (`pulumi.Input[bool]`) - Whether to allow WAF to check request Body.
-            * `state` (`pulumi.Input[str]`) - The state of the policy.
+            * `rule_set_type` (`pulumi.Input[str]`) - Defines the rule set type to use.
+            * `rule_set_version` (`pulumi.Input[str]`) - Defines the version of the rule set to use.
+
+        The **policy_settings** object supports the following:
+
+          * `file_upload_limit_in_mb` (`pulumi.Input[float]`) - Maximum file upload size in Mb for WAF.
+          * `max_request_body_size_in_kb` (`pulumi.Input[float]`) - Maximum request body size in Kb for WAF.
+          * `mode` (`pulumi.Input[str]`) - The mode of the policy.
+          * `request_body_check` (`pulumi.Input[bool]`) - Whether to allow WAF to check request Body.
+          * `state` (`pulumi.Input[str]`) - The state of the policy.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -149,16 +152,19 @@ class Policy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['custom_rules'] = custom_rules
             __props__['etag'] = etag
             __props__['location'] = location
+            __props__['managed_rules'] = managed_rules
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['policy_settings'] = policy_settings
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Policy, __self__).__init__(
             'azurerm:network/v20200401:Policy',

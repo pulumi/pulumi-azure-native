@@ -61,47 +61,47 @@ class StreamingEndpoint(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, auto_start=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_control=None, account_name=None, auto_start=None, availability_set_name=None, cdn_enabled=None, cdn_profile=None, cdn_provider=None, cross_site_access_policies=None, custom_host_names=None, description=None, location=None, max_cache_age=None, name=None, resource_group_name=None, scale_units=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The StreamingEndpoint.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] access_control: The access control definition of the StreamingEndpoint.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[bool] auto_start: The flag indicates if the resource should be automatically started on creation.
+        :param pulumi.Input[str] availability_set_name: The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+        :param pulumi.Input[bool] cdn_enabled: The CDN enabled flag.
+        :param pulumi.Input[str] cdn_profile: The CDN profile name.
+        :param pulumi.Input[str] cdn_provider: The CDN provider name.
+        :param pulumi.Input[dict] cross_site_access_policies: The StreamingEndpoint access policies.
+        :param pulumi.Input[list] custom_host_names: The custom host names of the StreamingEndpoint
+        :param pulumi.Input[str] description: The StreamingEndpoint description.
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[float] max_cache_age: Max cache age
         :param pulumi.Input[str] name: The name of the StreamingEndpoint.
-        :param pulumi.Input[dict] properties: The StreamingEndpoint properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
+        :param pulumi.Input[float] scale_units: The number of scale units.  Use the Scale operation to adjust this value.
         :param pulumi.Input[dict] tags: Resource tags.
 
-        The **properties** object supports the following:
+        The **access_control** object supports the following:
 
-          * `access_control` (`pulumi.Input[dict]`) - The access control definition of the StreamingEndpoint.
-            * `akamai` (`pulumi.Input[dict]`) - The access control of Akamai
-              * `akamai_signature_header_authentication_key_list` (`pulumi.Input[list]`) - authentication key list
-                * `base64_key` (`pulumi.Input[str]`) - authentication key
-                * `expiration` (`pulumi.Input[str]`) - The expiration time of the authentication key.
-                * `identifier` (`pulumi.Input[str]`) - identifier of the key
+          * `akamai` (`pulumi.Input[dict]`) - The access control of Akamai
+            * `akamai_signature_header_authentication_key_list` (`pulumi.Input[list]`) - authentication key list
+              * `base64_key` (`pulumi.Input[str]`) - authentication key
+              * `expiration` (`pulumi.Input[str]`) - The expiration time of the authentication key.
+              * `identifier` (`pulumi.Input[str]`) - identifier of the key
 
-            * `ip` (`pulumi.Input[dict]`) - The IP access control of the StreamingEndpoint.
-              * `allow` (`pulumi.Input[list]`) - The IP allow list.
-                * `address` (`pulumi.Input[str]`) - The IP address.
-                * `name` (`pulumi.Input[str]`) - The friendly name for the IP address range.
-                * `subnet_prefix_length` (`pulumi.Input[float]`) - The subnet mask prefix length (see CIDR notation).
+          * `ip` (`pulumi.Input[dict]`) - The IP access control of the StreamingEndpoint.
+            * `allow` (`pulumi.Input[list]`) - The IP allow list.
+              * `address` (`pulumi.Input[str]`) - The IP address.
+              * `name` (`pulumi.Input[str]`) - The friendly name for the IP address range.
+              * `subnet_prefix_length` (`pulumi.Input[float]`) - The subnet mask prefix length (see CIDR notation).
 
-          * `availability_set_name` (`pulumi.Input[str]`) - The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
-          * `cdn_enabled` (`pulumi.Input[bool]`) - The CDN enabled flag.
-          * `cdn_profile` (`pulumi.Input[str]`) - The CDN profile name.
-          * `cdn_provider` (`pulumi.Input[str]`) - The CDN provider name.
-          * `cross_site_access_policies` (`pulumi.Input[dict]`) - The StreamingEndpoint access policies.
-            * `client_access_policy` (`pulumi.Input[str]`) - The content of clientaccesspolicy.xml used by Silverlight.
-            * `cross_domain_policy` (`pulumi.Input[str]`) - The content of crossdomain.xml used by Silverlight.
+        The **cross_site_access_policies** object supports the following:
 
-          * `custom_host_names` (`pulumi.Input[list]`) - The custom host names of the StreamingEndpoint
-          * `description` (`pulumi.Input[str]`) - The StreamingEndpoint description.
-          * `max_cache_age` (`pulumi.Input[float]`) - Max cache age
-          * `scale_units` (`pulumi.Input[float]`) - The number of scale units.  Use the Scale operation to adjust this value.
+          * `client_access_policy` (`pulumi.Input[str]`) - The content of clientaccesspolicy.xml used by Silverlight.
+          * `cross_domain_policy` (`pulumi.Input[str]`) - The content of crossdomain.xml used by Silverlight.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -120,21 +120,33 @@ class StreamingEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['access_control'] = access_control
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['auto_start'] = auto_start
+            __props__['availability_set_name'] = availability_set_name
+            __props__['cdn_enabled'] = cdn_enabled
+            __props__['cdn_profile'] = cdn_profile
+            __props__['cdn_provider'] = cdn_provider
+            __props__['cross_site_access_policies'] = cross_site_access_policies
+            __props__['custom_host_names'] = custom_host_names
+            __props__['description'] = description
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['max_cache_age'] = max_cache_age
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if scale_units is None:
+                raise TypeError("Missing required property 'scale_units'")
+            __props__['scale_units'] = scale_units
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(StreamingEndpoint, __self__).__init__(
             'azurerm:media/v20200501:StreamingEndpoint',

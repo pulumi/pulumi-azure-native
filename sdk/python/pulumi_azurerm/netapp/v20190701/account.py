@@ -41,29 +41,28 @@ class Account(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, active_directories=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         NetApp account resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] active_directories: Active Directories
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the NetApp account
-        :param pulumi.Input[dict] properties: NetApp Account properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags
 
-        The **properties** object supports the following:
+        The **active_directories** object supports the following:
 
-          * `active_directories` (`pulumi.Input[list]`) - Active Directories
-            * `active_directory_id` (`pulumi.Input[str]`) - Id of the Active Directory
-            * `dns` (`pulumi.Input[str]`) - Comma separated list of DNS server IP addresses for the Active Directory domain
-            * `domain` (`pulumi.Input[str]`) - Name of the Active Directory domain
-            * `organizational_unit` (`pulumi.Input[str]`) - The Organizational Unit (OU) within the Windows Active Directory
-            * `password` (`pulumi.Input[str]`) - Plain text password of Active Directory domain administrator
-            * `smb_server_name` (`pulumi.Input[str]`) - NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
-            * `status` (`pulumi.Input[str]`) - Status of the Active Directory
-            * `username` (`pulumi.Input[str]`) - Username of Active Directory domain administrator
+          * `active_directory_id` (`pulumi.Input[str]`) - Id of the Active Directory
+          * `dns` (`pulumi.Input[str]`) - Comma separated list of DNS server IP addresses for the Active Directory domain
+          * `domain` (`pulumi.Input[str]`) - Name of the Active Directory domain
+          * `organizational_unit` (`pulumi.Input[str]`) - The Organizational Unit (OU) within the Windows Active Directory
+          * `password` (`pulumi.Input[str]`) - Plain text password of Active Directory domain administrator
+          * `smb_server_name` (`pulumi.Input[str]`) - NetBIOS name of the SMB server. This name will be registered as a computer account in the AD and used to mount volumes
+          * `status` (`pulumi.Input[str]`) - Status of the Active Directory
+          * `username` (`pulumi.Input[str]`) - Username of Active Directory domain administrator
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,17 +81,18 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['active_directories'] = active_directories
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Account, __self__).__init__(
             'azurerm:netapp/v20190701:Account',

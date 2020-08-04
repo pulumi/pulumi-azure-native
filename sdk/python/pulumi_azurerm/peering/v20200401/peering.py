@@ -84,54 +84,54 @@ class Peering(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, direct=None, exchange=None, kind=None, location=None, name=None, peering_location=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] direct: The properties that define a direct peering.
+        :param pulumi.Input[dict] exchange: The properties that define an exchange peering.
         :param pulumi.Input[str] kind: The kind of the peering.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the peering.
-        :param pulumi.Input[dict] properties: The properties that define a peering.
+        :param pulumi.Input[str] peering_location: The location of the peering.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] sku: The SKU that defines the tier and kind of the peering.
         :param pulumi.Input[dict] tags: The resource tags.
 
-        The **properties** object supports the following:
+        The **direct** object supports the following:
 
-          * `direct` (`pulumi.Input[dict]`) - The properties that define a direct peering.
-            * `connections` (`pulumi.Input[list]`) - The set of connections that constitute a direct peering.
-              * `bandwidth_in_mbps` (`pulumi.Input[float]`) - The bandwidth of the connection.
-              * `bgp_session` (`pulumi.Input[dict]`) - The BGP session associated with the connection.
-                * `max_prefixes_advertised_v4` (`pulumi.Input[float]`) - The maximum number of prefixes advertised over the IPv4 session.
-                * `max_prefixes_advertised_v6` (`pulumi.Input[float]`) - The maximum number of prefixes advertised over the IPv6 session.
-                * `md5_authentication_key` (`pulumi.Input[str]`) - The MD5 authentication key of the session.
-                * `microsoft_session_i_pv4_address` (`pulumi.Input[str]`) - The IPv4 session address on Microsoft's end.
-                * `microsoft_session_i_pv6_address` (`pulumi.Input[str]`) - The IPv6 session address on Microsoft's end.
-                * `peer_session_i_pv4_address` (`pulumi.Input[str]`) - The IPv4 session address on peer's end.
-                * `peer_session_i_pv6_address` (`pulumi.Input[str]`) - The IPv6 session address on peer's end.
-                * `session_prefix_v4` (`pulumi.Input[str]`) - The IPv4 prefix that contains both ends' IPv4 addresses.
-                * `session_prefix_v6` (`pulumi.Input[str]`) - The IPv6 prefix that contains both ends' IPv6 addresses.
+          * `connections` (`pulumi.Input[list]`) - The set of connections that constitute a direct peering.
+            * `bandwidth_in_mbps` (`pulumi.Input[float]`) - The bandwidth of the connection.
+            * `bgp_session` (`pulumi.Input[dict]`) - The BGP session associated with the connection.
+              * `max_prefixes_advertised_v4` (`pulumi.Input[float]`) - The maximum number of prefixes advertised over the IPv4 session.
+              * `max_prefixes_advertised_v6` (`pulumi.Input[float]`) - The maximum number of prefixes advertised over the IPv6 session.
+              * `md5_authentication_key` (`pulumi.Input[str]`) - The MD5 authentication key of the session.
+              * `microsoft_session_i_pv4_address` (`pulumi.Input[str]`) - The IPv4 session address on Microsoft's end.
+              * `microsoft_session_i_pv6_address` (`pulumi.Input[str]`) - The IPv6 session address on Microsoft's end.
+              * `peer_session_i_pv4_address` (`pulumi.Input[str]`) - The IPv4 session address on peer's end.
+              * `peer_session_i_pv6_address` (`pulumi.Input[str]`) - The IPv6 session address on peer's end.
+              * `session_prefix_v4` (`pulumi.Input[str]`) - The IPv4 prefix that contains both ends' IPv4 addresses.
+              * `session_prefix_v6` (`pulumi.Input[str]`) - The IPv6 prefix that contains both ends' IPv6 addresses.
 
-              * `connection_identifier` (`pulumi.Input[str]`) - The unique identifier (GUID) for the connection.
-              * `peering_db_facility_id` (`pulumi.Input[float]`) - The PeeringDB.com ID of the facility at which the connection has to be set up.
-              * `session_address_provider` (`pulumi.Input[str]`) - The field indicating if Microsoft provides session ip addresses.
-              * `use_for_peering_service` (`pulumi.Input[bool]`) - The flag that indicates whether or not the connection is used for peering service.
+            * `connection_identifier` (`pulumi.Input[str]`) - The unique identifier (GUID) for the connection.
+            * `peering_db_facility_id` (`pulumi.Input[float]`) - The PeeringDB.com ID of the facility at which the connection has to be set up.
+            * `session_address_provider` (`pulumi.Input[str]`) - The field indicating if Microsoft provides session ip addresses.
+            * `use_for_peering_service` (`pulumi.Input[bool]`) - The flag that indicates whether or not the connection is used for peering service.
 
-            * `direct_peering_type` (`pulumi.Input[str]`) - The type of direct peering.
-            * `peer_asn` (`pulumi.Input[dict]`) - The reference of the peer ASN.
-              * `id` (`pulumi.Input[str]`) - The identifier of the referenced resource.
+          * `direct_peering_type` (`pulumi.Input[str]`) - The type of direct peering.
+          * `peer_asn` (`pulumi.Input[dict]`) - The reference of the peer ASN.
+            * `id` (`pulumi.Input[str]`) - The identifier of the referenced resource.
 
-          * `exchange` (`pulumi.Input[dict]`) - The properties that define an exchange peering.
-            * `connections` (`pulumi.Input[list]`) - The set of connections that constitute an exchange peering.
-              * `bgp_session` (`pulumi.Input[dict]`) - The BGP session associated with the connection.
-              * `connection_identifier` (`pulumi.Input[str]`) - The unique identifier (GUID) for the connection.
-              * `peering_db_facility_id` (`pulumi.Input[float]`) - The PeeringDB.com ID of the facility at which the connection has to be set up.
+        The **exchange** object supports the following:
 
-            * `peer_asn` (`pulumi.Input[dict]`) - The reference of the peer ASN.
+          * `connections` (`pulumi.Input[list]`) - The set of connections that constitute an exchange peering.
+            * `bgp_session` (`pulumi.Input[dict]`) - The BGP session associated with the connection.
+            * `connection_identifier` (`pulumi.Input[str]`) - The unique identifier (GUID) for the connection.
+            * `peering_db_facility_id` (`pulumi.Input[float]`) - The PeeringDB.com ID of the facility at which the connection has to be set up.
 
-          * `peering_location` (`pulumi.Input[str]`) - The location of the peering.
+          * `peer_asn` (`pulumi.Input[dict]`) - The reference of the peer ASN.
 
         The **sku** object supports the following:
 
@@ -157,6 +157,8 @@ class Peering(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['direct'] = direct
+            __props__['exchange'] = exchange
             if kind is None:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
@@ -166,7 +168,7 @@ class Peering(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['peering_location'] = peering_location
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -174,6 +176,7 @@ class Peering(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Peering, __self__).__init__(
             'azurerm:peering/v20200401:Peering',

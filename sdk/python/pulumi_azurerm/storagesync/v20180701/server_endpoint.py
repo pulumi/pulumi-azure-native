@@ -32,26 +32,22 @@ class ServerEndpoint(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, storage_sync_service_name=None, sync_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cloud_tiering=None, friendly_name=None, name=None, resource_group_name=None, server_local_path=None, server_resource_id=None, storage_sync_service_name=None, sync_group_name=None, tier_files_older_than_days=None, volume_free_space_percent=None, __props__=None, __name__=None, __opts__=None):
         """
         Server Endpoint object.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cloud_tiering: Cloud Tiering.
+        :param pulumi.Input[str] friendly_name: Friendly Name
         :param pulumi.Input[str] name: Name of Server Endpoint object.
-        :param pulumi.Input[dict] properties: The parameters used to create the server endpoint.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] server_local_path: Server Local path.
+        :param pulumi.Input[str] server_resource_id: Server Resource Id.
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[str] sync_group_name: Name of Sync Group resource.
-
-        The **properties** object supports the following:
-
-          * `cloud_tiering` (`pulumi.Input[str]`) - Cloud Tiering.
-          * `friendly_name` (`pulumi.Input[str]`) - Friendly Name
-          * `server_local_path` (`pulumi.Input[str]`) - Server Local path.
-          * `server_resource_id` (`pulumi.Input[str]`) - Server Resource Id.
-          * `tier_files_older_than_days` (`pulumi.Input[float]`) - Tier files older than days.
-          * `volume_free_space_percent` (`pulumi.Input[float]`) - Level of free space to be maintained by Cloud Tiering if it is enabled.
+        :param pulumi.Input[float] tier_files_older_than_days: Tier files older than days.
+        :param pulumi.Input[float] volume_free_space_percent: Level of free space to be maintained by Cloud Tiering if it is enabled.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -70,19 +66,25 @@ class ServerEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['cloud_tiering'] = cloud_tiering
+            __props__['friendly_name'] = friendly_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['server_local_path'] = server_local_path
+            __props__['server_resource_id'] = server_resource_id
             if storage_sync_service_name is None:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__['storage_sync_service_name'] = storage_sync_service_name
             if sync_group_name is None:
                 raise TypeError("Missing required property 'sync_group_name'")
             __props__['sync_group_name'] = sync_group_name
+            __props__['tier_files_older_than_days'] = tier_files_older_than_days
+            __props__['volume_free_space_percent'] = volume_free_space_percent
+            __props__['properties'] = None
             __props__['type'] = None
         super(ServerEndpoint, __self__).__init__(
             'azurerm:storagesync/v20180701:ServerEndpoint',

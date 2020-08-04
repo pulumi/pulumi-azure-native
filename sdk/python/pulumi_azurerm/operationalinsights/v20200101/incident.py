@@ -57,38 +57,38 @@ class Incident(pulumi.CustomResource):
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, name=None, properties=None, resource_group_name=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, classification=None, classification_comment=None, classification_reason=None, description=None, etag=None, first_activity_time_utc=None, labels=None, last_activity_time_utc=None, name=None, owner=None, resource_group_name=None, severity=None, status=None, title=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents an incident in Azure Security Insights.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] classification: The reason the incident was closed
+        :param pulumi.Input[str] classification_comment: Describes the reason the incident was closed
+        :param pulumi.Input[str] classification_reason: The classification reason the incident was closed with
+        :param pulumi.Input[str] description: The description of the incident
         :param pulumi.Input[str] etag: Etag of the azure resource
+        :param pulumi.Input[str] first_activity_time_utc: The time of the first activity in the incident
+        :param pulumi.Input[list] labels: List of labels relevant to this incident
+        :param pulumi.Input[str] last_activity_time_utc: The time of the last activity in the incident
         :param pulumi.Input[str] name: Incident ID
-        :param pulumi.Input[dict] properties: Incident properties
+        :param pulumi.Input[dict] owner: Describes a user that the incident is assigned to
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] severity: The severity of the incident
+        :param pulumi.Input[str] status: The status of the incident
+        :param pulumi.Input[str] title: The title of the incident
         :param pulumi.Input[str] workspace_name: The name of the workspace.
 
-        The **properties** object supports the following:
+        The **labels** object supports the following:
 
-          * `classification` (`pulumi.Input[str]`) - The reason the incident was closed
-          * `classification_comment` (`pulumi.Input[str]`) - Describes the reason the incident was closed
-          * `classification_reason` (`pulumi.Input[str]`) - The classification reason the incident was closed with
-          * `description` (`pulumi.Input[str]`) - The description of the incident
-          * `first_activity_time_utc` (`pulumi.Input[str]`) - The time of the first activity in the incident
-          * `labels` (`pulumi.Input[list]`) - List of labels relevant to this incident
-            * `label_name` (`pulumi.Input[str]`) - The name of the label
+          * `label_name` (`pulumi.Input[str]`) - The name of the label
 
-          * `last_activity_time_utc` (`pulumi.Input[str]`) - The time of the last activity in the incident
-          * `owner` (`pulumi.Input[dict]`) - Describes a user that the incident is assigned to
-            * `assigned_to` (`pulumi.Input[str]`) - The name of the user the incident is assigned to.
-            * `email` (`pulumi.Input[str]`) - The email of the user the incident is assigned to.
-            * `object_id` (`pulumi.Input[str]`) - The object id of the user the incident is assigned to.
-            * `user_principal_name` (`pulumi.Input[str]`) - The user principal name of the user the incident is assigned to.
+        The **owner** object supports the following:
 
-          * `severity` (`pulumi.Input[str]`) - The severity of the incident
-          * `status` (`pulumi.Input[str]`) - The status of the incident
-          * `title` (`pulumi.Input[str]`) - The title of the incident
+          * `assigned_to` (`pulumi.Input[str]`) - The name of the user the incident is assigned to.
+          * `email` (`pulumi.Input[str]`) - The email of the user the incident is assigned to.
+          * `object_id` (`pulumi.Input[str]`) - The object id of the user the incident is assigned to.
+          * `user_principal_name` (`pulumi.Input[str]`) - The user principal name of the user the incident is assigned to.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,17 +107,34 @@ class Incident(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['classification'] = classification
+            __props__['classification_comment'] = classification_comment
+            __props__['classification_reason'] = classification_reason
+            __props__['description'] = description
             __props__['etag'] = etag
+            __props__['first_activity_time_utc'] = first_activity_time_utc
+            __props__['labels'] = labels
+            __props__['last_activity_time_utc'] = last_activity_time_utc
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['owner'] = owner
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if severity is None:
+                raise TypeError("Missing required property 'severity'")
+            __props__['severity'] = severity
+            if status is None:
+                raise TypeError("Missing required property 'status'")
+            __props__['status'] = status
+            if title is None:
+                raise TypeError("Missing required property 'title'")
+            __props__['title'] = title
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Incident, __self__).__init__(
             'azurerm:operationalinsights/v20200101:Incident',

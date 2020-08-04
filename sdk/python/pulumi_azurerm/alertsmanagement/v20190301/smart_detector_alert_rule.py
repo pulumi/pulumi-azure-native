@@ -42,38 +42,41 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
     """
     The resource type.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, action_groups=None, description=None, detector=None, frequency=None, name=None, resource_group_name=None, scope=None, severity=None, state=None, throttling=None, __props__=None, __name__=None, __opts__=None):
         """
         The alert rule information
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] action_groups: The alert rule actions.
+        :param pulumi.Input[str] description: The alert rule description.
+        :param pulumi.Input[dict] detector: The alert rule's detector.
+        :param pulumi.Input[str] frequency: The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
         :param pulumi.Input[str] name: The name of the alert rule.
-        :param pulumi.Input[dict] properties: The properties of the alert rule.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[list] scope: The alert rule resources scope.
+        :param pulumi.Input[str] severity: The alert rule severity.
+        :param pulumi.Input[str] state: The alert rule state.
+        :param pulumi.Input[dict] throttling: The alert rule throttling information.
 
-        The **properties** object supports the following:
+        The **action_groups** object supports the following:
 
-          * `action_groups` (`pulumi.Input[dict]`) - The alert rule actions.
-            * `custom_email_subject` (`pulumi.Input[str]`) - An optional custom email subject to use in email notifications.
-            * `custom_webhook_payload` (`pulumi.Input[str]`) - An optional custom web-hook payload to use in web-hook notifications.
-            * `group_ids` (`pulumi.Input[list]`) - The Action Group resource IDs.
+          * `custom_email_subject` (`pulumi.Input[str]`) - An optional custom email subject to use in email notifications.
+          * `custom_webhook_payload` (`pulumi.Input[str]`) - An optional custom web-hook payload to use in web-hook notifications.
+          * `group_ids` (`pulumi.Input[list]`) - The Action Group resource IDs.
 
-          * `description` (`pulumi.Input[str]`) - The alert rule description.
-          * `detector` (`pulumi.Input[dict]`) - The alert rule's detector.
-            * `description` (`pulumi.Input[str]`) - The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
-            * `id` (`pulumi.Input[str]`) - The detector id.
-            * `image_paths` (`pulumi.Input[list]`) - The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
-            * `name` (`pulumi.Input[str]`) - The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
-            * `parameters` (`pulumi.Input[dict]`) - The detector's parameters.'
-            * `supported_resource_types` (`pulumi.Input[list]`) - The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+        The **detector** object supports the following:
 
-          * `frequency` (`pulumi.Input[str]`) - The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
-          * `scope` (`pulumi.Input[list]`) - The alert rule resources scope.
-          * `severity` (`pulumi.Input[str]`) - The alert rule severity.
-          * `state` (`pulumi.Input[str]`) - The alert rule state.
-          * `throttling` (`pulumi.Input[dict]`) - The alert rule throttling information.
-            * `duration` (`pulumi.Input[str]`) - The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
+          * `description` (`pulumi.Input[str]`) - The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
+          * `id` (`pulumi.Input[str]`) - The detector id.
+          * `image_paths` (`pulumi.Input[list]`) - The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
+          * `name` (`pulumi.Input[str]`) - The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+          * `parameters` (`pulumi.Input[dict]`) - The detector's parameters.'
+          * `supported_resource_types` (`pulumi.Input[list]`) - The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
+
+        The **throttling** object supports the following:
+
+          * `duration` (`pulumi.Input[str]`) - The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -92,13 +95,33 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if action_groups is None:
+                raise TypeError("Missing required property 'action_groups'")
+            __props__['action_groups'] = action_groups
+            __props__['description'] = description
+            if detector is None:
+                raise TypeError("Missing required property 'detector'")
+            __props__['detector'] = detector
+            if frequency is None:
+                raise TypeError("Missing required property 'frequency'")
+            __props__['frequency'] = frequency
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if scope is None:
+                raise TypeError("Missing required property 'scope'")
+            __props__['scope'] = scope
+            if severity is None:
+                raise TypeError("Missing required property 'severity'")
+            __props__['severity'] = severity
+            if state is None:
+                raise TypeError("Missing required property 'state'")
+            __props__['state'] = state
+            __props__['throttling'] = throttling
+            __props__['properties'] = None
             __props__['type'] = None
         super(SmartDetectorAlertRule, __self__).__init__(
             'azurerm:alertsmanagement/v20190301:SmartDetectorAlertRule',

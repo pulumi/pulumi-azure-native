@@ -29,22 +29,18 @@ class Application(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, allow_updates=None, default_version=None, display_name=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Contains information about an application in a Batch account.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Batch account.
+        :param pulumi.Input[bool] allow_updates: A value indicating whether packages within the application may be overwritten using the same version string.
+        :param pulumi.Input[str] default_version: The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+        :param pulumi.Input[str] display_name: The display name for the application.
         :param pulumi.Input[str] name: The name of the application. This must be unique within the account.
-        :param pulumi.Input[dict] properties: The properties associated with the Application.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
-
-        The **properties** object supports the following:
-
-          * `allow_updates` (`pulumi.Input[bool]`) - A value indicating whether packages within the application may be overwritten using the same version string.
-          * `default_version` (`pulumi.Input[str]`) - The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
-          * `display_name` (`pulumi.Input[str]`) - The display name for the application.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,14 +62,17 @@ class Application(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['allow_updates'] = allow_updates
+            __props__['default_version'] = default_version
+            __props__['display_name'] = display_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(Application, __self__).__init__(
             'azurerm:batch/v20190801:Application',

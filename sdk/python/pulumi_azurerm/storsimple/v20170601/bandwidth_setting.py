@@ -37,7 +37,7 @@ class BandwidthSetting(pulumi.CustomResource):
     """
     The hierarchical type of the object.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, manager_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, kind=None, manager_name=None, name=None, resource_group_name=None, schedules=None, __props__=None, __name__=None, __opts__=None):
         """
         The bandwidth setting.
 
@@ -46,20 +46,19 @@ class BandwidthSetting(pulumi.CustomResource):
         :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] name: The bandwidth setting name.
-        :param pulumi.Input[dict] properties: The properties of the bandwidth setting.
         :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input[list] schedules: The schedules.
 
-        The **properties** object supports the following:
+        The **schedules** object supports the following:
 
-          * `schedules` (`pulumi.Input[list]`) - The schedules.
-            * `days` (`pulumi.Input[list]`) - The days of the week when this schedule is applicable.
-            * `rate_in_mbps` (`pulumi.Input[float]`) - The rate in Mbps.
-            * `start` (`pulumi.Input[dict]`) - The start time of the schedule.
-              * `hours` (`pulumi.Input[float]`) - The hour.
-              * `minutes` (`pulumi.Input[float]`) - The minute.
-              * `seconds` (`pulumi.Input[float]`) - The second.
+          * `days` (`pulumi.Input[list]`) - The days of the week when this schedule is applicable.
+          * `rate_in_mbps` (`pulumi.Input[float]`) - The rate in Mbps.
+          * `start` (`pulumi.Input[dict]`) - The start time of the schedule.
+            * `hours` (`pulumi.Input[float]`) - The hour.
+            * `minutes` (`pulumi.Input[float]`) - The minute.
+            * `seconds` (`pulumi.Input[float]`) - The second.
 
-            * `stop` (`pulumi.Input[dict]`) - The stop time of the schedule.
+          * `stop` (`pulumi.Input[dict]`) - The stop time of the schedule.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,12 +84,13 @@ class BandwidthSetting(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if schedules is None:
+                raise TypeError("Missing required property 'schedules'")
+            __props__['schedules'] = schedules
+            __props__['properties'] = None
             __props__['type'] = None
         super(BandwidthSetting, __self__).__init__(
             'azurerm:storsimple/v20170601:BandwidthSetting',

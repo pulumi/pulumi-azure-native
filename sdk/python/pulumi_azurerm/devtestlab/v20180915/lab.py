@@ -63,38 +63,39 @@ class Lab(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, announcement=None, environment_permission=None, extended_properties=None, lab_storage_type=None, location=None, mandatory_artifacts_resource_ids_linux=None, mandatory_artifacts_resource_ids_windows=None, name=None, premium_data_disks=None, resource_group_name=None, support=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         A lab.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] announcement: The properties of any lab announcement associated with this lab
+        :param pulumi.Input[str] environment_permission: The access rights to be granted to the user when provisioning an environment
+        :param pulumi.Input[dict] extended_properties: Extended properties of the lab used for experimental features
+        :param pulumi.Input[str] lab_storage_type: Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
         :param pulumi.Input[str] location: The location of the resource.
+        :param pulumi.Input[list] mandatory_artifacts_resource_ids_linux: The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+        :param pulumi.Input[list] mandatory_artifacts_resource_ids_windows: The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
         :param pulumi.Input[str] name: The name of the lab.
-        :param pulumi.Input[dict] properties: The properties of the resource.
+        :param pulumi.Input[str] premium_data_disks: The setting to enable usage of premium data disks.
+               When its value is 'Enabled', creation of standard or premium data disks is allowed.
+               When its value is 'Disabled', only creation of standard data disks is allowed.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[dict] support: The properties of any lab support message associated with this lab
         :param pulumi.Input[dict] tags: The tags of the resource.
 
-        The **properties** object supports the following:
+        The **announcement** object supports the following:
 
-          * `announcement` (`pulumi.Input[dict]`) - The properties of any lab announcement associated with this lab
-            * `enabled` (`pulumi.Input[str]`) - Is the lab announcement active/enabled at this time?
-            * `expiration_date` (`pulumi.Input[str]`) - The time at which the announcement expires (null for never)
-            * `expired` (`pulumi.Input[bool]`) - Has this announcement expired?
-            * `markdown` (`pulumi.Input[str]`) - The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
-            * `title` (`pulumi.Input[str]`) - The plain text title for the lab announcement
+          * `enabled` (`pulumi.Input[str]`) - Is the lab announcement active/enabled at this time?
+          * `expiration_date` (`pulumi.Input[str]`) - The time at which the announcement expires (null for never)
+          * `expired` (`pulumi.Input[bool]`) - Has this announcement expired?
+          * `markdown` (`pulumi.Input[str]`) - The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+          * `title` (`pulumi.Input[str]`) - The plain text title for the lab announcement
 
-          * `environment_permission` (`pulumi.Input[str]`) - The access rights to be granted to the user when provisioning an environment
-          * `extended_properties` (`pulumi.Input[dict]`) - Extended properties of the lab used for experimental features
-          * `lab_storage_type` (`pulumi.Input[str]`) - Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-          * `mandatory_artifacts_resource_ids_linux` (`pulumi.Input[list]`) - The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
-          * `mandatory_artifacts_resource_ids_windows` (`pulumi.Input[list]`) - The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
-          * `premium_data_disks` (`pulumi.Input[str]`) - The setting to enable usage of premium data disks.
-            When its value is 'Enabled', creation of standard or premium data disks is allowed.
-            When its value is 'Disabled', only creation of standard data disks is allowed.
-          * `support` (`pulumi.Input[dict]`) - The properties of any lab support message associated with this lab
-            * `enabled` (`pulumi.Input[str]`) - Is the lab support banner active/enabled at this time?
-            * `markdown` (`pulumi.Input[str]`) - The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+        The **support** object supports the following:
+
+          * `enabled` (`pulumi.Input[str]`) - Is the lab support banner active/enabled at this time?
+          * `markdown` (`pulumi.Input[str]`) - The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -113,15 +114,23 @@ class Lab(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['announcement'] = announcement
+            __props__['environment_permission'] = environment_permission
+            __props__['extended_properties'] = extended_properties
+            __props__['lab_storage_type'] = lab_storage_type
             __props__['location'] = location
+            __props__['mandatory_artifacts_resource_ids_linux'] = mandatory_artifacts_resource_ids_linux
+            __props__['mandatory_artifacts_resource_ids_windows'] = mandatory_artifacts_resource_ids_windows
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['premium_data_disks'] = premium_data_disks
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['support'] = support
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Lab, __self__).__init__(
             'azurerm:devtestlab/v20180915:Lab',

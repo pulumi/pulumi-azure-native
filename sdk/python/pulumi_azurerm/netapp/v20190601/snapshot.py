@@ -34,24 +34,19 @@ class Snapshot(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, location=None, name=None, pool_name=None, properties=None, resource_group_name=None, tags=None, volume_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, file_system_id=None, location=None, name=None, pool_name=None, resource_group_name=None, volume_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Snapshot of a Volume
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
+        :param pulumi.Input[str] file_system_id: UUID v4 used to identify the FileSystem
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the mount target
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[dict] properties: Snapshot Properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[dict] tags: Resource tags
         :param pulumi.Input[str] volume_name: The name of the volume
-
-        The **properties** object supports the following:
-
-          * `file_system_id` (`pulumi.Input[str]`) - UUID v4 used to identify the FileSystem
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,6 +68,7 @@ class Snapshot(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['file_system_id'] = file_system_id
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
@@ -82,14 +78,14 @@ class Snapshot(pulumi.CustomResource):
             if pool_name is None:
                 raise TypeError("Missing required property 'pool_name'")
             __props__['pool_name'] = pool_name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['tags'] = tags
             if volume_name is None:
                 raise TypeError("Missing required property 'volume_name'")
             __props__['volume_name'] = volume_name
+            __props__['properties'] = None
+            __props__['tags'] = None
             __props__['type'] = None
         super(Snapshot, __self__).__init__(
             'azurerm:netapp/v20190601:Snapshot',

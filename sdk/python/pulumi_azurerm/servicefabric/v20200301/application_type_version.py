@@ -37,23 +37,19 @@ class ApplicationTypeVersion(pulumi.CustomResource):
     """
     Azure resource type.
     """
-    def __init__(__self__, resource_name, opts=None, application_type_name=None, cluster_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, app_package_url=None, application_type_name=None, cluster_name=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         An application type version resource for the specified application type name resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] app_package_url: The URL to the application package
         :param pulumi.Input[str] application_type_name: The name of the application type name resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
         :param pulumi.Input[str] name: The application type version.
-        :param pulumi.Input[dict] properties: The properties of the application type version resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Azure resource tags.
-
-        The **properties** object supports the following:
-
-          * `app_package_url` (`pulumi.Input[str]`) - The URL to the application package
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -72,6 +68,9 @@ class ApplicationTypeVersion(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if app_package_url is None:
+                raise TypeError("Missing required property 'app_package_url'")
+            __props__['app_package_url'] = app_package_url
             if application_type_name is None:
                 raise TypeError("Missing required property 'application_type_name'")
             __props__['application_type_name'] = application_type_name
@@ -82,12 +81,12 @@ class ApplicationTypeVersion(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(ApplicationTypeVersion, __self__).__init__(
             'azurerm:servicefabric/v20200301:ApplicationTypeVersion',

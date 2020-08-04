@@ -36,7 +36,7 @@ class ProximityPlacementGroup(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, proximity_placement_group_type=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Specifies information about the proximity placement group.
 
@@ -44,13 +44,9 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the proximity placement group.
-        :param pulumi.Input[dict] properties: Describes the properties of a Proximity Placement Group.
+        :param pulumi.Input[str] proximity_placement_group_type: Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags
-
-        The **properties** object supports the following:
-
-          * `proximity_placement_group_type` (`pulumi.Input[str]`) - Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,11 +71,12 @@ class ProximityPlacementGroup(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['proximity_placement_group_type'] = proximity_placement_group_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(ProximityPlacementGroup, __self__).__init__(
             'azurerm:compute/v20181001:ProximityPlacementGroup',

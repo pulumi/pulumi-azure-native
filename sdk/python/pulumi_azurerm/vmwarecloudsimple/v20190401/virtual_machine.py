@@ -104,66 +104,68 @@ class VirtualMachine(pulumi.CustomResource):
     """
     {resourceProviderNamespace}/{resourceType}
     """
-    def __init__(__self__, resource_name, opts=None, referer=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, referer=None, amount_of_ram=None, customization=None, disks=None, expose_to_guest_vm=None, location=None, name=None, nics=None, number_of_cores=None, password=None, private_cloud_id=None, resource_group_name=None, resource_pool=None, tags=None, template_id=None, username=None, v_sphere_networks=None, __props__=None, __name__=None, __opts__=None):
         """
         Virtual machine model
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] referer: referer url
+        :param pulumi.Input[float] amount_of_ram: The amount of memory
+        :param pulumi.Input[dict] customization: Virtual machine properties
+        :param pulumi.Input[list] disks: The list of Virtual Disks
+        :param pulumi.Input[bool] expose_to_guest_vm: Expose Guest OS or not
         :param pulumi.Input[str] location: Azure region
         :param pulumi.Input[str] name: virtual machine name
-        :param pulumi.Input[dict] properties: Virtual machine properties
+        :param pulumi.Input[list] nics: The list of Virtual NICs
+        :param pulumi.Input[float] number_of_cores: The number of CPU cores
+        :param pulumi.Input[str] password: Password for login. Deprecated - use customization property
+        :param pulumi.Input[str] private_cloud_id: Private Cloud Id
         :param pulumi.Input[str] resource_group_name: The name of the resource group
+        :param pulumi.Input[dict] resource_pool: Virtual Machines Resource Pool
         :param pulumi.Input[dict] tags: The list of tags
+        :param pulumi.Input[str] template_id: Virtual Machine Template Id
+        :param pulumi.Input[str] username: Username for login. Deprecated - use customization property
+        :param pulumi.Input[list] v_sphere_networks: The list of Virtual VSphere Networks
 
-        The **properties** object supports the following:
+        The **customization** object supports the following:
 
-          * `amount_of_ram` (`pulumi.Input[float]`) - The amount of memory
-          * `customization` (`pulumi.Input[dict]`) - Virtual machine properties
+          * `dns_servers` (`pulumi.Input[list]`) - List of dns servers to use
+          * `host_name` (`pulumi.Input[str]`) - Virtual Machine hostname
+          * `password` (`pulumi.Input[str]`) - Password for login
+          * `policy_id` (`pulumi.Input[str]`) - id of customization policy
+          * `username` (`pulumi.Input[str]`) - Username for login
+
+        The **disks** object supports the following:
+
+          * `controller_id` (`pulumi.Input[str]`) - Disk's Controller id
+          * `independence_mode` (`pulumi.Input[str]`) - Disk's independence mode type
+          * `total_size` (`pulumi.Input[float]`) - Disk's total size
+          * `virtual_disk_id` (`pulumi.Input[str]`) - Disk's id
+
+        The **nics** object supports the following:
+
+          * `customization` (`pulumi.Input[dict]`) - guest OS customization for nic
+            * `allocation` (`pulumi.Input[str]`) - IP address allocation method
             * `dns_servers` (`pulumi.Input[list]`) - List of dns servers to use
-            * `host_name` (`pulumi.Input[str]`) - Virtual Machine hostname
-            * `password` (`pulumi.Input[str]`) - Password for login
-            * `policy_id` (`pulumi.Input[str]`) - id of customization policy
-            * `username` (`pulumi.Input[str]`) - Username for login
+            * `gateway` (`pulumi.Input[list]`) - Gateway addresses assigned to nic
+            * `ip_address` (`pulumi.Input[str]`) - Static ip address for nic
+            * `mask` (`pulumi.Input[str]`) - Network mask for nic
+            * `primary_wins_server` (`pulumi.Input[str]`) - primary WINS server for Windows
+            * `secondary_wins_server` (`pulumi.Input[str]`) - secondary WINS server for Windows
 
-          * `disks` (`pulumi.Input[list]`) - The list of Virtual Disks
-            * `controller_id` (`pulumi.Input[str]`) - Disk's Controller id
-            * `independence_mode` (`pulumi.Input[str]`) - Disk's independence mode type
-            * `total_size` (`pulumi.Input[float]`) - Disk's total size
-            * `virtual_disk_id` (`pulumi.Input[str]`) - Disk's id
+          * `ip_addresses` (`pulumi.Input[list]`) - NIC ip address
+          * `mac_address` (`pulumi.Input[str]`) - NIC MAC address
+          * `network` (`pulumi.Input[dict]`) - Virtual Network
+            * `id` (`pulumi.Input[str]`) - virtual network id (privateCloudId:vsphereId)
 
-          * `expose_to_guest_vm` (`pulumi.Input[bool]`) - Expose Guest OS or not
-          * `nics` (`pulumi.Input[list]`) - The list of Virtual NICs
-            * `customization` (`pulumi.Input[dict]`) - guest OS customization for nic
-              * `allocation` (`pulumi.Input[str]`) - IP address allocation method
-              * `dns_servers` (`pulumi.Input[list]`) - List of dns servers to use
-              * `gateway` (`pulumi.Input[list]`) - Gateway addresses assigned to nic
-              * `ip_address` (`pulumi.Input[str]`) - Static ip address for nic
-              * `mask` (`pulumi.Input[str]`) - Network mask for nic
-              * `primary_wins_server` (`pulumi.Input[str]`) - primary WINS server for Windows
-              * `secondary_wins_server` (`pulumi.Input[str]`) - secondary WINS server for Windows
+          * `nic_type` (`pulumi.Input[str]`) - NIC type
+          * `power_on_boot` (`pulumi.Input[bool]`) - Is NIC powered on/off on boot
+          * `virtual_nic_id` (`pulumi.Input[str]`) - NIC id
 
-            * `ip_addresses` (`pulumi.Input[list]`) - NIC ip address
-            * `mac_address` (`pulumi.Input[str]`) - NIC MAC address
-            * `network` (`pulumi.Input[dict]`) - Virtual Network
-              * `id` (`pulumi.Input[str]`) - virtual network id (privateCloudId:vsphereId)
-              * `properties` (`pulumi.Input[dict]`) - Virtual Network properties
+        The **resource_pool** object supports the following:
 
-            * `nic_type` (`pulumi.Input[str]`) - NIC type
-            * `power_on_boot` (`pulumi.Input[bool]`) - Is NIC powered on/off on boot
-            * `virtual_nic_id` (`pulumi.Input[str]`) - NIC id
-
-          * `number_of_cores` (`pulumi.Input[float]`) - The number of CPU cores
-          * `password` (`pulumi.Input[str]`) - Password for login. Deprecated - use customization property
-          * `private_cloud_id` (`pulumi.Input[str]`) - Private Cloud Id
-          * `resource_pool` (`pulumi.Input[dict]`) - Virtual Machines Resource Pool
-            * `id` (`pulumi.Input[str]`) - resource pool id (privateCloudId:vsphereId)
-            * `properties` (`pulumi.Input[dict]`) - Resource pool properties
-
-          * `template_id` (`pulumi.Input[str]`) - Virtual Machine Template Id
-          * `username` (`pulumi.Input[str]`) - Username for login. Deprecated - use customization property
-          * `v_sphere_networks` (`pulumi.Input[list]`) - The list of Virtual VSphere Networks
+          * `id` (`pulumi.Input[str]`) - resource pool id (privateCloudId:vsphereId)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -185,17 +187,35 @@ class VirtualMachine(pulumi.CustomResource):
             if referer is None:
                 raise TypeError("Missing required property 'referer'")
             __props__['referer'] = referer
+            if amount_of_ram is None:
+                raise TypeError("Missing required property 'amount_of_ram'")
+            __props__['amount_of_ram'] = amount_of_ram
+            __props__['customization'] = customization
+            __props__['disks'] = disks
+            __props__['expose_to_guest_vm'] = expose_to_guest_vm
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['nics'] = nics
+            if number_of_cores is None:
+                raise TypeError("Missing required property 'number_of_cores'")
+            __props__['number_of_cores'] = number_of_cores
+            __props__['password'] = password
+            if private_cloud_id is None:
+                raise TypeError("Missing required property 'private_cloud_id'")
+            __props__['private_cloud_id'] = private_cloud_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['resource_pool'] = resource_pool
             __props__['tags'] = tags
+            __props__['template_id'] = template_id
+            __props__['username'] = username
+            __props__['v_sphere_networks'] = v_sphere_networks
+            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualMachine, __self__).__init__(
             'azurerm:vmwarecloudsimple/v20190401:VirtualMachine',

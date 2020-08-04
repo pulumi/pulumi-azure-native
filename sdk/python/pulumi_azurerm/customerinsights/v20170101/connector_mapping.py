@@ -66,54 +66,53 @@ class ConnectorMapping(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, connector_name=None, hub_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, connector_name=None, connector_type=None, description=None, display_name=None, entity_type=None, entity_type_name=None, hub_name=None, mapping_properties=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The connector mapping resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connector_name: The name of the connector.
+        :param pulumi.Input[str] connector_type: Type of connector.
+        :param pulumi.Input[str] description: The description of the connector mapping.
+        :param pulumi.Input[str] display_name: Display name for the connector mapping.
+        :param pulumi.Input[str] entity_type: Defines which entity type the file should map to.
+        :param pulumi.Input[str] entity_type_name: The mapping entity name.
         :param pulumi.Input[str] hub_name: The name of the hub.
+        :param pulumi.Input[dict] mapping_properties: The properties of the mapping.
         :param pulumi.Input[str] name: The name of the connector mapping.
-        :param pulumi.Input[dict] properties: The connector mapping definition.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
 
-        The **properties** object supports the following:
+        The **mapping_properties** object supports the following:
 
-          * `connector_type` (`pulumi.Input[str]`) - Type of connector.
-          * `description` (`pulumi.Input[str]`) - The description of the connector mapping.
-          * `display_name` (`pulumi.Input[str]`) - Display name for the connector mapping.
-          * `entity_type` (`pulumi.Input[str]`) - Defines which entity type the file should map to.
-          * `entity_type_name` (`pulumi.Input[str]`) - The mapping entity name.
-          * `mapping_properties` (`pulumi.Input[dict]`) - The properties of the mapping.
-            * `availability` (`pulumi.Input[dict]`) - The availability of mapping property.
-              * `frequency` (`pulumi.Input[str]`) - The frequency to update.
-              * `interval` (`pulumi.Input[float]`) - The interval of the given frequency to use.
+          * `availability` (`pulumi.Input[dict]`) - The availability of mapping property.
+            * `frequency` (`pulumi.Input[str]`) - The frequency to update.
+            * `interval` (`pulumi.Input[float]`) - The interval of the given frequency to use.
 
-            * `complete_operation` (`pulumi.Input[dict]`) - The operation after import is done.
-              * `completion_operation_type` (`pulumi.Input[str]`) - The type of completion operation.
-              * `destination_folder` (`pulumi.Input[str]`) - The destination folder where files will be moved to once the import is done.
+          * `complete_operation` (`pulumi.Input[dict]`) - The operation after import is done.
+            * `completion_operation_type` (`pulumi.Input[str]`) - The type of completion operation.
+            * `destination_folder` (`pulumi.Input[str]`) - The destination folder where files will be moved to once the import is done.
 
-            * `error_management` (`pulumi.Input[dict]`) - The error management setting for the mapping.
-              * `error_limit` (`pulumi.Input[float]`) - The error limit allowed while importing data.
-              * `error_management_type` (`pulumi.Input[str]`) - The type of error management to use for the mapping.
+          * `error_management` (`pulumi.Input[dict]`) - The error management setting for the mapping.
+            * `error_limit` (`pulumi.Input[float]`) - The error limit allowed while importing data.
+            * `error_management_type` (`pulumi.Input[str]`) - The type of error management to use for the mapping.
 
-            * `file_filter` (`pulumi.Input[str]`) - The file filter for the mapping.
-            * `folder_path` (`pulumi.Input[str]`) - The folder path for the mapping.
-            * `format` (`pulumi.Input[dict]`) - The format of mapping property.
-              * `accept_language` (`pulumi.Input[str]`) - The oData language.
-              * `array_separator` (`pulumi.Input[str]`) - Character separating array elements.
-              * `column_delimiter` (`pulumi.Input[str]`) - The character that signifies a break between columns.
-              * `format_type` (`pulumi.Input[str]`) - The type mapping format.
-              * `quote_character` (`pulumi.Input[str]`) - Quote character, used to indicate enquoted fields.
-              * `quote_escape_character` (`pulumi.Input[str]`) - Escape character for quotes, can be the same as the quoteCharacter.
+          * `file_filter` (`pulumi.Input[str]`) - The file filter for the mapping.
+          * `folder_path` (`pulumi.Input[str]`) - The folder path for the mapping.
+          * `format` (`pulumi.Input[dict]`) - The format of mapping property.
+            * `accept_language` (`pulumi.Input[str]`) - The oData language.
+            * `array_separator` (`pulumi.Input[str]`) - Character separating array elements.
+            * `column_delimiter` (`pulumi.Input[str]`) - The character that signifies a break between columns.
+            * `format_type` (`pulumi.Input[str]`) - The type mapping format.
+            * `quote_character` (`pulumi.Input[str]`) - Quote character, used to indicate enquoted fields.
+            * `quote_escape_character` (`pulumi.Input[str]`) - Escape character for quotes, can be the same as the quoteCharacter.
 
-            * `has_header` (`pulumi.Input[bool]`) - If the file contains a header or not.
-            * `structure` (`pulumi.Input[list]`) - Ingestion mapping information at property level.
-              * `column_name` (`pulumi.Input[str]`) - The column name of the import file.
-              * `custom_format_specifier` (`pulumi.Input[str]`) - Custom format specifier for input parsing.
-              * `is_encrypted` (`pulumi.Input[bool]`) - Indicates if the column is encrypted.
-              * `property_name` (`pulumi.Input[str]`) - The property name of the mapping entity.
+          * `has_header` (`pulumi.Input[bool]`) - If the file contains a header or not.
+          * `structure` (`pulumi.Input[list]`) - Ingestion mapping information at property level.
+            * `column_name` (`pulumi.Input[str]`) - The column name of the import file.
+            * `custom_format_specifier` (`pulumi.Input[str]`) - Custom format specifier for input parsing.
+            * `is_encrypted` (`pulumi.Input[bool]`) - Indicates if the column is encrypted.
+            * `property_name` (`pulumi.Input[str]`) - The property name of the mapping entity.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -135,16 +134,28 @@ class ConnectorMapping(pulumi.CustomResource):
             if connector_name is None:
                 raise TypeError("Missing required property 'connector_name'")
             __props__['connector_name'] = connector_name
+            __props__['connector_type'] = connector_type
+            __props__['description'] = description
+            __props__['display_name'] = display_name
+            if entity_type is None:
+                raise TypeError("Missing required property 'entity_type'")
+            __props__['entity_type'] = entity_type
+            if entity_type_name is None:
+                raise TypeError("Missing required property 'entity_type_name'")
+            __props__['entity_type_name'] = entity_type_name
             if hub_name is None:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
+            if mapping_properties is None:
+                raise TypeError("Missing required property 'mapping_properties'")
+            __props__['mapping_properties'] = mapping_properties
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(ConnectorMapping, __self__).__init__(
             'azurerm:customerinsights/v20170101:ConnectorMapping',

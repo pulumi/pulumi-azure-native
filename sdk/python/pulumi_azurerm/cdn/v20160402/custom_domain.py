@@ -19,20 +19,17 @@ class CustomDomain(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, endpoint_name=None, name=None, profile_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, endpoint_name=None, host_name=None, name=None, profile_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         CDN CustomDomain represents a mapping between a user specified domain name and a CDN endpoint. This is to use custom domain names to represent the URLs for branding purposes.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Name of the endpoint within the CDN profile.
+        :param pulumi.Input[str] host_name: The host name of the custom domain. Must be a domain name.
         :param pulumi.Input[str] name: Name of the custom domain within an endpoint.
         :param pulumi.Input[str] profile_name: Name of the CDN profile within the resource group.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
-
-        The **properties** object supports the following:
-
-          * `host_name` (`pulumi.Input[str]`) - The host name of the custom domain. Must be a domain name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -54,16 +51,19 @@ class CustomDomain(pulumi.CustomResource):
             if endpoint_name is None:
                 raise TypeError("Missing required property 'endpoint_name'")
             __props__['endpoint_name'] = endpoint_name
+            if host_name is None:
+                raise TypeError("Missing required property 'host_name'")
+            __props__['host_name'] = host_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if profile_name is None:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(CustomDomain, __self__).__init__(
             'azurerm:cdn/v20160402:CustomDomain',

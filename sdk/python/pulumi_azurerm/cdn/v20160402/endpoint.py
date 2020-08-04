@@ -27,34 +27,32 @@ class Endpoint(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, profile_name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, content_types_to_compress=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, origin_host_header=None, origin_path=None, origins=None, profile_name=None, query_string_caching_behavior=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information regarding caching behaviors and origins. The CDN endpoint is exposed using the URL format <endpointname>.azureedge.net by default, but custom domains can also be created.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] content_types_to_compress: List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+        :param pulumi.Input[bool] is_compression_enabled: Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
+        :param pulumi.Input[bool] is_http_allowed: Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        :param pulumi.Input[bool] is_https_allowed: Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
         :param pulumi.Input[str] location: Endpoint location
         :param pulumi.Input[str] name: Name of the endpoint within the CDN profile.
+        :param pulumi.Input[str] origin_host_header: The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
+        :param pulumi.Input[str] origin_path: The path used for origin requests.
+        :param pulumi.Input[list] origins: The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
         :param pulumi.Input[str] profile_name: Name of the CDN profile within the resource group.
+        :param pulumi.Input[str] query_string_caching_behavior: Defines the query string caching behavior.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
         :param pulumi.Input[dict] tags: Endpoint tags
 
-        The **properties** object supports the following:
+        The **origins** object supports the following:
 
-          * `content_types_to_compress` (`pulumi.Input[list]`) - List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
-          * `is_compression_enabled` (`pulumi.Input[bool]`) - Indicates whether content compression is enabled. Default value is false. If compression is enabled, the content transferred from the CDN endpoint to the end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
-          * `is_http_allowed` (`pulumi.Input[bool]`) - Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-          * `is_https_allowed` (`pulumi.Input[bool]`) - Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-          * `origin_host_header` (`pulumi.Input[str]`) - The host header CDN provider will send along with content requests to origins. The default value is the host name of the origin.
-          * `origin_path` (`pulumi.Input[str]`) - The path used for origin requests.
-          * `origins` (`pulumi.Input[list]`) - The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
-            * `name` (`pulumi.Input[str]`) - Origin name
-            * `properties` (`pulumi.Input[dict]`) - Properties of deep created origin on a CDN endpoint.
-              * `host_name` (`pulumi.Input[str]`) - The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
-              * `http_port` (`pulumi.Input[float]`) - The value of the HTTP port. Must be between 1 and 65535
-              * `https_port` (`pulumi.Input[float]`) - The value of the HTTPS port. Must be between 1 and 65535
-
-          * `query_string_caching_behavior` (`pulumi.Input[str]`) - Defines the query string caching behavior.
+          * `host_name` (`pulumi.Input[str]`) - The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+          * `http_port` (`pulumi.Input[float]`) - The value of the HTTP port. Must be between 1 and 65535
+          * `https_port` (`pulumi.Input[float]`) - The value of the HTTPS port. Must be between 1 and 65535
+          * `name` (`pulumi.Input[str]`) - Origin name
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,20 +71,30 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['content_types_to_compress'] = content_types_to_compress
+            __props__['is_compression_enabled'] = is_compression_enabled
+            __props__['is_http_allowed'] = is_http_allowed
+            __props__['is_https_allowed'] = is_https_allowed
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            __props__['origin_host_header'] = origin_host_header
+            __props__['origin_path'] = origin_path
+            if origins is None:
+                raise TypeError("Missing required property 'origins'")
+            __props__['origins'] = origins
             if profile_name is None:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            __props__['properties'] = properties
+            __props__['query_string_caching_behavior'] = query_string_caching_behavior
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Endpoint, __self__).__init__(
             'azurerm:cdn/v20160402:Endpoint',

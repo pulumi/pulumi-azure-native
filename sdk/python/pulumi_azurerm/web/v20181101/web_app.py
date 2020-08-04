@@ -277,225 +277,231 @@ class WebApp(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, cloning_info=None, container_size=None, daily_memory_time_quota=None, enabled=None, geo_distributions=None, host_name_ssl_states=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, identity=None, is_xenon=None, kind=None, location=None, name=None, redundancy_mode=None, reserved=None, resource_group_name=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         A web app, a mobile app backend, or an API app.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] client_affinity_enabled: <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
+        :param pulumi.Input[bool] client_cert_enabled: <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
+        :param pulumi.Input[str] client_cert_exclusion_paths: client certificate authentication comma-separated exclusion paths
+        :param pulumi.Input[dict] cloning_info: If specified during app creation, the app is cloned from a source app.
+        :param pulumi.Input[float] container_size: Size of the function container.
+        :param pulumi.Input[float] daily_memory_time_quota: Maximum allowed daily memory-time quota (applicable on dynamic apps only).
+        :param pulumi.Input[bool] enabled: <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
+        :param pulumi.Input[list] geo_distributions: GeoDistributions for this site
+        :param pulumi.Input[list] host_name_ssl_states: Hostname SSL states are used to manage the SSL bindings for app's hostnames.
+        :param pulumi.Input[bool] host_names_disabled: <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
+                If <code>true</code>, the app is only accessible via API management process.
+        :param pulumi.Input[dict] hosting_environment_profile: App Service Environment to use for the app.
+        :param pulumi.Input[bool] https_only: HttpsOnly: configures a web site to accept only https requests. Issues redirect for
+               http requests
+        :param pulumi.Input[bool] hyper_v: Hyper-V sandbox.
         :param pulumi.Input[dict] identity: Managed service identity.
+        :param pulumi.Input[bool] is_xenon: Obsolete: Hyper-V sandbox.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
         :param pulumi.Input[str] name: Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
-        :param pulumi.Input[dict] properties: Site resource specific properties
+        :param pulumi.Input[str] redundancy_mode: Site redundancy mode
+        :param pulumi.Input[bool] reserved: <code>true</code> if reserved; otherwise, <code>false</code>.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[bool] scm_site_also_stopped: <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
+        :param pulumi.Input[str] server_farm_id: Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+        :param pulumi.Input[dict] site_config: Configuration of the app.
         :param pulumi.Input[dict] tags: Resource tags.
+
+        The **cloning_info** object supports the following:
+
+          * `app_settings_overrides` (`pulumi.Input[dict]`) - Application setting overrides for cloned app. If specified, these settings override the settings cloned 
+            from source app. Otherwise, application settings from source app are retained.
+          * `clone_custom_host_names` (`pulumi.Input[bool]`) - <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
+          * `clone_source_control` (`pulumi.Input[bool]`) - <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
+          * `configure_load_balancing` (`pulumi.Input[bool]`) - <code>true</code> to configure load balancing for source and destination app.
+          * `correlation_id` (`pulumi.Input[str]`) - Correlation ID of cloning operation. This ID ties multiple cloning operations
+            together to use the same snapshot.
+          * `hosting_environment` (`pulumi.Input[str]`) - App Service Environment.
+          * `overwrite` (`pulumi.Input[bool]`) - <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
+          * `source_web_app_id` (`pulumi.Input[str]`) - ARM resource ID of the source app. App resource ID is of the form 
+            /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
+            /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
+          * `source_web_app_location` (`pulumi.Input[str]`) - Location of source app ex: West US or North Europe
+          * `traffic_manager_profile_id` (`pulumi.Input[str]`) - ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
+            /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
+          * `traffic_manager_profile_name` (`pulumi.Input[str]`) - Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
+
+        The **geo_distributions** object supports the following:
+
+          * `location` (`pulumi.Input[str]`) - Location.
+          * `number_of_workers` (`pulumi.Input[float]`) - NumberOfWorkers.
+
+        The **host_name_ssl_states** object supports the following:
+
+          * `host_type` (`pulumi.Input[str]`) - Indicates whether the hostname is a standard or repository hostname.
+          * `name` (`pulumi.Input[str]`) - Hostname.
+          * `ssl_state` (`pulumi.Input[str]`) - SSL type.
+          * `thumbprint` (`pulumi.Input[str]`) - SSL certificate thumbprint.
+          * `to_update` (`pulumi.Input[bool]`) - Set to <code>true</code> to update existing hostname.
+          * `virtual_ip` (`pulumi.Input[str]`) - Virtual IP address assigned to the hostname if IP based SSL is enabled.
+
+        The **hosting_environment_profile** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Resource ID of the App Service Environment.
 
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - Type of managed service identity.
           * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 
-        The **properties** object supports the following:
+        The **site_config** object supports the following:
 
-          * `client_affinity_enabled` (`pulumi.Input[bool]`) - <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
-          * `client_cert_enabled` (`pulumi.Input[bool]`) - <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
-          * `client_cert_exclusion_paths` (`pulumi.Input[str]`) - client certificate authentication comma-separated exclusion paths
-          * `cloning_info` (`pulumi.Input[dict]`) - If specified during app creation, the app is cloned from a source app.
-            * `app_settings_overrides` (`pulumi.Input[dict]`) - Application setting overrides for cloned app. If specified, these settings override the settings cloned 
-              from source app. Otherwise, application settings from source app are retained.
-            * `clone_custom_host_names` (`pulumi.Input[bool]`) - <code>true</code> to clone custom hostnames from source app; otherwise, <code>false</code>.
-            * `clone_source_control` (`pulumi.Input[bool]`) - <code>true</code> to clone source control from source app; otherwise, <code>false</code>.
-            * `configure_load_balancing` (`pulumi.Input[bool]`) - <code>true</code> to configure load balancing for source and destination app.
-            * `correlation_id` (`pulumi.Input[str]`) - Correlation ID of cloning operation. This ID ties multiple cloning operations
-              together to use the same snapshot.
-            * `hosting_environment` (`pulumi.Input[str]`) - App Service Environment.
-            * `overwrite` (`pulumi.Input[bool]`) - <code>true</code> to overwrite destination app; otherwise, <code>false</code>.
-            * `source_web_app_id` (`pulumi.Input[str]`) - ARM resource ID of the source app. App resource ID is of the form 
-              /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName} for production slots and 
-              /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName} for other slots.
-            * `source_web_app_location` (`pulumi.Input[str]`) - Location of source app ex: West US or North Europe
-            * `traffic_manager_profile_id` (`pulumi.Input[str]`) - ARM resource ID of the Traffic Manager profile to use, if it exists. Traffic Manager resource ID is of the form 
-              /subscriptions/{subId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{profileName}.
-            * `traffic_manager_profile_name` (`pulumi.Input[str]`) - Name of Traffic Manager profile to create. This is only needed if Traffic Manager profile does not already exist.
+          * `always_on` (`pulumi.Input[bool]`) - <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
+          * `api_definition` (`pulumi.Input[dict]`) - Information about the formal API definition for the app.
+            * `url` (`pulumi.Input[str]`) - The URL of the API definition.
 
-          * `container_size` (`pulumi.Input[float]`) - Size of the function container.
-          * `daily_memory_time_quota` (`pulumi.Input[float]`) - Maximum allowed daily memory-time quota (applicable on dynamic apps only).
-          * `enabled` (`pulumi.Input[bool]`) - <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
-          * `geo_distributions` (`pulumi.Input[list]`) - GeoDistributions for this site
-            * `location` (`pulumi.Input[str]`) - Location.
-            * `number_of_workers` (`pulumi.Input[float]`) - NumberOfWorkers.
+          * `app_command_line` (`pulumi.Input[str]`) - App command line to launch.
+          * `app_settings` (`pulumi.Input[list]`) - Application settings.
+            * `name` (`pulumi.Input[str]`) - Pair name.
+            * `value` (`pulumi.Input[str]`) - Pair value.
 
-          * `host_name_ssl_states` (`pulumi.Input[list]`) - Hostname SSL states are used to manage the SSL bindings for app's hostnames.
-            * `host_type` (`pulumi.Input[str]`) - Indicates whether the hostname is a standard or repository hostname.
-            * `name` (`pulumi.Input[str]`) - Hostname.
-            * `ssl_state` (`pulumi.Input[str]`) - SSL type.
-            * `thumbprint` (`pulumi.Input[str]`) - SSL certificate thumbprint.
-            * `to_update` (`pulumi.Input[bool]`) - Set to <code>true</code> to update existing hostname.
-            * `virtual_ip` (`pulumi.Input[str]`) - Virtual IP address assigned to the hostname if IP based SSL is enabled.
+          * `auto_heal_enabled` (`pulumi.Input[bool]`) - <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
+          * `auto_heal_rules` (`pulumi.Input[dict]`) - Auto Heal rules.
+            * `actions` (`pulumi.Input[dict]`) - Actions to be executed when a rule is triggered.
+              * `action_type` (`pulumi.Input[str]`) - Predefined action to be taken.
+              * `custom_action` (`pulumi.Input[dict]`) - Custom action to be taken.
+                * `exe` (`pulumi.Input[str]`) - Executable to be run.
+                * `parameters` (`pulumi.Input[str]`) - Parameters for the executable.
 
-          * `host_names_disabled` (`pulumi.Input[bool]`) - <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
-             If <code>true</code>, the app is only accessible via API management process.
-          * `hosting_environment_profile` (`pulumi.Input[dict]`) - App Service Environment to use for the app.
-            * `id` (`pulumi.Input[str]`) - Resource ID of the App Service Environment.
+              * `min_process_execution_time` (`pulumi.Input[str]`) - Minimum time the process must execute
+                before taking the action
 
-          * `https_only` (`pulumi.Input[bool]`) - HttpsOnly: configures a web site to accept only https requests. Issues redirect for
-            http requests
-          * `hyper_v` (`pulumi.Input[bool]`) - Hyper-V sandbox.
-          * `is_xenon` (`pulumi.Input[bool]`) - Obsolete: Hyper-V sandbox.
-          * `redundancy_mode` (`pulumi.Input[str]`) - Site redundancy mode
-          * `reserved` (`pulumi.Input[bool]`) - <code>true</code> if reserved; otherwise, <code>false</code>.
-          * `scm_site_also_stopped` (`pulumi.Input[bool]`) - <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
-          * `server_farm_id` (`pulumi.Input[str]`) - Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
-          * `site_config` (`pulumi.Input[dict]`) - Configuration of the app.
-            * `always_on` (`pulumi.Input[bool]`) - <code>true</code> if Always On is enabled; otherwise, <code>false</code>.
-            * `api_definition` (`pulumi.Input[dict]`) - Information about the formal API definition for the app.
-              * `url` (`pulumi.Input[str]`) - The URL of the API definition.
+            * `triggers` (`pulumi.Input[dict]`) - Conditions that describe when to execute the auto-heal actions.
+              * `private_bytes_in_kb` (`pulumi.Input[float]`) - A rule based on private bytes.
+              * `requests` (`pulumi.Input[dict]`) - A rule based on total requests.
+                * `count` (`pulumi.Input[float]`) - Request Count.
+                * `time_interval` (`pulumi.Input[str]`) - Time interval.
 
-            * `app_command_line` (`pulumi.Input[str]`) - App command line to launch.
-            * `app_settings` (`pulumi.Input[list]`) - Application settings.
-              * `name` (`pulumi.Input[str]`) - Pair name.
-              * `value` (`pulumi.Input[str]`) - Pair value.
+              * `slow_requests` (`pulumi.Input[dict]`) - A rule based on request execution time.
+                * `count` (`pulumi.Input[float]`) - Request Count.
+                * `time_interval` (`pulumi.Input[str]`) - Time interval.
+                * `time_taken` (`pulumi.Input[str]`) - Time taken.
 
-            * `auto_heal_enabled` (`pulumi.Input[bool]`) - <code>true</code> if Auto Heal is enabled; otherwise, <code>false</code>.
-            * `auto_heal_rules` (`pulumi.Input[dict]`) - Auto Heal rules.
-              * `actions` (`pulumi.Input[dict]`) - Actions to be executed when a rule is triggered.
-                * `action_type` (`pulumi.Input[str]`) - Predefined action to be taken.
-                * `custom_action` (`pulumi.Input[dict]`) - Custom action to be taken.
-                  * `exe` (`pulumi.Input[str]`) - Executable to be run.
-                  * `parameters` (`pulumi.Input[str]`) - Parameters for the executable.
+              * `status_codes` (`pulumi.Input[list]`) - A rule based on status codes.
+                * `count` (`pulumi.Input[float]`) - Request Count.
+                * `status` (`pulumi.Input[float]`) - HTTP status code.
+                * `sub_status` (`pulumi.Input[float]`) - Request Sub Status.
+                * `time_interval` (`pulumi.Input[str]`) - Time interval.
+                * `win32_status` (`pulumi.Input[float]`) - Win32 error code.
 
-                * `min_process_execution_time` (`pulumi.Input[str]`) - Minimum time the process must execute
-                  before taking the action
+          * `auto_swap_slot_name` (`pulumi.Input[str]`) - Auto-swap slot name.
+          * `azure_storage_accounts` (`pulumi.Input[dict]`) - User-provided Azure storage accounts.
+          * `connection_strings` (`pulumi.Input[list]`) - Connection strings.
+            * `connection_string` (`pulumi.Input[str]`) - Connection string value.
+            * `name` (`pulumi.Input[str]`) - Name of connection string.
+            * `type` (`pulumi.Input[str]`) - Type of database.
 
-              * `triggers` (`pulumi.Input[dict]`) - Conditions that describe when to execute the auto-heal actions.
-                * `private_bytes_in_kb` (`pulumi.Input[float]`) - A rule based on private bytes.
-                * `requests` (`pulumi.Input[dict]`) - A rule based on total requests.
-                  * `count` (`pulumi.Input[float]`) - Request Count.
-                  * `time_interval` (`pulumi.Input[str]`) - Time interval.
+          * `cors` (`pulumi.Input[dict]`) - Cross-Origin Resource Sharing (CORS) settings.
+            * `allowed_origins` (`pulumi.Input[list]`) - Gets or sets the list of origins that should be allowed to make cross-origin
+              calls (for example: http://example.com:12345). Use "*" to allow all.
+            * `support_credentials` (`pulumi.Input[bool]`) - Gets or sets whether CORS requests with credentials are allowed. See 
+              https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
+              for more details.
 
-                * `slow_requests` (`pulumi.Input[dict]`) - A rule based on request execution time.
-                  * `count` (`pulumi.Input[float]`) - Request Count.
-                  * `time_interval` (`pulumi.Input[str]`) - Time interval.
-                  * `time_taken` (`pulumi.Input[str]`) - Time taken.
+          * `default_documents` (`pulumi.Input[list]`) - Default documents.
+          * `detailed_error_logging_enabled` (`pulumi.Input[bool]`) - <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
+          * `document_root` (`pulumi.Input[str]`) - Document root.
+          * `experiments` (`pulumi.Input[dict]`) - This is work around for polymorphic types.
+            * `ramp_up_rules` (`pulumi.Input[list]`) - List of ramp-up rules.
+              * `action_host_name` (`pulumi.Input[str]`) - Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
+              * `change_decision_callback_url` (`pulumi.Input[str]`) - Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
+                https://www.siteextensions.net/packages/TiPCallback/
+              * `change_interval_in_minutes` (`pulumi.Input[float]`) - Specifies interval in minutes to reevaluate ReroutePercentage.
+              * `change_step` (`pulumi.Input[float]`) - In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches 
+                <code>MinReroutePercentage</code> or <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.
+                Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
+              * `max_reroute_percentage` (`pulumi.Input[float]`) - Specifies upper boundary below which ReroutePercentage will stay.
+              * `min_reroute_percentage` (`pulumi.Input[float]`) - Specifies lower boundary above which ReroutePercentage will stay.
+              * `name` (`pulumi.Input[str]`) - Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
+              * `reroute_percentage` (`pulumi.Input[float]`) - Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
 
-                * `status_codes` (`pulumi.Input[list]`) - A rule based on status codes.
-                  * `count` (`pulumi.Input[float]`) - Request Count.
-                  * `status` (`pulumi.Input[float]`) - HTTP status code.
-                  * `sub_status` (`pulumi.Input[float]`) - Request Sub Status.
-                  * `time_interval` (`pulumi.Input[str]`) - Time interval.
-                  * `win32_status` (`pulumi.Input[float]`) - Win32 error code.
+          * `ftps_state` (`pulumi.Input[str]`) - State of FTP / FTPS service
+          * `handler_mappings` (`pulumi.Input[list]`) - Handler mappings.
+            * `arguments` (`pulumi.Input[str]`) - Command-line arguments to be passed to the script processor.
+            * `extension` (`pulumi.Input[str]`) - Requests with this extension will be handled using the specified FastCGI application.
+            * `script_processor` (`pulumi.Input[str]`) - The absolute path to the FastCGI application.
 
-            * `auto_swap_slot_name` (`pulumi.Input[str]`) - Auto-swap slot name.
-            * `azure_storage_accounts` (`pulumi.Input[dict]`) - User-provided Azure storage accounts.
-            * `connection_strings` (`pulumi.Input[list]`) - Connection strings.
-              * `connection_string` (`pulumi.Input[str]`) - Connection string value.
-              * `name` (`pulumi.Input[str]`) - Name of connection string.
-              * `type` (`pulumi.Input[str]`) - Type of database.
+          * `http20_enabled` (`pulumi.Input[bool]`) - Http20Enabled: configures a web site to allow clients to connect over http2.0
+          * `http_logging_enabled` (`pulumi.Input[bool]`) - <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
+          * `ip_security_restrictions` (`pulumi.Input[list]`) - IP security restrictions for main.
+            * `action` (`pulumi.Input[str]`) - Allow or Deny access for this IP range.
+            * `description` (`pulumi.Input[str]`) - IP restriction rule description.
+            * `ip_address` (`pulumi.Input[str]`) - IP address the security restriction is valid for.
+              It can be in form of pure ipv4 address (required SubnetMask property) or
+              CIDR notation such as ipv4/mask (leading bit match). For CIDR,
+              SubnetMask property must not be specified.
+            * `name` (`pulumi.Input[str]`) - IP restriction rule name.
+            * `priority` (`pulumi.Input[float]`) - Priority of IP restriction rule.
+            * `subnet_mask` (`pulumi.Input[str]`) - Subnet mask for the range of IP addresses the restriction is valid for.
+            * `subnet_traffic_tag` (`pulumi.Input[float]`) - (internal) Subnet traffic tag
+            * `tag` (`pulumi.Input[str]`) - Defines what this IP filter will be used for. This is to support IP filtering on proxies.
+            * `vnet_subnet_resource_id` (`pulumi.Input[str]`) - Virtual network resource id
+            * `vnet_traffic_tag` (`pulumi.Input[float]`) - (internal) Vnet traffic tag
 
-            * `cors` (`pulumi.Input[dict]`) - Cross-Origin Resource Sharing (CORS) settings.
-              * `allowed_origins` (`pulumi.Input[list]`) - Gets or sets the list of origins that should be allowed to make cross-origin
-                calls (for example: http://example.com:12345). Use "*" to allow all.
-              * `support_credentials` (`pulumi.Input[bool]`) - Gets or sets whether CORS requests with credentials are allowed. See 
-                https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Requests_with_credentials
-                for more details.
+          * `java_container` (`pulumi.Input[str]`) - Java container.
+          * `java_container_version` (`pulumi.Input[str]`) - Java container version.
+          * `java_version` (`pulumi.Input[str]`) - Java version.
+          * `limits` (`pulumi.Input[dict]`) - Site limits.
+            * `max_disk_size_in_mb` (`pulumi.Input[float]`) - Maximum allowed disk size usage in MB.
+            * `max_memory_in_mb` (`pulumi.Input[float]`) - Maximum allowed memory usage in MB.
+            * `max_percentage_cpu` (`pulumi.Input[float]`) - Maximum allowed CPU usage percentage.
 
-            * `default_documents` (`pulumi.Input[list]`) - Default documents.
-            * `detailed_error_logging_enabled` (`pulumi.Input[bool]`) - <code>true</code> if detailed error logging is enabled; otherwise, <code>false</code>.
-            * `document_root` (`pulumi.Input[str]`) - Document root.
-            * `experiments` (`pulumi.Input[dict]`) - This is work around for polymorphic types.
-              * `ramp_up_rules` (`pulumi.Input[list]`) - List of ramp-up rules.
-                * `action_host_name` (`pulumi.Input[str]`) - Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net.
-                * `change_decision_callback_url` (`pulumi.Input[str]`) - Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.
-                  https://www.siteextensions.net/packages/TiPCallback/
-                * `change_interval_in_minutes` (`pulumi.Input[float]`) - Specifies interval in minutes to reevaluate ReroutePercentage.
-                * `change_step` (`pulumi.Input[float]`) - In auto ramp up scenario this is the step to add/remove from <code>ReroutePercentage</code> until it reaches 
-                  <code>MinReroutePercentage</code> or <code>MaxReroutePercentage</code>. Site metrics are checked every N minutes specified in <code>ChangeIntervalInMinutes</code>.
-                  Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified in <code>ChangeDecisionCallbackUrl</code>.
-                * `max_reroute_percentage` (`pulumi.Input[float]`) - Specifies upper boundary below which ReroutePercentage will stay.
-                * `min_reroute_percentage` (`pulumi.Input[float]`) - Specifies lower boundary above which ReroutePercentage will stay.
-                * `name` (`pulumi.Input[str]`) - Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment.
-                * `reroute_percentage` (`pulumi.Input[float]`) - Percentage of the traffic which will be redirected to <code>ActionHostName</code>.
+          * `linux_fx_version` (`pulumi.Input[str]`) - Linux App Framework and version
+          * `load_balancing` (`pulumi.Input[str]`) - Site load balancing.
+          * `local_my_sql_enabled` (`pulumi.Input[bool]`) - <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
+          * `logs_directory_size_limit` (`pulumi.Input[float]`) - HTTP logs directory size limit.
+          * `managed_pipeline_mode` (`pulumi.Input[str]`) - Managed pipeline mode.
+          * `managed_service_identity_id` (`pulumi.Input[float]`) - Managed Service Identity Id
+          * `min_tls_version` (`pulumi.Input[str]`) - MinTlsVersion: configures the minimum version of TLS required for SSL requests
+          * `net_framework_version` (`pulumi.Input[str]`) - .NET Framework version.
+          * `node_version` (`pulumi.Input[str]`) - Version of Node.js.
+          * `number_of_workers` (`pulumi.Input[float]`) - Number of workers.
+          * `php_version` (`pulumi.Input[str]`) - Version of PHP.
+          * `publishing_username` (`pulumi.Input[str]`) - Publishing user name.
+          * `push` (`pulumi.Input[dict]`) - Push endpoint settings.
+            * `dynamic_tags_json` (`pulumi.Input[str]`) - Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+            * `is_push_enabled` (`pulumi.Input[bool]`) - Gets or sets a flag indicating whether the Push endpoint is enabled.
+            * `kind` (`pulumi.Input[str]`) - Kind of resource.
+            * `tag_whitelist_json` (`pulumi.Input[str]`) - Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+            * `tags_requiring_auth` (`pulumi.Input[str]`) - Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+              Tags can consist of alphanumeric characters and the following:
+              '_', '@', '#', '.', ':', '-'. 
+              Validation should be performed at the PushRequestHandler.
 
-            * `ftps_state` (`pulumi.Input[str]`) - State of FTP / FTPS service
-            * `handler_mappings` (`pulumi.Input[list]`) - Handler mappings.
-              * `arguments` (`pulumi.Input[str]`) - Command-line arguments to be passed to the script processor.
-              * `extension` (`pulumi.Input[str]`) - Requests with this extension will be handled using the specified FastCGI application.
-              * `script_processor` (`pulumi.Input[str]`) - The absolute path to the FastCGI application.
-
-            * `http20_enabled` (`pulumi.Input[bool]`) - Http20Enabled: configures a web site to allow clients to connect over http2.0
-            * `http_logging_enabled` (`pulumi.Input[bool]`) - <code>true</code> if HTTP logging is enabled; otherwise, <code>false</code>.
-            * `ip_security_restrictions` (`pulumi.Input[list]`) - IP security restrictions for main.
-              * `action` (`pulumi.Input[str]`) - Allow or Deny access for this IP range.
-              * `description` (`pulumi.Input[str]`) - IP restriction rule description.
-              * `ip_address` (`pulumi.Input[str]`) - IP address the security restriction is valid for.
-                It can be in form of pure ipv4 address (required SubnetMask property) or
-                CIDR notation such as ipv4/mask (leading bit match). For CIDR,
-                SubnetMask property must not be specified.
-              * `name` (`pulumi.Input[str]`) - IP restriction rule name.
-              * `priority` (`pulumi.Input[float]`) - Priority of IP restriction rule.
-              * `subnet_mask` (`pulumi.Input[str]`) - Subnet mask for the range of IP addresses the restriction is valid for.
-              * `subnet_traffic_tag` (`pulumi.Input[float]`) - (internal) Subnet traffic tag
-              * `tag` (`pulumi.Input[str]`) - Defines what this IP filter will be used for. This is to support IP filtering on proxies.
-              * `vnet_subnet_resource_id` (`pulumi.Input[str]`) - Virtual network resource id
-              * `vnet_traffic_tag` (`pulumi.Input[float]`) - (internal) Vnet traffic tag
-
-            * `java_container` (`pulumi.Input[str]`) - Java container.
-            * `java_container_version` (`pulumi.Input[str]`) - Java container version.
-            * `java_version` (`pulumi.Input[str]`) - Java version.
-            * `limits` (`pulumi.Input[dict]`) - Site limits.
-              * `max_disk_size_in_mb` (`pulumi.Input[float]`) - Maximum allowed disk size usage in MB.
-              * `max_memory_in_mb` (`pulumi.Input[float]`) - Maximum allowed memory usage in MB.
-              * `max_percentage_cpu` (`pulumi.Input[float]`) - Maximum allowed CPU usage percentage.
-
-            * `linux_fx_version` (`pulumi.Input[str]`) - Linux App Framework and version
-            * `load_balancing` (`pulumi.Input[str]`) - Site load balancing.
-            * `local_my_sql_enabled` (`pulumi.Input[bool]`) - <code>true</code> to enable local MySQL; otherwise, <code>false</code>.
-            * `logs_directory_size_limit` (`pulumi.Input[float]`) - HTTP logs directory size limit.
-            * `managed_pipeline_mode` (`pulumi.Input[str]`) - Managed pipeline mode.
-            * `managed_service_identity_id` (`pulumi.Input[float]`) - Managed Service Identity Id
-            * `min_tls_version` (`pulumi.Input[str]`) - MinTlsVersion: configures the minimum version of TLS required for SSL requests
-            * `net_framework_version` (`pulumi.Input[str]`) - .NET Framework version.
-            * `node_version` (`pulumi.Input[str]`) - Version of Node.js.
-            * `number_of_workers` (`pulumi.Input[float]`) - Number of workers.
-            * `php_version` (`pulumi.Input[str]`) - Version of PHP.
-            * `publishing_username` (`pulumi.Input[str]`) - Publishing user name.
-            * `push` (`pulumi.Input[dict]`) - Push endpoint settings.
-              * `kind` (`pulumi.Input[str]`) - Kind of resource.
-              * `properties` (`pulumi.Input[dict]`) - PushSettings resource specific properties
-                * `dynamic_tags_json` (`pulumi.Input[str]`) - Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-                * `is_push_enabled` (`pulumi.Input[bool]`) - Gets or sets a flag indicating whether the Push endpoint is enabled.
-                * `tag_whitelist_json` (`pulumi.Input[str]`) - Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-                * `tags_requiring_auth` (`pulumi.Input[str]`) - Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-                  Tags can consist of alphanumeric characters and the following:
-                  '_', '@', '#', '.', ':', '-'. 
-                  Validation should be performed at the PushRequestHandler.
-
-            * `python_version` (`pulumi.Input[str]`) - Version of Python.
-            * `remote_debugging_enabled` (`pulumi.Input[bool]`) - <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
-            * `remote_debugging_version` (`pulumi.Input[str]`) - Remote debugging version.
-            * `request_tracing_enabled` (`pulumi.Input[bool]`) - <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
-            * `request_tracing_expiration_time` (`pulumi.Input[str]`) - Request tracing expiration time.
-            * `reserved_instance_count` (`pulumi.Input[float]`) - Number of reserved instances.
-              This setting only applies to the Consumption Plan
-            * `scm_ip_security_restrictions` (`pulumi.Input[list]`) - IP security restrictions for scm.
-            * `scm_ip_security_restrictions_use_main` (`pulumi.Input[bool]`) - IP security restrictions for scm to use main.
-            * `scm_type` (`pulumi.Input[str]`) - SCM type.
-            * `tracing_options` (`pulumi.Input[str]`) - Tracing options.
-            * `use32_bit_worker_process` (`pulumi.Input[bool]`) - <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
-            * `virtual_applications` (`pulumi.Input[list]`) - Virtual applications.
+          * `python_version` (`pulumi.Input[str]`) - Version of Python.
+          * `remote_debugging_enabled` (`pulumi.Input[bool]`) - <code>true</code> if remote debugging is enabled; otherwise, <code>false</code>.
+          * `remote_debugging_version` (`pulumi.Input[str]`) - Remote debugging version.
+          * `request_tracing_enabled` (`pulumi.Input[bool]`) - <code>true</code> if request tracing is enabled; otherwise, <code>false</code>.
+          * `request_tracing_expiration_time` (`pulumi.Input[str]`) - Request tracing expiration time.
+          * `reserved_instance_count` (`pulumi.Input[float]`) - Number of reserved instances.
+            This setting only applies to the Consumption Plan
+          * `scm_ip_security_restrictions` (`pulumi.Input[list]`) - IP security restrictions for scm.
+          * `scm_ip_security_restrictions_use_main` (`pulumi.Input[bool]`) - IP security restrictions for scm to use main.
+          * `scm_type` (`pulumi.Input[str]`) - SCM type.
+          * `tracing_options` (`pulumi.Input[str]`) - Tracing options.
+          * `use32_bit_worker_process` (`pulumi.Input[bool]`) - <code>true</code> to use 32-bit worker process; otherwise, <code>false</code>.
+          * `virtual_applications` (`pulumi.Input[list]`) - Virtual applications.
+            * `physical_path` (`pulumi.Input[str]`) - Physical path.
+            * `preload_enabled` (`pulumi.Input[bool]`) - <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
+            * `virtual_directories` (`pulumi.Input[list]`) - Virtual directories for virtual application.
               * `physical_path` (`pulumi.Input[str]`) - Physical path.
-              * `preload_enabled` (`pulumi.Input[bool]`) - <code>true</code> if preloading is enabled; otherwise, <code>false</code>.
-              * `virtual_directories` (`pulumi.Input[list]`) - Virtual directories for virtual application.
-                * `physical_path` (`pulumi.Input[str]`) - Physical path.
-                * `virtual_path` (`pulumi.Input[str]`) - Path to virtual application.
+              * `virtual_path` (`pulumi.Input[str]`) - Path to virtual application.
 
-              * `virtual_path` (`pulumi.Input[str]`) - Virtual path.
+            * `virtual_path` (`pulumi.Input[str]`) - Virtual path.
 
-            * `vnet_name` (`pulumi.Input[str]`) - Virtual Network name.
-            * `web_sockets_enabled` (`pulumi.Input[bool]`) - <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
-            * `windows_fx_version` (`pulumi.Input[str]`) - Xenon App Framework and version
-            * `x_managed_service_identity_id` (`pulumi.Input[float]`) - Explicit Managed Service Identity Id
+          * `vnet_name` (`pulumi.Input[str]`) - Virtual Network name.
+          * `web_sockets_enabled` (`pulumi.Input[bool]`) - <code>true</code> if WebSocket is enabled; otherwise, <code>false</code>.
+          * `windows_fx_version` (`pulumi.Input[str]`) - Xenon App Framework and version
+          * `x_managed_service_identity_id` (`pulumi.Input[float]`) - Explicit Managed Service Identity Id
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -514,7 +520,21 @@ class WebApp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['client_affinity_enabled'] = client_affinity_enabled
+            __props__['client_cert_enabled'] = client_cert_enabled
+            __props__['client_cert_exclusion_paths'] = client_cert_exclusion_paths
+            __props__['cloning_info'] = cloning_info
+            __props__['container_size'] = container_size
+            __props__['daily_memory_time_quota'] = daily_memory_time_quota
+            __props__['enabled'] = enabled
+            __props__['geo_distributions'] = geo_distributions
+            __props__['host_name_ssl_states'] = host_name_ssl_states
+            __props__['host_names_disabled'] = host_names_disabled
+            __props__['hosting_environment_profile'] = hosting_environment_profile
+            __props__['https_only'] = https_only
+            __props__['hyper_v'] = hyper_v
             __props__['identity'] = identity
+            __props__['is_xenon'] = is_xenon
             __props__['kind'] = kind
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -522,11 +542,16 @@ class WebApp(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['redundancy_mode'] = redundancy_mode
+            __props__['reserved'] = reserved
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['scm_site_also_stopped'] = scm_site_also_stopped
+            __props__['server_farm_id'] = server_farm_id
+            __props__['site_config'] = site_config
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(WebApp, __self__).__init__(
             'azurerm:web/v20181101:WebApp',

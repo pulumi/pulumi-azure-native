@@ -25,22 +25,18 @@ class Cache(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, connection_string=None, description=None, name=None, resource_group_name=None, resource_id=None, service_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Cache details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connection_string: Runtime connection string to cache
+        :param pulumi.Input[str] description: Cache description
         :param pulumi.Input[str] name: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
-        :param pulumi.Input[dict] properties: Cache properties details.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_id: Original uri of entity in external system cache points to
         :param pulumi.Input[str] service_name: The name of the API Management service.
-
-        The **properties** object supports the following:
-
-          * `connection_string` (`pulumi.Input[str]`) - Runtime connection string to cache
-          * `description` (`pulumi.Input[str]`) - Cache description
-          * `resource_id` (`pulumi.Input[str]`) - Original uri of entity in external system cache points to
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -59,16 +55,21 @@ class Cache(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if connection_string is None:
+                raise TypeError("Missing required property 'connection_string'")
+            __props__['connection_string'] = connection_string
+            __props__['description'] = description
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['resource_id'] = resource_id
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Cache, __self__).__init__(
             'azurerm:apimanagement/v20191201:Cache',

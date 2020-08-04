@@ -25,23 +25,18 @@ class ApiSchema(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, api_id=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_id=None, content_type=None, name=None, resource_group_name=None, service_name=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
         Schema Contract details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+        :param pulumi.Input[str] content_type: Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
         :param pulumi.Input[str] name: Schema identifier within an API. Must be unique in the current API Management service instance.
-        :param pulumi.Input[dict] properties: Properties of the Schema.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-
-        The **properties** object supports the following:
-
-          * `content_type` (`pulumi.Input[str]`) - Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
-          * `document` (`pulumi.Input[dict]`) - Properties of the Schema Document.
-            * `value` (`pulumi.Input[str]`) - Json escaped string defining the document representing the Schema.
+        :param pulumi.Input[str] value: Json escaped string defining the document representing the Schema.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,16 +58,20 @@ class ApiSchema(pulumi.CustomResource):
             if api_id is None:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
+            if content_type is None:
+                raise TypeError("Missing required property 'content_type'")
+            __props__['content_type'] = content_type
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['value'] = value
+            __props__['properties'] = None
             __props__['type'] = None
         super(ApiSchema, __self__).__init__(
             'azurerm:apimanagement/v20180101:ApiSchema',

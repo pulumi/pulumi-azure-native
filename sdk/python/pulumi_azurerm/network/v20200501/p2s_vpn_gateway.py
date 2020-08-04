@@ -68,46 +68,43 @@ class P2sVpnGateway(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, custom_dns_servers=None, id=None, location=None, name=None, p2_s_connection_configurations=None, resource_group_name=None, tags=None, virtual_hub=None, vpn_gateway_scale_unit=None, vpn_server_configuration=None, __props__=None, __name__=None, __opts__=None):
         """
         P2SVpnGateway Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] custom_dns_servers: List of all customer specified DNS servers IP addresses.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the gateway.
-        :param pulumi.Input[dict] properties: Properties of the P2SVpnGateway.
+        :param pulumi.Input[list] p2_s_connection_configurations: List of all p2s connection configurations of the gateway.
         :param pulumi.Input[str] resource_group_name: The resource group name of the P2SVpnGateway.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[dict] virtual_hub: The VirtualHub to which the gateway belongs.
+        :param pulumi.Input[float] vpn_gateway_scale_unit: The scale unit for this p2s vpn gateway.
+        :param pulumi.Input[dict] vpn_server_configuration: The VpnServerConfiguration to which the p2sVpnGateway is attached to.
 
-        The **properties** object supports the following:
+        The **p2_s_connection_configurations** object supports the following:
 
-          * `custom_dns_servers` (`pulumi.Input[list]`) - List of all customer specified DNS servers IP addresses.
-          * `p2_s_connection_configurations` (`pulumi.Input[list]`) - List of all p2s connection configurations of the gateway.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the P2S connection configuration.
-              * `routing_configuration` (`pulumi.Input[dict]`) - The Routing Configuration indicating the associated and propagated route tables on this connection.
-                * `associated_route_table` (`pulumi.Input[dict]`) - The resource id RouteTable associated with this RoutingConfiguration.
-                  * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+          * `routing_configuration` (`pulumi.Input[dict]`) - The Routing Configuration indicating the associated and propagated route tables on this connection.
+            * `associated_route_table` (`pulumi.Input[dict]`) - The resource id RouteTable associated with this RoutingConfiguration.
+              * `id` (`pulumi.Input[str]`) - Resource ID.
 
-                * `propagated_route_tables` (`pulumi.Input[dict]`) - The list of RouteTables to advertise the routes to.
-                  * `ids` (`pulumi.Input[list]`) - The list of resource ids of all the RouteTables.
-                  * `labels` (`pulumi.Input[list]`) - The list of labels.
+            * `propagated_route_tables` (`pulumi.Input[dict]`) - The list of RouteTables to advertise the routes to.
+              * `ids` (`pulumi.Input[list]`) - The list of resource ids of all the RouteTables.
+              * `labels` (`pulumi.Input[list]`) - The list of labels.
 
-                * `vnet_routes` (`pulumi.Input[dict]`) - List of routes that control routing from VirtualHub into a virtual network connection.
-                  * `static_routes` (`pulumi.Input[list]`) - List of all Static Routes.
-                    * `address_prefixes` (`pulumi.Input[list]`) - List of all address prefixes.
-                    * `name` (`pulumi.Input[str]`) - The name of the StaticRoute that is unique within a VnetRoute.
-                    * `next_hop_ip_address` (`pulumi.Input[str]`) - The ip address of the next hop.
+            * `vnet_routes` (`pulumi.Input[dict]`) - List of routes that control routing from VirtualHub into a virtual network connection.
+              * `static_routes` (`pulumi.Input[list]`) - List of all Static Routes.
+                * `address_prefixes` (`pulumi.Input[list]`) - List of all address prefixes.
+                * `name` (`pulumi.Input[str]`) - The name of the StaticRoute that is unique within a VnetRoute.
+                * `next_hop_ip_address` (`pulumi.Input[str]`) - The ip address of the next hop.
 
-              * `vpn_client_address_pool` (`pulumi.Input[dict]`) - The reference to the address space resource which represents Address space for P2S VpnClient.
-                * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
-
-          * `virtual_hub` (`pulumi.Input[dict]`) - The VirtualHub to which the gateway belongs.
-          * `vpn_gateway_scale_unit` (`pulumi.Input[float]`) - The scale unit for this p2s vpn gateway.
-          * `vpn_server_configuration` (`pulumi.Input[dict]`) - The VpnServerConfiguration to which the p2sVpnGateway is attached to.
+          * `vpn_client_address_pool` (`pulumi.Input[dict]`) - The reference to the address space resource which represents Address space for P2S VpnClient.
+            * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -126,6 +123,7 @@ class P2sVpnGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['custom_dns_servers'] = custom_dns_servers
             __props__['id'] = id
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -133,12 +131,16 @@ class P2sVpnGateway(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['p2_s_connection_configurations'] = p2_s_connection_configurations
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['virtual_hub'] = virtual_hub
+            __props__['vpn_gateway_scale_unit'] = vpn_gateway_scale_unit
+            __props__['vpn_server_configuration'] = vpn_server_configuration
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(P2sVpnGateway, __self__).__init__(
             'azurerm:network/v20200501:P2sVpnGateway',

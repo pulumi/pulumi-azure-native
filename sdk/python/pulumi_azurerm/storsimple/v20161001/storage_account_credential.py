@@ -32,29 +32,27 @@ class StorageAccountCredential(pulumi.CustomResource):
     """
     The type.
     """
-    def __init__(__self__, resource_name, opts=None, manager_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_key=None, cloud_type=None, enable_ssl=None, end_point=None, location=None, login=None, manager_name=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The storage account credential
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] access_key: The details of the storage account password
+        :param pulumi.Input[str] cloud_type: The cloud service provider
+        :param pulumi.Input[str] enable_ssl: SSL needs to be enabled or not
+        :param pulumi.Input[str] end_point: The storage endpoint
+        :param pulumi.Input[str] location: The storage account's geo location
+        :param pulumi.Input[str] login: The storage account login
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] name: The credential name.
-        :param pulumi.Input[dict] properties: Credential properties
         :param pulumi.Input[str] resource_group_name: The resource group name
 
-        The **properties** object supports the following:
+        The **access_key** object supports the following:
 
-          * `access_key` (`pulumi.Input[dict]`) - The details of the storage account password
-            * `encryption_algorithm` (`pulumi.Input[str]`) - Algorithm used to encrypt "Value"
-            * `encryption_certificate_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate that was used to encrypt "Value"
-            * `value` (`pulumi.Input[str]`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
-
-          * `cloud_type` (`pulumi.Input[str]`) - The cloud service provider
-          * `enable_ssl` (`pulumi.Input[str]`) - SSL needs to be enabled or not
-          * `end_point` (`pulumi.Input[str]`) - The storage endpoint
-          * `location` (`pulumi.Input[str]`) - The storage account's geo location
-          * `login` (`pulumi.Input[str]`) - The storage account login
+          * `encryption_algorithm` (`pulumi.Input[str]`) - Algorithm used to encrypt "Value"
+          * `encryption_certificate_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate that was used to encrypt "Value"
+          * `value` (`pulumi.Input[str]`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,18 +71,30 @@ class StorageAccountCredential(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['access_key'] = access_key
+            if cloud_type is None:
+                raise TypeError("Missing required property 'cloud_type'")
+            __props__['cloud_type'] = cloud_type
+            if enable_ssl is None:
+                raise TypeError("Missing required property 'enable_ssl'")
+            __props__['enable_ssl'] = enable_ssl
+            if end_point is None:
+                raise TypeError("Missing required property 'end_point'")
+            __props__['end_point'] = end_point
+            __props__['location'] = location
+            if login is None:
+                raise TypeError("Missing required property 'login'")
+            __props__['login'] = login
             if manager_name is None:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(StorageAccountCredential, __self__).__init__(
             'azurerm:storsimple/v20161001:StorageAccountCredential',

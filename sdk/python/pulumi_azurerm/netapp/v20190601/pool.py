@@ -34,7 +34,7 @@ class Pool(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, location=None, name=None, resource_group_name=None, service_level=None, size=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Capacity pool resource
 
@@ -43,14 +43,10 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the capacity pool
-        :param pulumi.Input[dict] properties: Capacity pool properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] service_level: The service level of the file system
+        :param pulumi.Input[float] size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         :param pulumi.Input[dict] tags: Resource tags
-
-        The **properties** object supports the following:
-
-          * `service_level` (`pulumi.Input[str]`) - The service level of the file system
-          * `size` (`pulumi.Input[float]`) - Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,13 +74,17 @@ class Pool(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if service_level is None:
+                raise TypeError("Missing required property 'service_level'")
+            __props__['service_level'] = service_level
+            if size is None:
+                raise TypeError("Missing required property 'size'")
+            __props__['size'] = size
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Pool, __self__).__init__(
             'azurerm:netapp/v20190601:Pool',

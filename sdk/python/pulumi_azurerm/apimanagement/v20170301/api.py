@@ -54,50 +54,54 @@ class Api(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_revision=None, api_type=None, api_version=None, api_version_set=None, api_version_set_id=None, authentication_settings=None, content_format=None, content_value=None, description=None, display_name=None, name=None, path=None, protocols=None, resource_group_name=None, service_name=None, service_url=None, subscription_key_parameter_names=None, wsdl_selector=None, __props__=None, __name__=None, __opts__=None):
         """
         API details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_revision: Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        :param pulumi.Input[str] api_type: Type of API.
+        :param pulumi.Input[str] api_version: Indicates the Version identifier of the API if the API is versioned
+        :param pulumi.Input[dict] api_version_set: Api Version Set Contract details.
+        :param pulumi.Input[str] api_version_set_id: A resource identifier for the related ApiVersionSet.
+        :param pulumi.Input[dict] authentication_settings: Collection of authentication settings included into this API.
+        :param pulumi.Input[str] content_format: Format of the Content in which the API is getting imported.
+        :param pulumi.Input[str] content_value: Content value when Importing an API.
+        :param pulumi.Input[str] description: Description of the API. May include HTML formatting tags.
+        :param pulumi.Input[str] display_name: API name.
         :param pulumi.Input[str] name: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-        :param pulumi.Input[dict] properties: Api entity create of update properties.
+        :param pulumi.Input[str] path: Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+        :param pulumi.Input[list] protocols: Describes on which protocols the operations in this API can be invoked.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] service_url: Absolute URL of the backend service implementing this API.
+        :param pulumi.Input[dict] subscription_key_parameter_names: Protocols over which API is made available.
+        :param pulumi.Input[dict] wsdl_selector: Criteria to limit import of WSDL to a subset of the document.
 
-        The **properties** object supports the following:
+        The **api_version_set** object supports the following:
 
-          * `api_revision` (`pulumi.Input[str]`) - Describes the Revision of the Api. If no value is provided, default revision 1 is created
-          * `api_type` (`pulumi.Input[str]`) - Type of API.
-          * `api_version` (`pulumi.Input[str]`) - Indicates the Version identifier of the API if the API is versioned
-          * `api_version_set` (`pulumi.Input[dict]`) - Api Version Set Contract details.
-            * `properties` (`pulumi.Input[dict]`) - Properties of an API Version Set.
-              * `description` (`pulumi.Input[str]`) - Description of API Version Set.
-              * `display_name` (`pulumi.Input[str]`) - Name of API Version Set
-              * `version_header_name` (`pulumi.Input[str]`) - Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
-              * `version_query_name` (`pulumi.Input[str]`) - Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
-              * `versioning_scheme` (`pulumi.Input[str]`) - An value that determines where the API Version identifer will be located in a HTTP request.
+          * `description` (`pulumi.Input[str]`) - Description of API Version Set.
+          * `display_name` (`pulumi.Input[str]`) - Name of API Version Set
+          * `version_header_name` (`pulumi.Input[str]`) - Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+          * `version_query_name` (`pulumi.Input[str]`) - Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+          * `versioning_scheme` (`pulumi.Input[str]`) - An value that determines where the API Version identifer will be located in a HTTP request.
 
-          * `api_version_set_id` (`pulumi.Input[str]`) - A resource identifier for the related ApiVersionSet.
-          * `authentication_settings` (`pulumi.Input[dict]`) - Collection of authentication settings included into this API.
-            * `o_auth2` (`pulumi.Input[dict]`) - OAuth2 Authentication settings
-              * `authorization_server_id` (`pulumi.Input[str]`) - OAuth authorization server identifier.
-              * `scope` (`pulumi.Input[str]`) - operations scope.
+        The **authentication_settings** object supports the following:
 
-          * `content_format` (`pulumi.Input[str]`) - Format of the Content in which the API is getting imported.
-          * `content_value` (`pulumi.Input[str]`) - Content value when Importing an API.
-          * `description` (`pulumi.Input[str]`) - Description of the API. May include HTML formatting tags.
-          * `display_name` (`pulumi.Input[str]`) - API name.
-          * `path` (`pulumi.Input[str]`) - Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
-          * `protocols` (`pulumi.Input[list]`) - Describes on which protocols the operations in this API can be invoked.
-          * `service_url` (`pulumi.Input[str]`) - Absolute URL of the backend service implementing this API.
-          * `subscription_key_parameter_names` (`pulumi.Input[dict]`) - Protocols over which API is made available.
-            * `header` (`pulumi.Input[str]`) - Subscription key header name.
-            * `query` (`pulumi.Input[str]`) - Subscription key query string parameter name.
+          * `o_auth2` (`pulumi.Input[dict]`) - OAuth2 Authentication settings
+            * `authorization_server_id` (`pulumi.Input[str]`) - OAuth authorization server identifier.
+            * `scope` (`pulumi.Input[str]`) - operations scope.
 
-          * `wsdl_selector` (`pulumi.Input[dict]`) - Criteria to limit import of WSDL to a subset of the document.
-            * `wsdl_endpoint_name` (`pulumi.Input[str]`) - Name of endpoint(port) to import from WSDL
-            * `wsdl_service_name` (`pulumi.Input[str]`) - Name of service to import from WSDL
+        The **subscription_key_parameter_names** object supports the following:
+
+          * `header` (`pulumi.Input[str]`) - Subscription key header name.
+          * `query` (`pulumi.Input[str]`) - Subscription key query string parameter name.
+
+        The **wsdl_selector** object supports the following:
+
+          * `wsdl_endpoint_name` (`pulumi.Input[str]`) - Name of endpoint(port) to import from WSDL
+          * `wsdl_service_name` (`pulumi.Input[str]`) - Name of service to import from WSDL
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -116,16 +120,33 @@ class Api(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['api_revision'] = api_revision
+            __props__['api_type'] = api_type
+            __props__['api_version'] = api_version
+            __props__['api_version_set'] = api_version_set
+            __props__['api_version_set_id'] = api_version_set_id
+            __props__['authentication_settings'] = authentication_settings
+            __props__['content_format'] = content_format
+            __props__['content_value'] = content_value
+            __props__['description'] = description
+            __props__['display_name'] = display_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if path is None:
+                raise TypeError("Missing required property 'path'")
+            __props__['path'] = path
+            __props__['protocols'] = protocols
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['service_url'] = service_url
+            __props__['subscription_key_parameter_names'] = subscription_key_parameter_names
+            __props__['wsdl_selector'] = wsdl_selector
+            __props__['properties'] = None
             __props__['type'] = None
         super(Api, __self__).__init__(
             'azurerm:apimanagement/v20170301:Api',

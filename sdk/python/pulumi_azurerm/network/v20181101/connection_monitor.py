@@ -45,31 +45,32 @@ class ConnectionMonitor(pulumi.CustomResource):
     """
     Connection monitor type.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, network_watcher_name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_start=None, destination=None, location=None, monitoring_interval_in_seconds=None, name=None, network_watcher_name=None, resource_group_name=None, source=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Information about the connection monitor.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] auto_start: Determines if the connection monitor will start automatically once created.
+        :param pulumi.Input[dict] destination: Describes the destination of connection monitor.
         :param pulumi.Input[str] location: Connection monitor location.
+        :param pulumi.Input[float] monitoring_interval_in_seconds: Monitoring interval in seconds.
         :param pulumi.Input[str] name: The name of the connection monitor.
         :param pulumi.Input[str] network_watcher_name: The name of the Network Watcher resource.
-        :param pulumi.Input[dict] properties: Parameters that define the operation to create a connection monitor.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing Network Watcher.
+        :param pulumi.Input[dict] source: Describes the source of connection monitor.
         :param pulumi.Input[dict] tags: Connection monitor tags.
 
-        The **properties** object supports the following:
+        The **destination** object supports the following:
 
-          * `auto_start` (`pulumi.Input[bool]`) - Determines if the connection monitor will start automatically once created.
-          * `destination` (`pulumi.Input[dict]`) - Describes the destination of connection monitor.
-            * `address` (`pulumi.Input[str]`) - Address of the connection monitor destination (IP or domain name).
-            * `port` (`pulumi.Input[float]`) - The destination port used by connection monitor.
-            * `resource_id` (`pulumi.Input[str]`) - The ID of the resource used as the destination by connection monitor.
+          * `address` (`pulumi.Input[str]`) - Address of the connection monitor destination (IP or domain name).
+          * `port` (`pulumi.Input[float]`) - The destination port used by connection monitor.
+          * `resource_id` (`pulumi.Input[str]`) - The ID of the resource used as the destination by connection monitor.
 
-          * `monitoring_interval_in_seconds` (`pulumi.Input[float]`) - Monitoring interval in seconds.
-          * `source` (`pulumi.Input[dict]`) - Describes the source of connection monitor.
-            * `port` (`pulumi.Input[float]`) - The source port used by connection monitor.
-            * `resource_id` (`pulumi.Input[str]`) - The ID of the resource used as the source by connection monitor.
+        The **source** object supports the following:
+
+          * `port` (`pulumi.Input[float]`) - The source port used by connection monitor.
+          * `resource_id` (`pulumi.Input[str]`) - The ID of the resource used as the source by connection monitor.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,21 +89,27 @@ class ConnectionMonitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['auto_start'] = auto_start
+            if destination is None:
+                raise TypeError("Missing required property 'destination'")
+            __props__['destination'] = destination
             __props__['location'] = location
+            __props__['monitoring_interval_in_seconds'] = monitoring_interval_in_seconds
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if network_watcher_name is None:
                 raise TypeError("Missing required property 'network_watcher_name'")
             __props__['network_watcher_name'] = network_watcher_name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if source is None:
+                raise TypeError("Missing required property 'source'")
+            __props__['source'] = source
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(ConnectionMonitor, __self__).__init__(
             'azurerm:network/v20181101:ConnectionMonitor',

@@ -29,21 +29,17 @@ class ServerKey(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, server_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, server_key_type=None, server_name=None, uri=None, __props__=None, __name__=None, __opts__=None):
         """
         A MySQL Server key.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the MySQL Server key to be operated on (updated or created).
-        :param pulumi.Input[dict] properties: Properties of the ServerKey Resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] server_key_type: The key type like 'AzureKeyVault'.
         :param pulumi.Input[str] server_name: The name of the server.
-
-        The **properties** object supports the following:
-
-          * `server_key_type` (`pulumi.Input[str]`) - The key type like 'AzureKeyVault'.
-          * `uri` (`pulumi.Input[str]`) - The URI of the key.
+        :param pulumi.Input[str] uri: The URI of the key.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,14 +61,18 @@ class ServerKey(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if server_key_type is None:
+                raise TypeError("Missing required property 'server_key_type'")
+            __props__['server_key_type'] = server_key_type
             if server_name is None:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
+            __props__['uri'] = uri
             __props__['kind'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(ServerKey, __self__).__init__(
             'azurerm:dbformysql/v20200101:ServerKey',

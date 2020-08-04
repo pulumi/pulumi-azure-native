@@ -32,29 +32,29 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     """
     Type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, parent_name=None, parent_type=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, group_ids=None, name=None, parent_name=None, parent_type=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Create a PrivateEndpointConnection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] group_ids: GroupIds from the private link service resource.
         :param pulumi.Input[str] name: The name of the private endpoint connection connection.
         :param pulumi.Input[str] parent_name: The name of the parent resource (namely, either, the topic name or domain name).
         :param pulumi.Input[str] parent_type: The type of the parent resource. This can be either \'topics\' or \'domains\'.
-        :param pulumi.Input[dict] properties: Properties of the PrivateEndpointConnection.
+        :param pulumi.Input[dict] private_endpoint: The Private Endpoint resource for this Connection.
+        :param pulumi.Input[dict] private_link_service_connection_state: Details about the state of the connection.
+        :param pulumi.Input[str] provisioning_state: Provisioning state of the Private Endpoint Connection.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
 
-        The **properties** object supports the following:
+        The **private_endpoint** object supports the following:
 
-          * `group_ids` (`pulumi.Input[list]`) - GroupIds from the private link service resource.
-          * `private_endpoint` (`pulumi.Input[dict]`) - The Private Endpoint resource for this Connection.
-            * `id` (`pulumi.Input[str]`) - The ARM identifier for Private Endpoint.
+          * `id` (`pulumi.Input[str]`) - The ARM identifier for Private Endpoint.
 
-          * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Details about the state of the connection.
-            * `actions_required` (`pulumi.Input[str]`) - Actions required (if any).
-            * `description` (`pulumi.Input[str]`) - Description of the connection state.
-            * `status` (`pulumi.Input[str]`) - Status of the connection.
+        The **private_link_service_connection_state** object supports the following:
 
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the Private Endpoint Connection.
+          * `actions_required` (`pulumi.Input[str]`) - Actions required (if any).
+          * `description` (`pulumi.Input[str]`) - Description of the connection state.
+          * `status` (`pulumi.Input[str]`) - Status of the connection.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -73,6 +73,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['group_ids'] = group_ids
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
@@ -82,10 +83,13 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if parent_type is None:
                 raise TypeError("Missing required property 'parent_type'")
             __props__['parent_type'] = parent_type
-            __props__['properties'] = properties
+            __props__['private_endpoint'] = private_endpoint
+            __props__['private_link_service_connection_state'] = private_link_service_connection_state
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(PrivateEndpointConnection, __self__).__init__(
             'azurerm:eventgrid/v20200601:PrivateEndpointConnection',

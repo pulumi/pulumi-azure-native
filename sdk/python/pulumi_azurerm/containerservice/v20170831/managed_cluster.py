@@ -60,47 +60,50 @@ class ManagedCluster(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, agent_pool_profiles=None, dns_prefix=None, kubernetes_version=None, linux_profile=None, location=None, name=None, resource_group_name=None, service_principal_profile=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Managed cluster.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] agent_pool_profiles: Properties of the agent pool.
+        :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster.
+        :param pulumi.Input[str] kubernetes_version: Version of Kubernetes specified when creating the managed cluster.
+        :param pulumi.Input[dict] linux_profile: Profile for Linux VMs in the container service cluster.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the managed cluster resource.
-        :param pulumi.Input[dict] properties: Properties of a managed cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[dict] service_principal_profile: Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
         :param pulumi.Input[dict] tags: Resource tags
 
-        The **properties** object supports the following:
+        The **agent_pool_profiles** object supports the following:
 
-          * `agent_pool_profiles` (`pulumi.Input[list]`) - Properties of the agent pool.
-            * `count` (`pulumi.Input[float]`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-            * `dns_prefix` (`pulumi.Input[str]`) - DNS prefix to be used to create the FQDN for the agent pool.
-            * `name` (`pulumi.Input[str]`) - Unique name of the agent pool profile in the context of the subscription and resource group.
-            * `os_disk_size_gb` (`pulumi.Input[float]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-            * `os_type` (`pulumi.Input[str]`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-            * `ports` (`pulumi.Input[list]`) - Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
-            * `storage_profile` (`pulumi.Input[str]`) - Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
-            * `vm_size` (`pulumi.Input[str]`) - Size of agent VMs.
-            * `vnet_subnet_id` (`pulumi.Input[str]`) - VNet SubnetID specifies the VNet's subnet identifier.
+          * `count` (`pulumi.Input[float]`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+          * `dns_prefix` (`pulumi.Input[str]`) - DNS prefix to be used to create the FQDN for the agent pool.
+          * `name` (`pulumi.Input[str]`) - Unique name of the agent pool profile in the context of the subscription and resource group.
+          * `os_disk_size_gb` (`pulumi.Input[float]`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+          * `os_type` (`pulumi.Input[str]`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+          * `ports` (`pulumi.Input[list]`) - Ports number array used to expose on this agent pool. The default opened ports are different based on your choice of orchestrator.
+          * `storage_profile` (`pulumi.Input[str]`) - Storage profile specifies what kind of storage used. Choose from StorageAccount and ManagedDisks. Leave it empty, we will choose for you based on the orchestrator choice.
+          * `vm_size` (`pulumi.Input[str]`) - Size of agent VMs.
+          * `vnet_subnet_id` (`pulumi.Input[str]`) - VNet SubnetID specifies the VNet's subnet identifier.
 
-          * `dns_prefix` (`pulumi.Input[str]`) - DNS prefix specified when creating the managed cluster.
-          * `kubernetes_version` (`pulumi.Input[str]`) - Version of Kubernetes specified when creating the managed cluster.
-          * `linux_profile` (`pulumi.Input[dict]`) - Profile for Linux VMs in the container service cluster.
-            * `admin_username` (`pulumi.Input[str]`) - The administrator username to use for Linux VMs.
-            * `ssh` (`pulumi.Input[dict]`) - SSH configuration for Linux-based VMs running on Azure.
-              * `public_keys` (`pulumi.Input[list]`) - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
-                * `key_data` (`pulumi.Input[str]`) - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+        The **linux_profile** object supports the following:
 
-          * `service_principal_profile` (`pulumi.Input[dict]`) - Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
-            * `client_id` (`pulumi.Input[str]`) - The ID for the service principal.
-            * `key_vault_secret_ref` (`pulumi.Input[dict]`) - Reference to a secret stored in Azure Key Vault.
-              * `secret_name` (`pulumi.Input[str]`) - The secret name.
-              * `vault_id` (`pulumi.Input[str]`) - Key vault identifier.
-              * `version` (`pulumi.Input[str]`) - The secret version.
+          * `admin_username` (`pulumi.Input[str]`) - The administrator username to use for Linux VMs.
+          * `ssh` (`pulumi.Input[dict]`) - SSH configuration for Linux-based VMs running on Azure.
+            * `public_keys` (`pulumi.Input[list]`) - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+              * `key_data` (`pulumi.Input[str]`) - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
 
-            * `secret` (`pulumi.Input[str]`) - The secret password associated with the service principal in plain text.
+        The **service_principal_profile** object supports the following:
+
+          * `client_id` (`pulumi.Input[str]`) - The ID for the service principal.
+          * `key_vault_secret_ref` (`pulumi.Input[dict]`) - Reference to a secret stored in Azure Key Vault.
+            * `secret_name` (`pulumi.Input[str]`) - The secret name.
+            * `vault_id` (`pulumi.Input[str]`) - Key vault identifier.
+            * `version` (`pulumi.Input[str]`) - The secret version.
+
+          * `secret` (`pulumi.Input[str]`) - The secret password associated with the service principal in plain text.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,17 +122,22 @@ class ManagedCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['agent_pool_profiles'] = agent_pool_profiles
+            __props__['dns_prefix'] = dns_prefix
+            __props__['kubernetes_version'] = kubernetes_version
+            __props__['linux_profile'] = linux_profile
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['service_principal_profile'] = service_principal_profile
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(ManagedCluster, __self__).__init__(
             'azurerm:containerservice/v20170831:ManagedCluster',

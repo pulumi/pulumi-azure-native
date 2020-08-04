@@ -63,42 +63,40 @@ class Runbook(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, description=None, draft=None, location=None, log_activity_trace=None, log_progress=None, log_verbose=None, name=None, publish_content_link=None, resource_group_name=None, runbook_type=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the runbook type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[str] description: Gets or sets the description of the runbook.
+        :param pulumi.Input[dict] draft: Gets or sets the draft runbook properties.
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
+        :param pulumi.Input[float] log_activity_trace: Gets or sets the activity-level tracing options of the runbook.
+        :param pulumi.Input[bool] log_progress: Gets or sets progress log option.
+        :param pulumi.Input[bool] log_verbose: Gets or sets verbose log option.
         :param pulumi.Input[str] name: The runbook name.
-        :param pulumi.Input[dict] properties: Gets or sets runbook create or update properties.
+        :param pulumi.Input[dict] publish_content_link: Gets or sets the published runbook content link.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[str] runbook_type: Gets or sets the type of the runbook.
         :param pulumi.Input[dict] tags: Gets or sets the tags attached to the resource.
 
-        The **properties** object supports the following:
+        The **draft** object supports the following:
 
-          * `description` (`pulumi.Input[str]`) - Gets or sets the description of the runbook.
-          * `draft` (`pulumi.Input[dict]`) - Gets or sets the draft runbook properties.
-            * `creation_time` (`pulumi.Input[str]`) - Gets or sets the creation time of the runbook draft.
-            * `draft_content_link` (`pulumi.Input[dict]`) - Gets or sets the draft runbook content link.
-              * `content_hash` (`pulumi.Input[dict]`) - Gets or sets the hash.
-                * `algorithm` (`pulumi.Input[str]`) - Gets or sets the content hash algorithm used to hash the content.
-                * `value` (`pulumi.Input[str]`) - Gets or sets expected hash value of the content.
+          * `creation_time` (`pulumi.Input[str]`) - Gets or sets the creation time of the runbook draft.
+          * `draft_content_link` (`pulumi.Input[dict]`) - Gets or sets the draft runbook content link.
+            * `content_hash` (`pulumi.Input[dict]`) - Gets or sets the hash.
+              * `algorithm` (`pulumi.Input[str]`) - Gets or sets the content hash algorithm used to hash the content.
+              * `value` (`pulumi.Input[str]`) - Gets or sets expected hash value of the content.
 
-              * `uri` (`pulumi.Input[str]`) - Gets or sets the uri of the runbook content.
-              * `version` (`pulumi.Input[str]`) - Gets or sets the version of the content.
+            * `uri` (`pulumi.Input[str]`) - Gets or sets the uri of the runbook content.
+            * `version` (`pulumi.Input[str]`) - Gets or sets the version of the content.
 
-            * `in_edit` (`pulumi.Input[bool]`) - Gets or sets whether runbook is in edit mode.
-            * `last_modified_time` (`pulumi.Input[str]`) - Gets or sets the last modified time of the runbook draft.
-            * `output_types` (`pulumi.Input[list]`) - Gets or sets the runbook output types.
-            * `parameters` (`pulumi.Input[dict]`) - Gets or sets the runbook draft parameters.
-
-          * `log_activity_trace` (`pulumi.Input[float]`) - Gets or sets the activity-level tracing options of the runbook.
-          * `log_progress` (`pulumi.Input[bool]`) - Gets or sets progress log option.
-          * `log_verbose` (`pulumi.Input[bool]`) - Gets or sets verbose log option.
-          * `publish_content_link` (`pulumi.Input[dict]`) - Gets or sets the published runbook content link.
-          * `runbook_type` (`pulumi.Input[str]`) - Gets or sets the type of the runbook.
+          * `in_edit` (`pulumi.Input[bool]`) - Gets or sets whether runbook is in edit mode.
+          * `last_modified_time` (`pulumi.Input[str]`) - Gets or sets the last modified time of the runbook draft.
+          * `output_types` (`pulumi.Input[list]`) - Gets or sets the runbook output types.
+          * `parameters` (`pulumi.Input[dict]`) - Gets or sets the runbook draft parameters.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -120,18 +118,25 @@ class Runbook(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
+            __props__['description'] = description
+            __props__['draft'] = draft
             __props__['location'] = location
+            __props__['log_activity_trace'] = log_activity_trace
+            __props__['log_progress'] = log_progress
+            __props__['log_verbose'] = log_verbose
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['publish_content_link'] = publish_content_link
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if runbook_type is None:
+                raise TypeError("Missing required property 'runbook_type'")
+            __props__['runbook_type'] = runbook_type
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(Runbook, __self__).__init__(
             'azurerm:automation/v20180630:Runbook',

@@ -34,31 +34,29 @@ class StorageAccountCredential(pulumi.CustomResource):
     """
     The hierarchical type of the object.
     """
-    def __init__(__self__, resource_name, opts=None, device_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_key=None, account_type=None, alias=None, blob_domain_name=None, connection_string=None, device_name=None, name=None, resource_group_name=None, ssl_status=None, storage_account_id=None, user_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The storage account credential.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] account_key: Encrypted storage key.
+        :param pulumi.Input[str] account_type: Type of storage accessed on the storage account.
+        :param pulumi.Input[str] alias: Alias for the storage account.
+        :param pulumi.Input[str] blob_domain_name: Blob end point for private clouds.
+        :param pulumi.Input[str] connection_string: Connection string for the storage account. Use this string if username and account key are not specified.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] name: The storage account credential name.
-        :param pulumi.Input[dict] properties: The storage account credential properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] ssl_status: Signifies whether SSL needs to be enabled or not.
+        :param pulumi.Input[str] storage_account_id: Id of the storage account.
+        :param pulumi.Input[str] user_name: Username for the storage account.
 
-        The **properties** object supports the following:
+        The **account_key** object supports the following:
 
-          * `account_key` (`pulumi.Input[dict]`) - Encrypted storage key.
-            * `encryption_algorithm` (`pulumi.Input[str]`) - The algorithm used to encrypt "Value".
-            * `encryption_cert_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
-            * `value` (`pulumi.Input[str]`) - The value of the secret.
-
-          * `account_type` (`pulumi.Input[str]`) - Type of storage accessed on the storage account.
-          * `alias` (`pulumi.Input[str]`) - Alias for the storage account.
-          * `blob_domain_name` (`pulumi.Input[str]`) - Blob end point for private clouds.
-          * `connection_string` (`pulumi.Input[str]`) - Connection string for the storage account. Use this string if username and account key are not specified.
-          * `ssl_status` (`pulumi.Input[str]`) - Signifies whether SSL needs to be enabled or not.
-          * `storage_account_id` (`pulumi.Input[str]`) - Id of the storage account.
-          * `user_name` (`pulumi.Input[str]`) - Username for the storage account.
+          * `encryption_algorithm` (`pulumi.Input[str]`) - The algorithm used to encrypt "Value".
+          * `encryption_cert_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
+          * `value` (`pulumi.Input[str]`) - The value of the secret.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,18 +75,30 @@ class StorageAccountCredential(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['account_key'] = account_key
+            if account_type is None:
+                raise TypeError("Missing required property 'account_type'")
+            __props__['account_type'] = account_type
+            if alias is None:
+                raise TypeError("Missing required property 'alias'")
+            __props__['alias'] = alias
+            __props__['blob_domain_name'] = blob_domain_name
+            __props__['connection_string'] = connection_string
             if device_name is None:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if ssl_status is None:
+                raise TypeError("Missing required property 'ssl_status'")
+            __props__['ssl_status'] = ssl_status
+            __props__['storage_account_id'] = storage_account_id
+            __props__['user_name'] = user_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(StorageAccountCredential, __self__).__init__(
             'azurerm:databoxedge/v20190701:StorageAccountCredential',

@@ -55,41 +55,43 @@ class FlowLog(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, network_watcher_name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, enabled=None, flow_analytics_configuration=None, format=None, id=None, location=None, name=None, network_watcher_name=None, resource_group_name=None, retention_policy=None, storage_id=None, tags=None, target_resource_id=None, __props__=None, __name__=None, __opts__=None):
         """
         A flow log resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enabled: Flag to enable/disable flow logging.
+        :param pulumi.Input[dict] flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
+        :param pulumi.Input[dict] format: Parameters that define the flow log format.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the flow log.
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
-        :param pulumi.Input[dict] properties: Properties of the flow log.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[dict] retention_policy: Parameters that define the retention policy for flow log.
+        :param pulumi.Input[str] storage_id: ID of the storage account which is used to store the flow log.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[str] target_resource_id: ID of network security group to which flow log will be applied.
 
-        The **properties** object supports the following:
+        The **flow_analytics_configuration** object supports the following:
 
-          * `enabled` (`pulumi.Input[bool]`) - Flag to enable/disable flow logging.
-          * `flow_analytics_configuration` (`pulumi.Input[dict]`) - Parameters that define the configuration of traffic analytics.
-            * `network_watcher_flow_analytics_configuration` (`pulumi.Input[dict]`) - Parameters that define the configuration of traffic analytics.
-              * `enabled` (`pulumi.Input[bool]`) - Flag to enable/disable traffic analytics.
-              * `traffic_analytics_interval` (`pulumi.Input[float]`) - The interval in minutes which would decide how frequently TA service should do flow analytics.
-              * `workspace_id` (`pulumi.Input[str]`) - The resource guid of the attached workspace.
-              * `workspace_region` (`pulumi.Input[str]`) - The location of the attached workspace.
-              * `workspace_resource_id` (`pulumi.Input[str]`) - Resource Id of the attached workspace.
+          * `network_watcher_flow_analytics_configuration` (`pulumi.Input[dict]`) - Parameters that define the configuration of traffic analytics.
+            * `enabled` (`pulumi.Input[bool]`) - Flag to enable/disable traffic analytics.
+            * `traffic_analytics_interval` (`pulumi.Input[float]`) - The interval in minutes which would decide how frequently TA service should do flow analytics.
+            * `workspace_id` (`pulumi.Input[str]`) - The resource guid of the attached workspace.
+            * `workspace_region` (`pulumi.Input[str]`) - The location of the attached workspace.
+            * `workspace_resource_id` (`pulumi.Input[str]`) - Resource Id of the attached workspace.
 
-          * `format` (`pulumi.Input[dict]`) - Parameters that define the flow log format.
-            * `type` (`pulumi.Input[str]`) - The file type of flow log.
-            * `version` (`pulumi.Input[float]`) - The version (revision) of the flow log.
+        The **format** object supports the following:
 
-          * `retention_policy` (`pulumi.Input[dict]`) - Parameters that define the retention policy for flow log.
-            * `days` (`pulumi.Input[float]`) - Number of days to retain flow log records.
-            * `enabled` (`pulumi.Input[bool]`) - Flag to enable/disable retention.
+          * `type` (`pulumi.Input[str]`) - The file type of flow log.
+          * `version` (`pulumi.Input[float]`) - The version (revision) of the flow log.
 
-          * `storage_id` (`pulumi.Input[str]`) - ID of the storage account which is used to store the flow log.
-          * `target_resource_id` (`pulumi.Input[str]`) - ID of network security group to which flow log will be applied.
+        The **retention_policy** object supports the following:
+
+          * `days` (`pulumi.Input[float]`) - Number of days to retain flow log records.
+          * `enabled` (`pulumi.Input[bool]`) - Flag to enable/disable retention.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -108,6 +110,9 @@ class FlowLog(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['enabled'] = enabled
+            __props__['flow_analytics_configuration'] = flow_analytics_configuration
+            __props__['format'] = format
             __props__['id'] = id
             __props__['location'] = location
             if name is None:
@@ -116,12 +121,19 @@ class FlowLog(pulumi.CustomResource):
             if network_watcher_name is None:
                 raise TypeError("Missing required property 'network_watcher_name'")
             __props__['network_watcher_name'] = network_watcher_name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['retention_policy'] = retention_policy
+            if storage_id is None:
+                raise TypeError("Missing required property 'storage_id'")
+            __props__['storage_id'] = storage_id
             __props__['tags'] = tags
+            if target_resource_id is None:
+                raise TypeError("Missing required property 'target_resource_id'")
+            __props__['target_resource_id'] = target_resource_id
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(FlowLog, __self__).__init__(
             'azurerm:network/v20191201:FlowLog',

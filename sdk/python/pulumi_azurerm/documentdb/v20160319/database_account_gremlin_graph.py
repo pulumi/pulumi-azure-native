@@ -62,7 +62,7 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
     """
     The type of Azure resource.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, database_name=None, name=None, options=None, resource=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         An Azure Cosmos DB Gremlin graph.
 
@@ -71,42 +71,41 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] database_name: Cosmos DB database name.
         :param pulumi.Input[str] name: Cosmos DB graph name.
-        :param pulumi.Input[dict] properties: Properties to create and update Azure Cosmos DB Gremlin graph.
+        :param pulumi.Input[dict] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        :param pulumi.Input[dict] resource: The standard JSON format of a Gremlin graph
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
 
-        The **properties** object supports the following:
+        The **resource** object supports the following:
 
-          * `options` (`pulumi.Input[dict]`) - A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-          * `resource` (`pulumi.Input[dict]`) - The standard JSON format of a Gremlin graph
-            * `conflict_resolution_policy` (`pulumi.Input[dict]`) - The conflict resolution policy for the graph.
-              * `conflict_resolution_path` (`pulumi.Input[str]`) - The conflict resolution path in the case of LastWriterWins mode.
-              * `conflict_resolution_procedure` (`pulumi.Input[str]`) - The procedure to resolve conflicts in the case of custom mode.
-              * `mode` (`pulumi.Input[str]`) - Indicates the conflict resolution mode.
+          * `conflict_resolution_policy` (`pulumi.Input[dict]`) - The conflict resolution policy for the graph.
+            * `conflict_resolution_path` (`pulumi.Input[str]`) - The conflict resolution path in the case of LastWriterWins mode.
+            * `conflict_resolution_procedure` (`pulumi.Input[str]`) - The procedure to resolve conflicts in the case of custom mode.
+            * `mode` (`pulumi.Input[str]`) - Indicates the conflict resolution mode.
 
-            * `default_ttl` (`pulumi.Input[float]`) - Default time to live
-            * `id` (`pulumi.Input[str]`) - Name of the Cosmos DB Gremlin graph
-            * `indexing_policy` (`pulumi.Input[dict]`) - The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
-              * `automatic` (`pulumi.Input[bool]`) - Indicates if the indexing policy is automatic
-              * `excluded_paths` (`pulumi.Input[list]`) - List of paths to exclude from indexing
-                * `path` (`pulumi.Input[str]`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+          * `default_ttl` (`pulumi.Input[float]`) - Default time to live
+          * `id` (`pulumi.Input[str]`) - Name of the Cosmos DB Gremlin graph
+          * `indexing_policy` (`pulumi.Input[dict]`) - The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
+            * `automatic` (`pulumi.Input[bool]`) - Indicates if the indexing policy is automatic
+            * `excluded_paths` (`pulumi.Input[list]`) - List of paths to exclude from indexing
+              * `path` (`pulumi.Input[str]`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 
-              * `included_paths` (`pulumi.Input[list]`) - List of paths to include in the indexing
-                * `indexes` (`pulumi.Input[list]`) - List of indexes for this path
-                  * `data_type` (`pulumi.Input[str]`) - The datatype for which the indexing behavior is applied to.
-                  * `kind` (`pulumi.Input[str]`) - Indicates the type of index.
-                  * `precision` (`pulumi.Input[float]`) - The precision of the index. -1 is maximum precision.
+            * `included_paths` (`pulumi.Input[list]`) - List of paths to include in the indexing
+              * `indexes` (`pulumi.Input[list]`) - List of indexes for this path
+                * `data_type` (`pulumi.Input[str]`) - The datatype for which the indexing behavior is applied to.
+                * `kind` (`pulumi.Input[str]`) - Indicates the type of index.
+                * `precision` (`pulumi.Input[float]`) - The precision of the index. -1 is maximum precision.
 
-                * `path` (`pulumi.Input[str]`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+              * `path` (`pulumi.Input[str]`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 
-              * `indexing_mode` (`pulumi.Input[str]`) - Indicates the indexing mode.
+            * `indexing_mode` (`pulumi.Input[str]`) - Indicates the indexing mode.
 
-            * `partition_key` (`pulumi.Input[dict]`) - The configuration of the partition key to be used for partitioning data into multiple partitions
-              * `kind` (`pulumi.Input[str]`) - Indicates the kind of algorithm used for partitioning
-              * `paths` (`pulumi.Input[list]`) - List of paths using which data within the container can be partitioned
+          * `partition_key` (`pulumi.Input[dict]`) - The configuration of the partition key to be used for partitioning data into multiple partitions
+            * `kind` (`pulumi.Input[str]`) - Indicates the kind of algorithm used for partitioning
+            * `paths` (`pulumi.Input[list]`) - List of paths using which data within the container can be partitioned
 
-            * `unique_key_policy` (`pulumi.Input[dict]`) - The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-              * `unique_keys` (`pulumi.Input[list]`) - List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
-                * `paths` (`pulumi.Input[list]`) - List of paths must be unique for each document in the Azure Cosmos DB service
+          * `unique_key_policy` (`pulumi.Input[dict]`) - The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+            * `unique_keys` (`pulumi.Input[list]`) - List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+              * `paths` (`pulumi.Input[list]`) - List of paths must be unique for each document in the Azure Cosmos DB service
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -134,13 +133,17 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            if options is None:
+                raise TypeError("Missing required property 'options'")
+            __props__['options'] = options
+            if resource is None:
+                raise TypeError("Missing required property 'resource'")
+            __props__['resource'] = resource
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['location'] = None
+            __props__['properties'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(DatabaseAccountGremlinGraph, __self__).__init__(

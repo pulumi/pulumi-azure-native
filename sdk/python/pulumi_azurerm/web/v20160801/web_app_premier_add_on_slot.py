@@ -42,7 +42,7 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, slot=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, kind=None, location=None, marketplace_offer=None, marketplace_publisher=None, name=None, product=None, resource_group_name=None, sku=None, slot=None, tags=None, vendor=None, __props__=None, __name__=None, __opts__=None):
         """
         Premier add-on.
 
@@ -50,22 +50,15 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
-        :param pulumi.Input[str] name: Add-on name.
-        :param pulumi.Input[dict] properties: PremierAddOn resource specific properties
+        :param pulumi.Input[str] marketplace_offer: Premier add on Marketplace offer.
+        :param pulumi.Input[str] marketplace_publisher: Premier add on Marketplace publisher.
+        :param pulumi.Input[str] name: Premier add on Name.
+        :param pulumi.Input[str] product: Premier add on Product.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] sku: Premier add on SKU.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will update the named add-on for the production slot.
         :param pulumi.Input[dict] tags: Resource tags.
-
-        The **properties** object supports the following:
-
-          * `location` (`pulumi.Input[str]`) - Premier add on Location.
-          * `marketplace_offer` (`pulumi.Input[str]`) - Premier add on Marketplace offer.
-          * `marketplace_publisher` (`pulumi.Input[str]`) - Premier add on Marketplace publisher.
-          * `premier_add_on_name` (`pulumi.Input[str]`) - Premier add on Name.
-          * `product` (`pulumi.Input[str]`) - Premier add on Product.
-          * `sku` (`pulumi.Input[str]`) - Premier add on SKU.
-          * `tags` (`pulumi.Input[dict]`) - Premier add on Tags.
-          * `vendor` (`pulumi.Input[str]`) - Premier add on Vendor.
+        :param pulumi.Input[str] vendor: Premier add on Vendor.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,17 +81,22 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['marketplace_offer'] = marketplace_offer
+            __props__['marketplace_publisher'] = marketplace_publisher
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['product'] = product
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sku'] = sku
             if slot is None:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
             __props__['tags'] = tags
+            __props__['vendor'] = vendor
+            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppPremierAddOnSlot, __self__).__init__(
             'azurerm:web/v20160801:WebAppPremierAddOnSlot',

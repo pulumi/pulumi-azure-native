@@ -63,35 +63,33 @@ class EnvironmentSetting(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, lab_account_name=None, lab_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, configuration_state=None, description=None, lab_account_name=None, lab_name=None, location=None, name=None, provisioning_state=None, resource_group_name=None, resource_settings=None, tags=None, title=None, unique_identifier=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents settings of an environment, from which environment instances would be created
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] configuration_state: Describes the user's progress in configuring their environment setting
+        :param pulumi.Input[str] description: Describes the environment and its resource settings
         :param pulumi.Input[str] lab_account_name: The name of the lab Account.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the environment Setting.
-        :param pulumi.Input[dict] properties: The properties of the Environment Setting resource
+        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[dict] resource_settings: The resource specific settings
         :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[str] title: Brief title describing the environment and its resource settings
+        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
 
-        The **properties** object supports the following:
+        The **resource_settings** object supports the following:
 
-          * `configuration_state` (`pulumi.Input[str]`) - Describes the user's progress in configuring their environment setting
-          * `description` (`pulumi.Input[str]`) - Describes the environment and its resource settings
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `resource_settings` (`pulumi.Input[dict]`) - The resource specific settings
-            * `gallery_image_resource_id` (`pulumi.Input[str]`) - The resource id of the gallery image used for creating the virtual machine
-            * `reference_vm` (`pulumi.Input[dict]`) - Details specific to Reference Vm
-              * `password` (`pulumi.Input[str]`) - The password of the virtual machine. This will be set to null in GET resource API
-              * `user_name` (`pulumi.Input[str]`) - The username of the virtual machine
+          * `gallery_image_resource_id` (`pulumi.Input[str]`) - The resource id of the gallery image used for creating the virtual machine
+          * `reference_vm` (`pulumi.Input[dict]`) - Details specific to Reference Vm
+            * `password` (`pulumi.Input[str]`) - The password of the virtual machine. This will be set to null in GET resource API
+            * `user_name` (`pulumi.Input[str]`) - The username of the virtual machine
 
-            * `size` (`pulumi.Input[str]`) - The size of the virtual machine
-
-          * `title` (`pulumi.Input[str]`) - Brief title describing the environment and its resource settings
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
+          * `size` (`pulumi.Input[str]`) - The size of the virtual machine
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -110,6 +108,8 @@ class EnvironmentSetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['configuration_state'] = configuration_state
+            __props__['description'] = description
             if lab_account_name is None:
                 raise TypeError("Missing required property 'lab_account_name'")
             __props__['lab_account_name'] = lab_account_name
@@ -120,11 +120,17 @@ class EnvironmentSetting(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if resource_settings is None:
+                raise TypeError("Missing required property 'resource_settings'")
+            __props__['resource_settings'] = resource_settings
             __props__['tags'] = tags
+            __props__['title'] = title
+            __props__['unique_identifier'] = unique_identifier
+            __props__['properties'] = None
             __props__['type'] = None
         super(EnvironmentSetting, __self__).__init__(
             'azurerm:labservices/v20181015:EnvironmentSetting',

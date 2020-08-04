@@ -158,73 +158,69 @@ class Database(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, server_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, collation=None, create_mode=None, edition=None, elastic_pool_name=None, location=None, max_size_bytes=None, name=None, read_scale=None, recovery_services_recovery_point_resource_id=None, requested_service_objective_id=None, requested_service_objective_name=None, resource_group_name=None, restore_point_in_time=None, sample_name=None, server_name=None, source_database_deletion_date=None, source_database_id=None, tags=None, zone_redundant=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents a database.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] collation: The collation of the database. If createMode is not Default, this value is ignored.
+        :param pulumi.Input[str] create_mode: Specifies the mode of database creation.
+               
+               Default: regular database creation.
+               
+               Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
+               
+               OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
+               
+               PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
+               
+               Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
+               
+               Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
+               
+               RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
+               
+               Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+        :param pulumi.Input[str] edition: The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
+               
+               The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
+               
+               ```azurecli
+               az sql db list-editions -l <location> -o table
+               ````
+               
+               ```powershell
+               Get-AzSqlServerServiceObjective -Location <location>
+               ````
+        :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[str] max_size_bytes: The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
         :param pulumi.Input[str] name: The name of the database to be operated on (updated or created).
-        :param pulumi.Input[dict] properties: The properties representing the resource.
+        :param pulumi.Input[str] read_scale: Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
+        :param pulumi.Input[str] recovery_services_recovery_point_resource_id: Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
+        :param pulumi.Input[str] requested_service_objective_id: The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
+               
+               The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
+        :param pulumi.Input[str] requested_service_objective_name: The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
+               
+               The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
+               
+               ```azurecli
+               az sql db list-editions -l <location> -o table
+               ````
+               
+               ```powershell
+               Get-AzSqlServerServiceObjective -Location <location>
+               ````
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[str] restore_point_in_time: Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
+        :param pulumi.Input[str] sample_name: Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
         :param pulumi.Input[str] server_name: The name of the server.
+        :param pulumi.Input[str] source_database_deletion_date: Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
+        :param pulumi.Input[str] source_database_id: Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
         :param pulumi.Input[dict] tags: Resource tags.
-
-        The **properties** object supports the following:
-
-          * `collation` (`pulumi.Input[str]`) - The collation of the database. If createMode is not Default, this value is ignored.
-          * `create_mode` (`pulumi.Input[str]`) - Specifies the mode of database creation.
-            
-            Default: regular database creation.
-            
-            Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
-            
-            OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
-            
-            PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
-            
-            Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
-            
-            Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
-            
-            RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
-            
-            Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
-          * `edition` (`pulumi.Input[str]`) - The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
-            
-            The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-            
-            ```azurecli
-            az sql db list-editions -l <location> -o table
-            ````
-            
-            ```powershell
-            Get-AzSqlServerServiceObjective -Location <location>
-            ````
-          * `elastic_pool_name` (`pulumi.Input[str]`) - The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
-          * `max_size_bytes` (`pulumi.Input[str]`) - The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
-          * `read_scale` (`pulumi.Input[str]`) - Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
-          * `recovery_services_recovery_point_resource_id` (`pulumi.Input[str]`) - Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
-          * `requested_service_objective_id` (`pulumi.Input[str]`) - The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
-            
-            The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
-          * `requested_service_objective_name` (`pulumi.Input[str]`) - The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
-            
-            The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
-            
-            ```azurecli
-            az sql db list-editions -l <location> -o table
-            ````
-            
-            ```powershell
-            Get-AzSqlServerServiceObjective -Location <location>
-            ````
-          * `restore_point_in_time` (`pulumi.Input[str]`) - Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
-          * `sample_name` (`pulumi.Input[str]`) - Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
-          * `source_database_deletion_date` (`pulumi.Input[str]`) - Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
-          * `source_database_id` (`pulumi.Input[str]`) - Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
-          * `zone_redundant` (`pulumi.Input[bool]`) - Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        :param pulumi.Input[bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -243,21 +239,35 @@ class Database(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['collation'] = collation
+            __props__['create_mode'] = create_mode
+            __props__['edition'] = edition
+            __props__['elastic_pool_name'] = elastic_pool_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['max_size_bytes'] = max_size_bytes
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['read_scale'] = read_scale
+            __props__['recovery_services_recovery_point_resource_id'] = recovery_services_recovery_point_resource_id
+            __props__['requested_service_objective_id'] = requested_service_objective_id
+            __props__['requested_service_objective_name'] = requested_service_objective_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['restore_point_in_time'] = restore_point_in_time
+            __props__['sample_name'] = sample_name
             if server_name is None:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
+            __props__['source_database_deletion_date'] = source_database_deletion_date
+            __props__['source_database_id'] = source_database_id
             __props__['tags'] = tags
+            __props__['zone_redundant'] = zone_redundant
             __props__['kind'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(Database, __self__).__init__(
             'azurerm:sql/v20140401:Database',

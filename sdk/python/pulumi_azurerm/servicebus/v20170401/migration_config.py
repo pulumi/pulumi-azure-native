@@ -27,7 +27,7 @@ class MigrationConfig(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, name=None, namespace_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, namespace_name=None, post_migration_name=None, resource_group_name=None, target_namespace=None, __props__=None, __name__=None, __opts__=None):
         """
         Single item in List or Get Migration Config operation
 
@@ -35,13 +35,9 @@ class MigrationConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The configuration name. Should always be "$default".
         :param pulumi.Input[str] namespace_name: The namespace name
-        :param pulumi.Input[dict] properties: Properties required to the Create Migration Configuration
+        :param pulumi.Input[str] post_migration_name: Name to access Standard Namespace after migration
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-
-        The **properties** object supports the following:
-
-          * `post_migration_name` (`pulumi.Input[str]`) - Name to access Standard Namespace after migration
-          * `target_namespace` (`pulumi.Input[str]`) - Existing premium Namespace ARM Id name which has no entities, will be used for migration
+        :param pulumi.Input[str] target_namespace: Existing premium Namespace ARM Id name which has no entities, will be used for migration
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,10 +62,16 @@ class MigrationConfig(pulumi.CustomResource):
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            __props__['properties'] = properties
+            if post_migration_name is None:
+                raise TypeError("Missing required property 'post_migration_name'")
+            __props__['post_migration_name'] = post_migration_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if target_namespace is None:
+                raise TypeError("Missing required property 'target_namespace'")
+            __props__['target_namespace'] = target_namespace
+            __props__['properties'] = None
             __props__['type'] = None
         super(MigrationConfig, __self__).__init__(
             'azurerm:servicebus/v20170401:MigrationConfig',

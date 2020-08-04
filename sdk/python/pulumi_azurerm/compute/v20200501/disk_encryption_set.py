@@ -34,30 +34,29 @@ class DiskEncryptionSet(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, active_key=None, encryption_type=None, identity=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         disk encryption set resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] active_key: The key vault key which is currently used by this disk encryption set.
+        :param pulumi.Input[str] encryption_type: The type of key used to encrypt the data of the disk.
         :param pulumi.Input[dict] identity: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags
 
+        The **active_key** object supports the following:
+
+          * `key_url` (`pulumi.Input[str]`) - Url pointing to a key or secret in KeyVault
+          * `source_vault` (`pulumi.Input[dict]`) - Resource id of the KeyVault containing the key or secret
+            * `id` (`pulumi.Input[str]`) - Resource Id
+
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported.
-
-        The **properties** object supports the following:
-
-          * `active_key` (`pulumi.Input[dict]`) - The key vault key which is currently used by this disk encryption set.
-            * `key_url` (`pulumi.Input[str]`) - Url pointing to a key or secret in KeyVault
-            * `source_vault` (`pulumi.Input[dict]`) - Resource id of the KeyVault containing the key or secret
-              * `id` (`pulumi.Input[str]`) - Resource Id
-
-          * `encryption_type` (`pulumi.Input[str]`) - The type of key used to encrypt the data of the disk.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,6 +75,8 @@ class DiskEncryptionSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['active_key'] = active_key
+            __props__['encryption_type'] = encryption_type
             __props__['identity'] = identity
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -83,11 +84,11 @@ class DiskEncryptionSet(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(DiskEncryptionSet, __self__).__init__(
             'azurerm:compute/v20200501:DiskEncryptionSet',

@@ -31,27 +31,25 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
     """
     The type of the resource (Microsoft.Authorization/policySetDefinitions).
     """
-    def __init__(__self__, resource_name, opts=None, management_group_id=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, management_group_id=None, metadata=None, name=None, parameters=None, policy_definitions=None, policy_type=None, __props__=None, __name__=None, __opts__=None):
         """
         The policy set definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The policy set definition description.
+        :param pulumi.Input[str] display_name: The display name of the policy set definition.
         :param pulumi.Input[str] management_group_id: The ID of the management group.
+        :param pulumi.Input[dict] metadata: The policy set definition metadata.
         :param pulumi.Input[str] name: The name of the policy set definition to create.
-        :param pulumi.Input[dict] properties: The policy definition properties.
+        :param pulumi.Input[dict] parameters: The policy set definition parameters that can be used in policy definition references.
+        :param pulumi.Input[list] policy_definitions: An array of policy definition references.
+        :param pulumi.Input[str] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
 
-        The **properties** object supports the following:
+        The **policy_definitions** object supports the following:
 
-          * `description` (`pulumi.Input[str]`) - The policy set definition description.
-          * `display_name` (`pulumi.Input[str]`) - The display name of the policy set definition.
-          * `metadata` (`pulumi.Input[dict]`) - The policy set definition metadata.
-          * `parameters` (`pulumi.Input[dict]`) - The policy set definition parameters that can be used in policy definition references.
-          * `policy_definitions` (`pulumi.Input[list]`) - An array of policy definition references.
-            * `parameters` (`pulumi.Input[dict]`) - Required if a parameter is used in policy rule.
-            * `policy_definition_id` (`pulumi.Input[str]`) - The ID of the policy definition or policy set definition.
-
-          * `policy_type` (`pulumi.Input[str]`) - The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+          * `parameters` (`pulumi.Input[dict]`) - Required if a parameter is used in policy rule.
+          * `policy_definition_id` (`pulumi.Input[str]`) - The ID of the policy definition or policy set definition.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -70,13 +68,21 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['description'] = description
+            __props__['display_name'] = display_name
             if management_group_id is None:
                 raise TypeError("Missing required property 'management_group_id'")
             __props__['management_group_id'] = management_group_id
+            __props__['metadata'] = metadata
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['parameters'] = parameters
+            if policy_definitions is None:
+                raise TypeError("Missing required property 'policy_definitions'")
+            __props__['policy_definitions'] = policy_definitions
+            __props__['policy_type'] = policy_type
+            __props__['properties'] = None
             __props__['type'] = None
         super(PolicySetDefinitionAtManagementGroup, __self__).__init__(
             'azurerm:management/v20190601:PolicySetDefinitionAtManagementGroup',

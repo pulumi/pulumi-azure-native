@@ -33,25 +33,20 @@ class Connector(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, hub_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, connector_properties=None, connector_type=None, description=None, display_name=None, hub_name=None, is_internal=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The connector resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] connector_properties: The connector properties.
+        :param pulumi.Input[str] connector_type: Type of connector.
+        :param pulumi.Input[str] description: Description of the connector.
+        :param pulumi.Input[str] display_name: Display name of the connector.
         :param pulumi.Input[str] hub_name: The name of the hub.
-        :param pulumi.Input[str] name: The name of the connector.
-        :param pulumi.Input[dict] properties: Properties of connector.
+        :param pulumi.Input[bool] is_internal: If this is an internal connector.
+        :param pulumi.Input[str] name: Name of the connector.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-
-        The **properties** object supports the following:
-
-          * `connector_name` (`pulumi.Input[str]`) - Name of the connector.
-          * `connector_properties` (`pulumi.Input[dict]`) - The connector properties.
-          * `connector_type` (`pulumi.Input[str]`) - Type of connector.
-          * `description` (`pulumi.Input[str]`) - Description of the connector.
-          * `display_name` (`pulumi.Input[str]`) - Display name of the connector.
-          * `is_internal` (`pulumi.Input[bool]`) - If this is an internal connector.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -70,16 +65,25 @@ class Connector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if connector_properties is None:
+                raise TypeError("Missing required property 'connector_properties'")
+            __props__['connector_properties'] = connector_properties
+            if connector_type is None:
+                raise TypeError("Missing required property 'connector_type'")
+            __props__['connector_type'] = connector_type
+            __props__['description'] = description
+            __props__['display_name'] = display_name
             if hub_name is None:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
+            __props__['is_internal'] = is_internal
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Connector, __self__).__init__(
             'azurerm:customerinsights/v20170101:Connector',

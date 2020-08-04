@@ -34,28 +34,24 @@ class Subscription(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, notify=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, display_name=None, name=None, notify=None, primary_key=None, product_id=None, resource_group_name=None, secondary_key=None, service_name=None, state=None, user_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Subscription details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] display_name: Subscription name.
         :param pulumi.Input[str] name: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
         :param pulumi.Input[bool] notify: Notify change in Subscription State. 
                 - If false, do not send any email notification for change of state of subscription 
                 - If true, send email notification of change of state of subscription 
-        :param pulumi.Input[dict] properties: Subscription contract properties.
+        :param pulumi.Input[str] primary_key: Primary subscription key. If not specified during request key will be generated automatically.
+        :param pulumi.Input[str] product_id: Product (product id path) for which subscription is being created in form /products/{productId}
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] secondary_key: Secondary subscription key. If not specified during request key will be generated automatically.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-
-        The **properties** object supports the following:
-
-          * `display_name` (`pulumi.Input[str]`) - Subscription name.
-          * `primary_key` (`pulumi.Input[str]`) - Primary subscription key. If not specified during request key will be generated automatically.
-          * `product_id` (`pulumi.Input[str]`) - Product (product id path) for which subscription is being created in form /products/{productId}
-          * `secondary_key` (`pulumi.Input[str]`) - Secondary subscription key. If not specified during request key will be generated automatically.
-          * `state` (`pulumi.Input[str]`) - Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-          * `user_id` (`pulumi.Input[str]`) - User (user id path) for whom subscription is being created in form /users/{uid}
+        :param pulumi.Input[str] state: Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+        :param pulumi.Input[str] user_id: User (user id path) for whom subscription is being created in form /users/{uid}
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,17 +70,29 @@ class Subscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if display_name is None:
+                raise TypeError("Missing required property 'display_name'")
+            __props__['display_name'] = display_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['notify'] = notify
-            __props__['properties'] = properties
+            __props__['primary_key'] = primary_key
+            if product_id is None:
+                raise TypeError("Missing required property 'product_id'")
+            __props__['product_id'] = product_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['secondary_key'] = secondary_key
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['state'] = state
+            if user_id is None:
+                raise TypeError("Missing required property 'user_id'")
+            __props__['user_id'] = user_id
+            __props__['properties'] = None
             __props__['type'] = None
         super(Subscription, __self__).__init__(
             'azurerm:apimanagement/v20180101:Subscription',

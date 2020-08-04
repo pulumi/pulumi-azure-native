@@ -99,75 +99,67 @@ class VirtualWan(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, id=None, location=None, name=None, office365_local_breakout_category=None, p2_s_vpn_server_configurations=None, provisioning_state=None, resource_group_name=None, security_provider_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         VirtualWAN Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_branch_to_branch_traffic: True if branch to branch traffic is allowed.
+        :param pulumi.Input[bool] allow_vnet_to_vnet_traffic: True if Vnet to Vnet traffic is allowed.
+        :param pulumi.Input[bool] disable_vpn_encryption: Vpn encryption to be disabled or not.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the VirtualWAN being created or updated.
-        :param pulumi.Input[dict] properties: Parameters for VirtualWAN
+        :param pulumi.Input[str] office365_local_breakout_category: The office local breakout category.
+        :param pulumi.Input[list] p2_s_vpn_server_configurations: list of all P2SVpnServerConfigurations associated with the virtual wan.
+        :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualWan.
+        :param pulumi.Input[str] security_provider_name: The Security Provider name.
         :param pulumi.Input[dict] tags: Resource tags.
 
-        The **properties** object supports the following:
+        The **p2_s_vpn_server_configurations** object supports the following:
 
-          * `allow_branch_to_branch_traffic` (`pulumi.Input[bool]`) - True if branch to branch traffic is allowed.
-          * `allow_vnet_to_vnet_traffic` (`pulumi.Input[bool]`) - True if Vnet to Vnet traffic is allowed.
-          * `disable_vpn_encryption` (`pulumi.Input[bool]`) - Vpn encryption to be disabled or not.
-          * `office365_local_breakout_category` (`pulumi.Input[str]`) - The office local breakout category.
-          * `p2_s_vpn_server_configurations` (`pulumi.Input[list]`) - list of all P2SVpnServerConfigurations associated with the virtual wan.
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Parent VirtualWan resource name.
+          * `p2_s_vpn_server_config_radius_client_root_certificates` (`pulumi.Input[list]`) - Radius client root certificate of P2SVpnServerConfiguration.
+            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
             * `id` (`pulumi.Input[str]`) - Resource ID.
             * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Parameters for P2SVpnServerConfiguration
-              * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-              * `name` (`pulumi.Input[str]`) - The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Parent VirtualWan resource name.
-              * `p2_s_vpn_server_config_radius_client_root_certificates` (`pulumi.Input[list]`) - Radius client root certificate of P2SVpnServerConfiguration.
-                * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`pulumi.Input[str]`) - Resource ID.
-                * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `properties` (`pulumi.Input[dict]`) - Properties of the Radius client root certificate.
-                  * `thumbprint` (`pulumi.Input[str]`) - The Radius client root certificate thumbprint.
+            * `thumbprint` (`pulumi.Input[str]`) - The Radius client root certificate thumbprint.
 
-              * `p2_s_vpn_server_config_radius_server_root_certificates` (`pulumi.Input[list]`) - Radius Server root certificate of P2SVpnServerConfiguration.
-                * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`pulumi.Input[str]`) - Resource ID.
-                * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `properties` (`pulumi.Input[dict]`) - Properties of the P2SVpnServerConfiguration Radius Server root certificate.
-                  * `public_cert_data` (`pulumi.Input[str]`) - The certificate public data.
+          * `p2_s_vpn_server_config_radius_server_root_certificates` (`pulumi.Input[list]`) - Radius Server root certificate of P2SVpnServerConfiguration.
+            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+            * `id` (`pulumi.Input[str]`) - Resource ID.
+            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+            * `public_cert_data` (`pulumi.Input[str]`) - The certificate public data.
 
-              * `p2_s_vpn_server_config_vpn_client_revoked_certificates` (`pulumi.Input[list]`) - VPN client revoked certificate of P2SVpnServerConfiguration.
-                * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`pulumi.Input[str]`) - Resource ID.
-                * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `properties` (`pulumi.Input[dict]`) - Properties of the vpn client revoked certificate.
-                  * `thumbprint` (`pulumi.Input[str]`) - The revoked VPN client certificate thumbprint.
+          * `p2_s_vpn_server_config_vpn_client_revoked_certificates` (`pulumi.Input[list]`) - VPN client revoked certificate of P2SVpnServerConfiguration.
+            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+            * `id` (`pulumi.Input[str]`) - Resource ID.
+            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+            * `thumbprint` (`pulumi.Input[str]`) - The revoked VPN client certificate thumbprint.
 
-              * `p2_s_vpn_server_config_vpn_client_root_certificates` (`pulumi.Input[list]`) - VPN client root certificate of P2SVpnServerConfiguration.
-                * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`pulumi.Input[str]`) - Resource ID.
-                * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `properties` (`pulumi.Input[dict]`) - Properties of the P2SVpnServerConfiguration VPN client root certificate.
-                  * `public_cert_data` (`pulumi.Input[str]`) - The certificate public data.
+          * `p2_s_vpn_server_config_vpn_client_root_certificates` (`pulumi.Input[list]`) - VPN client root certificate of P2SVpnServerConfiguration.
+            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+            * `id` (`pulumi.Input[str]`) - Resource ID.
+            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+            * `public_cert_data` (`pulumi.Input[str]`) - The certificate public data.
 
-              * `radius_server_address` (`pulumi.Input[str]`) - The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
-              * `radius_server_secret` (`pulumi.Input[str]`) - The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
-              * `vpn_client_ipsec_policies` (`pulumi.Input[list]`) - VpnClientIpsecPolicies for P2SVpnServerConfiguration.
-                * `dh_group` (`pulumi.Input[str]`) - The DH Groups used in IKE Phase 1 for initial SA.
-                * `ike_encryption` (`pulumi.Input[str]`) - The IKE encryption algorithm (IKE phase 2).
-                * `ike_integrity` (`pulumi.Input[str]`) - The IKE integrity algorithm (IKE phase 2).
-                * `ipsec_encryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm (IKE phase 1).
-                * `ipsec_integrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm (IKE phase 1).
-                * `pfs_group` (`pulumi.Input[str]`) - The Pfs Groups used in IKE Phase 2 for new child SA.
-                * `sa_data_size_kilobytes` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
-                * `sa_life_time_seconds` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
+          * `radius_server_address` (`pulumi.Input[str]`) - The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
+          * `radius_server_secret` (`pulumi.Input[str]`) - The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
+          * `vpn_client_ipsec_policies` (`pulumi.Input[list]`) - VpnClientIpsecPolicies for P2SVpnServerConfiguration.
+            * `dh_group` (`pulumi.Input[str]`) - The DH Groups used in IKE Phase 1 for initial SA.
+            * `ike_encryption` (`pulumi.Input[str]`) - The IKE encryption algorithm (IKE phase 2).
+            * `ike_integrity` (`pulumi.Input[str]`) - The IKE integrity algorithm (IKE phase 2).
+            * `ipsec_encryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm (IKE phase 1).
+            * `ipsec_integrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm (IKE phase 1).
+            * `pfs_group` (`pulumi.Input[str]`) - The Pfs Groups used in IKE Phase 2 for new child SA.
+            * `sa_data_size_kilobytes` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
+            * `sa_life_time_seconds` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
 
-              * `vpn_protocols` (`pulumi.Input[list]`) - vpnProtocols for the P2SVpnServerConfiguration.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
-          * `security_provider_name` (`pulumi.Input[str]`) - The Security Provider name.
+          * `vpn_protocols` (`pulumi.Input[list]`) - vpnProtocols for the P2SVpnServerConfiguration.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -186,6 +178,9 @@ class VirtualWan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['allow_branch_to_branch_traffic'] = allow_branch_to_branch_traffic
+            __props__['allow_vnet_to_vnet_traffic'] = allow_vnet_to_vnet_traffic
+            __props__['disable_vpn_encryption'] = disable_vpn_encryption
             __props__['id'] = id
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -193,12 +188,16 @@ class VirtualWan(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['office365_local_breakout_category'] = office365_local_breakout_category
+            __props__['p2_s_vpn_server_configurations'] = p2_s_vpn_server_configurations
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['security_provider_name'] = security_provider_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualWan, __self__).__init__(
             'azurerm:network/v20181001:VirtualWan',

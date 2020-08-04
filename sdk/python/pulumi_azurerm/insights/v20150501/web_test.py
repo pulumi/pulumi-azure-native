@@ -49,35 +49,34 @@ class WebTest(pulumi.CustomResource):
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, configuration=None, description=None, enabled=None, frequency=None, locations=None, retry_enabled=None, synthetic_monitor_id=None, timeout=None, kind=None, location=None, name=None, resource_group_name=None, tags=None, web_test_kind=None, __props__=None, __name__=None, __opts__=None):
         """
         An Application Insights web test definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] configuration: An XML configuration specification for a WebTest.
+        :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
+        :param pulumi.Input[bool] enabled: Is the test actively being monitored.
+        :param pulumi.Input[float] frequency: Interval in seconds between test runs for this WebTest. Default value is 300.
+        :param pulumi.Input[list] locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
+        :param pulumi.Input[str] synthetic_monitor_id: Unique ID of this WebTest. This is typically the same value as the Name field.
+        :param pulumi.Input[float] timeout: Seconds until this WebTest will timeout and fail. Default value is 30.
         :param pulumi.Input[str] kind: The kind of web test that this web test watches. Choices are ping and multistep.
         :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the Application Insights webtest resource.
-        :param pulumi.Input[dict] properties: Metadata describing a web test for an Azure resource.
+        :param pulumi.Input[str] name: User defined name if this WebTest.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[str] web_test_kind: The kind of web test this is, valid choices are ping and multistep.
 
-        The **properties** object supports the following:
+        The **configuration** object supports the following:
 
-          * `configuration` (`pulumi.Input[dict]`) - An XML configuration specification for a WebTest.
-            * `web_test` (`pulumi.Input[str]`) - The XML specification of a WebTest to run against an application.
+          * `web_test` (`pulumi.Input[str]`) - The XML specification of a WebTest to run against an application.
 
-          * `description` (`pulumi.Input[str]`) - Purpose/user defined descriptive test for this WebTest.
-          * `enabled` (`pulumi.Input[bool]`) - Is the test actively being monitored.
-          * `frequency` (`pulumi.Input[float]`) - Interval in seconds between test runs for this WebTest. Default value is 300.
-          * `locations` (`pulumi.Input[list]`) - A list of where to physically run the tests from to give global coverage for accessibility of your application.
-            * `location` (`pulumi.Input[str]`) - Location ID for the webtest to run from.
+        The **locations** object supports the following:
 
-          * `retry_enabled` (`pulumi.Input[bool]`) - Allow for retries should this WebTest fail.
-          * `synthetic_monitor_id` (`pulumi.Input[str]`) - Unique ID of this WebTest. This is typically the same value as the Name field.
-          * `timeout` (`pulumi.Input[float]`) - Seconds until this WebTest will timeout and fail. Default value is 30.
-          * `web_test_kind` (`pulumi.Input[str]`) - The kind of web test this is, valid choices are ping and multistep.
-          * `web_test_name` (`pulumi.Input[str]`) - User defined name if this WebTest.
+          * `location` (`pulumi.Input[str]`) - Location ID for the webtest to run from.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -96,6 +95,18 @@ class WebTest(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['configuration'] = configuration
+            __props__['description'] = description
+            __props__['enabled'] = enabled
+            __props__['frequency'] = frequency
+            if locations is None:
+                raise TypeError("Missing required property 'locations'")
+            __props__['locations'] = locations
+            __props__['retry_enabled'] = retry_enabled
+            if synthetic_monitor_id is None:
+                raise TypeError("Missing required property 'synthetic_monitor_id'")
+            __props__['synthetic_monitor_id'] = synthetic_monitor_id
+            __props__['timeout'] = timeout
             __props__['kind'] = kind
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -103,11 +114,14 @@ class WebTest(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            if web_test_kind is None:
+                raise TypeError("Missing required property 'web_test_kind'")
+            __props__['web_test_kind'] = web_test_kind
+            __props__['properties'] = None
             __props__['type'] = None
         super(WebTest, __self__).__init__(
             'azurerm:insights/v20150501:WebTest',

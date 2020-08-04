@@ -38,35 +38,38 @@ class AccountFilter(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, first_quality=None, name=None, presentation_time_range=None, resource_group_name=None, tracks=None, __props__=None, __name__=None, __opts__=None):
         """
         An Account Filter.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
+        :param pulumi.Input[dict] first_quality: The first quality.
         :param pulumi.Input[str] name: The Account Filter name
-        :param pulumi.Input[dict] properties: The Media Filter properties.
+        :param pulumi.Input[dict] presentation_time_range: The presentation time range.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
+        :param pulumi.Input[list] tracks: The tracks selection conditions.
 
-        The **properties** object supports the following:
+        The **first_quality** object supports the following:
 
-          * `first_quality` (`pulumi.Input[dict]`) - The first quality.
-            * `bitrate` (`pulumi.Input[float]`) - The first quality bitrate.
+          * `bitrate` (`pulumi.Input[float]`) - The first quality bitrate.
 
-          * `presentation_time_range` (`pulumi.Input[dict]`) - The presentation time range.
-            * `end_timestamp` (`pulumi.Input[float]`) - The absolute end time boundary.
-            * `force_end_timestamp` (`pulumi.Input[bool]`) - The indicator of forcing existing of end time stamp.
-            * `live_backoff_duration` (`pulumi.Input[float]`) - The relative to end right edge.
-            * `presentation_window_duration` (`pulumi.Input[float]`) - The relative to end sliding window.
-            * `start_timestamp` (`pulumi.Input[float]`) - The absolute start time boundary.
-            * `timescale` (`pulumi.Input[float]`) - The time scale of time stamps.
+        The **presentation_time_range** object supports the following:
 
-          * `tracks` (`pulumi.Input[list]`) - The tracks selection conditions.
-            * `track_selections` (`pulumi.Input[list]`) - The track selections.
-              * `operation` (`pulumi.Input[str]`) - The track property condition operation.
-              * `property` (`pulumi.Input[str]`) - The track property type.
-              * `value` (`pulumi.Input[str]`) - The track property value.
+          * `end_timestamp` (`pulumi.Input[float]`) - The absolute end time boundary.
+          * `force_end_timestamp` (`pulumi.Input[bool]`) - The indicator of forcing existing of end time stamp.
+          * `live_backoff_duration` (`pulumi.Input[float]`) - The relative to end right edge.
+          * `presentation_window_duration` (`pulumi.Input[float]`) - The relative to end sliding window.
+          * `start_timestamp` (`pulumi.Input[float]`) - The absolute start time boundary.
+          * `timescale` (`pulumi.Input[float]`) - The time scale of time stamps.
+
+        The **tracks** object supports the following:
+
+          * `track_selections` (`pulumi.Input[list]`) - The track selections.
+            * `operation` (`pulumi.Input[str]`) - The track property condition operation.
+            * `property` (`pulumi.Input[str]`) - The track property type.
+            * `value` (`pulumi.Input[str]`) - The track property value.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,13 +91,16 @@ class AccountFilter(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['first_quality'] = first_quality
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['presentation_time_range'] = presentation_time_range
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['tracks'] = tracks
+            __props__['properties'] = None
             __props__['type'] = None
         super(AccountFilter, __self__).__init__(
             'azurerm:media/v20180701:AccountFilter',

@@ -29,22 +29,18 @@ class View(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, hub_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, definition=None, display_name=None, hub_name=None, name=None, resource_group_name=None, user_id=None, __props__=None, __name__=None, __opts__=None):
         """
         The view resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] definition: View definition.
+        :param pulumi.Input[dict] display_name: Localized display name for the view.
         :param pulumi.Input[str] hub_name: The name of the hub.
         :param pulumi.Input[str] name: The name of the view.
-        :param pulumi.Input[dict] properties: The view in Customer 360 web application.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-
-        The **properties** object supports the following:
-
-          * `definition` (`pulumi.Input[str]`) - View definition.
-          * `display_name` (`pulumi.Input[dict]`) - Localized display name for the view.
-          * `user_id` (`pulumi.Input[str]`) - the user ID.
+        :param pulumi.Input[str] user_id: the user ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,16 +59,21 @@ class View(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if definition is None:
+                raise TypeError("Missing required property 'definition'")
+            __props__['definition'] = definition
+            __props__['display_name'] = display_name
             if hub_name is None:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['user_id'] = user_id
+            __props__['properties'] = None
             __props__['type'] = None
         super(View, __self__).__init__(
             'azurerm:customerinsights/v20170101:View',

@@ -42,29 +42,28 @@ class Registry(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, admin_user_enabled=None, location=None, name=None, resource_group_name=None, sku=None, storage_account=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         An object that represents a container registry.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] admin_user_enabled: The value that indicates whether the admin user is enabled.
         :param pulumi.Input[str] location: The location of the container registry. This cannot be changed after the resource is created.
         :param pulumi.Input[str] name: The name of the container registry.
-        :param pulumi.Input[dict] properties: The properties that the container registry will be created with.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[dict] sku: The SKU of the container registry.
+        :param pulumi.Input[dict] storage_account: The parameters of a storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
         :param pulumi.Input[dict] tags: The tags for the container registry.
-
-        The **properties** object supports the following:
-
-          * `admin_user_enabled` (`pulumi.Input[bool]`) - The value that indicates whether the admin user is enabled.
-          * `storage_account` (`pulumi.Input[dict]`) - The parameters of a storage account for the container registry. If specified, the storage account must be in the same physical location as the container registry.
-            * `access_key` (`pulumi.Input[str]`) - The access key to the storage account.
-            * `name` (`pulumi.Input[str]`) - The name of the storage account.
 
         The **sku** object supports the following:
 
           * `name` (`pulumi.Input[str]`) - The SKU name of the container registry. Required for registry creation. Allowed value: Basic.
+
+        The **storage_account** object supports the following:
+
+          * `access_key` (`pulumi.Input[str]`) - The access key to the storage account.
+          * `name` (`pulumi.Input[str]`) - The name of the storage account.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,20 +82,24 @@ class Registry(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['admin_user_enabled'] = admin_user_enabled
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if sku is None:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
+            if storage_account is None:
+                raise TypeError("Missing required property 'storage_account'")
+            __props__['storage_account'] = storage_account
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Registry, __self__).__init__(
             'azurerm:containerregistry/v20170301:Registry',

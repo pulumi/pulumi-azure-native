@@ -28,25 +28,24 @@ class Gateway(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, location_data=None, name=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Gateway details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Gateway description
+        :param pulumi.Input[dict] location_data: Gateway location.
         :param pulumi.Input[str] name: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-        :param pulumi.Input[dict] properties: Gateway details.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
 
-        The **properties** object supports the following:
+        The **location_data** object supports the following:
 
-          * `description` (`pulumi.Input[str]`) - Gateway description
-          * `location_data` (`pulumi.Input[dict]`) - Gateway location.
-            * `city` (`pulumi.Input[str]`) - The city or locality where the resource is located.
-            * `country_or_region` (`pulumi.Input[str]`) - The country or region where the resource is located.
-            * `district` (`pulumi.Input[str]`) - The district, state, or province where the resource is located.
-            * `name` (`pulumi.Input[str]`) - A canonical name for the geographic or physical location.
+          * `city` (`pulumi.Input[str]`) - The city or locality where the resource is located.
+          * `country_or_region` (`pulumi.Input[str]`) - The country or region where the resource is located.
+          * `district` (`pulumi.Input[str]`) - The district, state, or province where the resource is located.
+          * `name` (`pulumi.Input[str]`) - A canonical name for the geographic or physical location.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,16 +64,18 @@ class Gateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['description'] = description
+            __props__['location_data'] = location_data
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Gateway, __self__).__init__(
             'azurerm:apimanagement/v20191201:Gateway',

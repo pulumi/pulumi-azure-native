@@ -39,33 +39,33 @@ class EventSubscription(pulumi.CustomResource):
     """
     Type of the resource
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, scope=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, destination=None, filter=None, labels=None, name=None, scope=None, __props__=None, __name__=None, __opts__=None):
         """
         Event Subscription
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] destination: Information about the destination where events have to be delivered for the event subscription.
+        :param pulumi.Input[dict] filter: Information about the filter for the event subscription.
+        :param pulumi.Input[list] labels: List of user defined labels.
         :param pulumi.Input[str] name: Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
-        :param pulumi.Input[dict] properties: Properties of the event subscription
         :param pulumi.Input[str] scope: The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
 
-        The **properties** object supports the following:
+        The **destination** object supports the following:
 
-          * `destination` (`pulumi.Input[dict]`) - Information about the destination where events have to be delivered for the event subscription.
-            * `endpoint_type` (`pulumi.Input[str]`) - Type of the endpoint for the event subscription destination
+          * `endpoint_type` (`pulumi.Input[str]`) - Type of the endpoint for the event subscription destination
 
-          * `filter` (`pulumi.Input[dict]`) - Information about the filter for the event subscription.
-            * `included_event_types` (`pulumi.Input[list]`) - A list of applicable event types that need to be part of the event subscription. 
-              If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
-            * `is_subject_case_sensitive` (`pulumi.Input[bool]`) - Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter 
-              should be compared in a case sensitive manner.
-            * `subject_begins_with` (`pulumi.Input[str]`) - An optional string to filter events for an event subscription based on a resource path prefix.
-              The format of this depends on the publisher of the events. 
-              Wildcard characters are not supported in this path.
-            * `subject_ends_with` (`pulumi.Input[str]`) - An optional string to filter events for an event subscription based on a resource path suffix.
-              Wildcard characters are not supported in this path.
+        The **filter** object supports the following:
 
-          * `labels` (`pulumi.Input[list]`) - List of user defined labels.
+          * `included_event_types` (`pulumi.Input[list]`) - A list of applicable event types that need to be part of the event subscription. 
+            If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
+          * `is_subject_case_sensitive` (`pulumi.Input[bool]`) - Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter 
+            should be compared in a case sensitive manner.
+          * `subject_begins_with` (`pulumi.Input[str]`) - An optional string to filter events for an event subscription based on a resource path prefix.
+            The format of this depends on the publisher of the events. 
+            Wildcard characters are not supported in this path.
+          * `subject_ends_with` (`pulumi.Input[str]`) - An optional string to filter events for an event subscription based on a resource path suffix.
+            Wildcard characters are not supported in this path.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -84,13 +84,16 @@ class EventSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['destination'] = destination
+            __props__['filter'] = filter
+            __props__['labels'] = labels
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
+            __props__['properties'] = None
             __props__['type'] = None
         super(EventSubscription, __self__).__init__(
             'azurerm:eventgrid/v20180101:EventSubscription',

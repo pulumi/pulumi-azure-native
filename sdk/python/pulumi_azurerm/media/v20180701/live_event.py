@@ -70,7 +70,7 @@ class LiveEvent(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, auto_start=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, auto_start=None, cross_site_access_policies=None, description=None, encoding=None, input=None, location=None, name=None, preview=None, resource_group_name=None, stream_options=None, tags=None, vanity_url=None, __props__=None, __name__=None, __opts__=None):
         """
         The Live Event.
 
@@ -78,50 +78,54 @@ class LiveEvent(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[bool] auto_start: The flag indicates if the resource should be automatically started on creation.
+        :param pulumi.Input[dict] cross_site_access_policies: The Live Event access policies.
+        :param pulumi.Input[str] description: The Live Event description.
+        :param pulumi.Input[dict] encoding: The Live Event encoding.
+        :param pulumi.Input[dict] input: The Live Event input.
         :param pulumi.Input[str] location: The Azure Region of the resource.
         :param pulumi.Input[str] name: The name of the Live Event.
-        :param pulumi.Input[dict] properties: The Live Event properties.
+        :param pulumi.Input[dict] preview: The Live Event preview.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
+        :param pulumi.Input[list] stream_options: The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[bool] vanity_url: Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
 
-        The **properties** object supports the following:
+        The **cross_site_access_policies** object supports the following:
 
-          * `cross_site_access_policies` (`pulumi.Input[dict]`) - The Live Event access policies.
-            * `client_access_policy` (`pulumi.Input[str]`) - The content of clientaccesspolicy.xml used by Silverlight.
-            * `cross_domain_policy` (`pulumi.Input[str]`) - The content of crossdomain.xml used by Silverlight.
+          * `client_access_policy` (`pulumi.Input[str]`) - The content of clientaccesspolicy.xml used by Silverlight.
+          * `cross_domain_policy` (`pulumi.Input[str]`) - The content of crossdomain.xml used by Silverlight.
 
-          * `description` (`pulumi.Input[str]`) - The Live Event description.
-          * `encoding` (`pulumi.Input[dict]`) - The Live Event encoding.
-            * `encoding_type` (`pulumi.Input[str]`) - The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
-            * `preset_name` (`pulumi.Input[str]`) - The encoding preset name.  This value is specified at creation time and cannot be updated.
+        The **encoding** object supports the following:
 
-          * `input` (`pulumi.Input[dict]`) - The Live Event input.
-            * `access_control` (`pulumi.Input[dict]`) - The access control for LiveEvent Input.
-              * `ip` (`pulumi.Input[dict]`) - The IP access control properties.
-                * `allow` (`pulumi.Input[list]`) - The IP allow list.
-                  * `address` (`pulumi.Input[str]`) - The IP address.
-                  * `name` (`pulumi.Input[str]`) - The friendly name for the IP address range.
-                  * `subnet_prefix_length` (`pulumi.Input[float]`) - The subnet mask prefix length (see CIDR notation).
+          * `encoding_type` (`pulumi.Input[str]`) - The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
+          * `preset_name` (`pulumi.Input[str]`) - The encoding preset name.  This value is specified at creation time and cannot be updated.
 
-            * `access_token` (`pulumi.Input[str]`) - A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
-            * `endpoints` (`pulumi.Input[list]`) - The input endpoints for the Live Event.
-              * `protocol` (`pulumi.Input[str]`) - The endpoint protocol.
-              * `url` (`pulumi.Input[str]`) - The endpoint URL.
+        The **input** object supports the following:
 
-            * `key_frame_interval_duration` (`pulumi.Input[str]`) - ISO 8601 timespan duration of the key frame interval duration.
-            * `streaming_protocol` (`pulumi.Input[str]`) - The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+          * `access_control` (`pulumi.Input[dict]`) - The access control for LiveEvent Input.
+            * `ip` (`pulumi.Input[dict]`) - The IP access control properties.
+              * `allow` (`pulumi.Input[list]`) - The IP allow list.
+                * `address` (`pulumi.Input[str]`) - The IP address.
+                * `name` (`pulumi.Input[str]`) - The friendly name for the IP address range.
+                * `subnet_prefix_length` (`pulumi.Input[float]`) - The subnet mask prefix length (see CIDR notation).
 
-          * `preview` (`pulumi.Input[dict]`) - The Live Event preview.
-            * `access_control` (`pulumi.Input[dict]`) - The access control for LiveEvent preview.
-              * `ip` (`pulumi.Input[dict]`) - The IP access control properties.
+          * `access_token` (`pulumi.Input[str]`) - A unique identifier for a stream.  This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+          * `endpoints` (`pulumi.Input[list]`) - The input endpoints for the Live Event.
+            * `protocol` (`pulumi.Input[str]`) - The endpoint protocol.
+            * `url` (`pulumi.Input[str]`) - The endpoint URL.
 
-            * `alternative_media_id` (`pulumi.Input[str]`) - An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-            * `endpoints` (`pulumi.Input[list]`) - The endpoints for preview.
-            * `preview_locator` (`pulumi.Input[str]`) - The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
-            * `streaming_policy_name` (`pulumi.Input[str]`) - The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+          * `key_frame_interval_duration` (`pulumi.Input[str]`) - ISO 8601 timespan duration of the key frame interval duration.
+          * `streaming_protocol` (`pulumi.Input[str]`) - The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
 
-          * `stream_options` (`pulumi.Input[list]`) - The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
-          * `vanity_url` (`pulumi.Input[bool]`) - Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+        The **preview** object supports the following:
+
+          * `access_control` (`pulumi.Input[dict]`) - The access control for LiveEvent preview.
+            * `ip` (`pulumi.Input[dict]`) - The IP access control properties.
+
+          * `alternative_media_id` (`pulumi.Input[str]`) - An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+          * `endpoints` (`pulumi.Input[list]`) - The endpoints for preview.
+          * `preview_locator` (`pulumi.Input[str]`) - The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+          * `streaming_policy_name` (`pulumi.Input[str]`) - The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -144,15 +148,24 @@ class LiveEvent(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
             __props__['auto_start'] = auto_start
+            __props__['cross_site_access_policies'] = cross_site_access_policies
+            __props__['description'] = description
+            __props__['encoding'] = encoding
+            if input is None:
+                raise TypeError("Missing required property 'input'")
+            __props__['input'] = input
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['preview'] = preview
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['stream_options'] = stream_options
             __props__['tags'] = tags
+            __props__['vanity_url'] = vanity_url
+            __props__['properties'] = None
             __props__['type'] = None
         super(LiveEvent, __self__).__init__(
             'azurerm:media/v20180701:LiveEvent',

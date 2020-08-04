@@ -56,37 +56,39 @@ class FileServer(pulumi.CustomResource):
     """
     The type of the resource
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, data_disks=None, location=None, name=None, resource_group_name=None, ssh_configuration=None, subnet=None, tags=None, vm_size=None, __props__=None, __name__=None, __opts__=None):
         """
         Contains information about the File Server.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] data_disks: Settings for the data disk which would be created for the File Server.
         :param pulumi.Input[str] location: The region in which to create the File Server.
         :param pulumi.Input[str] name: The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-        :param pulumi.Input[dict] properties: The properties of the File Server.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[dict] ssh_configuration: SSH configuration settings for the VM
+        :param pulumi.Input[dict] subnet: Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
         :param pulumi.Input[dict] tags: The user specified tags associated with the File Server.
+        :param pulumi.Input[str] vm_size: For information about available VM sizes for fileservers from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
 
-        The **properties** object supports the following:
+        The **data_disks** object supports the following:
 
-          * `data_disks` (`pulumi.Input[dict]`) - Settings for the data disk which would be created for the File Server.
-            * `caching_type` (`pulumi.Input[str]`)
-            * `disk_count` (`pulumi.Input[float]`)
-            * `disk_size_in_gb` (`pulumi.Input[float]`)
-            * `storage_account_type` (`pulumi.Input[str]`)
+          * `caching_type` (`pulumi.Input[str]`)
+          * `disk_count` (`pulumi.Input[float]`)
+          * `disk_size_in_gb` (`pulumi.Input[float]`)
+          * `storage_account_type` (`pulumi.Input[str]`)
 
-          * `ssh_configuration` (`pulumi.Input[dict]`) - SSH configuration settings for the VM
-            * `public_i_ps_to_allow` (`pulumi.Input[list]`) - Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
-            * `user_account_settings` (`pulumi.Input[dict]`) - Settings for user account that gets created on each on the nodes of a cluster.
-              * `admin_user_name` (`pulumi.Input[str]`)
-              * `admin_user_password` (`pulumi.Input[str]`)
-              * `admin_user_ssh_public_key` (`pulumi.Input[str]`)
+        The **ssh_configuration** object supports the following:
 
-          * `subnet` (`pulumi.Input[dict]`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-            * `id` (`pulumi.Input[str]`) - The ID of the resource
+          * `public_i_ps_to_allow` (`pulumi.Input[list]`) - Default value is '*' can be used to match all source IPs. Maximum number of IP ranges that can be specified are 400.
+          * `user_account_settings` (`pulumi.Input[dict]`) - Settings for user account that gets created on each on the nodes of a cluster.
+            * `admin_user_name` (`pulumi.Input[str]`)
+            * `admin_user_password` (`pulumi.Input[str]`)
+            * `admin_user_ssh_public_key` (`pulumi.Input[str]`)
 
-          * `vm_size` (`pulumi.Input[str]`) - For information about available VM sizes for fileservers from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+        The **subnet** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - The ID of the resource
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,17 +107,27 @@ class FileServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if data_disks is None:
+                raise TypeError("Missing required property 'data_disks'")
+            __props__['data_disks'] = data_disks
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if ssh_configuration is None:
+                raise TypeError("Missing required property 'ssh_configuration'")
+            __props__['ssh_configuration'] = ssh_configuration
+            __props__['subnet'] = subnet
             __props__['tags'] = tags
+            if vm_size is None:
+                raise TypeError("Missing required property 'vm_size'")
+            __props__['vm_size'] = vm_size
+            __props__['properties'] = None
             __props__['type'] = None
         super(FileServer, __self__).__init__(
             'azurerm:batchai/v20180301:FileServer',

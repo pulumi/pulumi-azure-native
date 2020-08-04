@@ -85,73 +85,90 @@ class ActionGroup(pulumi.CustomResource):
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, arm_role_receivers=None, automation_runbook_receivers=None, azure_app_push_receivers=None, azure_function_receivers=None, email_receivers=None, enabled=None, group_short_name=None, itsm_receivers=None, location=None, logic_app_receivers=None, name=None, resource_group_name=None, sms_receivers=None, tags=None, voice_receivers=None, webhook_receivers=None, __props__=None, __name__=None, __opts__=None):
         """
         An action group resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] arm_role_receivers: The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
+        :param pulumi.Input[list] automation_runbook_receivers: The list of AutomationRunbook receivers that are part of this action group.
+        :param pulumi.Input[list] azure_app_push_receivers: The list of AzureAppPush receivers that are part of this action group.
+        :param pulumi.Input[list] azure_function_receivers: The list of azure function receivers that are part of this action group.
+        :param pulumi.Input[list] email_receivers: The list of email receivers that are part of this action group.
+        :param pulumi.Input[bool] enabled: Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
+        :param pulumi.Input[str] group_short_name: The short name of the action group. This will be used in SMS messages.
+        :param pulumi.Input[list] itsm_receivers: The list of ITSM receivers that are part of this action group.
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[list] logic_app_receivers: The list of logic app receivers that are part of this action group.
         :param pulumi.Input[str] name: The name of the action group.
-        :param pulumi.Input[dict] properties: The action groups properties of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[list] sms_receivers: The list of SMS receivers that are part of this action group.
         :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[list] voice_receivers: The list of voice receivers that are part of this action group.
+        :param pulumi.Input[list] webhook_receivers: The list of webhook receivers that are part of this action group.
 
-        The **properties** object supports the following:
+        The **arm_role_receivers** object supports the following:
 
-          * `arm_role_receivers` (`pulumi.Input[list]`) - The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
-            * `name` (`pulumi.Input[str]`) - The name of the arm role receiver. Names must be unique across all receivers within an action group.
-            * `role_id` (`pulumi.Input[str]`) - The arm role id.
+          * `name` (`pulumi.Input[str]`) - The name of the arm role receiver. Names must be unique across all receivers within an action group.
+          * `role_id` (`pulumi.Input[str]`) - The arm role id.
 
-          * `automation_runbook_receivers` (`pulumi.Input[list]`) - The list of AutomationRunbook receivers that are part of this action group.
-            * `automation_account_id` (`pulumi.Input[str]`) - The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-            * `is_global_runbook` (`pulumi.Input[bool]`) - Indicates whether this instance is global runbook.
-            * `name` (`pulumi.Input[str]`) - Indicates name of the webhook.
-            * `runbook_name` (`pulumi.Input[str]`) - The name for this runbook.
-            * `service_uri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
-            * `webhook_resource_id` (`pulumi.Input[str]`) - The resource id for webhook linked to this runbook.
+        The **automation_runbook_receivers** object supports the following:
 
-          * `azure_app_push_receivers` (`pulumi.Input[list]`) - The list of AzureAppPush receivers that are part of this action group.
-            * `email_address` (`pulumi.Input[str]`) - The email address registered for the Azure mobile app.
-            * `name` (`pulumi.Input[str]`) - The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
+          * `automation_account_id` (`pulumi.Input[str]`) - The Azure automation account Id which holds this runbook and authenticate to Azure resource.
+          * `is_global_runbook` (`pulumi.Input[bool]`) - Indicates whether this instance is global runbook.
+          * `name` (`pulumi.Input[str]`) - Indicates name of the webhook.
+          * `runbook_name` (`pulumi.Input[str]`) - The name for this runbook.
+          * `service_uri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
+          * `webhook_resource_id` (`pulumi.Input[str]`) - The resource id for webhook linked to this runbook.
 
-          * `azure_function_receivers` (`pulumi.Input[list]`) - The list of azure function receivers that are part of this action group.
-            * `function_app_resource_id` (`pulumi.Input[str]`) - The azure resource id of the function app.
-            * `function_name` (`pulumi.Input[str]`) - The function name in the function app.
-            * `http_trigger_url` (`pulumi.Input[str]`) - The http trigger url where http request sent to.
-            * `name` (`pulumi.Input[str]`) - The name of the azure function receiver. Names must be unique across all receivers within an action group.
+        The **azure_app_push_receivers** object supports the following:
 
-          * `email_receivers` (`pulumi.Input[list]`) - The list of email receivers that are part of this action group.
-            * `email_address` (`pulumi.Input[str]`) - The email address of this receiver.
-            * `name` (`pulumi.Input[str]`) - The name of the email receiver. Names must be unique across all receivers within an action group.
+          * `email_address` (`pulumi.Input[str]`) - The email address registered for the Azure mobile app.
+          * `name` (`pulumi.Input[str]`) - The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
 
-          * `enabled` (`pulumi.Input[bool]`) - Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
-          * `group_short_name` (`pulumi.Input[str]`) - The short name of the action group. This will be used in SMS messages.
-          * `itsm_receivers` (`pulumi.Input[list]`) - The list of ITSM receivers that are part of this action group.
-            * `connection_id` (`pulumi.Input[str]`) - Unique identification of ITSM connection among multiple defined in above workspace.
-            * `name` (`pulumi.Input[str]`) - The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-            * `region` (`pulumi.Input[str]`) - Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-            * `ticket_configuration` (`pulumi.Input[str]`) - JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
-            * `workspace_id` (`pulumi.Input[str]`) - OMS LA instance identifier.
+        The **azure_function_receivers** object supports the following:
 
-          * `logic_app_receivers` (`pulumi.Input[list]`) - The list of logic app receivers that are part of this action group.
-            * `callback_url` (`pulumi.Input[str]`) - The callback url where http request sent to.
-            * `name` (`pulumi.Input[str]`) - The name of the logic app receiver. Names must be unique across all receivers within an action group.
-            * `resource_id` (`pulumi.Input[str]`) - The azure resource id of the logic app receiver.
+          * `function_app_resource_id` (`pulumi.Input[str]`) - The azure resource id of the function app.
+          * `function_name` (`pulumi.Input[str]`) - The function name in the function app.
+          * `http_trigger_url` (`pulumi.Input[str]`) - The http trigger url where http request sent to.
+          * `name` (`pulumi.Input[str]`) - The name of the azure function receiver. Names must be unique across all receivers within an action group.
 
-          * `sms_receivers` (`pulumi.Input[list]`) - The list of SMS receivers that are part of this action group.
-            * `country_code` (`pulumi.Input[str]`) - The country code of the SMS receiver.
-            * `name` (`pulumi.Input[str]`) - The name of the SMS receiver. Names must be unique across all receivers within an action group.
-            * `phone_number` (`pulumi.Input[str]`) - The phone number of the SMS receiver.
+        The **email_receivers** object supports the following:
 
-          * `voice_receivers` (`pulumi.Input[list]`) - The list of voice receivers that are part of this action group.
-            * `country_code` (`pulumi.Input[str]`) - The country code of the voice receiver.
-            * `name` (`pulumi.Input[str]`) - The name of the voice receiver. Names must be unique across all receivers within an action group.
-            * `phone_number` (`pulumi.Input[str]`) - The phone number of the voice receiver.
+          * `email_address` (`pulumi.Input[str]`) - The email address of this receiver.
+          * `name` (`pulumi.Input[str]`) - The name of the email receiver. Names must be unique across all receivers within an action group.
 
-          * `webhook_receivers` (`pulumi.Input[list]`) - The list of webhook receivers that are part of this action group.
-            * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique across all receivers within an action group.
-            * `service_uri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
+        The **itsm_receivers** object supports the following:
+
+          * `connection_id` (`pulumi.Input[str]`) - Unique identification of ITSM connection among multiple defined in above workspace.
+          * `name` (`pulumi.Input[str]`) - The name of the Itsm receiver. Names must be unique across all receivers within an action group.
+          * `region` (`pulumi.Input[str]`) - Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
+          * `ticket_configuration` (`pulumi.Input[str]`) - JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+          * `workspace_id` (`pulumi.Input[str]`) - OMS LA instance identifier.
+
+        The **logic_app_receivers** object supports the following:
+
+          * `callback_url` (`pulumi.Input[str]`) - The callback url where http request sent to.
+          * `name` (`pulumi.Input[str]`) - The name of the logic app receiver. Names must be unique across all receivers within an action group.
+          * `resource_id` (`pulumi.Input[str]`) - The azure resource id of the logic app receiver.
+
+        The **sms_receivers** object supports the following:
+
+          * `country_code` (`pulumi.Input[str]`) - The country code of the SMS receiver.
+          * `name` (`pulumi.Input[str]`) - The name of the SMS receiver. Names must be unique across all receivers within an action group.
+          * `phone_number` (`pulumi.Input[str]`) - The phone number of the SMS receiver.
+
+        The **voice_receivers** object supports the following:
+
+          * `country_code` (`pulumi.Input[str]`) - The country code of the voice receiver.
+          * `name` (`pulumi.Input[str]`) - The name of the voice receiver. Names must be unique across all receivers within an action group.
+          * `phone_number` (`pulumi.Input[str]`) - The phone number of the voice receiver.
+
+        The **webhook_receivers** object supports the following:
+
+          * `name` (`pulumi.Input[str]`) - The name of the webhook receiver. Names must be unique across all receivers within an action group.
+          * `service_uri` (`pulumi.Input[str]`) - The URI where webhooks should be sent.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -170,17 +187,33 @@ class ActionGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['arm_role_receivers'] = arm_role_receivers
+            __props__['automation_runbook_receivers'] = automation_runbook_receivers
+            __props__['azure_app_push_receivers'] = azure_app_push_receivers
+            __props__['azure_function_receivers'] = azure_function_receivers
+            __props__['email_receivers'] = email_receivers
+            if enabled is None:
+                raise TypeError("Missing required property 'enabled'")
+            __props__['enabled'] = enabled
+            if group_short_name is None:
+                raise TypeError("Missing required property 'group_short_name'")
+            __props__['group_short_name'] = group_short_name
+            __props__['itsm_receivers'] = itsm_receivers
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['logic_app_receivers'] = logic_app_receivers
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sms_receivers'] = sms_receivers
             __props__['tags'] = tags
+            __props__['voice_receivers'] = voice_receivers
+            __props__['webhook_receivers'] = webhook_receivers
+            __props__['properties'] = None
             __props__['type'] = None
         super(ActionGroup, __self__).__init__(
             'azurerm:insights/v20180901:ActionGroup',

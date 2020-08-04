@@ -34,26 +34,22 @@ class Webhook(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, registry_name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, actions=None, custom_headers=None, location=None, name=None, registry_name=None, resource_group_name=None, scope=None, service_uri=None, status=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         An object that represents a webhook for a container registry.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] actions: The list of actions that trigger the webhook to post notifications.
+        :param pulumi.Input[dict] custom_headers: Custom headers that will be added to the webhook notifications.
         :param pulumi.Input[str] location: The location of the webhook. This cannot be changed after the resource is created.
         :param pulumi.Input[str] name: The name of the webhook.
-        :param pulumi.Input[dict] properties: The properties that the webhook will be created with.
         :param pulumi.Input[str] registry_name: The name of the container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] scope: The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+        :param pulumi.Input[str] service_uri: The service URI for the webhook to post notifications.
+        :param pulumi.Input[str] status: The status of the webhook at the time the operation was called.
         :param pulumi.Input[dict] tags: The tags for the webhook.
-
-        The **properties** object supports the following:
-
-          * `actions` (`pulumi.Input[list]`) - The list of actions that trigger the webhook to post notifications.
-          * `custom_headers` (`pulumi.Input[dict]`) - Custom headers that will be added to the webhook notifications.
-          * `scope` (`pulumi.Input[str]`) - The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
-          * `service_uri` (`pulumi.Input[str]`) - The service URI for the webhook to post notifications.
-          * `status` (`pulumi.Input[str]`) - The status of the webhook at the time the operation was called.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -72,20 +68,29 @@ class Webhook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if actions is None:
+                raise TypeError("Missing required property 'actions'")
+            __props__['actions'] = actions
+            __props__['custom_headers'] = custom_headers
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if registry_name is None:
                 raise TypeError("Missing required property 'registry_name'")
             __props__['registry_name'] = registry_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['scope'] = scope
+            if service_uri is None:
+                raise TypeError("Missing required property 'service_uri'")
+            __props__['service_uri'] = service_uri
+            __props__['status'] = status
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Webhook, __self__).__init__(
             'azurerm:containerregistry/v20190501:Webhook',

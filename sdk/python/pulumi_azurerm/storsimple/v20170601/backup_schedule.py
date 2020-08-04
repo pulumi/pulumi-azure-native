@@ -36,31 +36,29 @@ class BackupSchedule(pulumi.CustomResource):
     """
     The hierarchical type of the object.
     """
-    def __init__(__self__, resource_name, opts=None, backup_policy_name=None, device_name=None, kind=None, manager_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, backup_policy_name=None, backup_type=None, device_name=None, kind=None, manager_name=None, name=None, resource_group_name=None, retention_count=None, schedule_recurrence=None, schedule_status=None, start_time=None, __props__=None, __name__=None, __opts__=None):
         """
         The backup schedule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_policy_name: The backup policy name.
+        :param pulumi.Input[str] backup_type: The type of backup which needs to be taken.
         :param pulumi.Input[str] device_name: The device name
         :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] name: The backup schedule name.
-        :param pulumi.Input[dict] properties: The properties of the backup schedule.
         :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input[float] retention_count: The number of backups to be retained.
+        :param pulumi.Input[dict] schedule_recurrence: The schedule recurrence.
+        :param pulumi.Input[str] schedule_status: The schedule status.
+        :param pulumi.Input[str] start_time: The start time of the schedule.
 
-        The **properties** object supports the following:
+        The **schedule_recurrence** object supports the following:
 
-          * `backup_type` (`pulumi.Input[str]`) - The type of backup which needs to be taken.
-          * `retention_count` (`pulumi.Input[float]`) - The number of backups to be retained.
-          * `schedule_recurrence` (`pulumi.Input[dict]`) - The schedule recurrence.
-            * `recurrence_type` (`pulumi.Input[str]`) - The recurrence type.
-            * `recurrence_value` (`pulumi.Input[float]`) - The recurrence value.
-            * `weekly_days_list` (`pulumi.Input[list]`) - The week days list. Applicable only for schedules of recurrence type 'weekly'.
-
-          * `schedule_status` (`pulumi.Input[str]`) - The schedule status.
-          * `start_time` (`pulumi.Input[str]`) - The start time of the schedule.
+          * `recurrence_type` (`pulumi.Input[str]`) - The recurrence type.
+          * `recurrence_value` (`pulumi.Input[float]`) - The recurrence value.
+          * `weekly_days_list` (`pulumi.Input[list]`) - The week days list. Applicable only for schedules of recurrence type 'weekly'.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,6 +80,9 @@ class BackupSchedule(pulumi.CustomResource):
             if backup_policy_name is None:
                 raise TypeError("Missing required property 'backup_policy_name'")
             __props__['backup_policy_name'] = backup_policy_name
+            if backup_type is None:
+                raise TypeError("Missing required property 'backup_type'")
+            __props__['backup_type'] = backup_type
             if device_name is None:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
@@ -92,12 +93,22 @@ class BackupSchedule(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if retention_count is None:
+                raise TypeError("Missing required property 'retention_count'")
+            __props__['retention_count'] = retention_count
+            if schedule_recurrence is None:
+                raise TypeError("Missing required property 'schedule_recurrence'")
+            __props__['schedule_recurrence'] = schedule_recurrence
+            if schedule_status is None:
+                raise TypeError("Missing required property 'schedule_status'")
+            __props__['schedule_status'] = schedule_status
+            if start_time is None:
+                raise TypeError("Missing required property 'start_time'")
+            __props__['start_time'] = start_time
+            __props__['properties'] = None
             __props__['type'] = None
         super(BackupSchedule, __self__).__init__(
             'azurerm:storsimple/v20170601:BackupSchedule',

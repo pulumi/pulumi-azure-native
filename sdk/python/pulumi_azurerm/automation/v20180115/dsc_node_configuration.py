@@ -30,32 +30,33 @@ class DscNodeConfiguration(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, configuration=None, increment_node_configuration_build=None, name=None, resource_group_name=None, source=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the dsc node configuration.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[dict] configuration: Gets or sets the configuration of the node.
+        :param pulumi.Input[bool] increment_node_configuration_build: If a new build version of NodeConfiguration is required.
         :param pulumi.Input[str] name: The Dsc node configuration name.
-        :param pulumi.Input[dict] properties: Node configuration properties
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[dict] source: Gets or sets the source.
         :param pulumi.Input[dict] tags: Gets or sets the tags attached to the resource.
 
-        The **properties** object supports the following:
+        The **configuration** object supports the following:
 
-          * `configuration` (`pulumi.Input[dict]`) - Gets or sets the configuration of the node.
-            * `name` (`pulumi.Input[str]`) - Gets or sets the name of the Dsc configuration.
+          * `name` (`pulumi.Input[str]`) - Gets or sets the name of the Dsc configuration.
 
-          * `increment_node_configuration_build` (`pulumi.Input[bool]`) - If a new build version of NodeConfiguration is required.
-          * `source` (`pulumi.Input[dict]`) - Gets or sets the source.
-            * `hash` (`pulumi.Input[dict]`) - Gets or sets the hash.
-              * `algorithm` (`pulumi.Input[str]`) - Gets or sets the content hash algorithm used to hash the content.
-              * `value` (`pulumi.Input[str]`) - Gets or sets expected hash value of the content.
+        The **source** object supports the following:
 
-            * `type` (`pulumi.Input[str]`) - Gets or sets the content source type.
-            * `value` (`pulumi.Input[str]`) - Gets or sets the value of the content. This is based on the content source type.
-            * `version` (`pulumi.Input[str]`) - Gets or sets the version of the content.
+          * `hash` (`pulumi.Input[dict]`) - Gets or sets the hash.
+            * `algorithm` (`pulumi.Input[str]`) - Gets or sets the content hash algorithm used to hash the content.
+            * `value` (`pulumi.Input[str]`) - Gets or sets expected hash value of the content.
+
+          * `type` (`pulumi.Input[str]`) - Gets or sets the content source type.
+          * `value` (`pulumi.Input[str]`) - Gets or sets the value of the content. This is based on the content source type.
+          * `version` (`pulumi.Input[str]`) - Gets or sets the version of the content.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,14 +78,21 @@ class DscNodeConfiguration(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
+            if configuration is None:
+                raise TypeError("Missing required property 'configuration'")
+            __props__['configuration'] = configuration
+            __props__['increment_node_configuration_build'] = increment_node_configuration_build
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if source is None:
+                raise TypeError("Missing required property 'source'")
+            __props__['source'] = source
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(DscNodeConfiguration, __self__).__init__(
             'azurerm:automation/v20180115:DscNodeConfiguration',

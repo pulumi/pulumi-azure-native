@@ -34,28 +34,26 @@ class SavedSearch(pulumi.CustomResource):
     """
     The type of the saved search.
     """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, name=None, properties=None, resource_group_name=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, category=None, display_name=None, e_tag=None, name=None, query=None, resource_group_name=None, tags=None, version=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Value object for saved search results.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] category: The category of the saved search. This helps the user to find a saved search faster. 
+        :param pulumi.Input[str] display_name: Saved search display name.
         :param pulumi.Input[str] e_tag: The ETag of the saved search.
         :param pulumi.Input[str] name: The id of the saved search.
-        :param pulumi.Input[dict] properties: The properties of the saved search.
+        :param pulumi.Input[str] query: The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
         :param pulumi.Input[str] resource_group_name: The Resource Group name.
+        :param pulumi.Input[list] tags: The tags attached to the saved search.
+        :param pulumi.Input[float] version: The version number of the query language. The current version is 2 and is the default.
         :param pulumi.Input[str] workspace_name: The Log Analytics Workspace name.
 
-        The **properties** object supports the following:
+        The **tags** object supports the following:
 
-          * `category` (`pulumi.Input[str]`) - The category of the saved search. This helps the user to find a saved search faster. 
-          * `display_name` (`pulumi.Input[str]`) - Saved search display name.
-          * `query` (`pulumi.Input[str]`) - The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
-          * `tags` (`pulumi.Input[list]`) - The tags attached to the saved search.
-            * `name` (`pulumi.Input[str]`) - The tag name.
-            * `value` (`pulumi.Input[str]`) - The tag value.
-
-          * `version` (`pulumi.Input[float]`) - The version number of the query language. The current version is 2 and is the default.
+          * `name` (`pulumi.Input[str]`) - The tag name.
+          * `value` (`pulumi.Input[str]`) - The tag value.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,19 +72,28 @@ class SavedSearch(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if category is None:
+                raise TypeError("Missing required property 'category'")
+            __props__['category'] = category
+            if display_name is None:
+                raise TypeError("Missing required property 'display_name'")
+            __props__['display_name'] = display_name
             __props__['e_tag'] = e_tag
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            if query is None:
+                raise TypeError("Missing required property 'query'")
+            __props__['query'] = query
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['tags'] = tags
+            __props__['version'] = version
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(SavedSearch, __self__).__init__(
             'azurerm:operationalinsights/v20150320:SavedSearch',

@@ -66,32 +66,33 @@ class StorageAccount(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_tier=None, custom_domain=None, encryption=None, kind=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The storage account.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        :param pulumi.Input[dict] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
+        :param pulumi.Input[dict] encryption: Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
         :param pulumi.Input[str] kind: Required. Indicates the type of storage account.
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         :param pulumi.Input[str] name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[dict] properties: The parameters used to create the storage account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[dict] sku: Required. Gets or sets the sku name.
         :param pulumi.Input[dict] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
 
-        The **properties** object supports the following:
+        The **custom_domain** object supports the following:
 
-          * `access_tier` (`pulumi.Input[str]`) - Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-          * `custom_domain` (`pulumi.Input[dict]`) - User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
-            * `name` (`pulumi.Input[str]`) - Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-            * `use_sub_domain_name` (`pulumi.Input[bool]`) - Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+          * `name` (`pulumi.Input[str]`) - Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
+          * `use_sub_domain_name` (`pulumi.Input[bool]`) - Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
 
-          * `encryption` (`pulumi.Input[dict]`) - Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
-            * `key_source` (`pulumi.Input[str]`) - The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
-            * `services` (`pulumi.Input[dict]`) - List of services which support encryption.
-              * `blob` (`pulumi.Input[dict]`) - The encryption function of the blob storage service.
-                * `enabled` (`pulumi.Input[bool]`) - A boolean indicating whether or not the service encrypts the data as it is stored.
+        The **encryption** object supports the following:
+
+          * `key_source` (`pulumi.Input[str]`) - The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage
+          * `services` (`pulumi.Input[dict]`) - List of services which support encryption.
+            * `blob` (`pulumi.Input[dict]`) - The encryption function of the blob storage service.
+              * `enabled` (`pulumi.Input[bool]`) - A boolean indicating whether or not the service encrypts the data as it is stored.
 
         The **sku** object supports the following:
 
@@ -114,6 +115,9 @@ class StorageAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['access_tier'] = access_tier
+            __props__['custom_domain'] = custom_domain
+            __props__['encryption'] = encryption
             if kind is None:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
@@ -123,7 +127,6 @@ class StorageAccount(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -131,6 +134,7 @@ class StorageAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(StorageAccount, __self__).__init__(
             'azurerm:storage/v20160501:StorageAccount',

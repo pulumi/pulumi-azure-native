@@ -79,37 +79,35 @@ class AppServicePlan(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, free_offer_expiration_time=None, hosting_environment_profile=None, hyper_v=None, is_spot=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, spot_expiration_time=None, tags=None, target_worker_count=None, target_worker_size_id=None, worker_tier_name=None, __props__=None, __name__=None, __opts__=None):
         """
         App Service plan.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] free_offer_expiration_time: The time when the server farm free offer expires.
+        :param pulumi.Input[dict] hosting_environment_profile: Specification for the App Service Environment to use for the App Service plan.
+        :param pulumi.Input[bool] hyper_v: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
+        :param pulumi.Input[bool] is_spot: If <code>true</code>, this App Service Plan owns spot instances.
+        :param pulumi.Input[bool] is_xenon: Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
+        :param pulumi.Input[float] maximum_elastic_worker_count: Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
         :param pulumi.Input[str] name: Name of the App Service plan.
-        :param pulumi.Input[dict] properties: AppServicePlan resource specific properties
+        :param pulumi.Input[bool] per_site_scaling: If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
+               If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
+        :param pulumi.Input[bool] reserved: If Linux app service plan <code>true</code>, <code>false</code> otherwise.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[dict] sku: Description of a SKU for a scalable resource.
+        :param pulumi.Input[str] spot_expiration_time: The time when the server farm expires. Valid only if it is a spot server farm.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[float] target_worker_count: Scaling worker count.
+        :param pulumi.Input[float] target_worker_size_id: Scaling worker size ID.
+        :param pulumi.Input[str] worker_tier_name: Target worker tier assigned to the App Service plan.
 
-        The **properties** object supports the following:
+        The **hosting_environment_profile** object supports the following:
 
-          * `free_offer_expiration_time` (`pulumi.Input[str]`) - The time when the server farm free offer expires.
-          * `hosting_environment_profile` (`pulumi.Input[dict]`) - Specification for the App Service Environment to use for the App Service plan.
-            * `id` (`pulumi.Input[str]`) - Resource ID of the App Service Environment.
-
-          * `hyper_v` (`pulumi.Input[bool]`) - If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-          * `is_spot` (`pulumi.Input[bool]`) - If <code>true</code>, this App Service Plan owns spot instances.
-          * `is_xenon` (`pulumi.Input[bool]`) - Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-          * `maximum_elastic_worker_count` (`pulumi.Input[float]`) - Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
-          * `per_site_scaling` (`pulumi.Input[bool]`) - If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
-            If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
-          * `reserved` (`pulumi.Input[bool]`) - If Linux app service plan <code>true</code>, <code>false</code> otherwise.
-          * `spot_expiration_time` (`pulumi.Input[str]`) - The time when the server farm expires. Valid only if it is a spot server farm.
-          * `target_worker_count` (`pulumi.Input[float]`) - Scaling worker count.
-          * `target_worker_size_id` (`pulumi.Input[float]`) - Scaling worker size ID.
-          * `worker_tier_name` (`pulumi.Input[str]`) - Target worker tier assigned to the App Service plan.
+          * `id` (`pulumi.Input[str]`) - Resource ID of the App Service Environment.
 
         The **sku** object supports the following:
 
@@ -148,19 +146,31 @@ class AppServicePlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['free_offer_expiration_time'] = free_offer_expiration_time
+            __props__['hosting_environment_profile'] = hosting_environment_profile
+            __props__['hyper_v'] = hyper_v
+            __props__['is_spot'] = is_spot
+            __props__['is_xenon'] = is_xenon
             __props__['kind'] = kind
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['maximum_elastic_worker_count'] = maximum_elastic_worker_count
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['per_site_scaling'] = per_site_scaling
+            __props__['reserved'] = reserved
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
+            __props__['spot_expiration_time'] = spot_expiration_time
             __props__['tags'] = tags
+            __props__['target_worker_count'] = target_worker_count
+            __props__['target_worker_size_id'] = target_worker_size_id
+            __props__['worker_tier_name'] = worker_tier_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(AppServicePlan, __self__).__init__(
             'azurerm:web/v20190801:AppServicePlan',

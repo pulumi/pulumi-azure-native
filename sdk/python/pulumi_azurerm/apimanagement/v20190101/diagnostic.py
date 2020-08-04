@@ -41,38 +41,38 @@ class Diagnostic(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, always_log=None, backend=None, enable_http_correlation_headers=None, frontend=None, http_correlation_protocol=None, logger_id=None, name=None, resource_group_name=None, sampling=None, service_name=None, verbosity=None, __props__=None, __name__=None, __opts__=None):
         """
         Diagnostic details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] always_log: Specifies for what type of messages sampling settings should not apply.
+        :param pulumi.Input[dict] backend: Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+        :param pulumi.Input[bool] enable_http_correlation_headers: Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
+        :param pulumi.Input[dict] frontend: Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+        :param pulumi.Input[str] http_correlation_protocol: Sets correlation protocol to use for Application Insights diagnostics.
+        :param pulumi.Input[str] logger_id: Resource Id of a target logger.
         :param pulumi.Input[str] name: Diagnostic identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[dict] properties: Diagnostic entity contract properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[dict] sampling: Sampling settings for Diagnostic.
         :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] verbosity: The verbosity level applied to traces emitted by trace policies.
 
-        The **properties** object supports the following:
+        The **backend** object supports the following:
 
-          * `always_log` (`pulumi.Input[str]`) - Specifies for what type of messages sampling settings should not apply.
-          * `backend` (`pulumi.Input[dict]`) - Diagnostic settings for incoming/outgoing HTTP messages to the Backend
-            * `request` (`pulumi.Input[dict]`) - Diagnostic settings for request.
-              * `body` (`pulumi.Input[dict]`) - Body logging settings.
-                * `bytes` (`pulumi.Input[float]`) - Number of request body bytes to log.
+          * `request` (`pulumi.Input[dict]`) - Diagnostic settings for request.
+            * `body` (`pulumi.Input[dict]`) - Body logging settings.
+              * `bytes` (`pulumi.Input[float]`) - Number of request body bytes to log.
 
-              * `headers` (`pulumi.Input[list]`) - Array of HTTP Headers to log.
+            * `headers` (`pulumi.Input[list]`) - Array of HTTP Headers to log.
 
-            * `response` (`pulumi.Input[dict]`) - Diagnostic settings for response.
+          * `response` (`pulumi.Input[dict]`) - Diagnostic settings for response.
 
-          * `enable_http_correlation_headers` (`pulumi.Input[bool]`) - Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
-          * `frontend` (`pulumi.Input[dict]`) - Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
-          * `http_correlation_protocol` (`pulumi.Input[str]`) - Sets correlation protocol to use for Application Insights diagnostics.
-          * `logger_id` (`pulumi.Input[str]`) - Resource Id of a target logger.
-          * `sampling` (`pulumi.Input[dict]`) - Sampling settings for Diagnostic.
-            * `percentage` (`pulumi.Input[float]`) - Rate of sampling for fixed-rate sampling.
-            * `sampling_type` (`pulumi.Input[str]`) - Sampling type.
+        The **sampling** object supports the following:
 
-          * `verbosity` (`pulumi.Input[str]`) - The verbosity level applied to traces emitted by trace policies.
+          * `percentage` (`pulumi.Input[float]`) - Rate of sampling for fixed-rate sampling.
+          * `sampling_type` (`pulumi.Input[str]`) - Sampling type.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,16 +91,26 @@ class Diagnostic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['always_log'] = always_log
+            __props__['backend'] = backend
+            __props__['enable_http_correlation_headers'] = enable_http_correlation_headers
+            __props__['frontend'] = frontend
+            __props__['http_correlation_protocol'] = http_correlation_protocol
+            if logger_id is None:
+                raise TypeError("Missing required property 'logger_id'")
+            __props__['logger_id'] = logger_id
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sampling'] = sampling
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['verbosity'] = verbosity
+            __props__['properties'] = None
             __props__['type'] = None
         super(Diagnostic, __self__).__init__(
             'azurerm:apimanagement/v20190101:Diagnostic',

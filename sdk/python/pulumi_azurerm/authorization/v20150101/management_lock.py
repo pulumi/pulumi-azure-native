@@ -24,19 +24,15 @@ class ManagementLock(pulumi.CustomResource):
     """
     The type of the lock.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, level=None, name=None, notes=None, __props__=None, __name__=None, __opts__=None):
         """
         Management lock information.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] level: The lock level of the management lock.
         :param pulumi.Input[str] name: The name of lock.
-        :param pulumi.Input[dict] properties: The properties of the lock.
-
-        The **properties** object supports the following:
-
-          * `level` (`pulumi.Input[str]`) - The lock level of the management lock.
-          * `notes` (`pulumi.Input[str]`) - The notes of the management lock.
+        :param pulumi.Input[str] notes: The notes of the management lock.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,10 +51,12 @@ class ManagementLock(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['level'] = level
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['notes'] = notes
+            __props__['properties'] = None
             __props__['type'] = None
         super(ManagementLock, __self__).__init__(
             'azurerm:authorization/v20150101:ManagementLock',

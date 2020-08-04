@@ -49,42 +49,39 @@ class SecurityRule(pulumi.CustomResource):
       * `source_port_range` (`str`) - The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
       * `source_port_ranges` (`list`) - The source port ranges.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, id=None, name=None, network_security_group_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access=None, description=None, destination_address_prefix=None, destination_address_prefixes=None, destination_application_security_groups=None, destination_port_range=None, destination_port_ranges=None, direction=None, etag=None, id=None, name=None, network_security_group_name=None, priority=None, protocol=None, provisioning_state=None, resource_group_name=None, source_address_prefix=None, source_address_prefixes=None, source_application_security_groups=None, source_port_range=None, source_port_ranges=None, __props__=None, __name__=None, __opts__=None):
         """
         Network security rule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access: The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
+        :param pulumi.Input[str] description: A description for this rule. Restricted to 140 chars.
+        :param pulumi.Input[str] destination_address_prefix: The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+        :param pulumi.Input[list] destination_address_prefixes: The destination address prefixes. CIDR or destination IP ranges.
+        :param pulumi.Input[list] destination_application_security_groups: The application security group specified as destination.
+        :param pulumi.Input[str] destination_port_range: The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        :param pulumi.Input[list] destination_port_ranges: The destination port ranges.
+        :param pulumi.Input[str] direction: The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the security rule.
         :param pulumi.Input[str] network_security_group_name: The name of the network security group.
-        :param pulumi.Input[dict] properties: Properties of the security rule
+        :param pulumi.Input[float] priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        :param pulumi.Input[str] protocol: Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
+        :param pulumi.Input[str] provisioning_state: The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] source_address_prefix: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+        :param pulumi.Input[list] source_address_prefixes: The CIDR or source IP ranges.
+        :param pulumi.Input[list] source_application_security_groups: The application security group specified as source.
+        :param pulumi.Input[str] source_port_range: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        :param pulumi.Input[list] source_port_ranges: The source port ranges.
 
-        The **properties** object supports the following:
+        The **destination_application_security_groups** object supports the following:
 
-          * `access` (`pulumi.Input[str]`) - The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
-          * `description` (`pulumi.Input[str]`) - A description for this rule. Restricted to 140 chars.
-          * `destination_address_prefix` (`pulumi.Input[str]`) - The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-          * `destination_address_prefixes` (`pulumi.Input[list]`) - The destination address prefixes. CIDR or destination IP ranges.
-          * `destination_application_security_groups` (`pulumi.Input[list]`) - The application security group specified as destination.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `location` (`pulumi.Input[str]`) - Resource location.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the application security group.
-            * `tags` (`pulumi.Input[dict]`) - Resource tags.
-
-          * `destination_port_range` (`pulumi.Input[str]`) - The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-          * `destination_port_ranges` (`pulumi.Input[list]`) - The destination port ranges.
-          * `direction` (`pulumi.Input[str]`) - The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
-          * `priority` (`pulumi.Input[float]`) - The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-          * `protocol` (`pulumi.Input[str]`) - Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `source_address_prefix` (`pulumi.Input[str]`) - The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
-          * `source_address_prefixes` (`pulumi.Input[list]`) - The CIDR or source IP ranges.
-          * `source_application_security_groups` (`pulumi.Input[list]`) - The application security group specified as source.
-          * `source_port_range` (`pulumi.Input[str]`) - The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-          * `source_port_ranges` (`pulumi.Input[list]`) - The source port ranges.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `location` (`pulumi.Input[str]`) - Resource location.
+          * `tags` (`pulumi.Input[dict]`) - Resource tags.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -103,6 +100,18 @@ class SecurityRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if access is None:
+                raise TypeError("Missing required property 'access'")
+            __props__['access'] = access
+            __props__['description'] = description
+            __props__['destination_address_prefix'] = destination_address_prefix
+            __props__['destination_address_prefixes'] = destination_address_prefixes
+            __props__['destination_application_security_groups'] = destination_application_security_groups
+            __props__['destination_port_range'] = destination_port_range
+            __props__['destination_port_ranges'] = destination_port_ranges
+            if direction is None:
+                raise TypeError("Missing required property 'direction'")
+            __props__['direction'] = direction
             __props__['etag'] = etag
             __props__['id'] = id
             if name is None:
@@ -111,10 +120,20 @@ class SecurityRule(pulumi.CustomResource):
             if network_security_group_name is None:
                 raise TypeError("Missing required property 'network_security_group_name'")
             __props__['network_security_group_name'] = network_security_group_name
-            __props__['properties'] = properties
+            __props__['priority'] = priority
+            if protocol is None:
+                raise TypeError("Missing required property 'protocol'")
+            __props__['protocol'] = protocol
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['source_address_prefix'] = source_address_prefix
+            __props__['source_address_prefixes'] = source_address_prefixes
+            __props__['source_application_security_groups'] = source_application_security_groups
+            __props__['source_port_range'] = source_port_range
+            __props__['source_port_ranges'] = source_port_ranges
+            __props__['properties'] = None
         super(SecurityRule, __self__).__init__(
             'azurerm:network/v20180601:SecurityRule',
             resource_name,

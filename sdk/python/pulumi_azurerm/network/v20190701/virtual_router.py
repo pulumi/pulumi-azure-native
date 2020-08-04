@@ -42,27 +42,25 @@ class VirtualRouter(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, hosted_gateway=None, hosted_subnet=None, id=None, location=None, name=None, resource_group_name=None, tags=None, virtual_router_asn=None, virtual_router_ips=None, __props__=None, __name__=None, __opts__=None):
         """
         VirtualRouter Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] hosted_gateway: The Gateway on which VirtualRouter is hosted.
+        :param pulumi.Input[dict] hosted_subnet: The Subnet on which VirtualRouter is hosted.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the Virtual Router.
-        :param pulumi.Input[dict] properties: Properties of the Virtual Router.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[float] virtual_router_asn: VirtualRouter ASN.
+        :param pulumi.Input[list] virtual_router_ips: VirtualRouter IPs
 
-        The **properties** object supports the following:
+        The **hosted_gateway** object supports the following:
 
-          * `hosted_gateway` (`pulumi.Input[dict]`) - The Gateway on which VirtualRouter is hosted.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `hosted_subnet` (`pulumi.Input[dict]`) - The Subnet on which VirtualRouter is hosted.
-          * `virtual_router_asn` (`pulumi.Input[float]`) - VirtualRouter ASN.
-          * `virtual_router_ips` (`pulumi.Input[list]`) - VirtualRouter IPs
+          * `id` (`pulumi.Input[str]`) - Resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,17 +79,21 @@ class VirtualRouter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['hosted_gateway'] = hosted_gateway
+            __props__['hosted_subnet'] = hosted_subnet
             __props__['id'] = id
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['virtual_router_asn'] = virtual_router_asn
+            __props__['virtual_router_ips'] = virtual_router_ips
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualRouter, __self__).__init__(
             'azurerm:network/v20190701:VirtualRouter',

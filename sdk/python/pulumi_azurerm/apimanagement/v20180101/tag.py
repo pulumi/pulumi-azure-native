@@ -23,20 +23,16 @@ class Tag(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, display_name=None, name=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Tag Contract details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] display_name: Tag name.
         :param pulumi.Input[str] name: Tag identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[dict] properties: Properties supplied to Create Tag operation.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-
-        The **properties** object supports the following:
-
-          * `display_name` (`pulumi.Input[str]`) - Tag name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -55,16 +51,19 @@ class Tag(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if display_name is None:
+                raise TypeError("Missing required property 'display_name'")
+            __props__['display_name'] = display_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Tag, __self__).__init__(
             'azurerm:apimanagement/v20180101:Tag',

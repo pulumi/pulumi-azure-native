@@ -35,28 +35,24 @@ class WebAppDeployment(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, active=None, author=None, author_email=None, deployer=None, details=None, end_time=None, kind=None, message=None, name=None, resource_group_name=None, start_time=None, status=None, __props__=None, __name__=None, __opts__=None):
         """
         User credentials used for publishing activity.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] active: True if deployment is currently active, false if completed and null if not started.
+        :param pulumi.Input[str] author: Who authored the deployment.
+        :param pulumi.Input[str] author_email: Author email.
+        :param pulumi.Input[str] deployer: Who performed the deployment.
+        :param pulumi.Input[str] details: Details on deployment.
+        :param pulumi.Input[str] end_time: End time.
         :param pulumi.Input[str] kind: Kind of resource.
+        :param pulumi.Input[str] message: Details about deployment status.
         :param pulumi.Input[str] name: ID of an existing deployment.
-        :param pulumi.Input[dict] properties: Deployment resource specific properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-
-        The **properties** object supports the following:
-
-          * `active` (`pulumi.Input[bool]`) - True if deployment is currently active, false if completed and null if not started.
-          * `author` (`pulumi.Input[str]`) - Who authored the deployment.
-          * `author_email` (`pulumi.Input[str]`) - Author email.
-          * `deployer` (`pulumi.Input[str]`) - Who performed the deployment.
-          * `details` (`pulumi.Input[str]`) - Details on deployment.
-          * `end_time` (`pulumi.Input[str]`) - End time.
-          * `message` (`pulumi.Input[str]`) - Details about deployment status.
-          * `start_time` (`pulumi.Input[str]`) - Start time.
-          * `status` (`pulumi.Input[float]`) - Deployment status.
+        :param pulumi.Input[str] start_time: Start time.
+        :param pulumi.Input[float] status: Deployment status.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,14 +71,23 @@ class WebAppDeployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['active'] = active
+            __props__['author'] = author
+            __props__['author_email'] = author_email
+            __props__['deployer'] = deployer
+            __props__['details'] = details
+            __props__['end_time'] = end_time
             __props__['kind'] = kind
+            __props__['message'] = message
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['start_time'] = start_time
+            __props__['status'] = status
+            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppDeployment, __self__).__init__(
             'azurerm:web/v20181101:WebAppDeployment',

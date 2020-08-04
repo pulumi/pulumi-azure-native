@@ -30,27 +30,28 @@ class User(pulumi.CustomResource):
     """
     The hierarchical type of the object.
     """
-    def __init__(__self__, resource_name, opts=None, device_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, device_name=None, encrypted_password=None, name=None, resource_group_name=None, share_access_rights=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name.
+        :param pulumi.Input[dict] encrypted_password: The password details.
         :param pulumi.Input[str] name: The user name.
-        :param pulumi.Input[dict] properties: The storage account credential properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[list] share_access_rights: List of shares that the user has rights on. This field should not be specified during user creation.
 
-        The **properties** object supports the following:
+        The **encrypted_password** object supports the following:
 
-          * `encrypted_password` (`pulumi.Input[dict]`) - The password details.
-            * `encryption_algorithm` (`pulumi.Input[str]`) - The algorithm used to encrypt "Value".
-            * `encryption_cert_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
-            * `value` (`pulumi.Input[str]`) - The value of the secret.
+          * `encryption_algorithm` (`pulumi.Input[str]`) - The algorithm used to encrypt "Value".
+          * `encryption_cert_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
+          * `value` (`pulumi.Input[str]`) - The value of the secret.
 
-          * `share_access_rights` (`pulumi.Input[list]`) - List of shares that the user has rights on. This field should not be specified during user creation.
-            * `access_type` (`pulumi.Input[str]`) - Type of access to be allowed on the share for this user.
-            * `share_id` (`pulumi.Input[str]`) - The share ID.
+        The **share_access_rights** object supports the following:
+
+          * `access_type` (`pulumi.Input[str]`) - Type of access to be allowed on the share for this user.
+          * `share_id` (`pulumi.Input[str]`) - The share ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -72,15 +73,15 @@ class User(pulumi.CustomResource):
             if device_name is None:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
+            __props__['encrypted_password'] = encrypted_password
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['share_access_rights'] = share_access_rights
+            __props__['properties'] = None
             __props__['type'] = None
         super(User, __self__).__init__(
             'azurerm:databoxedge/v20190701:User',

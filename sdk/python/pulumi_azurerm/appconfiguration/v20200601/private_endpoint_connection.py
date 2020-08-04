@@ -31,7 +31,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, config_store_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, config_store_name=None, name=None, private_endpoint=None, private_link_service_connection_state=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         A private endpoint connection
 
@@ -39,17 +39,18 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_store_name: The name of the configuration store.
         :param pulumi.Input[str] name: Private endpoint connection name
-        :param pulumi.Input[dict] properties: The properties of a private endpoint.
+        :param pulumi.Input[dict] private_endpoint: The resource of private endpoint.
+        :param pulumi.Input[dict] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
 
-        The **properties** object supports the following:
+        The **private_endpoint** object supports the following:
 
-          * `private_endpoint` (`pulumi.Input[dict]`) - The resource of private endpoint.
-            * `id` (`pulumi.Input[str]`) - The resource Id for private endpoint
+          * `id` (`pulumi.Input[str]`) - The resource Id for private endpoint
 
-          * `private_link_service_connection_state` (`pulumi.Input[dict]`) - A collection of information about the state of the connection between service consumer and provider.
-            * `description` (`pulumi.Input[str]`) - The private link service connection description.
-            * `status` (`pulumi.Input[str]`) - The private link service connection status.
+        The **private_link_service_connection_state** object supports the following:
+
+          * `description` (`pulumi.Input[str]`) - The private link service connection description.
+          * `status` (`pulumi.Input[str]`) - The private link service connection status.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,10 +75,14 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['private_endpoint'] = private_endpoint
+            if private_link_service_connection_state is None:
+                raise TypeError("Missing required property 'private_link_service_connection_state'")
+            __props__['private_link_service_connection_state'] = private_link_service_connection_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(PrivateEndpointConnection, __self__).__init__(
             'azurerm:appconfiguration/v20200601:PrivateEndpointConnection',

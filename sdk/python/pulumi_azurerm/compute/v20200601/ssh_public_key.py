@@ -31,7 +31,7 @@ class SshPublicKey(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, public_key=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Specifies information about the SSH public key.
 
@@ -39,13 +39,9 @@ class SshPublicKey(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the SSH public key.
-        :param pulumi.Input[dict] properties: Properties of the SSH public key.
+        :param pulumi.Input[str] public_key: SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags
-
-        The **properties** object supports the following:
-
-          * `public_key` (`pulumi.Input[str]`) - SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -70,11 +66,12 @@ class SshPublicKey(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['public_key'] = public_key
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(SshPublicKey, __self__).__init__(
             'azurerm:compute/v20200601:SshPublicKey',

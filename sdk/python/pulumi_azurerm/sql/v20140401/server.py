@@ -41,23 +41,19 @@ class Server(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, administrator_login=None, administrator_login_password=None, location=None, name=None, resource_group_name=None, tags=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         Represents a server.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] administrator_login: Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+        :param pulumi.Input[str] administrator_login_password: The administrator login password (required for server creation).
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the server.
-        :param pulumi.Input[dict] properties: Represents the properties of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[dict] tags: Resource tags.
-
-        The **properties** object supports the following:
-
-          * `administrator_login` (`pulumi.Input[str]`) - Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
-          * `administrator_login_password` (`pulumi.Input[str]`) - The administrator login password (required for server creation).
-          * `version` (`pulumi.Input[str]`) - The version of the server.
+        :param pulumi.Input[str] version: The version of the server.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,18 +72,21 @@ class Server(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['administrator_login'] = administrator_login
+            __props__['administrator_login_password'] = administrator_login_password
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['version'] = version
             __props__['kind'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(Server, __self__).__init__(
             'azurerm:sql/v20140401:Server',

@@ -432,26 +432,24 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
     """
     Type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, load_balancer_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, load_balancer_backend_addresses=None, load_balancer_name=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Pool of backend IP addresses.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[list] load_balancer_backend_addresses: An array of backend addresses.
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
         :param pulumi.Input[str] name: The name of the backend address pool.
-        :param pulumi.Input[dict] properties: Properties of load balancer backend address pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
 
-        The **properties** object supports the following:
+        The **load_balancer_backend_addresses** object supports the following:
 
-          * `load_balancer_backend_addresses` (`pulumi.Input[list]`) - An array of backend addresses.
-            * `name` (`pulumi.Input[str]`) - Name of the backend address.
-            * `properties` (`pulumi.Input[dict]`) - Properties of load balancer backend address pool.
-              * `ip_address` (`pulumi.Input[str]`) - IP Address belonging to the referenced virtual network.
-              * `virtual_network` (`pulumi.Input[dict]`) - Reference to an existing virtual network.
-                * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `ip_address` (`pulumi.Input[str]`) - IP Address belonging to the referenced virtual network.
+          * `name` (`pulumi.Input[str]`) - Name of the backend address.
+          * `virtual_network` (`pulumi.Input[dict]`) - Reference to an existing virtual network.
+            * `id` (`pulumi.Input[str]`) - Resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -471,17 +469,18 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['id'] = id
+            __props__['load_balancer_backend_addresses'] = load_balancer_backend_addresses
             if load_balancer_name is None:
                 raise TypeError("Missing required property 'load_balancer_name'")
             __props__['load_balancer_name'] = load_balancer_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(LoadBalancerBackendAddressPool, __self__).__init__(
             'azurerm:network/v20200501:LoadBalancerBackendAddressPool',

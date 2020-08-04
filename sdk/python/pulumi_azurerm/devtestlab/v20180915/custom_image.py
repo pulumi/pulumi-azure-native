@@ -59,47 +59,52 @@ class CustomImage(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, lab_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, author=None, custom_image_plan=None, data_disk_storage_info=None, description=None, is_plan_authorized=None, lab_name=None, location=None, managed_image_id=None, managed_snapshot_id=None, name=None, resource_group_name=None, tags=None, vhd=None, vm=None, __props__=None, __name__=None, __opts__=None):
         """
         A custom image.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] author: The author of the custom image.
+        :param pulumi.Input[dict] custom_image_plan: Storage information about the plan related to this custom image
+        :param pulumi.Input[list] data_disk_storage_info: Storage information about the data disks present in the custom image
+        :param pulumi.Input[str] description: The description of the custom image.
+        :param pulumi.Input[bool] is_plan_authorized: Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
+        :param pulumi.Input[str] managed_image_id: The Managed Image Id backing the custom image.
+        :param pulumi.Input[str] managed_snapshot_id: The Managed Snapshot Id backing the custom image.
         :param pulumi.Input[str] name: The name of the custom image.
-        :param pulumi.Input[dict] properties: The properties of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[dict] vhd: The VHD from which the image is to be created.
+        :param pulumi.Input[dict] vm: The virtual machine from which the image is to be created.
 
-        The **properties** object supports the following:
+        The **custom_image_plan** object supports the following:
 
-          * `author` (`pulumi.Input[str]`) - The author of the custom image.
-          * `custom_image_plan` (`pulumi.Input[dict]`) - Storage information about the plan related to this custom image
-            * `id` (`pulumi.Input[str]`) - The id of the plan, equivalent to name of the plan
-            * `offer` (`pulumi.Input[str]`) - The offer for the plan from the marketplace image the custom image is derived from
-            * `publisher` (`pulumi.Input[str]`) - The publisher for the plan from the marketplace image the custom image is derived from
+          * `id` (`pulumi.Input[str]`) - The id of the plan, equivalent to name of the plan
+          * `offer` (`pulumi.Input[str]`) - The offer for the plan from the marketplace image the custom image is derived from
+          * `publisher` (`pulumi.Input[str]`) - The publisher for the plan from the marketplace image the custom image is derived from
 
-          * `data_disk_storage_info` (`pulumi.Input[list]`) - Storage information about the data disks present in the custom image
-            * `lun` (`pulumi.Input[str]`) - Disk Lun
-            * `storage_type` (`pulumi.Input[str]`) - Disk Storage Type
+        The **data_disk_storage_info** object supports the following:
 
-          * `description` (`pulumi.Input[str]`) - The description of the custom image.
-          * `is_plan_authorized` (`pulumi.Input[bool]`) - Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
-          * `managed_image_id` (`pulumi.Input[str]`) - The Managed Image Id backing the custom image.
-          * `managed_snapshot_id` (`pulumi.Input[str]`) - The Managed Snapshot Id backing the custom image.
-          * `vhd` (`pulumi.Input[dict]`) - The VHD from which the image is to be created.
-            * `image_name` (`pulumi.Input[str]`) - The image name.
-            * `os_type` (`pulumi.Input[str]`) - The OS type of the custom image (i.e. Windows, Linux)
-            * `sys_prep` (`pulumi.Input[bool]`) - Indicates whether sysprep has been run on the VHD.
+          * `lun` (`pulumi.Input[str]`) - Disk Lun
+          * `storage_type` (`pulumi.Input[str]`) - Disk Storage Type
 
-          * `vm` (`pulumi.Input[dict]`) - The virtual machine from which the image is to be created.
-            * `linux_os_info` (`pulumi.Input[dict]`) - The Linux OS information of the VM.
-              * `linux_os_state` (`pulumi.Input[str]`) - The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
+        The **vhd** object supports the following:
 
-            * `source_vm_id` (`pulumi.Input[str]`) - The source vm identifier.
-            * `windows_os_info` (`pulumi.Input[dict]`) - The Windows OS information of the VM.
-              * `windows_os_state` (`pulumi.Input[str]`) - The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
+          * `image_name` (`pulumi.Input[str]`) - The image name.
+          * `os_type` (`pulumi.Input[str]`) - The OS type of the custom image (i.e. Windows, Linux)
+          * `sys_prep` (`pulumi.Input[bool]`) - Indicates whether sysprep has been run on the VHD.
+
+        The **vm** object supports the following:
+
+          * `linux_os_info` (`pulumi.Input[dict]`) - The Linux OS information of the VM.
+            * `linux_os_state` (`pulumi.Input[str]`) - The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
+
+          * `source_vm_id` (`pulumi.Input[str]`) - The source vm identifier.
+          * `windows_os_info` (`pulumi.Input[dict]`) - The Windows OS information of the VM.
+            * `windows_os_state` (`pulumi.Input[str]`) - The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -118,20 +123,27 @@ class CustomImage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['author'] = author
+            __props__['custom_image_plan'] = custom_image_plan
+            __props__['data_disk_storage_info'] = data_disk_storage_info
+            __props__['description'] = description
+            __props__['is_plan_authorized'] = is_plan_authorized
             if lab_name is None:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
             __props__['location'] = location
+            __props__['managed_image_id'] = managed_image_id
+            __props__['managed_snapshot_id'] = managed_snapshot_id
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['vhd'] = vhd
+            __props__['vm'] = vm
+            __props__['properties'] = None
             __props__['type'] = None
         super(CustomImage, __self__).__init__(
             'azurerm:devtestlab/v20180915:CustomImage',

@@ -47,7 +47,7 @@ class NatGateway(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, id=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, etag=None, id=None, idle_timeout_in_minutes=None, location=None, name=None, provisioning_state=None, public_ip_addresses=None, public_ip_prefixes=None, resource_group_name=None, resource_guid=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Nat Gateway resource.
 
@@ -55,22 +55,20 @@ class NatGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[float] idle_timeout_in_minutes: The idle timeout of the nat gateway.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the nat gateway.
-        :param pulumi.Input[dict] properties: Nat Gateway properties.
+        :param pulumi.Input[str] provisioning_state: The provisioning state of the NatGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        :param pulumi.Input[list] public_ip_addresses: An array of public ip addresses associated with the nat gateway resource.
+        :param pulumi.Input[list] public_ip_prefixes: An array of public ip prefixes associated with the nat gateway resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_guid: The resource GUID property of the nat gateway resource.
         :param pulumi.Input[dict] sku: The nat gateway SKU.
         :param pulumi.Input[dict] tags: Resource tags.
 
-        The **properties** object supports the following:
+        The **public_ip_addresses** object supports the following:
 
-          * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - The idle timeout of the nat gateway.
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the NatGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `public_ip_addresses` (`pulumi.Input[list]`) - An array of public ip addresses associated with the nat gateway resource.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `public_ip_prefixes` (`pulumi.Input[list]`) - An array of public ip prefixes associated with the nat gateway resource.
-          * `resource_guid` (`pulumi.Input[str]`) - The resource GUID property of the nat gateway resource.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
 
         The **sku** object supports the following:
 
@@ -95,16 +93,21 @@ class NatGateway(pulumi.CustomResource):
 
             __props__['etag'] = etag
             __props__['id'] = id
+            __props__['idle_timeout_in_minutes'] = idle_timeout_in_minutes
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
+            __props__['public_ip_addresses'] = public_ip_addresses
+            __props__['public_ip_prefixes'] = public_ip_prefixes
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['resource_guid'] = resource_guid
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(NatGateway, __self__).__init__(
             'azurerm:network/v20190201:NatGateway',

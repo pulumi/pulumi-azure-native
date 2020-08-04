@@ -25,19 +25,15 @@ class HierarchySetting(pulumi.CustomResource):
     """
     The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, default_management_group=None, name=None, require_authorization_for_group_creation=None, __props__=None, __name__=None, __opts__=None):
         """
         Settings defined at the Management Group scope.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] default_management_group: Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
         :param pulumi.Input[str] name: Management Group ID.
-        :param pulumi.Input[dict] properties: The properties of the request to create or update Management Group settings
-
-        The **properties** object supports the following:
-
-          * `default_management_group` (`pulumi.Input[str]`) - Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
-          * `require_authorization_for_group_creation` (`pulumi.Input[bool]`) - Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
+        :param pulumi.Input[bool] require_authorization_for_group_creation: Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -56,10 +52,12 @@ class HierarchySetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['default_management_group'] = default_management_group
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['require_authorization_for_group_creation'] = require_authorization_for_group_creation
+            __props__['properties'] = None
             __props__['type'] = None
         super(HierarchySetting, __self__).__init__(
             'azurerm:management/v20200201:HierarchySetting',

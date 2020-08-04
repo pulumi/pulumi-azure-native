@@ -26,23 +26,19 @@ class ComputePolicy(pulumi.CustomResource):
     """
     The resource type.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, max_degree_of_parallelism_per_job=None, min_priority_per_job=None, name=None, object_id=None, object_type=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Data Lake Analytics compute policy information.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Analytics account.
+        :param pulumi.Input[float] max_degree_of_parallelism_per_job: The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
+        :param pulumi.Input[float] min_priority_per_job: The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
         :param pulumi.Input[str] name: The name of the compute policy to create or update.
-        :param pulumi.Input[dict] properties: The compute policy properties to use when creating a new compute policy.
+        :param pulumi.Input[str] object_id: The AAD object identifier for the entity to create a policy for.
+        :param pulumi.Input[str] object_type: The type of AAD object the object identifier refers to.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
-
-        The **properties** object supports the following:
-
-          * `max_degree_of_parallelism_per_job` (`pulumi.Input[float]`) - The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
-          * `min_priority_per_job` (`pulumi.Input[float]`) - The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
-          * `object_id` (`pulumi.Input[str]`) - The AAD object identifier for the entity to create a policy for.
-          * `object_type` (`pulumi.Input[str]`) - The type of AAD object the object identifier refers to.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,15 +60,21 @@ class ComputePolicy(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['max_degree_of_parallelism_per_job'] = max_degree_of_parallelism_per_job
+            __props__['min_priority_per_job'] = min_priority_per_job
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            if object_id is None:
+                raise TypeError("Missing required property 'object_id'")
+            __props__['object_id'] = object_id
+            if object_type is None:
+                raise TypeError("Missing required property 'object_type'")
+            __props__['object_type'] = object_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(ComputePolicy, __self__).__init__(
             'azurerm:datalakeanalytics/v20161101:ComputePolicy',

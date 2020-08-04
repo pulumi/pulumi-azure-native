@@ -24,26 +24,24 @@ class ExpressRouteConnection(pulumi.CustomResource):
       * `provisioning_state` (`str`) - The provisioning state of the resource.
       * `routing_weight` (`float`) - The routing weight associated to the connection.
     """
-    def __init__(__self__, resource_name, opts=None, express_route_gateway_name=None, id=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authorization_key=None, express_route_circuit_peering=None, express_route_gateway_name=None, id=None, name=None, provisioning_state=None, resource_group_name=None, routing_weight=None, __props__=None, __name__=None, __opts__=None):
         """
         ExpressRouteConnection resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authorization_key: Authorization key to establish the connection.
+        :param pulumi.Input[dict] express_route_circuit_peering: The ExpressRoute circuit peering.
         :param pulumi.Input[str] express_route_gateway_name: The name of the ExpressRoute gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the connection subresource.
-        :param pulumi.Input[dict] properties: Properties of the express route connection.
+        :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[float] routing_weight: The routing weight associated to the connection.
 
-        The **properties** object supports the following:
+        The **express_route_circuit_peering** object supports the following:
 
-          * `authorization_key` (`pulumi.Input[str]`) - Authorization key to establish the connection.
-          * `express_route_circuit_peering` (`pulumi.Input[dict]`) - The ExpressRoute circuit peering.
-            * `id` (`pulumi.Input[str]`) - The ID of the ExpressRoute circuit peering.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
-          * `routing_weight` (`pulumi.Input[float]`) - The routing weight associated to the connection.
+          * `id` (`pulumi.Input[str]`) - The ID of the ExpressRoute circuit peering.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -62,6 +60,10 @@ class ExpressRouteConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['authorization_key'] = authorization_key
+            if express_route_circuit_peering is None:
+                raise TypeError("Missing required property 'express_route_circuit_peering'")
+            __props__['express_route_circuit_peering'] = express_route_circuit_peering
             if express_route_gateway_name is None:
                 raise TypeError("Missing required property 'express_route_gateway_name'")
             __props__['express_route_gateway_name'] = express_route_gateway_name
@@ -69,10 +71,12 @@ class ExpressRouteConnection(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['routing_weight'] = routing_weight
+            __props__['properties'] = None
         super(ExpressRouteConnection, __self__).__init__(
             'azurerm:network/v20190601:ExpressRouteConnection',
             resource_name,

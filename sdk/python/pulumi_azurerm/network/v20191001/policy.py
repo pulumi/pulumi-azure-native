@@ -83,64 +83,67 @@ class Policy(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, custom_rules=None, etag=None, location=None, managed_rules=None, name=None, policy_settings=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Defines web application firewall policy.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] custom_rules: Describes custom rules inside the policy.
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[dict] managed_rules: Describes managed rules inside the policy.
         :param pulumi.Input[str] name: The name of the Web Application Firewall Policy.
-        :param pulumi.Input[dict] properties: Properties of the web application firewall policy.
+        :param pulumi.Input[dict] policy_settings: Describes settings for the policy.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[dict] tags: Resource tags.
 
-        The **properties** object supports the following:
+        The **custom_rules** object supports the following:
 
-          * `custom_rules` (`pulumi.Input[dict]`) - Describes custom rules inside the policy.
-            * `rules` (`pulumi.Input[list]`) - List of rules
-              * `action` (`pulumi.Input[str]`) - Describes what action to be applied when rule matches.
-              * `enabled_state` (`pulumi.Input[str]`) - Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
-              * `match_conditions` (`pulumi.Input[list]`) - List of match conditions.
-                * `match_value` (`pulumi.Input[list]`) - List of possible match values.
-                * `match_variable` (`pulumi.Input[str]`) - Request variable to compare with.
-                * `negate_condition` (`pulumi.Input[bool]`) - Describes if the result of this condition should be negated.
-                * `operator` (`pulumi.Input[str]`) - Comparison type to use for matching with the variable value.
-                * `selector` (`pulumi.Input[str]`) - Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
-                * `transforms` (`pulumi.Input[list]`) - List of transforms.
+          * `rules` (`pulumi.Input[list]`) - List of rules
+            * `action` (`pulumi.Input[str]`) - Describes what action to be applied when rule matches.
+            * `enabled_state` (`pulumi.Input[str]`) - Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+            * `match_conditions` (`pulumi.Input[list]`) - List of match conditions.
+              * `match_value` (`pulumi.Input[list]`) - List of possible match values.
+              * `match_variable` (`pulumi.Input[str]`) - Request variable to compare with.
+              * `negate_condition` (`pulumi.Input[bool]`) - Describes if the result of this condition should be negated.
+              * `operator` (`pulumi.Input[str]`) - Comparison type to use for matching with the variable value.
+              * `selector` (`pulumi.Input[str]`) - Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
+              * `transforms` (`pulumi.Input[list]`) - List of transforms.
 
-              * `name` (`pulumi.Input[str]`) - Describes the name of the rule.
-              * `priority` (`pulumi.Input[float]`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
-              * `rate_limit_duration_in_minutes` (`pulumi.Input[float]`) - Time window for resetting the rate limit count. Default is 1 minute.
-              * `rate_limit_threshold` (`pulumi.Input[float]`) - Number of allowed requests per client within the time window.
-              * `rule_type` (`pulumi.Input[str]`) - Describes type of rule.
+            * `name` (`pulumi.Input[str]`) - Describes the name of the rule.
+            * `priority` (`pulumi.Input[float]`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+            * `rate_limit_duration_in_minutes` (`pulumi.Input[float]`) - Time window for resetting the rate limit count. Default is 1 minute.
+            * `rate_limit_threshold` (`pulumi.Input[float]`) - Number of allowed requests per client within the time window.
+            * `rule_type` (`pulumi.Input[str]`) - Describes type of rule.
 
-          * `managed_rules` (`pulumi.Input[dict]`) - Describes managed rules inside the policy.
-            * `managed_rule_sets` (`pulumi.Input[list]`) - List of rule sets.
-              * `exclusions` (`pulumi.Input[list]`) - Describes the exclusions that are applied to all rules in the set.
-                * `match_variable` (`pulumi.Input[str]`) - The variable type to be excluded.
-                * `selector` (`pulumi.Input[str]`) - Selector value for which elements in the collection this exclusion applies to.
-                * `selector_match_operator` (`pulumi.Input[str]`) - Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
+        The **managed_rules** object supports the following:
 
-              * `rule_group_overrides` (`pulumi.Input[list]`) - Defines the rule group overrides to apply to the rule set.
-                * `exclusions` (`pulumi.Input[list]`) - Describes the exclusions that are applied to all rules in the group.
-                * `rule_group_name` (`pulumi.Input[str]`) - Describes the managed rule group to override.
-                * `rules` (`pulumi.Input[list]`) - List of rules that will be disabled. If none specified, all rules in the group will be disabled.
-                  * `action` (`pulumi.Input[str]`) - Describes the override action to be applied when rule matches.
-                  * `enabled_state` (`pulumi.Input[str]`) - Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
-                  * `exclusions` (`pulumi.Input[list]`) - Describes the exclusions that are applied to this specific rule.
-                  * `rule_id` (`pulumi.Input[str]`) - Identifier for the managed rule.
+          * `managed_rule_sets` (`pulumi.Input[list]`) - List of rule sets.
+            * `exclusions` (`pulumi.Input[list]`) - Describes the exclusions that are applied to all rules in the set.
+              * `match_variable` (`pulumi.Input[str]`) - The variable type to be excluded.
+              * `selector` (`pulumi.Input[str]`) - Selector value for which elements in the collection this exclusion applies to.
+              * `selector_match_operator` (`pulumi.Input[str]`) - Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
 
-              * `rule_set_type` (`pulumi.Input[str]`) - Defines the rule set type to use.
-              * `rule_set_version` (`pulumi.Input[str]`) - Defines the version of the rule set to use.
+            * `rule_group_overrides` (`pulumi.Input[list]`) - Defines the rule group overrides to apply to the rule set.
+              * `exclusions` (`pulumi.Input[list]`) - Describes the exclusions that are applied to all rules in the group.
+              * `rule_group_name` (`pulumi.Input[str]`) - Describes the managed rule group to override.
+              * `rules` (`pulumi.Input[list]`) - List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+                * `action` (`pulumi.Input[str]`) - Describes the override action to be applied when rule matches.
+                * `enabled_state` (`pulumi.Input[str]`) - Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+                * `exclusions` (`pulumi.Input[list]`) - Describes the exclusions that are applied to this specific rule.
+                * `rule_id` (`pulumi.Input[str]`) - Identifier for the managed rule.
 
-          * `policy_settings` (`pulumi.Input[dict]`) - Describes settings for the policy.
-            * `custom_block_response_body` (`pulumi.Input[str]`) - If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
-            * `custom_block_response_status_code` (`pulumi.Input[float]`) - If the action type is block, customer can override the response status code.
-            * `enabled_state` (`pulumi.Input[str]`) - Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
-            * `mode` (`pulumi.Input[str]`) - Describes if it is in detection mode or prevention mode at policy level.
-            * `redirect_url` (`pulumi.Input[str]`) - If action type is redirect, this field represents redirect URL for the client.
+            * `rule_set_type` (`pulumi.Input[str]`) - Defines the rule set type to use.
+            * `rule_set_version` (`pulumi.Input[str]`) - Defines the version of the rule set to use.
+
+        The **policy_settings** object supports the following:
+
+          * `custom_block_response_body` (`pulumi.Input[str]`) - If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+          * `custom_block_response_status_code` (`pulumi.Input[float]`) - If the action type is block, customer can override the response status code.
+          * `enabled_state` (`pulumi.Input[str]`) - Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
+          * `mode` (`pulumi.Input[str]`) - Describes if it is in detection mode or prevention mode at policy level.
+          * `redirect_url` (`pulumi.Input[str]`) - If action type is redirect, this field represents redirect URL for the client.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -159,16 +162,19 @@ class Policy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['custom_rules'] = custom_rules
             __props__['etag'] = etag
             __props__['location'] = location
+            __props__['managed_rules'] = managed_rules
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['policy_settings'] = policy_settings
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Policy, __self__).__init__(
             'azurerm:network/v20191001:Policy',

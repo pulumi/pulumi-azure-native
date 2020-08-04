@@ -31,26 +31,27 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
     """
     The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, private_endpoint=None, private_link_service_connection_state=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
         """
         A private endpoint connection to SignalR resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the private endpoint connection associated with the SignalR resource.
-        :param pulumi.Input[dict] properties: Properties of the private endpoint connection
+        :param pulumi.Input[dict] private_endpoint: Private endpoint associated with the private endpoint connection
+        :param pulumi.Input[dict] private_link_service_connection_state: Connection state
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] resource_name_: The name of the SignalR resource.
 
-        The **properties** object supports the following:
+        The **private_endpoint** object supports the following:
 
-          * `private_endpoint` (`pulumi.Input[dict]`) - Private endpoint associated with the private endpoint connection
-            * `id` (`pulumi.Input[str]`) - Full qualified Id of the private endpoint
+          * `id` (`pulumi.Input[str]`) - Full qualified Id of the private endpoint
 
-          * `private_link_service_connection_state` (`pulumi.Input[dict]`) - Connection state
-            * `actions_required` (`pulumi.Input[str]`) - A message indicating if changes on the service provider require any updates on the consumer.
-            * `description` (`pulumi.Input[str]`) - The reason for approval/rejection of the connection.
-            * `status` (`pulumi.Input[str]`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        The **private_link_service_connection_state** object supports the following:
+
+          * `actions_required` (`pulumi.Input[str]`) - A message indicating if changes on the service provider require any updates on the consumer.
+          * `description` (`pulumi.Input[str]`) - The reason for approval/rejection of the connection.
+          * `status` (`pulumi.Input[str]`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -72,13 +73,15 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['private_endpoint'] = private_endpoint
+            __props__['private_link_service_connection_state'] = private_link_service_connection_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if resource_name_ is None:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
+            __props__['properties'] = None
             __props__['type'] = None
         super(SignalRPrivateEndpointConnection, __self__).__init__(
             'azurerm:signalrservice/v20200501:SignalRPrivateEndpointConnection',

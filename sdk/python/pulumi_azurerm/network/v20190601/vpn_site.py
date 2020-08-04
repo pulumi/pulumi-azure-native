@@ -71,55 +71,61 @@ class VpnSite(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, address_space=None, bgp_properties=None, device_properties=None, id=None, ip_address=None, is_security_site=None, location=None, name=None, provisioning_state=None, resource_group_name=None, site_key=None, tags=None, virtual_wan=None, vpn_site_links=None, __props__=None, __name__=None, __opts__=None):
         """
         VpnSite Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] address_space: The AddressSpace that contains an array of IP address ranges.
+        :param pulumi.Input[dict] bgp_properties: The set of bgp properties.
+        :param pulumi.Input[dict] device_properties: The device properties.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[str] ip_address: The ip-address for the vpn-site.
+        :param pulumi.Input[bool] is_security_site: IsSecuritySite flag.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the VpnSite being created or updated.
-        :param pulumi.Input[dict] properties: Properties of the VPN site.
+        :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnSite.
+        :param pulumi.Input[str] site_key: The key for vpn-site that can be used for connections.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[dict] virtual_wan: The VirtualWAN to which the vpnSite belongs.
+        :param pulumi.Input[list] vpn_site_links: List of all vpn site links
 
-        The **properties** object supports the following:
+        The **address_space** object supports the following:
 
-          * `address_space` (`pulumi.Input[dict]`) - The AddressSpace that contains an array of IP address ranges.
-            * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
+          * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
+
+        The **bgp_properties** object supports the following:
+
+          * `asn` (`pulumi.Input[float]`) - The BGP speaker's ASN.
+          * `bgp_peering_address` (`pulumi.Input[str]`) - The BGP peering address and BGP identifier of this BGP speaker.
+          * `peer_weight` (`pulumi.Input[float]`) - The weight added to routes learned from this BGP speaker.
+
+        The **device_properties** object supports the following:
+
+          * `device_model` (`pulumi.Input[str]`) - Model of the device.
+          * `device_vendor` (`pulumi.Input[str]`) - Name of the device Vendor.
+          * `link_speed_in_mbps` (`pulumi.Input[float]`) - Link speed.
+
+        The **virtual_wan** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+
+        The **vpn_site_links** object supports the following:
 
           * `bgp_properties` (`pulumi.Input[dict]`) - The set of bgp properties.
             * `asn` (`pulumi.Input[float]`) - The BGP speaker's ASN.
             * `bgp_peering_address` (`pulumi.Input[str]`) - The BGP peering address and BGP identifier of this BGP speaker.
-            * `peer_weight` (`pulumi.Input[float]`) - The weight added to routes learned from this BGP speaker.
 
-          * `device_properties` (`pulumi.Input[dict]`) - The device properties.
-            * `device_model` (`pulumi.Input[str]`) - Model of the device.
-            * `device_vendor` (`pulumi.Input[str]`) - Name of the device Vendor.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `ip_address` (`pulumi.Input[str]`) - The ip-address for the vpn-site-link.
+          * `link_properties` (`pulumi.Input[dict]`) - The link provider properties.
+            * `link_provider_name` (`pulumi.Input[str]`) - Name of the link provider.
             * `link_speed_in_mbps` (`pulumi.Input[float]`) - Link speed.
 
-          * `ip_address` (`pulumi.Input[str]`) - The ip-address for the vpn-site.
-          * `is_security_site` (`pulumi.Input[bool]`) - IsSecuritySite flag.
+          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
           * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
-          * `site_key` (`pulumi.Input[str]`) - The key for vpn-site that can be used for connections.
-          * `virtual_wan` (`pulumi.Input[dict]`) - The VirtualWAN to which the vpnSite belongs.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `vpn_site_links` (`pulumi.Input[list]`) - List of all vpn site links
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the VPN site link.
-              * `bgp_properties` (`pulumi.Input[dict]`) - The set of bgp properties.
-                * `asn` (`pulumi.Input[float]`) - The BGP speaker's ASN.
-                * `bgp_peering_address` (`pulumi.Input[str]`) - The BGP peering address and BGP identifier of this BGP speaker.
-
-              * `ip_address` (`pulumi.Input[str]`) - The ip-address for the vpn-site-link.
-              * `link_properties` (`pulumi.Input[dict]`) - The link provider properties.
-                * `link_provider_name` (`pulumi.Input[str]`) - Name of the link provider.
-                * `link_speed_in_mbps` (`pulumi.Input[float]`) - Link speed.
-
-              * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -138,19 +144,28 @@ class VpnSite(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['address_space'] = address_space
+            __props__['bgp_properties'] = bgp_properties
+            __props__['device_properties'] = device_properties
             __props__['id'] = id
+            __props__['ip_address'] = ip_address
+            __props__['is_security_site'] = is_security_site
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['site_key'] = site_key
             __props__['tags'] = tags
+            __props__['virtual_wan'] = virtual_wan
+            __props__['vpn_site_links'] = vpn_site_links
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(VpnSite, __self__).__init__(
             'azurerm:network/v20190601:VpnSite',

@@ -38,36 +38,36 @@ class JobDefinition(pulumi.CustomResource):
     """
     Type of the object.
     """
-    def __init__(__self__, resource_name, opts=None, data_manager_name=None, data_service_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, customer_secrets=None, data_manager_name=None, data_service_input=None, data_service_name=None, data_sink_id=None, data_source_id=None, last_modified_time=None, name=None, resource_group_name=None, run_location=None, schedules=None, state=None, user_confirmation=None, __props__=None, __name__=None, __opts__=None):
         """
         Job Definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         :param pulumi.Input[str] data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+        :param pulumi.Input[dict] data_service_input: A generic json used differently by each data service type.
         :param pulumi.Input[str] data_service_name: The data service type of the job definition.
+        :param pulumi.Input[str] data_sink_id: Data Sink Id associated to the job definition.
+        :param pulumi.Input[str] data_source_id: Data Source Id associated to the job definition.
+        :param pulumi.Input[str] last_modified_time: Last modified time of the job definition.
         :param pulumi.Input[str] name: The job definition name to be created or updated.
-        :param pulumi.Input[dict] properties: JobDefinition properties.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
+        :param pulumi.Input[str] run_location: This is the preferred geo location for the job to run.
+        :param pulumi.Input[list] schedules: Schedule for running the job definition
+        :param pulumi.Input[str] state: State of the job definition.
+        :param pulumi.Input[str] user_confirmation: Enum to detect if user confirmation is required. If not passed will default to NotRequired.
 
-        The **properties** object supports the following:
+        The **customer_secrets** object supports the following:
 
-          * `customer_secrets` (`pulumi.Input[list]`) - List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-            * `algorithm` (`pulumi.Input[str]`) - The encryption algorithm used to encrypt data.
-            * `key_identifier` (`pulumi.Input[str]`) - The identifier to the data service input object which this secret corresponds to.
-            * `key_value` (`pulumi.Input[str]`) - It contains the encrypted customer secret.
+          * `algorithm` (`pulumi.Input[str]`) - The encryption algorithm used to encrypt data.
+          * `key_identifier` (`pulumi.Input[str]`) - The identifier to the data service input object which this secret corresponds to.
+          * `key_value` (`pulumi.Input[str]`) - It contains the encrypted customer secret.
 
-          * `data_service_input` (`pulumi.Input[dict]`) - A generic json used differently by each data service type.
-          * `data_sink_id` (`pulumi.Input[str]`) - Data Sink Id associated to the job definition.
-          * `data_source_id` (`pulumi.Input[str]`) - Data Source Id associated to the job definition.
-          * `last_modified_time` (`pulumi.Input[str]`) - Last modified time of the job definition.
-          * `run_location` (`pulumi.Input[str]`) - This is the preferred geo location for the job to run.
-          * `schedules` (`pulumi.Input[list]`) - Schedule for running the job definition
-            * `name` (`pulumi.Input[str]`) - Name of the schedule.
-            * `policy_list` (`pulumi.Input[list]`) - A list of repetition intervals in ISO 8601 format.
+        The **schedules** object supports the following:
 
-          * `state` (`pulumi.Input[str]`) - State of the job definition.
-          * `user_confirmation` (`pulumi.Input[str]`) - Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+          * `name` (`pulumi.Input[str]`) - Name of the schedule.
+          * `policy_list` (`pulumi.Input[list]`) - A list of repetition intervals in ISO 8601 format.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -86,21 +86,34 @@ class JobDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['customer_secrets'] = customer_secrets
             if data_manager_name is None:
                 raise TypeError("Missing required property 'data_manager_name'")
             __props__['data_manager_name'] = data_manager_name
+            __props__['data_service_input'] = data_service_input
             if data_service_name is None:
                 raise TypeError("Missing required property 'data_service_name'")
             __props__['data_service_name'] = data_service_name
+            if data_sink_id is None:
+                raise TypeError("Missing required property 'data_sink_id'")
+            __props__['data_sink_id'] = data_sink_id
+            if data_source_id is None:
+                raise TypeError("Missing required property 'data_source_id'")
+            __props__['data_source_id'] = data_source_id
+            __props__['last_modified_time'] = last_modified_time
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['run_location'] = run_location
+            __props__['schedules'] = schedules
+            if state is None:
+                raise TypeError("Missing required property 'state'")
+            __props__['state'] = state
+            __props__['user_confirmation'] = user_confirmation
+            __props__['properties'] = None
             __props__['type'] = None
         super(JobDefinition, __self__).__init__(
             'azurerm:hybriddata/v20190601:JobDefinition',

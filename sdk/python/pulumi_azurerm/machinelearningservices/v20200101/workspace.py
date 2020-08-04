@@ -63,42 +63,40 @@ class Workspace(pulumi.CustomResource):
     """
     Specifies the type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, application_insights=None, container_registry=None, description=None, discovery_url=None, encryption=None, friendly_name=None, hbi_workspace=None, identity=None, key_vault=None, location=None, name=None, resource_group_name=None, sku=None, storage_account=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         An object that represents a machine learning workspace.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] application_insights: ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+        :param pulumi.Input[str] container_registry: ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+        :param pulumi.Input[str] description: The description of this workspace.
+        :param pulumi.Input[str] discovery_url: Url for the discovery service to identify regional endpoints for machine learning experimentation services
+        :param pulumi.Input[dict] encryption: The encryption settings of Azure ML workspace.
+        :param pulumi.Input[str] friendly_name: The friendly name for this workspace. This name in mutable
+        :param pulumi.Input[bool] hbi_workspace: The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
         :param pulumi.Input[dict] identity: The identity of the resource.
+        :param pulumi.Input[str] key_vault: ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[str] name: Name of Azure Machine Learning workspace.
-        :param pulumi.Input[dict] properties: The properties of the machine learning workspace.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[dict] sku: The sku of the workspace.
+        :param pulumi.Input[str] storage_account: ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
         :param pulumi.Input[dict] tags: Contains resource tags defined as key/value pairs.
+
+        The **encryption** object supports the following:
+
+          * `key_vault_properties` (`pulumi.Input[dict]`) - Customer Key vault properties.
+            * `identity_client_id` (`pulumi.Input[str]`) - For future use - The client id of the identity which will be used to access key vault.
+            * `key_identifier` (`pulumi.Input[str]`) - Key vault uri to access the encryption key.
+            * `key_vault_arm_id` (`pulumi.Input[str]`) - The ArmId of the keyVault where the customer owned encryption key is present.
+
+          * `status` (`pulumi.Input[str]`) - Indicates whether or not the encryption is enabled for the workspace.
 
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The identity type.
-
-        The **properties** object supports the following:
-
-          * `application_insights` (`pulumi.Input[str]`) - ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
-          * `container_registry` (`pulumi.Input[str]`) - ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-          * `description` (`pulumi.Input[str]`) - The description of this workspace.
-          * `discovery_url` (`pulumi.Input[str]`) - Url for the discovery service to identify regional endpoints for machine learning experimentation services
-          * `encryption` (`pulumi.Input[dict]`) - The encryption settings of Azure ML workspace.
-            * `key_vault_properties` (`pulumi.Input[dict]`) - Customer Key vault properties.
-              * `identity_client_id` (`pulumi.Input[str]`) - For future use - The client id of the identity which will be used to access key vault.
-              * `key_identifier` (`pulumi.Input[str]`) - Key vault uri to access the encryption key.
-              * `key_vault_arm_id` (`pulumi.Input[str]`) - The ArmId of the keyVault where the customer owned encryption key is present.
-
-            * `status` (`pulumi.Input[str]`) - Indicates whether or not the encryption is enabled for the workspace.
-
-          * `friendly_name` (`pulumi.Input[str]`) - The friendly name for this workspace. This name in mutable
-          * `hbi_workspace` (`pulumi.Input[bool]`) - The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
-          * `key_vault` (`pulumi.Input[str]`) - ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-          * `storage_account` (`pulumi.Input[str]`) - ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
 
         The **sku** object supports the following:
 
@@ -122,17 +120,26 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['application_insights'] = application_insights
+            __props__['container_registry'] = container_registry
+            __props__['description'] = description
+            __props__['discovery_url'] = discovery_url
+            __props__['encryption'] = encryption
+            __props__['friendly_name'] = friendly_name
+            __props__['hbi_workspace'] = hbi_workspace
             __props__['identity'] = identity
+            __props__['key_vault'] = key_vault
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
+            __props__['storage_account'] = storage_account
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Workspace, __self__).__init__(
             'azurerm:machinelearningservices/v20200101:Workspace',

@@ -40,24 +40,20 @@ class Certificate(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, data=None, format=None, name=None, password=None, resource_group_name=None, thumbprint=None, thumbprint_algorithm=None, __props__=None, __name__=None, __opts__=None):
         """
         Contains information about a certificate.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Batch account.
+        :param pulumi.Input[str] data: The maximum size is 10KB.
+        :param pulumi.Input[str] format: The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
         :param pulumi.Input[str] name: The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
-        :param pulumi.Input[dict] properties: The properties associated with the certificate.
+        :param pulumi.Input[str] password: This must not be specified if the certificate format is Cer.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the Batch account.
-
-        The **properties** object supports the following:
-
-          * `data` (`pulumi.Input[str]`) - The maximum size is 10KB.
-          * `format` (`pulumi.Input[str]`) - The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
-          * `password` (`pulumi.Input[str]`) - This must not be specified if the certificate format is Cer.
-          * `thumbprint` (`pulumi.Input[str]`) - This must match the thumbprint from the name.
-          * `thumbprint_algorithm` (`pulumi.Input[str]`) - This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+        :param pulumi.Input[str] thumbprint: This must match the thumbprint from the name.
+        :param pulumi.Input[str] thumbprint_algorithm: This must match the first portion of the certificate name. Currently required to be 'SHA1'.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,14 +75,21 @@ class Certificate(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            if data is None:
+                raise TypeError("Missing required property 'data'")
+            __props__['data'] = data
+            __props__['format'] = format
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['password'] = password
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['thumbprint'] = thumbprint
+            __props__['thumbprint_algorithm'] = thumbprint_algorithm
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(Certificate, __self__).__init__(
             'azurerm:batch/v20200501:Certificate',

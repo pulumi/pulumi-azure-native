@@ -35,22 +35,18 @@ class Gallery(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, identifier=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Specifies information about the Shared Image Gallery that you want to create or update.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of this Shared Image Gallery resource. This property is updatable.
+        :param pulumi.Input[dict] identifier: Describes the gallery unique name.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
-        :param pulumi.Input[dict] properties: Describes the properties of a Shared Image Gallery.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - The description of this Shared Image Gallery resource. This property is updatable.
-          * `identifier` (`pulumi.Input[dict]`) - Describes the gallery unique name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -69,17 +65,19 @@ class Gallery(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['description'] = description
+            __props__['identifier'] = identifier
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Gallery, __self__).__init__(
             'azurerm:compute/v20190701:Gallery',

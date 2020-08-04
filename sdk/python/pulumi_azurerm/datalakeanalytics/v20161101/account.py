@@ -84,53 +84,54 @@ class Account(pulumi.CustomResource):
     """
     The resource type.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, compute_policies=None, data_lake_store_accounts=None, default_data_lake_store_account=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, location=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, min_priority_per_job=None, name=None, new_tier=None, query_store_retention=None, resource_group_name=None, storage_accounts=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] compute_policies: The list of compute policies associated with this account.
+        :param pulumi.Input[list] data_lake_store_accounts: The list of Data Lake Store accounts associated with this account.
+        :param pulumi.Input[str] default_data_lake_store_account: The default Data Lake Store account associated with this account.
+        :param pulumi.Input[str] firewall_allow_azure_ips: The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+        :param pulumi.Input[list] firewall_rules: The list of firewall rules associated with this account.
+        :param pulumi.Input[str] firewall_state: The current state of the IP address firewall for this account.
         :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[float] max_degree_of_parallelism: The maximum supported degree of parallelism for this account.
+        :param pulumi.Input[float] max_degree_of_parallelism_per_job: The maximum supported degree of parallelism per job for this account.
+        :param pulumi.Input[float] max_job_count: The maximum supported jobs running under the account at the same time.
+        :param pulumi.Input[float] min_priority_per_job: The minimum supported priority per job for this account.
         :param pulumi.Input[str] name: The name of the Data Lake Analytics account.
-        :param pulumi.Input[dict] properties: The Data Lake Analytics account properties to use for creating.
+        :param pulumi.Input[str] new_tier: The commitment tier for the next month.
+        :param pulumi.Input[float] query_store_retention: The number of days that job metadata is retained.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
+        :param pulumi.Input[list] storage_accounts: The list of Azure Blob Storage accounts associated with this account.
         :param pulumi.Input[dict] tags: The resource tags.
 
-        The **properties** object supports the following:
+        The **compute_policies** object supports the following:
 
-          * `compute_policies` (`pulumi.Input[list]`) - The list of compute policies associated with this account.
-            * `name` (`pulumi.Input[str]`) - The unique name of the compute policy to create.
-            * `properties` (`pulumi.Input[dict]`) - The compute policy properties to use when creating a new compute policy.
-              * `max_degree_of_parallelism_per_job` (`pulumi.Input[float]`) - The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
-              * `min_priority_per_job` (`pulumi.Input[float]`) - The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
-              * `object_id` (`pulumi.Input[str]`) - The AAD object identifier for the entity to create a policy for.
-              * `object_type` (`pulumi.Input[str]`) - The type of AAD object the object identifier refers to.
+          * `max_degree_of_parallelism_per_job` (`pulumi.Input[float]`) - The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
+          * `min_priority_per_job` (`pulumi.Input[float]`) - The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
+          * `name` (`pulumi.Input[str]`) - The unique name of the compute policy to create.
+          * `object_id` (`pulumi.Input[str]`) - The AAD object identifier for the entity to create a policy for.
+          * `object_type` (`pulumi.Input[str]`) - The type of AAD object the object identifier refers to.
 
-          * `data_lake_store_accounts` (`pulumi.Input[list]`) - The list of Data Lake Store accounts associated with this account.
-            * `name` (`pulumi.Input[str]`) - The unique name of the Data Lake Store account to add.
-            * `properties` (`pulumi.Input[dict]`) - The Data Lake Store account properties to use when adding a new Data Lake Store account.
-              * `suffix` (`pulumi.Input[str]`) - The optional suffix for the Data Lake Store account.
+        The **data_lake_store_accounts** object supports the following:
 
-          * `default_data_lake_store_account` (`pulumi.Input[str]`) - The default Data Lake Store account associated with this account.
-          * `firewall_allow_azure_ips` (`pulumi.Input[str]`) - The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-          * `firewall_rules` (`pulumi.Input[list]`) - The list of firewall rules associated with this account.
-            * `name` (`pulumi.Input[str]`) - The unique name of the firewall rule to create.
-            * `properties` (`pulumi.Input[dict]`) - The firewall rule properties to use when creating a new firewall rule.
-              * `end_ip_address` (`pulumi.Input[str]`) - The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-              * `start_ip_address` (`pulumi.Input[str]`) - The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+          * `name` (`pulumi.Input[str]`) - The unique name of the Data Lake Store account to add.
+          * `suffix` (`pulumi.Input[str]`) - The optional suffix for the Data Lake Store account.
 
-          * `firewall_state` (`pulumi.Input[str]`) - The current state of the IP address firewall for this account.
-          * `max_degree_of_parallelism` (`pulumi.Input[float]`) - The maximum supported degree of parallelism for this account.
-          * `max_degree_of_parallelism_per_job` (`pulumi.Input[float]`) - The maximum supported degree of parallelism per job for this account.
-          * `max_job_count` (`pulumi.Input[float]`) - The maximum supported jobs running under the account at the same time.
-          * `min_priority_per_job` (`pulumi.Input[float]`) - The minimum supported priority per job for this account.
-          * `new_tier` (`pulumi.Input[str]`) - The commitment tier for the next month.
-          * `query_store_retention` (`pulumi.Input[float]`) - The number of days that job metadata is retained.
-          * `storage_accounts` (`pulumi.Input[list]`) - The list of Azure Blob Storage accounts associated with this account.
-            * `name` (`pulumi.Input[str]`) - The unique name of the Azure Storage account to add.
-            * `properties` (`pulumi.Input[dict]`) - The Azure Storage account properties to use when adding a new Azure Storage account.
-              * `access_key` (`pulumi.Input[str]`) - The access key associated with this Azure Storage account that will be used to connect to it.
-              * `suffix` (`pulumi.Input[str]`) - The optional suffix for the storage account.
+        The **firewall_rules** object supports the following:
+
+          * `end_ip_address` (`pulumi.Input[str]`) - The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+          * `name` (`pulumi.Input[str]`) - The unique name of the firewall rule to create.
+          * `start_ip_address` (`pulumi.Input[str]`) - The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+
+        The **storage_accounts** object supports the following:
+
+          * `access_key` (`pulumi.Input[str]`) - The access key associated with this Azure Storage account that will be used to connect to it.
+          * `name` (`pulumi.Input[str]`) - The unique name of the Azure Storage account to add.
+          * `suffix` (`pulumi.Input[str]`) - The optional suffix for the storage account.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -149,19 +150,34 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['compute_policies'] = compute_policies
+            if data_lake_store_accounts is None:
+                raise TypeError("Missing required property 'data_lake_store_accounts'")
+            __props__['data_lake_store_accounts'] = data_lake_store_accounts
+            if default_data_lake_store_account is None:
+                raise TypeError("Missing required property 'default_data_lake_store_account'")
+            __props__['default_data_lake_store_account'] = default_data_lake_store_account
+            __props__['firewall_allow_azure_ips'] = firewall_allow_azure_ips
+            __props__['firewall_rules'] = firewall_rules
+            __props__['firewall_state'] = firewall_state
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['max_degree_of_parallelism'] = max_degree_of_parallelism
+            __props__['max_degree_of_parallelism_per_job'] = max_degree_of_parallelism_per_job
+            __props__['max_job_count'] = max_job_count
+            __props__['min_priority_per_job'] = min_priority_per_job
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['new_tier'] = new_tier
+            __props__['query_store_retention'] = query_store_retention
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['storage_accounts'] = storage_accounts
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Account, __self__).__init__(
             'azurerm:datalakeanalytics/v20161101:Account',

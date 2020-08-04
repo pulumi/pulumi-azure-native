@@ -45,7 +45,7 @@ class DdosCustomPolicy(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, protocol_custom_settings=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         A DDoS custom policy in a resource group.
 
@@ -54,17 +54,16 @@ class DdosCustomPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the DDoS custom policy.
-        :param pulumi.Input[dict] properties: Properties of the DDoS custom policy.
+        :param pulumi.Input[list] protocol_custom_settings: The protocol-specific DDoS policy customization parameters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
 
-        The **properties** object supports the following:
+        The **protocol_custom_settings** object supports the following:
 
-          * `protocol_custom_settings` (`pulumi.Input[list]`) - The protocol-specific DDoS policy customization parameters.
-            * `protocol` (`pulumi.Input[str]`) - The protocol for which the DDoS protection policy is being customized.
-            * `source_rate_override` (`pulumi.Input[str]`) - The customized DDoS protection source rate.
-            * `trigger_rate_override` (`pulumi.Input[str]`) - The customized DDoS protection trigger rate.
-            * `trigger_sensitivity_override` (`pulumi.Input[str]`) - The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
+          * `protocol` (`pulumi.Input[str]`) - The protocol for which the DDoS protection policy is being customized.
+          * `source_rate_override` (`pulumi.Input[str]`) - The customized DDoS protection source rate.
+          * `trigger_rate_override` (`pulumi.Input[str]`) - The customized DDoS protection trigger rate.
+          * `trigger_sensitivity_override` (`pulumi.Input[str]`) - The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,12 +87,13 @@ class DdosCustomPolicy(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['protocol_custom_settings'] = protocol_custom_settings
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(DdosCustomPolicy, __self__).__init__(
             'azurerm:network/v20181101:DdosCustomPolicy',

@@ -73,65 +73,68 @@ class Export(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, scope=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, definition=None, delivery_info=None, format=None, name=None, schedule=None, scope=None, __props__=None, __name__=None, __opts__=None):
         """
         A export resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] definition: Has definition for the export.
+        :param pulumi.Input[dict] delivery_info: Has delivery information for the export.
+        :param pulumi.Input[str] format: The format of the export being delivered.
         :param pulumi.Input[str] name: Export Name.
-        :param pulumi.Input[dict] properties: The properties of the export.
+        :param pulumi.Input[dict] schedule: Has schedule information for the export.
         :param pulumi.Input[str] scope: The scope associated with export operations. This includes '/subscriptions/{subscriptionId}' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope.
 
-        The **properties** object supports the following:
+        The **definition** object supports the following:
 
-          * `definition` (`pulumi.Input[dict]`) - Has definition for the export.
-            * `dataset` (`pulumi.Input[dict]`) - Has definition for data in this query.
-              * `aggregation` (`pulumi.Input[dict]`) - Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-              * `configuration` (`pulumi.Input[dict]`) - Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
-                * `columns` (`pulumi.Input[list]`) - Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
+          * `dataset` (`pulumi.Input[dict]`) - Has definition for data in this query.
+            * `aggregation` (`pulumi.Input[dict]`) - Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
+            * `configuration` (`pulumi.Input[dict]`) - Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
+              * `columns` (`pulumi.Input[list]`) - Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
 
-              * `filter` (`pulumi.Input[dict]`) - Has filter expression to use in the query.
-                * `and` (`pulumi.Input[list]`) - The logical "AND" expression. Must have at least 2 items.
-                * `dimension` (`pulumi.Input[dict]`) - Has comparison expression for a dimension
-                  * `name` (`pulumi.Input[str]`) - The name of the column to use in comparison.
-                  * `operator` (`pulumi.Input[str]`) - The operator to use for comparison.
-                  * `values` (`pulumi.Input[list]`) - Array of values to use for comparison
+            * `filter` (`pulumi.Input[dict]`) - Has filter expression to use in the query.
+              * `and` (`pulumi.Input[list]`) - The logical "AND" expression. Must have at least 2 items.
+              * `dimension` (`pulumi.Input[dict]`) - Has comparison expression for a dimension
+                * `name` (`pulumi.Input[str]`) - The name of the column to use in comparison.
+                * `operator` (`pulumi.Input[str]`) - The operator to use for comparison.
+                * `values` (`pulumi.Input[list]`) - Array of values to use for comparison
 
-                * `not` (`pulumi.Input[dict]`) - The logical "NOT" expression.
-                * `or` (`pulumi.Input[list]`) - The logical "OR" expression. Must have at least 2 items.
-                * `tag` (`pulumi.Input[dict]`) - Has comparison expression for a tag
+              * `not` (`pulumi.Input[dict]`) - The logical "NOT" expression.
+              * `or` (`pulumi.Input[list]`) - The logical "OR" expression. Must have at least 2 items.
+              * `tag` (`pulumi.Input[dict]`) - Has comparison expression for a tag
 
-              * `granularity` (`pulumi.Input[str]`) - The granularity of rows in the query.
-              * `grouping` (`pulumi.Input[list]`) - Array of group by expression to use in the query. Query can have up to 2 group by clauses.
-                * `name` (`pulumi.Input[str]`) - The name of the column to group.
-                * `type` (`pulumi.Input[str]`) - Has type of the column to group.
+            * `granularity` (`pulumi.Input[str]`) - The granularity of rows in the query.
+            * `grouping` (`pulumi.Input[list]`) - Array of group by expression to use in the query. Query can have up to 2 group by clauses.
+              * `name` (`pulumi.Input[str]`) - The name of the column to group.
+              * `type` (`pulumi.Input[str]`) - Has type of the column to group.
 
-              * `sorting` (`pulumi.Input[list]`) - Array of sorting by columns in query.
-                * `name` (`pulumi.Input[str]`) - The name of the column to use in sorting.
-                * `query_sorting_direction` (`pulumi.Input[str]`) - The sorting direction
+            * `sorting` (`pulumi.Input[list]`) - Array of sorting by columns in query.
+              * `name` (`pulumi.Input[str]`) - The name of the column to use in sorting.
+              * `query_sorting_direction` (`pulumi.Input[str]`) - The sorting direction
 
-            * `time_period` (`pulumi.Input[dict]`) - Has time period for pulling data for the query.
-              * `from` (`pulumi.Input[str]`) - The start date to pull data from.
-              * `to` (`pulumi.Input[str]`) - The end date to pull data to.
+          * `time_period` (`pulumi.Input[dict]`) - Has time period for pulling data for the query.
+            * `from` (`pulumi.Input[str]`) - The start date to pull data from.
+            * `to` (`pulumi.Input[str]`) - The end date to pull data to.
 
-            * `timeframe` (`pulumi.Input[str]`) - The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-            * `type` (`pulumi.Input[str]`) - The type of the query.
+          * `timeframe` (`pulumi.Input[str]`) - The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+          * `type` (`pulumi.Input[str]`) - The type of the query.
 
-          * `delivery_info` (`pulumi.Input[dict]`) - Has delivery information for the export.
-            * `destination` (`pulumi.Input[dict]`) - Has destination for the export being delivered.
-              * `container` (`pulumi.Input[str]`) - The name of the container where exports will be uploaded.
-              * `resource_id` (`pulumi.Input[str]`) - The resource id of the storage account where exports will be delivered.
-              * `root_folder_path` (`pulumi.Input[str]`) - The name of the directory where exports will be uploaded.
+        The **delivery_info** object supports the following:
 
-          * `format` (`pulumi.Input[str]`) - The format of the export being delivered.
-          * `schedule` (`pulumi.Input[dict]`) - Has schedule information for the export.
-            * `recurrence` (`pulumi.Input[str]`) - The schedule recurrence.
-            * `recurrence_period` (`pulumi.Input[dict]`) - Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
-              * `from` (`pulumi.Input[str]`) - The start date of recurrence.
-              * `to` (`pulumi.Input[str]`) - The end date of recurrence.
+          * `destination` (`pulumi.Input[dict]`) - Has destination for the export being delivered.
+            * `container` (`pulumi.Input[str]`) - The name of the container where exports will be uploaded.
+            * `resource_id` (`pulumi.Input[str]`) - The resource id of the storage account where exports will be delivered.
+            * `root_folder_path` (`pulumi.Input[str]`) - The name of the directory where exports will be uploaded.
 
-            * `status` (`pulumi.Input[str]`) - The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
+        The **schedule** object supports the following:
+
+          * `recurrence` (`pulumi.Input[str]`) - The schedule recurrence.
+          * `recurrence_period` (`pulumi.Input[dict]`) - Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+            * `from` (`pulumi.Input[str]`) - The start date of recurrence.
+            * `to` (`pulumi.Input[str]`) - The end date of recurrence.
+
+          * `status` (`pulumi.Input[str]`) - The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -150,13 +153,21 @@ class Export(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if definition is None:
+                raise TypeError("Missing required property 'definition'")
+            __props__['definition'] = definition
+            if delivery_info is None:
+                raise TypeError("Missing required property 'delivery_info'")
+            __props__['delivery_info'] = delivery_info
+            __props__['format'] = format
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['schedule'] = schedule
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
+            __props__['properties'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(Export, __self__).__init__(

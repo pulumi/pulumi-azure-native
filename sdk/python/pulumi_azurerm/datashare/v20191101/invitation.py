@@ -33,7 +33,7 @@ class Invitation(pulumi.CustomResource):
     """
     Type of the azure resource
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, properties=None, resource_group_name=None, share_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, resource_group_name=None, share_name=None, target_active_directory_id=None, target_email=None, target_object_id=None, __props__=None, __name__=None, __opts__=None):
         """
         A Invitation data transfer object.
 
@@ -41,17 +41,13 @@ class Invitation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
         :param pulumi.Input[str] name: The name of the invitation.
-        :param pulumi.Input[dict] properties: Properties on the Invitation
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[str] share_name: The name of the share to send the invitation for.
-
-        The **properties** object supports the following:
-
-          * `target_active_directory_id` (`pulumi.Input[str]`) - The target Azure AD Id. Can't be combined with email.
-          * `target_email` (`pulumi.Input[str]`) - The email the invitation is directed to.
-          * `target_object_id` (`pulumi.Input[str]`) - The target user or application Id that invitation is being sent to.
-            Must be specified along TargetActiveDirectoryId. This enables sending
-            invitations to specific users or applications in an AD tenant.
+        :param pulumi.Input[str] target_active_directory_id: The target Azure AD Id. Can't be combined with email.
+        :param pulumi.Input[str] target_email: The email the invitation is directed to.
+        :param pulumi.Input[str] target_object_id: The target user or application Id that invitation is being sent to.
+               Must be specified along TargetActiveDirectoryId. This enables sending
+               invitations to specific users or applications in an AD tenant.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -76,13 +72,16 @@ class Invitation(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if share_name is None:
                 raise TypeError("Missing required property 'share_name'")
             __props__['share_name'] = share_name
+            __props__['target_active_directory_id'] = target_active_directory_id
+            __props__['target_email'] = target_email
+            __props__['target_object_id'] = target_object_id
+            __props__['properties'] = None
             __props__['type'] = None
         super(Invitation, __self__).__init__(
             'azurerm:datashare/v20191101:Invitation',

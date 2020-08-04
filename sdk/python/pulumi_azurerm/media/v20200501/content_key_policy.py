@@ -32,24 +32,23 @@ class ContentKeyPolicy(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, description=None, name=None, options=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         A Content Key Policy resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
+        :param pulumi.Input[str] description: A description for the Policy.
         :param pulumi.Input[str] name: The Content Key Policy name.
-        :param pulumi.Input[dict] properties: The properties of the Content Key Policy.
+        :param pulumi.Input[list] options: The Key Policy options.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
 
-        The **properties** object supports the following:
+        The **options** object supports the following:
 
-          * `description` (`pulumi.Input[str]`) - A description for the Policy.
-          * `options` (`pulumi.Input[list]`) - The Key Policy options.
-            * `configuration` (`pulumi.Input[dict]`) - The key delivery configuration.
-            * `name` (`pulumi.Input[str]`) - The Policy Option description.
-            * `restriction` (`pulumi.Input[dict]`) - The requirements that must be met to deliver keys with this configuration
+          * `configuration` (`pulumi.Input[dict]`) - The key delivery configuration.
+          * `name` (`pulumi.Input[str]`) - The Policy Option description.
+          * `restriction` (`pulumi.Input[dict]`) - The requirements that must be met to deliver keys with this configuration
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,13 +70,17 @@ class ContentKeyPolicy(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['description'] = description
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if options is None:
+                raise TypeError("Missing required property 'options'")
+            __props__['options'] = options
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(ContentKeyPolicy, __self__).__init__(
             'azurerm:media/v20200501:ContentKeyPolicy',

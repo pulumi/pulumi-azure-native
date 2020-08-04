@@ -47,33 +47,29 @@ class Assessment(pulumi.CustomResource):
     """
     Type of the object = [Microsoft.Migrate/projects/groups/assessments].
     """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, group_name=None, name=None, project_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, azure_hybrid_use_benefit=None, azure_location=None, azure_offer_code=None, azure_pricing_tier=None, azure_storage_redundancy=None, currency=None, discount_percentage=None, e_tag=None, group_name=None, name=None, percentile=None, project_name=None, resource_group_name=None, scaling_factor=None, sizing_criterion=None, stage=None, time_range=None, __props__=None, __name__=None, __opts__=None):
         """
         An assessment created for a group in the Migration project.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] azure_hybrid_use_benefit: AHUB discount on windows virtual machines.
+        :param pulumi.Input[str] azure_location: Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+        :param pulumi.Input[str] azure_offer_code: Offer code according to which cost estimation is done.
+        :param pulumi.Input[str] azure_pricing_tier: Pricing tier for Size evaluation.
+        :param pulumi.Input[str] azure_storage_redundancy: Storage Redundancy type offered by Azure.
+        :param pulumi.Input[str] currency: Currency to report prices in.
+        :param pulumi.Input[float] discount_percentage: Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] group_name: Unique name of a group within a project.
         :param pulumi.Input[str] name: Unique name of an assessment within a project.
+        :param pulumi.Input[str] percentile: Percentile of performance data used to recommend Azure size.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
-        :param pulumi.Input[dict] properties: Properties of the assessment.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
-
-        The **properties** object supports the following:
-
-          * `azure_hybrid_use_benefit` (`pulumi.Input[str]`) - AHUB discount on windows virtual machines.
-          * `azure_location` (`pulumi.Input[str]`) - Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
-          * `azure_offer_code` (`pulumi.Input[str]`) - Offer code according to which cost estimation is done.
-          * `azure_pricing_tier` (`pulumi.Input[str]`) - Pricing tier for Size evaluation.
-          * `azure_storage_redundancy` (`pulumi.Input[str]`) - Storage Redundancy type offered by Azure.
-          * `currency` (`pulumi.Input[str]`) - Currency to report prices in.
-          * `discount_percentage` (`pulumi.Input[float]`) - Custom discount percentage to be applied on final costs. Can be in the range [0, 100].
-          * `percentile` (`pulumi.Input[str]`) - Percentile of performance data used to recommend Azure size.
-          * `scaling_factor` (`pulumi.Input[float]`) - Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
-          * `sizing_criterion` (`pulumi.Input[str]`) - Assessment sizing criterion.
-          * `stage` (`pulumi.Input[str]`) - User configurable setting that describes the status of the assessment.
-          * `time_range` (`pulumi.Input[str]`) - Time range of performance data used to recommend a size.
+        :param pulumi.Input[float] scaling_factor: Scaling factor used over utilization data to add a performance buffer for new machines to be created in Azure. Min Value = 1.0, Max value = 1.9, Default = 1.3.
+        :param pulumi.Input[str] sizing_criterion: Assessment sizing criterion.
+        :param pulumi.Input[str] stage: User configurable setting that describes the status of the assessment.
+        :param pulumi.Input[str] time_range: Time range of performance data used to recommend a size.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -92,6 +88,27 @@ class Assessment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if azure_hybrid_use_benefit is None:
+                raise TypeError("Missing required property 'azure_hybrid_use_benefit'")
+            __props__['azure_hybrid_use_benefit'] = azure_hybrid_use_benefit
+            if azure_location is None:
+                raise TypeError("Missing required property 'azure_location'")
+            __props__['azure_location'] = azure_location
+            if azure_offer_code is None:
+                raise TypeError("Missing required property 'azure_offer_code'")
+            __props__['azure_offer_code'] = azure_offer_code
+            if azure_pricing_tier is None:
+                raise TypeError("Missing required property 'azure_pricing_tier'")
+            __props__['azure_pricing_tier'] = azure_pricing_tier
+            if azure_storage_redundancy is None:
+                raise TypeError("Missing required property 'azure_storage_redundancy'")
+            __props__['azure_storage_redundancy'] = azure_storage_redundancy
+            if currency is None:
+                raise TypeError("Missing required property 'currency'")
+            __props__['currency'] = currency
+            if discount_percentage is None:
+                raise TypeError("Missing required property 'discount_percentage'")
+            __props__['discount_percentage'] = discount_percentage
             __props__['e_tag'] = e_tag
             if group_name is None:
                 raise TypeError("Missing required property 'group_name'")
@@ -99,15 +116,28 @@ class Assessment(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            if percentile is None:
+                raise TypeError("Missing required property 'percentile'")
+            __props__['percentile'] = percentile
             if project_name is None:
                 raise TypeError("Missing required property 'project_name'")
             __props__['project_name'] = project_name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if scaling_factor is None:
+                raise TypeError("Missing required property 'scaling_factor'")
+            __props__['scaling_factor'] = scaling_factor
+            if sizing_criterion is None:
+                raise TypeError("Missing required property 'sizing_criterion'")
+            __props__['sizing_criterion'] = sizing_criterion
+            if stage is None:
+                raise TypeError("Missing required property 'stage'")
+            __props__['stage'] = stage
+            if time_range is None:
+                raise TypeError("Missing required property 'time_range'")
+            __props__['time_range'] = time_range
+            __props__['properties'] = None
             __props__['type'] = None
         super(Assessment, __self__).__init__(
             'azurerm:migrate/v20180202:Assessment',

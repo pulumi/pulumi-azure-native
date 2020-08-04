@@ -51,27 +51,28 @@ class ExpressRouteGateway(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_scale_configuration=None, id=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, virtual_hub=None, __props__=None, __name__=None, __opts__=None):
         """
         ExpressRoute gateway resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] auto_scale_configuration: Configuration for auto scaling.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the ExpressRoute gateway.
-        :param pulumi.Input[dict] properties: Properties of the express route gateway.
+        :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[dict] virtual_hub: The Virtual Hub where the ExpressRoute gateway is or will be deployed.
 
-        The **properties** object supports the following:
+        The **auto_scale_configuration** object supports the following:
 
-          * `auto_scale_configuration` (`pulumi.Input[dict]`) - Configuration for auto scaling.
-            * `bounds` (`pulumi.Input[dict]`) - Minimum and maximum number of scale units to deploy.
+          * `bounds` (`pulumi.Input[dict]`) - Minimum and maximum number of scale units to deploy.
 
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
-          * `virtual_hub` (`pulumi.Input[dict]`) - The Virtual Hub where the ExpressRoute gateway is or will be deployed.
-            * `id` (`pulumi.Input[str]`) - The resource URI for the Virtual Hub where the ExpressRoute gateway is or will be deployed. The Virtual Hub resource and the ExpressRoute gateway resource reside in the same subscription.
+        The **virtual_hub** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - The resource URI for the Virtual Hub where the ExpressRoute gateway is or will be deployed. The Virtual Hub resource and the ExpressRoute gateway resource reside in the same subscription.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -90,17 +91,22 @@ class ExpressRouteGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['auto_scale_configuration'] = auto_scale_configuration
             __props__['id'] = id
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            if virtual_hub is None:
+                raise TypeError("Missing required property 'virtual_hub'")
+            __props__['virtual_hub'] = virtual_hub
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(ExpressRouteGateway, __self__).__init__(
             'azurerm:network/v20190601:ExpressRouteGateway',

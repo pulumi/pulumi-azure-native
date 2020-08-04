@@ -57,21 +57,17 @@ class BlobContainer(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, container_properties=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, metadata=None, name=None, public_access=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Properties of the blob container, including Id, resource name, resource type, Etag.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[dict] container_properties: Properties of the blob container.
+        :param pulumi.Input[dict] metadata: A name-value pair to associate with the container as metadata.
         :param pulumi.Input[str] name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+        :param pulumi.Input[str] public_access: Specifies whether data in the container may be accessed publicly and the level of access.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-
-        The **container_properties** object supports the following:
-
-          * `metadata` (`pulumi.Input[dict]`) - A name-value pair to associate with the container as metadata.
-          * `public_access` (`pulumi.Input[str]`) - Specifies whether data in the container may be accessed publicly and the level of access.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -93,10 +89,11 @@ class BlobContainer(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
-            __props__['container_properties'] = container_properties
+            __props__['metadata'] = metadata
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            __props__['public_access'] = public_access
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name

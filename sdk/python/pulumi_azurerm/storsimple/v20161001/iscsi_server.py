@@ -27,25 +27,21 @@ class IscsiServer(pulumi.CustomResource):
     """
     The type.
     """
-    def __init__(__self__, resource_name, opts=None, device_name=None, manager_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, backup_schedule_group_id=None, chap_id=None, description=None, device_name=None, manager_name=None, name=None, resource_group_name=None, reverse_chap_id=None, storage_domain_id=None, __props__=None, __name__=None, __opts__=None):
         """
         The iSCSI server.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] backup_schedule_group_id: The backup policy id.
+        :param pulumi.Input[str] chap_id: The chap id.
+        :param pulumi.Input[str] description: The description.
         :param pulumi.Input[str] device_name: The device name.
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] name: The iSCSI server name.
-        :param pulumi.Input[dict] properties: The properties.
         :param pulumi.Input[str] resource_group_name: The resource group name
-
-        The **properties** object supports the following:
-
-          * `backup_schedule_group_id` (`pulumi.Input[str]`) - The backup policy id.
-          * `chap_id` (`pulumi.Input[str]`) - The chap id.
-          * `description` (`pulumi.Input[str]`) - The description.
-          * `reverse_chap_id` (`pulumi.Input[str]`) - The reverse chap id.
-          * `storage_domain_id` (`pulumi.Input[str]`) - The storage domain id.
+        :param pulumi.Input[str] reverse_chap_id: The reverse chap id.
+        :param pulumi.Input[str] storage_domain_id: The storage domain id.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,6 +60,11 @@ class IscsiServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if backup_schedule_group_id is None:
+                raise TypeError("Missing required property 'backup_schedule_group_id'")
+            __props__['backup_schedule_group_id'] = backup_schedule_group_id
+            __props__['chap_id'] = chap_id
+            __props__['description'] = description
             if device_name is None:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
@@ -73,12 +74,14 @@ class IscsiServer(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['reverse_chap_id'] = reverse_chap_id
+            if storage_domain_id is None:
+                raise TypeError("Missing required property 'storage_domain_id'")
+            __props__['storage_domain_id'] = storage_domain_id
+            __props__['properties'] = None
             __props__['type'] = None
         super(IscsiServer, __self__).__init__(
             'azurerm:storsimple/v20161001:IscsiServer',

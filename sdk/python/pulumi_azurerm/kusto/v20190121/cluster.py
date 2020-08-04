@@ -44,7 +44,7 @@ class Cluster(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, trusted_external_tenants=None, __props__=None, __name__=None, __opts__=None):
         """
         Class representing a Kusto cluster.
 
@@ -52,21 +52,20 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: The name of the Kusto cluster.
-        :param pulumi.Input[dict] properties: The cluster properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         :param pulumi.Input[dict] sku: The SKU of the cluster.
         :param pulumi.Input[dict] tags: Resource tags.
-
-        The **properties** object supports the following:
-
-          * `trusted_external_tenants` (`pulumi.Input[list]`) - The cluster's external tenants.
-            * `value` (`pulumi.Input[str]`) - GUID representing an external tenant.
+        :param pulumi.Input[list] trusted_external_tenants: The cluster's external tenants.
 
         The **sku** object supports the following:
 
           * `capacity` (`pulumi.Input[float]`) - The number of instances of the cluster.
           * `name` (`pulumi.Input[str]`) - SKU name.
           * `tier` (`pulumi.Input[str]`) - SKU tier.
+
+        The **trusted_external_tenants** object supports the following:
+
+          * `value` (`pulumi.Input[str]`) - GUID representing an external tenant.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,7 +90,6 @@ class Cluster(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -99,6 +97,8 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['trusted_external_tenants'] = trusted_external_tenants
+            __props__['properties'] = None
             __props__['type'] = None
         super(Cluster, __self__).__init__(
             'azurerm:kusto/v20190121:Cluster',

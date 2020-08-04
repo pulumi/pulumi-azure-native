@@ -35,27 +35,23 @@ class Volume(pulumi.CustomResource):
     """
     The hierarchical type of the object.
     """
-    def __init__(__self__, resource_name, opts=None, device_name=None, kind=None, manager_name=None, name=None, properties=None, resource_group_name=None, volume_container_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_control_record_ids=None, device_name=None, kind=None, manager_name=None, monitoring_status=None, name=None, resource_group_name=None, size_in_bytes=None, volume_container_name=None, volume_status=None, volume_type=None, __props__=None, __name__=None, __opts__=None):
         """
         The volume.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] access_control_record_ids: The IDs of the access control records, associated with the volume.
         :param pulumi.Input[str] device_name: The device name
         :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
+        :param pulumi.Input[str] monitoring_status: The monitoring status of the volume.
         :param pulumi.Input[str] name: The volume name.
-        :param pulumi.Input[dict] properties: The properties of the volume.
         :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input[float] size_in_bytes: The size of the volume in bytes.
         :param pulumi.Input[str] volume_container_name: The volume container name.
-
-        The **properties** object supports the following:
-
-          * `access_control_record_ids` (`pulumi.Input[list]`) - The IDs of the access control records, associated with the volume.
-          * `monitoring_status` (`pulumi.Input[str]`) - The monitoring status of the volume.
-          * `size_in_bytes` (`pulumi.Input[float]`) - The size of the volume in bytes.
-          * `volume_status` (`pulumi.Input[str]`) - The volume status.
-          * `volume_type` (`pulumi.Input[str]`) - The type of the volume.
+        :param pulumi.Input[str] volume_status: The volume status.
+        :param pulumi.Input[str] volume_type: The type of the volume.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,6 +70,9 @@ class Volume(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if access_control_record_ids is None:
+                raise TypeError("Missing required property 'access_control_record_ids'")
+            __props__['access_control_record_ids'] = access_control_record_ids
             if device_name is None:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
@@ -81,18 +80,28 @@ class Volume(pulumi.CustomResource):
             if manager_name is None:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
+            if monitoring_status is None:
+                raise TypeError("Missing required property 'monitoring_status'")
+            __props__['monitoring_status'] = monitoring_status
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if size_in_bytes is None:
+                raise TypeError("Missing required property 'size_in_bytes'")
+            __props__['size_in_bytes'] = size_in_bytes
             if volume_container_name is None:
                 raise TypeError("Missing required property 'volume_container_name'")
             __props__['volume_container_name'] = volume_container_name
+            if volume_status is None:
+                raise TypeError("Missing required property 'volume_status'")
+            __props__['volume_status'] = volume_status
+            if volume_type is None:
+                raise TypeError("Missing required property 'volume_type'")
+            __props__['volume_type'] = volume_type
+            __props__['properties'] = None
             __props__['type'] = None
         super(Volume, __self__).__init__(
             'azurerm:storsimple/v20170601:Volume',

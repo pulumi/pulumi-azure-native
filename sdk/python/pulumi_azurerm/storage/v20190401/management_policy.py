@@ -45,7 +45,7 @@ class ManagementPolicy(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, policy=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The Get Storage Account ManagementPolicies operation response.
 
@@ -53,33 +53,32 @@ class ManagementPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] name: The name of the Storage Account Management Policy. It should always be 'default'
-        :param pulumi.Input[dict] properties: Returns the Storage Account Data Policies Rules.
+        :param pulumi.Input[dict] policy: The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
 
-        The **properties** object supports the following:
+        The **policy** object supports the following:
 
-          * `policy` (`pulumi.Input[dict]`) - The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-            * `rules` (`pulumi.Input[list]`) - The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
-              * `definition` (`pulumi.Input[dict]`) - An object that defines the Lifecycle rule.
-                * `actions` (`pulumi.Input[dict]`) - An object that defines the action set.
-                  * `base_blob` (`pulumi.Input[dict]`) - The management policy action for base blob
-                    * `delete` (`pulumi.Input[dict]`) - The function to delete the blob
-                      * `days_after_modification_greater_than` (`pulumi.Input[float]`) - Value indicating the age in days after last modification
+          * `rules` (`pulumi.Input[list]`) - The Storage Account ManagementPolicies Rules. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+            * `definition` (`pulumi.Input[dict]`) - An object that defines the Lifecycle rule.
+              * `actions` (`pulumi.Input[dict]`) - An object that defines the action set.
+                * `base_blob` (`pulumi.Input[dict]`) - The management policy action for base blob
+                  * `delete` (`pulumi.Input[dict]`) - The function to delete the blob
+                    * `days_after_modification_greater_than` (`pulumi.Input[float]`) - Value indicating the age in days after last modification
 
-                    * `tier_to_archive` (`pulumi.Input[dict]`) - The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
-                    * `tier_to_cool` (`pulumi.Input[dict]`) - The function to tier blobs to cool storage. Support blobs currently at Hot tier
+                  * `tier_to_archive` (`pulumi.Input[dict]`) - The function to tier blobs to archive storage. Support blobs currently at Hot or Cool tier
+                  * `tier_to_cool` (`pulumi.Input[dict]`) - The function to tier blobs to cool storage. Support blobs currently at Hot tier
 
-                  * `snapshot` (`pulumi.Input[dict]`) - The management policy action for snapshot
-                    * `delete` (`pulumi.Input[dict]`) - The function to delete the blob snapshot
-                      * `days_after_creation_greater_than` (`pulumi.Input[float]`) - Value indicating the age in days after creation
+                * `snapshot` (`pulumi.Input[dict]`) - The management policy action for snapshot
+                  * `delete` (`pulumi.Input[dict]`) - The function to delete the blob snapshot
+                    * `days_after_creation_greater_than` (`pulumi.Input[float]`) - Value indicating the age in days after creation
 
-                * `filters` (`pulumi.Input[dict]`) - An object that defines the filter set.
-                  * `blob_types` (`pulumi.Input[list]`) - An array of predefined enum values. Only blockBlob is supported.
-                  * `prefix_match` (`pulumi.Input[list]`) - An array of strings for prefixes to be match.
+              * `filters` (`pulumi.Input[dict]`) - An object that defines the filter set.
+                * `blob_types` (`pulumi.Input[list]`) - An array of predefined enum values. Only blockBlob is supported.
+                * `prefix_match` (`pulumi.Input[list]`) - An array of strings for prefixes to be match.
 
-              * `enabled` (`pulumi.Input[bool]`) - Rule is enabled if set to true.
-              * `name` (`pulumi.Input[str]`) - A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
-              * `type` (`pulumi.Input[str]`) - The valid value is Lifecycle
+            * `enabled` (`pulumi.Input[bool]`) - Rule is enabled if set to true.
+            * `name` (`pulumi.Input[str]`) - A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+            * `type` (`pulumi.Input[str]`) - The valid value is Lifecycle
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -104,10 +103,13 @@ class ManagementPolicy(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if policy is None:
+                raise TypeError("Missing required property 'policy'")
+            __props__['policy'] = policy
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(ManagementPolicy, __self__).__init__(
             'azurerm:storage/v20190401:ManagementPolicy',

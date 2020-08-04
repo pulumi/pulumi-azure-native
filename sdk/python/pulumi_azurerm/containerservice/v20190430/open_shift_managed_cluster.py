@@ -73,18 +73,53 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, plan=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, agent_pool_profiles=None, auth_profile=None, location=None, master_pool_profile=None, name=None, network_profile=None, open_shift_version=None, plan=None, resource_group_name=None, router_profiles=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         OpenShift Managed cluster.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] agent_pool_profiles: Configuration of OpenShift cluster VMs.
+        :param pulumi.Input[dict] auth_profile: Configures OpenShift authentication.
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[dict] master_pool_profile: Configuration for OpenShift master VMs.
         :param pulumi.Input[str] name: The name of the OpenShift managed cluster resource.
+        :param pulumi.Input[dict] network_profile: Configuration for OpenShift networking.
+        :param pulumi.Input[str] open_shift_version: Version of OpenShift specified when creating the cluster.
         :param pulumi.Input[dict] plan: Define the resource plan as required by ARM for billing purposes
-        :param pulumi.Input[dict] properties: Properties of a OpenShift managed cluster.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[list] router_profiles: Configuration for OpenShift router(s).
         :param pulumi.Input[dict] tags: Resource tags
+
+        The **agent_pool_profiles** object supports the following:
+
+          * `count` (`pulumi.Input[float]`) - Number of agents (VMs) to host docker containers.
+          * `name` (`pulumi.Input[str]`) - Unique name of the pool profile in the context of the subscription and resource group.
+          * `os_type` (`pulumi.Input[str]`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+          * `role` (`pulumi.Input[str]`) - Define the role of the AgentPoolProfile.
+          * `subnet_cidr` (`pulumi.Input[str]`) - Subnet CIDR for the peering.
+          * `vm_size` (`pulumi.Input[str]`) - Size of agent VMs.
+
+        The **auth_profile** object supports the following:
+
+          * `identity_providers` (`pulumi.Input[list]`) - Type of authentication profile to use.
+            * `name` (`pulumi.Input[str]`) - Name of the provider.
+            * `provider` (`pulumi.Input[dict]`) - Configuration of the provider.
+              * `kind` (`pulumi.Input[str]`) - The kind of the provider.
+
+        The **master_pool_profile** object supports the following:
+
+          * `count` (`pulumi.Input[float]`) - Number of masters (VMs) to host docker containers. The default value is 3.
+          * `name` (`pulumi.Input[str]`) - Unique name of the master pool profile in the context of the subscription and resource group.
+          * `os_type` (`pulumi.Input[str]`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+          * `subnet_cidr` (`pulumi.Input[str]`) - Subnet CIDR for the peering.
+          * `vm_size` (`pulumi.Input[str]`) - Size of agent VMs.
+
+        The **network_profile** object supports the following:
+
+          * `peer_vnet_id` (`pulumi.Input[str]`) - CIDR of the Vnet to peer.
+          * `vnet_cidr` (`pulumi.Input[str]`) - CIDR for the OpenShift Vnet.
+          * `vnet_id` (`pulumi.Input[str]`) - ID of the Vnet created for OSA cluster.
 
         The **plan** object supports the following:
 
@@ -93,37 +128,9 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
           * `promotion_code` (`pulumi.Input[str]`) - The promotion code.
           * `publisher` (`pulumi.Input[str]`) - The plan ID.
 
-        The **properties** object supports the following:
+        The **router_profiles** object supports the following:
 
-          * `agent_pool_profiles` (`pulumi.Input[list]`) - Configuration of OpenShift cluster VMs.
-            * `count` (`pulumi.Input[float]`) - Number of agents (VMs) to host docker containers.
-            * `name` (`pulumi.Input[str]`) - Unique name of the pool profile in the context of the subscription and resource group.
-            * `os_type` (`pulumi.Input[str]`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-            * `role` (`pulumi.Input[str]`) - Define the role of the AgentPoolProfile.
-            * `subnet_cidr` (`pulumi.Input[str]`) - Subnet CIDR for the peering.
-            * `vm_size` (`pulumi.Input[str]`) - Size of agent VMs.
-
-          * `auth_profile` (`pulumi.Input[dict]`) - Configures OpenShift authentication.
-            * `identity_providers` (`pulumi.Input[list]`) - Type of authentication profile to use.
-              * `name` (`pulumi.Input[str]`) - Name of the provider.
-              * `provider` (`pulumi.Input[dict]`) - Configuration of the provider.
-                * `kind` (`pulumi.Input[str]`) - The kind of the provider.
-
-          * `master_pool_profile` (`pulumi.Input[dict]`) - Configuration for OpenShift master VMs.
-            * `count` (`pulumi.Input[float]`) - Number of masters (VMs) to host docker containers. The default value is 3.
-            * `name` (`pulumi.Input[str]`) - Unique name of the master pool profile in the context of the subscription and resource group.
-            * `os_type` (`pulumi.Input[str]`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-            * `subnet_cidr` (`pulumi.Input[str]`) - Subnet CIDR for the peering.
-            * `vm_size` (`pulumi.Input[str]`) - Size of agent VMs.
-
-          * `network_profile` (`pulumi.Input[dict]`) - Configuration for OpenShift networking.
-            * `peer_vnet_id` (`pulumi.Input[str]`) - CIDR of the Vnet to peer.
-            * `vnet_cidr` (`pulumi.Input[str]`) - CIDR for the OpenShift Vnet.
-            * `vnet_id` (`pulumi.Input[str]`) - ID of the Vnet created for OSA cluster.
-
-          * `open_shift_version` (`pulumi.Input[str]`) - Version of OpenShift specified when creating the cluster.
-          * `router_profiles` (`pulumi.Input[list]`) - Configuration for OpenShift router(s).
-            * `name` (`pulumi.Input[str]`) - Name of the router profile.
+          * `name` (`pulumi.Input[str]`) - Name of the router profile.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -142,18 +149,26 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['agent_pool_profiles'] = agent_pool_profiles
+            __props__['auth_profile'] = auth_profile
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['master_pool_profile'] = master_pool_profile
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            __props__['network_profile'] = network_profile
+            if open_shift_version is None:
+                raise TypeError("Missing required property 'open_shift_version'")
+            __props__['open_shift_version'] = open_shift_version
             __props__['plan'] = plan
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['router_profiles'] = router_profiles
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(OpenShiftManagedCluster, __self__).__init__(
             'azurerm:containerservice/v20190430:OpenShiftManagedCluster',

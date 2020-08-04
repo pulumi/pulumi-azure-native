@@ -33,23 +33,19 @@ class MaintenanceConfiguration(pulumi.CustomResource):
     """
     Type of the resource
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, extension_properties=None, location=None, maintenance_scope=None, name=None, namespace=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Maintenance configuration record type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] extension_properties: Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
         :param pulumi.Input[str] location: Gets or sets location of the resource
+        :param pulumi.Input[str] maintenance_scope: Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
         :param pulumi.Input[str] name: Resource Identifier
-        :param pulumi.Input[dict] properties: Gets or sets properties of the resource
+        :param pulumi.Input[str] namespace: Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
         :param pulumi.Input[str] resource_group_name: Resource Group Name
         :param pulumi.Input[dict] tags: Gets or sets tags of the resource
-
-        The **properties** object supports the following:
-
-          * `extension_properties` (`pulumi.Input[dict]`) - Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
-          * `maintenance_scope` (`pulumi.Input[str]`) - Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
-          * `namespace` (`pulumi.Input[str]`) - Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -68,15 +64,18 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['extension_properties'] = extension_properties
             __props__['location'] = location
+            __props__['maintenance_scope'] = maintenance_scope
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['namespace'] = namespace
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(MaintenanceConfiguration, __self__).__init__(
             'azurerm:maintenance/v20200401:MaintenanceConfiguration',

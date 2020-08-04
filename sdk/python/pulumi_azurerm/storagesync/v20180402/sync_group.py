@@ -24,7 +24,7 @@ class SyncGroup(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, storage_sync_service_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, storage_sync_service_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Sync Group object.
 
@@ -32,7 +32,6 @@ class SyncGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         :param pulumi.Input[str] name: Name of Sync Group resource.
-        :param pulumi.Input[dict] properties: The parameters used to create the sync group
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[dict] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
@@ -58,7 +57,6 @@ class SyncGroup(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -66,6 +64,7 @@ class SyncGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__['storage_sync_service_name'] = storage_sync_service_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(SyncGroup, __self__).__init__(
             'azurerm:storagesync/v20180402:SyncGroup',

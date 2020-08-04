@@ -44,7 +44,7 @@ class AutomationAccount(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the automation account type.
 
@@ -52,16 +52,15 @@ class AutomationAccount(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Gets or sets the location of the resource.
         :param pulumi.Input[str] name: The name of the automation account.
-        :param pulumi.Input[dict] properties: Gets or sets account create or update properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[dict] sku: Gets or sets account SKU.
         :param pulumi.Input[dict] tags: Gets or sets the tags attached to the resource.
 
-        The **properties** object supports the following:
+        The **sku** object supports the following:
 
-          * `sku` (`pulumi.Input[dict]`) - Gets or sets account SKU.
-            * `capacity` (`pulumi.Input[float]`) - Gets or sets the SKU capacity.
-            * `family` (`pulumi.Input[str]`) - Gets or sets the SKU family.
-            * `name` (`pulumi.Input[str]`) - Gets or sets the SKU name of the account.
+          * `capacity` (`pulumi.Input[float]`) - Gets or sets the SKU capacity.
+          * `family` (`pulumi.Input[str]`) - Gets or sets the SKU family.
+          * `name` (`pulumi.Input[str]`) - Gets or sets the SKU name of the account.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -84,12 +83,13 @@ class AutomationAccount(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(AutomationAccount, __self__).__init__(
             'azurerm:automation/v20151031:AutomationAccount',

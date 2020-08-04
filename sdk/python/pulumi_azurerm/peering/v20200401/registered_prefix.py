@@ -27,7 +27,7 @@ class RegisteredPrefix(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, peering_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, peering_name=None, prefix=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The customer's prefix that is registered by the peering service provider.
 
@@ -35,12 +35,8 @@ class RegisteredPrefix(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the registered prefix.
         :param pulumi.Input[str] peering_name: The name of the peering.
-        :param pulumi.Input[dict] properties: The properties that define a registered prefix.
+        :param pulumi.Input[str] prefix: The customer's prefix from which traffic originates.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-
-        The **properties** object supports the following:
-
-          * `prefix` (`pulumi.Input[str]`) - The customer's prefix from which traffic originates.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,10 +61,11 @@ class RegisteredPrefix(pulumi.CustomResource):
             if peering_name is None:
                 raise TypeError("Missing required property 'peering_name'")
             __props__['peering_name'] = peering_name
-            __props__['properties'] = properties
+            __props__['prefix'] = prefix
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(RegisteredPrefix, __self__).__init__(
             'azurerm:peering/v20200401:RegisteredPrefix',

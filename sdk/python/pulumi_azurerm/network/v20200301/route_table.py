@@ -433,29 +433,27 @@ class RouteTable(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, disable_bgp_route_propagation=None, id=None, location=None, name=None, resource_group_name=None, routes=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Route table resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] disable_bgp_route_propagation: Whether to disable the routes learned by BGP on that route table. True means disable.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the route table.
-        :param pulumi.Input[dict] properties: Properties of the route table.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[list] routes: Collection of routes contained within a route table.
         :param pulumi.Input[dict] tags: Resource tags.
 
-        The **properties** object supports the following:
+        The **routes** object supports the following:
 
-          * `disable_bgp_route_propagation` (`pulumi.Input[bool]`) - Whether to disable the routes learned by BGP on that route table. True means disable.
-          * `routes` (`pulumi.Input[list]`) - Collection of routes contained within a route table.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Properties of the route.
-              * `address_prefix` (`pulumi.Input[str]`) - The destination CIDR to which the route applies.
-              * `next_hop_ip_address` (`pulumi.Input[str]`) - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-              * `next_hop_type` (`pulumi.Input[str]`) - The type of Azure hop the packet should be sent to.
+          * `address_prefix` (`pulumi.Input[str]`) - The destination CIDR to which the route applies.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+          * `next_hop_ip_address` (`pulumi.Input[str]`) - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+          * `next_hop_type` (`pulumi.Input[str]`) - The type of Azure hop the packet should be sent to.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -474,17 +472,19 @@ class RouteTable(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['disable_bgp_route_propagation'] = disable_bgp_route_propagation
             __props__['id'] = id
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['routes'] = routes
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(RouteTable, __self__).__init__(
             'azurerm:network/v20200301:RouteTable',

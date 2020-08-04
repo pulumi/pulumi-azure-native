@@ -69,61 +69,64 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, definition=None, delivery_info=None, format=None, name=None, resource_group_name=None, schedule=None, __props__=None, __name__=None, __opts__=None):
         """
         A report config resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] definition: Has definition for the report config.
+        :param pulumi.Input[dict] delivery_info: Has delivery information for the report config.
+        :param pulumi.Input[str] format: The format of the report being delivered.
         :param pulumi.Input[str] name: Report Config Name.
-        :param pulumi.Input[dict] properties: The properties of the report config.
         :param pulumi.Input[str] resource_group_name: Azure Resource Group Name.
+        :param pulumi.Input[dict] schedule: Has schedule information for the report config.
 
-        The **properties** object supports the following:
+        The **definition** object supports the following:
 
-          * `definition` (`pulumi.Input[dict]`) - Has definition for the report config.
-            * `dataset` (`pulumi.Input[dict]`) - Has definition for data in this report config.
-              * `aggregation` (`pulumi.Input[dict]`) - Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-              * `configuration` (`pulumi.Input[dict]`) - Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
-                * `columns` (`pulumi.Input[list]`) - Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+          * `dataset` (`pulumi.Input[dict]`) - Has definition for data in this report config.
+            * `aggregation` (`pulumi.Input[dict]`) - Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+            * `configuration` (`pulumi.Input[dict]`) - Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+              * `columns` (`pulumi.Input[list]`) - Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
 
-              * `filter` (`pulumi.Input[dict]`) - Has filter expression to use in the report.
-                * `and` (`pulumi.Input[list]`) - The logical "AND" expression. Must have at least 2 items.
-                * `dimension` (`pulumi.Input[dict]`) - Has comparison expression for a dimension
-                  * `name` (`pulumi.Input[str]`) - The name of the column to use in comparison.
-                  * `operator` (`pulumi.Input[str]`) - The operator to use for comparison.
-                  * `values` (`pulumi.Input[list]`) - Array of values to use for comparison
+            * `filter` (`pulumi.Input[dict]`) - Has filter expression to use in the report.
+              * `and` (`pulumi.Input[list]`) - The logical "AND" expression. Must have at least 2 items.
+              * `dimension` (`pulumi.Input[dict]`) - Has comparison expression for a dimension
+                * `name` (`pulumi.Input[str]`) - The name of the column to use in comparison.
+                * `operator` (`pulumi.Input[str]`) - The operator to use for comparison.
+                * `values` (`pulumi.Input[list]`) - Array of values to use for comparison
 
-                * `not` (`pulumi.Input[dict]`) - The logical "NOT" expression.
-                * `or` (`pulumi.Input[list]`) - The logical "OR" expression. Must have at least 2 items.
-                * `tag` (`pulumi.Input[dict]`) - Has comparison expression for a tag
+              * `not` (`pulumi.Input[dict]`) - The logical "NOT" expression.
+              * `or` (`pulumi.Input[list]`) - The logical "OR" expression. Must have at least 2 items.
+              * `tag` (`pulumi.Input[dict]`) - Has comparison expression for a tag
 
-              * `granularity` (`pulumi.Input[str]`) - The granularity of rows in the report.
-              * `grouping` (`pulumi.Input[list]`) - Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-                * `column_type` (`pulumi.Input[str]`) - Has type of the column to group.
-                * `name` (`pulumi.Input[str]`) - The name of the column to group.
+            * `granularity` (`pulumi.Input[str]`) - The granularity of rows in the report.
+            * `grouping` (`pulumi.Input[list]`) - Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+              * `column_type` (`pulumi.Input[str]`) - Has type of the column to group.
+              * `name` (`pulumi.Input[str]`) - The name of the column to group.
 
-            * `time_period` (`pulumi.Input[dict]`) - Has time period for pulling data for the report.
-              * `from` (`pulumi.Input[str]`) - The start date to pull data from.
-              * `to` (`pulumi.Input[str]`) - The end date to pull data to.
+          * `time_period` (`pulumi.Input[dict]`) - Has time period for pulling data for the report.
+            * `from` (`pulumi.Input[str]`) - The start date to pull data from.
+            * `to` (`pulumi.Input[str]`) - The end date to pull data to.
 
-            * `timeframe` (`pulumi.Input[str]`) - The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-            * `type` (`pulumi.Input[str]`) - The type of the report.
+          * `timeframe` (`pulumi.Input[str]`) - The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+          * `type` (`pulumi.Input[str]`) - The type of the report.
 
-          * `delivery_info` (`pulumi.Input[dict]`) - Has delivery information for the report config.
-            * `destination` (`pulumi.Input[dict]`) - Has destination for the report being delivered.
-              * `container` (`pulumi.Input[str]`) - The name of the container where reports will be uploaded.
-              * `resource_id` (`pulumi.Input[str]`) - The resource id of the storage account where reports will be delivered.
-              * `root_folder_path` (`pulumi.Input[str]`) - The name of the directory where reports will be uploaded.
+        The **delivery_info** object supports the following:
 
-          * `format` (`pulumi.Input[str]`) - The format of the report being delivered.
-          * `schedule` (`pulumi.Input[dict]`) - Has schedule information for the report config.
-            * `recurrence` (`pulumi.Input[str]`) - The schedule recurrence.
-            * `recurrence_period` (`pulumi.Input[dict]`) - Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
-              * `from` (`pulumi.Input[str]`) - The start date of recurrence.
-              * `to` (`pulumi.Input[str]`) - The end date of recurrence. If not provided, we default this to 10 years from the start date.
+          * `destination` (`pulumi.Input[dict]`) - Has destination for the report being delivered.
+            * `container` (`pulumi.Input[str]`) - The name of the container where reports will be uploaded.
+            * `resource_id` (`pulumi.Input[str]`) - The resource id of the storage account where reports will be delivered.
+            * `root_folder_path` (`pulumi.Input[str]`) - The name of the directory where reports will be uploaded.
 
-            * `status` (`pulumi.Input[str]`) - The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+        The **schedule** object supports the following:
+
+          * `recurrence` (`pulumi.Input[str]`) - The schedule recurrence.
+          * `recurrence_period` (`pulumi.Input[dict]`) - Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+            * `from` (`pulumi.Input[str]`) - The start date of recurrence.
+            * `to` (`pulumi.Input[str]`) - The end date of recurrence. If not provided, we default this to 10 years from the start date.
+
+          * `status` (`pulumi.Input[str]`) - The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -142,13 +145,21 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if definition is None:
+                raise TypeError("Missing required property 'definition'")
+            __props__['definition'] = definition
+            if delivery_info is None:
+                raise TypeError("Missing required property 'delivery_info'")
+            __props__['delivery_info'] = delivery_info
+            __props__['format'] = format
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['schedule'] = schedule
+            __props__['properties'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(ReportConfigByResourceGroupName, __self__).__init__(

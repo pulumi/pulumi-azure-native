@@ -49,28 +49,24 @@ class IntegrationAccountSchema(pulumi.CustomResource):
     """
     Gets the resource type.
     """
-    def __init__(__self__, resource_name, opts=None, integration_account_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, content=None, content_type=None, document_name=None, file_name=None, integration_account_name=None, location=None, metadata=None, name=None, resource_group_name=None, schema_type=None, tags=None, target_namespace=None, __props__=None, __name__=None, __opts__=None):
         """
         The integration account schema.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] content: The content.
+        :param pulumi.Input[str] content_type: The content type.
+        :param pulumi.Input[str] document_name: The document name.
+        :param pulumi.Input[str] file_name: The file name.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[dict] metadata: The metadata.
         :param pulumi.Input[str] name: The integration account schema name.
-        :param pulumi.Input[dict] properties: The integration account schema properties.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[str] schema_type: The schema type.
         :param pulumi.Input[dict] tags: The resource tags.
-
-        The **properties** object supports the following:
-
-          * `content` (`pulumi.Input[str]`) - The content.
-          * `content_type` (`pulumi.Input[str]`) - The content type.
-          * `document_name` (`pulumi.Input[str]`) - The document name.
-          * `file_name` (`pulumi.Input[str]`) - The file name.
-          * `metadata` (`pulumi.Input[dict]`) - The metadata.
-          * `schema_type` (`pulumi.Input[str]`) - The schema type.
-          * `target_namespace` (`pulumi.Input[str]`) - The target namespace of the schema.
+        :param pulumi.Input[str] target_namespace: The target namespace of the schema.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -89,20 +85,27 @@ class IntegrationAccountSchema(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['content'] = content
+            __props__['content_type'] = content_type
+            __props__['document_name'] = document_name
+            __props__['file_name'] = file_name
             if integration_account_name is None:
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
+            __props__['metadata'] = metadata
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if schema_type is None:
+                raise TypeError("Missing required property 'schema_type'")
+            __props__['schema_type'] = schema_type
             __props__['tags'] = tags
+            __props__['target_namespace'] = target_namespace
+            __props__['properties'] = None
             __props__['type'] = None
         super(IntegrationAccountSchema, __self__).__init__(
             'azurerm:logic/v20190501:IntegrationAccountSchema',

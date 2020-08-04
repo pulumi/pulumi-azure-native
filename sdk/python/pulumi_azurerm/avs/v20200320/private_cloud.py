@@ -73,41 +73,41 @@ class PrivateCloud(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, circuit=None, identity_sources=None, internet=None, location=None, management_cluster=None, name=None, network_block=None, nsxt_password=None, resource_group_name=None, sku=None, tags=None, vcenter_password=None, __props__=None, __name__=None, __opts__=None):
         """
         A private cloud resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] circuit: An ExpressRoute Circuit
+        :param pulumi.Input[list] identity_sources: vCenter Single Sign On Identity Sources
+        :param pulumi.Input[str] internet: Connectivity to internet is enabled or disabled
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[dict] management_cluster: The default cluster used for management
         :param pulumi.Input[str] name: Name of the private cloud
-        :param pulumi.Input[dict] properties: The properties of a private cloud resource
+        :param pulumi.Input[str] network_block: The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+        :param pulumi.Input[str] nsxt_password: Optionally, set the NSX-T Manager password when the private cloud is created
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[dict] sku: The private cloud SKU
         :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[str] vcenter_password: Optionally, set the vCenter admin password when the private cloud is created
 
-        The **properties** object supports the following:
+        The **identity_sources** object supports the following:
 
-          * `circuit` (`pulumi.Input[dict]`) - An ExpressRoute Circuit
-          * `identity_sources` (`pulumi.Input[list]`) - vCenter Single Sign On Identity Sources
-            * `alias` (`pulumi.Input[str]`) - The domain's NetBIOS name
-            * `base_group_dn` (`pulumi.Input[str]`) - The base distinguished name for groups
-            * `base_user_dn` (`pulumi.Input[str]`) - The base distinguished name for users
-            * `domain` (`pulumi.Input[str]`) - The domain's dns name
-            * `name` (`pulumi.Input[str]`) - The name of the identity source
-            * `password` (`pulumi.Input[str]`) - The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
-            * `primary_server` (`pulumi.Input[str]`) - Primary server URL
-            * `secondary_server` (`pulumi.Input[str]`) - Secondary server URL
-            * `ssl` (`pulumi.Input[str]`) - Protect LDAP communication using SSL certificate (LDAPS)
-            * `username` (`pulumi.Input[str]`) - The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+          * `alias` (`pulumi.Input[str]`) - The domain's NetBIOS name
+          * `base_group_dn` (`pulumi.Input[str]`) - The base distinguished name for groups
+          * `base_user_dn` (`pulumi.Input[str]`) - The base distinguished name for users
+          * `domain` (`pulumi.Input[str]`) - The domain's dns name
+          * `name` (`pulumi.Input[str]`) - The name of the identity source
+          * `password` (`pulumi.Input[str]`) - The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+          * `primary_server` (`pulumi.Input[str]`) - Primary server URL
+          * `secondary_server` (`pulumi.Input[str]`) - Secondary server URL
+          * `ssl` (`pulumi.Input[str]`) - Protect LDAP communication using SSL certificate (LDAPS)
+          * `username` (`pulumi.Input[str]`) - The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
 
-          * `internet` (`pulumi.Input[str]`) - Connectivity to internet is enabled or disabled
-          * `management_cluster` (`pulumi.Input[dict]`) - The default cluster used for management
-            * `cluster_size` (`pulumi.Input[float]`) - The cluster size
+        The **management_cluster** object supports the following:
 
-          * `network_block` (`pulumi.Input[str]`) - The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
-          * `nsxt_password` (`pulumi.Input[str]`) - Optionally, set the NSX-T Manager password when the private cloud is created
-          * `vcenter_password` (`pulumi.Input[str]`) - Optionally, set the vCenter admin password when the private cloud is created
+          * `cluster_size` (`pulumi.Input[float]`) - The cluster size
 
         The **sku** object supports the following:
 
@@ -130,15 +130,22 @@ class PrivateCloud(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['circuit'] = circuit
+            __props__['identity_sources'] = identity_sources
+            __props__['internet'] = internet
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            if management_cluster is None:
+                raise TypeError("Missing required property 'management_cluster'")
+            __props__['management_cluster'] = management_cluster
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            if network_block is None:
+                raise TypeError("Missing required property 'network_block'")
+            __props__['network_block'] = network_block
+            __props__['nsxt_password'] = nsxt_password
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -146,6 +153,8 @@ class PrivateCloud(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['vcenter_password'] = vcenter_password
+            __props__['properties'] = None
             __props__['type'] = None
         super(PrivateCloud, __self__).__init__(
             'azurerm:avs/v20200320:PrivateCloud',

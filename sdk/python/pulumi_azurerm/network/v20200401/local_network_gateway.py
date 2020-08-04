@@ -52,34 +52,35 @@ class LocalNetworkGateway(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, bgp_settings=None, fqdn=None, gateway_ip_address=None, id=None, local_network_address_space=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         A common class for general resource information.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] bgp_settings: Local network gateway's BGP speaker settings.
+        :param pulumi.Input[str] fqdn: FQDN of local network gateway.
+        :param pulumi.Input[str] gateway_ip_address: IP address of local network gateway.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[dict] local_network_address_space: Local network site address space.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the local network gateway.
-        :param pulumi.Input[dict] properties: Properties of the local network gateway.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
 
-        The **properties** object supports the following:
+        The **bgp_settings** object supports the following:
 
-          * `bgp_settings` (`pulumi.Input[dict]`) - Local network gateway's BGP speaker settings.
-            * `asn` (`pulumi.Input[float]`) - The BGP speaker's ASN.
-            * `bgp_peering_address` (`pulumi.Input[str]`) - The BGP peering address and BGP identifier of this BGP speaker.
-            * `bgp_peering_addresses` (`pulumi.Input[list]`) - BGP peering address with IP configuration ID for virtual network gateway.
-              * `custom_bgp_ip_addresses` (`pulumi.Input[list]`) - The list of custom BGP peering addresses which belong to IP configuration.
-              * `ipconfiguration_id` (`pulumi.Input[str]`) - The ID of IP configuration which belongs to gateway.
+          * `asn` (`pulumi.Input[float]`) - The BGP speaker's ASN.
+          * `bgp_peering_address` (`pulumi.Input[str]`) - The BGP peering address and BGP identifier of this BGP speaker.
+          * `bgp_peering_addresses` (`pulumi.Input[list]`) - BGP peering address with IP configuration ID for virtual network gateway.
+            * `custom_bgp_ip_addresses` (`pulumi.Input[list]`) - The list of custom BGP peering addresses which belong to IP configuration.
+            * `ipconfiguration_id` (`pulumi.Input[str]`) - The ID of IP configuration which belongs to gateway.
 
-            * `peer_weight` (`pulumi.Input[float]`) - The weight added to routes learned from this BGP speaker.
+          * `peer_weight` (`pulumi.Input[float]`) - The weight added to routes learned from this BGP speaker.
 
-          * `fqdn` (`pulumi.Input[str]`) - FQDN of local network gateway.
-          * `gateway_ip_address` (`pulumi.Input[str]`) - IP address of local network gateway.
-          * `local_network_address_space` (`pulumi.Input[dict]`) - Local network site address space.
-            * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
+        The **local_network_address_space** object supports the following:
+
+          * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -98,19 +99,21 @@ class LocalNetworkGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['bgp_settings'] = bgp_settings
+            __props__['fqdn'] = fqdn
+            __props__['gateway_ip_address'] = gateway_ip_address
             __props__['id'] = id
+            __props__['local_network_address_space'] = local_network_address_space
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(LocalNetworkGateway, __self__).__init__(
             'azurerm:network/v20200401:LocalNetworkGateway',

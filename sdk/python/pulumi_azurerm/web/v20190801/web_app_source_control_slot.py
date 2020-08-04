@@ -31,24 +31,20 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, branch=None, deployment_rollback_enabled=None, is_manual_integration=None, is_mercurial=None, kind=None, name=None, repo_url=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Source control configuration for an app.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] branch: Name of branch to use for deployment.
+        :param pulumi.Input[bool] deployment_rollback_enabled: <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
+        :param pulumi.Input[bool] is_manual_integration: <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
+        :param pulumi.Input[bool] is_mercurial: <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] name: Name of the deployment slot. If a slot is not specified, the API will update the source control configuration for the production slot.
-        :param pulumi.Input[dict] properties: SiteSourceControl resource specific properties
+        :param pulumi.Input[str] repo_url: Repository or source control URL.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-
-        The **properties** object supports the following:
-
-          * `branch` (`pulumi.Input[str]`) - Name of branch to use for deployment.
-          * `deployment_rollback_enabled` (`pulumi.Input[bool]`) - <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
-          * `is_manual_integration` (`pulumi.Input[bool]`) - <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
-          * `is_mercurial` (`pulumi.Input[bool]`) - <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
-          * `repo_url` (`pulumi.Input[str]`) - Repository or source control URL.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,14 +63,19 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['branch'] = branch
+            __props__['deployment_rollback_enabled'] = deployment_rollback_enabled
+            __props__['is_manual_integration'] = is_manual_integration
+            __props__['is_mercurial'] = is_mercurial
             __props__['kind'] = kind
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['repo_url'] = repo_url
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppSourceControlSlot, __self__).__init__(
             'azurerm:web/v20190801:WebAppSourceControlSlot',

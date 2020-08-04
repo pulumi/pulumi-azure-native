@@ -37,25 +37,24 @@ class ReferenceDataSet(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, environment_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, data_string_comparison_behavior=None, environment_name=None, key_properties=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] data_string_comparison_behavior: The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
         :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
+        :param pulumi.Input[list] key_properties: The list of key properties for the reference data set.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: Name of the reference data set.
-        :param pulumi.Input[dict] properties: Properties used to create a reference data set.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[dict] tags: Key-value pairs of additional properties for the resource.
 
-        The **properties** object supports the following:
+        The **key_properties** object supports the following:
 
-          * `data_string_comparison_behavior` (`pulumi.Input[str]`) - The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-          * `key_properties` (`pulumi.Input[list]`) - The list of key properties for the reference data set.
-            * `name` (`pulumi.Input[str]`) - The name of the key property.
-            * `type` (`pulumi.Input[str]`) - The type of the key property.
+          * `name` (`pulumi.Input[str]`) - The name of the key property.
+          * `type` (`pulumi.Input[str]`) - The type of the key property.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,22 +73,24 @@ class ReferenceDataSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['data_string_comparison_behavior'] = data_string_comparison_behavior
             if environment_name is None:
                 raise TypeError("Missing required property 'environment_name'")
             __props__['environment_name'] = environment_name
+            if key_properties is None:
+                raise TypeError("Missing required property 'key_properties'")
+            __props__['key_properties'] = key_properties
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(ReferenceDataSet, __self__).__init__(
             'azurerm:timeseriesinsights/v20171115:ReferenceDataSet',

@@ -47,28 +47,26 @@ class Workflow(pulumi.CustomResource):
     """
     Gets the resource type.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, definition=None, integration_account=None, location=None, name=None, parameters=None, resource_group_name=None, sku=None, state=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The workflow type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] definition: The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
+        :param pulumi.Input[dict] integration_account: The integration account.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] name: The workflow name.
-        :param pulumi.Input[dict] properties: The workflow properties.
+        :param pulumi.Input[dict] parameters: The parameters.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[dict] sku: The sku.
+        :param pulumi.Input[str] state: The state.
         :param pulumi.Input[dict] tags: The resource tags.
 
-        The **properties** object supports the following:
+        The **sku** object supports the following:
 
-          * `definition` (`pulumi.Input[dict]`) - The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
-          * `integration_account` (`pulumi.Input[dict]`) - The integration account.
-          * `parameters` (`pulumi.Input[dict]`) - The parameters.
-          * `sku` (`pulumi.Input[dict]`) - The sku.
-            * `name` (`pulumi.Input[str]`) - The name.
-            * `plan` (`pulumi.Input[dict]`) - The reference to plan.
-
-          * `state` (`pulumi.Input[str]`) - The state.
+          * `name` (`pulumi.Input[str]`) - The name.
+          * `plan` (`pulumi.Input[dict]`) - The reference to plan.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,15 +85,20 @@ class Workflow(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['definition'] = definition
+            __props__['integration_account'] = integration_account
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['parameters'] = parameters
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sku'] = sku
+            __props__['state'] = state
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Workflow, __self__).__init__(
             'azurerm:logic/v20160601:Workflow',

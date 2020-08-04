@@ -39,30 +39,28 @@ class User(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, confirmation=None, email=None, first_name=None, identities=None, last_name=None, name=None, note=None, password=None, resource_group_name=None, service_name=None, state=None, __props__=None, __name__=None, __opts__=None):
         """
         User details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] confirmation: Determines the type of confirmation e-mail that will be sent to the newly created user.
+        :param pulumi.Input[str] email: Email address. Must not be empty and must be unique within the service instance.
+        :param pulumi.Input[str] first_name: First name.
+        :param pulumi.Input[list] identities: Collection of user identities.
+        :param pulumi.Input[str] last_name: Last name.
         :param pulumi.Input[str] name: User identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[dict] properties: User entity create contract properties.
+        :param pulumi.Input[str] note: Optional note about a user set by the administrator.
+        :param pulumi.Input[str] password: User Password. If no value is provided, a default password is generated.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] state: Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
 
-        The **properties** object supports the following:
+        The **identities** object supports the following:
 
-          * `confirmation` (`pulumi.Input[str]`) - Determines the type of confirmation e-mail that will be sent to the newly created user.
-          * `email` (`pulumi.Input[str]`) - Email address. Must not be empty and must be unique within the service instance.
-          * `first_name` (`pulumi.Input[str]`) - First name.
-          * `identities` (`pulumi.Input[list]`) - Collection of user identities.
-            * `id` (`pulumi.Input[str]`) - Identifier value within provider.
-            * `provider` (`pulumi.Input[str]`) - Identity provider name.
-
-          * `last_name` (`pulumi.Input[str]`) - Last name.
-          * `note` (`pulumi.Input[str]`) - Optional note about a user set by the administrator.
-          * `password` (`pulumi.Input[str]`) - User Password. If no value is provided, a default password is generated.
-          * `state` (`pulumi.Input[str]`) - Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+          * `id` (`pulumi.Input[str]`) - Identifier value within provider.
+          * `provider` (`pulumi.Input[str]`) - Identity provider name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,16 +79,30 @@ class User(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['confirmation'] = confirmation
+            if email is None:
+                raise TypeError("Missing required property 'email'")
+            __props__['email'] = email
+            if first_name is None:
+                raise TypeError("Missing required property 'first_name'")
+            __props__['first_name'] = first_name
+            __props__['identities'] = identities
+            if last_name is None:
+                raise TypeError("Missing required property 'last_name'")
+            __props__['last_name'] = last_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['note'] = note
+            __props__['password'] = password
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['state'] = state
+            __props__['properties'] = None
             __props__['type'] = None
         super(User, __self__).__init__(
             'azurerm:apimanagement/v20180101:User',

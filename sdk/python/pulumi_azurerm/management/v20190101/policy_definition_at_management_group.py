@@ -29,25 +29,21 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
     """
     The type of the resource (Microsoft.Authorization/policyDefinitions).
     """
-    def __init__(__self__, resource_name, opts=None, management_group_id=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, management_group_id=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None, __props__=None, __name__=None, __opts__=None):
         """
         The policy definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The policy definition description.
+        :param pulumi.Input[str] display_name: The display name of the policy definition.
         :param pulumi.Input[str] management_group_id: The ID of the management group.
+        :param pulumi.Input[dict] metadata: The policy definition metadata.
+        :param pulumi.Input[str] mode: The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
         :param pulumi.Input[str] name: The name of the policy definition to create.
-        :param pulumi.Input[dict] properties: The policy definition properties.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - The policy definition description.
-          * `display_name` (`pulumi.Input[str]`) - The display name of the policy definition.
-          * `metadata` (`pulumi.Input[dict]`) - The policy definition metadata.
-          * `mode` (`pulumi.Input[str]`) - The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
-          * `parameters` (`pulumi.Input[dict]`) - Required if a parameter is used in policy rule.
-          * `policy_rule` (`pulumi.Input[dict]`) - The policy rule.
-          * `policy_type` (`pulumi.Input[str]`) - The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+        :param pulumi.Input[dict] parameters: Required if a parameter is used in policy rule.
+        :param pulumi.Input[dict] policy_rule: The policy rule.
+        :param pulumi.Input[str] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,13 +62,20 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['description'] = description
+            __props__['display_name'] = display_name
             if management_group_id is None:
                 raise TypeError("Missing required property 'management_group_id'")
             __props__['management_group_id'] = management_group_id
+            __props__['metadata'] = metadata
+            __props__['mode'] = mode
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['parameters'] = parameters
+            __props__['policy_rule'] = policy_rule
+            __props__['policy_type'] = policy_type
+            __props__['properties'] = None
             __props__['type'] = None
         super(PolicyDefinitionAtManagementGroup, __self__).__init__(
             'azurerm:management/v20190101:PolicyDefinitionAtManagementGroup',

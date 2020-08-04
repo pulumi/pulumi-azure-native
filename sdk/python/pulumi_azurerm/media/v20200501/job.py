@@ -48,27 +48,25 @@ class Job(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, properties=None, resource_group_name=None, transform_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, correlation_data=None, description=None, input=None, name=None, outputs=None, priority=None, resource_group_name=None, transform_name=None, __props__=None, __name__=None, __opts__=None):
         """
         A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
+        :param pulumi.Input[dict] correlation_data: Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+        :param pulumi.Input[str] description: Optional customer supplied description of the Job.
+        :param pulumi.Input[dict] input: The inputs for the Job.
         :param pulumi.Input[str] name: The Job name.
-        :param pulumi.Input[dict] properties: The resource properties.
+        :param pulumi.Input[list] outputs: The outputs for the Job.
+        :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
         :param pulumi.Input[str] transform_name: The Transform name.
 
-        The **properties** object supports the following:
+        The **outputs** object supports the following:
 
-          * `correlation_data` (`pulumi.Input[dict]`) - Customer provided key, value pairs that will be returned in Job and JobOutput state events.
-          * `description` (`pulumi.Input[str]`) - Optional customer supplied description of the Job.
-          * `input` (`pulumi.Input[dict]`) - The inputs for the Job.
-          * `outputs` (`pulumi.Input[list]`) - The outputs for the Job.
-            * `label` (`pulumi.Input[str]`) - A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
-
-          * `priority` (`pulumi.Input[str]`) - Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+          * `label` (`pulumi.Input[str]`) - A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -90,16 +88,25 @@ class Job(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['correlation_data'] = correlation_data
+            __props__['description'] = description
+            if input is None:
+                raise TypeError("Missing required property 'input'")
+            __props__['input'] = input
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if outputs is None:
+                raise TypeError("Missing required property 'outputs'")
+            __props__['outputs'] = outputs
+            __props__['priority'] = priority
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if transform_name is None:
                 raise TypeError("Missing required property 'transform_name'")
             __props__['transform_name'] = transform_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Job, __self__).__init__(
             'azurerm:media/v20200501:Job',

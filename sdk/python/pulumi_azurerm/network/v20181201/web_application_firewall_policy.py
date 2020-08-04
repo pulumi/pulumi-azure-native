@@ -660,41 +660,42 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, custom_rules=None, etag=None, id=None, location=None, name=None, policy_settings=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Defines web application firewall policy.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] custom_rules: Describes custom rules inside the policy
         :param pulumi.Input[str] etag: Gets a unique read-only string that changes whenever the resource is updated.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the policy.
-        :param pulumi.Input[dict] properties: Properties of the web application firewall policy.
+        :param pulumi.Input[dict] policy_settings: Describes  policySettings for policy
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
 
-        The **properties** object supports the following:
+        The **custom_rules** object supports the following:
 
-          * `custom_rules` (`pulumi.Input[list]`) - Describes custom rules inside the policy
-            * `action` (`pulumi.Input[str]`) - Type of Actions
-            * `match_conditions` (`pulumi.Input[list]`) - List of match conditions
-              * `match_values` (`pulumi.Input[list]`) - Match value
-              * `match_variables` (`pulumi.Input[list]`) - List of match variables
-                * `selector` (`pulumi.Input[str]`) - Describes field of the matchVariable collection
-                * `variable_name` (`pulumi.Input[str]`) - Match Variable
+          * `action` (`pulumi.Input[str]`) - Type of Actions
+          * `match_conditions` (`pulumi.Input[list]`) - List of match conditions
+            * `match_values` (`pulumi.Input[list]`) - Match value
+            * `match_variables` (`pulumi.Input[list]`) - List of match variables
+              * `selector` (`pulumi.Input[str]`) - Describes field of the matchVariable collection
+              * `variable_name` (`pulumi.Input[str]`) - Match Variable
 
-              * `negation_conditon` (`pulumi.Input[bool]`) - Describes if this is negate condition or not
-              * `operator` (`pulumi.Input[str]`) - Describes operator to be matched
-              * `transforms` (`pulumi.Input[list]`) - List of transforms
+            * `negation_conditon` (`pulumi.Input[bool]`) - Describes if this is negate condition or not
+            * `operator` (`pulumi.Input[str]`) - Describes operator to be matched
+            * `transforms` (`pulumi.Input[list]`) - List of transforms
 
-            * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a policy. This name can be used to access the resource.
-            * `priority` (`pulumi.Input[float]`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
-            * `rule_type` (`pulumi.Input[str]`) - Describes type of rule
+          * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+          * `priority` (`pulumi.Input[float]`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value
+          * `rule_type` (`pulumi.Input[str]`) - Describes type of rule
 
-          * `policy_settings` (`pulumi.Input[dict]`) - Describes  policySettings for policy
-            * `enabled_state` (`pulumi.Input[str]`) - Describes if the policy is in enabled state or disabled state
-            * `mode` (`pulumi.Input[str]`) - Describes if it is in detection mode  or prevention mode at policy level
+        The **policy_settings** object supports the following:
+
+          * `enabled_state` (`pulumi.Input[str]`) - Describes if the policy is in enabled state or disabled state
+          * `mode` (`pulumi.Input[str]`) - Describes if it is in detection mode  or prevention mode at policy level
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -713,17 +714,19 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['custom_rules'] = custom_rules
             __props__['etag'] = etag
             __props__['id'] = id
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['policy_settings'] = policy_settings
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(WebApplicationFirewallPolicy, __self__).__init__(
             'azurerm:network/v20181201:WebApplicationFirewallPolicy',

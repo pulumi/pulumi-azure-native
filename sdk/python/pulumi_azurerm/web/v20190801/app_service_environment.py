@@ -115,60 +115,63 @@ class AppServiceEnvironment(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_management_account_id=None, cluster_settings=None, dns_suffix=None, dynamic_cache_enabled=None, front_end_scale_factor=None, has_linux_workers=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, location=None, multi_role_count=None, multi_size=None, name=None, network_access_control_list=None, resource_group_name=None, ssl_cert_key_vault_id=None, ssl_cert_key_vault_secret_name=None, suspended=None, tags=None, user_whitelisted_ip_ranges=None, virtual_network=None, vnet_name=None, vnet_resource_group_name=None, vnet_subnet_name=None, worker_pools=None, __props__=None, __name__=None, __opts__=None):
         """
         App Service Environment ARM resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] api_management_account_id: API Management Account associated with the App Service Environment.
+        :param pulumi.Input[list] cluster_settings: Custom settings for changing the behavior of the App Service Environment.
+        :param pulumi.Input[str] dns_suffix: DNS suffix of the App Service Environment.
+        :param pulumi.Input[bool] dynamic_cache_enabled: True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+               (most likely because NSG blocked the incoming traffic).
+        :param pulumi.Input[float] front_end_scale_factor: Scale factor for front-ends.
+        :param pulumi.Input[bool] has_linux_workers: Flag that displays whether an ASE has linux workers or not
+        :param pulumi.Input[str] internal_load_balancing_mode: Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+        :param pulumi.Input[float] ipssl_address_count: Number of IP SSL addresses reserved for the App Service Environment.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] location: Resource Location.
+        :param pulumi.Input[float] multi_role_count: Number of front-end instances.
+        :param pulumi.Input[str] multi_size: Front-end VM size, e.g. "Medium", "Large".
         :param pulumi.Input[str] name: Name of the App Service Environment.
-        :param pulumi.Input[dict] properties: Core resource properties
+        :param pulumi.Input[list] network_access_control_list: Access control list for controlling traffic to the App Service Environment.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] ssl_cert_key_vault_id: Key Vault ID for ILB App Service Environment default SSL certificate
+        :param pulumi.Input[str] ssl_cert_key_vault_secret_name: Key Vault Secret Name for ILB App Service Environment default SSL certificate
+        :param pulumi.Input[bool] suspended: <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
+                (most likely because NSG blocked the incoming traffic).
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[list] user_whitelisted_ip_ranges: User added ip ranges to whitelist on ASE db
+        :param pulumi.Input[dict] virtual_network: Description of the Virtual Network.
+        :param pulumi.Input[str] vnet_name: Name of the Virtual Network for the App Service Environment.
+        :param pulumi.Input[str] vnet_resource_group_name: Resource group of the Virtual Network.
+        :param pulumi.Input[str] vnet_subnet_name: Subnet of the Virtual Network.
+        :param pulumi.Input[list] worker_pools: Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
 
-        The **properties** object supports the following:
+        The **cluster_settings** object supports the following:
 
-          * `api_management_account_id` (`pulumi.Input[str]`) - API Management Account associated with the App Service Environment.
-          * `cluster_settings` (`pulumi.Input[list]`) - Custom settings for changing the behavior of the App Service Environment.
-            * `name` (`pulumi.Input[str]`) - Pair name.
-            * `value` (`pulumi.Input[str]`) - Pair value.
+          * `name` (`pulumi.Input[str]`) - Pair name.
+          * `value` (`pulumi.Input[str]`) - Pair value.
 
-          * `dns_suffix` (`pulumi.Input[str]`) - DNS suffix of the App Service Environment.
-          * `dynamic_cache_enabled` (`pulumi.Input[bool]`) - True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-            (most likely because NSG blocked the incoming traffic).
-          * `front_end_scale_factor` (`pulumi.Input[float]`) - Scale factor for front-ends.
-          * `has_linux_workers` (`pulumi.Input[bool]`) - Flag that displays whether an ASE has linux workers or not
-          * `internal_load_balancing_mode` (`pulumi.Input[str]`) - Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
-          * `ipssl_address_count` (`pulumi.Input[float]`) - Number of IP SSL addresses reserved for the App Service Environment.
-          * `location` (`pulumi.Input[str]`) - Location of the App Service Environment, e.g. "West US".
-          * `multi_role_count` (`pulumi.Input[float]`) - Number of front-end instances.
-          * `multi_size` (`pulumi.Input[str]`) - Front-end VM size, e.g. "Medium", "Large".
-          * `name` (`pulumi.Input[str]`) - Name of the App Service Environment.
-          * `network_access_control_list` (`pulumi.Input[list]`) - Access control list for controlling traffic to the App Service Environment.
-            * `action` (`pulumi.Input[str]`) - Action object.
-            * `description` (`pulumi.Input[str]`) - Description of network access control entry.
-            * `order` (`pulumi.Input[float]`) - Order of precedence.
-            * `remote_subnet` (`pulumi.Input[str]`) - Remote subnet.
+        The **network_access_control_list** object supports the following:
 
-          * `ssl_cert_key_vault_id` (`pulumi.Input[str]`) - Key Vault ID for ILB App Service Environment default SSL certificate
-          * `ssl_cert_key_vault_secret_name` (`pulumi.Input[str]`) - Key Vault Secret Name for ILB App Service Environment default SSL certificate
-          * `suspended` (`pulumi.Input[bool]`) - <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
-             (most likely because NSG blocked the incoming traffic).
-          * `user_whitelisted_ip_ranges` (`pulumi.Input[list]`) - User added ip ranges to whitelist on ASE db
-          * `virtual_network` (`pulumi.Input[dict]`) - Description of the Virtual Network.
-            * `id` (`pulumi.Input[str]`) - Resource id of the Virtual Network.
-            * `subnet` (`pulumi.Input[str]`) - Subnet within the Virtual Network.
+          * `action` (`pulumi.Input[str]`) - Action object.
+          * `description` (`pulumi.Input[str]`) - Description of network access control entry.
+          * `order` (`pulumi.Input[float]`) - Order of precedence.
+          * `remote_subnet` (`pulumi.Input[str]`) - Remote subnet.
 
-          * `vnet_name` (`pulumi.Input[str]`) - Name of the Virtual Network for the App Service Environment.
-          * `vnet_resource_group_name` (`pulumi.Input[str]`) - Resource group of the Virtual Network.
-          * `vnet_subnet_name` (`pulumi.Input[str]`) - Subnet of the Virtual Network.
-          * `worker_pools` (`pulumi.Input[list]`) - Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
-            * `compute_mode` (`pulumi.Input[str]`) - Shared or dedicated app hosting.
-            * `worker_count` (`pulumi.Input[float]`) - Number of instances in the worker pool.
-            * `worker_size` (`pulumi.Input[str]`) - VM size of the worker pool instances.
-            * `worker_size_id` (`pulumi.Input[float]`) - Worker size ID for referencing this worker pool.
+        The **virtual_network** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Resource id of the Virtual Network.
+          * `subnet` (`pulumi.Input[str]`) - Subnet within the Virtual Network.
+
+        The **worker_pools** object supports the following:
+
+          * `compute_mode` (`pulumi.Input[str]`) - Shared or dedicated app hosting.
+          * `worker_count` (`pulumi.Input[float]`) - Number of instances in the worker pool.
+          * `worker_size` (`pulumi.Input[str]`) - VM size of the worker pool instances.
+          * `worker_size_id` (`pulumi.Input[float]`) - Worker size ID for referencing this worker pool.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -187,18 +190,42 @@ class AppServiceEnvironment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['api_management_account_id'] = api_management_account_id
+            __props__['cluster_settings'] = cluster_settings
+            __props__['dns_suffix'] = dns_suffix
+            __props__['dynamic_cache_enabled'] = dynamic_cache_enabled
+            __props__['front_end_scale_factor'] = front_end_scale_factor
+            __props__['has_linux_workers'] = has_linux_workers
+            __props__['internal_load_balancing_mode'] = internal_load_balancing_mode
+            __props__['ipssl_address_count'] = ipssl_address_count
             __props__['kind'] = kind
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['multi_role_count'] = multi_role_count
+            __props__['multi_size'] = multi_size
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['network_access_control_list'] = network_access_control_list
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['ssl_cert_key_vault_id'] = ssl_cert_key_vault_id
+            __props__['ssl_cert_key_vault_secret_name'] = ssl_cert_key_vault_secret_name
+            __props__['suspended'] = suspended
             __props__['tags'] = tags
+            __props__['user_whitelisted_ip_ranges'] = user_whitelisted_ip_ranges
+            if virtual_network is None:
+                raise TypeError("Missing required property 'virtual_network'")
+            __props__['virtual_network'] = virtual_network
+            __props__['vnet_name'] = vnet_name
+            __props__['vnet_resource_group_name'] = vnet_resource_group_name
+            __props__['vnet_subnet_name'] = vnet_subnet_name
+            if worker_pools is None:
+                raise TypeError("Missing required property 'worker_pools'")
+            __props__['worker_pools'] = worker_pools
+            __props__['properties'] = None
             __props__['type'] = None
         super(AppServiceEnvironment, __self__).__init__(
             'azurerm:web/v20190801:AppServiceEnvironment',

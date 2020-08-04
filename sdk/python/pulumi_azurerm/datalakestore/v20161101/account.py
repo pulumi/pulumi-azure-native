@@ -83,54 +83,56 @@ class Account(pulumi.CustomResource):
     """
     The resource type.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, default_group=None, encryption_config=None, encryption_state=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, identity=None, location=None, name=None, new_tier=None, resource_group_name=None, tags=None, trusted_id_provider_state=None, trusted_id_providers=None, virtual_network_rules=None, __props__=None, __name__=None, __opts__=None):
         """
         Data Lake Store account information.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] default_group: The default owner group for all new folders and files created in the Data Lake Store account.
+        :param pulumi.Input[dict] encryption_config: The Key Vault encryption configuration.
+        :param pulumi.Input[str] encryption_state: The current state of encryption for this Data Lake Store account.
+        :param pulumi.Input[str] firewall_allow_azure_ips: The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+        :param pulumi.Input[list] firewall_rules: The list of firewall rules associated with this Data Lake Store account.
+        :param pulumi.Input[str] firewall_state: The current state of the IP address firewall for this Data Lake Store account.
         :param pulumi.Input[dict] identity: The Key Vault encryption identity, if any.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] name: The name of the Data Lake Store account.
-        :param pulumi.Input[dict] properties: The Data Lake Store account properties to use for creating.
+        :param pulumi.Input[str] new_tier: The commitment tier to use for next month.
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[dict] tags: The resource tags.
+        :param pulumi.Input[str] trusted_id_provider_state: The current state of the trusted identity provider feature for this Data Lake Store account.
+        :param pulumi.Input[list] trusted_id_providers: The list of trusted identity providers associated with this Data Lake Store account.
+        :param pulumi.Input[list] virtual_network_rules: The list of virtual network rules associated with this Data Lake Store account.
+
+        The **encryption_config** object supports the following:
+
+          * `key_vault_meta_info` (`pulumi.Input[dict]`) - The Key Vault information for connecting to user managed encryption keys.
+            * `encryption_key_name` (`pulumi.Input[str]`) - The name of the user managed encryption key.
+            * `encryption_key_version` (`pulumi.Input[str]`) - The version of the user managed encryption key.
+            * `key_vault_resource_id` (`pulumi.Input[str]`) - The resource identifier for the user managed Key Vault being used to encrypt.
+
+          * `type` (`pulumi.Input[str]`) - The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
+
+        The **firewall_rules** object supports the following:
+
+          * `end_ip_address` (`pulumi.Input[str]`) - The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+          * `name` (`pulumi.Input[str]`) - The unique name of the firewall rule to create.
+          * `start_ip_address` (`pulumi.Input[str]`) - The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
 
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The type of encryption being used. Currently the only supported type is 'SystemAssigned'.
 
-        The **properties** object supports the following:
+        The **trusted_id_providers** object supports the following:
 
-          * `default_group` (`pulumi.Input[str]`) - The default owner group for all new folders and files created in the Data Lake Store account.
-          * `encryption_config` (`pulumi.Input[dict]`) - The Key Vault encryption configuration.
-            * `key_vault_meta_info` (`pulumi.Input[dict]`) - The Key Vault information for connecting to user managed encryption keys.
-              * `encryption_key_name` (`pulumi.Input[str]`) - The name of the user managed encryption key.
-              * `encryption_key_version` (`pulumi.Input[str]`) - The version of the user managed encryption key.
-              * `key_vault_resource_id` (`pulumi.Input[str]`) - The resource identifier for the user managed Key Vault being used to encrypt.
+          * `id_provider` (`pulumi.Input[str]`) - The URL of this trusted identity provider.
+          * `name` (`pulumi.Input[str]`) - The unique name of the trusted identity provider to create.
 
-            * `type` (`pulumi.Input[str]`) - The type of encryption configuration being used. Currently the only supported types are 'UserManaged' and 'ServiceManaged'.
+        The **virtual_network_rules** object supports the following:
 
-          * `encryption_state` (`pulumi.Input[str]`) - The current state of encryption for this Data Lake Store account.
-          * `firewall_allow_azure_ips` (`pulumi.Input[str]`) - The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-          * `firewall_rules` (`pulumi.Input[list]`) - The list of firewall rules associated with this Data Lake Store account.
-            * `name` (`pulumi.Input[str]`) - The unique name of the firewall rule to create.
-            * `properties` (`pulumi.Input[dict]`) - The firewall rule properties to use when creating a new firewall rule.
-              * `end_ip_address` (`pulumi.Input[str]`) - The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-              * `start_ip_address` (`pulumi.Input[str]`) - The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-
-          * `firewall_state` (`pulumi.Input[str]`) - The current state of the IP address firewall for this Data Lake Store account.
-          * `new_tier` (`pulumi.Input[str]`) - The commitment tier to use for next month.
-          * `trusted_id_provider_state` (`pulumi.Input[str]`) - The current state of the trusted identity provider feature for this Data Lake Store account.
-          * `trusted_id_providers` (`pulumi.Input[list]`) - The list of trusted identity providers associated with this Data Lake Store account.
-            * `name` (`pulumi.Input[str]`) - The unique name of the trusted identity provider to create.
-            * `properties` (`pulumi.Input[dict]`) - The trusted identity provider properties to use when creating a new trusted identity provider.
-              * `id_provider` (`pulumi.Input[str]`) - The URL of this trusted identity provider.
-
-          * `virtual_network_rules` (`pulumi.Input[list]`) - The list of virtual network rules associated with this Data Lake Store account.
-            * `name` (`pulumi.Input[str]`) - The unique name of the virtual network rule to create.
-            * `properties` (`pulumi.Input[dict]`) - The virtual network rule properties to use when creating a new virtual network rule.
-              * `subnet_id` (`pulumi.Input[str]`) - The resource identifier for the subnet.
+          * `name` (`pulumi.Input[str]`) - The unique name of the virtual network rule to create.
+          * `subnet_id` (`pulumi.Input[str]`) - The resource identifier for the subnet.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -149,6 +151,12 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['default_group'] = default_group
+            __props__['encryption_config'] = encryption_config
+            __props__['encryption_state'] = encryption_state
+            __props__['firewall_allow_azure_ips'] = firewall_allow_azure_ips
+            __props__['firewall_rules'] = firewall_rules
+            __props__['firewall_state'] = firewall_state
             __props__['identity'] = identity
             if location is None:
                 raise TypeError("Missing required property 'location'")
@@ -156,11 +164,15 @@ class Account(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['new_tier'] = new_tier
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['trusted_id_provider_state'] = trusted_id_provider_state
+            __props__['trusted_id_providers'] = trusted_id_providers
+            __props__['virtual_network_rules'] = virtual_network_rules
+            __props__['properties'] = None
             __props__['type'] = None
         super(Account, __self__).__init__(
             'azurerm:datalakestore/v20161101:Account',

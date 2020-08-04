@@ -26,22 +26,18 @@ class Credential(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, description=None, name=None, password=None, resource_group_name=None, user_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the credential.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[str] description: Gets or sets the description of the credential.
         :param pulumi.Input[str] name: The parameters supplied to the create or update credential operation.
-        :param pulumi.Input[dict] properties: Gets or sets the properties of the credential.
+        :param pulumi.Input[str] password: Gets or sets the password of the credential.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - Gets or sets the description of the credential.
-          * `password` (`pulumi.Input[str]`) - Gets or sets the password of the credential.
-          * `user_name` (`pulumi.Input[str]`) - Gets or sets the user name of the credential.
+        :param pulumi.Input[str] user_name: Gets or sets the user name of the credential.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,15 +59,20 @@ class Credential(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
+            __props__['description'] = description
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            if password is None:
+                raise TypeError("Missing required property 'password'")
+            __props__['password'] = password
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if user_name is None:
+                raise TypeError("Missing required property 'user_name'")
+            __props__['user_name'] = user_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Credential, __self__).__init__(
             'azurerm:automation/v20151031:Credential',

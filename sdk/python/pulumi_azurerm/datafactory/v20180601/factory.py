@@ -53,16 +53,17 @@ class Factory(pulumi.CustomResource):
     """
     The resource type.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, global_parameters=None, identity=None, location=None, name=None, repo_configuration=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Factory resource type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] global_parameters: List of parameters for factory.
         :param pulumi.Input[dict] identity: Managed service identity of the factory.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] name: The factory name.
-        :param pulumi.Input[dict] properties: Properties of the factory.
+        :param pulumi.Input[dict] repo_configuration: Git repo information of the factory.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[dict] tags: The resource tags.
 
@@ -70,16 +71,14 @@ class Factory(pulumi.CustomResource):
 
           * `type` (`pulumi.Input[str]`) - The identity type. Currently the only supported type is 'SystemAssigned'.
 
-        The **properties** object supports the following:
+        The **repo_configuration** object supports the following:
 
-          * `global_parameters` (`pulumi.Input[dict]`) - List of parameters for factory.
-          * `repo_configuration` (`pulumi.Input[dict]`) - Git repo information of the factory.
-            * `account_name` (`pulumi.Input[str]`) - Account name.
-            * `collaboration_branch` (`pulumi.Input[str]`) - Collaboration branch.
-            * `last_commit_id` (`pulumi.Input[str]`) - Last commit id.
-            * `repository_name` (`pulumi.Input[str]`) - Repository name.
-            * `root_folder` (`pulumi.Input[str]`) - Root folder.
-            * `type` (`pulumi.Input[str]`) - Type of repo configuration.
+          * `account_name` (`pulumi.Input[str]`) - Account name.
+          * `collaboration_branch` (`pulumi.Input[str]`) - Collaboration branch.
+          * `last_commit_id` (`pulumi.Input[str]`) - Last commit id.
+          * `repository_name` (`pulumi.Input[str]`) - Repository name.
+          * `root_folder` (`pulumi.Input[str]`) - Root folder.
+          * `type` (`pulumi.Input[str]`) - Type of repo configuration.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -98,17 +97,19 @@ class Factory(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['global_parameters'] = global_parameters
             __props__['identity'] = identity
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['repo_configuration'] = repo_configuration
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['e_tag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(Factory, __self__).__init__(
             'azurerm:datafactory/v20180601:Factory',

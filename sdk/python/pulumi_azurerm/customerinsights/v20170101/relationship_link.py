@@ -40,33 +40,33 @@ class RelationshipLink(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, hub_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, hub_name=None, interaction_type=None, mappings=None, name=None, profile_property_references=None, related_profile_property_references=None, relationship_name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The relationship link resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] description: Localized descriptions for the Relationship Link.
+        :param pulumi.Input[dict] display_name: Localized display name for the Relationship Link.
         :param pulumi.Input[str] hub_name: The name of the hub.
+        :param pulumi.Input[str] interaction_type: The InteractionType associated with the Relationship Link.
+        :param pulumi.Input[list] mappings: The mappings between Interaction and Relationship fields.
         :param pulumi.Input[str] name: The name of the relationship link.
-        :param pulumi.Input[dict] properties: The definition of relationship link.
+        :param pulumi.Input[list] profile_property_references: The property references for the Profile of the Relationship.
+        :param pulumi.Input[list] related_profile_property_references: The property references for the Related Profile of the Relationship.
+        :param pulumi.Input[str] relationship_name: The Relationship associated with the Link.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
 
-        The **properties** object supports the following:
+        The **mappings** object supports the following:
 
-          * `description` (`pulumi.Input[dict]`) - Localized descriptions for the Relationship Link.
-          * `display_name` (`pulumi.Input[dict]`) - Localized display name for the Relationship Link.
-          * `interaction_type` (`pulumi.Input[str]`) - The InteractionType associated with the Relationship Link.
-          * `mappings` (`pulumi.Input[list]`) - The mappings between Interaction and Relationship fields.
-            * `interaction_field_name` (`pulumi.Input[str]`) - The field name on the Interaction Type.
-            * `link_type` (`pulumi.Input[str]`) - Link type.
-            * `relationship_field_name` (`pulumi.Input[str]`) - The field name on the Relationship metadata.
+          * `interaction_field_name` (`pulumi.Input[str]`) - The field name on the Interaction Type.
+          * `link_type` (`pulumi.Input[str]`) - Link type.
+          * `relationship_field_name` (`pulumi.Input[str]`) - The field name on the Relationship metadata.
 
-          * `profile_property_references` (`pulumi.Input[list]`) - The property references for the Profile of the Relationship.
-            * `interaction_property_name` (`pulumi.Input[str]`) - The interaction property that maps to the profile property.
-            * `profile_property_name` (`pulumi.Input[str]`) - The profile property that maps to the interaction property.
+        The **profile_property_references** object supports the following:
 
-          * `related_profile_property_references` (`pulumi.Input[list]`) - The property references for the Related Profile of the Relationship.
-          * `relationship_name` (`pulumi.Input[str]`) - The Relationship associated with the Link.
+          * `interaction_property_name` (`pulumi.Input[str]`) - The interaction property that maps to the profile property.
+          * `profile_property_name` (`pulumi.Input[str]`) - The profile property that maps to the interaction property.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,16 +85,31 @@ class RelationshipLink(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['description'] = description
+            __props__['display_name'] = display_name
             if hub_name is None:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
+            if interaction_type is None:
+                raise TypeError("Missing required property 'interaction_type'")
+            __props__['interaction_type'] = interaction_type
+            __props__['mappings'] = mappings
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if profile_property_references is None:
+                raise TypeError("Missing required property 'profile_property_references'")
+            __props__['profile_property_references'] = profile_property_references
+            if related_profile_property_references is None:
+                raise TypeError("Missing required property 'related_profile_property_references'")
+            __props__['related_profile_property_references'] = related_profile_property_references
+            if relationship_name is None:
+                raise TypeError("Missing required property 'relationship_name'")
+            __props__['relationship_name'] = relationship_name
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(RelationshipLink, __self__).__init__(
             'azurerm:customerinsights/v20170101:RelationshipLink',

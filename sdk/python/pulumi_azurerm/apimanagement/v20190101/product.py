@@ -29,26 +29,22 @@ class Product(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, approval_required=None, description=None, display_name=None, name=None, resource_group_name=None, service_name=None, state=None, subscription_required=None, subscriptions_limit=None, terms=None, __props__=None, __name__=None, __opts__=None):
         """
         Product details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] approval_required: whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
+        :param pulumi.Input[str] description: Product description. May include HTML formatting tags.
+        :param pulumi.Input[str] display_name: Product name.
         :param pulumi.Input[str] name: Product identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[dict] properties: Product entity contract properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-
-        The **properties** object supports the following:
-
-          * `approval_required` (`pulumi.Input[bool]`) - whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
-          * `description` (`pulumi.Input[str]`) - Product description. May include HTML formatting tags.
-          * `display_name` (`pulumi.Input[str]`) - Product name.
-          * `state` (`pulumi.Input[str]`) - whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
-          * `subscription_required` (`pulumi.Input[bool]`) - Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
-          * `subscriptions_limit` (`pulumi.Input[float]`) - Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
-          * `terms` (`pulumi.Input[str]`) - Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
+        :param pulumi.Input[str] state: whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
+        :param pulumi.Input[bool] subscription_required: Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
+        :param pulumi.Input[float] subscriptions_limit: Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
+        :param pulumi.Input[str] terms: Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,16 +63,25 @@ class Product(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['approval_required'] = approval_required
+            __props__['description'] = description
+            if display_name is None:
+                raise TypeError("Missing required property 'display_name'")
+            __props__['display_name'] = display_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['state'] = state
+            __props__['subscription_required'] = subscription_required
+            __props__['subscriptions_limit'] = subscriptions_limit
+            __props__['terms'] = terms
+            __props__['properties'] = None
             __props__['type'] = None
         super(Product, __self__).__init__(
             'azurerm:apimanagement/v20190101:Product',

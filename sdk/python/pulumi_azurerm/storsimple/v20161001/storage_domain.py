@@ -29,26 +29,24 @@ class StorageDomain(pulumi.CustomResource):
     """
     The type.
     """
-    def __init__(__self__, resource_name, opts=None, manager_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, encryption_key=None, encryption_status=None, manager_name=None, name=None, resource_group_name=None, storage_account_credential_ids=None, __props__=None, __name__=None, __opts__=None):
         """
         The storage domain.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] encryption_key: The encryption key used to encrypt the data. This is a user secret.
+        :param pulumi.Input[str] encryption_status: The encryption status "Enabled | Disabled".
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] name: The storage domain name.
-        :param pulumi.Input[dict] properties: The properties.
         :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input[list] storage_account_credential_ids: The storage account credentials.
 
-        The **properties** object supports the following:
+        The **encryption_key** object supports the following:
 
-          * `encryption_key` (`pulumi.Input[dict]`) - The encryption key used to encrypt the data. This is a user secret.
-            * `encryption_algorithm` (`pulumi.Input[str]`) - Algorithm used to encrypt "Value"
-            * `encryption_certificate_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate that was used to encrypt "Value"
-            * `value` (`pulumi.Input[str]`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
-
-          * `encryption_status` (`pulumi.Input[str]`) - The encryption status "Enabled | Disabled".
-          * `storage_account_credential_ids` (`pulumi.Input[list]`) - The storage account credentials.
+          * `encryption_algorithm` (`pulumi.Input[str]`) - Algorithm used to encrypt "Value"
+          * `encryption_certificate_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate that was used to encrypt "Value"
+          * `value` (`pulumi.Input[str]`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,18 +65,23 @@ class StorageDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['encryption_key'] = encryption_key
+            if encryption_status is None:
+                raise TypeError("Missing required property 'encryption_status'")
+            __props__['encryption_status'] = encryption_status
             if manager_name is None:
                 raise TypeError("Missing required property 'manager_name'")
             __props__['manager_name'] = manager_name
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if storage_account_credential_ids is None:
+                raise TypeError("Missing required property 'storage_account_credential_ids'")
+            __props__['storage_account_credential_ids'] = storage_account_credential_ids
+            __props__['properties'] = None
             __props__['type'] = None
         super(StorageDomain, __self__).__init__(
             'azurerm:storsimple/v20161001:StorageDomain',

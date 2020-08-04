@@ -74,19 +74,24 @@ class Cluster(pulumi.CustomResource):
     """
     The availability zones of the cluster.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, enable_disk_encryption=None, enable_streaming_ingest=None, identity=None, key_vault_properties=None, location=None, name=None, optimized_autoscale=None, resource_group_name=None, sku=None, tags=None, trusted_external_tenants=None, virtual_network_configuration=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Class representing a Kusto cluster.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] enable_disk_encryption: A boolean value that indicates if the cluster's disks are encrypted.
+        :param pulumi.Input[bool] enable_streaming_ingest: A boolean value that indicates if the streaming ingest is enabled.
         :param pulumi.Input[dict] identity: The identity of the cluster, if configured.
+        :param pulumi.Input[dict] key_vault_properties: KeyVault properties for the cluster encryption.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] name: The name of the Kusto cluster.
-        :param pulumi.Input[dict] properties: The cluster properties.
+        :param pulumi.Input[dict] optimized_autoscale: Optimized auto scale definition.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
         :param pulumi.Input[dict] sku: The SKU of the cluster.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[list] trusted_external_tenants: The cluster's external tenants.
+        :param pulumi.Input[dict] virtual_network_configuration: Virtual network definition.
         :param pulumi.Input[dict] zones: The availability zones of the cluster.
 
         The **identity** object supports the following:
@@ -94,34 +99,34 @@ class Cluster(pulumi.CustomResource):
           * `type` (`pulumi.Input[str]`) - The identity type.
           * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 
-        The **properties** object supports the following:
+        The **key_vault_properties** object supports the following:
 
-          * `enable_disk_encryption` (`pulumi.Input[bool]`) - A boolean value that indicates if the cluster's disks are encrypted.
-          * `enable_streaming_ingest` (`pulumi.Input[bool]`) - A boolean value that indicates if the streaming ingest is enabled.
-          * `key_vault_properties` (`pulumi.Input[dict]`) - KeyVault properties for the cluster encryption.
-            * `key_name` (`pulumi.Input[str]`) - The name of the key vault key.
-            * `key_vault_uri` (`pulumi.Input[str]`) - The Uri of the key vault.
-            * `key_version` (`pulumi.Input[str]`) - The version of the key vault key.
+          * `key_name` (`pulumi.Input[str]`) - The name of the key vault key.
+          * `key_vault_uri` (`pulumi.Input[str]`) - The Uri of the key vault.
+          * `key_version` (`pulumi.Input[str]`) - The version of the key vault key.
 
-          * `optimized_autoscale` (`pulumi.Input[dict]`) - Optimized auto scale definition.
-            * `is_enabled` (`pulumi.Input[bool]`) - A boolean value that indicate if the optimized autoscale feature is enabled or not.
-            * `maximum` (`pulumi.Input[float]`) - Maximum allowed instances count.
-            * `minimum` (`pulumi.Input[float]`) - Minimum allowed instances count.
-            * `version` (`pulumi.Input[float]`) - The version of the template defined, for instance 1.
+        The **optimized_autoscale** object supports the following:
 
-          * `trusted_external_tenants` (`pulumi.Input[list]`) - The cluster's external tenants.
-            * `value` (`pulumi.Input[str]`) - GUID representing an external tenant.
-
-          * `virtual_network_configuration` (`pulumi.Input[dict]`) - Virtual network definition.
-            * `data_management_public_ip_id` (`pulumi.Input[str]`) - Data management's service public IP address resource id.
-            * `engine_public_ip_id` (`pulumi.Input[str]`) - Engine service's public IP address resource id.
-            * `subnet_id` (`pulumi.Input[str]`) - The subnet resource id.
+          * `is_enabled` (`pulumi.Input[bool]`) - A boolean value that indicate if the optimized autoscale feature is enabled or not.
+          * `maximum` (`pulumi.Input[float]`) - Maximum allowed instances count.
+          * `minimum` (`pulumi.Input[float]`) - Minimum allowed instances count.
+          * `version` (`pulumi.Input[float]`) - The version of the template defined, for instance 1.
 
         The **sku** object supports the following:
 
           * `capacity` (`pulumi.Input[float]`) - The number of instances of the cluster.
           * `name` (`pulumi.Input[str]`) - SKU name.
           * `tier` (`pulumi.Input[str]`) - SKU tier.
+
+        The **trusted_external_tenants** object supports the following:
+
+          * `value` (`pulumi.Input[str]`) - GUID representing an external tenant.
+
+        The **virtual_network_configuration** object supports the following:
+
+          * `data_management_public_ip_id` (`pulumi.Input[str]`) - Data management's service public IP address resource id.
+          * `engine_public_ip_id` (`pulumi.Input[str]`) - Engine service's public IP address resource id.
+          * `subnet_id` (`pulumi.Input[str]`) - The subnet resource id.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -140,14 +145,17 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['enable_disk_encryption'] = enable_disk_encryption
+            __props__['enable_streaming_ingest'] = enable_streaming_ingest
             __props__['identity'] = identity
+            __props__['key_vault_properties'] = key_vault_properties
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['optimized_autoscale'] = optimized_autoscale
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -155,7 +163,10 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['trusted_external_tenants'] = trusted_external_tenants
+            __props__['virtual_network_configuration'] = virtual_network_configuration
             __props__['zones'] = zones
+            __props__['properties'] = None
             __props__['type'] = None
         super(Cluster, __self__).__init__(
             'azurerm:kusto/v20191109:Cluster',

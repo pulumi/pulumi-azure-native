@@ -333,268 +333,267 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authentication_certificates=None, backend_address_pools=None, backend_http_settings_collection=None, etag=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, id=None, location=None, name=None, probes=None, provisioning_state=None, request_routing_rules=None, resource_group_name=None, resource_guid=None, sku=None, ssl_certificates=None, ssl_policy=None, tags=None, url_path_maps=None, __props__=None, __name__=None, __opts__=None):
         """
         ApplicationGateways resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] authentication_certificates: Authentication certificates of application gateway resource
+        :param pulumi.Input[list] backend_address_pools: Backend address pool of application gateway resource
+        :param pulumi.Input[list] backend_http_settings_collection: Backend http settings of application gateway resource
         :param pulumi.Input[str] etag: A unique read-only string that changes whenever the resource is updated
+        :param pulumi.Input[list] frontend_ip_configurations: Frontend IP addresses of application gateway resource
+        :param pulumi.Input[list] frontend_ports: Frontend ports of application gateway resource
+        :param pulumi.Input[list] gateway_ip_configurations: Subnets of application gateway resource
+        :param pulumi.Input[list] http_listeners: HTTP listeners of application gateway resource
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the ApplicationGateway.
-        :param pulumi.Input[dict] properties: Properties of Application Gateway
+        :param pulumi.Input[list] probes: Probes of application gateway resource
+        :param pulumi.Input[str] provisioning_state: Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
+        :param pulumi.Input[list] request_routing_rules: Request routing rules of application gateway resource
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_guid: Resource guid property of the ApplicationGateway resource
+        :param pulumi.Input[dict] sku: Sku of application gateway resource
+        :param pulumi.Input[list] ssl_certificates: SSL certificates of application gateway resource
+        :param pulumi.Input[dict] ssl_policy: SSL policy of application gateway resource
         :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[list] url_path_maps: URL path map of application gateway resource
 
-        The **properties** object supports the following:
+        The **authentication_certificates** object supports the following:
 
-          * `authentication_certificates` (`pulumi.Input[list]`) - Authentication certificates of application gateway resource
+          * `data` (`pulumi.Input[str]`) - Certificate public data 
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+          * `id` (`pulumi.Input[str]`) - Resource Id
+          * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
+          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the authentication certificate resource Updating/Deleting/Failed
+
+        The **backend_address_pools** object supports the following:
+
+          * `backend_addresses` (`pulumi.Input[list]`) - Backend addresses
+            * `fqdn` (`pulumi.Input[str]`) - Dns name
+            * `ip_address` (`pulumi.Input[str]`) - Ip address
+
+          * `backend_ip_configurations` (`pulumi.Input[list]`) - Collection of references to IPs defined in NICs
+            * `application_gateway_backend_address_pools` (`pulumi.Input[list]`) - Gets or sets the reference of ApplicationGatewayBackendAddressPool resource
             * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
             * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
-            * `properties` (`pulumi.Input[dict]`) - Properties of Authentication certificates of application gateway
-              * `data` (`pulumi.Input[str]`) - Certificate public data 
-              * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the authentication certificate resource Updating/Deleting/Failed
+            * `load_balancer_backend_address_pools` (`pulumi.Input[list]`) - Gets or sets the reference of LoadBalancerBackendAddressPool resource
+              * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+              * `id` (`pulumi.Input[str]`) - Resource Id
+              * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+              * `provisioning_state` (`pulumi.Input[str]`) - Get provisioning state of the PublicIP resource Updating/Deleting/Failed
 
-          * `backend_address_pools` (`pulumi.Input[list]`) - Backend address pool of application gateway resource
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Resource that is unique within a resource group. This name can be used to access the resource
-            * `properties` (`pulumi.Input[dict]`) - Properties of Backend Address Pool of application gateway
-              * `backend_addresses` (`pulumi.Input[list]`) - Backend addresses
-                * `fqdn` (`pulumi.Input[str]`) - Dns name
-                * `ip_address` (`pulumi.Input[str]`) - Ip address
-
-              * `backend_ip_configurations` (`pulumi.Input[list]`) - Collection of references to IPs defined in NICs
-                * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+            * `load_balancer_inbound_nat_rules` (`pulumi.Input[list]`) - Gets or sets list of references of LoadBalancerInboundNatRules
+              * `backend_port` (`pulumi.Input[float]`) - Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
+              * `enable_floating_ip` (`pulumi.Input[bool]`) - Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
+              * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+              * `frontend_ip_configuration` (`pulumi.Input[dict]`) - Gets or sets a reference to frontend IP Addresses
                 * `id` (`pulumi.Input[str]`) - Resource Id
-                * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-                * `properties` (`pulumi.Input[dict]`) - Properties of IPConfiguration
-                  * `application_gateway_backend_address_pools` (`pulumi.Input[list]`) - Gets or sets the reference of ApplicationGatewayBackendAddressPool resource
-                  * `load_balancer_backend_address_pools` (`pulumi.Input[list]`) - Gets or sets the reference of LoadBalancerBackendAddressPool resource
-                    * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-                    * `id` (`pulumi.Input[str]`) - Resource Id
-                    * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-                    * `properties` (`pulumi.Input[dict]`) - Properties of BackendAddressPool
-                      * `provisioning_state` (`pulumi.Input[str]`) - Get provisioning state of the PublicIP resource Updating/Deleting/Failed
 
-                  * `load_balancer_inbound_nat_rules` (`pulumi.Input[list]`) - Gets or sets list of references of LoadBalancerInboundNatRules
-                    * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-                    * `id` (`pulumi.Input[str]`) - Resource Id
-                    * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-                    * `properties` (`pulumi.Input[dict]`) - Properties of Inbound NAT rule
-                      * `backend_port` (`pulumi.Input[float]`) - Gets or sets a port used for internal connections on the endpoint. The localPort attribute maps the eternal port of the endpoint to an internal port on a role. This is useful in scenarios where a role must communicate to an internal component on a port that is different from the one that is exposed externally. If not specified, the value of localPort is the same as the port attribute. Set the value of localPort to '*' to automatically assign an unallocated port that is discoverable using the runtime API
-                      * `enable_floating_ip` (`pulumi.Input[bool]`) - Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn availability Group. This setting is required when using the SQL Always ON availability Groups in SQL server. This setting can't be changed after you create the endpoint
-                      * `frontend_ip_configuration` (`pulumi.Input[dict]`) - Gets or sets a reference to frontend IP Addresses
-                        * `id` (`pulumi.Input[str]`) - Resource Id
+              * `frontend_port` (`pulumi.Input[float]`) - Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
+              * `id` (`pulumi.Input[str]`) - Resource Id
+              * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
+              * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+              * `protocol` (`pulumi.Input[str]`) - Gets or sets the transport protocol for the endpoint. Possible values are Udp or Tcp
+              * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
 
-                      * `frontend_port` (`pulumi.Input[float]`) - Gets or sets the port for the external endpoint. You can specify any port number you choose, but the port numbers specified for each role in the service must be unique. Possible values range between 1 and 65535, inclusive
-                      * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - Gets or sets the timeout for the Tcp idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to Tcp
-                      * `protocol` (`pulumi.Input[str]`) - Gets or sets the transport protocol for the endpoint. Possible values are Udp or Tcp
-                      * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+            * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+            * `primary` (`pulumi.Input[bool]`) - Gets whether this is a primary customer address on the NIC
+            * `private_ip_address` (`pulumi.Input[str]`)
+            * `private_ip_address_version` (`pulumi.Input[str]`) - Gets or sets PrivateIP address version (IPv4/IPv6)
+            * `private_ip_allocation_method` (`pulumi.Input[str]`) - Gets or sets PrivateIP allocation method
+            * `provisioning_state` (`pulumi.Input[str]`)
+            * `public_ip_address` (`pulumi.Input[dict]`) - PublicIPAddress resource
+              * `dns_settings` (`pulumi.Input[dict]`) - Gets or sets FQDN of the DNS record associated with the public IP address
+                * `domain_name_label` (`pulumi.Input[str]`) - Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+                * `fqdn` (`pulumi.Input[str]`) - Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
+                * `reverse_fqdn` (`pulumi.Input[str]`) - Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
 
-                  * `primary` (`pulumi.Input[bool]`) - Gets whether this is a primary customer address on the NIC
-                  * `private_ip_address` (`pulumi.Input[str]`)
-                  * `private_ip_address_version` (`pulumi.Input[str]`) - Gets or sets PrivateIP address version (IPv4/IPv6)
-                  * `private_ip_allocation_method` (`pulumi.Input[str]`) - Gets or sets PrivateIP allocation method
-                  * `provisioning_state` (`pulumi.Input[str]`)
-                  * `public_ip_address` (`pulumi.Input[dict]`) - PublicIPAddress resource
-                    * `etag` (`pulumi.Input[str]`) - Gets a unique read-only string that changes whenever the resource is updated
-                    * `id` (`pulumi.Input[str]`) - Resource Id
-                    * `location` (`pulumi.Input[str]`) - Resource location
-                    * `properties` (`pulumi.Input[dict]`) - PublicIpAddress properties
-                      * `dns_settings` (`pulumi.Input[dict]`) - Gets or sets FQDN of the DNS record associated with the public IP address
-                        * `domain_name_label` (`pulumi.Input[str]`) - Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-                        * `fqdn` (`pulumi.Input[str]`) - Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-                        * `reverse_fqdn` (`pulumi.Input[str]`) - Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
+              * `etag` (`pulumi.Input[str]`) - Gets a unique read-only string that changes whenever the resource is updated
+              * `id` (`pulumi.Input[str]`) - Resource Id
+              * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - Gets or sets the idle timeout of the public IP address
+              * `ip_address` (`pulumi.Input[str]`)
+              * `location` (`pulumi.Input[str]`) - Resource location
+              * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+              * `public_ip_address_version` (`pulumi.Input[str]`) - Gets or sets PublicIP address version (IPv4/IPv6)
+              * `public_ip_allocation_method` (`pulumi.Input[str]`) - Gets or sets PublicIP allocation method (Static/Dynamic)
+              * `resource_guid` (`pulumi.Input[str]`) - Gets or sets resource guid property of the PublicIP resource
+              * `tags` (`pulumi.Input[dict]`) - Resource tags
 
-                      * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - Gets or sets the idle timeout of the public IP address
-                      * `ip_address` (`pulumi.Input[str]`)
-                      * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-                      * `public_ip_address_version` (`pulumi.Input[str]`) - Gets or sets PublicIP address version (IPv4/IPv6)
-                      * `public_ip_allocation_method` (`pulumi.Input[str]`) - Gets or sets PublicIP allocation method (Static/Dynamic)
-                      * `resource_guid` (`pulumi.Input[str]`) - Gets or sets resource guid property of the PublicIP resource
+            * `subnet` (`pulumi.Input[dict]`) - Subnet in a VirtualNetwork resource
+              * `address_prefix` (`pulumi.Input[str]`) - Gets or sets Address prefix for the subnet.
+              * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+              * `id` (`pulumi.Input[str]`) - Resource Id
+              * `name` (`pulumi.Input[str]`) - Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
+              * `network_security_group` (`pulumi.Input[dict]`) - Gets or sets the reference of the NetworkSecurityGroup resource
+                * `default_security_rules` (`pulumi.Input[list]`) - Gets or default security rules of network security group
+                  * `access` (`pulumi.Input[str]`) - Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
+                  * `description` (`pulumi.Input[str]`) - Gets or sets a description for this rule. Restricted to 140 chars.
+                  * `destination_address_prefix` (`pulumi.Input[str]`) - Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. 
+                  * `destination_port_range` (`pulumi.Input[str]`) - Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+                  * `direction` (`pulumi.Input[str]`) - Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+                  * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+                  * `id` (`pulumi.Input[str]`) - Resource Id
+                  * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+                  * `priority` (`pulumi.Input[float]`) - Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+                  * `protocol` (`pulumi.Input[str]`) - Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
+                  * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+                  * `source_address_prefix` (`pulumi.Input[str]`) - Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+                  * `source_port_range` (`pulumi.Input[str]`) - Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
 
-                    * `tags` (`pulumi.Input[dict]`) - Resource tags
-
-                  * `subnet` (`pulumi.Input[dict]`) - Subnet in a VirtualNetwork resource
-                    * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-                    * `id` (`pulumi.Input[str]`) - Resource Id
-                    * `name` (`pulumi.Input[str]`) - Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
-                    * `properties` (`pulumi.Input[dict]`)
-                      * `address_prefix` (`pulumi.Input[str]`) - Gets or sets Address prefix for the subnet.
-                      * `network_security_group` (`pulumi.Input[dict]`) - Gets or sets the reference of the NetworkSecurityGroup resource
-                        * `etag` (`pulumi.Input[str]`) - Gets a unique read-only string that changes whenever the resource is updated
-                        * `id` (`pulumi.Input[str]`) - Resource Id
-                        * `location` (`pulumi.Input[str]`) - Resource location
-                        * `properties` (`pulumi.Input[dict]`) - Network Security Group resource
-                          * `default_security_rules` (`pulumi.Input[list]`) - Gets or default security rules of network security group
-                            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-                            * `id` (`pulumi.Input[str]`) - Resource Id
-                            * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-                            * `properties` (`pulumi.Input[dict]`)
-                              * `access` (`pulumi.Input[str]`) - Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
-                              * `description` (`pulumi.Input[str]`) - Gets or sets a description for this rule. Restricted to 140 chars.
-                              * `destination_address_prefix` (`pulumi.Input[str]`) - Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. 
-                              * `destination_port_range` (`pulumi.Input[str]`) - Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-                              * `direction` (`pulumi.Input[str]`) - Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
-                              * `priority` (`pulumi.Input[float]`) - Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-                              * `protocol` (`pulumi.Input[str]`) - Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
-                              * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-                              * `source_address_prefix` (`pulumi.Input[str]`) - Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
-                              * `source_port_range` (`pulumi.Input[str]`) - Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-
-                          * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-                          * `resource_guid` (`pulumi.Input[str]`) - Gets or sets resource guid property of the network security group resource
-                          * `security_rules` (`pulumi.Input[list]`) - Gets or sets security rules of network security group
-
-                        * `tags` (`pulumi.Input[dict]`) - Resource tags
-
-                      * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the resource
-                      * `resource_navigation_links` (`pulumi.Input[list]`) - Gets array of references to the external resources using subnet
-                        * `id` (`pulumi.Input[str]`) - Resource Id
-                        * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
-                        * `properties` (`pulumi.Input[dict]`) - Properties of ResourceNavigationLink
-                          * `link` (`pulumi.Input[str]`) - Link to the external resource
-                          * `linked_resource_type` (`pulumi.Input[str]`) - Resource type of the linked resource
-
-                      * `route_table` (`pulumi.Input[dict]`) - Gets or sets the reference of the RouteTable resource
-                        * `etag` (`pulumi.Input[str]`) - Gets a unique read-only string that changes whenever the resource is updated
-                        * `id` (`pulumi.Input[str]`) - Resource Id
-                        * `location` (`pulumi.Input[str]`) - Resource location
-                        * `properties` (`pulumi.Input[dict]`) - Route Table resource
-                          * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the resource Updating/Deleting/Failed
-                          * `routes` (`pulumi.Input[list]`) - Gets or sets Routes in a Route Table
-                            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-                            * `id` (`pulumi.Input[str]`) - Resource Id
-                            * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-                            * `properties` (`pulumi.Input[dict]`) - Route resource
-                              * `address_prefix` (`pulumi.Input[str]`) - Gets or sets the destination CIDR to which the route applies.
-                              * `next_hop_ip_address` (`pulumi.Input[str]`) - Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-                              * `next_hop_type` (`pulumi.Input[str]`) - Gets or sets the type of Azure hop the packet should be sent to.
-                              * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the resource Updating/Deleting/Failed
-
-                        * `tags` (`pulumi.Input[dict]`) - Resource tags
-
-              * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the backend address pool resource Updating/Deleting/Failed
-
-          * `backend_http_settings_collection` (`pulumi.Input[list]`) - Backend http settings of application gateway resource
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
-            * `properties` (`pulumi.Input[dict]`) - Properties of Backend address pool settings of application gateway
-              * `authentication_certificates` (`pulumi.Input[list]`) - Array of references to Application Gateway Authentication Certificates
-              * `cookie_based_affinity` (`pulumi.Input[str]`) - Cookie affinity
-              * `port` (`pulumi.Input[float]`) - Port
-              * `probe` (`pulumi.Input[dict]`) - Probe resource of application gateway 
-              * `protocol` (`pulumi.Input[str]`) - Protocol
-              * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the backend http settings resource Updating/Deleting/Failed
-              * `request_timeout` (`pulumi.Input[float]`) - Request timeout
-
-          * `frontend_ip_configurations` (`pulumi.Input[list]`) - Frontend IP addresses of application gateway resource
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
-            * `properties` (`pulumi.Input[dict]`) - Properties of Frontend IP configuration of application gateway
-              * `private_ip_address` (`pulumi.Input[str]`) - PrivateIPAddress of the Network Interface IP Configuration
-              * `private_ip_allocation_method` (`pulumi.Input[str]`) - PrivateIP allocation method (Static/Dynamic)
-              * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the PublicIP resource Updating/Deleting/Failed
-              * `public_ip_address` (`pulumi.Input[dict]`) - Reference of the PublicIP resource
-              * `subnet` (`pulumi.Input[dict]`) - Reference of the subnet resource
-
-          * `frontend_ports` (`pulumi.Input[list]`) - Frontend ports of application gateway resource
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
-            * `properties` (`pulumi.Input[dict]`) - Properties of Frontend Port of application gateway
-              * `port` (`pulumi.Input[float]`) - Frontend port
-              * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the frontend port resource Updating/Deleting/Failed
-
-          * `gateway_ip_configurations` (`pulumi.Input[list]`) - Subnets of application gateway resource
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
-            * `properties` (`pulumi.Input[dict]`) - Properties of IP configuration of application gateway
-              * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the application gateway subnet resource Updating/Deleting/Failed
-              * `subnet` (`pulumi.Input[dict]`) - Reference of the subnet resource. A subnet from where application gateway gets its private address 
-
-          * `http_listeners` (`pulumi.Input[list]`) - HTTP listeners of application gateway resource
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
-            * `properties` (`pulumi.Input[dict]`) - Properties of Http listener of application gateway
-              * `frontend_ip_configuration` (`pulumi.Input[dict]`) - Frontend IP configuration resource of application gateway 
-              * `frontend_port` (`pulumi.Input[dict]`) - Frontend port resource of application gateway 
-              * `host_name` (`pulumi.Input[str]`) - Host name of http listener 
-              * `protocol` (`pulumi.Input[str]`) - Protocol
-              * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the http listener resource Updating/Deleting/Failed
-              * `require_server_name_indication` (`pulumi.Input[bool]`) - RequireServerNameIndication of http listener 
-              * `ssl_certificate` (`pulumi.Input[dict]`) - Ssl certificate resource of application gateway 
-
-          * `probes` (`pulumi.Input[list]`) - Probes of application gateway resource
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
-            * `properties` (`pulumi.Input[dict]`) - Properties of probe of application gateway
-              * `host` (`pulumi.Input[str]`) - Host to send probe to 
-              * `interval` (`pulumi.Input[float]`) - Probing interval in seconds 
-              * `path` (`pulumi.Input[str]`) - Relative path of probe 
-              * `protocol` (`pulumi.Input[str]`) - Protocol
-              * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the backend http settings resource Updating/Deleting/Failed
-              * `timeout` (`pulumi.Input[float]`) - Probing timeout in seconds 
-              * `unhealthy_threshold` (`pulumi.Input[float]`) - Probing unhealthy threshold 
-
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
-          * `request_routing_rules` (`pulumi.Input[list]`) - Request routing rules of application gateway resource
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
-            * `properties` (`pulumi.Input[dict]`) - Properties of Request routing rule of application gateway
-              * `backend_address_pool` (`pulumi.Input[dict]`) - Backend address pool resource of application gateway 
-              * `backend_http_settings` (`pulumi.Input[dict]`) - Frontend port resource of application gateway 
-              * `http_listener` (`pulumi.Input[dict]`) - Http listener resource of application gateway 
-              * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the request routing rule resource Updating/Deleting/Failed
-              * `rule_type` (`pulumi.Input[str]`) - Rule type
-              * `url_path_map` (`pulumi.Input[dict]`) - Url path map resource of application gateway 
-
-          * `resource_guid` (`pulumi.Input[str]`) - Resource guid property of the ApplicationGateway resource
-          * `sku` (`pulumi.Input[dict]`) - Sku of application gateway resource
-            * `capacity` (`pulumi.Input[float]`) - Capacity (instance count) of application gateway
-            * `name` (`pulumi.Input[str]`) - Name of application gateway SKU
-            * `tier` (`pulumi.Input[str]`) - Tier of application gateway
-
-          * `ssl_certificates` (`pulumi.Input[list]`) - SSL certificates of application gateway resource
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
-            * `properties` (`pulumi.Input[dict]`) - Properties of SSL certificates of application gateway
-              * `data` (`pulumi.Input[str]`) - SSL Certificate data 
-              * `password` (`pulumi.Input[str]`) - SSL Certificate password 
-              * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the ssl certificate resource Updating/Deleting/Failed
-              * `public_cert_data` (`pulumi.Input[str]`) - SSL Certificate public data 
-
-          * `ssl_policy` (`pulumi.Input[dict]`) - SSL policy of application gateway resource
-            * `disabled_ssl_protocols` (`pulumi.Input[list]`) - SSL protocols to be disabled on Application Gateway
-
-          * `url_path_maps` (`pulumi.Input[list]`) - URL path map of application gateway resource
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
-            * `properties` (`pulumi.Input[dict]`) - Properties of UrlPathMap of application gateway
-              * `default_backend_address_pool` (`pulumi.Input[dict]`) - Default backend address pool resource of URL path map 
-              * `default_backend_http_settings` (`pulumi.Input[dict]`) - Default backend http settings resource of URL path map 
-              * `path_rules` (`pulumi.Input[list]`) - Path rule of URL path map resource
-                * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+                * `etag` (`pulumi.Input[str]`) - Gets a unique read-only string that changes whenever the resource is updated
                 * `id` (`pulumi.Input[str]`) - Resource Id
+                * `location` (`pulumi.Input[str]`) - Resource location
+                * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+                * `resource_guid` (`pulumi.Input[str]`) - Gets or sets resource guid property of the network security group resource
+                * `security_rules` (`pulumi.Input[list]`) - Gets or sets security rules of network security group
+                * `tags` (`pulumi.Input[dict]`) - Resource tags
+
+              * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the resource
+              * `resource_navigation_links` (`pulumi.Input[list]`) - Gets array of references to the external resources using subnet
+                * `id` (`pulumi.Input[str]`) - Resource Id
+                * `link` (`pulumi.Input[str]`) - Link to the external resource
+                * `linked_resource_type` (`pulumi.Input[str]`) - Resource type of the linked resource
                 * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
-                * `properties` (`pulumi.Input[dict]`) - Properties of probe of application gateway
-                  * `backend_address_pool` (`pulumi.Input[dict]`) - Backend address pool resource of URL path map 
-                  * `backend_http_settings` (`pulumi.Input[dict]`) - Backend http settings resource of URL path map 
-                  * `paths` (`pulumi.Input[list]`) - Path rules of URL path map
-                  * `provisioning_state` (`pulumi.Input[str]`) - Path rule of URL path map resource Updating/Deleting/Failed
 
-              * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the backend http settings resource Updating/Deleting/Failed
+              * `route_table` (`pulumi.Input[dict]`) - Gets or sets the reference of the RouteTable resource
+                * `etag` (`pulumi.Input[str]`) - Gets a unique read-only string that changes whenever the resource is updated
+                * `id` (`pulumi.Input[str]`) - Resource Id
+                * `location` (`pulumi.Input[str]`) - Resource location
+                * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the resource Updating/Deleting/Failed
+                * `routes` (`pulumi.Input[list]`) - Gets or sets Routes in a Route Table
+                  * `address_prefix` (`pulumi.Input[str]`) - Gets or sets the destination CIDR to which the route applies.
+                  * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+                  * `id` (`pulumi.Input[str]`) - Resource Id
+                  * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+                  * `next_hop_ip_address` (`pulumi.Input[str]`) - Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+                  * `next_hop_type` (`pulumi.Input[str]`) - Gets or sets the type of Azure hop the packet should be sent to.
+                  * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the resource Updating/Deleting/Failed
+
+                * `tags` (`pulumi.Input[dict]`) - Resource tags
+
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+          * `id` (`pulumi.Input[str]`) - Resource Id
+          * `name` (`pulumi.Input[str]`) - Resource that is unique within a resource group. This name can be used to access the resource
+          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the backend address pool resource Updating/Deleting/Failed
+
+        The **backend_http_settings_collection** object supports the following:
+
+          * `authentication_certificates` (`pulumi.Input[list]`) - Array of references to Application Gateway Authentication Certificates
+          * `cookie_based_affinity` (`pulumi.Input[str]`) - Cookie affinity
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+          * `id` (`pulumi.Input[str]`) - Resource Id
+          * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
+          * `port` (`pulumi.Input[float]`) - Port
+          * `probe` (`pulumi.Input[dict]`) - Probe resource of application gateway 
+          * `protocol` (`pulumi.Input[str]`) - Protocol
+          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the backend http settings resource Updating/Deleting/Failed
+          * `request_timeout` (`pulumi.Input[float]`) - Request timeout
+
+        The **frontend_ip_configurations** object supports the following:
+
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+          * `id` (`pulumi.Input[str]`) - Resource Id
+          * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
+          * `private_ip_address` (`pulumi.Input[str]`) - PrivateIPAddress of the Network Interface IP Configuration
+          * `private_ip_allocation_method` (`pulumi.Input[str]`) - PrivateIP allocation method (Static/Dynamic)
+          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the PublicIP resource Updating/Deleting/Failed
+          * `public_ip_address` (`pulumi.Input[dict]`) - Reference of the PublicIP resource
+          * `subnet` (`pulumi.Input[dict]`) - Reference of the subnet resource
+
+        The **frontend_ports** object supports the following:
+
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+          * `id` (`pulumi.Input[str]`) - Resource Id
+          * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
+          * `port` (`pulumi.Input[float]`) - Frontend port
+          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the frontend port resource Updating/Deleting/Failed
+
+        The **gateway_ip_configurations** object supports the following:
+
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+          * `id` (`pulumi.Input[str]`) - Resource Id
+          * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
+          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the application gateway subnet resource Updating/Deleting/Failed
+          * `subnet` (`pulumi.Input[dict]`) - Reference of the subnet resource. A subnet from where application gateway gets its private address 
+
+        The **http_listeners** object supports the following:
+
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+          * `frontend_ip_configuration` (`pulumi.Input[dict]`) - Frontend IP configuration resource of application gateway 
+          * `frontend_port` (`pulumi.Input[dict]`) - Frontend port resource of application gateway 
+          * `host_name` (`pulumi.Input[str]`) - Host name of http listener 
+          * `id` (`pulumi.Input[str]`) - Resource Id
+          * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
+          * `protocol` (`pulumi.Input[str]`) - Protocol
+          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the http listener resource Updating/Deleting/Failed
+          * `require_server_name_indication` (`pulumi.Input[bool]`) - RequireServerNameIndication of http listener 
+          * `ssl_certificate` (`pulumi.Input[dict]`) - Ssl certificate resource of application gateway 
+
+        The **probes** object supports the following:
+
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+          * `host` (`pulumi.Input[str]`) - Host to send probe to 
+          * `id` (`pulumi.Input[str]`) - Resource Id
+          * `interval` (`pulumi.Input[float]`) - Probing interval in seconds 
+          * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
+          * `path` (`pulumi.Input[str]`) - Relative path of probe 
+          * `protocol` (`pulumi.Input[str]`) - Protocol
+          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the backend http settings resource Updating/Deleting/Failed
+          * `timeout` (`pulumi.Input[float]`) - Probing timeout in seconds 
+          * `unhealthy_threshold` (`pulumi.Input[float]`) - Probing unhealthy threshold 
+
+        The **request_routing_rules** object supports the following:
+
+          * `backend_address_pool` (`pulumi.Input[dict]`) - Backend address pool resource of application gateway 
+          * `backend_http_settings` (`pulumi.Input[dict]`) - Frontend port resource of application gateway 
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+          * `http_listener` (`pulumi.Input[dict]`) - Http listener resource of application gateway 
+          * `id` (`pulumi.Input[str]`) - Resource Id
+          * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
+          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the request routing rule resource Updating/Deleting/Failed
+          * `rule_type` (`pulumi.Input[str]`) - Rule type
+          * `url_path_map` (`pulumi.Input[dict]`) - Url path map resource of application gateway 
+
+        The **sku** object supports the following:
+
+          * `capacity` (`pulumi.Input[float]`) - Capacity (instance count) of application gateway
+          * `name` (`pulumi.Input[str]`) - Name of application gateway SKU
+          * `tier` (`pulumi.Input[str]`) - Tier of application gateway
+
+        The **ssl_certificates** object supports the following:
+
+          * `data` (`pulumi.Input[str]`) - SSL Certificate data 
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+          * `id` (`pulumi.Input[str]`) - Resource Id
+          * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
+          * `password` (`pulumi.Input[str]`) - SSL Certificate password 
+          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the ssl certificate resource Updating/Deleting/Failed
+          * `public_cert_data` (`pulumi.Input[str]`) - SSL Certificate public data 
+
+        The **ssl_policy** object supports the following:
+
+          * `disabled_ssl_protocols` (`pulumi.Input[list]`) - SSL protocols to be disabled on Application Gateway
+
+        The **url_path_maps** object supports the following:
+
+          * `default_backend_address_pool` (`pulumi.Input[dict]`) - Default backend address pool resource of URL path map 
+          * `default_backend_http_settings` (`pulumi.Input[dict]`) - Default backend http settings resource of URL path map 
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+          * `id` (`pulumi.Input[str]`) - Resource Id
+          * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
+          * `path_rules` (`pulumi.Input[list]`) - Path rule of URL path map resource
+            * `backend_address_pool` (`pulumi.Input[dict]`) - Backend address pool resource of URL path map 
+            * `backend_http_settings` (`pulumi.Input[dict]`) - Backend http settings resource of URL path map 
+            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+            * `id` (`pulumi.Input[str]`) - Resource Id
+            * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource
+            * `paths` (`pulumi.Input[list]`) - Path rules of URL path map
+            * `provisioning_state` (`pulumi.Input[str]`) - Path rule of URL path map resource Updating/Deleting/Failed
+
+          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the backend http settings resource Updating/Deleting/Failed
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -613,17 +612,32 @@ class ApplicationGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['authentication_certificates'] = authentication_certificates
+            __props__['backend_address_pools'] = backend_address_pools
+            __props__['backend_http_settings_collection'] = backend_http_settings_collection
             __props__['etag'] = etag
+            __props__['frontend_ip_configurations'] = frontend_ip_configurations
+            __props__['frontend_ports'] = frontend_ports
+            __props__['gateway_ip_configurations'] = gateway_ip_configurations
+            __props__['http_listeners'] = http_listeners
             __props__['id'] = id
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['probes'] = probes
+            __props__['provisioning_state'] = provisioning_state
+            __props__['request_routing_rules'] = request_routing_rules
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['resource_guid'] = resource_guid
+            __props__['sku'] = sku
+            __props__['ssl_certificates'] = ssl_certificates
+            __props__['ssl_policy'] = ssl_policy
             __props__['tags'] = tags
+            __props__['url_path_maps'] = url_path_maps
+            __props__['properties'] = None
             __props__['type'] = None
         super(ApplicationGateway, __self__).__init__(
             'azurerm:network/v20160601:ApplicationGateway',

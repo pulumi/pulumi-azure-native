@@ -34,26 +34,25 @@ class VirtualApplianceSite(pulumi.CustomResource):
     """
     Site type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, network_virtual_appliance_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, address_prefix=None, id=None, name=None, network_virtual_appliance_name=None, o365_policy=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Virtual Appliance Site resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] address_prefix: Address Prefix.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the site.
         :param pulumi.Input[str] network_virtual_appliance_name: The name of the Network Virtual Appliance.
-        :param pulumi.Input[dict] properties: The properties of the Virtual Appliance Sites.
+        :param pulumi.Input[dict] o365_policy: Office 365 Policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
 
-        The **properties** object supports the following:
+        The **o365_policy** object supports the following:
 
-          * `address_prefix` (`pulumi.Input[str]`) - Address Prefix.
-          * `o365_policy` (`pulumi.Input[dict]`) - Office 365 Policy.
-            * `break_out_categories` (`pulumi.Input[dict]`) - Office 365 breakout categories.
-              * `allow` (`pulumi.Input[bool]`) - Flag to control breakout of o365 allow category.
-              * `default` (`pulumi.Input[bool]`) - Flag to control breakout of o365 default category.
-              * `optimize` (`pulumi.Input[bool]`) - Flag to control breakout of o365 optimize category.
+          * `break_out_categories` (`pulumi.Input[dict]`) - Office 365 breakout categories.
+            * `allow` (`pulumi.Input[bool]`) - Flag to control breakout of o365 allow category.
+            * `default` (`pulumi.Input[bool]`) - Flag to control breakout of o365 default category.
+            * `optimize` (`pulumi.Input[bool]`) - Flag to control breakout of o365 optimize category.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -72,6 +71,7 @@ class VirtualApplianceSite(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['address_prefix'] = address_prefix
             __props__['id'] = id
             if name is None:
                 raise TypeError("Missing required property 'name'")
@@ -79,11 +79,12 @@ class VirtualApplianceSite(pulumi.CustomResource):
             if network_virtual_appliance_name is None:
                 raise TypeError("Missing required property 'network_virtual_appliance_name'")
             __props__['network_virtual_appliance_name'] = network_virtual_appliance_name
-            __props__['properties'] = properties
+            __props__['o365_policy'] = o365_policy
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualApplianceSite, __self__).__init__(
             'azurerm:network/v20200501:VirtualApplianceSite',

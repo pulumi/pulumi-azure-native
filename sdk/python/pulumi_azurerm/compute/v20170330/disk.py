@@ -69,45 +69,45 @@ class Disk(pulumi.CustomResource):
     """
     The Logical zone list for Disk.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, creation_data=None, disk_size_gb=None, encryption_settings=None, location=None, name=None, os_type=None, resource_group_name=None, sku=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Disk resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
+        :param pulumi.Input[float] disk_size_gb: If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+        :param pulumi.Input[dict] encryption_settings: Encryption settings for disk or snapshot
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
-        :param pulumi.Input[dict] properties: Disk resource properties.
+        :param pulumi.Input[str] os_type: The Operating System type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] sku: The disks and snapshots sku name. Can be Standard_LRS or Premium_LRS.
         :param pulumi.Input[dict] tags: Resource tags
         :param pulumi.Input[list] zones: The Logical zone list for Disk.
 
-        The **properties** object supports the following:
+        The **creation_data** object supports the following:
 
-          * `creation_data` (`pulumi.Input[dict]`) - Disk source information. CreationData information cannot be changed after the disk has been created.
-            * `create_option` (`pulumi.Input[str]`) - This enumerates the possible sources of a disk's creation.
-            * `image_reference` (`pulumi.Input[dict]`) - Disk source information.
-              * `id` (`pulumi.Input[str]`) - A relative uri containing either a Platform Image Repository or user image reference.
-              * `lun` (`pulumi.Input[float]`) - If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+          * `create_option` (`pulumi.Input[str]`) - This enumerates the possible sources of a disk's creation.
+          * `image_reference` (`pulumi.Input[dict]`) - Disk source information.
+            * `id` (`pulumi.Input[str]`) - A relative uri containing either a Platform Image Repository or user image reference.
+            * `lun` (`pulumi.Input[float]`) - If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
 
-            * `source_resource_id` (`pulumi.Input[str]`) - If createOption is Copy, this is the ARM id of the source snapshot or disk.
-            * `source_uri` (`pulumi.Input[str]`) - If createOption is Import, this is the URI of a blob to be imported into a managed disk.
-            * `storage_account_id` (`pulumi.Input[str]`) - If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
+          * `source_resource_id` (`pulumi.Input[str]`) - If createOption is Copy, this is the ARM id of the source snapshot or disk.
+          * `source_uri` (`pulumi.Input[str]`) - If createOption is Import, this is the URI of a blob to be imported into a managed disk.
+          * `storage_account_id` (`pulumi.Input[str]`) - If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
 
-          * `disk_size_gb` (`pulumi.Input[float]`) - If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-          * `encryption_settings` (`pulumi.Input[dict]`) - Encryption settings for disk or snapshot
-            * `disk_encryption_key` (`pulumi.Input[dict]`) - Key Vault Secret Url and vault id of the disk encryption key
-              * `secret_url` (`pulumi.Input[str]`) - Url pointing to a key or secret in KeyVault
-              * `source_vault` (`pulumi.Input[dict]`) - Resource id of the KeyVault containing the key or secret
-                * `id` (`pulumi.Input[str]`) - Resource Id
+        The **encryption_settings** object supports the following:
 
-            * `enabled` (`pulumi.Input[bool]`) - Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-            * `key_encryption_key` (`pulumi.Input[dict]`) - Key Vault Key Url and vault id of the key encryption key
-              * `key_url` (`pulumi.Input[str]`) - Url pointing to a key or secret in KeyVault
-              * `source_vault` (`pulumi.Input[dict]`) - Resource id of the KeyVault containing the key or secret
+          * `disk_encryption_key` (`pulumi.Input[dict]`) - Key Vault Secret Url and vault id of the disk encryption key
+            * `secret_url` (`pulumi.Input[str]`) - Url pointing to a key or secret in KeyVault
+            * `source_vault` (`pulumi.Input[dict]`) - Resource id of the KeyVault containing the key or secret
+              * `id` (`pulumi.Input[str]`) - Resource Id
 
-          * `os_type` (`pulumi.Input[str]`) - The Operating System type.
+          * `enabled` (`pulumi.Input[bool]`) - Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
+          * `key_encryption_key` (`pulumi.Input[dict]`) - Key Vault Key Url and vault id of the key encryption key
+            * `key_url` (`pulumi.Input[str]`) - Url pointing to a key or secret in KeyVault
+            * `source_vault` (`pulumi.Input[dict]`) - Resource id of the KeyVault containing the key or secret
 
         The **sku** object supports the following:
 
@@ -130,13 +130,18 @@ class Disk(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if creation_data is None:
+                raise TypeError("Missing required property 'creation_data'")
+            __props__['creation_data'] = creation_data
+            __props__['disk_size_gb'] = disk_size_gb
+            __props__['encryption_settings'] = encryption_settings
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['os_type'] = os_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -144,6 +149,7 @@ class Disk(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['zones'] = zones
             __props__['managed_by'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(Disk, __self__).__init__(
             'azurerm:compute/v20170330:Disk',

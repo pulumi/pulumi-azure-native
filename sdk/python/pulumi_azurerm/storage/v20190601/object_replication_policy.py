@@ -35,30 +35,28 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, destination_account=None, name=None, resource_group_name=None, rules=None, source_account=None, __props__=None, __name__=None, __opts__=None):
         """
         The replication policy between two storage accounts. Multiple rules can be defined in one policy.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        :param pulumi.Input[str] destination_account: Required. Destination account name.
         :param pulumi.Input[str] name: The ID of object replication policy or 'default' if the policy ID is unknown.
-        :param pulumi.Input[dict] properties: Returns the Storage Account Object Replication Policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[list] rules: The storage account object replication rules.
+        :param pulumi.Input[str] source_account: Required. Source account name.
 
-        The **properties** object supports the following:
+        The **rules** object supports the following:
 
-          * `destination_account` (`pulumi.Input[str]`) - Required. Destination account name.
-          * `rules` (`pulumi.Input[list]`) - The storage account object replication rules.
-            * `destination_container` (`pulumi.Input[str]`) - Required. Destination container name.
-            * `filters` (`pulumi.Input[dict]`) - Optional. An object that defines the filter set.
-              * `min_creation_time` (`pulumi.Input[str]`) - Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
-              * `prefix_match` (`pulumi.Input[list]`) - Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
+          * `destination_container` (`pulumi.Input[str]`) - Required. Destination container name.
+          * `filters` (`pulumi.Input[dict]`) - Optional. An object that defines the filter set.
+            * `min_creation_time` (`pulumi.Input[str]`) - Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
+            * `prefix_match` (`pulumi.Input[list]`) - Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
 
-            * `rule_id` (`pulumi.Input[str]`) - Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
-            * `source_container` (`pulumi.Input[str]`) - Required. Source container name.
-
-          * `source_account` (`pulumi.Input[str]`) - Required. Source account name.
+          * `rule_id` (`pulumi.Input[str]`) - Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
+          * `source_container` (`pulumi.Input[str]`) - Required. Source container name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,13 +78,20 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            if destination_account is None:
+                raise TypeError("Missing required property 'destination_account'")
+            __props__['destination_account'] = destination_account
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['rules'] = rules
+            if source_account is None:
+                raise TypeError("Missing required property 'source_account'")
+            __props__['source_account'] = source_account
+            __props__['properties'] = None
             __props__['type'] = None
         super(ObjectReplicationPolicy, __self__).__init__(
             'azurerm:storage/v20190601:ObjectReplicationPolicy',

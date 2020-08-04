@@ -72,17 +72,20 @@ class ExpressRoutePort(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, bandwidth_in_gbps=None, encapsulation=None, id=None, identity=None, links=None, location=None, name=None, peering_location=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         ExpressRoutePort resource definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] bandwidth_in_gbps: Bandwidth of procured ports in Gbps.
+        :param pulumi.Input[str] encapsulation: Encapsulation method on physical ports.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[dict] identity: The identity of ExpressRoutePort, if configured.
+        :param pulumi.Input[list] links: The set of physical links of the ExpressRoutePort resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the ExpressRoutePort resource.
-        :param pulumi.Input[dict] properties: ExpressRoutePort properties.
+        :param pulumi.Input[str] peering_location: The name of the peering location that the ExpressRoutePort is mapped to physically.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
 
@@ -91,21 +94,16 @@ class ExpressRoutePort(pulumi.CustomResource):
           * `type` (`pulumi.Input[str]`) - The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
           * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 
-        The **properties** object supports the following:
+        The **links** object supports the following:
 
-          * `bandwidth_in_gbps` (`pulumi.Input[float]`) - Bandwidth of procured ports in Gbps.
-          * `encapsulation` (`pulumi.Input[str]`) - Encapsulation method on physical ports.
-          * `links` (`pulumi.Input[list]`) - The set of physical links of the ExpressRoutePort resource.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of child port resource that is unique among child port resources of the parent.
-            * `properties` (`pulumi.Input[dict]`) - ExpressRouteLink properties.
-              * `admin_state` (`pulumi.Input[str]`) - Administrative state of the physical port.
-              * `mac_sec_config` (`pulumi.Input[dict]`) - MacSec configuration.
-                * `cak_secret_identifier` (`pulumi.Input[str]`) - Keyvault Secret Identifier URL containing Mac security CAK key.
-                * `cipher` (`pulumi.Input[str]`) - Mac security cipher.
-                * `ckn_secret_identifier` (`pulumi.Input[str]`) - Keyvault Secret Identifier URL containing Mac security CKN key.
+          * `admin_state` (`pulumi.Input[str]`) - Administrative state of the physical port.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `mac_sec_config` (`pulumi.Input[dict]`) - MacSec configuration.
+            * `cak_secret_identifier` (`pulumi.Input[str]`) - Keyvault Secret Identifier URL containing Mac security CAK key.
+            * `cipher` (`pulumi.Input[str]`) - Mac security cipher.
+            * `ckn_secret_identifier` (`pulumi.Input[str]`) - Keyvault Secret Identifier URL containing Mac security CKN key.
 
-          * `peering_location` (`pulumi.Input[str]`) - The name of the peering location that the ExpressRoutePort is mapped to physically.
+          * `name` (`pulumi.Input[str]`) - Name of child port resource that is unique among child port resources of the parent.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -124,18 +122,22 @@ class ExpressRoutePort(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['bandwidth_in_gbps'] = bandwidth_in_gbps
+            __props__['encapsulation'] = encapsulation
             __props__['id'] = id
             __props__['identity'] = identity
+            __props__['links'] = links
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['peering_location'] = peering_location
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(ExpressRoutePort, __self__).__init__(
             'azurerm:network/v20190901:ExpressRoutePort',

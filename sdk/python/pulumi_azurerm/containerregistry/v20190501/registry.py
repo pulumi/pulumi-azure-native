@@ -70,50 +70,53 @@ class Registry(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, admin_user_enabled=None, location=None, name=None, network_rule_set=None, policies=None, resource_group_name=None, sku=None, storage_account=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         An object that represents a container registry.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] admin_user_enabled: The value that indicates whether the admin user is enabled.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
         :param pulumi.Input[str] name: The name of the container registry.
-        :param pulumi.Input[dict] properties: The properties of the container registry.
+        :param pulumi.Input[dict] network_rule_set: The network rule set for a container registry.
+        :param pulumi.Input[dict] policies: The policies for a container registry.
         :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[dict] sku: The SKU of the container registry.
+        :param pulumi.Input[dict] storage_account: The properties of the storage account for the container registry. Only applicable to Classic SKU.
         :param pulumi.Input[dict] tags: The tags of the resource.
 
-        The **properties** object supports the following:
+        The **network_rule_set** object supports the following:
 
-          * `admin_user_enabled` (`pulumi.Input[bool]`) - The value that indicates whether the admin user is enabled.
-          * `network_rule_set` (`pulumi.Input[dict]`) - The network rule set for a container registry.
-            * `default_action` (`pulumi.Input[str]`) - The default action of allow or deny when no other rules match.
-            * `ip_rules` (`pulumi.Input[list]`) - The IP ACL rules.
-              * `action` (`pulumi.Input[str]`) - The action of IP ACL rule.
-              * `i_p_address_or_range` (`pulumi.Input[str]`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+          * `default_action` (`pulumi.Input[str]`) - The default action of allow or deny when no other rules match.
+          * `ip_rules` (`pulumi.Input[list]`) - The IP ACL rules.
+            * `action` (`pulumi.Input[str]`) - The action of IP ACL rule.
+            * `i_p_address_or_range` (`pulumi.Input[str]`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 
-            * `virtual_network_rules` (`pulumi.Input[list]`) - The virtual network rules.
-              * `action` (`pulumi.Input[str]`) - The action of virtual network rule.
-              * `virtual_network_resource_id` (`pulumi.Input[str]`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+          * `virtual_network_rules` (`pulumi.Input[list]`) - The virtual network rules.
+            * `action` (`pulumi.Input[str]`) - The action of virtual network rule.
+            * `virtual_network_resource_id` (`pulumi.Input[str]`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 
-          * `policies` (`pulumi.Input[dict]`) - The policies for a container registry.
-            * `quarantine_policy` (`pulumi.Input[dict]`) - The quarantine policy for a container registry.
-              * `status` (`pulumi.Input[str]`) - The value that indicates whether the policy is enabled or not.
+        The **policies** object supports the following:
 
-            * `retention_policy` (`pulumi.Input[dict]`) - The retention policy for a container registry.
-              * `days` (`pulumi.Input[float]`) - The number of days to retain an untagged manifest after which it gets purged.
-              * `status` (`pulumi.Input[str]`) - The value that indicates whether the policy is enabled or not.
+          * `quarantine_policy` (`pulumi.Input[dict]`) - The quarantine policy for a container registry.
+            * `status` (`pulumi.Input[str]`) - The value that indicates whether the policy is enabled or not.
 
-            * `trust_policy` (`pulumi.Input[dict]`) - The content trust policy for a container registry.
-              * `status` (`pulumi.Input[str]`) - The value that indicates whether the policy is enabled or not.
-              * `type` (`pulumi.Input[str]`) - The type of trust policy.
+          * `retention_policy` (`pulumi.Input[dict]`) - The retention policy for a container registry.
+            * `days` (`pulumi.Input[float]`) - The number of days to retain an untagged manifest after which it gets purged.
+            * `status` (`pulumi.Input[str]`) - The value that indicates whether the policy is enabled or not.
 
-          * `storage_account` (`pulumi.Input[dict]`) - The properties of the storage account for the container registry. Only applicable to Classic SKU.
-            * `id` (`pulumi.Input[str]`) - The resource ID of the storage account.
+          * `trust_policy` (`pulumi.Input[dict]`) - The content trust policy for a container registry.
+            * `status` (`pulumi.Input[str]`) - The value that indicates whether the policy is enabled or not.
+            * `type` (`pulumi.Input[str]`) - The type of trust policy.
 
         The **sku** object supports the following:
 
           * `name` (`pulumi.Input[str]`) - The SKU name of the container registry. Required for registry creation.
+
+        The **storage_account** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - The resource ID of the storage account.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -132,20 +135,24 @@ class Registry(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['admin_user_enabled'] = admin_user_enabled
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['network_rule_set'] = network_rule_set
+            __props__['policies'] = policies
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if sku is None:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
+            __props__['storage_account'] = storage_account
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Registry, __self__).__init__(
             'azurerm:containerregistry/v20190501:Registry',

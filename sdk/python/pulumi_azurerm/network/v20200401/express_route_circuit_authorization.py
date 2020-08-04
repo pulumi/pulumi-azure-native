@@ -29,22 +29,18 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
     """
     Type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, circuit_name=None, id=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, authorization_key=None, authorization_use_status=None, circuit_name=None, id=None, name=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Authorization in an ExpressRouteCircuit resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] authorization_key: The authorization key.
+        :param pulumi.Input[str] authorization_use_status: The authorization use status.
         :param pulumi.Input[str] circuit_name: The name of the express route circuit.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the authorization.
-        :param pulumi.Input[dict] properties: Properties of the express route circuit authorization.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-
-        The **properties** object supports the following:
-
-          * `authorization_key` (`pulumi.Input[str]`) - The authorization key.
-          * `authorization_use_status` (`pulumi.Input[str]`) - The authorization use status.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -63,6 +59,8 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['authorization_key'] = authorization_key
+            __props__['authorization_use_status'] = authorization_use_status
             if circuit_name is None:
                 raise TypeError("Missing required property 'circuit_name'")
             __props__['circuit_name'] = circuit_name
@@ -70,11 +68,11 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(ExpressRouteCircuitAuthorization, __self__).__init__(
             'azurerm:network/v20200401:ExpressRouteCircuitAuthorization',

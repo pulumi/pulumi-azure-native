@@ -50,33 +50,36 @@ class FirewallPolicy(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, base_policy=None, dns_settings=None, id=None, location=None, name=None, resource_group_name=None, tags=None, threat_intel_mode=None, threat_intel_whitelist=None, __props__=None, __name__=None, __opts__=None):
         """
         FirewallPolicy Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] base_policy: The parent firewall policy from which rules are inherited.
+        :param pulumi.Input[dict] dns_settings: DNS Proxy Settings definition.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the Firewall Policy.
-        :param pulumi.Input[dict] properties: Properties of the firewall policy.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[str] threat_intel_mode: The operation mode for Threat Intelligence.
+        :param pulumi.Input[dict] threat_intel_whitelist: ThreatIntel Whitelist for Firewall Policy.
 
-        The **properties** object supports the following:
+        The **base_policy** object supports the following:
 
-          * `base_policy` (`pulumi.Input[dict]`) - The parent firewall policy from which rules are inherited.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
 
-          * `dns_settings` (`pulumi.Input[dict]`) - DNS Proxy Settings definition.
-            * `enable_proxy` (`pulumi.Input[bool]`) - Enable DNS Proxy on Firewalls attached to the Firewall Policy.
-            * `require_proxy_for_network_rules` (`pulumi.Input[bool]`) - FQDNs in Network Rules are supported when set to true.
-            * `servers` (`pulumi.Input[list]`) - List of Custom DNS Servers.
+        The **dns_settings** object supports the following:
 
-          * `threat_intel_mode` (`pulumi.Input[str]`) - The operation mode for Threat Intelligence.
-          * `threat_intel_whitelist` (`pulumi.Input[dict]`) - ThreatIntel Whitelist for Firewall Policy.
-            * `fqdns` (`pulumi.Input[list]`) - List of FQDNs for the ThreatIntel Whitelist.
-            * `ip_addresses` (`pulumi.Input[list]`) - List of IP addresses for the ThreatIntel Whitelist.
+          * `enable_proxy` (`pulumi.Input[bool]`) - Enable DNS Proxy on Firewalls attached to the Firewall Policy.
+          * `require_proxy_for_network_rules` (`pulumi.Input[bool]`) - FQDNs in Network Rules are supported when set to true.
+          * `servers` (`pulumi.Input[list]`) - List of Custom DNS Servers.
+
+        The **threat_intel_whitelist** object supports the following:
+
+          * `fqdns` (`pulumi.Input[list]`) - List of FQDNs for the ThreatIntel Whitelist.
+          * `ip_addresses` (`pulumi.Input[list]`) - List of IP addresses for the ThreatIntel Whitelist.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -95,17 +98,21 @@ class FirewallPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['base_policy'] = base_policy
+            __props__['dns_settings'] = dns_settings
             __props__['id'] = id
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['threat_intel_mode'] = threat_intel_mode
+            __props__['threat_intel_whitelist'] = threat_intel_whitelist
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(FirewallPolicy, __self__).__init__(
             'azurerm:network/v20200501:FirewallPolicy',

@@ -33,26 +33,14 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, biztalk_uri=None, entity_connection_string=None, hostname=None, kind=None, name=None, port=None, resource_connection_string=None, resource_group_name=None, resource_type=None, __props__=None, __name__=None, __opts__=None):
         """
         Hybrid Connection for an App Service app.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] name: Name of the hybrid connection configuration.
-        :param pulumi.Input[dict] properties: RelayServiceConnectionEntity resource specific properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-
-        The **properties** object supports the following:
-
-          * `biztalk_uri` (`pulumi.Input[str]`)
-          * `entity_connection_string` (`pulumi.Input[str]`)
-          * `entity_name` (`pulumi.Input[str]`)
-          * `hostname` (`pulumi.Input[str]`)
-          * `port` (`pulumi.Input[float]`)
-          * `resource_connection_string` (`pulumi.Input[str]`)
-          * `resource_type` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,14 +59,20 @@ class WebAppRelayServiceConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['biztalk_uri'] = biztalk_uri
+            __props__['entity_connection_string'] = entity_connection_string
+            __props__['hostname'] = hostname
             __props__['kind'] = kind
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['port'] = port
+            __props__['resource_connection_string'] = resource_connection_string
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['resource_type'] = resource_type
+            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppRelayServiceConnection, __self__).__init__(
             'azurerm:web/v20160801:WebAppRelayServiceConnection',

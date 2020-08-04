@@ -113,60 +113,61 @@ class Job(pulumi.CustomResource):
     """
     Type of the object.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, delivery_info=None, delivery_type=None, details=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Job Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] delivery_info: Delivery Info of Job.
+        :param pulumi.Input[str] delivery_type: Delivery type of Job.
+        :param pulumi.Input[dict] details: Details of a job run. This field will only be sent for expand details filter.
         :param pulumi.Input[str] location: The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
         :param pulumi.Input[str] name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
-        :param pulumi.Input[dict] properties: Properties of a job.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
         :param pulumi.Input[dict] sku: The sku type.
         :param pulumi.Input[dict] tags: The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
 
-        The **properties** object supports the following:
+        The **delivery_info** object supports the following:
 
-          * `delivery_info` (`pulumi.Input[dict]`) - Delivery Info of Job.
-            * `scheduled_date_time` (`pulumi.Input[str]`) - Scheduled date time.
+          * `scheduled_date_time` (`pulumi.Input[str]`) - Scheduled date time.
 
-          * `delivery_type` (`pulumi.Input[str]`) - Delivery type of Job.
-          * `details` (`pulumi.Input[dict]`) - Details of a job run. This field will only be sent for expand details filter.
-            * `contact_details` (`pulumi.Input[dict]`) - Contact details for notification and shipping.
-              * `contact_name` (`pulumi.Input[str]`) - Contact name of the person.
-              * `email_list` (`pulumi.Input[list]`) - List of Email-ids to be notified about job progress.
-              * `mobile` (`pulumi.Input[str]`) - Mobile number of the contact person.
-              * `notification_preference` (`pulumi.Input[list]`) - Notification preference for a job stage.
-                * `send_notification` (`pulumi.Input[bool]`) - Notification is required or not.
-                * `stage_name` (`pulumi.Input[str]`) - Name of the stage.
+        The **details** object supports the following:
 
-              * `phone` (`pulumi.Input[str]`) - Phone number of the contact person.
-              * `phone_extension` (`pulumi.Input[str]`) - Phone extension number of the contact person.
+          * `contact_details` (`pulumi.Input[dict]`) - Contact details for notification and shipping.
+            * `contact_name` (`pulumi.Input[str]`) - Contact name of the person.
+            * `email_list` (`pulumi.Input[list]`) - List of Email-ids to be notified about job progress.
+            * `mobile` (`pulumi.Input[str]`) - Mobile number of the contact person.
+            * `notification_preference` (`pulumi.Input[list]`) - Notification preference for a job stage.
+              * `send_notification` (`pulumi.Input[bool]`) - Notification is required or not.
+              * `stage_name` (`pulumi.Input[str]`) - Name of the stage.
 
-            * `destination_account_details` (`pulumi.Input[list]`) - Destination account details.
-              * `account_id` (`pulumi.Input[str]`) - Arm Id of the destination where the data has to be moved.
-              * `data_destination_type` (`pulumi.Input[str]`) - Data Destination Type.
-              * `share_password` (`pulumi.Input[str]`) - Share password to be shared by all shares in SA.
+            * `phone` (`pulumi.Input[str]`) - Phone number of the contact person.
+            * `phone_extension` (`pulumi.Input[str]`) - Phone extension number of the contact person.
 
-            * `expected_data_size_in_terabytes` (`pulumi.Input[float]`) - The expected size of the data, which needs to be transferred in this job, in terabytes.
-            * `job_details_type` (`pulumi.Input[str]`) - Indicates the type of job details.
-            * `preferences` (`pulumi.Input[dict]`) - Preferences for the order.
-              * `preferred_data_center_region` (`pulumi.Input[list]`) - Preferred Data Center Region.
-              * `transport_preferences` (`pulumi.Input[dict]`) - Preferences related to the shipment logistics of the sku.
-                * `preferred_shipment_type` (`pulumi.Input[str]`) - Indicates Shipment Logistics type that the customer preferred.
+          * `destination_account_details` (`pulumi.Input[list]`) - Destination account details.
+            * `account_id` (`pulumi.Input[str]`) - Arm Id of the destination where the data has to be moved.
+            * `data_destination_type` (`pulumi.Input[str]`) - Data Destination Type.
+            * `share_password` (`pulumi.Input[str]`) - Share password to be shared by all shares in SA.
 
-            * `shipping_address` (`pulumi.Input[dict]`) - Shipping address of the customer.
-              * `address_type` (`pulumi.Input[str]`) - Type of address.
-              * `city` (`pulumi.Input[str]`) - Name of the City.
-              * `company_name` (`pulumi.Input[str]`) - Name of the company.
-              * `country` (`pulumi.Input[str]`) - Name of the Country.
-              * `postal_code` (`pulumi.Input[str]`) - Postal code.
-              * `state_or_province` (`pulumi.Input[str]`) - Name of the State or Province.
-              * `street_address1` (`pulumi.Input[str]`) - Street Address line 1.
-              * `street_address2` (`pulumi.Input[str]`) - Street Address line 2.
-              * `street_address3` (`pulumi.Input[str]`) - Street Address line 3.
-              * `zip_extended_code` (`pulumi.Input[str]`) - Extended Zip Code.
+          * `expected_data_size_in_terabytes` (`pulumi.Input[float]`) - The expected size of the data, which needs to be transferred in this job, in terabytes.
+          * `job_details_type` (`pulumi.Input[str]`) - Indicates the type of job details.
+          * `preferences` (`pulumi.Input[dict]`) - Preferences for the order.
+            * `preferred_data_center_region` (`pulumi.Input[list]`) - Preferred Data Center Region.
+            * `transport_preferences` (`pulumi.Input[dict]`) - Preferences related to the shipment logistics of the sku.
+              * `preferred_shipment_type` (`pulumi.Input[str]`) - Indicates Shipment Logistics type that the customer preferred.
+
+          * `shipping_address` (`pulumi.Input[dict]`) - Shipping address of the customer.
+            * `address_type` (`pulumi.Input[str]`) - Type of address.
+            * `city` (`pulumi.Input[str]`) - Name of the City.
+            * `company_name` (`pulumi.Input[str]`) - Name of the company.
+            * `country` (`pulumi.Input[str]`) - Name of the Country.
+            * `postal_code` (`pulumi.Input[str]`) - Postal code.
+            * `state_or_province` (`pulumi.Input[str]`) - Name of the State or Province.
+            * `street_address1` (`pulumi.Input[str]`) - Street Address line 1.
+            * `street_address2` (`pulumi.Input[str]`) - Street Address line 2.
+            * `street_address3` (`pulumi.Input[str]`) - Street Address line 3.
+            * `zip_extended_code` (`pulumi.Input[str]`) - Extended Zip Code.
 
         The **sku** object supports the following:
 
@@ -191,15 +192,15 @@ class Job(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['delivery_info'] = delivery_info
+            __props__['delivery_type'] = delivery_type
+            __props__['details'] = details
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -207,6 +208,7 @@ class Job(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Job, __self__).__init__(
             'azurerm:databox/v20190901:Job',

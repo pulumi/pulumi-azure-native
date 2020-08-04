@@ -74,67 +74,86 @@ class RecordSet(pulumi.CustomResource):
     """
     The type of the record set.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, name=None, properties=None, record_type=None, resource_group_name=None, zone_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, a_records=None, ttl=None, aaaa_records=None, caa_records=None, cname_record=None, etag=None, metadata=None, mx_records=None, name=None, ns_records=None, ptr_records=None, record_type=None, resource_group_name=None, soa_record=None, srv_records=None, target_resource=None, txt_records=None, zone_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Describes a DNS record set (a collection of DNS records with the same name and type).
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] a_records: The list of A records in the record set.
+        :param pulumi.Input[float] ttl: The TTL (time-to-live) of the records in the record set.
+        :param pulumi.Input[list] aaaa_records: The list of AAAA records in the record set.
+        :param pulumi.Input[list] caa_records: The list of CAA records in the record set.
+        :param pulumi.Input[dict] cname_record: The CNAME record in the  record set.
         :param pulumi.Input[str] etag: The etag of the record set.
+        :param pulumi.Input[dict] metadata: The metadata attached to the record set.
+        :param pulumi.Input[list] mx_records: The list of MX records in the record set.
         :param pulumi.Input[str] name: The name of the record set, relative to the name of the zone.
-        :param pulumi.Input[dict] properties: The properties of the record set.
+        :param pulumi.Input[list] ns_records: The list of NS records in the record set.
+        :param pulumi.Input[list] ptr_records: The list of PTR records in the record set.
         :param pulumi.Input[str] record_type: The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the DNS zone is created).
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[dict] soa_record: The SOA record in the record set.
+        :param pulumi.Input[list] srv_records: The list of SRV records in the record set.
+        :param pulumi.Input[dict] target_resource: A reference to an azure resource from where the dns resource value is taken.
+        :param pulumi.Input[list] txt_records: The list of TXT records in the record set.
         :param pulumi.Input[str] zone_name: The name of the DNS zone (without a terminating dot).
 
-        The **properties** object supports the following:
+        The **a_records** object supports the following:
 
-          * `a_records` (`pulumi.Input[list]`) - The list of A records in the record set.
-            * `ipv4_address` (`pulumi.Input[str]`) - The IPv4 address of this A record.
+          * `ipv4_address` (`pulumi.Input[str]`) - The IPv4 address of this A record.
 
-          * `ttl` (`pulumi.Input[float]`) - The TTL (time-to-live) of the records in the record set.
-          * `aaaa_records` (`pulumi.Input[list]`) - The list of AAAA records in the record set.
-            * `ipv6_address` (`pulumi.Input[str]`) - The IPv6 address of this AAAA record.
+        The **aaaa_records** object supports the following:
 
-          * `caa_records` (`pulumi.Input[list]`) - The list of CAA records in the record set.
-            * `flags` (`pulumi.Input[float]`) - The flags for this CAA record as an integer between 0 and 255.
-            * `tag` (`pulumi.Input[str]`) - The tag for this CAA record.
-            * `value` (`pulumi.Input[str]`) - The value for this CAA record.
+          * `ipv6_address` (`pulumi.Input[str]`) - The IPv6 address of this AAAA record.
 
-          * `cname_record` (`pulumi.Input[dict]`) - The CNAME record in the  record set.
-            * `cname` (`pulumi.Input[str]`) - The canonical name for this CNAME record.
+        The **caa_records** object supports the following:
 
-          * `metadata` (`pulumi.Input[dict]`) - The metadata attached to the record set.
-          * `mx_records` (`pulumi.Input[list]`) - The list of MX records in the record set.
-            * `exchange` (`pulumi.Input[str]`) - The domain name of the mail host for this MX record.
-            * `preference` (`pulumi.Input[float]`) - The preference value for this MX record.
+          * `flags` (`pulumi.Input[float]`) - The flags for this CAA record as an integer between 0 and 255.
+          * `tag` (`pulumi.Input[str]`) - The tag for this CAA record.
+          * `value` (`pulumi.Input[str]`) - The value for this CAA record.
 
-          * `ns_records` (`pulumi.Input[list]`) - The list of NS records in the record set.
-            * `nsdname` (`pulumi.Input[str]`) - The name server name for this NS record.
+        The **cname_record** object supports the following:
 
-          * `ptr_records` (`pulumi.Input[list]`) - The list of PTR records in the record set.
-            * `ptrdname` (`pulumi.Input[str]`) - The PTR target domain name for this PTR record.
+          * `cname` (`pulumi.Input[str]`) - The canonical name for this CNAME record.
 
-          * `soa_record` (`pulumi.Input[dict]`) - The SOA record in the record set.
-            * `email` (`pulumi.Input[str]`) - The email contact for this SOA record.
-            * `expire_time` (`pulumi.Input[float]`) - The expire time for this SOA record.
-            * `host` (`pulumi.Input[str]`) - The domain name of the authoritative name server for this SOA record.
-            * `minimum_ttl` (`pulumi.Input[float]`) - The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-            * `refresh_time` (`pulumi.Input[float]`) - The refresh value for this SOA record.
-            * `retry_time` (`pulumi.Input[float]`) - The retry time for this SOA record.
-            * `serial_number` (`pulumi.Input[float]`) - The serial number for this SOA record.
+        The **mx_records** object supports the following:
 
-          * `srv_records` (`pulumi.Input[list]`) - The list of SRV records in the record set.
-            * `port` (`pulumi.Input[float]`) - The port value for this SRV record.
-            * `priority` (`pulumi.Input[float]`) - The priority value for this SRV record.
-            * `target` (`pulumi.Input[str]`) - The target domain name for this SRV record.
-            * `weight` (`pulumi.Input[float]`) - The weight value for this SRV record.
+          * `exchange` (`pulumi.Input[str]`) - The domain name of the mail host for this MX record.
+          * `preference` (`pulumi.Input[float]`) - The preference value for this MX record.
 
-          * `target_resource` (`pulumi.Input[dict]`) - A reference to an azure resource from where the dns resource value is taken.
-            * `id` (`pulumi.Input[str]`) - Resource Id.
+        The **ns_records** object supports the following:
 
-          * `txt_records` (`pulumi.Input[list]`) - The list of TXT records in the record set.
-            * `value` (`pulumi.Input[list]`) - The text value of this TXT record.
+          * `nsdname` (`pulumi.Input[str]`) - The name server name for this NS record.
+
+        The **ptr_records** object supports the following:
+
+          * `ptrdname` (`pulumi.Input[str]`) - The PTR target domain name for this PTR record.
+
+        The **soa_record** object supports the following:
+
+          * `email` (`pulumi.Input[str]`) - The email contact for this SOA record.
+          * `expire_time` (`pulumi.Input[float]`) - The expire time for this SOA record.
+          * `host` (`pulumi.Input[str]`) - The domain name of the authoritative name server for this SOA record.
+          * `minimum_ttl` (`pulumi.Input[float]`) - The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
+          * `refresh_time` (`pulumi.Input[float]`) - The refresh value for this SOA record.
+          * `retry_time` (`pulumi.Input[float]`) - The retry time for this SOA record.
+          * `serial_number` (`pulumi.Input[float]`) - The serial number for this SOA record.
+
+        The **srv_records** object supports the following:
+
+          * `port` (`pulumi.Input[float]`) - The port value for this SRV record.
+          * `priority` (`pulumi.Input[float]`) - The priority value for this SRV record.
+          * `target` (`pulumi.Input[str]`) - The target domain name for this SRV record.
+          * `weight` (`pulumi.Input[float]`) - The weight value for this SRV record.
+
+        The **target_resource** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Resource Id.
+
+        The **txt_records** object supports the following:
+
+          * `value` (`pulumi.Input[list]`) - The text value of this TXT record.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -153,20 +172,33 @@ class RecordSet(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['a_records'] = a_records
+            __props__['ttl'] = ttl
+            __props__['aaaa_records'] = aaaa_records
+            __props__['caa_records'] = caa_records
+            __props__['cname_record'] = cname_record
             __props__['etag'] = etag
+            __props__['metadata'] = metadata
+            __props__['mx_records'] = mx_records
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['ns_records'] = ns_records
+            __props__['ptr_records'] = ptr_records
             if record_type is None:
                 raise TypeError("Missing required property 'record_type'")
             __props__['record_type'] = record_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['soa_record'] = soa_record
+            __props__['srv_records'] = srv_records
+            __props__['target_resource'] = target_resource
+            __props__['txt_records'] = txt_records
             if zone_name is None:
                 raise TypeError("Missing required property 'zone_name'")
             __props__['zone_name'] = zone_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(RecordSet, __self__).__init__(
             'azurerm:network/v20180501:RecordSet',

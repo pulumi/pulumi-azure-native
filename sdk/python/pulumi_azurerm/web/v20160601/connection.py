@@ -63,12 +63,10 @@ class Connection(pulumi.CustomResource):
           * `parameter_values` (`pulumi.Input[dict]`) - Dictionary of parameter values
           * `statuses` (`pulumi.Input[list]`) - Status of the connection
             * `error` (`pulumi.Input[dict]`) - Connection error
+              * `code` (`pulumi.Input[str]`) - Code of the status
               * `etag` (`pulumi.Input[str]`) - Resource ETag
               * `location` (`pulumi.Input[str]`) - Resource location
-              * `properties` (`pulumi.Input[dict]`)
-                * `code` (`pulumi.Input[str]`) - Code of the status
-                * `message` (`pulumi.Input[str]`) - Description of the status
-
+              * `message` (`pulumi.Input[str]`) - Description of the status
               * `tags` (`pulumi.Input[dict]`) - Resource tags
 
             * `status` (`pulumi.Input[str]`) - The gateway status

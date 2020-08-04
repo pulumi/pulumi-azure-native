@@ -82,48 +82,51 @@ class Export(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, name=None, properties=None, scope=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, definition=None, delivery_info=None, e_tag=None, format=None, name=None, run_history=None, schedule=None, scope=None, __props__=None, __name__=None, __opts__=None):
         """
         An export resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] definition: Has the definition for the export.
+        :param pulumi.Input[dict] delivery_info: Has delivery information for the export.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        :param pulumi.Input[str] format: The format of the export being delivered. Currently only 'Csv' is supported.
         :param pulumi.Input[str] name: Export Name.
-        :param pulumi.Input[dict] properties: The properties of the export.
+        :param pulumi.Input[dict] run_history: If requested, has the most recent execution history for the export.
+        :param pulumi.Input[dict] schedule: Has schedule information for the export.
         :param pulumi.Input[str] scope: The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
 
-        The **properties** object supports the following:
+        The **definition** object supports the following:
 
-          * `definition` (`pulumi.Input[dict]`) - Has the definition for the export.
-            * `data_set` (`pulumi.Input[dict]`) - The definition for data in the export.
-              * `configuration` (`pulumi.Input[dict]`) - The export dataset configuration.
-                * `columns` (`pulumi.Input[list]`) - Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
+          * `data_set` (`pulumi.Input[dict]`) - The definition for data in the export.
+            * `configuration` (`pulumi.Input[dict]`) - The export dataset configuration.
+              * `columns` (`pulumi.Input[list]`) - Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 
-              * `granularity` (`pulumi.Input[str]`) - The granularity of rows in the export. Currently only 'Daily' is supported.
+            * `granularity` (`pulumi.Input[str]`) - The granularity of rows in the export. Currently only 'Daily' is supported.
 
-            * `time_period` (`pulumi.Input[dict]`) - Has time period for pulling data for the export.
-              * `from` (`pulumi.Input[str]`) - The start date for export data.
-              * `to` (`pulumi.Input[str]`) - The end date for export data.
+          * `time_period` (`pulumi.Input[dict]`) - Has time period for pulling data for the export.
+            * `from` (`pulumi.Input[str]`) - The start date for export data.
+            * `to` (`pulumi.Input[str]`) - The end date for export data.
 
-            * `timeframe` (`pulumi.Input[str]`) - The time frame for pulling data for the export. If custom, then a specific time period must be provided.
-            * `type` (`pulumi.Input[str]`) - The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
+          * `timeframe` (`pulumi.Input[str]`) - The time frame for pulling data for the export. If custom, then a specific time period must be provided.
+          * `type` (`pulumi.Input[str]`) - The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
 
-          * `delivery_info` (`pulumi.Input[dict]`) - Has delivery information for the export.
-            * `destination` (`pulumi.Input[dict]`) - Has destination for the export being delivered.
-              * `container` (`pulumi.Input[str]`) - The name of the container where exports will be uploaded.
-              * `resource_id` (`pulumi.Input[str]`) - The resource id of the storage account where exports will be delivered.
-              * `root_folder_path` (`pulumi.Input[str]`) - The name of the directory where exports will be uploaded.
+        The **delivery_info** object supports the following:
 
-          * `format` (`pulumi.Input[str]`) - The format of the export being delivered. Currently only 'Csv' is supported.
-          * `run_history` (`pulumi.Input[dict]`) - If requested, has the most recent execution history for the export.
-          * `schedule` (`pulumi.Input[dict]`) - Has schedule information for the export.
-            * `recurrence` (`pulumi.Input[str]`) - The schedule recurrence.
-            * `recurrence_period` (`pulumi.Input[dict]`) - Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
-              * `from` (`pulumi.Input[str]`) - The start date of recurrence.
-              * `to` (`pulumi.Input[str]`) - The end date of recurrence.
+          * `destination` (`pulumi.Input[dict]`) - Has destination for the export being delivered.
+            * `container` (`pulumi.Input[str]`) - The name of the container where exports will be uploaded.
+            * `resource_id` (`pulumi.Input[str]`) - The resource id of the storage account where exports will be delivered.
+            * `root_folder_path` (`pulumi.Input[str]`) - The name of the directory where exports will be uploaded.
 
-            * `status` (`pulumi.Input[str]`) - The status of the export's schedule. If 'Inactive', the export's schedule is paused.
+        The **schedule** object supports the following:
+
+          * `recurrence` (`pulumi.Input[str]`) - The schedule recurrence.
+          * `recurrence_period` (`pulumi.Input[dict]`) - Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+            * `from` (`pulumi.Input[str]`) - The start date of recurrence.
+            * `to` (`pulumi.Input[str]`) - The end date of recurrence.
+
+          * `status` (`pulumi.Input[str]`) - The status of the export's schedule. If 'Inactive', the export's schedule is paused.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -142,14 +145,23 @@ class Export(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if definition is None:
+                raise TypeError("Missing required property 'definition'")
+            __props__['definition'] = definition
+            if delivery_info is None:
+                raise TypeError("Missing required property 'delivery_info'")
+            __props__['delivery_info'] = delivery_info
             __props__['e_tag'] = e_tag
+            __props__['format'] = format
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['run_history'] = run_history
+            __props__['schedule'] = schedule
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
+            __props__['properties'] = None
             __props__['type'] = None
         super(Export, __self__).__init__(
             'azurerm:costmanagement/v20200601:Export',

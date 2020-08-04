@@ -26,26 +26,25 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
     """
     The resource type of the lock - Microsoft.Authorization/locks.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, parent_resource_path=None, properties=None, resource_group_name=None, resource_name_=None, resource_provider_namespace=None, resource_type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, level=None, name=None, notes=None, owners=None, parent_resource_path=None, resource_group_name=None, resource_name_=None, resource_provider_namespace=None, resource_type=None, __props__=None, __name__=None, __opts__=None):
         """
         The lock information.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
         :param pulumi.Input[str] name: The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
+        :param pulumi.Input[str] notes: Notes about the lock. Maximum of 512 characters.
+        :param pulumi.Input[list] owners: The owners of the lock.
         :param pulumi.Input[str] parent_resource_path: The parent resource identity.
-        :param pulumi.Input[dict] properties: The properties of the lock.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the resource to lock. 
         :param pulumi.Input[str] resource_name_: The name of the resource to lock.
         :param pulumi.Input[str] resource_provider_namespace: The resource provider namespace of the resource to lock.
         :param pulumi.Input[str] resource_type: The resource type of the resource to lock.
 
-        The **properties** object supports the following:
+        The **owners** object supports the following:
 
-          * `level` (`pulumi.Input[str]`) - The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-          * `notes` (`pulumi.Input[str]`) - Notes about the lock. Maximum of 512 characters.
-          * `owners` (`pulumi.Input[list]`) - The owners of the lock.
-            * `application_id` (`pulumi.Input[str]`) - The application ID of the lock owner.
+          * `application_id` (`pulumi.Input[str]`) - The application ID of the lock owner.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,15 +63,17 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if level is None:
+                raise TypeError("Missing required property 'level'")
+            __props__['level'] = level
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            __props__['notes'] = notes
+            __props__['owners'] = owners
             if parent_resource_path is None:
                 raise TypeError("Missing required property 'parent_resource_path'")
             __props__['parent_resource_path'] = parent_resource_path
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -85,6 +86,7 @@ class ManagementLockAtResourceLevel(pulumi.CustomResource):
             if resource_type is None:
                 raise TypeError("Missing required property 'resource_type'")
             __props__['resource_type'] = resource_type
+            __props__['properties'] = None
             __props__['type'] = None
         super(ManagementLockAtResourceLevel, __self__).__init__(
             'azurerm:authorization/v20160901:ManagementLockAtResourceLevel',

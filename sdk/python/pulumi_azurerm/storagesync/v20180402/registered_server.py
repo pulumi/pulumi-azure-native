@@ -40,30 +40,25 @@ class RegisteredServer(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, storage_sync_service_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, agent_version=None, cluster_id=None, cluster_name=None, friendly_name=None, last_heart_beat=None, location=None, name=None, resource_group_name=None, server_certificate=None, server_os_version=None, server_role=None, storage_sync_service_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Registered Server resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] agent_version: Registered Server Agent Version
+        :param pulumi.Input[str] cluster_id: Registered Server clusterId
+        :param pulumi.Input[str] cluster_name: Registered Server clusterName
+        :param pulumi.Input[str] friendly_name: Friendly Name
+        :param pulumi.Input[str] last_heart_beat: Registered Server last heart beat
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
-        :param pulumi.Input[str] name: GUID identifying the on-premises server.
-        :param pulumi.Input[dict] properties: The parameters used to create the storage sync service.
+        :param pulumi.Input[str] name: Registered Server serverId
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] server_certificate: Registered Server Certificate
+        :param pulumi.Input[str] server_os_version: Registered Server OS Version
+        :param pulumi.Input[str] server_role: Registered Server serverRole
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[dict] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
-
-        The **properties** object supports the following:
-
-          * `agent_version` (`pulumi.Input[str]`) - Registered Server Agent Version
-          * `cluster_id` (`pulumi.Input[str]`) - Registered Server clusterId
-          * `cluster_name` (`pulumi.Input[str]`) - Registered Server clusterName
-          * `friendly_name` (`pulumi.Input[str]`) - Friendly Name
-          * `last_heart_beat` (`pulumi.Input[str]`) - Registered Server last heart beat
-          * `server_certificate` (`pulumi.Input[str]`) - Registered Server Certificate
-          * `server_id` (`pulumi.Input[str]`) - Registered Server serverId
-          * `server_os_version` (`pulumi.Input[str]`) - Registered Server OS Version
-          * `server_role` (`pulumi.Input[str]`) - Registered Server serverRole
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,18 +77,26 @@ class RegisteredServer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['agent_version'] = agent_version
+            __props__['cluster_id'] = cluster_id
+            __props__['cluster_name'] = cluster_name
+            __props__['friendly_name'] = friendly_name
+            __props__['last_heart_beat'] = last_heart_beat
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['server_certificate'] = server_certificate
+            __props__['server_os_version'] = server_os_version
+            __props__['server_role'] = server_role
             if storage_sync_service_name is None:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__['storage_sync_service_name'] = storage_sync_service_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(RegisteredServer, __self__).__init__(
             'azurerm:storagesync/v20180402:RegisteredServer',

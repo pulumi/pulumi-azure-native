@@ -37,7 +37,7 @@ class Profile(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
 
@@ -45,7 +45,6 @@ class Profile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: Name of the CDN profile which is unique within the resource group.
-        :param pulumi.Input[dict] properties: The JSON object that contains the properties required to create a profile.
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[dict] sku: The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
         :param pulumi.Input[dict] tags: Resource tags.
@@ -77,7 +76,6 @@ class Profile(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -85,6 +83,7 @@ class Profile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Profile, __self__).__init__(
             'azurerm:cdn/v20200331:Profile',

@@ -67,50 +67,50 @@ class Relationship(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, hub_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cardinality=None, description=None, display_name=None, expiry_date_time_utc=None, fields=None, hub_name=None, lookup_mappings=None, name=None, profile_type=None, related_profile_type=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The relationship resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cardinality: The Relationship Cardinality.
+        :param pulumi.Input[dict] description: Localized descriptions for the Relationship.
+        :param pulumi.Input[dict] display_name: Localized display name for the Relationship.
+        :param pulumi.Input[str] expiry_date_time_utc: The expiry date time in UTC.
+        :param pulumi.Input[list] fields: The properties of the Relationship.
         :param pulumi.Input[str] hub_name: The name of the hub.
+        :param pulumi.Input[list] lookup_mappings: Optional property to be used to map fields in profile to their strong ids in related profile.
         :param pulumi.Input[str] name: The name of the Relationship.
-        :param pulumi.Input[dict] properties: The definition of Relationship.
+        :param pulumi.Input[str] profile_type: Profile type.
+        :param pulumi.Input[str] related_profile_type: Related profile being referenced.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
 
-        The **properties** object supports the following:
+        The **fields** object supports the following:
 
-          * `cardinality` (`pulumi.Input[str]`) - The Relationship Cardinality.
-          * `description` (`pulumi.Input[dict]`) - Localized descriptions for the Relationship.
-          * `display_name` (`pulumi.Input[dict]`) - Localized display name for the Relationship.
-          * `expiry_date_time_utc` (`pulumi.Input[str]`) - The expiry date time in UTC.
-          * `fields` (`pulumi.Input[list]`) - The properties of the Relationship.
-            * `array_value_separator` (`pulumi.Input[str]`) - Array value separator for properties with isArray set.
-            * `enum_valid_values` (`pulumi.Input[list]`) - Describes valid values for an enum property.
-              * `localized_value_names` (`pulumi.Input[dict]`) - Localized names of the enum member.
-              * `value` (`pulumi.Input[float]`) - The integer value of the enum member.
+          * `array_value_separator` (`pulumi.Input[str]`) - Array value separator for properties with isArray set.
+          * `enum_valid_values` (`pulumi.Input[list]`) - Describes valid values for an enum property.
+            * `localized_value_names` (`pulumi.Input[dict]`) - Localized names of the enum member.
+            * `value` (`pulumi.Input[float]`) - The integer value of the enum member.
 
-            * `field_name` (`pulumi.Input[str]`) - Name of the property.
-            * `field_type` (`pulumi.Input[str]`) - Type of the property.
-            * `is_array` (`pulumi.Input[bool]`) - Indicates if the property is actually an array of the fieldType above on the data api.
-            * `is_available_in_graph` (`pulumi.Input[bool]`) - Whether property is available in graph or not.
-            * `is_enum` (`pulumi.Input[bool]`) - Indicates if the property is an enum.
-            * `is_flag_enum` (`pulumi.Input[bool]`) - Indicates if the property is an flag enum.
-            * `is_image` (`pulumi.Input[bool]`) - Whether the property is an Image.
-            * `is_localized_string` (`pulumi.Input[bool]`) - Whether the property is a localized string.
-            * `is_name` (`pulumi.Input[bool]`) - Whether the property is a name or a part of name.
-            * `is_required` (`pulumi.Input[bool]`) - Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
-            * `max_length` (`pulumi.Input[float]`) - Max length of string. Used only if type is string.
-            * `property_id` (`pulumi.Input[str]`) - The ID associated with the property.
-            * `schema_item_prop_link` (`pulumi.Input[str]`) - URL encoded schema.org item prop link for the property.
+          * `field_name` (`pulumi.Input[str]`) - Name of the property.
+          * `field_type` (`pulumi.Input[str]`) - Type of the property.
+          * `is_array` (`pulumi.Input[bool]`) - Indicates if the property is actually an array of the fieldType above on the data api.
+          * `is_available_in_graph` (`pulumi.Input[bool]`) - Whether property is available in graph or not.
+          * `is_enum` (`pulumi.Input[bool]`) - Indicates if the property is an enum.
+          * `is_flag_enum` (`pulumi.Input[bool]`) - Indicates if the property is an flag enum.
+          * `is_image` (`pulumi.Input[bool]`) - Whether the property is an Image.
+          * `is_localized_string` (`pulumi.Input[bool]`) - Whether the property is a localized string.
+          * `is_name` (`pulumi.Input[bool]`) - Whether the property is a name or a part of name.
+          * `is_required` (`pulumi.Input[bool]`) - Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
+          * `max_length` (`pulumi.Input[float]`) - Max length of string. Used only if type is string.
+          * `property_id` (`pulumi.Input[str]`) - The ID associated with the property.
+          * `schema_item_prop_link` (`pulumi.Input[str]`) - URL encoded schema.org item prop link for the property.
 
-          * `lookup_mappings` (`pulumi.Input[list]`) - Optional property to be used to map fields in profile to their strong ids in related profile.
-            * `field_mappings` (`pulumi.Input[list]`) - Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
-              * `profile_field_name` (`pulumi.Input[str]`) - Specifies the fieldName in profile.
-              * `related_profile_key_property` (`pulumi.Input[str]`) - Specifies the KeyProperty (from StrongId) of the related profile.
+        The **lookup_mappings** object supports the following:
 
-          * `profile_type` (`pulumi.Input[str]`) - Profile type.
-          * `related_profile_type` (`pulumi.Input[str]`) - Related profile being referenced.
+          * `field_mappings` (`pulumi.Input[list]`) - Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
+            * `profile_field_name` (`pulumi.Input[str]`) - Specifies the fieldName in profile.
+            * `related_profile_key_property` (`pulumi.Input[str]`) - Specifies the KeyProperty (from StrongId) of the related profile.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -129,16 +129,28 @@ class Relationship(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['cardinality'] = cardinality
+            __props__['description'] = description
+            __props__['display_name'] = display_name
+            __props__['expiry_date_time_utc'] = expiry_date_time_utc
+            __props__['fields'] = fields
             if hub_name is None:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
+            __props__['lookup_mappings'] = lookup_mappings
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if profile_type is None:
+                raise TypeError("Missing required property 'profile_type'")
+            __props__['profile_type'] = profile_type
+            if related_profile_type is None:
+                raise TypeError("Missing required property 'related_profile_type'")
+            __props__['related_profile_type'] = related_profile_type
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Relationship, __self__).__init__(
             'azurerm:customerinsights/v20170101:Relationship',

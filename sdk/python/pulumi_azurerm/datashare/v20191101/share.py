@@ -29,22 +29,18 @@ class Share(pulumi.CustomResource):
     """
     Type of the azure resource
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, description=None, name=None, resource_group_name=None, share_kind=None, terms=None, __props__=None, __name__=None, __opts__=None):
         """
         A share data transfer object.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
+        :param pulumi.Input[str] description: Share description.
         :param pulumi.Input[str] name: The name of the share.
-        :param pulumi.Input[dict] properties: Properties on the share
         :param pulumi.Input[str] resource_group_name: The resource group name.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - Share description.
-          * `share_kind` (`pulumi.Input[str]`) - Share kind.
-          * `terms` (`pulumi.Input[str]`) - Share terms.
+        :param pulumi.Input[str] share_kind: Share kind.
+        :param pulumi.Input[str] terms: Share terms.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -66,13 +62,16 @@ class Share(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['description'] = description
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['share_kind'] = share_kind
+            __props__['terms'] = terms
+            __props__['properties'] = None
             __props__['type'] = None
         super(Share, __self__).__init__(
             'azurerm:datashare/v20191101:Share',

@@ -41,31 +41,29 @@ class Environment(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, lab_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, user_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, arm_template_display_name=None, deployment_properties=None, lab_name=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, user_name=None, __props__=None, __name__=None, __opts__=None):
         """
         An environment, which is essentially an ARM template deployment.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arm_template_display_name: The display name of the Azure Resource Manager template that produced the environment.
+        :param pulumi.Input[dict] deployment_properties: The deployment properties of the environment.
         :param pulumi.Input[str] lab_name: The name of the lab.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the environment.
-        :param pulumi.Input[dict] properties: The properties of the resource.
+        :param pulumi.Input[str] provisioning_state: The provisioning status of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: The tags of the resource.
+        :param pulumi.Input[str] unique_identifier: The unique immutable identifier of a resource (Guid).
         :param pulumi.Input[str] user_name: The name of the user profile.
 
-        The **properties** object supports the following:
+        The **deployment_properties** object supports the following:
 
-          * `arm_template_display_name` (`pulumi.Input[str]`) - The display name of the Azure Resource Manager template that produced the environment.
-          * `deployment_properties` (`pulumi.Input[dict]`) - The deployment properties of the environment.
-            * `arm_template_id` (`pulumi.Input[str]`) - The Azure Resource Manager template's identifier.
-            * `parameters` (`pulumi.Input[list]`) - The parameters of the Azure Resource Manager template.
-              * `name` (`pulumi.Input[str]`) - The name of the template parameter.
-              * `value` (`pulumi.Input[str]`) - The value of the template parameter.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning status of the resource.
-          * `unique_identifier` (`pulumi.Input[str]`) - The unique immutable identifier of a resource (Guid).
+          * `arm_template_id` (`pulumi.Input[str]`) - The Azure Resource Manager template's identifier.
+          * `parameters` (`pulumi.Input[list]`) - The parameters of the Azure Resource Manager template.
+            * `name` (`pulumi.Input[str]`) - The name of the template parameter.
+            * `value` (`pulumi.Input[str]`) - The value of the template parameter.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -84,6 +82,8 @@ class Environment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['arm_template_display_name'] = arm_template_display_name
+            __props__['deployment_properties'] = deployment_properties
             if lab_name is None:
                 raise TypeError("Missing required property 'lab_name'")
             __props__['lab_name'] = lab_name
@@ -91,16 +91,16 @@ class Environment(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['unique_identifier'] = unique_identifier
             if user_name is None:
                 raise TypeError("Missing required property 'user_name'")
             __props__['user_name'] = user_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Environment, __self__).__init__(
             'azurerm:devtestlab/v20160515:Environment',

@@ -50,31 +50,29 @@ class BastionHost(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, dns_name=None, id=None, ip_configurations=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Bastion Host resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] dns_name: FQDN for the endpoint on which bastion host is accessible.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[list] ip_configurations: IP configuration of the Bastion Host resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the Bastion Host.
-        :param pulumi.Input[dict] properties: Represents the bastion host resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
 
-        The **properties** object supports the following:
+        The **ip_configurations** object supports the following:
 
-          * `dns_name` (`pulumi.Input[str]`) - FQDN for the endpoint on which bastion host is accessible.
-          * `ip_configurations` (`pulumi.Input[list]`) - IP configuration of the Bastion Host resource.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+          * `private_ip_allocation_method` (`pulumi.Input[str]`) - Private IP allocation method.
+          * `public_ip_address` (`pulumi.Input[dict]`) - Reference of the PublicIP resource.
             * `id` (`pulumi.Input[str]`) - Resource ID.
-            * `name` (`pulumi.Input[str]`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`pulumi.Input[dict]`) - Represents the ip configuration associated with the resource.
-              * `private_ip_allocation_method` (`pulumi.Input[str]`) - Private IP allocation method.
-              * `public_ip_address` (`pulumi.Input[dict]`) - Reference of the PublicIP resource.
-                * `id` (`pulumi.Input[str]`) - Resource ID.
 
-              * `subnet` (`pulumi.Input[dict]`) - Reference of the subnet resource.
+          * `subnet` (`pulumi.Input[dict]`) - Reference of the subnet resource.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -93,17 +91,19 @@ class BastionHost(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['dns_name'] = dns_name
             __props__['id'] = id
+            __props__['ip_configurations'] = ip_configurations
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(BastionHost, __self__).__init__(
             'azurerm:network/v20200301:BastionHost',

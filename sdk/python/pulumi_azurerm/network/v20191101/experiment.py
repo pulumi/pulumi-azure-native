@@ -40,29 +40,27 @@ class Experiment(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, profile_name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, enabled_state=None, endpoint_a=None, endpoint_b=None, location=None, name=None, profile_name=None, resource_group_name=None, resource_state=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Defines the properties of an Experiment
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the details or intents of the Experiment
+        :param pulumi.Input[str] enabled_state: The state of the Experiment
+        :param pulumi.Input[dict] endpoint_a: The endpoint A of an experiment
+        :param pulumi.Input[dict] endpoint_b: The endpoint B of an experiment
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The Experiment identifier associated with the Experiment
         :param pulumi.Input[str] profile_name: The Profile identifier associated with the Tenant and Partner
-        :param pulumi.Input[dict] properties: The properties of an Experiment
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_state: Resource status.
         :param pulumi.Input[dict] tags: Resource tags.
 
-        The **properties** object supports the following:
+        The **endpoint_a** object supports the following:
 
-          * `description` (`pulumi.Input[str]`) - The description of the details or intents of the Experiment
-          * `enabled_state` (`pulumi.Input[str]`) - The state of the Experiment
-          * `endpoint_a` (`pulumi.Input[dict]`) - The endpoint A of an experiment
-            * `endpoint` (`pulumi.Input[str]`) - The endpoint URL
-            * `name` (`pulumi.Input[str]`) - The name of the endpoint
-
-          * `endpoint_b` (`pulumi.Input[dict]`) - The endpoint B of an experiment
-          * `resource_state` (`pulumi.Input[str]`) - Resource status.
+          * `endpoint` (`pulumi.Input[str]`) - The endpoint URL
+          * `name` (`pulumi.Input[str]`) - The name of the endpoint
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,6 +79,10 @@ class Experiment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['description'] = description
+            __props__['enabled_state'] = enabled_state
+            __props__['endpoint_a'] = endpoint_a
+            __props__['endpoint_b'] = endpoint_b
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
@@ -88,11 +90,12 @@ class Experiment(pulumi.CustomResource):
             if profile_name is None:
                 raise TypeError("Missing required property 'profile_name'")
             __props__['profile_name'] = profile_name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['resource_state'] = resource_state
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Experiment, __self__).__init__(
             'azurerm:network/v20191101:Experiment',

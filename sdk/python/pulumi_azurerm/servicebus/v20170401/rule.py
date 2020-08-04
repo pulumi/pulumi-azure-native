@@ -44,43 +44,46 @@ class Rule(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, name=None, namespace_name=None, properties=None, resource_group_name=None, subscription_name=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, action=None, correlation_filter=None, filter_type=None, name=None, namespace_name=None, resource_group_name=None, sql_filter=None, subscription_name=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Description of Rule Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] action: Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+        :param pulumi.Input[dict] correlation_filter: Properties of correlationFilter
+        :param pulumi.Input[str] filter_type: Filter type that is evaluated against a BrokeredMessage.
         :param pulumi.Input[str] name: The rule name.
         :param pulumi.Input[str] namespace_name: The namespace name
-        :param pulumi.Input[dict] properties: Properties of Rule resource
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[dict] sql_filter: Properties of sqlFilter
         :param pulumi.Input[str] subscription_name: The subscription name.
         :param pulumi.Input[str] topic_name: The topic name.
 
-        The **properties** object supports the following:
+        The **action** object supports the following:
 
-          * `action` (`pulumi.Input[dict]`) - Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
-            * `compatibility_level` (`pulumi.Input[float]`) - This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-            * `requires_preprocessing` (`pulumi.Input[bool]`) - Value that indicates whether the rule action requires preprocessing.
-            * `sql_expression` (`pulumi.Input[str]`) - SQL expression. e.g. MyProperty='ABC'
+          * `compatibility_level` (`pulumi.Input[float]`) - This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+          * `requires_preprocessing` (`pulumi.Input[bool]`) - Value that indicates whether the rule action requires preprocessing.
+          * `sql_expression` (`pulumi.Input[str]`) - SQL expression. e.g. MyProperty='ABC'
 
-          * `correlation_filter` (`pulumi.Input[dict]`) - Properties of correlationFilter
-            * `content_type` (`pulumi.Input[str]`) - Content type of the message.
-            * `correlation_id` (`pulumi.Input[str]`) - Identifier of the correlation.
-            * `label` (`pulumi.Input[str]`) - Application specific label.
-            * `message_id` (`pulumi.Input[str]`) - Identifier of the message.
-            * `properties` (`pulumi.Input[dict]`) - dictionary object for custom filters
-            * `reply_to` (`pulumi.Input[str]`) - Address of the queue to reply to.
-            * `reply_to_session_id` (`pulumi.Input[str]`) - Session identifier to reply to.
-            * `requires_preprocessing` (`pulumi.Input[bool]`) - Value that indicates whether the rule action requires preprocessing.
-            * `session_id` (`pulumi.Input[str]`) - Session identifier.
-            * `to` (`pulumi.Input[str]`) - Address to send to.
+        The **correlation_filter** object supports the following:
 
-          * `filter_type` (`pulumi.Input[str]`) - Filter type that is evaluated against a BrokeredMessage.
-          * `sql_filter` (`pulumi.Input[dict]`) - Properties of sqlFilter
-            * `compatibility_level` (`pulumi.Input[float]`) - This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
-            * `requires_preprocessing` (`pulumi.Input[bool]`) - Value that indicates whether the rule action requires preprocessing.
-            * `sql_expression` (`pulumi.Input[str]`) - The SQL expression. e.g. MyProperty='ABC'
+          * `content_type` (`pulumi.Input[str]`) - Content type of the message.
+          * `correlation_id` (`pulumi.Input[str]`) - Identifier of the correlation.
+          * `label` (`pulumi.Input[str]`) - Application specific label.
+          * `message_id` (`pulumi.Input[str]`) - Identifier of the message.
+          * `properties` (`pulumi.Input[dict]`) - dictionary object for custom filters
+          * `reply_to` (`pulumi.Input[str]`) - Address of the queue to reply to.
+          * `reply_to_session_id` (`pulumi.Input[str]`) - Session identifier to reply to.
+          * `requires_preprocessing` (`pulumi.Input[bool]`) - Value that indicates whether the rule action requires preprocessing.
+          * `session_id` (`pulumi.Input[str]`) - Session identifier.
+          * `to` (`pulumi.Input[str]`) - Address to send to.
+
+        The **sql_filter** object supports the following:
+
+          * `compatibility_level` (`pulumi.Input[float]`) - This property is reserved for future use. An integer value showing the compatibility level, currently hard-coded to 20.
+          * `requires_preprocessing` (`pulumi.Input[bool]`) - Value that indicates whether the rule action requires preprocessing.
+          * `sql_expression` (`pulumi.Input[str]`) - The SQL expression. e.g. MyProperty='ABC'
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -99,22 +102,26 @@ class Rule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['action'] = action
+            __props__['correlation_filter'] = correlation_filter
+            __props__['filter_type'] = filter_type
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['sql_filter'] = sql_filter
             if subscription_name is None:
                 raise TypeError("Missing required property 'subscription_name'")
             __props__['subscription_name'] = subscription_name
             if topic_name is None:
                 raise TypeError("Missing required property 'topic_name'")
             __props__['topic_name'] = topic_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Rule, __self__).__init__(
             'azurerm:servicebus/v20170401:Rule',

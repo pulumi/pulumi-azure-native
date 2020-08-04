@@ -27,23 +27,19 @@ class Group(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, external_id=None, name=None, resource_group_name=None, service_name=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         Contract details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Group description.
+        :param pulumi.Input[str] display_name: Group name.
+        :param pulumi.Input[str] external_id: Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
         :param pulumi.Input[str] name: Group identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[dict] properties: Properties supplied to Create Group operation.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - Group description.
-          * `display_name` (`pulumi.Input[str]`) - Group name.
-          * `external_id` (`pulumi.Input[str]`) - Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory aad://<tenant>.onmicrosoft.com/groups/<group object id>; otherwise the value is null.
-          * `type` (`pulumi.Input[str]`) - Group type.
+        :param pulumi.Input[str] type: Group type.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -62,17 +58,22 @@ class Group(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['description'] = description
+            if display_name is None:
+                raise TypeError("Missing required property 'display_name'")
+            __props__['display_name'] = display_name
+            __props__['external_id'] = external_id
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['type'] = None
+            __props__['type'] = type
+            __props__['properties'] = None
         super(Group, __self__).__init__(
             'azurerm:apimanagement/v20170301:Group',
             resource_name,

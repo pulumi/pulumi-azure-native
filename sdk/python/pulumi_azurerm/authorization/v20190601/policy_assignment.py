@@ -47,33 +47,28 @@ class PolicyAssignment(pulumi.CustomResource):
     """
     The type of the policy assignment.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, properties=None, scope=None, sku=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, enforcement_mode=None, identity=None, location=None, metadata=None, name=None, not_scopes=None, parameters=None, policy_definition_id=None, scope=None, sku=None, __props__=None, __name__=None, __opts__=None):
         """
         The policy assignment.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: This message will be part of response in case of policy violation.
+        :param pulumi.Input[str] display_name: The display name of the policy assignment.
+        :param pulumi.Input[str] enforcement_mode: The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
         :param pulumi.Input[dict] identity: The managed identity associated with the policy assignment.
         :param pulumi.Input[str] location: The location of the policy assignment. Only required when utilizing managed identity.
+        :param pulumi.Input[dict] metadata: The policy assignment metadata.
         :param pulumi.Input[str] name: The name of the policy assignment.
-        :param pulumi.Input[dict] properties: Properties for the policy assignment.
-        :param pulumi.Input[str] scope: The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        :param pulumi.Input[list] not_scopes: The policy's excluded scopes.
+        :param pulumi.Input[dict] parameters: Required if a parameter is used in policy rule.
+        :param pulumi.Input[str] policy_definition_id: The ID of the policy definition or policy set definition being assigned.
+        :param pulumi.Input[str] scope: The scope for the policy assignment.
         :param pulumi.Input[dict] sku: The policy sku. This property is optional, obsolete, and will be ignored.
 
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The identity type.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - This message will be part of response in case of policy violation.
-          * `display_name` (`pulumi.Input[str]`) - The display name of the policy assignment.
-          * `enforcement_mode` (`pulumi.Input[str]`) - The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
-          * `metadata` (`pulumi.Input[dict]`) - The policy assignment metadata.
-          * `not_scopes` (`pulumi.Input[list]`) - The policy's excluded scopes.
-          * `parameters` (`pulumi.Input[dict]`) - Required if a parameter is used in policy rule.
-          * `policy_definition_id` (`pulumi.Input[str]`) - The ID of the policy definition or policy set definition being assigned.
-          * `scope` (`pulumi.Input[str]`) - The scope for the policy assignment.
 
         The **sku** object supports the following:
 
@@ -97,16 +92,23 @@ class PolicyAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['description'] = description
+            __props__['display_name'] = display_name
+            __props__['enforcement_mode'] = enforcement_mode
             __props__['identity'] = identity
             __props__['location'] = location
+            __props__['metadata'] = metadata
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['not_scopes'] = not_scopes
+            __props__['parameters'] = parameters
+            __props__['policy_definition_id'] = policy_definition_id
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
             __props__['sku'] = sku
+            __props__['properties'] = None
             __props__['type'] = None
         super(PolicyAssignment, __self__).__init__(
             'azurerm:authorization/v20190601:PolicyAssignment',

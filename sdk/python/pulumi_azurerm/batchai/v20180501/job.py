@@ -159,148 +159,181 @@ class Job(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, experiment_name=None, name=None, properties=None, resource_group_name=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, caffe2_settings=None, caffe_settings=None, chainer_settings=None, cluster=None, cntk_settings=None, constraints=None, container_settings=None, custom_mpi_settings=None, custom_toolkit_settings=None, environment_variables=None, experiment_name=None, horovod_settings=None, input_directories=None, job_preparation=None, mount_volumes=None, name=None, node_count=None, output_directories=None, py_torch_settings=None, resource_group_name=None, scheduling_priority=None, secrets=None, std_out_err_path_prefix=None, tensor_flow_settings=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Information about a Job.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] caffe2_settings: Settings for Caffe2 job.
+        :param pulumi.Input[dict] caffe_settings: Settings for Caffe job.
+        :param pulumi.Input[dict] chainer_settings: Settings for Chainer job.
+        :param pulumi.Input[dict] cluster: Resource ID of the cluster on which this job will run.
+        :param pulumi.Input[dict] cntk_settings: Settings for CNTK (aka Microsoft Cognitive Toolkit) job.
+        :param pulumi.Input[dict] constraints: Constraints associated with the Job.
+        :param pulumi.Input[dict] container_settings: Docker container settings for the job. If not provided, the job will run directly on the node.
+        :param pulumi.Input[dict] custom_mpi_settings: Settings for custom MPI job.
+        :param pulumi.Input[dict] custom_toolkit_settings: Settings for custom tool kit job.
+        :param pulumi.Input[list] environment_variables: A list of user defined environment variables which will be setup for the job.
         :param pulumi.Input[str] experiment_name: The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
+        :param pulumi.Input[dict] horovod_settings: Settings for Horovod job.
+        :param pulumi.Input[list] input_directories: A list of input directories for the job.
+        :param pulumi.Input[dict] job_preparation: A command line to be executed on each node allocated for the job before tool kit is launched.
+        :param pulumi.Input[dict] mount_volumes: Information on mount volumes to be used by the job. These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
         :param pulumi.Input[str] name: The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
-        :param pulumi.Input[dict] properties: The properties of the Job.
+        :param pulumi.Input[float] node_count: Number of compute nodes to run the job on. The job will be gang scheduled on that many compute nodes.
+        :param pulumi.Input[list] output_directories: A list of output directories for the job.
+        :param pulumi.Input[dict] py_torch_settings: Settings for pyTorch job.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[str] scheduling_priority: Scheduling priority associated with the job. Possible values: low, normal, high.
+        :param pulumi.Input[list] secrets: A list of user defined environment variables with secret values which will be setup for the job. Server will never report values of these variables back.
+        :param pulumi.Input[str] std_out_err_path_prefix: The path where the Batch AI service will store stdout, stderror and execution log of the job.
+        :param pulumi.Input[dict] tensor_flow_settings: Settings for Tensor Flow job.
         :param pulumi.Input[str] workspace_name: The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 
-        The **properties** object supports the following:
+        The **caffe2_settings** object supports the following:
 
-          * `caffe2_settings` (`pulumi.Input[dict]`) - Settings for Caffe2 job.
-            * `command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script.
-            * `python_interpreter_path` (`pulumi.Input[str]`) - The path to the Python interpreter.
-            * `python_script_file_path` (`pulumi.Input[str]`) - The python script to execute.
+          * `command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script.
+          * `python_interpreter_path` (`pulumi.Input[str]`) - The path to the Python interpreter.
+          * `python_script_file_path` (`pulumi.Input[str]`) - The python script to execute.
 
-          * `caffe_settings` (`pulumi.Input[dict]`) - Settings for Caffe job.
-            * `command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the Caffe job.
-            * `config_file_path` (`pulumi.Input[str]`) - Path of the config file for the job. This property cannot be specified if pythonScriptFilePath is specified.
-            * `process_count` (`pulumi.Input[float]`) - Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
-            * `python_interpreter_path` (`pulumi.Input[str]`) - The path to the Python interpreter. The property can be specified only if the pythonScriptFilePath is specified.
-            * `python_script_file_path` (`pulumi.Input[str]`) - Python script to execute. This property cannot be specified if configFilePath is specified.
+        The **caffe_settings** object supports the following:
 
-          * `chainer_settings` (`pulumi.Input[dict]`) - Settings for Chainer job.
-            * `command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script.
-            * `process_count` (`pulumi.Input[float]`) - Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
-            * `python_interpreter_path` (`pulumi.Input[str]`) - The path to the Python interpreter.
-            * `python_script_file_path` (`pulumi.Input[str]`) - The python script to execute.
+          * `command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the Caffe job.
+          * `config_file_path` (`pulumi.Input[str]`) - Path of the config file for the job. This property cannot be specified if pythonScriptFilePath is specified.
+          * `process_count` (`pulumi.Input[float]`) - Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+          * `python_interpreter_path` (`pulumi.Input[str]`) - The path to the Python interpreter. The property can be specified only if the pythonScriptFilePath is specified.
+          * `python_script_file_path` (`pulumi.Input[str]`) - Python script to execute. This property cannot be specified if configFilePath is specified.
 
-          * `cluster` (`pulumi.Input[dict]`) - Resource ID of the cluster on which this job will run.
-            * `id` (`pulumi.Input[str]`) - The ID of the resource
+        The **chainer_settings** object supports the following:
 
-          * `cntk_settings` (`pulumi.Input[dict]`) - Settings for CNTK (aka Microsoft Cognitive Toolkit) job.
-            * `command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script or cntk executable.
-            * `config_file_path` (`pulumi.Input[str]`) - Specifies the path of the BrainScript config file. This property can be specified only if the languageType is 'BrainScript'.
-            * `language_type` (`pulumi.Input[str]`) - The language to use for launching CNTK (aka Microsoft Cognitive Toolkit) job. Valid values are 'BrainScript' or 'Python'.
-            * `process_count` (`pulumi.Input[float]`) - Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
-            * `python_interpreter_path` (`pulumi.Input[str]`) - The path to the Python interpreter. This property can be specified only if the languageType is 'Python'.
-            * `python_script_file_path` (`pulumi.Input[str]`) - Python script to execute. This property can be specified only if the languageType is 'Python'.
+          * `command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script.
+          * `process_count` (`pulumi.Input[float]`) - Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+          * `python_interpreter_path` (`pulumi.Input[str]`) - The path to the Python interpreter.
+          * `python_script_file_path` (`pulumi.Input[str]`) - The python script to execute.
 
-          * `constraints` (`pulumi.Input[dict]`) - Constraints associated with the Job.
-            * `max_wall_clock_time` (`pulumi.Input[str]`) - Max time the job can run. Default value: 1 week.
+        The **cluster** object supports the following:
 
-          * `container_settings` (`pulumi.Input[dict]`) - Docker container settings for the job. If not provided, the job will run directly on the node.
-            * `image_source_registry` (`pulumi.Input[dict]`) - Information about docker image and docker registry to download the container from.
-              * `credentials` (`pulumi.Input[dict]`) - Credentials to access the private docker repository.
-                * `password` (`pulumi.Input[str]`) - User password to login to the docker repository. One of password or passwordSecretReference must be specified.
-                * `password_secret_reference` (`pulumi.Input[dict]`) - KeyVault Secret storing the password. Users can store their secrets in Azure KeyVault and pass it to the Batch AI service to integrate with KeyVault. One of password or passwordSecretReference must be specified.
-                  * `secret_url` (`pulumi.Input[str]`) - The URL referencing a secret in the Key Vault.
-                  * `source_vault` (`pulumi.Input[dict]`) - Fully qualified resource identifier of the Key Vault.
+          * `id` (`pulumi.Input[str]`) - The ID of the resource
 
-                * `username` (`pulumi.Input[str]`) - User name to login to the repository.
+        The **cntk_settings** object supports the following:
 
-              * `image` (`pulumi.Input[str]`) - The name of the image in the image repository.
-              * `server_url` (`pulumi.Input[str]`) - URL for image repository.
+          * `command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script or cntk executable.
+          * `config_file_path` (`pulumi.Input[str]`) - Specifies the path of the BrainScript config file. This property can be specified only if the languageType is 'BrainScript'.
+          * `language_type` (`pulumi.Input[str]`) - The language to use for launching CNTK (aka Microsoft Cognitive Toolkit) job. Valid values are 'BrainScript' or 'Python'.
+          * `process_count` (`pulumi.Input[float]`) - Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+          * `python_interpreter_path` (`pulumi.Input[str]`) - The path to the Python interpreter. This property can be specified only if the languageType is 'Python'.
+          * `python_script_file_path` (`pulumi.Input[str]`) - Python script to execute. This property can be specified only if the languageType is 'Python'.
 
-            * `shm_size` (`pulumi.Input[str]`) - Size of /dev/shm. Please refer to docker documentation for supported argument formats.
+        The **constraints** object supports the following:
 
-          * `custom_mpi_settings` (`pulumi.Input[dict]`) - Settings for custom MPI job.
-            * `command_line` (`pulumi.Input[str]`) - The command line to be executed by mpi runtime on each compute node.
-            * `process_count` (`pulumi.Input[float]`) - Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+          * `max_wall_clock_time` (`pulumi.Input[str]`) - Max time the job can run. Default value: 1 week.
 
-          * `custom_toolkit_settings` (`pulumi.Input[dict]`) - Settings for custom tool kit job.
-            * `command_line` (`pulumi.Input[str]`) - The command line to execute on the master node.
+        The **container_settings** object supports the following:
 
-          * `environment_variables` (`pulumi.Input[list]`) - A list of user defined environment variables which will be setup for the job.
-            * `name` (`pulumi.Input[str]`) - The name of the environment variable.
-            * `value` (`pulumi.Input[str]`) - The value of the environment variable.
+          * `image_source_registry` (`pulumi.Input[dict]`) - Information about docker image and docker registry to download the container from.
+            * `credentials` (`pulumi.Input[dict]`) - Credentials to access the private docker repository.
+              * `password` (`pulumi.Input[str]`) - User password to login to the docker repository. One of password or passwordSecretReference must be specified.
+              * `password_secret_reference` (`pulumi.Input[dict]`) - KeyVault Secret storing the password. Users can store their secrets in Azure KeyVault and pass it to the Batch AI service to integrate with KeyVault. One of password or passwordSecretReference must be specified.
+                * `secret_url` (`pulumi.Input[str]`) - The URL referencing a secret in the Key Vault.
+                * `source_vault` (`pulumi.Input[dict]`) - Fully qualified resource identifier of the Key Vault.
 
-          * `horovod_settings` (`pulumi.Input[dict]`) - Settings for Horovod job.
-            * `command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script.
-            * `process_count` (`pulumi.Input[float]`) - Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
-            * `python_interpreter_path` (`pulumi.Input[str]`) - The path to the Python interpreter.
-            * `python_script_file_path` (`pulumi.Input[str]`) - The python script to execute.
+              * `username` (`pulumi.Input[str]`) - User name to login to the repository.
 
-          * `input_directories` (`pulumi.Input[list]`) - A list of input directories for the job.
-            * `id` (`pulumi.Input[str]`) - The ID for the input directory. The job can use AZ_BATCHAI_INPUT_<id> environment variable to find the directory path, where <id> is the value of id attribute.
-            * `path` (`pulumi.Input[str]`) - The path to the input directory.
+            * `image` (`pulumi.Input[str]`) - The name of the image in the image repository.
+            * `server_url` (`pulumi.Input[str]`) - URL for image repository.
 
-          * `job_preparation` (`pulumi.Input[dict]`) - A command line to be executed on each node allocated for the job before tool kit is launched.
-            * `command_line` (`pulumi.Input[str]`) - The command line to execute. If containerSettings is specified on the job, this commandLine will be executed in the same container as job. Otherwise it will be executed on the node.
+          * `shm_size` (`pulumi.Input[str]`) - Size of /dev/shm. Please refer to docker documentation for supported argument formats.
 
-          * `mount_volumes` (`pulumi.Input[dict]`) - Information on mount volumes to be used by the job. These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
-            * `azure_blob_file_systems` (`pulumi.Input[list]`) - A collection of Azure Blob Containers that are to be mounted to the cluster nodes.
-              * `account_name` (`pulumi.Input[str]`) - Name of the Azure storage account.
-              * `container_name` (`pulumi.Input[str]`) - Name of the Azure Blob Storage container to mount on the cluster.
-              * `credentials` (`pulumi.Input[dict]`) - Information about the Azure storage credentials.
-                * `account_key` (`pulumi.Input[str]`) - Storage account key. One of accountKey or accountKeySecretReference must be specified.
-                * `account_key_secret_reference` (`pulumi.Input[dict]`) - Information about KeyVault secret storing the storage account key. One of accountKey or accountKeySecretReference must be specified.
+        The **custom_mpi_settings** object supports the following:
 
-              * `mount_options` (`pulumi.Input[str]`) - Mount options for mounting blobfuse file system.
-              * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the Azure File container will be mounted. Note that all cluster level containers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level containers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+          * `command_line` (`pulumi.Input[str]`) - The command line to be executed by mpi runtime on each compute node.
+          * `process_count` (`pulumi.Input[float]`) - Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
 
-            * `azure_file_shares` (`pulumi.Input[list]`) - A collection of Azure File Shares that are to be mounted to the cluster nodes.
-              * `account_name` (`pulumi.Input[str]`) - Name of the Azure storage account.
-              * `azure_file_url` (`pulumi.Input[str]`) - URL to access the Azure File.
-              * `credentials` (`pulumi.Input[dict]`) - Information about the Azure storage credentials.
-              * `directory_mode` (`pulumi.Input[str]`) - File mode for directories on the mounted file share. Default value: 0777.
-              * `file_mode` (`pulumi.Input[str]`) - File mode for files on the mounted file share. Default value: 0777.
-              * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the Azure File share will be mounted. Note that all cluster level file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file shares will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+        The **custom_toolkit_settings** object supports the following:
 
-            * `file_servers` (`pulumi.Input[list]`) - A collection of Batch AI File Servers that are to be mounted to the cluster nodes.
-              * `file_server` (`pulumi.Input[dict]`) - Resource ID of the existing File Server to be mounted.
-              * `mount_options` (`pulumi.Input[str]`) - Mount options to be passed to mount command.
-              * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the File Server will be mounted. Note that all cluster level file servers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file servers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-              * `source_directory` (`pulumi.Input[str]`) - File Server directory that needs to be mounted. If this property is not specified, the entire File Server will be mounted.
+          * `command_line` (`pulumi.Input[str]`) - The command line to execute on the master node.
 
-            * `unmanaged_file_systems` (`pulumi.Input[list]`) - A collection of unmanaged file systems that are to be mounted to the cluster nodes.
-              * `mount_command` (`pulumi.Input[str]`) - Mount command line. Note, Batch AI will append mount path to the command on its own.
-              * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the unmanaged file system will be mounted. Note that all cluster level unmanaged file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level unmanaged file systems will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+        The **environment_variables** object supports the following:
 
-          * `node_count` (`pulumi.Input[float]`) - Number of compute nodes to run the job on. The job will be gang scheduled on that many compute nodes.
-          * `output_directories` (`pulumi.Input[list]`) - A list of output directories for the job.
-            * `id` (`pulumi.Input[str]`) - The ID of the output directory. The job can use AZ_BATCHAI_OUTPUT_<id> environment variable to find the directory path, where <id> is the value of id attribute.
-            * `path_prefix` (`pulumi.Input[str]`) - The prefix path where the output directory will be created. Note, this is an absolute path to prefix. E.g. $AZ_BATCHAI_MOUNT_ROOT/MyNFS/MyLogs. The full path to the output directory by combining pathPrefix, jobOutputDirectoryPathSegment (reported by get job) and pathSuffix.
-            * `path_suffix` (`pulumi.Input[str]`) - The suffix path where the output directory will be created. E.g. models. You can find the full path to the output directory by combining pathPrefix, jobOutputDirectoryPathSegment (reported by get job) and pathSuffix.
+          * `name` (`pulumi.Input[str]`) - The name of the environment variable.
+          * `value` (`pulumi.Input[str]`) - The value of the environment variable.
 
-          * `py_torch_settings` (`pulumi.Input[dict]`) - Settings for pyTorch job.
-            * `command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script.
-            * `communication_backend` (`pulumi.Input[str]`) - Type of the communication backend for distributed jobs. Valid values are 'TCP', 'Gloo' or 'MPI'. Not required for non-distributed jobs.
-            * `process_count` (`pulumi.Input[float]`) - Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
-            * `python_interpreter_path` (`pulumi.Input[str]`) - The path to the Python interpreter.
-            * `python_script_file_path` (`pulumi.Input[str]`) - The python script to execute.
+        The **horovod_settings** object supports the following:
 
-          * `scheduling_priority` (`pulumi.Input[str]`) - Scheduling priority associated with the job. Possible values: low, normal, high.
-          * `secrets` (`pulumi.Input[list]`) - A list of user defined environment variables with secret values which will be setup for the job. Server will never report values of these variables back.
-            * `name` (`pulumi.Input[str]`) - The name of the environment variable to store the secret value.
-            * `value` (`pulumi.Input[str]`) - The value of the environment variable. This value will never be reported back by Batch AI.
-            * `value_secret_reference` (`pulumi.Input[dict]`) - KeyVault store and secret which contains the value for the environment variable. One of value or valueSecretReference must be provided.
+          * `command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script.
+          * `process_count` (`pulumi.Input[float]`) - Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+          * `python_interpreter_path` (`pulumi.Input[str]`) - The path to the Python interpreter.
+          * `python_script_file_path` (`pulumi.Input[str]`) - The python script to execute.
 
-          * `std_out_err_path_prefix` (`pulumi.Input[str]`) - The path where the Batch AI service will store stdout, stderror and execution log of the job.
-          * `tensor_flow_settings` (`pulumi.Input[dict]`) - Settings for Tensor Flow job.
-            * `master_command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script for the master task.
-            * `parameter_server_command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script for the parameter server. Optional for single process jobs.
-            * `parameter_server_count` (`pulumi.Input[float]`) - The number of parameter server tasks. If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training. This property can be specified only for distributed TensorFlow training.
-            * `python_interpreter_path` (`pulumi.Input[str]`) - The path to the Python interpreter.
-            * `python_script_file_path` (`pulumi.Input[str]`) - The python script to execute.
-            * `worker_command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script for the worker task. Optional for single process jobs.
-            * `worker_count` (`pulumi.Input[float]`) - The number of worker tasks. If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training.
+        The **input_directories** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - The ID for the input directory. The job can use AZ_BATCHAI_INPUT_<id> environment variable to find the directory path, where <id> is the value of id attribute.
+          * `path` (`pulumi.Input[str]`) - The path to the input directory.
+
+        The **job_preparation** object supports the following:
+
+          * `command_line` (`pulumi.Input[str]`) - The command line to execute. If containerSettings is specified on the job, this commandLine will be executed in the same container as job. Otherwise it will be executed on the node.
+
+        The **mount_volumes** object supports the following:
+
+          * `azure_blob_file_systems` (`pulumi.Input[list]`) - A collection of Azure Blob Containers that are to be mounted to the cluster nodes.
+            * `account_name` (`pulumi.Input[str]`) - Name of the Azure storage account.
+            * `container_name` (`pulumi.Input[str]`) - Name of the Azure Blob Storage container to mount on the cluster.
+            * `credentials` (`pulumi.Input[dict]`) - Information about the Azure storage credentials.
+              * `account_key` (`pulumi.Input[str]`) - Storage account key. One of accountKey or accountKeySecretReference must be specified.
+              * `account_key_secret_reference` (`pulumi.Input[dict]`) - Information about KeyVault secret storing the storage account key. One of accountKey or accountKeySecretReference must be specified.
+
+            * `mount_options` (`pulumi.Input[str]`) - Mount options for mounting blobfuse file system.
+            * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the Azure File container will be mounted. Note that all cluster level containers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level containers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+
+          * `azure_file_shares` (`pulumi.Input[list]`) - A collection of Azure File Shares that are to be mounted to the cluster nodes.
+            * `account_name` (`pulumi.Input[str]`) - Name of the Azure storage account.
+            * `azure_file_url` (`pulumi.Input[str]`) - URL to access the Azure File.
+            * `credentials` (`pulumi.Input[dict]`) - Information about the Azure storage credentials.
+            * `directory_mode` (`pulumi.Input[str]`) - File mode for directories on the mounted file share. Default value: 0777.
+            * `file_mode` (`pulumi.Input[str]`) - File mode for files on the mounted file share. Default value: 0777.
+            * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the Azure File share will be mounted. Note that all cluster level file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file shares will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+
+          * `file_servers` (`pulumi.Input[list]`) - A collection of Batch AI File Servers that are to be mounted to the cluster nodes.
+            * `file_server` (`pulumi.Input[dict]`) - Resource ID of the existing File Server to be mounted.
+            * `mount_options` (`pulumi.Input[str]`) - Mount options to be passed to mount command.
+            * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the File Server will be mounted. Note that all cluster level file servers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file servers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+            * `source_directory` (`pulumi.Input[str]`) - File Server directory that needs to be mounted. If this property is not specified, the entire File Server will be mounted.
+
+          * `unmanaged_file_systems` (`pulumi.Input[list]`) - A collection of unmanaged file systems that are to be mounted to the cluster nodes.
+            * `mount_command` (`pulumi.Input[str]`) - Mount command line. Note, Batch AI will append mount path to the command on its own.
+            * `relative_mount_path` (`pulumi.Input[str]`) - The relative path on the compute node where the unmanaged file system will be mounted. Note that all cluster level unmanaged file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level unmanaged file systems will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+
+        The **output_directories** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - The ID of the output directory. The job can use AZ_BATCHAI_OUTPUT_<id> environment variable to find the directory path, where <id> is the value of id attribute.
+          * `path_prefix` (`pulumi.Input[str]`) - The prefix path where the output directory will be created. Note, this is an absolute path to prefix. E.g. $AZ_BATCHAI_MOUNT_ROOT/MyNFS/MyLogs. The full path to the output directory by combining pathPrefix, jobOutputDirectoryPathSegment (reported by get job) and pathSuffix.
+          * `path_suffix` (`pulumi.Input[str]`) - The suffix path where the output directory will be created. E.g. models. You can find the full path to the output directory by combining pathPrefix, jobOutputDirectoryPathSegment (reported by get job) and pathSuffix.
+
+        The **py_torch_settings** object supports the following:
+
+          * `command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script.
+          * `communication_backend` (`pulumi.Input[str]`) - Type of the communication backend for distributed jobs. Valid values are 'TCP', 'Gloo' or 'MPI'. Not required for non-distributed jobs.
+          * `process_count` (`pulumi.Input[float]`) - Number of processes to launch for the job execution. The default value for this property is equal to nodeCount property
+          * `python_interpreter_path` (`pulumi.Input[str]`) - The path to the Python interpreter.
+          * `python_script_file_path` (`pulumi.Input[str]`) - The python script to execute.
+
+        The **secrets** object supports the following:
+
+          * `name` (`pulumi.Input[str]`) - The name of the environment variable to store the secret value.
+          * `value` (`pulumi.Input[str]`) - The value of the environment variable. This value will never be reported back by Batch AI.
+          * `value_secret_reference` (`pulumi.Input[dict]`) - KeyVault store and secret which contains the value for the environment variable. One of value or valueSecretReference must be provided.
+
+        The **tensor_flow_settings** object supports the following:
+
+          * `master_command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script for the master task.
+          * `parameter_server_command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script for the parameter server. Optional for single process jobs.
+          * `parameter_server_count` (`pulumi.Input[float]`) - The number of parameter server tasks. If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training. This property can be specified only for distributed TensorFlow training.
+          * `python_interpreter_path` (`pulumi.Input[str]`) - The path to the Python interpreter.
+          * `python_script_file_path` (`pulumi.Input[str]`) - The python script to execute.
+          * `worker_command_line_args` (`pulumi.Input[str]`) - Command line arguments that need to be passed to the python script for the worker task. Optional for single process jobs.
+          * `worker_count` (`pulumi.Input[float]`) - The number of worker tasks. If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -319,19 +352,46 @@ class Job(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['caffe2_settings'] = caffe2_settings
+            __props__['caffe_settings'] = caffe_settings
+            __props__['chainer_settings'] = chainer_settings
+            if cluster is None:
+                raise TypeError("Missing required property 'cluster'")
+            __props__['cluster'] = cluster
+            __props__['cntk_settings'] = cntk_settings
+            __props__['constraints'] = constraints
+            __props__['container_settings'] = container_settings
+            __props__['custom_mpi_settings'] = custom_mpi_settings
+            __props__['custom_toolkit_settings'] = custom_toolkit_settings
+            __props__['environment_variables'] = environment_variables
             if experiment_name is None:
                 raise TypeError("Missing required property 'experiment_name'")
             __props__['experiment_name'] = experiment_name
+            __props__['horovod_settings'] = horovod_settings
+            __props__['input_directories'] = input_directories
+            __props__['job_preparation'] = job_preparation
+            __props__['mount_volumes'] = mount_volumes
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if node_count is None:
+                raise TypeError("Missing required property 'node_count'")
+            __props__['node_count'] = node_count
+            __props__['output_directories'] = output_directories
+            __props__['py_torch_settings'] = py_torch_settings
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['scheduling_priority'] = scheduling_priority
+            __props__['secrets'] = secrets
+            if std_out_err_path_prefix is None:
+                raise TypeError("Missing required property 'std_out_err_path_prefix'")
+            __props__['std_out_err_path_prefix'] = std_out_err_path_prefix
+            __props__['tensor_flow_settings'] = tensor_flow_settings
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Job, __self__).__init__(
             'azurerm:batchai/v20180501:Job',

@@ -206,7 +206,7 @@ class RouteTable(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, etag=None, id=None, location=None, name=None, provisioning_state=None, resource_group_name=None, routes=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         RouteTable resource
 
@@ -216,22 +216,20 @@ class RouteTable(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource Id
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the route table.
-        :param pulumi.Input[dict] properties: Route Table resource
+        :param pulumi.Input[str] provisioning_state: Gets provisioning state of the resource Updating/Deleting/Failed
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[list] routes: Gets or sets Routes in a Route Table
         :param pulumi.Input[dict] tags: Resource tags
 
-        The **properties** object supports the following:
+        The **routes** object supports the following:
 
+          * `address_prefix` (`pulumi.Input[str]`) - Gets or sets the destination CIDR to which the route applies.
+          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
+          * `id` (`pulumi.Input[str]`) - Resource Id
+          * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+          * `next_hop_ip_address` (`pulumi.Input[str]`) - Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+          * `next_hop_type` (`pulumi.Input[str]`) - Gets or sets the type of Azure hop the packet should be sent to.
           * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the resource Updating/Deleting/Failed
-          * `routes` (`pulumi.Input[list]`) - Gets or sets Routes in a Route Table
-            * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated
-            * `id` (`pulumi.Input[str]`) - Resource Id
-            * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-            * `properties` (`pulumi.Input[dict]`) - Route resource
-              * `address_prefix` (`pulumi.Input[str]`) - Gets or sets the destination CIDR to which the route applies.
-              * `next_hop_ip_address` (`pulumi.Input[str]`) - Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-              * `next_hop_type` (`pulumi.Input[str]`) - Gets or sets the type of Azure hop the packet should be sent to.
-              * `provisioning_state` (`pulumi.Input[str]`) - Gets provisioning state of the resource Updating/Deleting/Failed
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -256,11 +254,13 @@ class RouteTable(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['routes'] = routes
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(RouteTable, __self__).__init__(
             'azurerm:network/v20160601:RouteTable',

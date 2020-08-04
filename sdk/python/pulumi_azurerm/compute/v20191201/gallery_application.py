@@ -36,27 +36,23 @@ class GalleryApplication(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, gallery_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, end_of_life_date=None, eula=None, gallery_name=None, location=None, name=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, supported_os_type=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Specifies information about the gallery Application Definition that you want to create or update.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of this gallery Application Definition resource. This property is updatable.
+        :param pulumi.Input[str] end_of_life_date: The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+        :param pulumi.Input[str] eula: The Eula agreement for the gallery Application Definition.
         :param pulumi.Input[str] gallery_name: The name of the Shared Application Gallery in which the Application Definition is to be created.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the gallery Application Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
-        :param pulumi.Input[dict] properties: Describes the properties of a gallery Application Definition.
+        :param pulumi.Input[str] privacy_statement_uri: The privacy statement uri.
+        :param pulumi.Input[str] release_note_uri: The release note uri.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] supported_os_type: This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         :param pulumi.Input[dict] tags: Resource tags
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - The description of this gallery Application Definition resource. This property is updatable.
-          * `end_of_life_date` (`pulumi.Input[str]`) - The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
-          * `eula` (`pulumi.Input[str]`) - The Eula agreement for the gallery Application Definition.
-          * `privacy_statement_uri` (`pulumi.Input[str]`) - The privacy statement uri.
-          * `release_note_uri` (`pulumi.Input[str]`) - The release note uri.
-          * `supported_os_type` (`pulumi.Input[str]`) - This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,6 +71,9 @@ class GalleryApplication(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['description'] = description
+            __props__['end_of_life_date'] = end_of_life_date
+            __props__['eula'] = eula
             if gallery_name is None:
                 raise TypeError("Missing required property 'gallery_name'")
             __props__['gallery_name'] = gallery_name
@@ -84,11 +83,16 @@ class GalleryApplication(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['privacy_statement_uri'] = privacy_statement_uri
+            __props__['release_note_uri'] = release_note_uri
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if supported_os_type is None:
+                raise TypeError("Missing required property 'supported_os_type'")
+            __props__['supported_os_type'] = supported_os_type
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(GalleryApplication, __self__).__init__(
             'azurerm:compute/v20191201:GalleryApplication',

@@ -187,7 +187,7 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
     """
     The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, plan=None, properties=None, resource_group_name=None, sku=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, overprovision=None, plan=None, resource_group_name=None, single_placement_group=None, sku=None, tags=None, upgrade_policy=None, virtual_machine_profile=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Describes a Virtual Machine Scale Set.
 
@@ -196,11 +196,14 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[dict] identity: The identity of the virtual machine scale set, if configured.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the VM scale set to create or update.
+        :param pulumi.Input[bool] overprovision: Specifies whether the Virtual Machine Scale Set should be overprovisioned.
         :param pulumi.Input[dict] plan: Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-        :param pulumi.Input[dict] properties: Describes the properties of a Virtual Machine Scale Set.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[bool] single_placement_group: When true this limits the scale set to a single placement group, of max size 100 virtual machines.
         :param pulumi.Input[dict] sku: The virtual machine scale set sku.
         :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[dict] upgrade_policy: The upgrade policy.
+        :param pulumi.Input[dict] virtual_machine_profile: The virtual machine profile.
         :param pulumi.Input[list] zones: The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
 
         The **identity** object supports the following:
@@ -214,142 +217,137 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
           * `promotion_code` (`pulumi.Input[str]`) - The promotion code.
           * `publisher` (`pulumi.Input[str]`) - The publisher ID.
 
-        The **properties** object supports the following:
-
-          * `overprovision` (`pulumi.Input[bool]`) - Specifies whether the Virtual Machine Scale Set should be overprovisioned.
-          * `single_placement_group` (`pulumi.Input[bool]`) - When true this limits the scale set to a single placement group, of max size 100 virtual machines.
-          * `upgrade_policy` (`pulumi.Input[dict]`) - The upgrade policy.
-            * `automatic_os_upgrade` (`pulumi.Input[bool]`) - Whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the image becomes available.
-            * `mode` (`pulumi.Input[str]`) - Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
-            * `rolling_upgrade_policy` (`pulumi.Input[dict]`) - The configuration parameters used while performing a rolling upgrade.
-              * `max_batch_instance_percent` (`pulumi.Input[float]`) - The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
-              * `max_unhealthy_instance_percent` (`pulumi.Input[float]`) - The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The default value for this parameter is 20%.
-              * `max_unhealthy_upgraded_instance_percent` (`pulumi.Input[float]`) - The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. The default value for this parameter is 20%.
-              * `pause_time_between_batches` (`pulumi.Input[str]`) - The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. The default value is 0 seconds (PT0S).
-
-          * `virtual_machine_profile` (`pulumi.Input[dict]`) - The virtual machine profile.
-            * `diagnostics_profile` (`pulumi.Input[dict]`) - Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
-              * `boot_diagnostics` (`pulumi.Input[dict]`) - Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
-                * `enabled` (`pulumi.Input[bool]`) - Whether boot diagnostics should be enabled on the Virtual Machine.
-                * `storage_uri` (`pulumi.Input[str]`) - Uri of the storage account to use for placing the console output and screenshot.
-
-            * `extension_profile` (`pulumi.Input[dict]`) - Specifies a collection of settings for extensions installed on virtual machines in the scale set.
-              * `extensions` (`pulumi.Input[list]`) - The virtual machine scale set child extension resources.
-                * `name` (`pulumi.Input[str]`) - The name of the extension.
-                * `properties` (`pulumi.Input[dict]`) - Describes the properties of a Virtual Machine Scale Set Extension.
-                  * `auto_upgrade_minor_version` (`pulumi.Input[bool]`) - Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-                  * `force_update_tag` (`pulumi.Input[str]`) - If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-                  * `protected_settings` (`pulumi.Input[dict]`) - The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-                  * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state, which only appears in the response.
-                  * `publisher` (`pulumi.Input[str]`) - The name of the extension handler publisher.
-                  * `settings` (`pulumi.Input[dict]`) - Json formatted public settings for the extension.
-                  * `type` (`pulumi.Input[str]`) - Specifies the type of the extension; an example is "CustomScriptExtension".
-                  * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the script handler.
-
-            * `license_type` (`pulumi.Input[str]`) - Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
-            * `network_profile` (`pulumi.Input[dict]`) - Specifies properties of the network interfaces of the virtual machines in the scale set.
-              * `health_probe` (`pulumi.Input[dict]`) - A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
-                * `id` (`pulumi.Input[str]`) - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-
-              * `network_interface_configurations` (`pulumi.Input[list]`) - The list of network configurations.
-                * `id` (`pulumi.Input[str]`) - Resource Id
-                * `name` (`pulumi.Input[str]`) - The network configuration name.
-                * `properties` (`pulumi.Input[dict]`) - Describes a virtual machine scale set network profile's IP configuration.
-                  * `dns_settings` (`pulumi.Input[dict]`) - The dns settings to be applied on the network interfaces.
-                    * `dns_servers` (`pulumi.Input[list]`) - List of DNS servers IP addresses
-
-                  * `enable_accelerated_networking` (`pulumi.Input[bool]`) - Specifies whether the network interface is accelerated networking-enabled.
-                  * `ip_configurations` (`pulumi.Input[list]`) - Specifies the IP configurations of the network interface.
-                    * `id` (`pulumi.Input[str]`) - Resource Id
-                    * `name` (`pulumi.Input[str]`) - The IP configuration name.
-                    * `properties` (`pulumi.Input[dict]`) - Describes a virtual machine scale set network profile's IP configuration properties.
-                      * `application_gateway_backend_address_pools` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
-                        * `id` (`pulumi.Input[str]`) - Resource Id
-
-                      * `load_balancer_backend_address_pools` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
-                      * `load_balancer_inbound_nat_pools` (`pulumi.Input[list]`) - Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer
-                      * `primary` (`pulumi.Input[bool]`) - Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-                      * `private_ip_address_version` (`pulumi.Input[str]`) - Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
-                      * `public_ip_address_configuration` (`pulumi.Input[dict]`) - The publicIPAddressConfiguration.
-                        * `name` (`pulumi.Input[str]`) - The publicIP address configuration name.
-                        * `properties` (`pulumi.Input[dict]`) - Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
-                          * `dns_settings` (`pulumi.Input[dict]`) - The dns settings to be applied on the publicIP addresses .
-                            * `domain_name_label` (`pulumi.Input[str]`) - The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
-
-                          * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - The idle timeout of the public IP address.
-
-                      * `subnet` (`pulumi.Input[dict]`) - Specifies the identifier of the subnet.
-
-                  * `network_security_group` (`pulumi.Input[dict]`) - The network security group.
-                  * `primary` (`pulumi.Input[bool]`) - Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-
-            * `os_profile` (`pulumi.Input[dict]`) - Specifies the operating system settings for the virtual machines in the scale set.
-              * `admin_password` (`pulumi.Input[str]`) - Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-reset-rdp?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#reset-root-password)
-              * `admin_username` (`pulumi.Input[str]`) - Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-              * `computer_name_prefix` (`pulumi.Input[str]`) - Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 15 characters long.
-              * `custom_data` (`pulumi.Input[str]`) - Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-              * `linux_configuration` (`pulumi.Input[dict]`) - Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-                * `disable_password_authentication` (`pulumi.Input[bool]`) - Specifies whether password authentication should be disabled.
-                * `ssh` (`pulumi.Input[dict]`) - Specifies the ssh key configuration for a Linux OS.
-                  * `public_keys` (`pulumi.Input[list]`) - The list of SSH public keys used to authenticate with linux based VMs.
-                    * `key_data` (`pulumi.Input[str]`) - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-                    * `path` (`pulumi.Input[str]`) - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-
-              * `secrets` (`pulumi.Input[list]`) - Specifies set of certificates that should be installed onto the virtual machines in the scale set.
-                * `source_vault` (`pulumi.Input[dict]`) - The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-                * `vault_certificates` (`pulumi.Input[list]`) - The list of key vault references in SourceVault which contain certificates.
-                  * `certificate_store` (`pulumi.Input[str]`) - For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for private key. Both of these files are .pem formatted.
-                  * `certificate_url` (`pulumi.Input[str]`) - This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
-
-              * `windows_configuration` (`pulumi.Input[dict]`) - Specifies Windows operating system settings on the virtual machine.
-                * `additional_unattend_content` (`pulumi.Input[list]`) - Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
-                  * `component_name` (`pulumi.Input[str]`) - The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
-                  * `content` (`pulumi.Input[str]`) - Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
-                  * `pass_name` (`pulumi.Input[str]`) - The pass name. Currently, the only allowable value is OobeSystem.
-                  * `setting_name` (`pulumi.Input[str]`) - Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
-
-                * `enable_automatic_updates` (`pulumi.Input[bool]`) - Indicates whether virtual machine is enabled for automatic updates.
-                * `provision_vm_agent` (`pulumi.Input[bool]`) - Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
-                * `time_zone` (`pulumi.Input[str]`) - Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time"
-                * `win_rm` (`pulumi.Input[dict]`) - Specifies the Windows Remote Management listeners. This enables remote Windows PowerShell.
-                  * `listeners` (`pulumi.Input[list]`) - The list of Windows Remote Management listeners
-                    * `certificate_url` (`pulumi.Input[str]`) - This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
-                    * `protocol` (`pulumi.Input[str]`) - Specifies the protocol of listener. <br><br> Possible values are: <br>**http** <br><br> **https**
-
-            * `storage_profile` (`pulumi.Input[dict]`) - Specifies the storage settings for the virtual machine disks.
-              * `data_disks` (`pulumi.Input[list]`) - Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-                * `caching` (`pulumi.Input[str]`) - Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-                * `create_option` (`pulumi.Input[str]`) - The create option.
-                * `disk_size_gb` (`pulumi.Input[float]`) - Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
-                * `lun` (`pulumi.Input[float]`) - Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
-                * `managed_disk` (`pulumi.Input[dict]`) - The managed disk parameters.
-                  * `storage_account_type` (`pulumi.Input[str]`) - Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
-
-                * `name` (`pulumi.Input[str]`) - The disk name.
-
-              * `image_reference` (`pulumi.Input[dict]`) - Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
-                * `id` (`pulumi.Input[str]`) - Resource Id
-                * `offer` (`pulumi.Input[str]`) - Specifies the offer of the platform image or marketplace image used to create the virtual machine.
-                * `publisher` (`pulumi.Input[str]`) - The image publisher.
-                * `sku` (`pulumi.Input[str]`) - The image SKU.
-                * `version` (`pulumi.Input[str]`) - Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
-
-              * `os_disk` (`pulumi.Input[dict]`) - Specifies information about the operating system disk used by the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-                * `caching` (`pulumi.Input[str]`) - Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-                * `create_option` (`pulumi.Input[str]`) - Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-                * `image` (`pulumi.Input[dict]`) - Specifies information about the unmanaged user image to base the scale set on.
-                  * `uri` (`pulumi.Input[str]`) - Specifies the virtual hard disk's uri.
-
-                * `managed_disk` (`pulumi.Input[dict]`) - The managed disk parameters.
-                * `name` (`pulumi.Input[str]`) - The disk name.
-                * `os_type` (`pulumi.Input[str]`) - This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-                * `vhd_containers` (`pulumi.Input[list]`) - Specifies the container urls that are used to store operating system disks for the scale set.
-
         The **sku** object supports the following:
 
           * `capacity` (`pulumi.Input[float]`) - Specifies the number of virtual machines in the scale set. NOTE: If the new VM SKU is not supported on the hardware the scale set is currently on, you need to deallocate the VMs in the scale set before you modify the SKU name.
           * `name` (`pulumi.Input[str]`) - The sku name.
           * `tier` (`pulumi.Input[str]`) - Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
+
+        The **upgrade_policy** object supports the following:
+
+          * `automatic_os_upgrade` (`pulumi.Input[bool]`) - Whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the image becomes available.
+          * `mode` (`pulumi.Input[str]`) - Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
+          * `rolling_upgrade_policy` (`pulumi.Input[dict]`) - The configuration parameters used while performing a rolling upgrade.
+            * `max_batch_instance_percent` (`pulumi.Input[float]`) - The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
+            * `max_unhealthy_instance_percent` (`pulumi.Input[float]`) - The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The default value for this parameter is 20%.
+            * `max_unhealthy_upgraded_instance_percent` (`pulumi.Input[float]`) - The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. The default value for this parameter is 20%.
+            * `pause_time_between_batches` (`pulumi.Input[str]`) - The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. The default value is 0 seconds (PT0S).
+
+        The **virtual_machine_profile** object supports the following:
+
+          * `diagnostics_profile` (`pulumi.Input[dict]`) - Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+            * `boot_diagnostics` (`pulumi.Input[dict]`) - Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
+              * `enabled` (`pulumi.Input[bool]`) - Whether boot diagnostics should be enabled on the Virtual Machine.
+              * `storage_uri` (`pulumi.Input[str]`) - Uri of the storage account to use for placing the console output and screenshot.
+
+          * `extension_profile` (`pulumi.Input[dict]`) - Specifies a collection of settings for extensions installed on virtual machines in the scale set.
+            * `extensions` (`pulumi.Input[list]`) - The virtual machine scale set child extension resources.
+              * `name` (`pulumi.Input[str]`) - The name of the extension.
+              * `properties` (`pulumi.Input[dict]`) - Describes the properties of a Virtual Machine Scale Set Extension.
+                * `auto_upgrade_minor_version` (`pulumi.Input[bool]`) - Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+                * `force_update_tag` (`pulumi.Input[str]`) - If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+                * `protected_settings` (`pulumi.Input[dict]`) - The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+                * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state, which only appears in the response.
+                * `publisher` (`pulumi.Input[str]`) - The name of the extension handler publisher.
+                * `settings` (`pulumi.Input[dict]`) - Json formatted public settings for the extension.
+                * `type` (`pulumi.Input[str]`) - Specifies the type of the extension; an example is "CustomScriptExtension".
+                * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the script handler.
+
+          * `license_type` (`pulumi.Input[str]`) - Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
+          * `network_profile` (`pulumi.Input[dict]`) - Specifies properties of the network interfaces of the virtual machines in the scale set.
+            * `health_probe` (`pulumi.Input[dict]`) - A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
+              * `id` (`pulumi.Input[str]`) - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+
+            * `network_interface_configurations` (`pulumi.Input[list]`) - The list of network configurations.
+              * `dns_settings` (`pulumi.Input[dict]`) - The dns settings to be applied on the network interfaces.
+                * `dns_servers` (`pulumi.Input[list]`) - List of DNS servers IP addresses
+
+              * `enable_accelerated_networking` (`pulumi.Input[bool]`) - Specifies whether the network interface is accelerated networking-enabled.
+              * `id` (`pulumi.Input[str]`) - Resource Id
+              * `ip_configurations` (`pulumi.Input[list]`) - Specifies the IP configurations of the network interface.
+                * `application_gateway_backend_address_pools` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+                  * `id` (`pulumi.Input[str]`) - Resource Id
+
+                * `id` (`pulumi.Input[str]`) - Resource Id
+                * `load_balancer_backend_address_pools` (`pulumi.Input[list]`) - Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+                * `load_balancer_inbound_nat_pools` (`pulumi.Input[list]`) - Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer
+                * `name` (`pulumi.Input[str]`) - The IP configuration name.
+                * `primary` (`pulumi.Input[bool]`) - Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+                * `private_ip_address_version` (`pulumi.Input[str]`) - Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
+                * `public_ip_address_configuration` (`pulumi.Input[dict]`) - The publicIPAddressConfiguration.
+                  * `dns_settings` (`pulumi.Input[dict]`) - The dns settings to be applied on the publicIP addresses .
+                    * `domain_name_label` (`pulumi.Input[str]`) - The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+
+                  * `idle_timeout_in_minutes` (`pulumi.Input[float]`) - The idle timeout of the public IP address.
+                  * `name` (`pulumi.Input[str]`) - The publicIP address configuration name.
+
+                * `subnet` (`pulumi.Input[dict]`) - Specifies the identifier of the subnet.
+
+              * `name` (`pulumi.Input[str]`) - The network configuration name.
+              * `network_security_group` (`pulumi.Input[dict]`) - The network security group.
+              * `primary` (`pulumi.Input[bool]`) - Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+
+          * `os_profile` (`pulumi.Input[dict]`) - Specifies the operating system settings for the virtual machines in the scale set.
+            * `admin_password` (`pulumi.Input[str]`) - Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-reset-rdp?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#reset-root-password)
+            * `admin_username` (`pulumi.Input[str]`) - Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+            * `computer_name_prefix` (`pulumi.Input[str]`) - Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 15 characters long.
+            * `custom_data` (`pulumi.Input[str]`) - Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+            * `linux_configuration` (`pulumi.Input[dict]`) - Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+              * `disable_password_authentication` (`pulumi.Input[bool]`) - Specifies whether password authentication should be disabled.
+              * `ssh` (`pulumi.Input[dict]`) - Specifies the ssh key configuration for a Linux OS.
+                * `public_keys` (`pulumi.Input[list]`) - The list of SSH public keys used to authenticate with linux based VMs.
+                  * `key_data` (`pulumi.Input[str]`) - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+                  * `path` (`pulumi.Input[str]`) - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+
+            * `secrets` (`pulumi.Input[list]`) - Specifies set of certificates that should be installed onto the virtual machines in the scale set.
+              * `source_vault` (`pulumi.Input[dict]`) - The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+              * `vault_certificates` (`pulumi.Input[list]`) - The list of key vault references in SourceVault which contain certificates.
+                * `certificate_store` (`pulumi.Input[str]`) - For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for private key. Both of these files are .pem formatted.
+                * `certificate_url` (`pulumi.Input[str]`) - This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+
+            * `windows_configuration` (`pulumi.Input[dict]`) - Specifies Windows operating system settings on the virtual machine.
+              * `additional_unattend_content` (`pulumi.Input[list]`) - Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
+                * `component_name` (`pulumi.Input[str]`) - The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
+                * `content` (`pulumi.Input[str]`) - Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
+                * `pass_name` (`pulumi.Input[str]`) - The pass name. Currently, the only allowable value is OobeSystem.
+                * `setting_name` (`pulumi.Input[str]`) - Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
+
+              * `enable_automatic_updates` (`pulumi.Input[bool]`) - Indicates whether virtual machine is enabled for automatic updates.
+              * `provision_vm_agent` (`pulumi.Input[bool]`) - Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
+              * `time_zone` (`pulumi.Input[str]`) - Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time"
+              * `win_rm` (`pulumi.Input[dict]`) - Specifies the Windows Remote Management listeners. This enables remote Windows PowerShell.
+                * `listeners` (`pulumi.Input[list]`) - The list of Windows Remote Management listeners
+                  * `certificate_url` (`pulumi.Input[str]`) - This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+                  * `protocol` (`pulumi.Input[str]`) - Specifies the protocol of listener. <br><br> Possible values are: <br>**http** <br><br> **https**
+
+          * `storage_profile` (`pulumi.Input[dict]`) - Specifies the storage settings for the virtual machine disks.
+            * `data_disks` (`pulumi.Input[list]`) - Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+              * `caching` (`pulumi.Input[str]`) - Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+              * `create_option` (`pulumi.Input[str]`) - The create option.
+              * `disk_size_gb` (`pulumi.Input[float]`) - Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+              * `lun` (`pulumi.Input[float]`) - Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+              * `managed_disk` (`pulumi.Input[dict]`) - The managed disk parameters.
+                * `storage_account_type` (`pulumi.Input[str]`) - Specifies the storage account type for the managed disk. Possible values are: Standard_LRS or Premium_LRS.
+
+              * `name` (`pulumi.Input[str]`) - The disk name.
+
+            * `image_reference` (`pulumi.Input[dict]`) - Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
+              * `id` (`pulumi.Input[str]`) - Resource Id
+              * `offer` (`pulumi.Input[str]`) - Specifies the offer of the platform image or marketplace image used to create the virtual machine.
+              * `publisher` (`pulumi.Input[str]`) - The image publisher.
+              * `sku` (`pulumi.Input[str]`) - The image SKU.
+              * `version` (`pulumi.Input[str]`) - Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+
+            * `os_disk` (`pulumi.Input[dict]`) - Specifies information about the operating system disk used by the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+              * `caching` (`pulumi.Input[str]`) - Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+              * `create_option` (`pulumi.Input[str]`) - Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
+              * `image` (`pulumi.Input[dict]`) - Specifies information about the unmanaged user image to base the scale set on.
+                * `uri` (`pulumi.Input[str]`) - Specifies the virtual hard disk's uri.
+
+              * `managed_disk` (`pulumi.Input[dict]`) - The managed disk parameters.
+              * `name` (`pulumi.Input[str]`) - The disk name.
+              * `os_type` (`pulumi.Input[str]`) - This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+              * `vhd_containers` (`pulumi.Input[list]`) - Specifies the container urls that are used to store operating system disks for the scale set.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -375,14 +373,18 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
+            __props__['overprovision'] = overprovision
             __props__['plan'] = plan
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['single_placement_group'] = single_placement_group
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['upgrade_policy'] = upgrade_policy
+            __props__['virtual_machine_profile'] = virtual_machine_profile
             __props__['zones'] = zones
+            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualMachineScaleSet, __self__).__init__(
             'azurerm:compute/v20170330:VirtualMachineScaleSet',

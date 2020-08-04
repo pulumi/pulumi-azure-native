@@ -169,81 +169,88 @@ class StorageAccount(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, access_tier=None, allow_blob_public_access=None, azure_files_identity_based_authentication=None, custom_domain=None, enable_https_traffic_only=None, encryption=None, identity=None, is_hns_enabled=None, kind=None, large_file_shares_state=None, location=None, minimum_tls_version=None, name=None, network_rule_set=None, resource_group_name=None, routing_preference=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The storage account.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+        :param pulumi.Input[bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+        :param pulumi.Input[dict] azure_files_identity_based_authentication: Provides the identity based authentication settings for Azure Files.
+        :param pulumi.Input[dict] custom_domain: User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
+        :param pulumi.Input[bool] enable_https_traffic_only: Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
+        :param pulumi.Input[dict] encryption: Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
         :param pulumi.Input[dict] identity: The identity of the resource.
+        :param pulumi.Input[bool] is_hns_enabled: Account HierarchicalNamespace enabled if sets to true.
         :param pulumi.Input[str] kind: Required. Indicates the type of storage account.
+        :param pulumi.Input[str] large_file_shares_state: Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
+        :param pulumi.Input[str] minimum_tls_version: Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
         :param pulumi.Input[str] name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[dict] properties: The parameters used to create the storage account.
+        :param pulumi.Input[dict] network_rule_set: Network rule set
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[dict] routing_preference: Maintains information about the network routing choice opted by the user for data transfer
         :param pulumi.Input[dict] sku: Required. Gets or sets the SKU name.
         :param pulumi.Input[dict] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
+
+        The **azure_files_identity_based_authentication** object supports the following:
+
+          * `active_directory_properties` (`pulumi.Input[dict]`) - Required if choose AD.
+            * `azure_storage_sid` (`pulumi.Input[str]`) - Specifies the security identifier (SID) for Azure Storage.
+            * `domain_guid` (`pulumi.Input[str]`) - Specifies the domain GUID.
+            * `domain_name` (`pulumi.Input[str]`) - Specifies the primary domain that the AD DNS server is authoritative for.
+            * `domain_sid` (`pulumi.Input[str]`) - Specifies the security identifier (SID).
+            * `forest_name` (`pulumi.Input[str]`) - Specifies the Active Directory forest to get.
+            * `net_bios_domain_name` (`pulumi.Input[str]`) - Specifies the NetBIOS domain name.
+
+          * `directory_service_options` (`pulumi.Input[str]`) - Indicates the directory service used.
+
+        The **custom_domain** object supports the following:
+
+          * `name` (`pulumi.Input[str]`) - Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
+          * `use_sub_domain_name` (`pulumi.Input[bool]`) - Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+
+        The **encryption** object supports the following:
+
+          * `key_source` (`pulumi.Input[str]`) - The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
+          * `key_vault_properties` (`pulumi.Input[dict]`) - Properties provided by key vault.
+            * `key_name` (`pulumi.Input[str]`) - The name of KeyVault key.
+            * `key_vault_uri` (`pulumi.Input[str]`) - The Uri of KeyVault.
+            * `key_version` (`pulumi.Input[str]`) - The version of KeyVault key.
+
+          * `require_infrastructure_encryption` (`pulumi.Input[bool]`) - A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
+          * `services` (`pulumi.Input[dict]`) - List of services which support encryption.
+            * `blob` (`pulumi.Input[dict]`) - The encryption function of the blob storage service.
+              * `enabled` (`pulumi.Input[bool]`) - A boolean indicating whether or not the service encrypts the data as it is stored.
+              * `key_type` (`pulumi.Input[str]`) - Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
+
+            * `file` (`pulumi.Input[dict]`) - The encryption function of the file storage service.
+            * `queue` (`pulumi.Input[dict]`) - The encryption function of the queue storage service.
+            * `table` (`pulumi.Input[dict]`) - The encryption function of the table storage service.
 
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The identity type.
 
-        The **properties** object supports the following:
+        The **network_rule_set** object supports the following:
 
-          * `access_tier` (`pulumi.Input[str]`) - Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-          * `allow_blob_public_access` (`pulumi.Input[bool]`) - Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
-          * `azure_files_identity_based_authentication` (`pulumi.Input[dict]`) - Provides the identity based authentication settings for Azure Files.
-            * `active_directory_properties` (`pulumi.Input[dict]`) - Required if choose AD.
-              * `azure_storage_sid` (`pulumi.Input[str]`) - Specifies the security identifier (SID) for Azure Storage.
-              * `domain_guid` (`pulumi.Input[str]`) - Specifies the domain GUID.
-              * `domain_name` (`pulumi.Input[str]`) - Specifies the primary domain that the AD DNS server is authoritative for.
-              * `domain_sid` (`pulumi.Input[str]`) - Specifies the security identifier (SID).
-              * `forest_name` (`pulumi.Input[str]`) - Specifies the Active Directory forest to get.
-              * `net_bios_domain_name` (`pulumi.Input[str]`) - Specifies the NetBIOS domain name.
+          * `bypass` (`pulumi.Input[str]`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
+          * `default_action` (`pulumi.Input[str]`) - Specifies the default action of allow or deny when no other rules match.
+          * `ip_rules` (`pulumi.Input[list]`) - Sets the IP ACL rules
+            * `action` (`pulumi.Input[str]`) - The action of IP ACL rule.
+            * `i_p_address_or_range` (`pulumi.Input[str]`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 
-            * `directory_service_options` (`pulumi.Input[str]`) - Indicates the directory service used.
+          * `virtual_network_rules` (`pulumi.Input[list]`) - Sets the virtual network rules
+            * `action` (`pulumi.Input[str]`) - The action of virtual network rule.
+            * `state` (`pulumi.Input[str]`) - Gets the state of virtual network rule.
+            * `virtual_network_resource_id` (`pulumi.Input[str]`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
 
-          * `custom_domain` (`pulumi.Input[dict]`) - User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
-            * `name` (`pulumi.Input[str]`) - Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-            * `use_sub_domain_name` (`pulumi.Input[bool]`) - Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+        The **routing_preference** object supports the following:
 
-          * `enable_https_traffic_only` (`pulumi.Input[bool]`) - Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
-          * `encryption` (`pulumi.Input[dict]`) - Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
-            * `key_source` (`pulumi.Input[str]`) - The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-            * `key_vault_properties` (`pulumi.Input[dict]`) - Properties provided by key vault.
-              * `key_name` (`pulumi.Input[str]`) - The name of KeyVault key.
-              * `key_vault_uri` (`pulumi.Input[str]`) - The Uri of KeyVault.
-              * `key_version` (`pulumi.Input[str]`) - The version of KeyVault key.
-
-            * `require_infrastructure_encryption` (`pulumi.Input[bool]`) - A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-            * `services` (`pulumi.Input[dict]`) - List of services which support encryption.
-              * `blob` (`pulumi.Input[dict]`) - The encryption function of the blob storage service.
-                * `enabled` (`pulumi.Input[bool]`) - A boolean indicating whether or not the service encrypts the data as it is stored.
-                * `key_type` (`pulumi.Input[str]`) - Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
-
-              * `file` (`pulumi.Input[dict]`) - The encryption function of the file storage service.
-              * `queue` (`pulumi.Input[dict]`) - The encryption function of the queue storage service.
-              * `table` (`pulumi.Input[dict]`) - The encryption function of the table storage service.
-
-          * `is_hns_enabled` (`pulumi.Input[bool]`) - Account HierarchicalNamespace enabled if sets to true.
-          * `large_file_shares_state` (`pulumi.Input[str]`) - Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
-          * `minimum_tls_version` (`pulumi.Input[str]`) - Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
-          * `network_rule_set` (`pulumi.Input[dict]`) - Network rule set
-            * `bypass` (`pulumi.Input[str]`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-            * `default_action` (`pulumi.Input[str]`) - Specifies the default action of allow or deny when no other rules match.
-            * `ip_rules` (`pulumi.Input[list]`) - Sets the IP ACL rules
-              * `action` (`pulumi.Input[str]`) - The action of IP ACL rule.
-              * `i_p_address_or_range` (`pulumi.Input[str]`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-
-            * `virtual_network_rules` (`pulumi.Input[list]`) - Sets the virtual network rules
-              * `action` (`pulumi.Input[str]`) - The action of virtual network rule.
-              * `state` (`pulumi.Input[str]`) - Gets the state of virtual network rule.
-              * `virtual_network_resource_id` (`pulumi.Input[str]`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-
-          * `routing_preference` (`pulumi.Input[dict]`) - Maintains information about the network routing choice opted by the user for data transfer
-            * `publish_internet_endpoints` (`pulumi.Input[bool]`) - A boolean flag which indicates whether internet routing storage endpoints are to be published
-            * `publish_microsoft_endpoints` (`pulumi.Input[bool]`) - A boolean flag which indicates whether microsoft routing storage endpoints are to be published
-            * `routing_choice` (`pulumi.Input[str]`) - Routing Choice defines the kind of network routing opted by the user.
+          * `publish_internet_endpoints` (`pulumi.Input[bool]`) - A boolean flag which indicates whether internet routing storage endpoints are to be published
+          * `publish_microsoft_endpoints` (`pulumi.Input[bool]`) - A boolean flag which indicates whether microsoft routing storage endpoints are to be published
+          * `routing_choice` (`pulumi.Input[str]`) - Routing Choice defines the kind of network routing opted by the user.
 
         The **sku** object supports the following:
 
@@ -267,24 +274,35 @@ class StorageAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['access_tier'] = access_tier
+            __props__['allow_blob_public_access'] = allow_blob_public_access
+            __props__['azure_files_identity_based_authentication'] = azure_files_identity_based_authentication
+            __props__['custom_domain'] = custom_domain
+            __props__['enable_https_traffic_only'] = enable_https_traffic_only
+            __props__['encryption'] = encryption
             __props__['identity'] = identity
+            __props__['is_hns_enabled'] = is_hns_enabled
             if kind is None:
                 raise TypeError("Missing required property 'kind'")
             __props__['kind'] = kind
+            __props__['large_file_shares_state'] = large_file_shares_state
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
+            __props__['minimum_tls_version'] = minimum_tls_version
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['network_rule_set'] = network_rule_set
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['routing_preference'] = routing_preference
             if sku is None:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(StorageAccount, __self__).__init__(
             'azurerm:storage/v20190601:StorageAccount',

@@ -38,29 +38,27 @@ class VolumeContainer(pulumi.CustomResource):
     """
     The hierarchical type of the object.
     """
-    def __init__(__self__, resource_name, opts=None, device_name=None, kind=None, manager_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, band_width_rate_in_mbps=None, bandwidth_setting_id=None, device_name=None, encryption_key=None, kind=None, manager_name=None, name=None, resource_group_name=None, storage_account_credential_id=None, __props__=None, __name__=None, __opts__=None):
         """
         The volume container.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[float] band_width_rate_in_mbps: The bandwidth-rate set on the volume container.
+        :param pulumi.Input[str] bandwidth_setting_id: The ID of the bandwidth setting associated with the volume container.
         :param pulumi.Input[str] device_name: The device name
+        :param pulumi.Input[dict] encryption_key: The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
         :param pulumi.Input[str] kind: The Kind of the object. Currently only Series8000 is supported
         :param pulumi.Input[str] manager_name: The manager name
         :param pulumi.Input[str] name: The name of the volume container.
-        :param pulumi.Input[dict] properties: The volume container properties.
         :param pulumi.Input[str] resource_group_name: The resource group name
+        :param pulumi.Input[str] storage_account_credential_id: The path ID of storage account associated with the volume container.
 
-        The **properties** object supports the following:
+        The **encryption_key** object supports the following:
 
-          * `band_width_rate_in_mbps` (`pulumi.Input[float]`) - The bandwidth-rate set on the volume container.
-          * `bandwidth_setting_id` (`pulumi.Input[str]`) - The ID of the bandwidth setting associated with the volume container.
-          * `encryption_key` (`pulumi.Input[dict]`) - The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
-            * `encryption_algorithm` (`pulumi.Input[str]`) - The algorithm used to encrypt "Value".
-            * `encryption_cert_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
-            * `value` (`pulumi.Input[str]`) - The value of the secret.
-
-          * `storage_account_credential_id` (`pulumi.Input[str]`) - The path ID of storage account associated with the volume container.
+          * `encryption_algorithm` (`pulumi.Input[str]`) - The algorithm used to encrypt "Value".
+          * `encryption_cert_thumbprint` (`pulumi.Input[str]`) - Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
+          * `value` (`pulumi.Input[str]`) - The value of the secret.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,9 +77,12 @@ class VolumeContainer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['band_width_rate_in_mbps'] = band_width_rate_in_mbps
+            __props__['bandwidth_setting_id'] = bandwidth_setting_id
             if device_name is None:
                 raise TypeError("Missing required property 'device_name'")
             __props__['device_name'] = device_name
+            __props__['encryption_key'] = encryption_key
             __props__['kind'] = kind
             if manager_name is None:
                 raise TypeError("Missing required property 'manager_name'")
@@ -89,12 +90,13 @@ class VolumeContainer(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if storage_account_credential_id is None:
+                raise TypeError("Missing required property 'storage_account_credential_id'")
+            __props__['storage_account_credential_id'] = storage_account_credential_id
+            __props__['properties'] = None
             __props__['type'] = None
         super(VolumeContainer, __self__).__init__(
             'azurerm:storsimple/v20170601:VolumeContainer',

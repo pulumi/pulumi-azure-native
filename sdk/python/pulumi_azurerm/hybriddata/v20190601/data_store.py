@@ -31,28 +31,26 @@ class DataStore(pulumi.CustomResource):
     """
     Type of the object.
     """
-    def __init__(__self__, resource_name, opts=None, data_manager_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, customer_secrets=None, data_manager_name=None, data_store_type_id=None, extended_properties=None, name=None, repository_id=None, resource_group_name=None, state=None, __props__=None, __name__=None, __opts__=None):
         """
         Data store.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
         :param pulumi.Input[str] data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
+        :param pulumi.Input[str] data_store_type_id: The arm id of the data store type.
+        :param pulumi.Input[dict] extended_properties: A generic json used differently by each data source type.
         :param pulumi.Input[str] name: The data store/repository name to be created or updated.
-        :param pulumi.Input[dict] properties: DataStore properties.
+        :param pulumi.Input[str] repository_id: Arm Id for the manager resource to which the data source is associated. This is optional.
         :param pulumi.Input[str] resource_group_name: The Resource Group Name
+        :param pulumi.Input[str] state: State of the data source.
 
-        The **properties** object supports the following:
+        The **customer_secrets** object supports the following:
 
-          * `customer_secrets` (`pulumi.Input[list]`) - List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-            * `algorithm` (`pulumi.Input[str]`) - The encryption algorithm used to encrypt data.
-            * `key_identifier` (`pulumi.Input[str]`) - The identifier to the data service input object which this secret corresponds to.
-            * `key_value` (`pulumi.Input[str]`) - It contains the encrypted customer secret.
-
-          * `data_store_type_id` (`pulumi.Input[str]`) - The arm id of the data store type.
-          * `extended_properties` (`pulumi.Input[dict]`) - A generic json used differently by each data source type.
-          * `repository_id` (`pulumi.Input[str]`) - Arm Id for the manager resource to which the data source is associated. This is optional.
-          * `state` (`pulumi.Input[str]`) - State of the data source.
+          * `algorithm` (`pulumi.Input[str]`) - The encryption algorithm used to encrypt data.
+          * `key_identifier` (`pulumi.Input[str]`) - The identifier to the data service input object which this secret corresponds to.
+          * `key_value` (`pulumi.Input[str]`) - It contains the encrypted customer secret.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -71,18 +69,25 @@ class DataStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['customer_secrets'] = customer_secrets
             if data_manager_name is None:
                 raise TypeError("Missing required property 'data_manager_name'")
             __props__['data_manager_name'] = data_manager_name
+            if data_store_type_id is None:
+                raise TypeError("Missing required property 'data_store_type_id'")
+            __props__['data_store_type_id'] = data_store_type_id
+            __props__['extended_properties'] = extended_properties
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['repository_id'] = repository_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if state is None:
+                raise TypeError("Missing required property 'state'")
+            __props__['state'] = state
+            __props__['properties'] = None
             __props__['type'] = None
         super(DataStore, __self__).__init__(
             'azurerm:hybriddata/v20190601:DataStore',

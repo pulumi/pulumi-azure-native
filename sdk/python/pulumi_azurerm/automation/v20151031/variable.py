@@ -27,22 +27,18 @@ class Variable(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, description=None, is_encrypted=None, name=None, resource_group_name=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the variable.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[str] description: Gets or sets the description of the variable.
+        :param pulumi.Input[bool] is_encrypted: Gets or sets the encrypted flag of the variable.
         :param pulumi.Input[str] name: The variable name.
-        :param pulumi.Input[dict] properties: Gets or sets the properties of the variable.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - Gets or sets the description of the variable.
-          * `is_encrypted` (`pulumi.Input[bool]`) - Gets or sets the encrypted flag of the variable.
-          * `value` (`pulumi.Input[str]`) - Gets or sets the value of the variable.
+        :param pulumi.Input[str] value: Gets or sets the value of the variable.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,15 +60,16 @@ class Variable(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
+            __props__['description'] = description
+            __props__['is_encrypted'] = is_encrypted
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['value'] = value
+            __props__['properties'] = None
             __props__['type'] = None
         super(Variable, __self__).__init__(
             'azurerm:automation/v20151031:Variable',

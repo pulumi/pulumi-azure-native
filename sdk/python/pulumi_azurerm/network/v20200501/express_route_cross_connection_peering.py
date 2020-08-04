@@ -52,44 +52,42 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
       * `state` (`str`) - The peering state.
       * `vlan_id` (`float`) - The VLAN ID.
     """
-    def __init__(__self__, resource_name, opts=None, cross_connection_name=None, id=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cross_connection_name=None, gateway_manager_etag=None, id=None, ipv6_peering_config=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_peer_address_prefix=None, resource_group_name=None, secondary_peer_address_prefix=None, shared_key=None, state=None, vlan_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Peering in an ExpressRoute Cross Connection resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cross_connection_name: The name of the ExpressRouteCrossConnection.
+        :param pulumi.Input[str] gateway_manager_etag: The GatewayManager Etag.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[dict] ipv6_peering_config: The IPv6 peering configuration.
+        :param pulumi.Input[dict] microsoft_peering_config: The Microsoft peering configuration.
         :param pulumi.Input[str] name: The name of the peering.
-        :param pulumi.Input[dict] properties: Properties of the express route cross connection peering.
+        :param pulumi.Input[float] peer_asn: The peer ASN.
+        :param pulumi.Input[str] peering_type: The peering type.
+        :param pulumi.Input[str] primary_peer_address_prefix: The primary address prefix.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] secondary_peer_address_prefix: The secondary address prefix.
+        :param pulumi.Input[str] shared_key: The shared key.
+        :param pulumi.Input[str] state: The peering state.
+        :param pulumi.Input[float] vlan_id: The VLAN ID.
 
-        The **properties** object supports the following:
-
-          * `gateway_manager_etag` (`pulumi.Input[str]`) - The GatewayManager Etag.
-          * `ipv6_peering_config` (`pulumi.Input[dict]`) - The IPv6 peering configuration.
-            * `microsoft_peering_config` (`pulumi.Input[dict]`) - The Microsoft peering configuration.
-              * `advertised_communities` (`pulumi.Input[list]`) - The communities of bgp peering. Specified for microsoft peering.
-              * `advertised_public_prefixes` (`pulumi.Input[list]`) - The reference to AdvertisedPublicPrefixes.
-              * `customer_asn` (`pulumi.Input[float]`) - The CustomerASN of the peering.
-              * `legacy_mode` (`pulumi.Input[float]`) - The legacy mode of the peering.
-              * `routing_registry_name` (`pulumi.Input[str]`) - The RoutingRegistryName of the configuration.
-
-            * `primary_peer_address_prefix` (`pulumi.Input[str]`) - The primary address prefix.
-            * `route_filter` (`pulumi.Input[dict]`) - The reference to the RouteFilter resource.
-              * `id` (`pulumi.Input[str]`) - Resource ID.
-
-            * `secondary_peer_address_prefix` (`pulumi.Input[str]`) - The secondary address prefix.
-            * `state` (`pulumi.Input[str]`) - The state of peering.
+        The **ipv6_peering_config** object supports the following:
 
           * `microsoft_peering_config` (`pulumi.Input[dict]`) - The Microsoft peering configuration.
-          * `peer_asn` (`pulumi.Input[float]`) - The peer ASN.
-          * `peering_type` (`pulumi.Input[str]`) - The peering type.
+            * `advertised_communities` (`pulumi.Input[list]`) - The communities of bgp peering. Specified for microsoft peering.
+            * `advertised_public_prefixes` (`pulumi.Input[list]`) - The reference to AdvertisedPublicPrefixes.
+            * `customer_asn` (`pulumi.Input[float]`) - The CustomerASN of the peering.
+            * `legacy_mode` (`pulumi.Input[float]`) - The legacy mode of the peering.
+            * `routing_registry_name` (`pulumi.Input[str]`) - The RoutingRegistryName of the configuration.
+
           * `primary_peer_address_prefix` (`pulumi.Input[str]`) - The primary address prefix.
+          * `route_filter` (`pulumi.Input[dict]`) - The reference to the RouteFilter resource.
+            * `id` (`pulumi.Input[str]`) - Resource ID.
+
           * `secondary_peer_address_prefix` (`pulumi.Input[str]`) - The secondary address prefix.
-          * `shared_key` (`pulumi.Input[str]`) - The shared key.
-          * `state` (`pulumi.Input[str]`) - The peering state.
-          * `vlan_id` (`pulumi.Input[float]`) - The VLAN ID.
+          * `state` (`pulumi.Input[str]`) - The state of peering.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -111,15 +109,25 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
             if cross_connection_name is None:
                 raise TypeError("Missing required property 'cross_connection_name'")
             __props__['cross_connection_name'] = cross_connection_name
+            __props__['gateway_manager_etag'] = gateway_manager_etag
             __props__['id'] = id
+            __props__['ipv6_peering_config'] = ipv6_peering_config
+            __props__['microsoft_peering_config'] = microsoft_peering_config
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['peer_asn'] = peer_asn
+            __props__['peering_type'] = peering_type
+            __props__['primary_peer_address_prefix'] = primary_peer_address_prefix
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['secondary_peer_address_prefix'] = secondary_peer_address_prefix
+            __props__['shared_key'] = shared_key
+            __props__['state'] = state
+            __props__['vlan_id'] = vlan_id
             __props__['etag'] = None
+            __props__['properties'] = None
         super(ExpressRouteCrossConnectionPeering, __self__).__init__(
             'azurerm:network/v20200501:ExpressRouteCrossConnectionPeering',
             resource_name,

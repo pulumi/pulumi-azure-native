@@ -38,7 +38,7 @@ class DedicatedHostGroup(pulumi.CustomResource):
     """
     Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, platform_fault_domain_count=None, resource_group_name=None, tags=None, zones=None, __props__=None, __name__=None, __opts__=None):
         """
         Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
 
@@ -46,14 +46,10 @@ class DedicatedHostGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the dedicated host group.
-        :param pulumi.Input[dict] properties: Dedicated Host Group Properties.
+        :param pulumi.Input[float] platform_fault_domain_count: Number of fault domains that the host group can span.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags
         :param pulumi.Input[list] zones: Availability Zone to use for this host group. Only single zone is supported. The zone can be assigned only during creation. If not provided, the group supports all zones in the region. If provided, enforces each host in the group to be in the same zone.
-
-        The **properties** object supports the following:
-
-          * `platform_fault_domain_count` (`pulumi.Input[float]`) - Number of fault domains that the host group can span.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -78,12 +74,15 @@ class DedicatedHostGroup(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if platform_fault_domain_count is None:
+                raise TypeError("Missing required property 'platform_fault_domain_count'")
+            __props__['platform_fault_domain_count'] = platform_fault_domain_count
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['zones'] = zones
+            __props__['properties'] = None
             __props__['type'] = None
         super(DedicatedHostGroup, __self__).__init__(
             'azurerm:compute/v20191201:DedicatedHostGroup',

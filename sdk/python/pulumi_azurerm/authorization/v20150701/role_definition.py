@@ -30,26 +30,24 @@ class RoleDefinition(pulumi.CustomResource):
     """
     The role definition type.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, scope=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, assignable_scopes=None, description=None, name=None, permissions=None, role_name=None, role_type=None, scope=None, __props__=None, __name__=None, __opts__=None):
         """
         Role definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] assignable_scopes: Role definition assignable scopes.
+        :param pulumi.Input[str] description: The role definition description.
         :param pulumi.Input[str] name: The ID of the role definition.
-        :param pulumi.Input[dict] properties: Role definition properties.
+        :param pulumi.Input[list] permissions: Role definition permissions.
+        :param pulumi.Input[str] role_name: The role name.
+        :param pulumi.Input[str] role_type: The role type.
         :param pulumi.Input[str] scope: The scope of the role definition.
 
-        The **properties** object supports the following:
+        The **permissions** object supports the following:
 
-          * `assignable_scopes` (`pulumi.Input[list]`) - Role definition assignable scopes.
-          * `description` (`pulumi.Input[str]`) - The role definition description.
-          * `permissions` (`pulumi.Input[list]`) - Role definition permissions.
-            * `actions` (`pulumi.Input[list]`) - Allowed actions.
-            * `not_actions` (`pulumi.Input[list]`) - Denied actions.
-
-          * `role_name` (`pulumi.Input[str]`) - The role name.
-          * `role_type` (`pulumi.Input[str]`) - The role type.
+          * `actions` (`pulumi.Input[list]`) - Allowed actions.
+          * `not_actions` (`pulumi.Input[list]`) - Denied actions.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -68,13 +66,18 @@ class RoleDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['assignable_scopes'] = assignable_scopes
+            __props__['description'] = description
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['permissions'] = permissions
+            __props__['role_name'] = role_name
+            __props__['role_type'] = role_type
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
+            __props__['properties'] = None
             __props__['type'] = None
         super(RoleDefinition, __self__).__init__(
             'azurerm:authorization/v20150701:RoleDefinition',

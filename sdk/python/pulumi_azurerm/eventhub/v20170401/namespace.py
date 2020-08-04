@@ -45,24 +45,20 @@ class Namespace(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, is_auto_inflate_enabled=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Single Namespace item in List or Get Operation
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] is_auto_inflate_enabled: Value that indicates whether AutoInflate is enabled for eventhub namespace.
+        :param pulumi.Input[bool] kafka_enabled: Value that indicates whether Kafka is enabled for eventhub namespace.
         :param pulumi.Input[str] location: Resource location.
+        :param pulumi.Input[float] maximum_throughput_units: Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
         :param pulumi.Input[str] name: The Namespace name
-        :param pulumi.Input[dict] properties: Namespace properties supplied for create namespace operation.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[dict] sku: Properties of sku resource
         :param pulumi.Input[dict] tags: Resource tags.
-
-        The **properties** object supports the following:
-
-          * `is_auto_inflate_enabled` (`pulumi.Input[bool]`) - Value that indicates whether AutoInflate is enabled for eventhub namespace.
-          * `kafka_enabled` (`pulumi.Input[bool]`) - Value that indicates whether Kafka is enabled for eventhub namespace.
-          * `maximum_throughput_units` (`pulumi.Input[float]`) - Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
 
         The **sku** object supports the following:
 
@@ -87,16 +83,19 @@ class Namespace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['is_auto_inflate_enabled'] = is_auto_inflate_enabled
+            __props__['kafka_enabled'] = kafka_enabled
             __props__['location'] = location
+            __props__['maximum_throughput_units'] = maximum_throughput_units
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Namespace, __self__).__init__(
             'azurerm:eventhub/v20170401:Namespace',

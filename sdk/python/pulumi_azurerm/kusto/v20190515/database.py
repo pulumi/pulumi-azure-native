@@ -31,24 +31,23 @@ class Database(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, cluster_name=None, location=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cluster_name=None, hot_cache_period=None, location=None, name=None, resource_group_name=None, soft_delete_period=None, statistics=None, __props__=None, __name__=None, __opts__=None):
         """
         Class representing a Kusto database.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
+        :param pulumi.Input[str] hot_cache_period: The time the data should be kept in cache for fast queries in TimeSpan.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the database in the Kusto cluster.
-        :param pulumi.Input[dict] properties: The database properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] soft_delete_period: The time the data should be kept before it stops being accessible to queries in TimeSpan.
+        :param pulumi.Input[dict] statistics: The statistics of the database.
 
-        The **properties** object supports the following:
+        The **statistics** object supports the following:
 
-          * `hot_cache_period` (`pulumi.Input[str]`) - The time the data should be kept in cache for fast queries in TimeSpan.
-          * `soft_delete_period` (`pulumi.Input[str]`) - The time the data should be kept before it stops being accessible to queries in TimeSpan.
-          * `statistics` (`pulumi.Input[dict]`) - The statistics of the database.
-            * `size` (`pulumi.Input[float]`) - The database size - the total size of compressed data and index in bytes.
+          * `size` (`pulumi.Input[float]`) - The database size - the total size of compressed data and index in bytes.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -70,14 +69,17 @@ class Database(pulumi.CustomResource):
             if cluster_name is None:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__['cluster_name'] = cluster_name
+            __props__['hot_cache_period'] = hot_cache_period
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['soft_delete_period'] = soft_delete_period
+            __props__['statistics'] = statistics
+            __props__['properties'] = None
             __props__['type'] = None
         super(Database, __self__).__init__(
             'azurerm:kusto/v20190515:Database',

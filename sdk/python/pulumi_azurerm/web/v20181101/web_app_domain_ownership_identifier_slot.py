@@ -27,21 +27,17 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, name=None, properties=None, resource_group_name=None, slot=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, kind=None, name=None, resource_group_name=None, slot=None, __props__=None, __name__=None, __opts__=None):
         """
         A domain specific resource identifier.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] id: String representation of the identity.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] name: Name of domain ownership identifier.
-        :param pulumi.Input[dict] properties: Identifier resource specific properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] slot: Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
-
-        The **properties** object supports the following:
-
-          * `id` (`pulumi.Input[str]`) - String representation of the identity.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -60,17 +56,18 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['id'] = id
             __props__['kind'] = kind
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if slot is None:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
+            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppDomainOwnershipIdentifierSlot, __self__).__init__(
             'azurerm:web/v20181101:WebAppDomainOwnershipIdentifierSlot',

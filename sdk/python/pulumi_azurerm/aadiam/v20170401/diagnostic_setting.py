@@ -34,29 +34,27 @@ class DiagnosticSetting(pulumi.CustomResource):
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, event_hub_authorization_rule_id=None, event_hub_name=None, logs=None, name=None, service_bus_rule_id=None, storage_account_id=None, workspace_id=None, __props__=None, __name__=None, __opts__=None):
         """
         The diagnostic setting resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
+        :param pulumi.Input[str] event_hub_name: The name of the event hub. If none is specified, the default event hub will be selected.
+        :param pulumi.Input[list] logs: The list of logs settings.
         :param pulumi.Input[str] name: The name of the diagnostic setting.
-        :param pulumi.Input[dict] properties: Properties of a Diagnostic Settings Resource.
+        :param pulumi.Input[str] service_bus_rule_id: The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
+        :param pulumi.Input[str] storage_account_id: The resource ID of the storage account to which you would like to send Diagnostic Logs.
+        :param pulumi.Input[str] workspace_id: The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
 
-        The **properties** object supports the following:
+        The **logs** object supports the following:
 
-          * `event_hub_authorization_rule_id` (`pulumi.Input[str]`) - The resource Id for the event hub authorization rule.
-          * `event_hub_name` (`pulumi.Input[str]`) - The name of the event hub. If none is specified, the default event hub will be selected.
-          * `logs` (`pulumi.Input[list]`) - The list of logs settings.
-            * `category` (`pulumi.Input[str]`) - Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
-            * `enabled` (`pulumi.Input[bool]`) - A value indicating whether this log is enabled.
-            * `retention_policy` (`pulumi.Input[dict]`) - The retention policy for this log.
-              * `days` (`pulumi.Input[float]`) - The number of days for the retention in days. A value of 0 will retain the events indefinitely.
-              * `enabled` (`pulumi.Input[bool]`) - A value indicating whether the retention policy is enabled.
-
-          * `service_bus_rule_id` (`pulumi.Input[str]`) - The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
-          * `storage_account_id` (`pulumi.Input[str]`) - The resource ID of the storage account to which you would like to send Diagnostic Logs.
-          * `workspace_id` (`pulumi.Input[str]`) - The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+          * `category` (`pulumi.Input[str]`) - Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+          * `enabled` (`pulumi.Input[bool]`) - A value indicating whether this log is enabled.
+          * `retention_policy` (`pulumi.Input[dict]`) - The retention policy for this log.
+            * `days` (`pulumi.Input[float]`) - The number of days for the retention in days. A value of 0 will retain the events indefinitely.
+            * `enabled` (`pulumi.Input[bool]`) - A value indicating whether the retention policy is enabled.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,10 +73,16 @@ class DiagnosticSetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['event_hub_authorization_rule_id'] = event_hub_authorization_rule_id
+            __props__['event_hub_name'] = event_hub_name
+            __props__['logs'] = logs
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['service_bus_rule_id'] = service_bus_rule_id
+            __props__['storage_account_id'] = storage_account_id
+            __props__['workspace_id'] = workspace_id
+            __props__['properties'] = None
             __props__['type'] = None
         super(DiagnosticSetting, __self__).__init__(
             'azurerm:aadiam/v20170401:DiagnosticSetting',

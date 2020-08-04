@@ -32,25 +32,21 @@ class ManagerExtendedInfo(pulumi.CustomResource):
     """
     The type.
     """
-    def __init__(__self__, resource_name, opts=None, etag=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, algorithm=None, encryption_key=None, encryption_key_thumbprint=None, etag=None, integrity_key=None, name=None, portal_certificate_thumbprint=None, resource_group_name=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         The extended info of the manager.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] algorithm: Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
+        :param pulumi.Input[str] encryption_key: Represents the CEK of the resource
+        :param pulumi.Input[str] encryption_key_thumbprint: Represents the Cert thumbprint that was used to encrypt the CEK
         :param pulumi.Input[str] etag: ETag of the Resource
+        :param pulumi.Input[str] integrity_key: Represents the CIK of the resource
         :param pulumi.Input[str] name: The manager name
-        :param pulumi.Input[dict] properties: The extended info properties.
+        :param pulumi.Input[str] portal_certificate_thumbprint: Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
         :param pulumi.Input[str] resource_group_name: The resource group name
-
-        The **properties** object supports the following:
-
-          * `algorithm` (`pulumi.Input[str]`) - Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
-          * `encryption_key` (`pulumi.Input[str]`) - Represents the CEK of the resource
-          * `encryption_key_thumbprint` (`pulumi.Input[str]`) - Represents the Cert thumbprint that was used to encrypt the CEK
-          * `integrity_key` (`pulumi.Input[str]`) - Represents the CIK of the resource
-          * `portal_certificate_thumbprint` (`pulumi.Input[str]`) - Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
-          * `version` (`pulumi.Input[str]`) - Represents the version of the ExtendedInfo object being persisted
+        :param pulumi.Input[str] version: Represents the version of the ExtendedInfo object being persisted
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -69,16 +65,24 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if algorithm is None:
+                raise TypeError("Missing required property 'algorithm'")
+            __props__['algorithm'] = algorithm
+            __props__['encryption_key'] = encryption_key
+            __props__['encryption_key_thumbprint'] = encryption_key_thumbprint
             __props__['etag'] = etag
+            if integrity_key is None:
+                raise TypeError("Missing required property 'integrity_key'")
+            __props__['integrity_key'] = integrity_key
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['portal_certificate_thumbprint'] = portal_certificate_thumbprint
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['version'] = version
+            __props__['properties'] = None
             __props__['type'] = None
         super(ManagerExtendedInfo, __self__).__init__(
             'azurerm:storsimple/v20161001:ManagerExtendedInfo',

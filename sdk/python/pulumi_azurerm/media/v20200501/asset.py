@@ -30,23 +30,19 @@ class Asset(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, alternate_id=None, container=None, description=None, name=None, resource_group_name=None, storage_account_name=None, __props__=None, __name__=None, __opts__=None):
         """
         An Asset.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
+        :param pulumi.Input[str] alternate_id: The alternate ID of the Asset.
+        :param pulumi.Input[str] container: The name of the asset blob container.
+        :param pulumi.Input[str] description: The Asset description.
         :param pulumi.Input[str] name: The Asset name.
-        :param pulumi.Input[dict] properties: The resource properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the Azure subscription.
-
-        The **properties** object supports the following:
-
-          * `alternate_id` (`pulumi.Input[str]`) - The alternate ID of the Asset.
-          * `container` (`pulumi.Input[str]`) - The name of the asset blob container.
-          * `description` (`pulumi.Input[str]`) - The Asset description.
-          * `storage_account_name` (`pulumi.Input[str]`) - The name of the storage account.
+        :param pulumi.Input[str] storage_account_name: The name of the storage account.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -68,13 +64,17 @@ class Asset(pulumi.CustomResource):
             if account_name is None:
                 raise TypeError("Missing required property 'account_name'")
             __props__['account_name'] = account_name
+            __props__['alternate_id'] = alternate_id
+            __props__['container'] = container
+            __props__['description'] = description
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['storage_account_name'] = storage_account_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(Asset, __self__).__init__(
             'azurerm:media/v20200501:Asset',

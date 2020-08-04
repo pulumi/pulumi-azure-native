@@ -49,43 +49,43 @@ class RoleAssignment(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, hub_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, conflation_policies=None, connectors=None, description=None, display_name=None, hub_name=None, interactions=None, kpis=None, links=None, name=None, principals=None, profiles=None, relationship_links=None, relationships=None, resource_group_name=None, role=None, role_assignments=None, sas_policies=None, segments=None, views=None, widget_types=None, __props__=None, __name__=None, __opts__=None):
         """
         The Role Assignment resource format.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] conflation_policies: Widget types set for the assignment.
+        :param pulumi.Input[dict] connectors: Connectors set for the assignment.
+        :param pulumi.Input[dict] description: Localized description for the metadata.
+        :param pulumi.Input[dict] display_name: Localized display names for the metadata.
         :param pulumi.Input[str] hub_name: The name of the hub.
+        :param pulumi.Input[dict] interactions: Interactions set for the assignment.
+        :param pulumi.Input[dict] kpis: Kpis set for the assignment.
+        :param pulumi.Input[dict] links: Links set for the assignment.
         :param pulumi.Input[str] name: The assignment name
-        :param pulumi.Input[dict] properties: The Role Assignment definition.
+        :param pulumi.Input[list] principals: The principals being assigned to.
+        :param pulumi.Input[dict] profiles: Profiles set for the assignment.
+        :param pulumi.Input[dict] relationship_links: The Role assignments set for the relationship links.
+        :param pulumi.Input[dict] relationships: The Role assignments set for the relationships.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] role: Type of roles.
+        :param pulumi.Input[dict] role_assignments: The Role assignments set for the assignment.
+        :param pulumi.Input[dict] sas_policies: Sas Policies set for the assignment.
+        :param pulumi.Input[dict] segments: The Role assignments set for the assignment.
+        :param pulumi.Input[dict] views: Views set for the assignment.
+        :param pulumi.Input[dict] widget_types: Widget types set for the assignment.
 
-        The **properties** object supports the following:
+        The **conflation_policies** object supports the following:
 
-          * `conflation_policies` (`pulumi.Input[dict]`) - Widget types set for the assignment.
-            * `elements` (`pulumi.Input[list]`) - The elements included in the set.
-            * `exceptions` (`pulumi.Input[list]`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+          * `elements` (`pulumi.Input[list]`) - The elements included in the set.
+          * `exceptions` (`pulumi.Input[list]`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
 
-          * `connectors` (`pulumi.Input[dict]`) - Connectors set for the assignment.
-          * `description` (`pulumi.Input[dict]`) - Localized description for the metadata.
-          * `display_name` (`pulumi.Input[dict]`) - Localized display names for the metadata.
-          * `interactions` (`pulumi.Input[dict]`) - Interactions set for the assignment.
-          * `kpis` (`pulumi.Input[dict]`) - Kpis set for the assignment.
-          * `links` (`pulumi.Input[dict]`) - Links set for the assignment.
-          * `principals` (`pulumi.Input[list]`) - The principals being assigned to.
-            * `principal_id` (`pulumi.Input[str]`) - The principal id being assigned to.
-            * `principal_metadata` (`pulumi.Input[dict]`) - Other metadata for the principal.
-            * `principal_type` (`pulumi.Input[str]`) - The Type of the principal ID.
+        The **principals** object supports the following:
 
-          * `profiles` (`pulumi.Input[dict]`) - Profiles set for the assignment.
-          * `relationship_links` (`pulumi.Input[dict]`) - The Role assignments set for the relationship links.
-          * `relationships` (`pulumi.Input[dict]`) - The Role assignments set for the relationships.
-          * `role` (`pulumi.Input[str]`) - Type of roles.
-          * `role_assignments` (`pulumi.Input[dict]`) - The Role assignments set for the assignment.
-          * `sas_policies` (`pulumi.Input[dict]`) - Sas Policies set for the assignment.
-          * `segments` (`pulumi.Input[dict]`) - The Role assignments set for the assignment.
-          * `views` (`pulumi.Input[dict]`) - Views set for the assignment.
-          * `widget_types` (`pulumi.Input[dict]`) - Widget types set for the assignment.
+          * `principal_id` (`pulumi.Input[str]`) - The principal id being assigned to.
+          * `principal_metadata` (`pulumi.Input[dict]`) - Other metadata for the principal.
+          * `principal_type` (`pulumi.Input[str]`) - The Type of the principal ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -104,16 +104,37 @@ class RoleAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['conflation_policies'] = conflation_policies
+            __props__['connectors'] = connectors
+            __props__['description'] = description
+            __props__['display_name'] = display_name
             if hub_name is None:
                 raise TypeError("Missing required property 'hub_name'")
             __props__['hub_name'] = hub_name
+            __props__['interactions'] = interactions
+            __props__['kpis'] = kpis
+            __props__['links'] = links
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if principals is None:
+                raise TypeError("Missing required property 'principals'")
+            __props__['principals'] = principals
+            __props__['profiles'] = profiles
+            __props__['relationship_links'] = relationship_links
+            __props__['relationships'] = relationships
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if role is None:
+                raise TypeError("Missing required property 'role'")
+            __props__['role'] = role
+            __props__['role_assignments'] = role_assignments
+            __props__['sas_policies'] = sas_policies
+            __props__['segments'] = segments
+            __props__['views'] = views
+            __props__['widget_types'] = widget_types
+            __props__['properties'] = None
             __props__['type'] = None
         super(RoleAssignment, __self__).__init__(
             'azurerm:customerinsights/v20170426:RoleAssignment',

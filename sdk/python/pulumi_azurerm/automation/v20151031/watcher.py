@@ -43,27 +43,23 @@ class Watcher(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, automation_account_name=None, etag=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, automation_account_name=None, description=None, etag=None, execution_frequency_in_seconds=None, location=None, name=None, resource_group_name=None, script_name=None, script_parameters=None, script_run_on=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Definition of the watcher type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
+        :param pulumi.Input[str] description: Gets or sets the description.
         :param pulumi.Input[str] etag: Gets or sets the etag of the resource.
+        :param pulumi.Input[float] execution_frequency_in_seconds: Gets or sets the frequency at which the watcher is invoked.
         :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[str] name: The watcher name.
-        :param pulumi.Input[dict] properties: Gets or sets the watcher properties.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[str] script_name: Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
+        :param pulumi.Input[dict] script_parameters: Gets or sets the parameters of the script.
+        :param pulumi.Input[str] script_run_on: Gets or sets the name of the hybrid worker group the watcher will run on.
         :param pulumi.Input[dict] tags: Resource tags.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - Gets or sets the description.
-          * `execution_frequency_in_seconds` (`pulumi.Input[float]`) - Gets or sets the frequency at which the watcher is invoked.
-          * `script_name` (`pulumi.Input[str]`) - Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
-          * `script_parameters` (`pulumi.Input[dict]`) - Gets or sets the parameters of the script.
-          * `script_run_on` (`pulumi.Input[str]`) - Gets or sets the name of the hybrid worker group the watcher will run on.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -85,16 +81,21 @@ class Watcher(pulumi.CustomResource):
             if automation_account_name is None:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__['automation_account_name'] = automation_account_name
+            __props__['description'] = description
             __props__['etag'] = etag
+            __props__['execution_frequency_in_seconds'] = execution_frequency_in_seconds
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['script_name'] = script_name
+            __props__['script_parameters'] = script_parameters
+            __props__['script_run_on'] = script_run_on
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Watcher, __self__).__init__(
             'azurerm:automation/v20151031:Watcher',

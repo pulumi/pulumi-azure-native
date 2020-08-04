@@ -28,7 +28,7 @@ class WebAppSwiftVirtualNetworkConnectionSlot(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, kind=None, name=None, resource_group_name=None, subnet_resource_id=None, swift_supported=None, __props__=None, __name__=None, __opts__=None):
         """
         Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
 
@@ -36,13 +36,9 @@ class WebAppSwiftVirtualNetworkConnectionSlot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] name: Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
-        :param pulumi.Input[dict] properties: SwiftVirtualNetwork resource specific properties
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-
-        The **properties** object supports the following:
-
-          * `subnet_resource_id` (`pulumi.Input[str]`) - The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
-          * `swift_supported` (`pulumi.Input[bool]`) - A flag that specifies if the scale unit this Web App is on supports Swift integration.
+        :param pulumi.Input[str] subnet_resource_id: The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+        :param pulumi.Input[bool] swift_supported: A flag that specifies if the scale unit this Web App is on supports Swift integration.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,10 +61,12 @@ class WebAppSwiftVirtualNetworkConnectionSlot(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['subnet_resource_id'] = subnet_resource_id
+            __props__['swift_supported'] = swift_supported
+            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppSwiftVirtualNetworkConnectionSlot, __self__).__init__(
             'azurerm:web/v20180201:WebAppSwiftVirtualNetworkConnectionSlot',

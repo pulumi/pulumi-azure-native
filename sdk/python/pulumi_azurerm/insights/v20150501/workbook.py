@@ -44,30 +44,24 @@ class Workbook(pulumi.CustomResource):
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, kind=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, category=None, kind=None, location=None, name=None, resource_group_name=None, serialized_data=None, shared_type_kind=None, source_resource_id=None, tags=None, user_id=None, version=None, workbook_id=None, __props__=None, __name__=None, __opts__=None):
         """
         An Application Insights workbook definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] category: Workbook category, as defined by the user at creation time.
         :param pulumi.Input[str] kind: The kind of workbook. Choices are user and shared.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the Application Insights component resource.
-        :param pulumi.Input[dict] properties: Metadata describing a web test for an Azure resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] serialized_data: Configuration of this particular workbook. Configuration data is a string containing valid JSON
+        :param pulumi.Input[str] shared_type_kind: Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        :param pulumi.Input[str] source_resource_id: Optional resourceId for a source resource.
         :param pulumi.Input[dict] tags: Resource tags
-
-        The **properties** object supports the following:
-
-          * `category` (`pulumi.Input[str]`) - Workbook category, as defined by the user at creation time.
-          * `name` (`pulumi.Input[str]`) - The user-defined name of the workbook.
-          * `serialized_data` (`pulumi.Input[str]`) - Configuration of this particular workbook. Configuration data is a string containing valid JSON
-          * `shared_type_kind` (`pulumi.Input[str]`) - Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
-          * `source_resource_id` (`pulumi.Input[str]`) - Optional resourceId for a source resource.
-          * `tags` (`pulumi.Input[list]`) - A list of 0 or more tags that are associated with this workbook definition
-          * `user_id` (`pulumi.Input[str]`) - Unique user id of the specific user that owns this workbook.
-          * `version` (`pulumi.Input[str]`) - This instance's version of the data model. This can change as new features are added that can be marked workbook.
-          * `workbook_id` (`pulumi.Input[str]`) - Internally assigned unique id of the workbook definition.
+        :param pulumi.Input[str] user_id: Unique user id of the specific user that owns this workbook.
+        :param pulumi.Input[str] version: This instance's version of the data model. This can change as new features are added that can be marked workbook.
+        :param pulumi.Input[str] workbook_id: Internally assigned unique id of the workbook definition.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -86,16 +80,33 @@ class Workbook(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            if category is None:
+                raise TypeError("Missing required property 'category'")
+            __props__['category'] = category
             __props__['kind'] = kind
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            if serialized_data is None:
+                raise TypeError("Missing required property 'serialized_data'")
+            __props__['serialized_data'] = serialized_data
+            if shared_type_kind is None:
+                raise TypeError("Missing required property 'shared_type_kind'")
+            __props__['shared_type_kind'] = shared_type_kind
+            __props__['source_resource_id'] = source_resource_id
             __props__['tags'] = tags
+            if user_id is None:
+                raise TypeError("Missing required property 'user_id'")
+            __props__['user_id'] = user_id
+            __props__['version'] = version
+            if workbook_id is None:
+                raise TypeError("Missing required property 'workbook_id'")
+            __props__['workbook_id'] = workbook_id
+            __props__['properties'] = None
             __props__['type'] = None
         super(Workbook, __self__).__init__(
             'azurerm:insights/v20150501:Workbook',

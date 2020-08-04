@@ -34,31 +34,31 @@ class VirtualNetworkPeering(pulumi.CustomResource):
 
       * `use_remote_gateways` (`bool`) - If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, virtual_network_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, id=None, name=None, peering_state=None, remote_address_space=None, remote_virtual_network=None, resource_group_name=None, use_remote_gateways=None, virtual_network_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Peerings in a virtual network resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_forwarded_traffic: Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+        :param pulumi.Input[bool] allow_gateway_transit: If gateway links can be used in remote virtual networking to link to this virtual network.
+        :param pulumi.Input[bool] allow_virtual_network_access: Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the peering.
-        :param pulumi.Input[dict] properties: Properties of the virtual network peering.
+        :param pulumi.Input[str] peering_state: The status of the virtual network peering.
+        :param pulumi.Input[dict] remote_address_space: The reference to the remote virtual network address space.
+        :param pulumi.Input[dict] remote_virtual_network: The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network.
 
-        The **properties** object supports the following:
+        The **remote_address_space** object supports the following:
 
-          * `allow_forwarded_traffic` (`pulumi.Input[bool]`) - Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
-          * `allow_gateway_transit` (`pulumi.Input[bool]`) - If gateway links can be used in remote virtual networking to link to this virtual network.
-          * `allow_virtual_network_access` (`pulumi.Input[bool]`) - Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
-          * `peering_state` (`pulumi.Input[str]`) - The status of the virtual network peering.
-          * `remote_address_space` (`pulumi.Input[dict]`) - The reference to the remote virtual network address space.
-            * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
+          * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
 
-          * `remote_virtual_network` (`pulumi.Input[dict]`) - The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
-            * `id` (`pulumi.Input[str]`) - Resource ID.
+        The **remote_virtual_network** object supports the following:
 
-          * `use_remote_gateways` (`pulumi.Input[bool]`) - If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -77,18 +77,25 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['allow_forwarded_traffic'] = allow_forwarded_traffic
+            __props__['allow_gateway_transit'] = allow_gateway_transit
+            __props__['allow_virtual_network_access'] = allow_virtual_network_access
             __props__['id'] = id
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['peering_state'] = peering_state
+            __props__['remote_address_space'] = remote_address_space
+            __props__['remote_virtual_network'] = remote_virtual_network
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['use_remote_gateways'] = use_remote_gateways
             if virtual_network_name is None:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__['virtual_network_name'] = virtual_network_name
             __props__['etag'] = None
+            __props__['properties'] = None
         super(VirtualNetworkPeering, __self__).__init__(
             'azurerm:network/v20200301:VirtualNetworkPeering',
             resource_name,

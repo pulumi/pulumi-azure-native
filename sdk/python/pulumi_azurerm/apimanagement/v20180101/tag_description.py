@@ -26,23 +26,19 @@ class TagDescription(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, api_id=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_id=None, description=None, external_docs_description=None, external_docs_url=None, name=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Contract details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+        :param pulumi.Input[str] description: Description of the Tag.
+        :param pulumi.Input[str] external_docs_description: Description of the external resources describing the tag.
+        :param pulumi.Input[str] external_docs_url: Absolute URL of external resources describing the tag.
         :param pulumi.Input[str] name: Tag identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[dict] properties: Properties supplied to Create TagDescription operation.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
-
-        The **properties** object supports the following:
-
-          * `description` (`pulumi.Input[str]`) - Description of the Tag.
-          * `external_docs_description` (`pulumi.Input[str]`) - Description of the external resources describing the tag.
-          * `external_docs_url` (`pulumi.Input[str]`) - Absolute URL of external resources describing the tag.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,16 +60,19 @@ class TagDescription(pulumi.CustomResource):
             if api_id is None:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
+            __props__['description'] = description
+            __props__['external_docs_description'] = external_docs_description
+            __props__['external_docs_url'] = external_docs_url
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(TagDescription, __self__).__init__(
             'azurerm:apimanagement/v20180101:TagDescription',

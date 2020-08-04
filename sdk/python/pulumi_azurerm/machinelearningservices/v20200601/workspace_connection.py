@@ -26,23 +26,19 @@ class WorkspaceConnection(pulumi.CustomResource):
     """
     Resource type of workspace connection.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auth_type=None, category=None, name=None, resource_group_name=None, target=None, value=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Workspace connection.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] auth_type: Authorization type of the workspace connection.
+        :param pulumi.Input[str] category: Category of the workspace connection.
         :param pulumi.Input[str] name: Friendly name of the workspace connection
-        :param pulumi.Input[dict] properties: Properties of workspace connection.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
+        :param pulumi.Input[str] target: Target of the workspace connection.
+        :param pulumi.Input[str] value: Value details of the workspace connection.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
-
-        The **properties** object supports the following:
-
-          * `auth_type` (`pulumi.Input[str]`) - Authorization type of the workspace connection.
-          * `category` (`pulumi.Input[str]`) - Category of the workspace connection.
-          * `target` (`pulumi.Input[str]`) - Target of the workspace connection.
-          * `value` (`pulumi.Input[str]`) - Value details of the workspace connection.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -61,16 +57,20 @@ class WorkspaceConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['auth_type'] = auth_type
+            __props__['category'] = category
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['target'] = target
+            __props__['value'] = value
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(WorkspaceConnection, __self__).__init__(
             'azurerm:machinelearningservices/v20200601:WorkspaceConnection',

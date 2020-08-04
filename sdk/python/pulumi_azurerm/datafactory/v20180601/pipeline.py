@@ -47,40 +47,40 @@ class Pipeline(pulumi.CustomResource):
     """
     The resource type.
     """
-    def __init__(__self__, resource_name, opts=None, factory_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, activities=None, annotations=None, concurrency=None, description=None, factory_name=None, folder=None, name=None, parameters=None, resource_group_name=None, run_dimensions=None, variables=None, __props__=None, __name__=None, __opts__=None):
         """
         Pipeline resource type.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] activities: List of activities in pipeline.
+        :param pulumi.Input[list] annotations: List of tags that can be used for describing the Pipeline.
+        :param pulumi.Input[float] concurrency: The max number of concurrent runs for the pipeline.
+        :param pulumi.Input[str] description: The description of the pipeline.
         :param pulumi.Input[str] factory_name: The factory name.
+        :param pulumi.Input[dict] folder: The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         :param pulumi.Input[str] name: The pipeline name.
-        :param pulumi.Input[dict] properties: Properties of the pipeline.
+        :param pulumi.Input[dict] parameters: List of parameters for pipeline.
         :param pulumi.Input[str] resource_group_name: The resource group name.
+        :param pulumi.Input[dict] run_dimensions: Dimensions emitted by Pipeline.
+        :param pulumi.Input[dict] variables: List of variables for pipeline.
 
-        The **properties** object supports the following:
+        The **activities** object supports the following:
 
-          * `activities` (`pulumi.Input[list]`) - List of activities in pipeline.
-            * `depends_on` (`pulumi.Input[list]`) - Activity depends on condition.
-              * `activity` (`pulumi.Input[str]`) - Activity name.
-              * `dependency_conditions` (`pulumi.Input[list]`) - Match-Condition for the dependency.
+          * `depends_on` (`pulumi.Input[list]`) - Activity depends on condition.
+            * `activity` (`pulumi.Input[str]`) - Activity name.
+            * `dependency_conditions` (`pulumi.Input[list]`) - Match-Condition for the dependency.
 
-            * `description` (`pulumi.Input[str]`) - Activity description.
-            * `name` (`pulumi.Input[str]`) - Activity name.
-            * `type` (`pulumi.Input[str]`) - Type of activity.
-            * `user_properties` (`pulumi.Input[list]`) - Activity user properties.
-              * `name` (`pulumi.Input[str]`) - User property name.
-              * `value` (`pulumi.Input[dict]`) - User property value. Type: string (or Expression with resultType string).
+          * `description` (`pulumi.Input[str]`) - Activity description.
+          * `name` (`pulumi.Input[str]`) - Activity name.
+          * `type` (`pulumi.Input[str]`) - Type of activity.
+          * `user_properties` (`pulumi.Input[list]`) - Activity user properties.
+            * `name` (`pulumi.Input[str]`) - User property name.
+            * `value` (`pulumi.Input[dict]`) - User property value. Type: string (or Expression with resultType string).
 
-          * `annotations` (`pulumi.Input[list]`) - List of tags that can be used for describing the Pipeline.
-          * `concurrency` (`pulumi.Input[float]`) - The max number of concurrent runs for the pipeline.
-          * `description` (`pulumi.Input[str]`) - The description of the pipeline.
-          * `folder` (`pulumi.Input[dict]`) - The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-            * `name` (`pulumi.Input[str]`) - The name of the folder that this Pipeline is in.
+        The **folder** object supports the following:
 
-          * `parameters` (`pulumi.Input[dict]`) - List of parameters for pipeline.
-          * `run_dimensions` (`pulumi.Input[dict]`) - Dimensions emitted by Pipeline.
-          * `variables` (`pulumi.Input[dict]`) - List of variables for pipeline.
+          * `name` (`pulumi.Input[str]`) - The name of the folder that this Pipeline is in.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -99,19 +99,25 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['activities'] = activities
+            __props__['annotations'] = annotations
+            __props__['concurrency'] = concurrency
+            __props__['description'] = description
             if factory_name is None:
                 raise TypeError("Missing required property 'factory_name'")
             __props__['factory_name'] = factory_name
+            __props__['folder'] = folder
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['parameters'] = parameters
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['run_dimensions'] = run_dimensions
+            __props__['variables'] = variables
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(Pipeline, __self__).__init__(
             'azurerm:datafactory/v20180601:Pipeline',

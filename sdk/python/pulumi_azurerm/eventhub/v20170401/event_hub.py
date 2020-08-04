@@ -42,36 +42,33 @@ class EventHub(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, namespace_name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, capture_description=None, message_retention_in_days=None, name=None, namespace_name=None, partition_count=None, resource_group_name=None, status=None, __props__=None, __name__=None, __opts__=None):
         """
         Single item in List or Get Event Hub operation
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] capture_description: Properties of capture description
+        :param pulumi.Input[float] message_retention_in_days: Number of days to retain the events for this Event Hub, value should be 1 to 7 days
         :param pulumi.Input[str] name: The Event Hub name
         :param pulumi.Input[str] namespace_name: The Namespace name
-        :param pulumi.Input[dict] properties: Properties supplied to the Create Or Update Event Hub operation.
+        :param pulumi.Input[float] partition_count: Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         :param pulumi.Input[str] resource_group_name: Name of the resource group within the azure subscription.
+        :param pulumi.Input[str] status: Enumerates the possible values for the status of the Event Hub.
 
-        The **properties** object supports the following:
+        The **capture_description** object supports the following:
 
-          * `capture_description` (`pulumi.Input[dict]`) - Properties of capture description
-            * `destination` (`pulumi.Input[dict]`) - Properties of Destination where capture will be stored. (Storage Account, Blob Names)
-              * `name` (`pulumi.Input[str]`) - Name for capture destination
-              * `properties` (`pulumi.Input[dict]`) - Properties describing the storage account, blob container and archive name format for capture destination
-                * `archive_name_format` (`pulumi.Input[str]`) - Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-                * `blob_container` (`pulumi.Input[str]`) - Blob container Name
-                * `storage_account_resource_id` (`pulumi.Input[str]`) - Resource id of the storage account to be used to create the blobs
+          * `destination` (`pulumi.Input[dict]`) - Properties of Destination where capture will be stored. (Storage Account, Blob Names)
+            * `archive_name_format` (`pulumi.Input[str]`) - Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+            * `blob_container` (`pulumi.Input[str]`) - Blob container Name
+            * `name` (`pulumi.Input[str]`) - Name for capture destination
+            * `storage_account_resource_id` (`pulumi.Input[str]`) - Resource id of the storage account to be used to create the blobs
 
-            * `enabled` (`pulumi.Input[bool]`) - A value that indicates whether capture description is enabled. 
-            * `encoding` (`pulumi.Input[str]`) - Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
-            * `interval_in_seconds` (`pulumi.Input[float]`) - The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
-            * `size_limit_in_bytes` (`pulumi.Input[float]`) - The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
-            * `skip_empty_archives` (`pulumi.Input[bool]`) - A value that indicates whether to Skip Empty Archives
-
-          * `message_retention_in_days` (`pulumi.Input[float]`) - Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-          * `partition_count` (`pulumi.Input[float]`) - Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
-          * `status` (`pulumi.Input[str]`) - Enumerates the possible values for the status of the Event Hub.
+          * `enabled` (`pulumi.Input[bool]`) - A value that indicates whether capture description is enabled. 
+          * `encoding` (`pulumi.Input[str]`) - Enumerates the possible values for the encoding format of capture description. Note: 'AvroDeflate' will be deprecated in New API Version
+          * `interval_in_seconds` (`pulumi.Input[float]`) - The time window allows you to set the frequency with which the capture to Azure Blobs will happen, value should between 60 to 900 seconds
+          * `size_limit_in_bytes` (`pulumi.Input[float]`) - The size window defines the amount of data built up in your Event Hub before an capture operation, value should be between 10485760 to 524288000 bytes
+          * `skip_empty_archives` (`pulumi.Input[bool]`) - A value that indicates whether to Skip Empty Archives
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -90,16 +87,20 @@ class EventHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['capture_description'] = capture_description
+            __props__['message_retention_in_days'] = message_retention_in_days
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             if namespace_name is None:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__['namespace_name'] = namespace_name
-            __props__['properties'] = properties
+            __props__['partition_count'] = partition_count
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['status'] = status
+            __props__['properties'] = None
             __props__['type'] = None
         super(EventHub, __self__).__init__(
             'azurerm:eventhub/v20170401:EventHub',

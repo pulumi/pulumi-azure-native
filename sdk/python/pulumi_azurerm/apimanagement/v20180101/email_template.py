@@ -32,28 +32,26 @@ class EmailTemplate(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, body=None, description=None, name=None, parameters=None, resource_group_name=None, service_name=None, subject=None, title=None, __props__=None, __name__=None, __opts__=None):
         """
         Email Template details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] body: Email Template Body. This should be a valid XDocument
+        :param pulumi.Input[str] description: Description of the Email Template.
         :param pulumi.Input[str] name: Email Template Name Identifier.
-        :param pulumi.Input[dict] properties: Email Template Update contract properties.
+        :param pulumi.Input[list] parameters: Email Template Parameter values.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[str] subject: Subject of the Template.
+        :param pulumi.Input[str] title: Title of the Template.
 
-        The **properties** object supports the following:
+        The **parameters** object supports the following:
 
-          * `body` (`pulumi.Input[str]`) - Email Template Body. This should be a valid XDocument
-          * `description` (`pulumi.Input[str]`) - Description of the Email Template.
-          * `parameters` (`pulumi.Input[list]`) - Email Template Parameter values.
-            * `description` (`pulumi.Input[str]`) - Template parameter description.
-            * `name` (`pulumi.Input[str]`) - Template parameter name.
-            * `title` (`pulumi.Input[str]`) - Template parameter title.
-
-          * `subject` (`pulumi.Input[str]`) - Subject of the Template.
-          * `title` (`pulumi.Input[str]`) - Title of the Template.
+          * `description` (`pulumi.Input[str]`) - Template parameter description.
+          * `name` (`pulumi.Input[str]`) - Template parameter name.
+          * `title` (`pulumi.Input[str]`) - Template parameter title.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -72,16 +70,21 @@ class EmailTemplate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['body'] = body
+            __props__['description'] = description
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['parameters'] = parameters
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['subject'] = subject
+            __props__['title'] = title
+            __props__['properties'] = None
             __props__['type'] = None
         super(EmailTemplate, __self__).__init__(
             'azurerm:apimanagement/v20180101:EmailTemplate',

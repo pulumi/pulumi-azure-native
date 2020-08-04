@@ -38,7 +38,7 @@ class PeeringService(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, location=None, name=None, peering_service_location=None, peering_service_provider=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Peering Service
 
@@ -46,15 +46,11 @@ class PeeringService(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location of the resource.
         :param pulumi.Input[str] name: The name of the peering service.
-        :param pulumi.Input[dict] properties: The properties that define a peering service.
+        :param pulumi.Input[str] peering_service_location: The PeeringServiceLocation of the Customer.
+        :param pulumi.Input[str] peering_service_provider: The MAPS Provider Name.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] sku: The SKU that defines the type of the peering service.
         :param pulumi.Input[dict] tags: The resource tags.
-
-        The **properties** object supports the following:
-
-          * `peering_service_location` (`pulumi.Input[str]`) - The PeeringServiceLocation of the Customer.
-          * `peering_service_provider` (`pulumi.Input[str]`) - The MAPS Provider Name.
 
         The **sku** object supports the following:
 
@@ -83,12 +79,14 @@ class PeeringService(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['peering_service_location'] = peering_service_location
+            __props__['peering_service_provider'] = peering_service_provider
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(PeeringService, __self__).__init__(
             'azurerm:peering/v20200401:PeeringService',

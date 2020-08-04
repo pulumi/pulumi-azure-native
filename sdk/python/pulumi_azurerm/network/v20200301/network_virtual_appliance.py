@@ -60,39 +60,38 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, identity=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, boot_strap_configuration_blob=None, cloud_init_configuration_blob=None, id=None, identity=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, virtual_appliance_asn=None, virtual_hub=None, __props__=None, __name__=None, __opts__=None):
         """
         NetworkVirtualAppliance Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] boot_strap_configuration_blob: BootStrapConfigurationBlob storage URLs.
+        :param pulumi.Input[list] cloud_init_configuration_blob: CloudInitConfigurationBlob storage URLs.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[dict] identity: The service principal that has read access to cloud-init and config blob.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of Network Virtual Appliance.
-        :param pulumi.Input[dict] properties: Properties of the Network Virtual Appliance.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] sku: Network Virtual Appliance SKU.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[float] virtual_appliance_asn: VirtualAppliance ASN.
+        :param pulumi.Input[dict] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
 
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
           * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 
-        The **properties** object supports the following:
-
-          * `boot_strap_configuration_blob` (`pulumi.Input[list]`) - BootStrapConfigurationBlob storage URLs.
-          * `cloud_init_configuration_blob` (`pulumi.Input[list]`) - CloudInitConfigurationBlob storage URLs.
-          * `virtual_appliance_asn` (`pulumi.Input[float]`) - VirtualAppliance ASN.
-          * `virtual_hub` (`pulumi.Input[dict]`) - The Virtual Hub where Network Virtual Appliance is being deployed.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
         The **sku** object supports the following:
 
           * `bundled_scale_unit` (`pulumi.Input[str]`) - Virtual Appliance Scale Unit.
           * `market_place_version` (`pulumi.Input[str]`) - Virtual Appliance Version.
           * `vendor` (`pulumi.Input[str]`) - Virtual Appliance Vendor.
+
+        The **virtual_hub** object supports the following:
+
+          * `id` (`pulumi.Input[str]`) - Resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -111,19 +110,23 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['boot_strap_configuration_blob'] = boot_strap_configuration_blob
+            __props__['cloud_init_configuration_blob'] = cloud_init_configuration_blob
             __props__['id'] = id
             __props__['identity'] = identity
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['virtual_appliance_asn'] = virtual_appliance_asn
+            __props__['virtual_hub'] = virtual_hub
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(NetworkVirtualAppliance, __self__).__init__(
             'azurerm:network/v20200301:NetworkVirtualAppliance',

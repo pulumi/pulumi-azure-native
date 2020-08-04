@@ -56,29 +56,23 @@ class DedicatedCloudNode(pulumi.CustomResource):
     """
     {resourceProviderNamespace}/{resourceType}
     """
-    def __init__(__self__, resource_name, opts=None, referer=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, referer=None, availability_zone_id=None, id=None, location=None, name=None, nodes_count=None, placement_group_id=None, purchase_id=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Dedicated cloud node model
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] referer: referer url
+        :param pulumi.Input[str] availability_zone_id: Availability Zone id, e.g. "az1"
+        :param pulumi.Input[str] id: SKU's id
         :param pulumi.Input[str] location: Azure region
         :param pulumi.Input[str] name: dedicated cloud node name
-        :param pulumi.Input[dict] properties: Dedicated Cloud Nodes properties
+        :param pulumi.Input[float] nodes_count: count of nodes to create
+        :param pulumi.Input[str] placement_group_id: Placement Group id, e.g. "n1"
+        :param pulumi.Input[str] purchase_id: purchase id
         :param pulumi.Input[str] resource_group_name: The name of the resource group
         :param pulumi.Input[dict] sku: Dedicated Cloud Nodes SKU
         :param pulumi.Input[dict] tags: Dedicated Cloud Nodes tags
-
-        The **properties** object supports the following:
-
-          * `availability_zone_id` (`pulumi.Input[str]`) - Availability Zone id, e.g. "az1"
-          * `nodes_count` (`pulumi.Input[float]`) - count of nodes to create
-          * `placement_group_id` (`pulumi.Input[str]`) - Placement Group id, e.g. "n1"
-          * `purchase_id` (`pulumi.Input[str]`) - purchase id
-          * `sku_description` (`pulumi.Input[dict]`) - Dedicated Cloud Nodes SKU's description
-            * `id` (`pulumi.Input[str]`) - SKU's id
-            * `name` (`pulumi.Input[str]`) - SKU's name
 
         The **sku** object supports the following:
 
@@ -108,18 +102,33 @@ class DedicatedCloudNode(pulumi.CustomResource):
             if referer is None:
                 raise TypeError("Missing required property 'referer'")
             __props__['referer'] = referer
+            if availability_zone_id is None:
+                raise TypeError("Missing required property 'availability_zone_id'")
+            __props__['availability_zone_id'] = availability_zone_id
+            if id is None:
+                raise TypeError("Missing required property 'id'")
+            __props__['id'] = id
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            if nodes_count is None:
+                raise TypeError("Missing required property 'nodes_count'")
+            __props__['nodes_count'] = nodes_count
+            if placement_group_id is None:
+                raise TypeError("Missing required property 'placement_group_id'")
+            __props__['placement_group_id'] = placement_group_id
+            if purchase_id is None:
+                raise TypeError("Missing required property 'purchase_id'")
+            __props__['purchase_id'] = purchase_id
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(DedicatedCloudNode, __self__).__init__(
             'azurerm:vmwarecloudsimple/v20190401:DedicatedCloudNode',

@@ -52,50 +52,50 @@ class ApiOperation(pulumi.CustomResource):
     """
     Resource type for API Management resource.
     """
-    def __init__(__self__, resource_name, opts=None, api_id=None, name=None, properties=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, api_id=None, description=None, display_name=None, method=None, name=None, policies=None, request=None, resource_group_name=None, responses=None, service_name=None, template_parameters=None, url_template=None, __props__=None, __name__=None, __opts__=None):
         """
         Api Operation details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+        :param pulumi.Input[str] description: Description of the operation. May include HTML formatting tags.
+        :param pulumi.Input[str] display_name: Operation Name.
+        :param pulumi.Input[str] method: A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
         :param pulumi.Input[str] name: Operation identifier within an API. Must be unique in the current API Management service instance.
-        :param pulumi.Input[dict] properties: Properties of the Operation Contract.
+        :param pulumi.Input[str] policies: Operation Policies
+        :param pulumi.Input[dict] request: An entity containing request details.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[list] responses: Array of Operation responses.
         :param pulumi.Input[str] service_name: The name of the API Management service.
+        :param pulumi.Input[list] template_parameters: Collection of URL template parameters.
+        :param pulumi.Input[str] url_template: Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
 
-        The **properties** object supports the following:
+        The **request** object supports the following:
 
-          * `description` (`pulumi.Input[str]`) - Description of the operation. May include HTML formatting tags.
-          * `display_name` (`pulumi.Input[str]`) - Operation Name.
-          * `method` (`pulumi.Input[str]`) - A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
-          * `policies` (`pulumi.Input[str]`) - Operation Policies
-          * `request` (`pulumi.Input[dict]`) - An entity containing request details.
-            * `description` (`pulumi.Input[str]`) - Operation request description.
-            * `headers` (`pulumi.Input[list]`) - Collection of operation request headers.
-              * `default_value` (`pulumi.Input[str]`) - Default parameter value.
-              * `description` (`pulumi.Input[str]`) - Parameter description.
-              * `name` (`pulumi.Input[str]`) - Parameter name.
-              * `required` (`pulumi.Input[bool]`) - whether parameter is required or not.
-              * `type` (`pulumi.Input[str]`) - Parameter type.
-              * `values` (`pulumi.Input[list]`) - Parameter values.
+          * `description` (`pulumi.Input[str]`) - Operation request description.
+          * `headers` (`pulumi.Input[list]`) - Collection of operation request headers.
+            * `default_value` (`pulumi.Input[str]`) - Default parameter value.
+            * `description` (`pulumi.Input[str]`) - Parameter description.
+            * `name` (`pulumi.Input[str]`) - Parameter name.
+            * `required` (`pulumi.Input[bool]`) - whether parameter is required or not.
+            * `type` (`pulumi.Input[str]`) - Parameter type.
+            * `values` (`pulumi.Input[list]`) - Parameter values.
 
-            * `query_parameters` (`pulumi.Input[list]`) - Collection of operation request query parameters.
-            * `representations` (`pulumi.Input[list]`) - Collection of operation request representations.
-              * `content_type` (`pulumi.Input[str]`) - Specifies a registered or custom content type for this representation, e.g. application/xml.
-              * `form_parameters` (`pulumi.Input[list]`) - Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
-              * `sample` (`pulumi.Input[str]`) - An example of the representation.
-              * `schema_id` (`pulumi.Input[str]`) - Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
-              * `type_name` (`pulumi.Input[str]`) - Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
+          * `query_parameters` (`pulumi.Input[list]`) - Collection of operation request query parameters.
+          * `representations` (`pulumi.Input[list]`) - Collection of operation request representations.
+            * `content_type` (`pulumi.Input[str]`) - Specifies a registered or custom content type for this representation, e.g. application/xml.
+            * `form_parameters` (`pulumi.Input[list]`) - Collection of form parameters. Required if 'contentType' value is either 'application/x-www-form-urlencoded' or 'multipart/form-data'..
+            * `sample` (`pulumi.Input[str]`) - An example of the representation.
+            * `schema_id` (`pulumi.Input[str]`) - Schema identifier. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
+            * `type_name` (`pulumi.Input[str]`) - Type name defined by the schema. Applicable only if 'contentType' value is neither 'application/x-www-form-urlencoded' nor 'multipart/form-data'.
 
-          * `responses` (`pulumi.Input[list]`) - Array of Operation responses.
-            * `description` (`pulumi.Input[str]`) - Operation response description.
-            * `headers` (`pulumi.Input[list]`) - Collection of operation response headers.
-            * `representations` (`pulumi.Input[list]`) - Collection of operation response representations.
-            * `status_code` (`pulumi.Input[float]`) - Operation response HTTP status code.
+        The **responses** object supports the following:
 
-          * `template_parameters` (`pulumi.Input[list]`) - Collection of URL template parameters.
-          * `url_template` (`pulumi.Input[str]`) - Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
+          * `description` (`pulumi.Input[str]`) - Operation response description.
+          * `headers` (`pulumi.Input[list]`) - Collection of operation response headers.
+          * `representations` (`pulumi.Input[list]`) - Collection of operation response representations.
+          * `status_code` (`pulumi.Input[float]`) - Operation response HTTP status code.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,16 +117,30 @@ class ApiOperation(pulumi.CustomResource):
             if api_id is None:
                 raise TypeError("Missing required property 'api_id'")
             __props__['api_id'] = api_id
+            __props__['description'] = description
+            if display_name is None:
+                raise TypeError("Missing required property 'display_name'")
+            __props__['display_name'] = display_name
+            if method is None:
+                raise TypeError("Missing required property 'method'")
+            __props__['method'] = method
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['policies'] = policies
+            __props__['request'] = request
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['responses'] = responses
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
+            __props__['template_parameters'] = template_parameters
+            if url_template is None:
+                raise TypeError("Missing required property 'url_template'")
+            __props__['url_template'] = url_template
+            __props__['properties'] = None
             __props__['type'] = None
         super(ApiOperation, __self__).__init__(
             'azurerm:apimanagement/v20180101:ApiOperation',

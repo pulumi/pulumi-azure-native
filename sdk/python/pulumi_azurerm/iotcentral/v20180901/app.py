@@ -39,24 +39,20 @@ class App(pulumi.CustomResource):
     """
     The resource type.
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, display_name=None, location=None, name=None, resource_group_name=None, sku=None, subdomain=None, tags=None, template=None, __props__=None, __name__=None, __opts__=None):
         """
         The IoT Central application.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] display_name: The display name of the application.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] name: The ARM resource name of the IoT Central application.
-        :param pulumi.Input[dict] properties: The common properties of an IoT Central application.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT Central application.
         :param pulumi.Input[dict] sku: A valid instance SKU.
+        :param pulumi.Input[str] subdomain: The subdomain of the application.
         :param pulumi.Input[dict] tags: The resource tags.
-
-        The **properties** object supports the following:
-
-          * `display_name` (`pulumi.Input[str]`) - The display name of the application.
-          * `subdomain` (`pulumi.Input[str]`) - The subdomain of the application.
-          * `template` (`pulumi.Input[str]`) - The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+        :param pulumi.Input[str] template: The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
 
         The **sku** object supports the following:
 
@@ -79,20 +75,23 @@ class App(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['display_name'] = display_name
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if sku is None:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
+            __props__['subdomain'] = subdomain
             __props__['tags'] = tags
+            __props__['template'] = template
+            __props__['properties'] = None
             __props__['type'] = None
         super(App, __self__).__init__(
             'azurerm:iotcentral/v20180901:App',

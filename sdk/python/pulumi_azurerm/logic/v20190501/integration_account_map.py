@@ -48,27 +48,26 @@ class IntegrationAccountMap(pulumi.CustomResource):
     """
     Gets the resource type.
     """
-    def __init__(__self__, resource_name, opts=None, integration_account_name=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, content=None, content_type=None, integration_account_name=None, location=None, map_type=None, metadata=None, name=None, parameters_schema=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The integration account map.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] content: The content.
+        :param pulumi.Input[str] content_type: The content type.
         :param pulumi.Input[str] integration_account_name: The integration account name.
         :param pulumi.Input[str] location: The resource location.
+        :param pulumi.Input[str] map_type: The map type.
+        :param pulumi.Input[dict] metadata: The metadata.
         :param pulumi.Input[str] name: The integration account map name.
-        :param pulumi.Input[dict] properties: The integration account map properties.
+        :param pulumi.Input[dict] parameters_schema: The parameters schema of integration account map.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[dict] tags: The resource tags.
 
-        The **properties** object supports the following:
+        The **parameters_schema** object supports the following:
 
-          * `content` (`pulumi.Input[str]`) - The content.
-          * `content_type` (`pulumi.Input[str]`) - The content type.
-          * `map_type` (`pulumi.Input[str]`) - The map type.
-          * `metadata` (`pulumi.Input[dict]`) - The metadata.
-          * `parameters_schema` (`pulumi.Input[dict]`) - The parameters schema of integration account map.
-            * `ref` (`pulumi.Input[str]`) - The reference name.
+          * `ref` (`pulumi.Input[str]`) - The reference name.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,20 +86,25 @@ class IntegrationAccountMap(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['content'] = content
+            __props__['content_type'] = content_type
             if integration_account_name is None:
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__['integration_account_name'] = integration_account_name
             __props__['location'] = location
+            if map_type is None:
+                raise TypeError("Missing required property 'map_type'")
+            __props__['map_type'] = map_type
+            __props__['metadata'] = metadata
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            __props__['parameters_schema'] = parameters_schema
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(IntegrationAccountMap, __self__).__init__(
             'azurerm:logic/v20190501:IntegrationAccountMap',

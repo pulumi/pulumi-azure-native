@@ -31,7 +31,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The Private Endpoint Connection resource.
 
@@ -39,18 +39,16 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] name: The name of the private endpoint connection associated with the Azure resource
-        :param pulumi.Input[dict] properties: Resource properties.
+        :param pulumi.Input[dict] private_endpoint: The resource of private end point.
+        :param pulumi.Input[dict] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param pulumi.Input[str] provisioning_state: The provisioning state of the private endpoint connection resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
 
-        The **properties** object supports the following:
+        The **private_link_service_connection_state** object supports the following:
 
-          * `private_endpoint` (`pulumi.Input[dict]`) - The resource of private end point.
-          * `private_link_service_connection_state` (`pulumi.Input[dict]`) - A collection of information about the state of the connection between service consumer and provider.
-            * `action_required` (`pulumi.Input[str]`) - A message indicating if changes on the service provider require any updates on the consumer.
-            * `description` (`pulumi.Input[str]`) - The reason for approval/rejection of the connection.
-            * `status` (`pulumi.Input[str]`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the private endpoint connection resource.
+          * `action_required` (`pulumi.Input[str]`) - A message indicating if changes on the service provider require any updates on the consumer.
+          * `description` (`pulumi.Input[str]`) - The reason for approval/rejection of the connection.
+          * `status` (`pulumi.Input[str]`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -75,10 +73,15 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['private_endpoint'] = private_endpoint
+            if private_link_service_connection_state is None:
+                raise TypeError("Missing required property 'private_link_service_connection_state'")
+            __props__['private_link_service_connection_state'] = private_link_service_connection_state
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(PrivateEndpointConnection, __self__).__init__(
             'azurerm:storage/v20190601:PrivateEndpointConnection',

@@ -46,24 +46,20 @@ class Project(pulumi.CustomResource):
     """
     Type of the object = [Microsoft.Migrate/projects].
     """
-    def __init__(__self__, resource_name, opts=None, e_tag=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, customer_workspace_id=None, customer_workspace_location=None, e_tag=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Azure Migrate Project.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] customer_workspace_id: ARM ID of the Service Map workspace created by user.
+        :param pulumi.Input[str] customer_workspace_location: Location of the Service Map workspace created by user.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
         :param pulumi.Input[str] location: Azure location in which project is created.
         :param pulumi.Input[str] name: Name of the Azure Migrate project.
-        :param pulumi.Input[dict] properties: Properties of the project.
+        :param pulumi.Input[str] provisioning_state: Provisioning state of the project.
         :param pulumi.Input[str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[dict] tags: Tags provided by Azure Tagging service.
-
-        The **properties** object supports the following:
-
-          * `customer_workspace_id` (`pulumi.Input[str]`) - ARM ID of the Service Map workspace created by user.
-          * `customer_workspace_location` (`pulumi.Input[str]`) - Location of the Service Map workspace created by user.
-          * `provisioning_state` (`pulumi.Input[str]`) - Provisioning state of the project.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,16 +78,19 @@ class Project(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['customer_workspace_id'] = customer_workspace_id
+            __props__['customer_workspace_location'] = customer_workspace_location
             __props__['e_tag'] = e_tag
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['properties'] = None
             __props__['type'] = None
         super(Project, __self__).__init__(
             'azurerm:migrate/v20180202:Project',

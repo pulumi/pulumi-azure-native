@@ -29,26 +29,25 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
         * `next_hop_type` (`str`) - The type of next hops.
         * `next_hops` (`list`) - NextHops ip address.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, attached_connections=None, id=None, name=None, resource_group_name=None, routes=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
         """
         VirtualHubRouteTableV2 Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] attached_connections: List of all connections attached to this route table v2.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the VirtualHubRouteTableV2.
-        :param pulumi.Input[dict] properties: Properties of the virtual hub route table v2.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
+        :param pulumi.Input[list] routes: List of all routes.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
 
-        The **properties** object supports the following:
+        The **routes** object supports the following:
 
-          * `attached_connections` (`pulumi.Input[list]`) - List of all connections attached to this route table v2.
-          * `routes` (`pulumi.Input[list]`) - List of all routes.
-            * `destination_type` (`pulumi.Input[str]`) - The type of destinations.
-            * `destinations` (`pulumi.Input[list]`) - List of all destinations.
-            * `next_hop_type` (`pulumi.Input[str]`) - The type of next hops.
-            * `next_hops` (`pulumi.Input[list]`) - NextHops ip address.
+          * `destination_type` (`pulumi.Input[str]`) - The type of destinations.
+          * `destinations` (`pulumi.Input[list]`) - List of all destinations.
+          * `next_hop_type` (`pulumi.Input[str]`) - The type of next hops.
+          * `next_hops` (`pulumi.Input[list]`) - NextHops ip address.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -67,18 +66,20 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['attached_connections'] = attached_connections
             __props__['id'] = id
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['routes'] = routes
             if virtual_hub_name is None:
                 raise TypeError("Missing required property 'virtual_hub_name'")
             __props__['virtual_hub_name'] = virtual_hub_name
             __props__['etag'] = None
+            __props__['properties'] = None
         super(VirtualHubRouteTableV2, __self__).__init__(
             'azurerm:network/v20200301:VirtualHubRouteTableV2',
             resource_name,

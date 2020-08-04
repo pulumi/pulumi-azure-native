@@ -24,14 +24,13 @@ class SyncGroup(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, storage_sync_service_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, storage_sync_service_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Sync Group object.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of Sync Group resource.
-        :param pulumi.Input[dict] properties: The parameters used to create the sync group
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_sync_service_name: Name of Storage Sync Service resource.
         """
@@ -55,13 +54,13 @@ class SyncGroup(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             if storage_sync_service_name is None:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__['storage_sync_service_name'] = storage_sync_service_name
+            __props__['properties'] = None
             __props__['type'] = None
         super(SyncGroup, __self__).__init__(
             'azurerm:storagesync/v20181001:SyncGroup',

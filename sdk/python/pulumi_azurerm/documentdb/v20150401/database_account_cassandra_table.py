@@ -43,7 +43,7 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
     """
     The type of Azure resource.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, keyspace_name=None, name=None, properties=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, keyspace_name=None, name=None, options=None, resource=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
         An Azure Cosmos DB Cassandra table.
 
@@ -52,26 +52,25 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
         :param pulumi.Input[str] keyspace_name: Cosmos DB keyspace name.
         :param pulumi.Input[str] name: Cosmos DB table name.
-        :param pulumi.Input[dict] properties: Properties to create and update Azure Cosmos DB Cassandra table.
+        :param pulumi.Input[dict] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+        :param pulumi.Input[dict] resource: The standard JSON format of a Cassandra table
         :param pulumi.Input[str] resource_group_name: Name of an Azure resource group.
 
-        The **properties** object supports the following:
+        The **resource** object supports the following:
 
-          * `options` (`pulumi.Input[dict]`) - A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
-          * `resource` (`pulumi.Input[dict]`) - The standard JSON format of a Cassandra table
-            * `default_ttl` (`pulumi.Input[float]`) - Time to live of the Cosmos DB Cassandra table
-            * `id` (`pulumi.Input[str]`) - Name of the Cosmos DB Cassandra table
-            * `schema` (`pulumi.Input[dict]`) - Schema of the Cosmos DB Cassandra table
-              * `cluster_keys` (`pulumi.Input[list]`) - List of cluster key.
-                * `name` (`pulumi.Input[str]`) - Name of the Cosmos DB Cassandra table cluster key
-                * `order_by` (`pulumi.Input[str]`) - Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+          * `default_ttl` (`pulumi.Input[float]`) - Time to live of the Cosmos DB Cassandra table
+          * `id` (`pulumi.Input[str]`) - Name of the Cosmos DB Cassandra table
+          * `schema` (`pulumi.Input[dict]`) - Schema of the Cosmos DB Cassandra table
+            * `cluster_keys` (`pulumi.Input[list]`) - List of cluster key.
+              * `name` (`pulumi.Input[str]`) - Name of the Cosmos DB Cassandra table cluster key
+              * `order_by` (`pulumi.Input[str]`) - Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
 
-              * `columns` (`pulumi.Input[list]`) - List of Cassandra table columns.
-                * `name` (`pulumi.Input[str]`) - Name of the Cosmos DB Cassandra table column
-                * `type` (`pulumi.Input[str]`) - Type of the Cosmos DB Cassandra table column
+            * `columns` (`pulumi.Input[list]`) - List of Cassandra table columns.
+              * `name` (`pulumi.Input[str]`) - Name of the Cosmos DB Cassandra table column
+              * `type` (`pulumi.Input[str]`) - Type of the Cosmos DB Cassandra table column
 
-              * `partition_keys` (`pulumi.Input[list]`) - List of partition key.
-                * `name` (`pulumi.Input[str]`) - Name of the Cosmos DB Cassandra table partition key
+            * `partition_keys` (`pulumi.Input[list]`) - List of partition key.
+              * `name` (`pulumi.Input[str]`) - Name of the Cosmos DB Cassandra table partition key
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -99,13 +98,17 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
+            if options is None:
+                raise TypeError("Missing required property 'options'")
+            __props__['options'] = options
+            if resource is None:
+                raise TypeError("Missing required property 'resource'")
+            __props__['resource'] = resource
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['location'] = None
+            __props__['properties'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(DatabaseAccountCassandraTable, __self__).__init__(

@@ -30,7 +30,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
     """
     Connection type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, name=None, properties=None, resource_group_name=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, id=None, name=None, peer_asn=None, peer_ip=None, resource_group_name=None, virtual_hub_name=None, __props__=None, __name__=None, __opts__=None):
         """
         Virtual Appliance Site resource.
 
@@ -38,14 +38,10 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] name: The name of the connection.
-        :param pulumi.Input[dict] properties: The properties of the Bgp connections.
+        :param pulumi.Input[float] peer_asn: Peer ASN.
+        :param pulumi.Input[str] peer_ip: Peer IP.
         :param pulumi.Input[str] resource_group_name: The resource group name of the VirtualHub.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
-
-        The **properties** object supports the following:
-
-          * `peer_asn` (`pulumi.Input[float]`) - Peer ASN.
-          * `peer_ip` (`pulumi.Input[str]`) - Peer IP.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -68,7 +64,8 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['peer_asn'] = peer_asn
+            __props__['peer_ip'] = peer_ip
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -76,6 +73,7 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_hub_name'")
             __props__['virtual_hub_name'] = virtual_hub_name
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualHubBgpConnection, __self__).__init__(
             'azurerm:network/v20200501:VirtualHubBgpConnection',

@@ -45,34 +45,32 @@ class MetricAlert(pulumi.CustomResource):
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, actions=None, auto_mitigate=None, criteria=None, description=None, enabled=None, evaluation_frequency=None, location=None, name=None, resource_group_name=None, scopes=None, severity=None, tags=None, target_resource_region=None, target_resource_type=None, window_size=None, __props__=None, __name__=None, __opts__=None):
         """
         The metric alert resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[list] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param pulumi.Input[bool] auto_mitigate: the flag that indicates whether the alert should be auto resolved or not. The default is true.
+        :param pulumi.Input[dict] criteria: defines the specific alert criteria information.
+        :param pulumi.Input[str] description: the description of the metric alert that will be included in the alert email.
+        :param pulumi.Input[bool] enabled: the flag that indicates whether the metric alert is enabled.
+        :param pulumi.Input[str] evaluation_frequency: how often the metric alert is evaluated represented in ISO 8601 duration format.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the rule.
-        :param pulumi.Input[dict] properties: The alert rule properties of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[list] scopes: the list of resource id's that this metric alert is scoped to.
+        :param pulumi.Input[float] severity: Alert severity {0, 1, 2, 3, 4}
         :param pulumi.Input[dict] tags: Resource tags
+        :param pulumi.Input[str] target_resource_region: the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        :param pulumi.Input[str] target_resource_type: the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        :param pulumi.Input[str] window_size: the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
 
-        The **properties** object supports the following:
+        The **actions** object supports the following:
 
-          * `actions` (`pulumi.Input[list]`) - the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-            * `action_group_id` (`pulumi.Input[str]`) - the id of the action group to use.
-            * `web_hook_properties` (`pulumi.Input[dict]`) - The properties of a webhook object.
-
-          * `auto_mitigate` (`pulumi.Input[bool]`) - the flag that indicates whether the alert should be auto resolved or not. The default is true.
-          * `criteria` (`pulumi.Input[dict]`) - defines the specific alert criteria information.
-          * `description` (`pulumi.Input[str]`) - the description of the metric alert that will be included in the alert email.
-          * `enabled` (`pulumi.Input[bool]`) - the flag that indicates whether the metric alert is enabled.
-          * `evaluation_frequency` (`pulumi.Input[str]`) - how often the metric alert is evaluated represented in ISO 8601 duration format.
-          * `scopes` (`pulumi.Input[list]`) - the list of resource id's that this metric alert is scoped to.
-          * `severity` (`pulumi.Input[float]`) - Alert severity {0, 1, 2, 3, 4}
-          * `target_resource_region` (`pulumi.Input[str]`) - the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
-          * `target_resource_type` (`pulumi.Input[str]`) - the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
-          * `window_size` (`pulumi.Input[str]`) - the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+          * `action_group_id` (`pulumi.Input[str]`) - the id of the action group to use.
+          * `web_hook_properties` (`pulumi.Input[dict]`) - The properties of a webhook object.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,19 +89,40 @@ class MetricAlert(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['actions'] = actions
+            __props__['auto_mitigate'] = auto_mitigate
+            if criteria is None:
+                raise TypeError("Missing required property 'criteria'")
+            __props__['criteria'] = criteria
+            if description is None:
+                raise TypeError("Missing required property 'description'")
+            __props__['description'] = description
+            if enabled is None:
+                raise TypeError("Missing required property 'enabled'")
+            __props__['enabled'] = enabled
+            if evaluation_frequency is None:
+                raise TypeError("Missing required property 'evaluation_frequency'")
+            __props__['evaluation_frequency'] = evaluation_frequency
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if properties is None:
-                raise TypeError("Missing required property 'properties'")
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['scopes'] = scopes
+            if severity is None:
+                raise TypeError("Missing required property 'severity'")
+            __props__['severity'] = severity
             __props__['tags'] = tags
+            __props__['target_resource_region'] = target_resource_region
+            __props__['target_resource_type'] = target_resource_type
+            if window_size is None:
+                raise TypeError("Missing required property 'window_size'")
+            __props__['window_size'] = window_size
+            __props__['properties'] = None
             __props__['type'] = None
         super(MetricAlert, __self__).__init__(
             'azurerm:insights/v20180301:MetricAlert',

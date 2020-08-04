@@ -42,26 +42,24 @@ class FirewallPolicy(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, id=None, location=None, name=None, properties=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, base_policy=None, id=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, threat_intel_mode=None, __props__=None, __name__=None, __opts__=None):
         """
         FirewallPolicy Resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[dict] base_policy: The parent firewall policy from which rules are inherited.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the Firewall Policy.
-        :param pulumi.Input[dict] properties: Properties of the firewall policy.
+        :param pulumi.Input[str] provisioning_state: The provisioning state of the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
+        :param pulumi.Input[str] threat_intel_mode: The operation mode for Threat Intelligence.
 
-        The **properties** object supports the following:
+        The **base_policy** object supports the following:
 
-          * `base_policy` (`pulumi.Input[dict]`) - The parent firewall policy from which rules are inherited.
-            * `id` (`pulumi.Input[str]`) - Resource ID.
-
-          * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource.
-          * `threat_intel_mode` (`pulumi.Input[str]`) - The operation mode for Threat Intelligence.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -80,17 +78,20 @@ class FirewallPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
+            __props__['base_policy'] = base_policy
             __props__['id'] = id
             __props__['location'] = location
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
+            __props__['provisioning_state'] = provisioning_state
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['threat_intel_mode'] = threat_intel_mode
             __props__['etag'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(FirewallPolicy, __self__).__init__(
             'azurerm:network/v20190601:FirewallPolicy',
