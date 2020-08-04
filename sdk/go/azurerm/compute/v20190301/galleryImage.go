@@ -32,11 +32,20 @@ func NewGalleryImage(ctx *pulumi.Context,
 	if args == nil || args.GalleryName == nil {
 		return nil, errors.New("missing required argument 'GalleryName'")
 	}
+	if args == nil || args.Identifier == nil {
+		return nil, errors.New("missing required argument 'Identifier'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
+	}
+	if args == nil || args.OsState == nil {
+		return nil, errors.New("missing required argument 'OsState'")
+	}
+	if args == nil || args.OsType == nil {
+		return nil, errors.New("missing required argument 'OsType'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -96,14 +105,34 @@ func (GalleryImageState) ElementType() reflect.Type {
 }
 
 type galleryImageArgs struct {
+	// The description of this gallery Image Definition resource. This property is updatable.
+	Description *string `pulumi:"description"`
+	// Describes the disallowed disk types.
+	Disallowed *Disallowed `pulumi:"disallowed"`
+	// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
+	// The Eula agreement for the gallery Image Definition.
+	Eula *string `pulumi:"eula"`
 	// The name of the Shared Image Gallery in which the Image Definition is to be created.
 	GalleryName string `pulumi:"galleryName"`
+	// This is the gallery Image Definition identifier.
+	Identifier GalleryImageIdentifier `pulumi:"identifier"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
 	Name string `pulumi:"name"`
-	// Describes the properties of a gallery Image Definition.
-	Properties *GalleryImageProperties `pulumi:"properties"`
+	// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
+	OsState string `pulumi:"osState"`
+	// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+	OsType string `pulumi:"osType"`
+	// The privacy statement uri.
+	PrivacyStatementUri *string `pulumi:"privacyStatementUri"`
+	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+	PurchasePlan *ImagePurchasePlan `pulumi:"purchasePlan"`
+	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+	Recommended *RecommendedMachineConfiguration `pulumi:"recommended"`
+	// The release note uri.
+	ReleaseNoteUri *string `pulumi:"releaseNoteUri"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -112,14 +141,34 @@ type galleryImageArgs struct {
 
 // The set of arguments for constructing a GalleryImage resource.
 type GalleryImageArgs struct {
+	// The description of this gallery Image Definition resource. This property is updatable.
+	Description pulumi.StringPtrInput
+	// Describes the disallowed disk types.
+	Disallowed DisallowedPtrInput
+	// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+	EndOfLifeDate pulumi.StringPtrInput
+	// The Eula agreement for the gallery Image Definition.
+	Eula pulumi.StringPtrInput
 	// The name of the Shared Image Gallery in which the Image Definition is to be created.
 	GalleryName pulumi.StringInput
+	// This is the gallery Image Definition identifier.
+	Identifier GalleryImageIdentifierInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the gallery Image Definition to be created or updated. The allowed characters are alphabets and numbers with dots, dashes, and periods allowed in the middle. The maximum length is 80 characters.
 	Name pulumi.StringInput
-	// Describes the properties of a gallery Image Definition.
-	Properties GalleryImagePropertiesPtrInput
+	// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
+	OsState pulumi.StringInput
+	// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+	OsType pulumi.StringInput
+	// The privacy statement uri.
+	PrivacyStatementUri pulumi.StringPtrInput
+	// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+	PurchasePlan ImagePurchasePlanPtrInput
+	// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+	Recommended RecommendedMachineConfigurationPtrInput
+	// The release note uri.
+	ReleaseNoteUri pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

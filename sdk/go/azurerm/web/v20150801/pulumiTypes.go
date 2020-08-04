@@ -1896,103 +1896,6 @@ func (o BackupItemResponsePropertiesOutput) WebsiteSizeInBytes() pulumi.IntPtrOu
 	return o.ApplyT(func(v BackupItemResponseProperties) *int { return v.WebsiteSizeInBytes }).(pulumi.IntPtrOutput)
 }
 
-type BackupRequestProperties struct {
-	// Schedule for the backup if it is executed periodically
-	BackupSchedule *BackupSchedule `pulumi:"backupSchedule"`
-	// Databases included in the backup
-	Databases []DatabaseBackupSetting `pulumi:"databases"`
-	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
-	Enabled *bool `pulumi:"enabled"`
-	// Name of the backup
-	Name *string `pulumi:"name"`
-	// SAS URL to the container
-	StorageAccountUrl *string `pulumi:"storageAccountUrl"`
-	// Type of the backup
-	Type string `pulumi:"type"`
-}
-
-// BackupRequestPropertiesInput is an input type that accepts BackupRequestPropertiesArgs and BackupRequestPropertiesOutput values.
-// You can construct a concrete instance of `BackupRequestPropertiesInput` via:
-//
-//          BackupRequestPropertiesArgs{...}
-type BackupRequestPropertiesInput interface {
-	pulumi.Input
-
-	ToBackupRequestPropertiesOutput() BackupRequestPropertiesOutput
-	ToBackupRequestPropertiesOutputWithContext(context.Context) BackupRequestPropertiesOutput
-}
-
-type BackupRequestPropertiesArgs struct {
-	// Schedule for the backup if it is executed periodically
-	BackupSchedule BackupSchedulePtrInput `pulumi:"backupSchedule"`
-	// Databases included in the backup
-	Databases DatabaseBackupSettingArrayInput `pulumi:"databases"`
-	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Name of the backup
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// SAS URL to the container
-	StorageAccountUrl pulumi.StringPtrInput `pulumi:"storageAccountUrl"`
-	// Type of the backup
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (BackupRequestPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupRequestProperties)(nil)).Elem()
-}
-
-func (i BackupRequestPropertiesArgs) ToBackupRequestPropertiesOutput() BackupRequestPropertiesOutput {
-	return i.ToBackupRequestPropertiesOutputWithContext(context.Background())
-}
-
-func (i BackupRequestPropertiesArgs) ToBackupRequestPropertiesOutputWithContext(ctx context.Context) BackupRequestPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupRequestPropertiesOutput)
-}
-
-type BackupRequestPropertiesOutput struct{ *pulumi.OutputState }
-
-func (BackupRequestPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupRequestProperties)(nil)).Elem()
-}
-
-func (o BackupRequestPropertiesOutput) ToBackupRequestPropertiesOutput() BackupRequestPropertiesOutput {
-	return o
-}
-
-func (o BackupRequestPropertiesOutput) ToBackupRequestPropertiesOutputWithContext(ctx context.Context) BackupRequestPropertiesOutput {
-	return o
-}
-
-// Schedule for the backup if it is executed periodically
-func (o BackupRequestPropertiesOutput) BackupSchedule() BackupSchedulePtrOutput {
-	return o.ApplyT(func(v BackupRequestProperties) *BackupSchedule { return v.BackupSchedule }).(BackupSchedulePtrOutput)
-}
-
-// Databases included in the backup
-func (o BackupRequestPropertiesOutput) Databases() DatabaseBackupSettingArrayOutput {
-	return o.ApplyT(func(v BackupRequestProperties) []DatabaseBackupSetting { return v.Databases }).(DatabaseBackupSettingArrayOutput)
-}
-
-// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
-func (o BackupRequestPropertiesOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BackupRequestProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// Name of the backup
-func (o BackupRequestPropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BackupRequestProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// SAS URL to the container
-func (o BackupRequestPropertiesOutput) StorageAccountUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BackupRequestProperties) *string { return v.StorageAccountUrl }).(pulumi.StringPtrOutput)
-}
-
-// Type of the backup
-func (o BackupRequestPropertiesOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v BackupRequestProperties) string { return v.Type }).(pulumi.StringOutput)
-}
-
 type BackupRequestResponseProperties struct {
 	// Schedule for the backup if it is executed periodically
 	BackupSchedule *BackupScheduleResponse `pulumi:"backupSchedule"`
@@ -2145,47 +2048,6 @@ func (i BackupScheduleArgs) ToBackupScheduleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleOutput)
 }
 
-func (i BackupScheduleArgs) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
-	return i.ToBackupSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i BackupScheduleArgs) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleOutput).ToBackupSchedulePtrOutputWithContext(ctx)
-}
-
-// BackupSchedulePtrInput is an input type that accepts BackupScheduleArgs, BackupSchedulePtr and BackupSchedulePtrOutput values.
-// You can construct a concrete instance of `BackupSchedulePtrInput` via:
-//
-//          BackupScheduleArgs{...}
-//
-//  or:
-//
-//          nil
-type BackupSchedulePtrInput interface {
-	pulumi.Input
-
-	ToBackupSchedulePtrOutput() BackupSchedulePtrOutput
-	ToBackupSchedulePtrOutputWithContext(context.Context) BackupSchedulePtrOutput
-}
-
-type backupSchedulePtrType BackupScheduleArgs
-
-func BackupSchedulePtr(v *BackupScheduleArgs) BackupSchedulePtrInput {
-	return (*backupSchedulePtrType)(v)
-}
-
-func (*backupSchedulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupSchedule)(nil)).Elem()
-}
-
-func (i *backupSchedulePtrType) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
-	return i.ToBackupSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i *backupSchedulePtrType) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupSchedulePtrOutput)
-}
-
 // Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
 type BackupScheduleOutput struct{ *pulumi.OutputState }
 
@@ -2199,16 +2061,6 @@ func (o BackupScheduleOutput) ToBackupScheduleOutput() BackupScheduleOutput {
 
 func (o BackupScheduleOutput) ToBackupScheduleOutputWithContext(ctx context.Context) BackupScheduleOutput {
 	return o
-}
-
-func (o BackupScheduleOutput) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
-	return o.ToBackupSchedulePtrOutputWithContext(context.Background())
-}
-
-func (o BackupScheduleOutput) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
-	return o.ApplyT(func(v BackupSchedule) *BackupSchedule {
-		return &v
-	}).(BackupSchedulePtrOutput)
 }
 
 // How often should be the backup executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
@@ -2239,84 +2091,6 @@ func (o BackupScheduleOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
 // When the schedule should start working
 func (o BackupScheduleOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupSchedule) *string { return v.StartTime }).(pulumi.StringPtrOutput)
-}
-
-type BackupSchedulePtrOutput struct{ *pulumi.OutputState }
-
-func (BackupSchedulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupSchedule)(nil)).Elem()
-}
-
-func (o BackupSchedulePtrOutput) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
-	return o
-}
-
-func (o BackupSchedulePtrOutput) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
-	return o
-}
-
-func (o BackupSchedulePtrOutput) Elem() BackupScheduleOutput {
-	return o.ApplyT(func(v *BackupSchedule) BackupSchedule { return *v }).(BackupScheduleOutput)
-}
-
-// How often should be the backup executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
-func (o BackupSchedulePtrOutput) FrequencyInterval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BackupSchedule) *int {
-		if v == nil {
-			return nil
-		}
-		return v.FrequencyInterval
-	}).(pulumi.IntPtrOutput)
-}
-
-// How often should be the backup executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-func (o BackupSchedulePtrOutput) FrequencyUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackupSchedule) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FrequencyUnit
-	}).(pulumi.StringPtrOutput)
-}
-
-// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
-func (o BackupSchedulePtrOutput) KeepAtLeastOneBackup() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BackupSchedule) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.KeepAtLeastOneBackup
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The last time when this schedule was triggered
-func (o BackupSchedulePtrOutput) LastExecutionTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackupSchedule) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastExecutionTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// After how many days backups should be deleted
-func (o BackupSchedulePtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BackupSchedule) *int {
-		if v == nil {
-			return nil
-		}
-		return v.RetentionPeriodInDays
-	}).(pulumi.IntPtrOutput)
-}
-
-// When the schedule should start working
-func (o BackupSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackupSchedule) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StartTime
-	}).(pulumi.StringPtrOutput)
 }
 
 // Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
@@ -2740,403 +2514,6 @@ func (o CertificateCsrTypeOutput) Tags() pulumi.StringMapOutput {
 // Resource type
 func (o CertificateCsrTypeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateCsrType) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type CertificateProperties struct {
-	// Raw bytes of .cer file
-	CerBlob *string `pulumi:"cerBlob"`
-	// Certificate expiration date
-	ExpirationDate *string `pulumi:"expirationDate"`
-	// Friendly name of the certificate
-	FriendlyName *string `pulumi:"friendlyName"`
-	// Host names the certificate applies to
-	HostNames []string `pulumi:"hostNames"`
-	// Specification for the hosting environment (App Service Environment) to use for the certificate
-	HostingEnvironmentProfile *HostingEnvironmentProfile `pulumi:"hostingEnvironmentProfile"`
-	// Certificate issue Date
-	IssueDate *string `pulumi:"issueDate"`
-	// Certificate issuer
-	Issuer *string `pulumi:"issuer"`
-	// Certificate password
-	Password *string `pulumi:"password"`
-	// Pfx blob
-	PfxBlob *string `pulumi:"pfxBlob"`
-	// Public key hash
-	PublicKeyHash *string `pulumi:"publicKeyHash"`
-	// Self link
-	SelfLink *string `pulumi:"selfLink"`
-	// App name
-	SiteName *string `pulumi:"siteName"`
-	// Subject name of the certificate
-	SubjectName *string `pulumi:"subjectName"`
-	// Certificate thumbprint
-	Thumbprint *string `pulumi:"thumbprint"`
-	// Is the certificate valid?
-	Valid *bool `pulumi:"valid"`
-}
-
-// CertificatePropertiesInput is an input type that accepts CertificatePropertiesArgs and CertificatePropertiesOutput values.
-// You can construct a concrete instance of `CertificatePropertiesInput` via:
-//
-//          CertificatePropertiesArgs{...}
-type CertificatePropertiesInput interface {
-	pulumi.Input
-
-	ToCertificatePropertiesOutput() CertificatePropertiesOutput
-	ToCertificatePropertiesOutputWithContext(context.Context) CertificatePropertiesOutput
-}
-
-type CertificatePropertiesArgs struct {
-	// Raw bytes of .cer file
-	CerBlob pulumi.StringPtrInput `pulumi:"cerBlob"`
-	// Certificate expiration date
-	ExpirationDate pulumi.StringPtrInput `pulumi:"expirationDate"`
-	// Friendly name of the certificate
-	FriendlyName pulumi.StringPtrInput `pulumi:"friendlyName"`
-	// Host names the certificate applies to
-	HostNames pulumi.StringArrayInput `pulumi:"hostNames"`
-	// Specification for the hosting environment (App Service Environment) to use for the certificate
-	HostingEnvironmentProfile HostingEnvironmentProfilePtrInput `pulumi:"hostingEnvironmentProfile"`
-	// Certificate issue Date
-	IssueDate pulumi.StringPtrInput `pulumi:"issueDate"`
-	// Certificate issuer
-	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
-	// Certificate password
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// Pfx blob
-	PfxBlob pulumi.StringPtrInput `pulumi:"pfxBlob"`
-	// Public key hash
-	PublicKeyHash pulumi.StringPtrInput `pulumi:"publicKeyHash"`
-	// Self link
-	SelfLink pulumi.StringPtrInput `pulumi:"selfLink"`
-	// App name
-	SiteName pulumi.StringPtrInput `pulumi:"siteName"`
-	// Subject name of the certificate
-	SubjectName pulumi.StringPtrInput `pulumi:"subjectName"`
-	// Certificate thumbprint
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
-	// Is the certificate valid?
-	Valid pulumi.BoolPtrInput `pulumi:"valid"`
-}
-
-func (CertificatePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateProperties)(nil)).Elem()
-}
-
-func (i CertificatePropertiesArgs) ToCertificatePropertiesOutput() CertificatePropertiesOutput {
-	return i.ToCertificatePropertiesOutputWithContext(context.Background())
-}
-
-func (i CertificatePropertiesArgs) ToCertificatePropertiesOutputWithContext(ctx context.Context) CertificatePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesOutput)
-}
-
-func (i CertificatePropertiesArgs) ToCertificatePropertiesPtrOutput() CertificatePropertiesPtrOutput {
-	return i.ToCertificatePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CertificatePropertiesArgs) ToCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificatePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesOutput).ToCertificatePropertiesPtrOutputWithContext(ctx)
-}
-
-// CertificatePropertiesPtrInput is an input type that accepts CertificatePropertiesArgs, CertificatePropertiesPtr and CertificatePropertiesPtrOutput values.
-// You can construct a concrete instance of `CertificatePropertiesPtrInput` via:
-//
-//          CertificatePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CertificatePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCertificatePropertiesPtrOutput() CertificatePropertiesPtrOutput
-	ToCertificatePropertiesPtrOutputWithContext(context.Context) CertificatePropertiesPtrOutput
-}
-
-type certificatePropertiesPtrType CertificatePropertiesArgs
-
-func CertificatePropertiesPtr(v *CertificatePropertiesArgs) CertificatePropertiesPtrInput {
-	return (*certificatePropertiesPtrType)(v)
-}
-
-func (*certificatePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateProperties)(nil)).Elem()
-}
-
-func (i *certificatePropertiesPtrType) ToCertificatePropertiesPtrOutput() CertificatePropertiesPtrOutput {
-	return i.ToCertificatePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *certificatePropertiesPtrType) ToCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificatePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificatePropertiesPtrOutput)
-}
-
-type CertificatePropertiesOutput struct{ *pulumi.OutputState }
-
-func (CertificatePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateProperties)(nil)).Elem()
-}
-
-func (o CertificatePropertiesOutput) ToCertificatePropertiesOutput() CertificatePropertiesOutput {
-	return o
-}
-
-func (o CertificatePropertiesOutput) ToCertificatePropertiesOutputWithContext(ctx context.Context) CertificatePropertiesOutput {
-	return o
-}
-
-func (o CertificatePropertiesOutput) ToCertificatePropertiesPtrOutput() CertificatePropertiesPtrOutput {
-	return o.ToCertificatePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CertificatePropertiesOutput) ToCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificatePropertiesPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *CertificateProperties {
-		return &v
-	}).(CertificatePropertiesPtrOutput)
-}
-
-// Raw bytes of .cer file
-func (o CertificatePropertiesOutput) CerBlob() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *string { return v.CerBlob }).(pulumi.StringPtrOutput)
-}
-
-// Certificate expiration date
-func (o CertificatePropertiesOutput) ExpirationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
-}
-
-// Friendly name of the certificate
-func (o CertificatePropertiesOutput) FriendlyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *string { return v.FriendlyName }).(pulumi.StringPtrOutput)
-}
-
-// Host names the certificate applies to
-func (o CertificatePropertiesOutput) HostNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v CertificateProperties) []string { return v.HostNames }).(pulumi.StringArrayOutput)
-}
-
-// Specification for the hosting environment (App Service Environment) to use for the certificate
-func (o CertificatePropertiesOutput) HostingEnvironmentProfile() HostingEnvironmentProfilePtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *HostingEnvironmentProfile { return v.HostingEnvironmentProfile }).(HostingEnvironmentProfilePtrOutput)
-}
-
-// Certificate issue Date
-func (o CertificatePropertiesOutput) IssueDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *string { return v.IssueDate }).(pulumi.StringPtrOutput)
-}
-
-// Certificate issuer
-func (o CertificatePropertiesOutput) Issuer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *string { return v.Issuer }).(pulumi.StringPtrOutput)
-}
-
-// Certificate password
-func (o CertificatePropertiesOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// Pfx blob
-func (o CertificatePropertiesOutput) PfxBlob() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *string { return v.PfxBlob }).(pulumi.StringPtrOutput)
-}
-
-// Public key hash
-func (o CertificatePropertiesOutput) PublicKeyHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *string { return v.PublicKeyHash }).(pulumi.StringPtrOutput)
-}
-
-// Self link
-func (o CertificatePropertiesOutput) SelfLink() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *string { return v.SelfLink }).(pulumi.StringPtrOutput)
-}
-
-// App name
-func (o CertificatePropertiesOutput) SiteName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *string { return v.SiteName }).(pulumi.StringPtrOutput)
-}
-
-// Subject name of the certificate
-func (o CertificatePropertiesOutput) SubjectName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *string { return v.SubjectName }).(pulumi.StringPtrOutput)
-}
-
-// Certificate thumbprint
-func (o CertificatePropertiesOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
-// Is the certificate valid?
-func (o CertificatePropertiesOutput) Valid() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v CertificateProperties) *bool { return v.Valid }).(pulumi.BoolPtrOutput)
-}
-
-type CertificatePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CertificatePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CertificateProperties)(nil)).Elem()
-}
-
-func (o CertificatePropertiesPtrOutput) ToCertificatePropertiesPtrOutput() CertificatePropertiesPtrOutput {
-	return o
-}
-
-func (o CertificatePropertiesPtrOutput) ToCertificatePropertiesPtrOutputWithContext(ctx context.Context) CertificatePropertiesPtrOutput {
-	return o
-}
-
-func (o CertificatePropertiesPtrOutput) Elem() CertificatePropertiesOutput {
-	return o.ApplyT(func(v *CertificateProperties) CertificateProperties { return *v }).(CertificatePropertiesOutput)
-}
-
-// Raw bytes of .cer file
-func (o CertificatePropertiesPtrOutput) CerBlob() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CerBlob
-	}).(pulumi.StringPtrOutput)
-}
-
-// Certificate expiration date
-func (o CertificatePropertiesPtrOutput) ExpirationDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ExpirationDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// Friendly name of the certificate
-func (o CertificatePropertiesPtrOutput) FriendlyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FriendlyName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Host names the certificate applies to
-func (o CertificatePropertiesPtrOutput) HostNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *CertificateProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.HostNames
-	}).(pulumi.StringArrayOutput)
-}
-
-// Specification for the hosting environment (App Service Environment) to use for the certificate
-func (o CertificatePropertiesPtrOutput) HostingEnvironmentProfile() HostingEnvironmentProfilePtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *HostingEnvironmentProfile {
-		if v == nil {
-			return nil
-		}
-		return v.HostingEnvironmentProfile
-	}).(HostingEnvironmentProfilePtrOutput)
-}
-
-// Certificate issue Date
-func (o CertificatePropertiesPtrOutput) IssueDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IssueDate
-	}).(pulumi.StringPtrOutput)
-}
-
-// Certificate issuer
-func (o CertificatePropertiesPtrOutput) Issuer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Issuer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Certificate password
-func (o CertificatePropertiesPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// Pfx blob
-func (o CertificatePropertiesPtrOutput) PfxBlob() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PfxBlob
-	}).(pulumi.StringPtrOutput)
-}
-
-// Public key hash
-func (o CertificatePropertiesPtrOutput) PublicKeyHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicKeyHash
-	}).(pulumi.StringPtrOutput)
-}
-
-// Self link
-func (o CertificatePropertiesPtrOutput) SelfLink() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SelfLink
-	}).(pulumi.StringPtrOutput)
-}
-
-// App name
-func (o CertificatePropertiesPtrOutput) SiteName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SiteName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Subject name of the certificate
-func (o CertificatePropertiesPtrOutput) SubjectName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubjectName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Certificate thumbprint
-func (o CertificatePropertiesPtrOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Thumbprint
-	}).(pulumi.StringPtrOutput)
-}
-
-// Is the certificate valid?
-func (o CertificatePropertiesPtrOutput) Valid() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CertificateProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Valid
-	}).(pulumi.BoolPtrOutput)
 }
 
 type CertificateResponseProperties struct {
@@ -4809,251 +4186,6 @@ func (o CorsSettingsResponsePtrOutput) AllowedOrigins() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-type CsrProperties struct {
-	// Actual CSR string created
-	CsrString *string `pulumi:"csrString"`
-	// Distinguished name of certificate to be created
-	DistinguishedName *string `pulumi:"distinguishedName"`
-	// Hosting environment
-	HostingEnvironment *string `pulumi:"hostingEnvironment"`
-	// Name used to locate CSR object
-	Name *string `pulumi:"name"`
-	// PFX password
-	Password *string `pulumi:"password"`
-	// PFX certificate of created certificate
-	PfxBlob *string `pulumi:"pfxBlob"`
-	// Hash of the certificates public key
-	PublicKeyHash *string `pulumi:"publicKeyHash"`
-}
-
-// CsrPropertiesInput is an input type that accepts CsrPropertiesArgs and CsrPropertiesOutput values.
-// You can construct a concrete instance of `CsrPropertiesInput` via:
-//
-//          CsrPropertiesArgs{...}
-type CsrPropertiesInput interface {
-	pulumi.Input
-
-	ToCsrPropertiesOutput() CsrPropertiesOutput
-	ToCsrPropertiesOutputWithContext(context.Context) CsrPropertiesOutput
-}
-
-type CsrPropertiesArgs struct {
-	// Actual CSR string created
-	CsrString pulumi.StringPtrInput `pulumi:"csrString"`
-	// Distinguished name of certificate to be created
-	DistinguishedName pulumi.StringPtrInput `pulumi:"distinguishedName"`
-	// Hosting environment
-	HostingEnvironment pulumi.StringPtrInput `pulumi:"hostingEnvironment"`
-	// Name used to locate CSR object
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// PFX password
-	Password pulumi.StringPtrInput `pulumi:"password"`
-	// PFX certificate of created certificate
-	PfxBlob pulumi.StringPtrInput `pulumi:"pfxBlob"`
-	// Hash of the certificates public key
-	PublicKeyHash pulumi.StringPtrInput `pulumi:"publicKeyHash"`
-}
-
-func (CsrPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CsrProperties)(nil)).Elem()
-}
-
-func (i CsrPropertiesArgs) ToCsrPropertiesOutput() CsrPropertiesOutput {
-	return i.ToCsrPropertiesOutputWithContext(context.Background())
-}
-
-func (i CsrPropertiesArgs) ToCsrPropertiesOutputWithContext(ctx context.Context) CsrPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CsrPropertiesOutput)
-}
-
-func (i CsrPropertiesArgs) ToCsrPropertiesPtrOutput() CsrPropertiesPtrOutput {
-	return i.ToCsrPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CsrPropertiesArgs) ToCsrPropertiesPtrOutputWithContext(ctx context.Context) CsrPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CsrPropertiesOutput).ToCsrPropertiesPtrOutputWithContext(ctx)
-}
-
-// CsrPropertiesPtrInput is an input type that accepts CsrPropertiesArgs, CsrPropertiesPtr and CsrPropertiesPtrOutput values.
-// You can construct a concrete instance of `CsrPropertiesPtrInput` via:
-//
-//          CsrPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CsrPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCsrPropertiesPtrOutput() CsrPropertiesPtrOutput
-	ToCsrPropertiesPtrOutputWithContext(context.Context) CsrPropertiesPtrOutput
-}
-
-type csrPropertiesPtrType CsrPropertiesArgs
-
-func CsrPropertiesPtr(v *CsrPropertiesArgs) CsrPropertiesPtrInput {
-	return (*csrPropertiesPtrType)(v)
-}
-
-func (*csrPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CsrProperties)(nil)).Elem()
-}
-
-func (i *csrPropertiesPtrType) ToCsrPropertiesPtrOutput() CsrPropertiesPtrOutput {
-	return i.ToCsrPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *csrPropertiesPtrType) ToCsrPropertiesPtrOutputWithContext(ctx context.Context) CsrPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CsrPropertiesPtrOutput)
-}
-
-type CsrPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CsrPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CsrProperties)(nil)).Elem()
-}
-
-func (o CsrPropertiesOutput) ToCsrPropertiesOutput() CsrPropertiesOutput {
-	return o
-}
-
-func (o CsrPropertiesOutput) ToCsrPropertiesOutputWithContext(ctx context.Context) CsrPropertiesOutput {
-	return o
-}
-
-func (o CsrPropertiesOutput) ToCsrPropertiesPtrOutput() CsrPropertiesPtrOutput {
-	return o.ToCsrPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CsrPropertiesOutput) ToCsrPropertiesPtrOutputWithContext(ctx context.Context) CsrPropertiesPtrOutput {
-	return o.ApplyT(func(v CsrProperties) *CsrProperties {
-		return &v
-	}).(CsrPropertiesPtrOutput)
-}
-
-// Actual CSR string created
-func (o CsrPropertiesOutput) CsrString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CsrProperties) *string { return v.CsrString }).(pulumi.StringPtrOutput)
-}
-
-// Distinguished name of certificate to be created
-func (o CsrPropertiesOutput) DistinguishedName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CsrProperties) *string { return v.DistinguishedName }).(pulumi.StringPtrOutput)
-}
-
-// Hosting environment
-func (o CsrPropertiesOutput) HostingEnvironment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CsrProperties) *string { return v.HostingEnvironment }).(pulumi.StringPtrOutput)
-}
-
-// Name used to locate CSR object
-func (o CsrPropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CsrProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// PFX password
-func (o CsrPropertiesOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CsrProperties) *string { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// PFX certificate of created certificate
-func (o CsrPropertiesOutput) PfxBlob() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CsrProperties) *string { return v.PfxBlob }).(pulumi.StringPtrOutput)
-}
-
-// Hash of the certificates public key
-func (o CsrPropertiesOutput) PublicKeyHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CsrProperties) *string { return v.PublicKeyHash }).(pulumi.StringPtrOutput)
-}
-
-type CsrPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CsrPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CsrProperties)(nil)).Elem()
-}
-
-func (o CsrPropertiesPtrOutput) ToCsrPropertiesPtrOutput() CsrPropertiesPtrOutput {
-	return o
-}
-
-func (o CsrPropertiesPtrOutput) ToCsrPropertiesPtrOutputWithContext(ctx context.Context) CsrPropertiesPtrOutput {
-	return o
-}
-
-func (o CsrPropertiesPtrOutput) Elem() CsrPropertiesOutput {
-	return o.ApplyT(func(v *CsrProperties) CsrProperties { return *v }).(CsrPropertiesOutput)
-}
-
-// Actual CSR string created
-func (o CsrPropertiesPtrOutput) CsrString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CsrProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CsrString
-	}).(pulumi.StringPtrOutput)
-}
-
-// Distinguished name of certificate to be created
-func (o CsrPropertiesPtrOutput) DistinguishedName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CsrProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DistinguishedName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hosting environment
-func (o CsrPropertiesPtrOutput) HostingEnvironment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CsrProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HostingEnvironment
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name used to locate CSR object
-func (o CsrPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CsrProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// PFX password
-func (o CsrPropertiesPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CsrProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// PFX certificate of created certificate
-func (o CsrPropertiesPtrOutput) PfxBlob() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CsrProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PfxBlob
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hash of the certificates public key
-func (o CsrPropertiesPtrOutput) PublicKeyHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CsrProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicKeyHash
-	}).(pulumi.StringPtrOutput)
-}
-
 type CsrResponseProperties struct {
 	// Actual CSR string created
 	CsrString *string `pulumi:"csrString"`
@@ -5563,308 +4695,6 @@ func (o DatabaseBackupSettingResponseArrayOutput) Index(i pulumi.IntInput) Datab
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseBackupSettingResponse {
 		return vs[0].([]DatabaseBackupSettingResponse)[vs[1].(int)]
 	}).(DatabaseBackupSettingResponseOutput)
-}
-
-type DeploymentProperties struct {
-	// Active
-	Active *bool `pulumi:"active"`
-	// Author
-	Author *string `pulumi:"author"`
-	// AuthorEmail
-	Author_email *string `pulumi:"author_email"`
-	// Deployer
-	Deployer *string `pulumi:"deployer"`
-	// Detail
-	Details *string `pulumi:"details"`
-	// EndTime
-	End_time *string `pulumi:"end_time"`
-	// Id
-	Id *string `pulumi:"id"`
-	// Message
-	Message *string `pulumi:"message"`
-	// StartTime
-	Start_time *string `pulumi:"start_time"`
-	// Status
-	Status *int `pulumi:"status"`
-}
-
-// DeploymentPropertiesInput is an input type that accepts DeploymentPropertiesArgs and DeploymentPropertiesOutput values.
-// You can construct a concrete instance of `DeploymentPropertiesInput` via:
-//
-//          DeploymentPropertiesArgs{...}
-type DeploymentPropertiesInput interface {
-	pulumi.Input
-
-	ToDeploymentPropertiesOutput() DeploymentPropertiesOutput
-	ToDeploymentPropertiesOutputWithContext(context.Context) DeploymentPropertiesOutput
-}
-
-type DeploymentPropertiesArgs struct {
-	// Active
-	Active pulumi.BoolPtrInput `pulumi:"active"`
-	// Author
-	Author pulumi.StringPtrInput `pulumi:"author"`
-	// AuthorEmail
-	Author_email pulumi.StringPtrInput `pulumi:"author_email"`
-	// Deployer
-	Deployer pulumi.StringPtrInput `pulumi:"deployer"`
-	// Detail
-	Details pulumi.StringPtrInput `pulumi:"details"`
-	// EndTime
-	End_time pulumi.StringPtrInput `pulumi:"end_time"`
-	// Id
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Message
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// StartTime
-	Start_time pulumi.StringPtrInput `pulumi:"start_time"`
-	// Status
-	Status pulumi.IntPtrInput `pulumi:"status"`
-}
-
-func (DeploymentPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentProperties)(nil)).Elem()
-}
-
-func (i DeploymentPropertiesArgs) ToDeploymentPropertiesOutput() DeploymentPropertiesOutput {
-	return i.ToDeploymentPropertiesOutputWithContext(context.Background())
-}
-
-func (i DeploymentPropertiesArgs) ToDeploymentPropertiesOutputWithContext(ctx context.Context) DeploymentPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPropertiesOutput)
-}
-
-func (i DeploymentPropertiesArgs) ToDeploymentPropertiesPtrOutput() DeploymentPropertiesPtrOutput {
-	return i.ToDeploymentPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i DeploymentPropertiesArgs) ToDeploymentPropertiesPtrOutputWithContext(ctx context.Context) DeploymentPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPropertiesOutput).ToDeploymentPropertiesPtrOutputWithContext(ctx)
-}
-
-// DeploymentPropertiesPtrInput is an input type that accepts DeploymentPropertiesArgs, DeploymentPropertiesPtr and DeploymentPropertiesPtrOutput values.
-// You can construct a concrete instance of `DeploymentPropertiesPtrInput` via:
-//
-//          DeploymentPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type DeploymentPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToDeploymentPropertiesPtrOutput() DeploymentPropertiesPtrOutput
-	ToDeploymentPropertiesPtrOutputWithContext(context.Context) DeploymentPropertiesPtrOutput
-}
-
-type deploymentPropertiesPtrType DeploymentPropertiesArgs
-
-func DeploymentPropertiesPtr(v *DeploymentPropertiesArgs) DeploymentPropertiesPtrInput {
-	return (*deploymentPropertiesPtrType)(v)
-}
-
-func (*deploymentPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentProperties)(nil)).Elem()
-}
-
-func (i *deploymentPropertiesPtrType) ToDeploymentPropertiesPtrOutput() DeploymentPropertiesPtrOutput {
-	return i.ToDeploymentPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *deploymentPropertiesPtrType) ToDeploymentPropertiesPtrOutputWithContext(ctx context.Context) DeploymentPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPropertiesPtrOutput)
-}
-
-type DeploymentPropertiesOutput struct{ *pulumi.OutputState }
-
-func (DeploymentPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentProperties)(nil)).Elem()
-}
-
-func (o DeploymentPropertiesOutput) ToDeploymentPropertiesOutput() DeploymentPropertiesOutput {
-	return o
-}
-
-func (o DeploymentPropertiesOutput) ToDeploymentPropertiesOutputWithContext(ctx context.Context) DeploymentPropertiesOutput {
-	return o
-}
-
-func (o DeploymentPropertiesOutput) ToDeploymentPropertiesPtrOutput() DeploymentPropertiesPtrOutput {
-	return o.ToDeploymentPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o DeploymentPropertiesOutput) ToDeploymentPropertiesPtrOutputWithContext(ctx context.Context) DeploymentPropertiesPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *DeploymentProperties {
-		return &v
-	}).(DeploymentPropertiesPtrOutput)
-}
-
-// Active
-func (o DeploymentPropertiesOutput) Active() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *bool { return v.Active }).(pulumi.BoolPtrOutput)
-}
-
-// Author
-func (o DeploymentPropertiesOutput) Author() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.Author }).(pulumi.StringPtrOutput)
-}
-
-// AuthorEmail
-func (o DeploymentPropertiesOutput) Author_email() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.Author_email }).(pulumi.StringPtrOutput)
-}
-
-// Deployer
-func (o DeploymentPropertiesOutput) Deployer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.Deployer }).(pulumi.StringPtrOutput)
-}
-
-// Detail
-func (o DeploymentPropertiesOutput) Details() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.Details }).(pulumi.StringPtrOutput)
-}
-
-// EndTime
-func (o DeploymentPropertiesOutput) End_time() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.End_time }).(pulumi.StringPtrOutput)
-}
-
-// Id
-func (o DeploymentPropertiesOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// Message
-func (o DeploymentPropertiesOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-// StartTime
-func (o DeploymentPropertiesOutput) Start_time() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.Start_time }).(pulumi.StringPtrOutput)
-}
-
-// Status
-func (o DeploymentPropertiesOutput) Status() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *int { return v.Status }).(pulumi.IntPtrOutput)
-}
-
-type DeploymentPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (DeploymentPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentProperties)(nil)).Elem()
-}
-
-func (o DeploymentPropertiesPtrOutput) ToDeploymentPropertiesPtrOutput() DeploymentPropertiesPtrOutput {
-	return o
-}
-
-func (o DeploymentPropertiesPtrOutput) ToDeploymentPropertiesPtrOutputWithContext(ctx context.Context) DeploymentPropertiesPtrOutput {
-	return o
-}
-
-func (o DeploymentPropertiesPtrOutput) Elem() DeploymentPropertiesOutput {
-	return o.ApplyT(func(v *DeploymentProperties) DeploymentProperties { return *v }).(DeploymentPropertiesOutput)
-}
-
-// Active
-func (o DeploymentPropertiesPtrOutput) Active() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Active
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Author
-func (o DeploymentPropertiesPtrOutput) Author() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Author
-	}).(pulumi.StringPtrOutput)
-}
-
-// AuthorEmail
-func (o DeploymentPropertiesPtrOutput) Author_email() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Author_email
-	}).(pulumi.StringPtrOutput)
-}
-
-// Deployer
-func (o DeploymentPropertiesPtrOutput) Deployer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Deployer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Detail
-func (o DeploymentPropertiesPtrOutput) Details() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Details
-	}).(pulumi.StringPtrOutput)
-}
-
-// EndTime
-func (o DeploymentPropertiesPtrOutput) End_time() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.End_time
-	}).(pulumi.StringPtrOutput)
-}
-
-// Id
-func (o DeploymentPropertiesPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Message
-func (o DeploymentPropertiesPtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Message
-	}).(pulumi.StringPtrOutput)
-}
-
-// StartTime
-func (o DeploymentPropertiesPtrOutput) Start_time() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Start_time
-	}).(pulumi.StringPtrOutput)
-}
-
-// Status
-func (o DeploymentPropertiesPtrOutput) Status() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.IntPtrOutput)
 }
 
 type DeploymentResponseProperties struct {
@@ -6677,251 +5507,6 @@ func (o HandlerMappingResponseArrayOutput) Index(i pulumi.IntInput) HandlerMappi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HandlerMappingResponse {
 		return vs[0].([]HandlerMappingResponse)[vs[1].(int)]
 	}).(HandlerMappingResponseOutput)
-}
-
-type HostNameBindingProperties struct {
-	// Azure resource name
-	AzureResourceName *string `pulumi:"azureResourceName"`
-	// Azure resource type
-	AzureResourceType *string `pulumi:"azureResourceType"`
-	// Custom DNS record type
-	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
-	// Fully qualified ARM domain resource URI
-	DomainId *string `pulumi:"domainId"`
-	// Host name type
-	HostNameType *string `pulumi:"hostNameType"`
-	// Hostname
-	Name *string `pulumi:"name"`
-	// Web app name
-	SiteName *string `pulumi:"siteName"`
-}
-
-// HostNameBindingPropertiesInput is an input type that accepts HostNameBindingPropertiesArgs and HostNameBindingPropertiesOutput values.
-// You can construct a concrete instance of `HostNameBindingPropertiesInput` via:
-//
-//          HostNameBindingPropertiesArgs{...}
-type HostNameBindingPropertiesInput interface {
-	pulumi.Input
-
-	ToHostNameBindingPropertiesOutput() HostNameBindingPropertiesOutput
-	ToHostNameBindingPropertiesOutputWithContext(context.Context) HostNameBindingPropertiesOutput
-}
-
-type HostNameBindingPropertiesArgs struct {
-	// Azure resource name
-	AzureResourceName pulumi.StringPtrInput `pulumi:"azureResourceName"`
-	// Azure resource type
-	AzureResourceType pulumi.StringPtrInput `pulumi:"azureResourceType"`
-	// Custom DNS record type
-	CustomHostNameDnsRecordType pulumi.StringPtrInput `pulumi:"customHostNameDnsRecordType"`
-	// Fully qualified ARM domain resource URI
-	DomainId pulumi.StringPtrInput `pulumi:"domainId"`
-	// Host name type
-	HostNameType pulumi.StringPtrInput `pulumi:"hostNameType"`
-	// Hostname
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Web app name
-	SiteName pulumi.StringPtrInput `pulumi:"siteName"`
-}
-
-func (HostNameBindingPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostNameBindingProperties)(nil)).Elem()
-}
-
-func (i HostNameBindingPropertiesArgs) ToHostNameBindingPropertiesOutput() HostNameBindingPropertiesOutput {
-	return i.ToHostNameBindingPropertiesOutputWithContext(context.Background())
-}
-
-func (i HostNameBindingPropertiesArgs) ToHostNameBindingPropertiesOutputWithContext(ctx context.Context) HostNameBindingPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostNameBindingPropertiesOutput)
-}
-
-func (i HostNameBindingPropertiesArgs) ToHostNameBindingPropertiesPtrOutput() HostNameBindingPropertiesPtrOutput {
-	return i.ToHostNameBindingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i HostNameBindingPropertiesArgs) ToHostNameBindingPropertiesPtrOutputWithContext(ctx context.Context) HostNameBindingPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostNameBindingPropertiesOutput).ToHostNameBindingPropertiesPtrOutputWithContext(ctx)
-}
-
-// HostNameBindingPropertiesPtrInput is an input type that accepts HostNameBindingPropertiesArgs, HostNameBindingPropertiesPtr and HostNameBindingPropertiesPtrOutput values.
-// You can construct a concrete instance of `HostNameBindingPropertiesPtrInput` via:
-//
-//          HostNameBindingPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type HostNameBindingPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToHostNameBindingPropertiesPtrOutput() HostNameBindingPropertiesPtrOutput
-	ToHostNameBindingPropertiesPtrOutputWithContext(context.Context) HostNameBindingPropertiesPtrOutput
-}
-
-type hostNameBindingPropertiesPtrType HostNameBindingPropertiesArgs
-
-func HostNameBindingPropertiesPtr(v *HostNameBindingPropertiesArgs) HostNameBindingPropertiesPtrInput {
-	return (*hostNameBindingPropertiesPtrType)(v)
-}
-
-func (*hostNameBindingPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HostNameBindingProperties)(nil)).Elem()
-}
-
-func (i *hostNameBindingPropertiesPtrType) ToHostNameBindingPropertiesPtrOutput() HostNameBindingPropertiesPtrOutput {
-	return i.ToHostNameBindingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *hostNameBindingPropertiesPtrType) ToHostNameBindingPropertiesPtrOutputWithContext(ctx context.Context) HostNameBindingPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostNameBindingPropertiesPtrOutput)
-}
-
-type HostNameBindingPropertiesOutput struct{ *pulumi.OutputState }
-
-func (HostNameBindingPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostNameBindingProperties)(nil)).Elem()
-}
-
-func (o HostNameBindingPropertiesOutput) ToHostNameBindingPropertiesOutput() HostNameBindingPropertiesOutput {
-	return o
-}
-
-func (o HostNameBindingPropertiesOutput) ToHostNameBindingPropertiesOutputWithContext(ctx context.Context) HostNameBindingPropertiesOutput {
-	return o
-}
-
-func (o HostNameBindingPropertiesOutput) ToHostNameBindingPropertiesPtrOutput() HostNameBindingPropertiesPtrOutput {
-	return o.ToHostNameBindingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o HostNameBindingPropertiesOutput) ToHostNameBindingPropertiesPtrOutputWithContext(ctx context.Context) HostNameBindingPropertiesPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *HostNameBindingProperties {
-		return &v
-	}).(HostNameBindingPropertiesPtrOutput)
-}
-
-// Azure resource name
-func (o HostNameBindingPropertiesOutput) AzureResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *string { return v.AzureResourceName }).(pulumi.StringPtrOutput)
-}
-
-// Azure resource type
-func (o HostNameBindingPropertiesOutput) AzureResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *string { return v.AzureResourceType }).(pulumi.StringPtrOutput)
-}
-
-// Custom DNS record type
-func (o HostNameBindingPropertiesOutput) CustomHostNameDnsRecordType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *string { return v.CustomHostNameDnsRecordType }).(pulumi.StringPtrOutput)
-}
-
-// Fully qualified ARM domain resource URI
-func (o HostNameBindingPropertiesOutput) DomainId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *string { return v.DomainId }).(pulumi.StringPtrOutput)
-}
-
-// Host name type
-func (o HostNameBindingPropertiesOutput) HostNameType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *string { return v.HostNameType }).(pulumi.StringPtrOutput)
-}
-
-// Hostname
-func (o HostNameBindingPropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Web app name
-func (o HostNameBindingPropertiesOutput) SiteName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *string { return v.SiteName }).(pulumi.StringPtrOutput)
-}
-
-type HostNameBindingPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (HostNameBindingPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HostNameBindingProperties)(nil)).Elem()
-}
-
-func (o HostNameBindingPropertiesPtrOutput) ToHostNameBindingPropertiesPtrOutput() HostNameBindingPropertiesPtrOutput {
-	return o
-}
-
-func (o HostNameBindingPropertiesPtrOutput) ToHostNameBindingPropertiesPtrOutputWithContext(ctx context.Context) HostNameBindingPropertiesPtrOutput {
-	return o
-}
-
-func (o HostNameBindingPropertiesPtrOutput) Elem() HostNameBindingPropertiesOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) HostNameBindingProperties { return *v }).(HostNameBindingPropertiesOutput)
-}
-
-// Azure resource name
-func (o HostNameBindingPropertiesPtrOutput) AzureResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AzureResourceName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Azure resource type
-func (o HostNameBindingPropertiesPtrOutput) AzureResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AzureResourceType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Custom DNS record type
-func (o HostNameBindingPropertiesPtrOutput) CustomHostNameDnsRecordType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomHostNameDnsRecordType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Fully qualified ARM domain resource URI
-func (o HostNameBindingPropertiesPtrOutput) DomainId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DomainId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Host name type
-func (o HostNameBindingPropertiesPtrOutput) HostNameType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HostNameType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hostname
-func (o HostNameBindingPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Web app name
-func (o HostNameBindingPropertiesPtrOutput) SiteName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SiteName
-	}).(pulumi.StringPtrOutput)
 }
 
 type HostNameBindingResponseProperties struct {
@@ -7880,730 +6465,6 @@ func (o HostingEnvironmentProfileResponsePtrOutput) Type() pulumi.StringPtrOutpu
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-type HostingEnvironmentProperties struct {
-	// List of comma separated strings describing which VM sizes are allowed for front-ends
-	AllowedMultiSizes *string `pulumi:"allowedMultiSizes"`
-	// List of comma separated strings describing which VM sizes are allowed for workers
-	AllowedWorkerSizes *string `pulumi:"allowedWorkerSizes"`
-	// Api Management Account associated with this Hosting Environment
-	ApiManagementAccountId *string `pulumi:"apiManagementAccountId"`
-	// Custom settings for changing the behavior of the hosting environment
-	ClusterSettings []NameValuePair `pulumi:"clusterSettings"`
-	// Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
-	DatabaseEdition *string `pulumi:"databaseEdition"`
-	// Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
-	DatabaseServiceObjective *string `pulumi:"databaseServiceObjective"`
-	// DNS suffix of the hostingEnvironment (App Service Environment)
-	DnsSuffix *string `pulumi:"dnsSuffix"`
-	// Current total, used, and available worker capacities
-	EnvironmentCapacities []StampCapacity `pulumi:"environmentCapacities"`
-	// True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
-	EnvironmentIsHealthy *bool `pulumi:"environmentIsHealthy"`
-	// Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
-	EnvironmentStatus *string `pulumi:"environmentStatus"`
-	// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
-	// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
-	IpsslAddressCount *int `pulumi:"ipsslAddressCount"`
-	// Last deployment action on this hostingEnvironment (App Service Environment)
-	LastAction *string `pulumi:"lastAction"`
-	// Result of the last deployment action on this hostingEnvironment (App Service Environment)
-	LastActionResult *string `pulumi:"lastActionResult"`
-	// Location of the hostingEnvironment (App Service Environment), e.g. "West US"
-	Location *string `pulumi:"location"`
-	// Maximum number of VMs in this hostingEnvironment (App Service Environment)
-	MaximumNumberOfMachines *int `pulumi:"maximumNumberOfMachines"`
-	// Number of front-end instances
-	MultiRoleCount *int `pulumi:"multiRoleCount"`
-	// Front-end VM size, e.g. "Medium", "Large"
-	MultiSize *string `pulumi:"multiSize"`
-	// Name of the hostingEnvironment (App Service Environment)
-	Name *string `pulumi:"name"`
-	// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
-	NetworkAccessControlList []NetworkAccessControlEntry `pulumi:"networkAccessControlList"`
-	// Provisioning state of the hostingEnvironment (App Service Environment)
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Resource group of the hostingEnvironment (App Service Environment)
-	ResourceGroup *string `pulumi:"resourceGroup"`
-	// Current status of the hostingEnvironment (App Service Environment)
-	Status string `pulumi:"status"`
-	// Subscription of the hostingEnvironment (App Service Environment)
-	SubscriptionId *string `pulumi:"subscriptionId"`
-	// True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-	//             (most likely because NSG blocked the incoming traffic)
-	Suspended *bool `pulumi:"suspended"`
-	// Number of upgrade domains of this hostingEnvironment (App Service Environment)
-	UpgradeDomains *int `pulumi:"upgradeDomains"`
-	// Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
-	VipMappings []VirtualIPMapping `pulumi:"vipMappings"`
-	// Description of the hostingEnvironment's (App Service Environment) virtual network
-	VirtualNetwork *VirtualNetworkProfile `pulumi:"virtualNetwork"`
-	// Name of the hostingEnvironment's (App Service Environment) virtual network
-	VnetName *string `pulumi:"vnetName"`
-	// Resource group of the hostingEnvironment's (App Service Environment) virtual network
-	VnetResourceGroupName *string `pulumi:"vnetResourceGroupName"`
-	// Subnet of the hostingEnvironment's (App Service Environment) virtual network
-	VnetSubnetName *string `pulumi:"vnetSubnetName"`
-	// Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
-	WorkerPools []WorkerPool `pulumi:"workerPools"`
-}
-
-// HostingEnvironmentPropertiesInput is an input type that accepts HostingEnvironmentPropertiesArgs and HostingEnvironmentPropertiesOutput values.
-// You can construct a concrete instance of `HostingEnvironmentPropertiesInput` via:
-//
-//          HostingEnvironmentPropertiesArgs{...}
-type HostingEnvironmentPropertiesInput interface {
-	pulumi.Input
-
-	ToHostingEnvironmentPropertiesOutput() HostingEnvironmentPropertiesOutput
-	ToHostingEnvironmentPropertiesOutputWithContext(context.Context) HostingEnvironmentPropertiesOutput
-}
-
-type HostingEnvironmentPropertiesArgs struct {
-	// List of comma separated strings describing which VM sizes are allowed for front-ends
-	AllowedMultiSizes pulumi.StringPtrInput `pulumi:"allowedMultiSizes"`
-	// List of comma separated strings describing which VM sizes are allowed for workers
-	AllowedWorkerSizes pulumi.StringPtrInput `pulumi:"allowedWorkerSizes"`
-	// Api Management Account associated with this Hosting Environment
-	ApiManagementAccountId pulumi.StringPtrInput `pulumi:"apiManagementAccountId"`
-	// Custom settings for changing the behavior of the hosting environment
-	ClusterSettings NameValuePairArrayInput `pulumi:"clusterSettings"`
-	// Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
-	DatabaseEdition pulumi.StringPtrInput `pulumi:"databaseEdition"`
-	// Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
-	DatabaseServiceObjective pulumi.StringPtrInput `pulumi:"databaseServiceObjective"`
-	// DNS suffix of the hostingEnvironment (App Service Environment)
-	DnsSuffix pulumi.StringPtrInput `pulumi:"dnsSuffix"`
-	// Current total, used, and available worker capacities
-	EnvironmentCapacities StampCapacityArrayInput `pulumi:"environmentCapacities"`
-	// True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
-	EnvironmentIsHealthy pulumi.BoolPtrInput `pulumi:"environmentIsHealthy"`
-	// Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
-	EnvironmentStatus pulumi.StringPtrInput `pulumi:"environmentStatus"`
-	// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-	InternalLoadBalancingMode pulumi.StringPtrInput `pulumi:"internalLoadBalancingMode"`
-	// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
-	IpsslAddressCount pulumi.IntPtrInput `pulumi:"ipsslAddressCount"`
-	// Last deployment action on this hostingEnvironment (App Service Environment)
-	LastAction pulumi.StringPtrInput `pulumi:"lastAction"`
-	// Result of the last deployment action on this hostingEnvironment (App Service Environment)
-	LastActionResult pulumi.StringPtrInput `pulumi:"lastActionResult"`
-	// Location of the hostingEnvironment (App Service Environment), e.g. "West US"
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Maximum number of VMs in this hostingEnvironment (App Service Environment)
-	MaximumNumberOfMachines pulumi.IntPtrInput `pulumi:"maximumNumberOfMachines"`
-	// Number of front-end instances
-	MultiRoleCount pulumi.IntPtrInput `pulumi:"multiRoleCount"`
-	// Front-end VM size, e.g. "Medium", "Large"
-	MultiSize pulumi.StringPtrInput `pulumi:"multiSize"`
-	// Name of the hostingEnvironment (App Service Environment)
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
-	NetworkAccessControlList NetworkAccessControlEntryArrayInput `pulumi:"networkAccessControlList"`
-	// Provisioning state of the hostingEnvironment (App Service Environment)
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Resource group of the hostingEnvironment (App Service Environment)
-	ResourceGroup pulumi.StringPtrInput `pulumi:"resourceGroup"`
-	// Current status of the hostingEnvironment (App Service Environment)
-	Status pulumi.StringInput `pulumi:"status"`
-	// Subscription of the hostingEnvironment (App Service Environment)
-	SubscriptionId pulumi.StringPtrInput `pulumi:"subscriptionId"`
-	// True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-	//             (most likely because NSG blocked the incoming traffic)
-	Suspended pulumi.BoolPtrInput `pulumi:"suspended"`
-	// Number of upgrade domains of this hostingEnvironment (App Service Environment)
-	UpgradeDomains pulumi.IntPtrInput `pulumi:"upgradeDomains"`
-	// Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
-	VipMappings VirtualIPMappingArrayInput `pulumi:"vipMappings"`
-	// Description of the hostingEnvironment's (App Service Environment) virtual network
-	VirtualNetwork VirtualNetworkProfilePtrInput `pulumi:"virtualNetwork"`
-	// Name of the hostingEnvironment's (App Service Environment) virtual network
-	VnetName pulumi.StringPtrInput `pulumi:"vnetName"`
-	// Resource group of the hostingEnvironment's (App Service Environment) virtual network
-	VnetResourceGroupName pulumi.StringPtrInput `pulumi:"vnetResourceGroupName"`
-	// Subnet of the hostingEnvironment's (App Service Environment) virtual network
-	VnetSubnetName pulumi.StringPtrInput `pulumi:"vnetSubnetName"`
-	// Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
-	WorkerPools WorkerPoolArrayInput `pulumi:"workerPools"`
-}
-
-func (HostingEnvironmentPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostingEnvironmentProperties)(nil)).Elem()
-}
-
-func (i HostingEnvironmentPropertiesArgs) ToHostingEnvironmentPropertiesOutput() HostingEnvironmentPropertiesOutput {
-	return i.ToHostingEnvironmentPropertiesOutputWithContext(context.Background())
-}
-
-func (i HostingEnvironmentPropertiesArgs) ToHostingEnvironmentPropertiesOutputWithContext(ctx context.Context) HostingEnvironmentPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentPropertiesOutput)
-}
-
-func (i HostingEnvironmentPropertiesArgs) ToHostingEnvironmentPropertiesPtrOutput() HostingEnvironmentPropertiesPtrOutput {
-	return i.ToHostingEnvironmentPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i HostingEnvironmentPropertiesArgs) ToHostingEnvironmentPropertiesPtrOutputWithContext(ctx context.Context) HostingEnvironmentPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentPropertiesOutput).ToHostingEnvironmentPropertiesPtrOutputWithContext(ctx)
-}
-
-// HostingEnvironmentPropertiesPtrInput is an input type that accepts HostingEnvironmentPropertiesArgs, HostingEnvironmentPropertiesPtr and HostingEnvironmentPropertiesPtrOutput values.
-// You can construct a concrete instance of `HostingEnvironmentPropertiesPtrInput` via:
-//
-//          HostingEnvironmentPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type HostingEnvironmentPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToHostingEnvironmentPropertiesPtrOutput() HostingEnvironmentPropertiesPtrOutput
-	ToHostingEnvironmentPropertiesPtrOutputWithContext(context.Context) HostingEnvironmentPropertiesPtrOutput
-}
-
-type hostingEnvironmentPropertiesPtrType HostingEnvironmentPropertiesArgs
-
-func HostingEnvironmentPropertiesPtr(v *HostingEnvironmentPropertiesArgs) HostingEnvironmentPropertiesPtrInput {
-	return (*hostingEnvironmentPropertiesPtrType)(v)
-}
-
-func (*hostingEnvironmentPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HostingEnvironmentProperties)(nil)).Elem()
-}
-
-func (i *hostingEnvironmentPropertiesPtrType) ToHostingEnvironmentPropertiesPtrOutput() HostingEnvironmentPropertiesPtrOutput {
-	return i.ToHostingEnvironmentPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *hostingEnvironmentPropertiesPtrType) ToHostingEnvironmentPropertiesPtrOutputWithContext(ctx context.Context) HostingEnvironmentPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostingEnvironmentPropertiesPtrOutput)
-}
-
-type HostingEnvironmentPropertiesOutput struct{ *pulumi.OutputState }
-
-func (HostingEnvironmentPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostingEnvironmentProperties)(nil)).Elem()
-}
-
-func (o HostingEnvironmentPropertiesOutput) ToHostingEnvironmentPropertiesOutput() HostingEnvironmentPropertiesOutput {
-	return o
-}
-
-func (o HostingEnvironmentPropertiesOutput) ToHostingEnvironmentPropertiesOutputWithContext(ctx context.Context) HostingEnvironmentPropertiesOutput {
-	return o
-}
-
-func (o HostingEnvironmentPropertiesOutput) ToHostingEnvironmentPropertiesPtrOutput() HostingEnvironmentPropertiesPtrOutput {
-	return o.ToHostingEnvironmentPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o HostingEnvironmentPropertiesOutput) ToHostingEnvironmentPropertiesPtrOutputWithContext(ctx context.Context) HostingEnvironmentPropertiesPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *HostingEnvironmentProperties {
-		return &v
-	}).(HostingEnvironmentPropertiesPtrOutput)
-}
-
-// List of comma separated strings describing which VM sizes are allowed for front-ends
-func (o HostingEnvironmentPropertiesOutput) AllowedMultiSizes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.AllowedMultiSizes }).(pulumi.StringPtrOutput)
-}
-
-// List of comma separated strings describing which VM sizes are allowed for workers
-func (o HostingEnvironmentPropertiesOutput) AllowedWorkerSizes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.AllowedWorkerSizes }).(pulumi.StringPtrOutput)
-}
-
-// Api Management Account associated with this Hosting Environment
-func (o HostingEnvironmentPropertiesOutput) ApiManagementAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.ApiManagementAccountId }).(pulumi.StringPtrOutput)
-}
-
-// Custom settings for changing the behavior of the hosting environment
-func (o HostingEnvironmentPropertiesOutput) ClusterSettings() NameValuePairArrayOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) []NameValuePair { return v.ClusterSettings }).(NameValuePairArrayOutput)
-}
-
-// Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
-func (o HostingEnvironmentPropertiesOutput) DatabaseEdition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.DatabaseEdition }).(pulumi.StringPtrOutput)
-}
-
-// Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
-func (o HostingEnvironmentPropertiesOutput) DatabaseServiceObjective() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.DatabaseServiceObjective }).(pulumi.StringPtrOutput)
-}
-
-// DNS suffix of the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesOutput) DnsSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.DnsSuffix }).(pulumi.StringPtrOutput)
-}
-
-// Current total, used, and available worker capacities
-func (o HostingEnvironmentPropertiesOutput) EnvironmentCapacities() StampCapacityArrayOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) []StampCapacity { return v.EnvironmentCapacities }).(StampCapacityArrayOutput)
-}
-
-// True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
-func (o HostingEnvironmentPropertiesOutput) EnvironmentIsHealthy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *bool { return v.EnvironmentIsHealthy }).(pulumi.BoolPtrOutput)
-}
-
-// Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesOutput) EnvironmentStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.EnvironmentStatus }).(pulumi.StringPtrOutput)
-}
-
-// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-func (o HostingEnvironmentPropertiesOutput) InternalLoadBalancingMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.InternalLoadBalancingMode }).(pulumi.StringPtrOutput)
-}
-
-// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesOutput) IpsslAddressCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *int { return v.IpsslAddressCount }).(pulumi.IntPtrOutput)
-}
-
-// Last deployment action on this hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesOutput) LastAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.LastAction }).(pulumi.StringPtrOutput)
-}
-
-// Result of the last deployment action on this hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesOutput) LastActionResult() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.LastActionResult }).(pulumi.StringPtrOutput)
-}
-
-// Location of the hostingEnvironment (App Service Environment), e.g. "West US"
-func (o HostingEnvironmentPropertiesOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Maximum number of VMs in this hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesOutput) MaximumNumberOfMachines() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *int { return v.MaximumNumberOfMachines }).(pulumi.IntPtrOutput)
-}
-
-// Number of front-end instances
-func (o HostingEnvironmentPropertiesOutput) MultiRoleCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *int { return v.MultiRoleCount }).(pulumi.IntPtrOutput)
-}
-
-// Front-end VM size, e.g. "Medium", "Large"
-func (o HostingEnvironmentPropertiesOutput) MultiSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.MultiSize }).(pulumi.StringPtrOutput)
-}
-
-// Name of the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesOutput) NetworkAccessControlList() NetworkAccessControlEntryArrayOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) []NetworkAccessControlEntry { return v.NetworkAccessControlList }).(NetworkAccessControlEntryArrayOutput)
-}
-
-// Provisioning state of the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// Resource group of the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.ResourceGroup }).(pulumi.StringPtrOutput)
-}
-
-// Current status of the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) string { return v.Status }).(pulumi.StringOutput)
-}
-
-// Subscription of the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.SubscriptionId }).(pulumi.StringPtrOutput)
-}
-
-// True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-//             (most likely because NSG blocked the incoming traffic)
-func (o HostingEnvironmentPropertiesOutput) Suspended() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *bool { return v.Suspended }).(pulumi.BoolPtrOutput)
-}
-
-// Number of upgrade domains of this hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesOutput) UpgradeDomains() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *int { return v.UpgradeDomains }).(pulumi.IntPtrOutput)
-}
-
-// Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesOutput) VipMappings() VirtualIPMappingArrayOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) []VirtualIPMapping { return v.VipMappings }).(VirtualIPMappingArrayOutput)
-}
-
-// Description of the hostingEnvironment's (App Service Environment) virtual network
-func (o HostingEnvironmentPropertiesOutput) VirtualNetwork() VirtualNetworkProfilePtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *VirtualNetworkProfile { return v.VirtualNetwork }).(VirtualNetworkProfilePtrOutput)
-}
-
-// Name of the hostingEnvironment's (App Service Environment) virtual network
-func (o HostingEnvironmentPropertiesOutput) VnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.VnetName }).(pulumi.StringPtrOutput)
-}
-
-// Resource group of the hostingEnvironment's (App Service Environment) virtual network
-func (o HostingEnvironmentPropertiesOutput) VnetResourceGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.VnetResourceGroupName }).(pulumi.StringPtrOutput)
-}
-
-// Subnet of the hostingEnvironment's (App Service Environment) virtual network
-func (o HostingEnvironmentPropertiesOutput) VnetSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) *string { return v.VnetSubnetName }).(pulumi.StringPtrOutput)
-}
-
-// Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
-func (o HostingEnvironmentPropertiesOutput) WorkerPools() WorkerPoolArrayOutput {
-	return o.ApplyT(func(v HostingEnvironmentProperties) []WorkerPool { return v.WorkerPools }).(WorkerPoolArrayOutput)
-}
-
-type HostingEnvironmentPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (HostingEnvironmentPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HostingEnvironmentProperties)(nil)).Elem()
-}
-
-func (o HostingEnvironmentPropertiesPtrOutput) ToHostingEnvironmentPropertiesPtrOutput() HostingEnvironmentPropertiesPtrOutput {
-	return o
-}
-
-func (o HostingEnvironmentPropertiesPtrOutput) ToHostingEnvironmentPropertiesPtrOutputWithContext(ctx context.Context) HostingEnvironmentPropertiesPtrOutput {
-	return o
-}
-
-func (o HostingEnvironmentPropertiesPtrOutput) Elem() HostingEnvironmentPropertiesOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) HostingEnvironmentProperties { return *v }).(HostingEnvironmentPropertiesOutput)
-}
-
-// List of comma separated strings describing which VM sizes are allowed for front-ends
-func (o HostingEnvironmentPropertiesPtrOutput) AllowedMultiSizes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AllowedMultiSizes
-	}).(pulumi.StringPtrOutput)
-}
-
-// List of comma separated strings describing which VM sizes are allowed for workers
-func (o HostingEnvironmentPropertiesPtrOutput) AllowedWorkerSizes() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AllowedWorkerSizes
-	}).(pulumi.StringPtrOutput)
-}
-
-// Api Management Account associated with this Hosting Environment
-func (o HostingEnvironmentPropertiesPtrOutput) ApiManagementAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ApiManagementAccountId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Custom settings for changing the behavior of the hosting environment
-func (o HostingEnvironmentPropertiesPtrOutput) ClusterSettings() NameValuePairArrayOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) []NameValuePair {
-		if v == nil {
-			return nil
-		}
-		return v.ClusterSettings
-	}).(NameValuePairArrayOutput)
-}
-
-// Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
-func (o HostingEnvironmentPropertiesPtrOutput) DatabaseEdition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DatabaseEdition
-	}).(pulumi.StringPtrOutput)
-}
-
-// Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
-func (o HostingEnvironmentPropertiesPtrOutput) DatabaseServiceObjective() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DatabaseServiceObjective
-	}).(pulumi.StringPtrOutput)
-}
-
-// DNS suffix of the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesPtrOutput) DnsSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DnsSuffix
-	}).(pulumi.StringPtrOutput)
-}
-
-// Current total, used, and available worker capacities
-func (o HostingEnvironmentPropertiesPtrOutput) EnvironmentCapacities() StampCapacityArrayOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) []StampCapacity {
-		if v == nil {
-			return nil
-		}
-		return v.EnvironmentCapacities
-	}).(StampCapacityArrayOutput)
-}
-
-// True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
-func (o HostingEnvironmentPropertiesPtrOutput) EnvironmentIsHealthy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnvironmentIsHealthy
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesPtrOutput) EnvironmentStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EnvironmentStatus
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
-func (o HostingEnvironmentPropertiesPtrOutput) InternalLoadBalancingMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InternalLoadBalancingMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesPtrOutput) IpsslAddressCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.IpsslAddressCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// Last deployment action on this hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesPtrOutput) LastAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastAction
-	}).(pulumi.StringPtrOutput)
-}
-
-// Result of the last deployment action on this hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesPtrOutput) LastActionResult() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastActionResult
-	}).(pulumi.StringPtrOutput)
-}
-
-// Location of the hostingEnvironment (App Service Environment), e.g. "West US"
-func (o HostingEnvironmentPropertiesPtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-// Maximum number of VMs in this hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesPtrOutput) MaximumNumberOfMachines() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaximumNumberOfMachines
-	}).(pulumi.IntPtrOutput)
-}
-
-// Number of front-end instances
-func (o HostingEnvironmentPropertiesPtrOutput) MultiRoleCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MultiRoleCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// Front-end VM size, e.g. "Medium", "Large"
-func (o HostingEnvironmentPropertiesPtrOutput) MultiSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MultiSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesPtrOutput) NetworkAccessControlList() NetworkAccessControlEntryArrayOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) []NetworkAccessControlEntry {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkAccessControlList
-	}).(NetworkAccessControlEntryArrayOutput)
-}
-
-// Provisioning state of the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource group of the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesPtrOutput) ResourceGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-// Current status of the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-// Subscription of the hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesPtrOutput) SubscriptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubscriptionId
-	}).(pulumi.StringPtrOutput)
-}
-
-// True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
-//             (most likely because NSG blocked the incoming traffic)
-func (o HostingEnvironmentPropertiesPtrOutput) Suspended() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Suspended
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Number of upgrade domains of this hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesPtrOutput) UpgradeDomains() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.UpgradeDomains
-	}).(pulumi.IntPtrOutput)
-}
-
-// Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
-func (o HostingEnvironmentPropertiesPtrOutput) VipMappings() VirtualIPMappingArrayOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) []VirtualIPMapping {
-		if v == nil {
-			return nil
-		}
-		return v.VipMappings
-	}).(VirtualIPMappingArrayOutput)
-}
-
-// Description of the hostingEnvironment's (App Service Environment) virtual network
-func (o HostingEnvironmentPropertiesPtrOutput) VirtualNetwork() VirtualNetworkProfilePtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *VirtualNetworkProfile {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetwork
-	}).(VirtualNetworkProfilePtrOutput)
-}
-
-// Name of the hostingEnvironment's (App Service Environment) virtual network
-func (o HostingEnvironmentPropertiesPtrOutput) VnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VnetName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource group of the hostingEnvironment's (App Service Environment) virtual network
-func (o HostingEnvironmentPropertiesPtrOutput) VnetResourceGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VnetResourceGroupName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Subnet of the hostingEnvironment's (App Service Environment) virtual network
-func (o HostingEnvironmentPropertiesPtrOutput) VnetSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VnetSubnetName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
-func (o HostingEnvironmentPropertiesPtrOutput) WorkerPools() WorkerPoolArrayOutput {
-	return o.ApplyT(func(v *HostingEnvironmentProperties) []WorkerPool {
-		if v == nil {
-			return nil
-		}
-		return v.WorkerPools
-	}).(WorkerPoolArrayOutput)
 }
 
 type HostingEnvironmentResponseProperties struct {
@@ -10632,222 +8493,6 @@ func (o RampUpRuleResponseArrayOutput) Index(i pulumi.IntInput) RampUpRuleRespon
 	}).(RampUpRuleResponseOutput)
 }
 
-type RelayServiceConnectionEntityProperties struct {
-	BiztalkUri               *string `pulumi:"biztalkUri"`
-	EntityConnectionString   *string `pulumi:"entityConnectionString"`
-	EntityName               *string `pulumi:"entityName"`
-	Hostname                 *string `pulumi:"hostname"`
-	Port                     *int    `pulumi:"port"`
-	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
-	ResourceType             *string `pulumi:"resourceType"`
-}
-
-// RelayServiceConnectionEntityPropertiesInput is an input type that accepts RelayServiceConnectionEntityPropertiesArgs and RelayServiceConnectionEntityPropertiesOutput values.
-// You can construct a concrete instance of `RelayServiceConnectionEntityPropertiesInput` via:
-//
-//          RelayServiceConnectionEntityPropertiesArgs{...}
-type RelayServiceConnectionEntityPropertiesInput interface {
-	pulumi.Input
-
-	ToRelayServiceConnectionEntityPropertiesOutput() RelayServiceConnectionEntityPropertiesOutput
-	ToRelayServiceConnectionEntityPropertiesOutputWithContext(context.Context) RelayServiceConnectionEntityPropertiesOutput
-}
-
-type RelayServiceConnectionEntityPropertiesArgs struct {
-	BiztalkUri               pulumi.StringPtrInput `pulumi:"biztalkUri"`
-	EntityConnectionString   pulumi.StringPtrInput `pulumi:"entityConnectionString"`
-	EntityName               pulumi.StringPtrInput `pulumi:"entityName"`
-	Hostname                 pulumi.StringPtrInput `pulumi:"hostname"`
-	Port                     pulumi.IntPtrInput    `pulumi:"port"`
-	ResourceConnectionString pulumi.StringPtrInput `pulumi:"resourceConnectionString"`
-	ResourceType             pulumi.StringPtrInput `pulumi:"resourceType"`
-}
-
-func (RelayServiceConnectionEntityPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelayServiceConnectionEntityProperties)(nil)).Elem()
-}
-
-func (i RelayServiceConnectionEntityPropertiesArgs) ToRelayServiceConnectionEntityPropertiesOutput() RelayServiceConnectionEntityPropertiesOutput {
-	return i.ToRelayServiceConnectionEntityPropertiesOutputWithContext(context.Background())
-}
-
-func (i RelayServiceConnectionEntityPropertiesArgs) ToRelayServiceConnectionEntityPropertiesOutputWithContext(ctx context.Context) RelayServiceConnectionEntityPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelayServiceConnectionEntityPropertiesOutput)
-}
-
-func (i RelayServiceConnectionEntityPropertiesArgs) ToRelayServiceConnectionEntityPropertiesPtrOutput() RelayServiceConnectionEntityPropertiesPtrOutput {
-	return i.ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i RelayServiceConnectionEntityPropertiesArgs) ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(ctx context.Context) RelayServiceConnectionEntityPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelayServiceConnectionEntityPropertiesOutput).ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(ctx)
-}
-
-// RelayServiceConnectionEntityPropertiesPtrInput is an input type that accepts RelayServiceConnectionEntityPropertiesArgs, RelayServiceConnectionEntityPropertiesPtr and RelayServiceConnectionEntityPropertiesPtrOutput values.
-// You can construct a concrete instance of `RelayServiceConnectionEntityPropertiesPtrInput` via:
-//
-//          RelayServiceConnectionEntityPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type RelayServiceConnectionEntityPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToRelayServiceConnectionEntityPropertiesPtrOutput() RelayServiceConnectionEntityPropertiesPtrOutput
-	ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(context.Context) RelayServiceConnectionEntityPropertiesPtrOutput
-}
-
-type relayServiceConnectionEntityPropertiesPtrType RelayServiceConnectionEntityPropertiesArgs
-
-func RelayServiceConnectionEntityPropertiesPtr(v *RelayServiceConnectionEntityPropertiesArgs) RelayServiceConnectionEntityPropertiesPtrInput {
-	return (*relayServiceConnectionEntityPropertiesPtrType)(v)
-}
-
-func (*relayServiceConnectionEntityPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RelayServiceConnectionEntityProperties)(nil)).Elem()
-}
-
-func (i *relayServiceConnectionEntityPropertiesPtrType) ToRelayServiceConnectionEntityPropertiesPtrOutput() RelayServiceConnectionEntityPropertiesPtrOutput {
-	return i.ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *relayServiceConnectionEntityPropertiesPtrType) ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(ctx context.Context) RelayServiceConnectionEntityPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelayServiceConnectionEntityPropertiesPtrOutput)
-}
-
-type RelayServiceConnectionEntityPropertiesOutput struct{ *pulumi.OutputState }
-
-func (RelayServiceConnectionEntityPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelayServiceConnectionEntityProperties)(nil)).Elem()
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) ToRelayServiceConnectionEntityPropertiesOutput() RelayServiceConnectionEntityPropertiesOutput {
-	return o
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) ToRelayServiceConnectionEntityPropertiesOutputWithContext(ctx context.Context) RelayServiceConnectionEntityPropertiesOutput {
-	return o
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) ToRelayServiceConnectionEntityPropertiesPtrOutput() RelayServiceConnectionEntityPropertiesPtrOutput {
-	return o.ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(ctx context.Context) RelayServiceConnectionEntityPropertiesPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *RelayServiceConnectionEntityProperties {
-		return &v
-	}).(RelayServiceConnectionEntityPropertiesPtrOutput)
-}
-func (o RelayServiceConnectionEntityPropertiesOutput) BiztalkUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *string { return v.BiztalkUri }).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) EntityConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *string { return v.EntityConnectionString }).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) EntityName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *string { return v.EntityName }).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) Hostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *string { return v.Hostname }).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *int { return v.Port }).(pulumi.IntPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) ResourceConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *string { return v.ResourceConnectionString }).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
-}
-
-type RelayServiceConnectionEntityPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (RelayServiceConnectionEntityPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RelayServiceConnectionEntityProperties)(nil)).Elem()
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) ToRelayServiceConnectionEntityPropertiesPtrOutput() RelayServiceConnectionEntityPropertiesPtrOutput {
-	return o
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(ctx context.Context) RelayServiceConnectionEntityPropertiesPtrOutput {
-	return o
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) Elem() RelayServiceConnectionEntityPropertiesOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) RelayServiceConnectionEntityProperties { return *v }).(RelayServiceConnectionEntityPropertiesOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) BiztalkUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BiztalkUri
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) EntityConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EntityConnectionString
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) EntityName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EntityName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) Hostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Hostname
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) ResourceConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceConnectionString
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceType
-	}).(pulumi.StringPtrOutput)
-}
-
 type RelayServiceConnectionEntityResponseProperties struct {
 	BiztalkUri               *string `pulumi:"biztalkUri"`
 	EntityConnectionString   *string `pulumi:"entityConnectionString"`
@@ -11575,255 +9220,6 @@ func (o ServerFarmRouteForVnetTypeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerFarmRouteForVnetType) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type ServerFarmWithRichSkuProperties struct {
-	// App Service Plan administration site
-	AdminSiteName *string `pulumi:"adminSiteName"`
-	// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
-	HostingEnvironmentProfile *HostingEnvironmentProfile `pulumi:"hostingEnvironmentProfile"`
-	// Maximum number of instances that can be assigned to this App Service Plan
-	MaximumNumberOfWorkers *int `pulumi:"maximumNumberOfWorkers"`
-	// Name for the App Service Plan
-	Name *string `pulumi:"name"`
-	// If True apps assigned to this App Service Plan can be scaled independently
-	//             If False apps assigned to this App Service Plan will scale to all instances of the plan
-	PerSiteScaling *bool `pulumi:"perSiteScaling"`
-	// Enables creation of a Linux App Service Plan
-	Reserved *bool `pulumi:"reserved"`
-	// Target worker tier assigned to the App Service Plan
-	WorkerTierName *string `pulumi:"workerTierName"`
-}
-
-// ServerFarmWithRichSkuPropertiesInput is an input type that accepts ServerFarmWithRichSkuPropertiesArgs and ServerFarmWithRichSkuPropertiesOutput values.
-// You can construct a concrete instance of `ServerFarmWithRichSkuPropertiesInput` via:
-//
-//          ServerFarmWithRichSkuPropertiesArgs{...}
-type ServerFarmWithRichSkuPropertiesInput interface {
-	pulumi.Input
-
-	ToServerFarmWithRichSkuPropertiesOutput() ServerFarmWithRichSkuPropertiesOutput
-	ToServerFarmWithRichSkuPropertiesOutputWithContext(context.Context) ServerFarmWithRichSkuPropertiesOutput
-}
-
-type ServerFarmWithRichSkuPropertiesArgs struct {
-	// App Service Plan administration site
-	AdminSiteName pulumi.StringPtrInput `pulumi:"adminSiteName"`
-	// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
-	HostingEnvironmentProfile HostingEnvironmentProfilePtrInput `pulumi:"hostingEnvironmentProfile"`
-	// Maximum number of instances that can be assigned to this App Service Plan
-	MaximumNumberOfWorkers pulumi.IntPtrInput `pulumi:"maximumNumberOfWorkers"`
-	// Name for the App Service Plan
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// If True apps assigned to this App Service Plan can be scaled independently
-	//             If False apps assigned to this App Service Plan will scale to all instances of the plan
-	PerSiteScaling pulumi.BoolPtrInput `pulumi:"perSiteScaling"`
-	// Enables creation of a Linux App Service Plan
-	Reserved pulumi.BoolPtrInput `pulumi:"reserved"`
-	// Target worker tier assigned to the App Service Plan
-	WorkerTierName pulumi.StringPtrInput `pulumi:"workerTierName"`
-}
-
-func (ServerFarmWithRichSkuPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerFarmWithRichSkuProperties)(nil)).Elem()
-}
-
-func (i ServerFarmWithRichSkuPropertiesArgs) ToServerFarmWithRichSkuPropertiesOutput() ServerFarmWithRichSkuPropertiesOutput {
-	return i.ToServerFarmWithRichSkuPropertiesOutputWithContext(context.Background())
-}
-
-func (i ServerFarmWithRichSkuPropertiesArgs) ToServerFarmWithRichSkuPropertiesOutputWithContext(ctx context.Context) ServerFarmWithRichSkuPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerFarmWithRichSkuPropertiesOutput)
-}
-
-func (i ServerFarmWithRichSkuPropertiesArgs) ToServerFarmWithRichSkuPropertiesPtrOutput() ServerFarmWithRichSkuPropertiesPtrOutput {
-	return i.ToServerFarmWithRichSkuPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ServerFarmWithRichSkuPropertiesArgs) ToServerFarmWithRichSkuPropertiesPtrOutputWithContext(ctx context.Context) ServerFarmWithRichSkuPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerFarmWithRichSkuPropertiesOutput).ToServerFarmWithRichSkuPropertiesPtrOutputWithContext(ctx)
-}
-
-// ServerFarmWithRichSkuPropertiesPtrInput is an input type that accepts ServerFarmWithRichSkuPropertiesArgs, ServerFarmWithRichSkuPropertiesPtr and ServerFarmWithRichSkuPropertiesPtrOutput values.
-// You can construct a concrete instance of `ServerFarmWithRichSkuPropertiesPtrInput` via:
-//
-//          ServerFarmWithRichSkuPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ServerFarmWithRichSkuPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToServerFarmWithRichSkuPropertiesPtrOutput() ServerFarmWithRichSkuPropertiesPtrOutput
-	ToServerFarmWithRichSkuPropertiesPtrOutputWithContext(context.Context) ServerFarmWithRichSkuPropertiesPtrOutput
-}
-
-type serverFarmWithRichSkuPropertiesPtrType ServerFarmWithRichSkuPropertiesArgs
-
-func ServerFarmWithRichSkuPropertiesPtr(v *ServerFarmWithRichSkuPropertiesArgs) ServerFarmWithRichSkuPropertiesPtrInput {
-	return (*serverFarmWithRichSkuPropertiesPtrType)(v)
-}
-
-func (*serverFarmWithRichSkuPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerFarmWithRichSkuProperties)(nil)).Elem()
-}
-
-func (i *serverFarmWithRichSkuPropertiesPtrType) ToServerFarmWithRichSkuPropertiesPtrOutput() ServerFarmWithRichSkuPropertiesPtrOutput {
-	return i.ToServerFarmWithRichSkuPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *serverFarmWithRichSkuPropertiesPtrType) ToServerFarmWithRichSkuPropertiesPtrOutputWithContext(ctx context.Context) ServerFarmWithRichSkuPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerFarmWithRichSkuPropertiesPtrOutput)
-}
-
-type ServerFarmWithRichSkuPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ServerFarmWithRichSkuPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerFarmWithRichSkuProperties)(nil)).Elem()
-}
-
-func (o ServerFarmWithRichSkuPropertiesOutput) ToServerFarmWithRichSkuPropertiesOutput() ServerFarmWithRichSkuPropertiesOutput {
-	return o
-}
-
-func (o ServerFarmWithRichSkuPropertiesOutput) ToServerFarmWithRichSkuPropertiesOutputWithContext(ctx context.Context) ServerFarmWithRichSkuPropertiesOutput {
-	return o
-}
-
-func (o ServerFarmWithRichSkuPropertiesOutput) ToServerFarmWithRichSkuPropertiesPtrOutput() ServerFarmWithRichSkuPropertiesPtrOutput {
-	return o.ToServerFarmWithRichSkuPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ServerFarmWithRichSkuPropertiesOutput) ToServerFarmWithRichSkuPropertiesPtrOutputWithContext(ctx context.Context) ServerFarmWithRichSkuPropertiesPtrOutput {
-	return o.ApplyT(func(v ServerFarmWithRichSkuProperties) *ServerFarmWithRichSkuProperties {
-		return &v
-	}).(ServerFarmWithRichSkuPropertiesPtrOutput)
-}
-
-// App Service Plan administration site
-func (o ServerFarmWithRichSkuPropertiesOutput) AdminSiteName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerFarmWithRichSkuProperties) *string { return v.AdminSiteName }).(pulumi.StringPtrOutput)
-}
-
-// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
-func (o ServerFarmWithRichSkuPropertiesOutput) HostingEnvironmentProfile() HostingEnvironmentProfilePtrOutput {
-	return o.ApplyT(func(v ServerFarmWithRichSkuProperties) *HostingEnvironmentProfile { return v.HostingEnvironmentProfile }).(HostingEnvironmentProfilePtrOutput)
-}
-
-// Maximum number of instances that can be assigned to this App Service Plan
-func (o ServerFarmWithRichSkuPropertiesOutput) MaximumNumberOfWorkers() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ServerFarmWithRichSkuProperties) *int { return v.MaximumNumberOfWorkers }).(pulumi.IntPtrOutput)
-}
-
-// Name for the App Service Plan
-func (o ServerFarmWithRichSkuPropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerFarmWithRichSkuProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// If True apps assigned to this App Service Plan can be scaled independently
-//             If False apps assigned to this App Service Plan will scale to all instances of the plan
-func (o ServerFarmWithRichSkuPropertiesOutput) PerSiteScaling() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServerFarmWithRichSkuProperties) *bool { return v.PerSiteScaling }).(pulumi.BoolPtrOutput)
-}
-
-// Enables creation of a Linux App Service Plan
-func (o ServerFarmWithRichSkuPropertiesOutput) Reserved() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ServerFarmWithRichSkuProperties) *bool { return v.Reserved }).(pulumi.BoolPtrOutput)
-}
-
-// Target worker tier assigned to the App Service Plan
-func (o ServerFarmWithRichSkuPropertiesOutput) WorkerTierName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServerFarmWithRichSkuProperties) *string { return v.WorkerTierName }).(pulumi.StringPtrOutput)
-}
-
-type ServerFarmWithRichSkuPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ServerFarmWithRichSkuPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServerFarmWithRichSkuProperties)(nil)).Elem()
-}
-
-func (o ServerFarmWithRichSkuPropertiesPtrOutput) ToServerFarmWithRichSkuPropertiesPtrOutput() ServerFarmWithRichSkuPropertiesPtrOutput {
-	return o
-}
-
-func (o ServerFarmWithRichSkuPropertiesPtrOutput) ToServerFarmWithRichSkuPropertiesPtrOutputWithContext(ctx context.Context) ServerFarmWithRichSkuPropertiesPtrOutput {
-	return o
-}
-
-func (o ServerFarmWithRichSkuPropertiesPtrOutput) Elem() ServerFarmWithRichSkuPropertiesOutput {
-	return o.ApplyT(func(v *ServerFarmWithRichSkuProperties) ServerFarmWithRichSkuProperties { return *v }).(ServerFarmWithRichSkuPropertiesOutput)
-}
-
-// App Service Plan administration site
-func (o ServerFarmWithRichSkuPropertiesPtrOutput) AdminSiteName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerFarmWithRichSkuProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AdminSiteName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
-func (o ServerFarmWithRichSkuPropertiesPtrOutput) HostingEnvironmentProfile() HostingEnvironmentProfilePtrOutput {
-	return o.ApplyT(func(v *ServerFarmWithRichSkuProperties) *HostingEnvironmentProfile {
-		if v == nil {
-			return nil
-		}
-		return v.HostingEnvironmentProfile
-	}).(HostingEnvironmentProfilePtrOutput)
-}
-
-// Maximum number of instances that can be assigned to this App Service Plan
-func (o ServerFarmWithRichSkuPropertiesPtrOutput) MaximumNumberOfWorkers() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ServerFarmWithRichSkuProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaximumNumberOfWorkers
-	}).(pulumi.IntPtrOutput)
-}
-
-// Name for the App Service Plan
-func (o ServerFarmWithRichSkuPropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerFarmWithRichSkuProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// If True apps assigned to this App Service Plan can be scaled independently
-//             If False apps assigned to this App Service Plan will scale to all instances of the plan
-func (o ServerFarmWithRichSkuPropertiesPtrOutput) PerSiteScaling() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ServerFarmWithRichSkuProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.PerSiteScaling
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Enables creation of a Linux App Service Plan
-func (o ServerFarmWithRichSkuPropertiesPtrOutput) Reserved() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ServerFarmWithRichSkuProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Reserved
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Target worker tier assigned to the App Service Plan
-func (o ServerFarmWithRichSkuPropertiesPtrOutput) WorkerTierName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerFarmWithRichSkuProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WorkerTierName
-	}).(pulumi.StringPtrOutput)
-}
-
 type ServerFarmWithRichSkuResponseProperties struct {
 	// App Service Plan administration site
 	AdminSiteName *string `pulumi:"adminSiteName"`
@@ -12269,19 +9665,102 @@ func (o SiteTypeOutput) Type() pulumi.StringPtrOutput {
 
 // Configuration of Azure web site
 type SiteConfig struct {
+	// Always On
+	AlwaysOn *bool `pulumi:"alwaysOn"`
+	// Information about the formal API definition for the web app.
+	ApiDefinition *ApiDefinitionInfo `pulumi:"apiDefinition"`
+	// App Command Line to launch
+	AppCommandLine *string `pulumi:"appCommandLine"`
+	// Application Settings
+	AppSettings []NameValuePair `pulumi:"appSettings"`
+	// Auto heal enabled
+	AutoHealEnabled *bool `pulumi:"autoHealEnabled"`
+	// Auto heal rules
+	AutoHealRules *AutoHealRules `pulumi:"autoHealRules"`
+	// Auto swap slot name
+	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
+	// Connection strings
+	ConnectionStrings []ConnStringInfo `pulumi:"connectionStrings"`
+	// Cross-Origin Resource Sharing (CORS) settings.
+	Cors *CorsSettings `pulumi:"cors"`
+	// Default documents
+	DefaultDocuments []string `pulumi:"defaultDocuments"`
+	// Detailed error logging enabled
+	DetailedErrorLoggingEnabled *bool `pulumi:"detailedErrorLoggingEnabled"`
+	// Document root
+	DocumentRoot *string `pulumi:"documentRoot"`
+	// This is work around for polymorphic types
+	Experiments *Experiments `pulumi:"experiments"`
+	// Handler mappings
+	HandlerMappings []HandlerMapping `pulumi:"handlerMappings"`
+	// HTTP logging Enabled
+	HttpLoggingEnabled *bool `pulumi:"httpLoggingEnabled"`
 	// Resource Id
 	Id *string `pulumi:"id"`
+	// Ip Security restrictions
+	IpSecurityRestrictions []IpSecurityRestriction `pulumi:"ipSecurityRestrictions"`
+	// Java container
+	JavaContainer *string `pulumi:"javaContainer"`
+	// Java container version
+	JavaContainerVersion *string `pulumi:"javaContainerVersion"`
+	// Java version
+	JavaVersion *string `pulumi:"javaVersion"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
+	// Site limits
+	Limits *SiteLimits `pulumi:"limits"`
+	// Site load balancing
+	LoadBalancing *string `pulumi:"loadBalancing"`
+	// Local mysql enabled
+	LocalMySqlEnabled *bool `pulumi:"localMySqlEnabled"`
 	// Resource Location
 	Location string `pulumi:"location"`
+	// HTTP Logs Directory size limit
+	LogsDirectorySizeLimit *int `pulumi:"logsDirectorySizeLimit"`
+	// Managed pipeline mode
+	ManagedPipelineMode *string `pulumi:"managedPipelineMode"`
+	// Site Metadata
+	Metadata []NameValuePair `pulumi:"metadata"`
 	// Resource Name
-	Name       *string               `pulumi:"name"`
-	Properties *SiteConfigProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// Net Framework Version
+	NetFrameworkVersion *string `pulumi:"netFrameworkVersion"`
+	// Version of Node
+	NodeVersion *string `pulumi:"nodeVersion"`
+	// Number of workers
+	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
+	// Version of PHP
+	PhpVersion *string `pulumi:"phpVersion"`
+	// Publishing password
+	PublishingPassword *string `pulumi:"publishingPassword"`
+	// Publishing user name
+	PublishingUsername *string `pulumi:"publishingUsername"`
+	// Version of Python
+	PythonVersion *string `pulumi:"pythonVersion"`
+	// Remote Debugging Enabled
+	RemoteDebuggingEnabled *bool `pulumi:"remoteDebuggingEnabled"`
+	// Remote Debugging Version
+	RemoteDebuggingVersion *string `pulumi:"remoteDebuggingVersion"`
+	// Enable request tracing
+	RequestTracingEnabled *bool `pulumi:"requestTracingEnabled"`
+	// Request tracing expiration time
+	RequestTracingExpirationTime *string `pulumi:"requestTracingExpirationTime"`
+	// SCM type
+	ScmType *string `pulumi:"scmType"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Tracing options
+	TracingOptions *string `pulumi:"tracingOptions"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Use 32 bit worker process
+	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
+	// Virtual applications
+	VirtualApplications []VirtualApplication `pulumi:"virtualApplications"`
+	// Vnet name
+	VnetName *string `pulumi:"vnetName"`
+	// Web socket enabled.
+	WebSocketsEnabled *bool `pulumi:"webSocketsEnabled"`
 }
 
 // SiteConfigInput is an input type that accepts SiteConfigArgs and SiteConfigOutput values.
@@ -12297,19 +9776,102 @@ type SiteConfigInput interface {
 
 // Configuration of Azure web site
 type SiteConfigArgs struct {
+	// Always On
+	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
+	// Information about the formal API definition for the web app.
+	ApiDefinition ApiDefinitionInfoPtrInput `pulumi:"apiDefinition"`
+	// App Command Line to launch
+	AppCommandLine pulumi.StringPtrInput `pulumi:"appCommandLine"`
+	// Application Settings
+	AppSettings NameValuePairArrayInput `pulumi:"appSettings"`
+	// Auto heal enabled
+	AutoHealEnabled pulumi.BoolPtrInput `pulumi:"autoHealEnabled"`
+	// Auto heal rules
+	AutoHealRules AutoHealRulesPtrInput `pulumi:"autoHealRules"`
+	// Auto swap slot name
+	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
+	// Connection strings
+	ConnectionStrings ConnStringInfoArrayInput `pulumi:"connectionStrings"`
+	// Cross-Origin Resource Sharing (CORS) settings.
+	Cors CorsSettingsPtrInput `pulumi:"cors"`
+	// Default documents
+	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
+	// Detailed error logging enabled
+	DetailedErrorLoggingEnabled pulumi.BoolPtrInput `pulumi:"detailedErrorLoggingEnabled"`
+	// Document root
+	DocumentRoot pulumi.StringPtrInput `pulumi:"documentRoot"`
+	// This is work around for polymorphic types
+	Experiments ExperimentsPtrInput `pulumi:"experiments"`
+	// Handler mappings
+	HandlerMappings HandlerMappingArrayInput `pulumi:"handlerMappings"`
+	// HTTP logging Enabled
+	HttpLoggingEnabled pulumi.BoolPtrInput `pulumi:"httpLoggingEnabled"`
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Ip Security restrictions
+	IpSecurityRestrictions IpSecurityRestrictionArrayInput `pulumi:"ipSecurityRestrictions"`
+	// Java container
+	JavaContainer pulumi.StringPtrInput `pulumi:"javaContainer"`
+	// Java container version
+	JavaContainerVersion pulumi.StringPtrInput `pulumi:"javaContainerVersion"`
+	// Java version
+	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
 	// Kind of resource
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// Site limits
+	Limits SiteLimitsPtrInput `pulumi:"limits"`
+	// Site load balancing
+	LoadBalancing pulumi.StringPtrInput `pulumi:"loadBalancing"`
+	// Local mysql enabled
+	LocalMySqlEnabled pulumi.BoolPtrInput `pulumi:"localMySqlEnabled"`
 	// Resource Location
 	Location pulumi.StringInput `pulumi:"location"`
+	// HTTP Logs Directory size limit
+	LogsDirectorySizeLimit pulumi.IntPtrInput `pulumi:"logsDirectorySizeLimit"`
+	// Managed pipeline mode
+	ManagedPipelineMode pulumi.StringPtrInput `pulumi:"managedPipelineMode"`
+	// Site Metadata
+	Metadata NameValuePairArrayInput `pulumi:"metadata"`
 	// Resource Name
-	Name       pulumi.StringPtrInput        `pulumi:"name"`
-	Properties SiteConfigPropertiesPtrInput `pulumi:"properties"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Net Framework Version
+	NetFrameworkVersion pulumi.StringPtrInput `pulumi:"netFrameworkVersion"`
+	// Version of Node
+	NodeVersion pulumi.StringPtrInput `pulumi:"nodeVersion"`
+	// Number of workers
+	NumberOfWorkers pulumi.IntPtrInput `pulumi:"numberOfWorkers"`
+	// Version of PHP
+	PhpVersion pulumi.StringPtrInput `pulumi:"phpVersion"`
+	// Publishing password
+	PublishingPassword pulumi.StringPtrInput `pulumi:"publishingPassword"`
+	// Publishing user name
+	PublishingUsername pulumi.StringPtrInput `pulumi:"publishingUsername"`
+	// Version of Python
+	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
+	// Remote Debugging Enabled
+	RemoteDebuggingEnabled pulumi.BoolPtrInput `pulumi:"remoteDebuggingEnabled"`
+	// Remote Debugging Version
+	RemoteDebuggingVersion pulumi.StringPtrInput `pulumi:"remoteDebuggingVersion"`
+	// Enable request tracing
+	RequestTracingEnabled pulumi.BoolPtrInput `pulumi:"requestTracingEnabled"`
+	// Request tracing expiration time
+	RequestTracingExpirationTime pulumi.StringPtrInput `pulumi:"requestTracingExpirationTime"`
+	// SCM type
+	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
 	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
+	// Tracing options
+	TracingOptions pulumi.StringPtrInput `pulumi:"tracingOptions"`
 	// Resource type
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Use 32 bit worker process
+	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
+	// Virtual applications
+	VirtualApplications VirtualApplicationArrayInput `pulumi:"virtualApplications"`
+	// Vnet name
+	VnetName pulumi.StringPtrInput `pulumi:"vnetName"`
+	// Web socket enabled.
+	WebSocketsEnabled pulumi.BoolPtrInput `pulumi:"webSocketsEnabled"`
 }
 
 func (SiteConfigArgs) ElementType() reflect.Type {
@@ -12390,9 +9952,104 @@ func (o SiteConfigOutput) ToSiteConfigPtrOutputWithContext(ctx context.Context) 
 	}).(SiteConfigPtrOutput)
 }
 
+// Always On
+func (o SiteConfigOutput) AlwaysOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
+}
+
+// Information about the formal API definition for the web app.
+func (o SiteConfigOutput) ApiDefinition() ApiDefinitionInfoPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *ApiDefinitionInfo { return v.ApiDefinition }).(ApiDefinitionInfoPtrOutput)
+}
+
+// App Command Line to launch
+func (o SiteConfigOutput) AppCommandLine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.AppCommandLine }).(pulumi.StringPtrOutput)
+}
+
+// Application Settings
+func (o SiteConfigOutput) AppSettings() NameValuePairArrayOutput {
+	return o.ApplyT(func(v SiteConfig) []NameValuePair { return v.AppSettings }).(NameValuePairArrayOutput)
+}
+
+// Auto heal enabled
+func (o SiteConfigOutput) AutoHealEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *bool { return v.AutoHealEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Auto heal rules
+func (o SiteConfigOutput) AutoHealRules() AutoHealRulesPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *AutoHealRules { return v.AutoHealRules }).(AutoHealRulesPtrOutput)
+}
+
+// Auto swap slot name
+func (o SiteConfigOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
+}
+
+// Connection strings
+func (o SiteConfigOutput) ConnectionStrings() ConnStringInfoArrayOutput {
+	return o.ApplyT(func(v SiteConfig) []ConnStringInfo { return v.ConnectionStrings }).(ConnStringInfoArrayOutput)
+}
+
+// Cross-Origin Resource Sharing (CORS) settings.
+func (o SiteConfigOutput) Cors() CorsSettingsPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *CorsSettings { return v.Cors }).(CorsSettingsPtrOutput)
+}
+
+// Default documents
+func (o SiteConfigOutput) DefaultDocuments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SiteConfig) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
+}
+
+// Detailed error logging enabled
+func (o SiteConfigOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *bool { return v.DetailedErrorLoggingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Document root
+func (o SiteConfigOutput) DocumentRoot() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.DocumentRoot }).(pulumi.StringPtrOutput)
+}
+
+// This is work around for polymorphic types
+func (o SiteConfigOutput) Experiments() ExperimentsPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *Experiments { return v.Experiments }).(ExperimentsPtrOutput)
+}
+
+// Handler mappings
+func (o SiteConfigOutput) HandlerMappings() HandlerMappingArrayOutput {
+	return o.ApplyT(func(v SiteConfig) []HandlerMapping { return v.HandlerMappings }).(HandlerMappingArrayOutput)
+}
+
+// HTTP logging Enabled
+func (o SiteConfigOutput) HttpLoggingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *bool { return v.HttpLoggingEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Resource Id
 func (o SiteConfigOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Ip Security restrictions
+func (o SiteConfigOutput) IpSecurityRestrictions() IpSecurityRestrictionArrayOutput {
+	return o.ApplyT(func(v SiteConfig) []IpSecurityRestriction { return v.IpSecurityRestrictions }).(IpSecurityRestrictionArrayOutput)
+}
+
+// Java container
+func (o SiteConfigOutput) JavaContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.JavaContainer }).(pulumi.StringPtrOutput)
+}
+
+// Java container version
+func (o SiteConfigOutput) JavaContainerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.JavaContainerVersion }).(pulumi.StringPtrOutput)
+}
+
+// Java version
+func (o SiteConfigOutput) JavaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.JavaVersion }).(pulumi.StringPtrOutput)
 }
 
 // Kind of resource
@@ -12400,9 +10057,39 @@ func (o SiteConfigOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
+// Site limits
+func (o SiteConfigOutput) Limits() SiteLimitsPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *SiteLimits { return v.Limits }).(SiteLimitsPtrOutput)
+}
+
+// Site load balancing
+func (o SiteConfigOutput) LoadBalancing() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.LoadBalancing }).(pulumi.StringPtrOutput)
+}
+
+// Local mysql enabled
+func (o SiteConfigOutput) LocalMySqlEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *bool { return v.LocalMySqlEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Resource Location
 func (o SiteConfigOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v SiteConfig) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// HTTP Logs Directory size limit
+func (o SiteConfigOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *int { return v.LogsDirectorySizeLimit }).(pulumi.IntPtrOutput)
+}
+
+// Managed pipeline mode
+func (o SiteConfigOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.ManagedPipelineMode }).(pulumi.StringPtrOutput)
+}
+
+// Site Metadata
+func (o SiteConfigOutput) Metadata() NameValuePairArrayOutput {
+	return o.ApplyT(func(v SiteConfig) []NameValuePair { return v.Metadata }).(NameValuePairArrayOutput)
 }
 
 // Resource Name
@@ -12410,8 +10097,64 @@ func (o SiteConfigOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o SiteConfigOutput) Properties() SiteConfigPropertiesPtrOutput {
-	return o.ApplyT(func(v SiteConfig) *SiteConfigProperties { return v.Properties }).(SiteConfigPropertiesPtrOutput)
+// Net Framework Version
+func (o SiteConfigOutput) NetFrameworkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.NetFrameworkVersion }).(pulumi.StringPtrOutput)
+}
+
+// Version of Node
+func (o SiteConfigOutput) NodeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.NodeVersion }).(pulumi.StringPtrOutput)
+}
+
+// Number of workers
+func (o SiteConfigOutput) NumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *int { return v.NumberOfWorkers }).(pulumi.IntPtrOutput)
+}
+
+// Version of PHP
+func (o SiteConfigOutput) PhpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.PhpVersion }).(pulumi.StringPtrOutput)
+}
+
+// Publishing password
+func (o SiteConfigOutput) PublishingPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.PublishingPassword }).(pulumi.StringPtrOutput)
+}
+
+// Publishing user name
+func (o SiteConfigOutput) PublishingUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.PublishingUsername }).(pulumi.StringPtrOutput)
+}
+
+// Version of Python
+func (o SiteConfigOutput) PythonVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
+}
+
+// Remote Debugging Enabled
+func (o SiteConfigOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *bool { return v.RemoteDebuggingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Remote Debugging Version
+func (o SiteConfigOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.RemoteDebuggingVersion }).(pulumi.StringPtrOutput)
+}
+
+// Enable request tracing
+func (o SiteConfigOutput) RequestTracingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *bool { return v.RequestTracingEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Request tracing expiration time
+func (o SiteConfigOutput) RequestTracingExpirationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.RequestTracingExpirationTime }).(pulumi.StringPtrOutput)
+}
+
+// SCM type
+func (o SiteConfigOutput) ScmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.ScmType }).(pulumi.StringPtrOutput)
 }
 
 // Resource tags
@@ -12419,9 +10162,34 @@ func (o SiteConfigOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SiteConfig) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Tracing options
+func (o SiteConfigOutput) TracingOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.TracingOptions }).(pulumi.StringPtrOutput)
+}
+
 // Resource type
 func (o SiteConfigOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteConfig) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Use 32 bit worker process
+func (o SiteConfigOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
+}
+
+// Virtual applications
+func (o SiteConfigOutput) VirtualApplications() VirtualApplicationArrayOutput {
+	return o.ApplyT(func(v SiteConfig) []VirtualApplication { return v.VirtualApplications }).(VirtualApplicationArrayOutput)
+}
+
+// Vnet name
+func (o SiteConfigOutput) VnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *string { return v.VnetName }).(pulumi.StringPtrOutput)
+}
+
+// Web socket enabled.
+func (o SiteConfigOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SiteConfig) *bool { return v.WebSocketsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type SiteConfigPtrOutput struct{ *pulumi.OutputState }
@@ -12442,6 +10210,156 @@ func (o SiteConfigPtrOutput) Elem() SiteConfigOutput {
 	return o.ApplyT(func(v *SiteConfig) SiteConfig { return *v }).(SiteConfigOutput)
 }
 
+// Always On
+func (o SiteConfigPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AlwaysOn
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Information about the formal API definition for the web app.
+func (o SiteConfigPtrOutput) ApiDefinition() ApiDefinitionInfoPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *ApiDefinitionInfo {
+		if v == nil {
+			return nil
+		}
+		return v.ApiDefinition
+	}).(ApiDefinitionInfoPtrOutput)
+}
+
+// App Command Line to launch
+func (o SiteConfigPtrOutput) AppCommandLine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AppCommandLine
+	}).(pulumi.StringPtrOutput)
+}
+
+// Application Settings
+func (o SiteConfigPtrOutput) AppSettings() NameValuePairArrayOutput {
+	return o.ApplyT(func(v *SiteConfig) []NameValuePair {
+		if v == nil {
+			return nil
+		}
+		return v.AppSettings
+	}).(NameValuePairArrayOutput)
+}
+
+// Auto heal enabled
+func (o SiteConfigPtrOutput) AutoHealEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoHealEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Auto heal rules
+func (o SiteConfigPtrOutput) AutoHealRules() AutoHealRulesPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *AutoHealRules {
+		if v == nil {
+			return nil
+		}
+		return v.AutoHealRules
+	}).(AutoHealRulesPtrOutput)
+}
+
+// Auto swap slot name
+func (o SiteConfigPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoSwapSlotName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Connection strings
+func (o SiteConfigPtrOutput) ConnectionStrings() ConnStringInfoArrayOutput {
+	return o.ApplyT(func(v *SiteConfig) []ConnStringInfo {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionStrings
+	}).(ConnStringInfoArrayOutput)
+}
+
+// Cross-Origin Resource Sharing (CORS) settings.
+func (o SiteConfigPtrOutput) Cors() CorsSettingsPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *CorsSettings {
+		if v == nil {
+			return nil
+		}
+		return v.Cors
+	}).(CorsSettingsPtrOutput)
+}
+
+// Default documents
+func (o SiteConfigPtrOutput) DefaultDocuments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SiteConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultDocuments
+	}).(pulumi.StringArrayOutput)
+}
+
+// Detailed error logging enabled
+func (o SiteConfigPtrOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DetailedErrorLoggingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Document root
+func (o SiteConfigPtrOutput) DocumentRoot() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DocumentRoot
+	}).(pulumi.StringPtrOutput)
+}
+
+// This is work around for polymorphic types
+func (o SiteConfigPtrOutput) Experiments() ExperimentsPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *Experiments {
+		if v == nil {
+			return nil
+		}
+		return v.Experiments
+	}).(ExperimentsPtrOutput)
+}
+
+// Handler mappings
+func (o SiteConfigPtrOutput) HandlerMappings() HandlerMappingArrayOutput {
+	return o.ApplyT(func(v *SiteConfig) []HandlerMapping {
+		if v == nil {
+			return nil
+		}
+		return v.HandlerMappings
+	}).(HandlerMappingArrayOutput)
+}
+
+// HTTP logging Enabled
+func (o SiteConfigPtrOutput) HttpLoggingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HttpLoggingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Resource Id
 func (o SiteConfigPtrOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
@@ -12449,6 +10367,46 @@ func (o SiteConfigPtrOutput) Id() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ip Security restrictions
+func (o SiteConfigPtrOutput) IpSecurityRestrictions() IpSecurityRestrictionArrayOutput {
+	return o.ApplyT(func(v *SiteConfig) []IpSecurityRestriction {
+		if v == nil {
+			return nil
+		}
+		return v.IpSecurityRestrictions
+	}).(IpSecurityRestrictionArrayOutput)
+}
+
+// Java container
+func (o SiteConfigPtrOutput) JavaContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JavaContainer
+	}).(pulumi.StringPtrOutput)
+}
+
+// Java container version
+func (o SiteConfigPtrOutput) JavaContainerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JavaContainerVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Java version
+func (o SiteConfigPtrOutput) JavaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JavaVersion
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12462,6 +10420,36 @@ func (o SiteConfigPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Site limits
+func (o SiteConfigPtrOutput) Limits() SiteLimitsPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *SiteLimits {
+		if v == nil {
+			return nil
+		}
+		return v.Limits
+	}).(SiteLimitsPtrOutput)
+}
+
+// Site load balancing
+func (o SiteConfigPtrOutput) LoadBalancing() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancing
+	}).(pulumi.StringPtrOutput)
+}
+
+// Local mysql enabled
+func (o SiteConfigPtrOutput) LocalMySqlEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LocalMySqlEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Resource Location
 func (o SiteConfigPtrOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
@@ -12470,6 +10458,36 @@ func (o SiteConfigPtrOutput) Location() pulumi.StringPtrOutput {
 		}
 		return &v.Location
 	}).(pulumi.StringPtrOutput)
+}
+
+// HTTP Logs Directory size limit
+func (o SiteConfigPtrOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LogsDirectorySizeLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Managed pipeline mode
+func (o SiteConfigPtrOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedPipelineMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Site Metadata
+func (o SiteConfigPtrOutput) Metadata() NameValuePairArrayOutput {
+	return o.ApplyT(func(v *SiteConfig) []NameValuePair {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(NameValuePairArrayOutput)
 }
 
 // Resource Name
@@ -12482,13 +10500,124 @@ func (o SiteConfigPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o SiteConfigPtrOutput) Properties() SiteConfigPropertiesPtrOutput {
-	return o.ApplyT(func(v *SiteConfig) *SiteConfigProperties {
+// Net Framework Version
+func (o SiteConfigPtrOutput) NetFrameworkVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
 			return nil
 		}
-		return v.Properties
-	}).(SiteConfigPropertiesPtrOutput)
+		return v.NetFrameworkVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of Node
+func (o SiteConfigPtrOutput) NodeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NodeVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Number of workers
+func (o SiteConfigPtrOutput) NumberOfWorkers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfWorkers
+	}).(pulumi.IntPtrOutput)
+}
+
+// Version of PHP
+func (o SiteConfigPtrOutput) PhpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PhpVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Publishing password
+func (o SiteConfigPtrOutput) PublishingPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublishingPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// Publishing user name
+func (o SiteConfigPtrOutput) PublishingUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublishingUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+// Version of Python
+func (o SiteConfigPtrOutput) PythonVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PythonVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Remote Debugging Enabled
+func (o SiteConfigPtrOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RemoteDebuggingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Remote Debugging Version
+func (o SiteConfigPtrOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RemoteDebuggingVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enable request tracing
+func (o SiteConfigPtrOutput) RequestTracingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequestTracingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Request tracing expiration time
+func (o SiteConfigPtrOutput) RequestTracingExpirationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RequestTracingExpirationTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// SCM type
+func (o SiteConfigPtrOutput) ScmType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ScmType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Resource tags
@@ -12501,6 +10630,16 @@ func (o SiteConfigPtrOutput) Tags() pulumi.StringMapOutput {
 	}).(pulumi.StringMapOutput)
 }
 
+// Tracing options
+func (o SiteConfigPtrOutput) TracingOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TracingOptions
+	}).(pulumi.StringPtrOutput)
+}
+
 // Resource type
 func (o SiteConfigPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SiteConfig) *string {
@@ -12511,879 +10650,9 @@ func (o SiteConfigPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type SiteConfigProperties struct {
-	// Always On
-	AlwaysOn *bool `pulumi:"alwaysOn"`
-	// Information about the formal API definition for the web app.
-	ApiDefinition *ApiDefinitionInfo `pulumi:"apiDefinition"`
-	// App Command Line to launch
-	AppCommandLine *string `pulumi:"appCommandLine"`
-	// Application Settings
-	AppSettings []NameValuePair `pulumi:"appSettings"`
-	// Auto heal enabled
-	AutoHealEnabled *bool `pulumi:"autoHealEnabled"`
-	// Auto heal rules
-	AutoHealRules *AutoHealRules `pulumi:"autoHealRules"`
-	// Auto swap slot name
-	AutoSwapSlotName *string `pulumi:"autoSwapSlotName"`
-	// Connection strings
-	ConnectionStrings []ConnStringInfo `pulumi:"connectionStrings"`
-	// Cross-Origin Resource Sharing (CORS) settings.
-	Cors *CorsSettings `pulumi:"cors"`
-	// Default documents
-	DefaultDocuments []string `pulumi:"defaultDocuments"`
-	// Detailed error logging enabled
-	DetailedErrorLoggingEnabled *bool `pulumi:"detailedErrorLoggingEnabled"`
-	// Document root
-	DocumentRoot *string `pulumi:"documentRoot"`
-	// This is work around for polymorphic types
-	Experiments *Experiments `pulumi:"experiments"`
-	// Handler mappings
-	HandlerMappings []HandlerMapping `pulumi:"handlerMappings"`
-	// HTTP logging Enabled
-	HttpLoggingEnabled *bool `pulumi:"httpLoggingEnabled"`
-	// Ip Security restrictions
-	IpSecurityRestrictions []IpSecurityRestriction `pulumi:"ipSecurityRestrictions"`
-	// Java container
-	JavaContainer *string `pulumi:"javaContainer"`
-	// Java container version
-	JavaContainerVersion *string `pulumi:"javaContainerVersion"`
-	// Java version
-	JavaVersion *string `pulumi:"javaVersion"`
-	// Site limits
-	Limits *SiteLimits `pulumi:"limits"`
-	// Site load balancing
-	LoadBalancing *string `pulumi:"loadBalancing"`
-	// Local mysql enabled
-	LocalMySqlEnabled *bool `pulumi:"localMySqlEnabled"`
-	// HTTP Logs Directory size limit
-	LogsDirectorySizeLimit *int `pulumi:"logsDirectorySizeLimit"`
-	// Managed pipeline mode
-	ManagedPipelineMode *string `pulumi:"managedPipelineMode"`
-	// Site Metadata
-	Metadata []NameValuePair `pulumi:"metadata"`
-	// Net Framework Version
-	NetFrameworkVersion *string `pulumi:"netFrameworkVersion"`
-	// Version of Node
-	NodeVersion *string `pulumi:"nodeVersion"`
-	// Number of workers
-	NumberOfWorkers *int `pulumi:"numberOfWorkers"`
-	// Version of PHP
-	PhpVersion *string `pulumi:"phpVersion"`
-	// Publishing password
-	PublishingPassword *string `pulumi:"publishingPassword"`
-	// Publishing user name
-	PublishingUsername *string `pulumi:"publishingUsername"`
-	// Version of Python
-	PythonVersion *string `pulumi:"pythonVersion"`
-	// Remote Debugging Enabled
-	RemoteDebuggingEnabled *bool `pulumi:"remoteDebuggingEnabled"`
-	// Remote Debugging Version
-	RemoteDebuggingVersion *string `pulumi:"remoteDebuggingVersion"`
-	// Enable request tracing
-	RequestTracingEnabled *bool `pulumi:"requestTracingEnabled"`
-	// Request tracing expiration time
-	RequestTracingExpirationTime *string `pulumi:"requestTracingExpirationTime"`
-	// SCM type
-	ScmType *string `pulumi:"scmType"`
-	// Tracing options
-	TracingOptions *string `pulumi:"tracingOptions"`
-	// Use 32 bit worker process
-	Use32BitWorkerProcess *bool `pulumi:"use32BitWorkerProcess"`
-	// Virtual applications
-	VirtualApplications []VirtualApplication `pulumi:"virtualApplications"`
-	// Vnet name
-	VnetName *string `pulumi:"vnetName"`
-	// Web socket enabled.
-	WebSocketsEnabled *bool `pulumi:"webSocketsEnabled"`
-}
-
-// SiteConfigPropertiesInput is an input type that accepts SiteConfigPropertiesArgs and SiteConfigPropertiesOutput values.
-// You can construct a concrete instance of `SiteConfigPropertiesInput` via:
-//
-//          SiteConfigPropertiesArgs{...}
-type SiteConfigPropertiesInput interface {
-	pulumi.Input
-
-	ToSiteConfigPropertiesOutput() SiteConfigPropertiesOutput
-	ToSiteConfigPropertiesOutputWithContext(context.Context) SiteConfigPropertiesOutput
-}
-
-type SiteConfigPropertiesArgs struct {
-	// Always On
-	AlwaysOn pulumi.BoolPtrInput `pulumi:"alwaysOn"`
-	// Information about the formal API definition for the web app.
-	ApiDefinition ApiDefinitionInfoPtrInput `pulumi:"apiDefinition"`
-	// App Command Line to launch
-	AppCommandLine pulumi.StringPtrInput `pulumi:"appCommandLine"`
-	// Application Settings
-	AppSettings NameValuePairArrayInput `pulumi:"appSettings"`
-	// Auto heal enabled
-	AutoHealEnabled pulumi.BoolPtrInput `pulumi:"autoHealEnabled"`
-	// Auto heal rules
-	AutoHealRules AutoHealRulesPtrInput `pulumi:"autoHealRules"`
-	// Auto swap slot name
-	AutoSwapSlotName pulumi.StringPtrInput `pulumi:"autoSwapSlotName"`
-	// Connection strings
-	ConnectionStrings ConnStringInfoArrayInput `pulumi:"connectionStrings"`
-	// Cross-Origin Resource Sharing (CORS) settings.
-	Cors CorsSettingsPtrInput `pulumi:"cors"`
-	// Default documents
-	DefaultDocuments pulumi.StringArrayInput `pulumi:"defaultDocuments"`
-	// Detailed error logging enabled
-	DetailedErrorLoggingEnabled pulumi.BoolPtrInput `pulumi:"detailedErrorLoggingEnabled"`
-	// Document root
-	DocumentRoot pulumi.StringPtrInput `pulumi:"documentRoot"`
-	// This is work around for polymorphic types
-	Experiments ExperimentsPtrInput `pulumi:"experiments"`
-	// Handler mappings
-	HandlerMappings HandlerMappingArrayInput `pulumi:"handlerMappings"`
-	// HTTP logging Enabled
-	HttpLoggingEnabled pulumi.BoolPtrInput `pulumi:"httpLoggingEnabled"`
-	// Ip Security restrictions
-	IpSecurityRestrictions IpSecurityRestrictionArrayInput `pulumi:"ipSecurityRestrictions"`
-	// Java container
-	JavaContainer pulumi.StringPtrInput `pulumi:"javaContainer"`
-	// Java container version
-	JavaContainerVersion pulumi.StringPtrInput `pulumi:"javaContainerVersion"`
-	// Java version
-	JavaVersion pulumi.StringPtrInput `pulumi:"javaVersion"`
-	// Site limits
-	Limits SiteLimitsPtrInput `pulumi:"limits"`
-	// Site load balancing
-	LoadBalancing pulumi.StringPtrInput `pulumi:"loadBalancing"`
-	// Local mysql enabled
-	LocalMySqlEnabled pulumi.BoolPtrInput `pulumi:"localMySqlEnabled"`
-	// HTTP Logs Directory size limit
-	LogsDirectorySizeLimit pulumi.IntPtrInput `pulumi:"logsDirectorySizeLimit"`
-	// Managed pipeline mode
-	ManagedPipelineMode pulumi.StringPtrInput `pulumi:"managedPipelineMode"`
-	// Site Metadata
-	Metadata NameValuePairArrayInput `pulumi:"metadata"`
-	// Net Framework Version
-	NetFrameworkVersion pulumi.StringPtrInput `pulumi:"netFrameworkVersion"`
-	// Version of Node
-	NodeVersion pulumi.StringPtrInput `pulumi:"nodeVersion"`
-	// Number of workers
-	NumberOfWorkers pulumi.IntPtrInput `pulumi:"numberOfWorkers"`
-	// Version of PHP
-	PhpVersion pulumi.StringPtrInput `pulumi:"phpVersion"`
-	// Publishing password
-	PublishingPassword pulumi.StringPtrInput `pulumi:"publishingPassword"`
-	// Publishing user name
-	PublishingUsername pulumi.StringPtrInput `pulumi:"publishingUsername"`
-	// Version of Python
-	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
-	// Remote Debugging Enabled
-	RemoteDebuggingEnabled pulumi.BoolPtrInput `pulumi:"remoteDebuggingEnabled"`
-	// Remote Debugging Version
-	RemoteDebuggingVersion pulumi.StringPtrInput `pulumi:"remoteDebuggingVersion"`
-	// Enable request tracing
-	RequestTracingEnabled pulumi.BoolPtrInput `pulumi:"requestTracingEnabled"`
-	// Request tracing expiration time
-	RequestTracingExpirationTime pulumi.StringPtrInput `pulumi:"requestTracingExpirationTime"`
-	// SCM type
-	ScmType pulumi.StringPtrInput `pulumi:"scmType"`
-	// Tracing options
-	TracingOptions pulumi.StringPtrInput `pulumi:"tracingOptions"`
-	// Use 32 bit worker process
-	Use32BitWorkerProcess pulumi.BoolPtrInput `pulumi:"use32BitWorkerProcess"`
-	// Virtual applications
-	VirtualApplications VirtualApplicationArrayInput `pulumi:"virtualApplications"`
-	// Vnet name
-	VnetName pulumi.StringPtrInput `pulumi:"vnetName"`
-	// Web socket enabled.
-	WebSocketsEnabled pulumi.BoolPtrInput `pulumi:"webSocketsEnabled"`
-}
-
-func (SiteConfigPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteConfigProperties)(nil)).Elem()
-}
-
-func (i SiteConfigPropertiesArgs) ToSiteConfigPropertiesOutput() SiteConfigPropertiesOutput {
-	return i.ToSiteConfigPropertiesOutputWithContext(context.Background())
-}
-
-func (i SiteConfigPropertiesArgs) ToSiteConfigPropertiesOutputWithContext(ctx context.Context) SiteConfigPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteConfigPropertiesOutput)
-}
-
-func (i SiteConfigPropertiesArgs) ToSiteConfigPropertiesPtrOutput() SiteConfigPropertiesPtrOutput {
-	return i.ToSiteConfigPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SiteConfigPropertiesArgs) ToSiteConfigPropertiesPtrOutputWithContext(ctx context.Context) SiteConfigPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteConfigPropertiesOutput).ToSiteConfigPropertiesPtrOutputWithContext(ctx)
-}
-
-// SiteConfigPropertiesPtrInput is an input type that accepts SiteConfigPropertiesArgs, SiteConfigPropertiesPtr and SiteConfigPropertiesPtrOutput values.
-// You can construct a concrete instance of `SiteConfigPropertiesPtrInput` via:
-//
-//          SiteConfigPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type SiteConfigPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSiteConfigPropertiesPtrOutput() SiteConfigPropertiesPtrOutput
-	ToSiteConfigPropertiesPtrOutputWithContext(context.Context) SiteConfigPropertiesPtrOutput
-}
-
-type siteConfigPropertiesPtrType SiteConfigPropertiesArgs
-
-func SiteConfigPropertiesPtr(v *SiteConfigPropertiesArgs) SiteConfigPropertiesPtrInput {
-	return (*siteConfigPropertiesPtrType)(v)
-}
-
-func (*siteConfigPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteConfigProperties)(nil)).Elem()
-}
-
-func (i *siteConfigPropertiesPtrType) ToSiteConfigPropertiesPtrOutput() SiteConfigPropertiesPtrOutput {
-	return i.ToSiteConfigPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *siteConfigPropertiesPtrType) ToSiteConfigPropertiesPtrOutputWithContext(ctx context.Context) SiteConfigPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteConfigPropertiesPtrOutput)
-}
-
-type SiteConfigPropertiesOutput struct{ *pulumi.OutputState }
-
-func (SiteConfigPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteConfigProperties)(nil)).Elem()
-}
-
-func (o SiteConfigPropertiesOutput) ToSiteConfigPropertiesOutput() SiteConfigPropertiesOutput {
-	return o
-}
-
-func (o SiteConfigPropertiesOutput) ToSiteConfigPropertiesOutputWithContext(ctx context.Context) SiteConfigPropertiesOutput {
-	return o
-}
-
-func (o SiteConfigPropertiesOutput) ToSiteConfigPropertiesPtrOutput() SiteConfigPropertiesPtrOutput {
-	return o.ToSiteConfigPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SiteConfigPropertiesOutput) ToSiteConfigPropertiesPtrOutputWithContext(ctx context.Context) SiteConfigPropertiesPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *SiteConfigProperties {
-		return &v
-	}).(SiteConfigPropertiesPtrOutput)
-}
-
-// Always On
-func (o SiteConfigPropertiesOutput) AlwaysOn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *bool { return v.AlwaysOn }).(pulumi.BoolPtrOutput)
-}
-
-// Information about the formal API definition for the web app.
-func (o SiteConfigPropertiesOutput) ApiDefinition() ApiDefinitionInfoPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *ApiDefinitionInfo { return v.ApiDefinition }).(ApiDefinitionInfoPtrOutput)
-}
-
-// App Command Line to launch
-func (o SiteConfigPropertiesOutput) AppCommandLine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.AppCommandLine }).(pulumi.StringPtrOutput)
-}
-
-// Application Settings
-func (o SiteConfigPropertiesOutput) AppSettings() NameValuePairArrayOutput {
-	return o.ApplyT(func(v SiteConfigProperties) []NameValuePair { return v.AppSettings }).(NameValuePairArrayOutput)
-}
-
-// Auto heal enabled
-func (o SiteConfigPropertiesOutput) AutoHealEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *bool { return v.AutoHealEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Auto heal rules
-func (o SiteConfigPropertiesOutput) AutoHealRules() AutoHealRulesPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *AutoHealRules { return v.AutoHealRules }).(AutoHealRulesPtrOutput)
-}
-
-// Auto swap slot name
-func (o SiteConfigPropertiesOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.AutoSwapSlotName }).(pulumi.StringPtrOutput)
-}
-
-// Connection strings
-func (o SiteConfigPropertiesOutput) ConnectionStrings() ConnStringInfoArrayOutput {
-	return o.ApplyT(func(v SiteConfigProperties) []ConnStringInfo { return v.ConnectionStrings }).(ConnStringInfoArrayOutput)
-}
-
-// Cross-Origin Resource Sharing (CORS) settings.
-func (o SiteConfigPropertiesOutput) Cors() CorsSettingsPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *CorsSettings { return v.Cors }).(CorsSettingsPtrOutput)
-}
-
-// Default documents
-func (o SiteConfigPropertiesOutput) DefaultDocuments() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v SiteConfigProperties) []string { return v.DefaultDocuments }).(pulumi.StringArrayOutput)
-}
-
-// Detailed error logging enabled
-func (o SiteConfigPropertiesOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *bool { return v.DetailedErrorLoggingEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Document root
-func (o SiteConfigPropertiesOutput) DocumentRoot() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.DocumentRoot }).(pulumi.StringPtrOutput)
-}
-
-// This is work around for polymorphic types
-func (o SiteConfigPropertiesOutput) Experiments() ExperimentsPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *Experiments { return v.Experiments }).(ExperimentsPtrOutput)
-}
-
-// Handler mappings
-func (o SiteConfigPropertiesOutput) HandlerMappings() HandlerMappingArrayOutput {
-	return o.ApplyT(func(v SiteConfigProperties) []HandlerMapping { return v.HandlerMappings }).(HandlerMappingArrayOutput)
-}
-
-// HTTP logging Enabled
-func (o SiteConfigPropertiesOutput) HttpLoggingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *bool { return v.HttpLoggingEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Ip Security restrictions
-func (o SiteConfigPropertiesOutput) IpSecurityRestrictions() IpSecurityRestrictionArrayOutput {
-	return o.ApplyT(func(v SiteConfigProperties) []IpSecurityRestriction { return v.IpSecurityRestrictions }).(IpSecurityRestrictionArrayOutput)
-}
-
-// Java container
-func (o SiteConfigPropertiesOutput) JavaContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.JavaContainer }).(pulumi.StringPtrOutput)
-}
-
-// Java container version
-func (o SiteConfigPropertiesOutput) JavaContainerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.JavaContainerVersion }).(pulumi.StringPtrOutput)
-}
-
-// Java version
-func (o SiteConfigPropertiesOutput) JavaVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.JavaVersion }).(pulumi.StringPtrOutput)
-}
-
-// Site limits
-func (o SiteConfigPropertiesOutput) Limits() SiteLimitsPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *SiteLimits { return v.Limits }).(SiteLimitsPtrOutput)
-}
-
-// Site load balancing
-func (o SiteConfigPropertiesOutput) LoadBalancing() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.LoadBalancing }).(pulumi.StringPtrOutput)
-}
-
-// Local mysql enabled
-func (o SiteConfigPropertiesOutput) LocalMySqlEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *bool { return v.LocalMySqlEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// HTTP Logs Directory size limit
-func (o SiteConfigPropertiesOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *int { return v.LogsDirectorySizeLimit }).(pulumi.IntPtrOutput)
-}
-
-// Managed pipeline mode
-func (o SiteConfigPropertiesOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.ManagedPipelineMode }).(pulumi.StringPtrOutput)
-}
-
-// Site Metadata
-func (o SiteConfigPropertiesOutput) Metadata() NameValuePairArrayOutput {
-	return o.ApplyT(func(v SiteConfigProperties) []NameValuePair { return v.Metadata }).(NameValuePairArrayOutput)
-}
-
-// Net Framework Version
-func (o SiteConfigPropertiesOutput) NetFrameworkVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.NetFrameworkVersion }).(pulumi.StringPtrOutput)
-}
-
-// Version of Node
-func (o SiteConfigPropertiesOutput) NodeVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.NodeVersion }).(pulumi.StringPtrOutput)
-}
-
-// Number of workers
-func (o SiteConfigPropertiesOutput) NumberOfWorkers() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *int { return v.NumberOfWorkers }).(pulumi.IntPtrOutput)
-}
-
-// Version of PHP
-func (o SiteConfigPropertiesOutput) PhpVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.PhpVersion }).(pulumi.StringPtrOutput)
-}
-
-// Publishing password
-func (o SiteConfigPropertiesOutput) PublishingPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.PublishingPassword }).(pulumi.StringPtrOutput)
-}
-
-// Publishing user name
-func (o SiteConfigPropertiesOutput) PublishingUsername() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.PublishingUsername }).(pulumi.StringPtrOutput)
-}
-
-// Version of Python
-func (o SiteConfigPropertiesOutput) PythonVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
-}
-
-// Remote Debugging Enabled
-func (o SiteConfigPropertiesOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *bool { return v.RemoteDebuggingEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Remote Debugging Version
-func (o SiteConfigPropertiesOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.RemoteDebuggingVersion }).(pulumi.StringPtrOutput)
-}
-
-// Enable request tracing
-func (o SiteConfigPropertiesOutput) RequestTracingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *bool { return v.RequestTracingEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Request tracing expiration time
-func (o SiteConfigPropertiesOutput) RequestTracingExpirationTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.RequestTracingExpirationTime }).(pulumi.StringPtrOutput)
-}
-
-// SCM type
-func (o SiteConfigPropertiesOutput) ScmType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.ScmType }).(pulumi.StringPtrOutput)
-}
-
-// Tracing options
-func (o SiteConfigPropertiesOutput) TracingOptions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.TracingOptions }).(pulumi.StringPtrOutput)
-}
-
 // Use 32 bit worker process
-func (o SiteConfigPropertiesOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *bool { return v.Use32BitWorkerProcess }).(pulumi.BoolPtrOutput)
-}
-
-// Virtual applications
-func (o SiteConfigPropertiesOutput) VirtualApplications() VirtualApplicationArrayOutput {
-	return o.ApplyT(func(v SiteConfigProperties) []VirtualApplication { return v.VirtualApplications }).(VirtualApplicationArrayOutput)
-}
-
-// Vnet name
-func (o SiteConfigPropertiesOutput) VnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *string { return v.VnetName }).(pulumi.StringPtrOutput)
-}
-
-// Web socket enabled.
-func (o SiteConfigPropertiesOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteConfigProperties) *bool { return v.WebSocketsEnabled }).(pulumi.BoolPtrOutput)
-}
-
-type SiteConfigPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SiteConfigPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteConfigProperties)(nil)).Elem()
-}
-
-func (o SiteConfigPropertiesPtrOutput) ToSiteConfigPropertiesPtrOutput() SiteConfigPropertiesPtrOutput {
-	return o
-}
-
-func (o SiteConfigPropertiesPtrOutput) ToSiteConfigPropertiesPtrOutputWithContext(ctx context.Context) SiteConfigPropertiesPtrOutput {
-	return o
-}
-
-func (o SiteConfigPropertiesPtrOutput) Elem() SiteConfigPropertiesOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) SiteConfigProperties { return *v }).(SiteConfigPropertiesOutput)
-}
-
-// Always On
-func (o SiteConfigPropertiesPtrOutput) AlwaysOn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AlwaysOn
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Information about the formal API definition for the web app.
-func (o SiteConfigPropertiesPtrOutput) ApiDefinition() ApiDefinitionInfoPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *ApiDefinitionInfo {
-		if v == nil {
-			return nil
-		}
-		return v.ApiDefinition
-	}).(ApiDefinitionInfoPtrOutput)
-}
-
-// App Command Line to launch
-func (o SiteConfigPropertiesPtrOutput) AppCommandLine() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AppCommandLine
-	}).(pulumi.StringPtrOutput)
-}
-
-// Application Settings
-func (o SiteConfigPropertiesPtrOutput) AppSettings() NameValuePairArrayOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) []NameValuePair {
-		if v == nil {
-			return nil
-		}
-		return v.AppSettings
-	}).(NameValuePairArrayOutput)
-}
-
-// Auto heal enabled
-func (o SiteConfigPropertiesPtrOutput) AutoHealEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AutoHealEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Auto heal rules
-func (o SiteConfigPropertiesPtrOutput) AutoHealRules() AutoHealRulesPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *AutoHealRules {
-		if v == nil {
-			return nil
-		}
-		return v.AutoHealRules
-	}).(AutoHealRulesPtrOutput)
-}
-
-// Auto swap slot name
-func (o SiteConfigPropertiesPtrOutput) AutoSwapSlotName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AutoSwapSlotName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Connection strings
-func (o SiteConfigPropertiesPtrOutput) ConnectionStrings() ConnStringInfoArrayOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) []ConnStringInfo {
-		if v == nil {
-			return nil
-		}
-		return v.ConnectionStrings
-	}).(ConnStringInfoArrayOutput)
-}
-
-// Cross-Origin Resource Sharing (CORS) settings.
-func (o SiteConfigPropertiesPtrOutput) Cors() CorsSettingsPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *CorsSettings {
-		if v == nil {
-			return nil
-		}
-		return v.Cors
-	}).(CorsSettingsPtrOutput)
-}
-
-// Default documents
-func (o SiteConfigPropertiesPtrOutput) DefaultDocuments() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultDocuments
-	}).(pulumi.StringArrayOutput)
-}
-
-// Detailed error logging enabled
-func (o SiteConfigPropertiesPtrOutput) DetailedErrorLoggingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DetailedErrorLoggingEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Document root
-func (o SiteConfigPropertiesPtrOutput) DocumentRoot() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DocumentRoot
-	}).(pulumi.StringPtrOutput)
-}
-
-// This is work around for polymorphic types
-func (o SiteConfigPropertiesPtrOutput) Experiments() ExperimentsPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *Experiments {
-		if v == nil {
-			return nil
-		}
-		return v.Experiments
-	}).(ExperimentsPtrOutput)
-}
-
-// Handler mappings
-func (o SiteConfigPropertiesPtrOutput) HandlerMappings() HandlerMappingArrayOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) []HandlerMapping {
-		if v == nil {
-			return nil
-		}
-		return v.HandlerMappings
-	}).(HandlerMappingArrayOutput)
-}
-
-// HTTP logging Enabled
-func (o SiteConfigPropertiesPtrOutput) HttpLoggingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HttpLoggingEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Ip Security restrictions
-func (o SiteConfigPropertiesPtrOutput) IpSecurityRestrictions() IpSecurityRestrictionArrayOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) []IpSecurityRestriction {
-		if v == nil {
-			return nil
-		}
-		return v.IpSecurityRestrictions
-	}).(IpSecurityRestrictionArrayOutput)
-}
-
-// Java container
-func (o SiteConfigPropertiesPtrOutput) JavaContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.JavaContainer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Java container version
-func (o SiteConfigPropertiesPtrOutput) JavaContainerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.JavaContainerVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Java version
-func (o SiteConfigPropertiesPtrOutput) JavaVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.JavaVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Site limits
-func (o SiteConfigPropertiesPtrOutput) Limits() SiteLimitsPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *SiteLimits {
-		if v == nil {
-			return nil
-		}
-		return v.Limits
-	}).(SiteLimitsPtrOutput)
-}
-
-// Site load balancing
-func (o SiteConfigPropertiesPtrOutput) LoadBalancing() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LoadBalancing
-	}).(pulumi.StringPtrOutput)
-}
-
-// Local mysql enabled
-func (o SiteConfigPropertiesPtrOutput) LocalMySqlEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.LocalMySqlEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// HTTP Logs Directory size limit
-func (o SiteConfigPropertiesPtrOutput) LogsDirectorySizeLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.LogsDirectorySizeLimit
-	}).(pulumi.IntPtrOutput)
-}
-
-// Managed pipeline mode
-func (o SiteConfigPropertiesPtrOutput) ManagedPipelineMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ManagedPipelineMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// Site Metadata
-func (o SiteConfigPropertiesPtrOutput) Metadata() NameValuePairArrayOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) []NameValuePair {
-		if v == nil {
-			return nil
-		}
-		return v.Metadata
-	}).(NameValuePairArrayOutput)
-}
-
-// Net Framework Version
-func (o SiteConfigPropertiesPtrOutput) NetFrameworkVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NetFrameworkVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Version of Node
-func (o SiteConfigPropertiesPtrOutput) NodeVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NodeVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Number of workers
-func (o SiteConfigPropertiesPtrOutput) NumberOfWorkers() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.NumberOfWorkers
-	}).(pulumi.IntPtrOutput)
-}
-
-// Version of PHP
-func (o SiteConfigPropertiesPtrOutput) PhpVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PhpVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Publishing password
-func (o SiteConfigPropertiesPtrOutput) PublishingPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PublishingPassword
-	}).(pulumi.StringPtrOutput)
-}
-
-// Publishing user name
-func (o SiteConfigPropertiesPtrOutput) PublishingUsername() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PublishingUsername
-	}).(pulumi.StringPtrOutput)
-}
-
-// Version of Python
-func (o SiteConfigPropertiesPtrOutput) PythonVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PythonVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Remote Debugging Enabled
-func (o SiteConfigPropertiesPtrOutput) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.RemoteDebuggingEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Remote Debugging Version
-func (o SiteConfigPropertiesPtrOutput) RemoteDebuggingVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RemoteDebuggingVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Enable request tracing
-func (o SiteConfigPropertiesPtrOutput) RequestTracingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.RequestTracingEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Request tracing expiration time
-func (o SiteConfigPropertiesPtrOutput) RequestTracingExpirationTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RequestTracingExpirationTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// SCM type
-func (o SiteConfigPropertiesPtrOutput) ScmType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ScmType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Tracing options
-func (o SiteConfigPropertiesPtrOutput) TracingOptions() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TracingOptions
-	}).(pulumi.StringPtrOutput)
-}
-
-// Use 32 bit worker process
-func (o SiteConfigPropertiesPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *bool {
+func (o SiteConfigPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *bool {
 		if v == nil {
 			return nil
 		}
@@ -13392,8 +10661,8 @@ func (o SiteConfigPropertiesPtrOutput) Use32BitWorkerProcess() pulumi.BoolPtrOut
 }
 
 // Virtual applications
-func (o SiteConfigPropertiesPtrOutput) VirtualApplications() VirtualApplicationArrayOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) []VirtualApplication {
+func (o SiteConfigPtrOutput) VirtualApplications() VirtualApplicationArrayOutput {
+	return o.ApplyT(func(v *SiteConfig) []VirtualApplication {
 		if v == nil {
 			return nil
 		}
@@ -13402,8 +10671,8 @@ func (o SiteConfigPropertiesPtrOutput) VirtualApplications() VirtualApplicationA
 }
 
 // Vnet name
-func (o SiteConfigPropertiesPtrOutput) VnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *string {
+func (o SiteConfigPtrOutput) VnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -13412,8 +10681,8 @@ func (o SiteConfigPropertiesPtrOutput) VnetName() pulumi.StringPtrOutput {
 }
 
 // Web socket enabled.
-func (o SiteConfigPropertiesPtrOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteConfigProperties) *bool {
+func (o SiteConfigPtrOutput) WebSocketsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SiteConfig) *bool {
 		if v == nil {
 			return nil
 		}
@@ -15501,407 +12770,6 @@ func (o SiteLimitsResponsePtrOutput) MaxPercentageCpu() pulumi.Float64PtrOutput 
 	}).(pulumi.Float64PtrOutput)
 }
 
-type SiteProperties struct {
-	// Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
-	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
-	// Specifies if the client certificate is enabled for the web app
-	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
-	// This is only valid for web app creation. If specified, web app is cloned from
-	//             a source web app
-	CloningInfo *CloningInfo `pulumi:"cloningInfo"`
-	// Size of a function container
-	ContainerSize *int `pulumi:"containerSize"`
-	// True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
-	Enabled *bool `pulumi:"enabled"`
-	// Name of gateway app associated with web app
-	GatewaySiteName *string `pulumi:"gatewaySiteName"`
-	// Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
-	HostNameSslStates []HostNameSslState `pulumi:"hostNameSslStates"`
-	// Specifies if the public hostnames are disabled the web app.
-	//             If set to true the app is only accessible via API Management process
-	HostNamesDisabled *bool `pulumi:"hostNamesDisabled"`
-	// Specification for the hosting environment (App Service Environment) to use for the web app
-	HostingEnvironmentProfile *HostingEnvironmentProfile `pulumi:"hostingEnvironmentProfile"`
-	// Maximum number of workers
-	//             This only applies to function container
-	MaxNumberOfWorkers *int    `pulumi:"maxNumberOfWorkers"`
-	MicroService       *string `pulumi:"microService"`
-	// Name of web app
-	Name *string `pulumi:"name"`
-	// If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
-	ScmSiteAlsoStopped *bool   `pulumi:"scmSiteAlsoStopped"`
-	ServerFarmId       *string `pulumi:"serverFarmId"`
-	// Configuration of web app
-	SiteConfig *SiteConfig `pulumi:"siteConfig"`
-}
-
-// SitePropertiesInput is an input type that accepts SitePropertiesArgs and SitePropertiesOutput values.
-// You can construct a concrete instance of `SitePropertiesInput` via:
-//
-//          SitePropertiesArgs{...}
-type SitePropertiesInput interface {
-	pulumi.Input
-
-	ToSitePropertiesOutput() SitePropertiesOutput
-	ToSitePropertiesOutputWithContext(context.Context) SitePropertiesOutput
-}
-
-type SitePropertiesArgs struct {
-	// Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
-	ClientAffinityEnabled pulumi.BoolPtrInput `pulumi:"clientAffinityEnabled"`
-	// Specifies if the client certificate is enabled for the web app
-	ClientCertEnabled pulumi.BoolPtrInput `pulumi:"clientCertEnabled"`
-	// This is only valid for web app creation. If specified, web app is cloned from
-	//             a source web app
-	CloningInfo CloningInfoPtrInput `pulumi:"cloningInfo"`
-	// Size of a function container
-	ContainerSize pulumi.IntPtrInput `pulumi:"containerSize"`
-	// True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Name of gateway app associated with web app
-	GatewaySiteName pulumi.StringPtrInput `pulumi:"gatewaySiteName"`
-	// Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
-	HostNameSslStates HostNameSslStateArrayInput `pulumi:"hostNameSslStates"`
-	// Specifies if the public hostnames are disabled the web app.
-	//             If set to true the app is only accessible via API Management process
-	HostNamesDisabled pulumi.BoolPtrInput `pulumi:"hostNamesDisabled"`
-	// Specification for the hosting environment (App Service Environment) to use for the web app
-	HostingEnvironmentProfile HostingEnvironmentProfilePtrInput `pulumi:"hostingEnvironmentProfile"`
-	// Maximum number of workers
-	//             This only applies to function container
-	MaxNumberOfWorkers pulumi.IntPtrInput    `pulumi:"maxNumberOfWorkers"`
-	MicroService       pulumi.StringPtrInput `pulumi:"microService"`
-	// Name of web app
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
-	ScmSiteAlsoStopped pulumi.BoolPtrInput   `pulumi:"scmSiteAlsoStopped"`
-	ServerFarmId       pulumi.StringPtrInput `pulumi:"serverFarmId"`
-	// Configuration of web app
-	SiteConfig SiteConfigPtrInput `pulumi:"siteConfig"`
-}
-
-func (SitePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteProperties)(nil)).Elem()
-}
-
-func (i SitePropertiesArgs) ToSitePropertiesOutput() SitePropertiesOutput {
-	return i.ToSitePropertiesOutputWithContext(context.Background())
-}
-
-func (i SitePropertiesArgs) ToSitePropertiesOutputWithContext(ctx context.Context) SitePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SitePropertiesOutput)
-}
-
-func (i SitePropertiesArgs) ToSitePropertiesPtrOutput() SitePropertiesPtrOutput {
-	return i.ToSitePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SitePropertiesArgs) ToSitePropertiesPtrOutputWithContext(ctx context.Context) SitePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SitePropertiesOutput).ToSitePropertiesPtrOutputWithContext(ctx)
-}
-
-// SitePropertiesPtrInput is an input type that accepts SitePropertiesArgs, SitePropertiesPtr and SitePropertiesPtrOutput values.
-// You can construct a concrete instance of `SitePropertiesPtrInput` via:
-//
-//          SitePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type SitePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSitePropertiesPtrOutput() SitePropertiesPtrOutput
-	ToSitePropertiesPtrOutputWithContext(context.Context) SitePropertiesPtrOutput
-}
-
-type sitePropertiesPtrType SitePropertiesArgs
-
-func SitePropertiesPtr(v *SitePropertiesArgs) SitePropertiesPtrInput {
-	return (*sitePropertiesPtrType)(v)
-}
-
-func (*sitePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteProperties)(nil)).Elem()
-}
-
-func (i *sitePropertiesPtrType) ToSitePropertiesPtrOutput() SitePropertiesPtrOutput {
-	return i.ToSitePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *sitePropertiesPtrType) ToSitePropertiesPtrOutputWithContext(ctx context.Context) SitePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SitePropertiesPtrOutput)
-}
-
-type SitePropertiesOutput struct{ *pulumi.OutputState }
-
-func (SitePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteProperties)(nil)).Elem()
-}
-
-func (o SitePropertiesOutput) ToSitePropertiesOutput() SitePropertiesOutput {
-	return o
-}
-
-func (o SitePropertiesOutput) ToSitePropertiesOutputWithContext(ctx context.Context) SitePropertiesOutput {
-	return o
-}
-
-func (o SitePropertiesOutput) ToSitePropertiesPtrOutput() SitePropertiesPtrOutput {
-	return o.ToSitePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SitePropertiesOutput) ToSitePropertiesPtrOutputWithContext(ctx context.Context) SitePropertiesPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *SiteProperties {
-		return &v
-	}).(SitePropertiesPtrOutput)
-}
-
-// Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
-func (o SitePropertiesOutput) ClientAffinityEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *bool { return v.ClientAffinityEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Specifies if the client certificate is enabled for the web app
-func (o SitePropertiesOutput) ClientCertEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *bool { return v.ClientCertEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// This is only valid for web app creation. If specified, web app is cloned from
-//             a source web app
-func (o SitePropertiesOutput) CloningInfo() CloningInfoPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *CloningInfo { return v.CloningInfo }).(CloningInfoPtrOutput)
-}
-
-// Size of a function container
-func (o SitePropertiesOutput) ContainerSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *int { return v.ContainerSize }).(pulumi.IntPtrOutput)
-}
-
-// True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
-func (o SitePropertiesOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// Name of gateway app associated with web app
-func (o SitePropertiesOutput) GatewaySiteName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *string { return v.GatewaySiteName }).(pulumi.StringPtrOutput)
-}
-
-// Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
-func (o SitePropertiesOutput) HostNameSslStates() HostNameSslStateArrayOutput {
-	return o.ApplyT(func(v SiteProperties) []HostNameSslState { return v.HostNameSslStates }).(HostNameSslStateArrayOutput)
-}
-
-// Specifies if the public hostnames are disabled the web app.
-//             If set to true the app is only accessible via API Management process
-func (o SitePropertiesOutput) HostNamesDisabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *bool { return v.HostNamesDisabled }).(pulumi.BoolPtrOutput)
-}
-
-// Specification for the hosting environment (App Service Environment) to use for the web app
-func (o SitePropertiesOutput) HostingEnvironmentProfile() HostingEnvironmentProfilePtrOutput {
-	return o.ApplyT(func(v SiteProperties) *HostingEnvironmentProfile { return v.HostingEnvironmentProfile }).(HostingEnvironmentProfilePtrOutput)
-}
-
-// Maximum number of workers
-//             This only applies to function container
-func (o SitePropertiesOutput) MaxNumberOfWorkers() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *int { return v.MaxNumberOfWorkers }).(pulumi.IntPtrOutput)
-}
-
-func (o SitePropertiesOutput) MicroService() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *string { return v.MicroService }).(pulumi.StringPtrOutput)
-}
-
-// Name of web app
-func (o SitePropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
-func (o SitePropertiesOutput) ScmSiteAlsoStopped() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *bool { return v.ScmSiteAlsoStopped }).(pulumi.BoolPtrOutput)
-}
-
-func (o SitePropertiesOutput) ServerFarmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *string { return v.ServerFarmId }).(pulumi.StringPtrOutput)
-}
-
-// Configuration of web app
-func (o SitePropertiesOutput) SiteConfig() SiteConfigPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *SiteConfig { return v.SiteConfig }).(SiteConfigPtrOutput)
-}
-
-type SitePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SitePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteProperties)(nil)).Elem()
-}
-
-func (o SitePropertiesPtrOutput) ToSitePropertiesPtrOutput() SitePropertiesPtrOutput {
-	return o
-}
-
-func (o SitePropertiesPtrOutput) ToSitePropertiesPtrOutputWithContext(ctx context.Context) SitePropertiesPtrOutput {
-	return o
-}
-
-func (o SitePropertiesPtrOutput) Elem() SitePropertiesOutput {
-	return o.ApplyT(func(v *SiteProperties) SiteProperties { return *v }).(SitePropertiesOutput)
-}
-
-// Specifies if the client affinity is enabled when load balancing http request for multiple instances of the web app
-func (o SitePropertiesPtrOutput) ClientAffinityEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ClientAffinityEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies if the client certificate is enabled for the web app
-func (o SitePropertiesPtrOutput) ClientCertEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ClientCertEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// This is only valid for web app creation. If specified, web app is cloned from
-//             a source web app
-func (o SitePropertiesPtrOutput) CloningInfo() CloningInfoPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *CloningInfo {
-		if v == nil {
-			return nil
-		}
-		return v.CloningInfo
-	}).(CloningInfoPtrOutput)
-}
-
-// Size of a function container
-func (o SitePropertiesPtrOutput) ContainerSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ContainerSize
-	}).(pulumi.IntPtrOutput)
-}
-
-// True if the site is enabled; otherwise, false. Setting this  value to false disables the site (takes the site off line).
-func (o SitePropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Name of gateway app associated with web app
-func (o SitePropertiesPtrOutput) GatewaySiteName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GatewaySiteName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hostname SSL states are  used to manage the SSL bindings for site's hostnames.
-func (o SitePropertiesPtrOutput) HostNameSslStates() HostNameSslStateArrayOutput {
-	return o.ApplyT(func(v *SiteProperties) []HostNameSslState {
-		if v == nil {
-			return nil
-		}
-		return v.HostNameSslStates
-	}).(HostNameSslStateArrayOutput)
-}
-
-// Specifies if the public hostnames are disabled the web app.
-//             If set to true the app is only accessible via API Management process
-func (o SitePropertiesPtrOutput) HostNamesDisabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HostNamesDisabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specification for the hosting environment (App Service Environment) to use for the web app
-func (o SitePropertiesPtrOutput) HostingEnvironmentProfile() HostingEnvironmentProfilePtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *HostingEnvironmentProfile {
-		if v == nil {
-			return nil
-		}
-		return v.HostingEnvironmentProfile
-	}).(HostingEnvironmentProfilePtrOutput)
-}
-
-// Maximum number of workers
-//             This only applies to function container
-func (o SitePropertiesPtrOutput) MaxNumberOfWorkers() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxNumberOfWorkers
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o SitePropertiesPtrOutput) MicroService() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MicroService
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of web app
-func (o SitePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// If set indicates whether to stop SCM (KUDU) site when the web app is stopped. Default is false.
-func (o SitePropertiesPtrOutput) ScmSiteAlsoStopped() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ScmSiteAlsoStopped
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o SitePropertiesPtrOutput) ServerFarmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServerFarmId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Configuration of web app
-func (o SitePropertiesPtrOutput) SiteConfig() SiteConfigPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *SiteConfig {
-		if v == nil {
-			return nil
-		}
-		return v.SiteConfig
-	}).(SiteConfigPtrOutput)
-}
-
 // Class that represents a BizTalk Hybrid Connection
 type SiteRelayServiceConnectionType struct {
 	// Kind of resource
@@ -16971,213 +13839,6 @@ func (o SiteSourceControlTypeOutput) Tags() pulumi.StringMapOutput {
 // Resource type
 func (o SiteSourceControlTypeOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SiteSourceControlType) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type SiteSourceControlProperties struct {
-	// Name of branch to use for deployment
-	Branch *string `pulumi:"branch"`
-	// Whether to manual or continuous integration
-	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
-	// Whether to manual or continuous integration
-	IsManualIntegration *bool `pulumi:"isManualIntegration"`
-	// Mercurial or Git repository type
-	IsMercurial *bool `pulumi:"isMercurial"`
-	// Repository or source control url
-	RepoUrl *string `pulumi:"repoUrl"`
-}
-
-// SiteSourceControlPropertiesInput is an input type that accepts SiteSourceControlPropertiesArgs and SiteSourceControlPropertiesOutput values.
-// You can construct a concrete instance of `SiteSourceControlPropertiesInput` via:
-//
-//          SiteSourceControlPropertiesArgs{...}
-type SiteSourceControlPropertiesInput interface {
-	pulumi.Input
-
-	ToSiteSourceControlPropertiesOutput() SiteSourceControlPropertiesOutput
-	ToSiteSourceControlPropertiesOutputWithContext(context.Context) SiteSourceControlPropertiesOutput
-}
-
-type SiteSourceControlPropertiesArgs struct {
-	// Name of branch to use for deployment
-	Branch pulumi.StringPtrInput `pulumi:"branch"`
-	// Whether to manual or continuous integration
-	DeploymentRollbackEnabled pulumi.BoolPtrInput `pulumi:"deploymentRollbackEnabled"`
-	// Whether to manual or continuous integration
-	IsManualIntegration pulumi.BoolPtrInput `pulumi:"isManualIntegration"`
-	// Mercurial or Git repository type
-	IsMercurial pulumi.BoolPtrInput `pulumi:"isMercurial"`
-	// Repository or source control url
-	RepoUrl pulumi.StringPtrInput `pulumi:"repoUrl"`
-}
-
-func (SiteSourceControlPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSourceControlProperties)(nil)).Elem()
-}
-
-func (i SiteSourceControlPropertiesArgs) ToSiteSourceControlPropertiesOutput() SiteSourceControlPropertiesOutput {
-	return i.ToSiteSourceControlPropertiesOutputWithContext(context.Background())
-}
-
-func (i SiteSourceControlPropertiesArgs) ToSiteSourceControlPropertiesOutputWithContext(ctx context.Context) SiteSourceControlPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteSourceControlPropertiesOutput)
-}
-
-func (i SiteSourceControlPropertiesArgs) ToSiteSourceControlPropertiesPtrOutput() SiteSourceControlPropertiesPtrOutput {
-	return i.ToSiteSourceControlPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SiteSourceControlPropertiesArgs) ToSiteSourceControlPropertiesPtrOutputWithContext(ctx context.Context) SiteSourceControlPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteSourceControlPropertiesOutput).ToSiteSourceControlPropertiesPtrOutputWithContext(ctx)
-}
-
-// SiteSourceControlPropertiesPtrInput is an input type that accepts SiteSourceControlPropertiesArgs, SiteSourceControlPropertiesPtr and SiteSourceControlPropertiesPtrOutput values.
-// You can construct a concrete instance of `SiteSourceControlPropertiesPtrInput` via:
-//
-//          SiteSourceControlPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type SiteSourceControlPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSiteSourceControlPropertiesPtrOutput() SiteSourceControlPropertiesPtrOutput
-	ToSiteSourceControlPropertiesPtrOutputWithContext(context.Context) SiteSourceControlPropertiesPtrOutput
-}
-
-type siteSourceControlPropertiesPtrType SiteSourceControlPropertiesArgs
-
-func SiteSourceControlPropertiesPtr(v *SiteSourceControlPropertiesArgs) SiteSourceControlPropertiesPtrInput {
-	return (*siteSourceControlPropertiesPtrType)(v)
-}
-
-func (*siteSourceControlPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteSourceControlProperties)(nil)).Elem()
-}
-
-func (i *siteSourceControlPropertiesPtrType) ToSiteSourceControlPropertiesPtrOutput() SiteSourceControlPropertiesPtrOutput {
-	return i.ToSiteSourceControlPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *siteSourceControlPropertiesPtrType) ToSiteSourceControlPropertiesPtrOutputWithContext(ctx context.Context) SiteSourceControlPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteSourceControlPropertiesPtrOutput)
-}
-
-type SiteSourceControlPropertiesOutput struct{ *pulumi.OutputState }
-
-func (SiteSourceControlPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSourceControlProperties)(nil)).Elem()
-}
-
-func (o SiteSourceControlPropertiesOutput) ToSiteSourceControlPropertiesOutput() SiteSourceControlPropertiesOutput {
-	return o
-}
-
-func (o SiteSourceControlPropertiesOutput) ToSiteSourceControlPropertiesOutputWithContext(ctx context.Context) SiteSourceControlPropertiesOutput {
-	return o
-}
-
-func (o SiteSourceControlPropertiesOutput) ToSiteSourceControlPropertiesPtrOutput() SiteSourceControlPropertiesPtrOutput {
-	return o.ToSiteSourceControlPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SiteSourceControlPropertiesOutput) ToSiteSourceControlPropertiesPtrOutputWithContext(ctx context.Context) SiteSourceControlPropertiesPtrOutput {
-	return o.ApplyT(func(v SiteSourceControlProperties) *SiteSourceControlProperties {
-		return &v
-	}).(SiteSourceControlPropertiesPtrOutput)
-}
-
-// Name of branch to use for deployment
-func (o SiteSourceControlPropertiesOutput) Branch() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteSourceControlProperties) *string { return v.Branch }).(pulumi.StringPtrOutput)
-}
-
-// Whether to manual or continuous integration
-func (o SiteSourceControlPropertiesOutput) DeploymentRollbackEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteSourceControlProperties) *bool { return v.DeploymentRollbackEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Whether to manual or continuous integration
-func (o SiteSourceControlPropertiesOutput) IsManualIntegration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteSourceControlProperties) *bool { return v.IsManualIntegration }).(pulumi.BoolPtrOutput)
-}
-
-// Mercurial or Git repository type
-func (o SiteSourceControlPropertiesOutput) IsMercurial() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteSourceControlProperties) *bool { return v.IsMercurial }).(pulumi.BoolPtrOutput)
-}
-
-// Repository or source control url
-func (o SiteSourceControlPropertiesOutput) RepoUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteSourceControlProperties) *string { return v.RepoUrl }).(pulumi.StringPtrOutput)
-}
-
-type SiteSourceControlPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SiteSourceControlPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteSourceControlProperties)(nil)).Elem()
-}
-
-func (o SiteSourceControlPropertiesPtrOutput) ToSiteSourceControlPropertiesPtrOutput() SiteSourceControlPropertiesPtrOutput {
-	return o
-}
-
-func (o SiteSourceControlPropertiesPtrOutput) ToSiteSourceControlPropertiesPtrOutputWithContext(ctx context.Context) SiteSourceControlPropertiesPtrOutput {
-	return o
-}
-
-func (o SiteSourceControlPropertiesPtrOutput) Elem() SiteSourceControlPropertiesOutput {
-	return o.ApplyT(func(v *SiteSourceControlProperties) SiteSourceControlProperties { return *v }).(SiteSourceControlPropertiesOutput)
-}
-
-// Name of branch to use for deployment
-func (o SiteSourceControlPropertiesPtrOutput) Branch() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteSourceControlProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Branch
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to manual or continuous integration
-func (o SiteSourceControlPropertiesPtrOutput) DeploymentRollbackEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteSourceControlProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DeploymentRollbackEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether to manual or continuous integration
-func (o SiteSourceControlPropertiesPtrOutput) IsManualIntegration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteSourceControlProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsManualIntegration
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Mercurial or Git repository type
-func (o SiteSourceControlPropertiesPtrOutput) IsMercurial() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteSourceControlProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsMercurial
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Repository or source control url
-func (o SiteSourceControlPropertiesPtrOutput) RepoUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteSourceControlProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RepoUrl
-	}).(pulumi.StringPtrOutput)
 }
 
 type SiteSourceControlResponseProperties struct {
@@ -20239,236 +16900,6 @@ func (o VirtualNetworkProfileResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type VnetInfoProperties struct {
-	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-	//             Point-To-Site VPN connection.
-	CertBlob *string `pulumi:"certBlob"`
-	// The client certificate thumbprint
-	CertThumbprint *string `pulumi:"certThumbprint"`
-	// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
-	DnsServers *string `pulumi:"dnsServers"`
-	// Flag to determine if a resync is required
-	ResyncRequired *bool `pulumi:"resyncRequired"`
-	// The routes that this virtual network connection uses.
-	Routes []VnetRoute `pulumi:"routes"`
-	// The vnet resource id
-	VnetResourceId *string `pulumi:"vnetResourceId"`
-}
-
-// VnetInfoPropertiesInput is an input type that accepts VnetInfoPropertiesArgs and VnetInfoPropertiesOutput values.
-// You can construct a concrete instance of `VnetInfoPropertiesInput` via:
-//
-//          VnetInfoPropertiesArgs{...}
-type VnetInfoPropertiesInput interface {
-	pulumi.Input
-
-	ToVnetInfoPropertiesOutput() VnetInfoPropertiesOutput
-	ToVnetInfoPropertiesOutputWithContext(context.Context) VnetInfoPropertiesOutput
-}
-
-type VnetInfoPropertiesArgs struct {
-	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-	//             Point-To-Site VPN connection.
-	CertBlob pulumi.StringPtrInput `pulumi:"certBlob"`
-	// The client certificate thumbprint
-	CertThumbprint pulumi.StringPtrInput `pulumi:"certThumbprint"`
-	// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
-	DnsServers pulumi.StringPtrInput `pulumi:"dnsServers"`
-	// Flag to determine if a resync is required
-	ResyncRequired pulumi.BoolPtrInput `pulumi:"resyncRequired"`
-	// The routes that this virtual network connection uses.
-	Routes VnetRouteArrayInput `pulumi:"routes"`
-	// The vnet resource id
-	VnetResourceId pulumi.StringPtrInput `pulumi:"vnetResourceId"`
-}
-
-func (VnetInfoPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VnetInfoProperties)(nil)).Elem()
-}
-
-func (i VnetInfoPropertiesArgs) ToVnetInfoPropertiesOutput() VnetInfoPropertiesOutput {
-	return i.ToVnetInfoPropertiesOutputWithContext(context.Background())
-}
-
-func (i VnetInfoPropertiesArgs) ToVnetInfoPropertiesOutputWithContext(ctx context.Context) VnetInfoPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetInfoPropertiesOutput)
-}
-
-func (i VnetInfoPropertiesArgs) ToVnetInfoPropertiesPtrOutput() VnetInfoPropertiesPtrOutput {
-	return i.ToVnetInfoPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i VnetInfoPropertiesArgs) ToVnetInfoPropertiesPtrOutputWithContext(ctx context.Context) VnetInfoPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetInfoPropertiesOutput).ToVnetInfoPropertiesPtrOutputWithContext(ctx)
-}
-
-// VnetInfoPropertiesPtrInput is an input type that accepts VnetInfoPropertiesArgs, VnetInfoPropertiesPtr and VnetInfoPropertiesPtrOutput values.
-// You can construct a concrete instance of `VnetInfoPropertiesPtrInput` via:
-//
-//          VnetInfoPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type VnetInfoPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToVnetInfoPropertiesPtrOutput() VnetInfoPropertiesPtrOutput
-	ToVnetInfoPropertiesPtrOutputWithContext(context.Context) VnetInfoPropertiesPtrOutput
-}
-
-type vnetInfoPropertiesPtrType VnetInfoPropertiesArgs
-
-func VnetInfoPropertiesPtr(v *VnetInfoPropertiesArgs) VnetInfoPropertiesPtrInput {
-	return (*vnetInfoPropertiesPtrType)(v)
-}
-
-func (*vnetInfoPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VnetInfoProperties)(nil)).Elem()
-}
-
-func (i *vnetInfoPropertiesPtrType) ToVnetInfoPropertiesPtrOutput() VnetInfoPropertiesPtrOutput {
-	return i.ToVnetInfoPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *vnetInfoPropertiesPtrType) ToVnetInfoPropertiesPtrOutputWithContext(ctx context.Context) VnetInfoPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetInfoPropertiesPtrOutput)
-}
-
-type VnetInfoPropertiesOutput struct{ *pulumi.OutputState }
-
-func (VnetInfoPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VnetInfoProperties)(nil)).Elem()
-}
-
-func (o VnetInfoPropertiesOutput) ToVnetInfoPropertiesOutput() VnetInfoPropertiesOutput {
-	return o
-}
-
-func (o VnetInfoPropertiesOutput) ToVnetInfoPropertiesOutputWithContext(ctx context.Context) VnetInfoPropertiesOutput {
-	return o
-}
-
-func (o VnetInfoPropertiesOutput) ToVnetInfoPropertiesPtrOutput() VnetInfoPropertiesPtrOutput {
-	return o.ToVnetInfoPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o VnetInfoPropertiesOutput) ToVnetInfoPropertiesPtrOutputWithContext(ctx context.Context) VnetInfoPropertiesPtrOutput {
-	return o.ApplyT(func(v VnetInfoProperties) *VnetInfoProperties {
-		return &v
-	}).(VnetInfoPropertiesPtrOutput)
-}
-
-// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-//             Point-To-Site VPN connection.
-func (o VnetInfoPropertiesOutput) CertBlob() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetInfoProperties) *string { return v.CertBlob }).(pulumi.StringPtrOutput)
-}
-
-// The client certificate thumbprint
-func (o VnetInfoPropertiesOutput) CertThumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetInfoProperties) *string { return v.CertThumbprint }).(pulumi.StringPtrOutput)
-}
-
-// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
-func (o VnetInfoPropertiesOutput) DnsServers() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetInfoProperties) *string { return v.DnsServers }).(pulumi.StringPtrOutput)
-}
-
-// Flag to determine if a resync is required
-func (o VnetInfoPropertiesOutput) ResyncRequired() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v VnetInfoProperties) *bool { return v.ResyncRequired }).(pulumi.BoolPtrOutput)
-}
-
-// The routes that this virtual network connection uses.
-func (o VnetInfoPropertiesOutput) Routes() VnetRouteArrayOutput {
-	return o.ApplyT(func(v VnetInfoProperties) []VnetRoute { return v.Routes }).(VnetRouteArrayOutput)
-}
-
-// The vnet resource id
-func (o VnetInfoPropertiesOutput) VnetResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetInfoProperties) *string { return v.VnetResourceId }).(pulumi.StringPtrOutput)
-}
-
-type VnetInfoPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (VnetInfoPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VnetInfoProperties)(nil)).Elem()
-}
-
-func (o VnetInfoPropertiesPtrOutput) ToVnetInfoPropertiesPtrOutput() VnetInfoPropertiesPtrOutput {
-	return o
-}
-
-func (o VnetInfoPropertiesPtrOutput) ToVnetInfoPropertiesPtrOutputWithContext(ctx context.Context) VnetInfoPropertiesPtrOutput {
-	return o
-}
-
-func (o VnetInfoPropertiesPtrOutput) Elem() VnetInfoPropertiesOutput {
-	return o.ApplyT(func(v *VnetInfoProperties) VnetInfoProperties { return *v }).(VnetInfoPropertiesOutput)
-}
-
-// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-//             Point-To-Site VPN connection.
-func (o VnetInfoPropertiesPtrOutput) CertBlob() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetInfoProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CertBlob
-	}).(pulumi.StringPtrOutput)
-}
-
-// The client certificate thumbprint
-func (o VnetInfoPropertiesPtrOutput) CertThumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetInfoProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CertThumbprint
-	}).(pulumi.StringPtrOutput)
-}
-
-// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
-func (o VnetInfoPropertiesPtrOutput) DnsServers() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetInfoProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DnsServers
-	}).(pulumi.StringPtrOutput)
-}
-
-// Flag to determine if a resync is required
-func (o VnetInfoPropertiesPtrOutput) ResyncRequired() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *VnetInfoProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ResyncRequired
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The routes that this virtual network connection uses.
-func (o VnetInfoPropertiesPtrOutput) Routes() VnetRouteArrayOutput {
-	return o.ApplyT(func(v *VnetInfoProperties) []VnetRoute {
-		if v == nil {
-			return nil
-		}
-		return v.Routes
-	}).(VnetRouteArrayOutput)
-}
-
-// The vnet resource id
-func (o VnetInfoPropertiesPtrOutput) VnetResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetInfoProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VnetResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
 type VnetInfoResponseProperties struct {
 	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
 	//             Point-To-Site VPN connection.
@@ -20701,6 +17132,8 @@ func (o VnetInfoResponsePropertiesPtrOutput) VnetResourceId() pulumi.StringPtrOu
 
 // VnetRoute contract used to pass routing information for a vnet.
 type VnetRoute struct {
+	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+	EndAddress *string `pulumi:"endAddress"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Kind of resource
@@ -20708,8 +17141,17 @@ type VnetRoute struct {
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       *string              `pulumi:"name"`
-	Properties *VnetRouteProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
+	// The type of route this is:
+	//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
+	//             INHERITED - Routes inherited from the real Virtual Network routes
+	//             STATIC - Static route set on the web app only
+	//
+	//             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
+	//             with new INHERITED routes.
+	RouteType *string `pulumi:"routeType"`
+	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+	StartAddress *string `pulumi:"startAddress"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -20729,6 +17171,8 @@ type VnetRouteInput interface {
 
 // VnetRoute contract used to pass routing information for a vnet.
 type VnetRouteArgs struct {
+	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+	EndAddress pulumi.StringPtrInput `pulumi:"endAddress"`
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Kind of resource
@@ -20736,8 +17180,17 @@ type VnetRouteArgs struct {
 	// Resource Location
 	Location pulumi.StringInput `pulumi:"location"`
 	// Resource Name
-	Name       pulumi.StringPtrInput       `pulumi:"name"`
-	Properties VnetRoutePropertiesPtrInput `pulumi:"properties"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of route this is:
+	//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
+	//             INHERITED - Routes inherited from the real Virtual Network routes
+	//             STATIC - Static route set on the web app only
+	//
+	//             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
+	//             with new INHERITED routes.
+	RouteType pulumi.StringPtrInput `pulumi:"routeType"`
+	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+	StartAddress pulumi.StringPtrInput `pulumi:"startAddress"`
 	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Resource type
@@ -20796,6 +17249,11 @@ func (o VnetRouteOutput) ToVnetRouteOutputWithContext(ctx context.Context) VnetR
 	return o
 }
 
+// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+func (o VnetRouteOutput) EndAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VnetRoute) *string { return v.EndAddress }).(pulumi.StringPtrOutput)
+}
+
 // Resource Id
 func (o VnetRouteOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VnetRoute) *string { return v.Id }).(pulumi.StringPtrOutput)
@@ -20816,8 +17274,20 @@ func (o VnetRouteOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VnetRoute) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o VnetRouteOutput) Properties() VnetRoutePropertiesPtrOutput {
-	return o.ApplyT(func(v VnetRoute) *VnetRouteProperties { return v.Properties }).(VnetRoutePropertiesPtrOutput)
+// The type of route this is:
+//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
+//             INHERITED - Routes inherited from the real Virtual Network routes
+//             STATIC - Static route set on the web app only
+//
+//             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
+//             with new INHERITED routes.
+func (o VnetRouteOutput) RouteType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VnetRoute) *string { return v.RouteType }).(pulumi.StringPtrOutput)
+}
+
+// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+func (o VnetRouteOutput) StartAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VnetRoute) *string { return v.StartAddress }).(pulumi.StringPtrOutput)
 }
 
 // Resource tags
@@ -20848,218 +17318,6 @@ func (o VnetRouteArrayOutput) Index(i pulumi.IntInput) VnetRouteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VnetRoute {
 		return vs[0].([]VnetRoute)[vs[1].(int)]
 	}).(VnetRouteOutput)
-}
-
-type VnetRouteProperties struct {
-	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-	EndAddress *string `pulumi:"endAddress"`
-	// The name of this route. This is only returned by the server and does not need to be set by the client.
-	Name *string `pulumi:"name"`
-	// The type of route this is:
-	//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
-	//             INHERITED - Routes inherited from the real Virtual Network routes
-	//             STATIC - Static route set on the web app only
-	//
-	//             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
-	//             with new INHERITED routes.
-	RouteType *string `pulumi:"routeType"`
-	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-	StartAddress *string `pulumi:"startAddress"`
-}
-
-// VnetRoutePropertiesInput is an input type that accepts VnetRoutePropertiesArgs and VnetRoutePropertiesOutput values.
-// You can construct a concrete instance of `VnetRoutePropertiesInput` via:
-//
-//          VnetRoutePropertiesArgs{...}
-type VnetRoutePropertiesInput interface {
-	pulumi.Input
-
-	ToVnetRoutePropertiesOutput() VnetRoutePropertiesOutput
-	ToVnetRoutePropertiesOutputWithContext(context.Context) VnetRoutePropertiesOutput
-}
-
-type VnetRoutePropertiesArgs struct {
-	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-	EndAddress pulumi.StringPtrInput `pulumi:"endAddress"`
-	// The name of this route. This is only returned by the server and does not need to be set by the client.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The type of route this is:
-	//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
-	//             INHERITED - Routes inherited from the real Virtual Network routes
-	//             STATIC - Static route set on the web app only
-	//
-	//             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
-	//             with new INHERITED routes.
-	RouteType pulumi.StringPtrInput `pulumi:"routeType"`
-	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-	StartAddress pulumi.StringPtrInput `pulumi:"startAddress"`
-}
-
-func (VnetRoutePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VnetRouteProperties)(nil)).Elem()
-}
-
-func (i VnetRoutePropertiesArgs) ToVnetRoutePropertiesOutput() VnetRoutePropertiesOutput {
-	return i.ToVnetRoutePropertiesOutputWithContext(context.Background())
-}
-
-func (i VnetRoutePropertiesArgs) ToVnetRoutePropertiesOutputWithContext(ctx context.Context) VnetRoutePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetRoutePropertiesOutput)
-}
-
-func (i VnetRoutePropertiesArgs) ToVnetRoutePropertiesPtrOutput() VnetRoutePropertiesPtrOutput {
-	return i.ToVnetRoutePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i VnetRoutePropertiesArgs) ToVnetRoutePropertiesPtrOutputWithContext(ctx context.Context) VnetRoutePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetRoutePropertiesOutput).ToVnetRoutePropertiesPtrOutputWithContext(ctx)
-}
-
-// VnetRoutePropertiesPtrInput is an input type that accepts VnetRoutePropertiesArgs, VnetRoutePropertiesPtr and VnetRoutePropertiesPtrOutput values.
-// You can construct a concrete instance of `VnetRoutePropertiesPtrInput` via:
-//
-//          VnetRoutePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type VnetRoutePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToVnetRoutePropertiesPtrOutput() VnetRoutePropertiesPtrOutput
-	ToVnetRoutePropertiesPtrOutputWithContext(context.Context) VnetRoutePropertiesPtrOutput
-}
-
-type vnetRoutePropertiesPtrType VnetRoutePropertiesArgs
-
-func VnetRoutePropertiesPtr(v *VnetRoutePropertiesArgs) VnetRoutePropertiesPtrInput {
-	return (*vnetRoutePropertiesPtrType)(v)
-}
-
-func (*vnetRoutePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VnetRouteProperties)(nil)).Elem()
-}
-
-func (i *vnetRoutePropertiesPtrType) ToVnetRoutePropertiesPtrOutput() VnetRoutePropertiesPtrOutput {
-	return i.ToVnetRoutePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *vnetRoutePropertiesPtrType) ToVnetRoutePropertiesPtrOutputWithContext(ctx context.Context) VnetRoutePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetRoutePropertiesPtrOutput)
-}
-
-type VnetRoutePropertiesOutput struct{ *pulumi.OutputState }
-
-func (VnetRoutePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VnetRouteProperties)(nil)).Elem()
-}
-
-func (o VnetRoutePropertiesOutput) ToVnetRoutePropertiesOutput() VnetRoutePropertiesOutput {
-	return o
-}
-
-func (o VnetRoutePropertiesOutput) ToVnetRoutePropertiesOutputWithContext(ctx context.Context) VnetRoutePropertiesOutput {
-	return o
-}
-
-func (o VnetRoutePropertiesOutput) ToVnetRoutePropertiesPtrOutput() VnetRoutePropertiesPtrOutput {
-	return o.ToVnetRoutePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o VnetRoutePropertiesOutput) ToVnetRoutePropertiesPtrOutputWithContext(ctx context.Context) VnetRoutePropertiesPtrOutput {
-	return o.ApplyT(func(v VnetRouteProperties) *VnetRouteProperties {
-		return &v
-	}).(VnetRoutePropertiesPtrOutput)
-}
-
-// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-func (o VnetRoutePropertiesOutput) EndAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetRouteProperties) *string { return v.EndAddress }).(pulumi.StringPtrOutput)
-}
-
-// The name of this route. This is only returned by the server and does not need to be set by the client.
-func (o VnetRoutePropertiesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetRouteProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The type of route this is:
-//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
-//             INHERITED - Routes inherited from the real Virtual Network routes
-//             STATIC - Static route set on the web app only
-//
-//             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
-//             with new INHERITED routes.
-func (o VnetRoutePropertiesOutput) RouteType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetRouteProperties) *string { return v.RouteType }).(pulumi.StringPtrOutput)
-}
-
-// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-func (o VnetRoutePropertiesOutput) StartAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetRouteProperties) *string { return v.StartAddress }).(pulumi.StringPtrOutput)
-}
-
-type VnetRoutePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (VnetRoutePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VnetRouteProperties)(nil)).Elem()
-}
-
-func (o VnetRoutePropertiesPtrOutput) ToVnetRoutePropertiesPtrOutput() VnetRoutePropertiesPtrOutput {
-	return o
-}
-
-func (o VnetRoutePropertiesPtrOutput) ToVnetRoutePropertiesPtrOutputWithContext(ctx context.Context) VnetRoutePropertiesPtrOutput {
-	return o
-}
-
-func (o VnetRoutePropertiesPtrOutput) Elem() VnetRoutePropertiesOutput {
-	return o.ApplyT(func(v *VnetRouteProperties) VnetRouteProperties { return *v }).(VnetRoutePropertiesOutput)
-}
-
-// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-func (o VnetRoutePropertiesPtrOutput) EndAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetRouteProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EndAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of this route. This is only returned by the server and does not need to be set by the client.
-func (o VnetRoutePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetRouteProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of route this is:
-//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
-//             INHERITED - Routes inherited from the real Virtual Network routes
-//             STATIC - Static route set on the web app only
-//
-//             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
-//             with new INHERITED routes.
-func (o VnetRoutePropertiesPtrOutput) RouteType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetRouteProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RouteType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-func (o VnetRoutePropertiesPtrOutput) StartAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetRouteProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StartAddress
-	}).(pulumi.StringPtrOutput)
 }
 
 // VnetRoute contract used to pass routing information for a vnet.
@@ -21427,21 +17685,30 @@ func (o VnetRouteResponsePropertiesPtrOutput) StartAddress() pulumi.StringPtrOut
 
 // Worker pool of a hostingEnvironment (App Service Environment)
 type WorkerPool struct {
+	// Shared or dedicated web app hosting
+	ComputeMode *string `pulumi:"computeMode"`
 	// Resource Id
 	Id *string `pulumi:"id"`
+	// Names of all instances in the worker pool (read only)
+	InstanceNames []string `pulumi:"instanceNames"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       *string               `pulumi:"name"`
-	Properties *WorkerPoolProperties `pulumi:"properties"`
+	Name *string `pulumi:"name"`
 	// Describes a sku for a scalable resource
 	Sku *SkuDescription `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// Number of instances in the worker pool
+	WorkerCount *int `pulumi:"workerCount"`
+	// VM size of the worker pool instances
+	WorkerSize *string `pulumi:"workerSize"`
+	// Worker size id for referencing this worker pool
+	WorkerSizeId *int `pulumi:"workerSizeId"`
 }
 
 // WorkerPoolInput is an input type that accepts WorkerPoolArgs and WorkerPoolOutput values.
@@ -21457,21 +17724,30 @@ type WorkerPoolInput interface {
 
 // Worker pool of a hostingEnvironment (App Service Environment)
 type WorkerPoolArgs struct {
+	// Shared or dedicated web app hosting
+	ComputeMode pulumi.StringPtrInput `pulumi:"computeMode"`
 	// Resource Id
 	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Names of all instances in the worker pool (read only)
+	InstanceNames pulumi.StringArrayInput `pulumi:"instanceNames"`
 	// Kind of resource
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
 	// Resource Location
 	Location pulumi.StringInput `pulumi:"location"`
 	// Resource Name
-	Name       pulumi.StringPtrInput        `pulumi:"name"`
-	Properties WorkerPoolPropertiesPtrInput `pulumi:"properties"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Describes a sku for a scalable resource
 	Sku SkuDescriptionPtrInput `pulumi:"sku"`
 	// Resource tags
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Number of instances in the worker pool
+	WorkerCount pulumi.IntPtrInput `pulumi:"workerCount"`
+	// VM size of the worker pool instances
+	WorkerSize pulumi.StringPtrInput `pulumi:"workerSize"`
+	// Worker size id for referencing this worker pool
+	WorkerSizeId pulumi.IntPtrInput `pulumi:"workerSizeId"`
 }
 
 func (WorkerPoolArgs) ElementType() reflect.Type {
@@ -21526,9 +17802,19 @@ func (o WorkerPoolOutput) ToWorkerPoolOutputWithContext(ctx context.Context) Wor
 	return o
 }
 
+// Shared or dedicated web app hosting
+func (o WorkerPoolOutput) ComputeMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkerPool) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
+}
+
 // Resource Id
 func (o WorkerPoolOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerPool) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Names of all instances in the worker pool (read only)
+func (o WorkerPoolOutput) InstanceNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkerPool) []string { return v.InstanceNames }).(pulumi.StringArrayOutput)
 }
 
 // Kind of resource
@@ -21546,10 +17832,6 @@ func (o WorkerPoolOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerPool) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o WorkerPoolOutput) Properties() WorkerPoolPropertiesPtrOutput {
-	return o.ApplyT(func(v WorkerPool) *WorkerPoolProperties { return v.Properties }).(WorkerPoolPropertiesPtrOutput)
-}
-
 // Describes a sku for a scalable resource
 func (o WorkerPoolOutput) Sku() SkuDescriptionPtrOutput {
 	return o.ApplyT(func(v WorkerPool) *SkuDescription { return v.Sku }).(SkuDescriptionPtrOutput)
@@ -21563,6 +17845,21 @@ func (o WorkerPoolOutput) Tags() pulumi.StringMapOutput {
 // Resource type
 func (o WorkerPoolOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerPool) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Number of instances in the worker pool
+func (o WorkerPoolOutput) WorkerCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkerPool) *int { return v.WorkerCount }).(pulumi.IntPtrOutput)
+}
+
+// VM size of the worker pool instances
+func (o WorkerPoolOutput) WorkerSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkerPool) *string { return v.WorkerSize }).(pulumi.StringPtrOutput)
+}
+
+// Worker size id for referencing this worker pool
+func (o WorkerPoolOutput) WorkerSizeId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkerPool) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
 }
 
 type WorkerPoolArrayOutput struct{ *pulumi.OutputState }
@@ -21583,213 +17880,6 @@ func (o WorkerPoolArrayOutput) Index(i pulumi.IntInput) WorkerPoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkerPool {
 		return vs[0].([]WorkerPool)[vs[1].(int)]
 	}).(WorkerPoolOutput)
-}
-
-type WorkerPoolProperties struct {
-	// Shared or dedicated web app hosting
-	ComputeMode *string `pulumi:"computeMode"`
-	// Names of all instances in the worker pool (read only)
-	InstanceNames []string `pulumi:"instanceNames"`
-	// Number of instances in the worker pool
-	WorkerCount *int `pulumi:"workerCount"`
-	// VM size of the worker pool instances
-	WorkerSize *string `pulumi:"workerSize"`
-	// Worker size id for referencing this worker pool
-	WorkerSizeId *int `pulumi:"workerSizeId"`
-}
-
-// WorkerPoolPropertiesInput is an input type that accepts WorkerPoolPropertiesArgs and WorkerPoolPropertiesOutput values.
-// You can construct a concrete instance of `WorkerPoolPropertiesInput` via:
-//
-//          WorkerPoolPropertiesArgs{...}
-type WorkerPoolPropertiesInput interface {
-	pulumi.Input
-
-	ToWorkerPoolPropertiesOutput() WorkerPoolPropertiesOutput
-	ToWorkerPoolPropertiesOutputWithContext(context.Context) WorkerPoolPropertiesOutput
-}
-
-type WorkerPoolPropertiesArgs struct {
-	// Shared or dedicated web app hosting
-	ComputeMode pulumi.StringPtrInput `pulumi:"computeMode"`
-	// Names of all instances in the worker pool (read only)
-	InstanceNames pulumi.StringArrayInput `pulumi:"instanceNames"`
-	// Number of instances in the worker pool
-	WorkerCount pulumi.IntPtrInput `pulumi:"workerCount"`
-	// VM size of the worker pool instances
-	WorkerSize pulumi.StringPtrInput `pulumi:"workerSize"`
-	// Worker size id for referencing this worker pool
-	WorkerSizeId pulumi.IntPtrInput `pulumi:"workerSizeId"`
-}
-
-func (WorkerPoolPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkerPoolProperties)(nil)).Elem()
-}
-
-func (i WorkerPoolPropertiesArgs) ToWorkerPoolPropertiesOutput() WorkerPoolPropertiesOutput {
-	return i.ToWorkerPoolPropertiesOutputWithContext(context.Background())
-}
-
-func (i WorkerPoolPropertiesArgs) ToWorkerPoolPropertiesOutputWithContext(ctx context.Context) WorkerPoolPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkerPoolPropertiesOutput)
-}
-
-func (i WorkerPoolPropertiesArgs) ToWorkerPoolPropertiesPtrOutput() WorkerPoolPropertiesPtrOutput {
-	return i.ToWorkerPoolPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i WorkerPoolPropertiesArgs) ToWorkerPoolPropertiesPtrOutputWithContext(ctx context.Context) WorkerPoolPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkerPoolPropertiesOutput).ToWorkerPoolPropertiesPtrOutputWithContext(ctx)
-}
-
-// WorkerPoolPropertiesPtrInput is an input type that accepts WorkerPoolPropertiesArgs, WorkerPoolPropertiesPtr and WorkerPoolPropertiesPtrOutput values.
-// You can construct a concrete instance of `WorkerPoolPropertiesPtrInput` via:
-//
-//          WorkerPoolPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type WorkerPoolPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToWorkerPoolPropertiesPtrOutput() WorkerPoolPropertiesPtrOutput
-	ToWorkerPoolPropertiesPtrOutputWithContext(context.Context) WorkerPoolPropertiesPtrOutput
-}
-
-type workerPoolPropertiesPtrType WorkerPoolPropertiesArgs
-
-func WorkerPoolPropertiesPtr(v *WorkerPoolPropertiesArgs) WorkerPoolPropertiesPtrInput {
-	return (*workerPoolPropertiesPtrType)(v)
-}
-
-func (*workerPoolPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkerPoolProperties)(nil)).Elem()
-}
-
-func (i *workerPoolPropertiesPtrType) ToWorkerPoolPropertiesPtrOutput() WorkerPoolPropertiesPtrOutput {
-	return i.ToWorkerPoolPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *workerPoolPropertiesPtrType) ToWorkerPoolPropertiesPtrOutputWithContext(ctx context.Context) WorkerPoolPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkerPoolPropertiesPtrOutput)
-}
-
-type WorkerPoolPropertiesOutput struct{ *pulumi.OutputState }
-
-func (WorkerPoolPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkerPoolProperties)(nil)).Elem()
-}
-
-func (o WorkerPoolPropertiesOutput) ToWorkerPoolPropertiesOutput() WorkerPoolPropertiesOutput {
-	return o
-}
-
-func (o WorkerPoolPropertiesOutput) ToWorkerPoolPropertiesOutputWithContext(ctx context.Context) WorkerPoolPropertiesOutput {
-	return o
-}
-
-func (o WorkerPoolPropertiesOutput) ToWorkerPoolPropertiesPtrOutput() WorkerPoolPropertiesPtrOutput {
-	return o.ToWorkerPoolPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o WorkerPoolPropertiesOutput) ToWorkerPoolPropertiesPtrOutputWithContext(ctx context.Context) WorkerPoolPropertiesPtrOutput {
-	return o.ApplyT(func(v WorkerPoolProperties) *WorkerPoolProperties {
-		return &v
-	}).(WorkerPoolPropertiesPtrOutput)
-}
-
-// Shared or dedicated web app hosting
-func (o WorkerPoolPropertiesOutput) ComputeMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkerPoolProperties) *string { return v.ComputeMode }).(pulumi.StringPtrOutput)
-}
-
-// Names of all instances in the worker pool (read only)
-func (o WorkerPoolPropertiesOutput) InstanceNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v WorkerPoolProperties) []string { return v.InstanceNames }).(pulumi.StringArrayOutput)
-}
-
-// Number of instances in the worker pool
-func (o WorkerPoolPropertiesOutput) WorkerCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkerPoolProperties) *int { return v.WorkerCount }).(pulumi.IntPtrOutput)
-}
-
-// VM size of the worker pool instances
-func (o WorkerPoolPropertiesOutput) WorkerSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WorkerPoolProperties) *string { return v.WorkerSize }).(pulumi.StringPtrOutput)
-}
-
-// Worker size id for referencing this worker pool
-func (o WorkerPoolPropertiesOutput) WorkerSizeId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v WorkerPoolProperties) *int { return v.WorkerSizeId }).(pulumi.IntPtrOutput)
-}
-
-type WorkerPoolPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkerPoolPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkerPoolProperties)(nil)).Elem()
-}
-
-func (o WorkerPoolPropertiesPtrOutput) ToWorkerPoolPropertiesPtrOutput() WorkerPoolPropertiesPtrOutput {
-	return o
-}
-
-func (o WorkerPoolPropertiesPtrOutput) ToWorkerPoolPropertiesPtrOutputWithContext(ctx context.Context) WorkerPoolPropertiesPtrOutput {
-	return o
-}
-
-func (o WorkerPoolPropertiesPtrOutput) Elem() WorkerPoolPropertiesOutput {
-	return o.ApplyT(func(v *WorkerPoolProperties) WorkerPoolProperties { return *v }).(WorkerPoolPropertiesOutput)
-}
-
-// Shared or dedicated web app hosting
-func (o WorkerPoolPropertiesPtrOutput) ComputeMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkerPoolProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ComputeMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// Names of all instances in the worker pool (read only)
-func (o WorkerPoolPropertiesPtrOutput) InstanceNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *WorkerPoolProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceNames
-	}).(pulumi.StringArrayOutput)
-}
-
-// Number of instances in the worker pool
-func (o WorkerPoolPropertiesPtrOutput) WorkerCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WorkerPoolProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.WorkerCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// VM size of the worker pool instances
-func (o WorkerPoolPropertiesPtrOutput) WorkerSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkerPoolProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.WorkerSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// Worker size id for referencing this worker pool
-func (o WorkerPoolPropertiesPtrOutput) WorkerSizeId() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WorkerPoolProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.WorkerSizeId
-	}).(pulumi.IntPtrOutput)
 }
 
 // Worker pool of a hostingEnvironment (App Service Environment)
@@ -22182,16 +18272,12 @@ func init() {
 	pulumi.RegisterOutputType(AutoHealTriggersResponseOutput{})
 	pulumi.RegisterOutputType(AutoHealTriggersResponsePtrOutput{})
 	pulumi.RegisterOutputType(BackupItemResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(BackupRequestPropertiesOutput{})
 	pulumi.RegisterOutputType(BackupRequestResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(BackupScheduleOutput{})
-	pulumi.RegisterOutputType(BackupSchedulePtrOutput{})
 	pulumi.RegisterOutputType(BackupScheduleResponseOutput{})
 	pulumi.RegisterOutputType(BackupScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(CertificateTypeOutput{})
 	pulumi.RegisterOutputType(CertificateCsrTypeOutput{})
-	pulumi.RegisterOutputType(CertificatePropertiesOutput{})
-	pulumi.RegisterOutputType(CertificatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CertificateResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(CertificateResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CloningInfoOutput{})
@@ -22208,16 +18294,12 @@ func init() {
 	pulumi.RegisterOutputType(CorsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(CorsSettingsResponseOutput{})
 	pulumi.RegisterOutputType(CorsSettingsResponsePtrOutput{})
-	pulumi.RegisterOutputType(CsrPropertiesOutput{})
-	pulumi.RegisterOutputType(CsrPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CsrResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(CsrResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseBackupSettingOutput{})
 	pulumi.RegisterOutputType(DatabaseBackupSettingArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseBackupSettingResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseBackupSettingResponseArrayOutput{})
-	pulumi.RegisterOutputType(DeploymentPropertiesOutput{})
-	pulumi.RegisterOutputType(DeploymentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(DeploymentResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentsOutput{})
@@ -22228,8 +18310,6 @@ func init() {
 	pulumi.RegisterOutputType(HandlerMappingArrayOutput{})
 	pulumi.RegisterOutputType(HandlerMappingResponseOutput{})
 	pulumi.RegisterOutputType(HandlerMappingResponseArrayOutput{})
-	pulumi.RegisterOutputType(HostNameBindingPropertiesOutput{})
-	pulumi.RegisterOutputType(HostNameBindingPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HostNameBindingResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(HostNameBindingResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HostNameSslStateOutput{})
@@ -22241,8 +18321,6 @@ func init() {
 	pulumi.RegisterOutputType(HostingEnvironmentProfilePtrOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponseOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(HostingEnvironmentPropertiesOutput{})
-	pulumi.RegisterOutputType(HostingEnvironmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IpSecurityRestrictionOutput{})
@@ -22264,8 +18342,6 @@ func init() {
 	pulumi.RegisterOutputType(RampUpRuleArrayOutput{})
 	pulumi.RegisterOutputType(RampUpRuleResponseOutput{})
 	pulumi.RegisterOutputType(RampUpRuleResponseArrayOutput{})
-	pulumi.RegisterOutputType(RelayServiceConnectionEntityPropertiesOutput{})
-	pulumi.RegisterOutputType(RelayServiceConnectionEntityPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RelayServiceConnectionEntityResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(RelayServiceConnectionEntityResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RequestsBasedTriggerOutput{})
@@ -22274,15 +18350,11 @@ func init() {
 	pulumi.RegisterOutputType(RequestsBasedTriggerResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerFarmTypeOutput{})
 	pulumi.RegisterOutputType(ServerFarmRouteForVnetTypeOutput{})
-	pulumi.RegisterOutputType(ServerFarmWithRichSkuPropertiesOutput{})
-	pulumi.RegisterOutputType(ServerFarmWithRichSkuPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ServerFarmWithRichSkuResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(ServerFarmWithRichSkuResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SiteTypeOutput{})
 	pulumi.RegisterOutputType(SiteConfigOutput{})
 	pulumi.RegisterOutputType(SiteConfigPtrOutput{})
-	pulumi.RegisterOutputType(SiteConfigPropertiesOutput{})
-	pulumi.RegisterOutputType(SiteConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SiteConfigResponseOutput{})
 	pulumi.RegisterOutputType(SiteConfigResponsePtrOutput{})
 	pulumi.RegisterOutputType(SiteConfigResponsePropertiesOutput{})
@@ -22297,16 +18369,12 @@ func init() {
 	pulumi.RegisterOutputType(SiteLimitsPtrOutput{})
 	pulumi.RegisterOutputType(SiteLimitsResponseOutput{})
 	pulumi.RegisterOutputType(SiteLimitsResponsePtrOutput{})
-	pulumi.RegisterOutputType(SitePropertiesOutput{})
-	pulumi.RegisterOutputType(SitePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SiteRelayServiceConnectionTypeOutput{})
 	pulumi.RegisterOutputType(SiteRelayServiceConnectionSlotTypeOutput{})
 	pulumi.RegisterOutputType(SiteResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(SiteResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SiteSlotTypeOutput{})
 	pulumi.RegisterOutputType(SiteSourceControlTypeOutput{})
-	pulumi.RegisterOutputType(SiteSourceControlPropertiesOutput{})
-	pulumi.RegisterOutputType(SiteSourceControlPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SiteSourceControlResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(SiteSourceControlResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SiteSourceControlSlotTypeOutput{})
@@ -22345,22 +18413,16 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(VnetInfoPropertiesOutput{})
-	pulumi.RegisterOutputType(VnetInfoPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VnetInfoResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(VnetInfoResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VnetRouteOutput{})
 	pulumi.RegisterOutputType(VnetRouteArrayOutput{})
-	pulumi.RegisterOutputType(VnetRoutePropertiesOutput{})
-	pulumi.RegisterOutputType(VnetRoutePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VnetRouteResponseOutput{})
 	pulumi.RegisterOutputType(VnetRouteResponseArrayOutput{})
 	pulumi.RegisterOutputType(VnetRouteResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(VnetRouteResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkerPoolOutput{})
 	pulumi.RegisterOutputType(WorkerPoolArrayOutput{})
-	pulumi.RegisterOutputType(WorkerPoolPropertiesOutput{})
-	pulumi.RegisterOutputType(WorkerPoolPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WorkerPoolResponseOutput{})
 	pulumi.RegisterOutputType(WorkerPoolResponseArrayOutput{})
 	pulumi.RegisterOutputType(WorkerPoolResponsePropertiesOutput{})

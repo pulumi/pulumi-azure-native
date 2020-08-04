@@ -17,14 +17,22 @@ func ListWebAppBackupStatusSecrets(ctx *pulumi.Context, args *ListWebAppBackupSt
 }
 
 type ListWebAppBackupStatusSecretsArgs struct {
+	// Name of the backup.
+	BackupName *string `pulumi:"backupName"`
+	// Schedule for the backup if it is executed periodically.
+	BackupSchedule *BackupSchedule `pulumi:"backupSchedule"`
+	// Databases included in the backup.
+	Databases []DatabaseBackupSetting `pulumi:"databases"`
+	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+	Enabled *bool `pulumi:"enabled"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// ID of backup.
 	Name string `pulumi:"name"`
-	// BackupRequest resource specific properties
-	Properties *BackupRequestProperties `pulumi:"properties"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// SAS URL to the container.
+	StorageAccountUrl string `pulumi:"storageAccountUrl"`
 }
 
 // Backup description.

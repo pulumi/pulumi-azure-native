@@ -29,8 +29,17 @@ type ContainerService struct {
 // NewContainerService registers a new resource with the given unique name, arguments, and options.
 func NewContainerService(ctx *pulumi.Context,
 	name string, args *ContainerServiceArgs, opts ...pulumi.ResourceOption) (*ContainerService, error) {
+	if args == nil || args.AgentPoolProfiles == nil {
+		return nil, errors.New("missing required argument 'AgentPoolProfiles'")
+	}
+	if args == nil || args.LinuxProfile == nil {
+		return nil, errors.New("missing required argument 'LinuxProfile'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
+	}
+	if args == nil || args.MasterProfile == nil {
+		return nil, errors.New("missing required argument 'MasterProfile'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
@@ -93,30 +102,58 @@ func (ContainerServiceState) ElementType() reflect.Type {
 }
 
 type containerServiceArgs struct {
+	// Properties of the agent pool.
+	AgentPoolProfiles []ContainerServiceAgentPoolProfile `pulumi:"agentPoolProfiles"`
+	// Properties for custom clusters.
+	CustomProfile *ContainerServiceCustomProfile `pulumi:"customProfile"`
+	// Properties of the diagnostic agent.
+	DiagnosticsProfile *ContainerServiceDiagnosticsProfile `pulumi:"diagnosticsProfile"`
+	// Properties of Linux VMs.
+	LinuxProfile ContainerServiceLinuxProfile `pulumi:"linuxProfile"`
 	// Resource location
 	Location string `pulumi:"location"`
+	// Properties of master agents.
+	MasterProfile ContainerServiceMasterProfile `pulumi:"masterProfile"`
 	// The name of the container service in the specified subscription and resource group.
 	Name string `pulumi:"name"`
-	// Properties of the container service.
-	Properties *ContainerServiceProperties `pulumi:"properties"`
+	// Properties of the orchestrator.
+	OrchestratorProfile *ContainerServiceOrchestratorProfile `pulumi:"orchestratorProfile"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Properties for cluster service principals.
+	ServicePrincipalProfile *ContainerServiceServicePrincipalProfile `pulumi:"servicePrincipalProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Properties of Windows VMs.
+	WindowsProfile *ContainerServiceWindowsProfile `pulumi:"windowsProfile"`
 }
 
 // The set of arguments for constructing a ContainerService resource.
 type ContainerServiceArgs struct {
+	// Properties of the agent pool.
+	AgentPoolProfiles ContainerServiceAgentPoolProfileArrayInput
+	// Properties for custom clusters.
+	CustomProfile ContainerServiceCustomProfilePtrInput
+	// Properties of the diagnostic agent.
+	DiagnosticsProfile ContainerServiceDiagnosticsProfilePtrInput
+	// Properties of Linux VMs.
+	LinuxProfile ContainerServiceLinuxProfileInput
 	// Resource location
 	Location pulumi.StringInput
+	// Properties of master agents.
+	MasterProfile ContainerServiceMasterProfileInput
 	// The name of the container service in the specified subscription and resource group.
 	Name pulumi.StringInput
-	// Properties of the container service.
-	Properties ContainerServicePropertiesPtrInput
+	// Properties of the orchestrator.
+	OrchestratorProfile ContainerServiceOrchestratorProfilePtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Properties for cluster service principals.
+	ServicePrincipalProfile ContainerServiceServicePrincipalProfilePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Properties of Windows VMs.
+	WindowsProfile ContainerServiceWindowsProfilePtrInput
 }
 
 func (ContainerServiceArgs) ElementType() reflect.Type {

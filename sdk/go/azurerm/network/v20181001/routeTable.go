@@ -96,6 +96,8 @@ func (RouteTableState) ElementType() reflect.Type {
 }
 
 type routeTableArgs struct {
+	// Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
+	DisableBgpRoutePropagation *bool `pulumi:"disableBgpRoutePropagation"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
@@ -104,16 +106,20 @@ type routeTableArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the route table.
 	Name string `pulumi:"name"`
-	// Properties of the route table.
-	Properties *RouteTablePropertiesFormat `pulumi:"properties"`
+	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Collection of routes contained within a route table.
+	Routes []RouteType `pulumi:"routes"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a RouteTable resource.
 type RouteTableArgs struct {
+	// Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
+	DisableBgpRoutePropagation pulumi.BoolPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource ID.
@@ -122,10 +128,12 @@ type RouteTableArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the route table.
 	Name pulumi.StringInput
-	// Properties of the route table.
-	Properties RouteTablePropertiesFormatPtrInput
+	// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Collection of routes contained within a route table.
+	Routes RouteTypeArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

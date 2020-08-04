@@ -96,14 +96,18 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
+	// Describes custom rules inside the policy.
+	CustomRules *CustomRuleList `pulumi:"customRules"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Describes managed rules inside the policy.
+	ManagedRules *ManagedRuleSetList `pulumi:"managedRules"`
 	// The name of the Web Application Firewall Policy.
 	Name string `pulumi:"name"`
-	// Properties of the web application firewall policy.
-	Properties *WebApplicationFirewallPolicyProperties `pulumi:"properties"`
+	// Describes settings for the policy.
+	PolicySettings *PolicySettings `pulumi:"policySettings"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -112,14 +116,18 @@ type policyArgs struct {
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
+	// Describes custom rules inside the policy.
+	CustomRules CustomRuleListPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// Describes managed rules inside the policy.
+	ManagedRules ManagedRuleSetListPtrInput
 	// The name of the Web Application Firewall Policy.
 	Name pulumi.StringInput
-	// Properties of the web application firewall policy.
-	Properties WebApplicationFirewallPolicyPropertiesPtrInput
+	// Describes settings for the policy.
+	PolicySettings PolicySettingsPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

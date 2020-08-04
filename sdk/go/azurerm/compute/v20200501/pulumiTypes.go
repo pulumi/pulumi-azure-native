@@ -740,118 +740,6 @@ func (o DiskAccessTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskAccessType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type DiskAccessProperties struct {
-}
-
-// DiskAccessPropertiesInput is an input type that accepts DiskAccessPropertiesArgs and DiskAccessPropertiesOutput values.
-// You can construct a concrete instance of `DiskAccessPropertiesInput` via:
-//
-//          DiskAccessPropertiesArgs{...}
-type DiskAccessPropertiesInput interface {
-	pulumi.Input
-
-	ToDiskAccessPropertiesOutput() DiskAccessPropertiesOutput
-	ToDiskAccessPropertiesOutputWithContext(context.Context) DiskAccessPropertiesOutput
-}
-
-type DiskAccessPropertiesArgs struct {
-}
-
-func (DiskAccessPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskAccessProperties)(nil)).Elem()
-}
-
-func (i DiskAccessPropertiesArgs) ToDiskAccessPropertiesOutput() DiskAccessPropertiesOutput {
-	return i.ToDiskAccessPropertiesOutputWithContext(context.Background())
-}
-
-func (i DiskAccessPropertiesArgs) ToDiskAccessPropertiesOutputWithContext(ctx context.Context) DiskAccessPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessPropertiesOutput)
-}
-
-func (i DiskAccessPropertiesArgs) ToDiskAccessPropertiesPtrOutput() DiskAccessPropertiesPtrOutput {
-	return i.ToDiskAccessPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i DiskAccessPropertiesArgs) ToDiskAccessPropertiesPtrOutputWithContext(ctx context.Context) DiskAccessPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessPropertiesOutput).ToDiskAccessPropertiesPtrOutputWithContext(ctx)
-}
-
-// DiskAccessPropertiesPtrInput is an input type that accepts DiskAccessPropertiesArgs, DiskAccessPropertiesPtr and DiskAccessPropertiesPtrOutput values.
-// You can construct a concrete instance of `DiskAccessPropertiesPtrInput` via:
-//
-//          DiskAccessPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type DiskAccessPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToDiskAccessPropertiesPtrOutput() DiskAccessPropertiesPtrOutput
-	ToDiskAccessPropertiesPtrOutputWithContext(context.Context) DiskAccessPropertiesPtrOutput
-}
-
-type diskAccessPropertiesPtrType DiskAccessPropertiesArgs
-
-func DiskAccessPropertiesPtr(v *DiskAccessPropertiesArgs) DiskAccessPropertiesPtrInput {
-	return (*diskAccessPropertiesPtrType)(v)
-}
-
-func (*diskAccessPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskAccessProperties)(nil)).Elem()
-}
-
-func (i *diskAccessPropertiesPtrType) ToDiskAccessPropertiesPtrOutput() DiskAccessPropertiesPtrOutput {
-	return i.ToDiskAccessPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *diskAccessPropertiesPtrType) ToDiskAccessPropertiesPtrOutputWithContext(ctx context.Context) DiskAccessPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskAccessPropertiesPtrOutput)
-}
-
-type DiskAccessPropertiesOutput struct{ *pulumi.OutputState }
-
-func (DiskAccessPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskAccessProperties)(nil)).Elem()
-}
-
-func (o DiskAccessPropertiesOutput) ToDiskAccessPropertiesOutput() DiskAccessPropertiesOutput {
-	return o
-}
-
-func (o DiskAccessPropertiesOutput) ToDiskAccessPropertiesOutputWithContext(ctx context.Context) DiskAccessPropertiesOutput {
-	return o
-}
-
-func (o DiskAccessPropertiesOutput) ToDiskAccessPropertiesPtrOutput() DiskAccessPropertiesPtrOutput {
-	return o.ToDiskAccessPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o DiskAccessPropertiesOutput) ToDiskAccessPropertiesPtrOutputWithContext(ctx context.Context) DiskAccessPropertiesPtrOutput {
-	return o.ApplyT(func(v DiskAccessProperties) *DiskAccessProperties {
-		return &v
-	}).(DiskAccessPropertiesPtrOutput)
-}
-
-type DiskAccessPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (DiskAccessPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskAccessProperties)(nil)).Elem()
-}
-
-func (o DiskAccessPropertiesPtrOutput) ToDiskAccessPropertiesPtrOutput() DiskAccessPropertiesPtrOutput {
-	return o
-}
-
-func (o DiskAccessPropertiesPtrOutput) ToDiskAccessPropertiesPtrOutputWithContext(ctx context.Context) DiskAccessPropertiesPtrOutput {
-	return o
-}
-
-func (o DiskAccessPropertiesPtrOutput) Elem() DiskAccessPropertiesOutput {
-	return o.ApplyT(func(v *DiskAccessProperties) DiskAccessProperties { return *v }).(DiskAccessPropertiesOutput)
-}
-
 type DiskAccessPropertiesResponse struct {
 	// A readonly collection of private endpoint connections created on the disk. Currently only one endpoint connection is supported.
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
@@ -1118,368 +1006,6 @@ func (o DiskEncryptionSetTypeOutput) Tags() pulumi.StringMapOutput {
 // Resource type
 func (o DiskEncryptionSetTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DiskEncryptionSetType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Disk resource properties.
-type DiskProperties struct {
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationData `pulumi:"creationData"`
-	// ARM id of the DiskAccess resource for using private endpoints on disks.
-	DiskAccessId *string `pulumi:"diskAccessId"`
-	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadOnly *int `pulumi:"diskIOPSReadOnly"`
-	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadWrite *int `pulumi:"diskIOPSReadWrite"`
-	// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadOnly *int `pulumi:"diskMBpsReadOnly"`
-	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadWrite *int `pulumi:"diskMBpsReadWrite"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-	Encryption *Encryption `pulumi:"encryption"`
-	// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-	EncryptionSettingsCollection *EncryptionSettingsCollection `pulumi:"encryptionSettingsCollection"`
-	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
-	MaxShares *int `pulumi:"maxShares"`
-	// Policy for accessing the disk via network.
-	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
-	// The Operating System type.
-	OsType *string `pulumi:"osType"`
-}
-
-// DiskPropertiesInput is an input type that accepts DiskPropertiesArgs and DiskPropertiesOutput values.
-// You can construct a concrete instance of `DiskPropertiesInput` via:
-//
-//          DiskPropertiesArgs{...}
-type DiskPropertiesInput interface {
-	pulumi.Input
-
-	ToDiskPropertiesOutput() DiskPropertiesOutput
-	ToDiskPropertiesOutputWithContext(context.Context) DiskPropertiesOutput
-}
-
-// Disk resource properties.
-type DiskPropertiesArgs struct {
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataInput `pulumi:"creationData"`
-	// ARM id of the DiskAccess resource for using private endpoints on disks.
-	DiskAccessId pulumi.StringPtrInput `pulumi:"diskAccessId"`
-	// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadOnly pulumi.IntPtrInput `pulumi:"diskIOPSReadOnly"`
-	// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-	DiskIOPSReadWrite pulumi.IntPtrInput `pulumi:"diskIOPSReadWrite"`
-	// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadOnly pulumi.IntPtrInput `pulumi:"diskMBpsReadOnly"`
-	// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-	DiskMBpsReadWrite pulumi.IntPtrInput `pulumi:"diskMBpsReadWrite"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
-	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-	Encryption EncryptionPtrInput `pulumi:"encryption"`
-	// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-	EncryptionSettingsCollection EncryptionSettingsCollectionPtrInput `pulumi:"encryptionSettingsCollection"`
-	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-	HyperVGeneration pulumi.StringPtrInput `pulumi:"hyperVGeneration"`
-	// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
-	MaxShares pulumi.IntPtrInput `pulumi:"maxShares"`
-	// Policy for accessing the disk via network.
-	NetworkAccessPolicy pulumi.StringPtrInput `pulumi:"networkAccessPolicy"`
-	// The Operating System type.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-}
-
-func (DiskPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskProperties)(nil)).Elem()
-}
-
-func (i DiskPropertiesArgs) ToDiskPropertiesOutput() DiskPropertiesOutput {
-	return i.ToDiskPropertiesOutputWithContext(context.Background())
-}
-
-func (i DiskPropertiesArgs) ToDiskPropertiesOutputWithContext(ctx context.Context) DiskPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskPropertiesOutput)
-}
-
-func (i DiskPropertiesArgs) ToDiskPropertiesPtrOutput() DiskPropertiesPtrOutput {
-	return i.ToDiskPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i DiskPropertiesArgs) ToDiskPropertiesPtrOutputWithContext(ctx context.Context) DiskPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskPropertiesOutput).ToDiskPropertiesPtrOutputWithContext(ctx)
-}
-
-// DiskPropertiesPtrInput is an input type that accepts DiskPropertiesArgs, DiskPropertiesPtr and DiskPropertiesPtrOutput values.
-// You can construct a concrete instance of `DiskPropertiesPtrInput` via:
-//
-//          DiskPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type DiskPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToDiskPropertiesPtrOutput() DiskPropertiesPtrOutput
-	ToDiskPropertiesPtrOutputWithContext(context.Context) DiskPropertiesPtrOutput
-}
-
-type diskPropertiesPtrType DiskPropertiesArgs
-
-func DiskPropertiesPtr(v *DiskPropertiesArgs) DiskPropertiesPtrInput {
-	return (*diskPropertiesPtrType)(v)
-}
-
-func (*diskPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskProperties)(nil)).Elem()
-}
-
-func (i *diskPropertiesPtrType) ToDiskPropertiesPtrOutput() DiskPropertiesPtrOutput {
-	return i.ToDiskPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *diskPropertiesPtrType) ToDiskPropertiesPtrOutputWithContext(ctx context.Context) DiskPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskPropertiesPtrOutput)
-}
-
-// Disk resource properties.
-type DiskPropertiesOutput struct{ *pulumi.OutputState }
-
-func (DiskPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskProperties)(nil)).Elem()
-}
-
-func (o DiskPropertiesOutput) ToDiskPropertiesOutput() DiskPropertiesOutput {
-	return o
-}
-
-func (o DiskPropertiesOutput) ToDiskPropertiesOutputWithContext(ctx context.Context) DiskPropertiesOutput {
-	return o
-}
-
-func (o DiskPropertiesOutput) ToDiskPropertiesPtrOutput() DiskPropertiesPtrOutput {
-	return o.ToDiskPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o DiskPropertiesOutput) ToDiskPropertiesPtrOutputWithContext(ctx context.Context) DiskPropertiesPtrOutput {
-	return o.ApplyT(func(v DiskProperties) *DiskProperties {
-		return &v
-	}).(DiskPropertiesPtrOutput)
-}
-
-// Disk source information. CreationData information cannot be changed after the disk has been created.
-func (o DiskPropertiesOutput) CreationData() CreationDataOutput {
-	return o.ApplyT(func(v DiskProperties) CreationData { return v.CreationData }).(CreationDataOutput)
-}
-
-// ARM id of the DiskAccess resource for using private endpoints on disks.
-func (o DiskPropertiesOutput) DiskAccessId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskProperties) *string { return v.DiskAccessId }).(pulumi.StringPtrOutput)
-}
-
-// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-func (o DiskPropertiesOutput) DiskIOPSReadOnly() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DiskProperties) *int { return v.DiskIOPSReadOnly }).(pulumi.IntPtrOutput)
-}
-
-// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-func (o DiskPropertiesOutput) DiskIOPSReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DiskProperties) *int { return v.DiskIOPSReadWrite }).(pulumi.IntPtrOutput)
-}
-
-// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-func (o DiskPropertiesOutput) DiskMBpsReadOnly() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DiskProperties) *int { return v.DiskMBpsReadOnly }).(pulumi.IntPtrOutput)
-}
-
-// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-func (o DiskPropertiesOutput) DiskMBpsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DiskProperties) *int { return v.DiskMBpsReadWrite }).(pulumi.IntPtrOutput)
-}
-
-// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-func (o DiskPropertiesOutput) DiskSizeGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DiskProperties) *int { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
-}
-
-// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-func (o DiskPropertiesOutput) Encryption() EncryptionPtrOutput {
-	return o.ApplyT(func(v DiskProperties) *Encryption { return v.Encryption }).(EncryptionPtrOutput)
-}
-
-// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-func (o DiskPropertiesOutput) EncryptionSettingsCollection() EncryptionSettingsCollectionPtrOutput {
-	return o.ApplyT(func(v DiskProperties) *EncryptionSettingsCollection { return v.EncryptionSettingsCollection }).(EncryptionSettingsCollectionPtrOutput)
-}
-
-// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-func (o DiskPropertiesOutput) HyperVGeneration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskProperties) *string { return v.HyperVGeneration }).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
-func (o DiskPropertiesOutput) MaxShares() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DiskProperties) *int { return v.MaxShares }).(pulumi.IntPtrOutput)
-}
-
-// Policy for accessing the disk via network.
-func (o DiskPropertiesOutput) NetworkAccessPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskProperties) *string { return v.NetworkAccessPolicy }).(pulumi.StringPtrOutput)
-}
-
-// The Operating System type.
-func (o DiskPropertiesOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskProperties) *string { return v.OsType }).(pulumi.StringPtrOutput)
-}
-
-type DiskPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (DiskPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DiskProperties)(nil)).Elem()
-}
-
-func (o DiskPropertiesPtrOutput) ToDiskPropertiesPtrOutput() DiskPropertiesPtrOutput {
-	return o
-}
-
-func (o DiskPropertiesPtrOutput) ToDiskPropertiesPtrOutputWithContext(ctx context.Context) DiskPropertiesPtrOutput {
-	return o
-}
-
-func (o DiskPropertiesPtrOutput) Elem() DiskPropertiesOutput {
-	return o.ApplyT(func(v *DiskProperties) DiskProperties { return *v }).(DiskPropertiesOutput)
-}
-
-// Disk source information. CreationData information cannot be changed after the disk has been created.
-func (o DiskPropertiesPtrOutput) CreationData() CreationDataPtrOutput {
-	return o.ApplyT(func(v *DiskProperties) *CreationData {
-		if v == nil {
-			return nil
-		}
-		return &v.CreationData
-	}).(CreationDataPtrOutput)
-}
-
-// ARM id of the DiskAccess resource for using private endpoints on disks.
-func (o DiskPropertiesPtrOutput) DiskAccessId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiskAccessId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
-func (o DiskPropertiesPtrOutput) DiskIOPSReadOnly() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DiskProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DiskIOPSReadOnly
-	}).(pulumi.IntPtrOutput)
-}
-
-// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
-func (o DiskPropertiesPtrOutput) DiskIOPSReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DiskProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DiskIOPSReadWrite
-	}).(pulumi.IntPtrOutput)
-}
-
-// The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-func (o DiskPropertiesPtrOutput) DiskMBpsReadOnly() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DiskProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DiskMBpsReadOnly
-	}).(pulumi.IntPtrOutput)
-}
-
-// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
-func (o DiskPropertiesPtrOutput) DiskMBpsReadWrite() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DiskProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DiskMBpsReadWrite
-	}).(pulumi.IntPtrOutput)
-}
-
-// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-func (o DiskPropertiesPtrOutput) DiskSizeGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DiskProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DiskSizeGB
-	}).(pulumi.IntPtrOutput)
-}
-
-// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-func (o DiskPropertiesPtrOutput) Encryption() EncryptionPtrOutput {
-	return o.ApplyT(func(v *DiskProperties) *Encryption {
-		if v == nil {
-			return nil
-		}
-		return v.Encryption
-	}).(EncryptionPtrOutput)
-}
-
-// Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-func (o DiskPropertiesPtrOutput) EncryptionSettingsCollection() EncryptionSettingsCollectionPtrOutput {
-	return o.ApplyT(func(v *DiskProperties) *EncryptionSettingsCollection {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptionSettingsCollection
-	}).(EncryptionSettingsCollectionPtrOutput)
-}
-
-// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-func (o DiskPropertiesPtrOutput) HyperVGeneration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HyperVGeneration
-	}).(pulumi.StringPtrOutput)
-}
-
-// The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
-func (o DiskPropertiesPtrOutput) MaxShares() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DiskProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxShares
-	}).(pulumi.IntPtrOutput)
-}
-
-// Policy for accessing the disk via network.
-func (o DiskPropertiesPtrOutput) NetworkAccessPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkAccessPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Operating System type.
-func (o DiskPropertiesPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OsType
-	}).(pulumi.StringPtrOutput)
 }
 
 // Disk resource properties.
@@ -2856,156 +2382,6 @@ func (o EncryptionSetIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-type EncryptionSetProperties struct {
-	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey *KeyVaultAndKeyReference `pulumi:"activeKey"`
-	// The type of key used to encrypt the data of the disk.
-	EncryptionType *string `pulumi:"encryptionType"`
-}
-
-// EncryptionSetPropertiesInput is an input type that accepts EncryptionSetPropertiesArgs and EncryptionSetPropertiesOutput values.
-// You can construct a concrete instance of `EncryptionSetPropertiesInput` via:
-//
-//          EncryptionSetPropertiesArgs{...}
-type EncryptionSetPropertiesInput interface {
-	pulumi.Input
-
-	ToEncryptionSetPropertiesOutput() EncryptionSetPropertiesOutput
-	ToEncryptionSetPropertiesOutputWithContext(context.Context) EncryptionSetPropertiesOutput
-}
-
-type EncryptionSetPropertiesArgs struct {
-	// The key vault key which is currently used by this disk encryption set.
-	ActiveKey KeyVaultAndKeyReferencePtrInput `pulumi:"activeKey"`
-	// The type of key used to encrypt the data of the disk.
-	EncryptionType pulumi.StringPtrInput `pulumi:"encryptionType"`
-}
-
-func (EncryptionSetPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionSetProperties)(nil)).Elem()
-}
-
-func (i EncryptionSetPropertiesArgs) ToEncryptionSetPropertiesOutput() EncryptionSetPropertiesOutput {
-	return i.ToEncryptionSetPropertiesOutputWithContext(context.Background())
-}
-
-func (i EncryptionSetPropertiesArgs) ToEncryptionSetPropertiesOutputWithContext(ctx context.Context) EncryptionSetPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSetPropertiesOutput)
-}
-
-func (i EncryptionSetPropertiesArgs) ToEncryptionSetPropertiesPtrOutput() EncryptionSetPropertiesPtrOutput {
-	return i.ToEncryptionSetPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i EncryptionSetPropertiesArgs) ToEncryptionSetPropertiesPtrOutputWithContext(ctx context.Context) EncryptionSetPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSetPropertiesOutput).ToEncryptionSetPropertiesPtrOutputWithContext(ctx)
-}
-
-// EncryptionSetPropertiesPtrInput is an input type that accepts EncryptionSetPropertiesArgs, EncryptionSetPropertiesPtr and EncryptionSetPropertiesPtrOutput values.
-// You can construct a concrete instance of `EncryptionSetPropertiesPtrInput` via:
-//
-//          EncryptionSetPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type EncryptionSetPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToEncryptionSetPropertiesPtrOutput() EncryptionSetPropertiesPtrOutput
-	ToEncryptionSetPropertiesPtrOutputWithContext(context.Context) EncryptionSetPropertiesPtrOutput
-}
-
-type encryptionSetPropertiesPtrType EncryptionSetPropertiesArgs
-
-func EncryptionSetPropertiesPtr(v *EncryptionSetPropertiesArgs) EncryptionSetPropertiesPtrInput {
-	return (*encryptionSetPropertiesPtrType)(v)
-}
-
-func (*encryptionSetPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EncryptionSetProperties)(nil)).Elem()
-}
-
-func (i *encryptionSetPropertiesPtrType) ToEncryptionSetPropertiesPtrOutput() EncryptionSetPropertiesPtrOutput {
-	return i.ToEncryptionSetPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *encryptionSetPropertiesPtrType) ToEncryptionSetPropertiesPtrOutputWithContext(ctx context.Context) EncryptionSetPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionSetPropertiesPtrOutput)
-}
-
-type EncryptionSetPropertiesOutput struct{ *pulumi.OutputState }
-
-func (EncryptionSetPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionSetProperties)(nil)).Elem()
-}
-
-func (o EncryptionSetPropertiesOutput) ToEncryptionSetPropertiesOutput() EncryptionSetPropertiesOutput {
-	return o
-}
-
-func (o EncryptionSetPropertiesOutput) ToEncryptionSetPropertiesOutputWithContext(ctx context.Context) EncryptionSetPropertiesOutput {
-	return o
-}
-
-func (o EncryptionSetPropertiesOutput) ToEncryptionSetPropertiesPtrOutput() EncryptionSetPropertiesPtrOutput {
-	return o.ToEncryptionSetPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o EncryptionSetPropertiesOutput) ToEncryptionSetPropertiesPtrOutputWithContext(ctx context.Context) EncryptionSetPropertiesPtrOutput {
-	return o.ApplyT(func(v EncryptionSetProperties) *EncryptionSetProperties {
-		return &v
-	}).(EncryptionSetPropertiesPtrOutput)
-}
-
-// The key vault key which is currently used by this disk encryption set.
-func (o EncryptionSetPropertiesOutput) ActiveKey() KeyVaultAndKeyReferencePtrOutput {
-	return o.ApplyT(func(v EncryptionSetProperties) *KeyVaultAndKeyReference { return v.ActiveKey }).(KeyVaultAndKeyReferencePtrOutput)
-}
-
-// The type of key used to encrypt the data of the disk.
-func (o EncryptionSetPropertiesOutput) EncryptionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EncryptionSetProperties) *string { return v.EncryptionType }).(pulumi.StringPtrOutput)
-}
-
-type EncryptionSetPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (EncryptionSetPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EncryptionSetProperties)(nil)).Elem()
-}
-
-func (o EncryptionSetPropertiesPtrOutput) ToEncryptionSetPropertiesPtrOutput() EncryptionSetPropertiesPtrOutput {
-	return o
-}
-
-func (o EncryptionSetPropertiesPtrOutput) ToEncryptionSetPropertiesPtrOutputWithContext(ctx context.Context) EncryptionSetPropertiesPtrOutput {
-	return o
-}
-
-func (o EncryptionSetPropertiesPtrOutput) Elem() EncryptionSetPropertiesOutput {
-	return o.ApplyT(func(v *EncryptionSetProperties) EncryptionSetProperties { return *v }).(EncryptionSetPropertiesOutput)
-}
-
-// The key vault key which is currently used by this disk encryption set.
-func (o EncryptionSetPropertiesPtrOutput) ActiveKey() KeyVaultAndKeyReferencePtrOutput {
-	return o.ApplyT(func(v *EncryptionSetProperties) *KeyVaultAndKeyReference {
-		if v == nil {
-			return nil
-		}
-		return v.ActiveKey
-	}).(KeyVaultAndKeyReferencePtrOutput)
-}
-
-// The type of key used to encrypt the data of the disk.
-func (o EncryptionSetPropertiesPtrOutput) EncryptionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EncryptionSetProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptionType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4843,8 +4219,12 @@ func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
 
 // The Private Endpoint Connection resource.
 type PrivateEndpointConnection struct {
-	// Resource properties.
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	// The resource of private end point.
+	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
 // PrivateEndpointConnectionInput is an input type that accepts PrivateEndpointConnectionArgs and PrivateEndpointConnectionOutput values.
@@ -4860,8 +4240,12 @@ type PrivateEndpointConnectionInput interface {
 
 // The Private Endpoint Connection resource.
 type PrivateEndpointConnectionArgs struct {
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesPtrInput `pulumi:"properties"`
+	// The resource of private end point.
+	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
 func (PrivateEndpointConnectionArgs) ElementType() reflect.Type {
@@ -4891,183 +4275,21 @@ func (o PrivateEndpointConnectionOutput) ToPrivateEndpointConnectionOutputWithCo
 	return o
 }
 
-// Resource properties.
-func (o PrivateEndpointConnectionOutput) Properties() PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnection) *PrivateEndpointConnectionProperties { return v.Properties }).(PrivateEndpointConnectionPropertiesPtrOutput)
-}
-
-// Properties of the PrivateEndpointConnectProperties.
-type PrivateEndpointConnectionProperties struct {
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState *string `pulumi:"provisioningState"`
-}
-
-// PrivateEndpointConnectionPropertiesInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs and PrivateEndpointConnectionPropertiesOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesInput` via:
-//
-//          PrivateEndpointConnectionPropertiesArgs{...}
-type PrivateEndpointConnectionPropertiesInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionPropertiesOutput() PrivateEndpointConnectionPropertiesOutput
-	ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesOutput
-}
-
-// Properties of the PrivateEndpointConnectProperties.
-type PrivateEndpointConnectionPropertiesArgs struct {
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
-	// A collection of information about the state of the connection between DiskAccess and Virtual Network.
-	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput `pulumi:"privateLinkServiceConnectionState"`
-	// The provisioning state of the private endpoint connection resource.
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-}
-
-func (PrivateEndpointConnectionPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesOutput() PrivateEndpointConnectionPropertiesOutput {
-	return i.ToPrivateEndpointConnectionPropertiesOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesOutput)
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return i.ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionPropertiesArgs) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesOutput).ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx)
-}
-
-// PrivateEndpointConnectionPropertiesPtrInput is an input type that accepts PrivateEndpointConnectionPropertiesArgs, PrivateEndpointConnectionPropertiesPtr and PrivateEndpointConnectionPropertiesPtrOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionPropertiesPtrInput` via:
-//
-//          PrivateEndpointConnectionPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type PrivateEndpointConnectionPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput
-	ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Context) PrivateEndpointConnectionPropertiesPtrOutput
-}
-
-type privateEndpointConnectionPropertiesPtrType PrivateEndpointConnectionPropertiesArgs
-
-func PrivateEndpointConnectionPropertiesPtr(v *PrivateEndpointConnectionPropertiesArgs) PrivateEndpointConnectionPropertiesPtrInput {
-	return (*privateEndpointConnectionPropertiesPtrType)(v)
-}
-
-func (*privateEndpointConnectionPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (i *privateEndpointConnectionPropertiesPtrType) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return i.ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *privateEndpointConnectionPropertiesPtrType) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionPropertiesPtrOutput)
-}
-
-// Properties of the PrivateEndpointConnectProperties.
-type PrivateEndpointConnectionPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesOutput() PrivateEndpointConnectionPropertiesOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpointConnectionProperties {
-		return &v
-	}).(PrivateEndpointConnectionPropertiesPtrOutput)
-}
-
 // The resource of private end point.
-func (o PrivateEndpointConnectionPropertiesOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
+func (o PrivateEndpointConnectionOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnection) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
 }
 
 // A collection of information about the state of the connection between DiskAccess and Virtual Network.
-func (o PrivateEndpointConnectionPropertiesOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) PrivateLinkServiceConnectionState {
+func (o PrivateEndpointConnectionOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateOutput {
+	return o.ApplyT(func(v PrivateEndpointConnection) PrivateLinkServiceConnectionState {
 		return v.PrivateLinkServiceConnectionState
 	}).(PrivateLinkServiceConnectionStateOutput)
 }
 
 // The provisioning state of the private endpoint connection resource.
-func (o PrivateEndpointConnectionPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-type PrivateEndpointConnectionPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpointConnectionProperties)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectionPropertiesPtrOutput() PrivateEndpointConnectionPropertiesPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectionPropertiesPtrOutputWithContext(ctx context.Context) PrivateEndpointConnectionPropertiesPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
-}
-
-// The resource of private end point.
-func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateEndpoint {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateEndpoint
-	}).(PrivateEndpointPtrOutput)
-}
-
-// A collection of information about the state of the connection between DiskAccess and Virtual Network.
-func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateLinkServiceConnectionState {
-		if v == nil {
-			return nil
-		}
-		return &v.PrivateLinkServiceConnectionState
-	}).(PrivateLinkServiceConnectionStatePtrOutput)
-}
-
-// The provisioning state of the private endpoint connection resource.
-func (o PrivateEndpointConnectionPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
+func (o PrivateEndpointConnectionOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnection) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 // Properties of the PrivateEndpointConnectProperties.
@@ -5552,47 +4774,6 @@ func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionSta
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateOutput)
 }
 
-func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
-	return i.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
-}
-
-func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateOutput).ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx)
-}
-
-// PrivateLinkServiceConnectionStatePtrInput is an input type that accepts PrivateLinkServiceConnectionStateArgs, PrivateLinkServiceConnectionStatePtr and PrivateLinkServiceConnectionStatePtrOutput values.
-// You can construct a concrete instance of `PrivateLinkServiceConnectionStatePtrInput` via:
-//
-//          PrivateLinkServiceConnectionStateArgs{...}
-//
-//  or:
-//
-//          nil
-type PrivateLinkServiceConnectionStatePtrInput interface {
-	pulumi.Input
-
-	ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput
-	ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Context) PrivateLinkServiceConnectionStatePtrOutput
-}
-
-type privateLinkServiceConnectionStatePtrType PrivateLinkServiceConnectionStateArgs
-
-func PrivateLinkServiceConnectionStatePtr(v *PrivateLinkServiceConnectionStateArgs) PrivateLinkServiceConnectionStatePtrInput {
-	return (*privateLinkServiceConnectionStatePtrType)(v)
-}
-
-func (*privateLinkServiceConnectionStatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkServiceConnectionState)(nil)).Elem()
-}
-
-func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
-	return i.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
-}
-
-func (i *privateLinkServiceConnectionStatePtrType) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStatePtrOutput)
-}
-
 // A collection of information about the state of the connection between service consumer and provider.
 type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
 
@@ -5608,16 +4789,6 @@ func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionS
 	return o
 }
 
-func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ToPrivateLinkServiceConnectionStatePtrOutputWithContext(context.Background())
-}
-
-func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *PrivateLinkServiceConnectionState {
-		return &v
-	}).(PrivateLinkServiceConnectionStatePtrOutput)
-}
-
 // A message indicating if changes on the service provider require any updates on the consumer.
 func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
@@ -5631,54 +4802,6 @@ func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrO
 // Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-type PrivateLinkServiceConnectionStatePtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateLinkServiceConnectionStatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateLinkServiceConnectionState)(nil)).Elem()
-}
-
-func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnectionStatePtrOutput() PrivateLinkServiceConnectionStatePtrOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStatePtrOutput) ToPrivateLinkServiceConnectionStatePtrOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStatePtrOutput {
-	return o
-}
-
-func (o PrivateLinkServiceConnectionStatePtrOutput) Elem() PrivateLinkServiceConnectionStateOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) PrivateLinkServiceConnectionState { return *v }).(PrivateLinkServiceConnectionStateOutput)
-}
-
-// A message indicating if changes on the service provider require any updates on the consumer.
-func (o PrivateLinkServiceConnectionStatePtrOutput) ActionsRequired() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ActionsRequired
-	}).(pulumi.StringPtrOutput)
-}
-
-// The reason for approval/rejection of the connection.
-func (o PrivateLinkServiceConnectionStatePtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-func (o PrivateLinkServiceConnectionStatePtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PrivateLinkServiceConnectionState) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
 }
 
 // A collection of information about the state of the connection between service consumer and provider.
@@ -6102,292 +5225,6 @@ func (o SnapshotTypeOutput) Tags() pulumi.StringMapOutput {
 // Resource type
 func (o SnapshotTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v SnapshotType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Snapshot resource properties.
-type SnapshotProperties struct {
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationData `pulumi:"creationData"`
-	// ARM id of the DiskAccess resource for using private endpoints on disks.
-	DiskAccessId *string `pulumi:"diskAccessId"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-	Encryption *Encryption `pulumi:"encryption"`
-	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-	EncryptionSettingsCollection *EncryptionSettingsCollection `pulumi:"encryptionSettingsCollection"`
-	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-	HyperVGeneration *string `pulumi:"hyperVGeneration"`
-	// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
-	Incremental *bool `pulumi:"incremental"`
-	// Policy for accessing the disk via network.
-	NetworkAccessPolicy *string `pulumi:"networkAccessPolicy"`
-	// The Operating System type.
-	OsType *string `pulumi:"osType"`
-}
-
-// SnapshotPropertiesInput is an input type that accepts SnapshotPropertiesArgs and SnapshotPropertiesOutput values.
-// You can construct a concrete instance of `SnapshotPropertiesInput` via:
-//
-//          SnapshotPropertiesArgs{...}
-type SnapshotPropertiesInput interface {
-	pulumi.Input
-
-	ToSnapshotPropertiesOutput() SnapshotPropertiesOutput
-	ToSnapshotPropertiesOutputWithContext(context.Context) SnapshotPropertiesOutput
-}
-
-// Snapshot resource properties.
-type SnapshotPropertiesArgs struct {
-	// Disk source information. CreationData information cannot be changed after the disk has been created.
-	CreationData CreationDataInput `pulumi:"creationData"`
-	// ARM id of the DiskAccess resource for using private endpoints on disks.
-	DiskAccessId pulumi.StringPtrInput `pulumi:"diskAccessId"`
-	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
-	// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-	Encryption EncryptionPtrInput `pulumi:"encryption"`
-	// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-	EncryptionSettingsCollection EncryptionSettingsCollectionPtrInput `pulumi:"encryptionSettingsCollection"`
-	// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-	HyperVGeneration pulumi.StringPtrInput `pulumi:"hyperVGeneration"`
-	// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
-	Incremental pulumi.BoolPtrInput `pulumi:"incremental"`
-	// Policy for accessing the disk via network.
-	NetworkAccessPolicy pulumi.StringPtrInput `pulumi:"networkAccessPolicy"`
-	// The Operating System type.
-	OsType pulumi.StringPtrInput `pulumi:"osType"`
-}
-
-func (SnapshotPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotProperties)(nil)).Elem()
-}
-
-func (i SnapshotPropertiesArgs) ToSnapshotPropertiesOutput() SnapshotPropertiesOutput {
-	return i.ToSnapshotPropertiesOutputWithContext(context.Background())
-}
-
-func (i SnapshotPropertiesArgs) ToSnapshotPropertiesOutputWithContext(ctx context.Context) SnapshotPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPropertiesOutput)
-}
-
-func (i SnapshotPropertiesArgs) ToSnapshotPropertiesPtrOutput() SnapshotPropertiesPtrOutput {
-	return i.ToSnapshotPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SnapshotPropertiesArgs) ToSnapshotPropertiesPtrOutputWithContext(ctx context.Context) SnapshotPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPropertiesOutput).ToSnapshotPropertiesPtrOutputWithContext(ctx)
-}
-
-// SnapshotPropertiesPtrInput is an input type that accepts SnapshotPropertiesArgs, SnapshotPropertiesPtr and SnapshotPropertiesPtrOutput values.
-// You can construct a concrete instance of `SnapshotPropertiesPtrInput` via:
-//
-//          SnapshotPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type SnapshotPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSnapshotPropertiesPtrOutput() SnapshotPropertiesPtrOutput
-	ToSnapshotPropertiesPtrOutputWithContext(context.Context) SnapshotPropertiesPtrOutput
-}
-
-type snapshotPropertiesPtrType SnapshotPropertiesArgs
-
-func SnapshotPropertiesPtr(v *SnapshotPropertiesArgs) SnapshotPropertiesPtrInput {
-	return (*snapshotPropertiesPtrType)(v)
-}
-
-func (*snapshotPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotProperties)(nil)).Elem()
-}
-
-func (i *snapshotPropertiesPtrType) ToSnapshotPropertiesPtrOutput() SnapshotPropertiesPtrOutput {
-	return i.ToSnapshotPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *snapshotPropertiesPtrType) ToSnapshotPropertiesPtrOutputWithContext(ctx context.Context) SnapshotPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotPropertiesPtrOutput)
-}
-
-// Snapshot resource properties.
-type SnapshotPropertiesOutput struct{ *pulumi.OutputState }
-
-func (SnapshotPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotProperties)(nil)).Elem()
-}
-
-func (o SnapshotPropertiesOutput) ToSnapshotPropertiesOutput() SnapshotPropertiesOutput {
-	return o
-}
-
-func (o SnapshotPropertiesOutput) ToSnapshotPropertiesOutputWithContext(ctx context.Context) SnapshotPropertiesOutput {
-	return o
-}
-
-func (o SnapshotPropertiesOutput) ToSnapshotPropertiesPtrOutput() SnapshotPropertiesPtrOutput {
-	return o.ToSnapshotPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SnapshotPropertiesOutput) ToSnapshotPropertiesPtrOutputWithContext(ctx context.Context) SnapshotPropertiesPtrOutput {
-	return o.ApplyT(func(v SnapshotProperties) *SnapshotProperties {
-		return &v
-	}).(SnapshotPropertiesPtrOutput)
-}
-
-// Disk source information. CreationData information cannot be changed after the disk has been created.
-func (o SnapshotPropertiesOutput) CreationData() CreationDataOutput {
-	return o.ApplyT(func(v SnapshotProperties) CreationData { return v.CreationData }).(CreationDataOutput)
-}
-
-// ARM id of the DiskAccess resource for using private endpoints on disks.
-func (o SnapshotPropertiesOutput) DiskAccessId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SnapshotProperties) *string { return v.DiskAccessId }).(pulumi.StringPtrOutput)
-}
-
-// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-func (o SnapshotPropertiesOutput) DiskSizeGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SnapshotProperties) *int { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
-}
-
-// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-func (o SnapshotPropertiesOutput) Encryption() EncryptionPtrOutput {
-	return o.ApplyT(func(v SnapshotProperties) *Encryption { return v.Encryption }).(EncryptionPtrOutput)
-}
-
-// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-func (o SnapshotPropertiesOutput) EncryptionSettingsCollection() EncryptionSettingsCollectionPtrOutput {
-	return o.ApplyT(func(v SnapshotProperties) *EncryptionSettingsCollection { return v.EncryptionSettingsCollection }).(EncryptionSettingsCollectionPtrOutput)
-}
-
-// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-func (o SnapshotPropertiesOutput) HyperVGeneration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SnapshotProperties) *string { return v.HyperVGeneration }).(pulumi.StringPtrOutput)
-}
-
-// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
-func (o SnapshotPropertiesOutput) Incremental() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SnapshotProperties) *bool { return v.Incremental }).(pulumi.BoolPtrOutput)
-}
-
-// Policy for accessing the disk via network.
-func (o SnapshotPropertiesOutput) NetworkAccessPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SnapshotProperties) *string { return v.NetworkAccessPolicy }).(pulumi.StringPtrOutput)
-}
-
-// The Operating System type.
-func (o SnapshotPropertiesOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SnapshotProperties) *string { return v.OsType }).(pulumi.StringPtrOutput)
-}
-
-type SnapshotPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SnapshotPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotProperties)(nil)).Elem()
-}
-
-func (o SnapshotPropertiesPtrOutput) ToSnapshotPropertiesPtrOutput() SnapshotPropertiesPtrOutput {
-	return o
-}
-
-func (o SnapshotPropertiesPtrOutput) ToSnapshotPropertiesPtrOutputWithContext(ctx context.Context) SnapshotPropertiesPtrOutput {
-	return o
-}
-
-func (o SnapshotPropertiesPtrOutput) Elem() SnapshotPropertiesOutput {
-	return o.ApplyT(func(v *SnapshotProperties) SnapshotProperties { return *v }).(SnapshotPropertiesOutput)
-}
-
-// Disk source information. CreationData information cannot be changed after the disk has been created.
-func (o SnapshotPropertiesPtrOutput) CreationData() CreationDataPtrOutput {
-	return o.ApplyT(func(v *SnapshotProperties) *CreationData {
-		if v == nil {
-			return nil
-		}
-		return &v.CreationData
-	}).(CreationDataPtrOutput)
-}
-
-// ARM id of the DiskAccess resource for using private endpoints on disks.
-func (o SnapshotPropertiesPtrOutput) DiskAccessId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SnapshotProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DiskAccessId
-	}).(pulumi.StringPtrOutput)
-}
-
-// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-func (o SnapshotPropertiesPtrOutput) DiskSizeGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SnapshotProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DiskSizeGB
-	}).(pulumi.IntPtrOutput)
-}
-
-// Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
-func (o SnapshotPropertiesPtrOutput) Encryption() EncryptionPtrOutput {
-	return o.ApplyT(func(v *SnapshotProperties) *Encryption {
-		if v == nil {
-			return nil
-		}
-		return v.Encryption
-	}).(EncryptionPtrOutput)
-}
-
-// Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
-func (o SnapshotPropertiesPtrOutput) EncryptionSettingsCollection() EncryptionSettingsCollectionPtrOutput {
-	return o.ApplyT(func(v *SnapshotProperties) *EncryptionSettingsCollection {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptionSettingsCollection
-	}).(EncryptionSettingsCollectionPtrOutput)
-}
-
-// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
-func (o SnapshotPropertiesPtrOutput) HyperVGeneration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SnapshotProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HyperVGeneration
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
-func (o SnapshotPropertiesPtrOutput) Incremental() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SnapshotProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Incremental
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Policy for accessing the disk via network.
-func (o SnapshotPropertiesPtrOutput) NetworkAccessPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SnapshotProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkAccessPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Operating System type.
-func (o SnapshotPropertiesPtrOutput) OsType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SnapshotProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OsType
-	}).(pulumi.StringPtrOutput)
 }
 
 // Snapshot resource properties.
@@ -7316,13 +6153,9 @@ func init() {
 	pulumi.RegisterOutputType(CreationDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiskTypeOutput{})
 	pulumi.RegisterOutputType(DiskAccessTypeOutput{})
-	pulumi.RegisterOutputType(DiskAccessPropertiesOutput{})
-	pulumi.RegisterOutputType(DiskAccessPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DiskAccessPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DiskAccessPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSetTypeOutput{})
-	pulumi.RegisterOutputType(DiskPropertiesOutput{})
-	pulumi.RegisterOutputType(DiskPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DiskPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DiskPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiskSkuOutput{})
@@ -7337,8 +6170,6 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionSetIdentityPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionSetIdentityResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionSetIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(EncryptionSetPropertiesOutput{})
-	pulumi.RegisterOutputType(EncryptionSetPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionSetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionSetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionSettingsCollectionOutput{})
@@ -7365,8 +6196,6 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
@@ -7374,15 +6203,12 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
-	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponsePtrOutput{})
 	pulumi.RegisterOutputType(ShareInfoElementOutput{})
 	pulumi.RegisterOutputType(ShareInfoElementResponseOutput{})
 	pulumi.RegisterOutputType(ShareInfoElementResponseArrayOutput{})
 	pulumi.RegisterOutputType(SnapshotTypeOutput{})
-	pulumi.RegisterOutputType(SnapshotPropertiesOutput{})
-	pulumi.RegisterOutputType(SnapshotPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SnapshotPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SnapshotSkuOutput{})

@@ -34,6 +34,9 @@ func NewStorageTarget(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.TargetBaseType == nil {
+		return nil, errors.New("missing required argument 'TargetBaseType'")
+	}
 	if args == nil {
 		args = &StorageTargetArgs{}
 	}
@@ -83,24 +86,48 @@ func (StorageTargetState) ElementType() reflect.Type {
 type storageTargetArgs struct {
 	// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
 	CacheName string `pulumi:"cacheName"`
+	// Properties when targetType is clfs.
+	Clfs *ClfsTarget `pulumi:"clfs"`
+	// List of Cache namespace junctions to target for namespace associations.
+	Junctions []NamespaceJunction `pulumi:"junctions"`
 	// Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
 	Name string `pulumi:"name"`
-	// StorageTarget properties
-	Properties *StorageTargetProperties `pulumi:"properties"`
+	// Properties when targetType is nfs3.
+	Nfs3 *Nfs3Target `pulumi:"nfs3"`
+	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Type of the Storage Target.
+	TargetBaseType string `pulumi:"targetBaseType"`
+	// Type of the Storage Target.
+	TargetType *string `pulumi:"targetType"`
+	// Properties when targetType is unknown.
+	Unknown *UnknownTarget `pulumi:"unknown"`
 }
 
 // The set of arguments for constructing a StorageTarget resource.
 type StorageTargetArgs struct {
 	// Name of Cache. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
 	CacheName pulumi.StringInput
+	// Properties when targetType is clfs.
+	Clfs ClfsTargetPtrInput
+	// List of Cache namespace junctions to target for namespace associations.
+	Junctions NamespaceJunctionArrayInput
 	// Name of the Storage Target. Length of name must be not greater than 80 and chars must be in list of [-0-9a-zA-Z_] char class.
 	Name pulumi.StringInput
-	// StorageTarget properties
-	Properties StorageTargetPropertiesPtrInput
+	// Properties when targetType is nfs3.
+	Nfs3 Nfs3TargetPtrInput
+	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+	ProvisioningState pulumi.StringPtrInput
 	// Target resource group.
 	ResourceGroupName pulumi.StringInput
+	// Type of the Storage Target.
+	TargetBaseType pulumi.StringInput
+	// Type of the Storage Target.
+	TargetType pulumi.StringPtrInput
+	// Properties when targetType is unknown.
+	Unknown UnknownTargetPtrInput
 }
 
 func (StorageTargetArgs) ElementType() reflect.Type {

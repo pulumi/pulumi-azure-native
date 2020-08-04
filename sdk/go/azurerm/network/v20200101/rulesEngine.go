@@ -85,10 +85,12 @@ type rulesEngineArgs struct {
 	FrontDoorName string `pulumi:"frontDoorName"`
 	// Name of the Rules Engine which is unique within the Front Door.
 	Name string `pulumi:"name"`
-	// Properties of the Rules Engine Configuration.
-	Properties *RulesEngineProperties `pulumi:"properties"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Resource status.
+	ResourceState *string `pulumi:"resourceState"`
+	// A list of rules that define a particular Rules Engine Configuration.
+	Rules []RulesEngineRule `pulumi:"rules"`
 }
 
 // The set of arguments for constructing a RulesEngine resource.
@@ -97,10 +99,12 @@ type RulesEngineArgs struct {
 	FrontDoorName pulumi.StringInput
 	// Name of the Rules Engine which is unique within the Front Door.
 	Name pulumi.StringInput
-	// Properties of the Rules Engine Configuration.
-	Properties RulesEnginePropertiesPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Resource status.
+	ResourceState pulumi.StringPtrInput
+	// A list of rules that define a particular Rules Engine Configuration.
+	Rules RulesEngineRuleArrayInput
 }
 
 func (RulesEngineArgs) ElementType() reflect.Type {

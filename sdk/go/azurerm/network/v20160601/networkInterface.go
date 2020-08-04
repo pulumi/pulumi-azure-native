@@ -96,38 +96,70 @@ func (NetworkInterfaceState) ElementType() reflect.Type {
 }
 
 type networkInterfaceArgs struct {
+	// Gets or sets DNS settings in network interface
+	DnsSettings *NetworkInterfaceDnsSettings `pulumi:"dnsSettings"`
+	// Gets or sets whether IPForwarding is enabled on the NIC
+	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Resource Id
 	Id *string `pulumi:"id"`
+	// Gets or sets list of IPConfigurations of the network interface
+	IpConfigurations []NetworkInterfaceIPConfiguration `pulumi:"ipConfigurations"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// Gets the MAC address of the network interface
+	MacAddress *string `pulumi:"macAddress"`
 	// The name of the network interface.
 	Name string `pulumi:"name"`
-	// NetworkInterface properties.
-	Properties *NetworkInterfacePropertiesFormat `pulumi:"properties"`
+	// Gets or sets the reference of the NetworkSecurityGroup resource
+	NetworkSecurityGroup *NetworkSecurityGroupType `pulumi:"networkSecurityGroup"`
+	// Gets whether this is a primary NIC on a virtual machine
+	Primary *bool `pulumi:"primary"`
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets resource guid property of the network interface resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Gets or sets the reference of a VirtualMachine
+	VirtualMachine *SubResource `pulumi:"virtualMachine"`
 }
 
 // The set of arguments for constructing a NetworkInterface resource.
 type NetworkInterfaceArgs struct {
+	// Gets or sets DNS settings in network interface
+	DnsSettings NetworkInterfaceDnsSettingsPtrInput
+	// Gets or sets whether IPForwarding is enabled on the NIC
+	EnableIPForwarding pulumi.BoolPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
+	// Gets or sets list of IPConfigurations of the network interface
+	IpConfigurations NetworkInterfaceIPConfigurationArrayInput
 	// Resource location
 	Location pulumi.StringPtrInput
+	// Gets the MAC address of the network interface
+	MacAddress pulumi.StringPtrInput
 	// The name of the network interface.
 	Name pulumi.StringInput
-	// NetworkInterface properties.
-	Properties NetworkInterfacePropertiesFormatPtrInput
+	// Gets or sets the reference of the NetworkSecurityGroup resource
+	NetworkSecurityGroup NetworkSecurityGroupTypePtrInput
+	// Gets whether this is a primary NIC on a virtual machine
+	Primary pulumi.BoolPtrInput
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets resource guid property of the network interface resource
+	ResourceGuid pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Gets or sets the reference of a VirtualMachine
+	VirtualMachine SubResourcePtrInput
 }
 
 func (NetworkInterfaceArgs) ElementType() reflect.Type {

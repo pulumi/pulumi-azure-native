@@ -75,18 +75,22 @@ func (HierarchySettingState) ElementType() reflect.Type {
 }
 
 type hierarchySettingArgs struct {
+	// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
+	DefaultManagementGroup *string `pulumi:"defaultManagementGroup"`
 	// Management Group ID.
 	Name string `pulumi:"name"`
-	// The properties of the request to create or update Management Group settings
-	Properties *CreateOrUpdateSettingsProperties `pulumi:"properties"`
+	// Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
+	RequireAuthorizationForGroupCreation *bool `pulumi:"requireAuthorizationForGroupCreation"`
 }
 
 // The set of arguments for constructing a HierarchySetting resource.
 type HierarchySettingArgs struct {
+	// Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
+	DefaultManagementGroup pulumi.StringPtrInput
 	// Management Group ID.
 	Name pulumi.StringInput
-	// The properties of the request to create or update Management Group settings
-	Properties CreateOrUpdateSettingsPropertiesPtrInput
+	// Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
+	RequireAuthorizationForGroupCreation pulumi.BoolPtrInput
 }
 
 func (HierarchySettingArgs) ElementType() reflect.Type {

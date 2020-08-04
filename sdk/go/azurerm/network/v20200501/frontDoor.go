@@ -90,28 +90,60 @@ func (FrontDoorState) ElementType() reflect.Type {
 }
 
 type frontDoorArgs struct {
+	// Backend pools available to routing rules.
+	BackendPools []BackendPool `pulumi:"backendPools"`
+	// Settings for all backendPools
+	BackendPoolsSettings *BackendPoolsSettings `pulumi:"backendPoolsSettings"`
+	// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+	EnabledState *string `pulumi:"enabledState"`
+	// A friendly name for the frontDoor
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Frontend endpoints available to routing rules.
+	FrontendEndpoints []FrontendEndpoint `pulumi:"frontendEndpoints"`
+	// Health probe settings associated with this Front Door instance.
+	HealthProbeSettings []HealthProbeSettingsModel `pulumi:"healthProbeSettings"`
+	// Load balancing settings associated with this Front Door instance.
+	LoadBalancingSettings []LoadBalancingSettingsModel `pulumi:"loadBalancingSettings"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// Name of the Front Door which is globally unique.
 	Name string `pulumi:"name"`
-	// Properties of the Front Door Load Balancer
-	Properties *FrontDoorProperties `pulumi:"properties"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Resource status of the Front Door.
+	ResourceState *string `pulumi:"resourceState"`
+	// Routing rules associated with this Front Door.
+	RoutingRules []RoutingRule `pulumi:"routingRules"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a FrontDoor resource.
 type FrontDoorArgs struct {
+	// Backend pools available to routing rules.
+	BackendPools BackendPoolArrayInput
+	// Settings for all backendPools
+	BackendPoolsSettings BackendPoolsSettingsPtrInput
+	// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+	EnabledState pulumi.StringPtrInput
+	// A friendly name for the frontDoor
+	FriendlyName pulumi.StringPtrInput
+	// Frontend endpoints available to routing rules.
+	FrontendEndpoints FrontendEndpointArrayInput
+	// Health probe settings associated with this Front Door instance.
+	HealthProbeSettings HealthProbeSettingsModelArrayInput
+	// Load balancing settings associated with this Front Door instance.
+	LoadBalancingSettings LoadBalancingSettingsModelArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// Name of the Front Door which is globally unique.
 	Name pulumi.StringInput
-	// Properties of the Front Door Load Balancer
-	Properties FrontDoorPropertiesPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Resource status of the Front Door.
+	ResourceState pulumi.StringPtrInput
+	// Routing rules associated with this Front Door.
+	RoutingRules RoutingRuleArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

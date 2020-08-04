@@ -37,11 +37,11 @@ func NewDscConfiguration(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Source == nil {
+		return nil, errors.New("missing required argument 'Source'")
 	}
 	if args == nil {
 		args = &DscConfigurationArgs{}
@@ -104,14 +104,22 @@ func (DscConfigurationState) ElementType() reflect.Type {
 type dscConfigurationArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
+	// Gets or sets the description of the configuration.
+	Description *string `pulumi:"description"`
 	// Gets or sets the location of the resource.
 	Location *string `pulumi:"location"`
+	// Gets or sets progress log option.
+	LogProgress *bool `pulumi:"logProgress"`
+	// Gets or sets verbose log option.
+	LogVerbose *bool `pulumi:"logVerbose"`
 	// The create or update parameters for configuration.
 	Name string `pulumi:"name"`
-	// Gets or sets configuration create or update properties.
-	Properties DscConfigurationCreateOrUpdateProperties `pulumi:"properties"`
+	// Gets or sets the configuration parameters.
+	Parameters map[string]DscConfigurationParameter `pulumi:"parameters"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets the source.
+	Source ContentSource `pulumi:"source"`
 	// Gets or sets the tags attached to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -120,14 +128,22 @@ type dscConfigurationArgs struct {
 type DscConfigurationArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
+	// Gets or sets the description of the configuration.
+	Description pulumi.StringPtrInput
 	// Gets or sets the location of the resource.
 	Location pulumi.StringPtrInput
+	// Gets or sets progress log option.
+	LogProgress pulumi.BoolPtrInput
+	// Gets or sets verbose log option.
+	LogVerbose pulumi.BoolPtrInput
 	// The create or update parameters for configuration.
 	Name pulumi.StringInput
-	// Gets or sets configuration create or update properties.
-	Properties DscConfigurationCreateOrUpdatePropertiesInput
+	// Gets or sets the configuration parameters.
+	Parameters DscConfigurationParameterMapInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets the source.
+	Source ContentSourceInput
 	// Gets or sets the tags attached to the resource.
 	Tags pulumi.StringMapInput
 }

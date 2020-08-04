@@ -93,32 +93,48 @@ func (ExperimentState) ElementType() reflect.Type {
 }
 
 type experimentArgs struct {
+	// The description of the details or intents of the Experiment
+	Description *string `pulumi:"description"`
+	// The state of the Experiment
+	EnabledState *string `pulumi:"enabledState"`
+	// The endpoint A of an experiment
+	EndpointA *Endpoint `pulumi:"endpointA"`
+	// The endpoint B of an experiment
+	EndpointB *Endpoint `pulumi:"endpointB"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The Experiment identifier associated with the Experiment
 	Name string `pulumi:"name"`
 	// The Profile identifier associated with the Tenant and Partner
 	ProfileName string `pulumi:"profileName"`
-	// The properties of an Experiment
-	Properties *ExperimentProperties `pulumi:"properties"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Resource status.
+	ResourceState *string `pulumi:"resourceState"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Experiment resource.
 type ExperimentArgs struct {
+	// The description of the details or intents of the Experiment
+	Description pulumi.StringPtrInput
+	// The state of the Experiment
+	EnabledState pulumi.StringPtrInput
+	// The endpoint A of an experiment
+	EndpointA EndpointPtrInput
+	// The endpoint B of an experiment
+	EndpointB EndpointPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The Experiment identifier associated with the Experiment
 	Name pulumi.StringInput
 	// The Profile identifier associated with the Tenant and Partner
 	ProfileName pulumi.StringInput
-	// The properties of an Experiment
-	Properties ExperimentPropertiesPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Resource status.
+	ResourceState pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

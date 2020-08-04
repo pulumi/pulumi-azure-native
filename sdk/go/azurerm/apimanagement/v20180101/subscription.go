@@ -25,14 +25,23 @@ type Subscription struct {
 // NewSubscription registers a new resource with the given unique name, arguments, and options.
 func NewSubscription(ctx *pulumi.Context,
 	name string, args *SubscriptionArgs, opts ...pulumi.ResourceOption) (*Subscription, error) {
+	if args == nil || args.DisplayName == nil {
+		return nil, errors.New("missing required argument 'DisplayName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
+	}
+	if args == nil || args.ProductId == nil {
+		return nil, errors.New("missing required argument 'ProductId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
+	}
+	if args == nil || args.UserId == nil {
+		return nil, errors.New("missing required argument 'UserId'")
 	}
 	if args == nil {
 		args = &SubscriptionArgs{}
@@ -81,34 +90,54 @@ func (SubscriptionState) ElementType() reflect.Type {
 }
 
 type subscriptionArgs struct {
+	// Subscription name.
+	DisplayName string `pulumi:"displayName"`
 	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
 	Name string `pulumi:"name"`
 	// Notify change in Subscription State.
 	//  - If false, do not send any email notification for change of state of subscription
 	//  - If true, send email notification of change of state of subscription
 	Notify *bool `pulumi:"notify"`
-	// Subscription contract properties.
-	Properties *SubscriptionCreateParameterProperties `pulumi:"properties"`
+	// Primary subscription key. If not specified during request key will be generated automatically.
+	PrimaryKey *string `pulumi:"primaryKey"`
+	// Product (product id path) for which subscription is being created in form /products/{productId}
+	ProductId string `pulumi:"productId"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Secondary subscription key. If not specified during request key will be generated automatically.
+	SecondaryKey *string `pulumi:"secondaryKey"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+	State *string `pulumi:"state"`
+	// User (user id path) for whom subscription is being created in form /users/{uid}
+	UserId string `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a Subscription resource.
 type SubscriptionArgs struct {
+	// Subscription name.
+	DisplayName pulumi.StringInput
 	// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
 	Name pulumi.StringInput
 	// Notify change in Subscription State.
 	//  - If false, do not send any email notification for change of state of subscription
 	//  - If true, send email notification of change of state of subscription
 	Notify pulumi.BoolPtrInput
-	// Subscription contract properties.
-	Properties SubscriptionCreateParameterPropertiesPtrInput
+	// Primary subscription key. If not specified during request key will be generated automatically.
+	PrimaryKey pulumi.StringPtrInput
+	// Product (product id path) for which subscription is being created in form /products/{productId}
+	ProductId pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Secondary subscription key. If not specified during request key will be generated automatically.
+	SecondaryKey pulumi.StringPtrInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+	State pulumi.StringPtrInput
+	// User (user id path) for whom subscription is being created in form /users/{uid}
+	UserId pulumi.StringInput
 }
 
 func (SubscriptionArgs) ElementType() reflect.Type {

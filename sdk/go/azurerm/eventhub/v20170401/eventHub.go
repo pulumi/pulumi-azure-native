@@ -81,26 +81,38 @@ func (EventHubState) ElementType() reflect.Type {
 }
 
 type eventHubArgs struct {
+	// Properties of capture description
+	CaptureDescription *CaptureDescription `pulumi:"captureDescription"`
+	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
+	MessageRetentionInDays *int `pulumi:"messageRetentionInDays"`
 	// The Event Hub name
 	Name string `pulumi:"name"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Properties supplied to the Create Or Update Event Hub operation.
-	Properties *EventhubProperties `pulumi:"properties"`
+	// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
+	PartitionCount *int `pulumi:"partitionCount"`
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Enumerates the possible values for the status of the Event Hub.
+	Status *string `pulumi:"status"`
 }
 
 // The set of arguments for constructing a EventHub resource.
 type EventHubArgs struct {
+	// Properties of capture description
+	CaptureDescription CaptureDescriptionPtrInput
+	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
+	MessageRetentionInDays pulumi.IntPtrInput
 	// The Event Hub name
 	Name pulumi.StringInput
 	// The Namespace name
 	NamespaceName pulumi.StringInput
-	// Properties supplied to the Create Or Update Event Hub operation.
-	Properties EventhubPropertiesPtrInput
+	// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
+	PartitionCount pulumi.IntPtrInput
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Enumerates the possible values for the status of the Event Hub.
+	Status pulumi.StringPtrInput
 }
 
 func (EventHubArgs) ElementType() reflect.Type {

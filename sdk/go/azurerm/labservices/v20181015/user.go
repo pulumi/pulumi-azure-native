@@ -104,12 +104,14 @@ type userArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the user.
 	Name string `pulumi:"name"`
-	// These are the properties for the user registered under a lab.
-	Properties *UserProperties `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 // The set of arguments for constructing a User resource.
@@ -122,12 +124,14 @@ type UserArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the user.
 	Name pulumi.StringInput
-	// These are the properties for the user registered under a lab.
-	Properties UserPropertiesPtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (UserArgs) ElementType() reflect.Type {

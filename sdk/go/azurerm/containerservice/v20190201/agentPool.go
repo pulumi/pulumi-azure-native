@@ -25,6 +25,9 @@ type AgentPool struct {
 // NewAgentPool registers a new resource with the given unique name, arguments, and options.
 func NewAgentPool(ctx *pulumi.Context,
 	name string, args *AgentPoolArgs, opts ...pulumi.ResourceOption) (*AgentPool, error) {
+	if args == nil || args.Count == nil {
+		return nil, errors.New("missing required argument 'Count'")
+	}
 	if args == nil || args.ManagedClusterName == nil {
 		return nil, errors.New("missing required argument 'ManagedClusterName'")
 	}
@@ -33,6 +36,9 @@ func NewAgentPool(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VmSize == nil {
+		return nil, errors.New("missing required argument 'VmSize'")
 	}
 	if args == nil {
 		args = &AgentPoolArgs{}
@@ -81,26 +87,70 @@ func (AgentPoolState) ElementType() reflect.Type {
 }
 
 type agentPoolArgs struct {
+	// (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+	Count int `pulumi:"count"`
+	// Whether to enable auto-scaler
+	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
 	// The name of the managed cluster resource.
 	ManagedClusterName string `pulumi:"managedClusterName"`
+	// Maximum number of nodes for auto-scaling
+	MaxCount *int `pulumi:"maxCount"`
+	// Maximum number of pods that can run on a node.
+	MaxPods *int `pulumi:"maxPods"`
+	// Minimum number of nodes for auto-scaling
+	MinCount *int `pulumi:"minCount"`
 	// The name of the agent pool.
 	Name string `pulumi:"name"`
-	// Properties of an agent pool.
-	Properties *ManagedClusterAgentPoolProfileProperties `pulumi:"properties"`
+	// Version of orchestrator specified when creating the managed cluster.
+	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
+	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
+	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+	OsType *string `pulumi:"osType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// AgentPoolType represents types of an agent pool
+	Type *string `pulumi:"type"`
+	// Size of agent VMs.
+	VmSize string `pulumi:"vmSize"`
+	// VNet SubnetID specifies the VNet's subnet identifier.
+	VnetSubnetID *string `pulumi:"vnetSubnetID"`
 }
 
 // The set of arguments for constructing a AgentPool resource.
 type AgentPoolArgs struct {
+	// (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+	AvailabilityZones pulumi.StringArrayInput
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
+	Count pulumi.IntInput
+	// Whether to enable auto-scaler
+	EnableAutoScaling pulumi.BoolPtrInput
 	// The name of the managed cluster resource.
 	ManagedClusterName pulumi.StringInput
+	// Maximum number of nodes for auto-scaling
+	MaxCount pulumi.IntPtrInput
+	// Maximum number of pods that can run on a node.
+	MaxPods pulumi.IntPtrInput
+	// Minimum number of nodes for auto-scaling
+	MinCount pulumi.IntPtrInput
 	// The name of the agent pool.
 	Name pulumi.StringInput
-	// Properties of an agent pool.
-	Properties ManagedClusterAgentPoolProfilePropertiesPtrInput
+	// Version of orchestrator specified when creating the managed cluster.
+	OrchestratorVersion pulumi.StringPtrInput
+	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+	OsDiskSizeGB pulumi.IntPtrInput
+	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+	OsType pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// AgentPoolType represents types of an agent pool
+	Type pulumi.StringPtrInput
+	// Size of agent VMs.
+	VmSize pulumi.StringInput
+	// VNet SubnetID specifies the VNet's subnet identifier.
+	VnetSubnetID pulumi.StringPtrInput
 }
 
 func (AgentPoolArgs) ElementType() reflect.Type {

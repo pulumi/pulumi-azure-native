@@ -81,26 +81,110 @@ func (AgentPoolState) ElementType() reflect.Type {
 }
 
 type agentPoolArgs struct {
+	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
+	Count *int `pulumi:"count"`
+	// Whether to enable auto-scaler
+	EnableAutoScaling *bool `pulumi:"enableAutoScaling"`
+	// Enable public IP for nodes
+	EnableNodePublicIP *bool `pulumi:"enableNodePublicIP"`
+	// Maximum number of nodes for auto-scaling
+	MaxCount *int `pulumi:"maxCount"`
+	// Maximum number of pods that can run on a node.
+	MaxPods *int `pulumi:"maxPods"`
+	// Minimum number of nodes for auto-scaling
+	MinCount *int `pulumi:"minCount"`
+	// AgentPoolMode represents mode of an agent pool
+	Mode *string `pulumi:"mode"`
 	// The name of the agent pool.
 	Name string `pulumi:"name"`
-	// Properties of an agent pool.
-	Properties *ManagedClusterAgentPoolProfileProperties `pulumi:"properties"`
+	// Version of node image
+	NodeImageVersion *string `pulumi:"nodeImageVersion"`
+	// Agent pool node labels to be persisted across all nodes in agent pool.
+	NodeLabels map[string]string `pulumi:"nodeLabels"`
+	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+	NodeTaints []string `pulumi:"nodeTaints"`
+	// Version of orchestrator specified when creating the managed cluster.
+	OrchestratorVersion *string `pulumi:"orchestratorVersion"`
+	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+	OsDiskSizeGB *int `pulumi:"osDiskSizeGB"`
+	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+	OsType *string `pulumi:"osType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.
 	ResourceName string `pulumi:"resourceName"`
+	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
+	ScaleSetEvictionPolicy *string `pulumi:"scaleSetEvictionPolicy"`
+	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+	ScaleSetPriority *string `pulumi:"scaleSetPriority"`
+	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+	SpotMaxPrice *float64 `pulumi:"spotMaxPrice"`
+	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
+	Tags map[string]string `pulumi:"tags"`
+	// AgentPoolType represents types of an agent pool
+	Type *string `pulumi:"type"`
+	// Settings for upgrading the agentpool
+	UpgradeSettings *AgentPoolUpgradeSettings `pulumi:"upgradeSettings"`
+	// Size of agent VMs.
+	VmSize *string `pulumi:"vmSize"`
+	// VNet SubnetID specifies the VNet's subnet identifier.
+	VnetSubnetID *string `pulumi:"vnetSubnetID"`
 }
 
 // The set of arguments for constructing a AgentPool resource.
 type AgentPoolArgs struct {
+	// Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+	AvailabilityZones pulumi.StringArrayInput
+	// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 100 (inclusive) for user pools and in the range of 1 to 100 (inclusive) for system pools. The default value is 1.
+	Count pulumi.IntPtrInput
+	// Whether to enable auto-scaler
+	EnableAutoScaling pulumi.BoolPtrInput
+	// Enable public IP for nodes
+	EnableNodePublicIP pulumi.BoolPtrInput
+	// Maximum number of nodes for auto-scaling
+	MaxCount pulumi.IntPtrInput
+	// Maximum number of pods that can run on a node.
+	MaxPods pulumi.IntPtrInput
+	// Minimum number of nodes for auto-scaling
+	MinCount pulumi.IntPtrInput
+	// AgentPoolMode represents mode of an agent pool
+	Mode pulumi.StringPtrInput
 	// The name of the agent pool.
 	Name pulumi.StringInput
-	// Properties of an agent pool.
-	Properties ManagedClusterAgentPoolProfilePropertiesPtrInput
+	// Version of node image
+	NodeImageVersion pulumi.StringPtrInput
+	// Agent pool node labels to be persisted across all nodes in agent pool.
+	NodeLabels pulumi.StringMapInput
+	// Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
+	NodeTaints pulumi.StringArrayInput
+	// Version of orchestrator specified when creating the managed cluster.
+	OrchestratorVersion pulumi.StringPtrInput
+	// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+	OsDiskSizeGB pulumi.IntPtrInput
+	// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+	OsType pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the managed cluster resource.
 	ResourceName pulumi.StringInput
+	// ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
+	ScaleSetEvictionPolicy pulumi.StringPtrInput
+	// ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+	ScaleSetPriority pulumi.StringPtrInput
+	// SpotMaxPrice to be used to specify the maximum price you are willing to pay in US Dollars. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand.
+	SpotMaxPrice pulumi.Float64PtrInput
+	// Agent pool tags to be persisted on the agent pool virtual machine scale set.
+	Tags pulumi.StringMapInput
+	// AgentPoolType represents types of an agent pool
+	Type pulumi.StringPtrInput
+	// Settings for upgrading the agentpool
+	UpgradeSettings AgentPoolUpgradeSettingsPtrInput
+	// Size of agent VMs.
+	VmSize pulumi.StringPtrInput
+	// VNet SubnetID specifies the VNet's subnet identifier.
+	VnetSubnetID pulumi.StringPtrInput
 }
 
 func (AgentPoolArgs) ElementType() reflect.Type {

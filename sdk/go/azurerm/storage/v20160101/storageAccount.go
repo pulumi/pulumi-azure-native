@@ -108,13 +108,18 @@ func (StorageAccountState) ElementType() reflect.Type {
 }
 
 type storageAccountArgs struct {
+	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+	AccessTier *string `pulumi:"accessTier"`
+	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
+	CustomDomain *CustomDomain `pulumi:"customDomain"`
+	// Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
+	Encryption *Encryption `pulumi:"encryption"`
 	// Required. Indicates the type of storage account.
 	Kind string `pulumi:"kind"`
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location string `pulumi:"location"`
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	Name       string                                    `pulumi:"name"`
-	Properties *StorageAccountPropertiesCreateParameters `pulumi:"properties"`
+	Name string `pulumi:"name"`
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Required. Gets or sets the sku name.
@@ -125,13 +130,18 @@ type storageAccountArgs struct {
 
 // The set of arguments for constructing a StorageAccount resource.
 type StorageAccountArgs struct {
+	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+	AccessTier pulumi.StringPtrInput
+	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
+	CustomDomain CustomDomainPtrInput
+	// Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
+	Encryption EncryptionPtrInput
 	// Required. Indicates the type of storage account.
 	Kind pulumi.StringInput
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location pulumi.StringInput
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-	Name       pulumi.StringInput
-	Properties StorageAccountPropertiesCreateParametersPtrInput
+	Name pulumi.StringInput
 	// The name of the resource group within the user's subscription.
 	ResourceGroupName pulumi.StringInput
 	// Required. Gets or sets the sku name.

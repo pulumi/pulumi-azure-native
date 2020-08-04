@@ -35,9 +35,6 @@ func NewSecret(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -105,14 +102,14 @@ type secretArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the secret.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties SecretProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the user profile.
 	UserName string `pulumi:"userName"`
+	// The value of the secret for secret creation.
+	Value *string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Secret resource.
@@ -123,14 +120,14 @@ type SecretArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the secret.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties SecretPropertiesInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 	// The name of the user profile.
 	UserName pulumi.StringInput
+	// The value of the secret for secret creation.
+	Value pulumi.StringPtrInput
 }
 
 func (SecretArgs) ElementType() reflect.Type {

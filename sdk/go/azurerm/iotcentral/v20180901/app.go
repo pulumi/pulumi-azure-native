@@ -102,34 +102,42 @@ func (AppState) ElementType() reflect.Type {
 }
 
 type appArgs struct {
+	// The display name of the application.
+	DisplayName *string `pulumi:"displayName"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// The ARM resource name of the IoT Central application.
 	Name string `pulumi:"name"`
-	// The common properties of an IoT Central application.
-	Properties *AppProperties `pulumi:"properties"`
 	// The name of the resource group that contains the IoT Central application.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A valid instance SKU.
 	Sku AppSkuInfo `pulumi:"sku"`
+	// The subdomain of the application.
+	Subdomain *string `pulumi:"subdomain"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+	Template *string `pulumi:"template"`
 }
 
 // The set of arguments for constructing a App resource.
 type AppArgs struct {
+	// The display name of the application.
+	DisplayName pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringInput
 	// The ARM resource name of the IoT Central application.
 	Name pulumi.StringInput
-	// The common properties of an IoT Central application.
-	Properties AppPropertiesPtrInput
 	// The name of the resource group that contains the IoT Central application.
 	ResourceGroupName pulumi.StringInput
 	// A valid instance SKU.
 	Sku AppSkuInfoInput
+	// The subdomain of the application.
+	Subdomain pulumi.StringPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
+	// The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+	Template pulumi.StringPtrInput
 }
 
 func (AppArgs) ElementType() reflect.Type {

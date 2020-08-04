@@ -96,34 +96,54 @@ func (IpAllocationState) ElementType() reflect.Type {
 }
 
 type ipAllocationArgs struct {
+	// IpAllocation tags.
+	AllocationTags map[string]string `pulumi:"allocationTags"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// The IPAM allocation ID.
+	IpamAllocationId *string `pulumi:"ipamAllocationId"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the IpAllocation.
 	Name string `pulumi:"name"`
-	// Properties of the IpAllocation.
-	Properties *IpAllocationPropertiesFormat `pulumi:"properties"`
+	// The address prefix for the IpAllocation.
+	Prefix *string `pulumi:"prefix"`
+	// The address prefix length for the IpAllocation.
+	PrefixLength *int `pulumi:"prefixLength"`
+	// The address prefix Type for the IpAllocation.
+	PrefixType *string `pulumi:"prefixType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The type for the IpAllocation.
+	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a IpAllocation resource.
 type IpAllocationArgs struct {
+	// IpAllocation tags.
+	AllocationTags pulumi.StringMapInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// The IPAM allocation ID.
+	IpamAllocationId pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the IpAllocation.
 	Name pulumi.StringInput
-	// Properties of the IpAllocation.
-	Properties IpAllocationPropertiesFormatPtrInput
+	// The address prefix for the IpAllocation.
+	Prefix pulumi.StringPtrInput
+	// The address prefix length for the IpAllocation.
+	PrefixLength pulumi.IntPtrInput
+	// The address prefix Type for the IpAllocation.
+	PrefixType pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The type for the IpAllocation.
+	Type pulumi.StringPtrInput
 }
 
 func (IpAllocationArgs) ElementType() reflect.Type {

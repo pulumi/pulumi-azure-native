@@ -33,6 +33,9 @@ func NewServerKey(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.ServerKeyType == nil {
+		return nil, errors.New("missing required argument 'ServerKeyType'")
+	}
 	if args == nil || args.ServerName == nil {
 		return nil, errors.New("missing required argument 'ServerName'")
 	}
@@ -89,24 +92,28 @@ func (ServerKeyState) ElementType() reflect.Type {
 type serverKeyArgs struct {
 	// The name of the MySQL Server key to be operated on (updated or created).
 	Name string `pulumi:"name"`
-	// Properties of the ServerKey Resource.
-	Properties *ServerKeyProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The key type like 'AzureKeyVault'.
+	ServerKeyType string `pulumi:"serverKeyType"`
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
+	// The URI of the key.
+	Uri *string `pulumi:"uri"`
 }
 
 // The set of arguments for constructing a ServerKey resource.
 type ServerKeyArgs struct {
 	// The name of the MySQL Server key to be operated on (updated or created).
 	Name pulumi.StringInput
-	// Properties of the ServerKey Resource.
-	Properties ServerKeyPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The key type like 'AzureKeyVault'.
+	ServerKeyType pulumi.StringInput
 	// The name of the server.
 	ServerName pulumi.StringInput
+	// The URI of the key.
+	Uri pulumi.StringPtrInput
 }
 
 func (ServerKeyArgs) ElementType() reflect.Type {

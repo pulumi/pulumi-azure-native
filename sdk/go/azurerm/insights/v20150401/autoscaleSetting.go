@@ -35,8 +35,8 @@ func NewAutoscaleSetting(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
+	if args == nil || args.Profiles == nil {
+		return nil, errors.New("missing required argument 'Profiles'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -96,30 +96,42 @@ func (AutoscaleSettingState) ElementType() reflect.Type {
 }
 
 type autoscaleSettingArgs struct {
+	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+	Enabled *bool `pulumi:"enabled"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The autoscale setting name.
 	Name string `pulumi:"name"`
-	// The autoscale setting of the resource.
-	Properties AutoscaleSettingDefinition `pulumi:"properties"`
+	// the collection of notifications.
+	Notifications []AutoscaleNotification `pulumi:"notifications"`
+	// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+	Profiles []AutoscaleProfile `pulumi:"profiles"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// the resource identifier of the resource that the autoscale setting should be added to.
+	TargetResourceUri *string `pulumi:"targetResourceUri"`
 }
 
 // The set of arguments for constructing a AutoscaleSetting resource.
 type AutoscaleSettingArgs struct {
+	// the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+	Enabled pulumi.BoolPtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// The autoscale setting name.
 	Name pulumi.StringInput
-	// The autoscale setting of the resource.
-	Properties AutoscaleSettingDefinitionInput
+	// the collection of notifications.
+	Notifications AutoscaleNotificationArrayInput
+	// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+	Profiles AutoscaleProfileArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// the resource identifier of the resource that the autoscale setting should be added to.
+	TargetResourceUri pulumi.StringPtrInput
 }
 
 func (AutoscaleSettingArgs) ElementType() reflect.Type {

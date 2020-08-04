@@ -78,22 +78,46 @@ func (PolicyDefinitionAtManagementGroupState) ElementType() reflect.Type {
 }
 
 type policyDefinitionAtManagementGroupArgs struct {
+	// The policy definition description.
+	Description *string `pulumi:"description"`
+	// The display name of the policy definition.
+	DisplayName *string `pulumi:"displayName"`
 	// The ID of the management group.
 	ManagementGroupId string `pulumi:"managementGroupId"`
+	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata map[string]interface{} `pulumi:"metadata"`
+	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+	Mode *string `pulumi:"mode"`
 	// The name of the policy definition to create.
 	Name string `pulumi:"name"`
-	// The policy definition properties.
-	Properties *PolicyDefinitionProperties `pulumi:"properties"`
+	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
+	Parameters *ParameterDefinitions `pulumi:"parameters"`
+	// The policy rule.
+	PolicyRule map[string]interface{} `pulumi:"policyRule"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+	PolicyType *string `pulumi:"policyType"`
 }
 
 // The set of arguments for constructing a PolicyDefinitionAtManagementGroup resource.
 type PolicyDefinitionAtManagementGroupArgs struct {
+	// The policy definition description.
+	Description pulumi.StringPtrInput
+	// The display name of the policy definition.
+	DisplayName pulumi.StringPtrInput
 	// The ID of the management group.
 	ManagementGroupId pulumi.StringInput
+	// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+	Metadata pulumi.MapInput
+	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+	Mode pulumi.StringPtrInput
 	// The name of the policy definition to create.
 	Name pulumi.StringInput
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesPtrInput
+	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
+	Parameters ParameterDefinitionsPtrInput
+	// The policy rule.
+	PolicyRule pulumi.MapInput
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+	PolicyType pulumi.StringPtrInput
 }
 
 func (PolicyDefinitionAtManagementGroupArgs) ElementType() reflect.Type {

@@ -91,8 +91,10 @@ type virtualHubBgpConnectionArgs struct {
 	Id *string `pulumi:"id"`
 	// The name of the connection.
 	Name string `pulumi:"name"`
-	// The properties of the Bgp connections.
-	Properties *BgpConnectionProperties `pulumi:"properties"`
+	// Peer ASN.
+	PeerAsn *int `pulumi:"peerAsn"`
+	// Peer IP.
+	PeerIp *string `pulumi:"peerIp"`
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the VirtualHub.
@@ -105,8 +107,10 @@ type VirtualHubBgpConnectionArgs struct {
 	Id pulumi.StringPtrInput
 	// The name of the connection.
 	Name pulumi.StringInput
-	// The properties of the Bgp connections.
-	Properties BgpConnectionPropertiesPtrInput
+	// Peer ASN.
+	PeerAsn pulumi.IntPtrInput
+	// Peer IP.
+	PeerIp pulumi.StringPtrInput
 	// The resource group name of the VirtualHub.
 	ResourceGroupName pulumi.StringInput
 	// The name of the VirtualHub.

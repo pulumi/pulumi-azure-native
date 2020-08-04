@@ -106,8 +106,6 @@ type profileArgs struct {
 	Location string `pulumi:"location"`
 	// Name of the CDN profile which is unique within the resource group.
 	Name string `pulumi:"name"`
-	// The JSON object that contains the properties required to create a profile.
-	Properties *ProfileProperties `pulumi:"properties"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
@@ -122,8 +120,6 @@ type ProfileArgs struct {
 	Location pulumi.StringInput
 	// Name of the CDN profile which is unique within the resource group.
 	Name pulumi.StringInput
-	// The JSON object that contains the properties required to create a profile.
-	Properties ProfilePropertiesPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.

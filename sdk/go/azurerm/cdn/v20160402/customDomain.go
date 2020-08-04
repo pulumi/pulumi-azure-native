@@ -27,6 +27,9 @@ func NewCustomDomain(ctx *pulumi.Context,
 	if args == nil || args.EndpointName == nil {
 		return nil, errors.New("missing required argument 'EndpointName'")
 	}
+	if args == nil || args.HostName == nil {
+		return nil, errors.New("missing required argument 'HostName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -83,11 +86,12 @@ func (CustomDomainState) ElementType() reflect.Type {
 type customDomainArgs struct {
 	// Name of the endpoint within the CDN profile.
 	EndpointName string `pulumi:"endpointName"`
+	// The host name of the custom domain. Must be a domain name.
+	HostName string `pulumi:"hostName"`
 	// Name of the custom domain within an endpoint.
 	Name string `pulumi:"name"`
 	// Name of the CDN profile within the resource group.
-	ProfileName string                            `pulumi:"profileName"`
-	Properties  *CustomDomainPropertiesParameters `pulumi:"properties"`
+	ProfileName string `pulumi:"profileName"`
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -96,11 +100,12 @@ type customDomainArgs struct {
 type CustomDomainArgs struct {
 	// Name of the endpoint within the CDN profile.
 	EndpointName pulumi.StringInput
+	// The host name of the custom domain. Must be a domain name.
+	HostName pulumi.StringInput
 	// Name of the custom domain within an endpoint.
 	Name pulumi.StringInput
 	// Name of the CDN profile within the resource group.
 	ProfileName pulumi.StringInput
-	Properties  CustomDomainPropertiesParametersPtrInput
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 }

@@ -104,14 +104,16 @@ func (AppServiceCertificateOrderCertificateState) ElementType() reflect.Type {
 type appServiceCertificateOrderCertificateArgs struct {
 	// Name of the certificate order.
 	CertificateOrderName string `pulumi:"certificateOrderName"`
+	// Key Vault resource Id.
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Key Vault secret name.
+	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
 	// Name of the certificate.
 	Name string `pulumi:"name"`
-	// Core resource properties
-	Properties *AppServiceCertificate `pulumi:"properties"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -122,14 +124,16 @@ type appServiceCertificateOrderCertificateArgs struct {
 type AppServiceCertificateOrderCertificateArgs struct {
 	// Name of the certificate order.
 	CertificateOrderName pulumi.StringInput
+	// Key Vault resource Id.
+	KeyVaultId pulumi.StringPtrInput
+	// Key Vault secret name.
+	KeyVaultSecretName pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringInput
 	// Name of the certificate.
 	Name pulumi.StringInput
-	// Core resource properties
-	Properties AppServiceCertificatePtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

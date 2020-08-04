@@ -96,12 +96,16 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
+	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
+	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
+	// Value that indicates whether Kafka is enabled for eventhub namespace.
+	KafkaEnabled *bool `pulumi:"kafkaEnabled"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
 	// The Namespace name
 	Name string `pulumi:"name"`
-	// Namespace properties supplied for create namespace operation.
-	Properties *EHNamespaceProperties `pulumi:"properties"`
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Properties of sku resource
@@ -112,12 +116,16 @@ type namespaceArgs struct {
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
+	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
+	IsAutoInflateEnabled pulumi.BoolPtrInput
+	// Value that indicates whether Kafka is enabled for eventhub namespace.
+	KafkaEnabled pulumi.BoolPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+	MaximumThroughputUnits pulumi.IntPtrInput
 	// The Namespace name
 	Name pulumi.StringInput
-	// Namespace properties supplied for create namespace operation.
-	Properties EHNamespacePropertiesPtrInput
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Properties of sku resource

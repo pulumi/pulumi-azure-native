@@ -103,8 +103,6 @@ type namespaceArgs struct {
 	Location string `pulumi:"location"`
 	// The namespace name.
 	Name string `pulumi:"name"`
-	// Properties of the namespace.
-	Properties *SBNamespaceProperties `pulumi:"properties"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Properties of Sku
@@ -119,8 +117,6 @@ type NamespaceArgs struct {
 	Location pulumi.StringInput
 	// The namespace name.
 	Name pulumi.StringInput
-	// Properties of the namespace.
-	Properties SBNamespacePropertiesPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// Properties of Sku

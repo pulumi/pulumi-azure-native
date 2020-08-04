@@ -102,6 +102,12 @@ func (ExpressRouteCircuitState) ElementType() reflect.Type {
 }
 
 type expressRouteCircuitArgs struct {
+	// allow classic operations
+	AllowClassicOperations *bool `pulumi:"allowClassicOperations"`
+	// Gets or sets list of authorizations
+	Authorizations []ExpressRouteCircuitAuthorizationType `pulumi:"authorizations"`
+	// Gets or sets CircuitProvisioningState state of the resource
+	CircuitProvisioningState *string `pulumi:"circuitProvisioningState"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Resource Id
@@ -110,10 +116,20 @@ type expressRouteCircuitArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the circuit.
 	Name string `pulumi:"name"`
-	// Properties of ExpressRouteCircuit
-	Properties *ExpressRouteCircuitPropertiesFormat `pulumi:"properties"`
+	// Gets or sets list of peerings
+	Peerings []ExpressRouteCircuitPeeringType `pulumi:"peerings"`
+	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets ServiceKey
+	ServiceKey *string `pulumi:"serviceKey"`
+	// Gets or sets ServiceProviderNotes
+	ServiceProviderNotes *string `pulumi:"serviceProviderNotes"`
+	// Gets or sets ServiceProviderProperties
+	ServiceProviderProperties *ExpressRouteCircuitServiceProviderProperties `pulumi:"serviceProviderProperties"`
+	// Gets or sets ServiceProviderProvisioningState state of the resource
+	ServiceProviderProvisioningState *string `pulumi:"serviceProviderProvisioningState"`
 	// Gets or sets sku
 	Sku *ExpressRouteCircuitSku `pulumi:"sku"`
 	// Resource tags
@@ -122,6 +138,12 @@ type expressRouteCircuitArgs struct {
 
 // The set of arguments for constructing a ExpressRouteCircuit resource.
 type ExpressRouteCircuitArgs struct {
+	// allow classic operations
+	AllowClassicOperations pulumi.BoolPtrInput
+	// Gets or sets list of authorizations
+	Authorizations ExpressRouteCircuitAuthorizationTypeArrayInput
+	// Gets or sets CircuitProvisioningState state of the resource
+	CircuitProvisioningState pulumi.StringPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
 	// Resource Id
@@ -130,10 +152,20 @@ type ExpressRouteCircuitArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the circuit.
 	Name pulumi.StringInput
-	// Properties of ExpressRouteCircuit
-	Properties ExpressRouteCircuitPropertiesFormatPtrInput
+	// Gets or sets list of peerings
+	Peerings ExpressRouteCircuitPeeringTypeArrayInput
+	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets ServiceKey
+	ServiceKey pulumi.StringPtrInput
+	// Gets or sets ServiceProviderNotes
+	ServiceProviderNotes pulumi.StringPtrInput
+	// Gets or sets ServiceProviderProperties
+	ServiceProviderProperties ExpressRouteCircuitServiceProviderPropertiesPtrInput
+	// Gets or sets ServiceProviderProvisioningState state of the resource
+	ServiceProviderProvisioningState pulumi.StringPtrInput
 	// Gets or sets sku
 	Sku ExpressRouteCircuitSkuPtrInput
 	// Resource tags

@@ -25,8 +25,17 @@ type IscsiDisk struct {
 // NewIscsiDisk registers a new resource with the given unique name, arguments, and options.
 func NewIscsiDisk(ctx *pulumi.Context,
 	name string, args *IscsiDiskArgs, opts ...pulumi.ResourceOption) (*IscsiDisk, error) {
+	if args == nil || args.AccessControlRecords == nil {
+		return nil, errors.New("missing required argument 'AccessControlRecords'")
+	}
+	if args == nil || args.DataPolicy == nil {
+		return nil, errors.New("missing required argument 'DataPolicy'")
+	}
 	if args == nil || args.DeviceName == nil {
 		return nil, errors.New("missing required argument 'DeviceName'")
+	}
+	if args == nil || args.DiskStatus == nil {
+		return nil, errors.New("missing required argument 'DiskStatus'")
 	}
 	if args == nil || args.IscsiServerName == nil {
 		return nil, errors.New("missing required argument 'IscsiServerName'")
@@ -34,11 +43,14 @@ func NewIscsiDisk(ctx *pulumi.Context,
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
 	}
+	if args == nil || args.MonitoringStatus == nil {
+		return nil, errors.New("missing required argument 'MonitoringStatus'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
+	if args == nil || args.ProvisionedCapacityInBytes == nil {
+		return nil, errors.New("missing required argument 'ProvisionedCapacityInBytes'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -90,32 +102,52 @@ func (IscsiDiskState) ElementType() reflect.Type {
 }
 
 type iscsiDiskArgs struct {
+	// The access control records.
+	AccessControlRecords []string `pulumi:"accessControlRecords"`
+	// The data policy.
+	DataPolicy string `pulumi:"dataPolicy"`
+	// The description.
+	Description *string `pulumi:"description"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
+	// The disk status.
+	DiskStatus string `pulumi:"diskStatus"`
 	// The iSCSI server name.
 	IscsiServerName string `pulumi:"iscsiServerName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
+	// The monitoring.
+	MonitoringStatus string `pulumi:"monitoringStatus"`
 	// The disk name.
 	Name string `pulumi:"name"`
-	// The properties.
-	Properties ISCSIDiskProperties `pulumi:"properties"`
+	// The provisioned capacity in bytes.
+	ProvisionedCapacityInBytes int `pulumi:"provisionedCapacityInBytes"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a IscsiDisk resource.
 type IscsiDiskArgs struct {
+	// The access control records.
+	AccessControlRecords pulumi.StringArrayInput
+	// The data policy.
+	DataPolicy pulumi.StringInput
+	// The description.
+	Description pulumi.StringPtrInput
 	// The device name.
 	DeviceName pulumi.StringInput
+	// The disk status.
+	DiskStatus pulumi.StringInput
 	// The iSCSI server name.
 	IscsiServerName pulumi.StringInput
 	// The manager name
 	ManagerName pulumi.StringInput
+	// The monitoring.
+	MonitoringStatus pulumi.StringInput
 	// The disk name.
 	Name pulumi.StringInput
-	// The properties.
-	Properties ISCSIDiskPropertiesInput
+	// The provisioned capacity in bytes.
+	ProvisionedCapacityInBytes pulumi.IntInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
 }

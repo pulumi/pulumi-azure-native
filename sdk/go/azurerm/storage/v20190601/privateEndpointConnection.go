@@ -31,6 +31,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.PrivateLinkServiceConnectionState == nil {
+		return nil, errors.New("missing required argument 'PrivateLinkServiceConnectionState'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -85,8 +88,12 @@ type privateEndpointConnectionArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The name of the private endpoint connection associated with the Azure resource
 	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	// The resource of private end point.
+	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -97,8 +104,12 @@ type PrivateEndpointConnectionArgs struct {
 	AccountName pulumi.StringInput
 	// The name of the private endpoint connection associated with the Azure resource
 	Name pulumi.StringInput
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesPtrInput
+	// The resource of private end point.
+	PrivateEndpoint PrivateEndpointPtrInput
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

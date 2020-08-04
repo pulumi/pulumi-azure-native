@@ -96,36 +96,68 @@ func (LoadBalancerState) ElementType() reflect.Type {
 }
 
 type loadBalancerArgs struct {
+	// Gets or sets Pools of backend IP addresses
+	BackendAddressPools []BackendAddressPool `pulumi:"backendAddressPools"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
+	// Gets or sets frontend IP addresses of the load balancer
+	FrontendIPConfigurations []FrontendIPConfiguration `pulumi:"frontendIPConfigurations"`
 	// Resource Id
 	Id *string `pulumi:"id"`
+	// Gets or sets inbound NAT pools
+	InboundNatPools []InboundNatPool `pulumi:"inboundNatPools"`
+	// Gets or sets list of inbound rules
+	InboundNatRules []InboundNatRule `pulumi:"inboundNatRules"`
+	// Gets or sets load balancing rules
+	LoadBalancingRules []LoadBalancingRule `pulumi:"loadBalancingRules"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the loadBalancer.
 	Name string `pulumi:"name"`
-	// Properties of Load Balancer
-	Properties *LoadBalancerPropertiesFormat `pulumi:"properties"`
+	// Gets or sets outbound NAT rules
+	OutboundNatRules []OutboundNatRule `pulumi:"outboundNatRules"`
+	// Gets or sets list of Load balancer probes
+	Probes []Probe `pulumi:"probes"`
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets resource guid property of the Load balancer resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LoadBalancer resource.
 type LoadBalancerArgs struct {
+	// Gets or sets Pools of backend IP addresses
+	BackendAddressPools BackendAddressPoolArrayInput
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
+	// Gets or sets frontend IP addresses of the load balancer
+	FrontendIPConfigurations FrontendIPConfigurationArrayInput
 	// Resource Id
 	Id pulumi.StringPtrInput
+	// Gets or sets inbound NAT pools
+	InboundNatPools InboundNatPoolArrayInput
+	// Gets or sets list of inbound rules
+	InboundNatRules InboundNatRuleArrayInput
+	// Gets or sets load balancing rules
+	LoadBalancingRules LoadBalancingRuleArrayInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the loadBalancer.
 	Name pulumi.StringInput
-	// Properties of Load Balancer
-	Properties LoadBalancerPropertiesFormatPtrInput
+	// Gets or sets outbound NAT rules
+	OutboundNatRules OutboundNatRuleArrayInput
+	// Gets or sets list of Load balancer probes
+	Probes ProbeArrayInput
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets resource guid property of the Load balancer resource
+	ResourceGuid pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

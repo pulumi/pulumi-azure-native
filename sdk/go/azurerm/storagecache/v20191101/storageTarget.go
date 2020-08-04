@@ -83,24 +83,44 @@ func (StorageTargetState) ElementType() reflect.Type {
 type storageTargetArgs struct {
 	// Name of Cache.
 	CacheName string `pulumi:"cacheName"`
+	// Properties when targetType is clfs.
+	Clfs *ClfsTarget `pulumi:"clfs"`
+	// List of Cache namespace junctions to target for namespace associations.
+	Junctions []NamespaceJunction `pulumi:"junctions"`
 	// Name of the Storage Target.
 	Name string `pulumi:"name"`
-	// Properties of the Storage Target.
-	Properties *StorageTargetProperties `pulumi:"properties"`
+	// Properties when targetType is nfs3.
+	Nfs3 *Nfs3Target `pulumi:"nfs3"`
+	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Type of the Storage Target.
+	TargetType *string `pulumi:"targetType"`
+	// Properties when targetType is unknown.
+	Unknown *UnknownTarget `pulumi:"unknown"`
 }
 
 // The set of arguments for constructing a StorageTarget resource.
 type StorageTargetArgs struct {
 	// Name of Cache.
 	CacheName pulumi.StringInput
+	// Properties when targetType is clfs.
+	Clfs ClfsTargetPtrInput
+	// List of Cache namespace junctions to target for namespace associations.
+	Junctions NamespaceJunctionArrayInput
 	// Name of the Storage Target.
 	Name pulumi.StringInput
-	// Properties of the Storage Target.
-	Properties StorageTargetPropertiesPtrInput
+	// Properties when targetType is nfs3.
+	Nfs3 Nfs3TargetPtrInput
+	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+	ProvisioningState pulumi.StringPtrInput
 	// Target resource group.
 	ResourceGroupName pulumi.StringInput
+	// Type of the Storage Target.
+	TargetType pulumi.StringPtrInput
+	// Properties when targetType is unknown.
+	Unknown UnknownTargetPtrInput
 }
 
 func (StorageTargetArgs) ElementType() reflect.Type {

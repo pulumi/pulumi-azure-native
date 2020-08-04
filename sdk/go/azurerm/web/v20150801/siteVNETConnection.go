@@ -96,6 +96,13 @@ func (SiteVNETConnectionState) ElementType() reflect.Type {
 }
 
 type siteVNETConnectionArgs struct {
+	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
+	//             Point-To-Site VPN connection.
+	CertBlob *string `pulumi:"certBlob"`
+	// The client certificate thumbprint
+	CertThumbprint *string `pulumi:"certThumbprint"`
+	// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+	DnsServers *string `pulumi:"dnsServers"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Kind of resource
@@ -103,18 +110,30 @@ type siteVNETConnectionArgs struct {
 	// Resource Location
 	Location string `pulumi:"location"`
 	// The name of the Virtual Network
-	Name       string              `pulumi:"name"`
-	Properties *VnetInfoProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Flag to determine if a resync is required
+	ResyncRequired *bool `pulumi:"resyncRequired"`
+	// The routes that this virtual network connection uses.
+	Routes []VnetRoute `pulumi:"routes"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
+	// The vnet resource id
+	VnetResourceId *string `pulumi:"vnetResourceId"`
 }
 
 // The set of arguments for constructing a SiteVNETConnection resource.
 type SiteVNETConnectionArgs struct {
+	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
+	//             Point-To-Site VPN connection.
+	CertBlob pulumi.StringPtrInput
+	// The client certificate thumbprint
+	CertThumbprint pulumi.StringPtrInput
+	// Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+	DnsServers pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Kind of resource
@@ -122,14 +141,19 @@ type SiteVNETConnectionArgs struct {
 	// Resource Location
 	Location pulumi.StringInput
 	// The name of the Virtual Network
-	Name       pulumi.StringInput
-	Properties VnetInfoPropertiesPtrInput
+	Name pulumi.StringInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
+	// Flag to determine if a resync is required
+	ResyncRequired pulumi.BoolPtrInput
+	// The routes that this virtual network connection uses.
+	Routes VnetRouteArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
+	// The vnet resource id
+	VnetResourceId pulumi.StringPtrInput
 }
 
 func (SiteVNETConnectionArgs) ElementType() reflect.Type {

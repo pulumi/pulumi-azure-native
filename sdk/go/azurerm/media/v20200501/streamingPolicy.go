@@ -83,10 +83,18 @@ func (StreamingPolicyState) ElementType() reflect.Type {
 type streamingPolicyArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
+	// Configuration of CommonEncryptionCbcs
+	CommonEncryptionCbcs *CommonEncryptionCbcs `pulumi:"commonEncryptionCbcs"`
+	// Configuration of CommonEncryptionCenc
+	CommonEncryptionCenc *CommonEncryptionCenc `pulumi:"commonEncryptionCenc"`
+	// Default ContentKey used by current Streaming Policy
+	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
+	// Configuration of EnvelopeEncryption
+	EnvelopeEncryption *EnvelopeEncryption `pulumi:"envelopeEncryption"`
 	// The Streaming Policy name.
 	Name string `pulumi:"name"`
-	// Class to specify properties of Streaming Policy
-	Properties *StreamingPolicyProperties `pulumi:"properties"`
+	// Configurations of NoEncryption
+	NoEncryption *NoEncryption `pulumi:"noEncryption"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -95,10 +103,18 @@ type streamingPolicyArgs struct {
 type StreamingPolicyArgs struct {
 	// The Media Services account name.
 	AccountName pulumi.StringInput
+	// Configuration of CommonEncryptionCbcs
+	CommonEncryptionCbcs CommonEncryptionCbcsPtrInput
+	// Configuration of CommonEncryptionCenc
+	CommonEncryptionCenc CommonEncryptionCencPtrInput
+	// Default ContentKey used by current Streaming Policy
+	DefaultContentKeyPolicyName pulumi.StringPtrInput
+	// Configuration of EnvelopeEncryption
+	EnvelopeEncryption EnvelopeEncryptionPtrInput
 	// The Streaming Policy name.
 	Name pulumi.StringInput
-	// Class to specify properties of Streaming Policy
-	Properties StreamingPolicyPropertiesPtrInput
+	// Configurations of NoEncryption
+	NoEncryption NoEncryptionPtrInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 }

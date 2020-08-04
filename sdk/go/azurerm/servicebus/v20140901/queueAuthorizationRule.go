@@ -39,6 +39,9 @@ func NewQueueAuthorizationRule(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.Rights == nil {
+		return nil, errors.New("missing required argument 'Rights'")
+	}
 	if args == nil {
 		args = &QueueAuthorizationRuleArgs{}
 	}
@@ -90,34 +93,54 @@ func (QueueAuthorizationRuleState) ElementType() reflect.Type {
 }
 
 type queueAuthorizationRuleArgs struct {
+	// A string that describes Claim Type for authorization rule.
+	ClaimType *string `pulumi:"claimType"`
+	// A string that describes Claim Value of authorization rule.
+	ClaimValue *string `pulumi:"claimValue"`
+	// A string that describes the Key Name of authorization rule.
+	KeyName *string `pulumi:"keyName"`
 	// data center location.
 	Location *string `pulumi:"location"`
 	// The authorization rule name.
 	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// AuthorizationRule properties.
-	Properties *SharedAccessAuthorizationRuleProperties `pulumi:"properties"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	PrimaryKey *string `pulumi:"primaryKey"`
 	// The queue name.
 	QueueName string `pulumi:"queueName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	SecondaryKey *string `pulumi:"secondaryKey"`
 }
 
 // The set of arguments for constructing a QueueAuthorizationRule resource.
 type QueueAuthorizationRuleArgs struct {
+	// A string that describes Claim Type for authorization rule.
+	ClaimType pulumi.StringPtrInput
+	// A string that describes Claim Value of authorization rule.
+	ClaimValue pulumi.StringPtrInput
+	// A string that describes the Key Name of authorization rule.
+	KeyName pulumi.StringPtrInput
 	// data center location.
 	Location pulumi.StringPtrInput
 	// The authorization rule name.
 	Name pulumi.StringInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
-	// AuthorizationRule properties.
-	Properties SharedAccessAuthorizationRulePropertiesPtrInput
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	PrimaryKey pulumi.StringPtrInput
 	// The queue name.
 	QueueName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput
+	// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+	SecondaryKey pulumi.StringPtrInput
 }
 
 func (QueueAuthorizationRuleArgs) ElementType() reflect.Type {

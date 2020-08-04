@@ -25,6 +25,9 @@ type Tag struct {
 // NewTag registers a new resource with the given unique name, arguments, and options.
 func NewTag(ctx *pulumi.Context,
 	name string, args *TagArgs, opts ...pulumi.ResourceOption) (*Tag, error) {
+	if args == nil || args.DisplayName == nil {
+		return nil, errors.New("missing required argument 'DisplayName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -81,10 +84,10 @@ func (TagState) ElementType() reflect.Type {
 }
 
 type tagArgs struct {
+	// Tag name.
+	DisplayName string `pulumi:"displayName"`
 	// Tag identifier. Must be unique in the current API Management service instance.
 	Name string `pulumi:"name"`
-	// Properties supplied to Create Tag operation.
-	Properties *TagContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -93,10 +96,10 @@ type tagArgs struct {
 
 // The set of arguments for constructing a Tag resource.
 type TagArgs struct {
+	// Tag name.
+	DisplayName pulumi.StringInput
 	// Tag identifier. Must be unique in the current API Management service instance.
 	Name pulumi.StringInput
-	// Properties supplied to Create Tag operation.
-	Properties TagContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

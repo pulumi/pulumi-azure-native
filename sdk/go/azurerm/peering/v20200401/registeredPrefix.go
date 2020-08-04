@@ -85,8 +85,8 @@ type registeredPrefixArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the peering.
 	PeeringName string `pulumi:"peeringName"`
-	// The properties that define a registered prefix.
-	Properties *PeeringRegisteredPrefixProperties `pulumi:"properties"`
+	// The customer's prefix from which traffic originates.
+	Prefix *string `pulumi:"prefix"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -97,8 +97,8 @@ type RegisteredPrefixArgs struct {
 	Name pulumi.StringInput
 	// The name of the peering.
 	PeeringName pulumi.StringInput
-	// The properties that define a registered prefix.
-	Properties PeeringRegisteredPrefixPropertiesPtrInput
+	// The customer's prefix from which traffic originates.
+	Prefix pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

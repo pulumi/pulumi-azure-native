@@ -93,6 +93,12 @@ func (VirtualNetworkState) ElementType() reflect.Type {
 }
 
 type virtualNetworkArgs struct {
+	// Gets or sets list of peerings in a VirtualNetwork
+	VirtualNetworkPeerings []VirtualNetworkPeeringType `pulumi:"VirtualNetworkPeerings"`
+	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
+	AddressSpace *AddressSpace `pulumi:"addressSpace"`
+	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
+	DhcpOptions *DhcpOptions `pulumi:"dhcpOptions"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Resource Id
@@ -100,16 +106,27 @@ type virtualNetworkArgs struct {
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the virtual network.
-	Name       string                          `pulumi:"name"`
-	Properties *VirtualNetworkPropertiesFormat `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets resource guid property of the VirtualNetwork resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// Gets or sets list of subnets in a VirtualNetwork
+	Subnets []SubnetType `pulumi:"subnets"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VirtualNetwork resource.
 type VirtualNetworkArgs struct {
+	// Gets or sets list of peerings in a VirtualNetwork
+	VirtualNetworkPeerings VirtualNetworkPeeringTypeArrayInput
+	// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
+	AddressSpace AddressSpacePtrInput
+	// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
+	DhcpOptions DhcpOptionsPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
 	// Resource Id
@@ -117,10 +134,15 @@ type VirtualNetworkArgs struct {
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the virtual network.
-	Name       pulumi.StringInput
-	Properties VirtualNetworkPropertiesFormatPtrInput
+	Name pulumi.StringInput
+	// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets resource guid property of the VirtualNetwork resource
+	ResourceGuid pulumi.StringPtrInput
+	// Gets or sets list of subnets in a VirtualNetwork
+	Subnets SubnetTypeArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

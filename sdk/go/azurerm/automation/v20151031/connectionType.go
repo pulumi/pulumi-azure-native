@@ -28,11 +28,11 @@ func NewConnectionType(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
+	if args == nil || args.FieldDefinitions == nil {
+		return nil, errors.New("missing required argument 'FieldDefinitions'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -86,10 +86,12 @@ func (ConnectionTypeState) ElementType() reflect.Type {
 type connectionTypeArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
+	// Gets or sets the field definitions of the connection type.
+	FieldDefinitions map[string]FieldDefinition `pulumi:"fieldDefinitions"`
+	// Gets or sets a Boolean value to indicate if the connection type is global.
+	IsGlobal *bool `pulumi:"isGlobal"`
 	// The parameters supplied to the create or update connection type operation.
 	Name string `pulumi:"name"`
-	// Gets or sets the value of the connection type.
-	Properties ConnectionTypeCreateOrUpdateProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -98,10 +100,12 @@ type connectionTypeArgs struct {
 type ConnectionTypeArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
+	// Gets or sets the field definitions of the connection type.
+	FieldDefinitions FieldDefinitionMapInput
+	// Gets or sets a Boolean value to indicate if the connection type is global.
+	IsGlobal pulumi.BoolPtrInput
 	// The parameters supplied to the create or update connection type operation.
 	Name pulumi.StringInput
-	// Gets or sets the value of the connection type.
-	Properties ConnectionTypeCreateOrUpdatePropertiesInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 }

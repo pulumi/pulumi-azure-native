@@ -31,6 +31,9 @@ type ApplicationTypeVersion struct {
 // NewApplicationTypeVersion registers a new resource with the given unique name, arguments, and options.
 func NewApplicationTypeVersion(ctx *pulumi.Context,
 	name string, args *ApplicationTypeVersionArgs, opts ...pulumi.ResourceOption) (*ApplicationTypeVersion, error) {
+	if args == nil || args.AppPackageUrl == nil {
+		return nil, errors.New("missing required argument 'AppPackageUrl'")
+	}
 	if args == nil || args.ApplicationTypeName == nil {
 		return nil, errors.New("missing required argument 'ApplicationTypeName'")
 	}
@@ -102,6 +105,8 @@ func (ApplicationTypeVersionState) ElementType() reflect.Type {
 }
 
 type applicationTypeVersionArgs struct {
+	// The URL to the application package
+	AppPackageUrl string `pulumi:"appPackageUrl"`
 	// The name of the application type name resource.
 	ApplicationTypeName string `pulumi:"applicationTypeName"`
 	// The name of the cluster resource.
@@ -110,8 +115,6 @@ type applicationTypeVersionArgs struct {
 	Location *string `pulumi:"location"`
 	// The application type version.
 	Name string `pulumi:"name"`
-	// The properties of the application type version resource.
-	Properties *ApplicationTypeVersionResourceProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Azure resource tags.
@@ -120,6 +123,8 @@ type applicationTypeVersionArgs struct {
 
 // The set of arguments for constructing a ApplicationTypeVersion resource.
 type ApplicationTypeVersionArgs struct {
+	// The URL to the application package
+	AppPackageUrl pulumi.StringInput
 	// The name of the application type name resource.
 	ApplicationTypeName pulumi.StringInput
 	// The name of the cluster resource.
@@ -128,8 +133,6 @@ type ApplicationTypeVersionArgs struct {
 	Location pulumi.StringPtrInput
 	// The application type version.
 	Name pulumi.StringInput
-	// The properties of the application type version resource.
-	Properties ApplicationTypeVersionResourcePropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Azure resource tags.

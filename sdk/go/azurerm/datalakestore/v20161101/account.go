@@ -99,34 +99,70 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// The default owner group for all new folders and files created in the Data Lake Store account.
+	DefaultGroup *string `pulumi:"defaultGroup"`
+	// The Key Vault encryption configuration.
+	EncryptionConfig *EncryptionConfig `pulumi:"encryptionConfig"`
+	// The current state of encryption for this Data Lake Store account.
+	EncryptionState *string `pulumi:"encryptionState"`
+	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+	FirewallAllowAzureIps *string `pulumi:"firewallAllowAzureIps"`
+	// The list of firewall rules associated with this Data Lake Store account.
+	FirewallRules []CreateFirewallRuleWithAccountParameters `pulumi:"firewallRules"`
+	// The current state of the IP address firewall for this Data Lake Store account.
+	FirewallState *string `pulumi:"firewallState"`
 	// The Key Vault encryption identity, if any.
 	Identity *EncryptionIdentity `pulumi:"identity"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// The name of the Data Lake Store account.
 	Name string `pulumi:"name"`
-	// The Data Lake Store account properties to use for creating.
-	Properties *CreateDataLakeStoreAccountProperties `pulumi:"properties"`
+	// The commitment tier to use for next month.
+	NewTier *string `pulumi:"newTier"`
 	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The current state of the trusted identity provider feature for this Data Lake Store account.
+	TrustedIdProviderState *string `pulumi:"trustedIdProviderState"`
+	// The list of trusted identity providers associated with this Data Lake Store account.
+	TrustedIdProviders []CreateTrustedIdProviderWithAccountParameters `pulumi:"trustedIdProviders"`
+	// The list of virtual network rules associated with this Data Lake Store account.
+	VirtualNetworkRules []CreateVirtualNetworkRuleWithAccountParameters `pulumi:"virtualNetworkRules"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// The default owner group for all new folders and files created in the Data Lake Store account.
+	DefaultGroup pulumi.StringPtrInput
+	// The Key Vault encryption configuration.
+	EncryptionConfig EncryptionConfigPtrInput
+	// The current state of encryption for this Data Lake Store account.
+	EncryptionState pulumi.StringPtrInput
+	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+	FirewallAllowAzureIps pulumi.StringPtrInput
+	// The list of firewall rules associated with this Data Lake Store account.
+	FirewallRules CreateFirewallRuleWithAccountParametersArrayInput
+	// The current state of the IP address firewall for this Data Lake Store account.
+	FirewallState pulumi.StringPtrInput
 	// The Key Vault encryption identity, if any.
 	Identity EncryptionIdentityPtrInput
 	// The resource location.
 	Location pulumi.StringInput
 	// The name of the Data Lake Store account.
 	Name pulumi.StringInput
-	// The Data Lake Store account properties to use for creating.
-	Properties CreateDataLakeStoreAccountPropertiesPtrInput
+	// The commitment tier to use for next month.
+	NewTier pulumi.StringPtrInput
 	// The name of the Azure resource group.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
+	// The current state of the trusted identity provider feature for this Data Lake Store account.
+	TrustedIdProviderState pulumi.StringPtrInput
+	// The list of trusted identity providers associated with this Data Lake Store account.
+	TrustedIdProviders CreateTrustedIdProviderWithAccountParametersArrayInput
+	// The list of virtual network rules associated with this Data Lake Store account.
+	VirtualNetworkRules CreateVirtualNetworkRuleWithAccountParametersArrayInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {

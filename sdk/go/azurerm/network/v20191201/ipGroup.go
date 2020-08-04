@@ -98,12 +98,12 @@ func (IpGroupState) ElementType() reflect.Type {
 type ipGroupArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
+	IpAddresses []string `pulumi:"ipAddresses"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the ipGroups.
 	Name string `pulumi:"name"`
-	// Properties of the IpGroups.
-	Properties *IpGroupPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -114,12 +114,12 @@ type ipGroupArgs struct {
 type IpGroupArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// IpAddresses/IpAddressPrefixes in the IpGroups resource.
+	IpAddresses pulumi.StringArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the ipGroups.
 	Name pulumi.StringInput
-	// Properties of the IpGroups.
-	Properties IpGroupPropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

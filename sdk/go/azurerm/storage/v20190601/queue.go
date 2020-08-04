@@ -82,10 +82,10 @@ func (QueueState) ElementType() reflect.Type {
 type queueArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
+	// A name-value pair that represents queue metadata.
+	Metadata map[string]string `pulumi:"metadata"`
 	// A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
 	Name string `pulumi:"name"`
-	// Queue resource properties.
-	QueueProperties *QueueProperties `pulumi:"queueProperties"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -94,10 +94,10 @@ type queueArgs struct {
 type QueueArgs struct {
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput
+	// A name-value pair that represents queue metadata.
+	Metadata pulumi.StringMapInput
 	// A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
 	Name pulumi.StringInput
-	// Queue resource properties.
-	QueueProperties QueuePropertiesPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 }

@@ -85,10 +85,12 @@ type hybridConnectionArgs struct {
 	Name string `pulumi:"name"`
 	// The Namespace Name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Properties of HybridConnection
-	Properties *HybridConnectionProperties `pulumi:"properties"`
+	// true if client authorization is needed for this HybridConnection; otherwise, false.
+	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+	UserMetadata *string `pulumi:"userMetadata"`
 }
 
 // The set of arguments for constructing a HybridConnection resource.
@@ -97,10 +99,12 @@ type HybridConnectionArgs struct {
 	Name pulumi.StringInput
 	// The Namespace Name
 	NamespaceName pulumi.StringInput
-	// Properties of HybridConnection
-	Properties HybridConnectionPropertiesPtrInput
+	// true if client authorization is needed for this HybridConnection; otherwise, false.
+	RequiresClientAuthorization pulumi.BoolPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+	UserMetadata pulumi.StringPtrInput
 }
 
 func (HybridConnectionArgs) ElementType() reflect.Type {

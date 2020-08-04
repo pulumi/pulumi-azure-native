@@ -88,10 +88,12 @@ type webAppSwiftVirtualNetworkConnectionSlotArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
 	Name string `pulumi:"name"`
-	// SwiftVirtualNetwork resource specific properties
-	Properties *SwiftVirtualNetworkProperties `pulumi:"properties"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+	SubnetResourceId *string `pulumi:"subnetResourceId"`
+	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
+	SwiftSupported *bool `pulumi:"swiftSupported"`
 }
 
 // The set of arguments for constructing a WebAppSwiftVirtualNetworkConnectionSlot resource.
@@ -100,10 +102,12 @@ type WebAppSwiftVirtualNetworkConnectionSlotArgs struct {
 	Kind pulumi.StringPtrInput
 	// Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
 	Name pulumi.StringInput
-	// SwiftVirtualNetwork resource specific properties
-	Properties SwiftVirtualNetworkPropertiesPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+	SubnetResourceId pulumi.StringPtrInput
+	// A flag that specifies if the scale unit this Web App is on supports Swift integration.
+	SwiftSupported pulumi.BoolPtrInput
 }
 
 func (WebAppSwiftVirtualNetworkConnectionSlotArgs) ElementType() reflect.Type {

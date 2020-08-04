@@ -78,22 +78,46 @@ func (PolicyDefinitionAtManagementGroupState) ElementType() reflect.Type {
 }
 
 type policyDefinitionAtManagementGroupArgs struct {
+	// The policy definition description.
+	Description *string `pulumi:"description"`
+	// The display name of the policy definition.
+	DisplayName *string `pulumi:"displayName"`
 	// The ID of the management group.
 	ManagementGroupId string `pulumi:"managementGroupId"`
+	// The policy definition metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
+	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+	Mode *string `pulumi:"mode"`
 	// The name of the policy definition to create.
 	Name string `pulumi:"name"`
-	// The policy definition properties.
-	Properties *PolicyDefinitionProperties `pulumi:"properties"`
+	// Required if a parameter is used in policy rule.
+	Parameters map[string]interface{} `pulumi:"parameters"`
+	// The policy rule.
+	PolicyRule map[string]interface{} `pulumi:"policyRule"`
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+	PolicyType *string `pulumi:"policyType"`
 }
 
 // The set of arguments for constructing a PolicyDefinitionAtManagementGroup resource.
 type PolicyDefinitionAtManagementGroupArgs struct {
+	// The policy definition description.
+	Description pulumi.StringPtrInput
+	// The display name of the policy definition.
+	DisplayName pulumi.StringPtrInput
 	// The ID of the management group.
 	ManagementGroupId pulumi.StringInput
+	// The policy definition metadata.
+	Metadata pulumi.MapInput
+	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+	Mode pulumi.StringPtrInput
 	// The name of the policy definition to create.
 	Name pulumi.StringInput
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesPtrInput
+	// Required if a parameter is used in policy rule.
+	Parameters pulumi.MapInput
+	// The policy rule.
+	PolicyRule pulumi.MapInput
+	// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+	PolicyType pulumi.StringPtrInput
 }
 
 func (PolicyDefinitionAtManagementGroupArgs) ElementType() reflect.Type {

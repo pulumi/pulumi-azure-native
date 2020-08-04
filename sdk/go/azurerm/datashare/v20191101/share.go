@@ -83,24 +83,32 @@ func (ShareState) ElementType() reflect.Type {
 type shareArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
+	// Share description.
+	Description *string `pulumi:"description"`
 	// The name of the share.
 	Name string `pulumi:"name"`
-	// Properties on the share
-	Properties *ShareProperties `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Share kind.
+	ShareKind *string `pulumi:"shareKind"`
+	// Share terms.
+	Terms *string `pulumi:"terms"`
 }
 
 // The set of arguments for constructing a Share resource.
 type ShareArgs struct {
 	// The name of the share account.
 	AccountName pulumi.StringInput
+	// Share description.
+	Description pulumi.StringPtrInput
 	// The name of the share.
 	Name pulumi.StringInput
-	// Properties on the share
-	Properties SharePropertiesPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// Share kind.
+	ShareKind pulumi.StringPtrInput
+	// Share terms.
+	Terms pulumi.StringPtrInput
 }
 
 func (ShareArgs) ElementType() reflect.Type {

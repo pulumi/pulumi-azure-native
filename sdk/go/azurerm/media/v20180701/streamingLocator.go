@@ -28,11 +28,17 @@ func NewStreamingLocator(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
+	if args == nil || args.AssetName == nil {
+		return nil, errors.New("missing required argument 'AssetName'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StreamingPolicyName == nil {
+		return nil, errors.New("missing required argument 'StreamingPolicyName'")
 	}
 	if args == nil {
 		args = &StreamingLocatorArgs{}
@@ -83,24 +89,56 @@ func (StreamingLocatorState) ElementType() reflect.Type {
 type streamingLocatorArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
+	// Alternative Media ID of this Streaming Locator
+	AlternativeMediaId *string `pulumi:"alternativeMediaId"`
+	// Asset Name
+	AssetName string `pulumi:"assetName"`
+	// The ContentKeys used by this Streaming Locator.
+	ContentKeys []StreamingLocatorContentKey `pulumi:"contentKeys"`
+	// Name of the default ContentKeyPolicy used by this Streaming Locator.
+	DefaultContentKeyPolicyName *string `pulumi:"defaultContentKeyPolicyName"`
+	// The end time of the Streaming Locator.
+	EndTime *string `pulumi:"endTime"`
+	// A list of asset or account filters which apply to this streaming locator
+	Filters []string `pulumi:"filters"`
 	// The Streaming Locator name.
 	Name string `pulumi:"name"`
-	// Properties of the Streaming Locator.
-	Properties *StreamingLocatorProperties `pulumi:"properties"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The start time of the Streaming Locator.
+	StartTime *string `pulumi:"startTime"`
+	// The StreamingLocatorId of the Streaming Locator.
+	StreamingLocatorId *string `pulumi:"streamingLocatorId"`
+	// Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
+	StreamingPolicyName string `pulumi:"streamingPolicyName"`
 }
 
 // The set of arguments for constructing a StreamingLocator resource.
 type StreamingLocatorArgs struct {
 	// The Media Services account name.
 	AccountName pulumi.StringInput
+	// Alternative Media ID of this Streaming Locator
+	AlternativeMediaId pulumi.StringPtrInput
+	// Asset Name
+	AssetName pulumi.StringInput
+	// The ContentKeys used by this Streaming Locator.
+	ContentKeys StreamingLocatorContentKeyArrayInput
+	// Name of the default ContentKeyPolicy used by this Streaming Locator.
+	DefaultContentKeyPolicyName pulumi.StringPtrInput
+	// The end time of the Streaming Locator.
+	EndTime pulumi.StringPtrInput
+	// A list of asset or account filters which apply to this streaming locator
+	Filters pulumi.StringArrayInput
 	// The Streaming Locator name.
 	Name pulumi.StringInput
-	// Properties of the Streaming Locator.
-	Properties StreamingLocatorPropertiesPtrInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The start time of the Streaming Locator.
+	StartTime pulumi.StringPtrInput
+	// The StreamingLocatorId of the Streaming Locator.
+	StreamingLocatorId pulumi.StringPtrInput
+	// Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
+	StreamingPolicyName pulumi.StringInput
 }
 
 func (StreamingLocatorArgs) ElementType() reflect.Type {

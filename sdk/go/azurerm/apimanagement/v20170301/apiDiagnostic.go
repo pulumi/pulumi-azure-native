@@ -28,6 +28,9 @@ func NewApiDiagnostic(ctx *pulumi.Context,
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
+	if args == nil || args.Enabled == nil {
+		return nil, errors.New("missing required argument 'Enabled'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -86,10 +89,10 @@ func (ApiDiagnosticState) ElementType() reflect.Type {
 type apiDiagnosticArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId string `pulumi:"apiId"`
+	// Indicates whether a diagnostic should receive data or not.
+	Enabled bool `pulumi:"enabled"`
 	// Diagnostic identifier. Must be unique in the current API Management service instance.
 	Name string `pulumi:"name"`
-	// Diagnostic entity contract properties.
-	Properties *DiagnosticContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -100,10 +103,10 @@ type apiDiagnosticArgs struct {
 type ApiDiagnosticArgs struct {
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId pulumi.StringInput
+	// Indicates whether a diagnostic should receive data or not.
+	Enabled pulumi.BoolInput
 	// Diagnostic identifier. Must be unique in the current API Management service instance.
 	Name pulumi.StringInput
-	// Diagnostic entity contract properties.
-	Properties DiagnosticContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

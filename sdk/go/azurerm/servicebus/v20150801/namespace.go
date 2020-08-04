@@ -99,32 +99,40 @@ func (NamespaceState) ElementType() reflect.Type {
 }
 
 type namespaceArgs struct {
+	// Indicates whether to create an ACS namespace.
+	CreateACSNamespace *bool `pulumi:"createACSNamespace"`
+	// Specifies whether this instance is enabled.
+	Enabled *bool `pulumi:"enabled"`
 	// Namespace location.
 	Location string `pulumi:"location"`
 	// The namespace name.
 	Name string `pulumi:"name"`
-	// Properties of the namespace.
-	Properties *NamespaceProperties `pulumi:"properties"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU of the namespace.
 	Sku *Sku `pulumi:"sku"`
+	// State of the namespace.
+	Status *string `pulumi:"status"`
 	// Namespace tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Namespace resource.
 type NamespaceArgs struct {
+	// Indicates whether to create an ACS namespace.
+	CreateACSNamespace pulumi.BoolPtrInput
+	// Specifies whether this instance is enabled.
+	Enabled pulumi.BoolPtrInput
 	// Namespace location.
 	Location pulumi.StringInput
 	// The namespace name.
 	Name pulumi.StringInput
-	// Properties of the namespace.
-	Properties NamespacePropertiesPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 	// SKU of the namespace.
 	Sku SkuPtrInput
+	// State of the namespace.
+	Status pulumi.StringPtrInput
 	// Namespace tags.
 	Tags pulumi.StringMapInput
 }

@@ -93,28 +93,36 @@ func (ImageState) ElementType() reflect.Type {
 }
 
 type imageArgs struct {
+	// Gets the HyperVGenerationType of the VirtualMachine created from the image
+	HyperVGeneration *string `pulumi:"hyperVGeneration"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the image.
 	Name string `pulumi:"name"`
-	// Describes the properties of an Image.
-	Properties *ImageProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The source virtual machine from which Image is created.
+	SourceVirtualMachine *SubResource `pulumi:"sourceVirtualMachine"`
+	// Specifies the storage settings for the virtual machine disks.
+	StorageProfile *ImageStorageProfile `pulumi:"storageProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Image resource.
 type ImageArgs struct {
+	// Gets the HyperVGenerationType of the VirtualMachine created from the image
+	HyperVGeneration pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the image.
 	Name pulumi.StringInput
-	// Describes the properties of an Image.
-	Properties ImagePropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The source virtual machine from which Image is created.
+	SourceVirtualMachine SubResourcePtrInput
+	// Specifies the storage settings for the virtual machine disks.
+	StorageProfile ImageStorageProfilePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

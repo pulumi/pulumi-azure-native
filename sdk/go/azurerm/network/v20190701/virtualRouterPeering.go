@@ -91,8 +91,10 @@ type virtualRouterPeeringArgs struct {
 	Id *string `pulumi:"id"`
 	// The name of the Virtual Router Peering.
 	Name string `pulumi:"name"`
-	// The properties of the Virtual Router Peering.
-	Properties *VirtualRouterPeeringProperties `pulumi:"properties"`
+	// Peer ASN.
+	PeerAsn *int `pulumi:"peerAsn"`
+	// Peer IP.
+	PeerIp *string `pulumi:"peerIp"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Virtual Router.
@@ -105,8 +107,10 @@ type VirtualRouterPeeringArgs struct {
 	Id pulumi.StringPtrInput
 	// The name of the Virtual Router Peering.
 	Name pulumi.StringInput
-	// The properties of the Virtual Router Peering.
-	Properties VirtualRouterPeeringPropertiesPtrInput
+	// Peer ASN.
+	PeerAsn pulumi.IntPtrInput
+	// Peer IP.
+	PeerIp pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Virtual Router.

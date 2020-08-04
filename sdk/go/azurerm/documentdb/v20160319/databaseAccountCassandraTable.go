@@ -38,8 +38,11 @@ func NewDatabaseAccountCassandraTable(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
+	if args == nil || args.Options == nil {
+		return nil, errors.New("missing required argument 'Options'")
+	}
+	if args == nil || args.Resource == nil {
+		return nil, errors.New("missing required argument 'Resource'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -105,8 +108,10 @@ type databaseAccountCassandraTableArgs struct {
 	KeyspaceName string `pulumi:"keyspaceName"`
 	// Cosmos DB table name.
 	Name string `pulumi:"name"`
-	// Properties to create and update Azure Cosmos DB Cassandra table.
-	Properties CassandraTableCreateUpdateProperties `pulumi:"properties"`
+	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+	Options CreateUpdateOptions `pulumi:"options"`
+	// The standard JSON format of a Cassandra table
+	Resource CassandraTableResource `pulumi:"resource"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -119,8 +124,10 @@ type DatabaseAccountCassandraTableArgs struct {
 	KeyspaceName pulumi.StringInput
 	// Cosmos DB table name.
 	Name pulumi.StringInput
-	// Properties to create and update Azure Cosmos DB Cassandra table.
-	Properties CassandraTableCreateUpdatePropertiesInput
+	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+	Options CreateUpdateOptionsInput
+	// The standard JSON format of a Cassandra table
+	Resource CassandraTableResourceInput
 	// Name of an Azure resource group.
 	ResourceGroupName pulumi.StringInput
 }

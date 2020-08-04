@@ -25,6 +25,9 @@ type View struct {
 // NewView registers a new resource with the given unique name, arguments, and options.
 func NewView(ctx *pulumi.Context,
 	name string, args *ViewArgs, opts ...pulumi.ResourceOption) (*View, error) {
+	if args == nil || args.Definition == nil {
+		return nil, errors.New("missing required argument 'Definition'")
+	}
 	if args == nil || args.HubName == nil {
 		return nil, errors.New("missing required argument 'HubName'")
 	}
@@ -81,26 +84,34 @@ func (ViewState) ElementType() reflect.Type {
 }
 
 type viewArgs struct {
+	// View definition.
+	Definition string `pulumi:"definition"`
+	// Localized display name for the view.
+	DisplayName map[string]string `pulumi:"displayName"`
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
 	// The name of the view.
 	Name string `pulumi:"name"`
-	// The view in Customer 360 web application.
-	Properties *ViewDefinition `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// the user ID.
+	UserId *string `pulumi:"userId"`
 }
 
 // The set of arguments for constructing a View resource.
 type ViewArgs struct {
+	// View definition.
+	Definition pulumi.StringInput
+	// Localized display name for the view.
+	DisplayName pulumi.StringMapInput
 	// The name of the hub.
 	HubName pulumi.StringInput
 	// The name of the view.
 	Name pulumi.StringInput
-	// The view in Customer 360 web application.
-	Properties ViewDefinitionPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// the user ID.
+	UserId pulumi.StringPtrInput
 }
 
 func (ViewArgs) ElementType() reflect.Type {

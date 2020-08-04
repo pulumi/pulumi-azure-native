@@ -90,12 +90,16 @@ func (MaintenanceConfigurationState) ElementType() reflect.Type {
 }
 
 type maintenanceConfigurationArgs struct {
+	// Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
+	ExtensionProperties map[string]string `pulumi:"extensionProperties"`
 	// Gets or sets location of the resource
 	Location *string `pulumi:"location"`
+	// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
+	MaintenanceScope *string `pulumi:"maintenanceScope"`
 	// Resource Identifier
 	Name string `pulumi:"name"`
-	// Gets or sets properties of the resource
-	Properties *MaintenanceConfigurationProperties `pulumi:"properties"`
+	// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
+	Namespace *string `pulumi:"namespace"`
 	// Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Gets or sets tags of the resource
@@ -104,12 +108,16 @@ type maintenanceConfigurationArgs struct {
 
 // The set of arguments for constructing a MaintenanceConfiguration resource.
 type MaintenanceConfigurationArgs struct {
+	// Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
+	ExtensionProperties pulumi.StringMapInput
 	// Gets or sets location of the resource
 	Location pulumi.StringPtrInput
+	// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
+	MaintenanceScope pulumi.StringPtrInput
 	// Resource Identifier
 	Name pulumi.StringInput
-	// Gets or sets properties of the resource
-	Properties MaintenanceConfigurationPropertiesPtrInput
+	// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
+	Namespace pulumi.StringPtrInput
 	// Resource Group Name
 	ResourceGroupName pulumi.StringInput
 	// Gets or sets tags of the resource

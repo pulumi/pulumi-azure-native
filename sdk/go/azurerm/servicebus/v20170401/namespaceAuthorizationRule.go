@@ -34,6 +34,9 @@ func NewNamespaceAuthorizationRule(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.Rights == nil {
+		return nil, errors.New("missing required argument 'Rights'")
+	}
 	if args == nil {
 		args = &NamespaceAuthorizationRuleArgs{}
 	}
@@ -85,10 +88,10 @@ type namespaceAuthorizationRuleArgs struct {
 	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// AuthorizationRule properties.
-	Properties *SBAuthorizationRuleProperties `pulumi:"properties"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a NamespaceAuthorizationRule resource.
@@ -97,10 +100,10 @@ type NamespaceAuthorizationRuleArgs struct {
 	Name pulumi.StringInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
-	// AuthorizationRule properties.
-	Properties SBAuthorizationRulePropertiesPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput
 }
 
 func (NamespaceAuthorizationRuleArgs) ElementType() reflect.Type {

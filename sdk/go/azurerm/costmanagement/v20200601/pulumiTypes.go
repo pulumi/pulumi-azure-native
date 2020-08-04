@@ -2331,8 +2331,24 @@ func (o ExportDeliveryInfoResponsePtrOutput) Destination() ExportDeliveryDestina
 
 // An export execution.
 type ExportExecution struct {
-	// The properties of the export execution.
-	Properties *ExportExecutionProperties `pulumi:"properties"`
+	// The details of any error.
+	Error *ErrorDetails `pulumi:"error"`
+	// The type of the export execution.
+	ExecutionType *string `pulumi:"executionType"`
+	// The name of the exported file.
+	FileName *string `pulumi:"fileName"`
+	// The time when the export execution finished.
+	ProcessingEndTime *string `pulumi:"processingEndTime"`
+	// The time when export was picked up to be executed.
+	ProcessingStartTime *string `pulumi:"processingStartTime"`
+	// The export settings that were in effect for this execution.
+	RunSettings *CommonExportProperties `pulumi:"runSettings"`
+	// The last known status of the export execution.
+	Status *string `pulumi:"status"`
+	// The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
+	SubmittedBy *string `pulumi:"submittedBy"`
+	// The time when export was queued to be executed.
+	SubmittedTime *string `pulumi:"submittedTime"`
 }
 
 // ExportExecutionInput is an input type that accepts ExportExecutionArgs and ExportExecutionOutput values.
@@ -2348,8 +2364,24 @@ type ExportExecutionInput interface {
 
 // An export execution.
 type ExportExecutionArgs struct {
-	// The properties of the export execution.
-	Properties ExportExecutionPropertiesPtrInput `pulumi:"properties"`
+	// The details of any error.
+	Error ErrorDetailsPtrInput `pulumi:"error"`
+	// The type of the export execution.
+	ExecutionType pulumi.StringPtrInput `pulumi:"executionType"`
+	// The name of the exported file.
+	FileName pulumi.StringPtrInput `pulumi:"fileName"`
+	// The time when the export execution finished.
+	ProcessingEndTime pulumi.StringPtrInput `pulumi:"processingEndTime"`
+	// The time when export was picked up to be executed.
+	ProcessingStartTime pulumi.StringPtrInput `pulumi:"processingStartTime"`
+	// The export settings that were in effect for this execution.
+	RunSettings CommonExportPropertiesPtrInput `pulumi:"runSettings"`
+	// The last known status of the export execution.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+	// The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
+	SubmittedBy pulumi.StringPtrInput `pulumi:"submittedBy"`
+	// The time when export was queued to be executed.
+	SubmittedTime pulumi.StringPtrInput `pulumi:"submittedTime"`
 }
 
 func (ExportExecutionArgs) ElementType() reflect.Type {
@@ -2379,9 +2411,49 @@ func (o ExportExecutionOutput) ToExportExecutionOutputWithContext(ctx context.Co
 	return o
 }
 
-// The properties of the export execution.
-func (o ExportExecutionOutput) Properties() ExportExecutionPropertiesPtrOutput {
-	return o.ApplyT(func(v ExportExecution) *ExportExecutionProperties { return v.Properties }).(ExportExecutionPropertiesPtrOutput)
+// The details of any error.
+func (o ExportExecutionOutput) Error() ErrorDetailsPtrOutput {
+	return o.ApplyT(func(v ExportExecution) *ErrorDetails { return v.Error }).(ErrorDetailsPtrOutput)
+}
+
+// The type of the export execution.
+func (o ExportExecutionOutput) ExecutionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportExecution) *string { return v.ExecutionType }).(pulumi.StringPtrOutput)
+}
+
+// The name of the exported file.
+func (o ExportExecutionOutput) FileName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportExecution) *string { return v.FileName }).(pulumi.StringPtrOutput)
+}
+
+// The time when the export execution finished.
+func (o ExportExecutionOutput) ProcessingEndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportExecution) *string { return v.ProcessingEndTime }).(pulumi.StringPtrOutput)
+}
+
+// The time when export was picked up to be executed.
+func (o ExportExecutionOutput) ProcessingStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportExecution) *string { return v.ProcessingStartTime }).(pulumi.StringPtrOutput)
+}
+
+// The export settings that were in effect for this execution.
+func (o ExportExecutionOutput) RunSettings() CommonExportPropertiesPtrOutput {
+	return o.ApplyT(func(v ExportExecution) *CommonExportProperties { return v.RunSettings }).(CommonExportPropertiesPtrOutput)
+}
+
+// The last known status of the export execution.
+func (o ExportExecutionOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportExecution) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
+func (o ExportExecutionOutput) SubmittedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportExecution) *string { return v.SubmittedBy }).(pulumi.StringPtrOutput)
+}
+
+// The time when export was queued to be executed.
+func (o ExportExecutionOutput) SubmittedTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExportExecution) *string { return v.SubmittedTime }).(pulumi.StringPtrOutput)
 }
 
 // Result of listing the execution history of an export.
@@ -2631,292 +2703,6 @@ func (o ExportExecutionListResultResponsePtrOutput) Value() ExportExecutionRespo
 		}
 		return v.Value
 	}).(ExportExecutionResponseArrayOutput)
-}
-
-// The properties of the export execution.
-type ExportExecutionProperties struct {
-	// The details of any error.
-	Error *ErrorDetails `pulumi:"error"`
-	// The type of the export execution.
-	ExecutionType *string `pulumi:"executionType"`
-	// The name of the exported file.
-	FileName *string `pulumi:"fileName"`
-	// The time when the export execution finished.
-	ProcessingEndTime *string `pulumi:"processingEndTime"`
-	// The time when export was picked up to be executed.
-	ProcessingStartTime *string `pulumi:"processingStartTime"`
-	// The export settings that were in effect for this execution.
-	RunSettings *CommonExportProperties `pulumi:"runSettings"`
-	// The last known status of the export execution.
-	Status *string `pulumi:"status"`
-	// The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
-	SubmittedBy *string `pulumi:"submittedBy"`
-	// The time when export was queued to be executed.
-	SubmittedTime *string `pulumi:"submittedTime"`
-}
-
-// ExportExecutionPropertiesInput is an input type that accepts ExportExecutionPropertiesArgs and ExportExecutionPropertiesOutput values.
-// You can construct a concrete instance of `ExportExecutionPropertiesInput` via:
-//
-//          ExportExecutionPropertiesArgs{...}
-type ExportExecutionPropertiesInput interface {
-	pulumi.Input
-
-	ToExportExecutionPropertiesOutput() ExportExecutionPropertiesOutput
-	ToExportExecutionPropertiesOutputWithContext(context.Context) ExportExecutionPropertiesOutput
-}
-
-// The properties of the export execution.
-type ExportExecutionPropertiesArgs struct {
-	// The details of any error.
-	Error ErrorDetailsPtrInput `pulumi:"error"`
-	// The type of the export execution.
-	ExecutionType pulumi.StringPtrInput `pulumi:"executionType"`
-	// The name of the exported file.
-	FileName pulumi.StringPtrInput `pulumi:"fileName"`
-	// The time when the export execution finished.
-	ProcessingEndTime pulumi.StringPtrInput `pulumi:"processingEndTime"`
-	// The time when export was picked up to be executed.
-	ProcessingStartTime pulumi.StringPtrInput `pulumi:"processingStartTime"`
-	// The export settings that were in effect for this execution.
-	RunSettings CommonExportPropertiesPtrInput `pulumi:"runSettings"`
-	// The last known status of the export execution.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
-	SubmittedBy pulumi.StringPtrInput `pulumi:"submittedBy"`
-	// The time when export was queued to be executed.
-	SubmittedTime pulumi.StringPtrInput `pulumi:"submittedTime"`
-}
-
-func (ExportExecutionPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportExecutionProperties)(nil)).Elem()
-}
-
-func (i ExportExecutionPropertiesArgs) ToExportExecutionPropertiesOutput() ExportExecutionPropertiesOutput {
-	return i.ToExportExecutionPropertiesOutputWithContext(context.Background())
-}
-
-func (i ExportExecutionPropertiesArgs) ToExportExecutionPropertiesOutputWithContext(ctx context.Context) ExportExecutionPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportExecutionPropertiesOutput)
-}
-
-func (i ExportExecutionPropertiesArgs) ToExportExecutionPropertiesPtrOutput() ExportExecutionPropertiesPtrOutput {
-	return i.ToExportExecutionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ExportExecutionPropertiesArgs) ToExportExecutionPropertiesPtrOutputWithContext(ctx context.Context) ExportExecutionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportExecutionPropertiesOutput).ToExportExecutionPropertiesPtrOutputWithContext(ctx)
-}
-
-// ExportExecutionPropertiesPtrInput is an input type that accepts ExportExecutionPropertiesArgs, ExportExecutionPropertiesPtr and ExportExecutionPropertiesPtrOutput values.
-// You can construct a concrete instance of `ExportExecutionPropertiesPtrInput` via:
-//
-//          ExportExecutionPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ExportExecutionPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToExportExecutionPropertiesPtrOutput() ExportExecutionPropertiesPtrOutput
-	ToExportExecutionPropertiesPtrOutputWithContext(context.Context) ExportExecutionPropertiesPtrOutput
-}
-
-type exportExecutionPropertiesPtrType ExportExecutionPropertiesArgs
-
-func ExportExecutionPropertiesPtr(v *ExportExecutionPropertiesArgs) ExportExecutionPropertiesPtrInput {
-	return (*exportExecutionPropertiesPtrType)(v)
-}
-
-func (*exportExecutionPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportExecutionProperties)(nil)).Elem()
-}
-
-func (i *exportExecutionPropertiesPtrType) ToExportExecutionPropertiesPtrOutput() ExportExecutionPropertiesPtrOutput {
-	return i.ToExportExecutionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *exportExecutionPropertiesPtrType) ToExportExecutionPropertiesPtrOutputWithContext(ctx context.Context) ExportExecutionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportExecutionPropertiesPtrOutput)
-}
-
-// The properties of the export execution.
-type ExportExecutionPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ExportExecutionPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportExecutionProperties)(nil)).Elem()
-}
-
-func (o ExportExecutionPropertiesOutput) ToExportExecutionPropertiesOutput() ExportExecutionPropertiesOutput {
-	return o
-}
-
-func (o ExportExecutionPropertiesOutput) ToExportExecutionPropertiesOutputWithContext(ctx context.Context) ExportExecutionPropertiesOutput {
-	return o
-}
-
-func (o ExportExecutionPropertiesOutput) ToExportExecutionPropertiesPtrOutput() ExportExecutionPropertiesPtrOutput {
-	return o.ToExportExecutionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ExportExecutionPropertiesOutput) ToExportExecutionPropertiesPtrOutputWithContext(ctx context.Context) ExportExecutionPropertiesPtrOutput {
-	return o.ApplyT(func(v ExportExecutionProperties) *ExportExecutionProperties {
-		return &v
-	}).(ExportExecutionPropertiesPtrOutput)
-}
-
-// The details of any error.
-func (o ExportExecutionPropertiesOutput) Error() ErrorDetailsPtrOutput {
-	return o.ApplyT(func(v ExportExecutionProperties) *ErrorDetails { return v.Error }).(ErrorDetailsPtrOutput)
-}
-
-// The type of the export execution.
-func (o ExportExecutionPropertiesOutput) ExecutionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExportExecutionProperties) *string { return v.ExecutionType }).(pulumi.StringPtrOutput)
-}
-
-// The name of the exported file.
-func (o ExportExecutionPropertiesOutput) FileName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExportExecutionProperties) *string { return v.FileName }).(pulumi.StringPtrOutput)
-}
-
-// The time when the export execution finished.
-func (o ExportExecutionPropertiesOutput) ProcessingEndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExportExecutionProperties) *string { return v.ProcessingEndTime }).(pulumi.StringPtrOutput)
-}
-
-// The time when export was picked up to be executed.
-func (o ExportExecutionPropertiesOutput) ProcessingStartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExportExecutionProperties) *string { return v.ProcessingStartTime }).(pulumi.StringPtrOutput)
-}
-
-// The export settings that were in effect for this execution.
-func (o ExportExecutionPropertiesOutput) RunSettings() CommonExportPropertiesPtrOutput {
-	return o.ApplyT(func(v ExportExecutionProperties) *CommonExportProperties { return v.RunSettings }).(CommonExportPropertiesPtrOutput)
-}
-
-// The last known status of the export execution.
-func (o ExportExecutionPropertiesOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExportExecutionProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-// The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
-func (o ExportExecutionPropertiesOutput) SubmittedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExportExecutionProperties) *string { return v.SubmittedBy }).(pulumi.StringPtrOutput)
-}
-
-// The time when export was queued to be executed.
-func (o ExportExecutionPropertiesOutput) SubmittedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExportExecutionProperties) *string { return v.SubmittedTime }).(pulumi.StringPtrOutput)
-}
-
-type ExportExecutionPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ExportExecutionPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportExecutionProperties)(nil)).Elem()
-}
-
-func (o ExportExecutionPropertiesPtrOutput) ToExportExecutionPropertiesPtrOutput() ExportExecutionPropertiesPtrOutput {
-	return o
-}
-
-func (o ExportExecutionPropertiesPtrOutput) ToExportExecutionPropertiesPtrOutputWithContext(ctx context.Context) ExportExecutionPropertiesPtrOutput {
-	return o
-}
-
-func (o ExportExecutionPropertiesPtrOutput) Elem() ExportExecutionPropertiesOutput {
-	return o.ApplyT(func(v *ExportExecutionProperties) ExportExecutionProperties { return *v }).(ExportExecutionPropertiesOutput)
-}
-
-// The details of any error.
-func (o ExportExecutionPropertiesPtrOutput) Error() ErrorDetailsPtrOutput {
-	return o.ApplyT(func(v *ExportExecutionProperties) *ErrorDetails {
-		if v == nil {
-			return nil
-		}
-		return v.Error
-	}).(ErrorDetailsPtrOutput)
-}
-
-// The type of the export execution.
-func (o ExportExecutionPropertiesPtrOutput) ExecutionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportExecutionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ExecutionType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the exported file.
-func (o ExportExecutionPropertiesPtrOutput) FileName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportExecutionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FileName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The time when the export execution finished.
-func (o ExportExecutionPropertiesPtrOutput) ProcessingEndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportExecutionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProcessingEndTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// The time when export was picked up to be executed.
-func (o ExportExecutionPropertiesPtrOutput) ProcessingStartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportExecutionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProcessingStartTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// The export settings that were in effect for this execution.
-func (o ExportExecutionPropertiesPtrOutput) RunSettings() CommonExportPropertiesPtrOutput {
-	return o.ApplyT(func(v *ExportExecutionProperties) *CommonExportProperties {
-		if v == nil {
-			return nil
-		}
-		return v.RunSettings
-	}).(CommonExportPropertiesPtrOutput)
-}
-
-// The last known status of the export execution.
-func (o ExportExecutionPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportExecutionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
-func (o ExportExecutionPropertiesPtrOutput) SubmittedBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportExecutionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubmittedBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The time when export was queued to be executed.
-func (o ExportExecutionPropertiesPtrOutput) SubmittedTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportExecutionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SubmittedTime
-	}).(pulumi.StringPtrOutput)
 }
 
 // The properties of the export execution.
@@ -3339,216 +3125,6 @@ func (o ExportExecutionResponseArrayOutput) Index(i pulumi.IntInput) ExportExecu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExportExecutionResponse {
 		return vs[0].([]ExportExecutionResponse)[vs[1].(int)]
 	}).(ExportExecutionResponseOutput)
-}
-
-// The properties of the export.
-type ExportProperties struct {
-	// Has the definition for the export.
-	Definition ExportDefinition `pulumi:"definition"`
-	// Has delivery information for the export.
-	DeliveryInfo ExportDeliveryInfo `pulumi:"deliveryInfo"`
-	// The format of the export being delivered. Currently only 'Csv' is supported.
-	Format *string `pulumi:"format"`
-	// If requested, has the most recent execution history for the export.
-	RunHistory *ExportExecutionListResult `pulumi:"runHistory"`
-	// Has schedule information for the export.
-	Schedule *ExportSchedule `pulumi:"schedule"`
-}
-
-// ExportPropertiesInput is an input type that accepts ExportPropertiesArgs and ExportPropertiesOutput values.
-// You can construct a concrete instance of `ExportPropertiesInput` via:
-//
-//          ExportPropertiesArgs{...}
-type ExportPropertiesInput interface {
-	pulumi.Input
-
-	ToExportPropertiesOutput() ExportPropertiesOutput
-	ToExportPropertiesOutputWithContext(context.Context) ExportPropertiesOutput
-}
-
-// The properties of the export.
-type ExportPropertiesArgs struct {
-	// Has the definition for the export.
-	Definition ExportDefinitionInput `pulumi:"definition"`
-	// Has delivery information for the export.
-	DeliveryInfo ExportDeliveryInfoInput `pulumi:"deliveryInfo"`
-	// The format of the export being delivered. Currently only 'Csv' is supported.
-	Format pulumi.StringPtrInput `pulumi:"format"`
-	// If requested, has the most recent execution history for the export.
-	RunHistory ExportExecutionListResultPtrInput `pulumi:"runHistory"`
-	// Has schedule information for the export.
-	Schedule ExportSchedulePtrInput `pulumi:"schedule"`
-}
-
-func (ExportPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportProperties)(nil)).Elem()
-}
-
-func (i ExportPropertiesArgs) ToExportPropertiesOutput() ExportPropertiesOutput {
-	return i.ToExportPropertiesOutputWithContext(context.Background())
-}
-
-func (i ExportPropertiesArgs) ToExportPropertiesOutputWithContext(ctx context.Context) ExportPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportPropertiesOutput)
-}
-
-func (i ExportPropertiesArgs) ToExportPropertiesPtrOutput() ExportPropertiesPtrOutput {
-	return i.ToExportPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ExportPropertiesArgs) ToExportPropertiesPtrOutputWithContext(ctx context.Context) ExportPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportPropertiesOutput).ToExportPropertiesPtrOutputWithContext(ctx)
-}
-
-// ExportPropertiesPtrInput is an input type that accepts ExportPropertiesArgs, ExportPropertiesPtr and ExportPropertiesPtrOutput values.
-// You can construct a concrete instance of `ExportPropertiesPtrInput` via:
-//
-//          ExportPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ExportPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToExportPropertiesPtrOutput() ExportPropertiesPtrOutput
-	ToExportPropertiesPtrOutputWithContext(context.Context) ExportPropertiesPtrOutput
-}
-
-type exportPropertiesPtrType ExportPropertiesArgs
-
-func ExportPropertiesPtr(v *ExportPropertiesArgs) ExportPropertiesPtrInput {
-	return (*exportPropertiesPtrType)(v)
-}
-
-func (*exportPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportProperties)(nil)).Elem()
-}
-
-func (i *exportPropertiesPtrType) ToExportPropertiesPtrOutput() ExportPropertiesPtrOutput {
-	return i.ToExportPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *exportPropertiesPtrType) ToExportPropertiesPtrOutputWithContext(ctx context.Context) ExportPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ExportPropertiesPtrOutput)
-}
-
-// The properties of the export.
-type ExportPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ExportPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ExportProperties)(nil)).Elem()
-}
-
-func (o ExportPropertiesOutput) ToExportPropertiesOutput() ExportPropertiesOutput {
-	return o
-}
-
-func (o ExportPropertiesOutput) ToExportPropertiesOutputWithContext(ctx context.Context) ExportPropertiesOutput {
-	return o
-}
-
-func (o ExportPropertiesOutput) ToExportPropertiesPtrOutput() ExportPropertiesPtrOutput {
-	return o.ToExportPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ExportPropertiesOutput) ToExportPropertiesPtrOutputWithContext(ctx context.Context) ExportPropertiesPtrOutput {
-	return o.ApplyT(func(v ExportProperties) *ExportProperties {
-		return &v
-	}).(ExportPropertiesPtrOutput)
-}
-
-// Has the definition for the export.
-func (o ExportPropertiesOutput) Definition() ExportDefinitionOutput {
-	return o.ApplyT(func(v ExportProperties) ExportDefinition { return v.Definition }).(ExportDefinitionOutput)
-}
-
-// Has delivery information for the export.
-func (o ExportPropertiesOutput) DeliveryInfo() ExportDeliveryInfoOutput {
-	return o.ApplyT(func(v ExportProperties) ExportDeliveryInfo { return v.DeliveryInfo }).(ExportDeliveryInfoOutput)
-}
-
-// The format of the export being delivered. Currently only 'Csv' is supported.
-func (o ExportPropertiesOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ExportProperties) *string { return v.Format }).(pulumi.StringPtrOutput)
-}
-
-// If requested, has the most recent execution history for the export.
-func (o ExportPropertiesOutput) RunHistory() ExportExecutionListResultPtrOutput {
-	return o.ApplyT(func(v ExportProperties) *ExportExecutionListResult { return v.RunHistory }).(ExportExecutionListResultPtrOutput)
-}
-
-// Has schedule information for the export.
-func (o ExportPropertiesOutput) Schedule() ExportSchedulePtrOutput {
-	return o.ApplyT(func(v ExportProperties) *ExportSchedule { return v.Schedule }).(ExportSchedulePtrOutput)
-}
-
-type ExportPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ExportPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ExportProperties)(nil)).Elem()
-}
-
-func (o ExportPropertiesPtrOutput) ToExportPropertiesPtrOutput() ExportPropertiesPtrOutput {
-	return o
-}
-
-func (o ExportPropertiesPtrOutput) ToExportPropertiesPtrOutputWithContext(ctx context.Context) ExportPropertiesPtrOutput {
-	return o
-}
-
-func (o ExportPropertiesPtrOutput) Elem() ExportPropertiesOutput {
-	return o.ApplyT(func(v *ExportProperties) ExportProperties { return *v }).(ExportPropertiesOutput)
-}
-
-// Has the definition for the export.
-func (o ExportPropertiesPtrOutput) Definition() ExportDefinitionPtrOutput {
-	return o.ApplyT(func(v *ExportProperties) *ExportDefinition {
-		if v == nil {
-			return nil
-		}
-		return &v.Definition
-	}).(ExportDefinitionPtrOutput)
-}
-
-// Has delivery information for the export.
-func (o ExportPropertiesPtrOutput) DeliveryInfo() ExportDeliveryInfoPtrOutput {
-	return o.ApplyT(func(v *ExportProperties) *ExportDeliveryInfo {
-		if v == nil {
-			return nil
-		}
-		return &v.DeliveryInfo
-	}).(ExportDeliveryInfoPtrOutput)
-}
-
-// The format of the export being delivered. Currently only 'Csv' is supported.
-func (o ExportPropertiesPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ExportProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Format
-	}).(pulumi.StringPtrOutput)
-}
-
-// If requested, has the most recent execution history for the export.
-func (o ExportPropertiesPtrOutput) RunHistory() ExportExecutionListResultPtrOutput {
-	return o.ApplyT(func(v *ExportProperties) *ExportExecutionListResult {
-		if v == nil {
-			return nil
-		}
-		return v.RunHistory
-	}).(ExportExecutionListResultPtrOutput)
-}
-
-// Has schedule information for the export.
-func (o ExportPropertiesPtrOutput) Schedule() ExportSchedulePtrOutput {
-	return o.ApplyT(func(v *ExportProperties) *ExportSchedule {
-		if v == nil {
-			return nil
-		}
-		return v.Schedule
-	}).(ExportSchedulePtrOutput)
 }
 
 // The properties of the export.
@@ -6479,197 +6055,6 @@ func (o ReportConfigDatasetResponsePtrOutput) Sorting() ReportConfigSortingRespo
 }
 
 // The definition of a report config.
-type ReportConfigDefinition struct {
-	// Has definition for data in this report config.
-	Dataset *ReportConfigDataset `pulumi:"dataset"`
-	// Has time period for pulling data for the report.
-	TimePeriod *ReportConfigTimePeriod `pulumi:"timePeriod"`
-	// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-	Timeframe string `pulumi:"timeframe"`
-	// The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
-	Type string `pulumi:"type"`
-}
-
-// ReportConfigDefinitionInput is an input type that accepts ReportConfigDefinitionArgs and ReportConfigDefinitionOutput values.
-// You can construct a concrete instance of `ReportConfigDefinitionInput` via:
-//
-//          ReportConfigDefinitionArgs{...}
-type ReportConfigDefinitionInput interface {
-	pulumi.Input
-
-	ToReportConfigDefinitionOutput() ReportConfigDefinitionOutput
-	ToReportConfigDefinitionOutputWithContext(context.Context) ReportConfigDefinitionOutput
-}
-
-// The definition of a report config.
-type ReportConfigDefinitionArgs struct {
-	// Has definition for data in this report config.
-	Dataset ReportConfigDatasetPtrInput `pulumi:"dataset"`
-	// Has time period for pulling data for the report.
-	TimePeriod ReportConfigTimePeriodPtrInput `pulumi:"timePeriod"`
-	// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-	Timeframe pulumi.StringInput `pulumi:"timeframe"`
-	// The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ReportConfigDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportConfigDefinition)(nil)).Elem()
-}
-
-func (i ReportConfigDefinitionArgs) ToReportConfigDefinitionOutput() ReportConfigDefinitionOutput {
-	return i.ToReportConfigDefinitionOutputWithContext(context.Background())
-}
-
-func (i ReportConfigDefinitionArgs) ToReportConfigDefinitionOutputWithContext(ctx context.Context) ReportConfigDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigDefinitionOutput)
-}
-
-func (i ReportConfigDefinitionArgs) ToReportConfigDefinitionPtrOutput() ReportConfigDefinitionPtrOutput {
-	return i.ToReportConfigDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i ReportConfigDefinitionArgs) ToReportConfigDefinitionPtrOutputWithContext(ctx context.Context) ReportConfigDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigDefinitionOutput).ToReportConfigDefinitionPtrOutputWithContext(ctx)
-}
-
-// ReportConfigDefinitionPtrInput is an input type that accepts ReportConfigDefinitionArgs, ReportConfigDefinitionPtr and ReportConfigDefinitionPtrOutput values.
-// You can construct a concrete instance of `ReportConfigDefinitionPtrInput` via:
-//
-//          ReportConfigDefinitionArgs{...}
-//
-//  or:
-//
-//          nil
-type ReportConfigDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToReportConfigDefinitionPtrOutput() ReportConfigDefinitionPtrOutput
-	ToReportConfigDefinitionPtrOutputWithContext(context.Context) ReportConfigDefinitionPtrOutput
-}
-
-type reportConfigDefinitionPtrType ReportConfigDefinitionArgs
-
-func ReportConfigDefinitionPtr(v *ReportConfigDefinitionArgs) ReportConfigDefinitionPtrInput {
-	return (*reportConfigDefinitionPtrType)(v)
-}
-
-func (*reportConfigDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportConfigDefinition)(nil)).Elem()
-}
-
-func (i *reportConfigDefinitionPtrType) ToReportConfigDefinitionPtrOutput() ReportConfigDefinitionPtrOutput {
-	return i.ToReportConfigDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *reportConfigDefinitionPtrType) ToReportConfigDefinitionPtrOutputWithContext(ctx context.Context) ReportConfigDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportConfigDefinitionPtrOutput)
-}
-
-// The definition of a report config.
-type ReportConfigDefinitionOutput struct{ *pulumi.OutputState }
-
-func (ReportConfigDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportConfigDefinition)(nil)).Elem()
-}
-
-func (o ReportConfigDefinitionOutput) ToReportConfigDefinitionOutput() ReportConfigDefinitionOutput {
-	return o
-}
-
-func (o ReportConfigDefinitionOutput) ToReportConfigDefinitionOutputWithContext(ctx context.Context) ReportConfigDefinitionOutput {
-	return o
-}
-
-func (o ReportConfigDefinitionOutput) ToReportConfigDefinitionPtrOutput() ReportConfigDefinitionPtrOutput {
-	return o.ToReportConfigDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o ReportConfigDefinitionOutput) ToReportConfigDefinitionPtrOutputWithContext(ctx context.Context) ReportConfigDefinitionPtrOutput {
-	return o.ApplyT(func(v ReportConfigDefinition) *ReportConfigDefinition {
-		return &v
-	}).(ReportConfigDefinitionPtrOutput)
-}
-
-// Has definition for data in this report config.
-func (o ReportConfigDefinitionOutput) Dataset() ReportConfigDatasetPtrOutput {
-	return o.ApplyT(func(v ReportConfigDefinition) *ReportConfigDataset { return v.Dataset }).(ReportConfigDatasetPtrOutput)
-}
-
-// Has time period for pulling data for the report.
-func (o ReportConfigDefinitionOutput) TimePeriod() ReportConfigTimePeriodPtrOutput {
-	return o.ApplyT(func(v ReportConfigDefinition) *ReportConfigTimePeriod { return v.TimePeriod }).(ReportConfigTimePeriodPtrOutput)
-}
-
-// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-func (o ReportConfigDefinitionOutput) Timeframe() pulumi.StringOutput {
-	return o.ApplyT(func(v ReportConfigDefinition) string { return v.Timeframe }).(pulumi.StringOutput)
-}
-
-// The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
-func (o ReportConfigDefinitionOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ReportConfigDefinition) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type ReportConfigDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (ReportConfigDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportConfigDefinition)(nil)).Elem()
-}
-
-func (o ReportConfigDefinitionPtrOutput) ToReportConfigDefinitionPtrOutput() ReportConfigDefinitionPtrOutput {
-	return o
-}
-
-func (o ReportConfigDefinitionPtrOutput) ToReportConfigDefinitionPtrOutputWithContext(ctx context.Context) ReportConfigDefinitionPtrOutput {
-	return o
-}
-
-func (o ReportConfigDefinitionPtrOutput) Elem() ReportConfigDefinitionOutput {
-	return o.ApplyT(func(v *ReportConfigDefinition) ReportConfigDefinition { return *v }).(ReportConfigDefinitionOutput)
-}
-
-// Has definition for data in this report config.
-func (o ReportConfigDefinitionPtrOutput) Dataset() ReportConfigDatasetPtrOutput {
-	return o.ApplyT(func(v *ReportConfigDefinition) *ReportConfigDataset {
-		if v == nil {
-			return nil
-		}
-		return v.Dataset
-	}).(ReportConfigDatasetPtrOutput)
-}
-
-// Has time period for pulling data for the report.
-func (o ReportConfigDefinitionPtrOutput) TimePeriod() ReportConfigTimePeriodPtrOutput {
-	return o.ApplyT(func(v *ReportConfigDefinition) *ReportConfigTimePeriod {
-		if v == nil {
-			return nil
-		}
-		return v.TimePeriod
-	}).(ReportConfigTimePeriodPtrOutput)
-}
-
-// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-func (o ReportConfigDefinitionPtrOutput) Timeframe() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportConfigDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Timeframe
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
-func (o ReportConfigDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ReportConfigDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// The definition of a report config.
 type ReportConfigDefinitionResponse struct {
 	// Has definition for data in this report config.
 	Dataset *ReportConfigDatasetResponse `pulumi:"dataset"`
@@ -8277,273 +7662,6 @@ func (o ViewByScopeTypeOutput) Type() pulumi.StringOutput {
 }
 
 // The properties of the view.
-type ViewProperties struct {
-	// Show costs accumulated over time.
-	Accumulated *string `pulumi:"accumulated"`
-	// Chart type of the main view in Cost Analysis. Required.
-	Chart *string `pulumi:"chart"`
-	// User input name of the view. Required.
-	DisplayName *string `pulumi:"displayName"`
-	// List of KPIs to show in Cost Analysis UI.
-	Kpis []KpiProperties `pulumi:"kpis"`
-	// Metric to use when displaying costs.
-	Metric *string `pulumi:"metric"`
-	// Configuration of 3 sub-views in the Cost Analysis UI.
-	Pivots []PivotProperties `pulumi:"pivots"`
-	// Query body configuration. Required.
-	Query *ReportConfigDefinition `pulumi:"query"`
-	// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
-	Scope *string `pulumi:"scope"`
-}
-
-// ViewPropertiesInput is an input type that accepts ViewPropertiesArgs and ViewPropertiesOutput values.
-// You can construct a concrete instance of `ViewPropertiesInput` via:
-//
-//          ViewPropertiesArgs{...}
-type ViewPropertiesInput interface {
-	pulumi.Input
-
-	ToViewPropertiesOutput() ViewPropertiesOutput
-	ToViewPropertiesOutputWithContext(context.Context) ViewPropertiesOutput
-}
-
-// The properties of the view.
-type ViewPropertiesArgs struct {
-	// Show costs accumulated over time.
-	Accumulated pulumi.StringPtrInput `pulumi:"accumulated"`
-	// Chart type of the main view in Cost Analysis. Required.
-	Chart pulumi.StringPtrInput `pulumi:"chart"`
-	// User input name of the view. Required.
-	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
-	// List of KPIs to show in Cost Analysis UI.
-	Kpis KpiPropertiesArrayInput `pulumi:"kpis"`
-	// Metric to use when displaying costs.
-	Metric pulumi.StringPtrInput `pulumi:"metric"`
-	// Configuration of 3 sub-views in the Cost Analysis UI.
-	Pivots PivotPropertiesArrayInput `pulumi:"pivots"`
-	// Query body configuration. Required.
-	Query ReportConfigDefinitionPtrInput `pulumi:"query"`
-	// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
-	Scope pulumi.StringPtrInput `pulumi:"scope"`
-}
-
-func (ViewPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewProperties)(nil)).Elem()
-}
-
-func (i ViewPropertiesArgs) ToViewPropertiesOutput() ViewPropertiesOutput {
-	return i.ToViewPropertiesOutputWithContext(context.Background())
-}
-
-func (i ViewPropertiesArgs) ToViewPropertiesOutputWithContext(ctx context.Context) ViewPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewPropertiesOutput)
-}
-
-func (i ViewPropertiesArgs) ToViewPropertiesPtrOutput() ViewPropertiesPtrOutput {
-	return i.ToViewPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ViewPropertiesArgs) ToViewPropertiesPtrOutputWithContext(ctx context.Context) ViewPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewPropertiesOutput).ToViewPropertiesPtrOutputWithContext(ctx)
-}
-
-// ViewPropertiesPtrInput is an input type that accepts ViewPropertiesArgs, ViewPropertiesPtr and ViewPropertiesPtrOutput values.
-// You can construct a concrete instance of `ViewPropertiesPtrInput` via:
-//
-//          ViewPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ViewPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToViewPropertiesPtrOutput() ViewPropertiesPtrOutput
-	ToViewPropertiesPtrOutputWithContext(context.Context) ViewPropertiesPtrOutput
-}
-
-type viewPropertiesPtrType ViewPropertiesArgs
-
-func ViewPropertiesPtr(v *ViewPropertiesArgs) ViewPropertiesPtrInput {
-	return (*viewPropertiesPtrType)(v)
-}
-
-func (*viewPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ViewProperties)(nil)).Elem()
-}
-
-func (i *viewPropertiesPtrType) ToViewPropertiesPtrOutput() ViewPropertiesPtrOutput {
-	return i.ToViewPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *viewPropertiesPtrType) ToViewPropertiesPtrOutputWithContext(ctx context.Context) ViewPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ViewPropertiesPtrOutput)
-}
-
-// The properties of the view.
-type ViewPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ViewPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ViewProperties)(nil)).Elem()
-}
-
-func (o ViewPropertiesOutput) ToViewPropertiesOutput() ViewPropertiesOutput {
-	return o
-}
-
-func (o ViewPropertiesOutput) ToViewPropertiesOutputWithContext(ctx context.Context) ViewPropertiesOutput {
-	return o
-}
-
-func (o ViewPropertiesOutput) ToViewPropertiesPtrOutput() ViewPropertiesPtrOutput {
-	return o.ToViewPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ViewPropertiesOutput) ToViewPropertiesPtrOutputWithContext(ctx context.Context) ViewPropertiesPtrOutput {
-	return o.ApplyT(func(v ViewProperties) *ViewProperties {
-		return &v
-	}).(ViewPropertiesPtrOutput)
-}
-
-// Show costs accumulated over time.
-func (o ViewPropertiesOutput) Accumulated() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ViewProperties) *string { return v.Accumulated }).(pulumi.StringPtrOutput)
-}
-
-// Chart type of the main view in Cost Analysis. Required.
-func (o ViewPropertiesOutput) Chart() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ViewProperties) *string { return v.Chart }).(pulumi.StringPtrOutput)
-}
-
-// User input name of the view. Required.
-func (o ViewPropertiesOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ViewProperties) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
-}
-
-// List of KPIs to show in Cost Analysis UI.
-func (o ViewPropertiesOutput) Kpis() KpiPropertiesArrayOutput {
-	return o.ApplyT(func(v ViewProperties) []KpiProperties { return v.Kpis }).(KpiPropertiesArrayOutput)
-}
-
-// Metric to use when displaying costs.
-func (o ViewPropertiesOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ViewProperties) *string { return v.Metric }).(pulumi.StringPtrOutput)
-}
-
-// Configuration of 3 sub-views in the Cost Analysis UI.
-func (o ViewPropertiesOutput) Pivots() PivotPropertiesArrayOutput {
-	return o.ApplyT(func(v ViewProperties) []PivotProperties { return v.Pivots }).(PivotPropertiesArrayOutput)
-}
-
-// Query body configuration. Required.
-func (o ViewPropertiesOutput) Query() ReportConfigDefinitionPtrOutput {
-	return o.ApplyT(func(v ViewProperties) *ReportConfigDefinition { return v.Query }).(ReportConfigDefinitionPtrOutput)
-}
-
-// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
-func (o ViewPropertiesOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ViewProperties) *string { return v.Scope }).(pulumi.StringPtrOutput)
-}
-
-type ViewPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ViewPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ViewProperties)(nil)).Elem()
-}
-
-func (o ViewPropertiesPtrOutput) ToViewPropertiesPtrOutput() ViewPropertiesPtrOutput {
-	return o
-}
-
-func (o ViewPropertiesPtrOutput) ToViewPropertiesPtrOutputWithContext(ctx context.Context) ViewPropertiesPtrOutput {
-	return o
-}
-
-func (o ViewPropertiesPtrOutput) Elem() ViewPropertiesOutput {
-	return o.ApplyT(func(v *ViewProperties) ViewProperties { return *v }).(ViewPropertiesOutput)
-}
-
-// Show costs accumulated over time.
-func (o ViewPropertiesPtrOutput) Accumulated() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ViewProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Accumulated
-	}).(pulumi.StringPtrOutput)
-}
-
-// Chart type of the main view in Cost Analysis. Required.
-func (o ViewPropertiesPtrOutput) Chart() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ViewProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Chart
-	}).(pulumi.StringPtrOutput)
-}
-
-// User input name of the view. Required.
-func (o ViewPropertiesPtrOutput) DisplayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ViewProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayName
-	}).(pulumi.StringPtrOutput)
-}
-
-// List of KPIs to show in Cost Analysis UI.
-func (o ViewPropertiesPtrOutput) Kpis() KpiPropertiesArrayOutput {
-	return o.ApplyT(func(v *ViewProperties) []KpiProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Kpis
-	}).(KpiPropertiesArrayOutput)
-}
-
-// Metric to use when displaying costs.
-func (o ViewPropertiesPtrOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ViewProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Metric
-	}).(pulumi.StringPtrOutput)
-}
-
-// Configuration of 3 sub-views in the Cost Analysis UI.
-func (o ViewPropertiesPtrOutput) Pivots() PivotPropertiesArrayOutput {
-	return o.ApplyT(func(v *ViewProperties) []PivotProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Pivots
-	}).(PivotPropertiesArrayOutput)
-}
-
-// Query body configuration. Required.
-func (o ViewPropertiesPtrOutput) Query() ReportConfigDefinitionPtrOutput {
-	return o.ApplyT(func(v *ViewProperties) *ReportConfigDefinition {
-		if v == nil {
-			return nil
-		}
-		return v.Query
-	}).(ReportConfigDefinitionPtrOutput)
-}
-
-// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
-func (o ViewPropertiesPtrOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ViewProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Scope
-	}).(pulumi.StringPtrOutput)
-}
-
-// The properties of the view.
 type ViewPropertiesResponse struct {
 	// Show costs accumulated over time.
 	Accumulated *string `pulumi:"accumulated"`
@@ -8883,14 +8001,10 @@ func init() {
 	pulumi.RegisterOutputType(ExportExecutionListResultPtrOutput{})
 	pulumi.RegisterOutputType(ExportExecutionListResultResponseOutput{})
 	pulumi.RegisterOutputType(ExportExecutionListResultResponsePtrOutput{})
-	pulumi.RegisterOutputType(ExportExecutionPropertiesOutput{})
-	pulumi.RegisterOutputType(ExportExecutionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ExportExecutionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ExportExecutionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExportExecutionResponseOutput{})
 	pulumi.RegisterOutputType(ExportExecutionResponseArrayOutput{})
-	pulumi.RegisterOutputType(ExportPropertiesOutput{})
-	pulumi.RegisterOutputType(ExportPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ExportPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ExportPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExportRecurrencePeriodOutput{})
@@ -8929,8 +8043,6 @@ func init() {
 	pulumi.RegisterOutputType(ReportConfigDatasetConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(ReportConfigDatasetResponseOutput{})
 	pulumi.RegisterOutputType(ReportConfigDatasetResponsePtrOutput{})
-	pulumi.RegisterOutputType(ReportConfigDefinitionOutput{})
-	pulumi.RegisterOutputType(ReportConfigDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ReportConfigDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(ReportConfigDefinitionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ReportConfigFilterOutput{})
@@ -8953,8 +8065,6 @@ func init() {
 	pulumi.RegisterOutputType(ReportConfigTimePeriodResponsePtrOutput{})
 	pulumi.RegisterOutputType(ViewTypeOutput{})
 	pulumi.RegisterOutputType(ViewByScopeTypeOutput{})
-	pulumi.RegisterOutputType(ViewPropertiesOutput{})
-	pulumi.RegisterOutputType(ViewPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ViewPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ViewPropertiesResponsePtrOutput{})
 }

@@ -81,14 +81,28 @@ func (RegisteredServerState) ElementType() reflect.Type {
 }
 
 type registeredServerArgs struct {
+	// Registered Server Agent Version
+	AgentVersion *string `pulumi:"agentVersion"`
+	// Registered Server clusterId
+	ClusterId *string `pulumi:"clusterId"`
+	// Registered Server clusterName
+	ClusterName *string `pulumi:"clusterName"`
+	// Friendly Name
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Registered Server last heart beat
+	LastHeartBeat *string `pulumi:"lastHeartBeat"`
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location *string `pulumi:"location"`
-	// GUID identifying the on-premises server.
+	// Registered Server serverId
 	Name string `pulumi:"name"`
-	// The parameters used to create the storage sync service.
-	Properties *RegisteredServerCreateParametersProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Registered Server Certificate
+	ServerCertificate *string `pulumi:"serverCertificate"`
+	// Registered Server OS Version
+	ServerOSVersion *string `pulumi:"serverOSVersion"`
+	// Registered Server serverRole
+	ServerRole *string `pulumi:"serverRole"`
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
@@ -97,14 +111,28 @@ type registeredServerArgs struct {
 
 // The set of arguments for constructing a RegisteredServer resource.
 type RegisteredServerArgs struct {
+	// Registered Server Agent Version
+	AgentVersion pulumi.StringPtrInput
+	// Registered Server clusterId
+	ClusterId pulumi.StringPtrInput
+	// Registered Server clusterName
+	ClusterName pulumi.StringPtrInput
+	// Friendly Name
+	FriendlyName pulumi.StringPtrInput
+	// Registered Server last heart beat
+	LastHeartBeat pulumi.StringPtrInput
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location pulumi.StringPtrInput
-	// GUID identifying the on-premises server.
+	// Registered Server serverId
 	Name pulumi.StringInput
-	// The parameters used to create the storage sync service.
-	Properties RegisteredServerCreateParametersPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Registered Server Certificate
+	ServerCertificate pulumi.StringPtrInput
+	// Registered Server OS Version
+	ServerOSVersion pulumi.StringPtrInput
+	// Registered Server serverRole
+	ServerRole pulumi.StringPtrInput
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName pulumi.StringInput
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.

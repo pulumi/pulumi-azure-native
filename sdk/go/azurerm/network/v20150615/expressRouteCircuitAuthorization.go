@@ -78,6 +78,10 @@ func (ExpressRouteCircuitAuthorizationState) ElementType() reflect.Type {
 }
 
 type expressRouteCircuitAuthorizationArgs struct {
+	// The authorization key.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
+	AuthorizationUseStatus *string `pulumi:"authorizationUseStatus"`
 	// The name of the express route circuit.
 	CircuitName string `pulumi:"circuitName"`
 	// A unique read-only string that changes whenever the resource is updated.
@@ -85,14 +89,19 @@ type expressRouteCircuitAuthorizationArgs struct {
 	// Resource Identifier.
 	Id *string `pulumi:"id"`
 	// The name of the authorization.
-	Name       string                         `pulumi:"name"`
-	Properties *AuthorizationPropertiesFormat `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ExpressRouteCircuitAuthorization resource.
 type ExpressRouteCircuitAuthorizationArgs struct {
+	// The authorization key.
+	AuthorizationKey pulumi.StringPtrInput
+	// AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
+	AuthorizationUseStatus pulumi.StringPtrInput
 	// The name of the express route circuit.
 	CircuitName pulumi.StringInput
 	// A unique read-only string that changes whenever the resource is updated.
@@ -100,8 +109,9 @@ type ExpressRouteCircuitAuthorizationArgs struct {
 	// Resource Identifier.
 	Id pulumi.StringPtrInput
 	// The name of the authorization.
-	Name       pulumi.StringInput
-	Properties AuthorizationPropertiesFormatPtrInput
+	Name pulumi.StringInput
+	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

@@ -99,34 +99,46 @@ func (VirtualHubState) ElementType() reflect.Type {
 }
 
 type virtualHubArgs struct {
+	// Address-prefix for this VirtualHub.
+	AddressPrefix *string `pulumi:"addressPrefix"`
+	// list of all vnet connections with this VirtualHub.
+	HubVirtualNetworkConnections []HubVirtualNetworkConnection `pulumi:"hubVirtualNetworkConnections"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// The name of the VirtualHub.
 	Name string `pulumi:"name"`
-	// Parameters for VirtualHub
-	Properties *VirtualHubProperties `pulumi:"properties"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The VirtualWAN to which the VirtualHub belongs
+	VirtualWan *SubResource `pulumi:"virtualWan"`
 }
 
 // The set of arguments for constructing a VirtualHub resource.
 type VirtualHubArgs struct {
+	// Address-prefix for this VirtualHub.
+	AddressPrefix pulumi.StringPtrInput
+	// list of all vnet connections with this VirtualHub.
+	HubVirtualNetworkConnections HubVirtualNetworkConnectionArrayInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
 	// The name of the VirtualHub.
 	Name pulumi.StringInput
-	// Parameters for VirtualHub
-	Properties VirtualHubPropertiesPtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The resource group name of the VirtualHub.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The VirtualWAN to which the VirtualHub belongs
+	VirtualWan SubResourcePtrInput
 }
 
 func (VirtualHubArgs) ElementType() reflect.Type {

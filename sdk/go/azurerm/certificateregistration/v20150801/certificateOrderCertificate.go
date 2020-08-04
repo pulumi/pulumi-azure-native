@@ -103,13 +103,18 @@ type certificateOrderCertificateArgs struct {
 	CertificateOrderName string `pulumi:"certificateOrderName"`
 	// Resource Id
 	Id *string `pulumi:"id"`
+	// Key Vault Csm resource Id
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Key Vault secret name
+	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       string                                 `pulumi:"name"`
-	Properties *CertificateOrderCertificateProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// Status of the Key Vault secret
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Azure resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -124,13 +129,18 @@ type CertificateOrderCertificateArgs struct {
 	CertificateOrderName pulumi.StringInput
 	// Resource Id
 	Id pulumi.StringPtrInput
+	// Key Vault Csm resource Id
+	KeyVaultId pulumi.StringPtrInput
+	// Key Vault secret name
+	KeyVaultSecretName pulumi.StringPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringInput
 	// Resource Name
-	Name       pulumi.StringInput
-	Properties CertificateOrderCertificatePropertiesPtrInput
+	Name pulumi.StringInput
+	// Status of the Key Vault secret
+	ProvisioningState pulumi.StringPtrInput
 	// Azure resource group name
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

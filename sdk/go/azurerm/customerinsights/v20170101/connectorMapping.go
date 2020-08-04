@@ -28,8 +28,17 @@ func NewConnectorMapping(ctx *pulumi.Context,
 	if args == nil || args.ConnectorName == nil {
 		return nil, errors.New("missing required argument 'ConnectorName'")
 	}
+	if args == nil || args.EntityType == nil {
+		return nil, errors.New("missing required argument 'EntityType'")
+	}
+	if args == nil || args.EntityTypeName == nil {
+		return nil, errors.New("missing required argument 'EntityTypeName'")
+	}
 	if args == nil || args.HubName == nil {
 		return nil, errors.New("missing required argument 'HubName'")
+	}
+	if args == nil || args.MappingProperties == nil {
+		return nil, errors.New("missing required argument 'MappingProperties'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
@@ -86,12 +95,22 @@ func (ConnectorMappingState) ElementType() reflect.Type {
 type connectorMappingArgs struct {
 	// The name of the connector.
 	ConnectorName string `pulumi:"connectorName"`
+	// Type of connector.
+	ConnectorType *string `pulumi:"connectorType"`
+	// The description of the connector mapping.
+	Description *string `pulumi:"description"`
+	// Display name for the connector mapping.
+	DisplayName *string `pulumi:"displayName"`
+	// Defines which entity type the file should map to.
+	EntityType string `pulumi:"entityType"`
+	// The mapping entity name.
+	EntityTypeName string `pulumi:"entityTypeName"`
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
+	// The properties of the mapping.
+	MappingProperties ConnectorMappingProperties `pulumi:"mappingProperties"`
 	// The name of the connector mapping.
 	Name string `pulumi:"name"`
-	// The connector mapping definition.
-	Properties *ConnectorMappingDefinition `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -100,12 +119,22 @@ type connectorMappingArgs struct {
 type ConnectorMappingArgs struct {
 	// The name of the connector.
 	ConnectorName pulumi.StringInput
+	// Type of connector.
+	ConnectorType pulumi.StringPtrInput
+	// The description of the connector mapping.
+	Description pulumi.StringPtrInput
+	// Display name for the connector mapping.
+	DisplayName pulumi.StringPtrInput
+	// Defines which entity type the file should map to.
+	EntityType pulumi.StringInput
+	// The mapping entity name.
+	EntityTypeName pulumi.StringInput
 	// The name of the hub.
 	HubName pulumi.StringInput
+	// The properties of the mapping.
+	MappingProperties ConnectorMappingPropertiesInput
 	// The name of the connector mapping.
 	Name pulumi.StringInput
-	// The connector mapping definition.
-	Properties ConnectorMappingDefinitionPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

@@ -81,26 +81,62 @@ func (TopicState) ElementType() reflect.Type {
 }
 
 type topicArgs struct {
+	// ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	// ISO 8601 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	DefaultMessageTimeToLive *string `pulumi:"defaultMessageTimeToLive"`
+	// ISO8601 timespan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
+	// Value that indicates whether server-side batched operations are enabled.
+	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
+	// Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+	EnableExpress *bool `pulumi:"enableExpress"`
+	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
+	EnablePartitioning *bool `pulumi:"enablePartitioning"`
+	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
+	MaxSizeInMegabytes *int `pulumi:"maxSizeInMegabytes"`
 	// The topic name.
 	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Properties of topic resource.
-	Properties *SBTopicProperties `pulumi:"properties"`
+	// Value indicating if this topic requires duplicate detection.
+	RequiresDuplicateDetection *bool `pulumi:"requiresDuplicateDetection"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Enumerates the possible values for the status of a messaging entity.
+	Status *string `pulumi:"status"`
+	// Value that indicates whether the topic supports ordering.
+	SupportOrdering *bool `pulumi:"supportOrdering"`
 }
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
+	// ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+	AutoDeleteOnIdle pulumi.StringPtrInput
+	// ISO 8601 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	DefaultMessageTimeToLive pulumi.StringPtrInput
+	// ISO8601 timespan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
+	// Value that indicates whether server-side batched operations are enabled.
+	EnableBatchedOperations pulumi.BoolPtrInput
+	// Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+	EnableExpress pulumi.BoolPtrInput
+	// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
+	EnablePartitioning pulumi.BoolPtrInput
+	// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
+	MaxSizeInMegabytes pulumi.IntPtrInput
 	// The topic name.
 	Name pulumi.StringInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
-	// Properties of topic resource.
-	Properties SBTopicPropertiesPtrInput
+	// Value indicating if this topic requires duplicate detection.
+	RequiresDuplicateDetection pulumi.BoolPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Enumerates the possible values for the status of a messaging entity.
+	Status pulumi.StringPtrInput
+	// Value that indicates whether the topic supports ordering.
+	SupportOrdering pulumi.BoolPtrInput
 }
 
 func (TopicArgs) ElementType() reflect.Type {

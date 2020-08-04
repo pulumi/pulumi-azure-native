@@ -34,8 +34,17 @@ func NewDatabasePrincipalAssignment(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.PrincipalId == nil {
+		return nil, errors.New("missing required argument 'PrincipalId'")
+	}
+	if args == nil || args.PrincipalType == nil {
+		return nil, errors.New("missing required argument 'PrincipalType'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Role == nil {
+		return nil, errors.New("missing required argument 'Role'")
 	}
 	if args == nil {
 		args = &DatabasePrincipalAssignmentArgs{}
@@ -90,10 +99,16 @@ type databasePrincipalAssignmentArgs struct {
 	DatabaseName string `pulumi:"databaseName"`
 	// The name of the Kusto principalAssignment.
 	Name string `pulumi:"name"`
-	// The database principal.
-	Properties *DatabasePrincipalProperties `pulumi:"properties"`
+	// The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
+	PrincipalId string `pulumi:"principalId"`
+	// Principal type.
+	PrincipalType string `pulumi:"principalType"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Database principal role.
+	Role string `pulumi:"role"`
+	// The tenant id of the principal
+	TenantId *string `pulumi:"tenantId"`
 }
 
 // The set of arguments for constructing a DatabasePrincipalAssignment resource.
@@ -104,10 +119,16 @@ type DatabasePrincipalAssignmentArgs struct {
 	DatabaseName pulumi.StringInput
 	// The name of the Kusto principalAssignment.
 	Name pulumi.StringInput
-	// The database principal.
-	Properties DatabasePrincipalPropertiesPtrInput
+	// The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
+	PrincipalId pulumi.StringInput
+	// Principal type.
+	PrincipalType pulumi.StringInput
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName pulumi.StringInput
+	// Database principal role.
+	Role pulumi.StringInput
+	// The tenant id of the principal
+	TenantId pulumi.StringPtrInput
 }
 
 func (DatabasePrincipalAssignmentArgs) ElementType() reflect.Type {

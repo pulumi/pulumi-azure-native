@@ -83,24 +83,28 @@ func (SuppressionState) ElementType() reflect.Type {
 type suppressionArgs struct {
 	// The name of the suppression.
 	Name string `pulumi:"name"`
-	// The properties of the suppression.
-	Properties *SuppressionProperties `pulumi:"properties"`
 	// The recommendation ID.
 	RecommendationId string `pulumi:"recommendationId"`
 	// The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
 	ResourceUri string `pulumi:"resourceUri"`
+	// The GUID of the suppression.
+	SuppressionId *string `pulumi:"suppressionId"`
+	// The duration for which the suppression is valid.
+	Ttl *string `pulumi:"ttl"`
 }
 
 // The set of arguments for constructing a Suppression resource.
 type SuppressionArgs struct {
 	// The name of the suppression.
 	Name pulumi.StringInput
-	// The properties of the suppression.
-	Properties SuppressionPropertiesPtrInput
 	// The recommendation ID.
 	RecommendationId pulumi.StringInput
 	// The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
 	ResourceUri pulumi.StringInput
+	// The GUID of the suppression.
+	SuppressionId pulumi.StringPtrInput
+	// The duration for which the suppression is valid.
+	Ttl pulumi.StringPtrInput
 }
 
 func (SuppressionArgs) ElementType() reflect.Type {

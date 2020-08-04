@@ -99,34 +99,78 @@ func (VirtualHubState) ElementType() reflect.Type {
 }
 
 type virtualHubArgs struct {
+	// Address-prefix for this VirtualHub.
+	AddressPrefix *string `pulumi:"addressPrefix"`
+	// The azureFirewall associated with this VirtualHub.
+	AzureFirewall *SubResource `pulumi:"azureFirewall"`
+	// The expressRouteGateway associated with this VirtualHub.
+	ExpressRouteGateway *SubResource `pulumi:"expressRouteGateway"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// The name of the VirtualHub.
 	Name string `pulumi:"name"`
-	// Properties of the virtual hub.
-	Properties *VirtualHubProperties `pulumi:"properties"`
+	// The P2SVpnGateway associated with this VirtualHub.
+	P2SVpnGateway *SubResource `pulumi:"p2SVpnGateway"`
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The routeTable associated with this virtual hub.
+	RouteTable *VirtualHubRouteTable `pulumi:"routeTable"`
+	// The securityPartnerProvider associated with this VirtualHub.
+	SecurityPartnerProvider *SubResource `pulumi:"securityPartnerProvider"`
+	// The Security Provider name.
+	SecurityProviderName *string `pulumi:"securityProviderName"`
+	// The sku of this VirtualHub.
+	Sku *string `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// List of all virtual hub route table v2s associated with this VirtualHub.
+	VirtualHubRouteTableV2s []VirtualHubRouteTableV2Type `pulumi:"virtualHubRouteTableV2s"`
+	// List of all vnet connections with this VirtualHub.
+	VirtualNetworkConnections []HubVirtualNetworkConnection `pulumi:"virtualNetworkConnections"`
+	// The VirtualWAN to which the VirtualHub belongs.
+	VirtualWan *SubResource `pulumi:"virtualWan"`
+	// The VpnGateway associated with this VirtualHub.
+	VpnGateway *SubResource `pulumi:"vpnGateway"`
 }
 
 // The set of arguments for constructing a VirtualHub resource.
 type VirtualHubArgs struct {
+	// Address-prefix for this VirtualHub.
+	AddressPrefix pulumi.StringPtrInput
+	// The azureFirewall associated with this VirtualHub.
+	AzureFirewall SubResourcePtrInput
+	// The expressRouteGateway associated with this VirtualHub.
+	ExpressRouteGateway SubResourcePtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
 	// The name of the VirtualHub.
 	Name pulumi.StringInput
-	// Properties of the virtual hub.
-	Properties VirtualHubPropertiesPtrInput
+	// The P2SVpnGateway associated with this VirtualHub.
+	P2SVpnGateway SubResourcePtrInput
 	// The resource group name of the VirtualHub.
 	ResourceGroupName pulumi.StringInput
+	// The routeTable associated with this virtual hub.
+	RouteTable VirtualHubRouteTablePtrInput
+	// The securityPartnerProvider associated with this VirtualHub.
+	SecurityPartnerProvider SubResourcePtrInput
+	// The Security Provider name.
+	SecurityProviderName pulumi.StringPtrInput
+	// The sku of this VirtualHub.
+	Sku pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// List of all virtual hub route table v2s associated with this VirtualHub.
+	VirtualHubRouteTableV2s VirtualHubRouteTableV2TypeArrayInput
+	// List of all vnet connections with this VirtualHub.
+	VirtualNetworkConnections HubVirtualNetworkConnectionArrayInput
+	// The VirtualWAN to which the VirtualHub belongs.
+	VirtualWan SubResourcePtrInput
+	// The VpnGateway associated with this VirtualHub.
+	VpnGateway SubResourcePtrInput
 }
 
 func (VirtualHubArgs) ElementType() reflect.Type {

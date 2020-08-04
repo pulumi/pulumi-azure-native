@@ -81,30 +81,78 @@ func (VpnConnectionState) ElementType() reflect.Type {
 }
 
 type vpnConnectionArgs struct {
+	// Expected bandwidth in MBPS.
+	ConnectionBandwidth *int `pulumi:"connectionBandwidth"`
+	// The connection status.
+	ConnectionStatus *string `pulumi:"connectionStatus"`
+	// EnableBgp flag.
+	EnableBgp *bool `pulumi:"enableBgp"`
+	// Enable internet security.
+	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
+	// EnableBgp flag.
+	EnableRateLimiting *bool `pulumi:"enableRateLimiting"`
 	// The name of the gateway.
 	GatewayName string `pulumi:"gatewayName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// The IPSec Policies to be considered by this connection.
+	IpsecPolicies []IpsecPolicy `pulumi:"ipsecPolicies"`
 	// The name of the connection.
 	Name string `pulumi:"name"`
-	// Properties of the VPN connection.
-	Properties *VpnConnectionProperties `pulumi:"properties"`
+	// The provisioning state of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Id of the connected vpn site.
+	RemoteVpnSite *SubResource `pulumi:"remoteVpnSite"`
 	// The resource group name of the VpnGateway.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Routing weight for vpn connection.
+	RoutingWeight *int `pulumi:"routingWeight"`
+	// SharedKey for the vpn connection.
+	SharedKey *string `pulumi:"sharedKey"`
+	// Use local azure ip to initiate connection.
+	UseLocalAzureIpAddress *bool `pulumi:"useLocalAzureIpAddress"`
+	// Enable policy-based traffic selectors.
+	UsePolicyBasedTrafficSelectors *bool `pulumi:"usePolicyBasedTrafficSelectors"`
+	// Connection protocol used for this connection.
+	VpnConnectionProtocolType *string `pulumi:"vpnConnectionProtocolType"`
 }
 
 // The set of arguments for constructing a VpnConnection resource.
 type VpnConnectionArgs struct {
+	// Expected bandwidth in MBPS.
+	ConnectionBandwidth pulumi.IntPtrInput
+	// The connection status.
+	ConnectionStatus pulumi.StringPtrInput
+	// EnableBgp flag.
+	EnableBgp pulumi.BoolPtrInput
+	// Enable internet security.
+	EnableInternetSecurity pulumi.BoolPtrInput
+	// EnableBgp flag.
+	EnableRateLimiting pulumi.BoolPtrInput
 	// The name of the gateway.
 	GatewayName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// The IPSec Policies to be considered by this connection.
+	IpsecPolicies IpsecPolicyArrayInput
 	// The name of the connection.
 	Name pulumi.StringInput
-	// Properties of the VPN connection.
-	Properties VpnConnectionPropertiesPtrInput
+	// The provisioning state of the resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Id of the connected vpn site.
+	RemoteVpnSite SubResourcePtrInput
 	// The resource group name of the VpnGateway.
 	ResourceGroupName pulumi.StringInput
+	// Routing weight for vpn connection.
+	RoutingWeight pulumi.IntPtrInput
+	// SharedKey for the vpn connection.
+	SharedKey pulumi.StringPtrInput
+	// Use local azure ip to initiate connection.
+	UseLocalAzureIpAddress pulumi.BoolPtrInput
+	// Enable policy-based traffic selectors.
+	UsePolicyBasedTrafficSelectors pulumi.BoolPtrInput
+	// Connection protocol used for this connection.
+	VpnConnectionProtocolType pulumi.StringPtrInput
 }
 
 func (VpnConnectionArgs) ElementType() reflect.Type {

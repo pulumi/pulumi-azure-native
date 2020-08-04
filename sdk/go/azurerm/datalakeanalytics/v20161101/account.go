@@ -29,14 +29,17 @@ type Account struct {
 // NewAccount registers a new resource with the given unique name, arguments, and options.
 func NewAccount(ctx *pulumi.Context,
 	name string, args *AccountArgs, opts ...pulumi.ResourceOption) (*Account, error) {
+	if args == nil || args.DataLakeStoreAccounts == nil {
+		return nil, errors.New("missing required argument 'DataLakeStoreAccounts'")
+	}
+	if args == nil || args.DefaultDataLakeStoreAccount == nil {
+		return nil, errors.New("missing required argument 'DefaultDataLakeStoreAccount'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -96,28 +99,76 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// The list of compute policies associated with this account.
+	ComputePolicies []CreateComputePolicyWithAccountParameters `pulumi:"computePolicies"`
+	// The list of Data Lake Store accounts associated with this account.
+	DataLakeStoreAccounts []AddDataLakeStoreWithAccountParameters `pulumi:"dataLakeStoreAccounts"`
+	// The default Data Lake Store account associated with this account.
+	DefaultDataLakeStoreAccount string `pulumi:"defaultDataLakeStoreAccount"`
+	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+	FirewallAllowAzureIps *string `pulumi:"firewallAllowAzureIps"`
+	// The list of firewall rules associated with this account.
+	FirewallRules []CreateFirewallRuleWithAccountParameters `pulumi:"firewallRules"`
+	// The current state of the IP address firewall for this account.
+	FirewallState *string `pulumi:"firewallState"`
 	// The resource location.
 	Location string `pulumi:"location"`
+	// The maximum supported degree of parallelism for this account.
+	MaxDegreeOfParallelism *int `pulumi:"maxDegreeOfParallelism"`
+	// The maximum supported degree of parallelism per job for this account.
+	MaxDegreeOfParallelismPerJob *int `pulumi:"maxDegreeOfParallelismPerJob"`
+	// The maximum supported jobs running under the account at the same time.
+	MaxJobCount *int `pulumi:"maxJobCount"`
+	// The minimum supported priority per job for this account.
+	MinPriorityPerJob *int `pulumi:"minPriorityPerJob"`
 	// The name of the Data Lake Analytics account.
 	Name string `pulumi:"name"`
-	// The Data Lake Analytics account properties to use for creating.
-	Properties CreateDataLakeAnalyticsAccountProperties `pulumi:"properties"`
+	// The commitment tier for the next month.
+	NewTier *string `pulumi:"newTier"`
+	// The number of days that job metadata is retained.
+	QueryStoreRetention *int `pulumi:"queryStoreRetention"`
 	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The list of Azure Blob Storage accounts associated with this account.
+	StorageAccounts []AddStorageAccountWithAccountParameters `pulumi:"storageAccounts"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// The list of compute policies associated with this account.
+	ComputePolicies CreateComputePolicyWithAccountParametersArrayInput
+	// The list of Data Lake Store accounts associated with this account.
+	DataLakeStoreAccounts AddDataLakeStoreWithAccountParametersArrayInput
+	// The default Data Lake Store account associated with this account.
+	DefaultDataLakeStoreAccount pulumi.StringInput
+	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+	FirewallAllowAzureIps pulumi.StringPtrInput
+	// The list of firewall rules associated with this account.
+	FirewallRules CreateFirewallRuleWithAccountParametersArrayInput
+	// The current state of the IP address firewall for this account.
+	FirewallState pulumi.StringPtrInput
 	// The resource location.
 	Location pulumi.StringInput
+	// The maximum supported degree of parallelism for this account.
+	MaxDegreeOfParallelism pulumi.IntPtrInput
+	// The maximum supported degree of parallelism per job for this account.
+	MaxDegreeOfParallelismPerJob pulumi.IntPtrInput
+	// The maximum supported jobs running under the account at the same time.
+	MaxJobCount pulumi.IntPtrInput
+	// The minimum supported priority per job for this account.
+	MinPriorityPerJob pulumi.IntPtrInput
 	// The name of the Data Lake Analytics account.
 	Name pulumi.StringInput
-	// The Data Lake Analytics account properties to use for creating.
-	Properties CreateDataLakeAnalyticsAccountPropertiesInput
+	// The commitment tier for the next month.
+	NewTier pulumi.StringPtrInput
+	// The number of days that job metadata is retained.
+	QueryStoreRetention pulumi.IntPtrInput
 	// The name of the Azure resource group.
 	ResourceGroupName pulumi.StringInput
+	// The list of Azure Blob Storage accounts associated with this account.
+	StorageAccounts AddStorageAccountWithAccountParametersArrayInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 }

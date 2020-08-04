@@ -96,32 +96,56 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
+	// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+	ApplicationInsights *string `pulumi:"applicationInsights"`
+	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+	ContainerRegistry *string `pulumi:"containerRegistry"`
+	// The description of this workspace.
+	Description *string `pulumi:"description"`
+	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
+	DiscoveryUrl *string `pulumi:"discoveryUrl"`
+	// The friendly name for this workspace. This name in mutable
+	FriendlyName *string `pulumi:"friendlyName"`
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
+	// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
+	KeyVault *string `pulumi:"keyVault"`
 	// Specifies the location of the resource.
 	Location *string `pulumi:"location"`
 	// Name of Azure Machine Learning workspace.
 	Name string `pulumi:"name"`
-	// The properties of the machine learning workspace.
-	Properties *WorkspaceProperties `pulumi:"properties"`
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+	StorageAccount *string `pulumi:"storageAccount"`
 	// Contains resource tags defined as key/value pairs.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
+	// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+	ApplicationInsights pulumi.StringPtrInput
+	// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+	ContainerRegistry pulumi.StringPtrInput
+	// The description of this workspace.
+	Description pulumi.StringPtrInput
+	// Url for the discovery service to identify regional endpoints for machine learning experimentation services
+	DiscoveryUrl pulumi.StringPtrInput
+	// The friendly name for this workspace. This name in mutable
+	FriendlyName pulumi.StringPtrInput
 	// The identity of the resource.
 	Identity IdentityPtrInput
+	// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
+	KeyVault pulumi.StringPtrInput
 	// Specifies the location of the resource.
 	Location pulumi.StringPtrInput
 	// Name of Azure Machine Learning workspace.
 	Name pulumi.StringInput
-	// The properties of the machine learning workspace.
-	Properties WorkspacePropertiesPtrInput
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName pulumi.StringInput
+	// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+	StorageAccount pulumi.StringPtrInput
 	// Contains resource tags defined as key/value pairs.
 	Tags pulumi.StringMapInput
 }

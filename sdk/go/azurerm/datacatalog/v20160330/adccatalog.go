@@ -96,34 +96,54 @@ func (ADCCatalogState) ElementType() reflect.Type {
 }
 
 type adccatalogArgs struct {
+	// Azure data catalog admin list.
+	Admins []Principals `pulumi:"admins"`
+	// Automatic unit adjustment enabled or not.
+	EnableAutomaticUnitAdjustment *bool `pulumi:"enableAutomaticUnitAdjustment"`
 	// Resource etag
 	Etag *string `pulumi:"etag"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the data catalog in the specified subscription and resource group.
 	Name string `pulumi:"name"`
-	// Azure Data Catalog properties.
-	Properties *ADCCatalogProperties `pulumi:"properties"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Azure data catalog SKU.
+	Sku *string `pulumi:"sku"`
+	// Azure data catalog provision status.
+	SuccessfullyProvisioned *bool `pulumi:"successfullyProvisioned"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Azure data catalog units.
+	Units *int `pulumi:"units"`
+	// Azure data catalog user list.
+	Users []Principals `pulumi:"users"`
 }
 
 // The set of arguments for constructing a ADCCatalog resource.
 type ADCCatalogArgs struct {
+	// Azure data catalog admin list.
+	Admins PrincipalsArrayInput
+	// Automatic unit adjustment enabled or not.
+	EnableAutomaticUnitAdjustment pulumi.BoolPtrInput
 	// Resource etag
 	Etag pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the data catalog in the specified subscription and resource group.
 	Name pulumi.StringInput
-	// Azure Data Catalog properties.
-	Properties ADCCatalogPropertiesPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Azure data catalog SKU.
+	Sku pulumi.StringPtrInput
+	// Azure data catalog provision status.
+	SuccessfullyProvisioned pulumi.BoolPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Azure data catalog units.
+	Units pulumi.IntPtrInput
+	// Azure data catalog user list.
+	Users PrincipalsArrayInput
 }
 
 func (ADCCatalogArgs) ElementType() reflect.Type {

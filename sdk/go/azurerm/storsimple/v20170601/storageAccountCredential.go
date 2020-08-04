@@ -27,17 +27,20 @@ type StorageAccountCredential struct {
 // NewStorageAccountCredential registers a new resource with the given unique name, arguments, and options.
 func NewStorageAccountCredential(ctx *pulumi.Context,
 	name string, args *StorageAccountCredentialArgs, opts ...pulumi.ResourceOption) (*StorageAccountCredential, error) {
+	if args == nil || args.EndPoint == nil {
+		return nil, errors.New("missing required argument 'EndPoint'")
+	}
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SslStatus == nil {
+		return nil, errors.New("missing required argument 'SslStatus'")
 	}
 	if args == nil {
 		args = &StorageAccountCredentialArgs{}
@@ -90,30 +93,38 @@ func (StorageAccountCredentialState) ElementType() reflect.Type {
 }
 
 type storageAccountCredentialArgs struct {
+	// The details of the storage account password.
+	AccessKey *AsymmetricEncryptedSecret `pulumi:"accessKey"`
+	// The storage endpoint
+	EndPoint string `pulumi:"endPoint"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The storage account credential name.
 	Name string `pulumi:"name"`
-	// The storage account credential properties.
-	Properties StorageAccountCredentialProperties `pulumi:"properties"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Signifies whether SSL needs to be enabled or not.
+	SslStatus string `pulumi:"sslStatus"`
 }
 
 // The set of arguments for constructing a StorageAccountCredential resource.
 type StorageAccountCredentialArgs struct {
+	// The details of the storage account password.
+	AccessKey AsymmetricEncryptedSecretPtrInput
+	// The storage endpoint
+	EndPoint pulumi.StringInput
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind pulumi.StringPtrInput
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The storage account credential name.
 	Name pulumi.StringInput
-	// The storage account credential properties.
-	Properties StorageAccountCredentialPropertiesInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
+	// Signifies whether SSL needs to be enabled or not.
+	SslStatus pulumi.StringInput
 }
 
 func (StorageAccountCredentialArgs) ElementType() reflect.Type {

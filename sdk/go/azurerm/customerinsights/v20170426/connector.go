@@ -25,6 +25,12 @@ type Connector struct {
 // NewConnector registers a new resource with the given unique name, arguments, and options.
 func NewConnector(ctx *pulumi.Context,
 	name string, args *ConnectorArgs, opts ...pulumi.ResourceOption) (*Connector, error) {
+	if args == nil || args.ConnectorProperties == nil {
+		return nil, errors.New("missing required argument 'ConnectorProperties'")
+	}
+	if args == nil || args.ConnectorType == nil {
+		return nil, errors.New("missing required argument 'ConnectorType'")
+	}
 	if args == nil || args.HubName == nil {
 		return nil, errors.New("missing required argument 'HubName'")
 	}
@@ -81,24 +87,40 @@ func (ConnectorState) ElementType() reflect.Type {
 }
 
 type connectorArgs struct {
+	// The connector properties.
+	ConnectorProperties map[string]map[string]interface{} `pulumi:"connectorProperties"`
+	// Type of connector.
+	ConnectorType string `pulumi:"connectorType"`
+	// Description of the connector.
+	Description *string `pulumi:"description"`
+	// Display name of the connector.
+	DisplayName *string `pulumi:"displayName"`
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
-	// The name of the connector.
+	// If this is an internal connector.
+	IsInternal *bool `pulumi:"isInternal"`
+	// Name of the connector.
 	Name string `pulumi:"name"`
-	// Properties of connector.
-	Properties *ConnectorDefinition `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a Connector resource.
 type ConnectorArgs struct {
+	// The connector properties.
+	ConnectorProperties pulumi.MapMapInput
+	// Type of connector.
+	ConnectorType pulumi.StringInput
+	// Description of the connector.
+	Description pulumi.StringPtrInput
+	// Display name of the connector.
+	DisplayName pulumi.StringPtrInput
 	// The name of the hub.
 	HubName pulumi.StringInput
-	// The name of the connector.
+	// If this is an internal connector.
+	IsInternal pulumi.BoolPtrInput
+	// Name of the connector.
 	Name pulumi.StringInput
-	// Properties of connector.
-	Properties ConnectorDefinitionPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

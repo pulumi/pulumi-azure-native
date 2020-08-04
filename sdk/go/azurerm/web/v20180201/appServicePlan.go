@@ -105,38 +105,84 @@ func (AppServicePlanState) ElementType() reflect.Type {
 }
 
 type appServicePlanArgs struct {
+	// The time when the server farm free offer expires.
+	FreeOfferExpirationTime *string `pulumi:"freeOfferExpirationTime"`
+	// Specification for the App Service Environment to use for the App Service plan.
+	HostingEnvironmentProfile *HostingEnvironmentProfile `pulumi:"hostingEnvironmentProfile"`
+	// If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
+	HyperV *bool `pulumi:"hyperV"`
+	// If <code>true</code>, this App Service Plan owns spot instances.
+	IsSpot *bool `pulumi:"isSpot"`
+	// Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
+	IsXenon *bool `pulumi:"isXenon"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
+	// Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
+	MaximumElasticWorkerCount *int `pulumi:"maximumElasticWorkerCount"`
 	// Name of the App Service plan.
 	Name string `pulumi:"name"`
-	// AppServicePlan resource specific properties
-	Properties *AppServicePlanProperties `pulumi:"properties"`
+	// If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
+	// If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
+	PerSiteScaling *bool `pulumi:"perSiteScaling"`
+	// If Linux app service plan <code>true</code>, <code>false</code> otherwise.
+	Reserved *bool `pulumi:"reserved"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Description of a SKU for a scalable resource.
 	Sku *SkuDescription `pulumi:"sku"`
+	// The time when the server farm expires. Valid only if it is a spot server farm.
+	SpotExpirationTime *string `pulumi:"spotExpirationTime"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Scaling worker count.
+	TargetWorkerCount *int `pulumi:"targetWorkerCount"`
+	// Scaling worker size ID.
+	TargetWorkerSizeId *int `pulumi:"targetWorkerSizeId"`
+	// Target worker tier assigned to the App Service plan.
+	WorkerTierName *string `pulumi:"workerTierName"`
 }
 
 // The set of arguments for constructing a AppServicePlan resource.
 type AppServicePlanArgs struct {
+	// The time when the server farm free offer expires.
+	FreeOfferExpirationTime pulumi.StringPtrInput
+	// Specification for the App Service Environment to use for the App Service plan.
+	HostingEnvironmentProfile HostingEnvironmentProfilePtrInput
+	// If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
+	HyperV pulumi.BoolPtrInput
+	// If <code>true</code>, this App Service Plan owns spot instances.
+	IsSpot pulumi.BoolPtrInput
+	// Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
+	IsXenon pulumi.BoolPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringInput
+	// Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
+	MaximumElasticWorkerCount pulumi.IntPtrInput
 	// Name of the App Service plan.
 	Name pulumi.StringInput
-	// AppServicePlan resource specific properties
-	Properties AppServicePlanPropertiesPtrInput
+	// If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
+	// If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
+	PerSiteScaling pulumi.BoolPtrInput
+	// If Linux app service plan <code>true</code>, <code>false</code> otherwise.
+	Reserved pulumi.BoolPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Description of a SKU for a scalable resource.
 	Sku SkuDescriptionPtrInput
+	// The time when the server farm expires. Valid only if it is a spot server farm.
+	SpotExpirationTime pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Scaling worker count.
+	TargetWorkerCount pulumi.IntPtrInput
+	// Scaling worker size ID.
+	TargetWorkerSizeId pulumi.IntPtrInput
+	// Target worker tier assigned to the App Service plan.
+	WorkerTierName pulumi.StringPtrInput
 }
 
 func (AppServicePlanArgs) ElementType() reflect.Type {

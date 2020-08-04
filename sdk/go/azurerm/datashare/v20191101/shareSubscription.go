@@ -28,14 +28,17 @@ func NewShareSubscription(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
+	if args == nil || args.InvitationId == nil {
+		return nil, errors.New("missing required argument 'InvitationId'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SourceShareLocation == nil {
+		return nil, errors.New("missing required argument 'SourceShareLocation'")
 	}
 	if args == nil {
 		args = &ShareSubscriptionArgs{}
@@ -86,24 +89,28 @@ func (ShareSubscriptionState) ElementType() reflect.Type {
 type shareSubscriptionArgs struct {
 	// The name of the share account.
 	AccountName string `pulumi:"accountName"`
+	// The invitation id.
+	InvitationId string `pulumi:"invitationId"`
 	// The name of the shareSubscription.
 	Name string `pulumi:"name"`
-	// Properties on the share subscription
-	Properties ShareSubscriptionProperties `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Source share location.
+	SourceShareLocation string `pulumi:"sourceShareLocation"`
 }
 
 // The set of arguments for constructing a ShareSubscription resource.
 type ShareSubscriptionArgs struct {
 	// The name of the share account.
 	AccountName pulumi.StringInput
+	// The invitation id.
+	InvitationId pulumi.StringInput
 	// The name of the shareSubscription.
 	Name pulumi.StringInput
-	// Properties on the share subscription
-	Properties ShareSubscriptionPropertiesInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// Source share location.
+	SourceShareLocation pulumi.StringInput
 }
 
 func (ShareSubscriptionArgs) ElementType() reflect.Type {

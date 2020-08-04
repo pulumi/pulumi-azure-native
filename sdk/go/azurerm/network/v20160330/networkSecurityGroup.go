@@ -96,6 +96,8 @@ func (NetworkSecurityGroupState) ElementType() reflect.Type {
 }
 
 type networkSecurityGroupArgs struct {
+	// Gets or sets Default security rules of network security group
+	DefaultSecurityRules []SecurityRuleType `pulumi:"defaultSecurityRules"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Resource Id
@@ -104,16 +106,26 @@ type networkSecurityGroupArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the network security group.
 	Name string `pulumi:"name"`
-	// Network Security Group resource
-	Properties *NetworkSecurityGroupPropertiesFormat `pulumi:"properties"`
+	// Gets collection of references to Network Interfaces
+	NetworkInterfaces []NetworkInterfaceType `pulumi:"networkInterfaces"`
+	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets resource GUID property of the network security group resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// Gets or sets Security rules of network security group
+	SecurityRules []SecurityRuleType `pulumi:"securityRules"`
+	// Gets collection of references to subnets
+	Subnets []SubnetType `pulumi:"subnets"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a NetworkSecurityGroup resource.
 type NetworkSecurityGroupArgs struct {
+	// Gets or sets Default security rules of network security group
+	DefaultSecurityRules SecurityRuleTypeArrayInput
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
 	// Resource Id
@@ -122,10 +134,18 @@ type NetworkSecurityGroupArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the network security group.
 	Name pulumi.StringInput
-	// Network Security Group resource
-	Properties NetworkSecurityGroupPropertiesFormatPtrInput
+	// Gets collection of references to Network Interfaces
+	NetworkInterfaces NetworkInterfaceTypeArrayInput
+	// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets resource GUID property of the network security group resource
+	ResourceGuid pulumi.StringPtrInput
+	// Gets or sets Security rules of network security group
+	SecurityRules SecurityRuleTypeArrayInput
+	// Gets collection of references to subnets
+	Subnets SubnetTypeArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

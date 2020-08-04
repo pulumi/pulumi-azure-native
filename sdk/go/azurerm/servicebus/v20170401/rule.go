@@ -87,14 +87,20 @@ func (RuleState) ElementType() reflect.Type {
 }
 
 type ruleArgs struct {
+	// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+	Action *Action `pulumi:"action"`
+	// Properties of correlationFilter
+	CorrelationFilter *CorrelationFilter `pulumi:"correlationFilter"`
+	// Filter type that is evaluated against a BrokeredMessage.
+	FilterType *string `pulumi:"filterType"`
 	// The rule name.
 	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Properties of Rule resource
-	Properties *Ruleproperties `pulumi:"properties"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Properties of sqlFilter
+	SqlFilter *SqlFilter `pulumi:"sqlFilter"`
 	// The subscription name.
 	SubscriptionName string `pulumi:"subscriptionName"`
 	// The topic name.
@@ -103,14 +109,20 @@ type ruleArgs struct {
 
 // The set of arguments for constructing a Rule resource.
 type RuleArgs struct {
+	// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+	Action ActionPtrInput
+	// Properties of correlationFilter
+	CorrelationFilter CorrelationFilterPtrInput
+	// Filter type that is evaluated against a BrokeredMessage.
+	FilterType pulumi.StringPtrInput
 	// The rule name.
 	Name pulumi.StringInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
-	// Properties of Rule resource
-	Properties RulepropertiesPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Properties of sqlFilter
+	SqlFilter SqlFilterPtrInput
 	// The subscription name.
 	SubscriptionName pulumi.StringInput
 	// The topic name.

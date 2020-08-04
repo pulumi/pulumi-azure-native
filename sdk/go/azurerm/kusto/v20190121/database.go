@@ -89,28 +89,36 @@ func (DatabaseState) ElementType() reflect.Type {
 type databaseArgs struct {
 	// The name of the Kusto cluster.
 	ClusterName string `pulumi:"clusterName"`
+	// The time the data that should be kept in cache for fast queries in TimeSpan.
+	HotCachePeriod *string `pulumi:"hotCachePeriod"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the database in the Kusto cluster.
 	Name string `pulumi:"name"`
-	// The database properties.
-	Properties *DatabaseProperties `pulumi:"properties"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
+	SoftDeletePeriod *string `pulumi:"softDeletePeriod"`
+	// The statistics of the database.
+	Statistics *DatabaseStatistics `pulumi:"statistics"`
 }
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
 	// The name of the Kusto cluster.
 	ClusterName pulumi.StringInput
+	// The time the data that should be kept in cache for fast queries in TimeSpan.
+	HotCachePeriod pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the database in the Kusto cluster.
 	Name pulumi.StringInput
-	// The database properties.
-	Properties DatabasePropertiesPtrInput
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName pulumi.StringInput
+	// The time the data should be kept before it stops being accessible to queries in TimeSpan.
+	SoftDeletePeriod pulumi.StringPtrInput
+	// The statistics of the database.
+	Statistics DatabaseStatisticsPtrInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {

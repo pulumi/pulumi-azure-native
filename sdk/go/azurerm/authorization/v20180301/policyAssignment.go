@@ -84,11 +84,21 @@ func (PolicyAssignmentState) ElementType() reflect.Type {
 }
 
 type policyAssignmentArgs struct {
+	// This message will be part of response in case of policy violation.
+	Description *string `pulumi:"description"`
+	// The display name of the policy assignment.
+	DisplayName *string `pulumi:"displayName"`
+	// The policy assignment metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The name of the policy assignment.
 	Name string `pulumi:"name"`
-	// Properties for the policy assignment.
-	Properties *PolicyAssignmentProperties `pulumi:"properties"`
-	// The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+	// The policy's excluded scopes.
+	NotScopes []string `pulumi:"notScopes"`
+	// Required if a parameter is used in policy rule.
+	Parameters map[string]interface{} `pulumi:"parameters"`
+	// The ID of the policy definition or policy set definition being assigned.
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// The scope for the policy assignment.
 	Scope string `pulumi:"scope"`
 	// The policy sku. This property is optional, obsolete, and will be ignored.
 	Sku *PolicySku `pulumi:"sku"`
@@ -96,11 +106,21 @@ type policyAssignmentArgs struct {
 
 // The set of arguments for constructing a PolicyAssignment resource.
 type PolicyAssignmentArgs struct {
+	// This message will be part of response in case of policy violation.
+	Description pulumi.StringPtrInput
+	// The display name of the policy assignment.
+	DisplayName pulumi.StringPtrInput
+	// The policy assignment metadata.
+	Metadata pulumi.MapInput
 	// The name of the policy assignment.
 	Name pulumi.StringInput
-	// Properties for the policy assignment.
-	Properties PolicyAssignmentPropertiesPtrInput
-	// The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+	// The policy's excluded scopes.
+	NotScopes pulumi.StringArrayInput
+	// Required if a parameter is used in policy rule.
+	Parameters pulumi.MapInput
+	// The ID of the policy definition or policy set definition being assigned.
+	PolicyDefinitionId pulumi.StringPtrInput
+	// The scope for the policy assignment.
 	Scope pulumi.StringInput
 	// The policy sku. This property is optional, obsolete, and will be ignored.
 	Sku PolicySkuPtrInput

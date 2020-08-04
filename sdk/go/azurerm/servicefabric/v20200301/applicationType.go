@@ -105,8 +105,6 @@ type applicationTypeArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the application type name resource.
 	Name string `pulumi:"name"`
-	// The application type name properties
-	Properties *ApplicationTypeResourceProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Azure resource tags.
@@ -121,8 +119,6 @@ type ApplicationTypeArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the application type name resource.
 	Name pulumi.StringInput
-	// The application type name properties
-	Properties ApplicationTypeResourcePropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Azure resource tags.

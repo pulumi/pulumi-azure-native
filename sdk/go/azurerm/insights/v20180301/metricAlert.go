@@ -29,17 +29,32 @@ type MetricAlert struct {
 // NewMetricAlert registers a new resource with the given unique name, arguments, and options.
 func NewMetricAlert(ctx *pulumi.Context,
 	name string, args *MetricAlertArgs, opts ...pulumi.ResourceOption) (*MetricAlert, error) {
+	if args == nil || args.Criteria == nil {
+		return nil, errors.New("missing required argument 'Criteria'")
+	}
+	if args == nil || args.Description == nil {
+		return nil, errors.New("missing required argument 'Description'")
+	}
+	if args == nil || args.Enabled == nil {
+		return nil, errors.New("missing required argument 'Enabled'")
+	}
+	if args == nil || args.EvaluationFrequency == nil {
+		return nil, errors.New("missing required argument 'EvaluationFrequency'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Severity == nil {
+		return nil, errors.New("missing required argument 'Severity'")
+	}
+	if args == nil || args.WindowSize == nil {
+		return nil, errors.New("missing required argument 'WindowSize'")
 	}
 	if args == nil {
 		args = &MetricAlertArgs{}
@@ -96,30 +111,70 @@ func (MetricAlertState) ElementType() reflect.Type {
 }
 
 type metricAlertArgs struct {
+	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+	Actions []MetricAlertAction `pulumi:"actions"`
+	// the flag that indicates whether the alert should be auto resolved or not. The default is true.
+	AutoMitigate *bool `pulumi:"autoMitigate"`
+	// defines the specific alert criteria information.
+	Criteria MetricAlertCriteria `pulumi:"criteria"`
+	// the description of the metric alert that will be included in the alert email.
+	Description string `pulumi:"description"`
+	// the flag that indicates whether the metric alert is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// how often the metric alert is evaluated represented in ISO 8601 duration format.
+	EvaluationFrequency string `pulumi:"evaluationFrequency"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the rule.
 	Name string `pulumi:"name"`
-	// The alert rule properties of the resource.
-	Properties MetricAlertProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// the list of resource id's that this metric alert is scoped to.
+	Scopes []string `pulumi:"scopes"`
+	// Alert severity {0, 1, 2, 3, 4}
+	Severity int `pulumi:"severity"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	TargetResourceRegion *string `pulumi:"targetResourceRegion"`
+	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	TargetResourceType *string `pulumi:"targetResourceType"`
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+	WindowSize string `pulumi:"windowSize"`
 }
 
 // The set of arguments for constructing a MetricAlert resource.
 type MetricAlertArgs struct {
+	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+	Actions MetricAlertActionArrayInput
+	// the flag that indicates whether the alert should be auto resolved or not. The default is true.
+	AutoMitigate pulumi.BoolPtrInput
+	// defines the specific alert criteria information.
+	Criteria MetricAlertCriteriaInput
+	// the description of the metric alert that will be included in the alert email.
+	Description pulumi.StringInput
+	// the flag that indicates whether the metric alert is enabled.
+	Enabled pulumi.BoolInput
+	// how often the metric alert is evaluated represented in ISO 8601 duration format.
+	EvaluationFrequency pulumi.StringInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the rule.
 	Name pulumi.StringInput
-	// The alert rule properties of the resource.
-	Properties MetricAlertPropertiesInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// the list of resource id's that this metric alert is scoped to.
+	Scopes pulumi.StringArrayInput
+	// Alert severity {0, 1, 2, 3, 4}
+	Severity pulumi.IntInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	TargetResourceRegion pulumi.StringPtrInput
+	// the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+	TargetResourceType pulumi.StringPtrInput
+	// the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+	WindowSize pulumi.StringInput
 }
 
 func (MetricAlertArgs) ElementType() reflect.Type {

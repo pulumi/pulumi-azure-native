@@ -32,6 +32,9 @@ func NewVolume(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
+	if args == nil || args.CreationToken == nil {
+		return nil, errors.New("missing required argument 'CreationToken'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -41,11 +44,14 @@ func NewVolume(ctx *pulumi.Context,
 	if args == nil || args.PoolName == nil {
 		return nil, errors.New("missing required argument 'PoolName'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SubnetId == nil {
+		return nil, errors.New("missing required argument 'SubnetId'")
+	}
+	if args == nil || args.UsageThreshold == nil {
+		return nil, errors.New("missing required argument 'UsageThreshold'")
 	}
 	if args == nil {
 		args = &VolumeArgs{}
@@ -104,36 +110,64 @@ func (VolumeState) ElementType() reflect.Type {
 type volumeArgs struct {
 	// The name of the NetApp account
 	AccountName string `pulumi:"accountName"`
+	// A unique file path for the volume. Used when creating mount targets
+	CreationToken string `pulumi:"creationToken"`
+	// Set of export policy rules
+	ExportPolicy *VolumePropertiesProperties `pulumi:"exportPolicy"`
 	// Resource location
 	Location string `pulumi:"location"`
+	// List of mount targets
+	MountTargets []MountTargetProperties `pulumi:"mountTargets"`
 	// The name of the volume
 	Name string `pulumi:"name"`
 	// The name of the capacity pool
 	PoolName string `pulumi:"poolName"`
-	// Volume properties
-	Properties VolumeProperties `pulumi:"properties"`
+	// Set of protocol types
+	ProtocolTypes []string `pulumi:"protocolTypes"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The service level of the file system
+	ServiceLevel *string `pulumi:"serviceLevel"`
+	// UUID v4 or resource identifier used to identify the Snapshot.
+	SnapshotId *string `pulumi:"snapshotId"`
+	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+	SubnetId string `pulumi:"subnetId"`
 	// Resource tags
 	Tags *ResourceTags `pulumi:"tags"`
+	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+	UsageThreshold int `pulumi:"usageThreshold"`
 }
 
 // The set of arguments for constructing a Volume resource.
 type VolumeArgs struct {
 	// The name of the NetApp account
 	AccountName pulumi.StringInput
+	// A unique file path for the volume. Used when creating mount targets
+	CreationToken pulumi.StringInput
+	// Set of export policy rules
+	ExportPolicy VolumePropertiesPropertiesPtrInput
 	// Resource location
 	Location pulumi.StringInput
+	// List of mount targets
+	MountTargets MountTargetPropertiesArrayInput
 	// The name of the volume
 	Name pulumi.StringInput
 	// The name of the capacity pool
 	PoolName pulumi.StringInput
-	// Volume properties
-	Properties VolumePropertiesInput
+	// Set of protocol types
+	ProtocolTypes pulumi.StringArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The service level of the file system
+	ServiceLevel pulumi.StringPtrInput
+	// UUID v4 or resource identifier used to identify the Snapshot.
+	SnapshotId pulumi.StringPtrInput
+	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+	SubnetId pulumi.StringInput
 	// Resource tags
 	Tags ResourceTagsPtrInput
+	// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+	UsageThreshold pulumi.IntInput
 }
 
 func (VolumeArgs) ElementType() reflect.Type {

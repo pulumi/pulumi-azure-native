@@ -35,6 +35,9 @@ type Disk struct {
 // NewDisk registers a new resource with the given unique name, arguments, and options.
 func NewDisk(ctx *pulumi.Context,
 	name string, args *DiskArgs, opts ...pulumi.ResourceOption) (*Disk, error) {
+	if args == nil || args.CreationData == nil {
+		return nil, errors.New("missing required argument 'CreationData'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -111,12 +114,18 @@ func (DiskState) ElementType() reflect.Type {
 }
 
 type diskArgs struct {
+	// Disk source information. CreationData information cannot be changed after the disk has been created.
+	CreationData CreationData `pulumi:"creationData"`
+	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+	DiskSizeGB *int `pulumi:"diskSizeGB"`
+	// Encryption settings for disk or snapshot
+	EncryptionSettings *EncryptionSettings `pulumi:"encryptionSettings"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
 	Name string `pulumi:"name"`
-	// Disk resource properties.
-	Properties *DiskProperties `pulumi:"properties"`
+	// The Operating System type.
+	OsType *string `pulumi:"osType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, or StandardSSD_LRS.
@@ -129,12 +138,18 @@ type diskArgs struct {
 
 // The set of arguments for constructing a Disk resource.
 type DiskArgs struct {
+	// Disk source information. CreationData information cannot be changed after the disk has been created.
+	CreationData CreationDataInput
+	// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+	DiskSizeGB pulumi.IntPtrInput
+	// Encryption settings for disk or snapshot
+	EncryptionSettings EncryptionSettingsPtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
 	Name pulumi.StringInput
-	// Disk resource properties.
-	Properties DiskPropertiesPtrInput
+	// The Operating System type.
+	OsType pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The disks sku name. Can be Standard_LRS, Premium_LRS, or StandardSSD_LRS.

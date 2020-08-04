@@ -87,30 +87,62 @@ func (WebAppDeploymentSlotState) ElementType() reflect.Type {
 }
 
 type webAppDeploymentSlotArgs struct {
+	// True if deployment is currently active, false if completed and null if not started.
+	Active *bool `pulumi:"active"`
+	// Who authored the deployment.
+	Author *string `pulumi:"author"`
+	// Author email.
+	Author_email *string `pulumi:"author_email"`
+	// Who performed the deployment.
+	Deployer *string `pulumi:"deployer"`
+	// Details on deployment.
+	Details *string `pulumi:"details"`
+	// End time.
+	End_time *string `pulumi:"end_time"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
+	// Details about deployment status.
+	Message *string `pulumi:"message"`
 	// ID of an existing deployment.
 	Name string `pulumi:"name"`
-	// Deployment resource specific properties
-	Properties *DeploymentProperties `pulumi:"properties"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of the deployment slot. If a slot is not specified, the API creates a deployment for the production slot.
 	Slot string `pulumi:"slot"`
+	// Start time.
+	Start_time *string `pulumi:"start_time"`
+	// Deployment status.
+	Status *int `pulumi:"status"`
 }
 
 // The set of arguments for constructing a WebAppDeploymentSlot resource.
 type WebAppDeploymentSlotArgs struct {
+	// True if deployment is currently active, false if completed and null if not started.
+	Active pulumi.BoolPtrInput
+	// Who authored the deployment.
+	Author pulumi.StringPtrInput
+	// Author email.
+	Author_email pulumi.StringPtrInput
+	// Who performed the deployment.
+	Deployer pulumi.StringPtrInput
+	// Details on deployment.
+	Details pulumi.StringPtrInput
+	// End time.
+	End_time pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
+	// Details about deployment status.
+	Message pulumi.StringPtrInput
 	// ID of an existing deployment.
 	Name pulumi.StringInput
-	// Deployment resource specific properties
-	Properties DeploymentPropertiesPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Name of the deployment slot. If a slot is not specified, the API creates a deployment for the production slot.
 	Slot pulumi.StringInput
+	// Start time.
+	Start_time pulumi.StringPtrInput
+	// Deployment status.
+	Status pulumi.IntPtrInput
 }
 
 func (WebAppDeploymentSlotArgs) ElementType() reflect.Type {

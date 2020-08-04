@@ -31,6 +31,9 @@ func NewTransform(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.Outputs == nil {
+		return nil, errors.New("missing required argument 'Outputs'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -83,10 +86,12 @@ func (TransformState) ElementType() reflect.Type {
 type transformArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
+	// An optional verbose description of the Transform.
+	Description *string `pulumi:"description"`
 	// The Transform name.
 	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties *TransformProperties `pulumi:"properties"`
+	// An array of one or more TransformOutputs that the Transform should generate.
+	Outputs []TransformOutput `pulumi:"outputs"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -95,10 +100,12 @@ type transformArgs struct {
 type TransformArgs struct {
 	// The Media Services account name.
 	AccountName pulumi.StringInput
+	// An optional verbose description of the Transform.
+	Description pulumi.StringPtrInput
 	// The Transform name.
 	Name pulumi.StringInput
-	// The resource properties.
-	Properties TransformPropertiesPtrInput
+	// An array of one or more TransformOutputs that the Transform should generate.
+	Outputs TransformOutputArrayInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 }

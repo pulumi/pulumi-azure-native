@@ -112,14 +112,22 @@ type natGatewayArgs struct {
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// The idle timeout of the nat gateway.
+	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the nat gateway.
 	Name string `pulumi:"name"`
-	// Nat Gateway properties.
-	Properties *NatGatewayPropertiesFormat `pulumi:"properties"`
+	// The provisioning state of the NAT gateway resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// An array of public ip addresses associated with the nat gateway resource.
+	PublicIpAddresses []SubResource `pulumi:"publicIpAddresses"`
+	// An array of public ip prefixes associated with the nat gateway resource.
+	PublicIpPrefixes []SubResource `pulumi:"publicIpPrefixes"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The resource GUID property of the NAT gateway resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// The nat gateway SKU.
 	Sku *NatGatewaySku `pulumi:"sku"`
 	// Resource tags.
@@ -134,14 +142,22 @@ type NatGatewayArgs struct {
 	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// The idle timeout of the nat gateway.
+	IdleTimeoutInMinutes pulumi.IntPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the nat gateway.
 	Name pulumi.StringInput
-	// Nat Gateway properties.
-	Properties NatGatewayPropertiesFormatPtrInput
+	// The provisioning state of the NAT gateway resource.
+	ProvisioningState pulumi.StringPtrInput
+	// An array of public ip addresses associated with the nat gateway resource.
+	PublicIpAddresses SubResourceArrayInput
+	// An array of public ip prefixes associated with the nat gateway resource.
+	PublicIpPrefixes SubResourceArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The resource GUID property of the NAT gateway resource.
+	ResourceGuid pulumi.StringPtrInput
 	// The nat gateway SKU.
 	Sku NatGatewaySkuPtrInput
 	// Resource tags.

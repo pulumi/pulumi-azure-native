@@ -81,10 +81,12 @@ func (DatabaseState) ElementType() reflect.Type {
 }
 
 type databaseArgs struct {
+	// The charset of the database.
+	Charset *string `pulumi:"charset"`
+	// The collation of the database.
+	Collation *string `pulumi:"collation"`
 	// The name of the database.
 	Name string `pulumi:"name"`
-	// The properties of a database.
-	Properties *DatabaseProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the server.
@@ -93,10 +95,12 @@ type databaseArgs struct {
 
 // The set of arguments for constructing a Database resource.
 type DatabaseArgs struct {
+	// The charset of the database.
+	Charset pulumi.StringPtrInput
+	// The collation of the database.
+	Collation pulumi.StringPtrInput
 	// The name of the database.
 	Name pulumi.StringInput
-	// The properties of a database.
-	Properties DatabasePropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The name of the server.

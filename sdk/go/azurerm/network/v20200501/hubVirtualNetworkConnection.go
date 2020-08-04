@@ -81,28 +81,44 @@ func (HubVirtualNetworkConnectionState) ElementType() reflect.Type {
 }
 
 type hubVirtualNetworkConnectionArgs struct {
+	// Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
+	AllowHubToRemoteVnetTransit *bool `pulumi:"allowHubToRemoteVnetTransit"`
+	// Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
+	AllowRemoteVnetToUseHubVnetGateways *bool `pulumi:"allowRemoteVnetToUseHubVnetGateways"`
+	// Enable internet security.
+	EnableInternetSecurity *bool `pulumi:"enableInternetSecurity"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the HubVirtualNetworkConnection.
 	Name string `pulumi:"name"`
-	// Properties of the hub virtual network connection.
-	Properties *HubVirtualNetworkConnectionProperties `pulumi:"properties"`
+	// Reference to the remote virtual network.
+	RemoteVirtualNetwork *SubResource `pulumi:"remoteVirtualNetwork"`
 	// The resource group name of the HubVirtualNetworkConnection.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The Routing Configuration indicating the associated and propagated route tables on this connection.
+	RoutingConfiguration *RoutingConfiguration `pulumi:"routingConfiguration"`
 	// The name of the VirtualHub.
 	VirtualHubName string `pulumi:"virtualHubName"`
 }
 
 // The set of arguments for constructing a HubVirtualNetworkConnection resource.
 type HubVirtualNetworkConnectionArgs struct {
+	// Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
+	AllowHubToRemoteVnetTransit pulumi.BoolPtrInput
+	// Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
+	AllowRemoteVnetToUseHubVnetGateways pulumi.BoolPtrInput
+	// Enable internet security.
+	EnableInternetSecurity pulumi.BoolPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The name of the HubVirtualNetworkConnection.
 	Name pulumi.StringInput
-	// Properties of the hub virtual network connection.
-	Properties HubVirtualNetworkConnectionPropertiesPtrInput
+	// Reference to the remote virtual network.
+	RemoteVirtualNetwork SubResourcePtrInput
 	// The resource group name of the HubVirtualNetworkConnection.
 	ResourceGroupName pulumi.StringInput
+	// The Routing Configuration indicating the associated and propagated route tables on this connection.
+	RoutingConfiguration RoutingConfigurationPtrInput
 	// The name of the VirtualHub.
 	VirtualHubName pulumi.StringInput
 }

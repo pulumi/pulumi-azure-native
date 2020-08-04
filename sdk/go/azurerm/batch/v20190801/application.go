@@ -89,10 +89,14 @@ func (ApplicationState) ElementType() reflect.Type {
 type applicationArgs struct {
 	// The name of the Batch account.
 	AccountName string `pulumi:"accountName"`
+	// A value indicating whether packages within the application may be overwritten using the same version string.
+	AllowUpdates *bool `pulumi:"allowUpdates"`
+	// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+	DefaultVersion *string `pulumi:"defaultVersion"`
+	// The display name for the application.
+	DisplayName *string `pulumi:"displayName"`
 	// The name of the application. This must be unique within the account.
 	Name string `pulumi:"name"`
-	// The properties associated with the Application.
-	Properties *ApplicationProperties `pulumi:"properties"`
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -101,10 +105,14 @@ type applicationArgs struct {
 type ApplicationArgs struct {
 	// The name of the Batch account.
 	AccountName pulumi.StringInput
+	// A value indicating whether packages within the application may be overwritten using the same version string.
+	AllowUpdates pulumi.BoolPtrInput
+	// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+	DefaultVersion pulumi.StringPtrInput
+	// The display name for the application.
+	DisplayName pulumi.StringPtrInput
 	// The name of the application. This must be unique within the account.
 	Name pulumi.StringInput
-	// The properties associated with the Application.
-	Properties ApplicationPropertiesPtrInput
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName pulumi.StringInput
 }

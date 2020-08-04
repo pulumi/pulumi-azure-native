@@ -84,12 +84,16 @@ func (GatewayHostnameConfigurationState) ElementType() reflect.Type {
 }
 
 type gatewayHostnameConfigurationArgs struct {
+	// Identifier of Certificate entity that will be used for TLS connection establishment
+	CertificateId *string `pulumi:"certificateId"`
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	GatewayId string `pulumi:"gatewayId"`
+	// Hostname value. Supports valid domain name, partial or full wildcard
+	Hostname *string `pulumi:"hostname"`
 	// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
 	Name string `pulumi:"name"`
-	// Gateway hostname configuration details.
-	Properties *GatewayHostnameConfigurationContractProperties `pulumi:"properties"`
+	// Determines whether gateway requests client certificate
+	NegotiateClientCertificate *bool `pulumi:"negotiateClientCertificate"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -98,12 +102,16 @@ type gatewayHostnameConfigurationArgs struct {
 
 // The set of arguments for constructing a GatewayHostnameConfiguration resource.
 type GatewayHostnameConfigurationArgs struct {
+	// Identifier of Certificate entity that will be used for TLS connection establishment
+	CertificateId pulumi.StringPtrInput
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	GatewayId pulumi.StringInput
+	// Hostname value. Supports valid domain name, partial or full wildcard
+	Hostname pulumi.StringPtrInput
 	// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
 	Name pulumi.StringInput
-	// Gateway hostname configuration details.
-	Properties GatewayHostnameConfigurationContractPropertiesPtrInput
+	// Determines whether gateway requests client certificate
+	NegotiateClientCertificate pulumi.BoolPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

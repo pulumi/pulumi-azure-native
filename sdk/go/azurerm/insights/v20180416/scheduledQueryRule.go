@@ -29,17 +29,20 @@ type ScheduledQueryRule struct {
 // NewScheduledQueryRule registers a new resource with the given unique name, arguments, and options.
 func NewScheduledQueryRule(ctx *pulumi.Context,
 	name string, args *ScheduledQueryRuleArgs, opts ...pulumi.ResourceOption) (*ScheduledQueryRule, error) {
+	if args == nil || args.Action == nil {
+		return nil, errors.New("missing required argument 'Action'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Source == nil {
+		return nil, errors.New("missing required argument 'Source'")
 	}
 	if args == nil {
 		args = &ScheduledQueryRuleArgs{}
@@ -96,28 +99,44 @@ func (ScheduledQueryRuleState) ElementType() reflect.Type {
 }
 
 type scheduledQueryRuleArgs struct {
+	// Action needs to be taken on rule execution.
+	Action Action `pulumi:"action"`
+	// The description of the Log Search rule.
+	Description *string `pulumi:"description"`
+	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+	Enabled *string `pulumi:"enabled"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the rule.
 	Name string `pulumi:"name"`
-	// The rule properties of the resource.
-	Properties LogSearchRule `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+	Schedule *Schedule `pulumi:"schedule"`
+	// Data Source against which rule will Query Data
+	Source Source `pulumi:"source"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ScheduledQueryRule resource.
 type ScheduledQueryRuleArgs struct {
+	// Action needs to be taken on rule execution.
+	Action ActionInput
+	// The description of the Log Search rule.
+	Description pulumi.StringPtrInput
+	// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+	Enabled pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the rule.
 	Name pulumi.StringInput
-	// The rule properties of the resource.
-	Properties LogSearchRuleInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+	Schedule SchedulePtrInput
+	// Data Source against which rule will Query Data
+	Source SourceInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 }

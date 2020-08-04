@@ -11,159 +11,6 @@ import (
 )
 
 // Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-type ArmDisasterRecoveryProperties struct {
-	// Alternate name specified when alias and namespace names are same.
-	AlternateName *string `pulumi:"alternateName"`
-	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-	PartnerNamespace *string `pulumi:"partnerNamespace"`
-}
-
-// ArmDisasterRecoveryPropertiesInput is an input type that accepts ArmDisasterRecoveryPropertiesArgs and ArmDisasterRecoveryPropertiesOutput values.
-// You can construct a concrete instance of `ArmDisasterRecoveryPropertiesInput` via:
-//
-//          ArmDisasterRecoveryPropertiesArgs{...}
-type ArmDisasterRecoveryPropertiesInput interface {
-	pulumi.Input
-
-	ToArmDisasterRecoveryPropertiesOutput() ArmDisasterRecoveryPropertiesOutput
-	ToArmDisasterRecoveryPropertiesOutputWithContext(context.Context) ArmDisasterRecoveryPropertiesOutput
-}
-
-// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-type ArmDisasterRecoveryPropertiesArgs struct {
-	// Alternate name specified when alias and namespace names are same.
-	AlternateName pulumi.StringPtrInput `pulumi:"alternateName"`
-	// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-	PartnerNamespace pulumi.StringPtrInput `pulumi:"partnerNamespace"`
-}
-
-func (ArmDisasterRecoveryPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmDisasterRecoveryProperties)(nil)).Elem()
-}
-
-func (i ArmDisasterRecoveryPropertiesArgs) ToArmDisasterRecoveryPropertiesOutput() ArmDisasterRecoveryPropertiesOutput {
-	return i.ToArmDisasterRecoveryPropertiesOutputWithContext(context.Background())
-}
-
-func (i ArmDisasterRecoveryPropertiesArgs) ToArmDisasterRecoveryPropertiesOutputWithContext(ctx context.Context) ArmDisasterRecoveryPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmDisasterRecoveryPropertiesOutput)
-}
-
-func (i ArmDisasterRecoveryPropertiesArgs) ToArmDisasterRecoveryPropertiesPtrOutput() ArmDisasterRecoveryPropertiesPtrOutput {
-	return i.ToArmDisasterRecoveryPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ArmDisasterRecoveryPropertiesArgs) ToArmDisasterRecoveryPropertiesPtrOutputWithContext(ctx context.Context) ArmDisasterRecoveryPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmDisasterRecoveryPropertiesOutput).ToArmDisasterRecoveryPropertiesPtrOutputWithContext(ctx)
-}
-
-// ArmDisasterRecoveryPropertiesPtrInput is an input type that accepts ArmDisasterRecoveryPropertiesArgs, ArmDisasterRecoveryPropertiesPtr and ArmDisasterRecoveryPropertiesPtrOutput values.
-// You can construct a concrete instance of `ArmDisasterRecoveryPropertiesPtrInput` via:
-//
-//          ArmDisasterRecoveryPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ArmDisasterRecoveryPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToArmDisasterRecoveryPropertiesPtrOutput() ArmDisasterRecoveryPropertiesPtrOutput
-	ToArmDisasterRecoveryPropertiesPtrOutputWithContext(context.Context) ArmDisasterRecoveryPropertiesPtrOutput
-}
-
-type armDisasterRecoveryPropertiesPtrType ArmDisasterRecoveryPropertiesArgs
-
-func ArmDisasterRecoveryPropertiesPtr(v *ArmDisasterRecoveryPropertiesArgs) ArmDisasterRecoveryPropertiesPtrInput {
-	return (*armDisasterRecoveryPropertiesPtrType)(v)
-}
-
-func (*armDisasterRecoveryPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmDisasterRecoveryProperties)(nil)).Elem()
-}
-
-func (i *armDisasterRecoveryPropertiesPtrType) ToArmDisasterRecoveryPropertiesPtrOutput() ArmDisasterRecoveryPropertiesPtrOutput {
-	return i.ToArmDisasterRecoveryPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *armDisasterRecoveryPropertiesPtrType) ToArmDisasterRecoveryPropertiesPtrOutputWithContext(ctx context.Context) ArmDisasterRecoveryPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmDisasterRecoveryPropertiesPtrOutput)
-}
-
-// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-type ArmDisasterRecoveryPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ArmDisasterRecoveryPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmDisasterRecoveryProperties)(nil)).Elem()
-}
-
-func (o ArmDisasterRecoveryPropertiesOutput) ToArmDisasterRecoveryPropertiesOutput() ArmDisasterRecoveryPropertiesOutput {
-	return o
-}
-
-func (o ArmDisasterRecoveryPropertiesOutput) ToArmDisasterRecoveryPropertiesOutputWithContext(ctx context.Context) ArmDisasterRecoveryPropertiesOutput {
-	return o
-}
-
-func (o ArmDisasterRecoveryPropertiesOutput) ToArmDisasterRecoveryPropertiesPtrOutput() ArmDisasterRecoveryPropertiesPtrOutput {
-	return o.ToArmDisasterRecoveryPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ArmDisasterRecoveryPropertiesOutput) ToArmDisasterRecoveryPropertiesPtrOutputWithContext(ctx context.Context) ArmDisasterRecoveryPropertiesPtrOutput {
-	return o.ApplyT(func(v ArmDisasterRecoveryProperties) *ArmDisasterRecoveryProperties {
-		return &v
-	}).(ArmDisasterRecoveryPropertiesPtrOutput)
-}
-
-// Alternate name specified when alias and namespace names are same.
-func (o ArmDisasterRecoveryPropertiesOutput) AlternateName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmDisasterRecoveryProperties) *string { return v.AlternateName }).(pulumi.StringPtrOutput)
-}
-
-// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-func (o ArmDisasterRecoveryPropertiesOutput) PartnerNamespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ArmDisasterRecoveryProperties) *string { return v.PartnerNamespace }).(pulumi.StringPtrOutput)
-}
-
-type ArmDisasterRecoveryPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ArmDisasterRecoveryPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmDisasterRecoveryProperties)(nil)).Elem()
-}
-
-func (o ArmDisasterRecoveryPropertiesPtrOutput) ToArmDisasterRecoveryPropertiesPtrOutput() ArmDisasterRecoveryPropertiesPtrOutput {
-	return o
-}
-
-func (o ArmDisasterRecoveryPropertiesPtrOutput) ToArmDisasterRecoveryPropertiesPtrOutputWithContext(ctx context.Context) ArmDisasterRecoveryPropertiesPtrOutput {
-	return o
-}
-
-func (o ArmDisasterRecoveryPropertiesPtrOutput) Elem() ArmDisasterRecoveryPropertiesOutput {
-	return o.ApplyT(func(v *ArmDisasterRecoveryProperties) ArmDisasterRecoveryProperties { return *v }).(ArmDisasterRecoveryPropertiesOutput)
-}
-
-// Alternate name specified when alias and namespace names are same.
-func (o ArmDisasterRecoveryPropertiesPtrOutput) AlternateName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmDisasterRecoveryProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AlternateName
-	}).(pulumi.StringPtrOutput)
-}
-
-// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-func (o ArmDisasterRecoveryPropertiesPtrOutput) PartnerNamespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ArmDisasterRecoveryProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PartnerNamespace
-	}).(pulumi.StringPtrOutput)
-}
-
-// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
 type ArmDisasterRecoveryResponseProperties struct {
 	// Alternate name specified when alias and namespace names are same.
 	AlternateName *string `pulumi:"alternateName"`
@@ -371,140 +218,6 @@ func (o ArmDisasterRecoveryResponsePropertiesPtrOutput) Role() pulumi.StringPtrO
 		}
 		return &v.Role
 	}).(pulumi.StringPtrOutput)
-}
-
-// Properties supplied to create or update AuthorizationRule
-type AuthorizationRuleProperties struct {
-	// The rights associated with the rule.
-	Rights []string `pulumi:"rights"`
-}
-
-// AuthorizationRulePropertiesInput is an input type that accepts AuthorizationRulePropertiesArgs and AuthorizationRulePropertiesOutput values.
-// You can construct a concrete instance of `AuthorizationRulePropertiesInput` via:
-//
-//          AuthorizationRulePropertiesArgs{...}
-type AuthorizationRulePropertiesInput interface {
-	pulumi.Input
-
-	ToAuthorizationRulePropertiesOutput() AuthorizationRulePropertiesOutput
-	ToAuthorizationRulePropertiesOutputWithContext(context.Context) AuthorizationRulePropertiesOutput
-}
-
-// Properties supplied to create or update AuthorizationRule
-type AuthorizationRulePropertiesArgs struct {
-	// The rights associated with the rule.
-	Rights pulumi.StringArrayInput `pulumi:"rights"`
-}
-
-func (AuthorizationRulePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthorizationRuleProperties)(nil)).Elem()
-}
-
-func (i AuthorizationRulePropertiesArgs) ToAuthorizationRulePropertiesOutput() AuthorizationRulePropertiesOutput {
-	return i.ToAuthorizationRulePropertiesOutputWithContext(context.Background())
-}
-
-func (i AuthorizationRulePropertiesArgs) ToAuthorizationRulePropertiesOutputWithContext(ctx context.Context) AuthorizationRulePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationRulePropertiesOutput)
-}
-
-func (i AuthorizationRulePropertiesArgs) ToAuthorizationRulePropertiesPtrOutput() AuthorizationRulePropertiesPtrOutput {
-	return i.ToAuthorizationRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i AuthorizationRulePropertiesArgs) ToAuthorizationRulePropertiesPtrOutputWithContext(ctx context.Context) AuthorizationRulePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationRulePropertiesOutput).ToAuthorizationRulePropertiesPtrOutputWithContext(ctx)
-}
-
-// AuthorizationRulePropertiesPtrInput is an input type that accepts AuthorizationRulePropertiesArgs, AuthorizationRulePropertiesPtr and AuthorizationRulePropertiesPtrOutput values.
-// You can construct a concrete instance of `AuthorizationRulePropertiesPtrInput` via:
-//
-//          AuthorizationRulePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type AuthorizationRulePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToAuthorizationRulePropertiesPtrOutput() AuthorizationRulePropertiesPtrOutput
-	ToAuthorizationRulePropertiesPtrOutputWithContext(context.Context) AuthorizationRulePropertiesPtrOutput
-}
-
-type authorizationRulePropertiesPtrType AuthorizationRulePropertiesArgs
-
-func AuthorizationRulePropertiesPtr(v *AuthorizationRulePropertiesArgs) AuthorizationRulePropertiesPtrInput {
-	return (*authorizationRulePropertiesPtrType)(v)
-}
-
-func (*authorizationRulePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthorizationRuleProperties)(nil)).Elem()
-}
-
-func (i *authorizationRulePropertiesPtrType) ToAuthorizationRulePropertiesPtrOutput() AuthorizationRulePropertiesPtrOutput {
-	return i.ToAuthorizationRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *authorizationRulePropertiesPtrType) ToAuthorizationRulePropertiesPtrOutputWithContext(ctx context.Context) AuthorizationRulePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationRulePropertiesPtrOutput)
-}
-
-// Properties supplied to create or update AuthorizationRule
-type AuthorizationRulePropertiesOutput struct{ *pulumi.OutputState }
-
-func (AuthorizationRulePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthorizationRuleProperties)(nil)).Elem()
-}
-
-func (o AuthorizationRulePropertiesOutput) ToAuthorizationRulePropertiesOutput() AuthorizationRulePropertiesOutput {
-	return o
-}
-
-func (o AuthorizationRulePropertiesOutput) ToAuthorizationRulePropertiesOutputWithContext(ctx context.Context) AuthorizationRulePropertiesOutput {
-	return o
-}
-
-func (o AuthorizationRulePropertiesOutput) ToAuthorizationRulePropertiesPtrOutput() AuthorizationRulePropertiesPtrOutput {
-	return o.ToAuthorizationRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o AuthorizationRulePropertiesOutput) ToAuthorizationRulePropertiesPtrOutputWithContext(ctx context.Context) AuthorizationRulePropertiesPtrOutput {
-	return o.ApplyT(func(v AuthorizationRuleProperties) *AuthorizationRuleProperties {
-		return &v
-	}).(AuthorizationRulePropertiesPtrOutput)
-}
-
-// The rights associated with the rule.
-func (o AuthorizationRulePropertiesOutput) Rights() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v AuthorizationRuleProperties) []string { return v.Rights }).(pulumi.StringArrayOutput)
-}
-
-type AuthorizationRulePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (AuthorizationRulePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AuthorizationRuleProperties)(nil)).Elem()
-}
-
-func (o AuthorizationRulePropertiesPtrOutput) ToAuthorizationRulePropertiesPtrOutput() AuthorizationRulePropertiesPtrOutput {
-	return o
-}
-
-func (o AuthorizationRulePropertiesPtrOutput) ToAuthorizationRulePropertiesPtrOutputWithContext(ctx context.Context) AuthorizationRulePropertiesPtrOutput {
-	return o
-}
-
-func (o AuthorizationRulePropertiesPtrOutput) Elem() AuthorizationRulePropertiesOutput {
-	return o.ApplyT(func(v *AuthorizationRuleProperties) AuthorizationRuleProperties { return *v }).(AuthorizationRulePropertiesOutput)
-}
-
-// The rights associated with the rule.
-func (o AuthorizationRulePropertiesPtrOutput) Rights() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *AuthorizationRuleProperties) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Rights
-	}).(pulumi.StringArrayOutput)
 }
 
 // Properties supplied to create or update AuthorizationRule
@@ -1173,140 +886,6 @@ func (o ConsumerGroupTypeOutput) Type() pulumi.StringOutput {
 }
 
 // Single item in List or Get Consumer group operation
-type ConsumerGroupProperties struct {
-	// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-	UserMetadata *string `pulumi:"userMetadata"`
-}
-
-// ConsumerGroupPropertiesInput is an input type that accepts ConsumerGroupPropertiesArgs and ConsumerGroupPropertiesOutput values.
-// You can construct a concrete instance of `ConsumerGroupPropertiesInput` via:
-//
-//          ConsumerGroupPropertiesArgs{...}
-type ConsumerGroupPropertiesInput interface {
-	pulumi.Input
-
-	ToConsumerGroupPropertiesOutput() ConsumerGroupPropertiesOutput
-	ToConsumerGroupPropertiesOutputWithContext(context.Context) ConsumerGroupPropertiesOutput
-}
-
-// Single item in List or Get Consumer group operation
-type ConsumerGroupPropertiesArgs struct {
-	// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-	UserMetadata pulumi.StringPtrInput `pulumi:"userMetadata"`
-}
-
-func (ConsumerGroupPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsumerGroupProperties)(nil)).Elem()
-}
-
-func (i ConsumerGroupPropertiesArgs) ToConsumerGroupPropertiesOutput() ConsumerGroupPropertiesOutput {
-	return i.ToConsumerGroupPropertiesOutputWithContext(context.Background())
-}
-
-func (i ConsumerGroupPropertiesArgs) ToConsumerGroupPropertiesOutputWithContext(ctx context.Context) ConsumerGroupPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConsumerGroupPropertiesOutput)
-}
-
-func (i ConsumerGroupPropertiesArgs) ToConsumerGroupPropertiesPtrOutput() ConsumerGroupPropertiesPtrOutput {
-	return i.ToConsumerGroupPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i ConsumerGroupPropertiesArgs) ToConsumerGroupPropertiesPtrOutputWithContext(ctx context.Context) ConsumerGroupPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConsumerGroupPropertiesOutput).ToConsumerGroupPropertiesPtrOutputWithContext(ctx)
-}
-
-// ConsumerGroupPropertiesPtrInput is an input type that accepts ConsumerGroupPropertiesArgs, ConsumerGroupPropertiesPtr and ConsumerGroupPropertiesPtrOutput values.
-// You can construct a concrete instance of `ConsumerGroupPropertiesPtrInput` via:
-//
-//          ConsumerGroupPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type ConsumerGroupPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToConsumerGroupPropertiesPtrOutput() ConsumerGroupPropertiesPtrOutput
-	ToConsumerGroupPropertiesPtrOutputWithContext(context.Context) ConsumerGroupPropertiesPtrOutput
-}
-
-type consumerGroupPropertiesPtrType ConsumerGroupPropertiesArgs
-
-func ConsumerGroupPropertiesPtr(v *ConsumerGroupPropertiesArgs) ConsumerGroupPropertiesPtrInput {
-	return (*consumerGroupPropertiesPtrType)(v)
-}
-
-func (*consumerGroupPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConsumerGroupProperties)(nil)).Elem()
-}
-
-func (i *consumerGroupPropertiesPtrType) ToConsumerGroupPropertiesPtrOutput() ConsumerGroupPropertiesPtrOutput {
-	return i.ToConsumerGroupPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *consumerGroupPropertiesPtrType) ToConsumerGroupPropertiesPtrOutputWithContext(ctx context.Context) ConsumerGroupPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConsumerGroupPropertiesPtrOutput)
-}
-
-// Single item in List or Get Consumer group operation
-type ConsumerGroupPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ConsumerGroupPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsumerGroupProperties)(nil)).Elem()
-}
-
-func (o ConsumerGroupPropertiesOutput) ToConsumerGroupPropertiesOutput() ConsumerGroupPropertiesOutput {
-	return o
-}
-
-func (o ConsumerGroupPropertiesOutput) ToConsumerGroupPropertiesOutputWithContext(ctx context.Context) ConsumerGroupPropertiesOutput {
-	return o
-}
-
-func (o ConsumerGroupPropertiesOutput) ToConsumerGroupPropertiesPtrOutput() ConsumerGroupPropertiesPtrOutput {
-	return o.ToConsumerGroupPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o ConsumerGroupPropertiesOutput) ToConsumerGroupPropertiesPtrOutputWithContext(ctx context.Context) ConsumerGroupPropertiesPtrOutput {
-	return o.ApplyT(func(v ConsumerGroupProperties) *ConsumerGroupProperties {
-		return &v
-	}).(ConsumerGroupPropertiesPtrOutput)
-}
-
-// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-func (o ConsumerGroupPropertiesOutput) UserMetadata() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConsumerGroupProperties) *string { return v.UserMetadata }).(pulumi.StringPtrOutput)
-}
-
-type ConsumerGroupPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (ConsumerGroupPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConsumerGroupProperties)(nil)).Elem()
-}
-
-func (o ConsumerGroupPropertiesPtrOutput) ToConsumerGroupPropertiesPtrOutput() ConsumerGroupPropertiesPtrOutput {
-	return o
-}
-
-func (o ConsumerGroupPropertiesPtrOutput) ToConsumerGroupPropertiesPtrOutputWithContext(ctx context.Context) ConsumerGroupPropertiesPtrOutput {
-	return o
-}
-
-func (o ConsumerGroupPropertiesPtrOutput) Elem() ConsumerGroupPropertiesOutput {
-	return o.ApplyT(func(v *ConsumerGroupProperties) ConsumerGroupProperties { return *v }).(ConsumerGroupPropertiesOutput)
-}
-
-// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-func (o ConsumerGroupPropertiesPtrOutput) UserMetadata() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConsumerGroupProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserMetadata
-	}).(pulumi.StringPtrOutput)
-}
-
-// Single item in List or Get Consumer group operation
 type ConsumerGroupResponseProperties struct {
 	// Exact time the message was created.
 	CreatedAt string `pulumi:"createdAt"`
@@ -1480,10 +1059,14 @@ func (o ConsumerGroupResponsePropertiesPtrOutput) UserMetadata() pulumi.StringPt
 
 // Capture storage details for capture description
 type Destination struct {
+	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+	ArchiveNameFormat *string `pulumi:"archiveNameFormat"`
+	// Blob container Name
+	BlobContainer *string `pulumi:"blobContainer"`
 	// Name for capture destination
 	Name *string `pulumi:"name"`
-	// Properties describing the storage account, blob container and archive name format for capture destination
-	Properties *DestinationProperties `pulumi:"properties"`
+	// Resource id of the storage account to be used to create the blobs
+	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
 }
 
 // DestinationInput is an input type that accepts DestinationArgs and DestinationOutput values.
@@ -1499,10 +1082,14 @@ type DestinationInput interface {
 
 // Capture storage details for capture description
 type DestinationArgs struct {
+	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+	ArchiveNameFormat pulumi.StringPtrInput `pulumi:"archiveNameFormat"`
+	// Blob container Name
+	BlobContainer pulumi.StringPtrInput `pulumi:"blobContainer"`
 	// Name for capture destination
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Properties describing the storage account, blob container and archive name format for capture destination
-	Properties DestinationPropertiesPtrInput `pulumi:"properties"`
+	// Resource id of the storage account to be used to create the blobs
+	StorageAccountResourceId pulumi.StringPtrInput `pulumi:"storageAccountResourceId"`
 }
 
 func (DestinationArgs) ElementType() reflect.Type {
@@ -1583,14 +1170,24 @@ func (o DestinationOutput) ToDestinationPtrOutputWithContext(ctx context.Context
 	}).(DestinationPtrOutput)
 }
 
+// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+func (o DestinationOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Destination) *string { return v.ArchiveNameFormat }).(pulumi.StringPtrOutput)
+}
+
+// Blob container Name
+func (o DestinationOutput) BlobContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Destination) *string { return v.BlobContainer }).(pulumi.StringPtrOutput)
+}
+
 // Name for capture destination
 func (o DestinationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Destination) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Properties describing the storage account, blob container and archive name format for capture destination
-func (o DestinationOutput) Properties() DestinationPropertiesPtrOutput {
-	return o.ApplyT(func(v Destination) *DestinationProperties { return v.Properties }).(DestinationPropertiesPtrOutput)
+// Resource id of the storage account to be used to create the blobs
+func (o DestinationOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Destination) *string { return v.StorageAccountResourceId }).(pulumi.StringPtrOutput)
 }
 
 type DestinationPtrOutput struct{ *pulumi.OutputState }
@@ -1611,6 +1208,26 @@ func (o DestinationPtrOutput) Elem() DestinationOutput {
 	return o.ApplyT(func(v *Destination) Destination { return *v }).(DestinationOutput)
 }
 
+// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
+func (o DestinationPtrOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArchiveNameFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Blob container Name
+func (o DestinationPtrOutput) BlobContainer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BlobContainer
+	}).(pulumi.StringPtrOutput)
+}
+
 // Name for capture destination
 func (o DestinationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Destination) *string {
@@ -1621,181 +1238,9 @@ func (o DestinationPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Properties describing the storage account, blob container and archive name format for capture destination
-func (o DestinationPtrOutput) Properties() DestinationPropertiesPtrOutput {
-	return o.ApplyT(func(v *Destination) *DestinationProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Properties
-	}).(DestinationPropertiesPtrOutput)
-}
-
-// Properties describing the storage account, blob container and archive name format for capture destination
-type DestinationProperties struct {
-	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-	ArchiveNameFormat *string `pulumi:"archiveNameFormat"`
-	// Blob container Name
-	BlobContainer *string `pulumi:"blobContainer"`
-	// Resource id of the storage account to be used to create the blobs
-	StorageAccountResourceId *string `pulumi:"storageAccountResourceId"`
-}
-
-// DestinationPropertiesInput is an input type that accepts DestinationPropertiesArgs and DestinationPropertiesOutput values.
-// You can construct a concrete instance of `DestinationPropertiesInput` via:
-//
-//          DestinationPropertiesArgs{...}
-type DestinationPropertiesInput interface {
-	pulumi.Input
-
-	ToDestinationPropertiesOutput() DestinationPropertiesOutput
-	ToDestinationPropertiesOutputWithContext(context.Context) DestinationPropertiesOutput
-}
-
-// Properties describing the storage account, blob container and archive name format for capture destination
-type DestinationPropertiesArgs struct {
-	// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-	ArchiveNameFormat pulumi.StringPtrInput `pulumi:"archiveNameFormat"`
-	// Blob container Name
-	BlobContainer pulumi.StringPtrInput `pulumi:"blobContainer"`
-	// Resource id of the storage account to be used to create the blobs
-	StorageAccountResourceId pulumi.StringPtrInput `pulumi:"storageAccountResourceId"`
-}
-
-func (DestinationPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DestinationProperties)(nil)).Elem()
-}
-
-func (i DestinationPropertiesArgs) ToDestinationPropertiesOutput() DestinationPropertiesOutput {
-	return i.ToDestinationPropertiesOutputWithContext(context.Background())
-}
-
-func (i DestinationPropertiesArgs) ToDestinationPropertiesOutputWithContext(ctx context.Context) DestinationPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DestinationPropertiesOutput)
-}
-
-func (i DestinationPropertiesArgs) ToDestinationPropertiesPtrOutput() DestinationPropertiesPtrOutput {
-	return i.ToDestinationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i DestinationPropertiesArgs) ToDestinationPropertiesPtrOutputWithContext(ctx context.Context) DestinationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DestinationPropertiesOutput).ToDestinationPropertiesPtrOutputWithContext(ctx)
-}
-
-// DestinationPropertiesPtrInput is an input type that accepts DestinationPropertiesArgs, DestinationPropertiesPtr and DestinationPropertiesPtrOutput values.
-// You can construct a concrete instance of `DestinationPropertiesPtrInput` via:
-//
-//          DestinationPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type DestinationPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToDestinationPropertiesPtrOutput() DestinationPropertiesPtrOutput
-	ToDestinationPropertiesPtrOutputWithContext(context.Context) DestinationPropertiesPtrOutput
-}
-
-type destinationPropertiesPtrType DestinationPropertiesArgs
-
-func DestinationPropertiesPtr(v *DestinationPropertiesArgs) DestinationPropertiesPtrInput {
-	return (*destinationPropertiesPtrType)(v)
-}
-
-func (*destinationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DestinationProperties)(nil)).Elem()
-}
-
-func (i *destinationPropertiesPtrType) ToDestinationPropertiesPtrOutput() DestinationPropertiesPtrOutput {
-	return i.ToDestinationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *destinationPropertiesPtrType) ToDestinationPropertiesPtrOutputWithContext(ctx context.Context) DestinationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DestinationPropertiesPtrOutput)
-}
-
-// Properties describing the storage account, blob container and archive name format for capture destination
-type DestinationPropertiesOutput struct{ *pulumi.OutputState }
-
-func (DestinationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DestinationProperties)(nil)).Elem()
-}
-
-func (o DestinationPropertiesOutput) ToDestinationPropertiesOutput() DestinationPropertiesOutput {
-	return o
-}
-
-func (o DestinationPropertiesOutput) ToDestinationPropertiesOutputWithContext(ctx context.Context) DestinationPropertiesOutput {
-	return o
-}
-
-func (o DestinationPropertiesOutput) ToDestinationPropertiesPtrOutput() DestinationPropertiesPtrOutput {
-	return o.ToDestinationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o DestinationPropertiesOutput) ToDestinationPropertiesPtrOutputWithContext(ctx context.Context) DestinationPropertiesPtrOutput {
-	return o.ApplyT(func(v DestinationProperties) *DestinationProperties {
-		return &v
-	}).(DestinationPropertiesPtrOutput)
-}
-
-// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-func (o DestinationPropertiesOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DestinationProperties) *string { return v.ArchiveNameFormat }).(pulumi.StringPtrOutput)
-}
-
-// Blob container Name
-func (o DestinationPropertiesOutput) BlobContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DestinationProperties) *string { return v.BlobContainer }).(pulumi.StringPtrOutput)
-}
-
 // Resource id of the storage account to be used to create the blobs
-func (o DestinationPropertiesOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DestinationProperties) *string { return v.StorageAccountResourceId }).(pulumi.StringPtrOutput)
-}
-
-type DestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (DestinationPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DestinationProperties)(nil)).Elem()
-}
-
-func (o DestinationPropertiesPtrOutput) ToDestinationPropertiesPtrOutput() DestinationPropertiesPtrOutput {
-	return o
-}
-
-func (o DestinationPropertiesPtrOutput) ToDestinationPropertiesPtrOutputWithContext(ctx context.Context) DestinationPropertiesPtrOutput {
-	return o
-}
-
-func (o DestinationPropertiesPtrOutput) Elem() DestinationPropertiesOutput {
-	return o.ApplyT(func(v *DestinationProperties) DestinationProperties { return *v }).(DestinationPropertiesOutput)
-}
-
-// Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
-func (o DestinationPropertiesPtrOutput) ArchiveNameFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DestinationProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ArchiveNameFormat
-	}).(pulumi.StringPtrOutput)
-}
-
-// Blob container Name
-func (o DestinationPropertiesPtrOutput) BlobContainer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DestinationProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BlobContainer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Resource id of the storage account to be used to create the blobs
-func (o DestinationPropertiesPtrOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DestinationProperties) *string {
+func (o DestinationPtrOutput) StorageAccountResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Destination) *string {
 		if v == nil {
 			return nil
 		}
@@ -2199,178 +1644,6 @@ func (o DisasterRecoveryConfigTypeOutput) Properties() ArmDisasterRecoveryRespon
 // Resource type.
 func (o DisasterRecoveryConfigTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DisasterRecoveryConfigType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Namespace properties supplied for create namespace operation.
-type EHNamespaceProperties struct {
-	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
-	IsAutoInflateEnabled *bool `pulumi:"isAutoInflateEnabled"`
-	// Value that indicates whether Kafka is enabled for eventhub namespace.
-	KafkaEnabled *bool `pulumi:"kafkaEnabled"`
-	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
-	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
-}
-
-// EHNamespacePropertiesInput is an input type that accepts EHNamespacePropertiesArgs and EHNamespacePropertiesOutput values.
-// You can construct a concrete instance of `EHNamespacePropertiesInput` via:
-//
-//          EHNamespacePropertiesArgs{...}
-type EHNamespacePropertiesInput interface {
-	pulumi.Input
-
-	ToEHNamespacePropertiesOutput() EHNamespacePropertiesOutput
-	ToEHNamespacePropertiesOutputWithContext(context.Context) EHNamespacePropertiesOutput
-}
-
-// Namespace properties supplied for create namespace operation.
-type EHNamespacePropertiesArgs struct {
-	// Value that indicates whether AutoInflate is enabled for eventhub namespace.
-	IsAutoInflateEnabled pulumi.BoolPtrInput `pulumi:"isAutoInflateEnabled"`
-	// Value that indicates whether Kafka is enabled for eventhub namespace.
-	KafkaEnabled pulumi.BoolPtrInput `pulumi:"kafkaEnabled"`
-	// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
-	MaximumThroughputUnits pulumi.IntPtrInput `pulumi:"maximumThroughputUnits"`
-}
-
-func (EHNamespacePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EHNamespaceProperties)(nil)).Elem()
-}
-
-func (i EHNamespacePropertiesArgs) ToEHNamespacePropertiesOutput() EHNamespacePropertiesOutput {
-	return i.ToEHNamespacePropertiesOutputWithContext(context.Background())
-}
-
-func (i EHNamespacePropertiesArgs) ToEHNamespacePropertiesOutputWithContext(ctx context.Context) EHNamespacePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EHNamespacePropertiesOutput)
-}
-
-func (i EHNamespacePropertiesArgs) ToEHNamespacePropertiesPtrOutput() EHNamespacePropertiesPtrOutput {
-	return i.ToEHNamespacePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i EHNamespacePropertiesArgs) ToEHNamespacePropertiesPtrOutputWithContext(ctx context.Context) EHNamespacePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EHNamespacePropertiesOutput).ToEHNamespacePropertiesPtrOutputWithContext(ctx)
-}
-
-// EHNamespacePropertiesPtrInput is an input type that accepts EHNamespacePropertiesArgs, EHNamespacePropertiesPtr and EHNamespacePropertiesPtrOutput values.
-// You can construct a concrete instance of `EHNamespacePropertiesPtrInput` via:
-//
-//          EHNamespacePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type EHNamespacePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToEHNamespacePropertiesPtrOutput() EHNamespacePropertiesPtrOutput
-	ToEHNamespacePropertiesPtrOutputWithContext(context.Context) EHNamespacePropertiesPtrOutput
-}
-
-type ehnamespacePropertiesPtrType EHNamespacePropertiesArgs
-
-func EHNamespacePropertiesPtr(v *EHNamespacePropertiesArgs) EHNamespacePropertiesPtrInput {
-	return (*ehnamespacePropertiesPtrType)(v)
-}
-
-func (*ehnamespacePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EHNamespaceProperties)(nil)).Elem()
-}
-
-func (i *ehnamespacePropertiesPtrType) ToEHNamespacePropertiesPtrOutput() EHNamespacePropertiesPtrOutput {
-	return i.ToEHNamespacePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *ehnamespacePropertiesPtrType) ToEHNamespacePropertiesPtrOutputWithContext(ctx context.Context) EHNamespacePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EHNamespacePropertiesPtrOutput)
-}
-
-// Namespace properties supplied for create namespace operation.
-type EHNamespacePropertiesOutput struct{ *pulumi.OutputState }
-
-func (EHNamespacePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EHNamespaceProperties)(nil)).Elem()
-}
-
-func (o EHNamespacePropertiesOutput) ToEHNamespacePropertiesOutput() EHNamespacePropertiesOutput {
-	return o
-}
-
-func (o EHNamespacePropertiesOutput) ToEHNamespacePropertiesOutputWithContext(ctx context.Context) EHNamespacePropertiesOutput {
-	return o
-}
-
-func (o EHNamespacePropertiesOutput) ToEHNamespacePropertiesPtrOutput() EHNamespacePropertiesPtrOutput {
-	return o.ToEHNamespacePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o EHNamespacePropertiesOutput) ToEHNamespacePropertiesPtrOutputWithContext(ctx context.Context) EHNamespacePropertiesPtrOutput {
-	return o.ApplyT(func(v EHNamespaceProperties) *EHNamespaceProperties {
-		return &v
-	}).(EHNamespacePropertiesPtrOutput)
-}
-
-// Value that indicates whether AutoInflate is enabled for eventhub namespace.
-func (o EHNamespacePropertiesOutput) IsAutoInflateEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EHNamespaceProperties) *bool { return v.IsAutoInflateEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Value that indicates whether Kafka is enabled for eventhub namespace.
-func (o EHNamespacePropertiesOutput) KafkaEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EHNamespaceProperties) *bool { return v.KafkaEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
-func (o EHNamespacePropertiesOutput) MaximumThroughputUnits() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EHNamespaceProperties) *int { return v.MaximumThroughputUnits }).(pulumi.IntPtrOutput)
-}
-
-type EHNamespacePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (EHNamespacePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EHNamespaceProperties)(nil)).Elem()
-}
-
-func (o EHNamespacePropertiesPtrOutput) ToEHNamespacePropertiesPtrOutput() EHNamespacePropertiesPtrOutput {
-	return o
-}
-
-func (o EHNamespacePropertiesPtrOutput) ToEHNamespacePropertiesPtrOutputWithContext(ctx context.Context) EHNamespacePropertiesPtrOutput {
-	return o
-}
-
-func (o EHNamespacePropertiesPtrOutput) Elem() EHNamespacePropertiesOutput {
-	return o.ApplyT(func(v *EHNamespaceProperties) EHNamespaceProperties { return *v }).(EHNamespacePropertiesOutput)
-}
-
-// Value that indicates whether AutoInflate is enabled for eventhub namespace.
-func (o EHNamespacePropertiesPtrOutput) IsAutoInflateEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EHNamespaceProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsAutoInflateEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Value that indicates whether Kafka is enabled for eventhub namespace.
-func (o EHNamespacePropertiesPtrOutput) KafkaEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EHNamespaceProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.KafkaEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
-func (o EHNamespacePropertiesPtrOutput) MaximumThroughputUnits() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EHNamespaceProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaximumThroughputUnits
-	}).(pulumi.IntPtrOutput)
 }
 
 // Namespace properties supplied for create namespace operation.
@@ -2784,197 +2057,6 @@ func (o EventHubAuthorizationRuleTypeOutput) Properties() AuthorizationRuleRespo
 // Resource type.
 func (o EventHubAuthorizationRuleTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubAuthorizationRuleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Properties supplied to the Create Or Update Event Hub operation.
-type EventhubProperties struct {
-	// Properties of capture description
-	CaptureDescription *CaptureDescription `pulumi:"captureDescription"`
-	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-	MessageRetentionInDays *int `pulumi:"messageRetentionInDays"`
-	// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
-	PartitionCount *int `pulumi:"partitionCount"`
-	// Enumerates the possible values for the status of the Event Hub.
-	Status *string `pulumi:"status"`
-}
-
-// EventhubPropertiesInput is an input type that accepts EventhubPropertiesArgs and EventhubPropertiesOutput values.
-// You can construct a concrete instance of `EventhubPropertiesInput` via:
-//
-//          EventhubPropertiesArgs{...}
-type EventhubPropertiesInput interface {
-	pulumi.Input
-
-	ToEventhubPropertiesOutput() EventhubPropertiesOutput
-	ToEventhubPropertiesOutputWithContext(context.Context) EventhubPropertiesOutput
-}
-
-// Properties supplied to the Create Or Update Event Hub operation.
-type EventhubPropertiesArgs struct {
-	// Properties of capture description
-	CaptureDescription CaptureDescriptionPtrInput `pulumi:"captureDescription"`
-	// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-	MessageRetentionInDays pulumi.IntPtrInput `pulumi:"messageRetentionInDays"`
-	// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
-	PartitionCount pulumi.IntPtrInput `pulumi:"partitionCount"`
-	// Enumerates the possible values for the status of the Event Hub.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (EventhubPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventhubProperties)(nil)).Elem()
-}
-
-func (i EventhubPropertiesArgs) ToEventhubPropertiesOutput() EventhubPropertiesOutput {
-	return i.ToEventhubPropertiesOutputWithContext(context.Background())
-}
-
-func (i EventhubPropertiesArgs) ToEventhubPropertiesOutputWithContext(ctx context.Context) EventhubPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventhubPropertiesOutput)
-}
-
-func (i EventhubPropertiesArgs) ToEventhubPropertiesPtrOutput() EventhubPropertiesPtrOutput {
-	return i.ToEventhubPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i EventhubPropertiesArgs) ToEventhubPropertiesPtrOutputWithContext(ctx context.Context) EventhubPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventhubPropertiesOutput).ToEventhubPropertiesPtrOutputWithContext(ctx)
-}
-
-// EventhubPropertiesPtrInput is an input type that accepts EventhubPropertiesArgs, EventhubPropertiesPtr and EventhubPropertiesPtrOutput values.
-// You can construct a concrete instance of `EventhubPropertiesPtrInput` via:
-//
-//          EventhubPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type EventhubPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToEventhubPropertiesPtrOutput() EventhubPropertiesPtrOutput
-	ToEventhubPropertiesPtrOutputWithContext(context.Context) EventhubPropertiesPtrOutput
-}
-
-type eventhubPropertiesPtrType EventhubPropertiesArgs
-
-func EventhubPropertiesPtr(v *EventhubPropertiesArgs) EventhubPropertiesPtrInput {
-	return (*eventhubPropertiesPtrType)(v)
-}
-
-func (*eventhubPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventhubProperties)(nil)).Elem()
-}
-
-func (i *eventhubPropertiesPtrType) ToEventhubPropertiesPtrOutput() EventhubPropertiesPtrOutput {
-	return i.ToEventhubPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *eventhubPropertiesPtrType) ToEventhubPropertiesPtrOutputWithContext(ctx context.Context) EventhubPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventhubPropertiesPtrOutput)
-}
-
-// Properties supplied to the Create Or Update Event Hub operation.
-type EventhubPropertiesOutput struct{ *pulumi.OutputState }
-
-func (EventhubPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventhubProperties)(nil)).Elem()
-}
-
-func (o EventhubPropertiesOutput) ToEventhubPropertiesOutput() EventhubPropertiesOutput {
-	return o
-}
-
-func (o EventhubPropertiesOutput) ToEventhubPropertiesOutputWithContext(ctx context.Context) EventhubPropertiesOutput {
-	return o
-}
-
-func (o EventhubPropertiesOutput) ToEventhubPropertiesPtrOutput() EventhubPropertiesPtrOutput {
-	return o.ToEventhubPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o EventhubPropertiesOutput) ToEventhubPropertiesPtrOutputWithContext(ctx context.Context) EventhubPropertiesPtrOutput {
-	return o.ApplyT(func(v EventhubProperties) *EventhubProperties {
-		return &v
-	}).(EventhubPropertiesPtrOutput)
-}
-
-// Properties of capture description
-func (o EventhubPropertiesOutput) CaptureDescription() CaptureDescriptionPtrOutput {
-	return o.ApplyT(func(v EventhubProperties) *CaptureDescription { return v.CaptureDescription }).(CaptureDescriptionPtrOutput)
-}
-
-// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-func (o EventhubPropertiesOutput) MessageRetentionInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EventhubProperties) *int { return v.MessageRetentionInDays }).(pulumi.IntPtrOutput)
-}
-
-// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
-func (o EventhubPropertiesOutput) PartitionCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v EventhubProperties) *int { return v.PartitionCount }).(pulumi.IntPtrOutput)
-}
-
-// Enumerates the possible values for the status of the Event Hub.
-func (o EventhubPropertiesOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EventhubProperties) *string { return v.Status }).(pulumi.StringPtrOutput)
-}
-
-type EventhubPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (EventhubPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventhubProperties)(nil)).Elem()
-}
-
-func (o EventhubPropertiesPtrOutput) ToEventhubPropertiesPtrOutput() EventhubPropertiesPtrOutput {
-	return o
-}
-
-func (o EventhubPropertiesPtrOutput) ToEventhubPropertiesPtrOutputWithContext(ctx context.Context) EventhubPropertiesPtrOutput {
-	return o
-}
-
-func (o EventhubPropertiesPtrOutput) Elem() EventhubPropertiesOutput {
-	return o.ApplyT(func(v *EventhubProperties) EventhubProperties { return *v }).(EventhubPropertiesOutput)
-}
-
-// Properties of capture description
-func (o EventhubPropertiesPtrOutput) CaptureDescription() CaptureDescriptionPtrOutput {
-	return o.ApplyT(func(v *EventhubProperties) *CaptureDescription {
-		if v == nil {
-			return nil
-		}
-		return v.CaptureDescription
-	}).(CaptureDescriptionPtrOutput)
-}
-
-// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
-func (o EventhubPropertiesPtrOutput) MessageRetentionInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EventhubProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MessageRetentionInDays
-	}).(pulumi.IntPtrOutput)
-}
-
-// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
-func (o EventhubPropertiesPtrOutput) PartitionCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *EventhubProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.PartitionCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// Enumerates the possible values for the status of the Event Hub.
-func (o EventhubPropertiesPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EventhubProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.StringPtrOutput)
 }
 
 // Properties supplied to the Create Or Update Event Hub operation.
@@ -3743,12 +2825,8 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ArmDisasterRecoveryPropertiesOutput{})
-	pulumi.RegisterOutputType(ArmDisasterRecoveryPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ArmDisasterRecoveryResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(ArmDisasterRecoveryResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(AuthorizationRulePropertiesOutput{})
-	pulumi.RegisterOutputType(AuthorizationRulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AuthorizationRuleResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(AuthorizationRuleResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CaptureDescriptionOutput{})
@@ -3756,27 +2834,19 @@ func init() {
 	pulumi.RegisterOutputType(CaptureDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(CaptureDescriptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConsumerGroupTypeOutput{})
-	pulumi.RegisterOutputType(ConsumerGroupPropertiesOutput{})
-	pulumi.RegisterOutputType(ConsumerGroupPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConsumerGroupResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(ConsumerGroupResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DestinationOutput{})
 	pulumi.RegisterOutputType(DestinationPtrOutput{})
-	pulumi.RegisterOutputType(DestinationPropertiesOutput{})
-	pulumi.RegisterOutputType(DestinationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DestinationResponseOutput{})
 	pulumi.RegisterOutputType(DestinationResponsePtrOutput{})
 	pulumi.RegisterOutputType(DestinationResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(DestinationResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DisasterRecoveryConfigTypeOutput{})
-	pulumi.RegisterOutputType(EHNamespacePropertiesOutput{})
-	pulumi.RegisterOutputType(EHNamespacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EHNamespaceResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(EHNamespaceResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EventHubTypeOutput{})
 	pulumi.RegisterOutputType(EventHubAuthorizationRuleTypeOutput{})
-	pulumi.RegisterOutputType(EventhubPropertiesOutput{})
-	pulumi.RegisterOutputType(EventhubPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EventhubResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(EventhubResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceTypeOutput{})

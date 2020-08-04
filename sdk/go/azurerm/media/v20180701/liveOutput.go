@@ -28,6 +28,12 @@ func NewLiveOutput(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
+	if args == nil || args.ArchiveWindowLength == nil {
+		return nil, errors.New("missing required argument 'ArchiveWindowLength'")
+	}
+	if args == nil || args.AssetName == nil {
+		return nil, errors.New("missing required argument 'AssetName'")
+	}
 	if args == nil || args.LiveEventName == nil {
 		return nil, errors.New("missing required argument 'LiveEventName'")
 	}
@@ -86,12 +92,22 @@ func (LiveOutputState) ElementType() reflect.Type {
 type liveOutputArgs struct {
 	// The Media Services account name.
 	AccountName string `pulumi:"accountName"`
+	// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+	ArchiveWindowLength string `pulumi:"archiveWindowLength"`
+	// The asset name.
+	AssetName string `pulumi:"assetName"`
+	// The description of the Live Output.
+	Description *string `pulumi:"description"`
+	// The HLS configuration.
+	Hls *Hls `pulumi:"hls"`
 	// The name of the Live Event.
 	LiveEventName string `pulumi:"liveEventName"`
+	// The manifest file name.  If not provided, the service will generate one automatically.
+	ManifestName *string `pulumi:"manifestName"`
 	// The name of the Live Output.
 	Name string `pulumi:"name"`
-	// The Live Output properties.
-	Properties *LiveOutputProperties `pulumi:"properties"`
+	// The output snapshot time.
+	OutputSnapTime *int `pulumi:"outputSnapTime"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -100,12 +116,22 @@ type liveOutputArgs struct {
 type LiveOutputArgs struct {
 	// The Media Services account name.
 	AccountName pulumi.StringInput
+	// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+	ArchiveWindowLength pulumi.StringInput
+	// The asset name.
+	AssetName pulumi.StringInput
+	// The description of the Live Output.
+	Description pulumi.StringPtrInput
+	// The HLS configuration.
+	Hls HlsPtrInput
 	// The name of the Live Event.
 	LiveEventName pulumi.StringInput
+	// The manifest file name.  If not provided, the service will generate one automatically.
+	ManifestName pulumi.StringPtrInput
 	// The name of the Live Output.
 	Name pulumi.StringInput
-	// The Live Output properties.
-	Properties LiveOutputPropertiesPtrInput
+	// The output snapshot time.
+	OutputSnapTime pulumi.IntPtrInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
 }

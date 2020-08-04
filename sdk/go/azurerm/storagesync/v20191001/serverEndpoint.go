@@ -84,30 +84,58 @@ func (ServerEndpointState) ElementType() reflect.Type {
 }
 
 type serverEndpointArgs struct {
+	// Cloud Tiering.
+	CloudTiering *string `pulumi:"cloudTiering"`
+	// Friendly Name
+	FriendlyName *string `pulumi:"friendlyName"`
 	// Name of Server Endpoint object.
 	Name string `pulumi:"name"`
-	// The parameters used to create the server endpoint.
-	Properties *ServerEndpointCreateParametersProperties `pulumi:"properties"`
+	// Offline data transfer
+	OfflineDataTransfer *string `pulumi:"offlineDataTransfer"`
+	// Offline data transfer share name
+	OfflineDataTransferShareName *string `pulumi:"offlineDataTransferShareName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Server Local path.
+	ServerLocalPath *string `pulumi:"serverLocalPath"`
+	// Server Resource Id.
+	ServerResourceId *string `pulumi:"serverResourceId"`
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
 	// Name of Sync Group resource.
 	SyncGroupName string `pulumi:"syncGroupName"`
+	// Tier files older than days.
+	TierFilesOlderThanDays *int `pulumi:"tierFilesOlderThanDays"`
+	// Level of free space to be maintained by Cloud Tiering if it is enabled.
+	VolumeFreeSpacePercent *int `pulumi:"volumeFreeSpacePercent"`
 }
 
 // The set of arguments for constructing a ServerEndpoint resource.
 type ServerEndpointArgs struct {
+	// Cloud Tiering.
+	CloudTiering pulumi.StringPtrInput
+	// Friendly Name
+	FriendlyName pulumi.StringPtrInput
 	// Name of Server Endpoint object.
 	Name pulumi.StringInput
-	// The parameters used to create the server endpoint.
-	Properties ServerEndpointCreateParametersPropertiesPtrInput
+	// Offline data transfer
+	OfflineDataTransfer pulumi.StringPtrInput
+	// Offline data transfer share name
+	OfflineDataTransferShareName pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Server Local path.
+	ServerLocalPath pulumi.StringPtrInput
+	// Server Resource Id.
+	ServerResourceId pulumi.StringPtrInput
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName pulumi.StringInput
 	// Name of Sync Group resource.
 	SyncGroupName pulumi.StringInput
+	// Tier files older than days.
+	TierFilesOlderThanDays pulumi.IntPtrInput
+	// Level of free space to be maintained by Cloud Tiering if it is enabled.
+	VolumeFreeSpacePercent pulumi.IntPtrInput
 }
 
 func (ServerEndpointArgs) ElementType() reflect.Type {

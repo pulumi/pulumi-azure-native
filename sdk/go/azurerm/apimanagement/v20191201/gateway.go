@@ -81,10 +81,12 @@ func (GatewayState) ElementType() reflect.Type {
 }
 
 type gatewayArgs struct {
+	// Gateway description
+	Description *string `pulumi:"description"`
+	// Gateway location.
+	LocationData *ResourceLocationDataContract `pulumi:"locationData"`
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	Name string `pulumi:"name"`
-	// Gateway details.
-	Properties *GatewayContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -93,10 +95,12 @@ type gatewayArgs struct {
 
 // The set of arguments for constructing a Gateway resource.
 type GatewayArgs struct {
+	// Gateway description
+	Description pulumi.StringPtrInput
+	// Gateway location.
+	LocationData ResourceLocationDataContractPtrInput
 	// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
 	Name pulumi.StringInput
-	// Gateway details.
-	Properties GatewayContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

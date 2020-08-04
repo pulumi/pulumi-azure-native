@@ -32,11 +32,20 @@ func NewVirtualMachine(ctx *pulumi.Context,
 	if args == nil || args.Referer == nil {
 		return nil, errors.New("missing required argument 'Referer'")
 	}
+	if args == nil || args.AmountOfRam == nil {
+		return nil, errors.New("missing required argument 'AmountOfRam'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
+	}
+	if args == nil || args.NumberOfCores == nil {
+		return nil, errors.New("missing required argument 'NumberOfCores'")
+	}
+	if args == nil || args.PrivateCloudId == nil {
+		return nil, errors.New("missing required argument 'PrivateCloudId'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -98,32 +107,76 @@ func (VirtualMachineState) ElementType() reflect.Type {
 type virtualMachineArgs struct {
 	// referer url
 	Referer string `pulumi:"Referer"`
+	// The amount of memory
+	AmountOfRam int `pulumi:"amountOfRam"`
+	// Virtual machine properties
+	Customization *GuestOSCustomization `pulumi:"customization"`
+	// The list of Virtual Disks
+	Disks []VirtualDisk `pulumi:"disks"`
+	// Expose Guest OS or not
+	ExposeToGuestVM *bool `pulumi:"exposeToGuestVM"`
 	// Azure region
 	Location string `pulumi:"location"`
 	// virtual machine name
 	Name string `pulumi:"name"`
-	// Virtual machine properties
-	Properties *VirtualMachineProperties `pulumi:"properties"`
+	// The list of Virtual NICs
+	Nics []VirtualNic `pulumi:"nics"`
+	// The number of CPU cores
+	NumberOfCores int `pulumi:"numberOfCores"`
+	// Password for login. Deprecated - use customization property
+	Password *string `pulumi:"password"`
+	// Private Cloud Id
+	PrivateCloudId string `pulumi:"privateCloudId"`
 	// The name of the resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Virtual Machines Resource Pool
+	ResourcePool *ResourcePool `pulumi:"resourcePool"`
 	// The list of tags
 	Tags *Tags `pulumi:"tags"`
+	// Virtual Machine Template Id
+	TemplateId *string `pulumi:"templateId"`
+	// Username for login. Deprecated - use customization property
+	Username *string `pulumi:"username"`
+	// The list of Virtual VSphere Networks
+	VSphereNetworks []string `pulumi:"vSphereNetworks"`
 }
 
 // The set of arguments for constructing a VirtualMachine resource.
 type VirtualMachineArgs struct {
 	// referer url
 	Referer pulumi.StringInput
+	// The amount of memory
+	AmountOfRam pulumi.IntInput
+	// Virtual machine properties
+	Customization GuestOSCustomizationPtrInput
+	// The list of Virtual Disks
+	Disks VirtualDiskArrayInput
+	// Expose Guest OS or not
+	ExposeToGuestVM pulumi.BoolPtrInput
 	// Azure region
 	Location pulumi.StringInput
 	// virtual machine name
 	Name pulumi.StringInput
-	// Virtual machine properties
-	Properties VirtualMachinePropertiesPtrInput
+	// The list of Virtual NICs
+	Nics VirtualNicArrayInput
+	// The number of CPU cores
+	NumberOfCores pulumi.IntInput
+	// Password for login. Deprecated - use customization property
+	Password pulumi.StringPtrInput
+	// Private Cloud Id
+	PrivateCloudId pulumi.StringInput
 	// The name of the resource group
 	ResourceGroupName pulumi.StringInput
+	// Virtual Machines Resource Pool
+	ResourcePool ResourcePoolPtrInput
 	// The list of tags
 	Tags TagsPtrInput
+	// Virtual Machine Template Id
+	TemplateId pulumi.StringPtrInput
+	// Username for login. Deprecated - use customization property
+	Username pulumi.StringPtrInput
+	// The list of Virtual VSphere Networks
+	VSphereNetworks pulumi.StringArrayInput
 }
 
 func (VirtualMachineArgs) ElementType() reflect.Type {

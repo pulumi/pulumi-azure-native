@@ -27,6 +27,12 @@ type ReportConfigByResourceGroupName struct {
 // NewReportConfigByResourceGroupName registers a new resource with the given unique name, arguments, and options.
 func NewReportConfigByResourceGroupName(ctx *pulumi.Context,
 	name string, args *ReportConfigByResourceGroupNameArgs, opts ...pulumi.ResourceOption) (*ReportConfigByResourceGroupName, error) {
+	if args == nil || args.Definition == nil {
+		return nil, errors.New("missing required argument 'Definition'")
+	}
+	if args == nil || args.DeliveryInfo == nil {
+		return nil, errors.New("missing required argument 'DeliveryInfo'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -84,22 +90,34 @@ func (ReportConfigByResourceGroupNameState) ElementType() reflect.Type {
 }
 
 type reportConfigByResourceGroupNameArgs struct {
+	// Has definition for the report config.
+	Definition ReportConfigDefinition `pulumi:"definition"`
+	// Has delivery information for the report config.
+	DeliveryInfo ReportConfigDeliveryInfo `pulumi:"deliveryInfo"`
+	// The format of the report being delivered.
+	Format *string `pulumi:"format"`
 	// Report Config Name.
 	Name string `pulumi:"name"`
-	// The properties of the report config.
-	Properties *ReportConfigProperties `pulumi:"properties"`
 	// Azure Resource Group Name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Has schedule information for the report config.
+	Schedule *ReportConfigSchedule `pulumi:"schedule"`
 }
 
 // The set of arguments for constructing a ReportConfigByResourceGroupName resource.
 type ReportConfigByResourceGroupNameArgs struct {
+	// Has definition for the report config.
+	Definition ReportConfigDefinitionInput
+	// Has delivery information for the report config.
+	DeliveryInfo ReportConfigDeliveryInfoInput
+	// The format of the report being delivered.
+	Format pulumi.StringPtrInput
 	// Report Config Name.
 	Name pulumi.StringInput
-	// The properties of the report config.
-	Properties ReportConfigPropertiesPtrInput
 	// Azure Resource Group Name.
 	ResourceGroupName pulumi.StringInput
+	// Has schedule information for the report config.
+	Schedule ReportConfigSchedulePtrInput
 }
 
 func (ReportConfigByResourceGroupNameArgs) ElementType() reflect.Type {

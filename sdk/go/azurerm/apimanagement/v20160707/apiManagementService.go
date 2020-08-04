@@ -39,8 +39,11 @@ func NewApiManagementService(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
+	if args == nil || args.PublisherEmail == nil {
+		return nil, errors.New("missing required argument 'PublisherEmail'")
+	}
+	if args == nil || args.PublisherName == nil {
+		return nil, errors.New("missing required argument 'PublisherName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -111,38 +114,66 @@ func (ApiManagementServiceState) ElementType() reflect.Type {
 }
 
 type apiManagementServiceArgs struct {
+	// Additional datacenter locations of the API Management service.
+	AdditionalLocations []AdditionalRegion `pulumi:"additionalLocations"`
+	// Addresser email.
+	AddresserEmail *string `pulumi:"addresserEmail"`
+	// Custom properties of the API Management service, like disabling TLS 1.0.
+	CustomProperties map[string]string `pulumi:"customProperties"`
 	// ETag of the resource.
 	Etag *string `pulumi:"etag"`
+	// Custom hostname configuration of the API Management service.
+	HostnameConfigurations []HostnameConfiguration `pulumi:"hostnameConfigurations"`
 	// Datacenter location of the API Management service.
 	Location string `pulumi:"location"`
 	// The name of the API Management service.
 	Name string `pulumi:"name"`
-	// Properties of the API Management service.
-	Properties ApiManagementServiceProperties `pulumi:"properties"`
+	// Publisher email.
+	PublisherEmail string `pulumi:"publisherEmail"`
+	// Publisher name.
+	PublisherName string `pulumi:"publisherName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU properties of the API Management service.
 	Sku ApiManagementServiceSkuProperties `pulumi:"sku"`
 	// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
 	Tags map[string]string `pulumi:"tags"`
+	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+	VpnType *string `pulumi:"vpnType"`
+	// Virtual network configuration of the API Management service.
+	Vpnconfiguration *VirtualNetworkConfiguration `pulumi:"vpnconfiguration"`
 }
 
 // The set of arguments for constructing a ApiManagementService resource.
 type ApiManagementServiceArgs struct {
+	// Additional datacenter locations of the API Management service.
+	AdditionalLocations AdditionalRegionArrayInput
+	// Addresser email.
+	AddresserEmail pulumi.StringPtrInput
+	// Custom properties of the API Management service, like disabling TLS 1.0.
+	CustomProperties pulumi.StringMapInput
 	// ETag of the resource.
 	Etag pulumi.StringPtrInput
+	// Custom hostname configuration of the API Management service.
+	HostnameConfigurations HostnameConfigurationArrayInput
 	// Datacenter location of the API Management service.
 	Location pulumi.StringInput
 	// The name of the API Management service.
 	Name pulumi.StringInput
-	// Properties of the API Management service.
-	Properties ApiManagementServicePropertiesInput
+	// Publisher email.
+	PublisherEmail pulumi.StringInput
+	// Publisher name.
+	PublisherName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// SKU properties of the API Management service.
 	Sku ApiManagementServiceSkuPropertiesInput
 	// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
 	Tags pulumi.StringMapInput
+	// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+	VpnType pulumi.StringPtrInput
+	// Virtual network configuration of the API Management service.
+	Vpnconfiguration VirtualNetworkConfigurationPtrInput
 }
 
 func (ApiManagementServiceArgs) ElementType() reflect.Type {

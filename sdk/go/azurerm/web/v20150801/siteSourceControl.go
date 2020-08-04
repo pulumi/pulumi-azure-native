@@ -96,15 +96,24 @@ func (SiteSourceControlState) ElementType() reflect.Type {
 }
 
 type siteSourceControlArgs struct {
+	// Name of branch to use for deployment
+	Branch *string `pulumi:"branch"`
+	// Whether to manual or continuous integration
+	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
 	// Resource Id
 	Id *string `pulumi:"id"`
+	// Whether to manual or continuous integration
+	IsManualIntegration *bool `pulumi:"isManualIntegration"`
+	// Mercurial or Git repository type
+	IsMercurial *bool `pulumi:"isMercurial"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       string                       `pulumi:"name"`
-	Properties *SiteSourceControlProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// Repository or source control url
+	RepoUrl *string `pulumi:"repoUrl"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -115,15 +124,24 @@ type siteSourceControlArgs struct {
 
 // The set of arguments for constructing a SiteSourceControl resource.
 type SiteSourceControlArgs struct {
+	// Name of branch to use for deployment
+	Branch pulumi.StringPtrInput
+	// Whether to manual or continuous integration
+	DeploymentRollbackEnabled pulumi.BoolPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
+	// Whether to manual or continuous integration
+	IsManualIntegration pulumi.BoolPtrInput
+	// Mercurial or Git repository type
+	IsMercurial pulumi.BoolPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringInput
 	// Resource Name
-	Name       pulumi.StringInput
-	Properties SiteSourceControlPropertiesPtrInput
+	Name pulumi.StringInput
+	// Repository or source control url
+	RepoUrl pulumi.StringPtrInput
 	// Name of resource group
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

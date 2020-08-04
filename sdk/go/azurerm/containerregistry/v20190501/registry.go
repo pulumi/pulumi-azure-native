@@ -102,32 +102,44 @@ func (RegistryState) ElementType() reflect.Type {
 }
 
 type registryArgs struct {
+	// The value that indicates whether the admin user is enabled.
+	AdminUserEnabled *bool `pulumi:"adminUserEnabled"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the container registry.
 	Name string `pulumi:"name"`
-	// The properties of the container registry.
-	Properties *RegistryProperties `pulumi:"properties"`
+	// The network rule set for a container registry.
+	NetworkRuleSet *NetworkRuleSet `pulumi:"networkRuleSet"`
+	// The policies for a container registry.
+	Policies *Policies `pulumi:"policies"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the container registry.
 	Sku Sku `pulumi:"sku"`
+	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
+	StorageAccount *StorageAccountProperties `pulumi:"storageAccount"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Registry resource.
 type RegistryArgs struct {
+	// The value that indicates whether the admin user is enabled.
+	AdminUserEnabled pulumi.BoolPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringInput
 	// The name of the container registry.
 	Name pulumi.StringInput
-	// The properties of the container registry.
-	Properties RegistryPropertiesPtrInput
+	// The network rule set for a container registry.
+	NetworkRuleSet NetworkRuleSetPtrInput
+	// The policies for a container registry.
+	Policies PoliciesPtrInput
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the container registry.
 	Sku SkuInput
+	// The properties of the storage account for the container registry. Only applicable to Classic SKU.
+	StorageAccount StorageAccountPropertiesPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 }

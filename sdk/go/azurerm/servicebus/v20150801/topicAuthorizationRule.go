@@ -36,6 +36,9 @@ func NewTopicAuthorizationRule(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.Rights == nil {
+		return nil, errors.New("missing required argument 'Rights'")
+	}
 	if args == nil || args.TopicName == nil {
 		return nil, errors.New("missing required argument 'TopicName'")
 	}
@@ -96,10 +99,10 @@ type topicAuthorizationRuleArgs struct {
 	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// SharedAccessAuthorizationRule properties.
-	Properties *SharedAccessAuthorizationRuleProperties `pulumi:"properties"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 	// The topic name.
 	TopicName string `pulumi:"topicName"`
 }
@@ -112,10 +115,10 @@ type TopicAuthorizationRuleArgs struct {
 	Name pulumi.StringInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
-	// SharedAccessAuthorizationRule properties.
-	Properties SharedAccessAuthorizationRulePropertiesPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput
 	// The topic name.
 	TopicName pulumi.StringInput
 }

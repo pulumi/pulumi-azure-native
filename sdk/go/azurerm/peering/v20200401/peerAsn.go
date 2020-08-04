@@ -77,16 +77,28 @@ func (PeerAsnState) ElementType() reflect.Type {
 type peerAsnArgs struct {
 	// The peer ASN name.
 	Name string `pulumi:"name"`
-	// The properties that define a peer's ASN.
-	Properties *PeerAsnProperties `pulumi:"properties"`
+	// The Autonomous System Number (ASN) of the peer.
+	PeerAsn *int `pulumi:"peerAsn"`
+	// The contact details of the peer.
+	PeerContactDetail []ContactDetail `pulumi:"peerContactDetail"`
+	// The name of the peer.
+	PeerName *string `pulumi:"peerName"`
+	// The validation state of the ASN associated with the peer.
+	ValidationState *string `pulumi:"validationState"`
 }
 
 // The set of arguments for constructing a PeerAsn resource.
 type PeerAsnArgs struct {
 	// The peer ASN name.
 	Name pulumi.StringInput
-	// The properties that define a peer's ASN.
-	Properties PeerAsnPropertiesPtrInput
+	// The Autonomous System Number (ASN) of the peer.
+	PeerAsn pulumi.IntPtrInput
+	// The contact details of the peer.
+	PeerContactDetail ContactDetailArrayInput
+	// The name of the peer.
+	PeerName pulumi.StringPtrInput
+	// The validation state of the ASN associated with the peer.
+	ValidationState pulumi.StringPtrInput
 }
 
 func (PeerAsnArgs) ElementType() reflect.Type {

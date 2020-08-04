@@ -29,11 +29,29 @@ type SmartDetectorAlertRule struct {
 // NewSmartDetectorAlertRule registers a new resource with the given unique name, arguments, and options.
 func NewSmartDetectorAlertRule(ctx *pulumi.Context,
 	name string, args *SmartDetectorAlertRuleArgs, opts ...pulumi.ResourceOption) (*SmartDetectorAlertRule, error) {
+	if args == nil || args.ActionGroups == nil {
+		return nil, errors.New("missing required argument 'ActionGroups'")
+	}
+	if args == nil || args.Detector == nil {
+		return nil, errors.New("missing required argument 'Detector'")
+	}
+	if args == nil || args.Frequency == nil {
+		return nil, errors.New("missing required argument 'Frequency'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Scope == nil {
+		return nil, errors.New("missing required argument 'Scope'")
+	}
+	if args == nil || args.Severity == nil {
+		return nil, errors.New("missing required argument 'Severity'")
+	}
+	if args == nil || args.State == nil {
+		return nil, errors.New("missing required argument 'State'")
 	}
 	if args == nil {
 		args = &SmartDetectorAlertRuleArgs{}
@@ -90,30 +108,58 @@ func (SmartDetectorAlertRuleState) ElementType() reflect.Type {
 }
 
 type smartDetectorAlertRuleArgs struct {
+	// The alert rule actions.
+	ActionGroups ActionGroupsInformation `pulumi:"actionGroups"`
+	// The alert rule description.
+	Description *string `pulumi:"description"`
+	// The alert rule's detector.
+	Detector Detector `pulumi:"detector"`
+	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+	Frequency string `pulumi:"frequency"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The name of the alert rule.
 	Name string `pulumi:"name"`
-	// The properties of the alert rule.
-	Properties *AlertRuleProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The alert rule resources scope.
+	Scope []string `pulumi:"scope"`
+	// The alert rule severity.
+	Severity string `pulumi:"severity"`
+	// The alert rule state.
+	State string `pulumi:"state"`
 	// The resource tags.
 	Tags map[string]interface{} `pulumi:"tags"`
+	// The alert rule throttling information.
+	Throttling *ThrottlingInformation `pulumi:"throttling"`
 }
 
 // The set of arguments for constructing a SmartDetectorAlertRule resource.
 type SmartDetectorAlertRuleArgs struct {
+	// The alert rule actions.
+	ActionGroups ActionGroupsInformationInput
+	// The alert rule description.
+	Description pulumi.StringPtrInput
+	// The alert rule's detector.
+	Detector DetectorInput
+	// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+	Frequency pulumi.StringInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The name of the alert rule.
 	Name pulumi.StringInput
-	// The properties of the alert rule.
-	Properties AlertRulePropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The alert rule resources scope.
+	Scope pulumi.StringArrayInput
+	// The alert rule severity.
+	Severity pulumi.StringInput
+	// The alert rule state.
+	State pulumi.StringInput
 	// The resource tags.
 	Tags pulumi.MapInput
+	// The alert rule throttling information.
+	Throttling ThrottlingInformationPtrInput
 }
 
 func (SmartDetectorAlertRuleArgs) ElementType() reflect.Type {

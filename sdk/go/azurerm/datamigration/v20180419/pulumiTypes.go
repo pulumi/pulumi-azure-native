@@ -226,47 +226,6 @@ func (i ConnectionInfoArgs) ToConnectionInfoOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionInfoOutput)
 }
 
-func (i ConnectionInfoArgs) ToConnectionInfoPtrOutput() ConnectionInfoPtrOutput {
-	return i.ToConnectionInfoPtrOutputWithContext(context.Background())
-}
-
-func (i ConnectionInfoArgs) ToConnectionInfoPtrOutputWithContext(ctx context.Context) ConnectionInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionInfoOutput).ToConnectionInfoPtrOutputWithContext(ctx)
-}
-
-// ConnectionInfoPtrInput is an input type that accepts ConnectionInfoArgs, ConnectionInfoPtr and ConnectionInfoPtrOutput values.
-// You can construct a concrete instance of `ConnectionInfoPtrInput` via:
-//
-//          ConnectionInfoArgs{...}
-//
-//  or:
-//
-//          nil
-type ConnectionInfoPtrInput interface {
-	pulumi.Input
-
-	ToConnectionInfoPtrOutput() ConnectionInfoPtrOutput
-	ToConnectionInfoPtrOutputWithContext(context.Context) ConnectionInfoPtrOutput
-}
-
-type connectionInfoPtrType ConnectionInfoArgs
-
-func ConnectionInfoPtr(v *ConnectionInfoArgs) ConnectionInfoPtrInput {
-	return (*connectionInfoPtrType)(v)
-}
-
-func (*connectionInfoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectionInfo)(nil)).Elem()
-}
-
-func (i *connectionInfoPtrType) ToConnectionInfoPtrOutput() ConnectionInfoPtrOutput {
-	return i.ToConnectionInfoPtrOutputWithContext(context.Background())
-}
-
-func (i *connectionInfoPtrType) ToConnectionInfoPtrOutputWithContext(ctx context.Context) ConnectionInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectionInfoPtrOutput)
-}
-
 // Defines the connection properties of a server
 type ConnectionInfoOutput struct{ *pulumi.OutputState }
 
@@ -282,16 +241,6 @@ func (o ConnectionInfoOutput) ToConnectionInfoOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ConnectionInfoOutput) ToConnectionInfoPtrOutput() ConnectionInfoPtrOutput {
-	return o.ToConnectionInfoPtrOutputWithContext(context.Background())
-}
-
-func (o ConnectionInfoOutput) ToConnectionInfoPtrOutputWithContext(ctx context.Context) ConnectionInfoPtrOutput {
-	return o.ApplyT(func(v ConnectionInfo) *ConnectionInfo {
-		return &v
-	}).(ConnectionInfoPtrOutput)
-}
-
 // Password credential.
 func (o ConnectionInfoOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionInfo) *string { return v.Password }).(pulumi.StringPtrOutput)
@@ -305,54 +254,6 @@ func (o ConnectionInfoOutput) Type() pulumi.StringOutput {
 // User name
 func (o ConnectionInfoOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionInfo) *string { return v.UserName }).(pulumi.StringPtrOutput)
-}
-
-type ConnectionInfoPtrOutput struct{ *pulumi.OutputState }
-
-func (ConnectionInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectionInfo)(nil)).Elem()
-}
-
-func (o ConnectionInfoPtrOutput) ToConnectionInfoPtrOutput() ConnectionInfoPtrOutput {
-	return o
-}
-
-func (o ConnectionInfoPtrOutput) ToConnectionInfoPtrOutputWithContext(ctx context.Context) ConnectionInfoPtrOutput {
-	return o
-}
-
-func (o ConnectionInfoPtrOutput) Elem() ConnectionInfoOutput {
-	return o.ApplyT(func(v *ConnectionInfo) ConnectionInfo { return *v }).(ConnectionInfoOutput)
-}
-
-// Password credential.
-func (o ConnectionInfoPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Password
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of connection info
-func (o ConnectionInfoPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// User name
-func (o ConnectionInfoPtrOutput) UserName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConnectionInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UserName
-	}).(pulumi.StringPtrOutput)
 }
 
 // Defines the connection properties of a server
@@ -528,70 +429,6 @@ func (o ConnectionInfoResponsePtrOutput) UserName() pulumi.StringPtrOutput {
 }
 
 // Properties of the Data Migration service instance
-type DataMigrationServiceProperties struct {
-	// The public key of the service, used to encrypt secrets sent to the service
-	PublicKey *string `pulumi:"publicKey"`
-	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
-	VirtualSubnetId string `pulumi:"virtualSubnetId"`
-}
-
-// DataMigrationServicePropertiesInput is an input type that accepts DataMigrationServicePropertiesArgs and DataMigrationServicePropertiesOutput values.
-// You can construct a concrete instance of `DataMigrationServicePropertiesInput` via:
-//
-//          DataMigrationServicePropertiesArgs{...}
-type DataMigrationServicePropertiesInput interface {
-	pulumi.Input
-
-	ToDataMigrationServicePropertiesOutput() DataMigrationServicePropertiesOutput
-	ToDataMigrationServicePropertiesOutputWithContext(context.Context) DataMigrationServicePropertiesOutput
-}
-
-// Properties of the Data Migration service instance
-type DataMigrationServicePropertiesArgs struct {
-	// The public key of the service, used to encrypt secrets sent to the service
-	PublicKey pulumi.StringPtrInput `pulumi:"publicKey"`
-	// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
-	VirtualSubnetId pulumi.StringInput `pulumi:"virtualSubnetId"`
-}
-
-func (DataMigrationServicePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataMigrationServiceProperties)(nil)).Elem()
-}
-
-func (i DataMigrationServicePropertiesArgs) ToDataMigrationServicePropertiesOutput() DataMigrationServicePropertiesOutput {
-	return i.ToDataMigrationServicePropertiesOutputWithContext(context.Background())
-}
-
-func (i DataMigrationServicePropertiesArgs) ToDataMigrationServicePropertiesOutputWithContext(ctx context.Context) DataMigrationServicePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataMigrationServicePropertiesOutput)
-}
-
-// Properties of the Data Migration service instance
-type DataMigrationServicePropertiesOutput struct{ *pulumi.OutputState }
-
-func (DataMigrationServicePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataMigrationServiceProperties)(nil)).Elem()
-}
-
-func (o DataMigrationServicePropertiesOutput) ToDataMigrationServicePropertiesOutput() DataMigrationServicePropertiesOutput {
-	return o
-}
-
-func (o DataMigrationServicePropertiesOutput) ToDataMigrationServicePropertiesOutputWithContext(ctx context.Context) DataMigrationServicePropertiesOutput {
-	return o
-}
-
-// The public key of the service, used to encrypt secrets sent to the service
-func (o DataMigrationServicePropertiesOutput) PublicKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataMigrationServiceProperties) *string { return v.PublicKey }).(pulumi.StringPtrOutput)
-}
-
-// The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
-func (o DataMigrationServicePropertiesOutput) VirtualSubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v DataMigrationServiceProperties) string { return v.VirtualSubnetId }).(pulumi.StringOutput)
-}
-
-// Properties of the Data Migration service instance
 type DataMigrationServicePropertiesResponse struct {
 	// The resource's provisioning state
 	ProvisioningState string `pulumi:"provisioningState"`
@@ -699,31 +536,6 @@ func (i DatabaseInfoArgs) ToDatabaseInfoOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseInfoOutput)
 }
 
-// DatabaseInfoArrayInput is an input type that accepts DatabaseInfoArray and DatabaseInfoArrayOutput values.
-// You can construct a concrete instance of `DatabaseInfoArrayInput` via:
-//
-//          DatabaseInfoArray{ DatabaseInfoArgs{...} }
-type DatabaseInfoArrayInput interface {
-	pulumi.Input
-
-	ToDatabaseInfoArrayOutput() DatabaseInfoArrayOutput
-	ToDatabaseInfoArrayOutputWithContext(context.Context) DatabaseInfoArrayOutput
-}
-
-type DatabaseInfoArray []DatabaseInfoInput
-
-func (DatabaseInfoArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabaseInfo)(nil)).Elem()
-}
-
-func (i DatabaseInfoArray) ToDatabaseInfoArrayOutput() DatabaseInfoArrayOutput {
-	return i.ToDatabaseInfoArrayOutputWithContext(context.Background())
-}
-
-func (i DatabaseInfoArray) ToDatabaseInfoArrayOutputWithContext(ctx context.Context) DatabaseInfoArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseInfoArrayOutput)
-}
-
 // Project Database Details
 type DatabaseInfoOutput struct{ *pulumi.OutputState }
 
@@ -742,26 +554,6 @@ func (o DatabaseInfoOutput) ToDatabaseInfoOutputWithContext(ctx context.Context)
 // Name of the database
 func (o DatabaseInfoOutput) SourceDatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v DatabaseInfo) string { return v.SourceDatabaseName }).(pulumi.StringOutput)
-}
-
-type DatabaseInfoArrayOutput struct{ *pulumi.OutputState }
-
-func (DatabaseInfoArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DatabaseInfo)(nil)).Elem()
-}
-
-func (o DatabaseInfoArrayOutput) ToDatabaseInfoArrayOutput() DatabaseInfoArrayOutput {
-	return o
-}
-
-func (o DatabaseInfoArrayOutput) ToDatabaseInfoArrayOutputWithContext(ctx context.Context) DatabaseInfoArrayOutput {
-	return o
-}
-
-func (o DatabaseInfoArrayOutput) Index(i pulumi.IntInput) DatabaseInfoOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DatabaseInfo {
-		return vs[0].([]DatabaseInfo)[vs[1].(int)]
-	}).(DatabaseInfoOutput)
 }
 
 // Project Database Details
@@ -1026,97 +818,6 @@ func (o ODataErrorResponseArrayOutput) Index(i pulumi.IntInput) ODataErrorRespon
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ODataErrorResponse {
 		return vs[0].([]ODataErrorResponse)[vs[1].(int)]
 	}).(ODataErrorResponseOutput)
-}
-
-// Project-specific properties
-type ProjectProperties struct {
-	// List of DatabaseInfo
-	DatabasesInfo []DatabaseInfo `pulumi:"databasesInfo"`
-	// Information for connecting to source
-	SourceConnectionInfo *ConnectionInfo `pulumi:"sourceConnectionInfo"`
-	// Source platform for the project
-	SourcePlatform string `pulumi:"sourcePlatform"`
-	// Information for connecting to target
-	TargetConnectionInfo *ConnectionInfo `pulumi:"targetConnectionInfo"`
-	// Target platform for the project
-	TargetPlatform string `pulumi:"targetPlatform"`
-}
-
-// ProjectPropertiesInput is an input type that accepts ProjectPropertiesArgs and ProjectPropertiesOutput values.
-// You can construct a concrete instance of `ProjectPropertiesInput` via:
-//
-//          ProjectPropertiesArgs{...}
-type ProjectPropertiesInput interface {
-	pulumi.Input
-
-	ToProjectPropertiesOutput() ProjectPropertiesOutput
-	ToProjectPropertiesOutputWithContext(context.Context) ProjectPropertiesOutput
-}
-
-// Project-specific properties
-type ProjectPropertiesArgs struct {
-	// List of DatabaseInfo
-	DatabasesInfo DatabaseInfoArrayInput `pulumi:"databasesInfo"`
-	// Information for connecting to source
-	SourceConnectionInfo ConnectionInfoPtrInput `pulumi:"sourceConnectionInfo"`
-	// Source platform for the project
-	SourcePlatform pulumi.StringInput `pulumi:"sourcePlatform"`
-	// Information for connecting to target
-	TargetConnectionInfo ConnectionInfoPtrInput `pulumi:"targetConnectionInfo"`
-	// Target platform for the project
-	TargetPlatform pulumi.StringInput `pulumi:"targetPlatform"`
-}
-
-func (ProjectPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectProperties)(nil)).Elem()
-}
-
-func (i ProjectPropertiesArgs) ToProjectPropertiesOutput() ProjectPropertiesOutput {
-	return i.ToProjectPropertiesOutputWithContext(context.Background())
-}
-
-func (i ProjectPropertiesArgs) ToProjectPropertiesOutputWithContext(ctx context.Context) ProjectPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectPropertiesOutput)
-}
-
-// Project-specific properties
-type ProjectPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ProjectPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectProperties)(nil)).Elem()
-}
-
-func (o ProjectPropertiesOutput) ToProjectPropertiesOutput() ProjectPropertiesOutput {
-	return o
-}
-
-func (o ProjectPropertiesOutput) ToProjectPropertiesOutputWithContext(ctx context.Context) ProjectPropertiesOutput {
-	return o
-}
-
-// List of DatabaseInfo
-func (o ProjectPropertiesOutput) DatabasesInfo() DatabaseInfoArrayOutput {
-	return o.ApplyT(func(v ProjectProperties) []DatabaseInfo { return v.DatabasesInfo }).(DatabaseInfoArrayOutput)
-}
-
-// Information for connecting to source
-func (o ProjectPropertiesOutput) SourceConnectionInfo() ConnectionInfoPtrOutput {
-	return o.ApplyT(func(v ProjectProperties) *ConnectionInfo { return v.SourceConnectionInfo }).(ConnectionInfoPtrOutput)
-}
-
-// Source platform for the project
-func (o ProjectPropertiesOutput) SourcePlatform() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectProperties) string { return v.SourcePlatform }).(pulumi.StringOutput)
-}
-
-// Information for connecting to target
-func (o ProjectPropertiesOutput) TargetConnectionInfo() ConnectionInfoPtrOutput {
-	return o.ApplyT(func(v ProjectProperties) *ConnectionInfo { return v.TargetConnectionInfo }).(ConnectionInfoPtrOutput)
-}
-
-// Target platform for the project
-func (o ProjectPropertiesOutput) TargetPlatform() pulumi.StringOutput {
-	return o.ApplyT(func(v ProjectProperties) string { return v.TargetPlatform }).(pulumi.StringOutput)
 }
 
 // Project-specific properties
@@ -1552,19 +1253,15 @@ func init() {
 	pulumi.RegisterOutputType(CommandPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CommandPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionInfoOutput{})
-	pulumi.RegisterOutputType(ConnectionInfoPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionInfoResponseOutput{})
 	pulumi.RegisterOutputType(ConnectionInfoResponsePtrOutput{})
-	pulumi.RegisterOutputType(DataMigrationServicePropertiesOutput{})
 	pulumi.RegisterOutputType(DataMigrationServicePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoOutput{})
-	pulumi.RegisterOutputType(DatabaseInfoArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(ODataErrorOutput{})
 	pulumi.RegisterOutputType(ODataErrorResponseOutput{})
 	pulumi.RegisterOutputType(ODataErrorResponseArrayOutput{})
-	pulumi.RegisterOutputType(ProjectPropertiesOutput{})
 	pulumi.RegisterOutputType(ProjectPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ProjectTaskPropertiesOutput{})
 	pulumi.RegisterOutputType(ProjectTaskPropertiesResponseOutput{})

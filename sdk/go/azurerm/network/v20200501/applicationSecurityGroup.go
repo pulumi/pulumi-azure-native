@@ -102,8 +102,6 @@ type applicationSecurityGroupArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the application security group.
 	Name string `pulumi:"name"`
-	// Properties of the application security group.
-	Properties *ApplicationSecurityGroupPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -118,8 +116,6 @@ type ApplicationSecurityGroupArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the application security group.
 	Name pulumi.StringInput
-	// Properties of the application security group.
-	Properties ApplicationSecurityGroupPropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

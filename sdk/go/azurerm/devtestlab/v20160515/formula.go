@@ -35,9 +35,6 @@ func NewFormula(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -96,34 +93,58 @@ func (FormulaState) ElementType() reflect.Type {
 }
 
 type formulaArgs struct {
+	// The author of the formula.
+	Author *string `pulumi:"author"`
+	// The description of the formula.
+	Description *string `pulumi:"description"`
+	// The content of the formula.
+	FormulaContent *LabVirtualMachineCreationParameter `pulumi:"formulaContent"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the formula.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties FormulaProperties `pulumi:"properties"`
+	// The OS type of the formula.
+	OsType *string `pulumi:"osType"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	// Information about a VM from which a formula is to be created.
+	Vm *FormulaPropertiesFromVm `pulumi:"vm"`
 }
 
 // The set of arguments for constructing a Formula resource.
 type FormulaArgs struct {
+	// The author of the formula.
+	Author pulumi.StringPtrInput
+	// The description of the formula.
+	Description pulumi.StringPtrInput
+	// The content of the formula.
+	FormulaContent LabVirtualMachineCreationParameterPtrInput
 	// The name of the lab.
 	LabName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the formula.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties FormulaPropertiesInput
+	// The OS type of the formula.
+	OsType pulumi.StringPtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
+	// Information about a VM from which a formula is to be created.
+	Vm FormulaPropertiesFromVmPtrInput
 }
 
 func (FormulaArgs) ElementType() reflect.Type {

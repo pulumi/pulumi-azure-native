@@ -28,11 +28,11 @@ func NewCertificate(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
+	if args == nil || args.Base64Value == nil {
+		return nil, errors.New("missing required argument 'Base64Value'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -86,24 +86,36 @@ func (CertificateState) ElementType() reflect.Type {
 type certificateArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
+	// Gets or sets the base64 encoded value of the certificate.
+	Base64Value string `pulumi:"base64Value"`
+	// Gets or sets the description of the certificate.
+	Description *string `pulumi:"description"`
+	// Gets or sets the is exportable flag of the certificate.
+	IsExportable *bool `pulumi:"isExportable"`
 	// The parameters supplied to the create or update certificate operation.
 	Name string `pulumi:"name"`
-	// Gets or sets the properties of the certificate.
-	Properties CertificateCreateOrUpdateProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets the thumbprint of the certificate.
+	Thumbprint *string `pulumi:"thumbprint"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
+	// Gets or sets the base64 encoded value of the certificate.
+	Base64Value pulumi.StringInput
+	// Gets or sets the description of the certificate.
+	Description pulumi.StringPtrInput
+	// Gets or sets the is exportable flag of the certificate.
+	IsExportable pulumi.BoolPtrInput
 	// The parameters supplied to the create or update certificate operation.
 	Name pulumi.StringInput
-	// Gets or sets the properties of the certificate.
-	Properties CertificateCreateOrUpdatePropertiesInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets the thumbprint of the certificate.
+	Thumbprint pulumi.StringPtrInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {

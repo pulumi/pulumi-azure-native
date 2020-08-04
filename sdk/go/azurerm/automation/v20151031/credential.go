@@ -31,11 +31,14 @@ func NewCredential(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
+	if args == nil || args.Password == nil {
+		return nil, errors.New("missing required argument 'Password'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.UserName == nil {
+		return nil, errors.New("missing required argument 'UserName'")
 	}
 	if args == nil {
 		args = &CredentialArgs{}
@@ -86,24 +89,32 @@ func (CredentialState) ElementType() reflect.Type {
 type credentialArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
+	// Gets or sets the description of the credential.
+	Description *string `pulumi:"description"`
 	// The parameters supplied to the create or update credential operation.
 	Name string `pulumi:"name"`
-	// Gets or sets the properties of the credential.
-	Properties CredentialCreateOrUpdateProperties `pulumi:"properties"`
+	// Gets or sets the password of the credential.
+	Password string `pulumi:"password"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets the user name of the credential.
+	UserName string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a Credential resource.
 type CredentialArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
+	// Gets or sets the description of the credential.
+	Description pulumi.StringPtrInput
 	// The parameters supplied to the create or update credential operation.
 	Name pulumi.StringInput
-	// Gets or sets the properties of the credential.
-	Properties CredentialCreateOrUpdatePropertiesInput
+	// Gets or sets the password of the credential.
+	Password pulumi.StringInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets the user name of the credential.
+	UserName pulumi.StringInput
 }
 
 func (CredentialArgs) ElementType() reflect.Type {

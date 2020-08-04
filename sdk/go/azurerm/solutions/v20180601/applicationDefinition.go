@@ -35,11 +35,14 @@ type ApplicationDefinition struct {
 // NewApplicationDefinition registers a new resource with the given unique name, arguments, and options.
 func NewApplicationDefinition(ctx *pulumi.Context,
 	name string, args *ApplicationDefinitionArgs, opts ...pulumi.ResourceOption) (*ApplicationDefinition, error) {
+	if args == nil || args.Authorizations == nil {
+		return nil, errors.New("missing required argument 'Authorizations'")
+	}
+	if args == nil || args.LockLevel == nil {
+		return nil, errors.New("missing required argument 'LockLevel'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -111,16 +114,32 @@ func (ApplicationDefinitionState) ElementType() reflect.Type {
 }
 
 type applicationDefinitionArgs struct {
+	// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+	Artifacts []ApplicationArtifact `pulumi:"artifacts"`
+	// The managed application provider authorizations.
+	Authorizations []ApplicationProviderAuthorization `pulumi:"authorizations"`
+	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+	CreateUiDefinition map[string]interface{} `pulumi:"createUiDefinition"`
+	// The managed application definition description.
+	Description *string `pulumi:"description"`
+	// The managed application definition display name.
+	DisplayName *string `pulumi:"displayName"`
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
+	// A value indicating whether the package is enabled or not.
+	IsEnabled *string `pulumi:"isEnabled"`
 	// Resource location
 	Location *string `pulumi:"location"`
+	// The managed application lock level.
+	LockLevel string `pulumi:"lockLevel"`
+	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+	MainTemplate map[string]interface{} `pulumi:"mainTemplate"`
 	// ID of the resource that manages this resource.
 	ManagedBy *string `pulumi:"managedBy"`
 	// The name of the managed application definition.
 	Name string `pulumi:"name"`
-	// The managed application definition properties.
-	Properties ApplicationDefinitionProperties `pulumi:"properties"`
+	// The managed application definition package file Uri. Use this element
+	PackageFileUri *string `pulumi:"packageFileUri"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the resource.
@@ -131,16 +150,32 @@ type applicationDefinitionArgs struct {
 
 // The set of arguments for constructing a ApplicationDefinition resource.
 type ApplicationDefinitionArgs struct {
+	// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+	Artifacts ApplicationArtifactArrayInput
+	// The managed application provider authorizations.
+	Authorizations ApplicationProviderAuthorizationArrayInput
+	// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+	CreateUiDefinition pulumi.MapInput
+	// The managed application definition description.
+	Description pulumi.StringPtrInput
+	// The managed application definition display name.
+	DisplayName pulumi.StringPtrInput
 	// The identity of the resource.
 	Identity IdentityPtrInput
+	// A value indicating whether the package is enabled or not.
+	IsEnabled pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
+	// The managed application lock level.
+	LockLevel pulumi.StringInput
+	// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+	MainTemplate pulumi.MapInput
 	// ID of the resource that manages this resource.
 	ManagedBy pulumi.StringPtrInput
 	// The name of the managed application definition.
 	Name pulumi.StringInput
-	// The managed application definition properties.
-	Properties ApplicationDefinitionPropertiesInput
+	// The managed application definition package file Uri. Use this element
+	PackageFileUri pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the resource.

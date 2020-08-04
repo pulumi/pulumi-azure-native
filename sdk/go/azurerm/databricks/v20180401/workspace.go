@@ -34,11 +34,11 @@ func NewWorkspace(ctx *pulumi.Context,
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
+	if args == nil || args.ManagedResourceGroupId == nil {
+		return nil, errors.New("missing required argument 'ManagedResourceGroupId'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -102,34 +102,62 @@ func (WorkspaceState) ElementType() reflect.Type {
 }
 
 type workspaceArgs struct {
+	// The workspace provider authorizations.
+	Authorizations []WorkspaceProviderAuthorization `pulumi:"authorizations"`
+	// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
+	CreatedBy *CreatedBy `pulumi:"createdBy"`
+	// Specifies the date and time when the workspace is created.
+	CreatedDateTime *string `pulumi:"createdDateTime"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
+	// The managed resource group Id.
+	ManagedResourceGroupId string `pulumi:"managedResourceGroupId"`
 	// The name of the workspace.
 	Name string `pulumi:"name"`
-	// The workspace properties.
-	Properties WorkspaceProperties `pulumi:"properties"`
+	// The workspace's custom parameters.
+	Parameters *WorkspaceCustomParameters `pulumi:"parameters"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the resource.
 	Sku *Sku `pulumi:"sku"`
+	// The details of Managed Identity of Storage Account
+	StorageAccountIdentity *ManagedIdentityConfiguration `pulumi:"storageAccountIdentity"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The blob URI where the UI definition file is located.
+	UiDefinitionUri *string `pulumi:"uiDefinitionUri"`
+	// Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
+	UpdatedBy *CreatedBy `pulumi:"updatedBy"`
 }
 
 // The set of arguments for constructing a Workspace resource.
 type WorkspaceArgs struct {
+	// The workspace provider authorizations.
+	Authorizations WorkspaceProviderAuthorizationArrayInput
+	// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
+	CreatedBy CreatedByPtrInput
+	// Specifies the date and time when the workspace is created.
+	CreatedDateTime pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
+	// The managed resource group Id.
+	ManagedResourceGroupId pulumi.StringInput
 	// The name of the workspace.
 	Name pulumi.StringInput
-	// The workspace properties.
-	Properties WorkspacePropertiesInput
+	// The workspace's custom parameters.
+	Parameters WorkspaceCustomParametersPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the resource.
 	Sku SkuPtrInput
+	// The details of Managed Identity of Storage Account
+	StorageAccountIdentity ManagedIdentityConfigurationPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The blob URI where the UI definition file is located.
+	UiDefinitionUri pulumi.StringPtrInput
+	// Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
+	UpdatedBy CreatedByPtrInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {

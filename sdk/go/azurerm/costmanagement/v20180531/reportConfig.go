@@ -27,6 +27,12 @@ type ReportConfig struct {
 // NewReportConfig registers a new resource with the given unique name, arguments, and options.
 func NewReportConfig(ctx *pulumi.Context,
 	name string, args *ReportConfigArgs, opts ...pulumi.ResourceOption) (*ReportConfig, error) {
+	if args == nil || args.Definition == nil {
+		return nil, errors.New("missing required argument 'Definition'")
+	}
+	if args == nil || args.DeliveryInfo == nil {
+		return nil, errors.New("missing required argument 'DeliveryInfo'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -81,18 +87,30 @@ func (ReportConfigState) ElementType() reflect.Type {
 }
 
 type reportConfigArgs struct {
+	// Has definition for the report config.
+	Definition ReportConfigDefinition `pulumi:"definition"`
+	// Has delivery information for the report config.
+	DeliveryInfo ReportConfigDeliveryInfo `pulumi:"deliveryInfo"`
+	// The format of the report being delivered.
+	Format *string `pulumi:"format"`
 	// Report Config Name.
 	Name string `pulumi:"name"`
-	// The properties of the report config.
-	Properties *ReportConfigProperties `pulumi:"properties"`
+	// Has schedule information for the report config.
+	Schedule *ReportConfigSchedule `pulumi:"schedule"`
 }
 
 // The set of arguments for constructing a ReportConfig resource.
 type ReportConfigArgs struct {
+	// Has definition for the report config.
+	Definition ReportConfigDefinitionInput
+	// Has delivery information for the report config.
+	DeliveryInfo ReportConfigDeliveryInfoInput
+	// The format of the report being delivered.
+	Format pulumi.StringPtrInput
 	// Report Config Name.
 	Name pulumi.StringInput
-	// The properties of the report config.
-	Properties ReportConfigPropertiesPtrInput
+	// Has schedule information for the report config.
+	Schedule ReportConfigSchedulePtrInput
 }
 
 func (ReportConfigArgs) ElementType() reflect.Type {

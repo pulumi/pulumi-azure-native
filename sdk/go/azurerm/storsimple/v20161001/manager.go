@@ -99,32 +99,36 @@ func (ManagerState) ElementType() reflect.Type {
 }
 
 type managerArgs struct {
+	// Specifies if the Manager is Garda or Helsinki
+	CisIntrinsicSettings *ManagerIntrinsicSettings `pulumi:"cisIntrinsicSettings"`
 	// ETag of the Manager
 	Etag *string `pulumi:"etag"`
 	// The Geo location of the Manager
 	Location string `pulumi:"location"`
 	// The manager name
 	Name string `pulumi:"name"`
-	// List of properties of the Manager
-	Properties *ManagerProperties `pulumi:"properties"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Specifies the Sku
+	Sku *ManagerSku `pulumi:"sku"`
 	// Tags attached to the Manager
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Manager resource.
 type ManagerArgs struct {
+	// Specifies if the Manager is Garda or Helsinki
+	CisIntrinsicSettings ManagerIntrinsicSettingsPtrInput
 	// ETag of the Manager
 	Etag pulumi.StringPtrInput
 	// The Geo location of the Manager
 	Location pulumi.StringInput
 	// The manager name
 	Name pulumi.StringInput
-	// List of properties of the Manager
-	Properties ManagerPropertiesPtrInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
+	// Specifies the Sku
+	Sku ManagerSkuPtrInput
 	// Tags attached to the Manager
 	Tags pulumi.StringMapInput
 }

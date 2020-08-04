@@ -31,8 +31,17 @@ func NewClusterPrincipalAssignment(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.PrincipalId == nil {
+		return nil, errors.New("missing required argument 'PrincipalId'")
+	}
+	if args == nil || args.PrincipalType == nil {
+		return nil, errors.New("missing required argument 'PrincipalType'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Role == nil {
+		return nil, errors.New("missing required argument 'Role'")
 	}
 	if args == nil {
 		args = &ClusterPrincipalAssignmentArgs{}
@@ -85,10 +94,16 @@ type clusterPrincipalAssignmentArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The name of the Kusto principalAssignment.
 	Name string `pulumi:"name"`
-	// The cluster principal.
-	Properties *ClusterPrincipalProperties `pulumi:"properties"`
+	// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
+	PrincipalId string `pulumi:"principalId"`
+	// Principal type.
+	PrincipalType string `pulumi:"principalType"`
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Cluster principal role.
+	Role string `pulumi:"role"`
+	// The tenant id of the principal
+	TenantId *string `pulumi:"tenantId"`
 }
 
 // The set of arguments for constructing a ClusterPrincipalAssignment resource.
@@ -97,10 +112,16 @@ type ClusterPrincipalAssignmentArgs struct {
 	ClusterName pulumi.StringInput
 	// The name of the Kusto principalAssignment.
 	Name pulumi.StringInput
-	// The cluster principal.
-	Properties ClusterPrincipalPropertiesPtrInput
+	// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
+	PrincipalId pulumi.StringInput
+	// Principal type.
+	PrincipalType pulumi.StringInput
 	// The name of the resource group containing the Kusto cluster.
 	ResourceGroupName pulumi.StringInput
+	// Cluster principal role.
+	Role pulumi.StringInput
+	// The tenant id of the principal
+	TenantId pulumi.StringPtrInput
 }
 
 func (ClusterPrincipalAssignmentArgs) ElementType() reflect.Type {

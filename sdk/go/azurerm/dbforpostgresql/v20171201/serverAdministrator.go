@@ -25,11 +25,23 @@ type ServerAdministrator struct {
 // NewServerAdministrator registers a new resource with the given unique name, arguments, and options.
 func NewServerAdministrator(ctx *pulumi.Context,
 	name string, args *ServerAdministratorArgs, opts ...pulumi.ResourceOption) (*ServerAdministrator, error) {
+	if args == nil || args.AdministratorType == nil {
+		return nil, errors.New("missing required argument 'AdministratorType'")
+	}
+	if args == nil || args.Login == nil {
+		return nil, errors.New("missing required argument 'Login'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Sid == nil {
+		return nil, errors.New("missing required argument 'Sid'")
+	}
+	if args == nil || args.TenantId == nil {
+		return nil, errors.New("missing required argument 'TenantId'")
 	}
 	if args == nil {
 		args = &ServerAdministratorArgs{}
@@ -78,22 +90,34 @@ func (ServerAdministratorState) ElementType() reflect.Type {
 }
 
 type serverAdministratorArgs struct {
+	// The type of administrator.
+	AdministratorType string `pulumi:"administratorType"`
+	// The server administrator login account name.
+	Login string `pulumi:"login"`
 	// The name of the server.
 	Name string `pulumi:"name"`
-	// Properties of the server AAD administrator.
-	Properties *ServerAdministratorProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The server administrator Sid (Secure ID).
+	Sid string `pulumi:"sid"`
+	// The server Active Directory Administrator tenant id.
+	TenantId string `pulumi:"tenantId"`
 }
 
 // The set of arguments for constructing a ServerAdministrator resource.
 type ServerAdministratorArgs struct {
+	// The type of administrator.
+	AdministratorType pulumi.StringInput
+	// The server administrator login account name.
+	Login pulumi.StringInput
 	// The name of the server.
 	Name pulumi.StringInput
-	// Properties of the server AAD administrator.
-	Properties ServerAdministratorPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The server administrator Sid (Secure ID).
+	Sid pulumi.StringInput
+	// The server Active Directory Administrator tenant id.
+	TenantId pulumi.StringInput
 }
 
 func (ServerAdministratorArgs) ElementType() reflect.Type {

@@ -102,12 +102,20 @@ func (ServerDetailsState) ElementType() reflect.Type {
 }
 
 type serverDetailsArgs struct {
+	// A collection of AS server administrators
+	AsAdministrators *ServerAdministrators `pulumi:"asAdministrators"`
+	// The SAS container URI to the backup container.
+	BackupBlobContainerUri *string `pulumi:"backupBlobContainerUri"`
+	// The gateway details configured for the AS server.
+	GatewayDetails *GatewayDetails `pulumi:"gatewayDetails"`
+	// The firewall settings for the AS server.
+	IpV4FirewallSettings *IPv4FirewallSettings `pulumi:"ipV4FirewallSettings"`
 	// Location of the Analysis Services resource.
 	Location string `pulumi:"location"`
 	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
 	Name string `pulumi:"name"`
-	// Properties of the provision operation request.
-	Properties *AnalysisServicesServerProperties `pulumi:"properties"`
+	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
+	QuerypoolConnectionMode *string `pulumi:"querypoolConnectionMode"`
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU of the Analysis Services resource.
@@ -118,12 +126,20 @@ type serverDetailsArgs struct {
 
 // The set of arguments for constructing a ServerDetails resource.
 type ServerDetailsArgs struct {
+	// A collection of AS server administrators
+	AsAdministrators ServerAdministratorsPtrInput
+	// The SAS container URI to the backup container.
+	BackupBlobContainerUri pulumi.StringPtrInput
+	// The gateway details configured for the AS server.
+	GatewayDetails GatewayDetailsPtrInput
+	// The firewall settings for the AS server.
+	IpV4FirewallSettings IPv4FirewallSettingsPtrInput
 	// Location of the Analysis Services resource.
 	Location pulumi.StringInput
 	// The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
 	Name pulumi.StringInput
-	// Properties of the provision operation request.
-	Properties AnalysisServicesServerPropertiesPtrInput
+	// How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
+	QuerypoolConnectionMode pulumi.StringPtrInput
 	// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
 	ResourceGroupName pulumi.StringInput
 	// The SKU of the Analysis Services resource.

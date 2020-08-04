@@ -90,30 +90,46 @@ func (LabState) ElementType() reflect.Type {
 }
 
 type labArgs struct {
+	// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+	LabStorageType *string `pulumi:"labStorageType"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the lab.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties *LabProperties `pulumi:"properties"`
+	// The setting to enable usage of premium data disks.
+	// When its value is 'Enabled', creation of standard or premium data disks is allowed.
+	// When its value is 'Disabled', only creation of standard data disks is allowed.
+	PremiumDataDisks *string `pulumi:"premiumDataDisks"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 // The set of arguments for constructing a Lab resource.
 type LabArgs struct {
+	// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+	LabStorageType pulumi.StringPtrInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the lab.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties LabPropertiesPtrInput
+	// The setting to enable usage of premium data disks.
+	// When its value is 'Enabled', creation of standard or premium data disks is allowed.
+	// When its value is 'Disabled', only creation of standard data disks is allowed.
+	PremiumDataDisks pulumi.StringPtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (LabArgs) ElementType() reflect.Type {

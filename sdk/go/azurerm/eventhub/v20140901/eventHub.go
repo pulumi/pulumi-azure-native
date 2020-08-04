@@ -92,14 +92,18 @@ func (EventHubState) ElementType() reflect.Type {
 type eventHubArgs struct {
 	// Location of the resource.
 	Location string `pulumi:"location"`
+	// Number of days to retain the events for this Event Hub.
+	MessageRetentionInDays *int `pulumi:"messageRetentionInDays"`
 	// The Event Hub name
 	Name string `pulumi:"name"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Properties supplied to the Create Or Update Event Hub operation.
-	Properties *EventHubProperties `pulumi:"properties"`
+	// Number of partitions created for the Event Hub.
+	PartitionCount *int `pulumi:"partitionCount"`
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Enumerates the possible values for the status of the Event Hub.
+	Status *string `pulumi:"status"`
 	// ARM type of the Namespace.
 	Type *string `pulumi:"type"`
 }
@@ -108,14 +112,18 @@ type eventHubArgs struct {
 type EventHubArgs struct {
 	// Location of the resource.
 	Location pulumi.StringInput
+	// Number of days to retain the events for this Event Hub.
+	MessageRetentionInDays pulumi.IntPtrInput
 	// The Event Hub name
 	Name pulumi.StringInput
 	// The Namespace name
 	NamespaceName pulumi.StringInput
-	// Properties supplied to the Create Or Update Event Hub operation.
-	Properties EventHubPropertiesPtrInput
+	// Number of partitions created for the Event Hub.
+	PartitionCount pulumi.IntPtrInput
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Enumerates the possible values for the status of the Event Hub.
+	Status pulumi.StringPtrInput
 	// ARM type of the Namespace.
 	Type pulumi.StringPtrInput
 }

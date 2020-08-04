@@ -28,11 +28,11 @@ func NewConnection(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
+	if args == nil || args.ConnectionType == nil {
+		return nil, errors.New("missing required argument 'ConnectionType'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -86,10 +86,14 @@ func (ConnectionState) ElementType() reflect.Type {
 type connectionArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
+	// Gets or sets the connectionType of the connection.
+	ConnectionType ConnectionTypeAssociationProperty `pulumi:"connectionType"`
+	// Gets or sets the description of the connection.
+	Description *string `pulumi:"description"`
+	// Gets or sets the field definition properties of the connection.
+	FieldDefinitionValues map[string]string `pulumi:"fieldDefinitionValues"`
 	// The parameters supplied to the create or update connection operation.
 	Name string `pulumi:"name"`
-	// Gets or sets the properties of the connection.
-	Properties ConnectionCreateOrUpdateProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -98,10 +102,14 @@ type connectionArgs struct {
 type ConnectionArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
+	// Gets or sets the connectionType of the connection.
+	ConnectionType ConnectionTypeAssociationPropertyInput
+	// Gets or sets the description of the connection.
+	Description pulumi.StringPtrInput
+	// Gets or sets the field definition properties of the connection.
+	FieldDefinitionValues pulumi.StringMapInput
 	// The parameters supplied to the create or update connection operation.
 	Name pulumi.StringInput
-	// Gets or sets the properties of the connection.
-	Properties ConnectionCreateOrUpdatePropertiesInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
 }

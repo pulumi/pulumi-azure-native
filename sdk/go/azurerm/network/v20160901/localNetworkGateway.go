@@ -31,11 +31,11 @@ type LocalNetworkGateway struct {
 // NewLocalNetworkGateway registers a new resource with the given unique name, arguments, and options.
 func NewLocalNetworkGateway(ctx *pulumi.Context,
 	name string, args *LocalNetworkGatewayArgs, opts ...pulumi.ResourceOption) (*LocalNetworkGateway, error) {
+	if args == nil || args.LocalNetworkAddressSpace == nil {
+		return nil, errors.New("missing required argument 'LocalNetworkAddressSpace'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -99,36 +99,48 @@ func (LocalNetworkGatewayState) ElementType() reflect.Type {
 }
 
 type localNetworkGatewayArgs struct {
+	// Local network gateway's BGP speaker settings.
+	BgpSettings *BgpSettings `pulumi:"bgpSettings"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// IP address of local network gateway.
+	GatewayIpAddress *string `pulumi:"gatewayIpAddress"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// Local network site address space.
+	LocalNetworkAddressSpace AddressSpace `pulumi:"localNetworkAddressSpace"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the local network gateway.
 	Name string `pulumi:"name"`
-	// LocalNetworkGateway properties
-	Properties LocalNetworkGatewayPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The resource GUID property of the LocalNetworkGateway resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a LocalNetworkGateway resource.
 type LocalNetworkGatewayArgs struct {
+	// Local network gateway's BGP speaker settings.
+	BgpSettings BgpSettingsPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// IP address of local network gateway.
+	GatewayIpAddress pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// Local network site address space.
+	LocalNetworkAddressSpace AddressSpaceInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the local network gateway.
 	Name pulumi.StringInput
-	// LocalNetworkGateway properties
-	Properties LocalNetworkGatewayPropertiesFormatInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The resource GUID property of the LocalNetworkGateway resource.
+	ResourceGuid pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

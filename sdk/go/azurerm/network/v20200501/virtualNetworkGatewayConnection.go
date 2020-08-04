@@ -31,14 +31,17 @@ type VirtualNetworkGatewayConnection struct {
 // NewVirtualNetworkGatewayConnection registers a new resource with the given unique name, arguments, and options.
 func NewVirtualNetworkGatewayConnection(ctx *pulumi.Context,
 	name string, args *VirtualNetworkGatewayConnectionArgs, opts ...pulumi.ResourceOption) (*VirtualNetworkGatewayConnection, error) {
+	if args == nil || args.ConnectionType == nil {
+		return nil, errors.New("missing required argument 'ConnectionType'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VirtualNetworkGateway1 == nil {
+		return nil, errors.New("missing required argument 'VirtualNetworkGateway1'")
 	}
 	if args == nil {
 		args = &VirtualNetworkGatewayConnectionArgs{}
@@ -99,34 +102,94 @@ func (VirtualNetworkGatewayConnectionState) ElementType() reflect.Type {
 }
 
 type virtualNetworkGatewayConnectionArgs struct {
+	// The authorizationKey.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// Connection protocol used for this connection.
+	ConnectionProtocol *string `pulumi:"connectionProtocol"`
+	// Gateway connection type.
+	ConnectionType string `pulumi:"connectionType"`
+	// The dead peer detection timeout of this connection in seconds.
+	DpdTimeoutSeconds *int `pulumi:"dpdTimeoutSeconds"`
+	// EnableBgp flag.
+	EnableBgp *bool `pulumi:"enableBgp"`
+	// Bypass ExpressRoute Gateway for data forwarding.
+	ExpressRouteGatewayBypass *bool `pulumi:"expressRouteGatewayBypass"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// The IPSec Policies to be considered by this connection.
+	IpsecPolicies []IpsecPolicy `pulumi:"ipsecPolicies"`
+	// The reference to local network gateway resource.
+	LocalNetworkGateway2 *LocalNetworkGatewayType `pulumi:"localNetworkGateway2"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the virtual network gateway connection.
 	Name string `pulumi:"name"`
-	// Properties of the virtual network gateway connection.
-	Properties VirtualNetworkGatewayConnectionPropertiesFormat `pulumi:"properties"`
+	// The reference to peerings resource.
+	Peer *SubResource `pulumi:"peer"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The routing weight.
+	RoutingWeight *int `pulumi:"routingWeight"`
+	// The IPSec shared key.
+	SharedKey *string `pulumi:"sharedKey"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The Traffic Selector Policies to be considered by this connection.
+	TrafficSelectorPolicies []TrafficSelectorPolicy `pulumi:"trafficSelectorPolicies"`
+	// Use private local Azure IP for the connection.
+	UseLocalAzureIpAddress *bool `pulumi:"useLocalAzureIpAddress"`
+	// Enable policy-based traffic selectors.
+	UsePolicyBasedTrafficSelectors *bool `pulumi:"usePolicyBasedTrafficSelectors"`
+	// The reference to virtual network gateway resource.
+	VirtualNetworkGateway1 VirtualNetworkGatewayType `pulumi:"virtualNetworkGateway1"`
+	// The reference to virtual network gateway resource.
+	VirtualNetworkGateway2 *VirtualNetworkGatewayType `pulumi:"virtualNetworkGateway2"`
 }
 
 // The set of arguments for constructing a VirtualNetworkGatewayConnection resource.
 type VirtualNetworkGatewayConnectionArgs struct {
+	// The authorizationKey.
+	AuthorizationKey pulumi.StringPtrInput
+	// Connection protocol used for this connection.
+	ConnectionProtocol pulumi.StringPtrInput
+	// Gateway connection type.
+	ConnectionType pulumi.StringInput
+	// The dead peer detection timeout of this connection in seconds.
+	DpdTimeoutSeconds pulumi.IntPtrInput
+	// EnableBgp flag.
+	EnableBgp pulumi.BoolPtrInput
+	// Bypass ExpressRoute Gateway for data forwarding.
+	ExpressRouteGatewayBypass pulumi.BoolPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// The IPSec Policies to be considered by this connection.
+	IpsecPolicies IpsecPolicyArrayInput
+	// The reference to local network gateway resource.
+	LocalNetworkGateway2 LocalNetworkGatewayTypePtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the virtual network gateway connection.
 	Name pulumi.StringInput
-	// Properties of the virtual network gateway connection.
-	Properties VirtualNetworkGatewayConnectionPropertiesFormatInput
+	// The reference to peerings resource.
+	Peer SubResourcePtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The routing weight.
+	RoutingWeight pulumi.IntPtrInput
+	// The IPSec shared key.
+	SharedKey pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The Traffic Selector Policies to be considered by this connection.
+	TrafficSelectorPolicies TrafficSelectorPolicyArrayInput
+	// Use private local Azure IP for the connection.
+	UseLocalAzureIpAddress pulumi.BoolPtrInput
+	// Enable policy-based traffic selectors.
+	UsePolicyBasedTrafficSelectors pulumi.BoolPtrInput
+	// The reference to virtual network gateway resource.
+	VirtualNetworkGateway1 VirtualNetworkGatewayTypeInput
+	// The reference to virtual network gateway resource.
+	VirtualNetworkGateway2 VirtualNetworkGatewayTypePtrInput
 }
 
 func (VirtualNetworkGatewayConnectionArgs) ElementType() reflect.Type {

@@ -31,6 +31,9 @@ type Component struct {
 // NewComponent registers a new resource with the given unique name, arguments, and options.
 func NewComponent(ctx *pulumi.Context,
 	name string, args *ComponentArgs, opts ...pulumi.ResourceOption) (*Component, error) {
+	if args == nil || args.Application_Type == nil {
+		return nil, errors.New("missing required argument 'Application_Type'")
+	}
 	if args == nil || args.Kind == nil {
 		return nil, errors.New("missing required argument 'Kind'")
 	}
@@ -102,14 +105,30 @@ func (ComponentState) ElementType() reflect.Type {
 }
 
 type componentArgs struct {
+	// Type of application being monitored.
+	Application_Type string `pulumi:"Application_Type"`
+	// Disable IP masking.
+	DisableIpMasking *bool `pulumi:"DisableIpMasking"`
+	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
+	Flow_Type *string `pulumi:"Flow_Type"`
+	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
+	HockeyAppId *string `pulumi:"HockeyAppId"`
+	// Purge data immediately after 30 days.
+	ImmediatePurgeDataOn30Days *bool `pulumi:"ImmediatePurgeDataOn30Days"`
+	// Indicates the flow of the ingestion.
+	IngestionMode *string `pulumi:"IngestionMode"`
+	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+	Request_Source *string `pulumi:"Request_Source"`
+	// Retention period in days.
+	RetentionInDays *int `pulumi:"RetentionInDays"`
+	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+	SamplingPercentage *float64 `pulumi:"SamplingPercentage"`
 	// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
 	Kind string `pulumi:"kind"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the Application Insights component resource.
 	Name string `pulumi:"name"`
-	// Properties that define an Application Insights component resource.
-	Properties *ApplicationInsightsComponentProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -118,14 +137,30 @@ type componentArgs struct {
 
 // The set of arguments for constructing a Component resource.
 type ComponentArgs struct {
+	// Type of application being monitored.
+	Application_Type pulumi.StringInput
+	// Disable IP masking.
+	DisableIpMasking pulumi.BoolPtrInput
+	// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
+	Flow_Type pulumi.StringPtrInput
+	// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
+	HockeyAppId pulumi.StringPtrInput
+	// Purge data immediately after 30 days.
+	ImmediatePurgeDataOn30Days pulumi.BoolPtrInput
+	// Indicates the flow of the ingestion.
+	IngestionMode pulumi.StringPtrInput
+	// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+	Request_Source pulumi.StringPtrInput
+	// Retention period in days.
+	RetentionInDays pulumi.IntPtrInput
+	// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+	SamplingPercentage pulumi.Float64PtrInput
 	// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
 	Kind pulumi.StringInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the Application Insights component resource.
 	Name pulumi.StringInput
-	// Properties that define an Application Insights component resource.
-	Properties ApplicationInsightsComponentPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

@@ -29,6 +29,9 @@ type FileServer struct {
 // NewFileServer registers a new resource with the given unique name, arguments, and options.
 func NewFileServer(ctx *pulumi.Context,
 	name string, args *FileServerArgs, opts ...pulumi.ResourceOption) (*FileServer, error) {
+	if args == nil || args.DataDisks == nil {
+		return nil, errors.New("missing required argument 'DataDisks'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -37,6 +40,12 @@ func NewFileServer(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SshConfiguration == nil {
+		return nil, errors.New("missing required argument 'SshConfiguration'")
+	}
+	if args == nil || args.VmSize == nil {
+		return nil, errors.New("missing required argument 'VmSize'")
 	}
 	if args == nil {
 		args = &FileServerArgs{}
@@ -93,30 +102,42 @@ func (FileServerState) ElementType() reflect.Type {
 }
 
 type fileServerArgs struct {
+	// Settings for the data disk which would be created for the File Server.
+	DataDisks DataDisks `pulumi:"dataDisks"`
 	// The region in which to create the File Server.
 	Location string `pulumi:"location"`
 	// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	Name string `pulumi:"name"`
-	// The properties of the File Server.
-	Properties *FileServerBaseProperties `pulumi:"properties"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// SSH configuration settings for the VM
+	SshConfiguration SshConfiguration `pulumi:"sshConfiguration"`
+	// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+	Subnet *ResourceId `pulumi:"subnet"`
 	// The user specified tags associated with the File Server.
 	Tags map[string]string `pulumi:"tags"`
+	// For information about available VM sizes for fileservers from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+	VmSize string `pulumi:"vmSize"`
 }
 
 // The set of arguments for constructing a FileServer resource.
 type FileServerArgs struct {
+	// Settings for the data disk which would be created for the File Server.
+	DataDisks DataDisksInput
 	// The region in which to create the File Server.
 	Location pulumi.StringInput
 	// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	Name pulumi.StringInput
-	// The properties of the File Server.
-	Properties FileServerBasePropertiesPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// SSH configuration settings for the VM
+	SshConfiguration SshConfigurationInput
+	// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+	Subnet ResourceIdPtrInput
 	// The user specified tags associated with the File Server.
 	Tags pulumi.StringMapInput
+	// For information about available VM sizes for fileservers from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+	VmSize pulumi.StringInput
 }
 
 func (FileServerArgs) ElementType() reflect.Type {

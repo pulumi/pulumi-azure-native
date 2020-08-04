@@ -84,28 +84,72 @@ func (SubscriptionState) ElementType() reflect.Type {
 }
 
 type subscriptionArgs struct {
+	// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+	AutoDeleteOnIdle *string `pulumi:"autoDeleteOnIdle"`
+	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+	DeadLetteringOnFilterEvaluationExceptions *bool `pulumi:"deadLetteringOnFilterEvaluationExceptions"`
+	// Value that indicates whether a subscription has dead letter support when a message expires.
+	DeadLetteringOnMessageExpiration *bool `pulumi:"deadLetteringOnMessageExpiration"`
+	// ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	DefaultMessageTimeToLive *string `pulumi:"defaultMessageTimeToLive"`
+	// ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+	DuplicateDetectionHistoryTimeWindow *string `pulumi:"duplicateDetectionHistoryTimeWindow"`
+	// Value that indicates whether server-side batched operations are enabled.
+	EnableBatchedOperations *bool `pulumi:"enableBatchedOperations"`
+	// Queue/Topic name to forward the Dead Letter message
+	ForwardDeadLetteredMessagesTo *string `pulumi:"forwardDeadLetteredMessagesTo"`
+	// Queue/Topic name to forward the messages
+	ForwardTo *string `pulumi:"forwardTo"`
+	// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
+	LockDuration *string `pulumi:"lockDuration"`
+	// Number of maximum deliveries.
+	MaxDeliveryCount *int `pulumi:"maxDeliveryCount"`
 	// The subscription name.
 	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Properties of subscriptions resource.
-	Properties *SBSubscriptionProperties `pulumi:"properties"`
+	// Value indicating if a subscription supports the concept of sessions.
+	RequiresSession *bool `pulumi:"requiresSession"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Enumerates the possible values for the status of a messaging entity.
+	Status *string `pulumi:"status"`
 	// The topic name.
 	TopicName string `pulumi:"topicName"`
 }
 
 // The set of arguments for constructing a Subscription resource.
 type SubscriptionArgs struct {
+	// ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+	AutoDeleteOnIdle pulumi.StringPtrInput
+	// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+	DeadLetteringOnFilterEvaluationExceptions pulumi.BoolPtrInput
+	// Value that indicates whether a subscription has dead letter support when a message expires.
+	DeadLetteringOnMessageExpiration pulumi.BoolPtrInput
+	// ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+	DefaultMessageTimeToLive pulumi.StringPtrInput
+	// ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+	DuplicateDetectionHistoryTimeWindow pulumi.StringPtrInput
+	// Value that indicates whether server-side batched operations are enabled.
+	EnableBatchedOperations pulumi.BoolPtrInput
+	// Queue/Topic name to forward the Dead Letter message
+	ForwardDeadLetteredMessagesTo pulumi.StringPtrInput
+	// Queue/Topic name to forward the messages
+	ForwardTo pulumi.StringPtrInput
+	// ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
+	LockDuration pulumi.StringPtrInput
+	// Number of maximum deliveries.
+	MaxDeliveryCount pulumi.IntPtrInput
 	// The subscription name.
 	Name pulumi.StringInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
-	// Properties of subscriptions resource.
-	Properties SBSubscriptionPropertiesPtrInput
+	// Value indicating if a subscription supports the concept of sessions.
+	RequiresSession pulumi.BoolPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Enumerates the possible values for the status of a messaging entity.
+	Status pulumi.StringPtrInput
 	// The topic name.
 	TopicName pulumi.StringInput
 }

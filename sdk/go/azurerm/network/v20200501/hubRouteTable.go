@@ -89,12 +89,14 @@ func (HubRouteTableState) ElementType() reflect.Type {
 type hubRouteTableArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// List of labels associated with this route table.
+	Labels []string `pulumi:"labels"`
 	// The name of the RouteTable.
 	Name string `pulumi:"name"`
-	// Properties of the RouteTable resource.
-	Properties *HubRouteTableProperties `pulumi:"properties"`
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// List of all routes.
+	Routes []HubRoute `pulumi:"routes"`
 	// The name of the VirtualHub.
 	VirtualHubName string `pulumi:"virtualHubName"`
 }
@@ -103,12 +105,14 @@ type hubRouteTableArgs struct {
 type HubRouteTableArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// List of labels associated with this route table.
+	Labels pulumi.StringArrayInput
 	// The name of the RouteTable.
 	Name pulumi.StringInput
-	// Properties of the RouteTable resource.
-	Properties HubRouteTablePropertiesPtrInput
 	// The resource group name of the VirtualHub.
 	ResourceGroupName pulumi.StringInput
+	// List of all routes.
+	Routes HubRouteArrayInput
 	// The name of the VirtualHub.
 	VirtualHubName pulumi.StringInput
 }

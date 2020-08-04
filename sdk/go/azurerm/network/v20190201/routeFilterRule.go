@@ -27,6 +27,12 @@ type RouteFilterRule struct {
 // NewRouteFilterRule registers a new resource with the given unique name, arguments, and options.
 func NewRouteFilterRule(ctx *pulumi.Context,
 	name string, args *RouteFilterRuleArgs, opts ...pulumi.ResourceOption) (*RouteFilterRule, error) {
+	if args == nil || args.Access == nil {
+		return nil, errors.New("missing required argument 'Access'")
+	}
+	if args == nil || args.Communities == nil {
+		return nil, errors.New("missing required argument 'Communities'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -35,6 +41,9 @@ func NewRouteFilterRule(ctx *pulumi.Context,
 	}
 	if args == nil || args.RouteFilterName == nil {
 		return nil, errors.New("missing required argument 'RouteFilterName'")
+	}
+	if args == nil || args.RouteFilterRuleType == nil {
+		return nil, errors.New("missing required argument 'RouteFilterRuleType'")
 	}
 	if args == nil {
 		args = &RouteFilterRuleArgs{}
@@ -87,34 +96,42 @@ func (RouteFilterRuleState) ElementType() reflect.Type {
 }
 
 type routeFilterRuleArgs struct {
+	// The access type of the rule.
+	Access string `pulumi:"access"`
+	// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+	Communities []string `pulumi:"communities"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the route filter rule.
 	Name string `pulumi:"name"`
-	// Properties of the route filter rule.
-	Properties *RouteFilterRulePropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the route filter.
 	RouteFilterName string `pulumi:"routeFilterName"`
+	// The rule type of the rule. Valid value is: 'Community'
+	RouteFilterRuleType string `pulumi:"routeFilterRuleType"`
 }
 
 // The set of arguments for constructing a RouteFilterRule resource.
 type RouteFilterRuleArgs struct {
+	// The access type of the rule.
+	Access pulumi.StringInput
+	// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+	Communities pulumi.StringArrayInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the route filter rule.
 	Name pulumi.StringInput
-	// Properties of the route filter rule.
-	Properties RouteFilterRulePropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the route filter.
 	RouteFilterName pulumi.StringInput
+	// The rule type of the rule. Valid value is: 'Community'
+	RouteFilterRuleType pulumi.StringInput
 }
 
 func (RouteFilterRuleArgs) ElementType() reflect.Type {

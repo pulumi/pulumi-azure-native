@@ -38,8 +38,11 @@ func NewCassandraResourceCassandraTable(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
+	if args == nil || args.Options == nil {
+		return nil, errors.New("missing required argument 'Options'")
+	}
+	if args == nil || args.Resource == nil {
+		return nil, errors.New("missing required argument 'Resource'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -107,8 +110,10 @@ type cassandraResourceCassandraTableArgs struct {
 	Location *string `pulumi:"location"`
 	// Cosmos DB table name.
 	Name string `pulumi:"name"`
-	// Properties to create and update Azure Cosmos DB Cassandra table.
-	Properties CassandraTableCreateUpdateProperties `pulumi:"properties"`
+	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+	Options CreateUpdateOptions `pulumi:"options"`
+	// The standard JSON format of a Cassandra table
+	Resource CassandraTableResource `pulumi:"resource"`
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -125,8 +130,10 @@ type CassandraResourceCassandraTableArgs struct {
 	Location pulumi.StringPtrInput
 	// Cosmos DB table name.
 	Name pulumi.StringInput
-	// Properties to create and update Azure Cosmos DB Cassandra table.
-	Properties CassandraTableCreateUpdatePropertiesInput
+	// A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
+	Options CreateUpdateOptionsInput
+	// The standard JSON format of a Cassandra table
+	Resource CassandraTableResourceInput
 	// Name of an Azure resource group.
 	ResourceGroupName pulumi.StringInput
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".

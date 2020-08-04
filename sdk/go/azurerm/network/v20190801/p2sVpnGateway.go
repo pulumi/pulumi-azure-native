@@ -105,12 +105,20 @@ type p2sVpnGatewayArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the gateway.
 	Name string `pulumi:"name"`
-	// Properties of the P2SVpnGateway.
-	Properties *P2SVpnGatewayProperties `pulumi:"properties"`
+	// List of all p2s connection configurations of the gateway.
+	P2SConnectionConfigurations []P2SConnectionConfiguration `pulumi:"p2SConnectionConfigurations"`
+	// The provisioning state of the P2S VPN gateway resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource group name of the P2SVpnGateway.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The VirtualHub to which the gateway belongs.
+	VirtualHub *SubResource `pulumi:"virtualHub"`
+	// The scale unit for this p2s vpn gateway.
+	VpnGatewayScaleUnit *int `pulumi:"vpnGatewayScaleUnit"`
+	// The VpnServerConfiguration to which the p2sVpnGateway is attached to.
+	VpnServerConfiguration *SubResource `pulumi:"vpnServerConfiguration"`
 }
 
 // The set of arguments for constructing a P2sVpnGateway resource.
@@ -121,12 +129,20 @@ type P2sVpnGatewayArgs struct {
 	Location pulumi.StringInput
 	// The name of the gateway.
 	Name pulumi.StringInput
-	// Properties of the P2SVpnGateway.
-	Properties P2SVpnGatewayPropertiesPtrInput
+	// List of all p2s connection configurations of the gateway.
+	P2SConnectionConfigurations P2SConnectionConfigurationArrayInput
+	// The provisioning state of the P2S VPN gateway resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The resource group name of the P2SVpnGateway.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The VirtualHub to which the gateway belongs.
+	VirtualHub SubResourcePtrInput
+	// The scale unit for this p2s vpn gateway.
+	VpnGatewayScaleUnit pulumi.IntPtrInput
+	// The VpnServerConfiguration to which the p2sVpnGateway is attached to.
+	VpnServerConfiguration SubResourcePtrInput
 }
 
 func (P2sVpnGatewayArgs) ElementType() reflect.Type {

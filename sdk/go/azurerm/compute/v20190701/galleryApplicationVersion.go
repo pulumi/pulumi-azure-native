@@ -41,6 +41,9 @@ func NewGalleryApplicationVersion(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.PublishingProfile == nil {
+		return nil, errors.New("missing required argument 'PublishingProfile'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -107,8 +110,8 @@ type galleryApplicationVersionArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
 	Name string `pulumi:"name"`
-	// Describes the properties of a gallery Image Version.
-	Properties *GalleryApplicationVersionProperties `pulumi:"properties"`
+	// The publishing profile of a gallery Image Version.
+	PublishingProfile GalleryApplicationVersionPublishingProfile `pulumi:"publishingProfile"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -125,8 +128,8 @@ type GalleryApplicationVersionArgs struct {
 	Location pulumi.StringInput
 	// The name of the gallery Application Version to be created. Needs to follow semantic version name pattern: The allowed characters are digit and period. Digits must be within the range of a 32-bit integer. Format: <MajorVersion>.<MinorVersion>.<Patch>
 	Name pulumi.StringInput
-	// Describes the properties of a gallery Image Version.
-	Properties GalleryApplicationVersionPropertiesPtrInput
+	// The publishing profile of a gallery Image Version.
+	PublishingProfile GalleryApplicationVersionPublishingProfileInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

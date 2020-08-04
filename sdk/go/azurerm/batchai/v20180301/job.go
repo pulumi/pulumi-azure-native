@@ -29,14 +29,23 @@ type Job struct {
 // NewJob registers a new resource with the given unique name, arguments, and options.
 func NewJob(ctx *pulumi.Context,
 	name string, args *JobArgs, opts ...pulumi.ResourceOption) (*Job, error) {
+	if args == nil || args.Cluster == nil {
+		return nil, errors.New("missing required argument 'Cluster'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.NodeCount == nil {
+		return nil, errors.New("missing required argument 'NodeCount'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StdOutErrPathPrefix == nil {
+		return nil, errors.New("missing required argument 'StdOutErrPathPrefix'")
 	}
 	if args == nil {
 		args = &JobArgs{}
@@ -93,30 +102,102 @@ func (JobState) ElementType() reflect.Type {
 }
 
 type jobArgs struct {
+	// Specifies the settings for Caffe2 job.
+	Caffe2Settings *Caffe2Settings `pulumi:"caffe2Settings"`
+	// Specifies the settings for Caffe job.
+	CaffeSettings *CaffeSettings `pulumi:"caffeSettings"`
+	// Specifies the settings for Chainer job.
+	ChainerSettings *ChainerSettings `pulumi:"chainerSettings"`
+	// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+	Cluster ResourceId `pulumi:"cluster"`
+	// Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
+	CntkSettings *CNTKsettings `pulumi:"cntkSettings"`
+	// Constraints associated with the Job.
+	Constraints *JobBasePropertiesProperties `pulumi:"constraints"`
+	// If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
+	ContainerSettings *ContainerSettings `pulumi:"containerSettings"`
+	// Specifies the settings for a custom tool kit job.
+	CustomToolkitSettings *CustomToolkitSettings `pulumi:"customToolkitSettings"`
+	// Batch AI will setup these additional environment variables for the job.
+	EnvironmentVariables []EnvironmentVariable `pulumi:"environmentVariables"`
+	// Describe the experiment information of the job
+	ExperimentName   *string          `pulumi:"experimentName"`
+	InputDirectories []InputDirectory `pulumi:"inputDirectories"`
+	// The specified actions will run on all the nodes that are part of the job
+	JobPreparation *JobPreparation `pulumi:"jobPreparation"`
 	// The region in which to create the job.
 	Location string `pulumi:"location"`
+	// These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
+	MountVolumes *MountVolumes `pulumi:"mountVolumes"`
 	// The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	Name string `pulumi:"name"`
-	// The properties of the Job.
-	Properties *JobBaseProperties `pulumi:"properties"`
+	// The job will be gang scheduled on that many compute nodes
+	NodeCount         int               `pulumi:"nodeCount"`
+	OutputDirectories []OutputDirectory `pulumi:"outputDirectories"`
+	// Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
+	Priority *int `pulumi:"priority"`
+	// Specifies the settings for pyTorch job.
+	PyTorchSettings *PyTorchSettings `pulumi:"pyTorchSettings"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Batch AI will setup these additional environment variables for the job. Server will never report values of these variables back.
+	Secrets []EnvironmentVariableWithSecretValue `pulumi:"secrets"`
+	// The path where the Batch AI service will upload stdout and stderror of the job.
+	StdOutErrPathPrefix string `pulumi:"stdOutErrPathPrefix"`
 	// The user specified tags associated with the job.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies the settings for TensorFlow job.
+	TensorFlowSettings *TensorFlowSettings `pulumi:"tensorFlowSettings"`
 }
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
+	// Specifies the settings for Caffe2 job.
+	Caffe2Settings Caffe2SettingsPtrInput
+	// Specifies the settings for Caffe job.
+	CaffeSettings CaffeSettingsPtrInput
+	// Specifies the settings for Chainer job.
+	ChainerSettings ChainerSettingsPtrInput
+	// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+	Cluster ResourceIdInput
+	// Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
+	CntkSettings CNTKsettingsPtrInput
+	// Constraints associated with the Job.
+	Constraints JobBasePropertiesPropertiesPtrInput
+	// If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
+	ContainerSettings ContainerSettingsPtrInput
+	// Specifies the settings for a custom tool kit job.
+	CustomToolkitSettings CustomToolkitSettingsPtrInput
+	// Batch AI will setup these additional environment variables for the job.
+	EnvironmentVariables EnvironmentVariableArrayInput
+	// Describe the experiment information of the job
+	ExperimentName   pulumi.StringPtrInput
+	InputDirectories InputDirectoryArrayInput
+	// The specified actions will run on all the nodes that are part of the job
+	JobPreparation JobPreparationPtrInput
 	// The region in which to create the job.
 	Location pulumi.StringInput
+	// These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
+	MountVolumes MountVolumesPtrInput
 	// The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	Name pulumi.StringInput
-	// The properties of the Job.
-	Properties JobBasePropertiesPtrInput
+	// The job will be gang scheduled on that many compute nodes
+	NodeCount         pulumi.IntInput
+	OutputDirectories OutputDirectoryArrayInput
+	// Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
+	Priority pulumi.IntPtrInput
+	// Specifies the settings for pyTorch job.
+	PyTorchSettings PyTorchSettingsPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// Batch AI will setup these additional environment variables for the job. Server will never report values of these variables back.
+	Secrets EnvironmentVariableWithSecretValueArrayInput
+	// The path where the Batch AI service will upload stdout and stderror of the job.
+	StdOutErrPathPrefix pulumi.StringInput
 	// The user specified tags associated with the job.
 	Tags pulumi.StringMapInput
+	// Specifies the settings for TensorFlow job.
+	TensorFlowSettings TensorFlowSettingsPtrInput
 }
 
 func (JobArgs) ElementType() reflect.Type {

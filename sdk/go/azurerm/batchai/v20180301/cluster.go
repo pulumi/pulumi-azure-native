@@ -38,6 +38,12 @@ func NewCluster(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.UserAccountSettings == nil {
+		return nil, errors.New("missing required argument 'UserAccountSettings'")
+	}
+	if args == nil || args.VmSize == nil {
+		return nil, errors.New("missing required argument 'VmSize'")
+	}
 	if args == nil {
 		args = &ClusterArgs{}
 	}
@@ -97,12 +103,24 @@ type clusterArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	Name string `pulumi:"name"`
-	// The properties of the Cluster.
-	Properties *ClusterBaseProperties `pulumi:"properties"`
+	// Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
+	NodeSetup *NodeSetup `pulumi:"nodeSetup"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
+	ScaleSettings *ScaleSettings `pulumi:"scaleSettings"`
+	// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+	Subnet *ResourceId `pulumi:"subnet"`
 	// The user specified tags associated with the Cluster.
 	Tags map[string]string `pulumi:"tags"`
+	// Settings for user account that gets created on each on the nodes of a cluster.
+	UserAccountSettings UserAccountSettings `pulumi:"userAccountSettings"`
+	// Settings for OS image.
+	VirtualMachineConfiguration *VirtualMachineConfiguration `pulumi:"virtualMachineConfiguration"`
+	// Default is dedicated.
+	VmPriority *string `pulumi:"vmPriority"`
+	// All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+	VmSize string `pulumi:"vmSize"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -111,12 +129,24 @@ type ClusterArgs struct {
 	Location pulumi.StringInput
 	// The name of the cluster within the specified resource group. Cluster names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	Name pulumi.StringInput
-	// The properties of the Cluster.
-	Properties ClusterBasePropertiesPtrInput
+	// Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
+	NodeSetup NodeSetupPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
+	ScaleSettings ScaleSettingsPtrInput
+	// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+	Subnet ResourceIdPtrInput
 	// The user specified tags associated with the Cluster.
 	Tags pulumi.StringMapInput
+	// Settings for user account that gets created on each on the nodes of a cluster.
+	UserAccountSettings UserAccountSettingsInput
+	// Settings for OS image.
+	VirtualMachineConfiguration VirtualMachineConfigurationPtrInput
+	// Default is dedicated.
+	VmPriority pulumi.StringPtrInput
+	// All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+	VmSize pulumi.StringInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

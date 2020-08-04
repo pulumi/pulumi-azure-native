@@ -96,14 +96,18 @@ func (BastionHostState) ElementType() reflect.Type {
 }
 
 type bastionHostArgs struct {
+	// FQDN for the endpoint on which bastion host is accessible.
+	DnsName *string `pulumi:"dnsName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// IP configuration of the Bastion Host resource.
+	IpConfigurations []BastionHostIPConfiguration `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the Bastion Host.
 	Name string `pulumi:"name"`
-	// Represents the bastion host resource.
-	Properties *BastionHostPropertiesFormat `pulumi:"properties"`
+	// The provisioning state of the bastion host resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -112,14 +116,18 @@ type bastionHostArgs struct {
 
 // The set of arguments for constructing a BastionHost resource.
 type BastionHostArgs struct {
+	// FQDN for the endpoint on which bastion host is accessible.
+	DnsName pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// IP configuration of the Bastion Host resource.
+	IpConfigurations BastionHostIPConfigurationArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the Bastion Host.
 	Name pulumi.StringInput
-	// Represents the bastion host resource.
-	Properties BastionHostPropertiesFormatPtrInput
+	// The provisioning state of the bastion host resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

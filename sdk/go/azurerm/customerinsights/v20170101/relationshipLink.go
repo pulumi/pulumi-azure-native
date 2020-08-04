@@ -28,8 +28,20 @@ func NewRelationshipLink(ctx *pulumi.Context,
 	if args == nil || args.HubName == nil {
 		return nil, errors.New("missing required argument 'HubName'")
 	}
+	if args == nil || args.InteractionType == nil {
+		return nil, errors.New("missing required argument 'InteractionType'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
+	}
+	if args == nil || args.ProfilePropertyReferences == nil {
+		return nil, errors.New("missing required argument 'ProfilePropertyReferences'")
+	}
+	if args == nil || args.RelatedProfilePropertyReferences == nil {
+		return nil, errors.New("missing required argument 'RelatedProfilePropertyReferences'")
+	}
+	if args == nil || args.RelationshipName == nil {
+		return nil, errors.New("missing required argument 'RelationshipName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -81,24 +93,48 @@ func (RelationshipLinkState) ElementType() reflect.Type {
 }
 
 type relationshipLinkArgs struct {
+	// Localized descriptions for the Relationship Link.
+	Description map[string]string `pulumi:"description"`
+	// Localized display name for the Relationship Link.
+	DisplayName map[string]string `pulumi:"displayName"`
 	// The name of the hub.
 	HubName string `pulumi:"hubName"`
+	// The InteractionType associated with the Relationship Link.
+	InteractionType string `pulumi:"interactionType"`
+	// The mappings between Interaction and Relationship fields.
+	Mappings []RelationshipLinkFieldMapping `pulumi:"mappings"`
 	// The name of the relationship link.
 	Name string `pulumi:"name"`
-	// The definition of relationship link.
-	Properties *RelationshipLinkDefinition `pulumi:"properties"`
+	// The property references for the Profile of the Relationship.
+	ProfilePropertyReferences []ParticipantPropertyReference `pulumi:"profilePropertyReferences"`
+	// The property references for the Related Profile of the Relationship.
+	RelatedProfilePropertyReferences []ParticipantPropertyReference `pulumi:"relatedProfilePropertyReferences"`
+	// The Relationship associated with the Link.
+	RelationshipName string `pulumi:"relationshipName"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a RelationshipLink resource.
 type RelationshipLinkArgs struct {
+	// Localized descriptions for the Relationship Link.
+	Description pulumi.StringMapInput
+	// Localized display name for the Relationship Link.
+	DisplayName pulumi.StringMapInput
 	// The name of the hub.
 	HubName pulumi.StringInput
+	// The InteractionType associated with the Relationship Link.
+	InteractionType pulumi.StringInput
+	// The mappings between Interaction and Relationship fields.
+	Mappings RelationshipLinkFieldMappingArrayInput
 	// The name of the relationship link.
 	Name pulumi.StringInput
-	// The definition of relationship link.
-	Properties RelationshipLinkDefinitionPtrInput
+	// The property references for the Profile of the Relationship.
+	ProfilePropertyReferences ParticipantPropertyReferenceArrayInput
+	// The property references for the Related Profile of the Relationship.
+	RelatedProfilePropertyReferences ParticipantPropertyReferenceArrayInput
+	// The Relationship associated with the Link.
+	RelationshipName pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

@@ -38,9 +38,6 @@ func NewPolicy(ctx *pulumi.Context,
 	if args == nil || args.PolicySetName == nil {
 		return nil, errors.New("missing required argument 'PolicySetName'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -99,6 +96,14 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
+	// The description of the policy.
+	Description *string `pulumi:"description"`
+	// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+	EvaluatorType *string `pulumi:"evaluatorType"`
+	// The fact data of the policy.
+	FactData *string `pulumi:"factData"`
+	// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+	FactName *string `pulumi:"factName"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The location of the resource.
@@ -107,16 +112,30 @@ type policyArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the policy set.
 	PolicySetName string `pulumi:"policySetName"`
-	// The properties of the resource.
-	Properties PolicyProperties `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The status of the policy.
+	Status *string `pulumi:"status"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+	Threshold *string `pulumi:"threshold"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
+	// The description of the policy.
+	Description pulumi.StringPtrInput
+	// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+	EvaluatorType pulumi.StringPtrInput
+	// The fact data of the policy.
+	FactData pulumi.StringPtrInput
+	// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+	FactName pulumi.StringPtrInput
 	// The name of the lab.
 	LabName pulumi.StringInput
 	// The location of the resource.
@@ -125,12 +144,18 @@ type PolicyArgs struct {
 	Name pulumi.StringInput
 	// The name of the policy set.
 	PolicySetName pulumi.StringInput
-	// The properties of the resource.
-	Properties PolicyPropertiesInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The status of the policy.
+	Status pulumi.StringPtrInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+	Threshold pulumi.StringPtrInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {

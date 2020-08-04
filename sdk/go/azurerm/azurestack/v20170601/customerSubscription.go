@@ -91,12 +91,12 @@ type customerSubscriptionArgs struct {
 	Etag *string `pulumi:"etag"`
 	// Name of the product.
 	Name string `pulumi:"name"`
-	// Customer subscription properties.
-	Properties *CustomerSubscriptionProperties `pulumi:"properties"`
 	// Name of the Azure Stack registration.
 	RegistrationName string `pulumi:"registrationName"`
 	// Name of the resource group.
 	ResourceGroup string `pulumi:"resourceGroup"`
+	// Tenant Id.
+	TenantId *string `pulumi:"tenantId"`
 }
 
 // The set of arguments for constructing a CustomerSubscription resource.
@@ -105,12 +105,12 @@ type CustomerSubscriptionArgs struct {
 	Etag pulumi.StringPtrInput
 	// Name of the product.
 	Name pulumi.StringInput
-	// Customer subscription properties.
-	Properties CustomerSubscriptionPropertiesPtrInput
 	// Name of the Azure Stack registration.
 	RegistrationName pulumi.StringInput
 	// Name of the resource group.
 	ResourceGroup pulumi.StringInput
+	// Tenant Id.
+	TenantId pulumi.StringPtrInput
 }
 
 func (CustomerSubscriptionArgs) ElementType() reflect.Type {

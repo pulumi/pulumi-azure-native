@@ -105,14 +105,18 @@ func (DedicatedHostState) ElementType() reflect.Type {
 }
 
 type dedicatedHostArgs struct {
+	// Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
+	AutoReplaceOnFailure *bool `pulumi:"autoReplaceOnFailure"`
 	// The name of the dedicated host group.
 	HostGroupName string `pulumi:"hostGroupName"`
+	// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+	LicenseType *string `pulumi:"licenseType"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the dedicated host .
 	Name string `pulumi:"name"`
-	// Properties of the dedicated host.
-	Properties *DedicatedHostProperties `pulumi:"properties"`
+	// Fault domain of the dedicated host within a dedicated host group.
+	PlatformFaultDomain *int `pulumi:"platformFaultDomain"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
@@ -123,14 +127,18 @@ type dedicatedHostArgs struct {
 
 // The set of arguments for constructing a DedicatedHost resource.
 type DedicatedHostArgs struct {
+	// Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
+	AutoReplaceOnFailure pulumi.BoolPtrInput
 	// The name of the dedicated host group.
 	HostGroupName pulumi.StringInput
+	// Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+	LicenseType pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the dedicated host .
 	Name pulumi.StringInput
-	// Properties of the dedicated host.
-	Properties DedicatedHostPropertiesPtrInput
+	// Fault domain of the dedicated host within a dedicated host group.
+	PlatformFaultDomain pulumi.IntPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.

@@ -96,14 +96,22 @@ func (NetworkInterfaceState) ElementType() reflect.Type {
 }
 
 type networkInterfaceArgs struct {
+	// The DNS settings in network interface.
+	DnsSettings *NetworkInterfaceDnsSettings `pulumi:"dnsSettings"`
+	// If the network interface is accelerated networking enabled.
+	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
+	// Indicates whether IP forwarding is enabled on this network interface.
+	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// A list of IPConfigurations of the network interface.
+	IpConfigurations []NetworkInterfaceIPConfiguration `pulumi:"ipConfigurations"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the network interface.
 	Name string `pulumi:"name"`
-	// Properties of the network interface.
-	Properties *NetworkInterfacePropertiesFormat `pulumi:"properties"`
+	// The reference to the NetworkSecurityGroup resource.
+	NetworkSecurityGroup *NetworkSecurityGroupType `pulumi:"networkSecurityGroup"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -112,14 +120,22 @@ type networkInterfaceArgs struct {
 
 // The set of arguments for constructing a NetworkInterface resource.
 type NetworkInterfaceArgs struct {
+	// The DNS settings in network interface.
+	DnsSettings NetworkInterfaceDnsSettingsPtrInput
+	// If the network interface is accelerated networking enabled.
+	EnableAcceleratedNetworking pulumi.BoolPtrInput
+	// Indicates whether IP forwarding is enabled on this network interface.
+	EnableIPForwarding pulumi.BoolPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// A list of IPConfigurations of the network interface.
+	IpConfigurations NetworkInterfaceIPConfigurationArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the network interface.
 	Name pulumi.StringInput
-	// Properties of the network interface.
-	Properties NetworkInterfacePropertiesFormatPtrInput
+	// The reference to the NetworkSecurityGroup resource.
+	NetworkSecurityGroup NetworkSecurityGroupTypePtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

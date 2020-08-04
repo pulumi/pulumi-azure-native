@@ -25,6 +25,12 @@ type Logger struct {
 // NewLogger registers a new resource with the given unique name, arguments, and options.
 func NewLogger(ctx *pulumi.Context,
 	name string, args *LoggerArgs, opts ...pulumi.ResourceOption) (*Logger, error) {
+	if args == nil || args.Credentials == nil {
+		return nil, errors.New("missing required argument 'Credentials'")
+	}
+	if args == nil || args.LoggerType == nil {
+		return nil, errors.New("missing required argument 'LoggerType'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -81,24 +87,42 @@ func (LoggerState) ElementType() reflect.Type {
 }
 
 type loggerArgs struct {
+	// The name and SendRule connection string of the event hub for azureEventHub logger.
+	// Instrumentation key for applicationInsights logger.
+	Credentials map[string]string `pulumi:"credentials"`
+	// Logger description.
+	Description *string `pulumi:"description"`
+	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
+	IsBuffered *bool `pulumi:"isBuffered"`
+	// Logger type.
+	LoggerType string `pulumi:"loggerType"`
 	// Logger identifier. Must be unique in the API Management service instance.
 	Name string `pulumi:"name"`
-	// Logger entity contract properties.
-	Properties *LoggerContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Sampling settings for an ApplicationInsights logger.
+	Sampling *LoggerSamplingContract `pulumi:"sampling"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
 }
 
 // The set of arguments for constructing a Logger resource.
 type LoggerArgs struct {
+	// The name and SendRule connection string of the event hub for azureEventHub logger.
+	// Instrumentation key for applicationInsights logger.
+	Credentials pulumi.StringMapInput
+	// Logger description.
+	Description pulumi.StringPtrInput
+	// Whether records are buffered in the logger before publishing. Default is assumed to be true.
+	IsBuffered pulumi.BoolPtrInput
+	// Logger type.
+	LoggerType pulumi.StringInput
 	// Logger identifier. Must be unique in the API Management service instance.
 	Name pulumi.StringInput
-	// Logger entity contract properties.
-	Properties LoggerContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Sampling settings for an ApplicationInsights logger.
+	Sampling LoggerSamplingContractPtrInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
 }

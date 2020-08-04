@@ -25,11 +25,17 @@ type Order struct {
 // NewOrder registers a new resource with the given unique name, arguments, and options.
 func NewOrder(ctx *pulumi.Context,
 	name string, args *OrderArgs, opts ...pulumi.ResourceOption) (*Order, error) {
+	if args == nil || args.ContactInformation == nil {
+		return nil, errors.New("missing required argument 'ContactInformation'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ShippingAddress == nil {
+		return nil, errors.New("missing required argument 'ShippingAddress'")
 	}
 	if args == nil {
 		args = &OrderArgs{}
@@ -78,22 +84,30 @@ func (OrderState) ElementType() reflect.Type {
 }
 
 type orderArgs struct {
+	// The contact details.
+	ContactInformation ContactDetails `pulumi:"contactInformation"`
+	// Current status of the order.
+	CurrentStatus *OrderStatus `pulumi:"currentStatus"`
 	// The order details of a device.
 	Name string `pulumi:"name"`
-	// The order properties.
-	Properties *OrderProperties `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The shipping address.
+	ShippingAddress Address `pulumi:"shippingAddress"`
 }
 
 // The set of arguments for constructing a Order resource.
 type OrderArgs struct {
+	// The contact details.
+	ContactInformation ContactDetailsInput
+	// Current status of the order.
+	CurrentStatus OrderStatusPtrInput
 	// The order details of a device.
 	Name pulumi.StringInput
-	// The order properties.
-	Properties OrderPropertiesPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// The shipping address.
+	ShippingAddress AddressInput
 }
 
 func (OrderArgs) ElementType() reflect.Type {

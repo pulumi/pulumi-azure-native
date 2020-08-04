@@ -117,18 +117,38 @@ func (StorageAccountState) ElementType() reflect.Type {
 }
 
 type storageAccountArgs struct {
+	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+	AccessTier *string `pulumi:"accessTier"`
+	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+	AllowBlobPublicAccess *bool `pulumi:"allowBlobPublicAccess"`
+	// Provides the identity based authentication settings for Azure Files.
+	AzureFilesIdentityBasedAuthentication *AzureFilesIdentityBasedAuthentication `pulumi:"azureFilesIdentityBasedAuthentication"`
+	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
+	CustomDomain *CustomDomain `pulumi:"customDomain"`
+	// Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
+	EnableHttpsTrafficOnly *bool `pulumi:"enableHttpsTrafficOnly"`
+	// Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
+	Encryption *Encryption `pulumi:"encryption"`
 	// The identity of the resource.
 	Identity *Identity `pulumi:"identity"`
+	// Account HierarchicalNamespace enabled if sets to true.
+	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
 	// Required. Indicates the type of storage account.
 	Kind string `pulumi:"kind"`
+	// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
+	LargeFileSharesState *string `pulumi:"largeFileSharesState"`
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location string `pulumi:"location"`
+	// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	Name string `pulumi:"name"`
-	// The parameters used to create the storage account.
-	Properties *StorageAccountPropertiesCreateParameters `pulumi:"properties"`
+	// Network rule set
+	NetworkRuleSet *NetworkRuleSet `pulumi:"networkRuleSet"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Maintains information about the network routing choice opted by the user for data transfer
+	RoutingPreference *RoutingPreference `pulumi:"routingPreference"`
 	// Required. Gets or sets the SKU name.
 	Sku Sku `pulumi:"sku"`
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
@@ -137,18 +157,38 @@ type storageAccountArgs struct {
 
 // The set of arguments for constructing a StorageAccount resource.
 type StorageAccountArgs struct {
+	// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+	AccessTier pulumi.StringPtrInput
+	// Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+	AllowBlobPublicAccess pulumi.BoolPtrInput
+	// Provides the identity based authentication settings for Azure Files.
+	AzureFilesIdentityBasedAuthentication AzureFilesIdentityBasedAuthenticationPtrInput
+	// User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
+	CustomDomain CustomDomainPtrInput
+	// Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
+	EnableHttpsTrafficOnly pulumi.BoolPtrInput
+	// Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
+	Encryption EncryptionPtrInput
 	// The identity of the resource.
 	Identity IdentityPtrInput
+	// Account HierarchicalNamespace enabled if sets to true.
+	IsHnsEnabled pulumi.BoolPtrInput
 	// Required. Indicates the type of storage account.
 	Kind pulumi.StringInput
+	// Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
+	LargeFileSharesState pulumi.StringPtrInput
 	// Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
 	Location pulumi.StringInput
+	// Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+	MinimumTlsVersion pulumi.StringPtrInput
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	Name pulumi.StringInput
-	// The parameters used to create the storage account.
-	Properties StorageAccountPropertiesCreateParametersPtrInput
+	// Network rule set
+	NetworkRuleSet NetworkRuleSetPtrInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Maintains information about the network routing choice opted by the user for data transfer
+	RoutingPreference RoutingPreferencePtrInput
 	// Required. Gets or sets the SKU name.
 	Sku SkuInput
 	// Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.

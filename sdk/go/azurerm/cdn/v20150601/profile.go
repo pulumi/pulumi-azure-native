@@ -37,6 +37,9 @@ func NewProfile(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.Sku == nil {
+		return nil, errors.New("missing required argument 'Sku'")
+	}
 	if args == nil {
 		args = &ProfileArgs{}
 	}
@@ -93,10 +96,11 @@ type profileArgs struct {
 	// Profile location
 	Location string `pulumi:"location"`
 	// Name of the CDN profile within the resource group.
-	Name       string                             `pulumi:"name"`
-	Properties *ProfilePropertiesCreateParameters `pulumi:"properties"`
+	Name string `pulumi:"name"`
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Profile SKU
+	Sku Sku `pulumi:"sku"`
 	// Profile tags
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -106,10 +110,11 @@ type ProfileArgs struct {
 	// Profile location
 	Location pulumi.StringInput
 	// Name of the CDN profile within the resource group.
-	Name       pulumi.StringInput
-	Properties ProfilePropertiesCreateParametersPtrInput
+	Name pulumi.StringInput
 	// Name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// Profile SKU
+	Sku SkuInput
 	// Profile tags
 	Tags pulumi.StringMapInput
 }

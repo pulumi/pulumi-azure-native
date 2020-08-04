@@ -25,11 +25,20 @@ type FileServer struct {
 // NewFileServer registers a new resource with the given unique name, arguments, and options.
 func NewFileServer(ctx *pulumi.Context,
 	name string, args *FileServerArgs, opts ...pulumi.ResourceOption) (*FileServer, error) {
+	if args == nil || args.DataDisks == nil {
+		return nil, errors.New("missing required argument 'DataDisks'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.SshConfiguration == nil {
+		return nil, errors.New("missing required argument 'SshConfiguration'")
+	}
+	if args == nil || args.VmSize == nil {
+		return nil, errors.New("missing required argument 'VmSize'")
 	}
 	if args == nil || args.WorkspaceName == nil {
 		return nil, errors.New("missing required argument 'WorkspaceName'")
@@ -81,24 +90,36 @@ func (FileServerState) ElementType() reflect.Type {
 }
 
 type fileServerArgs struct {
+	// Settings for the data disks which will be created for the File Server.
+	DataDisks DataDisks `pulumi:"dataDisks"`
 	// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	Name string `pulumi:"name"`
-	// The properties of the File Server.
-	Properties *FileServerBaseProperties `pulumi:"properties"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// SSH configuration for the File Server node.
+	SshConfiguration SshConfiguration `pulumi:"sshConfiguration"`
+	// Identifier of an existing virtual network subnet to put the File Server in. If not provided, a new virtual network and subnet will be created.
+	Subnet *ResourceId `pulumi:"subnet"`
+	// The size of the virtual machine for the File Server. For information about available VM sizes from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+	VmSize string `pulumi:"vmSize"`
 	// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a FileServer resource.
 type FileServerArgs struct {
+	// Settings for the data disks which will be created for the File Server.
+	DataDisks DataDisksInput
 	// The name of the file server within the specified resource group. File server names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	Name pulumi.StringInput
-	// The properties of the File Server.
-	Properties FileServerBasePropertiesPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// SSH configuration for the File Server node.
+	SshConfiguration SshConfigurationInput
+	// Identifier of an existing virtual network subnet to put the File Server in. If not provided, a new virtual network and subnet will be created.
+	Subnet ResourceIdPtrInput
+	// The size of the virtual machine for the File Server. For information about available VM sizes from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+	VmSize pulumi.StringInput
 	// The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
 	WorkspaceName pulumi.StringInput
 }

@@ -101,16 +101,24 @@ func (WatcherState) ElementType() reflect.Type {
 type watcherArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
+	// Gets or sets the description.
+	Description *string `pulumi:"description"`
 	// Gets or sets the etag of the resource.
 	Etag *string `pulumi:"etag"`
+	// Gets or sets the frequency at which the watcher is invoked.
+	ExecutionFrequencyInSeconds *int `pulumi:"executionFrequencyInSeconds"`
 	// The Azure Region where the resource lives
 	Location *string `pulumi:"location"`
 	// The watcher name.
 	Name string `pulumi:"name"`
-	// Gets or sets the watcher properties.
-	Properties *WatcherProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
+	ScriptName *string `pulumi:"scriptName"`
+	// Gets or sets the parameters of the script.
+	ScriptParameters map[string]string `pulumi:"scriptParameters"`
+	// Gets or sets the name of the hybrid worker group the watcher will run on.
+	ScriptRunOn *string `pulumi:"scriptRunOn"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -119,16 +127,24 @@ type watcherArgs struct {
 type WatcherArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
+	// Gets or sets the description.
+	Description pulumi.StringPtrInput
 	// Gets or sets the etag of the resource.
 	Etag pulumi.StringPtrInput
+	// Gets or sets the frequency at which the watcher is invoked.
+	ExecutionFrequencyInSeconds pulumi.IntPtrInput
 	// The Azure Region where the resource lives
 	Location pulumi.StringPtrInput
 	// The watcher name.
 	Name pulumi.StringInput
-	// Gets or sets the watcher properties.
-	Properties WatcherPropertiesPtrInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
+	ScriptName pulumi.StringPtrInput
+	// Gets or sets the parameters of the script.
+	ScriptParameters pulumi.StringMapInput
+	// Gets or sets the name of the hybrid worker group the watcher will run on.
+	ScriptRunOn pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

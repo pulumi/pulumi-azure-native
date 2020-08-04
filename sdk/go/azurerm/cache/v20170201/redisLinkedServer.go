@@ -25,14 +25,20 @@ type RedisLinkedServer struct {
 // NewRedisLinkedServer registers a new resource with the given unique name, arguments, and options.
 func NewRedisLinkedServer(ctx *pulumi.Context,
 	name string, args *RedisLinkedServerArgs, opts ...pulumi.ResourceOption) (*RedisLinkedServer, error) {
+	if args == nil || args.LinkedRedisCacheId == nil {
+		return nil, errors.New("missing required argument 'LinkedRedisCacheId'")
+	}
+	if args == nil || args.LinkedRedisCacheLocation == nil {
+		return nil, errors.New("missing required argument 'LinkedRedisCacheLocation'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServerRole == nil {
+		return nil, errors.New("missing required argument 'ServerRole'")
 	}
 	if args == nil {
 		args = &RedisLinkedServerArgs{}
@@ -81,22 +87,30 @@ func (RedisLinkedServerState) ElementType() reflect.Type {
 }
 
 type redisLinkedServerArgs struct {
+	// Fully qualified resourceId of the linked redis cache.
+	LinkedRedisCacheId string `pulumi:"linkedRedisCacheId"`
+	// Location of the linked redis cache.
+	LinkedRedisCacheLocation string `pulumi:"linkedRedisCacheLocation"`
 	// The name of the linked server that is being added to the Redis cache.
 	Name string `pulumi:"name"`
-	// Properties required to create a linked server.
-	Properties RedisLinkedServerCreateProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Role of the linked server.
+	ServerRole string `pulumi:"serverRole"`
 }
 
 // The set of arguments for constructing a RedisLinkedServer resource.
 type RedisLinkedServerArgs struct {
+	// Fully qualified resourceId of the linked redis cache.
+	LinkedRedisCacheId pulumi.StringInput
+	// Location of the linked redis cache.
+	LinkedRedisCacheLocation pulumi.StringInput
 	// The name of the linked server that is being added to the Redis cache.
 	Name pulumi.StringInput
-	// Properties required to create a linked server.
-	Properties RedisLinkedServerCreatePropertiesInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Role of the linked server.
+	ServerRole pulumi.StringInput
 }
 
 func (RedisLinkedServerArgs) ElementType() reflect.Type {

@@ -30,11 +30,11 @@ func NewPatchSchedule(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ScheduleEntries == nil {
+		return nil, errors.New("missing required argument 'ScheduleEntries'")
 	}
 	if args == nil {
 		args = &PatchScheduleArgs{}
@@ -89,20 +89,20 @@ func (PatchScheduleState) ElementType() reflect.Type {
 type patchScheduleArgs struct {
 	// The name of the Redis cache.
 	Name string `pulumi:"name"`
-	// List of patch schedules for a Redis cache.
-	Properties ScheduleEntries `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// List of patch schedules for a Redis cache.
+	ScheduleEntries []ScheduleEntry `pulumi:"scheduleEntries"`
 }
 
 // The set of arguments for constructing a PatchSchedule resource.
 type PatchScheduleArgs struct {
 	// The name of the Redis cache.
 	Name pulumi.StringInput
-	// List of patch schedules for a Redis cache.
-	Properties ScheduleEntriesInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// List of patch schedules for a Redis cache.
+	ScheduleEntries ScheduleEntryArrayInput
 }
 
 func (PatchScheduleArgs) ElementType() reflect.Type {

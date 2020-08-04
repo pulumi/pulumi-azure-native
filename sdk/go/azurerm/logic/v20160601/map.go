@@ -32,11 +32,11 @@ func NewMap(ctx *pulumi.Context,
 	if args == nil || args.IntegrationAccountName == nil {
 		return nil, errors.New("missing required argument 'IntegrationAccountName'")
 	}
+	if args == nil || args.MapType == nil {
+		return nil, errors.New("missing required argument 'MapType'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -96,14 +96,22 @@ func (MapState) ElementType() reflect.Type {
 }
 
 type mapArgs struct {
+	// The content.
+	Content *string `pulumi:"content"`
+	// The content type.
+	ContentType *string `pulumi:"contentType"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The map type.
+	MapType string `pulumi:"mapType"`
+	// The metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The integration account map name.
 	Name string `pulumi:"name"`
-	// The integration account map properties.
-	Properties IntegrationAccountMapProperties `pulumi:"properties"`
+	// The parameters schema of integration account map.
+	ParametersSchema *IntegrationAccountMapPropertiesProperties `pulumi:"parametersSchema"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
@@ -112,14 +120,22 @@ type mapArgs struct {
 
 // The set of arguments for constructing a Map resource.
 type MapArgs struct {
+	// The content.
+	Content pulumi.StringPtrInput
+	// The content type.
+	ContentType pulumi.StringPtrInput
 	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
 	// The resource location.
 	Location pulumi.StringPtrInput
+	// The map type.
+	MapType pulumi.StringInput
+	// The metadata.
+	Metadata pulumi.MapInput
 	// The integration account map name.
 	Name pulumi.StringInput
-	// The integration account map properties.
-	Properties IntegrationAccountMapPropertiesInput
+	// The parameters schema of integration account map.
+	ParametersSchema IntegrationAccountMapPropertiesPropertiesPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.

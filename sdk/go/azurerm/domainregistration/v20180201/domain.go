@@ -31,6 +31,21 @@ type Domain struct {
 // NewDomain registers a new resource with the given unique name, arguments, and options.
 func NewDomain(ctx *pulumi.Context,
 	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
+	if args == nil || args.Consent == nil {
+		return nil, errors.New("missing required argument 'Consent'")
+	}
+	if args == nil || args.ContactAdmin == nil {
+		return nil, errors.New("missing required argument 'ContactAdmin'")
+	}
+	if args == nil || args.ContactBilling == nil {
+		return nil, errors.New("missing required argument 'ContactBilling'")
+	}
+	if args == nil || args.ContactRegistrant == nil {
+		return nil, errors.New("missing required argument 'ContactRegistrant'")
+	}
+	if args == nil || args.ContactTech == nil {
+		return nil, errors.New("missing required argument 'ContactTech'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -99,34 +114,72 @@ func (DomainState) ElementType() reflect.Type {
 }
 
 type domainArgs struct {
+	AuthCode *string `pulumi:"authCode"`
+	// <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
+	AutoRenew *bool `pulumi:"autoRenew"`
+	// Legal agreement consent.
+	Consent DomainPurchaseConsent `pulumi:"consent"`
+	// Administrative contact.
+	ContactAdmin Contact `pulumi:"contactAdmin"`
+	// Billing contact.
+	ContactBilling Contact `pulumi:"contactBilling"`
+	// Registrant contact.
+	ContactRegistrant Contact `pulumi:"contactRegistrant"`
+	// Technical contact.
+	ContactTech Contact `pulumi:"contactTech"`
+	// Current DNS type
+	DnsType *string `pulumi:"dnsType"`
+	// Azure DNS Zone to use
+	DnsZoneId *string `pulumi:"dnsZoneId"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
 	// Name of the domain.
 	Name string `pulumi:"name"`
-	// Domain resource specific properties
-	Properties *DomainProperties `pulumi:"properties"`
+	// <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
+	Privacy *bool `pulumi:"privacy"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Target DNS type (would be used for migration)
+	TargetDnsType *string `pulumi:"targetDnsType"`
 }
 
 // The set of arguments for constructing a Domain resource.
 type DomainArgs struct {
+	AuthCode pulumi.StringPtrInput
+	// <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
+	AutoRenew pulumi.BoolPtrInput
+	// Legal agreement consent.
+	Consent DomainPurchaseConsentInput
+	// Administrative contact.
+	ContactAdmin ContactInput
+	// Billing contact.
+	ContactBilling ContactInput
+	// Registrant contact.
+	ContactRegistrant ContactInput
+	// Technical contact.
+	ContactTech ContactInput
+	// Current DNS type
+	DnsType pulumi.StringPtrInput
+	// Azure DNS Zone to use
+	DnsZoneId pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringInput
 	// Name of the domain.
 	Name pulumi.StringInput
-	// Domain resource specific properties
-	Properties DomainPropertiesPtrInput
+	// <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
+	Privacy pulumi.BoolPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Target DNS type (would be used for migration)
+	TargetDnsType pulumi.StringPtrInput
 }
 
 func (DomainArgs) ElementType() reflect.Type {

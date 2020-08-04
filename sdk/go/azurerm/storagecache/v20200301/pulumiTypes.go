@@ -1197,22 +1197,10 @@ func (o CacheNetworkSettingsResponsePtrOutput) UtilityAddresses() pulumi.StringA
 	}).(pulumi.StringArrayOutput)
 }
 
-// Properties of the Cache.
+// SKU for the Cache.
 type CacheProperties struct {
-	// The size of this Cache, in GB.
-	CacheSizeGB *int `pulumi:"cacheSizeGB"`
-	// Specifies encryption settings of the cache.
-	EncryptionSettings *CacheEncryptionSettings `pulumi:"encryptionSettings"`
-	// Specifies network settings of the cache.
-	NetworkSettings *CacheNetworkSettings `pulumi:"networkSettings"`
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Specifies security settings of the cache.
-	SecuritySettings *CacheSecuritySettings `pulumi:"securitySettings"`
-	// Subnet used for the Cache.
-	Subnet *string `pulumi:"subnet"`
-	// Upgrade status of the Cache.
-	UpgradeStatus *CacheUpgradeStatus `pulumi:"upgradeStatus"`
+	// SKU name for this Cache.
+	Name *string `pulumi:"name"`
 }
 
 // CachePropertiesInput is an input type that accepts CachePropertiesArgs and CachePropertiesOutput values.
@@ -1226,22 +1214,10 @@ type CachePropertiesInput interface {
 	ToCachePropertiesOutputWithContext(context.Context) CachePropertiesOutput
 }
 
-// Properties of the Cache.
+// SKU for the Cache.
 type CachePropertiesArgs struct {
-	// The size of this Cache, in GB.
-	CacheSizeGB pulumi.IntPtrInput `pulumi:"cacheSizeGB"`
-	// Specifies encryption settings of the cache.
-	EncryptionSettings CacheEncryptionSettingsPtrInput `pulumi:"encryptionSettings"`
-	// Specifies network settings of the cache.
-	NetworkSettings CacheNetworkSettingsPtrInput `pulumi:"networkSettings"`
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Specifies security settings of the cache.
-	SecuritySettings CacheSecuritySettingsPtrInput `pulumi:"securitySettings"`
-	// Subnet used for the Cache.
-	Subnet pulumi.StringPtrInput `pulumi:"subnet"`
-	// Upgrade status of the Cache.
-	UpgradeStatus CacheUpgradeStatusPtrInput `pulumi:"upgradeStatus"`
+	// SKU name for this Cache.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (CachePropertiesArgs) ElementType() reflect.Type {
@@ -1297,7 +1273,7 @@ func (i *cachePropertiesPtrType) ToCachePropertiesPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(CachePropertiesPtrOutput)
 }
 
-// Properties of the Cache.
+// SKU for the Cache.
 type CachePropertiesOutput struct{ *pulumi.OutputState }
 
 func (CachePropertiesOutput) ElementType() reflect.Type {
@@ -1322,39 +1298,9 @@ func (o CachePropertiesOutput) ToCachePropertiesPtrOutputWithContext(ctx context
 	}).(CachePropertiesPtrOutput)
 }
 
-// The size of this Cache, in GB.
-func (o CachePropertiesOutput) CacheSizeGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CacheProperties) *int { return v.CacheSizeGB }).(pulumi.IntPtrOutput)
-}
-
-// Specifies encryption settings of the cache.
-func (o CachePropertiesOutput) EncryptionSettings() CacheEncryptionSettingsPtrOutput {
-	return o.ApplyT(func(v CacheProperties) *CacheEncryptionSettings { return v.EncryptionSettings }).(CacheEncryptionSettingsPtrOutput)
-}
-
-// Specifies network settings of the cache.
-func (o CachePropertiesOutput) NetworkSettings() CacheNetworkSettingsPtrOutput {
-	return o.ApplyT(func(v CacheProperties) *CacheNetworkSettings { return v.NetworkSettings }).(CacheNetworkSettingsPtrOutput)
-}
-
-// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-func (o CachePropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// Specifies security settings of the cache.
-func (o CachePropertiesOutput) SecuritySettings() CacheSecuritySettingsPtrOutput {
-	return o.ApplyT(func(v CacheProperties) *CacheSecuritySettings { return v.SecuritySettings }).(CacheSecuritySettingsPtrOutput)
-}
-
-// Subnet used for the Cache.
-func (o CachePropertiesOutput) Subnet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CacheProperties) *string { return v.Subnet }).(pulumi.StringPtrOutput)
-}
-
-// Upgrade status of the Cache.
-func (o CachePropertiesOutput) UpgradeStatus() CacheUpgradeStatusPtrOutput {
-	return o.ApplyT(func(v CacheProperties) *CacheUpgradeStatus { return v.UpgradeStatus }).(CacheUpgradeStatusPtrOutput)
+// SKU name for this Cache.
+func (o CachePropertiesOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CacheProperties) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type CachePropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -1375,74 +1321,14 @@ func (o CachePropertiesPtrOutput) Elem() CachePropertiesOutput {
 	return o.ApplyT(func(v *CacheProperties) CacheProperties { return *v }).(CachePropertiesOutput)
 }
 
-// The size of this Cache, in GB.
-func (o CachePropertiesPtrOutput) CacheSizeGB() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CacheProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.CacheSizeGB
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies encryption settings of the cache.
-func (o CachePropertiesPtrOutput) EncryptionSettings() CacheEncryptionSettingsPtrOutput {
-	return o.ApplyT(func(v *CacheProperties) *CacheEncryptionSettings {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptionSettings
-	}).(CacheEncryptionSettingsPtrOutput)
-}
-
-// Specifies network settings of the cache.
-func (o CachePropertiesPtrOutput) NetworkSettings() CacheNetworkSettingsPtrOutput {
-	return o.ApplyT(func(v *CacheProperties) *CacheNetworkSettings {
-		if v == nil {
-			return nil
-		}
-		return v.NetworkSettings
-	}).(CacheNetworkSettingsPtrOutput)
-}
-
-// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-func (o CachePropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
+// SKU name for this Cache.
+func (o CachePropertiesPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CacheProperties) *string {
 		if v == nil {
 			return nil
 		}
-		return v.ProvisioningState
+		return v.Name
 	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies security settings of the cache.
-func (o CachePropertiesPtrOutput) SecuritySettings() CacheSecuritySettingsPtrOutput {
-	return o.ApplyT(func(v *CacheProperties) *CacheSecuritySettings {
-		if v == nil {
-			return nil
-		}
-		return v.SecuritySettings
-	}).(CacheSecuritySettingsPtrOutput)
-}
-
-// Subnet used for the Cache.
-func (o CachePropertiesPtrOutput) Subnet() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CacheProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Subnet
-	}).(pulumi.StringPtrOutput)
-}
-
-// Upgrade status of the Cache.
-func (o CachePropertiesPtrOutput) UpgradeStatus() CacheUpgradeStatusPtrOutput {
-	return o.ApplyT(func(v *CacheProperties) *CacheUpgradeStatus {
-		if v == nil {
-			return nil
-		}
-		return v.UpgradeStatus
-	}).(CacheUpgradeStatusPtrOutput)
 }
 
 // Properties of the Cache.
@@ -3782,254 +3668,6 @@ func (o StorageTargetTypeOutput) Type() pulumi.StringOutput {
 }
 
 // Properties of the Storage Target.
-type StorageTargetProperties struct {
-	// Properties when targetType is clfs.
-	Clfs *ClfsTarget `pulumi:"clfs"`
-	// List of Cache namespace junctions to target for namespace associations.
-	Junctions []NamespaceJunction `pulumi:"junctions"`
-	// Properties when targetType is nfs3.
-	Nfs3 *Nfs3Target `pulumi:"nfs3"`
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState *string `pulumi:"provisioningState"`
-	// Type of the Storage Target.
-	TargetBaseType string `pulumi:"targetBaseType"`
-	// Type of the Storage Target.
-	TargetType *string `pulumi:"targetType"`
-	// Properties when targetType is unknown.
-	Unknown *UnknownTarget `pulumi:"unknown"`
-}
-
-// StorageTargetPropertiesInput is an input type that accepts StorageTargetPropertiesArgs and StorageTargetPropertiesOutput values.
-// You can construct a concrete instance of `StorageTargetPropertiesInput` via:
-//
-//          StorageTargetPropertiesArgs{...}
-type StorageTargetPropertiesInput interface {
-	pulumi.Input
-
-	ToStorageTargetPropertiesOutput() StorageTargetPropertiesOutput
-	ToStorageTargetPropertiesOutputWithContext(context.Context) StorageTargetPropertiesOutput
-}
-
-// Properties of the Storage Target.
-type StorageTargetPropertiesArgs struct {
-	// Properties when targetType is clfs.
-	Clfs ClfsTargetPtrInput `pulumi:"clfs"`
-	// List of Cache namespace junctions to target for namespace associations.
-	Junctions NamespaceJunctionArrayInput `pulumi:"junctions"`
-	// Properties when targetType is nfs3.
-	Nfs3 Nfs3TargetPtrInput `pulumi:"nfs3"`
-	// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
-	// Type of the Storage Target.
-	TargetBaseType pulumi.StringInput `pulumi:"targetBaseType"`
-	// Type of the Storage Target.
-	TargetType pulumi.StringPtrInput `pulumi:"targetType"`
-	// Properties when targetType is unknown.
-	Unknown UnknownTargetPtrInput `pulumi:"unknown"`
-}
-
-func (StorageTargetPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageTargetProperties)(nil)).Elem()
-}
-
-func (i StorageTargetPropertiesArgs) ToStorageTargetPropertiesOutput() StorageTargetPropertiesOutput {
-	return i.ToStorageTargetPropertiesOutputWithContext(context.Background())
-}
-
-func (i StorageTargetPropertiesArgs) ToStorageTargetPropertiesOutputWithContext(ctx context.Context) StorageTargetPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageTargetPropertiesOutput)
-}
-
-func (i StorageTargetPropertiesArgs) ToStorageTargetPropertiesPtrOutput() StorageTargetPropertiesPtrOutput {
-	return i.ToStorageTargetPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i StorageTargetPropertiesArgs) ToStorageTargetPropertiesPtrOutputWithContext(ctx context.Context) StorageTargetPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageTargetPropertiesOutput).ToStorageTargetPropertiesPtrOutputWithContext(ctx)
-}
-
-// StorageTargetPropertiesPtrInput is an input type that accepts StorageTargetPropertiesArgs, StorageTargetPropertiesPtr and StorageTargetPropertiesPtrOutput values.
-// You can construct a concrete instance of `StorageTargetPropertiesPtrInput` via:
-//
-//          StorageTargetPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type StorageTargetPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToStorageTargetPropertiesPtrOutput() StorageTargetPropertiesPtrOutput
-	ToStorageTargetPropertiesPtrOutputWithContext(context.Context) StorageTargetPropertiesPtrOutput
-}
-
-type storageTargetPropertiesPtrType StorageTargetPropertiesArgs
-
-func StorageTargetPropertiesPtr(v *StorageTargetPropertiesArgs) StorageTargetPropertiesPtrInput {
-	return (*storageTargetPropertiesPtrType)(v)
-}
-
-func (*storageTargetPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageTargetProperties)(nil)).Elem()
-}
-
-func (i *storageTargetPropertiesPtrType) ToStorageTargetPropertiesPtrOutput() StorageTargetPropertiesPtrOutput {
-	return i.ToStorageTargetPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *storageTargetPropertiesPtrType) ToStorageTargetPropertiesPtrOutputWithContext(ctx context.Context) StorageTargetPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageTargetPropertiesPtrOutput)
-}
-
-// Properties of the Storage Target.
-type StorageTargetPropertiesOutput struct{ *pulumi.OutputState }
-
-func (StorageTargetPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageTargetProperties)(nil)).Elem()
-}
-
-func (o StorageTargetPropertiesOutput) ToStorageTargetPropertiesOutput() StorageTargetPropertiesOutput {
-	return o
-}
-
-func (o StorageTargetPropertiesOutput) ToStorageTargetPropertiesOutputWithContext(ctx context.Context) StorageTargetPropertiesOutput {
-	return o
-}
-
-func (o StorageTargetPropertiesOutput) ToStorageTargetPropertiesPtrOutput() StorageTargetPropertiesPtrOutput {
-	return o.ToStorageTargetPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o StorageTargetPropertiesOutput) ToStorageTargetPropertiesPtrOutputWithContext(ctx context.Context) StorageTargetPropertiesPtrOutput {
-	return o.ApplyT(func(v StorageTargetProperties) *StorageTargetProperties {
-		return &v
-	}).(StorageTargetPropertiesPtrOutput)
-}
-
-// Properties when targetType is clfs.
-func (o StorageTargetPropertiesOutput) Clfs() ClfsTargetPtrOutput {
-	return o.ApplyT(func(v StorageTargetProperties) *ClfsTarget { return v.Clfs }).(ClfsTargetPtrOutput)
-}
-
-// List of Cache namespace junctions to target for namespace associations.
-func (o StorageTargetPropertiesOutput) Junctions() NamespaceJunctionArrayOutput {
-	return o.ApplyT(func(v StorageTargetProperties) []NamespaceJunction { return v.Junctions }).(NamespaceJunctionArrayOutput)
-}
-
-// Properties when targetType is nfs3.
-func (o StorageTargetPropertiesOutput) Nfs3() Nfs3TargetPtrOutput {
-	return o.ApplyT(func(v StorageTargetProperties) *Nfs3Target { return v.Nfs3 }).(Nfs3TargetPtrOutput)
-}
-
-// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-func (o StorageTargetPropertiesOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageTargetProperties) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
-}
-
-// Type of the Storage Target.
-func (o StorageTargetPropertiesOutput) TargetBaseType() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageTargetProperties) string { return v.TargetBaseType }).(pulumi.StringOutput)
-}
-
-// Type of the Storage Target.
-func (o StorageTargetPropertiesOutput) TargetType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageTargetProperties) *string { return v.TargetType }).(pulumi.StringPtrOutput)
-}
-
-// Properties when targetType is unknown.
-func (o StorageTargetPropertiesOutput) Unknown() UnknownTargetPtrOutput {
-	return o.ApplyT(func(v StorageTargetProperties) *UnknownTarget { return v.Unknown }).(UnknownTargetPtrOutput)
-}
-
-type StorageTargetPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (StorageTargetPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StorageTargetProperties)(nil)).Elem()
-}
-
-func (o StorageTargetPropertiesPtrOutput) ToStorageTargetPropertiesPtrOutput() StorageTargetPropertiesPtrOutput {
-	return o
-}
-
-func (o StorageTargetPropertiesPtrOutput) ToStorageTargetPropertiesPtrOutputWithContext(ctx context.Context) StorageTargetPropertiesPtrOutput {
-	return o
-}
-
-func (o StorageTargetPropertiesPtrOutput) Elem() StorageTargetPropertiesOutput {
-	return o.ApplyT(func(v *StorageTargetProperties) StorageTargetProperties { return *v }).(StorageTargetPropertiesOutput)
-}
-
-// Properties when targetType is clfs.
-func (o StorageTargetPropertiesPtrOutput) Clfs() ClfsTargetPtrOutput {
-	return o.ApplyT(func(v *StorageTargetProperties) *ClfsTarget {
-		if v == nil {
-			return nil
-		}
-		return v.Clfs
-	}).(ClfsTargetPtrOutput)
-}
-
-// List of Cache namespace junctions to target for namespace associations.
-func (o StorageTargetPropertiesPtrOutput) Junctions() NamespaceJunctionArrayOutput {
-	return o.ApplyT(func(v *StorageTargetProperties) []NamespaceJunction {
-		if v == nil {
-			return nil
-		}
-		return v.Junctions
-	}).(NamespaceJunctionArrayOutput)
-}
-
-// Properties when targetType is nfs3.
-func (o StorageTargetPropertiesPtrOutput) Nfs3() Nfs3TargetPtrOutput {
-	return o.ApplyT(func(v *StorageTargetProperties) *Nfs3Target {
-		if v == nil {
-			return nil
-		}
-		return v.Nfs3
-	}).(Nfs3TargetPtrOutput)
-}
-
-// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-func (o StorageTargetPropertiesPtrOutput) ProvisioningState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageTargetProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ProvisioningState
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of the Storage Target.
-func (o StorageTargetPropertiesPtrOutput) TargetBaseType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageTargetProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetBaseType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of the Storage Target.
-func (o StorageTargetPropertiesPtrOutput) TargetType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *StorageTargetProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TargetType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Properties when targetType is unknown.
-func (o StorageTargetPropertiesPtrOutput) Unknown() UnknownTargetPtrOutput {
-	return o.ApplyT(func(v *StorageTargetProperties) *UnknownTarget {
-		if v == nil {
-			return nil
-		}
-		return v.Unknown
-	}).(UnknownTargetPtrOutput)
-}
-
-// Properties of the Storage Target.
 type StorageTargetPropertiesResponse struct {
 	// Properties when targetType is clfs.
 	Clfs *ClfsTargetResponse `pulumi:"clfs"`
@@ -4825,8 +4463,6 @@ func init() {
 	pulumi.RegisterOutputType(Nfs3TargetResponseOutput{})
 	pulumi.RegisterOutputType(Nfs3TargetResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageTargetTypeOutput{})
-	pulumi.RegisterOutputType(StorageTargetPropertiesOutput{})
-	pulumi.RegisterOutputType(StorageTargetPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(StorageTargetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageTargetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(UnknownPropertiesOutput{})

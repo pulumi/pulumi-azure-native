@@ -97,14 +97,22 @@ type labArgs struct {
 	LabAccountName string `pulumi:"labAccountName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
+	// Maximum number of users allowed in the lab.
+	MaxUsersInLab *int `pulumi:"maxUsersInLab"`
 	// The name of the lab.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties *LabProperties `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
+	// Maximum duration a user can use an environment for in the lab.
+	UsageQuota *string `pulumi:"usageQuota"`
+	// Lab user access mode (open to all vs. restricted to those listed on the lab).
+	UserAccessMode *string `pulumi:"userAccessMode"`
 }
 
 // The set of arguments for constructing a Lab resource.
@@ -113,14 +121,22 @@ type LabArgs struct {
 	LabAccountName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
+	// Maximum number of users allowed in the lab.
+	MaxUsersInLab pulumi.IntPtrInput
 	// The name of the lab.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties LabPropertiesPtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
+	// Maximum duration a user can use an environment for in the lab.
+	UsageQuota pulumi.StringPtrInput
+	// Lab user access mode (open to all vs. restricted to those listed on the lab).
+	UserAccessMode pulumi.StringPtrInput
 }
 
 func (LabArgs) ElementType() reflect.Type {

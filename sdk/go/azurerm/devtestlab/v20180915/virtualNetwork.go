@@ -93,32 +93,44 @@ func (VirtualNetworkState) ElementType() reflect.Type {
 }
 
 type virtualNetworkArgs struct {
+	// The allowed subnets of the virtual network.
+	AllowedSubnets []Subnet `pulumi:"allowedSubnets"`
+	// The description of the virtual network.
+	Description *string `pulumi:"description"`
+	// The Microsoft.Network resource identifier of the virtual network.
+	ExternalProviderResourceId *string `pulumi:"externalProviderResourceId"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the virtual network.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties *VirtualNetworkProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The subnet overrides of the virtual network.
+	SubnetOverrides []SubnetOverride `pulumi:"subnetOverrides"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VirtualNetwork resource.
 type VirtualNetworkArgs struct {
+	// The allowed subnets of the virtual network.
+	AllowedSubnets SubnetArrayInput
+	// The description of the virtual network.
+	Description pulumi.StringPtrInput
+	// The Microsoft.Network resource identifier of the virtual network.
+	ExternalProviderResourceId pulumi.StringPtrInput
 	// The name of the lab.
 	LabName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the virtual network.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties VirtualNetworkPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The subnet overrides of the virtual network.
+	SubnetOverrides SubnetOverrideArrayInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
 }

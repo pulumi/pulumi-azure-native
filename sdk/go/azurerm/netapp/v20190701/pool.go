@@ -38,11 +38,14 @@ func NewPool(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ServiceLevel == nil {
+		return nil, errors.New("missing required argument 'ServiceLevel'")
+	}
+	if args == nil || args.Size == nil {
+		return nil, errors.New("missing required argument 'Size'")
 	}
 	if args == nil {
 		args = &PoolArgs{}
@@ -105,10 +108,12 @@ type poolArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the capacity pool
 	Name string `pulumi:"name"`
-	// Capacity pool properties
-	Properties PoolProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The service level of the file system
+	ServiceLevel string `pulumi:"serviceLevel"`
+	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+	Size int `pulumi:"size"`
 	// Resource tags
 	Tags *ResourceTags `pulumi:"tags"`
 }
@@ -121,10 +126,12 @@ type PoolArgs struct {
 	Location pulumi.StringInput
 	// The name of the capacity pool
 	Name pulumi.StringInput
-	// Capacity pool properties
-	Properties PoolPropertiesInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The service level of the file system
+	ServiceLevel pulumi.StringInput
+	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+	Size pulumi.IntInput
 	// Resource tags
 	Tags ResourceTagsPtrInput
 }

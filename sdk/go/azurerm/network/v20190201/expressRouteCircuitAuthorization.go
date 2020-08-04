@@ -81,28 +81,36 @@ func (ExpressRouteCircuitAuthorizationState) ElementType() reflect.Type {
 }
 
 type expressRouteCircuitAuthorizationArgs struct {
+	// The authorization key.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
+	AuthorizationUseStatus *string `pulumi:"authorizationUseStatus"`
 	// The name of the express route circuit.
 	CircuitName string `pulumi:"circuitName"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the authorization.
 	Name string `pulumi:"name"`
-	// Properties of the express route circuit authorization.
-	Properties *AuthorizationPropertiesFormat `pulumi:"properties"`
+	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a ExpressRouteCircuitAuthorization resource.
 type ExpressRouteCircuitAuthorizationArgs struct {
+	// The authorization key.
+	AuthorizationKey pulumi.StringPtrInput
+	// AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
+	AuthorizationUseStatus pulumi.StringPtrInput
 	// The name of the express route circuit.
 	CircuitName pulumi.StringInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The name of the authorization.
 	Name pulumi.StringInput
-	// Properties of the express route circuit authorization.
-	Properties AuthorizationPropertiesFormatPtrInput
+	// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

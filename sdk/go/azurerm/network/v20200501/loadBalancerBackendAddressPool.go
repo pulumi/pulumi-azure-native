@@ -89,12 +89,12 @@ func (LoadBalancerBackendAddressPoolState) ElementType() reflect.Type {
 type loadBalancerBackendAddressPoolArgs struct {
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// An array of backend addresses.
+	LoadBalancerBackendAddresses []LoadBalancerBackendAddress `pulumi:"loadBalancerBackendAddresses"`
 	// The name of the load balancer.
 	LoadBalancerName string `pulumi:"loadBalancerName"`
 	// The name of the backend address pool.
 	Name string `pulumi:"name"`
-	// Properties of load balancer backend address pool.
-	Properties *BackendAddressPoolPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -103,12 +103,12 @@ type loadBalancerBackendAddressPoolArgs struct {
 type LoadBalancerBackendAddressPoolArgs struct {
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// An array of backend addresses.
+	LoadBalancerBackendAddresses LoadBalancerBackendAddressArrayInput
 	// The name of the load balancer.
 	LoadBalancerName pulumi.StringInput
 	// The name of the backend address pool.
 	Name pulumi.StringInput
-	// Properties of load balancer backend address pool.
-	Properties BackendAddressPoolPropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

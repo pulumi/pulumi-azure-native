@@ -30,9 +30,6 @@ func NewAccessPolicy(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -81,24 +78,34 @@ func (AccessPolicyState) ElementType() reflect.Type {
 }
 
 type accessPolicyArgs struct {
+	// An description of the access policy.
+	Description *string `pulumi:"description"`
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName string `pulumi:"environmentName"`
 	// Name of the access policy.
-	Name       string                         `pulumi:"name"`
-	Properties AccessPolicyResourceProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// The objectId of the principal in Azure Active Directory.
+	PrincipalObjectId *string `pulumi:"principalObjectId"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The list of roles the principal is assigned on the environment.
+	Roles []string `pulumi:"roles"`
 }
 
 // The set of arguments for constructing a AccessPolicy resource.
 type AccessPolicyArgs struct {
+	// An description of the access policy.
+	Description pulumi.StringPtrInput
 	// The name of the Time Series Insights environment associated with the specified resource group.
 	EnvironmentName pulumi.StringInput
 	// Name of the access policy.
-	Name       pulumi.StringInput
-	Properties AccessPolicyResourcePropertiesInput
+	Name pulumi.StringInput
+	// The objectId of the principal in Azure Active Directory.
+	PrincipalObjectId pulumi.StringPtrInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
+	// The list of roles the principal is assigned on the environment.
+	Roles pulumi.StringArrayInput
 }
 
 func (AccessPolicyArgs) ElementType() reflect.Type {

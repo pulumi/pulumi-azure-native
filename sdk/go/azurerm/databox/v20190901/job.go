@@ -37,9 +37,6 @@ func NewJob(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -105,12 +102,16 @@ func (JobState) ElementType() reflect.Type {
 }
 
 type jobArgs struct {
+	// Delivery Info of Job.
+	DeliveryInfo *JobDeliveryInfo `pulumi:"deliveryInfo"`
+	// Delivery type of Job.
+	DeliveryType *string `pulumi:"deliveryType"`
+	// Details of a job run. This field will only be sent for expand details filter.
+	Details *JobDetails `pulumi:"details"`
 	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
 	Location string `pulumi:"location"`
 	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	Name string `pulumi:"name"`
-	// Properties of a job.
-	Properties JobProperties `pulumi:"properties"`
 	// The Resource Group Name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku type.
@@ -121,12 +122,16 @@ type jobArgs struct {
 
 // The set of arguments for constructing a Job resource.
 type JobArgs struct {
+	// Delivery Info of Job.
+	DeliveryInfo JobDeliveryInfoPtrInput
+	// Delivery type of Job.
+	DeliveryType pulumi.StringPtrInput
+	// Details of a job run. This field will only be sent for expand details filter.
+	Details JobDetailsPtrInput
 	// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
 	Location pulumi.StringInput
 	// The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
 	Name pulumi.StringInput
-	// Properties of a job.
-	Properties JobPropertiesInput
 	// The Resource Group Name
 	ResourceGroupName pulumi.StringInput
 	// The sku type.

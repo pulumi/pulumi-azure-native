@@ -102,36 +102,52 @@ func (ExpressRoutePortState) ElementType() reflect.Type {
 }
 
 type expressRoutePortArgs struct {
+	// Bandwidth of procured ports in Gbps.
+	BandwidthInGbps *int `pulumi:"bandwidthInGbps"`
+	// Encapsulation method on physical ports.
+	Encapsulation *string `pulumi:"encapsulation"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The identity of ExpressRoutePort, if configured.
 	Identity *ManagedServiceIdentity `pulumi:"identity"`
+	// The set of physical links of the ExpressRoutePort resource.
+	Links []ExpressRouteLink `pulumi:"links"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the ExpressRoutePort resource.
 	Name string `pulumi:"name"`
-	// ExpressRoutePort properties.
-	Properties *ExpressRoutePortPropertiesFormat `pulumi:"properties"`
+	// The name of the peering location that the ExpressRoutePort is mapped to physically.
+	PeeringLocation *string `pulumi:"peeringLocation"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The resource GUID property of the express route port resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ExpressRoutePort resource.
 type ExpressRoutePortArgs struct {
+	// Bandwidth of procured ports in Gbps.
+	BandwidthInGbps pulumi.IntPtrInput
+	// Encapsulation method on physical ports.
+	Encapsulation pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The identity of ExpressRoutePort, if configured.
 	Identity ManagedServiceIdentityPtrInput
+	// The set of physical links of the ExpressRoutePort resource.
+	Links ExpressRouteLinkArrayInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the ExpressRoutePort resource.
 	Name pulumi.StringInput
-	// ExpressRoutePort properties.
-	Properties ExpressRoutePortPropertiesFormatPtrInput
+	// The name of the peering location that the ExpressRoutePort is mapped to physically.
+	PeeringLocation pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The resource GUID property of the express route port resource.
+	ResourceGuid pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

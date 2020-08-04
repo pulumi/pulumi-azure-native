@@ -29,6 +29,12 @@ type ActionGroup struct {
 // NewActionGroup registers a new resource with the given unique name, arguments, and options.
 func NewActionGroup(ctx *pulumi.Context,
 	name string, args *ActionGroupArgs, opts ...pulumi.ResourceOption) (*ActionGroup, error) {
+	if args == nil || args.Enabled == nil {
+		return nil, errors.New("missing required argument 'Enabled'")
+	}
+	if args == nil || args.GroupShortName == nil {
+		return nil, errors.New("missing required argument 'GroupShortName'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -93,30 +99,70 @@ func (ActionGroupState) ElementType() reflect.Type {
 }
 
 type actionGroupArgs struct {
+	// The list of AutomationRunbook receivers that are part of this action group.
+	AutomationRunbookReceivers []AutomationRunbookReceiver `pulumi:"automationRunbookReceivers"`
+	// The list of AzureAppPush receivers that are part of this action group.
+	AzureAppPushReceivers []AzureAppPushReceiver `pulumi:"azureAppPushReceivers"`
+	// The list of azure function receivers that are part of this action group.
+	AzureFunctionReceivers []AzureFunctionReceiver `pulumi:"azureFunctionReceivers"`
+	// The list of email receivers that are part of this action group.
+	EmailReceivers []EmailReceiver `pulumi:"emailReceivers"`
+	// Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
+	Enabled bool `pulumi:"enabled"`
+	// The short name of the action group. This will be used in SMS messages.
+	GroupShortName string `pulumi:"groupShortName"`
+	// The list of ITSM receivers that are part of this action group.
+	ItsmReceivers []ItsmReceiver `pulumi:"itsmReceivers"`
 	// Resource location
 	Location string `pulumi:"location"`
+	// The list of logic app receivers that are part of this action group.
+	LogicAppReceivers []LogicAppReceiver `pulumi:"logicAppReceivers"`
 	// The name of the action group.
 	Name string `pulumi:"name"`
-	// The action groups properties of the resource.
-	Properties *ActionGroupDefinition `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The list of SMS receivers that are part of this action group.
+	SmsReceivers []SmsReceiver `pulumi:"smsReceivers"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// The list of voice receivers that are part of this action group.
+	VoiceReceivers []VoiceReceiver `pulumi:"voiceReceivers"`
+	// The list of webhook receivers that are part of this action group.
+	WebhookReceivers []WebhookReceiver `pulumi:"webhookReceivers"`
 }
 
 // The set of arguments for constructing a ActionGroup resource.
 type ActionGroupArgs struct {
+	// The list of AutomationRunbook receivers that are part of this action group.
+	AutomationRunbookReceivers AutomationRunbookReceiverArrayInput
+	// The list of AzureAppPush receivers that are part of this action group.
+	AzureAppPushReceivers AzureAppPushReceiverArrayInput
+	// The list of azure function receivers that are part of this action group.
+	AzureFunctionReceivers AzureFunctionReceiverArrayInput
+	// The list of email receivers that are part of this action group.
+	EmailReceivers EmailReceiverArrayInput
+	// Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
+	Enabled pulumi.BoolInput
+	// The short name of the action group. This will be used in SMS messages.
+	GroupShortName pulumi.StringInput
+	// The list of ITSM receivers that are part of this action group.
+	ItsmReceivers ItsmReceiverArrayInput
 	// Resource location
 	Location pulumi.StringInput
+	// The list of logic app receivers that are part of this action group.
+	LogicAppReceivers LogicAppReceiverArrayInput
 	// The name of the action group.
 	Name pulumi.StringInput
-	// The action groups properties of the resource.
-	Properties ActionGroupDefinitionPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The list of SMS receivers that are part of this action group.
+	SmsReceivers SmsReceiverArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// The list of voice receivers that are part of this action group.
+	VoiceReceivers VoiceReceiverArrayInput
+	// The list of webhook receivers that are part of this action group.
+	WebhookReceivers WebhookReceiverArrayInput
 }
 
 func (ActionGroupArgs) ElementType() reflect.Type {

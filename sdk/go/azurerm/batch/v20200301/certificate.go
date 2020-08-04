@@ -30,6 +30,9 @@ func NewCertificate(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
+	if args == nil || args.Data == nil {
+		return nil, errors.New("missing required argument 'Data'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -89,24 +92,40 @@ func (CertificateState) ElementType() reflect.Type {
 type certificateArgs struct {
 	// The name of the Batch account.
 	AccountName string `pulumi:"accountName"`
+	// The maximum size is 10KB.
+	Data string `pulumi:"data"`
+	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+	Format *string `pulumi:"format"`
 	// The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
 	Name string `pulumi:"name"`
-	// The properties associated with the certificate.
-	Properties *CertificateCreateOrUpdateProperties `pulumi:"properties"`
+	// This must not be specified if the certificate format is Cer.
+	Password *string `pulumi:"password"`
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// This must match the thumbprint from the name.
+	Thumbprint *string `pulumi:"thumbprint"`
+	// This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+	ThumbprintAlgorithm *string `pulumi:"thumbprintAlgorithm"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
 	// The name of the Batch account.
 	AccountName pulumi.StringInput
+	// The maximum size is 10KB.
+	Data pulumi.StringInput
+	// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+	Format pulumi.StringPtrInput
 	// The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
 	Name pulumi.StringInput
-	// The properties associated with the certificate.
-	Properties CertificateCreateOrUpdatePropertiesPtrInput
+	// This must not be specified if the certificate format is Cer.
+	Password pulumi.StringPtrInput
 	// The name of the resource group that contains the Batch account.
 	ResourceGroupName pulumi.StringInput
+	// This must match the thumbprint from the name.
+	Thumbprint pulumi.StringPtrInput
+	// This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+	ThumbprintAlgorithm pulumi.StringPtrInput
 }
 
 func (CertificateArgs) ElementType() reflect.Type {

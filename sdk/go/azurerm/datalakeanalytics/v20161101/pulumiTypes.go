@@ -101,146 +101,12 @@ func (o AccountTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The Data Lake Store account properties to use when adding a new Data Lake Store account.
-type AddDataLakeStoreProperties struct {
-	// The optional suffix for the Data Lake Store account.
-	Suffix *string `pulumi:"suffix"`
-}
-
-// AddDataLakeStorePropertiesInput is an input type that accepts AddDataLakeStorePropertiesArgs and AddDataLakeStorePropertiesOutput values.
-// You can construct a concrete instance of `AddDataLakeStorePropertiesInput` via:
-//
-//          AddDataLakeStorePropertiesArgs{...}
-type AddDataLakeStorePropertiesInput interface {
-	pulumi.Input
-
-	ToAddDataLakeStorePropertiesOutput() AddDataLakeStorePropertiesOutput
-	ToAddDataLakeStorePropertiesOutputWithContext(context.Context) AddDataLakeStorePropertiesOutput
-}
-
-// The Data Lake Store account properties to use when adding a new Data Lake Store account.
-type AddDataLakeStorePropertiesArgs struct {
-	// The optional suffix for the Data Lake Store account.
-	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
-}
-
-func (AddDataLakeStorePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddDataLakeStoreProperties)(nil)).Elem()
-}
-
-func (i AddDataLakeStorePropertiesArgs) ToAddDataLakeStorePropertiesOutput() AddDataLakeStorePropertiesOutput {
-	return i.ToAddDataLakeStorePropertiesOutputWithContext(context.Background())
-}
-
-func (i AddDataLakeStorePropertiesArgs) ToAddDataLakeStorePropertiesOutputWithContext(ctx context.Context) AddDataLakeStorePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddDataLakeStorePropertiesOutput)
-}
-
-func (i AddDataLakeStorePropertiesArgs) ToAddDataLakeStorePropertiesPtrOutput() AddDataLakeStorePropertiesPtrOutput {
-	return i.ToAddDataLakeStorePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i AddDataLakeStorePropertiesArgs) ToAddDataLakeStorePropertiesPtrOutputWithContext(ctx context.Context) AddDataLakeStorePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddDataLakeStorePropertiesOutput).ToAddDataLakeStorePropertiesPtrOutputWithContext(ctx)
-}
-
-// AddDataLakeStorePropertiesPtrInput is an input type that accepts AddDataLakeStorePropertiesArgs, AddDataLakeStorePropertiesPtr and AddDataLakeStorePropertiesPtrOutput values.
-// You can construct a concrete instance of `AddDataLakeStorePropertiesPtrInput` via:
-//
-//          AddDataLakeStorePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type AddDataLakeStorePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToAddDataLakeStorePropertiesPtrOutput() AddDataLakeStorePropertiesPtrOutput
-	ToAddDataLakeStorePropertiesPtrOutputWithContext(context.Context) AddDataLakeStorePropertiesPtrOutput
-}
-
-type addDataLakeStorePropertiesPtrType AddDataLakeStorePropertiesArgs
-
-func AddDataLakeStorePropertiesPtr(v *AddDataLakeStorePropertiesArgs) AddDataLakeStorePropertiesPtrInput {
-	return (*addDataLakeStorePropertiesPtrType)(v)
-}
-
-func (*addDataLakeStorePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AddDataLakeStoreProperties)(nil)).Elem()
-}
-
-func (i *addDataLakeStorePropertiesPtrType) ToAddDataLakeStorePropertiesPtrOutput() AddDataLakeStorePropertiesPtrOutput {
-	return i.ToAddDataLakeStorePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *addDataLakeStorePropertiesPtrType) ToAddDataLakeStorePropertiesPtrOutputWithContext(ctx context.Context) AddDataLakeStorePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddDataLakeStorePropertiesPtrOutput)
-}
-
-// The Data Lake Store account properties to use when adding a new Data Lake Store account.
-type AddDataLakeStorePropertiesOutput struct{ *pulumi.OutputState }
-
-func (AddDataLakeStorePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddDataLakeStoreProperties)(nil)).Elem()
-}
-
-func (o AddDataLakeStorePropertiesOutput) ToAddDataLakeStorePropertiesOutput() AddDataLakeStorePropertiesOutput {
-	return o
-}
-
-func (o AddDataLakeStorePropertiesOutput) ToAddDataLakeStorePropertiesOutputWithContext(ctx context.Context) AddDataLakeStorePropertiesOutput {
-	return o
-}
-
-func (o AddDataLakeStorePropertiesOutput) ToAddDataLakeStorePropertiesPtrOutput() AddDataLakeStorePropertiesPtrOutput {
-	return o.ToAddDataLakeStorePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o AddDataLakeStorePropertiesOutput) ToAddDataLakeStorePropertiesPtrOutputWithContext(ctx context.Context) AddDataLakeStorePropertiesPtrOutput {
-	return o.ApplyT(func(v AddDataLakeStoreProperties) *AddDataLakeStoreProperties {
-		return &v
-	}).(AddDataLakeStorePropertiesPtrOutput)
-}
-
-// The optional suffix for the Data Lake Store account.
-func (o AddDataLakeStorePropertiesOutput) Suffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AddDataLakeStoreProperties) *string { return v.Suffix }).(pulumi.StringPtrOutput)
-}
-
-type AddDataLakeStorePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (AddDataLakeStorePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AddDataLakeStoreProperties)(nil)).Elem()
-}
-
-func (o AddDataLakeStorePropertiesPtrOutput) ToAddDataLakeStorePropertiesPtrOutput() AddDataLakeStorePropertiesPtrOutput {
-	return o
-}
-
-func (o AddDataLakeStorePropertiesPtrOutput) ToAddDataLakeStorePropertiesPtrOutputWithContext(ctx context.Context) AddDataLakeStorePropertiesPtrOutput {
-	return o
-}
-
-func (o AddDataLakeStorePropertiesPtrOutput) Elem() AddDataLakeStorePropertiesOutput {
-	return o.ApplyT(func(v *AddDataLakeStoreProperties) AddDataLakeStoreProperties { return *v }).(AddDataLakeStorePropertiesOutput)
-}
-
-// The optional suffix for the Data Lake Store account.
-func (o AddDataLakeStorePropertiesPtrOutput) Suffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AddDataLakeStoreProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Suffix
-	}).(pulumi.StringPtrOutput)
-}
-
 // The parameters used to add a new Data Lake Store account while creating a new Data Lake Analytics account.
 type AddDataLakeStoreWithAccountParameters struct {
 	// The unique name of the Data Lake Store account to add.
 	Name string `pulumi:"name"`
-	// The Data Lake Store account properties to use when adding a new Data Lake Store account.
-	Properties *AddDataLakeStoreProperties `pulumi:"properties"`
+	// The optional suffix for the Data Lake Store account.
+	Suffix *string `pulumi:"suffix"`
 }
 
 // AddDataLakeStoreWithAccountParametersInput is an input type that accepts AddDataLakeStoreWithAccountParametersArgs and AddDataLakeStoreWithAccountParametersOutput values.
@@ -258,8 +124,8 @@ type AddDataLakeStoreWithAccountParametersInput interface {
 type AddDataLakeStoreWithAccountParametersArgs struct {
 	// The unique name of the Data Lake Store account to add.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The Data Lake Store account properties to use when adding a new Data Lake Store account.
-	Properties AddDataLakeStorePropertiesPtrInput `pulumi:"properties"`
+	// The optional suffix for the Data Lake Store account.
+	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
 func (AddDataLakeStoreWithAccountParametersArgs) ElementType() reflect.Type {
@@ -319,9 +185,9 @@ func (o AddDataLakeStoreWithAccountParametersOutput) Name() pulumi.StringOutput 
 	return o.ApplyT(func(v AddDataLakeStoreWithAccountParameters) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Data Lake Store account properties to use when adding a new Data Lake Store account.
-func (o AddDataLakeStoreWithAccountParametersOutput) Properties() AddDataLakeStorePropertiesPtrOutput {
-	return o.ApplyT(func(v AddDataLakeStoreWithAccountParameters) *AddDataLakeStoreProperties { return v.Properties }).(AddDataLakeStorePropertiesPtrOutput)
+// The optional suffix for the Data Lake Store account.
+func (o AddDataLakeStoreWithAccountParametersOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AddDataLakeStoreWithAccountParameters) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
 
 type AddDataLakeStoreWithAccountParametersArrayOutput struct{ *pulumi.OutputState }
@@ -344,76 +210,14 @@ func (o AddDataLakeStoreWithAccountParametersArrayOutput) Index(i pulumi.IntInpu
 	}).(AddDataLakeStoreWithAccountParametersOutput)
 }
 
-// The Azure Storage account properties to use when adding a new Azure Storage account.
-type AddStorageAccountProperties struct {
-	// The access key associated with this Azure Storage account that will be used to connect to it.
-	AccessKey string `pulumi:"accessKey"`
-	// The optional suffix for the storage account.
-	Suffix *string `pulumi:"suffix"`
-}
-
-// AddStorageAccountPropertiesInput is an input type that accepts AddStorageAccountPropertiesArgs and AddStorageAccountPropertiesOutput values.
-// You can construct a concrete instance of `AddStorageAccountPropertiesInput` via:
-//
-//          AddStorageAccountPropertiesArgs{...}
-type AddStorageAccountPropertiesInput interface {
-	pulumi.Input
-
-	ToAddStorageAccountPropertiesOutput() AddStorageAccountPropertiesOutput
-	ToAddStorageAccountPropertiesOutputWithContext(context.Context) AddStorageAccountPropertiesOutput
-}
-
-// The Azure Storage account properties to use when adding a new Azure Storage account.
-type AddStorageAccountPropertiesArgs struct {
-	// The access key associated with this Azure Storage account that will be used to connect to it.
-	AccessKey pulumi.StringInput `pulumi:"accessKey"`
-	// The optional suffix for the storage account.
-	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
-}
-
-func (AddStorageAccountPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddStorageAccountProperties)(nil)).Elem()
-}
-
-func (i AddStorageAccountPropertiesArgs) ToAddStorageAccountPropertiesOutput() AddStorageAccountPropertiesOutput {
-	return i.ToAddStorageAccountPropertiesOutputWithContext(context.Background())
-}
-
-func (i AddStorageAccountPropertiesArgs) ToAddStorageAccountPropertiesOutputWithContext(ctx context.Context) AddStorageAccountPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AddStorageAccountPropertiesOutput)
-}
-
-// The Azure Storage account properties to use when adding a new Azure Storage account.
-type AddStorageAccountPropertiesOutput struct{ *pulumi.OutputState }
-
-func (AddStorageAccountPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AddStorageAccountProperties)(nil)).Elem()
-}
-
-func (o AddStorageAccountPropertiesOutput) ToAddStorageAccountPropertiesOutput() AddStorageAccountPropertiesOutput {
-	return o
-}
-
-func (o AddStorageAccountPropertiesOutput) ToAddStorageAccountPropertiesOutputWithContext(ctx context.Context) AddStorageAccountPropertiesOutput {
-	return o
-}
-
-// The access key associated with this Azure Storage account that will be used to connect to it.
-func (o AddStorageAccountPropertiesOutput) AccessKey() pulumi.StringOutput {
-	return o.ApplyT(func(v AddStorageAccountProperties) string { return v.AccessKey }).(pulumi.StringOutput)
-}
-
-// The optional suffix for the storage account.
-func (o AddStorageAccountPropertiesOutput) Suffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AddStorageAccountProperties) *string { return v.Suffix }).(pulumi.StringPtrOutput)
-}
-
 // The parameters used to add a new Azure Storage account while creating a new Data Lake Analytics account.
 type AddStorageAccountWithAccountParameters struct {
+	// The access key associated with this Azure Storage account that will be used to connect to it.
+	AccessKey string `pulumi:"accessKey"`
 	// The unique name of the Azure Storage account to add.
 	Name string `pulumi:"name"`
-	// The Azure Storage account properties to use when adding a new Azure Storage account.
-	Properties AddStorageAccountProperties `pulumi:"properties"`
+	// The optional suffix for the storage account.
+	Suffix *string `pulumi:"suffix"`
 }
 
 // AddStorageAccountWithAccountParametersInput is an input type that accepts AddStorageAccountWithAccountParametersArgs and AddStorageAccountWithAccountParametersOutput values.
@@ -429,10 +233,12 @@ type AddStorageAccountWithAccountParametersInput interface {
 
 // The parameters used to add a new Azure Storage account while creating a new Data Lake Analytics account.
 type AddStorageAccountWithAccountParametersArgs struct {
+	// The access key associated with this Azure Storage account that will be used to connect to it.
+	AccessKey pulumi.StringInput `pulumi:"accessKey"`
 	// The unique name of the Azure Storage account to add.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The Azure Storage account properties to use when adding a new Azure Storage account.
-	Properties AddStorageAccountPropertiesInput `pulumi:"properties"`
+	// The optional suffix for the storage account.
+	Suffix pulumi.StringPtrInput `pulumi:"suffix"`
 }
 
 func (AddStorageAccountWithAccountParametersArgs) ElementType() reflect.Type {
@@ -487,14 +293,19 @@ func (o AddStorageAccountWithAccountParametersOutput) ToAddStorageAccountWithAcc
 	return o
 }
 
+// The access key associated with this Azure Storage account that will be used to connect to it.
+func (o AddStorageAccountWithAccountParametersOutput) AccessKey() pulumi.StringOutput {
+	return o.ApplyT(func(v AddStorageAccountWithAccountParameters) string { return v.AccessKey }).(pulumi.StringOutput)
+}
+
 // The unique name of the Azure Storage account to add.
 func (o AddStorageAccountWithAccountParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AddStorageAccountWithAccountParameters) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The Azure Storage account properties to use when adding a new Azure Storage account.
-func (o AddStorageAccountWithAccountParametersOutput) Properties() AddStorageAccountPropertiesOutput {
-	return o.ApplyT(func(v AddStorageAccountWithAccountParameters) AddStorageAccountProperties { return v.Properties }).(AddStorageAccountPropertiesOutput)
+// The optional suffix for the storage account.
+func (o AddStorageAccountWithAccountParametersOutput) Suffix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AddStorageAccountWithAccountParameters) *string { return v.Suffix }).(pulumi.StringPtrOutput)
 }
 
 type AddStorageAccountWithAccountParametersArrayOutput struct{ *pulumi.OutputState }
@@ -910,10 +721,16 @@ func (o ComputePolicyResponseArrayOutput) Index(i pulumi.IntInput) ComputePolicy
 
 // The parameters used to create a new compute policy while creating a new Data Lake Analytics account.
 type CreateComputePolicyWithAccountParameters struct {
+	// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
+	MaxDegreeOfParallelismPerJob *int `pulumi:"maxDegreeOfParallelismPerJob"`
+	// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
+	MinPriorityPerJob *int `pulumi:"minPriorityPerJob"`
 	// The unique name of the compute policy to create.
 	Name string `pulumi:"name"`
-	// The compute policy properties to use when creating a new compute policy.
-	Properties CreateOrUpdateComputePolicyProperties `pulumi:"properties"`
+	// The AAD object identifier for the entity to create a policy for.
+	ObjectId string `pulumi:"objectId"`
+	// The type of AAD object the object identifier refers to.
+	ObjectType string `pulumi:"objectType"`
 }
 
 // CreateComputePolicyWithAccountParametersInput is an input type that accepts CreateComputePolicyWithAccountParametersArgs and CreateComputePolicyWithAccountParametersOutput values.
@@ -929,10 +746,16 @@ type CreateComputePolicyWithAccountParametersInput interface {
 
 // The parameters used to create a new compute policy while creating a new Data Lake Analytics account.
 type CreateComputePolicyWithAccountParametersArgs struct {
+	// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
+	MaxDegreeOfParallelismPerJob pulumi.IntPtrInput `pulumi:"maxDegreeOfParallelismPerJob"`
+	// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
+	MinPriorityPerJob pulumi.IntPtrInput `pulumi:"minPriorityPerJob"`
 	// The unique name of the compute policy to create.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The compute policy properties to use when creating a new compute policy.
-	Properties CreateOrUpdateComputePolicyPropertiesInput `pulumi:"properties"`
+	// The AAD object identifier for the entity to create a policy for.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// The type of AAD object the object identifier refers to.
+	ObjectType pulumi.StringInput `pulumi:"objectType"`
 }
 
 func (CreateComputePolicyWithAccountParametersArgs) ElementType() reflect.Type {
@@ -987,16 +810,29 @@ func (o CreateComputePolicyWithAccountParametersOutput) ToCreateComputePolicyWit
 	return o
 }
 
+// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
+func (o CreateComputePolicyWithAccountParametersOutput) MaxDegreeOfParallelismPerJob() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) *int { return v.MaxDegreeOfParallelismPerJob }).(pulumi.IntPtrOutput)
+}
+
+// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
+func (o CreateComputePolicyWithAccountParametersOutput) MinPriorityPerJob() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) *int { return v.MinPriorityPerJob }).(pulumi.IntPtrOutput)
+}
+
 // The unique name of the compute policy to create.
 func (o CreateComputePolicyWithAccountParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The compute policy properties to use when creating a new compute policy.
-func (o CreateComputePolicyWithAccountParametersOutput) Properties() CreateOrUpdateComputePolicyPropertiesOutput {
-	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) CreateOrUpdateComputePolicyProperties {
-		return v.Properties
-	}).(CreateOrUpdateComputePolicyPropertiesOutput)
+// The AAD object identifier for the entity to create a policy for.
+func (o CreateComputePolicyWithAccountParametersOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// The type of AAD object the object identifier refers to.
+func (o CreateComputePolicyWithAccountParametersOutput) ObjectType() pulumi.StringOutput {
+	return o.ApplyT(func(v CreateComputePolicyWithAccountParameters) string { return v.ObjectType }).(pulumi.StringOutput)
 }
 
 type CreateComputePolicyWithAccountParametersArrayOutput struct{ *pulumi.OutputState }
@@ -1019,379 +855,14 @@ func (o CreateComputePolicyWithAccountParametersArrayOutput) Index(i pulumi.IntI
 	}).(CreateComputePolicyWithAccountParametersOutput)
 }
 
-type CreateDataLakeAnalyticsAccountProperties struct {
-	// The list of compute policies associated with this account.
-	ComputePolicies []CreateComputePolicyWithAccountParameters `pulumi:"computePolicies"`
-	// The list of Data Lake Store accounts associated with this account.
-	DataLakeStoreAccounts []AddDataLakeStoreWithAccountParameters `pulumi:"dataLakeStoreAccounts"`
-	// The default Data Lake Store account associated with this account.
-	DefaultDataLakeStoreAccount string `pulumi:"defaultDataLakeStoreAccount"`
-	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps *string `pulumi:"firewallAllowAzureIps"`
-	// The list of firewall rules associated with this account.
-	FirewallRules []CreateFirewallRuleWithAccountParameters `pulumi:"firewallRules"`
-	// The current state of the IP address firewall for this account.
-	FirewallState *string `pulumi:"firewallState"`
-	// The maximum supported degree of parallelism for this account.
-	MaxDegreeOfParallelism *int `pulumi:"maxDegreeOfParallelism"`
-	// The maximum supported degree of parallelism per job for this account.
-	MaxDegreeOfParallelismPerJob *int `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The maximum supported jobs running under the account at the same time.
-	MaxJobCount *int `pulumi:"maxJobCount"`
-	// The minimum supported priority per job for this account.
-	MinPriorityPerJob *int `pulumi:"minPriorityPerJob"`
-	// The commitment tier for the next month.
-	NewTier *string `pulumi:"newTier"`
-	// The number of days that job metadata is retained.
-	QueryStoreRetention *int `pulumi:"queryStoreRetention"`
-	// The list of Azure Blob Storage accounts associated with this account.
-	StorageAccounts []AddStorageAccountWithAccountParameters `pulumi:"storageAccounts"`
-}
-
-// CreateDataLakeAnalyticsAccountPropertiesInput is an input type that accepts CreateDataLakeAnalyticsAccountPropertiesArgs and CreateDataLakeAnalyticsAccountPropertiesOutput values.
-// You can construct a concrete instance of `CreateDataLakeAnalyticsAccountPropertiesInput` via:
-//
-//          CreateDataLakeAnalyticsAccountPropertiesArgs{...}
-type CreateDataLakeAnalyticsAccountPropertiesInput interface {
-	pulumi.Input
-
-	ToCreateDataLakeAnalyticsAccountPropertiesOutput() CreateDataLakeAnalyticsAccountPropertiesOutput
-	ToCreateDataLakeAnalyticsAccountPropertiesOutputWithContext(context.Context) CreateDataLakeAnalyticsAccountPropertiesOutput
-}
-
-type CreateDataLakeAnalyticsAccountPropertiesArgs struct {
-	// The list of compute policies associated with this account.
-	ComputePolicies CreateComputePolicyWithAccountParametersArrayInput `pulumi:"computePolicies"`
-	// The list of Data Lake Store accounts associated with this account.
-	DataLakeStoreAccounts AddDataLakeStoreWithAccountParametersArrayInput `pulumi:"dataLakeStoreAccounts"`
-	// The default Data Lake Store account associated with this account.
-	DefaultDataLakeStoreAccount pulumi.StringInput `pulumi:"defaultDataLakeStoreAccount"`
-	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps pulumi.StringPtrInput `pulumi:"firewallAllowAzureIps"`
-	// The list of firewall rules associated with this account.
-	FirewallRules CreateFirewallRuleWithAccountParametersArrayInput `pulumi:"firewallRules"`
-	// The current state of the IP address firewall for this account.
-	FirewallState pulumi.StringPtrInput `pulumi:"firewallState"`
-	// The maximum supported degree of parallelism for this account.
-	MaxDegreeOfParallelism pulumi.IntPtrInput `pulumi:"maxDegreeOfParallelism"`
-	// The maximum supported degree of parallelism per job for this account.
-	MaxDegreeOfParallelismPerJob pulumi.IntPtrInput `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The maximum supported jobs running under the account at the same time.
-	MaxJobCount pulumi.IntPtrInput `pulumi:"maxJobCount"`
-	// The minimum supported priority per job for this account.
-	MinPriorityPerJob pulumi.IntPtrInput `pulumi:"minPriorityPerJob"`
-	// The commitment tier for the next month.
-	NewTier pulumi.StringPtrInput `pulumi:"newTier"`
-	// The number of days that job metadata is retained.
-	QueryStoreRetention pulumi.IntPtrInput `pulumi:"queryStoreRetention"`
-	// The list of Azure Blob Storage accounts associated with this account.
-	StorageAccounts AddStorageAccountWithAccountParametersArrayInput `pulumi:"storageAccounts"`
-}
-
-func (CreateDataLakeAnalyticsAccountPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateDataLakeAnalyticsAccountProperties)(nil)).Elem()
-}
-
-func (i CreateDataLakeAnalyticsAccountPropertiesArgs) ToCreateDataLakeAnalyticsAccountPropertiesOutput() CreateDataLakeAnalyticsAccountPropertiesOutput {
-	return i.ToCreateDataLakeAnalyticsAccountPropertiesOutputWithContext(context.Background())
-}
-
-func (i CreateDataLakeAnalyticsAccountPropertiesArgs) ToCreateDataLakeAnalyticsAccountPropertiesOutputWithContext(ctx context.Context) CreateDataLakeAnalyticsAccountPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateDataLakeAnalyticsAccountPropertiesOutput)
-}
-
-func (i CreateDataLakeAnalyticsAccountPropertiesArgs) ToCreateDataLakeAnalyticsAccountPropertiesPtrOutput() CreateDataLakeAnalyticsAccountPropertiesPtrOutput {
-	return i.ToCreateDataLakeAnalyticsAccountPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CreateDataLakeAnalyticsAccountPropertiesArgs) ToCreateDataLakeAnalyticsAccountPropertiesPtrOutputWithContext(ctx context.Context) CreateDataLakeAnalyticsAccountPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateDataLakeAnalyticsAccountPropertiesOutput).ToCreateDataLakeAnalyticsAccountPropertiesPtrOutputWithContext(ctx)
-}
-
-// CreateDataLakeAnalyticsAccountPropertiesPtrInput is an input type that accepts CreateDataLakeAnalyticsAccountPropertiesArgs, CreateDataLakeAnalyticsAccountPropertiesPtr and CreateDataLakeAnalyticsAccountPropertiesPtrOutput values.
-// You can construct a concrete instance of `CreateDataLakeAnalyticsAccountPropertiesPtrInput` via:
-//
-//          CreateDataLakeAnalyticsAccountPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CreateDataLakeAnalyticsAccountPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCreateDataLakeAnalyticsAccountPropertiesPtrOutput() CreateDataLakeAnalyticsAccountPropertiesPtrOutput
-	ToCreateDataLakeAnalyticsAccountPropertiesPtrOutputWithContext(context.Context) CreateDataLakeAnalyticsAccountPropertiesPtrOutput
-}
-
-type createDataLakeAnalyticsAccountPropertiesPtrType CreateDataLakeAnalyticsAccountPropertiesArgs
-
-func CreateDataLakeAnalyticsAccountPropertiesPtr(v *CreateDataLakeAnalyticsAccountPropertiesArgs) CreateDataLakeAnalyticsAccountPropertiesPtrInput {
-	return (*createDataLakeAnalyticsAccountPropertiesPtrType)(v)
-}
-
-func (*createDataLakeAnalyticsAccountPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateDataLakeAnalyticsAccountProperties)(nil)).Elem()
-}
-
-func (i *createDataLakeAnalyticsAccountPropertiesPtrType) ToCreateDataLakeAnalyticsAccountPropertiesPtrOutput() CreateDataLakeAnalyticsAccountPropertiesPtrOutput {
-	return i.ToCreateDataLakeAnalyticsAccountPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *createDataLakeAnalyticsAccountPropertiesPtrType) ToCreateDataLakeAnalyticsAccountPropertiesPtrOutputWithContext(ctx context.Context) CreateDataLakeAnalyticsAccountPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateDataLakeAnalyticsAccountPropertiesPtrOutput)
-}
-
-type CreateDataLakeAnalyticsAccountPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CreateDataLakeAnalyticsAccountPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateDataLakeAnalyticsAccountProperties)(nil)).Elem()
-}
-
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) ToCreateDataLakeAnalyticsAccountPropertiesOutput() CreateDataLakeAnalyticsAccountPropertiesOutput {
-	return o
-}
-
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) ToCreateDataLakeAnalyticsAccountPropertiesOutputWithContext(ctx context.Context) CreateDataLakeAnalyticsAccountPropertiesOutput {
-	return o
-}
-
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) ToCreateDataLakeAnalyticsAccountPropertiesPtrOutput() CreateDataLakeAnalyticsAccountPropertiesPtrOutput {
-	return o.ToCreateDataLakeAnalyticsAccountPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) ToCreateDataLakeAnalyticsAccountPropertiesPtrOutputWithContext(ctx context.Context) CreateDataLakeAnalyticsAccountPropertiesPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeAnalyticsAccountProperties) *CreateDataLakeAnalyticsAccountProperties {
-		return &v
-	}).(CreateDataLakeAnalyticsAccountPropertiesPtrOutput)
-}
-
-// The list of compute policies associated with this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) ComputePolicies() CreateComputePolicyWithAccountParametersArrayOutput {
-	return o.ApplyT(func(v CreateDataLakeAnalyticsAccountProperties) []CreateComputePolicyWithAccountParameters {
-		return v.ComputePolicies
-	}).(CreateComputePolicyWithAccountParametersArrayOutput)
-}
-
-// The list of Data Lake Store accounts associated with this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) DataLakeStoreAccounts() AddDataLakeStoreWithAccountParametersArrayOutput {
-	return o.ApplyT(func(v CreateDataLakeAnalyticsAccountProperties) []AddDataLakeStoreWithAccountParameters {
-		return v.DataLakeStoreAccounts
-	}).(AddDataLakeStoreWithAccountParametersArrayOutput)
-}
-
-// The default Data Lake Store account associated with this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) DefaultDataLakeStoreAccount() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateDataLakeAnalyticsAccountProperties) string { return v.DefaultDataLakeStoreAccount }).(pulumi.StringOutput)
-}
-
-// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) FirewallAllowAzureIps() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeAnalyticsAccountProperties) *string { return v.FirewallAllowAzureIps }).(pulumi.StringPtrOutput)
-}
-
-// The list of firewall rules associated with this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) FirewallRules() CreateFirewallRuleWithAccountParametersArrayOutput {
-	return o.ApplyT(func(v CreateDataLakeAnalyticsAccountProperties) []CreateFirewallRuleWithAccountParameters {
-		return v.FirewallRules
-	}).(CreateFirewallRuleWithAccountParametersArrayOutput)
-}
-
-// The current state of the IP address firewall for this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) FirewallState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeAnalyticsAccountProperties) *string { return v.FirewallState }).(pulumi.StringPtrOutput)
-}
-
-// The maximum supported degree of parallelism for this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) MaxDegreeOfParallelism() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeAnalyticsAccountProperties) *int { return v.MaxDegreeOfParallelism }).(pulumi.IntPtrOutput)
-}
-
-// The maximum supported degree of parallelism per job for this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) MaxDegreeOfParallelismPerJob() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeAnalyticsAccountProperties) *int { return v.MaxDegreeOfParallelismPerJob }).(pulumi.IntPtrOutput)
-}
-
-// The maximum supported jobs running under the account at the same time.
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) MaxJobCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeAnalyticsAccountProperties) *int { return v.MaxJobCount }).(pulumi.IntPtrOutput)
-}
-
-// The minimum supported priority per job for this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) MinPriorityPerJob() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeAnalyticsAccountProperties) *int { return v.MinPriorityPerJob }).(pulumi.IntPtrOutput)
-}
-
-// The commitment tier for the next month.
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) NewTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeAnalyticsAccountProperties) *string { return v.NewTier }).(pulumi.StringPtrOutput)
-}
-
-// The number of days that job metadata is retained.
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) QueryStoreRetention() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeAnalyticsAccountProperties) *int { return v.QueryStoreRetention }).(pulumi.IntPtrOutput)
-}
-
-// The list of Azure Blob Storage accounts associated with this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesOutput) StorageAccounts() AddStorageAccountWithAccountParametersArrayOutput {
-	return o.ApplyT(func(v CreateDataLakeAnalyticsAccountProperties) []AddStorageAccountWithAccountParameters {
-		return v.StorageAccounts
-	}).(AddStorageAccountWithAccountParametersArrayOutput)
-}
-
-type CreateDataLakeAnalyticsAccountPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CreateDataLakeAnalyticsAccountPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateDataLakeAnalyticsAccountProperties)(nil)).Elem()
-}
-
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) ToCreateDataLakeAnalyticsAccountPropertiesPtrOutput() CreateDataLakeAnalyticsAccountPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) ToCreateDataLakeAnalyticsAccountPropertiesPtrOutputWithContext(ctx context.Context) CreateDataLakeAnalyticsAccountPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) Elem() CreateDataLakeAnalyticsAccountPropertiesOutput {
-	return o.ApplyT(func(v *CreateDataLakeAnalyticsAccountProperties) CreateDataLakeAnalyticsAccountProperties { return *v }).(CreateDataLakeAnalyticsAccountPropertiesOutput)
-}
-
-// The list of compute policies associated with this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) ComputePolicies() CreateComputePolicyWithAccountParametersArrayOutput {
-	return o.ApplyT(func(v *CreateDataLakeAnalyticsAccountProperties) []CreateComputePolicyWithAccountParameters {
-		if v == nil {
-			return nil
-		}
-		return v.ComputePolicies
-	}).(CreateComputePolicyWithAccountParametersArrayOutput)
-}
-
-// The list of Data Lake Store accounts associated with this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) DataLakeStoreAccounts() AddDataLakeStoreWithAccountParametersArrayOutput {
-	return o.ApplyT(func(v *CreateDataLakeAnalyticsAccountProperties) []AddDataLakeStoreWithAccountParameters {
-		if v == nil {
-			return nil
-		}
-		return v.DataLakeStoreAccounts
-	}).(AddDataLakeStoreWithAccountParametersArrayOutput)
-}
-
-// The default Data Lake Store account associated with this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) DefaultDataLakeStoreAccount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeAnalyticsAccountProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DefaultDataLakeStoreAccount
-	}).(pulumi.StringPtrOutput)
-}
-
-// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) FirewallAllowAzureIps() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeAnalyticsAccountProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FirewallAllowAzureIps
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of firewall rules associated with this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) FirewallRules() CreateFirewallRuleWithAccountParametersArrayOutput {
-	return o.ApplyT(func(v *CreateDataLakeAnalyticsAccountProperties) []CreateFirewallRuleWithAccountParameters {
-		if v == nil {
-			return nil
-		}
-		return v.FirewallRules
-	}).(CreateFirewallRuleWithAccountParametersArrayOutput)
-}
-
-// The current state of the IP address firewall for this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) FirewallState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeAnalyticsAccountProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FirewallState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The maximum supported degree of parallelism for this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) MaxDegreeOfParallelism() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeAnalyticsAccountProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxDegreeOfParallelism
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum supported degree of parallelism per job for this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) MaxDegreeOfParallelismPerJob() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeAnalyticsAccountProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxDegreeOfParallelismPerJob
-	}).(pulumi.IntPtrOutput)
-}
-
-// The maximum supported jobs running under the account at the same time.
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) MaxJobCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeAnalyticsAccountProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxJobCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// The minimum supported priority per job for this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) MinPriorityPerJob() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeAnalyticsAccountProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MinPriorityPerJob
-	}).(pulumi.IntPtrOutput)
-}
-
-// The commitment tier for the next month.
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) NewTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeAnalyticsAccountProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NewTier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The number of days that job metadata is retained.
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) QueryStoreRetention() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeAnalyticsAccountProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.QueryStoreRetention
-	}).(pulumi.IntPtrOutput)
-}
-
-// The list of Azure Blob Storage accounts associated with this account.
-func (o CreateDataLakeAnalyticsAccountPropertiesPtrOutput) StorageAccounts() AddStorageAccountWithAccountParametersArrayOutput {
-	return o.ApplyT(func(v *CreateDataLakeAnalyticsAccountProperties) []AddStorageAccountWithAccountParameters {
-		if v == nil {
-			return nil
-		}
-		return v.StorageAccounts
-	}).(AddStorageAccountWithAccountParametersArrayOutput)
-}
-
 // The parameters used to create a new firewall rule while creating a new Data Lake Analytics account.
 type CreateFirewallRuleWithAccountParameters struct {
+	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress string `pulumi:"endIpAddress"`
 	// The unique name of the firewall rule to create.
 	Name string `pulumi:"name"`
-	// The firewall rule properties to use when creating a new firewall rule.
-	Properties CreateOrUpdateFirewallRuleProperties `pulumi:"properties"`
+	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	StartIpAddress string `pulumi:"startIpAddress"`
 }
 
 // CreateFirewallRuleWithAccountParametersInput is an input type that accepts CreateFirewallRuleWithAccountParametersArgs and CreateFirewallRuleWithAccountParametersOutput values.
@@ -1407,10 +878,12 @@ type CreateFirewallRuleWithAccountParametersInput interface {
 
 // The parameters used to create a new firewall rule while creating a new Data Lake Analytics account.
 type CreateFirewallRuleWithAccountParametersArgs struct {
+	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
 	// The unique name of the firewall rule to create.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The firewall rule properties to use when creating a new firewall rule.
-	Properties CreateOrUpdateFirewallRulePropertiesInput `pulumi:"properties"`
+	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
 }
 
 func (CreateFirewallRuleWithAccountParametersArgs) ElementType() reflect.Type {
@@ -1465,16 +938,19 @@ func (o CreateFirewallRuleWithAccountParametersOutput) ToCreateFirewallRuleWithA
 	return o
 }
 
+// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+func (o CreateFirewallRuleWithAccountParametersOutput) EndIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v CreateFirewallRuleWithAccountParameters) string { return v.EndIpAddress }).(pulumi.StringOutput)
+}
+
 // The unique name of the firewall rule to create.
 func (o CreateFirewallRuleWithAccountParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CreateFirewallRuleWithAccountParameters) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The firewall rule properties to use when creating a new firewall rule.
-func (o CreateFirewallRuleWithAccountParametersOutput) Properties() CreateOrUpdateFirewallRulePropertiesOutput {
-	return o.ApplyT(func(v CreateFirewallRuleWithAccountParameters) CreateOrUpdateFirewallRuleProperties {
-		return v.Properties
-	}).(CreateOrUpdateFirewallRulePropertiesOutput)
+// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+func (o CreateFirewallRuleWithAccountParametersOutput) StartIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v CreateFirewallRuleWithAccountParameters) string { return v.StartIpAddress }).(pulumi.StringOutput)
 }
 
 type CreateFirewallRuleWithAccountParametersArrayOutput struct{ *pulumi.OutputState }
@@ -1495,350 +971,6 @@ func (o CreateFirewallRuleWithAccountParametersArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CreateFirewallRuleWithAccountParameters {
 		return vs[0].([]CreateFirewallRuleWithAccountParameters)[vs[1].(int)]
 	}).(CreateFirewallRuleWithAccountParametersOutput)
-}
-
-// The compute policy properties to use when creating a new compute policy.
-type CreateOrUpdateComputePolicyProperties struct {
-	// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
-	MaxDegreeOfParallelismPerJob *int `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
-	MinPriorityPerJob *int `pulumi:"minPriorityPerJob"`
-	// The AAD object identifier for the entity to create a policy for.
-	ObjectId string `pulumi:"objectId"`
-	// The type of AAD object the object identifier refers to.
-	ObjectType string `pulumi:"objectType"`
-}
-
-// CreateOrUpdateComputePolicyPropertiesInput is an input type that accepts CreateOrUpdateComputePolicyPropertiesArgs and CreateOrUpdateComputePolicyPropertiesOutput values.
-// You can construct a concrete instance of `CreateOrUpdateComputePolicyPropertiesInput` via:
-//
-//          CreateOrUpdateComputePolicyPropertiesArgs{...}
-type CreateOrUpdateComputePolicyPropertiesInput interface {
-	pulumi.Input
-
-	ToCreateOrUpdateComputePolicyPropertiesOutput() CreateOrUpdateComputePolicyPropertiesOutput
-	ToCreateOrUpdateComputePolicyPropertiesOutputWithContext(context.Context) CreateOrUpdateComputePolicyPropertiesOutput
-}
-
-// The compute policy properties to use when creating a new compute policy.
-type CreateOrUpdateComputePolicyPropertiesArgs struct {
-	// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
-	MaxDegreeOfParallelismPerJob pulumi.IntPtrInput `pulumi:"maxDegreeOfParallelismPerJob"`
-	// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
-	MinPriorityPerJob pulumi.IntPtrInput `pulumi:"minPriorityPerJob"`
-	// The AAD object identifier for the entity to create a policy for.
-	ObjectId pulumi.StringInput `pulumi:"objectId"`
-	// The type of AAD object the object identifier refers to.
-	ObjectType pulumi.StringInput `pulumi:"objectType"`
-}
-
-func (CreateOrUpdateComputePolicyPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateOrUpdateComputePolicyProperties)(nil)).Elem()
-}
-
-func (i CreateOrUpdateComputePolicyPropertiesArgs) ToCreateOrUpdateComputePolicyPropertiesOutput() CreateOrUpdateComputePolicyPropertiesOutput {
-	return i.ToCreateOrUpdateComputePolicyPropertiesOutputWithContext(context.Background())
-}
-
-func (i CreateOrUpdateComputePolicyPropertiesArgs) ToCreateOrUpdateComputePolicyPropertiesOutputWithContext(ctx context.Context) CreateOrUpdateComputePolicyPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateOrUpdateComputePolicyPropertiesOutput)
-}
-
-func (i CreateOrUpdateComputePolicyPropertiesArgs) ToCreateOrUpdateComputePolicyPropertiesPtrOutput() CreateOrUpdateComputePolicyPropertiesPtrOutput {
-	return i.ToCreateOrUpdateComputePolicyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CreateOrUpdateComputePolicyPropertiesArgs) ToCreateOrUpdateComputePolicyPropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateComputePolicyPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateOrUpdateComputePolicyPropertiesOutput).ToCreateOrUpdateComputePolicyPropertiesPtrOutputWithContext(ctx)
-}
-
-// CreateOrUpdateComputePolicyPropertiesPtrInput is an input type that accepts CreateOrUpdateComputePolicyPropertiesArgs, CreateOrUpdateComputePolicyPropertiesPtr and CreateOrUpdateComputePolicyPropertiesPtrOutput values.
-// You can construct a concrete instance of `CreateOrUpdateComputePolicyPropertiesPtrInput` via:
-//
-//          CreateOrUpdateComputePolicyPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CreateOrUpdateComputePolicyPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCreateOrUpdateComputePolicyPropertiesPtrOutput() CreateOrUpdateComputePolicyPropertiesPtrOutput
-	ToCreateOrUpdateComputePolicyPropertiesPtrOutputWithContext(context.Context) CreateOrUpdateComputePolicyPropertiesPtrOutput
-}
-
-type createOrUpdateComputePolicyPropertiesPtrType CreateOrUpdateComputePolicyPropertiesArgs
-
-func CreateOrUpdateComputePolicyPropertiesPtr(v *CreateOrUpdateComputePolicyPropertiesArgs) CreateOrUpdateComputePolicyPropertiesPtrInput {
-	return (*createOrUpdateComputePolicyPropertiesPtrType)(v)
-}
-
-func (*createOrUpdateComputePolicyPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateOrUpdateComputePolicyProperties)(nil)).Elem()
-}
-
-func (i *createOrUpdateComputePolicyPropertiesPtrType) ToCreateOrUpdateComputePolicyPropertiesPtrOutput() CreateOrUpdateComputePolicyPropertiesPtrOutput {
-	return i.ToCreateOrUpdateComputePolicyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *createOrUpdateComputePolicyPropertiesPtrType) ToCreateOrUpdateComputePolicyPropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateComputePolicyPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateOrUpdateComputePolicyPropertiesPtrOutput)
-}
-
-// The compute policy properties to use when creating a new compute policy.
-type CreateOrUpdateComputePolicyPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CreateOrUpdateComputePolicyPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateOrUpdateComputePolicyProperties)(nil)).Elem()
-}
-
-func (o CreateOrUpdateComputePolicyPropertiesOutput) ToCreateOrUpdateComputePolicyPropertiesOutput() CreateOrUpdateComputePolicyPropertiesOutput {
-	return o
-}
-
-func (o CreateOrUpdateComputePolicyPropertiesOutput) ToCreateOrUpdateComputePolicyPropertiesOutputWithContext(ctx context.Context) CreateOrUpdateComputePolicyPropertiesOutput {
-	return o
-}
-
-func (o CreateOrUpdateComputePolicyPropertiesOutput) ToCreateOrUpdateComputePolicyPropertiesPtrOutput() CreateOrUpdateComputePolicyPropertiesPtrOutput {
-	return o.ToCreateOrUpdateComputePolicyPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CreateOrUpdateComputePolicyPropertiesOutput) ToCreateOrUpdateComputePolicyPropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateComputePolicyPropertiesPtrOutput {
-	return o.ApplyT(func(v CreateOrUpdateComputePolicyProperties) *CreateOrUpdateComputePolicyProperties {
-		return &v
-	}).(CreateOrUpdateComputePolicyPropertiesPtrOutput)
-}
-
-// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
-func (o CreateOrUpdateComputePolicyPropertiesOutput) MaxDegreeOfParallelismPerJob() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CreateOrUpdateComputePolicyProperties) *int { return v.MaxDegreeOfParallelismPerJob }).(pulumi.IntPtrOutput)
-}
-
-// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
-func (o CreateOrUpdateComputePolicyPropertiesOutput) MinPriorityPerJob() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v CreateOrUpdateComputePolicyProperties) *int { return v.MinPriorityPerJob }).(pulumi.IntPtrOutput)
-}
-
-// The AAD object identifier for the entity to create a policy for.
-func (o CreateOrUpdateComputePolicyPropertiesOutput) ObjectId() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateOrUpdateComputePolicyProperties) string { return v.ObjectId }).(pulumi.StringOutput)
-}
-
-// The type of AAD object the object identifier refers to.
-func (o CreateOrUpdateComputePolicyPropertiesOutput) ObjectType() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateOrUpdateComputePolicyProperties) string { return v.ObjectType }).(pulumi.StringOutput)
-}
-
-type CreateOrUpdateComputePolicyPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CreateOrUpdateComputePolicyPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateOrUpdateComputePolicyProperties)(nil)).Elem()
-}
-
-func (o CreateOrUpdateComputePolicyPropertiesPtrOutput) ToCreateOrUpdateComputePolicyPropertiesPtrOutput() CreateOrUpdateComputePolicyPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateOrUpdateComputePolicyPropertiesPtrOutput) ToCreateOrUpdateComputePolicyPropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateComputePolicyPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateOrUpdateComputePolicyPropertiesPtrOutput) Elem() CreateOrUpdateComputePolicyPropertiesOutput {
-	return o.ApplyT(func(v *CreateOrUpdateComputePolicyProperties) CreateOrUpdateComputePolicyProperties { return *v }).(CreateOrUpdateComputePolicyPropertiesOutput)
-}
-
-// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
-func (o CreateOrUpdateComputePolicyPropertiesPtrOutput) MaxDegreeOfParallelismPerJob() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CreateOrUpdateComputePolicyProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxDegreeOfParallelismPerJob
-	}).(pulumi.IntPtrOutput)
-}
-
-// The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
-func (o CreateOrUpdateComputePolicyPropertiesPtrOutput) MinPriorityPerJob() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CreateOrUpdateComputePolicyProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MinPriorityPerJob
-	}).(pulumi.IntPtrOutput)
-}
-
-// The AAD object identifier for the entity to create a policy for.
-func (o CreateOrUpdateComputePolicyPropertiesPtrOutput) ObjectId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateOrUpdateComputePolicyProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ObjectId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of AAD object the object identifier refers to.
-func (o CreateOrUpdateComputePolicyPropertiesPtrOutput) ObjectType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateOrUpdateComputePolicyProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ObjectType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The firewall rule properties to use when creating a new firewall rule.
-type CreateOrUpdateFirewallRuleProperties struct {
-	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	EndIpAddress string `pulumi:"endIpAddress"`
-	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	StartIpAddress string `pulumi:"startIpAddress"`
-}
-
-// CreateOrUpdateFirewallRulePropertiesInput is an input type that accepts CreateOrUpdateFirewallRulePropertiesArgs and CreateOrUpdateFirewallRulePropertiesOutput values.
-// You can construct a concrete instance of `CreateOrUpdateFirewallRulePropertiesInput` via:
-//
-//          CreateOrUpdateFirewallRulePropertiesArgs{...}
-type CreateOrUpdateFirewallRulePropertiesInput interface {
-	pulumi.Input
-
-	ToCreateOrUpdateFirewallRulePropertiesOutput() CreateOrUpdateFirewallRulePropertiesOutput
-	ToCreateOrUpdateFirewallRulePropertiesOutputWithContext(context.Context) CreateOrUpdateFirewallRulePropertiesOutput
-}
-
-// The firewall rule properties to use when creating a new firewall rule.
-type CreateOrUpdateFirewallRulePropertiesArgs struct {
-	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
-	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
-}
-
-func (CreateOrUpdateFirewallRulePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateOrUpdateFirewallRuleProperties)(nil)).Elem()
-}
-
-func (i CreateOrUpdateFirewallRulePropertiesArgs) ToCreateOrUpdateFirewallRulePropertiesOutput() CreateOrUpdateFirewallRulePropertiesOutput {
-	return i.ToCreateOrUpdateFirewallRulePropertiesOutputWithContext(context.Background())
-}
-
-func (i CreateOrUpdateFirewallRulePropertiesArgs) ToCreateOrUpdateFirewallRulePropertiesOutputWithContext(ctx context.Context) CreateOrUpdateFirewallRulePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateOrUpdateFirewallRulePropertiesOutput)
-}
-
-func (i CreateOrUpdateFirewallRulePropertiesArgs) ToCreateOrUpdateFirewallRulePropertiesPtrOutput() CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return i.ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CreateOrUpdateFirewallRulePropertiesArgs) ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateOrUpdateFirewallRulePropertiesOutput).ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(ctx)
-}
-
-// CreateOrUpdateFirewallRulePropertiesPtrInput is an input type that accepts CreateOrUpdateFirewallRulePropertiesArgs, CreateOrUpdateFirewallRulePropertiesPtr and CreateOrUpdateFirewallRulePropertiesPtrOutput values.
-// You can construct a concrete instance of `CreateOrUpdateFirewallRulePropertiesPtrInput` via:
-//
-//          CreateOrUpdateFirewallRulePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CreateOrUpdateFirewallRulePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCreateOrUpdateFirewallRulePropertiesPtrOutput() CreateOrUpdateFirewallRulePropertiesPtrOutput
-	ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(context.Context) CreateOrUpdateFirewallRulePropertiesPtrOutput
-}
-
-type createOrUpdateFirewallRulePropertiesPtrType CreateOrUpdateFirewallRulePropertiesArgs
-
-func CreateOrUpdateFirewallRulePropertiesPtr(v *CreateOrUpdateFirewallRulePropertiesArgs) CreateOrUpdateFirewallRulePropertiesPtrInput {
-	return (*createOrUpdateFirewallRulePropertiesPtrType)(v)
-}
-
-func (*createOrUpdateFirewallRulePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateOrUpdateFirewallRuleProperties)(nil)).Elem()
-}
-
-func (i *createOrUpdateFirewallRulePropertiesPtrType) ToCreateOrUpdateFirewallRulePropertiesPtrOutput() CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return i.ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *createOrUpdateFirewallRulePropertiesPtrType) ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateOrUpdateFirewallRulePropertiesPtrOutput)
-}
-
-// The firewall rule properties to use when creating a new firewall rule.
-type CreateOrUpdateFirewallRulePropertiesOutput struct{ *pulumi.OutputState }
-
-func (CreateOrUpdateFirewallRulePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateOrUpdateFirewallRuleProperties)(nil)).Elem()
-}
-
-func (o CreateOrUpdateFirewallRulePropertiesOutput) ToCreateOrUpdateFirewallRulePropertiesOutput() CreateOrUpdateFirewallRulePropertiesOutput {
-	return o
-}
-
-func (o CreateOrUpdateFirewallRulePropertiesOutput) ToCreateOrUpdateFirewallRulePropertiesOutputWithContext(ctx context.Context) CreateOrUpdateFirewallRulePropertiesOutput {
-	return o
-}
-
-func (o CreateOrUpdateFirewallRulePropertiesOutput) ToCreateOrUpdateFirewallRulePropertiesPtrOutput() CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return o.ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CreateOrUpdateFirewallRulePropertiesOutput) ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return o.ApplyT(func(v CreateOrUpdateFirewallRuleProperties) *CreateOrUpdateFirewallRuleProperties {
-		return &v
-	}).(CreateOrUpdateFirewallRulePropertiesPtrOutput)
-}
-
-// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-func (o CreateOrUpdateFirewallRulePropertiesOutput) EndIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateOrUpdateFirewallRuleProperties) string { return v.EndIpAddress }).(pulumi.StringOutput)
-}
-
-// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-func (o CreateOrUpdateFirewallRulePropertiesOutput) StartIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateOrUpdateFirewallRuleProperties) string { return v.StartIpAddress }).(pulumi.StringOutput)
-}
-
-type CreateOrUpdateFirewallRulePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CreateOrUpdateFirewallRulePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateOrUpdateFirewallRuleProperties)(nil)).Elem()
-}
-
-func (o CreateOrUpdateFirewallRulePropertiesPtrOutput) ToCreateOrUpdateFirewallRulePropertiesPtrOutput() CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return o
-}
-
-func (o CreateOrUpdateFirewallRulePropertiesPtrOutput) ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return o
-}
-
-func (o CreateOrUpdateFirewallRulePropertiesPtrOutput) Elem() CreateOrUpdateFirewallRulePropertiesOutput {
-	return o.ApplyT(func(v *CreateOrUpdateFirewallRuleProperties) CreateOrUpdateFirewallRuleProperties { return *v }).(CreateOrUpdateFirewallRulePropertiesOutput)
-}
-
-// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-func (o CreateOrUpdateFirewallRulePropertiesPtrOutput) EndIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateOrUpdateFirewallRuleProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndIpAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-func (o CreateOrUpdateFirewallRulePropertiesPtrOutput) StartIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateOrUpdateFirewallRuleProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StartIpAddress
-	}).(pulumi.StringPtrOutput)
 }
 
 // The account specific properties that are associated with an underlying Data Lake Analytics account. Returned only when retrieving a specific account.
@@ -3203,11 +2335,8 @@ func (o StorageAccountInformationResponseArrayOutput) Index(i pulumi.IntInput) S
 
 func init() {
 	pulumi.RegisterOutputType(AccountTypeOutput{})
-	pulumi.RegisterOutputType(AddDataLakeStorePropertiesOutput{})
-	pulumi.RegisterOutputType(AddDataLakeStorePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AddDataLakeStoreWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(AddDataLakeStoreWithAccountParametersArrayOutput{})
-	pulumi.RegisterOutputType(AddStorageAccountPropertiesOutput{})
 	pulumi.RegisterOutputType(AddStorageAccountWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(AddStorageAccountWithAccountParametersArrayOutput{})
 	pulumi.RegisterOutputType(ComputePolicyTypeOutput{})
@@ -3217,14 +2346,8 @@ func init() {
 	pulumi.RegisterOutputType(ComputePolicyResponseArrayOutput{})
 	pulumi.RegisterOutputType(CreateComputePolicyWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(CreateComputePolicyWithAccountParametersArrayOutput{})
-	pulumi.RegisterOutputType(CreateDataLakeAnalyticsAccountPropertiesOutput{})
-	pulumi.RegisterOutputType(CreateDataLakeAnalyticsAccountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CreateFirewallRuleWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(CreateFirewallRuleWithAccountParametersArrayOutput{})
-	pulumi.RegisterOutputType(CreateOrUpdateComputePolicyPropertiesOutput{})
-	pulumi.RegisterOutputType(CreateOrUpdateComputePolicyPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(CreateOrUpdateFirewallRulePropertiesOutput{})
-	pulumi.RegisterOutputType(CreateOrUpdateFirewallRulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeAnalyticsAccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DataLakeAnalyticsAccountPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DataLakeStoreAccountInformationPropertiesResponseOutput{})

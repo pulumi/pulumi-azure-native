@@ -25,8 +25,14 @@ type FileServer struct {
 // NewFileServer registers a new resource with the given unique name, arguments, and options.
 func NewFileServer(ctx *pulumi.Context,
 	name string, args *FileServerArgs, opts ...pulumi.ResourceOption) (*FileServer, error) {
+	if args == nil || args.BackupScheduleGroupId == nil {
+		return nil, errors.New("missing required argument 'BackupScheduleGroupId'")
+	}
 	if args == nil || args.DeviceName == nil {
 		return nil, errors.New("missing required argument 'DeviceName'")
+	}
+	if args == nil || args.DomainName == nil {
+		return nil, errors.New("missing required argument 'DomainName'")
 	}
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
@@ -34,11 +40,11 @@ func NewFileServer(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StorageDomainId == nil {
+		return nil, errors.New("missing required argument 'StorageDomainId'")
 	}
 	if args == nil {
 		args = &FileServerArgs{}
@@ -87,30 +93,42 @@ func (FileServerState) ElementType() reflect.Type {
 }
 
 type fileServerArgs struct {
+	// The backup policy id.
+	BackupScheduleGroupId string `pulumi:"backupScheduleGroupId"`
+	// The description of the file server
+	Description *string `pulumi:"description"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
+	// Domain of the file server
+	DomainName string `pulumi:"domainName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The file server name.
 	Name string `pulumi:"name"`
-	// The properties.
-	Properties FileServerProperties `pulumi:"properties"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The storage domain id.
+	StorageDomainId string `pulumi:"storageDomainId"`
 }
 
 // The set of arguments for constructing a FileServer resource.
 type FileServerArgs struct {
+	// The backup policy id.
+	BackupScheduleGroupId pulumi.StringInput
+	// The description of the file server
+	Description pulumi.StringPtrInput
 	// The device name.
 	DeviceName pulumi.StringInput
+	// Domain of the file server
+	DomainName pulumi.StringInput
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The file server name.
 	Name pulumi.StringInput
-	// The properties.
-	Properties FileServerPropertiesInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
+	// The storage domain id.
+	StorageDomainId pulumi.StringInput
 }
 
 func (FileServerArgs) ElementType() reflect.Type {

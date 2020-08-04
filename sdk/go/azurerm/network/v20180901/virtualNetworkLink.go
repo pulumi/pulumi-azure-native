@@ -107,12 +107,14 @@ type virtualNetworkLinkArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the Private DNS zone (without a terminating dot).
 	PrivateZoneName string `pulumi:"privateZoneName"`
-	// Properties of the virtual network link to the Private DNS zone.
-	Properties *VirtualNetworkLinkProperties `pulumi:"properties"`
+	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
+	RegistrationEnabled *bool `pulumi:"registrationEnabled"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The reference of the virtual network.
+	VirtualNetwork *SubResource `pulumi:"virtualNetwork"`
 }
 
 // The set of arguments for constructing a VirtualNetworkLink resource.
@@ -125,12 +127,14 @@ type VirtualNetworkLinkArgs struct {
 	Name pulumi.StringInput
 	// The name of the Private DNS zone (without a terminating dot).
 	PrivateZoneName pulumi.StringInput
-	// Properties of the virtual network link to the Private DNS zone.
-	Properties VirtualNetworkLinkPropertiesPtrInput
+	// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
+	RegistrationEnabled pulumi.BoolPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The reference of the virtual network.
+	VirtualNetwork SubResourcePtrInput
 }
 
 func (VirtualNetworkLinkArgs) ElementType() reflect.Type {

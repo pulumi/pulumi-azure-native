@@ -31,6 +31,9 @@ func NewApiPolicy(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.PolicyContent == nil {
+		return nil, errors.New("missing required argument 'PolicyContent'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -88,8 +91,8 @@ type apiPolicyArgs struct {
 	ApiId string `pulumi:"apiId"`
 	// The identifier of the Policy.
 	Name string `pulumi:"name"`
-	// Properties of the Policy.
-	Properties *PolicyContractProperties `pulumi:"properties"`
+	// Json escaped Xml Encoded contents of the Policy.
+	PolicyContent string `pulumi:"policyContent"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -102,8 +105,8 @@ type ApiPolicyArgs struct {
 	ApiId pulumi.StringInput
 	// The identifier of the Policy.
 	Name pulumi.StringInput
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesPtrInput
+	// Json escaped Xml Encoded contents of the Policy.
+	PolicyContent pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

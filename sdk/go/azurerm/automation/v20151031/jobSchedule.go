@@ -31,11 +31,14 @@ func NewJobSchedule(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Runbook == nil {
+		return nil, errors.New("missing required argument 'Runbook'")
+	}
+	if args == nil || args.Schedule == nil {
+		return nil, errors.New("missing required argument 'Schedule'")
 	}
 	if args == nil {
 		args = &JobScheduleArgs{}
@@ -88,10 +91,16 @@ type jobScheduleArgs struct {
 	AutomationAccountName string `pulumi:"automationAccountName"`
 	// The job schedule name.
 	Name string `pulumi:"name"`
-	// Gets or sets the list of job schedule properties.
-	Properties JobScheduleCreateProperties `pulumi:"properties"`
+	// Gets or sets a list of job properties.
+	Parameters map[string]string `pulumi:"parameters"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets the hybrid worker group that the scheduled job should run on.
+	RunOn *string `pulumi:"runOn"`
+	// Gets or sets the runbook.
+	Runbook RunbookAssociationProperty `pulumi:"runbook"`
+	// Gets or sets the schedule.
+	Schedule ScheduleAssociationProperty `pulumi:"schedule"`
 }
 
 // The set of arguments for constructing a JobSchedule resource.
@@ -100,10 +109,16 @@ type JobScheduleArgs struct {
 	AutomationAccountName pulumi.StringInput
 	// The job schedule name.
 	Name pulumi.StringInput
-	// Gets or sets the list of job schedule properties.
-	Properties JobScheduleCreatePropertiesInput
+	// Gets or sets a list of job properties.
+	Parameters pulumi.StringMapInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets the hybrid worker group that the scheduled job should run on.
+	RunOn pulumi.StringPtrInput
+	// Gets or sets the runbook.
+	Runbook RunbookAssociationPropertyInput
+	// Gets or sets the schedule.
+	Schedule ScheduleAssociationPropertyInput
 }
 
 func (JobScheduleArgs) ElementType() reflect.Type {

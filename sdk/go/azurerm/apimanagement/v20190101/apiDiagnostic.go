@@ -28,6 +28,9 @@ func NewApiDiagnostic(ctx *pulumi.Context,
 	if args == nil || args.ApiId == nil {
 		return nil, errors.New("missing required argument 'ApiId'")
 	}
+	if args == nil || args.LoggerId == nil {
+		return nil, errors.New("missing required argument 'LoggerId'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -84,30 +87,58 @@ func (ApiDiagnosticState) ElementType() reflect.Type {
 }
 
 type apiDiagnosticArgs struct {
+	// Specifies for what type of messages sampling settings should not apply.
+	AlwaysLog *string `pulumi:"alwaysLog"`
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId string `pulumi:"apiId"`
+	// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+	Backend *PipelineDiagnosticSettings `pulumi:"backend"`
+	// Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
+	EnableHttpCorrelationHeaders *bool `pulumi:"enableHttpCorrelationHeaders"`
+	// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+	Frontend *PipelineDiagnosticSettings `pulumi:"frontend"`
+	// Sets correlation protocol to use for Application Insights diagnostics.
+	HttpCorrelationProtocol *string `pulumi:"httpCorrelationProtocol"`
+	// Resource Id of a target logger.
+	LoggerId string `pulumi:"loggerId"`
 	// Diagnostic identifier. Must be unique in the current API Management service instance.
 	Name string `pulumi:"name"`
-	// Diagnostic entity contract properties.
-	Properties *DiagnosticContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Sampling settings for Diagnostic.
+	Sampling *SamplingSettings `pulumi:"sampling"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// The verbosity level applied to traces emitted by trace policies.
+	Verbosity *string `pulumi:"verbosity"`
 }
 
 // The set of arguments for constructing a ApiDiagnostic resource.
 type ApiDiagnosticArgs struct {
+	// Specifies for what type of messages sampling settings should not apply.
+	AlwaysLog pulumi.StringPtrInput
 	// API identifier. Must be unique in the current API Management service instance.
 	ApiId pulumi.StringInput
+	// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+	Backend PipelineDiagnosticSettingsPtrInput
+	// Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
+	EnableHttpCorrelationHeaders pulumi.BoolPtrInput
+	// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+	Frontend PipelineDiagnosticSettingsPtrInput
+	// Sets correlation protocol to use for Application Insights diagnostics.
+	HttpCorrelationProtocol pulumi.StringPtrInput
+	// Resource Id of a target logger.
+	LoggerId pulumi.StringInput
 	// Diagnostic identifier. Must be unique in the current API Management service instance.
 	Name pulumi.StringInput
-	// Diagnostic entity contract properties.
-	Properties DiagnosticContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Sampling settings for Diagnostic.
+	Sampling SamplingSettingsPtrInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// The verbosity level applied to traces emitted by trace policies.
+	Verbosity pulumi.StringPtrInput
 }
 
 func (ApiDiagnosticArgs) ElementType() reflect.Type {

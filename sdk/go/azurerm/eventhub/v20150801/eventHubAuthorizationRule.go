@@ -39,6 +39,9 @@ func NewEventHubAuthorizationRule(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.Rights == nil {
+		return nil, errors.New("missing required argument 'Rights'")
+	}
 	if args == nil {
 		args = &EventHubAuthorizationRuleArgs{}
 	}
@@ -98,10 +101,10 @@ type eventHubAuthorizationRuleArgs struct {
 	Name string `pulumi:"name"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Properties supplied to create or update SharedAccessAuthorizationRule
-	Properties *SharedAccessAuthorizationRuleProperties `pulumi:"properties"`
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a EventHubAuthorizationRule resource.
@@ -114,10 +117,10 @@ type EventHubAuthorizationRuleArgs struct {
 	Name pulumi.StringInput
 	// The Namespace name
 	NamespaceName pulumi.StringInput
-	// Properties supplied to create or update SharedAccessAuthorizationRule
-	Properties SharedAccessAuthorizationRulePropertiesPtrInput
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput
 }
 
 func (EventHubAuthorizationRuleArgs) ElementType() reflect.Type {

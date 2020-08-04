@@ -41,6 +41,9 @@ func NewEnvironmentSetting(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.ResourceSettings == nil {
+		return nil, errors.New("missing required argument 'ResourceSettings'")
+	}
 	if args == nil {
 		args = &EnvironmentSettingArgs{}
 	}
@@ -96,6 +99,10 @@ func (EnvironmentSettingState) ElementType() reflect.Type {
 }
 
 type environmentSettingArgs struct {
+	// Describes the user's progress in configuring their environment setting
+	ConfigurationState *string `pulumi:"configurationState"`
+	// Describes the environment and its resource settings
+	Description *string `pulumi:"description"`
 	// The name of the lab Account.
 	LabAccountName string `pulumi:"labAccountName"`
 	// The name of the lab.
@@ -104,16 +111,26 @@ type environmentSettingArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the environment Setting.
 	Name string `pulumi:"name"`
-	// The properties of the Environment Setting resource
-	Properties *EnvironmentSettingProperties `pulumi:"properties"`
+	// The provisioning status of the resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The resource specific settings
+	ResourceSettings ResourceSettings `pulumi:"resourceSettings"`
 	// The tags of the resource.
 	Tags map[string]string `pulumi:"tags"`
+	// Brief title describing the environment and its resource settings
+	Title *string `pulumi:"title"`
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier *string `pulumi:"uniqueIdentifier"`
 }
 
 // The set of arguments for constructing a EnvironmentSetting resource.
 type EnvironmentSettingArgs struct {
+	// Describes the user's progress in configuring their environment setting
+	ConfigurationState pulumi.StringPtrInput
+	// Describes the environment and its resource settings
+	Description pulumi.StringPtrInput
 	// The name of the lab Account.
 	LabAccountName pulumi.StringInput
 	// The name of the lab.
@@ -122,12 +139,18 @@ type EnvironmentSettingArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the environment Setting.
 	Name pulumi.StringInput
-	// The properties of the Environment Setting resource
-	Properties EnvironmentSettingPropertiesPtrInput
+	// The provisioning status of the resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The resource specific settings
+	ResourceSettings ResourceSettingsInput
 	// The tags of the resource.
 	Tags pulumi.StringMapInput
+	// Brief title describing the environment and its resource settings
+	Title pulumi.StringPtrInput
+	// The unique immutable identifier of a resource (Guid).
+	UniqueIdentifier pulumi.StringPtrInput
 }
 
 func (EnvironmentSettingArgs) ElementType() reflect.Type {

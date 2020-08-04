@@ -84,26 +84,40 @@ func (WebAppVnetConnectionState) ElementType() reflect.Type {
 }
 
 type webAppVnetConnectionArgs struct {
+	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
+	// Point-To-Site VPN connection.
+	CertBlob *string `pulumi:"certBlob"`
+	// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+	DnsServers *string `pulumi:"dnsServers"`
+	// Flag that is used to denote if this is VNET injection
+	IsSwift *bool `pulumi:"isSwift"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Name of an existing Virtual Network.
 	Name string `pulumi:"name"`
-	// VnetInfo resource specific properties
-	Properties *VnetInfoProperties `pulumi:"properties"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The Virtual Network's resource ID.
+	VnetResourceId *string `pulumi:"vnetResourceId"`
 }
 
 // The set of arguments for constructing a WebAppVnetConnection resource.
 type WebAppVnetConnectionArgs struct {
+	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
+	// Point-To-Site VPN connection.
+	CertBlob pulumi.StringPtrInput
+	// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+	DnsServers pulumi.StringPtrInput
+	// Flag that is used to denote if this is VNET injection
+	IsSwift pulumi.BoolPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Name of an existing Virtual Network.
 	Name pulumi.StringInput
-	// VnetInfo resource specific properties
-	Properties VnetInfoPropertiesPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// The Virtual Network's resource ID.
+	VnetResourceId pulumi.StringPtrInput
 }
 
 func (WebAppVnetConnectionArgs) ElementType() reflect.Type {

@@ -29,14 +29,17 @@ type AlertRule struct {
 // NewAlertRule registers a new resource with the given unique name, arguments, and options.
 func NewAlertRule(ctx *pulumi.Context,
 	name string, args *AlertRuleArgs, opts ...pulumi.ResourceOption) (*AlertRule, error) {
+	if args == nil || args.Condition == nil {
+		return nil, errors.New("missing required argument 'Condition'")
+	}
+	if args == nil || args.IsEnabled == nil {
+		return nil, errors.New("missing required argument 'IsEnabled'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -96,12 +99,18 @@ func (AlertRuleState) ElementType() reflect.Type {
 }
 
 type alertRuleArgs struct {
+	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+	Actions []RuleAction `pulumi:"actions"`
+	// the condition that results in the alert rule being activated.
+	Condition RuleCondition `pulumi:"condition"`
+	// the description of the alert rule that will be included in the alert email.
+	Description *string `pulumi:"description"`
+	// the flag that indicates whether the alert rule is enabled.
+	IsEnabled bool `pulumi:"isEnabled"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the rule.
 	Name string `pulumi:"name"`
-	// The alert rule properties of the resource.
-	Properties AlertRuleDefinition `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -110,12 +119,18 @@ type alertRuleArgs struct {
 
 // The set of arguments for constructing a AlertRule resource.
 type AlertRuleArgs struct {
+	// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+	Actions RuleActionArrayInput
+	// the condition that results in the alert rule being activated.
+	Condition RuleConditionInput
+	// the description of the alert rule that will be included in the alert email.
+	Description pulumi.StringPtrInput
+	// the flag that indicates whether the alert rule is enabled.
+	IsEnabled pulumi.BoolInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the rule.
 	Name pulumi.StringInput
-	// The alert rule properties of the resource.
-	Properties AlertRuleDefinitionInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

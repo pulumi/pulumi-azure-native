@@ -28,6 +28,9 @@ func NewApi(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.Path == nil {
+		return nil, errors.New("missing required argument 'Path'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -81,26 +84,110 @@ func (ApiState) ElementType() reflect.Type {
 }
 
 type apiArgs struct {
+	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	ApiRevision *string `pulumi:"apiRevision"`
+	// Description of the Api Revision.
+	ApiRevisionDescription *string `pulumi:"apiRevisionDescription"`
+	// Type of API.
+	ApiType *string `pulumi:"apiType"`
+	// Indicates the Version identifier of the API if the API is versioned
+	ApiVersion *string `pulumi:"apiVersion"`
+	// Description of the Api Version.
+	ApiVersionDescription *string `pulumi:"apiVersionDescription"`
+	// Version set details
+	ApiVersionSet *ApiVersionSetContractDetails `pulumi:"apiVersionSet"`
+	// A resource identifier for the related ApiVersionSet.
+	ApiVersionSetId *string `pulumi:"apiVersionSetId"`
+	// Collection of authentication settings included into this API.
+	AuthenticationSettings *AuthenticationSettingsContract `pulumi:"authenticationSettings"`
+	// Description of the API. May include HTML formatting tags.
+	Description *string `pulumi:"description"`
+	// API name. Must be 1 to 300 characters long.
+	DisplayName *string `pulumi:"displayName"`
+	// Format of the Content in which the API is getting imported.
+	Format *string `pulumi:"format"`
+	// Indicates if API revision is current api revision.
+	IsCurrent *bool `pulumi:"isCurrent"`
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
 	Name string `pulumi:"name"`
-	// Api entity create of update properties.
-	Properties *ApiCreateOrUpdateProperties `pulumi:"properties"`
+	// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+	Path string `pulumi:"path"`
+	// Describes on which protocols the operations in this API can be invoked.
+	Protocols []string `pulumi:"protocols"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
+	ServiceUrl *string `pulumi:"serviceUrl"`
+	// Type of Api to create.
+	//  * `http` creates a SOAP to REST API
+	//  * `soap` creates a SOAP pass-through API .
+	SoapApiType *string `pulumi:"soapApiType"`
+	// API identifier of the source API.
+	SourceApiId *string `pulumi:"sourceApiId"`
+	// Protocols over which API is made available.
+	SubscriptionKeyParameterNames *SubscriptionKeyParameterNamesContract `pulumi:"subscriptionKeyParameterNames"`
+	// Specifies whether an API or Product subscription is required for accessing the API.
+	SubscriptionRequired *bool `pulumi:"subscriptionRequired"`
+	// Content value when Importing an API.
+	Value *string `pulumi:"value"`
+	// Criteria to limit import of WSDL to a subset of the document.
+	WsdlSelector *ApiCreateOrUpdatePropertiesProperties `pulumi:"wsdlSelector"`
 }
 
 // The set of arguments for constructing a Api resource.
 type ApiArgs struct {
+	// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+	ApiRevision pulumi.StringPtrInput
+	// Description of the Api Revision.
+	ApiRevisionDescription pulumi.StringPtrInput
+	// Type of API.
+	ApiType pulumi.StringPtrInput
+	// Indicates the Version identifier of the API if the API is versioned
+	ApiVersion pulumi.StringPtrInput
+	// Description of the Api Version.
+	ApiVersionDescription pulumi.StringPtrInput
+	// Version set details
+	ApiVersionSet ApiVersionSetContractDetailsPtrInput
+	// A resource identifier for the related ApiVersionSet.
+	ApiVersionSetId pulumi.StringPtrInput
+	// Collection of authentication settings included into this API.
+	AuthenticationSettings AuthenticationSettingsContractPtrInput
+	// Description of the API. May include HTML formatting tags.
+	Description pulumi.StringPtrInput
+	// API name. Must be 1 to 300 characters long.
+	DisplayName pulumi.StringPtrInput
+	// Format of the Content in which the API is getting imported.
+	Format pulumi.StringPtrInput
+	// Indicates if API revision is current api revision.
+	IsCurrent pulumi.BoolPtrInput
 	// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
 	Name pulumi.StringInput
-	// Api entity create of update properties.
-	Properties ApiCreateOrUpdatePropertiesPtrInput
+	// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
+	Path pulumi.StringInput
+	// Describes on which protocols the operations in this API can be invoked.
+	Protocols pulumi.StringArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
+	ServiceUrl pulumi.StringPtrInput
+	// Type of Api to create.
+	//  * `http` creates a SOAP to REST API
+	//  * `soap` creates a SOAP pass-through API .
+	SoapApiType pulumi.StringPtrInput
+	// API identifier of the source API.
+	SourceApiId pulumi.StringPtrInput
+	// Protocols over which API is made available.
+	SubscriptionKeyParameterNames SubscriptionKeyParameterNamesContractPtrInput
+	// Specifies whether an API or Product subscription is required for accessing the API.
+	SubscriptionRequired pulumi.BoolPtrInput
+	// Content value when Importing an API.
+	Value pulumi.StringPtrInput
+	// Criteria to limit import of WSDL to a subset of the document.
+	WsdlSelector ApiCreateOrUpdatePropertiesPropertiesPtrInput
 }
 
 func (ApiArgs) ElementType() reflect.Type {

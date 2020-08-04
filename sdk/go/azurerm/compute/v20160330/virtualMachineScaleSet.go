@@ -111,14 +111,18 @@ type virtualMachineScaleSetArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the VM scale set to create or update.
 	Name string `pulumi:"name"`
-	// Describes the properties of a Virtual Machine Scale Set.
-	Properties *VirtualMachineScaleSetProperties `pulumi:"properties"`
+	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+	OverProvision *bool `pulumi:"overProvision"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The virtual machine scale set sku.
 	Sku *Sku `pulumi:"sku"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// The upgrade policy.
+	UpgradePolicy *UpgradePolicy `pulumi:"upgradePolicy"`
+	// The virtual machine profile.
+	VirtualMachineProfile *VirtualMachineScaleSetVMProfile `pulumi:"virtualMachineProfile"`
 }
 
 // The set of arguments for constructing a VirtualMachineScaleSet resource.
@@ -129,14 +133,18 @@ type VirtualMachineScaleSetArgs struct {
 	Location pulumi.StringInput
 	// The name of the VM scale set to create or update.
 	Name pulumi.StringInput
-	// Describes the properties of a Virtual Machine Scale Set.
-	Properties VirtualMachineScaleSetPropertiesPtrInput
+	// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+	OverProvision pulumi.BoolPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The virtual machine scale set sku.
 	Sku SkuPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// The upgrade policy.
+	UpgradePolicy UpgradePolicyPtrInput
+	// The virtual machine profile.
+	VirtualMachineProfile VirtualMachineScaleSetVMProfilePtrInput
 }
 
 func (VirtualMachineScaleSetArgs) ElementType() reflect.Type {

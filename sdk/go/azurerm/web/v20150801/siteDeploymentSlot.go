@@ -99,17 +99,34 @@ func (SiteDeploymentSlotState) ElementType() reflect.Type {
 }
 
 type siteDeploymentSlotArgs struct {
+	// Active
+	Active *bool `pulumi:"active"`
+	// Author
+	Author *string `pulumi:"author"`
+	// AuthorEmail
+	Author_email *string `pulumi:"author_email"`
+	// Deployer
+	Deployer *string `pulumi:"deployer"`
+	// Detail
+	Details *string `pulumi:"details"`
+	// EndTime
+	End_time *string `pulumi:"end_time"`
 	// Kind of resource
 	Kind *string `pulumi:"kind"`
 	// Resource Location
 	Location string `pulumi:"location"`
+	// Message
+	Message *string `pulumi:"message"`
 	// Resource Id
-	Name       string                `pulumi:"name"`
-	Properties *DeploymentProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Name of web app slot. If not specified then will default to production slot.
 	Slot string `pulumi:"slot"`
+	// StartTime
+	Start_time *string `pulumi:"start_time"`
+	// Status
+	Status *int `pulumi:"status"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -118,17 +135,34 @@ type siteDeploymentSlotArgs struct {
 
 // The set of arguments for constructing a SiteDeploymentSlot resource.
 type SiteDeploymentSlotArgs struct {
+	// Active
+	Active pulumi.BoolPtrInput
+	// Author
+	Author pulumi.StringPtrInput
+	// AuthorEmail
+	Author_email pulumi.StringPtrInput
+	// Deployer
+	Deployer pulumi.StringPtrInput
+	// Detail
+	Details pulumi.StringPtrInput
+	// EndTime
+	End_time pulumi.StringPtrInput
 	// Kind of resource
 	Kind pulumi.StringPtrInput
 	// Resource Location
 	Location pulumi.StringInput
+	// Message
+	Message pulumi.StringPtrInput
 	// Resource Id
-	Name       pulumi.StringInput
-	Properties DeploymentPropertiesPtrInput
+	Name pulumi.StringInput
 	// Name of resource group
 	ResourceGroupName pulumi.StringInput
 	// Name of web app slot. If not specified then will default to production slot.
 	Slot pulumi.StringInput
+	// StartTime
+	Start_time pulumi.StringPtrInput
+	// Status
+	Status pulumi.IntPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

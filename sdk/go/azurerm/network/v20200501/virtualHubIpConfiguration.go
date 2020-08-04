@@ -91,10 +91,16 @@ type virtualHubIpConfigurationArgs struct {
 	Id *string `pulumi:"id"`
 	// The name of the ipconfig.
 	Name string `pulumi:"name"`
-	// The properties of the Virtual Hub IPConfigurations.
-	Properties *HubIPConfigurationPropertiesFormat `pulumi:"properties"`
+	// The private IP address of the IP configuration.
+	PrivateIPAddress *string `pulumi:"privateIPAddress"`
+	// The private IP address allocation method.
+	PrivateIPAllocationMethod *string `pulumi:"privateIPAllocationMethod"`
+	// The reference to the public IP resource.
+	PublicIPAddress *PublicIPAddressType `pulumi:"publicIPAddress"`
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The reference to the subnet resource.
+	Subnet *SubnetType `pulumi:"subnet"`
 	// The name of the VirtualHub.
 	VirtualHubName string `pulumi:"virtualHubName"`
 }
@@ -105,10 +111,16 @@ type VirtualHubIpConfigurationArgs struct {
 	Id pulumi.StringPtrInput
 	// The name of the ipconfig.
 	Name pulumi.StringInput
-	// The properties of the Virtual Hub IPConfigurations.
-	Properties HubIPConfigurationPropertiesFormatPtrInput
+	// The private IP address of the IP configuration.
+	PrivateIPAddress pulumi.StringPtrInput
+	// The private IP address allocation method.
+	PrivateIPAllocationMethod pulumi.StringPtrInput
+	// The reference to the public IP resource.
+	PublicIPAddress PublicIPAddressTypePtrInput
 	// The resource group name of the VirtualHub.
 	ResourceGroupName pulumi.StringInput
+	// The reference to the subnet resource.
+	Subnet SubnetTypePtrInput
 	// The name of the VirtualHub.
 	VirtualHubName pulumi.StringInput
 }

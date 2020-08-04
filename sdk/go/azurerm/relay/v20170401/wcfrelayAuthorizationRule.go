@@ -31,14 +31,14 @@ func NewWCFRelayAuthorizationRule(ctx *pulumi.Context,
 	if args == nil || args.NamespaceName == nil {
 		return nil, errors.New("missing required argument 'NamespaceName'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.RelayName == nil {
 		return nil, errors.New("missing required argument 'RelayName'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Rights == nil {
+		return nil, errors.New("missing required argument 'Rights'")
 	}
 	if args == nil {
 		args = &WCFRelayAuthorizationRuleArgs{}
@@ -91,12 +91,12 @@ type wcfrelayAuthorizationRuleArgs struct {
 	Name string `pulumi:"name"`
 	// The namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Authorization rule properties.
-	Properties AuthorizationRuleProperties `pulumi:"properties"`
 	// The relay name.
 	RelayName string `pulumi:"relayName"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The rights associated with the rule.
+	Rights []string `pulumi:"rights"`
 }
 
 // The set of arguments for constructing a WCFRelayAuthorizationRule resource.
@@ -105,12 +105,12 @@ type WCFRelayAuthorizationRuleArgs struct {
 	Name pulumi.StringInput
 	// The namespace name
 	NamespaceName pulumi.StringInput
-	// Authorization rule properties.
-	Properties AuthorizationRulePropertiesInput
 	// The relay name.
 	RelayName pulumi.StringInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The rights associated with the rule.
+	Rights pulumi.StringArrayInput
 }
 
 func (WCFRelayAuthorizationRuleArgs) ElementType() reflect.Type {

@@ -28,6 +28,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.PrivateLinkServiceConnectionState == nil {
+		return nil, errors.New("missing required argument 'PrivateLinkServiceConnectionState'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -83,8 +86,10 @@ func (PrivateEndpointConnectionState) ElementType() reflect.Type {
 type privateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection.
 	Name string `pulumi:"name"`
-	// The properties of a private endpoint connection.
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	// The resource of private endpoint.
+	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the managed cluster resource.
@@ -95,8 +100,10 @@ type privateEndpointConnectionArgs struct {
 type PrivateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection.
 	Name pulumi.StringInput
-	// The properties of a private endpoint connection.
-	Properties PrivateEndpointConnectionPropertiesPtrInput
+	// The resource of private endpoint.
+	PrivateEndpoint PrivateEndpointPtrInput
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the managed cluster resource.

@@ -91,8 +91,8 @@ type privateLinkServicePrivateEndpointConnectionArgs struct {
 	Id *string `pulumi:"id"`
 	// The name of the private end point connection.
 	Name string `pulumi:"name"`
-	// Properties of the private end point connection.
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState *PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the private link service.
@@ -105,8 +105,8 @@ type PrivateLinkServicePrivateEndpointConnectionArgs struct {
 	Id pulumi.StringPtrInput
 	// The name of the private end point connection.
 	Name pulumi.StringInput
-	// Properties of the private end point connection.
-	Properties PrivateEndpointConnectionPropertiesPtrInput
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStatePtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the private link service.

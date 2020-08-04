@@ -99,34 +99,54 @@ func (P2sVpnGatewayState) ElementType() reflect.Type {
 }
 
 type p2sVpnGatewayArgs struct {
+	// The reference of the address space resource which represents the custom routes specified by the customer for P2SVpnGateway and P2S VpnClient.
+	CustomRoutes *AddressSpace `pulumi:"customRoutes"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// The name of the gateway.
 	Name string `pulumi:"name"`
-	// Properties of the P2SVpnGateway.
-	Properties *P2SVpnGatewayProperties `pulumi:"properties"`
+	// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
+	P2SVpnServerConfiguration *SubResource `pulumi:"p2SVpnServerConfiguration"`
+	// The provisioning state of the P2S VPN gateway resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The resource group name of the P2SVpnGateway.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The VirtualHub to which the gateway belongs.
+	VirtualHub *SubResource `pulumi:"virtualHub"`
+	// The reference of the address space resource which represents Address space for P2S VpnClient.
+	VpnClientAddressPool *AddressSpace `pulumi:"vpnClientAddressPool"`
+	// The scale unit for this p2s vpn gateway.
+	VpnGatewayScaleUnit *int `pulumi:"vpnGatewayScaleUnit"`
 }
 
 // The set of arguments for constructing a P2sVpnGateway resource.
 type P2sVpnGatewayArgs struct {
+	// The reference of the address space resource which represents the custom routes specified by the customer for P2SVpnGateway and P2S VpnClient.
+	CustomRoutes AddressSpacePtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
 	// The name of the gateway.
 	Name pulumi.StringInput
-	// Properties of the P2SVpnGateway.
-	Properties P2SVpnGatewayPropertiesPtrInput
+	// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
+	P2SVpnServerConfiguration SubResourcePtrInput
+	// The provisioning state of the P2S VPN gateway resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The resource group name of the P2SVpnGateway.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The VirtualHub to which the gateway belongs.
+	VirtualHub SubResourcePtrInput
+	// The reference of the address space resource which represents Address space for P2S VpnClient.
+	VpnClientAddressPool AddressSpacePtrInput
+	// The scale unit for this p2s vpn gateway.
+	VpnGatewayScaleUnit pulumi.IntPtrInput
 }
 
 func (P2sVpnGatewayArgs) ElementType() reflect.Type {

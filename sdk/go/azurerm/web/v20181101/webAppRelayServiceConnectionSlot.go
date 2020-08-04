@@ -87,28 +87,34 @@ func (WebAppRelayServiceConnectionSlotState) ElementType() reflect.Type {
 }
 
 type webAppRelayServiceConnectionSlotArgs struct {
+	BiztalkUri             *string `pulumi:"biztalkUri"`
+	EntityConnectionString *string `pulumi:"entityConnectionString"`
+	Hostname               *string `pulumi:"hostname"`
 	// Kind of resource.
-	Kind *string `pulumi:"kind"`
-	// Name of the hybrid connection configuration.
-	Name string `pulumi:"name"`
-	// RelayServiceConnectionEntity resource specific properties
-	Properties *RelayServiceConnectionEntityProperties `pulumi:"properties"`
+	Kind                     *string `pulumi:"kind"`
+	Name                     string  `pulumi:"name"`
+	Port                     *int    `pulumi:"port"`
+	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
 	// Name of the resource group to which the resource belongs.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	ResourceGroupName string  `pulumi:"resourceGroupName"`
+	ResourceType      *string `pulumi:"resourceType"`
 	// Name of the deployment slot. If a slot is not specified, the API will create or update a hybrid connection for the production slot.
 	Slot string `pulumi:"slot"`
 }
 
 // The set of arguments for constructing a WebAppRelayServiceConnectionSlot resource.
 type WebAppRelayServiceConnectionSlotArgs struct {
+	BiztalkUri             pulumi.StringPtrInput
+	EntityConnectionString pulumi.StringPtrInput
+	Hostname               pulumi.StringPtrInput
 	// Kind of resource.
-	Kind pulumi.StringPtrInput
-	// Name of the hybrid connection configuration.
-	Name pulumi.StringInput
-	// RelayServiceConnectionEntity resource specific properties
-	Properties RelayServiceConnectionEntityPropertiesPtrInput
+	Kind                     pulumi.StringPtrInput
+	Name                     pulumi.StringInput
+	Port                     pulumi.IntPtrInput
+	ResourceConnectionString pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	ResourceType      pulumi.StringPtrInput
 	// Name of the deployment slot. If a slot is not specified, the API will create or update a hybrid connection for the production slot.
 	Slot pulumi.StringInput
 }

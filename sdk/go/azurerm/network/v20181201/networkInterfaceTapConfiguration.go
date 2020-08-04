@@ -95,10 +95,10 @@ type networkInterfaceTapConfigurationArgs struct {
 	Name string `pulumi:"name"`
 	// The name of the network interface.
 	NetworkInterfaceName string `pulumi:"networkInterfaceName"`
-	// Properties of the Virtual Network Tap configuration
-	Properties *NetworkInterfaceTapConfigurationPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The reference of the Virtual Network Tap resource.
+	VirtualNetworkTap *VirtualNetworkTapType `pulumi:"virtualNetworkTap"`
 }
 
 // The set of arguments for constructing a NetworkInterfaceTapConfiguration resource.
@@ -111,10 +111,10 @@ type NetworkInterfaceTapConfigurationArgs struct {
 	Name pulumi.StringInput
 	// The name of the network interface.
 	NetworkInterfaceName pulumi.StringInput
-	// Properties of the Virtual Network Tap configuration
-	Properties NetworkInterfaceTapConfigurationPropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The reference of the Virtual Network Tap resource.
+	VirtualNetworkTap VirtualNetworkTapTypePtrInput
 }
 
 func (NetworkInterfaceTapConfigurationArgs) ElementType() reflect.Type {

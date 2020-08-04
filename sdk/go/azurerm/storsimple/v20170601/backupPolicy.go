@@ -36,11 +36,11 @@ func NewBackupPolicy(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.VolumeIds == nil {
+		return nil, errors.New("missing required argument 'VolumeIds'")
 	}
 	if args == nil {
 		args = &BackupPolicyArgs{}
@@ -101,10 +101,10 @@ type backupPolicyArgs struct {
 	ManagerName string `pulumi:"managerName"`
 	// The name of the backup policy to be created/updated.
 	Name string `pulumi:"name"`
-	// The properties of the backup policy.
-	Properties BackupPolicyProperties `pulumi:"properties"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The path IDs of the volumes which are part of the backup policy.
+	VolumeIds []string `pulumi:"volumeIds"`
 }
 
 // The set of arguments for constructing a BackupPolicy resource.
@@ -117,10 +117,10 @@ type BackupPolicyArgs struct {
 	ManagerName pulumi.StringInput
 	// The name of the backup policy to be created/updated.
 	Name pulumi.StringInput
-	// The properties of the backup policy.
-	Properties BackupPolicyPropertiesInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
+	// The path IDs of the volumes which are part of the backup policy.
+	VolumeIds pulumi.StringArrayInput
 }
 
 func (BackupPolicyArgs) ElementType() reflect.Type {

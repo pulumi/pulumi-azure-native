@@ -32,6 +32,9 @@ func NewLiveEvent(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
+	if args == nil || args.Input == nil {
+		return nil, errors.New("missing required argument 'Input'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -100,16 +103,28 @@ type liveEventArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// The flag indicates if the resource should be automatically started on creation.
 	AutoStart *bool `pulumi:"autoStart"`
+	// The Live Event access policies.
+	CrossSiteAccessPolicies *CrossSiteAccessPolicies `pulumi:"crossSiteAccessPolicies"`
+	// The Live Event description.
+	Description *string `pulumi:"description"`
+	// The Live Event encoding.
+	Encoding *LiveEventEncoding `pulumi:"encoding"`
+	// The Live Event input.
+	Input LiveEventInput `pulumi:"input"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the Live Event.
 	Name string `pulumi:"name"`
-	// The Live Event properties.
-	Properties *LiveEventProperties `pulumi:"properties"`
+	// The Live Event preview.
+	Preview *LiveEventPreview `pulumi:"preview"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+	StreamOptions []string `pulumi:"streamOptions"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+	UseStaticHostname *bool `pulumi:"useStaticHostname"`
 }
 
 // The set of arguments for constructing a LiveEvent resource.
@@ -118,16 +133,28 @@ type LiveEventArgs struct {
 	AccountName pulumi.StringInput
 	// The flag indicates if the resource should be automatically started on creation.
 	AutoStart pulumi.BoolPtrInput
+	// The Live Event access policies.
+	CrossSiteAccessPolicies CrossSiteAccessPoliciesPtrInput
+	// The Live Event description.
+	Description pulumi.StringPtrInput
+	// The Live Event encoding.
+	Encoding LiveEventEncodingPtrInput
+	// The Live Event input.
+	Input LiveEventInputInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// The name of the Live Event.
 	Name pulumi.StringInput
-	// The Live Event properties.
-	Properties LiveEventPropertiesPtrInput
+	// The Live Event preview.
+	Preview LiveEventPreviewPtrInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+	StreamOptions pulumi.StringArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+	UseStaticHostname pulumi.BoolPtrInput
 }
 
 func (LiveEventArgs) ElementType() reflect.Type {

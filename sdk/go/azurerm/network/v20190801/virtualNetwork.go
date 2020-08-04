@@ -96,6 +96,18 @@ func (VirtualNetworkState) ElementType() reflect.Type {
 }
 
 type virtualNetworkArgs struct {
+	// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+	AddressSpace *AddressSpace `pulumi:"addressSpace"`
+	// Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+	BgpCommunities *VirtualNetworkBgpCommunities `pulumi:"bgpCommunities"`
+	// The DDoS protection plan associated with the virtual network.
+	DdosProtectionPlan *SubResource `pulumi:"ddosProtectionPlan"`
+	// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+	DhcpOptions *DhcpOptions `pulumi:"dhcpOptions"`
+	// Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+	EnableDdosProtection *bool `pulumi:"enableDdosProtection"`
+	// Indicates if VM protection is enabled for all the subnets in the virtual network.
+	EnableVmProtection *bool `pulumi:"enableVmProtection"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
@@ -104,16 +116,34 @@ type virtualNetworkArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the virtual network.
 	Name string `pulumi:"name"`
-	// Properties of the virtual network.
-	Properties *VirtualNetworkPropertiesFormat `pulumi:"properties"`
+	// The provisioning state of the virtual network resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The resourceGuid property of the Virtual Network resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// A list of subnets in a Virtual Network.
+	Subnets []SubnetType `pulumi:"subnets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// A list of peerings in a Virtual Network.
+	VirtualNetworkPeerings []VirtualNetworkPeeringType `pulumi:"virtualNetworkPeerings"`
 }
 
 // The set of arguments for constructing a VirtualNetwork resource.
 type VirtualNetworkArgs struct {
+	// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+	AddressSpace AddressSpacePtrInput
+	// Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+	BgpCommunities VirtualNetworkBgpCommunitiesPtrInput
+	// The DDoS protection plan associated with the virtual network.
+	DdosProtectionPlan SubResourcePtrInput
+	// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+	DhcpOptions DhcpOptionsPtrInput
+	// Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+	EnableDdosProtection pulumi.BoolPtrInput
+	// Indicates if VM protection is enabled for all the subnets in the virtual network.
+	EnableVmProtection pulumi.BoolPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource ID.
@@ -122,12 +152,18 @@ type VirtualNetworkArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the virtual network.
 	Name pulumi.StringInput
-	// Properties of the virtual network.
-	Properties VirtualNetworkPropertiesFormatPtrInput
+	// The provisioning state of the virtual network resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The resourceGuid property of the Virtual Network resource.
+	ResourceGuid pulumi.StringPtrInput
+	// A list of subnets in a Virtual Network.
+	Subnets SubnetTypeArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// A list of peerings in a Virtual Network.
+	VirtualNetworkPeerings VirtualNetworkPeeringTypeArrayInput
 }
 
 func (VirtualNetworkArgs) ElementType() reflect.Type {

@@ -96,6 +96,12 @@ func (CertificateCsrState) ElementType() reflect.Type {
 }
 
 type certificateCsrArgs struct {
+	// Actual CSR string created
+	CsrString *string `pulumi:"csrString"`
+	// Distinguished name of certificate to be created
+	DistinguishedName *string `pulumi:"distinguishedName"`
+	// Hosting environment
+	HostingEnvironment *string `pulumi:"hostingEnvironment"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Kind of resource
@@ -103,8 +109,13 @@ type certificateCsrArgs struct {
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Resource Name
-	Name       string         `pulumi:"name"`
-	Properties *CsrProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
+	// PFX password
+	Password *string `pulumi:"password"`
+	// PFX certificate of created certificate
+	PfxBlob *string `pulumi:"pfxBlob"`
+	// Hash of the certificates public key
+	PublicKeyHash *string `pulumi:"publicKeyHash"`
 	// Name of the resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -115,6 +126,12 @@ type certificateCsrArgs struct {
 
 // The set of arguments for constructing a CertificateCsr resource.
 type CertificateCsrArgs struct {
+	// Actual CSR string created
+	CsrString pulumi.StringPtrInput
+	// Distinguished name of certificate to be created
+	DistinguishedName pulumi.StringPtrInput
+	// Hosting environment
+	HostingEnvironment pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Kind of resource
@@ -122,8 +139,13 @@ type CertificateCsrArgs struct {
 	// Resource Location
 	Location pulumi.StringInput
 	// Resource Name
-	Name       pulumi.StringInput
-	Properties CsrPropertiesPtrInput
+	Name pulumi.StringInput
+	// PFX password
+	Password pulumi.StringPtrInput
+	// PFX certificate of created certificate
+	PfxBlob pulumi.StringPtrInput
+	// Hash of the certificates public key
+	PublicKeyHash pulumi.StringPtrInput
 	// Name of the resource group
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

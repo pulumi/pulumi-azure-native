@@ -96,6 +96,10 @@ func (VirtualNetworkState) ElementType() reflect.Type {
 }
 
 type virtualNetworkArgs struct {
+	// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+	AddressSpace *AddressSpace `pulumi:"addressSpace"`
+	// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+	DhcpOptions *DhcpOptions `pulumi:"dhcpOptions"`
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
@@ -104,16 +108,26 @@ type virtualNetworkArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the virtual network.
 	Name string `pulumi:"name"`
-	// Properties of the virtual network.
-	Properties *VirtualNetworkPropertiesFormat `pulumi:"properties"`
+	// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The resourceGuid property of the Virtual Network resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// A list of subnets in a Virtual Network.
+	Subnets []SubnetType `pulumi:"subnets"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// A list of peerings in a Virtual Network.
+	VirtualNetworkPeerings []VirtualNetworkPeeringType `pulumi:"virtualNetworkPeerings"`
 }
 
 // The set of arguments for constructing a VirtualNetwork resource.
 type VirtualNetworkArgs struct {
+	// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+	AddressSpace AddressSpacePtrInput
+	// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+	DhcpOptions DhcpOptionsPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource ID.
@@ -122,12 +136,18 @@ type VirtualNetworkArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the virtual network.
 	Name pulumi.StringInput
-	// Properties of the virtual network.
-	Properties VirtualNetworkPropertiesFormatPtrInput
+	// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The resourceGuid property of the Virtual Network resource.
+	ResourceGuid pulumi.StringPtrInput
+	// A list of subnets in a Virtual Network.
+	Subnets SubnetTypeArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// A list of peerings in a Virtual Network.
+	VirtualNetworkPeerings VirtualNetworkPeeringTypeArrayInput
 }
 
 func (VirtualNetworkArgs) ElementType() reflect.Type {

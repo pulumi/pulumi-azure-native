@@ -102,12 +102,14 @@ type securityPartnerProviderArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the Security Partner Provider.
 	Name string `pulumi:"name"`
-	// Properties of the Security Partner Provider.
-	Properties *SecurityPartnerProviderPropertiesFormat `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The security provider name.
+	SecurityProviderName *string `pulumi:"securityProviderName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The virtualHub to which the Security Partner Provider belongs.
+	VirtualHub *SubResource `pulumi:"virtualHub"`
 }
 
 // The set of arguments for constructing a SecurityPartnerProvider resource.
@@ -118,12 +120,14 @@ type SecurityPartnerProviderArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the Security Partner Provider.
 	Name pulumi.StringInput
-	// Properties of the Security Partner Provider.
-	Properties SecurityPartnerProviderPropertiesFormatPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The security provider name.
+	SecurityProviderName pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The virtualHub to which the Security Partner Provider belongs.
+	VirtualHub SubResourcePtrInput
 }
 
 func (SecurityPartnerProviderArgs) ElementType() reflect.Type {

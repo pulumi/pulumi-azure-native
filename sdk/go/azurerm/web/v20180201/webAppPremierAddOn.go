@@ -103,14 +103,22 @@ type webAppPremierAddOnArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
+	// Premier add on Marketplace offer.
+	MarketplaceOffer *string `pulumi:"marketplaceOffer"`
+	// Premier add on Marketplace publisher.
+	MarketplacePublisher *string `pulumi:"marketplacePublisher"`
 	// Add-on name.
 	Name string `pulumi:"name"`
-	// PremierAddOn resource specific properties
-	Properties *PremierAddOnProperties `pulumi:"properties"`
+	// Premier add on Product.
+	Product *string `pulumi:"product"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Premier add on SKU.
+	Sku *string `pulumi:"sku"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Premier add on Vendor.
+	Vendor *string `pulumi:"vendor"`
 }
 
 // The set of arguments for constructing a WebAppPremierAddOn resource.
@@ -119,14 +127,22 @@ type WebAppPremierAddOnArgs struct {
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringInput
+	// Premier add on Marketplace offer.
+	MarketplaceOffer pulumi.StringPtrInput
+	// Premier add on Marketplace publisher.
+	MarketplacePublisher pulumi.StringPtrInput
 	// Add-on name.
 	Name pulumi.StringInput
-	// PremierAddOn resource specific properties
-	Properties PremierAddOnPropertiesPtrInput
+	// Premier add on Product.
+	Product pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// Premier add on SKU.
+	Sku pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Premier add on Vendor.
+	Vendor pulumi.StringPtrInput
 }
 
 func (WebAppPremierAddOnArgs) ElementType() reflect.Type {

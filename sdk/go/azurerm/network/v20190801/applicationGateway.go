@@ -108,8 +108,32 @@ func (ApplicationGatewayState) ElementType() reflect.Type {
 }
 
 type applicationGatewayArgs struct {
+	// Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	AuthenticationCertificates []ApplicationGatewayAuthenticationCertificate `pulumi:"authenticationCertificates"`
+	// Autoscale Configuration.
+	AutoscaleConfiguration *ApplicationGatewayAutoscaleConfiguration `pulumi:"autoscaleConfiguration"`
+	// Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	BackendAddressPools []ApplicationGatewayBackendAddressPool `pulumi:"backendAddressPools"`
+	// Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	BackendHttpSettingsCollection []ApplicationGatewayBackendHttpSettings `pulumi:"backendHttpSettingsCollection"`
+	// Custom error configurations of the application gateway resource.
+	CustomErrorConfigurations []ApplicationGatewayCustomError `pulumi:"customErrorConfigurations"`
+	// Whether FIPS is enabled on the application gateway resource.
+	EnableFips *bool `pulumi:"enableFips"`
+	// Whether HTTP2 is enabled on the application gateway resource.
+	EnableHttp2 *bool `pulumi:"enableHttp2"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
+	// Reference of the FirewallPolicy resource.
+	FirewallPolicy *SubResource `pulumi:"firewallPolicy"`
+	// Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	FrontendIPConfigurations []ApplicationGatewayFrontendIPConfiguration `pulumi:"frontendIPConfigurations"`
+	// Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	FrontendPorts []ApplicationGatewayFrontendPort `pulumi:"frontendPorts"`
+	// Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	GatewayIPConfigurations []ApplicationGatewayIPConfiguration `pulumi:"gatewayIPConfigurations"`
+	// Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	HttpListeners []ApplicationGatewayHttpListener `pulumi:"httpListeners"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The identity of the application gateway, if configured.
@@ -118,20 +142,66 @@ type applicationGatewayArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the application gateway.
 	Name string `pulumi:"name"`
-	// Properties of the application gateway.
-	Properties *ApplicationGatewayPropertiesFormat `pulumi:"properties"`
+	// Probes of the application gateway resource.
+	Probes []ApplicationGatewayProbe `pulumi:"probes"`
+	// The provisioning state of the application gateway resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
+	// Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	RedirectConfigurations []ApplicationGatewayRedirectConfiguration `pulumi:"redirectConfigurations"`
+	// Request routing rules of the application gateway resource.
+	RequestRoutingRules []ApplicationGatewayRequestRoutingRule `pulumi:"requestRoutingRules"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The resource GUID property of the application gateway resource.
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// Rewrite rules for the application gateway resource.
+	RewriteRuleSets []ApplicationGatewayRewriteRuleSet `pulumi:"rewriteRuleSets"`
+	// SKU of the application gateway resource.
+	Sku *ApplicationGatewaySku `pulumi:"sku"`
+	// SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	SslCertificates []ApplicationGatewaySslCertificate `pulumi:"sslCertificates"`
+	// SSL policy of the application gateway resource.
+	SslPolicy *ApplicationGatewaySslPolicy `pulumi:"sslPolicy"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	TrustedRootCertificates []ApplicationGatewayTrustedRootCertificate `pulumi:"trustedRootCertificates"`
+	// URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	UrlPathMaps []ApplicationGatewayUrlPathMap `pulumi:"urlPathMaps"`
+	// Web application firewall configuration.
+	WebApplicationFirewallConfiguration *ApplicationGatewayWebApplicationFirewallConfiguration `pulumi:"webApplicationFirewallConfiguration"`
 	// A list of availability zones denoting where the resource needs to come from.
 	Zones []string `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a ApplicationGateway resource.
 type ApplicationGatewayArgs struct {
+	// Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	AuthenticationCertificates ApplicationGatewayAuthenticationCertificateArrayInput
+	// Autoscale Configuration.
+	AutoscaleConfiguration ApplicationGatewayAutoscaleConfigurationPtrInput
+	// Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	BackendAddressPools ApplicationGatewayBackendAddressPoolArrayInput
+	// Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	BackendHttpSettingsCollection ApplicationGatewayBackendHttpSettingsArrayInput
+	// Custom error configurations of the application gateway resource.
+	CustomErrorConfigurations ApplicationGatewayCustomErrorArrayInput
+	// Whether FIPS is enabled on the application gateway resource.
+	EnableFips pulumi.BoolPtrInput
+	// Whether HTTP2 is enabled on the application gateway resource.
+	EnableHttp2 pulumi.BoolPtrInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
+	// Reference of the FirewallPolicy resource.
+	FirewallPolicy SubResourcePtrInput
+	// Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	FrontendIPConfigurations ApplicationGatewayFrontendIPConfigurationArrayInput
+	// Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	FrontendPorts ApplicationGatewayFrontendPortArrayInput
+	// Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	GatewayIPConfigurations ApplicationGatewayIPConfigurationArrayInput
+	// Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	HttpListeners ApplicationGatewayHttpListenerArrayInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The identity of the application gateway, if configured.
@@ -140,12 +210,34 @@ type ApplicationGatewayArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the application gateway.
 	Name pulumi.StringInput
-	// Properties of the application gateway.
-	Properties ApplicationGatewayPropertiesFormatPtrInput
+	// Probes of the application gateway resource.
+	Probes ApplicationGatewayProbeArrayInput
+	// The provisioning state of the application gateway resource.
+	ProvisioningState pulumi.StringPtrInput
+	// Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	RedirectConfigurations ApplicationGatewayRedirectConfigurationArrayInput
+	// Request routing rules of the application gateway resource.
+	RequestRoutingRules ApplicationGatewayRequestRoutingRuleArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The resource GUID property of the application gateway resource.
+	ResourceGuid pulumi.StringPtrInput
+	// Rewrite rules for the application gateway resource.
+	RewriteRuleSets ApplicationGatewayRewriteRuleSetArrayInput
+	// SKU of the application gateway resource.
+	Sku ApplicationGatewaySkuPtrInput
+	// SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	SslCertificates ApplicationGatewaySslCertificateArrayInput
+	// SSL policy of the application gateway resource.
+	SslPolicy ApplicationGatewaySslPolicyPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	TrustedRootCertificates ApplicationGatewayTrustedRootCertificateArrayInput
+	// URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+	UrlPathMaps ApplicationGatewayUrlPathMapArrayInput
+	// Web application firewall configuration.
+	WebApplicationFirewallConfiguration ApplicationGatewayWebApplicationFirewallConfigurationPtrInput
 	// A list of availability zones denoting where the resource needs to come from.
 	Zones pulumi.StringArrayInput
 }

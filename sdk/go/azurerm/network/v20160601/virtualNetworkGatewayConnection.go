@@ -96,38 +96,90 @@ func (VirtualNetworkGatewayConnectionState) ElementType() reflect.Type {
 }
 
 type virtualNetworkGatewayConnectionArgs struct {
+	// The authorizationKey.
+	AuthorizationKey *string `pulumi:"authorizationKey"`
+	// Virtual network Gateway connection status
+	ConnectionStatus *string `pulumi:"connectionStatus"`
+	// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
+	ConnectionType *string `pulumi:"connectionType"`
+	// The Egress Bytes Transferred in this connection
+	EgressBytesTransferred *int `pulumi:"egressBytesTransferred"`
+	// EnableBgp Flag
+	EnableBgp *bool `pulumi:"enableBgp"`
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag *string `pulumi:"etag"`
 	// Resource Id
 	Id *string `pulumi:"id"`
+	// The Ingress Bytes Transferred in this connection
+	IngressBytesTransferred *int `pulumi:"ingressBytesTransferred"`
+	// A common class for general resource information
+	LocalNetworkGateway2 *LocalNetworkGatewayType `pulumi:"localNetworkGateway2"`
 	// Resource location
 	Location *string `pulumi:"location"`
 	// The name of the virtual network gateway connection.
 	Name string `pulumi:"name"`
-	// VirtualNetworkGatewayConnection properties
-	Properties *VirtualNetworkGatewayConnectionPropertiesFormat `pulumi:"properties"`
+	// The reference to peerings resource.
+	Peer *SubResource `pulumi:"peer"`
+	// Gets provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets resource guid property of the VirtualNetworkGatewayConnection resource
+	ResourceGuid *string `pulumi:"resourceGuid"`
+	// The Routing weight.
+	RoutingWeight *int `pulumi:"routingWeight"`
+	// The IPsec share key.
+	SharedKey *string `pulumi:"sharedKey"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// A common class for general resource information
+	VirtualNetworkGateway1 *VirtualNetworkGatewayType `pulumi:"virtualNetworkGateway1"`
+	// A common class for general resource information
+	VirtualNetworkGateway2 *VirtualNetworkGatewayType `pulumi:"virtualNetworkGateway2"`
 }
 
 // The set of arguments for constructing a VirtualNetworkGatewayConnection resource.
 type VirtualNetworkGatewayConnectionArgs struct {
+	// The authorizationKey.
+	AuthorizationKey pulumi.StringPtrInput
+	// Virtual network Gateway connection status
+	ConnectionStatus pulumi.StringPtrInput
+	// Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
+	ConnectionType pulumi.StringPtrInput
+	// The Egress Bytes Transferred in this connection
+	EgressBytesTransferred pulumi.IntPtrInput
+	// EnableBgp Flag
+	EnableBgp pulumi.BoolPtrInput
 	// Gets a unique read-only string that changes whenever the resource is updated
 	Etag pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
+	// The Ingress Bytes Transferred in this connection
+	IngressBytesTransferred pulumi.IntPtrInput
+	// A common class for general resource information
+	LocalNetworkGateway2 LocalNetworkGatewayTypePtrInput
 	// Resource location
 	Location pulumi.StringPtrInput
 	// The name of the virtual network gateway connection.
 	Name pulumi.StringInput
-	// VirtualNetworkGatewayConnection properties
-	Properties VirtualNetworkGatewayConnectionPropertiesFormatPtrInput
+	// The reference to peerings resource.
+	Peer SubResourcePtrInput
+	// Gets provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets resource guid property of the VirtualNetworkGatewayConnection resource
+	ResourceGuid pulumi.StringPtrInput
+	// The Routing weight.
+	RoutingWeight pulumi.IntPtrInput
+	// The IPsec share key.
+	SharedKey pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// A common class for general resource information
+	VirtualNetworkGateway1 VirtualNetworkGatewayTypePtrInput
+	// A common class for general resource information
+	VirtualNetworkGateway2 VirtualNetworkGatewayTypePtrInput
 }
 
 func (VirtualNetworkGatewayConnectionArgs) ElementType() reflect.Type {

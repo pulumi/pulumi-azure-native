@@ -347,8 +347,6 @@ func (o BasicDependencyResponseArrayOutput) Index(i pulumi.IntInput) BasicDepend
 }
 
 type DebugSetting struct {
-	// The debug detail level.
-	DetailLevel *string `pulumi:"detailLevel"`
 }
 
 // DebugSettingInput is an input type that accepts DebugSettingArgs and DebugSettingOutput values.
@@ -363,8 +361,6 @@ type DebugSettingInput interface {
 }
 
 type DebugSettingArgs struct {
-	// The debug detail level.
-	DetailLevel pulumi.StringPtrInput `pulumi:"detailLevel"`
 }
 
 func (DebugSettingArgs) ElementType() reflect.Type {
@@ -444,11 +440,6 @@ func (o DebugSettingOutput) ToDebugSettingPtrOutputWithContext(ctx context.Conte
 	}).(DebugSettingPtrOutput)
 }
 
-// The debug detail level.
-func (o DebugSettingOutput) DetailLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DebugSetting) *string { return v.DetailLevel }).(pulumi.StringPtrOutput)
-}
-
 type DebugSettingPtrOutput struct{ *pulumi.OutputState }
 
 func (DebugSettingPtrOutput) ElementType() reflect.Type {
@@ -465,16 +456,6 @@ func (o DebugSettingPtrOutput) ToDebugSettingPtrOutputWithContext(ctx context.Co
 
 func (o DebugSettingPtrOutput) Elem() DebugSettingOutput {
 	return o.ApplyT(func(v *DebugSetting) DebugSetting { return *v }).(DebugSettingOutput)
-}
-
-// The debug detail level.
-func (o DebugSettingPtrOutput) DetailLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DebugSetting) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DetailLevel
-	}).(pulumi.StringPtrOutput)
 }
 
 type DebugSettingResponse struct {

@@ -87,28 +87,32 @@ func (VirtualApplianceSiteState) ElementType() reflect.Type {
 }
 
 type virtualApplianceSiteArgs struct {
+	// Address Prefix.
+	AddressPrefix *string `pulumi:"addressPrefix"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the site.
 	Name string `pulumi:"name"`
 	// The name of the Network Virtual Appliance.
 	NetworkVirtualApplianceName string `pulumi:"networkVirtualApplianceName"`
-	// The properties of the Virtual Appliance Sites.
-	Properties *VirtualApplianceSiteProperties `pulumi:"properties"`
+	// Office 365 Policy.
+	O365Policy *Office365PolicyProperties `pulumi:"o365Policy"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // The set of arguments for constructing a VirtualApplianceSite resource.
 type VirtualApplianceSiteArgs struct {
+	// Address Prefix.
+	AddressPrefix pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The name of the site.
 	Name pulumi.StringInput
 	// The name of the Network Virtual Appliance.
 	NetworkVirtualApplianceName pulumi.StringInput
-	// The properties of the Virtual Appliance Sites.
-	Properties VirtualApplianceSitePropertiesPtrInput
+	// Office 365 Policy.
+	O365Policy Office365PolicyPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 }

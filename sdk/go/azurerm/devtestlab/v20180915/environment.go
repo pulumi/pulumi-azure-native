@@ -35,9 +35,6 @@ func NewEnvironment(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -99,14 +96,16 @@ func (EnvironmentState) ElementType() reflect.Type {
 }
 
 type environmentArgs struct {
+	// The display name of the Azure Resource Manager template that produced the environment.
+	ArmTemplateDisplayName *string `pulumi:"armTemplateDisplayName"`
+	// The deployment properties of the environment.
+	DeploymentProperties *EnvironmentDeploymentProperties `pulumi:"deploymentProperties"`
 	// The name of the lab.
 	LabName string `pulumi:"labName"`
 	// The location of the resource.
 	Location *string `pulumi:"location"`
 	// The name of the environment.
 	Name string `pulumi:"name"`
-	// The properties of the resource.
-	Properties EnvironmentProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The tags of the resource.
@@ -117,14 +116,16 @@ type environmentArgs struct {
 
 // The set of arguments for constructing a Environment resource.
 type EnvironmentArgs struct {
+	// The display name of the Azure Resource Manager template that produced the environment.
+	ArmTemplateDisplayName pulumi.StringPtrInput
+	// The deployment properties of the environment.
+	DeploymentProperties EnvironmentDeploymentPropertiesPtrInput
 	// The name of the lab.
 	LabName pulumi.StringInput
 	// The location of the resource.
 	Location pulumi.StringPtrInput
 	// The name of the environment.
 	Name pulumi.StringInput
-	// The properties of the resource.
-	Properties EnvironmentPropertiesInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The tags of the resource.

@@ -102,8 +102,6 @@ type privateZoneArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the Private DNS zone (without a terminating dot).
 	Name string `pulumi:"name"`
-	// Properties of the Private DNS zone.
-	Properties *PrivateZoneProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -118,8 +116,6 @@ type PrivateZoneArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the Private DNS zone (without a terminating dot).
 	Name pulumi.StringInput
-	// Properties of the Private DNS zone.
-	Properties PrivateZonePropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

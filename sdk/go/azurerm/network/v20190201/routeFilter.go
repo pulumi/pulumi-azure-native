@@ -105,10 +105,12 @@ type routeFilterArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the route filter.
 	Name string `pulumi:"name"`
-	// Properties of the route filter.
-	Properties *RouteFilterPropertiesFormat `pulumi:"properties"`
+	// A collection of references to express route circuit peerings.
+	Peerings []ExpressRouteCircuitPeeringType `pulumi:"peerings"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Collection of RouteFilterRules contained within a route filter.
+	Rules []RouteFilterRuleType `pulumi:"rules"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -121,10 +123,12 @@ type RouteFilterArgs struct {
 	Location pulumi.StringInput
 	// The name of the route filter.
 	Name pulumi.StringInput
-	// Properties of the route filter.
-	Properties RouteFilterPropertiesFormatPtrInput
+	// A collection of references to express route circuit peerings.
+	Peerings ExpressRouteCircuitPeeringTypeArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Collection of RouteFilterRules contained within a route filter.
+	Rules RouteFilterRuleTypeArrayInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

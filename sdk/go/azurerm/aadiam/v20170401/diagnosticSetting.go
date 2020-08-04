@@ -75,18 +75,38 @@ func (DiagnosticSettingState) ElementType() reflect.Type {
 }
 
 type diagnosticSettingArgs struct {
+	// The resource Id for the event hub authorization rule.
+	EventHubAuthorizationRuleId *string `pulumi:"eventHubAuthorizationRuleId"`
+	// The name of the event hub. If none is specified, the default event hub will be selected.
+	EventHubName *string `pulumi:"eventHubName"`
+	// The list of logs settings.
+	Logs []LogSettings `pulumi:"logs"`
 	// The name of the diagnostic setting.
 	Name string `pulumi:"name"`
-	// Properties of a Diagnostic Settings Resource.
-	Properties *DiagnosticSettings `pulumi:"properties"`
+	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
+	ServiceBusRuleId *string `pulumi:"serviceBusRuleId"`
+	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
+	StorageAccountId *string `pulumi:"storageAccountId"`
+	// The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+	WorkspaceId *string `pulumi:"workspaceId"`
 }
 
 // The set of arguments for constructing a DiagnosticSetting resource.
 type DiagnosticSettingArgs struct {
+	// The resource Id for the event hub authorization rule.
+	EventHubAuthorizationRuleId pulumi.StringPtrInput
+	// The name of the event hub. If none is specified, the default event hub will be selected.
+	EventHubName pulumi.StringPtrInput
+	// The list of logs settings.
+	Logs LogSettingsArrayInput
 	// The name of the diagnostic setting.
 	Name pulumi.StringInput
-	// Properties of a Diagnostic Settings Resource.
-	Properties DiagnosticSettingsPtrInput
+	// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
+	ServiceBusRuleId pulumi.StringPtrInput
+	// The resource ID of the storage account to which you would like to send Diagnostic Logs.
+	StorageAccountId pulumi.StringPtrInput
+	// The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+	WorkspaceId pulumi.StringPtrInput
 }
 
 func (DiagnosticSettingArgs) ElementType() reflect.Type {

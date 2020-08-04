@@ -35,6 +35,9 @@ func NewStorageInsight(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.StorageAccount == nil {
+		return nil, errors.New("missing required argument 'StorageAccount'")
+	}
 	if args == nil || args.WorkspaceName == nil {
 		return nil, errors.New("missing required argument 'WorkspaceName'")
 	}
@@ -93,14 +96,18 @@ func (StorageInsightState) ElementType() reflect.Type {
 }
 
 type storageInsightArgs struct {
+	// The names of the blob containers that the workspace should read
+	Containers []string `pulumi:"containers"`
 	// The ETag of the storage insight.
 	ETag *string `pulumi:"eTag"`
 	// Name of the storageInsightsConfigs resource
 	Name string `pulumi:"name"`
-	// Storage insight properties.
-	Properties *StorageInsightProperties `pulumi:"properties"`
 	// The Resource Group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The storage account connection details
+	StorageAccount StorageAccount `pulumi:"storageAccount"`
+	// The names of the Azure tables that the workspace should read
+	Tables []string `pulumi:"tables"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// The Log Analytics Workspace name.
@@ -109,14 +116,18 @@ type storageInsightArgs struct {
 
 // The set of arguments for constructing a StorageInsight resource.
 type StorageInsightArgs struct {
+	// The names of the blob containers that the workspace should read
+	Containers pulumi.StringArrayInput
 	// The ETag of the storage insight.
 	ETag pulumi.StringPtrInput
 	// Name of the storageInsightsConfigs resource
 	Name pulumi.StringInput
-	// Storage insight properties.
-	Properties StorageInsightPropertiesPtrInput
 	// The Resource Group name.
 	ResourceGroupName pulumi.StringInput
+	// The storage account connection details
+	StorageAccount StorageAccountInput
+	// The names of the Azure tables that the workspace should read
+	Tables pulumi.StringArrayInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// The Log Analytics Workspace name.

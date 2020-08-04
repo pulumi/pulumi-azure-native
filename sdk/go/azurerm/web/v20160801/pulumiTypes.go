@@ -1803,106 +1803,6 @@ func (o BackupItemResponsePropertiesOutput) WebsiteSizeInBytes() pulumi.IntOutpu
 }
 
 // BackupRequest resource specific properties
-type BackupRequestProperties struct {
-	// Name of the backup.
-	BackupRequestName string `pulumi:"backupRequestName"`
-	// Schedule for the backup if it is executed periodically.
-	BackupSchedule *BackupSchedule `pulumi:"backupSchedule"`
-	// Databases included in the backup.
-	Databases []DatabaseBackupSetting `pulumi:"databases"`
-	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
-	Enabled *bool `pulumi:"enabled"`
-	// SAS URL to the container.
-	StorageAccountUrl string `pulumi:"storageAccountUrl"`
-	// Type of the backup.
-	Type *string `pulumi:"type"`
-}
-
-// BackupRequestPropertiesInput is an input type that accepts BackupRequestPropertiesArgs and BackupRequestPropertiesOutput values.
-// You can construct a concrete instance of `BackupRequestPropertiesInput` via:
-//
-//          BackupRequestPropertiesArgs{...}
-type BackupRequestPropertiesInput interface {
-	pulumi.Input
-
-	ToBackupRequestPropertiesOutput() BackupRequestPropertiesOutput
-	ToBackupRequestPropertiesOutputWithContext(context.Context) BackupRequestPropertiesOutput
-}
-
-// BackupRequest resource specific properties
-type BackupRequestPropertiesArgs struct {
-	// Name of the backup.
-	BackupRequestName pulumi.StringInput `pulumi:"backupRequestName"`
-	// Schedule for the backup if it is executed periodically.
-	BackupSchedule BackupSchedulePtrInput `pulumi:"backupSchedule"`
-	// Databases included in the backup.
-	Databases DatabaseBackupSettingArrayInput `pulumi:"databases"`
-	// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// SAS URL to the container.
-	StorageAccountUrl pulumi.StringInput `pulumi:"storageAccountUrl"`
-	// Type of the backup.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (BackupRequestPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupRequestProperties)(nil)).Elem()
-}
-
-func (i BackupRequestPropertiesArgs) ToBackupRequestPropertiesOutput() BackupRequestPropertiesOutput {
-	return i.ToBackupRequestPropertiesOutputWithContext(context.Background())
-}
-
-func (i BackupRequestPropertiesArgs) ToBackupRequestPropertiesOutputWithContext(ctx context.Context) BackupRequestPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupRequestPropertiesOutput)
-}
-
-// BackupRequest resource specific properties
-type BackupRequestPropertiesOutput struct{ *pulumi.OutputState }
-
-func (BackupRequestPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BackupRequestProperties)(nil)).Elem()
-}
-
-func (o BackupRequestPropertiesOutput) ToBackupRequestPropertiesOutput() BackupRequestPropertiesOutput {
-	return o
-}
-
-func (o BackupRequestPropertiesOutput) ToBackupRequestPropertiesOutputWithContext(ctx context.Context) BackupRequestPropertiesOutput {
-	return o
-}
-
-// Name of the backup.
-func (o BackupRequestPropertiesOutput) BackupRequestName() pulumi.StringOutput {
-	return o.ApplyT(func(v BackupRequestProperties) string { return v.BackupRequestName }).(pulumi.StringOutput)
-}
-
-// Schedule for the backup if it is executed periodically.
-func (o BackupRequestPropertiesOutput) BackupSchedule() BackupSchedulePtrOutput {
-	return o.ApplyT(func(v BackupRequestProperties) *BackupSchedule { return v.BackupSchedule }).(BackupSchedulePtrOutput)
-}
-
-// Databases included in the backup.
-func (o BackupRequestPropertiesOutput) Databases() DatabaseBackupSettingArrayOutput {
-	return o.ApplyT(func(v BackupRequestProperties) []DatabaseBackupSetting { return v.Databases }).(DatabaseBackupSettingArrayOutput)
-}
-
-// True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
-func (o BackupRequestPropertiesOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v BackupRequestProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// SAS URL to the container.
-func (o BackupRequestPropertiesOutput) StorageAccountUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v BackupRequestProperties) string { return v.StorageAccountUrl }).(pulumi.StringOutput)
-}
-
-// Type of the backup.
-func (o BackupRequestPropertiesOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BackupRequestProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// BackupRequest resource specific properties
 type BackupRequestResponseProperties struct {
 	// Schedule for the backup if it is executed periodically.
 	BackupSchedule *BackupScheduleResponse `pulumi:"backupSchedule"`
@@ -2053,47 +1953,6 @@ func (i BackupScheduleArgs) ToBackupScheduleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleOutput)
 }
 
-func (i BackupScheduleArgs) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
-	return i.ToBackupSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i BackupScheduleArgs) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupScheduleOutput).ToBackupSchedulePtrOutputWithContext(ctx)
-}
-
-// BackupSchedulePtrInput is an input type that accepts BackupScheduleArgs, BackupSchedulePtr and BackupSchedulePtrOutput values.
-// You can construct a concrete instance of `BackupSchedulePtrInput` via:
-//
-//          BackupScheduleArgs{...}
-//
-//  or:
-//
-//          nil
-type BackupSchedulePtrInput interface {
-	pulumi.Input
-
-	ToBackupSchedulePtrOutput() BackupSchedulePtrOutput
-	ToBackupSchedulePtrOutputWithContext(context.Context) BackupSchedulePtrOutput
-}
-
-type backupSchedulePtrType BackupScheduleArgs
-
-func BackupSchedulePtr(v *BackupScheduleArgs) BackupSchedulePtrInput {
-	return (*backupSchedulePtrType)(v)
-}
-
-func (*backupSchedulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupSchedule)(nil)).Elem()
-}
-
-func (i *backupSchedulePtrType) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
-	return i.ToBackupSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i *backupSchedulePtrType) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupSchedulePtrOutput)
-}
-
 // Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
 type BackupScheduleOutput struct{ *pulumi.OutputState }
 
@@ -2107,16 +1966,6 @@ func (o BackupScheduleOutput) ToBackupScheduleOutput() BackupScheduleOutput {
 
 func (o BackupScheduleOutput) ToBackupScheduleOutputWithContext(ctx context.Context) BackupScheduleOutput {
 	return o
-}
-
-func (o BackupScheduleOutput) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
-	return o.ToBackupSchedulePtrOutputWithContext(context.Background())
-}
-
-func (o BackupScheduleOutput) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
-	return o.ApplyT(func(v BackupSchedule) *BackupSchedule {
-		return &v
-	}).(BackupSchedulePtrOutput)
 }
 
 // How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
@@ -2142,74 +1991,6 @@ func (o BackupScheduleOutput) RetentionPeriodInDays() pulumi.IntOutput {
 // When the schedule should start working.
 func (o BackupScheduleOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackupSchedule) *string { return v.StartTime }).(pulumi.StringPtrOutput)
-}
-
-type BackupSchedulePtrOutput struct{ *pulumi.OutputState }
-
-func (BackupSchedulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupSchedule)(nil)).Elem()
-}
-
-func (o BackupSchedulePtrOutput) ToBackupSchedulePtrOutput() BackupSchedulePtrOutput {
-	return o
-}
-
-func (o BackupSchedulePtrOutput) ToBackupSchedulePtrOutputWithContext(ctx context.Context) BackupSchedulePtrOutput {
-	return o
-}
-
-func (o BackupSchedulePtrOutput) Elem() BackupScheduleOutput {
-	return o.ApplyT(func(v *BackupSchedule) BackupSchedule { return *v }).(BackupScheduleOutput)
-}
-
-// How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
-func (o BackupSchedulePtrOutput) FrequencyInterval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BackupSchedule) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.FrequencyInterval
-	}).(pulumi.IntPtrOutput)
-}
-
-// The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-func (o BackupSchedulePtrOutput) FrequencyUnit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackupSchedule) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.FrequencyUnit
-	}).(pulumi.StringPtrOutput)
-}
-
-// True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
-func (o BackupSchedulePtrOutput) KeepAtLeastOneBackup() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *BackupSchedule) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.KeepAtLeastOneBackup
-	}).(pulumi.BoolPtrOutput)
-}
-
-// After how many days backups should be deleted.
-func (o BackupSchedulePtrOutput) RetentionPeriodInDays() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *BackupSchedule) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.RetentionPeriodInDays
-	}).(pulumi.IntPtrOutput)
-}
-
-// When the schedule should start working.
-func (o BackupSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackupSchedule) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StartTime
-	}).(pulumi.StringPtrOutput)
 }
 
 // Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
@@ -4005,311 +3786,6 @@ func (o DatabaseBackupSettingResponseArrayOutput) Index(i pulumi.IntInput) Datab
 }
 
 // Deployment resource specific properties
-type DeploymentProperties struct {
-	// True if deployment is currently active, false if completed and null if not started.
-	Active *bool `pulumi:"active"`
-	// Who authored the deployment.
-	Author *string `pulumi:"author"`
-	// Author email.
-	AuthorEmail *string `pulumi:"authorEmail"`
-	// Who performed the deployment.
-	Deployer *string `pulumi:"deployer"`
-	// Details on deployment.
-	Details *string `pulumi:"details"`
-	// End time.
-	EndTime *string `pulumi:"endTime"`
-	// Identifier for deployment.
-	Id *string `pulumi:"id"`
-	// Details about deployment status.
-	Message *string `pulumi:"message"`
-	// Start time.
-	StartTime *string `pulumi:"startTime"`
-	// Deployment status.
-	Status *int `pulumi:"status"`
-}
-
-// DeploymentPropertiesInput is an input type that accepts DeploymentPropertiesArgs and DeploymentPropertiesOutput values.
-// You can construct a concrete instance of `DeploymentPropertiesInput` via:
-//
-//          DeploymentPropertiesArgs{...}
-type DeploymentPropertiesInput interface {
-	pulumi.Input
-
-	ToDeploymentPropertiesOutput() DeploymentPropertiesOutput
-	ToDeploymentPropertiesOutputWithContext(context.Context) DeploymentPropertiesOutput
-}
-
-// Deployment resource specific properties
-type DeploymentPropertiesArgs struct {
-	// True if deployment is currently active, false if completed and null if not started.
-	Active pulumi.BoolPtrInput `pulumi:"active"`
-	// Who authored the deployment.
-	Author pulumi.StringPtrInput `pulumi:"author"`
-	// Author email.
-	AuthorEmail pulumi.StringPtrInput `pulumi:"authorEmail"`
-	// Who performed the deployment.
-	Deployer pulumi.StringPtrInput `pulumi:"deployer"`
-	// Details on deployment.
-	Details pulumi.StringPtrInput `pulumi:"details"`
-	// End time.
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// Identifier for deployment.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// Details about deployment status.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// Start time.
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-	// Deployment status.
-	Status pulumi.IntPtrInput `pulumi:"status"`
-}
-
-func (DeploymentPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentProperties)(nil)).Elem()
-}
-
-func (i DeploymentPropertiesArgs) ToDeploymentPropertiesOutput() DeploymentPropertiesOutput {
-	return i.ToDeploymentPropertiesOutputWithContext(context.Background())
-}
-
-func (i DeploymentPropertiesArgs) ToDeploymentPropertiesOutputWithContext(ctx context.Context) DeploymentPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPropertiesOutput)
-}
-
-func (i DeploymentPropertiesArgs) ToDeploymentPropertiesPtrOutput() DeploymentPropertiesPtrOutput {
-	return i.ToDeploymentPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i DeploymentPropertiesArgs) ToDeploymentPropertiesPtrOutputWithContext(ctx context.Context) DeploymentPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPropertiesOutput).ToDeploymentPropertiesPtrOutputWithContext(ctx)
-}
-
-// DeploymentPropertiesPtrInput is an input type that accepts DeploymentPropertiesArgs, DeploymentPropertiesPtr and DeploymentPropertiesPtrOutput values.
-// You can construct a concrete instance of `DeploymentPropertiesPtrInput` via:
-//
-//          DeploymentPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type DeploymentPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToDeploymentPropertiesPtrOutput() DeploymentPropertiesPtrOutput
-	ToDeploymentPropertiesPtrOutputWithContext(context.Context) DeploymentPropertiesPtrOutput
-}
-
-type deploymentPropertiesPtrType DeploymentPropertiesArgs
-
-func DeploymentPropertiesPtr(v *DeploymentPropertiesArgs) DeploymentPropertiesPtrInput {
-	return (*deploymentPropertiesPtrType)(v)
-}
-
-func (*deploymentPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentProperties)(nil)).Elem()
-}
-
-func (i *deploymentPropertiesPtrType) ToDeploymentPropertiesPtrOutput() DeploymentPropertiesPtrOutput {
-	return i.ToDeploymentPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *deploymentPropertiesPtrType) ToDeploymentPropertiesPtrOutputWithContext(ctx context.Context) DeploymentPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentPropertiesPtrOutput)
-}
-
-// Deployment resource specific properties
-type DeploymentPropertiesOutput struct{ *pulumi.OutputState }
-
-func (DeploymentPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentProperties)(nil)).Elem()
-}
-
-func (o DeploymentPropertiesOutput) ToDeploymentPropertiesOutput() DeploymentPropertiesOutput {
-	return o
-}
-
-func (o DeploymentPropertiesOutput) ToDeploymentPropertiesOutputWithContext(ctx context.Context) DeploymentPropertiesOutput {
-	return o
-}
-
-func (o DeploymentPropertiesOutput) ToDeploymentPropertiesPtrOutput() DeploymentPropertiesPtrOutput {
-	return o.ToDeploymentPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o DeploymentPropertiesOutput) ToDeploymentPropertiesPtrOutputWithContext(ctx context.Context) DeploymentPropertiesPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *DeploymentProperties {
-		return &v
-	}).(DeploymentPropertiesPtrOutput)
-}
-
-// True if deployment is currently active, false if completed and null if not started.
-func (o DeploymentPropertiesOutput) Active() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *bool { return v.Active }).(pulumi.BoolPtrOutput)
-}
-
-// Who authored the deployment.
-func (o DeploymentPropertiesOutput) Author() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.Author }).(pulumi.StringPtrOutput)
-}
-
-// Author email.
-func (o DeploymentPropertiesOutput) AuthorEmail() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.AuthorEmail }).(pulumi.StringPtrOutput)
-}
-
-// Who performed the deployment.
-func (o DeploymentPropertiesOutput) Deployer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.Deployer }).(pulumi.StringPtrOutput)
-}
-
-// Details on deployment.
-func (o DeploymentPropertiesOutput) Details() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.Details }).(pulumi.StringPtrOutput)
-}
-
-// End time.
-func (o DeploymentPropertiesOutput) EndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.EndTime }).(pulumi.StringPtrOutput)
-}
-
-// Identifier for deployment.
-func (o DeploymentPropertiesOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// Details about deployment status.
-func (o DeploymentPropertiesOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-// Start time.
-func (o DeploymentPropertiesOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *string { return v.StartTime }).(pulumi.StringPtrOutput)
-}
-
-// Deployment status.
-func (o DeploymentPropertiesOutput) Status() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DeploymentProperties) *int { return v.Status }).(pulumi.IntPtrOutput)
-}
-
-type DeploymentPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (DeploymentPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentProperties)(nil)).Elem()
-}
-
-func (o DeploymentPropertiesPtrOutput) ToDeploymentPropertiesPtrOutput() DeploymentPropertiesPtrOutput {
-	return o
-}
-
-func (o DeploymentPropertiesPtrOutput) ToDeploymentPropertiesPtrOutputWithContext(ctx context.Context) DeploymentPropertiesPtrOutput {
-	return o
-}
-
-func (o DeploymentPropertiesPtrOutput) Elem() DeploymentPropertiesOutput {
-	return o.ApplyT(func(v *DeploymentProperties) DeploymentProperties { return *v }).(DeploymentPropertiesOutput)
-}
-
-// True if deployment is currently active, false if completed and null if not started.
-func (o DeploymentPropertiesPtrOutput) Active() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Active
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Who authored the deployment.
-func (o DeploymentPropertiesPtrOutput) Author() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Author
-	}).(pulumi.StringPtrOutput)
-}
-
-// Author email.
-func (o DeploymentPropertiesPtrOutput) AuthorEmail() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AuthorEmail
-	}).(pulumi.StringPtrOutput)
-}
-
-// Who performed the deployment.
-func (o DeploymentPropertiesPtrOutput) Deployer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Deployer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Details on deployment.
-func (o DeploymentPropertiesPtrOutput) Details() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Details
-	}).(pulumi.StringPtrOutput)
-}
-
-// End time.
-func (o DeploymentPropertiesPtrOutput) EndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EndTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Identifier for deployment.
-func (o DeploymentPropertiesPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
-// Details about deployment status.
-func (o DeploymentPropertiesPtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Message
-	}).(pulumi.StringPtrOutput)
-}
-
-// Start time.
-func (o DeploymentPropertiesPtrOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StartTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Deployment status.
-func (o DeploymentPropertiesPtrOutput) Status() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DeploymentProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Status
-	}).(pulumi.IntPtrOutput)
-}
-
-// Deployment resource specific properties
 type DeploymentResponseProperties struct {
 	// True if deployment is currently active, false if completed and null if not started.
 	Active *bool `pulumi:"active"`
@@ -4880,273 +4356,6 @@ func (o ExperimentsResponsePtrOutput) RampUpRules() RampUpRuleResponseArrayOutpu
 		}
 		return v.RampUpRules
 	}).(RampUpRuleResponseArrayOutput)
-}
-
-// FunctionEnvelope resource specific properties
-type FunctionEnvelopeProperties struct {
-	// Config information.
-	Config map[string]interface{} `pulumi:"config"`
-	// Config URI.
-	ConfigHref *string `pulumi:"configHref"`
-	// File list.
-	Files map[string]string `pulumi:"files"`
-	// Function URI.
-	Href *string `pulumi:"href"`
-	// Script URI.
-	ScriptHref *string `pulumi:"scriptHref"`
-	// Script root path URI.
-	ScriptRootPathHref *string `pulumi:"scriptRootPathHref"`
-	// Secrets file URI.
-	SecretsFileHref *string `pulumi:"secretsFileHref"`
-	// Test data used when testing via the Azure Portal.
-	TestData *string `pulumi:"testData"`
-}
-
-// FunctionEnvelopePropertiesInput is an input type that accepts FunctionEnvelopePropertiesArgs and FunctionEnvelopePropertiesOutput values.
-// You can construct a concrete instance of `FunctionEnvelopePropertiesInput` via:
-//
-//          FunctionEnvelopePropertiesArgs{...}
-type FunctionEnvelopePropertiesInput interface {
-	pulumi.Input
-
-	ToFunctionEnvelopePropertiesOutput() FunctionEnvelopePropertiesOutput
-	ToFunctionEnvelopePropertiesOutputWithContext(context.Context) FunctionEnvelopePropertiesOutput
-}
-
-// FunctionEnvelope resource specific properties
-type FunctionEnvelopePropertiesArgs struct {
-	// Config information.
-	Config pulumi.MapInput `pulumi:"config"`
-	// Config URI.
-	ConfigHref pulumi.StringPtrInput `pulumi:"configHref"`
-	// File list.
-	Files pulumi.StringMapInput `pulumi:"files"`
-	// Function URI.
-	Href pulumi.StringPtrInput `pulumi:"href"`
-	// Script URI.
-	ScriptHref pulumi.StringPtrInput `pulumi:"scriptHref"`
-	// Script root path URI.
-	ScriptRootPathHref pulumi.StringPtrInput `pulumi:"scriptRootPathHref"`
-	// Secrets file URI.
-	SecretsFileHref pulumi.StringPtrInput `pulumi:"secretsFileHref"`
-	// Test data used when testing via the Azure Portal.
-	TestData pulumi.StringPtrInput `pulumi:"testData"`
-}
-
-func (FunctionEnvelopePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionEnvelopeProperties)(nil)).Elem()
-}
-
-func (i FunctionEnvelopePropertiesArgs) ToFunctionEnvelopePropertiesOutput() FunctionEnvelopePropertiesOutput {
-	return i.ToFunctionEnvelopePropertiesOutputWithContext(context.Background())
-}
-
-func (i FunctionEnvelopePropertiesArgs) ToFunctionEnvelopePropertiesOutputWithContext(ctx context.Context) FunctionEnvelopePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionEnvelopePropertiesOutput)
-}
-
-func (i FunctionEnvelopePropertiesArgs) ToFunctionEnvelopePropertiesPtrOutput() FunctionEnvelopePropertiesPtrOutput {
-	return i.ToFunctionEnvelopePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i FunctionEnvelopePropertiesArgs) ToFunctionEnvelopePropertiesPtrOutputWithContext(ctx context.Context) FunctionEnvelopePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionEnvelopePropertiesOutput).ToFunctionEnvelopePropertiesPtrOutputWithContext(ctx)
-}
-
-// FunctionEnvelopePropertiesPtrInput is an input type that accepts FunctionEnvelopePropertiesArgs, FunctionEnvelopePropertiesPtr and FunctionEnvelopePropertiesPtrOutput values.
-// You can construct a concrete instance of `FunctionEnvelopePropertiesPtrInput` via:
-//
-//          FunctionEnvelopePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type FunctionEnvelopePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToFunctionEnvelopePropertiesPtrOutput() FunctionEnvelopePropertiesPtrOutput
-	ToFunctionEnvelopePropertiesPtrOutputWithContext(context.Context) FunctionEnvelopePropertiesPtrOutput
-}
-
-type functionEnvelopePropertiesPtrType FunctionEnvelopePropertiesArgs
-
-func FunctionEnvelopePropertiesPtr(v *FunctionEnvelopePropertiesArgs) FunctionEnvelopePropertiesPtrInput {
-	return (*functionEnvelopePropertiesPtrType)(v)
-}
-
-func (*functionEnvelopePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionEnvelopeProperties)(nil)).Elem()
-}
-
-func (i *functionEnvelopePropertiesPtrType) ToFunctionEnvelopePropertiesPtrOutput() FunctionEnvelopePropertiesPtrOutput {
-	return i.ToFunctionEnvelopePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *functionEnvelopePropertiesPtrType) ToFunctionEnvelopePropertiesPtrOutputWithContext(ctx context.Context) FunctionEnvelopePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FunctionEnvelopePropertiesPtrOutput)
-}
-
-// FunctionEnvelope resource specific properties
-type FunctionEnvelopePropertiesOutput struct{ *pulumi.OutputState }
-
-func (FunctionEnvelopePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FunctionEnvelopeProperties)(nil)).Elem()
-}
-
-func (o FunctionEnvelopePropertiesOutput) ToFunctionEnvelopePropertiesOutput() FunctionEnvelopePropertiesOutput {
-	return o
-}
-
-func (o FunctionEnvelopePropertiesOutput) ToFunctionEnvelopePropertiesOutputWithContext(ctx context.Context) FunctionEnvelopePropertiesOutput {
-	return o
-}
-
-func (o FunctionEnvelopePropertiesOutput) ToFunctionEnvelopePropertiesPtrOutput() FunctionEnvelopePropertiesPtrOutput {
-	return o.ToFunctionEnvelopePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o FunctionEnvelopePropertiesOutput) ToFunctionEnvelopePropertiesPtrOutputWithContext(ctx context.Context) FunctionEnvelopePropertiesPtrOutput {
-	return o.ApplyT(func(v FunctionEnvelopeProperties) *FunctionEnvelopeProperties {
-		return &v
-	}).(FunctionEnvelopePropertiesPtrOutput)
-}
-
-// Config information.
-func (o FunctionEnvelopePropertiesOutput) Config() pulumi.MapOutput {
-	return o.ApplyT(func(v FunctionEnvelopeProperties) map[string]interface{} { return v.Config }).(pulumi.MapOutput)
-}
-
-// Config URI.
-func (o FunctionEnvelopePropertiesOutput) ConfigHref() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionEnvelopeProperties) *string { return v.ConfigHref }).(pulumi.StringPtrOutput)
-}
-
-// File list.
-func (o FunctionEnvelopePropertiesOutput) Files() pulumi.StringMapOutput {
-	return o.ApplyT(func(v FunctionEnvelopeProperties) map[string]string { return v.Files }).(pulumi.StringMapOutput)
-}
-
-// Function URI.
-func (o FunctionEnvelopePropertiesOutput) Href() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionEnvelopeProperties) *string { return v.Href }).(pulumi.StringPtrOutput)
-}
-
-// Script URI.
-func (o FunctionEnvelopePropertiesOutput) ScriptHref() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionEnvelopeProperties) *string { return v.ScriptHref }).(pulumi.StringPtrOutput)
-}
-
-// Script root path URI.
-func (o FunctionEnvelopePropertiesOutput) ScriptRootPathHref() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionEnvelopeProperties) *string { return v.ScriptRootPathHref }).(pulumi.StringPtrOutput)
-}
-
-// Secrets file URI.
-func (o FunctionEnvelopePropertiesOutput) SecretsFileHref() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionEnvelopeProperties) *string { return v.SecretsFileHref }).(pulumi.StringPtrOutput)
-}
-
-// Test data used when testing via the Azure Portal.
-func (o FunctionEnvelopePropertiesOutput) TestData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FunctionEnvelopeProperties) *string { return v.TestData }).(pulumi.StringPtrOutput)
-}
-
-type FunctionEnvelopePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (FunctionEnvelopePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FunctionEnvelopeProperties)(nil)).Elem()
-}
-
-func (o FunctionEnvelopePropertiesPtrOutput) ToFunctionEnvelopePropertiesPtrOutput() FunctionEnvelopePropertiesPtrOutput {
-	return o
-}
-
-func (o FunctionEnvelopePropertiesPtrOutput) ToFunctionEnvelopePropertiesPtrOutputWithContext(ctx context.Context) FunctionEnvelopePropertiesPtrOutput {
-	return o
-}
-
-func (o FunctionEnvelopePropertiesPtrOutput) Elem() FunctionEnvelopePropertiesOutput {
-	return o.ApplyT(func(v *FunctionEnvelopeProperties) FunctionEnvelopeProperties { return *v }).(FunctionEnvelopePropertiesOutput)
-}
-
-// Config information.
-func (o FunctionEnvelopePropertiesPtrOutput) Config() pulumi.MapOutput {
-	return o.ApplyT(func(v *FunctionEnvelopeProperties) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Config
-	}).(pulumi.MapOutput)
-}
-
-// Config URI.
-func (o FunctionEnvelopePropertiesPtrOutput) ConfigHref() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionEnvelopeProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ConfigHref
-	}).(pulumi.StringPtrOutput)
-}
-
-// File list.
-func (o FunctionEnvelopePropertiesPtrOutput) Files() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *FunctionEnvelopeProperties) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Files
-	}).(pulumi.StringMapOutput)
-}
-
-// Function URI.
-func (o FunctionEnvelopePropertiesPtrOutput) Href() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionEnvelopeProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Href
-	}).(pulumi.StringPtrOutput)
-}
-
-// Script URI.
-func (o FunctionEnvelopePropertiesPtrOutput) ScriptHref() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionEnvelopeProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ScriptHref
-	}).(pulumi.StringPtrOutput)
-}
-
-// Script root path URI.
-func (o FunctionEnvelopePropertiesPtrOutput) ScriptRootPathHref() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionEnvelopeProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ScriptRootPathHref
-	}).(pulumi.StringPtrOutput)
-}
-
-// Secrets file URI.
-func (o FunctionEnvelopePropertiesPtrOutput) SecretsFileHref() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionEnvelopeProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SecretsFileHref
-	}).(pulumi.StringPtrOutput)
-}
-
-// Test data used when testing via the Azure Portal.
-func (o FunctionEnvelopePropertiesPtrOutput) TestData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FunctionEnvelopeProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TestData
-	}).(pulumi.StringPtrOutput)
 }
 
 // FunctionEnvelope resource specific properties
@@ -5758,273 +4967,6 @@ func (o HandlerMappingResponseArrayOutput) Index(i pulumi.IntInput) HandlerMappi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HandlerMappingResponse {
 		return vs[0].([]HandlerMappingResponse)[vs[1].(int)]
 	}).(HandlerMappingResponseOutput)
-}
-
-// HostNameBinding resource specific properties
-type HostNameBindingProperties struct {
-	// Azure resource name.
-	AzureResourceName *string `pulumi:"azureResourceName"`
-	// Azure resource type.
-	AzureResourceType *string `pulumi:"azureResourceType"`
-	// Custom DNS record type.
-	CustomHostNameDnsRecordType *string `pulumi:"customHostNameDnsRecordType"`
-	// Fully qualified ARM domain resource URI.
-	DomainId *string `pulumi:"domainId"`
-	// Hostname type.
-	HostNameType *string `pulumi:"hostNameType"`
-	// App Service app name.
-	SiteName *string `pulumi:"siteName"`
-	// SSL type
-	SslState *string `pulumi:"sslState"`
-	// SSL certificate thumbprint
-	Thumbprint *string `pulumi:"thumbprint"`
-}
-
-// HostNameBindingPropertiesInput is an input type that accepts HostNameBindingPropertiesArgs and HostNameBindingPropertiesOutput values.
-// You can construct a concrete instance of `HostNameBindingPropertiesInput` via:
-//
-//          HostNameBindingPropertiesArgs{...}
-type HostNameBindingPropertiesInput interface {
-	pulumi.Input
-
-	ToHostNameBindingPropertiesOutput() HostNameBindingPropertiesOutput
-	ToHostNameBindingPropertiesOutputWithContext(context.Context) HostNameBindingPropertiesOutput
-}
-
-// HostNameBinding resource specific properties
-type HostNameBindingPropertiesArgs struct {
-	// Azure resource name.
-	AzureResourceName pulumi.StringPtrInput `pulumi:"azureResourceName"`
-	// Azure resource type.
-	AzureResourceType pulumi.StringPtrInput `pulumi:"azureResourceType"`
-	// Custom DNS record type.
-	CustomHostNameDnsRecordType pulumi.StringPtrInput `pulumi:"customHostNameDnsRecordType"`
-	// Fully qualified ARM domain resource URI.
-	DomainId pulumi.StringPtrInput `pulumi:"domainId"`
-	// Hostname type.
-	HostNameType pulumi.StringPtrInput `pulumi:"hostNameType"`
-	// App Service app name.
-	SiteName pulumi.StringPtrInput `pulumi:"siteName"`
-	// SSL type
-	SslState pulumi.StringPtrInput `pulumi:"sslState"`
-	// SSL certificate thumbprint
-	Thumbprint pulumi.StringPtrInput `pulumi:"thumbprint"`
-}
-
-func (HostNameBindingPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostNameBindingProperties)(nil)).Elem()
-}
-
-func (i HostNameBindingPropertiesArgs) ToHostNameBindingPropertiesOutput() HostNameBindingPropertiesOutput {
-	return i.ToHostNameBindingPropertiesOutputWithContext(context.Background())
-}
-
-func (i HostNameBindingPropertiesArgs) ToHostNameBindingPropertiesOutputWithContext(ctx context.Context) HostNameBindingPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostNameBindingPropertiesOutput)
-}
-
-func (i HostNameBindingPropertiesArgs) ToHostNameBindingPropertiesPtrOutput() HostNameBindingPropertiesPtrOutput {
-	return i.ToHostNameBindingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i HostNameBindingPropertiesArgs) ToHostNameBindingPropertiesPtrOutputWithContext(ctx context.Context) HostNameBindingPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostNameBindingPropertiesOutput).ToHostNameBindingPropertiesPtrOutputWithContext(ctx)
-}
-
-// HostNameBindingPropertiesPtrInput is an input type that accepts HostNameBindingPropertiesArgs, HostNameBindingPropertiesPtr and HostNameBindingPropertiesPtrOutput values.
-// You can construct a concrete instance of `HostNameBindingPropertiesPtrInput` via:
-//
-//          HostNameBindingPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type HostNameBindingPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToHostNameBindingPropertiesPtrOutput() HostNameBindingPropertiesPtrOutput
-	ToHostNameBindingPropertiesPtrOutputWithContext(context.Context) HostNameBindingPropertiesPtrOutput
-}
-
-type hostNameBindingPropertiesPtrType HostNameBindingPropertiesArgs
-
-func HostNameBindingPropertiesPtr(v *HostNameBindingPropertiesArgs) HostNameBindingPropertiesPtrInput {
-	return (*hostNameBindingPropertiesPtrType)(v)
-}
-
-func (*hostNameBindingPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HostNameBindingProperties)(nil)).Elem()
-}
-
-func (i *hostNameBindingPropertiesPtrType) ToHostNameBindingPropertiesPtrOutput() HostNameBindingPropertiesPtrOutput {
-	return i.ToHostNameBindingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *hostNameBindingPropertiesPtrType) ToHostNameBindingPropertiesPtrOutputWithContext(ctx context.Context) HostNameBindingPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HostNameBindingPropertiesPtrOutput)
-}
-
-// HostNameBinding resource specific properties
-type HostNameBindingPropertiesOutput struct{ *pulumi.OutputState }
-
-func (HostNameBindingPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HostNameBindingProperties)(nil)).Elem()
-}
-
-func (o HostNameBindingPropertiesOutput) ToHostNameBindingPropertiesOutput() HostNameBindingPropertiesOutput {
-	return o
-}
-
-func (o HostNameBindingPropertiesOutput) ToHostNameBindingPropertiesOutputWithContext(ctx context.Context) HostNameBindingPropertiesOutput {
-	return o
-}
-
-func (o HostNameBindingPropertiesOutput) ToHostNameBindingPropertiesPtrOutput() HostNameBindingPropertiesPtrOutput {
-	return o.ToHostNameBindingPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o HostNameBindingPropertiesOutput) ToHostNameBindingPropertiesPtrOutputWithContext(ctx context.Context) HostNameBindingPropertiesPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *HostNameBindingProperties {
-		return &v
-	}).(HostNameBindingPropertiesPtrOutput)
-}
-
-// Azure resource name.
-func (o HostNameBindingPropertiesOutput) AzureResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *string { return v.AzureResourceName }).(pulumi.StringPtrOutput)
-}
-
-// Azure resource type.
-func (o HostNameBindingPropertiesOutput) AzureResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *string { return v.AzureResourceType }).(pulumi.StringPtrOutput)
-}
-
-// Custom DNS record type.
-func (o HostNameBindingPropertiesOutput) CustomHostNameDnsRecordType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *string { return v.CustomHostNameDnsRecordType }).(pulumi.StringPtrOutput)
-}
-
-// Fully qualified ARM domain resource URI.
-func (o HostNameBindingPropertiesOutput) DomainId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *string { return v.DomainId }).(pulumi.StringPtrOutput)
-}
-
-// Hostname type.
-func (o HostNameBindingPropertiesOutput) HostNameType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *string { return v.HostNameType }).(pulumi.StringPtrOutput)
-}
-
-// App Service app name.
-func (o HostNameBindingPropertiesOutput) SiteName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *string { return v.SiteName }).(pulumi.StringPtrOutput)
-}
-
-// SSL type
-func (o HostNameBindingPropertiesOutput) SslState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *string { return v.SslState }).(pulumi.StringPtrOutput)
-}
-
-// SSL certificate thumbprint
-func (o HostNameBindingPropertiesOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HostNameBindingProperties) *string { return v.Thumbprint }).(pulumi.StringPtrOutput)
-}
-
-type HostNameBindingPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (HostNameBindingPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HostNameBindingProperties)(nil)).Elem()
-}
-
-func (o HostNameBindingPropertiesPtrOutput) ToHostNameBindingPropertiesPtrOutput() HostNameBindingPropertiesPtrOutput {
-	return o
-}
-
-func (o HostNameBindingPropertiesPtrOutput) ToHostNameBindingPropertiesPtrOutputWithContext(ctx context.Context) HostNameBindingPropertiesPtrOutput {
-	return o
-}
-
-func (o HostNameBindingPropertiesPtrOutput) Elem() HostNameBindingPropertiesOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) HostNameBindingProperties { return *v }).(HostNameBindingPropertiesOutput)
-}
-
-// Azure resource name.
-func (o HostNameBindingPropertiesPtrOutput) AzureResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AzureResourceName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Azure resource type.
-func (o HostNameBindingPropertiesPtrOutput) AzureResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AzureResourceType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Custom DNS record type.
-func (o HostNameBindingPropertiesPtrOutput) CustomHostNameDnsRecordType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CustomHostNameDnsRecordType
-	}).(pulumi.StringPtrOutput)
-}
-
-// Fully qualified ARM domain resource URI.
-func (o HostNameBindingPropertiesPtrOutput) DomainId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DomainId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hostname type.
-func (o HostNameBindingPropertiesPtrOutput) HostNameType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HostNameType
-	}).(pulumi.StringPtrOutput)
-}
-
-// App Service app name.
-func (o HostNameBindingPropertiesPtrOutput) SiteName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SiteName
-	}).(pulumi.StringPtrOutput)
-}
-
-// SSL type
-func (o HostNameBindingPropertiesPtrOutput) SslState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SslState
-	}).(pulumi.StringPtrOutput)
-}
-
-// SSL certificate thumbprint
-func (o HostNameBindingPropertiesPtrOutput) Thumbprint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HostNameBindingProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Thumbprint
-	}).(pulumi.StringPtrOutput)
 }
 
 // HostNameBinding resource specific properties
@@ -6974,277 +5916,6 @@ func (o HybridConnectionKeyResponsePropertiesOutput) SendKeyValue() pulumi.Strin
 }
 
 // HybridConnection resource specific properties
-type HybridConnectionProperties struct {
-	// The hostname of the endpoint.
-	Hostname *string `pulumi:"hostname"`
-	// The port of the endpoint.
-	Port *int `pulumi:"port"`
-	// The ARM URI to the Service Bus relay.
-	RelayArmUri *string `pulumi:"relayArmUri"`
-	// The name of the Service Bus relay.
-	RelayName *string `pulumi:"relayName"`
-	// The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
-	SendKeyName *string `pulumi:"sendKeyName"`
-	// The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
-	// normally, use the POST /listKeys API instead.
-	SendKeyValue *string `pulumi:"sendKeyValue"`
-	// The name of the Service Bus namespace.
-	ServiceBusNamespace *string `pulumi:"serviceBusNamespace"`
-	// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
-	ServiceBusSuffix *string `pulumi:"serviceBusSuffix"`
-}
-
-// HybridConnectionPropertiesInput is an input type that accepts HybridConnectionPropertiesArgs and HybridConnectionPropertiesOutput values.
-// You can construct a concrete instance of `HybridConnectionPropertiesInput` via:
-//
-//          HybridConnectionPropertiesArgs{...}
-type HybridConnectionPropertiesInput interface {
-	pulumi.Input
-
-	ToHybridConnectionPropertiesOutput() HybridConnectionPropertiesOutput
-	ToHybridConnectionPropertiesOutputWithContext(context.Context) HybridConnectionPropertiesOutput
-}
-
-// HybridConnection resource specific properties
-type HybridConnectionPropertiesArgs struct {
-	// The hostname of the endpoint.
-	Hostname pulumi.StringPtrInput `pulumi:"hostname"`
-	// The port of the endpoint.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The ARM URI to the Service Bus relay.
-	RelayArmUri pulumi.StringPtrInput `pulumi:"relayArmUri"`
-	// The name of the Service Bus relay.
-	RelayName pulumi.StringPtrInput `pulumi:"relayName"`
-	// The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
-	SendKeyName pulumi.StringPtrInput `pulumi:"sendKeyName"`
-	// The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
-	// normally, use the POST /listKeys API instead.
-	SendKeyValue pulumi.StringPtrInput `pulumi:"sendKeyValue"`
-	// The name of the Service Bus namespace.
-	ServiceBusNamespace pulumi.StringPtrInput `pulumi:"serviceBusNamespace"`
-	// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
-	ServiceBusSuffix pulumi.StringPtrInput `pulumi:"serviceBusSuffix"`
-}
-
-func (HybridConnectionPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridConnectionProperties)(nil)).Elem()
-}
-
-func (i HybridConnectionPropertiesArgs) ToHybridConnectionPropertiesOutput() HybridConnectionPropertiesOutput {
-	return i.ToHybridConnectionPropertiesOutputWithContext(context.Background())
-}
-
-func (i HybridConnectionPropertiesArgs) ToHybridConnectionPropertiesOutputWithContext(ctx context.Context) HybridConnectionPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionPropertiesOutput)
-}
-
-func (i HybridConnectionPropertiesArgs) ToHybridConnectionPropertiesPtrOutput() HybridConnectionPropertiesPtrOutput {
-	return i.ToHybridConnectionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i HybridConnectionPropertiesArgs) ToHybridConnectionPropertiesPtrOutputWithContext(ctx context.Context) HybridConnectionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionPropertiesOutput).ToHybridConnectionPropertiesPtrOutputWithContext(ctx)
-}
-
-// HybridConnectionPropertiesPtrInput is an input type that accepts HybridConnectionPropertiesArgs, HybridConnectionPropertiesPtr and HybridConnectionPropertiesPtrOutput values.
-// You can construct a concrete instance of `HybridConnectionPropertiesPtrInput` via:
-//
-//          HybridConnectionPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type HybridConnectionPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToHybridConnectionPropertiesPtrOutput() HybridConnectionPropertiesPtrOutput
-	ToHybridConnectionPropertiesPtrOutputWithContext(context.Context) HybridConnectionPropertiesPtrOutput
-}
-
-type hybridConnectionPropertiesPtrType HybridConnectionPropertiesArgs
-
-func HybridConnectionPropertiesPtr(v *HybridConnectionPropertiesArgs) HybridConnectionPropertiesPtrInput {
-	return (*hybridConnectionPropertiesPtrType)(v)
-}
-
-func (*hybridConnectionPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HybridConnectionProperties)(nil)).Elem()
-}
-
-func (i *hybridConnectionPropertiesPtrType) ToHybridConnectionPropertiesPtrOutput() HybridConnectionPropertiesPtrOutput {
-	return i.ToHybridConnectionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *hybridConnectionPropertiesPtrType) ToHybridConnectionPropertiesPtrOutputWithContext(ctx context.Context) HybridConnectionPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HybridConnectionPropertiesPtrOutput)
-}
-
-// HybridConnection resource specific properties
-type HybridConnectionPropertiesOutput struct{ *pulumi.OutputState }
-
-func (HybridConnectionPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridConnectionProperties)(nil)).Elem()
-}
-
-func (o HybridConnectionPropertiesOutput) ToHybridConnectionPropertiesOutput() HybridConnectionPropertiesOutput {
-	return o
-}
-
-func (o HybridConnectionPropertiesOutput) ToHybridConnectionPropertiesOutputWithContext(ctx context.Context) HybridConnectionPropertiesOutput {
-	return o
-}
-
-func (o HybridConnectionPropertiesOutput) ToHybridConnectionPropertiesPtrOutput() HybridConnectionPropertiesPtrOutput {
-	return o.ToHybridConnectionPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o HybridConnectionPropertiesOutput) ToHybridConnectionPropertiesPtrOutputWithContext(ctx context.Context) HybridConnectionPropertiesPtrOutput {
-	return o.ApplyT(func(v HybridConnectionProperties) *HybridConnectionProperties {
-		return &v
-	}).(HybridConnectionPropertiesPtrOutput)
-}
-
-// The hostname of the endpoint.
-func (o HybridConnectionPropertiesOutput) Hostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HybridConnectionProperties) *string { return v.Hostname }).(pulumi.StringPtrOutput)
-}
-
-// The port of the endpoint.
-func (o HybridConnectionPropertiesOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v HybridConnectionProperties) *int { return v.Port }).(pulumi.IntPtrOutput)
-}
-
-// The ARM URI to the Service Bus relay.
-func (o HybridConnectionPropertiesOutput) RelayArmUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HybridConnectionProperties) *string { return v.RelayArmUri }).(pulumi.StringPtrOutput)
-}
-
-// The name of the Service Bus relay.
-func (o HybridConnectionPropertiesOutput) RelayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HybridConnectionProperties) *string { return v.RelayName }).(pulumi.StringPtrOutput)
-}
-
-// The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
-func (o HybridConnectionPropertiesOutput) SendKeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HybridConnectionProperties) *string { return v.SendKeyName }).(pulumi.StringPtrOutput)
-}
-
-// The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
-// normally, use the POST /listKeys API instead.
-func (o HybridConnectionPropertiesOutput) SendKeyValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HybridConnectionProperties) *string { return v.SendKeyValue }).(pulumi.StringPtrOutput)
-}
-
-// The name of the Service Bus namespace.
-func (o HybridConnectionPropertiesOutput) ServiceBusNamespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HybridConnectionProperties) *string { return v.ServiceBusNamespace }).(pulumi.StringPtrOutput)
-}
-
-// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
-func (o HybridConnectionPropertiesOutput) ServiceBusSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HybridConnectionProperties) *string { return v.ServiceBusSuffix }).(pulumi.StringPtrOutput)
-}
-
-type HybridConnectionPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (HybridConnectionPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HybridConnectionProperties)(nil)).Elem()
-}
-
-func (o HybridConnectionPropertiesPtrOutput) ToHybridConnectionPropertiesPtrOutput() HybridConnectionPropertiesPtrOutput {
-	return o
-}
-
-func (o HybridConnectionPropertiesPtrOutput) ToHybridConnectionPropertiesPtrOutputWithContext(ctx context.Context) HybridConnectionPropertiesPtrOutput {
-	return o
-}
-
-func (o HybridConnectionPropertiesPtrOutput) Elem() HybridConnectionPropertiesOutput {
-	return o.ApplyT(func(v *HybridConnectionProperties) HybridConnectionProperties { return *v }).(HybridConnectionPropertiesOutput)
-}
-
-// The hostname of the endpoint.
-func (o HybridConnectionPropertiesPtrOutput) Hostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HybridConnectionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Hostname
-	}).(pulumi.StringPtrOutput)
-}
-
-// The port of the endpoint.
-func (o HybridConnectionPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *HybridConnectionProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-// The ARM URI to the Service Bus relay.
-func (o HybridConnectionPropertiesPtrOutput) RelayArmUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HybridConnectionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RelayArmUri
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the Service Bus relay.
-func (o HybridConnectionPropertiesPtrOutput) RelayName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HybridConnectionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RelayName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
-func (o HybridConnectionPropertiesPtrOutput) SendKeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HybridConnectionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SendKeyName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
-// normally, use the POST /listKeys API instead.
-func (o HybridConnectionPropertiesPtrOutput) SendKeyValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HybridConnectionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SendKeyValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the Service Bus namespace.
-func (o HybridConnectionPropertiesPtrOutput) ServiceBusNamespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HybridConnectionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceBusNamespace
-	}).(pulumi.StringPtrOutput)
-}
-
-// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
-func (o HybridConnectionPropertiesPtrOutput) ServiceBusSuffix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HybridConnectionProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceBusSuffix
-	}).(pulumi.StringPtrOutput)
-}
-
-// HybridConnection resource specific properties
 type HybridConnectionResponseProperties struct {
 	// The hostname of the endpoint.
 	Hostname *string `pulumi:"hostname"`
@@ -7512,140 +6183,6 @@ func (o HybridConnectionResponsePropertiesPtrOutput) ServiceBusSuffix() pulumi.S
 			return nil
 		}
 		return v.ServiceBusSuffix
-	}).(pulumi.StringPtrOutput)
-}
-
-// Identifier resource specific properties
-type IdentifierProperties struct {
-	// String representation of the identity.
-	Id *string `pulumi:"id"`
-}
-
-// IdentifierPropertiesInput is an input type that accepts IdentifierPropertiesArgs and IdentifierPropertiesOutput values.
-// You can construct a concrete instance of `IdentifierPropertiesInput` via:
-//
-//          IdentifierPropertiesArgs{...}
-type IdentifierPropertiesInput interface {
-	pulumi.Input
-
-	ToIdentifierPropertiesOutput() IdentifierPropertiesOutput
-	ToIdentifierPropertiesOutputWithContext(context.Context) IdentifierPropertiesOutput
-}
-
-// Identifier resource specific properties
-type IdentifierPropertiesArgs struct {
-	// String representation of the identity.
-	Id pulumi.StringPtrInput `pulumi:"id"`
-}
-
-func (IdentifierPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentifierProperties)(nil)).Elem()
-}
-
-func (i IdentifierPropertiesArgs) ToIdentifierPropertiesOutput() IdentifierPropertiesOutput {
-	return i.ToIdentifierPropertiesOutputWithContext(context.Background())
-}
-
-func (i IdentifierPropertiesArgs) ToIdentifierPropertiesOutputWithContext(ctx context.Context) IdentifierPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentifierPropertiesOutput)
-}
-
-func (i IdentifierPropertiesArgs) ToIdentifierPropertiesPtrOutput() IdentifierPropertiesPtrOutput {
-	return i.ToIdentifierPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i IdentifierPropertiesArgs) ToIdentifierPropertiesPtrOutputWithContext(ctx context.Context) IdentifierPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentifierPropertiesOutput).ToIdentifierPropertiesPtrOutputWithContext(ctx)
-}
-
-// IdentifierPropertiesPtrInput is an input type that accepts IdentifierPropertiesArgs, IdentifierPropertiesPtr and IdentifierPropertiesPtrOutput values.
-// You can construct a concrete instance of `IdentifierPropertiesPtrInput` via:
-//
-//          IdentifierPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type IdentifierPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToIdentifierPropertiesPtrOutput() IdentifierPropertiesPtrOutput
-	ToIdentifierPropertiesPtrOutputWithContext(context.Context) IdentifierPropertiesPtrOutput
-}
-
-type identifierPropertiesPtrType IdentifierPropertiesArgs
-
-func IdentifierPropertiesPtr(v *IdentifierPropertiesArgs) IdentifierPropertiesPtrInput {
-	return (*identifierPropertiesPtrType)(v)
-}
-
-func (*identifierPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentifierProperties)(nil)).Elem()
-}
-
-func (i *identifierPropertiesPtrType) ToIdentifierPropertiesPtrOutput() IdentifierPropertiesPtrOutput {
-	return i.ToIdentifierPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *identifierPropertiesPtrType) ToIdentifierPropertiesPtrOutputWithContext(ctx context.Context) IdentifierPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentifierPropertiesPtrOutput)
-}
-
-// Identifier resource specific properties
-type IdentifierPropertiesOutput struct{ *pulumi.OutputState }
-
-func (IdentifierPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentifierProperties)(nil)).Elem()
-}
-
-func (o IdentifierPropertiesOutput) ToIdentifierPropertiesOutput() IdentifierPropertiesOutput {
-	return o
-}
-
-func (o IdentifierPropertiesOutput) ToIdentifierPropertiesOutputWithContext(ctx context.Context) IdentifierPropertiesOutput {
-	return o
-}
-
-func (o IdentifierPropertiesOutput) ToIdentifierPropertiesPtrOutput() IdentifierPropertiesPtrOutput {
-	return o.ToIdentifierPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o IdentifierPropertiesOutput) ToIdentifierPropertiesPtrOutputWithContext(ctx context.Context) IdentifierPropertiesPtrOutput {
-	return o.ApplyT(func(v IdentifierProperties) *IdentifierProperties {
-		return &v
-	}).(IdentifierPropertiesPtrOutput)
-}
-
-// String representation of the identity.
-func (o IdentifierPropertiesOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IdentifierProperties) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-type IdentifierPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (IdentifierPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentifierProperties)(nil)).Elem()
-}
-
-func (o IdentifierPropertiesPtrOutput) ToIdentifierPropertiesPtrOutput() IdentifierPropertiesPtrOutput {
-	return o
-}
-
-func (o IdentifierPropertiesPtrOutput) ToIdentifierPropertiesPtrOutputWithContext(ctx context.Context) IdentifierPropertiesPtrOutput {
-	return o
-}
-
-func (o IdentifierPropertiesPtrOutput) Elem() IdentifierPropertiesOutput {
-	return o.ApplyT(func(v *IdentifierProperties) IdentifierProperties { return *v }).(IdentifierPropertiesOutput)
-}
-
-// String representation of the identity.
-func (o IdentifierPropertiesPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentifierProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Id
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8526,273 +7063,6 @@ func (o NameValuePairResponseArrayOutput) Index(i pulumi.IntInput) NameValuePair
 }
 
 // PremierAddOn resource specific properties
-type PremierAddOnProperties struct {
-	// Premier add on Location.
-	Location *string `pulumi:"location"`
-	// Premier add on Marketplace offer.
-	MarketplaceOffer *string `pulumi:"marketplaceOffer"`
-	// Premier add on Marketplace publisher.
-	MarketplacePublisher *string `pulumi:"marketplacePublisher"`
-	// Premier add on Name.
-	PremierAddOnName *string `pulumi:"premierAddOnName"`
-	// Premier add on Product.
-	Product *string `pulumi:"product"`
-	// Premier add on SKU.
-	Sku *string `pulumi:"sku"`
-	// Premier add on Tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Premier add on Vendor.
-	Vendor *string `pulumi:"vendor"`
-}
-
-// PremierAddOnPropertiesInput is an input type that accepts PremierAddOnPropertiesArgs and PremierAddOnPropertiesOutput values.
-// You can construct a concrete instance of `PremierAddOnPropertiesInput` via:
-//
-//          PremierAddOnPropertiesArgs{...}
-type PremierAddOnPropertiesInput interface {
-	pulumi.Input
-
-	ToPremierAddOnPropertiesOutput() PremierAddOnPropertiesOutput
-	ToPremierAddOnPropertiesOutputWithContext(context.Context) PremierAddOnPropertiesOutput
-}
-
-// PremierAddOn resource specific properties
-type PremierAddOnPropertiesArgs struct {
-	// Premier add on Location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Premier add on Marketplace offer.
-	MarketplaceOffer pulumi.StringPtrInput `pulumi:"marketplaceOffer"`
-	// Premier add on Marketplace publisher.
-	MarketplacePublisher pulumi.StringPtrInput `pulumi:"marketplacePublisher"`
-	// Premier add on Name.
-	PremierAddOnName pulumi.StringPtrInput `pulumi:"premierAddOnName"`
-	// Premier add on Product.
-	Product pulumi.StringPtrInput `pulumi:"product"`
-	// Premier add on SKU.
-	Sku pulumi.StringPtrInput `pulumi:"sku"`
-	// Premier add on Tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Premier add on Vendor.
-	Vendor pulumi.StringPtrInput `pulumi:"vendor"`
-}
-
-func (PremierAddOnPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PremierAddOnProperties)(nil)).Elem()
-}
-
-func (i PremierAddOnPropertiesArgs) ToPremierAddOnPropertiesOutput() PremierAddOnPropertiesOutput {
-	return i.ToPremierAddOnPropertiesOutputWithContext(context.Background())
-}
-
-func (i PremierAddOnPropertiesArgs) ToPremierAddOnPropertiesOutputWithContext(ctx context.Context) PremierAddOnPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PremierAddOnPropertiesOutput)
-}
-
-func (i PremierAddOnPropertiesArgs) ToPremierAddOnPropertiesPtrOutput() PremierAddOnPropertiesPtrOutput {
-	return i.ToPremierAddOnPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i PremierAddOnPropertiesArgs) ToPremierAddOnPropertiesPtrOutputWithContext(ctx context.Context) PremierAddOnPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PremierAddOnPropertiesOutput).ToPremierAddOnPropertiesPtrOutputWithContext(ctx)
-}
-
-// PremierAddOnPropertiesPtrInput is an input type that accepts PremierAddOnPropertiesArgs, PremierAddOnPropertiesPtr and PremierAddOnPropertiesPtrOutput values.
-// You can construct a concrete instance of `PremierAddOnPropertiesPtrInput` via:
-//
-//          PremierAddOnPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type PremierAddOnPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToPremierAddOnPropertiesPtrOutput() PremierAddOnPropertiesPtrOutput
-	ToPremierAddOnPropertiesPtrOutputWithContext(context.Context) PremierAddOnPropertiesPtrOutput
-}
-
-type premierAddOnPropertiesPtrType PremierAddOnPropertiesArgs
-
-func PremierAddOnPropertiesPtr(v *PremierAddOnPropertiesArgs) PremierAddOnPropertiesPtrInput {
-	return (*premierAddOnPropertiesPtrType)(v)
-}
-
-func (*premierAddOnPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PremierAddOnProperties)(nil)).Elem()
-}
-
-func (i *premierAddOnPropertiesPtrType) ToPremierAddOnPropertiesPtrOutput() PremierAddOnPropertiesPtrOutput {
-	return i.ToPremierAddOnPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *premierAddOnPropertiesPtrType) ToPremierAddOnPropertiesPtrOutputWithContext(ctx context.Context) PremierAddOnPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PremierAddOnPropertiesPtrOutput)
-}
-
-// PremierAddOn resource specific properties
-type PremierAddOnPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PremierAddOnPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PremierAddOnProperties)(nil)).Elem()
-}
-
-func (o PremierAddOnPropertiesOutput) ToPremierAddOnPropertiesOutput() PremierAddOnPropertiesOutput {
-	return o
-}
-
-func (o PremierAddOnPropertiesOutput) ToPremierAddOnPropertiesOutputWithContext(ctx context.Context) PremierAddOnPropertiesOutput {
-	return o
-}
-
-func (o PremierAddOnPropertiesOutput) ToPremierAddOnPropertiesPtrOutput() PremierAddOnPropertiesPtrOutput {
-	return o.ToPremierAddOnPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o PremierAddOnPropertiesOutput) ToPremierAddOnPropertiesPtrOutputWithContext(ctx context.Context) PremierAddOnPropertiesPtrOutput {
-	return o.ApplyT(func(v PremierAddOnProperties) *PremierAddOnProperties {
-		return &v
-	}).(PremierAddOnPropertiesPtrOutput)
-}
-
-// Premier add on Location.
-func (o PremierAddOnPropertiesOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PremierAddOnProperties) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Premier add on Marketplace offer.
-func (o PremierAddOnPropertiesOutput) MarketplaceOffer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PremierAddOnProperties) *string { return v.MarketplaceOffer }).(pulumi.StringPtrOutput)
-}
-
-// Premier add on Marketplace publisher.
-func (o PremierAddOnPropertiesOutput) MarketplacePublisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PremierAddOnProperties) *string { return v.MarketplacePublisher }).(pulumi.StringPtrOutput)
-}
-
-// Premier add on Name.
-func (o PremierAddOnPropertiesOutput) PremierAddOnName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PremierAddOnProperties) *string { return v.PremierAddOnName }).(pulumi.StringPtrOutput)
-}
-
-// Premier add on Product.
-func (o PremierAddOnPropertiesOutput) Product() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PremierAddOnProperties) *string { return v.Product }).(pulumi.StringPtrOutput)
-}
-
-// Premier add on SKU.
-func (o PremierAddOnPropertiesOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PremierAddOnProperties) *string { return v.Sku }).(pulumi.StringPtrOutput)
-}
-
-// Premier add on Tags.
-func (o PremierAddOnPropertiesOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PremierAddOnProperties) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Premier add on Vendor.
-func (o PremierAddOnPropertiesOutput) Vendor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PremierAddOnProperties) *string { return v.Vendor }).(pulumi.StringPtrOutput)
-}
-
-type PremierAddOnPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (PremierAddOnPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PremierAddOnProperties)(nil)).Elem()
-}
-
-func (o PremierAddOnPropertiesPtrOutput) ToPremierAddOnPropertiesPtrOutput() PremierAddOnPropertiesPtrOutput {
-	return o
-}
-
-func (o PremierAddOnPropertiesPtrOutput) ToPremierAddOnPropertiesPtrOutputWithContext(ctx context.Context) PremierAddOnPropertiesPtrOutput {
-	return o
-}
-
-func (o PremierAddOnPropertiesPtrOutput) Elem() PremierAddOnPropertiesOutput {
-	return o.ApplyT(func(v *PremierAddOnProperties) PremierAddOnProperties { return *v }).(PremierAddOnPropertiesOutput)
-}
-
-// Premier add on Location.
-func (o PremierAddOnPropertiesPtrOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PremierAddOnProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Location
-	}).(pulumi.StringPtrOutput)
-}
-
-// Premier add on Marketplace offer.
-func (o PremierAddOnPropertiesPtrOutput) MarketplaceOffer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PremierAddOnProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MarketplaceOffer
-	}).(pulumi.StringPtrOutput)
-}
-
-// Premier add on Marketplace publisher.
-func (o PremierAddOnPropertiesPtrOutput) MarketplacePublisher() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PremierAddOnProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MarketplacePublisher
-	}).(pulumi.StringPtrOutput)
-}
-
-// Premier add on Name.
-func (o PremierAddOnPropertiesPtrOutput) PremierAddOnName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PremierAddOnProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PremierAddOnName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Premier add on Product.
-func (o PremierAddOnPropertiesPtrOutput) Product() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PremierAddOnProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Product
-	}).(pulumi.StringPtrOutput)
-}
-
-// Premier add on SKU.
-func (o PremierAddOnPropertiesPtrOutput) Sku() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PremierAddOnProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Sku
-	}).(pulumi.StringPtrOutput)
-}
-
-// Premier add on Tags.
-func (o PremierAddOnPropertiesPtrOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *PremierAddOnProperties) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Tags
-	}).(pulumi.StringMapOutput)
-}
-
-// Premier add on Vendor.
-func (o PremierAddOnPropertiesPtrOutput) Vendor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PremierAddOnProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Vendor
-	}).(pulumi.StringPtrOutput)
-}
-
-// PremierAddOn resource specific properties
 type PremierAddOnResponseProperties struct {
 	// Premier add on Location.
 	Location *string `pulumi:"location"`
@@ -9060,159 +7330,6 @@ func (o PremierAddOnResponsePropertiesPtrOutput) Vendor() pulumi.StringPtrOutput
 }
 
 // PublicCertificate resource specific properties
-type PublicCertificateProperties struct {
-	// Public Certificate byte array
-	Blob *string `pulumi:"blob"`
-	// Public Certificate Location
-	PublicCertificateLocation *string `pulumi:"publicCertificateLocation"`
-}
-
-// PublicCertificatePropertiesInput is an input type that accepts PublicCertificatePropertiesArgs and PublicCertificatePropertiesOutput values.
-// You can construct a concrete instance of `PublicCertificatePropertiesInput` via:
-//
-//          PublicCertificatePropertiesArgs{...}
-type PublicCertificatePropertiesInput interface {
-	pulumi.Input
-
-	ToPublicCertificatePropertiesOutput() PublicCertificatePropertiesOutput
-	ToPublicCertificatePropertiesOutputWithContext(context.Context) PublicCertificatePropertiesOutput
-}
-
-// PublicCertificate resource specific properties
-type PublicCertificatePropertiesArgs struct {
-	// Public Certificate byte array
-	Blob pulumi.StringPtrInput `pulumi:"blob"`
-	// Public Certificate Location
-	PublicCertificateLocation pulumi.StringPtrInput `pulumi:"publicCertificateLocation"`
-}
-
-func (PublicCertificatePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicCertificateProperties)(nil)).Elem()
-}
-
-func (i PublicCertificatePropertiesArgs) ToPublicCertificatePropertiesOutput() PublicCertificatePropertiesOutput {
-	return i.ToPublicCertificatePropertiesOutputWithContext(context.Background())
-}
-
-func (i PublicCertificatePropertiesArgs) ToPublicCertificatePropertiesOutputWithContext(ctx context.Context) PublicCertificatePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicCertificatePropertiesOutput)
-}
-
-func (i PublicCertificatePropertiesArgs) ToPublicCertificatePropertiesPtrOutput() PublicCertificatePropertiesPtrOutput {
-	return i.ToPublicCertificatePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i PublicCertificatePropertiesArgs) ToPublicCertificatePropertiesPtrOutputWithContext(ctx context.Context) PublicCertificatePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicCertificatePropertiesOutput).ToPublicCertificatePropertiesPtrOutputWithContext(ctx)
-}
-
-// PublicCertificatePropertiesPtrInput is an input type that accepts PublicCertificatePropertiesArgs, PublicCertificatePropertiesPtr and PublicCertificatePropertiesPtrOutput values.
-// You can construct a concrete instance of `PublicCertificatePropertiesPtrInput` via:
-//
-//          PublicCertificatePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type PublicCertificatePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToPublicCertificatePropertiesPtrOutput() PublicCertificatePropertiesPtrOutput
-	ToPublicCertificatePropertiesPtrOutputWithContext(context.Context) PublicCertificatePropertiesPtrOutput
-}
-
-type publicCertificatePropertiesPtrType PublicCertificatePropertiesArgs
-
-func PublicCertificatePropertiesPtr(v *PublicCertificatePropertiesArgs) PublicCertificatePropertiesPtrInput {
-	return (*publicCertificatePropertiesPtrType)(v)
-}
-
-func (*publicCertificatePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PublicCertificateProperties)(nil)).Elem()
-}
-
-func (i *publicCertificatePropertiesPtrType) ToPublicCertificatePropertiesPtrOutput() PublicCertificatePropertiesPtrOutput {
-	return i.ToPublicCertificatePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *publicCertificatePropertiesPtrType) ToPublicCertificatePropertiesPtrOutputWithContext(ctx context.Context) PublicCertificatePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublicCertificatePropertiesPtrOutput)
-}
-
-// PublicCertificate resource specific properties
-type PublicCertificatePropertiesOutput struct{ *pulumi.OutputState }
-
-func (PublicCertificatePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublicCertificateProperties)(nil)).Elem()
-}
-
-func (o PublicCertificatePropertiesOutput) ToPublicCertificatePropertiesOutput() PublicCertificatePropertiesOutput {
-	return o
-}
-
-func (o PublicCertificatePropertiesOutput) ToPublicCertificatePropertiesOutputWithContext(ctx context.Context) PublicCertificatePropertiesOutput {
-	return o
-}
-
-func (o PublicCertificatePropertiesOutput) ToPublicCertificatePropertiesPtrOutput() PublicCertificatePropertiesPtrOutput {
-	return o.ToPublicCertificatePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o PublicCertificatePropertiesOutput) ToPublicCertificatePropertiesPtrOutputWithContext(ctx context.Context) PublicCertificatePropertiesPtrOutput {
-	return o.ApplyT(func(v PublicCertificateProperties) *PublicCertificateProperties {
-		return &v
-	}).(PublicCertificatePropertiesPtrOutput)
-}
-
-// Public Certificate byte array
-func (o PublicCertificatePropertiesOutput) Blob() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PublicCertificateProperties) *string { return v.Blob }).(pulumi.StringPtrOutput)
-}
-
-// Public Certificate Location
-func (o PublicCertificatePropertiesOutput) PublicCertificateLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PublicCertificateProperties) *string { return v.PublicCertificateLocation }).(pulumi.StringPtrOutput)
-}
-
-type PublicCertificatePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (PublicCertificatePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PublicCertificateProperties)(nil)).Elem()
-}
-
-func (o PublicCertificatePropertiesPtrOutput) ToPublicCertificatePropertiesPtrOutput() PublicCertificatePropertiesPtrOutput {
-	return o
-}
-
-func (o PublicCertificatePropertiesPtrOutput) ToPublicCertificatePropertiesPtrOutputWithContext(ctx context.Context) PublicCertificatePropertiesPtrOutput {
-	return o
-}
-
-func (o PublicCertificatePropertiesPtrOutput) Elem() PublicCertificatePropertiesOutput {
-	return o.ApplyT(func(v *PublicCertificateProperties) PublicCertificateProperties { return *v }).(PublicCertificatePropertiesOutput)
-}
-
-// Public Certificate byte array
-func (o PublicCertificatePropertiesPtrOutput) Blob() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PublicCertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Blob
-	}).(pulumi.StringPtrOutput)
-}
-
-// Public Certificate Location
-func (o PublicCertificatePropertiesPtrOutput) PublicCertificateLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PublicCertificateProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicCertificateLocation
-	}).(pulumi.StringPtrOutput)
-}
-
-// PublicCertificate resource specific properties
 type PublicCertificateResponseProperties struct {
 	// Public Certificate byte array
 	Blob *string `pulumi:"blob"`
@@ -9386,10 +7503,19 @@ func (o PublicCertificateResponsePropertiesPtrOutput) Thumbprint() pulumi.String
 
 // Push settings for the App.
 type PushSettings struct {
+	// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+	DynamicTagsJson *string `pulumi:"dynamicTagsJson"`
+	// Gets or sets a flag indicating whether the Push endpoint is enabled.
+	IsPushEnabled bool `pulumi:"isPushEnabled"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// PushSettings resource specific properties
-	Properties *PushSettingsProperties `pulumi:"properties"`
+	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+	TagWhitelistJson *string `pulumi:"tagWhitelistJson"`
+	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+	// Tags can consist of alphanumeric characters and the following:
+	// '_', '@', '#', '.', ':', '-'.
+	// Validation should be performed at the PushRequestHandler.
+	TagsRequiringAuth *string `pulumi:"tagsRequiringAuth"`
 }
 
 // PushSettingsInput is an input type that accepts PushSettingsArgs and PushSettingsOutput values.
@@ -9405,10 +7531,19 @@ type PushSettingsInput interface {
 
 // Push settings for the App.
 type PushSettingsArgs struct {
+	// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+	DynamicTagsJson pulumi.StringPtrInput `pulumi:"dynamicTagsJson"`
+	// Gets or sets a flag indicating whether the Push endpoint is enabled.
+	IsPushEnabled pulumi.BoolInput `pulumi:"isPushEnabled"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// PushSettings resource specific properties
-	Properties PushSettingsPropertiesPtrInput `pulumi:"properties"`
+	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+	TagWhitelistJson pulumi.StringPtrInput `pulumi:"tagWhitelistJson"`
+	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+	// Tags can consist of alphanumeric characters and the following:
+	// '_', '@', '#', '.', ':', '-'.
+	// Validation should be performed at the PushRequestHandler.
+	TagsRequiringAuth pulumi.StringPtrInput `pulumi:"tagsRequiringAuth"`
 }
 
 func (PushSettingsArgs) ElementType() reflect.Type {
@@ -9489,14 +7624,32 @@ func (o PushSettingsOutput) ToPushSettingsPtrOutputWithContext(ctx context.Conte
 	}).(PushSettingsPtrOutput)
 }
 
+// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+func (o PushSettingsOutput) DynamicTagsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushSettings) *string { return v.DynamicTagsJson }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a flag indicating whether the Push endpoint is enabled.
+func (o PushSettingsOutput) IsPushEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v PushSettings) bool { return v.IsPushEnabled }).(pulumi.BoolOutput)
+}
+
 // Kind of resource.
 func (o PushSettingsOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PushSettings) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// PushSettings resource specific properties
-func (o PushSettingsOutput) Properties() PushSettingsPropertiesPtrOutput {
-	return o.ApplyT(func(v PushSettings) *PushSettingsProperties { return v.Properties }).(PushSettingsPropertiesPtrOutput)
+// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+func (o PushSettingsOutput) TagWhitelistJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushSettings) *string { return v.TagWhitelistJson }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+// Tags can consist of alphanumeric characters and the following:
+// '_', '@', '#', '.', ':', '-'.
+// Validation should be performed at the PushRequestHandler.
+func (o PushSettingsOutput) TagsRequiringAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PushSettings) *string { return v.TagsRequiringAuth }).(pulumi.StringPtrOutput)
 }
 
 type PushSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -9517,6 +7670,26 @@ func (o PushSettingsPtrOutput) Elem() PushSettingsOutput {
 	return o.ApplyT(func(v *PushSettings) PushSettings { return *v }).(PushSettingsOutput)
 }
 
+// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+func (o PushSettingsPtrOutput) DynamicTagsJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicTagsJson
+	}).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets a flag indicating whether the Push endpoint is enabled.
+func (o PushSettingsPtrOutput) IsPushEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *PushSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsPushEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Kind of resource.
 func (o PushSettingsPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PushSettings) *string {
@@ -9527,199 +7700,9 @@ func (o PushSettingsPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// PushSettings resource specific properties
-func (o PushSettingsPtrOutput) Properties() PushSettingsPropertiesPtrOutput {
-	return o.ApplyT(func(v *PushSettings) *PushSettingsProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Properties
-	}).(PushSettingsPropertiesPtrOutput)
-}
-
-// PushSettings resource specific properties
-type PushSettingsProperties struct {
-	// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-	DynamicTagsJson *string `pulumi:"dynamicTagsJson"`
-	// Gets or sets a flag indicating whether the Push endpoint is enabled.
-	IsPushEnabled bool `pulumi:"isPushEnabled"`
-	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-	TagWhitelistJson *string `pulumi:"tagWhitelistJson"`
-	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-	// Tags can consist of alphanumeric characters and the following:
-	// '_', '@', '#', '.', ':', '-'.
-	// Validation should be performed at the PushRequestHandler.
-	TagsRequiringAuth *string `pulumi:"tagsRequiringAuth"`
-}
-
-// PushSettingsPropertiesInput is an input type that accepts PushSettingsPropertiesArgs and PushSettingsPropertiesOutput values.
-// You can construct a concrete instance of `PushSettingsPropertiesInput` via:
-//
-//          PushSettingsPropertiesArgs{...}
-type PushSettingsPropertiesInput interface {
-	pulumi.Input
-
-	ToPushSettingsPropertiesOutput() PushSettingsPropertiesOutput
-	ToPushSettingsPropertiesOutputWithContext(context.Context) PushSettingsPropertiesOutput
-}
-
-// PushSettings resource specific properties
-type PushSettingsPropertiesArgs struct {
-	// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-	DynamicTagsJson pulumi.StringPtrInput `pulumi:"dynamicTagsJson"`
-	// Gets or sets a flag indicating whether the Push endpoint is enabled.
-	IsPushEnabled pulumi.BoolInput `pulumi:"isPushEnabled"`
-	// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-	TagWhitelistJson pulumi.StringPtrInput `pulumi:"tagWhitelistJson"`
-	// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-	// Tags can consist of alphanumeric characters and the following:
-	// '_', '@', '#', '.', ':', '-'.
-	// Validation should be performed at the PushRequestHandler.
-	TagsRequiringAuth pulumi.StringPtrInput `pulumi:"tagsRequiringAuth"`
-}
-
-func (PushSettingsPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PushSettingsProperties)(nil)).Elem()
-}
-
-func (i PushSettingsPropertiesArgs) ToPushSettingsPropertiesOutput() PushSettingsPropertiesOutput {
-	return i.ToPushSettingsPropertiesOutputWithContext(context.Background())
-}
-
-func (i PushSettingsPropertiesArgs) ToPushSettingsPropertiesOutputWithContext(ctx context.Context) PushSettingsPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PushSettingsPropertiesOutput)
-}
-
-func (i PushSettingsPropertiesArgs) ToPushSettingsPropertiesPtrOutput() PushSettingsPropertiesPtrOutput {
-	return i.ToPushSettingsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i PushSettingsPropertiesArgs) ToPushSettingsPropertiesPtrOutputWithContext(ctx context.Context) PushSettingsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PushSettingsPropertiesOutput).ToPushSettingsPropertiesPtrOutputWithContext(ctx)
-}
-
-// PushSettingsPropertiesPtrInput is an input type that accepts PushSettingsPropertiesArgs, PushSettingsPropertiesPtr and PushSettingsPropertiesPtrOutput values.
-// You can construct a concrete instance of `PushSettingsPropertiesPtrInput` via:
-//
-//          PushSettingsPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type PushSettingsPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToPushSettingsPropertiesPtrOutput() PushSettingsPropertiesPtrOutput
-	ToPushSettingsPropertiesPtrOutputWithContext(context.Context) PushSettingsPropertiesPtrOutput
-}
-
-type pushSettingsPropertiesPtrType PushSettingsPropertiesArgs
-
-func PushSettingsPropertiesPtr(v *PushSettingsPropertiesArgs) PushSettingsPropertiesPtrInput {
-	return (*pushSettingsPropertiesPtrType)(v)
-}
-
-func (*pushSettingsPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PushSettingsProperties)(nil)).Elem()
-}
-
-func (i *pushSettingsPropertiesPtrType) ToPushSettingsPropertiesPtrOutput() PushSettingsPropertiesPtrOutput {
-	return i.ToPushSettingsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *pushSettingsPropertiesPtrType) ToPushSettingsPropertiesPtrOutputWithContext(ctx context.Context) PushSettingsPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PushSettingsPropertiesPtrOutput)
-}
-
-// PushSettings resource specific properties
-type PushSettingsPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PushSettingsPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PushSettingsProperties)(nil)).Elem()
-}
-
-func (o PushSettingsPropertiesOutput) ToPushSettingsPropertiesOutput() PushSettingsPropertiesOutput {
-	return o
-}
-
-func (o PushSettingsPropertiesOutput) ToPushSettingsPropertiesOutputWithContext(ctx context.Context) PushSettingsPropertiesOutput {
-	return o
-}
-
-func (o PushSettingsPropertiesOutput) ToPushSettingsPropertiesPtrOutput() PushSettingsPropertiesPtrOutput {
-	return o.ToPushSettingsPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o PushSettingsPropertiesOutput) ToPushSettingsPropertiesPtrOutputWithContext(ctx context.Context) PushSettingsPropertiesPtrOutput {
-	return o.ApplyT(func(v PushSettingsProperties) *PushSettingsProperties {
-		return &v
-	}).(PushSettingsPropertiesPtrOutput)
-}
-
-// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-func (o PushSettingsPropertiesOutput) DynamicTagsJson() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PushSettingsProperties) *string { return v.DynamicTagsJson }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets a flag indicating whether the Push endpoint is enabled.
-func (o PushSettingsPropertiesOutput) IsPushEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v PushSettingsProperties) bool { return v.IsPushEnabled }).(pulumi.BoolOutput)
-}
-
 // Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-func (o PushSettingsPropertiesOutput) TagWhitelistJson() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PushSettingsProperties) *string { return v.TagWhitelistJson }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
-// Tags can consist of alphanumeric characters and the following:
-// '_', '@', '#', '.', ':', '-'.
-// Validation should be performed at the PushRequestHandler.
-func (o PushSettingsPropertiesOutput) TagsRequiringAuth() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PushSettingsProperties) *string { return v.TagsRequiringAuth }).(pulumi.StringPtrOutput)
-}
-
-type PushSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (PushSettingsPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PushSettingsProperties)(nil)).Elem()
-}
-
-func (o PushSettingsPropertiesPtrOutput) ToPushSettingsPropertiesPtrOutput() PushSettingsPropertiesPtrOutput {
-	return o
-}
-
-func (o PushSettingsPropertiesPtrOutput) ToPushSettingsPropertiesPtrOutputWithContext(ctx context.Context) PushSettingsPropertiesPtrOutput {
-	return o
-}
-
-func (o PushSettingsPropertiesPtrOutput) Elem() PushSettingsPropertiesOutput {
-	return o.ApplyT(func(v *PushSettingsProperties) PushSettingsProperties { return *v }).(PushSettingsPropertiesOutput)
-}
-
-// Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
-func (o PushSettingsPropertiesPtrOutput) DynamicTagsJson() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PushSettingsProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DynamicTagsJson
-	}).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets a flag indicating whether the Push endpoint is enabled.
-func (o PushSettingsPropertiesPtrOutput) IsPushEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PushSettingsProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.IsPushEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
-func (o PushSettingsPropertiesPtrOutput) TagWhitelistJson() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PushSettingsProperties) *string {
+func (o PushSettingsPtrOutput) TagWhitelistJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushSettings) *string {
 		if v == nil {
 			return nil
 		}
@@ -9731,8 +7714,8 @@ func (o PushSettingsPropertiesPtrOutput) TagWhitelistJson() pulumi.StringPtrOutp
 // Tags can consist of alphanumeric characters and the following:
 // '_', '@', '#', '.', ':', '-'.
 // Validation should be performed at the PushRequestHandler.
-func (o PushSettingsPropertiesPtrOutput) TagsRequiringAuth() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PushSettingsProperties) *string {
+func (o PushSettingsPtrOutput) TagsRequiringAuth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PushSettings) *string {
 		if v == nil {
 			return nil
 		}
@@ -10495,225 +8478,6 @@ func (o RampUpRuleResponseArrayOutput) Index(i pulumi.IntInput) RampUpRuleRespon
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RampUpRuleResponse {
 		return vs[0].([]RampUpRuleResponse)[vs[1].(int)]
 	}).(RampUpRuleResponseOutput)
-}
-
-// RelayServiceConnectionEntity resource specific properties
-type RelayServiceConnectionEntityProperties struct {
-	BiztalkUri               *string `pulumi:"biztalkUri"`
-	EntityConnectionString   *string `pulumi:"entityConnectionString"`
-	EntityName               *string `pulumi:"entityName"`
-	Hostname                 *string `pulumi:"hostname"`
-	Port                     *int    `pulumi:"port"`
-	ResourceConnectionString *string `pulumi:"resourceConnectionString"`
-	ResourceType             *string `pulumi:"resourceType"`
-}
-
-// RelayServiceConnectionEntityPropertiesInput is an input type that accepts RelayServiceConnectionEntityPropertiesArgs and RelayServiceConnectionEntityPropertiesOutput values.
-// You can construct a concrete instance of `RelayServiceConnectionEntityPropertiesInput` via:
-//
-//          RelayServiceConnectionEntityPropertiesArgs{...}
-type RelayServiceConnectionEntityPropertiesInput interface {
-	pulumi.Input
-
-	ToRelayServiceConnectionEntityPropertiesOutput() RelayServiceConnectionEntityPropertiesOutput
-	ToRelayServiceConnectionEntityPropertiesOutputWithContext(context.Context) RelayServiceConnectionEntityPropertiesOutput
-}
-
-// RelayServiceConnectionEntity resource specific properties
-type RelayServiceConnectionEntityPropertiesArgs struct {
-	BiztalkUri               pulumi.StringPtrInput `pulumi:"biztalkUri"`
-	EntityConnectionString   pulumi.StringPtrInput `pulumi:"entityConnectionString"`
-	EntityName               pulumi.StringPtrInput `pulumi:"entityName"`
-	Hostname                 pulumi.StringPtrInput `pulumi:"hostname"`
-	Port                     pulumi.IntPtrInput    `pulumi:"port"`
-	ResourceConnectionString pulumi.StringPtrInput `pulumi:"resourceConnectionString"`
-	ResourceType             pulumi.StringPtrInput `pulumi:"resourceType"`
-}
-
-func (RelayServiceConnectionEntityPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelayServiceConnectionEntityProperties)(nil)).Elem()
-}
-
-func (i RelayServiceConnectionEntityPropertiesArgs) ToRelayServiceConnectionEntityPropertiesOutput() RelayServiceConnectionEntityPropertiesOutput {
-	return i.ToRelayServiceConnectionEntityPropertiesOutputWithContext(context.Background())
-}
-
-func (i RelayServiceConnectionEntityPropertiesArgs) ToRelayServiceConnectionEntityPropertiesOutputWithContext(ctx context.Context) RelayServiceConnectionEntityPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelayServiceConnectionEntityPropertiesOutput)
-}
-
-func (i RelayServiceConnectionEntityPropertiesArgs) ToRelayServiceConnectionEntityPropertiesPtrOutput() RelayServiceConnectionEntityPropertiesPtrOutput {
-	return i.ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i RelayServiceConnectionEntityPropertiesArgs) ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(ctx context.Context) RelayServiceConnectionEntityPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelayServiceConnectionEntityPropertiesOutput).ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(ctx)
-}
-
-// RelayServiceConnectionEntityPropertiesPtrInput is an input type that accepts RelayServiceConnectionEntityPropertiesArgs, RelayServiceConnectionEntityPropertiesPtr and RelayServiceConnectionEntityPropertiesPtrOutput values.
-// You can construct a concrete instance of `RelayServiceConnectionEntityPropertiesPtrInput` via:
-//
-//          RelayServiceConnectionEntityPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type RelayServiceConnectionEntityPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToRelayServiceConnectionEntityPropertiesPtrOutput() RelayServiceConnectionEntityPropertiesPtrOutput
-	ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(context.Context) RelayServiceConnectionEntityPropertiesPtrOutput
-}
-
-type relayServiceConnectionEntityPropertiesPtrType RelayServiceConnectionEntityPropertiesArgs
-
-func RelayServiceConnectionEntityPropertiesPtr(v *RelayServiceConnectionEntityPropertiesArgs) RelayServiceConnectionEntityPropertiesPtrInput {
-	return (*relayServiceConnectionEntityPropertiesPtrType)(v)
-}
-
-func (*relayServiceConnectionEntityPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RelayServiceConnectionEntityProperties)(nil)).Elem()
-}
-
-func (i *relayServiceConnectionEntityPropertiesPtrType) ToRelayServiceConnectionEntityPropertiesPtrOutput() RelayServiceConnectionEntityPropertiesPtrOutput {
-	return i.ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *relayServiceConnectionEntityPropertiesPtrType) ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(ctx context.Context) RelayServiceConnectionEntityPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RelayServiceConnectionEntityPropertiesPtrOutput)
-}
-
-// RelayServiceConnectionEntity resource specific properties
-type RelayServiceConnectionEntityPropertiesOutput struct{ *pulumi.OutputState }
-
-func (RelayServiceConnectionEntityPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RelayServiceConnectionEntityProperties)(nil)).Elem()
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) ToRelayServiceConnectionEntityPropertiesOutput() RelayServiceConnectionEntityPropertiesOutput {
-	return o
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) ToRelayServiceConnectionEntityPropertiesOutputWithContext(ctx context.Context) RelayServiceConnectionEntityPropertiesOutput {
-	return o
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) ToRelayServiceConnectionEntityPropertiesPtrOutput() RelayServiceConnectionEntityPropertiesPtrOutput {
-	return o.ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(ctx context.Context) RelayServiceConnectionEntityPropertiesPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *RelayServiceConnectionEntityProperties {
-		return &v
-	}).(RelayServiceConnectionEntityPropertiesPtrOutput)
-}
-func (o RelayServiceConnectionEntityPropertiesOutput) BiztalkUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *string { return v.BiztalkUri }).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) EntityConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *string { return v.EntityConnectionString }).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) EntityName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *string { return v.EntityName }).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) Hostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *string { return v.Hostname }).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *int { return v.Port }).(pulumi.IntPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) ResourceConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *string { return v.ResourceConnectionString }).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RelayServiceConnectionEntityProperties) *string { return v.ResourceType }).(pulumi.StringPtrOutput)
-}
-
-type RelayServiceConnectionEntityPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (RelayServiceConnectionEntityPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RelayServiceConnectionEntityProperties)(nil)).Elem()
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) ToRelayServiceConnectionEntityPropertiesPtrOutput() RelayServiceConnectionEntityPropertiesPtrOutput {
-	return o
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) ToRelayServiceConnectionEntityPropertiesPtrOutputWithContext(ctx context.Context) RelayServiceConnectionEntityPropertiesPtrOutput {
-	return o
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) Elem() RelayServiceConnectionEntityPropertiesOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) RelayServiceConnectionEntityProperties { return *v }).(RelayServiceConnectionEntityPropertiesOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) BiztalkUri() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.BiztalkUri
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) EntityConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EntityConnectionString
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) EntityName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EntityName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) Hostname() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Hostname
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Port
-	}).(pulumi.IntPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) ResourceConnectionString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceConnectionString
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o RelayServiceConnectionEntityPropertiesPtrOutput) ResourceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RelayServiceConnectionEntityProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceType
-	}).(pulumi.StringPtrOutput)
 }
 
 // RelayServiceConnectionEntity resource specific properties
@@ -14653,414 +12417,6 @@ func (o SiteMachineKeyResponsePtrOutput) ValidationKey() pulumi.StringPtrOutput 
 }
 
 // Site resource specific properties
-type SiteProperties struct {
-	// <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
-	ClientAffinityEnabled *bool `pulumi:"clientAffinityEnabled"`
-	// <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
-	ClientCertEnabled *bool `pulumi:"clientCertEnabled"`
-	// If specified during app creation, the app is cloned from a source app.
-	CloningInfo *CloningInfo `pulumi:"cloningInfo"`
-	// Size of the function container.
-	ContainerSize *int `pulumi:"containerSize"`
-	// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
-	DailyMemoryTimeQuota *int `pulumi:"dailyMemoryTimeQuota"`
-	// <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
-	Enabled *bool `pulumi:"enabled"`
-	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
-	HostNameSslStates []HostNameSslState `pulumi:"hostNameSslStates"`
-	// <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
-	//  If <code>true</code>, the app is only accessible via API management process.
-	HostNamesDisabled *bool `pulumi:"hostNamesDisabled"`
-	// App Service Environment to use for the app.
-	HostingEnvironmentProfile *HostingEnvironmentProfile `pulumi:"hostingEnvironmentProfile"`
-	// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
-	// http requests
-	HttpsOnly *bool `pulumi:"httpsOnly"`
-	// <code>true</code> if reserved; otherwise, <code>false</code>.
-	Reserved *bool `pulumi:"reserved"`
-	// <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
-	ScmSiteAlsoStopped *bool `pulumi:"scmSiteAlsoStopped"`
-	// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
-	ServerFarmId *string `pulumi:"serverFarmId"`
-	// Configuration of the app.
-	SiteConfig *SiteConfig `pulumi:"siteConfig"`
-	// If specified during app creation, the app is created from a previous snapshot.
-	SnapshotInfo *SnapshotRecoveryRequest `pulumi:"snapshotInfo"`
-}
-
-// SitePropertiesInput is an input type that accepts SitePropertiesArgs and SitePropertiesOutput values.
-// You can construct a concrete instance of `SitePropertiesInput` via:
-//
-//          SitePropertiesArgs{...}
-type SitePropertiesInput interface {
-	pulumi.Input
-
-	ToSitePropertiesOutput() SitePropertiesOutput
-	ToSitePropertiesOutputWithContext(context.Context) SitePropertiesOutput
-}
-
-// Site resource specific properties
-type SitePropertiesArgs struct {
-	// <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
-	ClientAffinityEnabled pulumi.BoolPtrInput `pulumi:"clientAffinityEnabled"`
-	// <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
-	ClientCertEnabled pulumi.BoolPtrInput `pulumi:"clientCertEnabled"`
-	// If specified during app creation, the app is cloned from a source app.
-	CloningInfo CloningInfoPtrInput `pulumi:"cloningInfo"`
-	// Size of the function container.
-	ContainerSize pulumi.IntPtrInput `pulumi:"containerSize"`
-	// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
-	DailyMemoryTimeQuota pulumi.IntPtrInput `pulumi:"dailyMemoryTimeQuota"`
-	// <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
-	HostNameSslStates HostNameSslStateArrayInput `pulumi:"hostNameSslStates"`
-	// <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
-	//  If <code>true</code>, the app is only accessible via API management process.
-	HostNamesDisabled pulumi.BoolPtrInput `pulumi:"hostNamesDisabled"`
-	// App Service Environment to use for the app.
-	HostingEnvironmentProfile HostingEnvironmentProfilePtrInput `pulumi:"hostingEnvironmentProfile"`
-	// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
-	// http requests
-	HttpsOnly pulumi.BoolPtrInput `pulumi:"httpsOnly"`
-	// <code>true</code> if reserved; otherwise, <code>false</code>.
-	Reserved pulumi.BoolPtrInput `pulumi:"reserved"`
-	// <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
-	ScmSiteAlsoStopped pulumi.BoolPtrInput `pulumi:"scmSiteAlsoStopped"`
-	// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
-	ServerFarmId pulumi.StringPtrInput `pulumi:"serverFarmId"`
-	// Configuration of the app.
-	SiteConfig SiteConfigPtrInput `pulumi:"siteConfig"`
-	// If specified during app creation, the app is created from a previous snapshot.
-	SnapshotInfo SnapshotRecoveryRequestPtrInput `pulumi:"snapshotInfo"`
-}
-
-func (SitePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteProperties)(nil)).Elem()
-}
-
-func (i SitePropertiesArgs) ToSitePropertiesOutput() SitePropertiesOutput {
-	return i.ToSitePropertiesOutputWithContext(context.Background())
-}
-
-func (i SitePropertiesArgs) ToSitePropertiesOutputWithContext(ctx context.Context) SitePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SitePropertiesOutput)
-}
-
-func (i SitePropertiesArgs) ToSitePropertiesPtrOutput() SitePropertiesPtrOutput {
-	return i.ToSitePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SitePropertiesArgs) ToSitePropertiesPtrOutputWithContext(ctx context.Context) SitePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SitePropertiesOutput).ToSitePropertiesPtrOutputWithContext(ctx)
-}
-
-// SitePropertiesPtrInput is an input type that accepts SitePropertiesArgs, SitePropertiesPtr and SitePropertiesPtrOutput values.
-// You can construct a concrete instance of `SitePropertiesPtrInput` via:
-//
-//          SitePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type SitePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSitePropertiesPtrOutput() SitePropertiesPtrOutput
-	ToSitePropertiesPtrOutputWithContext(context.Context) SitePropertiesPtrOutput
-}
-
-type sitePropertiesPtrType SitePropertiesArgs
-
-func SitePropertiesPtr(v *SitePropertiesArgs) SitePropertiesPtrInput {
-	return (*sitePropertiesPtrType)(v)
-}
-
-func (*sitePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteProperties)(nil)).Elem()
-}
-
-func (i *sitePropertiesPtrType) ToSitePropertiesPtrOutput() SitePropertiesPtrOutput {
-	return i.ToSitePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *sitePropertiesPtrType) ToSitePropertiesPtrOutputWithContext(ctx context.Context) SitePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SitePropertiesPtrOutput)
-}
-
-// Site resource specific properties
-type SitePropertiesOutput struct{ *pulumi.OutputState }
-
-func (SitePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteProperties)(nil)).Elem()
-}
-
-func (o SitePropertiesOutput) ToSitePropertiesOutput() SitePropertiesOutput {
-	return o
-}
-
-func (o SitePropertiesOutput) ToSitePropertiesOutputWithContext(ctx context.Context) SitePropertiesOutput {
-	return o
-}
-
-func (o SitePropertiesOutput) ToSitePropertiesPtrOutput() SitePropertiesPtrOutput {
-	return o.ToSitePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SitePropertiesOutput) ToSitePropertiesPtrOutputWithContext(ctx context.Context) SitePropertiesPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *SiteProperties {
-		return &v
-	}).(SitePropertiesPtrOutput)
-}
-
-// <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
-func (o SitePropertiesOutput) ClientAffinityEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *bool { return v.ClientAffinityEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
-func (o SitePropertiesOutput) ClientCertEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *bool { return v.ClientCertEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// If specified during app creation, the app is cloned from a source app.
-func (o SitePropertiesOutput) CloningInfo() CloningInfoPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *CloningInfo { return v.CloningInfo }).(CloningInfoPtrOutput)
-}
-
-// Size of the function container.
-func (o SitePropertiesOutput) ContainerSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *int { return v.ContainerSize }).(pulumi.IntPtrOutput)
-}
-
-// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
-func (o SitePropertiesOutput) DailyMemoryTimeQuota() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *int { return v.DailyMemoryTimeQuota }).(pulumi.IntPtrOutput)
-}
-
-// <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
-func (o SitePropertiesOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
-}
-
-// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
-func (o SitePropertiesOutput) HostNameSslStates() HostNameSslStateArrayOutput {
-	return o.ApplyT(func(v SiteProperties) []HostNameSslState { return v.HostNameSslStates }).(HostNameSslStateArrayOutput)
-}
-
-// <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
-//  If <code>true</code>, the app is only accessible via API management process.
-func (o SitePropertiesOutput) HostNamesDisabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *bool { return v.HostNamesDisabled }).(pulumi.BoolPtrOutput)
-}
-
-// App Service Environment to use for the app.
-func (o SitePropertiesOutput) HostingEnvironmentProfile() HostingEnvironmentProfilePtrOutput {
-	return o.ApplyT(func(v SiteProperties) *HostingEnvironmentProfile { return v.HostingEnvironmentProfile }).(HostingEnvironmentProfilePtrOutput)
-}
-
-// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
-// http requests
-func (o SitePropertiesOutput) HttpsOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *bool { return v.HttpsOnly }).(pulumi.BoolPtrOutput)
-}
-
-// <code>true</code> if reserved; otherwise, <code>false</code>.
-func (o SitePropertiesOutput) Reserved() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *bool { return v.Reserved }).(pulumi.BoolPtrOutput)
-}
-
-// <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
-func (o SitePropertiesOutput) ScmSiteAlsoStopped() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *bool { return v.ScmSiteAlsoStopped }).(pulumi.BoolPtrOutput)
-}
-
-// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
-func (o SitePropertiesOutput) ServerFarmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *string { return v.ServerFarmId }).(pulumi.StringPtrOutput)
-}
-
-// Configuration of the app.
-func (o SitePropertiesOutput) SiteConfig() SiteConfigPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *SiteConfig { return v.SiteConfig }).(SiteConfigPtrOutput)
-}
-
-// If specified during app creation, the app is created from a previous snapshot.
-func (o SitePropertiesOutput) SnapshotInfo() SnapshotRecoveryRequestPtrOutput {
-	return o.ApplyT(func(v SiteProperties) *SnapshotRecoveryRequest { return v.SnapshotInfo }).(SnapshotRecoveryRequestPtrOutput)
-}
-
-type SitePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SitePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteProperties)(nil)).Elem()
-}
-
-func (o SitePropertiesPtrOutput) ToSitePropertiesPtrOutput() SitePropertiesPtrOutput {
-	return o
-}
-
-func (o SitePropertiesPtrOutput) ToSitePropertiesPtrOutputWithContext(ctx context.Context) SitePropertiesPtrOutput {
-	return o
-}
-
-func (o SitePropertiesPtrOutput) Elem() SitePropertiesOutput {
-	return o.ApplyT(func(v *SiteProperties) SiteProperties { return *v }).(SitePropertiesOutput)
-}
-
-// <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
-func (o SitePropertiesPtrOutput) ClientAffinityEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ClientAffinityEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// <code>true</code> to enable client certificate authentication (TLS mutual authentication); otherwise, <code>false</code>. Default is <code>false</code>.
-func (o SitePropertiesPtrOutput) ClientCertEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ClientCertEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// If specified during app creation, the app is cloned from a source app.
-func (o SitePropertiesPtrOutput) CloningInfo() CloningInfoPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *CloningInfo {
-		if v == nil {
-			return nil
-		}
-		return v.CloningInfo
-	}).(CloningInfoPtrOutput)
-}
-
-// Size of the function container.
-func (o SitePropertiesPtrOutput) ContainerSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ContainerSize
-	}).(pulumi.IntPtrOutput)
-}
-
-// Maximum allowed daily memory-time quota (applicable on dynamic apps only).
-func (o SitePropertiesPtrOutput) DailyMemoryTimeQuota() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DailyMemoryTimeQuota
-	}).(pulumi.IntPtrOutput)
-}
-
-// <code>true</code> if the app is enabled; otherwise, <code>false</code>. Setting this value to false disables the app (takes the app offline).
-func (o SitePropertiesPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
-func (o SitePropertiesPtrOutput) HostNameSslStates() HostNameSslStateArrayOutput {
-	return o.ApplyT(func(v *SiteProperties) []HostNameSslState {
-		if v == nil {
-			return nil
-		}
-		return v.HostNameSslStates
-	}).(HostNameSslStateArrayOutput)
-}
-
-// <code>true</code> to disable the public hostnames of the app; otherwise, <code>false</code>.
-//  If <code>true</code>, the app is only accessible via API management process.
-func (o SitePropertiesPtrOutput) HostNamesDisabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HostNamesDisabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// App Service Environment to use for the app.
-func (o SitePropertiesPtrOutput) HostingEnvironmentProfile() HostingEnvironmentProfilePtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *HostingEnvironmentProfile {
-		if v == nil {
-			return nil
-		}
-		return v.HostingEnvironmentProfile
-	}).(HostingEnvironmentProfilePtrOutput)
-}
-
-// HttpsOnly: configures a web site to accept only https requests. Issues redirect for
-// http requests
-func (o SitePropertiesPtrOutput) HttpsOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HttpsOnly
-	}).(pulumi.BoolPtrOutput)
-}
-
-// <code>true</code> if reserved; otherwise, <code>false</code>.
-func (o SitePropertiesPtrOutput) Reserved() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Reserved
-	}).(pulumi.BoolPtrOutput)
-}
-
-// <code>true</code> to stop SCM (KUDU) site when the app is stopped; otherwise, <code>false</code>. The default is <code>false</code>.
-func (o SitePropertiesPtrOutput) ScmSiteAlsoStopped() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ScmSiteAlsoStopped
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
-func (o SitePropertiesPtrOutput) ServerFarmId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServerFarmId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Configuration of the app.
-func (o SitePropertiesPtrOutput) SiteConfig() SiteConfigPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *SiteConfig {
-		if v == nil {
-			return nil
-		}
-		return v.SiteConfig
-	}).(SiteConfigPtrOutput)
-}
-
-// If specified during app creation, the app is created from a previous snapshot.
-func (o SitePropertiesPtrOutput) SnapshotInfo() SnapshotRecoveryRequestPtrOutput {
-	return o.ApplyT(func(v *SiteProperties) *SnapshotRecoveryRequest {
-		if v == nil {
-			return nil
-		}
-		return v.SnapshotInfo
-	}).(SnapshotRecoveryRequestPtrOutput)
-}
-
-// Site resource specific properties
 type SiteResponseProperties struct {
 	// Management information availability state for the app.
 	AvailabilityState string `pulumi:"availabilityState"`
@@ -15796,216 +13152,6 @@ func (o SiteResponsePropertiesPtrOutput) UsageState() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.UsageState
-	}).(pulumi.StringPtrOutput)
-}
-
-// SiteSourceControl resource specific properties
-type SiteSourceControlProperties struct {
-	// Name of branch to use for deployment.
-	Branch *string `pulumi:"branch"`
-	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
-	DeploymentRollbackEnabled *bool `pulumi:"deploymentRollbackEnabled"`
-	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
-	IsManualIntegration *bool `pulumi:"isManualIntegration"`
-	// <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
-	IsMercurial *bool `pulumi:"isMercurial"`
-	// Repository or source control URL.
-	RepoUrl *string `pulumi:"repoUrl"`
-}
-
-// SiteSourceControlPropertiesInput is an input type that accepts SiteSourceControlPropertiesArgs and SiteSourceControlPropertiesOutput values.
-// You can construct a concrete instance of `SiteSourceControlPropertiesInput` via:
-//
-//          SiteSourceControlPropertiesArgs{...}
-type SiteSourceControlPropertiesInput interface {
-	pulumi.Input
-
-	ToSiteSourceControlPropertiesOutput() SiteSourceControlPropertiesOutput
-	ToSiteSourceControlPropertiesOutputWithContext(context.Context) SiteSourceControlPropertiesOutput
-}
-
-// SiteSourceControl resource specific properties
-type SiteSourceControlPropertiesArgs struct {
-	// Name of branch to use for deployment.
-	Branch pulumi.StringPtrInput `pulumi:"branch"`
-	// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
-	DeploymentRollbackEnabled pulumi.BoolPtrInput `pulumi:"deploymentRollbackEnabled"`
-	// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
-	IsManualIntegration pulumi.BoolPtrInput `pulumi:"isManualIntegration"`
-	// <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
-	IsMercurial pulumi.BoolPtrInput `pulumi:"isMercurial"`
-	// Repository or source control URL.
-	RepoUrl pulumi.StringPtrInput `pulumi:"repoUrl"`
-}
-
-func (SiteSourceControlPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSourceControlProperties)(nil)).Elem()
-}
-
-func (i SiteSourceControlPropertiesArgs) ToSiteSourceControlPropertiesOutput() SiteSourceControlPropertiesOutput {
-	return i.ToSiteSourceControlPropertiesOutputWithContext(context.Background())
-}
-
-func (i SiteSourceControlPropertiesArgs) ToSiteSourceControlPropertiesOutputWithContext(ctx context.Context) SiteSourceControlPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteSourceControlPropertiesOutput)
-}
-
-func (i SiteSourceControlPropertiesArgs) ToSiteSourceControlPropertiesPtrOutput() SiteSourceControlPropertiesPtrOutput {
-	return i.ToSiteSourceControlPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SiteSourceControlPropertiesArgs) ToSiteSourceControlPropertiesPtrOutputWithContext(ctx context.Context) SiteSourceControlPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteSourceControlPropertiesOutput).ToSiteSourceControlPropertiesPtrOutputWithContext(ctx)
-}
-
-// SiteSourceControlPropertiesPtrInput is an input type that accepts SiteSourceControlPropertiesArgs, SiteSourceControlPropertiesPtr and SiteSourceControlPropertiesPtrOutput values.
-// You can construct a concrete instance of `SiteSourceControlPropertiesPtrInput` via:
-//
-//          SiteSourceControlPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type SiteSourceControlPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSiteSourceControlPropertiesPtrOutput() SiteSourceControlPropertiesPtrOutput
-	ToSiteSourceControlPropertiesPtrOutputWithContext(context.Context) SiteSourceControlPropertiesPtrOutput
-}
-
-type siteSourceControlPropertiesPtrType SiteSourceControlPropertiesArgs
-
-func SiteSourceControlPropertiesPtr(v *SiteSourceControlPropertiesArgs) SiteSourceControlPropertiesPtrInput {
-	return (*siteSourceControlPropertiesPtrType)(v)
-}
-
-func (*siteSourceControlPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteSourceControlProperties)(nil)).Elem()
-}
-
-func (i *siteSourceControlPropertiesPtrType) ToSiteSourceControlPropertiesPtrOutput() SiteSourceControlPropertiesPtrOutput {
-	return i.ToSiteSourceControlPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *siteSourceControlPropertiesPtrType) ToSiteSourceControlPropertiesPtrOutputWithContext(ctx context.Context) SiteSourceControlPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteSourceControlPropertiesPtrOutput)
-}
-
-// SiteSourceControl resource specific properties
-type SiteSourceControlPropertiesOutput struct{ *pulumi.OutputState }
-
-func (SiteSourceControlPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteSourceControlProperties)(nil)).Elem()
-}
-
-func (o SiteSourceControlPropertiesOutput) ToSiteSourceControlPropertiesOutput() SiteSourceControlPropertiesOutput {
-	return o
-}
-
-func (o SiteSourceControlPropertiesOutput) ToSiteSourceControlPropertiesOutputWithContext(ctx context.Context) SiteSourceControlPropertiesOutput {
-	return o
-}
-
-func (o SiteSourceControlPropertiesOutput) ToSiteSourceControlPropertiesPtrOutput() SiteSourceControlPropertiesPtrOutput {
-	return o.ToSiteSourceControlPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SiteSourceControlPropertiesOutput) ToSiteSourceControlPropertiesPtrOutputWithContext(ctx context.Context) SiteSourceControlPropertiesPtrOutput {
-	return o.ApplyT(func(v SiteSourceControlProperties) *SiteSourceControlProperties {
-		return &v
-	}).(SiteSourceControlPropertiesPtrOutput)
-}
-
-// Name of branch to use for deployment.
-func (o SiteSourceControlPropertiesOutput) Branch() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteSourceControlProperties) *string { return v.Branch }).(pulumi.StringPtrOutput)
-}
-
-// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
-func (o SiteSourceControlPropertiesOutput) DeploymentRollbackEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteSourceControlProperties) *bool { return v.DeploymentRollbackEnabled }).(pulumi.BoolPtrOutput)
-}
-
-// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
-func (o SiteSourceControlPropertiesOutput) IsManualIntegration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteSourceControlProperties) *bool { return v.IsManualIntegration }).(pulumi.BoolPtrOutput)
-}
-
-// <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
-func (o SiteSourceControlPropertiesOutput) IsMercurial() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SiteSourceControlProperties) *bool { return v.IsMercurial }).(pulumi.BoolPtrOutput)
-}
-
-// Repository or source control URL.
-func (o SiteSourceControlPropertiesOutput) RepoUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SiteSourceControlProperties) *string { return v.RepoUrl }).(pulumi.StringPtrOutput)
-}
-
-type SiteSourceControlPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SiteSourceControlPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteSourceControlProperties)(nil)).Elem()
-}
-
-func (o SiteSourceControlPropertiesPtrOutput) ToSiteSourceControlPropertiesPtrOutput() SiteSourceControlPropertiesPtrOutput {
-	return o
-}
-
-func (o SiteSourceControlPropertiesPtrOutput) ToSiteSourceControlPropertiesPtrOutputWithContext(ctx context.Context) SiteSourceControlPropertiesPtrOutput {
-	return o
-}
-
-func (o SiteSourceControlPropertiesPtrOutput) Elem() SiteSourceControlPropertiesOutput {
-	return o.ApplyT(func(v *SiteSourceControlProperties) SiteSourceControlProperties { return *v }).(SiteSourceControlPropertiesOutput)
-}
-
-// Name of branch to use for deployment.
-func (o SiteSourceControlPropertiesPtrOutput) Branch() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteSourceControlProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Branch
-	}).(pulumi.StringPtrOutput)
-}
-
-// <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
-func (o SiteSourceControlPropertiesPtrOutput) DeploymentRollbackEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteSourceControlProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DeploymentRollbackEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
-func (o SiteSourceControlPropertiesPtrOutput) IsManualIntegration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteSourceControlProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsManualIntegration
-	}).(pulumi.BoolPtrOutput)
-}
-
-// <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
-func (o SiteSourceControlPropertiesPtrOutput) IsMercurial() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SiteSourceControlProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsMercurial
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Repository or source control URL.
-func (o SiteSourceControlPropertiesPtrOutput) RepoUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SiteSourceControlProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RepoUrl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -16783,10 +13929,19 @@ func (o SlowRequestsBasedTriggerResponsePtrOutput) TimeTaken() pulumi.StringPtrO
 
 // Details about app recovery operation.
 type SnapshotRecoveryRequest struct {
+	// If true, custom hostname conflicts will be ignored when recovering to a target web app.
+	// This setting is only necessary when RecoverConfiguration is enabled.
+	IgnoreConflictingHostNames *bool `pulumi:"ignoreConflictingHostNames"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// SnapshotRecoveryRequest resource specific properties
-	Properties *SnapshotRecoveryRequestProperties `pulumi:"properties"`
+	// If <code>true</code> the recovery operation can overwrite source app; otherwise, <code>false</code>.
+	Overwrite bool `pulumi:"overwrite"`
+	// If true, site configuration, in addition to content, will be reverted.
+	RecoverConfiguration *bool `pulumi:"recoverConfiguration"`
+	// Specifies the web app that snapshot contents will be written to.
+	RecoveryTarget *SnapshotRecoveryTarget `pulumi:"recoveryTarget"`
+	// Point in time in which the app recovery should be attempted, formatted as a DateTime string.
+	SnapshotTime *string `pulumi:"snapshotTime"`
 }
 
 // SnapshotRecoveryRequestInput is an input type that accepts SnapshotRecoveryRequestArgs and SnapshotRecoveryRequestOutput values.
@@ -16802,10 +13957,19 @@ type SnapshotRecoveryRequestInput interface {
 
 // Details about app recovery operation.
 type SnapshotRecoveryRequestArgs struct {
+	// If true, custom hostname conflicts will be ignored when recovering to a target web app.
+	// This setting is only necessary when RecoverConfiguration is enabled.
+	IgnoreConflictingHostNames pulumi.BoolPtrInput `pulumi:"ignoreConflictingHostNames"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// SnapshotRecoveryRequest resource specific properties
-	Properties SnapshotRecoveryRequestPropertiesPtrInput `pulumi:"properties"`
+	// If <code>true</code> the recovery operation can overwrite source app; otherwise, <code>false</code>.
+	Overwrite pulumi.BoolInput `pulumi:"overwrite"`
+	// If true, site configuration, in addition to content, will be reverted.
+	RecoverConfiguration pulumi.BoolPtrInput `pulumi:"recoverConfiguration"`
+	// Specifies the web app that snapshot contents will be written to.
+	RecoveryTarget SnapshotRecoveryTargetPtrInput `pulumi:"recoveryTarget"`
+	// Point in time in which the app recovery should be attempted, formatted as a DateTime string.
+	SnapshotTime pulumi.StringPtrInput `pulumi:"snapshotTime"`
 }
 
 func (SnapshotRecoveryRequestArgs) ElementType() reflect.Type {
@@ -16886,14 +14050,35 @@ func (o SnapshotRecoveryRequestOutput) ToSnapshotRecoveryRequestPtrOutputWithCon
 	}).(SnapshotRecoveryRequestPtrOutput)
 }
 
+// If true, custom hostname conflicts will be ignored when recovering to a target web app.
+// This setting is only necessary when RecoverConfiguration is enabled.
+func (o SnapshotRecoveryRequestOutput) IgnoreConflictingHostNames() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SnapshotRecoveryRequest) *bool { return v.IgnoreConflictingHostNames }).(pulumi.BoolPtrOutput)
+}
+
 // Kind of resource.
 func (o SnapshotRecoveryRequestOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnapshotRecoveryRequest) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// SnapshotRecoveryRequest resource specific properties
-func (o SnapshotRecoveryRequestOutput) Properties() SnapshotRecoveryRequestPropertiesPtrOutput {
-	return o.ApplyT(func(v SnapshotRecoveryRequest) *SnapshotRecoveryRequestProperties { return v.Properties }).(SnapshotRecoveryRequestPropertiesPtrOutput)
+// If <code>true</code> the recovery operation can overwrite source app; otherwise, <code>false</code>.
+func (o SnapshotRecoveryRequestOutput) Overwrite() pulumi.BoolOutput {
+	return o.ApplyT(func(v SnapshotRecoveryRequest) bool { return v.Overwrite }).(pulumi.BoolOutput)
+}
+
+// If true, site configuration, in addition to content, will be reverted.
+func (o SnapshotRecoveryRequestOutput) RecoverConfiguration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SnapshotRecoveryRequest) *bool { return v.RecoverConfiguration }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the web app that snapshot contents will be written to.
+func (o SnapshotRecoveryRequestOutput) RecoveryTarget() SnapshotRecoveryTargetPtrOutput {
+	return o.ApplyT(func(v SnapshotRecoveryRequest) *SnapshotRecoveryTarget { return v.RecoveryTarget }).(SnapshotRecoveryTargetPtrOutput)
+}
+
+// Point in time in which the app recovery should be attempted, formatted as a DateTime string.
+func (o SnapshotRecoveryRequestOutput) SnapshotTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SnapshotRecoveryRequest) *string { return v.SnapshotTime }).(pulumi.StringPtrOutput)
 }
 
 type SnapshotRecoveryRequestPtrOutput struct{ *pulumi.OutputState }
@@ -16914,6 +14099,17 @@ func (o SnapshotRecoveryRequestPtrOutput) Elem() SnapshotRecoveryRequestOutput {
 	return o.ApplyT(func(v *SnapshotRecoveryRequest) SnapshotRecoveryRequest { return *v }).(SnapshotRecoveryRequestOutput)
 }
 
+// If true, custom hostname conflicts will be ignored when recovering to a target web app.
+// This setting is only necessary when RecoverConfiguration is enabled.
+func (o SnapshotRecoveryRequestPtrOutput) IgnoreConflictingHostNames() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SnapshotRecoveryRequest) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnoreConflictingHostNames
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Kind of resource.
 func (o SnapshotRecoveryRequestPtrOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SnapshotRecoveryRequest) *string {
@@ -16924,193 +14120,9 @@ func (o SnapshotRecoveryRequestPtrOutput) Kind() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// SnapshotRecoveryRequest resource specific properties
-func (o SnapshotRecoveryRequestPtrOutput) Properties() SnapshotRecoveryRequestPropertiesPtrOutput {
-	return o.ApplyT(func(v *SnapshotRecoveryRequest) *SnapshotRecoveryRequestProperties {
-		if v == nil {
-			return nil
-		}
-		return v.Properties
-	}).(SnapshotRecoveryRequestPropertiesPtrOutput)
-}
-
-// SnapshotRecoveryRequest resource specific properties
-type SnapshotRecoveryRequestProperties struct {
-	// If true, custom hostname conflicts will be ignored when recovering to a target web app.
-	// This setting is only necessary when RecoverConfiguration is enabled.
-	IgnoreConflictingHostNames *bool `pulumi:"ignoreConflictingHostNames"`
-	// If <code>true</code> the recovery operation can overwrite source app; otherwise, <code>false</code>.
-	Overwrite bool `pulumi:"overwrite"`
-	// If true, site configuration, in addition to content, will be reverted.
-	RecoverConfiguration *bool `pulumi:"recoverConfiguration"`
-	// Specifies the web app that snapshot contents will be written to.
-	RecoveryTarget *SnapshotRecoveryTarget `pulumi:"recoveryTarget"`
-	// Point in time in which the app recovery should be attempted, formatted as a DateTime string.
-	SnapshotTime *string `pulumi:"snapshotTime"`
-}
-
-// SnapshotRecoveryRequestPropertiesInput is an input type that accepts SnapshotRecoveryRequestPropertiesArgs and SnapshotRecoveryRequestPropertiesOutput values.
-// You can construct a concrete instance of `SnapshotRecoveryRequestPropertiesInput` via:
-//
-//          SnapshotRecoveryRequestPropertiesArgs{...}
-type SnapshotRecoveryRequestPropertiesInput interface {
-	pulumi.Input
-
-	ToSnapshotRecoveryRequestPropertiesOutput() SnapshotRecoveryRequestPropertiesOutput
-	ToSnapshotRecoveryRequestPropertiesOutputWithContext(context.Context) SnapshotRecoveryRequestPropertiesOutput
-}
-
-// SnapshotRecoveryRequest resource specific properties
-type SnapshotRecoveryRequestPropertiesArgs struct {
-	// If true, custom hostname conflicts will be ignored when recovering to a target web app.
-	// This setting is only necessary when RecoverConfiguration is enabled.
-	IgnoreConflictingHostNames pulumi.BoolPtrInput `pulumi:"ignoreConflictingHostNames"`
-	// If <code>true</code> the recovery operation can overwrite source app; otherwise, <code>false</code>.
-	Overwrite pulumi.BoolInput `pulumi:"overwrite"`
-	// If true, site configuration, in addition to content, will be reverted.
-	RecoverConfiguration pulumi.BoolPtrInput `pulumi:"recoverConfiguration"`
-	// Specifies the web app that snapshot contents will be written to.
-	RecoveryTarget SnapshotRecoveryTargetPtrInput `pulumi:"recoveryTarget"`
-	// Point in time in which the app recovery should be attempted, formatted as a DateTime string.
-	SnapshotTime pulumi.StringPtrInput `pulumi:"snapshotTime"`
-}
-
-func (SnapshotRecoveryRequestPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotRecoveryRequestProperties)(nil)).Elem()
-}
-
-func (i SnapshotRecoveryRequestPropertiesArgs) ToSnapshotRecoveryRequestPropertiesOutput() SnapshotRecoveryRequestPropertiesOutput {
-	return i.ToSnapshotRecoveryRequestPropertiesOutputWithContext(context.Background())
-}
-
-func (i SnapshotRecoveryRequestPropertiesArgs) ToSnapshotRecoveryRequestPropertiesOutputWithContext(ctx context.Context) SnapshotRecoveryRequestPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotRecoveryRequestPropertiesOutput)
-}
-
-func (i SnapshotRecoveryRequestPropertiesArgs) ToSnapshotRecoveryRequestPropertiesPtrOutput() SnapshotRecoveryRequestPropertiesPtrOutput {
-	return i.ToSnapshotRecoveryRequestPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i SnapshotRecoveryRequestPropertiesArgs) ToSnapshotRecoveryRequestPropertiesPtrOutputWithContext(ctx context.Context) SnapshotRecoveryRequestPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotRecoveryRequestPropertiesOutput).ToSnapshotRecoveryRequestPropertiesPtrOutputWithContext(ctx)
-}
-
-// SnapshotRecoveryRequestPropertiesPtrInput is an input type that accepts SnapshotRecoveryRequestPropertiesArgs, SnapshotRecoveryRequestPropertiesPtr and SnapshotRecoveryRequestPropertiesPtrOutput values.
-// You can construct a concrete instance of `SnapshotRecoveryRequestPropertiesPtrInput` via:
-//
-//          SnapshotRecoveryRequestPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type SnapshotRecoveryRequestPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToSnapshotRecoveryRequestPropertiesPtrOutput() SnapshotRecoveryRequestPropertiesPtrOutput
-	ToSnapshotRecoveryRequestPropertiesPtrOutputWithContext(context.Context) SnapshotRecoveryRequestPropertiesPtrOutput
-}
-
-type snapshotRecoveryRequestPropertiesPtrType SnapshotRecoveryRequestPropertiesArgs
-
-func SnapshotRecoveryRequestPropertiesPtr(v *SnapshotRecoveryRequestPropertiesArgs) SnapshotRecoveryRequestPropertiesPtrInput {
-	return (*snapshotRecoveryRequestPropertiesPtrType)(v)
-}
-
-func (*snapshotRecoveryRequestPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotRecoveryRequestProperties)(nil)).Elem()
-}
-
-func (i *snapshotRecoveryRequestPropertiesPtrType) ToSnapshotRecoveryRequestPropertiesPtrOutput() SnapshotRecoveryRequestPropertiesPtrOutput {
-	return i.ToSnapshotRecoveryRequestPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *snapshotRecoveryRequestPropertiesPtrType) ToSnapshotRecoveryRequestPropertiesPtrOutputWithContext(ctx context.Context) SnapshotRecoveryRequestPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotRecoveryRequestPropertiesPtrOutput)
-}
-
-// SnapshotRecoveryRequest resource specific properties
-type SnapshotRecoveryRequestPropertiesOutput struct{ *pulumi.OutputState }
-
-func (SnapshotRecoveryRequestPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotRecoveryRequestProperties)(nil)).Elem()
-}
-
-func (o SnapshotRecoveryRequestPropertiesOutput) ToSnapshotRecoveryRequestPropertiesOutput() SnapshotRecoveryRequestPropertiesOutput {
-	return o
-}
-
-func (o SnapshotRecoveryRequestPropertiesOutput) ToSnapshotRecoveryRequestPropertiesOutputWithContext(ctx context.Context) SnapshotRecoveryRequestPropertiesOutput {
-	return o
-}
-
-func (o SnapshotRecoveryRequestPropertiesOutput) ToSnapshotRecoveryRequestPropertiesPtrOutput() SnapshotRecoveryRequestPropertiesPtrOutput {
-	return o.ToSnapshotRecoveryRequestPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o SnapshotRecoveryRequestPropertiesOutput) ToSnapshotRecoveryRequestPropertiesPtrOutputWithContext(ctx context.Context) SnapshotRecoveryRequestPropertiesPtrOutput {
-	return o.ApplyT(func(v SnapshotRecoveryRequestProperties) *SnapshotRecoveryRequestProperties {
-		return &v
-	}).(SnapshotRecoveryRequestPropertiesPtrOutput)
-}
-
-// If true, custom hostname conflicts will be ignored when recovering to a target web app.
-// This setting is only necessary when RecoverConfiguration is enabled.
-func (o SnapshotRecoveryRequestPropertiesOutput) IgnoreConflictingHostNames() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SnapshotRecoveryRequestProperties) *bool { return v.IgnoreConflictingHostNames }).(pulumi.BoolPtrOutput)
-}
-
 // If <code>true</code> the recovery operation can overwrite source app; otherwise, <code>false</code>.
-func (o SnapshotRecoveryRequestPropertiesOutput) Overwrite() pulumi.BoolOutput {
-	return o.ApplyT(func(v SnapshotRecoveryRequestProperties) bool { return v.Overwrite }).(pulumi.BoolOutput)
-}
-
-// If true, site configuration, in addition to content, will be reverted.
-func (o SnapshotRecoveryRequestPropertiesOutput) RecoverConfiguration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SnapshotRecoveryRequestProperties) *bool { return v.RecoverConfiguration }).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the web app that snapshot contents will be written to.
-func (o SnapshotRecoveryRequestPropertiesOutput) RecoveryTarget() SnapshotRecoveryTargetPtrOutput {
-	return o.ApplyT(func(v SnapshotRecoveryRequestProperties) *SnapshotRecoveryTarget { return v.RecoveryTarget }).(SnapshotRecoveryTargetPtrOutput)
-}
-
-// Point in time in which the app recovery should be attempted, formatted as a DateTime string.
-func (o SnapshotRecoveryRequestPropertiesOutput) SnapshotTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SnapshotRecoveryRequestProperties) *string { return v.SnapshotTime }).(pulumi.StringPtrOutput)
-}
-
-type SnapshotRecoveryRequestPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (SnapshotRecoveryRequestPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotRecoveryRequestProperties)(nil)).Elem()
-}
-
-func (o SnapshotRecoveryRequestPropertiesPtrOutput) ToSnapshotRecoveryRequestPropertiesPtrOutput() SnapshotRecoveryRequestPropertiesPtrOutput {
-	return o
-}
-
-func (o SnapshotRecoveryRequestPropertiesPtrOutput) ToSnapshotRecoveryRequestPropertiesPtrOutputWithContext(ctx context.Context) SnapshotRecoveryRequestPropertiesPtrOutput {
-	return o
-}
-
-func (o SnapshotRecoveryRequestPropertiesPtrOutput) Elem() SnapshotRecoveryRequestPropertiesOutput {
-	return o.ApplyT(func(v *SnapshotRecoveryRequestProperties) SnapshotRecoveryRequestProperties { return *v }).(SnapshotRecoveryRequestPropertiesOutput)
-}
-
-// If true, custom hostname conflicts will be ignored when recovering to a target web app.
-// This setting is only necessary when RecoverConfiguration is enabled.
-func (o SnapshotRecoveryRequestPropertiesPtrOutput) IgnoreConflictingHostNames() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SnapshotRecoveryRequestProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IgnoreConflictingHostNames
-	}).(pulumi.BoolPtrOutput)
-}
-
-// If <code>true</code> the recovery operation can overwrite source app; otherwise, <code>false</code>.
-func (o SnapshotRecoveryRequestPropertiesPtrOutput) Overwrite() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SnapshotRecoveryRequestProperties) *bool {
+func (o SnapshotRecoveryRequestPtrOutput) Overwrite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SnapshotRecoveryRequest) *bool {
 		if v == nil {
 			return nil
 		}
@@ -17119,8 +14131,8 @@ func (o SnapshotRecoveryRequestPropertiesPtrOutput) Overwrite() pulumi.BoolPtrOu
 }
 
 // If true, site configuration, in addition to content, will be reverted.
-func (o SnapshotRecoveryRequestPropertiesPtrOutput) RecoverConfiguration() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SnapshotRecoveryRequestProperties) *bool {
+func (o SnapshotRecoveryRequestPtrOutput) RecoverConfiguration() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SnapshotRecoveryRequest) *bool {
 		if v == nil {
 			return nil
 		}
@@ -17129,8 +14141,8 @@ func (o SnapshotRecoveryRequestPropertiesPtrOutput) RecoverConfiguration() pulum
 }
 
 // Specifies the web app that snapshot contents will be written to.
-func (o SnapshotRecoveryRequestPropertiesPtrOutput) RecoveryTarget() SnapshotRecoveryTargetPtrOutput {
-	return o.ApplyT(func(v *SnapshotRecoveryRequestProperties) *SnapshotRecoveryTarget {
+func (o SnapshotRecoveryRequestPtrOutput) RecoveryTarget() SnapshotRecoveryTargetPtrOutput {
+	return o.ApplyT(func(v *SnapshotRecoveryRequest) *SnapshotRecoveryTarget {
 		if v == nil {
 			return nil
 		}
@@ -17139,8 +14151,8 @@ func (o SnapshotRecoveryRequestPropertiesPtrOutput) RecoveryTarget() SnapshotRec
 }
 
 // Point in time in which the app recovery should be attempted, formatted as a DateTime string.
-func (o SnapshotRecoveryRequestPropertiesPtrOutput) SnapshotTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SnapshotRecoveryRequestProperties) *string {
+func (o SnapshotRecoveryRequestPtrOutput) SnapshotTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnapshotRecoveryRequest) *string {
 		if v == nil {
 			return nil
 		}
@@ -18736,182 +15748,6 @@ func (o VirtualDirectoryResponseArrayOutput) Index(i pulumi.IntInput) VirtualDir
 }
 
 // VnetInfo resource specific properties
-type VnetInfoProperties struct {
-	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-	// Point-To-Site VPN connection.
-	CertBlob *string `pulumi:"certBlob"`
-	// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
-	DnsServers *string `pulumi:"dnsServers"`
-	// The Virtual Network's resource ID.
-	VnetResourceId *string `pulumi:"vnetResourceId"`
-}
-
-// VnetInfoPropertiesInput is an input type that accepts VnetInfoPropertiesArgs and VnetInfoPropertiesOutput values.
-// You can construct a concrete instance of `VnetInfoPropertiesInput` via:
-//
-//          VnetInfoPropertiesArgs{...}
-type VnetInfoPropertiesInput interface {
-	pulumi.Input
-
-	ToVnetInfoPropertiesOutput() VnetInfoPropertiesOutput
-	ToVnetInfoPropertiesOutputWithContext(context.Context) VnetInfoPropertiesOutput
-}
-
-// VnetInfo resource specific properties
-type VnetInfoPropertiesArgs struct {
-	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-	// Point-To-Site VPN connection.
-	CertBlob pulumi.StringPtrInput `pulumi:"certBlob"`
-	// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
-	DnsServers pulumi.StringPtrInput `pulumi:"dnsServers"`
-	// The Virtual Network's resource ID.
-	VnetResourceId pulumi.StringPtrInput `pulumi:"vnetResourceId"`
-}
-
-func (VnetInfoPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VnetInfoProperties)(nil)).Elem()
-}
-
-func (i VnetInfoPropertiesArgs) ToVnetInfoPropertiesOutput() VnetInfoPropertiesOutput {
-	return i.ToVnetInfoPropertiesOutputWithContext(context.Background())
-}
-
-func (i VnetInfoPropertiesArgs) ToVnetInfoPropertiesOutputWithContext(ctx context.Context) VnetInfoPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetInfoPropertiesOutput)
-}
-
-func (i VnetInfoPropertiesArgs) ToVnetInfoPropertiesPtrOutput() VnetInfoPropertiesPtrOutput {
-	return i.ToVnetInfoPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i VnetInfoPropertiesArgs) ToVnetInfoPropertiesPtrOutputWithContext(ctx context.Context) VnetInfoPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetInfoPropertiesOutput).ToVnetInfoPropertiesPtrOutputWithContext(ctx)
-}
-
-// VnetInfoPropertiesPtrInput is an input type that accepts VnetInfoPropertiesArgs, VnetInfoPropertiesPtr and VnetInfoPropertiesPtrOutput values.
-// You can construct a concrete instance of `VnetInfoPropertiesPtrInput` via:
-//
-//          VnetInfoPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type VnetInfoPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToVnetInfoPropertiesPtrOutput() VnetInfoPropertiesPtrOutput
-	ToVnetInfoPropertiesPtrOutputWithContext(context.Context) VnetInfoPropertiesPtrOutput
-}
-
-type vnetInfoPropertiesPtrType VnetInfoPropertiesArgs
-
-func VnetInfoPropertiesPtr(v *VnetInfoPropertiesArgs) VnetInfoPropertiesPtrInput {
-	return (*vnetInfoPropertiesPtrType)(v)
-}
-
-func (*vnetInfoPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VnetInfoProperties)(nil)).Elem()
-}
-
-func (i *vnetInfoPropertiesPtrType) ToVnetInfoPropertiesPtrOutput() VnetInfoPropertiesPtrOutput {
-	return i.ToVnetInfoPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *vnetInfoPropertiesPtrType) ToVnetInfoPropertiesPtrOutputWithContext(ctx context.Context) VnetInfoPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetInfoPropertiesPtrOutput)
-}
-
-// VnetInfo resource specific properties
-type VnetInfoPropertiesOutput struct{ *pulumi.OutputState }
-
-func (VnetInfoPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VnetInfoProperties)(nil)).Elem()
-}
-
-func (o VnetInfoPropertiesOutput) ToVnetInfoPropertiesOutput() VnetInfoPropertiesOutput {
-	return o
-}
-
-func (o VnetInfoPropertiesOutput) ToVnetInfoPropertiesOutputWithContext(ctx context.Context) VnetInfoPropertiesOutput {
-	return o
-}
-
-func (o VnetInfoPropertiesOutput) ToVnetInfoPropertiesPtrOutput() VnetInfoPropertiesPtrOutput {
-	return o.ToVnetInfoPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o VnetInfoPropertiesOutput) ToVnetInfoPropertiesPtrOutputWithContext(ctx context.Context) VnetInfoPropertiesPtrOutput {
-	return o.ApplyT(func(v VnetInfoProperties) *VnetInfoProperties {
-		return &v
-	}).(VnetInfoPropertiesPtrOutput)
-}
-
-// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-// Point-To-Site VPN connection.
-func (o VnetInfoPropertiesOutput) CertBlob() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetInfoProperties) *string { return v.CertBlob }).(pulumi.StringPtrOutput)
-}
-
-// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
-func (o VnetInfoPropertiesOutput) DnsServers() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetInfoProperties) *string { return v.DnsServers }).(pulumi.StringPtrOutput)
-}
-
-// The Virtual Network's resource ID.
-func (o VnetInfoPropertiesOutput) VnetResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetInfoProperties) *string { return v.VnetResourceId }).(pulumi.StringPtrOutput)
-}
-
-type VnetInfoPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (VnetInfoPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VnetInfoProperties)(nil)).Elem()
-}
-
-func (o VnetInfoPropertiesPtrOutput) ToVnetInfoPropertiesPtrOutput() VnetInfoPropertiesPtrOutput {
-	return o
-}
-
-func (o VnetInfoPropertiesPtrOutput) ToVnetInfoPropertiesPtrOutputWithContext(ctx context.Context) VnetInfoPropertiesPtrOutput {
-	return o
-}
-
-func (o VnetInfoPropertiesPtrOutput) Elem() VnetInfoPropertiesOutput {
-	return o.ApplyT(func(v *VnetInfoProperties) VnetInfoProperties { return *v }).(VnetInfoPropertiesOutput)
-}
-
-// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
-// Point-To-Site VPN connection.
-func (o VnetInfoPropertiesPtrOutput) CertBlob() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetInfoProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CertBlob
-	}).(pulumi.StringPtrOutput)
-}
-
-// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
-func (o VnetInfoPropertiesPtrOutput) DnsServers() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetInfoProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DnsServers
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Virtual Network's resource ID.
-func (o VnetInfoPropertiesPtrOutput) VnetResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetInfoProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VnetResourceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// VnetInfo resource specific properties
 type VnetInfoResponseProperties struct {
 	// A certificate file (.cer) blob containing the public key of the private key used to authenticate a
 	// Point-To-Site VPN connection.
@@ -19146,10 +15982,21 @@ func (o VnetInfoResponsePropertiesPtrOutput) VnetResourceId() pulumi.StringPtrOu
 
 // Virtual Network route contract used to pass routing information for a Virtual Network.
 type VnetRoute struct {
+	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+	EndAddress *string `pulumi:"endAddress"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
-	// VnetRoute resource specific properties
-	Properties *VnetRouteProperties `pulumi:"properties"`
+	// The type of route this is:
+	// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
+	// INHERITED - Routes inherited from the real Virtual Network routes
+	// STATIC - Static route set on the app only
+	//
+	// These values will be used for syncing an app's routes with those from a Virtual Network.
+	RouteType *string `pulumi:"routeType"`
+	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+	StartAddress *string `pulumi:"startAddress"`
+	// The name of this route. This is only returned by the server and does not need to be set by the client.
+	VnetRouteName *string `pulumi:"vnetRouteName"`
 }
 
 // VnetRouteInput is an input type that accepts VnetRouteArgs and VnetRouteOutput values.
@@ -19165,10 +16012,21 @@ type VnetRouteInput interface {
 
 // Virtual Network route contract used to pass routing information for a Virtual Network.
 type VnetRouteArgs struct {
+	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+	EndAddress pulumi.StringPtrInput `pulumi:"endAddress"`
 	// Kind of resource.
 	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// VnetRoute resource specific properties
-	Properties VnetRoutePropertiesPtrInput `pulumi:"properties"`
+	// The type of route this is:
+	// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
+	// INHERITED - Routes inherited from the real Virtual Network routes
+	// STATIC - Static route set on the app only
+	//
+	// These values will be used for syncing an app's routes with those from a Virtual Network.
+	RouteType pulumi.StringPtrInput `pulumi:"routeType"`
+	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+	StartAddress pulumi.StringPtrInput `pulumi:"startAddress"`
+	// The name of this route. This is only returned by the server and does not need to be set by the client.
+	VnetRouteName pulumi.StringPtrInput `pulumi:"vnetRouteName"`
 }
 
 func (VnetRouteArgs) ElementType() reflect.Type {
@@ -19198,225 +16056,34 @@ func (o VnetRouteOutput) ToVnetRouteOutputWithContext(ctx context.Context) VnetR
 	return o
 }
 
+// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+func (o VnetRouteOutput) EndAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VnetRoute) *string { return v.EndAddress }).(pulumi.StringPtrOutput)
+}
+
 // Kind of resource.
 func (o VnetRouteOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VnetRoute) *string { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// VnetRoute resource specific properties
-func (o VnetRouteOutput) Properties() VnetRoutePropertiesPtrOutput {
-	return o.ApplyT(func(v VnetRoute) *VnetRouteProperties { return v.Properties }).(VnetRoutePropertiesPtrOutput)
-}
-
-// VnetRoute resource specific properties
-type VnetRouteProperties struct {
-	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-	EndAddress *string `pulumi:"endAddress"`
-	// The type of route this is:
-	// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
-	// INHERITED - Routes inherited from the real Virtual Network routes
-	// STATIC - Static route set on the app only
-	//
-	// These values will be used for syncing an app's routes with those from a Virtual Network.
-	RouteType *string `pulumi:"routeType"`
-	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-	StartAddress *string `pulumi:"startAddress"`
-	// The name of this route. This is only returned by the server and does not need to be set by the client.
-	VnetRouteName *string `pulumi:"vnetRouteName"`
-}
-
-// VnetRoutePropertiesInput is an input type that accepts VnetRoutePropertiesArgs and VnetRoutePropertiesOutput values.
-// You can construct a concrete instance of `VnetRoutePropertiesInput` via:
-//
-//          VnetRoutePropertiesArgs{...}
-type VnetRoutePropertiesInput interface {
-	pulumi.Input
-
-	ToVnetRoutePropertiesOutput() VnetRoutePropertiesOutput
-	ToVnetRoutePropertiesOutputWithContext(context.Context) VnetRoutePropertiesOutput
-}
-
-// VnetRoute resource specific properties
-type VnetRoutePropertiesArgs struct {
-	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-	EndAddress pulumi.StringPtrInput `pulumi:"endAddress"`
-	// The type of route this is:
-	// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
-	// INHERITED - Routes inherited from the real Virtual Network routes
-	// STATIC - Static route set on the app only
-	//
-	// These values will be used for syncing an app's routes with those from a Virtual Network.
-	RouteType pulumi.StringPtrInput `pulumi:"routeType"`
-	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-	StartAddress pulumi.StringPtrInput `pulumi:"startAddress"`
-	// The name of this route. This is only returned by the server and does not need to be set by the client.
-	VnetRouteName pulumi.StringPtrInput `pulumi:"vnetRouteName"`
-}
-
-func (VnetRoutePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VnetRouteProperties)(nil)).Elem()
-}
-
-func (i VnetRoutePropertiesArgs) ToVnetRoutePropertiesOutput() VnetRoutePropertiesOutput {
-	return i.ToVnetRoutePropertiesOutputWithContext(context.Background())
-}
-
-func (i VnetRoutePropertiesArgs) ToVnetRoutePropertiesOutputWithContext(ctx context.Context) VnetRoutePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetRoutePropertiesOutput)
-}
-
-func (i VnetRoutePropertiesArgs) ToVnetRoutePropertiesPtrOutput() VnetRoutePropertiesPtrOutput {
-	return i.ToVnetRoutePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i VnetRoutePropertiesArgs) ToVnetRoutePropertiesPtrOutputWithContext(ctx context.Context) VnetRoutePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetRoutePropertiesOutput).ToVnetRoutePropertiesPtrOutputWithContext(ctx)
-}
-
-// VnetRoutePropertiesPtrInput is an input type that accepts VnetRoutePropertiesArgs, VnetRoutePropertiesPtr and VnetRoutePropertiesPtrOutput values.
-// You can construct a concrete instance of `VnetRoutePropertiesPtrInput` via:
-//
-//          VnetRoutePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type VnetRoutePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToVnetRoutePropertiesPtrOutput() VnetRoutePropertiesPtrOutput
-	ToVnetRoutePropertiesPtrOutputWithContext(context.Context) VnetRoutePropertiesPtrOutput
-}
-
-type vnetRoutePropertiesPtrType VnetRoutePropertiesArgs
-
-func VnetRoutePropertiesPtr(v *VnetRoutePropertiesArgs) VnetRoutePropertiesPtrInput {
-	return (*vnetRoutePropertiesPtrType)(v)
-}
-
-func (*vnetRoutePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VnetRouteProperties)(nil)).Elem()
-}
-
-func (i *vnetRoutePropertiesPtrType) ToVnetRoutePropertiesPtrOutput() VnetRoutePropertiesPtrOutput {
-	return i.ToVnetRoutePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *vnetRoutePropertiesPtrType) ToVnetRoutePropertiesPtrOutputWithContext(ctx context.Context) VnetRoutePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VnetRoutePropertiesPtrOutput)
-}
-
-// VnetRoute resource specific properties
-type VnetRoutePropertiesOutput struct{ *pulumi.OutputState }
-
-func (VnetRoutePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VnetRouteProperties)(nil)).Elem()
-}
-
-func (o VnetRoutePropertiesOutput) ToVnetRoutePropertiesOutput() VnetRoutePropertiesOutput {
-	return o
-}
-
-func (o VnetRoutePropertiesOutput) ToVnetRoutePropertiesOutputWithContext(ctx context.Context) VnetRoutePropertiesOutput {
-	return o
-}
-
-func (o VnetRoutePropertiesOutput) ToVnetRoutePropertiesPtrOutput() VnetRoutePropertiesPtrOutput {
-	return o.ToVnetRoutePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o VnetRoutePropertiesOutput) ToVnetRoutePropertiesPtrOutputWithContext(ctx context.Context) VnetRoutePropertiesPtrOutput {
-	return o.ApplyT(func(v VnetRouteProperties) *VnetRouteProperties {
-		return &v
-	}).(VnetRoutePropertiesPtrOutput)
-}
-
-// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-func (o VnetRoutePropertiesOutput) EndAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetRouteProperties) *string { return v.EndAddress }).(pulumi.StringPtrOutput)
-}
-
 // The type of route this is:
 // DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
 // INHERITED - Routes inherited from the real Virtual Network routes
 // STATIC - Static route set on the app only
 //
 // These values will be used for syncing an app's routes with those from a Virtual Network.
-func (o VnetRoutePropertiesOutput) RouteType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetRouteProperties) *string { return v.RouteType }).(pulumi.StringPtrOutput)
+func (o VnetRouteOutput) RouteType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VnetRoute) *string { return v.RouteType }).(pulumi.StringPtrOutput)
 }
 
 // The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-func (o VnetRoutePropertiesOutput) StartAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetRouteProperties) *string { return v.StartAddress }).(pulumi.StringPtrOutput)
+func (o VnetRouteOutput) StartAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VnetRoute) *string { return v.StartAddress }).(pulumi.StringPtrOutput)
 }
 
 // The name of this route. This is only returned by the server and does not need to be set by the client.
-func (o VnetRoutePropertiesOutput) VnetRouteName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VnetRouteProperties) *string { return v.VnetRouteName }).(pulumi.StringPtrOutput)
-}
-
-type VnetRoutePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (VnetRoutePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VnetRouteProperties)(nil)).Elem()
-}
-
-func (o VnetRoutePropertiesPtrOutput) ToVnetRoutePropertiesPtrOutput() VnetRoutePropertiesPtrOutput {
-	return o
-}
-
-func (o VnetRoutePropertiesPtrOutput) ToVnetRoutePropertiesPtrOutputWithContext(ctx context.Context) VnetRoutePropertiesPtrOutput {
-	return o
-}
-
-func (o VnetRoutePropertiesPtrOutput) Elem() VnetRoutePropertiesOutput {
-	return o.ApplyT(func(v *VnetRouteProperties) VnetRouteProperties { return *v }).(VnetRoutePropertiesOutput)
-}
-
-// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-func (o VnetRoutePropertiesPtrOutput) EndAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetRouteProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EndAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of route this is:
-// DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
-// INHERITED - Routes inherited from the real Virtual Network routes
-// STATIC - Static route set on the app only
-//
-// These values will be used for syncing an app's routes with those from a Virtual Network.
-func (o VnetRoutePropertiesPtrOutput) RouteType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetRouteProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RouteType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-func (o VnetRoutePropertiesPtrOutput) StartAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetRouteProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StartAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of this route. This is only returned by the server and does not need to be set by the client.
-func (o VnetRoutePropertiesPtrOutput) VnetRouteName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VnetRouteProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VnetRouteName
-	}).(pulumi.StringPtrOutput)
+func (o VnetRouteOutput) VnetRouteName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VnetRoute) *string { return v.VnetRouteName }).(pulumi.StringPtrOutput)
 }
 
 // Virtual Network route contract used to pass routing information for a Virtual Network.
@@ -21850,10 +18517,8 @@ func init() {
 	pulumi.RegisterOutputType(AutoHealTriggersResponseOutput{})
 	pulumi.RegisterOutputType(AutoHealTriggersResponsePtrOutput{})
 	pulumi.RegisterOutputType(BackupItemResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(BackupRequestPropertiesOutput{})
 	pulumi.RegisterOutputType(BackupRequestResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(BackupScheduleOutput{})
-	pulumi.RegisterOutputType(BackupSchedulePtrOutput{})
 	pulumi.RegisterOutputType(BackupScheduleResponseOutput{})
 	pulumi.RegisterOutputType(BackupScheduleResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloningInfoOutput{})
@@ -21874,16 +18539,12 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseBackupSettingArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseBackupSettingResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseBackupSettingResponseArrayOutput{})
-	pulumi.RegisterOutputType(DeploymentPropertiesOutput{})
-	pulumi.RegisterOutputType(DeploymentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(DeploymentResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentsOutput{})
 	pulumi.RegisterOutputType(ExperimentsPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentsResponseOutput{})
 	pulumi.RegisterOutputType(ExperimentsResponsePtrOutput{})
-	pulumi.RegisterOutputType(FunctionEnvelopePropertiesOutput{})
-	pulumi.RegisterOutputType(FunctionEnvelopePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FunctionEnvelopeResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(FunctionEnvelopeResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSecretsResponsePropertiesOutput{})
@@ -21891,8 +18552,6 @@ func init() {
 	pulumi.RegisterOutputType(HandlerMappingArrayOutput{})
 	pulumi.RegisterOutputType(HandlerMappingResponseOutput{})
 	pulumi.RegisterOutputType(HandlerMappingResponseArrayOutput{})
-	pulumi.RegisterOutputType(HostNameBindingPropertiesOutput{})
-	pulumi.RegisterOutputType(HostNameBindingPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HostNameBindingResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(HostNameBindingResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HostNameSslStateOutput{})
@@ -21904,12 +18563,8 @@ func init() {
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponseOutput{})
 	pulumi.RegisterOutputType(HostingEnvironmentProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(HybridConnectionKeyResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(HybridConnectionPropertiesOutput{})
-	pulumi.RegisterOutputType(HybridConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(HybridConnectionResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(HybridConnectionResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(IdentifierPropertiesOutput{})
-	pulumi.RegisterOutputType(IdentifierPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IdentifierResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(IdentifierResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IpSecurityRestrictionOutput{})
@@ -21924,18 +18579,12 @@ func init() {
 	pulumi.RegisterOutputType(NameValuePairArrayOutput{})
 	pulumi.RegisterOutputType(NameValuePairResponseOutput{})
 	pulumi.RegisterOutputType(NameValuePairResponseArrayOutput{})
-	pulumi.RegisterOutputType(PremierAddOnPropertiesOutput{})
-	pulumi.RegisterOutputType(PremierAddOnPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PremierAddOnResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(PremierAddOnResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(PublicCertificatePropertiesOutput{})
-	pulumi.RegisterOutputType(PublicCertificatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PublicCertificateResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(PublicCertificateResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PushSettingsOutput{})
 	pulumi.RegisterOutputType(PushSettingsPtrOutput{})
-	pulumi.RegisterOutputType(PushSettingsPropertiesOutput{})
-	pulumi.RegisterOutputType(PushSettingsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PushSettingsResponseOutput{})
 	pulumi.RegisterOutputType(PushSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(PushSettingsResponsePropertiesOutput{})
@@ -21944,8 +18593,6 @@ func init() {
 	pulumi.RegisterOutputType(RampUpRuleArrayOutput{})
 	pulumi.RegisterOutputType(RampUpRuleResponseOutput{})
 	pulumi.RegisterOutputType(RampUpRuleResponseArrayOutput{})
-	pulumi.RegisterOutputType(RelayServiceConnectionEntityPropertiesOutput{})
-	pulumi.RegisterOutputType(RelayServiceConnectionEntityPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RelayServiceConnectionEntityResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(RelayServiceConnectionEntityResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RequestsBasedTriggerOutput{})
@@ -21966,12 +18613,8 @@ func init() {
 	pulumi.RegisterOutputType(SiteMachineKeyOutput{})
 	pulumi.RegisterOutputType(SiteMachineKeyResponseOutput{})
 	pulumi.RegisterOutputType(SiteMachineKeyResponsePtrOutput{})
-	pulumi.RegisterOutputType(SitePropertiesOutput{})
-	pulumi.RegisterOutputType(SitePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SiteResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(SiteResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(SiteSourceControlPropertiesOutput{})
-	pulumi.RegisterOutputType(SiteSourceControlPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SiteSourceControlResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(SiteSourceControlResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SlotSwapStatusOutput{})
@@ -21983,8 +18626,6 @@ func init() {
 	pulumi.RegisterOutputType(SlowRequestsBasedTriggerResponsePtrOutput{})
 	pulumi.RegisterOutputType(SnapshotRecoveryRequestOutput{})
 	pulumi.RegisterOutputType(SnapshotRecoveryRequestPtrOutput{})
-	pulumi.RegisterOutputType(SnapshotRecoveryRequestPropertiesOutput{})
-	pulumi.RegisterOutputType(SnapshotRecoveryRequestPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotRecoveryRequestResponseOutput{})
 	pulumi.RegisterOutputType(SnapshotRecoveryRequestResponsePtrOutput{})
 	pulumi.RegisterOutputType(SnapshotRecoveryRequestResponsePropertiesOutput{})
@@ -22006,13 +18647,9 @@ func init() {
 	pulumi.RegisterOutputType(VirtualDirectoryArrayOutput{})
 	pulumi.RegisterOutputType(VirtualDirectoryResponseOutput{})
 	pulumi.RegisterOutputType(VirtualDirectoryResponseArrayOutput{})
-	pulumi.RegisterOutputType(VnetInfoPropertiesOutput{})
-	pulumi.RegisterOutputType(VnetInfoPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VnetInfoResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(VnetInfoResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VnetRouteOutput{})
-	pulumi.RegisterOutputType(VnetRoutePropertiesOutput{})
-	pulumi.RegisterOutputType(VnetRoutePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(VnetRouteResponseOutput{})
 	pulumi.RegisterOutputType(VnetRouteResponseArrayOutput{})
 	pulumi.RegisterOutputType(VnetRouteResponsePropertiesOutput{})

@@ -28,11 +28,11 @@ func NewTrustedIdProvider(ctx *pulumi.Context,
 	if args == nil || args.AccountName == nil {
 		return nil, errors.New("missing required argument 'AccountName'")
 	}
+	if args == nil || args.IdProvider == nil {
+		return nil, errors.New("missing required argument 'IdProvider'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -86,10 +86,10 @@ func (TrustedIdProviderState) ElementType() reflect.Type {
 type trustedIdProviderArgs struct {
 	// The name of the Data Lake Store account.
 	AccountName string `pulumi:"accountName"`
+	// The URL of this trusted identity provider.
+	IdProvider string `pulumi:"idProvider"`
 	// The name of the trusted identity provider. This is used for differentiation of providers in the account.
 	Name string `pulumi:"name"`
-	// The trusted identity provider properties to use when creating a new trusted identity provider.
-	Properties CreateOrUpdateTrustedIdProviderProperties `pulumi:"properties"`
 	// The name of the Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -98,10 +98,10 @@ type trustedIdProviderArgs struct {
 type TrustedIdProviderArgs struct {
 	// The name of the Data Lake Store account.
 	AccountName pulumi.StringInput
+	// The URL of this trusted identity provider.
+	IdProvider pulumi.StringInput
 	// The name of the trusted identity provider. This is used for differentiation of providers in the account.
 	Name pulumi.StringInput
-	// The trusted identity provider properties to use when creating a new trusted identity provider.
-	Properties CreateOrUpdateTrustedIdProviderPropertiesInput
 	// The name of the Azure resource group.
 	ResourceGroupName pulumi.StringInput
 }

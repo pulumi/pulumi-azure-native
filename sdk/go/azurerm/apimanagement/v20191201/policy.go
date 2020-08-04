@@ -34,6 +34,9 @@ func NewPolicy(ctx *pulumi.Context,
 	if args == nil || args.ServiceName == nil {
 		return nil, errors.New("missing required argument 'ServiceName'")
 	}
+	if args == nil || args.Value == nil {
+		return nil, errors.New("missing required argument 'Value'")
+	}
 	if args == nil {
 		args = &PolicyArgs{}
 	}
@@ -81,26 +84,30 @@ func (PolicyState) ElementType() reflect.Type {
 }
 
 type policyArgs struct {
+	// Format of the policyContent.
+	Format *string `pulumi:"format"`
 	// The identifier of the Policy.
 	Name string `pulumi:"name"`
-	// Properties of the Policy.
-	Properties *PolicyContractProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
 	ServiceName string `pulumi:"serviceName"`
+	// Contents of the Policy as defined by the format.
+	Value string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
+	// Format of the policyContent.
+	Format pulumi.StringPtrInput
 	// The identifier of the Policy.
 	Name pulumi.StringInput
-	// Properties of the Policy.
-	Properties PolicyContractPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.
 	ServiceName pulumi.StringInput
+	// Contents of the Policy as defined by the format.
+	Value pulumi.StringInput
 }
 
 func (PolicyArgs) ElementType() reflect.Type {

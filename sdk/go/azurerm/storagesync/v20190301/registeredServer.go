@@ -81,24 +81,52 @@ func (RegisteredServerState) ElementType() reflect.Type {
 }
 
 type registeredServerArgs struct {
-	// GUID identifying the on-premises server.
+	// Registered Server Agent Version
+	AgentVersion *string `pulumi:"agentVersion"`
+	// Registered Server clusterId
+	ClusterId *string `pulumi:"clusterId"`
+	// Registered Server clusterName
+	ClusterName *string `pulumi:"clusterName"`
+	// Friendly Name
+	FriendlyName *string `pulumi:"friendlyName"`
+	// Registered Server last heart beat
+	LastHeartBeat *string `pulumi:"lastHeartBeat"`
+	// Registered Server serverId
 	Name string `pulumi:"name"`
-	// The parameters used to create the registered server.
-	Properties *RegisteredServerCreateParametersProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Registered Server Certificate
+	ServerCertificate *string `pulumi:"serverCertificate"`
+	// Registered Server OS Version
+	ServerOSVersion *string `pulumi:"serverOSVersion"`
+	// Registered Server serverRole
+	ServerRole *string `pulumi:"serverRole"`
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName string `pulumi:"storageSyncServiceName"`
 }
 
 // The set of arguments for constructing a RegisteredServer resource.
 type RegisteredServerArgs struct {
-	// GUID identifying the on-premises server.
+	// Registered Server Agent Version
+	AgentVersion pulumi.StringPtrInput
+	// Registered Server clusterId
+	ClusterId pulumi.StringPtrInput
+	// Registered Server clusterName
+	ClusterName pulumi.StringPtrInput
+	// Friendly Name
+	FriendlyName pulumi.StringPtrInput
+	// Registered Server last heart beat
+	LastHeartBeat pulumi.StringPtrInput
+	// Registered Server serverId
 	Name pulumi.StringInput
-	// The parameters used to create the registered server.
-	Properties RegisteredServerCreateParametersPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Registered Server Certificate
+	ServerCertificate pulumi.StringPtrInput
+	// Registered Server OS Version
+	ServerOSVersion pulumi.StringPtrInput
+	// Registered Server serverRole
+	ServerRole pulumi.StringPtrInput
 	// Name of Storage Sync Service resource.
 	StorageSyncServiceName pulumi.StringInput
 }

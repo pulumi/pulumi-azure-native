@@ -75,18 +75,22 @@ func (ManagementGroupState) ElementType() reflect.Type {
 }
 
 type managementGroupArgs struct {
+	// The details of a management group used during creation.
+	Details *CreateManagementGroupDetails `pulumi:"details"`
+	// The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
+	DisplayName *string `pulumi:"displayName"`
 	// Management Group ID.
 	Name string `pulumi:"name"`
-	// The generic properties of a management group used during creation.
-	Properties *CreateManagementGroupProperties `pulumi:"properties"`
 }
 
 // The set of arguments for constructing a ManagementGroup resource.
 type ManagementGroupArgs struct {
+	// The details of a management group used during creation.
+	Details CreateManagementGroupDetailsPtrInput
+	// The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
+	DisplayName pulumi.StringPtrInput
 	// Management Group ID.
 	Name pulumi.StringInput
-	// The generic properties of a management group used during creation.
-	Properties CreateManagementGroupPropertiesPtrInput
 }
 
 func (ManagementGroupArgs) ElementType() reflect.Type {

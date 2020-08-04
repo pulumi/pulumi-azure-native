@@ -97,12 +97,16 @@ type availabilitySetArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the availability set.
 	Name string `pulumi:"name"`
-	// The instance view of a resource.
-	Properties *AvailabilitySetProperties `pulumi:"properties"`
+	// Fault Domain count.
+	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
+	// Update Domain count.
+	PlatformUpdateDomainCount *int `pulumi:"platformUpdateDomainCount"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// A list of references to all virtual machines in the availability set.
+	VirtualMachines []SubResource `pulumi:"virtualMachines"`
 }
 
 // The set of arguments for constructing a AvailabilitySet resource.
@@ -111,12 +115,16 @@ type AvailabilitySetArgs struct {
 	Location pulumi.StringInput
 	// The name of the availability set.
 	Name pulumi.StringInput
-	// The instance view of a resource.
-	Properties AvailabilitySetPropertiesPtrInput
+	// Fault Domain count.
+	PlatformFaultDomainCount pulumi.IntPtrInput
+	// Update Domain count.
+	PlatformUpdateDomainCount pulumi.IntPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// A list of references to all virtual machines in the availability set.
+	VirtualMachines SubResourceArrayInput
 }
 
 func (AvailabilitySetArgs) ElementType() reflect.Type {

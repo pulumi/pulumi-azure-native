@@ -81,26 +81,30 @@ func (OutputState) ElementType() reflect.Type {
 }
 
 type outputArgs struct {
+	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+	Datasource *OutputDataSource `pulumi:"datasource"`
 	// The name of the streaming job.
 	JobName string `pulumi:"jobName"`
 	// The name of the output.
 	Name string `pulumi:"name"`
-	// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-	Properties *OutputProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+	Serialization *Serialization `pulumi:"serialization"`
 }
 
 // The set of arguments for constructing a Output resource.
 type OutputArgs struct {
+	// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+	Datasource OutputDataSourcePtrInput
 	// The name of the streaming job.
 	JobName pulumi.StringInput
 	// The name of the output.
 	Name pulumi.StringInput
-	// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-	Properties OutputPropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
+	// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+	Serialization SerializationPtrInput
 }
 
 func (OutputArgs) ElementType() reflect.Type {

@@ -25,8 +25,14 @@ type Certificate struct {
 // NewCertificate registers a new resource with the given unique name, arguments, and options.
 func NewCertificate(ctx *pulumi.Context,
 	name string, args *CertificateArgs, opts ...pulumi.ResourceOption) (*Certificate, error) {
+	if args == nil || args.Data == nil {
+		return nil, errors.New("missing required argument 'Data'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
+	}
+	if args == nil || args.Password == nil {
+		return nil, errors.New("missing required argument 'Password'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -81,10 +87,12 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
+	// Base 64 encoded certificate using the application/x-pkcs12 representation.
+	Data string `pulumi:"data"`
 	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
 	Name string `pulumi:"name"`
-	// Certificate create or update properties details.
-	Properties *CertificateCreateOrUpdateProperties `pulumi:"properties"`
+	// Password for the Certificate
+	Password string `pulumi:"password"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the API Management service.
@@ -93,10 +101,12 @@ type certificateArgs struct {
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
+	// Base 64 encoded certificate using the application/x-pkcs12 representation.
+	Data pulumi.StringInput
 	// Identifier of the certificate entity. Must be unique in the current API Management service instance.
 	Name pulumi.StringInput
-	// Certificate create or update properties details.
-	Properties CertificateCreateOrUpdatePropertiesPtrInput
+	// Password for the Certificate
+	Password pulumi.StringInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The name of the API Management service.

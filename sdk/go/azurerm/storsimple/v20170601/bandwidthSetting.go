@@ -33,11 +33,11 @@ func NewBandwidthSetting(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Schedules == nil {
+		return nil, errors.New("missing required argument 'Schedules'")
 	}
 	if args == nil {
 		args = &BandwidthSettingArgs{}
@@ -96,10 +96,10 @@ type bandwidthSettingArgs struct {
 	ManagerName string `pulumi:"managerName"`
 	// The bandwidth setting name.
 	Name string `pulumi:"name"`
-	// The properties of the bandwidth setting.
-	Properties BandwidthRateSettingProperties `pulumi:"properties"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The schedules.
+	Schedules []BandwidthSchedule `pulumi:"schedules"`
 }
 
 // The set of arguments for constructing a BandwidthSetting resource.
@@ -110,10 +110,10 @@ type BandwidthSettingArgs struct {
 	ManagerName pulumi.StringInput
 	// The bandwidth setting name.
 	Name pulumi.StringInput
-	// The properties of the bandwidth setting.
-	Properties BandwidthRateSettingPropertiesInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
+	// The schedules.
+	Schedules BandwidthScheduleArrayInput
 }
 
 func (BandwidthSettingArgs) ElementType() reflect.Type {

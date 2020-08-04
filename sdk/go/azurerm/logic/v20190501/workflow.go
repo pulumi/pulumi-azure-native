@@ -90,28 +90,52 @@ func (WorkflowState) ElementType() reflect.Type {
 }
 
 type workflowArgs struct {
+	// The access control configuration.
+	AccessControl *FlowAccessControlConfiguration `pulumi:"accessControl"`
+	// The definition.
+	Definition *Object `pulumi:"definition"`
+	// The endpoints configuration.
+	EndpointsConfiguration *FlowEndpointsConfiguration `pulumi:"endpointsConfiguration"`
+	// The integration account.
+	IntegrationAccount *ResourceReference `pulumi:"integrationAccount"`
+	// The integration service environment.
+	IntegrationServiceEnvironment *ResourceReference `pulumi:"integrationServiceEnvironment"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The workflow name.
 	Name string `pulumi:"name"`
-	// The workflow properties.
-	Properties *WorkflowProperties `pulumi:"properties"`
+	// The parameters.
+	Parameters map[string]WorkflowParameter `pulumi:"parameters"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The state.
+	State *string `pulumi:"state"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
+	// The access control configuration.
+	AccessControl FlowAccessControlConfigurationPtrInput
+	// The definition.
+	Definition ObjectPtrInput
+	// The endpoints configuration.
+	EndpointsConfiguration FlowEndpointsConfigurationPtrInput
+	// The integration account.
+	IntegrationAccount ResourceReferencePtrInput
+	// The integration service environment.
+	IntegrationServiceEnvironment ResourceReferencePtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The workflow name.
 	Name pulumi.StringInput
-	// The workflow properties.
-	Properties WorkflowPropertiesPtrInput
+	// The parameters.
+	Parameters WorkflowParameterMapInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
+	// The state.
+	State pulumi.StringPtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 }

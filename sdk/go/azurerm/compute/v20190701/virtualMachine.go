@@ -117,40 +117,92 @@ func (VirtualMachineState) ElementType() reflect.Type {
 }
 
 type virtualMachineArgs struct {
+	// Specifies additional capabilities enabled or disabled on the virtual machine.
+	AdditionalCapabilities *AdditionalCapabilities `pulumi:"additionalCapabilities"`
+	// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
+	AvailabilitySet *SubResource `pulumi:"availabilitySet"`
+	// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
+	BillingProfile *BillingProfile `pulumi:"billingProfile"`
+	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+	DiagnosticsProfile *DiagnosticsProfile `pulumi:"diagnosticsProfile"`
+	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, the only supported value is 'Deallocate' and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
+	EvictionPolicy *string `pulumi:"evictionPolicy"`
+	// Specifies the hardware settings for the virtual machine.
+	HardwareProfile *HardwareProfile `pulumi:"hardwareProfile"`
+	// Specifies information about the dedicated host that the virtual machine resides in. <br><br>Minimum api-version: 2018-10-01.
+	Host *SubResource `pulumi:"host"`
 	// The identity of the virtual machine, if configured.
 	Identity *VirtualMachineIdentity `pulumi:"identity"`
+	// Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
+	LicenseType *string `pulumi:"licenseType"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the virtual machine.
 	Name string `pulumi:"name"`
+	// Specifies the network interfaces of the virtual machine.
+	NetworkProfile *NetworkProfile `pulumi:"networkProfile"`
+	// Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
+	OsProfile *OSProfile `pulumi:"osProfile"`
 	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
 	Plan *Plan `pulumi:"plan"`
-	// Describes the properties of a Virtual Machine.
-	Properties *VirtualMachineProperties `pulumi:"properties"`
+	// Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
+	Priority *string `pulumi:"priority"`
+	// Specifies information about the proximity placement group that the virtual machine should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+	ProximityPlacementGroup *SubResource `pulumi:"proximityPlacementGroup"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Specifies the storage settings for the virtual machine disks.
+	StorageProfile *StorageProfile `pulumi:"storageProfile"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. <br><br>This property cannot exist along with a non-null properties.availabilitySet reference. <br><br>Minimum api‐version: 2019‐03‐01
+	VirtualMachineScaleSet *SubResource `pulumi:"virtualMachineScaleSet"`
 	// The virtual machine zones.
 	Zones []string `pulumi:"zones"`
 }
 
 // The set of arguments for constructing a VirtualMachine resource.
 type VirtualMachineArgs struct {
+	// Specifies additional capabilities enabled or disabled on the virtual machine.
+	AdditionalCapabilities AdditionalCapabilitiesPtrInput
+	// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. <br><br>This property cannot exist along with a non-null properties.virtualMachineScaleSet reference.
+	AvailabilitySet SubResourcePtrInput
+	// Specifies the billing related details of a Azure Spot virtual machine. <br><br>Minimum api-version: 2019-03-01.
+	BillingProfile BillingProfilePtrInput
+	// Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+	DiagnosticsProfile DiagnosticsProfilePtrInput
+	// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, the only supported value is 'Deallocate' and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
+	EvictionPolicy pulumi.StringPtrInput
+	// Specifies the hardware settings for the virtual machine.
+	HardwareProfile HardwareProfilePtrInput
+	// Specifies information about the dedicated host that the virtual machine resides in. <br><br>Minimum api-version: 2018-10-01.
+	Host SubResourcePtrInput
 	// The identity of the virtual machine, if configured.
 	Identity VirtualMachineIdentityPtrInput
+	// Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
+	LicenseType pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the virtual machine.
 	Name pulumi.StringInput
+	// Specifies the network interfaces of the virtual machine.
+	NetworkProfile NetworkProfilePtrInput
+	// Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.
+	OsProfile OSProfilePtrInput
 	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
 	Plan PlanPtrInput
-	// Describes the properties of a Virtual Machine.
-	Properties VirtualMachinePropertiesPtrInput
+	// Specifies the priority for the virtual machine. <br><br>Minimum api-version: 2019-03-01
+	Priority pulumi.StringPtrInput
+	// Specifies information about the proximity placement group that the virtual machine should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+	ProximityPlacementGroup SubResourcePtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// Specifies the storage settings for the virtual machine disks.
+	StorageProfile StorageProfilePtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. <br><br>This property cannot exist along with a non-null properties.availabilitySet reference. <br><br>Minimum api‐version: 2019‐03‐01
+	VirtualMachineScaleSet SubResourcePtrInput
 	// The virtual machine zones.
 	Zones pulumi.StringArrayInput
 }

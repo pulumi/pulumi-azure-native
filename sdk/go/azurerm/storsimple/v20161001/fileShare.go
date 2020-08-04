@@ -25,6 +25,12 @@ type FileShare struct {
 // NewFileShare registers a new resource with the given unique name, arguments, and options.
 func NewFileShare(ctx *pulumi.Context,
 	name string, args *FileShareArgs, opts ...pulumi.ResourceOption) (*FileShare, error) {
+	if args == nil || args.AdminUser == nil {
+		return nil, errors.New("missing required argument 'AdminUser'")
+	}
+	if args == nil || args.DataPolicy == nil {
+		return nil, errors.New("missing required argument 'DataPolicy'")
+	}
 	if args == nil || args.DeviceName == nil {
 		return nil, errors.New("missing required argument 'DeviceName'")
 	}
@@ -34,14 +40,20 @@ func NewFileShare(ctx *pulumi.Context,
 	if args == nil || args.ManagerName == nil {
 		return nil, errors.New("missing required argument 'ManagerName'")
 	}
+	if args == nil || args.MonitoringStatus == nil {
+		return nil, errors.New("missing required argument 'MonitoringStatus'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
+	if args == nil || args.ProvisionedCapacityInBytes == nil {
+		return nil, errors.New("missing required argument 'ProvisionedCapacityInBytes'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.ShareStatus == nil {
+		return nil, errors.New("missing required argument 'ShareStatus'")
 	}
 	if args == nil {
 		args = &FileShareArgs{}
@@ -90,34 +102,54 @@ func (FileShareState) ElementType() reflect.Type {
 }
 
 type fileShareArgs struct {
+	// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
+	AdminUser string `pulumi:"adminUser"`
+	// The data policy
+	DataPolicy string `pulumi:"dataPolicy"`
+	// Description for file share
+	Description *string `pulumi:"description"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
 	// The file server name.
 	FileServerName string `pulumi:"fileServerName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
+	// The monitoring status
+	MonitoringStatus string `pulumi:"monitoringStatus"`
 	// The file share name.
 	Name string `pulumi:"name"`
-	// The properties.
-	Properties FileShareProperties `pulumi:"properties"`
+	// The total provisioned capacity in Bytes
+	ProvisionedCapacityInBytes int `pulumi:"provisionedCapacityInBytes"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The Share Status
+	ShareStatus string `pulumi:"shareStatus"`
 }
 
 // The set of arguments for constructing a FileShare resource.
 type FileShareArgs struct {
+	// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
+	AdminUser pulumi.StringInput
+	// The data policy
+	DataPolicy pulumi.StringInput
+	// Description for file share
+	Description pulumi.StringPtrInput
 	// The device name.
 	DeviceName pulumi.StringInput
 	// The file server name.
 	FileServerName pulumi.StringInput
 	// The manager name
 	ManagerName pulumi.StringInput
+	// The monitoring status
+	MonitoringStatus pulumi.StringInput
 	// The file share name.
 	Name pulumi.StringInput
-	// The properties.
-	Properties FileSharePropertiesInput
+	// The total provisioned capacity in Bytes
+	ProvisionedCapacityInBytes pulumi.IntInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
+	// The Share Status
+	ShareStatus pulumi.StringInput
 }
 
 func (FileShareArgs) ElementType() reflect.Type {

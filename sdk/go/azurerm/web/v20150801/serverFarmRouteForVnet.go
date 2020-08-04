@@ -99,6 +99,8 @@ func (ServerFarmRouteForVnetState) ElementType() reflect.Type {
 }
 
 type serverFarmRouteForVnetArgs struct {
+	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+	EndAddress *string `pulumi:"endAddress"`
 	// Resource Id
 	Id *string `pulumi:"id"`
 	// Kind of resource
@@ -106,10 +108,19 @@ type serverFarmRouteForVnetArgs struct {
 	// Resource Location
 	Location string `pulumi:"location"`
 	// Name of the virtual network route
-	Name       string               `pulumi:"name"`
-	Properties *VnetRouteProperties `pulumi:"properties"`
+	Name string `pulumi:"name"`
 	// Name of resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The type of route this is:
+	//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
+	//             INHERITED - Routes inherited from the real Virtual Network routes
+	//             STATIC - Static route set on the web app only
+	//
+	//             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
+	//             with new INHERITED routes.
+	RouteType *string `pulumi:"routeType"`
+	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+	StartAddress *string `pulumi:"startAddress"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
 	// Resource type
@@ -120,6 +131,8 @@ type serverFarmRouteForVnetArgs struct {
 
 // The set of arguments for constructing a ServerFarmRouteForVnet resource.
 type ServerFarmRouteForVnetArgs struct {
+	// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+	EndAddress pulumi.StringPtrInput
 	// Resource Id
 	Id pulumi.StringPtrInput
 	// Kind of resource
@@ -127,10 +140,19 @@ type ServerFarmRouteForVnetArgs struct {
 	// Resource Location
 	Location pulumi.StringInput
 	// Name of the virtual network route
-	Name       pulumi.StringInput
-	Properties VnetRoutePropertiesPtrInput
+	Name pulumi.StringInput
 	// Name of resource group
 	ResourceGroupName pulumi.StringInput
+	// The type of route this is:
+	//             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
+	//             INHERITED - Routes inherited from the real Virtual Network routes
+	//             STATIC - Static route set on the web app only
+	//
+	//             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
+	//             with new INHERITED routes.
+	RouteType pulumi.StringPtrInput
+	// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+	StartAddress pulumi.StringPtrInput
 	// Resource tags
 	Tags pulumi.StringMapInput
 	// Resource type

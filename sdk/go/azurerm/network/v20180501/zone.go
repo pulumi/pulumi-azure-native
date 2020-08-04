@@ -105,12 +105,16 @@ type zoneArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the DNS zone (without a terminating dot).
 	Name string `pulumi:"name"`
-	// The properties of the zone.
-	Properties *ZoneProperties `pulumi:"properties"`
+	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+	RegistrationVirtualNetworks []SubResource `pulumi:"registrationVirtualNetworks"`
+	// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+	ResolutionVirtualNetworks []SubResource `pulumi:"resolutionVirtualNetworks"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The type of this DNS zone (Public or Private).
+	ZoneType *string `pulumi:"zoneType"`
 }
 
 // The set of arguments for constructing a Zone resource.
@@ -121,12 +125,16 @@ type ZoneArgs struct {
 	Location pulumi.StringInput
 	// The name of the DNS zone (without a terminating dot).
 	Name pulumi.StringInput
-	// The properties of the zone.
-	Properties ZonePropertiesPtrInput
+	// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+	RegistrationVirtualNetworks SubResourceArrayInput
+	// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+	ResolutionVirtualNetworks SubResourceArrayInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The type of this DNS zone (Public or Private).
+	ZoneType pulumi.StringPtrInput
 }
 
 func (ZoneArgs) ElementType() reflect.Type {

@@ -25,6 +25,9 @@ type IscsiServer struct {
 // NewIscsiServer registers a new resource with the given unique name, arguments, and options.
 func NewIscsiServer(ctx *pulumi.Context,
 	name string, args *IscsiServerArgs, opts ...pulumi.ResourceOption) (*IscsiServer, error) {
+	if args == nil || args.BackupScheduleGroupId == nil {
+		return nil, errors.New("missing required argument 'BackupScheduleGroupId'")
+	}
 	if args == nil || args.DeviceName == nil {
 		return nil, errors.New("missing required argument 'DeviceName'")
 	}
@@ -34,11 +37,11 @@ func NewIscsiServer(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StorageDomainId == nil {
+		return nil, errors.New("missing required argument 'StorageDomainId'")
 	}
 	if args == nil {
 		args = &IscsiServerArgs{}
@@ -87,30 +90,46 @@ func (IscsiServerState) ElementType() reflect.Type {
 }
 
 type iscsiServerArgs struct {
+	// The backup policy id.
+	BackupScheduleGroupId string `pulumi:"backupScheduleGroupId"`
+	// The chap id.
+	ChapId *string `pulumi:"chapId"`
+	// The description.
+	Description *string `pulumi:"description"`
 	// The device name.
 	DeviceName string `pulumi:"deviceName"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The iSCSI server name.
 	Name string `pulumi:"name"`
-	// The properties.
-	Properties ISCSIServerProperties `pulumi:"properties"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The reverse chap id.
+	ReverseChapId *string `pulumi:"reverseChapId"`
+	// The storage domain id.
+	StorageDomainId string `pulumi:"storageDomainId"`
 }
 
 // The set of arguments for constructing a IscsiServer resource.
 type IscsiServerArgs struct {
+	// The backup policy id.
+	BackupScheduleGroupId pulumi.StringInput
+	// The chap id.
+	ChapId pulumi.StringPtrInput
+	// The description.
+	Description pulumi.StringPtrInput
 	// The device name.
 	DeviceName pulumi.StringInput
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The iSCSI server name.
 	Name pulumi.StringInput
-	// The properties.
-	Properties ISCSIServerPropertiesInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
+	// The reverse chap id.
+	ReverseChapId pulumi.StringPtrInput
+	// The storage domain id.
+	StorageDomainId pulumi.StringInput
 }
 
 func (IscsiServerArgs) ElementType() reflect.Type {

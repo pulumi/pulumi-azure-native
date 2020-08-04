@@ -99,32 +99,38 @@ func (MediaServiceState) ElementType() reflect.Type {
 }
 
 type mediaServiceArgs struct {
+	// The account encryption properties.
+	Encryption *AccountEncryption `pulumi:"encryption"`
 	// The Managed Identity for the Media Services account.
 	Identity *MediaServiceIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The Media Services account name.
 	Name string `pulumi:"name"`
-	// The resource properties.
-	Properties *MediaServiceProperties `pulumi:"properties"`
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The storage accounts for this resource.
+	StorageAccounts       []StorageAccount `pulumi:"storageAccounts"`
+	StorageAuthentication *string          `pulumi:"storageAuthentication"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a MediaService resource.
 type MediaServiceArgs struct {
+	// The account encryption properties.
+	Encryption AccountEncryptionPtrInput
 	// The Managed Identity for the Media Services account.
 	Identity MediaServiceIdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// The Media Services account name.
 	Name pulumi.StringInput
-	// The resource properties.
-	Properties MediaServicePropertiesPtrInput
 	// The name of the resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The storage accounts for this resource.
+	StorageAccounts       StorageAccountArrayInput
+	StorageAuthentication pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

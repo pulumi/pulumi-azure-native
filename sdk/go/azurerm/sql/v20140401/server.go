@@ -99,30 +99,38 @@ func (ServerState) ElementType() reflect.Type {
 }
 
 type serverArgs struct {
+	// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+	AdministratorLogin *string `pulumi:"administratorLogin"`
+	// The administrator login password (required for server creation).
+	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// Resource location.
 	Location string `pulumi:"location"`
 	// The name of the server.
 	Name string `pulumi:"name"`
-	// Represents the properties of the resource.
-	Properties *ServerProperties `pulumi:"properties"`
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The version of the server.
+	Version *string `pulumi:"version"`
 }
 
 // The set of arguments for constructing a Server resource.
 type ServerArgs struct {
+	// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+	AdministratorLogin pulumi.StringPtrInput
+	// The administrator login password (required for server creation).
+	AdministratorLoginPassword pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringInput
 	// The name of the server.
 	Name pulumi.StringInput
-	// Represents the properties of the resource.
-	Properties ServerPropertiesPtrInput
 	// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The version of the server.
+	Version pulumi.StringPtrInput
 }
 
 func (ServerArgs) ElementType() reflect.Type {

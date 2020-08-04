@@ -37,6 +37,9 @@ func NewCertificate(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.Password == nil {
+		return nil, errors.New("missing required argument 'Password'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -99,32 +102,52 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
+	// Host names the certificate applies to.
+	HostNames []string `pulumi:"hostNames"`
+	// Key Vault Csm resource Id.
+	KeyVaultId *string `pulumi:"keyVaultId"`
+	// Key Vault secret name.
+	KeyVaultSecretName *string `pulumi:"keyVaultSecretName"`
 	// Kind of resource.
 	Kind *string `pulumi:"kind"`
 	// Resource Location.
 	Location string `pulumi:"location"`
 	// Name of the certificate.
 	Name string `pulumi:"name"`
-	// Certificate resource specific properties
-	Properties *CertificateProperties `pulumi:"properties"`
+	// Certificate password.
+	Password string `pulumi:"password"`
+	// Pfx blob.
+	PfxBlob *string `pulumi:"pfxBlob"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+	ServerFarmId *string `pulumi:"serverFarmId"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
+	// Host names the certificate applies to.
+	HostNames pulumi.StringArrayInput
+	// Key Vault Csm resource Id.
+	KeyVaultId pulumi.StringPtrInput
+	// Key Vault secret name.
+	KeyVaultSecretName pulumi.StringPtrInput
 	// Kind of resource.
 	Kind pulumi.StringPtrInput
 	// Resource Location.
 	Location pulumi.StringInput
 	// Name of the certificate.
 	Name pulumi.StringInput
-	// Certificate resource specific properties
-	Properties CertificatePropertiesPtrInput
+	// Certificate password.
+	Password pulumi.StringInput
+	// Pfx blob.
+	PfxBlob pulumi.StringPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+	ServerFarmId pulumi.StringPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 }

@@ -81,28 +81,32 @@ func (VirtualHubRouteTableV2State) ElementType() reflect.Type {
 }
 
 type virtualHubRouteTableV2Args struct {
+	// List of all connections attached to this route table v2.
+	AttachedConnections []string `pulumi:"attachedConnections"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// The name of the VirtualHubRouteTableV2.
 	Name string `pulumi:"name"`
-	// Properties of the virtual hub route table v2.
-	Properties *VirtualHubRouteTableV2Properties `pulumi:"properties"`
 	// The resource group name of the VirtualHub.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// List of all routes.
+	Routes []VirtualHubRouteV2 `pulumi:"routes"`
 	// The name of the VirtualHub.
 	VirtualHubName string `pulumi:"virtualHubName"`
 }
 
 // The set of arguments for constructing a VirtualHubRouteTableV2 resource.
 type VirtualHubRouteTableV2Args struct {
+	// List of all connections attached to this route table v2.
+	AttachedConnections pulumi.StringArrayInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// The name of the VirtualHubRouteTableV2.
 	Name pulumi.StringInput
-	// Properties of the virtual hub route table v2.
-	Properties VirtualHubRouteTableV2PropertiesPtrInput
 	// The resource group name of the VirtualHub.
 	ResourceGroupName pulumi.StringInput
+	// List of all routes.
+	Routes VirtualHubRouteV2ArrayInput
 	// The name of the VirtualHub.
 	VirtualHubName pulumi.StringInput
 }

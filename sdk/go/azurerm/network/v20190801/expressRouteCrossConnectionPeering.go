@@ -83,28 +83,68 @@ func (ExpressRouteCrossConnectionPeeringState) ElementType() reflect.Type {
 type expressRouteCrossConnectionPeeringArgs struct {
 	// The name of the ExpressRouteCrossConnection.
 	CrossConnectionName string `pulumi:"crossConnectionName"`
+	// The GatewayManager Etag.
+	GatewayManagerEtag *string `pulumi:"gatewayManagerEtag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
+	// The IPv6 peering configuration.
+	Ipv6PeeringConfig *Ipv6ExpressRouteCircuitPeeringConfig `pulumi:"ipv6PeeringConfig"`
+	// Who was the last to modify the peering.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The Microsoft peering configuration.
+	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringConfig `pulumi:"microsoftPeeringConfig"`
 	// The name of the peering.
 	Name string `pulumi:"name"`
-	// Properties of the express route cross connection peering.
-	Properties *ExpressRouteCrossConnectionPeeringProperties `pulumi:"properties"`
+	// The peer ASN.
+	PeerASN *int `pulumi:"peerASN"`
+	// The peering type.
+	PeeringType *string `pulumi:"peeringType"`
+	// The primary address prefix.
+	PrimaryPeerAddressPrefix *string `pulumi:"primaryPeerAddressPrefix"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The secondary address prefix.
+	SecondaryPeerAddressPrefix *string `pulumi:"secondaryPeerAddressPrefix"`
+	// The shared key.
+	SharedKey *string `pulumi:"sharedKey"`
+	// The peering state.
+	State *string `pulumi:"state"`
+	// The VLAN ID.
+	VlanId *int `pulumi:"vlanId"`
 }
 
 // The set of arguments for constructing a ExpressRouteCrossConnectionPeering resource.
 type ExpressRouteCrossConnectionPeeringArgs struct {
 	// The name of the ExpressRouteCrossConnection.
 	CrossConnectionName pulumi.StringInput
+	// The GatewayManager Etag.
+	GatewayManagerEtag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
+	// The IPv6 peering configuration.
+	Ipv6PeeringConfig Ipv6ExpressRouteCircuitPeeringConfigPtrInput
+	// Who was the last to modify the peering.
+	LastModifiedBy pulumi.StringPtrInput
+	// The Microsoft peering configuration.
+	MicrosoftPeeringConfig ExpressRouteCircuitPeeringConfigPtrInput
 	// The name of the peering.
 	Name pulumi.StringInput
-	// Properties of the express route cross connection peering.
-	Properties ExpressRouteCrossConnectionPeeringPropertiesPtrInput
+	// The peer ASN.
+	PeerASN pulumi.IntPtrInput
+	// The peering type.
+	PeeringType pulumi.StringPtrInput
+	// The primary address prefix.
+	PrimaryPeerAddressPrefix pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
+	// The secondary address prefix.
+	SecondaryPeerAddressPrefix pulumi.StringPtrInput
+	// The shared key.
+	SharedKey pulumi.StringPtrInput
+	// The peering state.
+	State pulumi.StringPtrInput
+	// The VLAN ID.
+	VlanId pulumi.IntPtrInput
 }
 
 func (ExpressRouteCrossConnectionPeeringArgs) ElementType() reflect.Type {

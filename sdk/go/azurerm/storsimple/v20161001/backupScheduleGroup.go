@@ -34,11 +34,11 @@ func NewBackupScheduleGroup(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StartTime == nil {
+		return nil, errors.New("missing required argument 'StartTime'")
 	}
 	if args == nil {
 		args = &BackupScheduleGroupArgs{}
@@ -93,10 +93,10 @@ type backupScheduleGroupArgs struct {
 	ManagerName string `pulumi:"managerName"`
 	// The name of the schedule group.
 	Name string `pulumi:"name"`
-	// Properties of BackupScheduleGroup
-	Properties BackupScheduleGroupProperties `pulumi:"properties"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+	StartTime Time `pulumi:"startTime"`
 }
 
 // The set of arguments for constructing a BackupScheduleGroup resource.
@@ -107,10 +107,10 @@ type BackupScheduleGroupArgs struct {
 	ManagerName pulumi.StringInput
 	// The name of the schedule group.
 	Name pulumi.StringInput
-	// Properties of BackupScheduleGroup
-	Properties BackupScheduleGroupPropertiesInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
+	// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+	StartTime TimeInput
 }
 
 func (BackupScheduleGroupArgs) ElementType() reflect.Type {

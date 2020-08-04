@@ -108,14 +108,16 @@ func (ConfigurationStoreState) ElementType() reflect.Type {
 }
 
 type configurationStoreArgs struct {
+	// The encryption settings of the configuration store.
+	Encryption *EncryptionProperties `pulumi:"encryption"`
 	// The managed identity information, if configured.
 	Identity *ResourceIdentity `pulumi:"identity"`
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location string `pulumi:"location"`
 	// The name of the configuration store.
 	Name string `pulumi:"name"`
-	// The properties of a configuration store.
-	Properties *ConfigurationStoreProperties `pulumi:"properties"`
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku of the configuration store.
@@ -126,14 +128,16 @@ type configurationStoreArgs struct {
 
 // The set of arguments for constructing a ConfigurationStore resource.
 type ConfigurationStoreArgs struct {
+	// The encryption settings of the configuration store.
+	Encryption EncryptionPropertiesPtrInput
 	// The managed identity information, if configured.
 	Identity ResourceIdentityPtrInput
 	// The location of the resource. This cannot be changed after the resource is created.
 	Location pulumi.StringInput
 	// The name of the configuration store.
 	Name pulumi.StringInput
-	// The properties of a configuration store.
-	Properties ConfigurationStorePropertiesPtrInput
+	// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The name of the resource group to which the container registry belongs.
 	ResourceGroupName pulumi.StringInput
 	// The sku of the configuration store.

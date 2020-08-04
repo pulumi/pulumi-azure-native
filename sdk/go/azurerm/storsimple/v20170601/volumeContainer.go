@@ -36,11 +36,11 @@ func NewVolumeContainer(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
-	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.StorageAccountCredentialId == nil {
+		return nil, errors.New("missing required argument 'StorageAccountCredentialId'")
 	}
 	if args == nil {
 		args = &VolumeContainerArgs{}
@@ -93,34 +93,46 @@ func (VolumeContainerState) ElementType() reflect.Type {
 }
 
 type volumeContainerArgs struct {
+	// The bandwidth-rate set on the volume container.
+	BandWidthRateInMbps *int `pulumi:"bandWidthRateInMbps"`
+	// The ID of the bandwidth setting associated with the volume container.
+	BandwidthSettingId *string `pulumi:"bandwidthSettingId"`
 	// The device name
 	DeviceName string `pulumi:"deviceName"`
+	// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+	EncryptionKey *AsymmetricEncryptedSecret `pulumi:"encryptionKey"`
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind *string `pulumi:"kind"`
 	// The manager name
 	ManagerName string `pulumi:"managerName"`
 	// The name of the volume container.
 	Name string `pulumi:"name"`
-	// The volume container properties.
-	Properties VolumeContainerProperties `pulumi:"properties"`
 	// The resource group name
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The path ID of storage account associated with the volume container.
+	StorageAccountCredentialId string `pulumi:"storageAccountCredentialId"`
 }
 
 // The set of arguments for constructing a VolumeContainer resource.
 type VolumeContainerArgs struct {
+	// The bandwidth-rate set on the volume container.
+	BandWidthRateInMbps pulumi.IntPtrInput
+	// The ID of the bandwidth setting associated with the volume container.
+	BandwidthSettingId pulumi.StringPtrInput
 	// The device name
 	DeviceName pulumi.StringInput
+	// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+	EncryptionKey AsymmetricEncryptedSecretPtrInput
 	// The Kind of the object. Currently only Series8000 is supported
 	Kind pulumi.StringPtrInput
 	// The manager name
 	ManagerName pulumi.StringInput
 	// The name of the volume container.
 	Name pulumi.StringInput
-	// The volume container properties.
-	Properties VolumeContainerPropertiesInput
 	// The resource group name
 	ResourceGroupName pulumi.StringInput
+	// The path ID of storage account associated with the volume container.
+	StorageAccountCredentialId pulumi.StringInput
 }
 
 func (VolumeContainerArgs) ElementType() reflect.Type {

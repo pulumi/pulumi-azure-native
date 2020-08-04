@@ -28,11 +28,17 @@ func NewDscNodeConfiguration(ctx *pulumi.Context,
 	if args == nil || args.AutomationAccountName == nil {
 		return nil, errors.New("missing required argument 'AutomationAccountName'")
 	}
+	if args == nil || args.Configuration == nil {
+		return nil, errors.New("missing required argument 'Configuration'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.Source == nil {
+		return nil, errors.New("missing required argument 'Source'")
 	}
 	if args == nil {
 		args = &DscNodeConfigurationArgs{}
@@ -83,12 +89,16 @@ func (DscNodeConfigurationState) ElementType() reflect.Type {
 type dscNodeConfigurationArgs struct {
 	// The name of the automation account.
 	AutomationAccountName string `pulumi:"automationAccountName"`
+	// Gets or sets the configuration of the node.
+	Configuration DscConfigurationAssociationProperty `pulumi:"configuration"`
+	// If a new build version of NodeConfiguration is required.
+	IncrementNodeConfigurationBuild *bool `pulumi:"incrementNodeConfigurationBuild"`
 	// The Dsc node configuration name.
 	Name string `pulumi:"name"`
-	// Node configuration properties
-	Properties *DscNodeConfigurationCreateOrUpdateParametersProperties `pulumi:"properties"`
 	// Name of an Azure Resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Gets or sets the source.
+	Source ContentSource `pulumi:"source"`
 	// Gets or sets the tags attached to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -97,12 +107,16 @@ type dscNodeConfigurationArgs struct {
 type DscNodeConfigurationArgs struct {
 	// The name of the automation account.
 	AutomationAccountName pulumi.StringInput
+	// Gets or sets the configuration of the node.
+	Configuration DscConfigurationAssociationPropertyInput
+	// If a new build version of NodeConfiguration is required.
+	IncrementNodeConfigurationBuild pulumi.BoolPtrInput
 	// The Dsc node configuration name.
 	Name pulumi.StringInput
-	// Node configuration properties
-	Properties DscNodeConfigurationCreateOrUpdateParametersPropertiesPtrInput
 	// Name of an Azure Resource group.
 	ResourceGroupName pulumi.StringInput
+	// Gets or sets the source.
+	Source ContentSourceInput
 	// Gets or sets the tags attached to the resource.
 	Tags pulumi.StringMapInput
 }

@@ -31,6 +31,9 @@ func NewOriginGroup(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.Origins == nil {
+		return nil, errors.New("missing required argument 'Origins'")
+	}
 	if args == nil || args.ProfileName == nil {
 		return nil, errors.New("missing required argument 'ProfileName'")
 	}
@@ -86,28 +89,40 @@ func (OriginGroupState) ElementType() reflect.Type {
 type originGroupArgs struct {
 	// Name of the endpoint under the profile which is unique globally.
 	EndpointName string `pulumi:"endpointName"`
+	// Health probe settings to the origin that is used to determine the health of the origin.
+	HealthProbeSettings *HealthProbeParameters `pulumi:"healthProbeSettings"`
 	// Name of the origin group which is unique within the endpoint.
 	Name string `pulumi:"name"`
+	// The source of the content being delivered via CDN within given origin group.
+	Origins []ResourceReference `pulumi:"origins"`
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName string `pulumi:"profileName"`
-	// The JSON object that contains the properties of the origin group.
-	Properties *OriginGroupProperties `pulumi:"properties"`
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+	ResponseBasedOriginErrorDetectionSettings *ResponseBasedOriginErrorDetectionParameters `pulumi:"responseBasedOriginErrorDetectionSettings"`
+	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes *int `pulumi:"trafficRestorationTimeToHealedOrNewEndpointsInMinutes"`
 }
 
 // The set of arguments for constructing a OriginGroup resource.
 type OriginGroupArgs struct {
 	// Name of the endpoint under the profile which is unique globally.
 	EndpointName pulumi.StringInput
+	// Health probe settings to the origin that is used to determine the health of the origin.
+	HealthProbeSettings HealthProbeParametersPtrInput
 	// Name of the origin group which is unique within the endpoint.
 	Name pulumi.StringInput
+	// The source of the content being delivered via CDN within given origin group.
+	Origins ResourceReferenceArrayInput
 	// Name of the CDN profile which is unique within the resource group.
 	ProfileName pulumi.StringInput
-	// The JSON object that contains the properties of the origin group.
-	Properties OriginGroupPropertiesPtrInput
 	// Name of the Resource group within the Azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+	ResponseBasedOriginErrorDetectionSettings ResponseBasedOriginErrorDetectionParametersPtrInput
+	// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+	TrafficRestorationTimeToHealedOrNewEndpointsInMinutes pulumi.IntPtrInput
 }
 
 func (OriginGroupArgs) ElementType() reflect.Type {

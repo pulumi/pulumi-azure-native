@@ -36,6 +36,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
+	if args == nil || args.PrivateLinkServiceConnectionState == nil {
+		return nil, errors.New("missing required argument 'PrivateLinkServiceConnectionState'")
+	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
@@ -111,8 +114,12 @@ type privateEndpointConnectionArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the private endpoint connection associated with the workspace
 	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties *PrivateEndpointConnectionProperties `pulumi:"properties"`
+	// The resource of private end point.
+	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The sku of the workspace.
@@ -131,8 +138,12 @@ type PrivateEndpointConnectionArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the private endpoint connection associated with the workspace
 	Name pulumi.StringInput
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesPtrInput
+	// The resource of private end point.
+	PrivateEndpoint PrivateEndpointPtrInput
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState pulumi.StringPtrInput
 	// Name of the resource group in which workspace is located.
 	ResourceGroupName pulumi.StringInput
 	// The sku of the workspace.

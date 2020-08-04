@@ -31,6 +31,9 @@ type WebApplicationFirewallPolicy struct {
 // NewWebApplicationFirewallPolicy registers a new resource with the given unique name, arguments, and options.
 func NewWebApplicationFirewallPolicy(ctx *pulumi.Context,
 	name string, args *WebApplicationFirewallPolicyArgs, opts ...pulumi.ResourceOption) (*WebApplicationFirewallPolicy, error) {
+	if args == nil || args.ManagedRules == nil {
+		return nil, errors.New("missing required argument 'ManagedRules'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -96,16 +99,20 @@ func (WebApplicationFirewallPolicyState) ElementType() reflect.Type {
 }
 
 type webApplicationFirewallPolicyArgs struct {
+	// Describes custom rules inside the policy.
+	CustomRules []WebApplicationFirewallCustomRule `pulumi:"customRules"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag *string `pulumi:"etag"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
+	// Describes the managedRules structure
+	ManagedRules ManagedRulesDefinition `pulumi:"managedRules"`
 	// The name of the policy.
 	Name string `pulumi:"name"`
-	// Properties of the web application firewall policy.
-	Properties *WebApplicationFirewallPolicyPropertiesFormat `pulumi:"properties"`
+	// Describes policySettings for policy.
+	PolicySettings *PolicySettings `pulumi:"policySettings"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -114,16 +121,20 @@ type webApplicationFirewallPolicyArgs struct {
 
 // The set of arguments for constructing a WebApplicationFirewallPolicy resource.
 type WebApplicationFirewallPolicyArgs struct {
+	// Describes custom rules inside the policy.
+	CustomRules WebApplicationFirewallCustomRuleArrayInput
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
+	// Describes the managedRules structure
+	ManagedRules ManagedRulesDefinitionInput
 	// The name of the policy.
 	Name pulumi.StringInput
-	// Properties of the web application firewall policy.
-	Properties WebApplicationFirewallPolicyPropertiesFormatPtrInput
+	// Describes policySettings for policy.
+	PolicySettings PolicySettingsPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

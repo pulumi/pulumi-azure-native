@@ -87,26 +87,42 @@ func (FileShareState) ElementType() reflect.Type {
 }
 
 type fileShareArgs struct {
+	// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
+	AccessTier *string `pulumi:"accessTier"`
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName string `pulumi:"accountName"`
-	// Properties of the file share.
-	FileShareProperties *FileShareProperties `pulumi:"fileShareProperties"`
+	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
+	EnabledProtocols *string `pulumi:"enabledProtocols"`
+	// A name-value pair to associate with the share as metadata.
+	Metadata map[string]string `pulumi:"metadata"`
 	// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
 	Name string `pulumi:"name"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The property is for NFS share only. The default is NoRootSquash.
+	RootSquash *string `pulumi:"rootSquash"`
+	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+	ShareQuota *int `pulumi:"shareQuota"`
 }
 
 // The set of arguments for constructing a FileShare resource.
 type FileShareArgs struct {
+	// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
+	AccessTier pulumi.StringPtrInput
 	// The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 	AccountName pulumi.StringInput
-	// Properties of the file share.
-	FileShareProperties FileSharePropertiesPtrInput
+	// The authentication protocol that is used for the file share. Can only be specified when creating a share.
+	EnabledProtocols pulumi.StringPtrInput
+	// A name-value pair to associate with the share as metadata.
+	Metadata pulumi.StringMapInput
 	// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
 	Name pulumi.StringInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// The property is for NFS share only. The default is NoRootSquash.
+	RootSquash pulumi.StringPtrInput
+	// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+	ShareQuota pulumi.IntPtrInput
 }
 
 func (FileShareArgs) ElementType() reflect.Type {

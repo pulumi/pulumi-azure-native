@@ -93,12 +93,14 @@ func (ProximityPlacementGroupState) ElementType() reflect.Type {
 }
 
 type proximityPlacementGroupArgs struct {
+	// Describes colocation status of the Proximity Placement Group.
+	ColocationStatus *InstanceViewStatus `pulumi:"colocationStatus"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the proximity placement group.
 	Name string `pulumi:"name"`
-	// Describes the properties of a Proximity Placement Group.
-	Properties *ProximityPlacementGroupProperties `pulumi:"properties"`
+	// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+	ProximityPlacementGroupType *string `pulumi:"proximityPlacementGroupType"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
@@ -107,12 +109,14 @@ type proximityPlacementGroupArgs struct {
 
 // The set of arguments for constructing a ProximityPlacementGroup resource.
 type ProximityPlacementGroupArgs struct {
+	// Describes colocation status of the Proximity Placement Group.
+	ColocationStatus InstanceViewStatusPtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the proximity placement group.
 	Name pulumi.StringInput
-	// Describes the properties of a Proximity Placement Group.
-	Properties ProximityPlacementGroupPropertiesPtrInput
+	// Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+	ProximityPlacementGroupType pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags

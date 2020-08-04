@@ -90,10 +90,10 @@ type consumerGroupArgs struct {
 	Name string `pulumi:"name"`
 	// The Namespace name
 	NamespaceName string `pulumi:"namespaceName"`
-	// Single item in List or Get Consumer group operation
-	Properties *ConsumerGroupProperties `pulumi:"properties"`
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+	UserMetadata *string `pulumi:"userMetadata"`
 }
 
 // The set of arguments for constructing a ConsumerGroup resource.
@@ -104,10 +104,10 @@ type ConsumerGroupArgs struct {
 	Name pulumi.StringInput
 	// The Namespace name
 	NamespaceName pulumi.StringInput
-	// Single item in List or Get Consumer group operation
-	Properties ConsumerGroupPropertiesPtrInput
 	// Name of the resource group within the azure subscription.
 	ResourceGroupName pulumi.StringInput
+	// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+	UserMetadata pulumi.StringPtrInput
 }
 
 func (ConsumerGroupArgs) ElementType() reflect.Type {

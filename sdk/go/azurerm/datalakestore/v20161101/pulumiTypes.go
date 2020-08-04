@@ -110,320 +110,14 @@ func (o AccountTypeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountType) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type CreateDataLakeStoreAccountProperties struct {
-	// The default owner group for all new folders and files created in the Data Lake Store account.
-	DefaultGroup *string `pulumi:"defaultGroup"`
-	// The Key Vault encryption configuration.
-	EncryptionConfig *EncryptionConfig `pulumi:"encryptionConfig"`
-	// The current state of encryption for this Data Lake Store account.
-	EncryptionState *string `pulumi:"encryptionState"`
-	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps *string `pulumi:"firewallAllowAzureIps"`
-	// The list of firewall rules associated with this Data Lake Store account.
-	FirewallRules []CreateFirewallRuleWithAccountParameters `pulumi:"firewallRules"`
-	// The current state of the IP address firewall for this Data Lake Store account.
-	FirewallState *string `pulumi:"firewallState"`
-	// The commitment tier to use for next month.
-	NewTier *string `pulumi:"newTier"`
-	// The current state of the trusted identity provider feature for this Data Lake Store account.
-	TrustedIdProviderState *string `pulumi:"trustedIdProviderState"`
-	// The list of trusted identity providers associated with this Data Lake Store account.
-	TrustedIdProviders []CreateTrustedIdProviderWithAccountParameters `pulumi:"trustedIdProviders"`
-	// The list of virtual network rules associated with this Data Lake Store account.
-	VirtualNetworkRules []CreateVirtualNetworkRuleWithAccountParameters `pulumi:"virtualNetworkRules"`
-}
-
-// CreateDataLakeStoreAccountPropertiesInput is an input type that accepts CreateDataLakeStoreAccountPropertiesArgs and CreateDataLakeStoreAccountPropertiesOutput values.
-// You can construct a concrete instance of `CreateDataLakeStoreAccountPropertiesInput` via:
-//
-//          CreateDataLakeStoreAccountPropertiesArgs{...}
-type CreateDataLakeStoreAccountPropertiesInput interface {
-	pulumi.Input
-
-	ToCreateDataLakeStoreAccountPropertiesOutput() CreateDataLakeStoreAccountPropertiesOutput
-	ToCreateDataLakeStoreAccountPropertiesOutputWithContext(context.Context) CreateDataLakeStoreAccountPropertiesOutput
-}
-
-type CreateDataLakeStoreAccountPropertiesArgs struct {
-	// The default owner group for all new folders and files created in the Data Lake Store account.
-	DefaultGroup pulumi.StringPtrInput `pulumi:"defaultGroup"`
-	// The Key Vault encryption configuration.
-	EncryptionConfig EncryptionConfigPtrInput `pulumi:"encryptionConfig"`
-	// The current state of encryption for this Data Lake Store account.
-	EncryptionState pulumi.StringPtrInput `pulumi:"encryptionState"`
-	// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-	FirewallAllowAzureIps pulumi.StringPtrInput `pulumi:"firewallAllowAzureIps"`
-	// The list of firewall rules associated with this Data Lake Store account.
-	FirewallRules CreateFirewallRuleWithAccountParametersArrayInput `pulumi:"firewallRules"`
-	// The current state of the IP address firewall for this Data Lake Store account.
-	FirewallState pulumi.StringPtrInput `pulumi:"firewallState"`
-	// The commitment tier to use for next month.
-	NewTier pulumi.StringPtrInput `pulumi:"newTier"`
-	// The current state of the trusted identity provider feature for this Data Lake Store account.
-	TrustedIdProviderState pulumi.StringPtrInput `pulumi:"trustedIdProviderState"`
-	// The list of trusted identity providers associated with this Data Lake Store account.
-	TrustedIdProviders CreateTrustedIdProviderWithAccountParametersArrayInput `pulumi:"trustedIdProviders"`
-	// The list of virtual network rules associated with this Data Lake Store account.
-	VirtualNetworkRules CreateVirtualNetworkRuleWithAccountParametersArrayInput `pulumi:"virtualNetworkRules"`
-}
-
-func (CreateDataLakeStoreAccountPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateDataLakeStoreAccountProperties)(nil)).Elem()
-}
-
-func (i CreateDataLakeStoreAccountPropertiesArgs) ToCreateDataLakeStoreAccountPropertiesOutput() CreateDataLakeStoreAccountPropertiesOutput {
-	return i.ToCreateDataLakeStoreAccountPropertiesOutputWithContext(context.Background())
-}
-
-func (i CreateDataLakeStoreAccountPropertiesArgs) ToCreateDataLakeStoreAccountPropertiesOutputWithContext(ctx context.Context) CreateDataLakeStoreAccountPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateDataLakeStoreAccountPropertiesOutput)
-}
-
-func (i CreateDataLakeStoreAccountPropertiesArgs) ToCreateDataLakeStoreAccountPropertiesPtrOutput() CreateDataLakeStoreAccountPropertiesPtrOutput {
-	return i.ToCreateDataLakeStoreAccountPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CreateDataLakeStoreAccountPropertiesArgs) ToCreateDataLakeStoreAccountPropertiesPtrOutputWithContext(ctx context.Context) CreateDataLakeStoreAccountPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateDataLakeStoreAccountPropertiesOutput).ToCreateDataLakeStoreAccountPropertiesPtrOutputWithContext(ctx)
-}
-
-// CreateDataLakeStoreAccountPropertiesPtrInput is an input type that accepts CreateDataLakeStoreAccountPropertiesArgs, CreateDataLakeStoreAccountPropertiesPtr and CreateDataLakeStoreAccountPropertiesPtrOutput values.
-// You can construct a concrete instance of `CreateDataLakeStoreAccountPropertiesPtrInput` via:
-//
-//          CreateDataLakeStoreAccountPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CreateDataLakeStoreAccountPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCreateDataLakeStoreAccountPropertiesPtrOutput() CreateDataLakeStoreAccountPropertiesPtrOutput
-	ToCreateDataLakeStoreAccountPropertiesPtrOutputWithContext(context.Context) CreateDataLakeStoreAccountPropertiesPtrOutput
-}
-
-type createDataLakeStoreAccountPropertiesPtrType CreateDataLakeStoreAccountPropertiesArgs
-
-func CreateDataLakeStoreAccountPropertiesPtr(v *CreateDataLakeStoreAccountPropertiesArgs) CreateDataLakeStoreAccountPropertiesPtrInput {
-	return (*createDataLakeStoreAccountPropertiesPtrType)(v)
-}
-
-func (*createDataLakeStoreAccountPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateDataLakeStoreAccountProperties)(nil)).Elem()
-}
-
-func (i *createDataLakeStoreAccountPropertiesPtrType) ToCreateDataLakeStoreAccountPropertiesPtrOutput() CreateDataLakeStoreAccountPropertiesPtrOutput {
-	return i.ToCreateDataLakeStoreAccountPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *createDataLakeStoreAccountPropertiesPtrType) ToCreateDataLakeStoreAccountPropertiesPtrOutputWithContext(ctx context.Context) CreateDataLakeStoreAccountPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateDataLakeStoreAccountPropertiesPtrOutput)
-}
-
-type CreateDataLakeStoreAccountPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CreateDataLakeStoreAccountPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateDataLakeStoreAccountProperties)(nil)).Elem()
-}
-
-func (o CreateDataLakeStoreAccountPropertiesOutput) ToCreateDataLakeStoreAccountPropertiesOutput() CreateDataLakeStoreAccountPropertiesOutput {
-	return o
-}
-
-func (o CreateDataLakeStoreAccountPropertiesOutput) ToCreateDataLakeStoreAccountPropertiesOutputWithContext(ctx context.Context) CreateDataLakeStoreAccountPropertiesOutput {
-	return o
-}
-
-func (o CreateDataLakeStoreAccountPropertiesOutput) ToCreateDataLakeStoreAccountPropertiesPtrOutput() CreateDataLakeStoreAccountPropertiesPtrOutput {
-	return o.ToCreateDataLakeStoreAccountPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CreateDataLakeStoreAccountPropertiesOutput) ToCreateDataLakeStoreAccountPropertiesPtrOutputWithContext(ctx context.Context) CreateDataLakeStoreAccountPropertiesPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeStoreAccountProperties) *CreateDataLakeStoreAccountProperties {
-		return &v
-	}).(CreateDataLakeStoreAccountPropertiesPtrOutput)
-}
-
-// The default owner group for all new folders and files created in the Data Lake Store account.
-func (o CreateDataLakeStoreAccountPropertiesOutput) DefaultGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeStoreAccountProperties) *string { return v.DefaultGroup }).(pulumi.StringPtrOutput)
-}
-
-// The Key Vault encryption configuration.
-func (o CreateDataLakeStoreAccountPropertiesOutput) EncryptionConfig() EncryptionConfigPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeStoreAccountProperties) *EncryptionConfig { return v.EncryptionConfig }).(EncryptionConfigPtrOutput)
-}
-
-// The current state of encryption for this Data Lake Store account.
-func (o CreateDataLakeStoreAccountPropertiesOutput) EncryptionState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeStoreAccountProperties) *string { return v.EncryptionState }).(pulumi.StringPtrOutput)
-}
-
-// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-func (o CreateDataLakeStoreAccountPropertiesOutput) FirewallAllowAzureIps() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeStoreAccountProperties) *string { return v.FirewallAllowAzureIps }).(pulumi.StringPtrOutput)
-}
-
-// The list of firewall rules associated with this Data Lake Store account.
-func (o CreateDataLakeStoreAccountPropertiesOutput) FirewallRules() CreateFirewallRuleWithAccountParametersArrayOutput {
-	return o.ApplyT(func(v CreateDataLakeStoreAccountProperties) []CreateFirewallRuleWithAccountParameters {
-		return v.FirewallRules
-	}).(CreateFirewallRuleWithAccountParametersArrayOutput)
-}
-
-// The current state of the IP address firewall for this Data Lake Store account.
-func (o CreateDataLakeStoreAccountPropertiesOutput) FirewallState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeStoreAccountProperties) *string { return v.FirewallState }).(pulumi.StringPtrOutput)
-}
-
-// The commitment tier to use for next month.
-func (o CreateDataLakeStoreAccountPropertiesOutput) NewTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeStoreAccountProperties) *string { return v.NewTier }).(pulumi.StringPtrOutput)
-}
-
-// The current state of the trusted identity provider feature for this Data Lake Store account.
-func (o CreateDataLakeStoreAccountPropertiesOutput) TrustedIdProviderState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CreateDataLakeStoreAccountProperties) *string { return v.TrustedIdProviderState }).(pulumi.StringPtrOutput)
-}
-
-// The list of trusted identity providers associated with this Data Lake Store account.
-func (o CreateDataLakeStoreAccountPropertiesOutput) TrustedIdProviders() CreateTrustedIdProviderWithAccountParametersArrayOutput {
-	return o.ApplyT(func(v CreateDataLakeStoreAccountProperties) []CreateTrustedIdProviderWithAccountParameters {
-		return v.TrustedIdProviders
-	}).(CreateTrustedIdProviderWithAccountParametersArrayOutput)
-}
-
-// The list of virtual network rules associated with this Data Lake Store account.
-func (o CreateDataLakeStoreAccountPropertiesOutput) VirtualNetworkRules() CreateVirtualNetworkRuleWithAccountParametersArrayOutput {
-	return o.ApplyT(func(v CreateDataLakeStoreAccountProperties) []CreateVirtualNetworkRuleWithAccountParameters {
-		return v.VirtualNetworkRules
-	}).(CreateVirtualNetworkRuleWithAccountParametersArrayOutput)
-}
-
-type CreateDataLakeStoreAccountPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CreateDataLakeStoreAccountPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateDataLakeStoreAccountProperties)(nil)).Elem()
-}
-
-func (o CreateDataLakeStoreAccountPropertiesPtrOutput) ToCreateDataLakeStoreAccountPropertiesPtrOutput() CreateDataLakeStoreAccountPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateDataLakeStoreAccountPropertiesPtrOutput) ToCreateDataLakeStoreAccountPropertiesPtrOutputWithContext(ctx context.Context) CreateDataLakeStoreAccountPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateDataLakeStoreAccountPropertiesPtrOutput) Elem() CreateDataLakeStoreAccountPropertiesOutput {
-	return o.ApplyT(func(v *CreateDataLakeStoreAccountProperties) CreateDataLakeStoreAccountProperties { return *v }).(CreateDataLakeStoreAccountPropertiesOutput)
-}
-
-// The default owner group for all new folders and files created in the Data Lake Store account.
-func (o CreateDataLakeStoreAccountPropertiesPtrOutput) DefaultGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeStoreAccountProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Key Vault encryption configuration.
-func (o CreateDataLakeStoreAccountPropertiesPtrOutput) EncryptionConfig() EncryptionConfigPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeStoreAccountProperties) *EncryptionConfig {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptionConfig
-	}).(EncryptionConfigPtrOutput)
-}
-
-// The current state of encryption for this Data Lake Store account.
-func (o CreateDataLakeStoreAccountPropertiesPtrOutput) EncryptionState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeStoreAccountProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.EncryptionState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-func (o CreateDataLakeStoreAccountPropertiesPtrOutput) FirewallAllowAzureIps() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeStoreAccountProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FirewallAllowAzureIps
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of firewall rules associated with this Data Lake Store account.
-func (o CreateDataLakeStoreAccountPropertiesPtrOutput) FirewallRules() CreateFirewallRuleWithAccountParametersArrayOutput {
-	return o.ApplyT(func(v *CreateDataLakeStoreAccountProperties) []CreateFirewallRuleWithAccountParameters {
-		if v == nil {
-			return nil
-		}
-		return v.FirewallRules
-	}).(CreateFirewallRuleWithAccountParametersArrayOutput)
-}
-
-// The current state of the IP address firewall for this Data Lake Store account.
-func (o CreateDataLakeStoreAccountPropertiesPtrOutput) FirewallState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeStoreAccountProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FirewallState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The commitment tier to use for next month.
-func (o CreateDataLakeStoreAccountPropertiesPtrOutput) NewTier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeStoreAccountProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.NewTier
-	}).(pulumi.StringPtrOutput)
-}
-
-// The current state of the trusted identity provider feature for this Data Lake Store account.
-func (o CreateDataLakeStoreAccountPropertiesPtrOutput) TrustedIdProviderState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateDataLakeStoreAccountProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrustedIdProviderState
-	}).(pulumi.StringPtrOutput)
-}
-
-// The list of trusted identity providers associated with this Data Lake Store account.
-func (o CreateDataLakeStoreAccountPropertiesPtrOutput) TrustedIdProviders() CreateTrustedIdProviderWithAccountParametersArrayOutput {
-	return o.ApplyT(func(v *CreateDataLakeStoreAccountProperties) []CreateTrustedIdProviderWithAccountParameters {
-		if v == nil {
-			return nil
-		}
-		return v.TrustedIdProviders
-	}).(CreateTrustedIdProviderWithAccountParametersArrayOutput)
-}
-
-// The list of virtual network rules associated with this Data Lake Store account.
-func (o CreateDataLakeStoreAccountPropertiesPtrOutput) VirtualNetworkRules() CreateVirtualNetworkRuleWithAccountParametersArrayOutput {
-	return o.ApplyT(func(v *CreateDataLakeStoreAccountProperties) []CreateVirtualNetworkRuleWithAccountParameters {
-		if v == nil {
-			return nil
-		}
-		return v.VirtualNetworkRules
-	}).(CreateVirtualNetworkRuleWithAccountParametersArrayOutput)
-}
-
 // The parameters used to create a new firewall rule while creating a new Data Lake Store account.
 type CreateFirewallRuleWithAccountParameters struct {
+	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress string `pulumi:"endIpAddress"`
 	// The unique name of the firewall rule to create.
 	Name string `pulumi:"name"`
-	// The firewall rule properties to use when creating a new firewall rule.
-	Properties CreateOrUpdateFirewallRuleProperties `pulumi:"properties"`
+	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	StartIpAddress string `pulumi:"startIpAddress"`
 }
 
 // CreateFirewallRuleWithAccountParametersInput is an input type that accepts CreateFirewallRuleWithAccountParametersArgs and CreateFirewallRuleWithAccountParametersOutput values.
@@ -439,10 +133,12 @@ type CreateFirewallRuleWithAccountParametersInput interface {
 
 // The parameters used to create a new firewall rule while creating a new Data Lake Store account.
 type CreateFirewallRuleWithAccountParametersArgs struct {
+	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
 	// The unique name of the firewall rule to create.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The firewall rule properties to use when creating a new firewall rule.
-	Properties CreateOrUpdateFirewallRulePropertiesInput `pulumi:"properties"`
+	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
 }
 
 func (CreateFirewallRuleWithAccountParametersArgs) ElementType() reflect.Type {
@@ -497,16 +193,19 @@ func (o CreateFirewallRuleWithAccountParametersOutput) ToCreateFirewallRuleWithA
 	return o
 }
 
+// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+func (o CreateFirewallRuleWithAccountParametersOutput) EndIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v CreateFirewallRuleWithAccountParameters) string { return v.EndIpAddress }).(pulumi.StringOutput)
+}
+
 // The unique name of the firewall rule to create.
 func (o CreateFirewallRuleWithAccountParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CreateFirewallRuleWithAccountParameters) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The firewall rule properties to use when creating a new firewall rule.
-func (o CreateFirewallRuleWithAccountParametersOutput) Properties() CreateOrUpdateFirewallRulePropertiesOutput {
-	return o.ApplyT(func(v CreateFirewallRuleWithAccountParameters) CreateOrUpdateFirewallRuleProperties {
-		return v.Properties
-	}).(CreateOrUpdateFirewallRulePropertiesOutput)
+// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+func (o CreateFirewallRuleWithAccountParametersOutput) StartIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v CreateFirewallRuleWithAccountParameters) string { return v.StartIpAddress }).(pulumi.StringOutput)
 }
 
 type CreateFirewallRuleWithAccountParametersArrayOutput struct{ *pulumi.OutputState }
@@ -529,437 +228,12 @@ func (o CreateFirewallRuleWithAccountParametersArrayOutput) Index(i pulumi.IntIn
 	}).(CreateFirewallRuleWithAccountParametersOutput)
 }
 
-// The firewall rule properties to use when creating a new firewall rule.
-type CreateOrUpdateFirewallRuleProperties struct {
-	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	EndIpAddress string `pulumi:"endIpAddress"`
-	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	StartIpAddress string `pulumi:"startIpAddress"`
-}
-
-// CreateOrUpdateFirewallRulePropertiesInput is an input type that accepts CreateOrUpdateFirewallRulePropertiesArgs and CreateOrUpdateFirewallRulePropertiesOutput values.
-// You can construct a concrete instance of `CreateOrUpdateFirewallRulePropertiesInput` via:
-//
-//          CreateOrUpdateFirewallRulePropertiesArgs{...}
-type CreateOrUpdateFirewallRulePropertiesInput interface {
-	pulumi.Input
-
-	ToCreateOrUpdateFirewallRulePropertiesOutput() CreateOrUpdateFirewallRulePropertiesOutput
-	ToCreateOrUpdateFirewallRulePropertiesOutputWithContext(context.Context) CreateOrUpdateFirewallRulePropertiesOutput
-}
-
-// The firewall rule properties to use when creating a new firewall rule.
-type CreateOrUpdateFirewallRulePropertiesArgs struct {
-	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	EndIpAddress pulumi.StringInput `pulumi:"endIpAddress"`
-	// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-	StartIpAddress pulumi.StringInput `pulumi:"startIpAddress"`
-}
-
-func (CreateOrUpdateFirewallRulePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateOrUpdateFirewallRuleProperties)(nil)).Elem()
-}
-
-func (i CreateOrUpdateFirewallRulePropertiesArgs) ToCreateOrUpdateFirewallRulePropertiesOutput() CreateOrUpdateFirewallRulePropertiesOutput {
-	return i.ToCreateOrUpdateFirewallRulePropertiesOutputWithContext(context.Background())
-}
-
-func (i CreateOrUpdateFirewallRulePropertiesArgs) ToCreateOrUpdateFirewallRulePropertiesOutputWithContext(ctx context.Context) CreateOrUpdateFirewallRulePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateOrUpdateFirewallRulePropertiesOutput)
-}
-
-func (i CreateOrUpdateFirewallRulePropertiesArgs) ToCreateOrUpdateFirewallRulePropertiesPtrOutput() CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return i.ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CreateOrUpdateFirewallRulePropertiesArgs) ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateOrUpdateFirewallRulePropertiesOutput).ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(ctx)
-}
-
-// CreateOrUpdateFirewallRulePropertiesPtrInput is an input type that accepts CreateOrUpdateFirewallRulePropertiesArgs, CreateOrUpdateFirewallRulePropertiesPtr and CreateOrUpdateFirewallRulePropertiesPtrOutput values.
-// You can construct a concrete instance of `CreateOrUpdateFirewallRulePropertiesPtrInput` via:
-//
-//          CreateOrUpdateFirewallRulePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CreateOrUpdateFirewallRulePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCreateOrUpdateFirewallRulePropertiesPtrOutput() CreateOrUpdateFirewallRulePropertiesPtrOutput
-	ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(context.Context) CreateOrUpdateFirewallRulePropertiesPtrOutput
-}
-
-type createOrUpdateFirewallRulePropertiesPtrType CreateOrUpdateFirewallRulePropertiesArgs
-
-func CreateOrUpdateFirewallRulePropertiesPtr(v *CreateOrUpdateFirewallRulePropertiesArgs) CreateOrUpdateFirewallRulePropertiesPtrInput {
-	return (*createOrUpdateFirewallRulePropertiesPtrType)(v)
-}
-
-func (*createOrUpdateFirewallRulePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateOrUpdateFirewallRuleProperties)(nil)).Elem()
-}
-
-func (i *createOrUpdateFirewallRulePropertiesPtrType) ToCreateOrUpdateFirewallRulePropertiesPtrOutput() CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return i.ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *createOrUpdateFirewallRulePropertiesPtrType) ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateOrUpdateFirewallRulePropertiesPtrOutput)
-}
-
-// The firewall rule properties to use when creating a new firewall rule.
-type CreateOrUpdateFirewallRulePropertiesOutput struct{ *pulumi.OutputState }
-
-func (CreateOrUpdateFirewallRulePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateOrUpdateFirewallRuleProperties)(nil)).Elem()
-}
-
-func (o CreateOrUpdateFirewallRulePropertiesOutput) ToCreateOrUpdateFirewallRulePropertiesOutput() CreateOrUpdateFirewallRulePropertiesOutput {
-	return o
-}
-
-func (o CreateOrUpdateFirewallRulePropertiesOutput) ToCreateOrUpdateFirewallRulePropertiesOutputWithContext(ctx context.Context) CreateOrUpdateFirewallRulePropertiesOutput {
-	return o
-}
-
-func (o CreateOrUpdateFirewallRulePropertiesOutput) ToCreateOrUpdateFirewallRulePropertiesPtrOutput() CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return o.ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CreateOrUpdateFirewallRulePropertiesOutput) ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return o.ApplyT(func(v CreateOrUpdateFirewallRuleProperties) *CreateOrUpdateFirewallRuleProperties {
-		return &v
-	}).(CreateOrUpdateFirewallRulePropertiesPtrOutput)
-}
-
-// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-func (o CreateOrUpdateFirewallRulePropertiesOutput) EndIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateOrUpdateFirewallRuleProperties) string { return v.EndIpAddress }).(pulumi.StringOutput)
-}
-
-// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-func (o CreateOrUpdateFirewallRulePropertiesOutput) StartIpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateOrUpdateFirewallRuleProperties) string { return v.StartIpAddress }).(pulumi.StringOutput)
-}
-
-type CreateOrUpdateFirewallRulePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CreateOrUpdateFirewallRulePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateOrUpdateFirewallRuleProperties)(nil)).Elem()
-}
-
-func (o CreateOrUpdateFirewallRulePropertiesPtrOutput) ToCreateOrUpdateFirewallRulePropertiesPtrOutput() CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return o
-}
-
-func (o CreateOrUpdateFirewallRulePropertiesPtrOutput) ToCreateOrUpdateFirewallRulePropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateFirewallRulePropertiesPtrOutput {
-	return o
-}
-
-func (o CreateOrUpdateFirewallRulePropertiesPtrOutput) Elem() CreateOrUpdateFirewallRulePropertiesOutput {
-	return o.ApplyT(func(v *CreateOrUpdateFirewallRuleProperties) CreateOrUpdateFirewallRuleProperties { return *v }).(CreateOrUpdateFirewallRulePropertiesOutput)
-}
-
-// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-func (o CreateOrUpdateFirewallRulePropertiesPtrOutput) EndIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateOrUpdateFirewallRuleProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndIpAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-func (o CreateOrUpdateFirewallRulePropertiesPtrOutput) StartIpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateOrUpdateFirewallRuleProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StartIpAddress
-	}).(pulumi.StringPtrOutput)
-}
-
-// The trusted identity provider properties to use when creating a new trusted identity provider.
-type CreateOrUpdateTrustedIdProviderProperties struct {
-	// The URL of this trusted identity provider.
-	IdProvider string `pulumi:"idProvider"`
-}
-
-// CreateOrUpdateTrustedIdProviderPropertiesInput is an input type that accepts CreateOrUpdateTrustedIdProviderPropertiesArgs and CreateOrUpdateTrustedIdProviderPropertiesOutput values.
-// You can construct a concrete instance of `CreateOrUpdateTrustedIdProviderPropertiesInput` via:
-//
-//          CreateOrUpdateTrustedIdProviderPropertiesArgs{...}
-type CreateOrUpdateTrustedIdProviderPropertiesInput interface {
-	pulumi.Input
-
-	ToCreateOrUpdateTrustedIdProviderPropertiesOutput() CreateOrUpdateTrustedIdProviderPropertiesOutput
-	ToCreateOrUpdateTrustedIdProviderPropertiesOutputWithContext(context.Context) CreateOrUpdateTrustedIdProviderPropertiesOutput
-}
-
-// The trusted identity provider properties to use when creating a new trusted identity provider.
-type CreateOrUpdateTrustedIdProviderPropertiesArgs struct {
-	// The URL of this trusted identity provider.
-	IdProvider pulumi.StringInput `pulumi:"idProvider"`
-}
-
-func (CreateOrUpdateTrustedIdProviderPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateOrUpdateTrustedIdProviderProperties)(nil)).Elem()
-}
-
-func (i CreateOrUpdateTrustedIdProviderPropertiesArgs) ToCreateOrUpdateTrustedIdProviderPropertiesOutput() CreateOrUpdateTrustedIdProviderPropertiesOutput {
-	return i.ToCreateOrUpdateTrustedIdProviderPropertiesOutputWithContext(context.Background())
-}
-
-func (i CreateOrUpdateTrustedIdProviderPropertiesArgs) ToCreateOrUpdateTrustedIdProviderPropertiesOutputWithContext(ctx context.Context) CreateOrUpdateTrustedIdProviderPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateOrUpdateTrustedIdProviderPropertiesOutput)
-}
-
-func (i CreateOrUpdateTrustedIdProviderPropertiesArgs) ToCreateOrUpdateTrustedIdProviderPropertiesPtrOutput() CreateOrUpdateTrustedIdProviderPropertiesPtrOutput {
-	return i.ToCreateOrUpdateTrustedIdProviderPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CreateOrUpdateTrustedIdProviderPropertiesArgs) ToCreateOrUpdateTrustedIdProviderPropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateTrustedIdProviderPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateOrUpdateTrustedIdProviderPropertiesOutput).ToCreateOrUpdateTrustedIdProviderPropertiesPtrOutputWithContext(ctx)
-}
-
-// CreateOrUpdateTrustedIdProviderPropertiesPtrInput is an input type that accepts CreateOrUpdateTrustedIdProviderPropertiesArgs, CreateOrUpdateTrustedIdProviderPropertiesPtr and CreateOrUpdateTrustedIdProviderPropertiesPtrOutput values.
-// You can construct a concrete instance of `CreateOrUpdateTrustedIdProviderPropertiesPtrInput` via:
-//
-//          CreateOrUpdateTrustedIdProviderPropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CreateOrUpdateTrustedIdProviderPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCreateOrUpdateTrustedIdProviderPropertiesPtrOutput() CreateOrUpdateTrustedIdProviderPropertiesPtrOutput
-	ToCreateOrUpdateTrustedIdProviderPropertiesPtrOutputWithContext(context.Context) CreateOrUpdateTrustedIdProviderPropertiesPtrOutput
-}
-
-type createOrUpdateTrustedIdProviderPropertiesPtrType CreateOrUpdateTrustedIdProviderPropertiesArgs
-
-func CreateOrUpdateTrustedIdProviderPropertiesPtr(v *CreateOrUpdateTrustedIdProviderPropertiesArgs) CreateOrUpdateTrustedIdProviderPropertiesPtrInput {
-	return (*createOrUpdateTrustedIdProviderPropertiesPtrType)(v)
-}
-
-func (*createOrUpdateTrustedIdProviderPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateOrUpdateTrustedIdProviderProperties)(nil)).Elem()
-}
-
-func (i *createOrUpdateTrustedIdProviderPropertiesPtrType) ToCreateOrUpdateTrustedIdProviderPropertiesPtrOutput() CreateOrUpdateTrustedIdProviderPropertiesPtrOutput {
-	return i.ToCreateOrUpdateTrustedIdProviderPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *createOrUpdateTrustedIdProviderPropertiesPtrType) ToCreateOrUpdateTrustedIdProviderPropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateTrustedIdProviderPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateOrUpdateTrustedIdProviderPropertiesPtrOutput)
-}
-
-// The trusted identity provider properties to use when creating a new trusted identity provider.
-type CreateOrUpdateTrustedIdProviderPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CreateOrUpdateTrustedIdProviderPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateOrUpdateTrustedIdProviderProperties)(nil)).Elem()
-}
-
-func (o CreateOrUpdateTrustedIdProviderPropertiesOutput) ToCreateOrUpdateTrustedIdProviderPropertiesOutput() CreateOrUpdateTrustedIdProviderPropertiesOutput {
-	return o
-}
-
-func (o CreateOrUpdateTrustedIdProviderPropertiesOutput) ToCreateOrUpdateTrustedIdProviderPropertiesOutputWithContext(ctx context.Context) CreateOrUpdateTrustedIdProviderPropertiesOutput {
-	return o
-}
-
-func (o CreateOrUpdateTrustedIdProviderPropertiesOutput) ToCreateOrUpdateTrustedIdProviderPropertiesPtrOutput() CreateOrUpdateTrustedIdProviderPropertiesPtrOutput {
-	return o.ToCreateOrUpdateTrustedIdProviderPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CreateOrUpdateTrustedIdProviderPropertiesOutput) ToCreateOrUpdateTrustedIdProviderPropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateTrustedIdProviderPropertiesPtrOutput {
-	return o.ApplyT(func(v CreateOrUpdateTrustedIdProviderProperties) *CreateOrUpdateTrustedIdProviderProperties {
-		return &v
-	}).(CreateOrUpdateTrustedIdProviderPropertiesPtrOutput)
-}
-
-// The URL of this trusted identity provider.
-func (o CreateOrUpdateTrustedIdProviderPropertiesOutput) IdProvider() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateOrUpdateTrustedIdProviderProperties) string { return v.IdProvider }).(pulumi.StringOutput)
-}
-
-type CreateOrUpdateTrustedIdProviderPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CreateOrUpdateTrustedIdProviderPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateOrUpdateTrustedIdProviderProperties)(nil)).Elem()
-}
-
-func (o CreateOrUpdateTrustedIdProviderPropertiesPtrOutput) ToCreateOrUpdateTrustedIdProviderPropertiesPtrOutput() CreateOrUpdateTrustedIdProviderPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateOrUpdateTrustedIdProviderPropertiesPtrOutput) ToCreateOrUpdateTrustedIdProviderPropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateTrustedIdProviderPropertiesPtrOutput {
-	return o
-}
-
-func (o CreateOrUpdateTrustedIdProviderPropertiesPtrOutput) Elem() CreateOrUpdateTrustedIdProviderPropertiesOutput {
-	return o.ApplyT(func(v *CreateOrUpdateTrustedIdProviderProperties) CreateOrUpdateTrustedIdProviderProperties {
-		return *v
-	}).(CreateOrUpdateTrustedIdProviderPropertiesOutput)
-}
-
-// The URL of this trusted identity provider.
-func (o CreateOrUpdateTrustedIdProviderPropertiesPtrOutput) IdProvider() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateOrUpdateTrustedIdProviderProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.IdProvider
-	}).(pulumi.StringPtrOutput)
-}
-
-// The virtual network rule properties to use when creating a new virtual network rule.
-type CreateOrUpdateVirtualNetworkRuleProperties struct {
-	// The resource identifier for the subnet.
-	SubnetId string `pulumi:"subnetId"`
-}
-
-// CreateOrUpdateVirtualNetworkRulePropertiesInput is an input type that accepts CreateOrUpdateVirtualNetworkRulePropertiesArgs and CreateOrUpdateVirtualNetworkRulePropertiesOutput values.
-// You can construct a concrete instance of `CreateOrUpdateVirtualNetworkRulePropertiesInput` via:
-//
-//          CreateOrUpdateVirtualNetworkRulePropertiesArgs{...}
-type CreateOrUpdateVirtualNetworkRulePropertiesInput interface {
-	pulumi.Input
-
-	ToCreateOrUpdateVirtualNetworkRulePropertiesOutput() CreateOrUpdateVirtualNetworkRulePropertiesOutput
-	ToCreateOrUpdateVirtualNetworkRulePropertiesOutputWithContext(context.Context) CreateOrUpdateVirtualNetworkRulePropertiesOutput
-}
-
-// The virtual network rule properties to use when creating a new virtual network rule.
-type CreateOrUpdateVirtualNetworkRulePropertiesArgs struct {
-	// The resource identifier for the subnet.
-	SubnetId pulumi.StringInput `pulumi:"subnetId"`
-}
-
-func (CreateOrUpdateVirtualNetworkRulePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateOrUpdateVirtualNetworkRuleProperties)(nil)).Elem()
-}
-
-func (i CreateOrUpdateVirtualNetworkRulePropertiesArgs) ToCreateOrUpdateVirtualNetworkRulePropertiesOutput() CreateOrUpdateVirtualNetworkRulePropertiesOutput {
-	return i.ToCreateOrUpdateVirtualNetworkRulePropertiesOutputWithContext(context.Background())
-}
-
-func (i CreateOrUpdateVirtualNetworkRulePropertiesArgs) ToCreateOrUpdateVirtualNetworkRulePropertiesOutputWithContext(ctx context.Context) CreateOrUpdateVirtualNetworkRulePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateOrUpdateVirtualNetworkRulePropertiesOutput)
-}
-
-func (i CreateOrUpdateVirtualNetworkRulePropertiesArgs) ToCreateOrUpdateVirtualNetworkRulePropertiesPtrOutput() CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput {
-	return i.ToCreateOrUpdateVirtualNetworkRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i CreateOrUpdateVirtualNetworkRulePropertiesArgs) ToCreateOrUpdateVirtualNetworkRulePropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateOrUpdateVirtualNetworkRulePropertiesOutput).ToCreateOrUpdateVirtualNetworkRulePropertiesPtrOutputWithContext(ctx)
-}
-
-// CreateOrUpdateVirtualNetworkRulePropertiesPtrInput is an input type that accepts CreateOrUpdateVirtualNetworkRulePropertiesArgs, CreateOrUpdateVirtualNetworkRulePropertiesPtr and CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput values.
-// You can construct a concrete instance of `CreateOrUpdateVirtualNetworkRulePropertiesPtrInput` via:
-//
-//          CreateOrUpdateVirtualNetworkRulePropertiesArgs{...}
-//
-//  or:
-//
-//          nil
-type CreateOrUpdateVirtualNetworkRulePropertiesPtrInput interface {
-	pulumi.Input
-
-	ToCreateOrUpdateVirtualNetworkRulePropertiesPtrOutput() CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput
-	ToCreateOrUpdateVirtualNetworkRulePropertiesPtrOutputWithContext(context.Context) CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput
-}
-
-type createOrUpdateVirtualNetworkRulePropertiesPtrType CreateOrUpdateVirtualNetworkRulePropertiesArgs
-
-func CreateOrUpdateVirtualNetworkRulePropertiesPtr(v *CreateOrUpdateVirtualNetworkRulePropertiesArgs) CreateOrUpdateVirtualNetworkRulePropertiesPtrInput {
-	return (*createOrUpdateVirtualNetworkRulePropertiesPtrType)(v)
-}
-
-func (*createOrUpdateVirtualNetworkRulePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateOrUpdateVirtualNetworkRuleProperties)(nil)).Elem()
-}
-
-func (i *createOrUpdateVirtualNetworkRulePropertiesPtrType) ToCreateOrUpdateVirtualNetworkRulePropertiesPtrOutput() CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput {
-	return i.ToCreateOrUpdateVirtualNetworkRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *createOrUpdateVirtualNetworkRulePropertiesPtrType) ToCreateOrUpdateVirtualNetworkRulePropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput)
-}
-
-// The virtual network rule properties to use when creating a new virtual network rule.
-type CreateOrUpdateVirtualNetworkRulePropertiesOutput struct{ *pulumi.OutputState }
-
-func (CreateOrUpdateVirtualNetworkRulePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateOrUpdateVirtualNetworkRuleProperties)(nil)).Elem()
-}
-
-func (o CreateOrUpdateVirtualNetworkRulePropertiesOutput) ToCreateOrUpdateVirtualNetworkRulePropertiesOutput() CreateOrUpdateVirtualNetworkRulePropertiesOutput {
-	return o
-}
-
-func (o CreateOrUpdateVirtualNetworkRulePropertiesOutput) ToCreateOrUpdateVirtualNetworkRulePropertiesOutputWithContext(ctx context.Context) CreateOrUpdateVirtualNetworkRulePropertiesOutput {
-	return o
-}
-
-func (o CreateOrUpdateVirtualNetworkRulePropertiesOutput) ToCreateOrUpdateVirtualNetworkRulePropertiesPtrOutput() CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput {
-	return o.ToCreateOrUpdateVirtualNetworkRulePropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o CreateOrUpdateVirtualNetworkRulePropertiesOutput) ToCreateOrUpdateVirtualNetworkRulePropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput {
-	return o.ApplyT(func(v CreateOrUpdateVirtualNetworkRuleProperties) *CreateOrUpdateVirtualNetworkRuleProperties {
-		return &v
-	}).(CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput)
-}
-
-// The resource identifier for the subnet.
-func (o CreateOrUpdateVirtualNetworkRulePropertiesOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v CreateOrUpdateVirtualNetworkRuleProperties) string { return v.SubnetId }).(pulumi.StringOutput)
-}
-
-type CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CreateOrUpdateVirtualNetworkRuleProperties)(nil)).Elem()
-}
-
-func (o CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput) ToCreateOrUpdateVirtualNetworkRulePropertiesPtrOutput() CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput {
-	return o
-}
-
-func (o CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput) ToCreateOrUpdateVirtualNetworkRulePropertiesPtrOutputWithContext(ctx context.Context) CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput {
-	return o
-}
-
-func (o CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput) Elem() CreateOrUpdateVirtualNetworkRulePropertiesOutput {
-	return o.ApplyT(func(v *CreateOrUpdateVirtualNetworkRuleProperties) CreateOrUpdateVirtualNetworkRuleProperties {
-		return *v
-	}).(CreateOrUpdateVirtualNetworkRulePropertiesOutput)
-}
-
-// The resource identifier for the subnet.
-func (o CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CreateOrUpdateVirtualNetworkRuleProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
 // The parameters used to create a new trusted identity provider while creating a new Data Lake Store account.
 type CreateTrustedIdProviderWithAccountParameters struct {
+	// The URL of this trusted identity provider.
+	IdProvider string `pulumi:"idProvider"`
 	// The unique name of the trusted identity provider to create.
 	Name string `pulumi:"name"`
-	// The trusted identity provider properties to use when creating a new trusted identity provider.
-	Properties CreateOrUpdateTrustedIdProviderProperties `pulumi:"properties"`
 }
 
 // CreateTrustedIdProviderWithAccountParametersInput is an input type that accepts CreateTrustedIdProviderWithAccountParametersArgs and CreateTrustedIdProviderWithAccountParametersOutput values.
@@ -975,10 +249,10 @@ type CreateTrustedIdProviderWithAccountParametersInput interface {
 
 // The parameters used to create a new trusted identity provider while creating a new Data Lake Store account.
 type CreateTrustedIdProviderWithAccountParametersArgs struct {
+	// The URL of this trusted identity provider.
+	IdProvider pulumi.StringInput `pulumi:"idProvider"`
 	// The unique name of the trusted identity provider to create.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The trusted identity provider properties to use when creating a new trusted identity provider.
-	Properties CreateOrUpdateTrustedIdProviderPropertiesInput `pulumi:"properties"`
 }
 
 func (CreateTrustedIdProviderWithAccountParametersArgs) ElementType() reflect.Type {
@@ -1033,16 +307,14 @@ func (o CreateTrustedIdProviderWithAccountParametersOutput) ToCreateTrustedIdPro
 	return o
 }
 
+// The URL of this trusted identity provider.
+func (o CreateTrustedIdProviderWithAccountParametersOutput) IdProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v CreateTrustedIdProviderWithAccountParameters) string { return v.IdProvider }).(pulumi.StringOutput)
+}
+
 // The unique name of the trusted identity provider to create.
 func (o CreateTrustedIdProviderWithAccountParametersOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CreateTrustedIdProviderWithAccountParameters) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The trusted identity provider properties to use when creating a new trusted identity provider.
-func (o CreateTrustedIdProviderWithAccountParametersOutput) Properties() CreateOrUpdateTrustedIdProviderPropertiesOutput {
-	return o.ApplyT(func(v CreateTrustedIdProviderWithAccountParameters) CreateOrUpdateTrustedIdProviderProperties {
-		return v.Properties
-	}).(CreateOrUpdateTrustedIdProviderPropertiesOutput)
 }
 
 type CreateTrustedIdProviderWithAccountParametersArrayOutput struct{ *pulumi.OutputState }
@@ -1069,8 +341,8 @@ func (o CreateTrustedIdProviderWithAccountParametersArrayOutput) Index(i pulumi.
 type CreateVirtualNetworkRuleWithAccountParameters struct {
 	// The unique name of the virtual network rule to create.
 	Name string `pulumi:"name"`
-	// The virtual network rule properties to use when creating a new virtual network rule.
-	Properties CreateOrUpdateVirtualNetworkRuleProperties `pulumi:"properties"`
+	// The resource identifier for the subnet.
+	SubnetId string `pulumi:"subnetId"`
 }
 
 // CreateVirtualNetworkRuleWithAccountParametersInput is an input type that accepts CreateVirtualNetworkRuleWithAccountParametersArgs and CreateVirtualNetworkRuleWithAccountParametersOutput values.
@@ -1088,8 +360,8 @@ type CreateVirtualNetworkRuleWithAccountParametersInput interface {
 type CreateVirtualNetworkRuleWithAccountParametersArgs struct {
 	// The unique name of the virtual network rule to create.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The virtual network rule properties to use when creating a new virtual network rule.
-	Properties CreateOrUpdateVirtualNetworkRulePropertiesInput `pulumi:"properties"`
+	// The resource identifier for the subnet.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
 func (CreateVirtualNetworkRuleWithAccountParametersArgs) ElementType() reflect.Type {
@@ -1149,11 +421,9 @@ func (o CreateVirtualNetworkRuleWithAccountParametersOutput) Name() pulumi.Strin
 	return o.ApplyT(func(v CreateVirtualNetworkRuleWithAccountParameters) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The virtual network rule properties to use when creating a new virtual network rule.
-func (o CreateVirtualNetworkRuleWithAccountParametersOutput) Properties() CreateOrUpdateVirtualNetworkRulePropertiesOutput {
-	return o.ApplyT(func(v CreateVirtualNetworkRuleWithAccountParameters) CreateOrUpdateVirtualNetworkRuleProperties {
-		return v.Properties
-	}).(CreateOrUpdateVirtualNetworkRulePropertiesOutput)
+// The resource identifier for the subnet.
+func (o CreateVirtualNetworkRuleWithAccountParametersOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v CreateVirtualNetworkRuleWithAccountParameters) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
 type CreateVirtualNetworkRuleWithAccountParametersArrayOutput struct{ *pulumi.OutputState }
@@ -3616,16 +2886,8 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 
 func init() {
 	pulumi.RegisterOutputType(AccountTypeOutput{})
-	pulumi.RegisterOutputType(CreateDataLakeStoreAccountPropertiesOutput{})
-	pulumi.RegisterOutputType(CreateDataLakeStoreAccountPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CreateFirewallRuleWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(CreateFirewallRuleWithAccountParametersArrayOutput{})
-	pulumi.RegisterOutputType(CreateOrUpdateFirewallRulePropertiesOutput{})
-	pulumi.RegisterOutputType(CreateOrUpdateFirewallRulePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(CreateOrUpdateTrustedIdProviderPropertiesOutput{})
-	pulumi.RegisterOutputType(CreateOrUpdateTrustedIdProviderPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(CreateOrUpdateVirtualNetworkRulePropertiesOutput{})
-	pulumi.RegisterOutputType(CreateOrUpdateVirtualNetworkRulePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CreateTrustedIdProviderWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(CreateTrustedIdProviderWithAccountParametersArrayOutput{})
 	pulumi.RegisterOutputType(CreateVirtualNetworkRuleWithAccountParametersOutput{})

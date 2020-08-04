@@ -27,11 +27,23 @@ type BudgetByResourceGroupName struct {
 // NewBudgetByResourceGroupName registers a new resource with the given unique name, arguments, and options.
 func NewBudgetByResourceGroupName(ctx *pulumi.Context,
 	name string, args *BudgetByResourceGroupNameArgs, opts ...pulumi.ResourceOption) (*BudgetByResourceGroupName, error) {
+	if args == nil || args.Amount == nil {
+		return nil, errors.New("missing required argument 'Amount'")
+	}
+	if args == nil || args.Category == nil {
+		return nil, errors.New("missing required argument 'Category'")
+	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.TimeGrain == nil {
+		return nil, errors.New("missing required argument 'TimeGrain'")
+	}
+	if args == nil || args.TimePeriod == nil {
+		return nil, errors.New("missing required argument 'TimePeriod'")
 	}
 	if args == nil {
 		args = &BudgetByResourceGroupNameArgs{}
@@ -84,26 +96,46 @@ func (BudgetByResourceGroupNameState) ElementType() reflect.Type {
 }
 
 type budgetByResourceGroupNameArgs struct {
+	// The total amount of cost to track with the budget
+	Amount float64 `pulumi:"amount"`
+	// The category of the budget, whether the budget tracks cost or usage.
+	Category string `pulumi:"category"`
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag *string `pulumi:"eTag"`
+	// May be used to filter budgets by resource group, resource, or meter.
+	Filters *Filters `pulumi:"filters"`
 	// Budget Name.
 	Name string `pulumi:"name"`
-	// The properties of the budget.
-	Properties *BudgetProperties `pulumi:"properties"`
+	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
+	Notifications map[string]Notification `pulumi:"notifications"`
 	// Azure Resource Group Name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+	TimeGrain string `pulumi:"timeGrain"`
+	// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
+	TimePeriod BudgetTimePeriod `pulumi:"timePeriod"`
 }
 
 // The set of arguments for constructing a BudgetByResourceGroupName resource.
 type BudgetByResourceGroupNameArgs struct {
+	// The total amount of cost to track with the budget
+	Amount pulumi.Float64Input
+	// The category of the budget, whether the budget tracks cost or usage.
+	Category pulumi.StringInput
 	// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
 	ETag pulumi.StringPtrInput
+	// May be used to filter budgets by resource group, resource, or meter.
+	Filters FiltersPtrInput
 	// Budget Name.
 	Name pulumi.StringInput
-	// The properties of the budget.
-	Properties BudgetPropertiesPtrInput
+	// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
+	Notifications NotificationMapInput
 	// Azure Resource Group Name.
 	ResourceGroupName pulumi.StringInput
+	// The time covered by a budget. Tracking of the amount will be reset based on the time grain.
+	TimeGrain pulumi.StringInput
+	// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than three months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
+	TimePeriod BudgetTimePeriodInput
 }
 
 func (BudgetByResourceGroupNameArgs) ElementType() reflect.Type {

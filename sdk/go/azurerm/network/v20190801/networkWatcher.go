@@ -104,8 +104,8 @@ type networkWatcherArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the network watcher.
 	Name string `pulumi:"name"`
-	// Properties of the network watcher.
-	Properties *NetworkWatcherPropertiesFormat `pulumi:"properties"`
+	// The provisioning state of the network watcher resource.
+	ProvisioningState *string `pulumi:"provisioningState"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -122,8 +122,8 @@ type NetworkWatcherArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the network watcher.
 	Name pulumi.StringInput
-	// Properties of the network watcher.
-	Properties NetworkWatcherPropertiesFormatPtrInput
+	// The provisioning state of the network watcher resource.
+	ProvisioningState pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

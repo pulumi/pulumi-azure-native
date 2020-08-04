@@ -78,13 +78,15 @@ func (PolicyAssignmentState) ElementType() reflect.Type {
 }
 
 type policyAssignmentArgs struct {
+	// The display name of the policy assignment.
+	DisplayName *string `pulumi:"displayName"`
 	// The ID of the policy assignment.
 	Id *string `pulumi:"id"`
 	// The name of the policy assignment.
 	Name string `pulumi:"name"`
-	// Properties for the policy assignment.
-	Properties *PolicyAssignmentProperties `pulumi:"properties"`
-	// The scope of the policy assignment.
+	// The ID of the policy definition.
+	PolicyDefinitionId *string `pulumi:"policyDefinitionId"`
+	// The scope for the policy assignment.
 	Scope string `pulumi:"scope"`
 	// The type of the policy assignment.
 	Type *string `pulumi:"type"`
@@ -92,13 +94,15 @@ type policyAssignmentArgs struct {
 
 // The set of arguments for constructing a PolicyAssignment resource.
 type PolicyAssignmentArgs struct {
+	// The display name of the policy assignment.
+	DisplayName pulumi.StringPtrInput
 	// The ID of the policy assignment.
 	Id pulumi.StringPtrInput
 	// The name of the policy assignment.
 	Name pulumi.StringInput
-	// Properties for the policy assignment.
-	Properties PolicyAssignmentPropertiesPtrInput
-	// The scope of the policy assignment.
+	// The ID of the policy definition.
+	PolicyDefinitionId pulumi.StringPtrInput
+	// The scope for the policy assignment.
 	Scope pulumi.StringInput
 	// The type of the policy assignment.
 	Type pulumi.StringPtrInput

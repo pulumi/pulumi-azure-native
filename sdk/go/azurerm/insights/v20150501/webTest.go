@@ -31,6 +31,12 @@ type WebTest struct {
 // NewWebTest registers a new resource with the given unique name, arguments, and options.
 func NewWebTest(ctx *pulumi.Context,
 	name string, args *WebTestArgs, opts ...pulumi.ResourceOption) (*WebTest, error) {
+	if args == nil || args.Locations == nil {
+		return nil, errors.New("missing required argument 'Locations'")
+	}
+	if args == nil || args.SyntheticMonitorId == nil {
+		return nil, errors.New("missing required argument 'SyntheticMonitorId'")
+	}
 	if args == nil || args.Location == nil {
 		return nil, errors.New("missing required argument 'Location'")
 	}
@@ -39,6 +45,9 @@ func NewWebTest(ctx *pulumi.Context,
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
+	}
+	if args == nil || args.WebTestKind == nil {
+		return nil, errors.New("missing required argument 'WebTestKind'")
 	}
 	if args == nil {
 		args = &WebTestArgs{}
@@ -99,34 +108,66 @@ func (WebTestState) ElementType() reflect.Type {
 }
 
 type webTestArgs struct {
+	// An XML configuration specification for a WebTest.
+	Configuration *WebTestPropertiesProperties `pulumi:"Configuration"`
+	// Purpose/user defined descriptive test for this WebTest.
+	Description *string `pulumi:"Description"`
+	// Is the test actively being monitored.
+	Enabled *bool `pulumi:"Enabled"`
+	// Interval in seconds between test runs for this WebTest. Default value is 300.
+	Frequency *int `pulumi:"Frequency"`
+	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+	Locations []WebTestGeolocation `pulumi:"Locations"`
+	// Allow for retries should this WebTest fail.
+	RetryEnabled *bool `pulumi:"RetryEnabled"`
+	// Unique ID of this WebTest. This is typically the same value as the Name field.
+	SyntheticMonitorId string `pulumi:"SyntheticMonitorId"`
+	// Seconds until this WebTest will timeout and fail. Default value is 30.
+	Timeout *int `pulumi:"Timeout"`
 	// The kind of web test that this web test watches. Choices are ping and multistep.
 	Kind *string `pulumi:"kind"`
 	// Resource location
 	Location string `pulumi:"location"`
-	// The name of the Application Insights webtest resource.
+	// User defined name if this WebTest.
 	Name string `pulumi:"name"`
-	// Metadata describing a web test for an Azure resource.
-	Properties *WebTestProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
 	Tags map[string]string `pulumi:"tags"`
+	// The kind of web test this is, valid choices are ping and multistep.
+	WebTestKind string `pulumi:"webTestKind"`
 }
 
 // The set of arguments for constructing a WebTest resource.
 type WebTestArgs struct {
+	// An XML configuration specification for a WebTest.
+	Configuration WebTestPropertiesPropertiesPtrInput
+	// Purpose/user defined descriptive test for this WebTest.
+	Description pulumi.StringPtrInput
+	// Is the test actively being monitored.
+	Enabled pulumi.BoolPtrInput
+	// Interval in seconds between test runs for this WebTest. Default value is 300.
+	Frequency pulumi.IntPtrInput
+	// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+	Locations WebTestGeolocationArrayInput
+	// Allow for retries should this WebTest fail.
+	RetryEnabled pulumi.BoolPtrInput
+	// Unique ID of this WebTest. This is typically the same value as the Name field.
+	SyntheticMonitorId pulumi.StringInput
+	// Seconds until this WebTest will timeout and fail. Default value is 30.
+	Timeout pulumi.IntPtrInput
 	// The kind of web test that this web test watches. Choices are ping and multistep.
 	Kind pulumi.StringPtrInput
 	// Resource location
 	Location pulumi.StringInput
-	// The name of the Application Insights webtest resource.
+	// User defined name if this WebTest.
 	Name pulumi.StringInput
-	// Metadata describing a web test for an Azure resource.
-	Properties WebTestPropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags
 	Tags pulumi.StringMapInput
+	// The kind of web test this is, valid choices are ping and multistep.
+	WebTestKind pulumi.StringInput
 }
 
 func (WebTestArgs) ElementType() reflect.Type {

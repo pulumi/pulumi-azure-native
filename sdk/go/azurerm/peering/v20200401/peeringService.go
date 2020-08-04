@@ -103,8 +103,10 @@ type peeringServiceArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the peering service.
 	Name string `pulumi:"name"`
-	// The properties that define a peering service.
-	Properties *PeeringServiceProperties `pulumi:"properties"`
+	// The PeeringServiceLocation of the Customer.
+	PeeringServiceLocation *string `pulumi:"peeringServiceLocation"`
+	// The MAPS Provider Name.
+	PeeringServiceProvider *string `pulumi:"peeringServiceProvider"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU that defines the type of the peering service.
@@ -119,8 +121,10 @@ type PeeringServiceArgs struct {
 	Location pulumi.StringInput
 	// The name of the peering service.
 	Name pulumi.StringInput
-	// The properties that define a peering service.
-	Properties PeeringServicePropertiesPtrInput
+	// The PeeringServiceLocation of the Customer.
+	PeeringServiceLocation pulumi.StringPtrInput
+	// The MAPS Provider Name.
+	PeeringServiceProvider pulumi.StringPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// The SKU that defines the type of the peering service.

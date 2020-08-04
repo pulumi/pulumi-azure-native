@@ -88,10 +88,10 @@ type webAppDomainOwnershipIdentifierArgs struct {
 	Kind *string `pulumi:"kind"`
 	// Name of domain ownership identifier.
 	Name string `pulumi:"name"`
-	// Identifier resource specific properties
-	Properties *IdentifierProperties `pulumi:"properties"`
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// String representation of the identity.
+	Value *string `pulumi:"value"`
 }
 
 // The set of arguments for constructing a WebAppDomainOwnershipIdentifier resource.
@@ -100,10 +100,10 @@ type WebAppDomainOwnershipIdentifierArgs struct {
 	Kind pulumi.StringPtrInput
 	// Name of domain ownership identifier.
 	Name pulumi.StringInput
-	// Identifier resource specific properties
-	Properties IdentifierPropertiesPtrInput
 	// Name of the resource group to which the resource belongs.
 	ResourceGroupName pulumi.StringInput
+	// String representation of the identity.
+	Value pulumi.StringPtrInput
 }
 
 func (WebAppDomainOwnershipIdentifierArgs) ElementType() reflect.Type {

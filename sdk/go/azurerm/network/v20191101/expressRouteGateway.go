@@ -37,6 +37,9 @@ func NewExpressRouteGateway(ctx *pulumi.Context,
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
 	}
+	if args == nil || args.VirtualHub == nil {
+		return nil, errors.New("missing required argument 'VirtualHub'")
+	}
 	if args == nil {
 		args = &ExpressRouteGatewayArgs{}
 	}
@@ -96,34 +99,38 @@ func (ExpressRouteGatewayState) ElementType() reflect.Type {
 }
 
 type expressRouteGatewayArgs struct {
+	// Configuration for auto scaling.
+	AutoScaleConfiguration *ExpressRouteGatewayPropertiesProperties `pulumi:"autoScaleConfiguration"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
 	Location *string `pulumi:"location"`
 	// The name of the ExpressRoute gateway.
 	Name string `pulumi:"name"`
-	// Properties of the express route gateway.
-	Properties *ExpressRouteGatewayProperties `pulumi:"properties"`
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
+	// The Virtual Hub where the ExpressRoute gateway is or will be deployed.
+	VirtualHub VirtualHubId `pulumi:"virtualHub"`
 }
 
 // The set of arguments for constructing a ExpressRouteGateway resource.
 type ExpressRouteGatewayArgs struct {
+	// Configuration for auto scaling.
+	AutoScaleConfiguration ExpressRouteGatewayPropertiesPropertiesPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
 	Location pulumi.StringPtrInput
 	// The name of the ExpressRoute gateway.
 	Name pulumi.StringInput
-	// Properties of the express route gateway.
-	Properties ExpressRouteGatewayPropertiesPtrInput
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
+	// The Virtual Hub where the ExpressRoute gateway is or will be deployed.
+	VirtualHub VirtualHubIdInput
 }
 
 func (ExpressRouteGatewayArgs) ElementType() reflect.Type {

@@ -29,14 +29,17 @@ type IntegrationAccountPartner struct {
 // NewIntegrationAccountPartner registers a new resource with the given unique name, arguments, and options.
 func NewIntegrationAccountPartner(ctx *pulumi.Context,
 	name string, args *IntegrationAccountPartnerArgs, opts ...pulumi.ResourceOption) (*IntegrationAccountPartner, error) {
+	if args == nil || args.Content == nil {
+		return nil, errors.New("missing required argument 'Content'")
+	}
 	if args == nil || args.IntegrationAccountName == nil {
 		return nil, errors.New("missing required argument 'IntegrationAccountName'")
 	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
-	if args == nil || args.Properties == nil {
-		return nil, errors.New("missing required argument 'Properties'")
+	if args == nil || args.PartnerType == nil {
+		return nil, errors.New("missing required argument 'PartnerType'")
 	}
 	if args == nil || args.ResourceGroupName == nil {
 		return nil, errors.New("missing required argument 'ResourceGroupName'")
@@ -96,14 +99,18 @@ func (IntegrationAccountPartnerState) ElementType() reflect.Type {
 }
 
 type integrationAccountPartnerArgs struct {
+	// The partner content.
+	Content PartnerContent `pulumi:"content"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The resource location.
 	Location *string `pulumi:"location"`
+	// The metadata.
+	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The integration account partner name.
 	Name string `pulumi:"name"`
-	// The integration account partner properties.
-	Properties IntegrationAccountPartnerProperties `pulumi:"properties"`
+	// The partner type.
+	PartnerType string `pulumi:"partnerType"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
@@ -112,14 +119,18 @@ type integrationAccountPartnerArgs struct {
 
 // The set of arguments for constructing a IntegrationAccountPartner resource.
 type IntegrationAccountPartnerArgs struct {
+	// The partner content.
+	Content PartnerContentInput
 	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
 	// The resource location.
 	Location pulumi.StringPtrInput
+	// The metadata.
+	Metadata pulumi.MapInput
 	// The integration account partner name.
 	Name pulumi.StringInput
-	// The integration account partner properties.
-	Properties IntegrationAccountPartnerPropertiesInput
+	// The partner type.
+	PartnerType pulumi.StringInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.
