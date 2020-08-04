@@ -102,16 +102,22 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// SharedAccessAuthorizationRule properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SharedAccessAuthorizationRulePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("rights", required: true)]
+        private InputList<string>? _rights;
+
+        /// <summary>
+        /// The rights associated with the rule.
+        /// </summary>
+        public InputList<string> Rights
+        {
+            get => _rights ?? (_rights = new InputList<string>());
+            set => _rights = value;
+        }
 
         /// <summary>
         /// The topic name.

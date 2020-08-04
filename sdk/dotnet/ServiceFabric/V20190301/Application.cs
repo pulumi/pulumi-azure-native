@@ -108,16 +108,40 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+        /// </summary>
+        [Input("maximumNodes")]
+        public Input<int>? MaximumNodes { get; set; }
+
+        /// <summary>
+        /// List of application capacity metric description.
+        /// </summary>
+        [Input("metrics")]
+        public Input<Inputs.ApplicationMetricDescriptionListArgs>? Metrics { get; set; }
+
+        /// <summary>
+        /// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+        /// </summary>
+        [Input("minimumNodes")]
+        public Input<int>? MinimumNodes { get; set; }
+
+        /// <summary>
         /// The name of the application resource.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The application resource properties.
+        /// List of application parameters with overridden values from their default values specified in the application manifest.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationResourcePropertiesArgs>? Properties { get; set; }
+        [Input("parameters")]
+        public Input<Inputs.ApplicationParameterListArgs>? Parameters { get; set; }
+
+        /// <summary>
+        /// Remove the current application capacity settings.
+        /// </summary>
+        [Input("removeApplicationCapacity")]
+        public Input<bool>? RemoveApplicationCapacity { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -136,6 +160,24 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The application type name as defined in the application manifest.
+        /// </summary>
+        [Input("typeName")]
+        public Input<string>? TypeName { get; set; }
+
+        /// <summary>
+        /// The version of the application type as defined in the application manifest.
+        /// </summary>
+        [Input("typeVersion")]
+        public Input<string>? TypeVersion { get; set; }
+
+        /// <summary>
+        /// Describes the policy for a monitored application upgrade.
+        /// </summary>
+        [Input("upgradePolicy")]
+        public Input<Inputs.ApplicationUpgradePolicyArgs>? UpgradePolicy { get; set; }
 
         public ApplicationArgs()
         {

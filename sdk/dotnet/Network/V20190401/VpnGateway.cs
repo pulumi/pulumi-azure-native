@@ -96,6 +96,24 @@ namespace Pulumi.AzureRM.Network.V20190401
     public sealed class VpnGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Local network gateway's BGP speaker settings.
+        /// </summary>
+        [Input("bgpSettings")]
+        public Input<Inputs.BgpSettingsArgs>? BgpSettings { get; set; }
+
+        [Input("connections")]
+        private InputList<Inputs.VpnConnectionArgs>? _connections;
+
+        /// <summary>
+        /// List of all vpn connections to the gateway.
+        /// </summary>
+        public InputList<Inputs.VpnConnectionArgs> Connections
+        {
+            get => _connections ?? (_connections = new InputList<Inputs.VpnConnectionArgs>());
+            set => _connections = value;
+        }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -114,10 +132,10 @@ namespace Pulumi.AzureRM.Network.V20190401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the VPN gateway.
+        /// The provisioning state of the resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VpnGatewayPropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The resource group name of the VpnGateway.
@@ -136,6 +154,18 @@ namespace Pulumi.AzureRM.Network.V20190401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The VirtualHub to which the gateway belongs.
+        /// </summary>
+        [Input("virtualHub")]
+        public Input<Inputs.SubResourceArgs>? VirtualHub { get; set; }
+
+        /// <summary>
+        /// The scale unit for this vpn gateway.
+        /// </summary>
+        [Input("vpnGatewayScaleUnit")]
+        public Input<int>? VpnGatewayScaleUnit { get; set; }
 
         public VpnGatewayArgs()
         {

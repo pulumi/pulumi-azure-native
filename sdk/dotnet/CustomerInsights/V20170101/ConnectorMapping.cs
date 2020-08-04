@@ -84,22 +84,52 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         public Input<string> ConnectorName { get; set; } = null!;
 
         /// <summary>
+        /// Type of connector.
+        /// </summary>
+        [Input("connectorType")]
+        public Input<string>? ConnectorType { get; set; }
+
+        /// <summary>
+        /// The description of the connector mapping.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Display name for the connector mapping.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// Defines which entity type the file should map to.
+        /// </summary>
+        [Input("entityType", required: true)]
+        public Input<string> EntityType { get; set; } = null!;
+
+        /// <summary>
+        /// The mapping entity name.
+        /// </summary>
+        [Input("entityTypeName", required: true)]
+        public Input<string> EntityTypeName { get; set; } = null!;
+
+        /// <summary>
         /// The name of the hub.
         /// </summary>
         [Input("hubName", required: true)]
         public Input<string> HubName { get; set; } = null!;
 
         /// <summary>
+        /// The properties of the mapping.
+        /// </summary>
+        [Input("mappingProperties", required: true)]
+        public Input<Inputs.ConnectorMappingPropertiesArgs> MappingProperties { get; set; } = null!;
+
+        /// <summary>
         /// The name of the connector mapping.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The connector mapping definition.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ConnectorMappingDefinitionArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

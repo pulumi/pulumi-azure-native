@@ -114,16 +114,16 @@ namespace Pulumi.AzureRM.Network.V20200401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Security Partner Provider.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SecurityPartnerProviderPropertiesFormatArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The security provider name.
+        /// </summary>
+        [Input("securityProviderName")]
+        public Input<string>? SecurityProviderName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -136,6 +136,12 @@ namespace Pulumi.AzureRM.Network.V20200401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The virtualHub to which the Security Partner Provider belongs.
+        /// </summary>
+        [Input("virtualHub")]
+        public Input<Inputs.SubResourceArgs>? VirtualHub { get; set; }
 
         public SecurityPartnerProviderArgs()
         {

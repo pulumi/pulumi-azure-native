@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
     public sealed class HubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Billing settings of the hub.
+        /// </summary>
+        [Input("hubBillingInfo")]
+        public Input<Inputs.HubBillingInfoFormatArgs>? HubBillingInfo { get; set; }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
@@ -100,12 +106,6 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of hub.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.HubPropertiesFormatArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -124,6 +124,12 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+        /// </summary>
+        [Input("tenantFeatures")]
+        public Input<int>? TenantFeatures { get; set; }
 
         public HubArgs()
         {

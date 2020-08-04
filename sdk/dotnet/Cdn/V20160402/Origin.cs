@@ -81,6 +81,24 @@ namespace Pulumi.AzureRM.Cdn.V20160402
         public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
+        /// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+        /// </summary>
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
+
+        /// <summary>
+        /// The value of the HTTP port. Must be between 1 and 65535.
+        /// </summary>
+        [Input("httpPort")]
+        public Input<int>? HttpPort { get; set; }
+
+        /// <summary>
+        /// The value of the HTTPS port. Must be between 1 and 65535.
+        /// </summary>
+        [Input("httpsPort")]
+        public Input<int>? HttpsPort { get; set; }
+
+        /// <summary>
         /// Name of the origin, an arbitrary value but it needs to be unique under endpoint
         /// </summary>
         [Input("name", required: true)]
@@ -91,9 +109,6 @@ namespace Pulumi.AzureRM.Cdn.V20160402
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
-
-        [Input("properties")]
-        public Input<Inputs.OriginPropertiesParametersArgs>? Properties { get; set; }
 
         /// <summary>
         /// Name of the resource group within the Azure subscription.

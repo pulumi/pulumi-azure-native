@@ -84,10 +84,82 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
     public sealed class QueueArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// the TimeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
+        /// </summary>
+        [Input("autoDeleteOnIdle")]
+        public Input<string>? AutoDeleteOnIdle { get; set; }
+
+        /// <summary>
+        /// A value that indicates whether this queue has dead letter support when a message expires.
+        /// </summary>
+        [Input("deadLetteringOnMessageExpiration")]
+        public Input<bool>? DeadLetteringOnMessageExpiration { get; set; }
+
+        /// <summary>
+        /// The default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        /// </summary>
+        [Input("defaultMessageTimeToLive")]
+        public Input<string>? DefaultMessageTimeToLive { get; set; }
+
+        /// <summary>
+        /// TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+        /// </summary>
+        [Input("duplicateDetectionHistoryTimeWindow")]
+        public Input<string>? DuplicateDetectionHistoryTimeWindow { get; set; }
+
+        /// <summary>
+        /// A value that indicates whether server-side batched operations are enabled.
+        /// </summary>
+        [Input("enableBatchedOperations")]
+        public Input<bool>? EnableBatchedOperations { get; set; }
+
+        /// <summary>
+        /// A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
+        /// </summary>
+        [Input("enableExpress")]
+        public Input<bool>? EnableExpress { get; set; }
+
+        /// <summary>
+        /// A value that indicates whether the queue is to be partitioned across multiple message brokers.
+        /// </summary>
+        [Input("enablePartitioning")]
+        public Input<bool>? EnablePartitioning { get; set; }
+
+        /// <summary>
+        /// Entity availability status for the queue.
+        /// </summary>
+        [Input("entityAvailabilityStatus")]
+        public Input<string>? EntityAvailabilityStatus { get; set; }
+
+        /// <summary>
+        /// A value that indicates whether the message is accessible anonymously.
+        /// </summary>
+        [Input("isAnonymousAccessible")]
+        public Input<bool>? IsAnonymousAccessible { get; set; }
+
+        /// <summary>
         /// location of the resource.
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// The duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
+        /// </summary>
+        [Input("lockDuration")]
+        public Input<string>? LockDuration { get; set; }
+
+        /// <summary>
+        /// The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
+        /// </summary>
+        [Input("maxDeliveryCount")]
+        public Input<int>? MaxDeliveryCount { get; set; }
+
+        /// <summary>
+        /// The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
+        /// </summary>
+        [Input("maxSizeInMegabytes")]
+        public Input<int>? MaxSizeInMegabytes { get; set; }
 
         /// <summary>
         /// The queue name.
@@ -102,16 +174,34 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// The Queue Properties definition.
+        /// A value indicating if this queue requires duplicate detection.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.QueuePropertiesArgs>? Properties { get; set; }
+        [Input("requiresDuplicateDetection")]
+        public Input<bool>? RequiresDuplicateDetection { get; set; }
+
+        /// <summary>
+        /// A value that indicates whether the queue supports the concept of sessions.
+        /// </summary>
+        [Input("requiresSession")]
+        public Input<bool>? RequiresSession { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Enumerates the possible values for the status of a messaging entity.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// A value that indicates whether the queue supports ordering.
+        /// </summary>
+        [Input("supportOrdering")]
+        public Input<bool>? SupportOrdering { get; set; }
 
         public QueueArgs()
         {

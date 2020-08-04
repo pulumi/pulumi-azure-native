@@ -78,16 +78,52 @@ namespace Pulumi.AzureRM.Aadiam.V20170401
     public sealed class DiagnosticSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The resource Id for the event hub authorization rule.
+        /// </summary>
+        [Input("eventHubAuthorizationRuleId")]
+        public Input<string>? EventHubAuthorizationRuleId { get; set; }
+
+        /// <summary>
+        /// The name of the event hub. If none is specified, the default event hub will be selected.
+        /// </summary>
+        [Input("eventHubName")]
+        public Input<string>? EventHubName { get; set; }
+
+        [Input("logs")]
+        private InputList<Inputs.LogSettingsArgs>? _logs;
+
+        /// <summary>
+        /// The list of logs settings.
+        /// </summary>
+        public InputList<Inputs.LogSettingsArgs> Logs
+        {
+            get => _logs ?? (_logs = new InputList<Inputs.LogSettingsArgs>());
+            set => _logs = value;
+        }
+
+        /// <summary>
         /// The name of the diagnostic setting.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of a Diagnostic Settings Resource.
+        /// The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DiagnosticSettingsArgs>? Properties { get; set; }
+        [Input("serviceBusRuleId")]
+        public Input<string>? ServiceBusRuleId { get; set; }
+
+        /// <summary>
+        /// The resource ID of the storage account to which you would like to send Diagnostic Logs.
+        /// </summary>
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+        /// </summary>
+        [Input("workspaceId")]
+        public Input<string>? WorkspaceId { get; set; }
 
         public DiagnosticSettingArgs()
         {

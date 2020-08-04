@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.Storage.V20181101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
+        /// </summary>
+        [Input("policy", required: true)]
+        public Input<Inputs.ManagementPolicySchemaArgs> Policy { get; set; } = null!;
+
+        /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]

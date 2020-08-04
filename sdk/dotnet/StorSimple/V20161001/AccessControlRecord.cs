@@ -78,6 +78,12 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public sealed class AccessControlRecordArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Iscsi initiator name (IQN)
+        /// </summary>
+        [Input("initiatorName", required: true)]
+        public Input<string> InitiatorName { get; set; } = null!;
+
+        /// <summary>
         /// The manager name
         /// </summary>
         [Input("managerName", required: true)]
@@ -88,12 +94,6 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of AccessControlRecord
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AccessControlRecordPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

@@ -95,11 +95,83 @@ namespace Pulumi.AzureRM.Network.V20160330
 
     public sealed class ApplicationGatewayArgs : Pulumi.ResourceArgs
     {
+        [Input("backendAddressPools")]
+        private InputList<Inputs.ApplicationGatewayBackendAddressPoolArgs>? _backendAddressPools;
+
+        /// <summary>
+        /// Gets or sets backend address pool of application gateway resource
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayBackendAddressPoolArgs> BackendAddressPools
+        {
+            get => _backendAddressPools ?? (_backendAddressPools = new InputList<Inputs.ApplicationGatewayBackendAddressPoolArgs>());
+            set => _backendAddressPools = value;
+        }
+
+        [Input("backendHttpSettingsCollection")]
+        private InputList<Inputs.ApplicationGatewayBackendHttpSettingsArgs>? _backendHttpSettingsCollection;
+
+        /// <summary>
+        /// Gets or sets backend http settings of application gateway resource
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayBackendHttpSettingsArgs> BackendHttpSettingsCollection
+        {
+            get => _backendHttpSettingsCollection ?? (_backendHttpSettingsCollection = new InputList<Inputs.ApplicationGatewayBackendHttpSettingsArgs>());
+            set => _backendHttpSettingsCollection = value;
+        }
+
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        [Input("frontendIPConfigurations")]
+        private InputList<Inputs.ApplicationGatewayFrontendIPConfigurationArgs>? _frontendIPConfigurations;
+
+        /// <summary>
+        /// Gets or sets frontend IP addresses of application gateway resource
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayFrontendIPConfigurationArgs> FrontendIPConfigurations
+        {
+            get => _frontendIPConfigurations ?? (_frontendIPConfigurations = new InputList<Inputs.ApplicationGatewayFrontendIPConfigurationArgs>());
+            set => _frontendIPConfigurations = value;
+        }
+
+        [Input("frontendPorts")]
+        private InputList<Inputs.ApplicationGatewayFrontendPortArgs>? _frontendPorts;
+
+        /// <summary>
+        /// Gets or sets frontend ports of application gateway resource
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayFrontendPortArgs> FrontendPorts
+        {
+            get => _frontendPorts ?? (_frontendPorts = new InputList<Inputs.ApplicationGatewayFrontendPortArgs>());
+            set => _frontendPorts = value;
+        }
+
+        [Input("gatewayIPConfigurations")]
+        private InputList<Inputs.ApplicationGatewayIPConfigurationArgs>? _gatewayIPConfigurations;
+
+        /// <summary>
+        /// Gets or sets subnets of application gateway resource
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayIPConfigurationArgs> GatewayIPConfigurations
+        {
+            get => _gatewayIPConfigurations ?? (_gatewayIPConfigurations = new InputList<Inputs.ApplicationGatewayIPConfigurationArgs>());
+            set => _gatewayIPConfigurations = value;
+        }
+
+        [Input("httpListeners")]
+        private InputList<Inputs.ApplicationGatewayHttpListenerArgs>? _httpListeners;
+
+        /// <summary>
+        /// Gets or sets HTTP listeners of application gateway resource
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayHttpListenerArgs> HttpListeners
+        {
+            get => _httpListeners ?? (_httpListeners = new InputList<Inputs.ApplicationGatewayHttpListenerArgs>());
+            set => _httpListeners = value;
+        }
 
         /// <summary>
         /// Resource Id
@@ -119,17 +191,65 @@ namespace Pulumi.AzureRM.Network.V20160330
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("probes")]
+        private InputList<Inputs.ApplicationGatewayProbeArgs>? _probes;
+
         /// <summary>
-        /// Properties of Application Gateway
+        /// Gets or sets probes of application gateway resource
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.ApplicationGatewayProbeArgs> Probes
+        {
+            get => _probes ?? (_probes = new InputList<Inputs.ApplicationGatewayProbeArgs>());
+            set => _probes = value;
+        }
+
+        /// <summary>
+        /// Gets or sets Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        [Input("requestRoutingRules")]
+        private InputList<Inputs.ApplicationGatewayRequestRoutingRuleArgs>? _requestRoutingRules;
+
+        /// <summary>
+        /// Gets or sets request routing rules of application gateway resource
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayRequestRoutingRuleArgs> RequestRoutingRules
+        {
+            get => _requestRoutingRules ?? (_requestRoutingRules = new InputList<Inputs.ApplicationGatewayRequestRoutingRuleArgs>());
+            set => _requestRoutingRules = value;
+        }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets resource GUID property of the ApplicationGateway resource
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
+
+        /// <summary>
+        /// Gets or sets sku of application gateway resource
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.ApplicationGatewaySkuArgs>? Sku { get; set; }
+
+        [Input("sslCertificates")]
+        private InputList<Inputs.ApplicationGatewaySslCertificateArgs>? _sslCertificates;
+
+        /// <summary>
+        /// Gets or sets ssl certificates of application gateway resource
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewaySslCertificateArgs> SslCertificates
+        {
+            get => _sslCertificates ?? (_sslCertificates = new InputList<Inputs.ApplicationGatewaySslCertificateArgs>());
+            set => _sslCertificates = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -141,6 +261,18 @@ namespace Pulumi.AzureRM.Network.V20160330
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("urlPathMaps")]
+        private InputList<Inputs.ApplicationGatewayUrlPathMapArgs>? _urlPathMaps;
+
+        /// <summary>
+        /// Gets or sets URL path map of application gateway resource
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayUrlPathMapArgs> UrlPathMaps
+        {
+            get => _urlPathMaps ?? (_urlPathMaps = new InputList<Inputs.ApplicationGatewayUrlPathMapArgs>());
+            set => _urlPathMaps = value;
         }
 
         public ApplicationGatewayArgs()

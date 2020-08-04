@@ -101,11 +101,53 @@ namespace Pulumi.AzureRM.ApiManagement.V20160707
 
     public sealed class ApiManagementServiceArgs : Pulumi.ResourceArgs
     {
+        [Input("additionalLocations")]
+        private InputList<Inputs.AdditionalRegionArgs>? _additionalLocations;
+
+        /// <summary>
+        /// Additional datacenter locations of the API Management service.
+        /// </summary>
+        public InputList<Inputs.AdditionalRegionArgs> AdditionalLocations
+        {
+            get => _additionalLocations ?? (_additionalLocations = new InputList<Inputs.AdditionalRegionArgs>());
+            set => _additionalLocations = value;
+        }
+
+        /// <summary>
+        /// Addresser email.
+        /// </summary>
+        [Input("addresserEmail")]
+        public Input<string>? AddresserEmail { get; set; }
+
+        [Input("customProperties")]
+        private InputMap<string>? _customProperties;
+
+        /// <summary>
+        /// Custom properties of the API Management service, like disabling TLS 1.0.
+        /// </summary>
+        public InputMap<string> CustomProperties
+        {
+            get => _customProperties ?? (_customProperties = new InputMap<string>());
+            set => _customProperties = value;
+        }
+
         /// <summary>
         /// ETag of the resource.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        [Input("hostnameConfigurations")]
+        private InputList<Inputs.HostnameConfigurationArgs>? _hostnameConfigurations;
+
+        /// <summary>
+        /// Custom hostname configuration of the API Management service.
+        /// </summary>
+        public InputList<Inputs.HostnameConfigurationArgs> HostnameConfigurations
+        {
+            get => _hostnameConfigurations ?? (_hostnameConfigurations = new InputList<Inputs.HostnameConfigurationArgs>());
+            set => _hostnameConfigurations = value;
+        }
 
         /// <summary>
         /// Datacenter location of the API Management service.
@@ -120,10 +162,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20160707
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the API Management service.
+        /// Publisher email.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ApiManagementServicePropertiesArgs> Properties { get; set; } = null!;
+        [Input("publisherEmail", required: true)]
+        public Input<string> PublisherEmail { get; set; } = null!;
+
+        /// <summary>
+        /// Publisher name.
+        /// </summary>
+        [Input("publisherName", required: true)]
+        public Input<string> PublisherName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
@@ -148,6 +196,18 @@ namespace Pulumi.AzureRM.ApiManagement.V20160707
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+        /// </summary>
+        [Input("vpnType")]
+        public Input<string>? VpnType { get; set; }
+
+        /// <summary>
+        /// Virtual network configuration of the API Management service.
+        /// </summary>
+        [Input("vpnconfiguration")]
+        public Input<Inputs.VirtualNetworkConfigurationArgs>? Vpnconfiguration { get; set; }
 
         public ApiManagementServiceArgs()
         {

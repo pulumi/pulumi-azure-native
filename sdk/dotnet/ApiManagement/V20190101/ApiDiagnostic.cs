@@ -78,10 +78,46 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public sealed class ApiDiagnosticArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies for what type of messages sampling settings should not apply.
+        /// </summary>
+        [Input("alwaysLog")]
+        public Input<string>? AlwaysLog { get; set; }
+
+        /// <summary>
         /// API identifier. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
+
+        /// <summary>
+        /// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+        /// </summary>
+        [Input("backend")]
+        public Input<Inputs.PipelineDiagnosticSettingsArgs>? Backend { get; set; }
+
+        /// <summary>
+        /// Whether to process Correlation Headers coming to Api Management Service. Only applicable to Application Insights diagnostics. Default is true.
+        /// </summary>
+        [Input("enableHttpCorrelationHeaders")]
+        public Input<bool>? EnableHttpCorrelationHeaders { get; set; }
+
+        /// <summary>
+        /// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+        /// </summary>
+        [Input("frontend")]
+        public Input<Inputs.PipelineDiagnosticSettingsArgs>? Frontend { get; set; }
+
+        /// <summary>
+        /// Sets correlation protocol to use for Application Insights diagnostics.
+        /// </summary>
+        [Input("httpCorrelationProtocol")]
+        public Input<string>? HttpCorrelationProtocol { get; set; }
+
+        /// <summary>
+        /// Resource Id of a target logger.
+        /// </summary>
+        [Input("loggerId", required: true)]
+        public Input<string> LoggerId { get; set; } = null!;
 
         /// <summary>
         /// Diagnostic identifier. Must be unique in the current API Management service instance.
@@ -90,22 +126,28 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Diagnostic entity contract properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DiagnosticContractPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Sampling settings for Diagnostic.
+        /// </summary>
+        [Input("sampling")]
+        public Input<Inputs.SamplingSettingsArgs>? Sampling { get; set; }
+
+        /// <summary>
         /// The name of the API Management service.
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// The verbosity level applied to traces emitted by trace policies.
+        /// </summary>
+        [Input("verbosity")]
+        public Input<string>? Verbosity { get; set; }
 
         public ApiDiagnosticArgs()
         {

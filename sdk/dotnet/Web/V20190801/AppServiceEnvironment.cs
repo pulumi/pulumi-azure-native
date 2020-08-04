@@ -96,6 +96,61 @@ namespace Pulumi.AzureRM.Web.V20190801
     public sealed class AppServiceEnvironmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// API Management Account associated with the App Service Environment.
+        /// </summary>
+        [Input("apiManagementAccountId")]
+        public Input<string>? ApiManagementAccountId { get; set; }
+
+        [Input("clusterSettings")]
+        private InputList<Inputs.NameValuePairArgs>? _clusterSettings;
+
+        /// <summary>
+        /// Custom settings for changing the behavior of the App Service Environment.
+        /// </summary>
+        public InputList<Inputs.NameValuePairArgs> ClusterSettings
+        {
+            get => _clusterSettings ?? (_clusterSettings = new InputList<Inputs.NameValuePairArgs>());
+            set => _clusterSettings = value;
+        }
+
+        /// <summary>
+        /// DNS suffix of the App Service Environment.
+        /// </summary>
+        [Input("dnsSuffix")]
+        public Input<string>? DnsSuffix { get; set; }
+
+        /// <summary>
+        /// True/false indicating whether the App Service Environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+        /// (most likely because NSG blocked the incoming traffic).
+        /// </summary>
+        [Input("dynamicCacheEnabled")]
+        public Input<bool>? DynamicCacheEnabled { get; set; }
+
+        /// <summary>
+        /// Scale factor for front-ends.
+        /// </summary>
+        [Input("frontEndScaleFactor")]
+        public Input<int>? FrontEndScaleFactor { get; set; }
+
+        /// <summary>
+        /// Flag that displays whether an ASE has linux workers or not
+        /// </summary>
+        [Input("hasLinuxWorkers")]
+        public Input<bool>? HasLinuxWorkers { get; set; }
+
+        /// <summary>
+        /// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
+        /// </summary>
+        [Input("internalLoadBalancingMode")]
+        public Input<string>? InternalLoadBalancingMode { get; set; }
+
+        /// <summary>
+        /// Number of IP SSL addresses reserved for the App Service Environment.
+        /// </summary>
+        [Input("ipsslAddressCount")]
+        public Input<int>? IpsslAddressCount { get; set; }
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
@@ -108,22 +163,59 @@ namespace Pulumi.AzureRM.Web.V20190801
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// Number of front-end instances.
+        /// </summary>
+        [Input("multiRoleCount")]
+        public Input<int>? MultiRoleCount { get; set; }
+
+        /// <summary>
+        /// Front-end VM size, e.g. "Medium", "Large".
+        /// </summary>
+        [Input("multiSize")]
+        public Input<string>? MultiSize { get; set; }
+
+        /// <summary>
         /// Name of the App Service Environment.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("networkAccessControlList")]
+        private InputList<Inputs.NetworkAccessControlEntryArgs>? _networkAccessControlList;
+
         /// <summary>
-        /// Core resource properties
+        /// Access control list for controlling traffic to the App Service Environment.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AppServiceEnvironmentDefinitionArgs>? Properties { get; set; }
+        public InputList<Inputs.NetworkAccessControlEntryArgs> NetworkAccessControlList
+        {
+            get => _networkAccessControlList ?? (_networkAccessControlList = new InputList<Inputs.NetworkAccessControlEntryArgs>());
+            set => _networkAccessControlList = value;
+        }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Key Vault ID for ILB App Service Environment default SSL certificate
+        /// </summary>
+        [Input("sslCertKeyVaultId")]
+        public Input<string>? SslCertKeyVaultId { get; set; }
+
+        /// <summary>
+        /// Key Vault Secret Name for ILB App Service Environment default SSL certificate
+        /// </summary>
+        [Input("sslCertKeyVaultSecretName")]
+        public Input<string>? SslCertKeyVaultSecretName { get; set; }
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the App Service Environment is suspended; otherwise, &lt;code&gt;false&lt;/code&gt;. The environment can be suspended, e.g. when the management endpoint is no longer available
+        ///  (most likely because NSG blocked the incoming traffic).
+        /// </summary>
+        [Input("suspended")]
+        public Input<bool>? Suspended { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -135,6 +227,54 @@ namespace Pulumi.AzureRM.Web.V20190801
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("userWhitelistedIpRanges")]
+        private InputList<string>? _userWhitelistedIpRanges;
+
+        /// <summary>
+        /// User added ip ranges to whitelist on ASE db
+        /// </summary>
+        public InputList<string> UserWhitelistedIpRanges
+        {
+            get => _userWhitelistedIpRanges ?? (_userWhitelistedIpRanges = new InputList<string>());
+            set => _userWhitelistedIpRanges = value;
+        }
+
+        /// <summary>
+        /// Description of the Virtual Network.
+        /// </summary>
+        [Input("virtualNetwork", required: true)]
+        public Input<Inputs.VirtualNetworkProfileArgs> VirtualNetwork { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Virtual Network for the App Service Environment.
+        /// </summary>
+        [Input("vnetName")]
+        public Input<string>? VnetName { get; set; }
+
+        /// <summary>
+        /// Resource group of the Virtual Network.
+        /// </summary>
+        [Input("vnetResourceGroupName")]
+        public Input<string>? VnetResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Subnet of the Virtual Network.
+        /// </summary>
+        [Input("vnetSubnetName")]
+        public Input<string>? VnetSubnetName { get; set; }
+
+        [Input("workerPools", required: true)]
+        private InputList<Inputs.WorkerPoolArgs>? _workerPools;
+
+        /// <summary>
+        /// Description of worker pools with worker size IDs, VM sizes, and number of workers in each pool.
+        /// </summary>
+        public InputList<Inputs.WorkerPoolArgs> WorkerPools
+        {
+            get => _workerPools ?? (_workerPools = new InputList<Inputs.WorkerPoolArgs>());
+            set => _workerPools = value;
         }
 
         public AppServiceEnvironmentArgs()

@@ -16,16 +16,40 @@ namespace Pulumi.AzureRM.Cdn.V20191231.Inputs
     public sealed class DeepCreatedOriginGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Health probe settings to the origin that is used to determine the health of the origin.
+        /// </summary>
+        [Input("healthProbeSettings")]
+        public Input<Inputs.HealthProbeParametersArgs>? HealthProbeSettings { get; set; }
+
+        /// <summary>
         /// Origin group name which must be unique within the endpoint.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("origins", required: true)]
+        private InputList<Inputs.ResourceReferenceArgs>? _origins;
+
         /// <summary>
-        /// Properties of the origin group created on the CDN endpoint.
+        /// The source of the content being delivered via CDN within given origin group.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DeepCreatedOriginGroupPropertiesArgs>? Properties { get; set; }
+        public InputList<Inputs.ResourceReferenceArgs> Origins
+        {
+            get => _origins ?? (_origins = new InputList<Inputs.ResourceReferenceArgs>());
+            set => _origins = value;
+        }
+
+        /// <summary>
+        /// The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
+        /// </summary>
+        [Input("responseBasedOriginErrorDetectionSettings")]
+        public Input<Inputs.ResponseBasedOriginErrorDetectionParametersArgs>? ResponseBasedOriginErrorDetectionSettings { get; set; }
+
+        /// <summary>
+        /// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+        /// </summary>
+        [Input("trafficRestorationTimeToHealedOrNewEndpointsInMinutes")]
+        public Input<int>? TrafficRestorationTimeToHealedOrNewEndpointsInMinutes { get; set; }
 
         public DeepCreatedOriginGroupArgs()
         {

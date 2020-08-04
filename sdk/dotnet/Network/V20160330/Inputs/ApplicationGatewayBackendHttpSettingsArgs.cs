@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
     public sealed class ApplicationGatewayBackendHttpSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Gets or sets the cookie affinity
+        /// </summary>
+        [Input("cookieBasedAffinity")]
+        public Input<string>? CookieBasedAffinity { get; set; }
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Input("etag")]
@@ -34,10 +40,34 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of Backend address pool settings of application gateway
+        /// Gets or sets the port
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayBackendHttpSettingsPropertiesFormatArgs>? Properties { get; set; }
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// Gets or sets probe resource of application gateway 
+        /// </summary>
+        [Input("probe")]
+        public Input<Inputs.SubResourceArgs>? Probe { get; set; }
+
+        /// <summary>
+        /// Gets or sets the protocol
+        /// </summary>
+        [Input("protocol")]
+        public Input<string>? Protocol { get; set; }
+
+        /// <summary>
+        /// Gets or sets Provisioning state of the backend http settings resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Gets or sets request timeout
+        /// </summary>
+        [Input("requestTimeout")]
+        public Input<int>? RequestTimeout { get; set; }
 
         public ApplicationGatewayBackendHttpSettingsArgs()
         {

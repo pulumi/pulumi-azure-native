@@ -102,10 +102,22 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// Gets or sets the frequency at which the watcher is invoked.
+        /// </summary>
+        [Input("executionFrequencyInSeconds")]
+        public Input<int>? ExecutionFrequencyInSeconds { get; set; }
 
         /// <summary>
         /// The Azure Region where the resource lives
@@ -120,16 +132,34 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets the watcher properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.WatcherPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
+        /// </summary>
+        [Input("scriptName")]
+        public Input<string>? ScriptName { get; set; }
+
+        [Input("scriptParameters")]
+        private InputMap<string>? _scriptParameters;
+
+        /// <summary>
+        /// Gets or sets the parameters of the script.
+        /// </summary>
+        public InputMap<string> ScriptParameters
+        {
+            get => _scriptParameters ?? (_scriptParameters = new InputMap<string>());
+            set => _scriptParameters = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the name of the hybrid worker group the watcher will run on.
+        /// </summary>
+        [Input("scriptRunOn")]
+        public Input<string>? ScriptRunOn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

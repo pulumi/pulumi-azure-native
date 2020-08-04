@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.PowerBIDedicated.V20171001
     public sealed class CapacityDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A collection of Dedicated capacity administrators
+        /// </summary>
+        [Input("administration")]
+        public Input<Inputs.DedicatedCapacityAdministratorsArgs>? Administration { get; set; }
+
+        /// <summary>
         /// Location of the PowerBI Dedicated resource.
         /// </summary>
         [Input("location", required: true)]
@@ -106,12 +112,6 @@ namespace Pulumi.AzureRM.PowerBIDedicated.V20171001
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the provision operation request.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DedicatedCapacityPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the Azure Resource group of which a given PowerBIDedicated capacity is part. This name must be at least 1 character in length, and no more than 90.

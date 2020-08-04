@@ -34,10 +34,34 @@ namespace Pulumi.AzureRM.Network.V20171001.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the load balancer probe.
+        /// The private IP address of the IP configuration.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.FrontendIPConfigurationPropertiesFormatArgs>? Properties { get; set; }
+        [Input("privateIPAddress")]
+        public Input<string>? PrivateIPAddress { get; set; }
+
+        /// <summary>
+        /// The Private IP allocation method. Possible values are: 'Static' and 'Dynamic'.
+        /// </summary>
+        [Input("privateIPAllocationMethod")]
+        public Input<string>? PrivateIPAllocationMethod { get; set; }
+
+        /// <summary>
+        /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// The reference of the Public IP resource.
+        /// </summary>
+        [Input("publicIPAddress")]
+        public Input<Inputs.PublicIPAddressArgs>? PublicIPAddress { get; set; }
+
+        /// <summary>
+        /// The reference of the subnet resource.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.SubnetArgs>? Subnet { get; set; }
 
         [Input("zones")]
         private InputList<string>? _zones;

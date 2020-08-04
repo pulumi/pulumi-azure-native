@@ -102,6 +102,18 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         public Input<string> Referer { get; set; } = null!;
 
         /// <summary>
+        /// Availability Zone id, e.g. "az1"
+        /// </summary>
+        [Input("availabilityZoneId", required: true)]
+        public Input<string> AvailabilityZoneId { get; set; } = null!;
+
+        /// <summary>
+        /// SKU's id
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
         /// Azure region
         /// </summary>
         [Input("location", required: true)]
@@ -114,10 +126,22 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Dedicated Cloud Nodes properties
+        /// count of nodes to create
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DedicatedCloudNodePropertiesArgs>? Properties { get; set; }
+        [Input("nodesCount", required: true)]
+        public Input<int> NodesCount { get; set; } = null!;
+
+        /// <summary>
+        /// Placement Group id, e.g. "n1"
+        /// </summary>
+        [Input("placementGroupId", required: true)]
+        public Input<string> PlacementGroupId { get; set; } = null!;
+
+        /// <summary>
+        /// purchase id
+        /// </summary>
+        [Input("purchaseId", required: true)]
+        public Input<string> PurchaseId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group

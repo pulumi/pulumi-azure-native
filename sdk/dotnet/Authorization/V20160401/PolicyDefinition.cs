@@ -72,16 +72,40 @@ namespace Pulumi.AzureRM.Authorization.V20160401
     public sealed class PolicyDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The policy definition description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The display name of the policy definition.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
         /// The name of the policy definition to create.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("policyRule")]
+        private InputMap<object>? _policyRule;
+
         /// <summary>
-        /// The policy definition properties.
+        /// The policy rule.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PolicyDefinitionPropertiesArgs>? Properties { get; set; }
+        public InputMap<object> PolicyRule
+        {
+            get => _policyRule ?? (_policyRule = new InputMap<object>());
+            set => _policyRule = value;
+        }
+
+        /// <summary>
+        /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+        /// </summary>
+        [Input("policyType")]
+        public Input<string>? PolicyType { get; set; }
 
         public PolicyDefinitionArgs()
         {

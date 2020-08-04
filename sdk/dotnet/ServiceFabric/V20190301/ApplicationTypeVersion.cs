@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
     public sealed class ApplicationTypeVersionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The URL to the application package
+        /// </summary>
+        [Input("appPackageUrl", required: true)]
+        public Input<string> AppPackageUrl { get; set; } = null!;
+
+        /// <summary>
         /// The name of the application type name resource.
         /// </summary>
         [Input("applicationTypeName", required: true)]
@@ -118,12 +124,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of the application type version resource.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationTypeVersionResourcePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

@@ -96,6 +96,60 @@ namespace Pulumi.AzureRM.Insights.V20150501
     public sealed class WebTestArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An XML configuration specification for a WebTest.
+        /// </summary>
+        [Input("Configuration")]
+        public Input<Inputs.WebTestPropertiesPropertiesArgs>? Configuration { get; set; }
+
+        /// <summary>
+        /// Purpose/user defined descriptive test for this WebTest.
+        /// </summary>
+        [Input("Description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Is the test actively being monitored.
+        /// </summary>
+        [Input("Enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Interval in seconds between test runs for this WebTest. Default value is 300.
+        /// </summary>
+        [Input("Frequency")]
+        public Input<int>? Frequency { get; set; }
+
+        [Input("Locations", required: true)]
+        private InputList<Inputs.WebTestGeolocationArgs>? _Locations;
+
+        /// <summary>
+        /// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        /// </summary>
+        public InputList<Inputs.WebTestGeolocationArgs> Locations
+        {
+            get => _Locations ?? (_Locations = new InputList<Inputs.WebTestGeolocationArgs>());
+            set => _Locations = value;
+        }
+
+        /// <summary>
+        /// Allow for retries should this WebTest fail.
+        /// </summary>
+        [Input("RetryEnabled")]
+        public Input<bool>? RetryEnabled { get; set; }
+
+        /// <summary>
+        /// Unique ID of this WebTest. This is typically the same value as the Name field.
+        /// </summary>
+        [Input("SyntheticMonitorId", required: true)]
+        public Input<string> SyntheticMonitorId { get; set; } = null!;
+
+        /// <summary>
+        /// Seconds until this WebTest will timeout and fail. Default value is 30.
+        /// </summary>
+        [Input("Timeout")]
+        public Input<int>? Timeout { get; set; }
+
+        /// <summary>
         /// The kind of web test that this web test watches. Choices are ping and multistep.
         /// </summary>
         [Input("kind")]
@@ -108,16 +162,10 @@ namespace Pulumi.AzureRM.Insights.V20150501
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Application Insights webtest resource.
+        /// User defined name if this WebTest.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Metadata describing a web test for an Azure resource.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.WebTestPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -136,6 +184,12 @@ namespace Pulumi.AzureRM.Insights.V20150501
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The kind of web test this is, valid choices are ping and multistep.
+        /// </summary>
+        [Input("webTestKind", required: true)]
+        public Input<string> WebTestKind { get; set; } = null!;
 
         public WebTestArgs()
         {

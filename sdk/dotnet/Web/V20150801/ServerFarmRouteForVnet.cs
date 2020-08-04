@@ -93,6 +93,12 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class ServerFarmRouteForVnetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+        /// </summary>
+        [Input("endAddress")]
+        public Input<string>? EndAddress { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]
@@ -116,14 +122,29 @@ namespace Pulumi.AzureRM.Web.V20150801
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.VnetRoutePropertiesArgs>? Properties { get; set; }
-
         /// <summary>
         /// Name of resource group
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The type of route this is:
+        ///             DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
+        ///             INHERITED - Routes inherited from the real Virtual Network routes
+        ///             STATIC - Static route set on the web app only
+        ///             
+        ///             These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
+        ///             with new INHERITED routes.
+        /// </summary>
+        [Input("routeType")]
+        public Input<string>? RouteType { get; set; }
+
+        /// <summary>
+        /// The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+        /// </summary>
+        [Input("startAddress")]
+        public Input<string>? StartAddress { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

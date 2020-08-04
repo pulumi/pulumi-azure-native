@@ -78,6 +78,12 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
     public sealed class ContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// DataFormat for Container
+        /// </summary>
+        [Input("dataFormat", required: true)]
+        public Input<string> DataFormat { get; set; } = null!;
+
+        /// <summary>
         /// The device name.
         /// </summary>
         [Input("deviceName", required: true)]
@@ -88,12 +94,6 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The container properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ContainerPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

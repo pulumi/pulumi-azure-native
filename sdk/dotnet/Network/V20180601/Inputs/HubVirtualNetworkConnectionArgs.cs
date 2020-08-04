@@ -16,6 +16,18 @@ namespace Pulumi.AzureRM.Network.V20180601.Inputs
     public sealed class HubVirtualNetworkConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// VirtualHub to RemoteVnet transit to enabled or not.
+        /// </summary>
+        [Input("allowHubToRemoteVnetTransit")]
+        public Input<bool>? AllowHubToRemoteVnetTransit { get; set; }
+
+        /// <summary>
+        /// Allow RemoteVnet to use Virtual Hub's gateways.
+        /// </summary>
+        [Input("allowRemoteVnetToUseHubVnetGateways")]
+        public Input<bool>? AllowRemoteVnetToUseHubVnetGateways { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -28,10 +40,16 @@ namespace Pulumi.AzureRM.Network.V20180601.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Parameters for HubVirtualNetworkConnection
+        /// The provisioning state of the resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.HubVirtualNetworkConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Reference to the remote virtual network.
+        /// </summary>
+        [Input("remoteVirtualNetwork")]
+        public Input<Inputs.SubResourceArgs>? RemoteVirtualNetwork { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

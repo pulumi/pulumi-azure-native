@@ -96,6 +96,18 @@ namespace Pulumi.AzureRM.Network.V20170801
     public sealed class VirtualNetworkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+        /// </summary>
+        [Input("addressSpace")]
+        public Input<Inputs.AddressSpaceArgs>? AddressSpace { get; set; }
+
+        /// <summary>
+        /// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+        /// </summary>
+        [Input("dhcpOptions")]
+        public Input<Inputs.DhcpOptionsArgs>? DhcpOptions { get; set; }
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
@@ -120,16 +132,34 @@ namespace Pulumi.AzureRM.Network.V20170801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the virtual network.
+        /// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualNetworkPropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resourceGuid property of the Virtual Network resource.
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
+
+        [Input("subnets")]
+        private InputList<Inputs.SubnetArgs>? _subnets;
+
+        /// <summary>
+        /// A list of subnets in a Virtual Network.
+        /// </summary>
+        public InputList<Inputs.SubnetArgs> Subnets
+        {
+            get => _subnets ?? (_subnets = new InputList<Inputs.SubnetArgs>());
+            set => _subnets = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -141,6 +171,18 @@ namespace Pulumi.AzureRM.Network.V20170801
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("virtualNetworkPeerings")]
+        private InputList<Inputs.VirtualNetworkPeeringArgs>? _virtualNetworkPeerings;
+
+        /// <summary>
+        /// A list of peerings in a Virtual Network.
+        /// </summary>
+        public InputList<Inputs.VirtualNetworkPeeringArgs> VirtualNetworkPeerings
+        {
+            get => _virtualNetworkPeerings ?? (_virtualNetworkPeerings = new InputList<Inputs.VirtualNetworkPeeringArgs>());
+            set => _virtualNetworkPeerings = value;
         }
 
         public VirtualNetworkArgs()

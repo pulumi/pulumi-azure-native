@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.NetApp.V20190701
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// UUID v4 used to identify the FileSystem
+        /// </summary>
+        [Input("fileSystemId")]
+        public Input<string>? FileSystemId { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
@@ -114,22 +120,10 @@ namespace Pulumi.AzureRM.NetApp.V20190701
         public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
-        /// Snapshot Properties
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SnapshotPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        [Input("tags")]
-        public Input<Inputs.ResourceTagsArgs>? Tags { get; set; }
 
         /// <summary>
         /// The name of the volume

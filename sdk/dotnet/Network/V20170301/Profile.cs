@@ -90,10 +90,34 @@ namespace Pulumi.AzureRM.Network.V20170301
     public sealed class ProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Gets or sets the DNS settings of the Traffic Manager profile.
+        /// </summary>
+        [Input("dnsConfig")]
+        public Input<Inputs.DnsConfigArgs>? DnsConfig { get; set; }
+
+        [Input("endpoints")]
+        private InputList<Inputs.EndpointArgs>? _endpoints;
+
+        /// <summary>
+        /// Gets or sets the list of endpoints in the Traffic Manager profile.
+        /// </summary>
+        public InputList<Inputs.EndpointArgs> Endpoints
+        {
+            get => _endpoints ?? (_endpoints = new InputList<Inputs.EndpointArgs>());
+            set => _endpoints = value;
+        }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
+        /// </summary>
+        [Input("monitorConfig")]
+        public Input<Inputs.MonitorConfigArgs>? MonitorConfig { get; set; }
 
         /// <summary>
         /// The name of the Traffic Manager profile.
@@ -102,10 +126,10 @@ namespace Pulumi.AzureRM.Network.V20170301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Class representing the Traffic Manager profile properties.
+        /// Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ProfilePropertiesArgs>? Properties { get; set; }
+        [Input("profileStatus")]
+        public Input<string>? ProfileStatus { get; set; }
 
         /// <summary>
         /// The name of the resource group containing the Traffic Manager profile.
@@ -124,6 +148,12 @@ namespace Pulumi.AzureRM.Network.V20170301
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', 'Priority' or 'Geographic'.
+        /// </summary>
+        [Input("trafficRoutingMethod")]
+        public Input<string>? TrafficRoutingMethod { get; set; }
 
         public ProfileArgs()
         {

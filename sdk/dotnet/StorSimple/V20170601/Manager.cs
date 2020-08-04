@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class ManagerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Represents the type of StorSimple Manager.
+        /// </summary>
+        [Input("cisIntrinsicSettings")]
+        public Input<Inputs.ManagerIntrinsicSettingsArgs>? CisIntrinsicSettings { get; set; }
+
+        /// <summary>
         /// The etag of the manager.
         /// </summary>
         [Input("etag")]
@@ -114,16 +120,22 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the StorSimple Manager.
+        /// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ManagerPropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the Sku.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.ManagerSkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

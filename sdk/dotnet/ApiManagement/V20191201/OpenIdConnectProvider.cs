@@ -78,16 +78,40 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class OpenIdConnectProviderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Client ID of developer console which is the client application.
+        /// </summary>
+        [Input("clientId", required: true)]
+        public Input<string> ClientId { get; set; } = null!;
+
+        /// <summary>
+        /// Client Secret of developer console which is the client application.
+        /// </summary>
+        [Input("clientSecret")]
+        public Input<string>? ClientSecret { get; set; }
+
+        /// <summary>
+        /// User-friendly description of OpenID Connect Provider.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// User-friendly OpenID Connect Provider name.
+        /// </summary>
+        [Input("displayName", required: true)]
+        public Input<string> DisplayName { get; set; } = null!;
+
+        /// <summary>
+        /// Metadata endpoint URI.
+        /// </summary>
+        [Input("metadataEndpoint", required: true)]
+        public Input<string> MetadataEndpoint { get; set; } = null!;
+
+        /// <summary>
         /// Identifier of the OpenID Connect Provider.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// OpenId Connect Provider contract properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.OpenidConnectProviderContractPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

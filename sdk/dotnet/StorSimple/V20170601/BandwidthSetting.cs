@@ -102,16 +102,22 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the bandwidth setting.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.BandwidthRateSettingPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("schedules", required: true)]
+        private InputList<Inputs.BandwidthScheduleArgs>? _schedules;
+
+        /// <summary>
+        /// The schedules.
+        /// </summary>
+        public InputList<Inputs.BandwidthScheduleArgs> Schedules
+        {
+            get => _schedules ?? (_schedules = new InputList<Inputs.BandwidthScheduleArgs>());
+            set => _schedules = value;
+        }
 
         public BandwidthSettingArgs()
         {

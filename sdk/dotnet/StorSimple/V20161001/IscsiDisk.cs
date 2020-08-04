@@ -77,11 +77,41 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
 
     public sealed class IscsiDiskArgs : Pulumi.ResourceArgs
     {
+        [Input("accessControlRecords", required: true)]
+        private InputList<string>? _accessControlRecords;
+
+        /// <summary>
+        /// The access control records.
+        /// </summary>
+        public InputList<string> AccessControlRecords
+        {
+            get => _accessControlRecords ?? (_accessControlRecords = new InputList<string>());
+            set => _accessControlRecords = value;
+        }
+
+        /// <summary>
+        /// The data policy.
+        /// </summary>
+        [Input("dataPolicy", required: true)]
+        public Input<string> DataPolicy { get; set; } = null!;
+
+        /// <summary>
+        /// The description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
         /// <summary>
         /// The device name.
         /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The disk status.
+        /// </summary>
+        [Input("diskStatus", required: true)]
+        public Input<string> DiskStatus { get; set; } = null!;
 
         /// <summary>
         /// The iSCSI server name.
@@ -96,16 +126,22 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
+        /// The monitoring.
+        /// </summary>
+        [Input("monitoringStatus", required: true)]
+        public Input<string> MonitoringStatus { get; set; } = null!;
+
+        /// <summary>
         /// The disk name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties.
+        /// The provisioned capacity in bytes.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ISCSIDiskPropertiesArgs> Properties { get; set; } = null!;
+        [Input("provisionedCapacityInBytes", required: true)]
+        public Input<int> ProvisionedCapacityInBytes { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

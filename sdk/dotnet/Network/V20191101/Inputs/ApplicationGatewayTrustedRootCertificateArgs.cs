@@ -16,22 +16,28 @@ namespace Pulumi.AzureRM.Network.V20191101.Inputs
     public sealed class ApplicationGatewayTrustedRootCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Certificate public data.
+        /// </summary>
+        [Input("data")]
+        public Input<string>? Data { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
+        /// </summary>
+        [Input("keyVaultSecretId")]
+        public Input<string>? KeyVaultSecretId { get; set; }
+
+        /// <summary>
         /// Name of the trusted root certificate that is unique within an Application Gateway.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Properties of the application gateway trusted root certificate.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayTrustedRootCertificatePropertiesFormatArgs>? Properties { get; set; }
 
         public ApplicationGatewayTrustedRootCertificateArgs()
         {

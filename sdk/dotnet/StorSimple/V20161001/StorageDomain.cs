@@ -78,6 +78,18 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public sealed class StorageDomainArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The encryption key used to encrypt the data. This is a user secret.
+        /// </summary>
+        [Input("encryptionKey")]
+        public Input<Inputs.AsymmetricEncryptedSecretArgs>? EncryptionKey { get; set; }
+
+        /// <summary>
+        /// The encryption status "Enabled | Disabled".
+        /// </summary>
+        [Input("encryptionStatus", required: true)]
+        public Input<string> EncryptionStatus { get; set; } = null!;
+
+        /// <summary>
         /// The manager name
         /// </summary>
         [Input("managerName", required: true)]
@@ -90,16 +102,22 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.StorageDomainPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("storageAccountCredentialIds", required: true)]
+        private InputList<string>? _storageAccountCredentialIds;
+
+        /// <summary>
+        /// The storage account credentials.
+        /// </summary>
+        public InputList<string> StorageAccountCredentialIds
+        {
+            get => _storageAccountCredentialIds ?? (_storageAccountCredentialIds = new InputList<string>());
+            set => _storageAccountCredentialIds = value;
+        }
 
         public StorageDomainArgs()
         {

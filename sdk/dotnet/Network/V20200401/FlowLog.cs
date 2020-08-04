@@ -96,6 +96,24 @@ namespace Pulumi.AzureRM.Network.V20200401
     public sealed class FlowLogArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Flag to enable/disable flow logging.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
+        /// Parameters that define the configuration of traffic analytics.
+        /// </summary>
+        [Input("flowAnalyticsConfiguration")]
+        public Input<Inputs.TrafficAnalyticsPropertiesArgs>? FlowAnalyticsConfiguration { get; set; }
+
+        /// <summary>
+        /// Parameters that define the flow log format.
+        /// </summary>
+        [Input("format")]
+        public Input<Inputs.FlowLogFormatParametersArgs>? Format { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -120,16 +138,22 @@ namespace Pulumi.AzureRM.Network.V20200401
         public Input<string> NetworkWatcherName { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the flow log.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.FlowLogPropertiesFormatArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Parameters that define the retention policy for flow log.
+        /// </summary>
+        [Input("retentionPolicy")]
+        public Input<Inputs.RetentionPolicyParametersArgs>? RetentionPolicy { get; set; }
+
+        /// <summary>
+        /// ID of the storage account which is used to store the flow log.
+        /// </summary>
+        [Input("storageId", required: true)]
+        public Input<string> StorageId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -142,6 +166,12 @@ namespace Pulumi.AzureRM.Network.V20200401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// ID of network security group to which flow log will be applied.
+        /// </summary>
+        [Input("targetResourceId", required: true)]
+        public Input<string> TargetResourceId { get; set; } = null!;
 
         public FlowLogArgs()
         {

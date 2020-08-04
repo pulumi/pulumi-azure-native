@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.IoTCentral.V20180901
     public sealed class AppArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The display name of the application.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Input("location", required: true)]
@@ -106,12 +112,6 @@ namespace Pulumi.AzureRM.IoTCentral.V20180901
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The common properties of an IoT Central application.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AppPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the IoT Central application.
@@ -125,6 +125,12 @@ namespace Pulumi.AzureRM.IoTCentral.V20180901
         [Input("sku", required: true)]
         public Input<Inputs.AppSkuInfoArgs> Sku { get; set; } = null!;
 
+        /// <summary>
+        /// The subdomain of the application.
+        /// </summary>
+        [Input("subdomain")]
+        public Input<string>? Subdomain { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -136,6 +142,12 @@ namespace Pulumi.AzureRM.IoTCentral.V20180901
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+        /// </summary>
+        [Input("template")]
+        public Input<string>? Template { get; set; }
 
         public AppArgs()
         {

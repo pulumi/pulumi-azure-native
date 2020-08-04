@@ -83,6 +83,18 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
 
     public sealed class VolumeArgs : Pulumi.ResourceArgs
     {
+        [Input("accessControlRecordIds", required: true)]
+        private InputList<string>? _accessControlRecordIds;
+
+        /// <summary>
+        /// The IDs of the access control records, associated with the volume.
+        /// </summary>
+        public InputList<string> AccessControlRecordIds
+        {
+            get => _accessControlRecordIds ?? (_accessControlRecordIds = new InputList<string>());
+            set => _accessControlRecordIds = value;
+        }
+
         /// <summary>
         /// The device name
         /// </summary>
@@ -102,16 +114,16 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Input<string> ManagerName { get; set; } = null!;
 
         /// <summary>
+        /// The monitoring status of the volume.
+        /// </summary>
+        [Input("monitoringStatus", required: true)]
+        public Input<string> MonitoringStatus { get; set; } = null!;
+
+        /// <summary>
         /// The volume name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of the volume.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.VolumePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name
@@ -120,10 +132,28 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The size of the volume in bytes.
+        /// </summary>
+        [Input("sizeInBytes", required: true)]
+        public Input<int> SizeInBytes { get; set; } = null!;
+
+        /// <summary>
         /// The volume container name.
         /// </summary>
         [Input("volumeContainerName", required: true)]
         public Input<string> VolumeContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// The volume status.
+        /// </summary>
+        [Input("volumeStatus", required: true)]
+        public Input<string> VolumeStatus { get; set; } = null!;
+
+        /// <summary>
+        /// The type of the volume.
+        /// </summary>
+        [Input("volumeType", required: true)]
+        public Input<string> VolumeType { get; set; } = null!;
 
         public VolumeArgs()
         {

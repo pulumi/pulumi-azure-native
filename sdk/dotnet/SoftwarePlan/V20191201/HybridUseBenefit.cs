@@ -96,12 +96,6 @@ namespace Pulumi.AzureRM.SoftwarePlan.V20191201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Property bag for a hybrid use benefit response
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.HybridUseBenefitPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
         /// </summary>
         [Input("scope", required: true)]

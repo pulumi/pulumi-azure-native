@@ -89,6 +89,18 @@ namespace Pulumi.AzureRM.Network.V20200501
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("loadBalancerBackendAddresses")]
+        private InputList<Inputs.LoadBalancerBackendAddressArgs>? _loadBalancerBackendAddresses;
+
+        /// <summary>
+        /// An array of backend addresses.
+        /// </summary>
+        public InputList<Inputs.LoadBalancerBackendAddressArgs> LoadBalancerBackendAddresses
+        {
+            get => _loadBalancerBackendAddresses ?? (_loadBalancerBackendAddresses = new InputList<Inputs.LoadBalancerBackendAddressArgs>());
+            set => _loadBalancerBackendAddresses = value;
+        }
+
         /// <summary>
         /// The name of the load balancer.
         /// </summary>
@@ -100,12 +112,6 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of load balancer backend address pool.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.BackendAddressPoolPropertiesFormatArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

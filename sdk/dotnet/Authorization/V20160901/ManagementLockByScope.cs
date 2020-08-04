@@ -78,16 +78,34 @@ namespace Pulumi.AzureRM.Authorization.V20160901
     public sealed class ManagementLockByScopeArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+        /// </summary>
+        [Input("level", required: true)]
+        public Input<string> Level { get; set; } = null!;
+
+        /// <summary>
         /// The name of lock.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the lock.
+        /// Notes about the lock. Maximum of 512 characters.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ManagementLockPropertiesArgs> Properties { get; set; } = null!;
+        [Input("notes")]
+        public Input<string>? Notes { get; set; }
+
+        [Input("owners")]
+        private InputList<Inputs.ManagementLockOwnerArgs>? _owners;
+
+        /// <summary>
+        /// The owners of the lock.
+        /// </summary>
+        public InputList<Inputs.ManagementLockOwnerArgs> Owners
+        {
+            get => _owners ?? (_owners = new InputList<Inputs.ManagementLockOwnerArgs>());
+            set => _owners = value;
+        }
 
         /// <summary>
         /// The scope for the lock. When providing a scope for the assignment, use '/subscriptions/{subscriptionId}' for subscriptions, '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}' for resource groups, and '/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePathIfPresent}/{resourceType}/{resourceName}' for resources.

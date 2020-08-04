@@ -96,6 +96,18 @@ namespace Pulumi.AzureRM.EventHub.V20150801
     public sealed class NamespaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The time the Namespace was created.
+        /// </summary>
+        [Input("createdAt")]
+        public Input<string>? CreatedAt { get; set; }
+
+        /// <summary>
+        /// Specifies whether this instance is enabled.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// Namespace location.
         /// </summary>
         [Input("location", required: true)]
@@ -108,10 +120,10 @@ namespace Pulumi.AzureRM.EventHub.V20150801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Namespace supplied for create or update Namespace operation
+        /// Provisioning state of the Namespace.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NamespacePropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Name of the resource group within the azure subscription.
@@ -120,10 +132,22 @@ namespace Pulumi.AzureRM.EventHub.V20150801
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Endpoint you can use to perform Service Bus operations.
+        /// </summary>
+        [Input("serviceBusEndpoint")]
+        public Input<string>? ServiceBusEndpoint { get; set; }
+
+        /// <summary>
         /// SKU parameters supplied to the create Namespace operation
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// State of the Namespace.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -136,6 +160,12 @@ namespace Pulumi.AzureRM.EventHub.V20150801
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The time the Namespace was updated.
+        /// </summary>
+        [Input("updatedAt")]
+        public Input<string>? UpdatedAt { get; set; }
 
         public NamespaceArgs()
         {

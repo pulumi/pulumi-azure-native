@@ -84,22 +84,40 @@ namespace Pulumi.AzureRM.CostManagement.V20180531
     public sealed class ReportConfigByResourceGroupNameArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Has definition for the report config.
+        /// </summary>
+        [Input("definition", required: true)]
+        public Input<Inputs.ReportConfigDefinitionArgs> Definition { get; set; } = null!;
+
+        /// <summary>
+        /// Has delivery information for the report config.
+        /// </summary>
+        [Input("deliveryInfo", required: true)]
+        public Input<Inputs.ReportConfigDeliveryInfoArgs> DeliveryInfo { get; set; } = null!;
+
+        /// <summary>
+        /// The format of the report being delivered.
+        /// </summary>
+        [Input("format")]
+        public Input<string>? Format { get; set; }
+
+        /// <summary>
         /// Report Config Name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the report config.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ReportConfigPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Azure Resource Group Name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Has schedule information for the report config.
+        /// </summary>
+        [Input("schedule")]
+        public Input<Inputs.ReportConfigScheduleArgs>? Schedule { get; set; }
 
         public ReportConfigByResourceGroupNameArgs()
         {

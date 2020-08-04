@@ -90,6 +90,30 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public sealed class PolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The description of the policy.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+        /// </summary>
+        [Input("evaluatorType")]
+        public Input<string>? EvaluatorType { get; set; }
+
+        /// <summary>
+        /// The fact data of the policy.
+        /// </summary>
+        [Input("factData")]
+        public Input<string>? FactData { get; set; }
+
+        /// <summary>
+        /// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+        /// </summary>
+        [Input("factName")]
+        public Input<string>? FactName { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -114,16 +138,22 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         public Input<string> PolicySetName { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PolicyPropertiesArgs> Properties { get; set; } = null!;
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The status of the policy.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -136,6 +166,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+        /// </summary>
+        [Input("threshold")]
+        public Input<string>? Threshold { get; set; }
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Input("uniqueIdentifier")]
+        public Input<string>? UniqueIdentifier { get; set; }
 
         public PolicyArgs()
         {

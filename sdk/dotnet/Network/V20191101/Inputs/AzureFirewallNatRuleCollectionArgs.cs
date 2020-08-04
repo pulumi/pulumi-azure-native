@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20191101.Inputs
     public sealed class AzureFirewallNatRuleCollectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The action type of a NAT rule collection.
+        /// </summary>
+        [Input("action")]
+        public Input<Inputs.AzureFirewallNatRCActionArgs>? Action { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -28,10 +34,22 @@ namespace Pulumi.AzureRM.Network.V20191101.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the azure firewall NAT rule collection.
+        /// Priority of the NAT rule collection resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AzureFirewallNatRuleCollectionPropertiesArgs>? Properties { get; set; }
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
+
+        [Input("rules")]
+        private InputList<Inputs.AzureFirewallNatRuleArgs>? _rules;
+
+        /// <summary>
+        /// Collection of rules used by a NAT rule collection.
+        /// </summary>
+        public InputList<Inputs.AzureFirewallNatRuleArgs> Rules
+        {
+            get => _rules ?? (_rules = new InputList<Inputs.AzureFirewallNatRuleArgs>());
+            set => _rules = value;
+        }
 
         public AzureFirewallNatRuleCollectionArgs()
         {

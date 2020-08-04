@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.Network.V20180701
     public sealed class VirtualWANArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Vpn encryption to be disabled or not.
+        /// </summary>
+        [Input("disableVpnEncryption")]
+        public Input<bool>? DisableVpnEncryption { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -114,10 +120,10 @@ namespace Pulumi.AzureRM.Network.V20180701
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Parameters for VirtualWAN
+        /// The provisioning state of the resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualWanPropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The resource group name of the VirtualWan.

@@ -34,10 +34,34 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Route Table resource
+        /// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RouteTablePropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        [Input("routes")]
+        private InputList<Inputs.RouteArgs>? _routes;
+
+        /// <summary>
+        /// Collection of routes contained within a route table.
+        /// </summary>
+        public InputList<Inputs.RouteArgs> Routes
+        {
+            get => _routes ?? (_routes = new InputList<Inputs.RouteArgs>());
+            set => _routes = value;
+        }
+
+        [Input("subnets")]
+        private InputList<Inputs.SubnetDefinitionArgs>? _subnets;
+
+        /// <summary>
+        /// A collection of references to subnets.
+        /// </summary>
+        public InputList<Inputs.SubnetDefinitionArgs> Subnets
+        {
+            get => _subnets ?? (_subnets = new InputList<Inputs.SubnetDefinitionArgs>());
+            set => _subnets = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

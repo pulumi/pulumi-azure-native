@@ -78,6 +78,18 @@ namespace Pulumi.AzureRM.Network.V20180601
     public sealed class VpnConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The connection status.
+        /// </summary>
+        [Input("connectionStatus")]
+        public Input<string>? ConnectionStatus { get; set; }
+
+        /// <summary>
+        /// EnableBgp flag
+        /// </summary>
+        [Input("enableBgp")]
+        public Input<bool>? EnableBgp { get; set; }
+
+        /// <summary>
         /// The name of the gateway.
         /// </summary>
         [Input("gatewayName", required: true)]
@@ -89,6 +101,18 @@ namespace Pulumi.AzureRM.Network.V20180601
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("ipsecPolicies")]
+        private InputList<Inputs.IpsecPolicyArgs>? _ipsecPolicies;
+
+        /// <summary>
+        /// The IPSec Policies to be considered by this connection.
+        /// </summary>
+        public InputList<Inputs.IpsecPolicyArgs> IpsecPolicies
+        {
+            get => _ipsecPolicies ?? (_ipsecPolicies = new InputList<Inputs.IpsecPolicyArgs>());
+            set => _ipsecPolicies = value;
+        }
+
         /// <summary>
         /// The name of the connection.
         /// </summary>
@@ -96,16 +120,34 @@ namespace Pulumi.AzureRM.Network.V20180601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Parameters for VpnConnection
+        /// The provisioning state of the resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VpnConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Id of the connected vpn site.
+        /// </summary>
+        [Input("remoteVpnSite")]
+        public Input<Inputs.SubResourceArgs>? RemoteVpnSite { get; set; }
 
         /// <summary>
         /// The resource group name of the VpnGateway.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// routing weight for vpn connection.
+        /// </summary>
+        [Input("routingWeight")]
+        public Input<int>? RoutingWeight { get; set; }
+
+        /// <summary>
+        /// SharedKey for the vpn connection.
+        /// </summary>
+        [Input("sharedKey")]
+        public Input<string>? SharedKey { get; set; }
 
         public VpnConnectionArgs()
         {

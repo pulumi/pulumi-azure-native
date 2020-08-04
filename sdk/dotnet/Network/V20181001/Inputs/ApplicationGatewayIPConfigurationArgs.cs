@@ -34,10 +34,16 @@ namespace Pulumi.AzureRM.Network.V20181001.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of IP configuration of an application gateway.
+        /// Provisioning state of the application gateway subnet resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayIPConfigurationPropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Reference of the subnet resource. A subnet from where application gateway gets its private address.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.SubResourceArgs>? Subnet { get; set; }
 
         /// <summary>
         /// Type of the resource.

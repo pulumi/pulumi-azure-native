@@ -90,6 +90,24 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public sealed class NotificationChannelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Description of notification.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        [Input("events")]
+        private InputList<Inputs.EventArgs>? _events;
+
+        /// <summary>
+        /// The list of event for which this notification is enabled.
+        /// </summary>
+        public InputList<Inputs.EventArgs> Events
+        {
+            get => _events ?? (_events = new InputList<Inputs.EventArgs>());
+            set => _events = value;
+        }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -108,10 +126,10 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.NotificationChannelPropertiesArgs> Properties { get; set; } = null!;
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -130,6 +148,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Input("uniqueIdentifier")]
+        public Input<string>? UniqueIdentifier { get; set; }
+
+        /// <summary>
+        /// The webhook URL to send notifications to.
+        /// </summary>
+        [Input("webHookUrl")]
+        public Input<string>? WebHookUrl { get; set; }
 
         public NotificationChannelArgs()
         {

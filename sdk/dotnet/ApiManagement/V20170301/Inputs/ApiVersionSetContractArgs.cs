@@ -16,10 +16,34 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301.Inputs
     public sealed class ApiVersionSetContractArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Properties of an API Version Set.
+        /// Description of API Version Set.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApiVersionSetContractPropertiesArgs>? Properties { get; set; }
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Name of API Version Set
+        /// </summary>
+        [Input("displayName", required: true)]
+        public Input<string> DisplayName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+        /// </summary>
+        [Input("versionHeaderName")]
+        public Input<string>? VersionHeaderName { get; set; }
+
+        /// <summary>
+        /// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+        /// </summary>
+        [Input("versionQueryName")]
+        public Input<string>? VersionQueryName { get; set; }
+
+        /// <summary>
+        /// An value that determines where the API Version identifer will be located in a HTTP request.
+        /// </summary>
+        [Input("versioningScheme", required: true)]
+        public Input<string> VersioningScheme { get; set; } = null!;
 
         public ApiVersionSetContractArgs()
         {

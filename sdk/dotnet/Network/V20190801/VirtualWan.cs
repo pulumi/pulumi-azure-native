@@ -96,6 +96,24 @@ namespace Pulumi.AzureRM.Network.V20190801
     public sealed class VirtualWanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// True if branch to branch traffic is allowed.
+        /// </summary>
+        [Input("allowBranchToBranchTraffic")]
+        public Input<bool>? AllowBranchToBranchTraffic { get; set; }
+
+        /// <summary>
+        /// True if Vnet to Vnet traffic is allowed.
+        /// </summary>
+        [Input("allowVnetToVnetTraffic")]
+        public Input<bool>? AllowVnetToVnetTraffic { get; set; }
+
+        /// <summary>
+        /// Vpn encryption to be disabled or not.
+        /// </summary>
+        [Input("disableVpnEncryption")]
+        public Input<bool>? DisableVpnEncryption { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -114,10 +132,16 @@ namespace Pulumi.AzureRM.Network.V20190801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the virtual WAN.
+        /// The office local breakout category.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualWanPropertiesArgs>? Properties { get; set; }
+        [Input("office365LocalBreakoutCategory")]
+        public Input<string>? Office365LocalBreakoutCategory { get; set; }
+
+        /// <summary>
+        /// The provisioning state of the virtual WAN resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The resource group name of the VirtualWan.

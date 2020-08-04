@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Network.V20160601.Inputs
     /// </summary>
     public sealed class ApplicationGatewayBackendHttpSettingsArgs : Pulumi.ResourceArgs
     {
+        [Input("authenticationCertificates")]
+        private InputList<Inputs.SubResourceArgs>? _authenticationCertificates;
+
+        /// <summary>
+        /// Array of references to Application Gateway Authentication Certificates
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> AuthenticationCertificates
+        {
+            get => _authenticationCertificates ?? (_authenticationCertificates = new InputList<Inputs.SubResourceArgs>());
+            set => _authenticationCertificates = value;
+        }
+
+        /// <summary>
+        /// Cookie affinity
+        /// </summary>
+        [Input("cookieBasedAffinity")]
+        public Input<string>? CookieBasedAffinity { get; set; }
+
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
@@ -34,10 +52,34 @@ namespace Pulumi.AzureRM.Network.V20160601.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of Backend address pool settings of application gateway
+        /// Port
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayBackendHttpSettingsPropertiesFormatArgs>? Properties { get; set; }
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// Probe resource of application gateway 
+        /// </summary>
+        [Input("probe")]
+        public Input<Inputs.SubResourceArgs>? Probe { get; set; }
+
+        /// <summary>
+        /// Protocol
+        /// </summary>
+        [Input("protocol")]
+        public Input<string>? Protocol { get; set; }
+
+        /// <summary>
+        /// Provisioning state of the backend http settings resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Request timeout
+        /// </summary>
+        [Input("requestTimeout")]
+        public Input<int>? RequestTimeout { get; set; }
 
         public ApplicationGatewayBackendHttpSettingsArgs()
         {

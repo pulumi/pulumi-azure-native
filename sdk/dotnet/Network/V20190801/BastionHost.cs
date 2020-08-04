@@ -96,10 +96,28 @@ namespace Pulumi.AzureRM.Network.V20190801
     public sealed class BastionHostArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// FQDN for the endpoint on which bastion host is accessible.
+        /// </summary>
+        [Input("dnsName")]
+        public Input<string>? DnsName { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("ipConfigurations")]
+        private InputList<Inputs.BastionHostIPConfigurationArgs>? _ipConfigurations;
+
+        /// <summary>
+        /// IP configuration of the Bastion Host resource.
+        /// </summary>
+        public InputList<Inputs.BastionHostIPConfigurationArgs> IpConfigurations
+        {
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.BastionHostIPConfigurationArgs>());
+            set => _ipConfigurations = value;
+        }
 
         /// <summary>
         /// Resource location.
@@ -114,10 +132,10 @@ namespace Pulumi.AzureRM.Network.V20190801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Represents the bastion host resource.
+        /// The provisioning state of the bastion host resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.BastionHostPropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

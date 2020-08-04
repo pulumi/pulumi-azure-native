@@ -22,10 +22,10 @@ namespace Pulumi.AzureRM.Compute.V20200601.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// Describes a network interface reference properties.
+        /// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NetworkInterfaceReferencePropertiesArgs>? Properties { get; set; }
+        [Input("primary")]
+        public Input<bool>? Primary { get; set; }
 
         public NetworkInterfaceReferenceArgs()
         {

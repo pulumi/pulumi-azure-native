@@ -84,6 +84,30 @@ namespace Pulumi.AzureRM.Web.V20160801
     public sealed class WebAppSourceControlArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of branch to use for deployment.
+        /// </summary>
+        [Input("branch")]
+        public Input<string>? Branch { get; set; }
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to enable deployment rollback; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        [Input("deploymentRollbackEnabled")]
+        public Input<bool>? DeploymentRollbackEnabled { get; set; }
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; to limit to manual integration; &lt;code&gt;false&lt;/code&gt; to enable continuous integration (which configures webhooks into online repos like GitHub).
+        /// </summary>
+        [Input("isManualIntegration")]
+        public Input<bool>? IsManualIntegration { get; set; }
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; for a Mercurial repository; &lt;code&gt;false&lt;/code&gt; for a Git repository.
+        /// </summary>
+        [Input("isMercurial")]
+        public Input<bool>? IsMercurial { get; set; }
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
@@ -96,10 +120,10 @@ namespace Pulumi.AzureRM.Web.V20160801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// SiteSourceControl resource specific properties
+        /// Repository or source control URL.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SiteSourceControlPropertiesArgs>? Properties { get; set; }
+        [Input("repoUrl")]
+        public Input<string>? RepoUrl { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

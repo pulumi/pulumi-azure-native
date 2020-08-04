@@ -90,6 +90,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class ServiceFabricArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The resource id of the environment under which the service fabric resource is present
+        /// </summary>
+        [Input("environmentId")]
+        public Input<string>? EnvironmentId { get; set; }
+
+        /// <summary>
+        /// The backing service fabric resource's id
+        /// </summary>
+        [Input("externalServiceFabricId")]
+        public Input<string>? ExternalServiceFabricId { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -106,12 +118,6 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of the resource.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ServiceFabricPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

@@ -89,6 +89,48 @@ namespace Pulumi.AzureRM.Cdn.V20161002
 
     public sealed class EndpointArgs : Pulumi.ResourceArgs
     {
+        [Input("contentTypesToCompress")]
+        private InputList<string>? _contentTypesToCompress;
+
+        /// <summary>
+        /// List of content types on which compression applies. The value should be a valid MIME type.
+        /// </summary>
+        public InputList<string> ContentTypesToCompress
+        {
+            get => _contentTypesToCompress ?? (_contentTypesToCompress = new InputList<string>());
+            set => _contentTypesToCompress = value;
+        }
+
+        [Input("geoFilters")]
+        private InputList<Inputs.GeoFilterArgs>? _geoFilters;
+
+        /// <summary>
+        /// List of rules defining user geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
+        /// </summary>
+        public InputList<Inputs.GeoFilterArgs> GeoFilters
+        {
+            get => _geoFilters ?? (_geoFilters = new InputList<Inputs.GeoFilterArgs>());
+            set => _geoFilters = value;
+        }
+
+        /// <summary>
+        /// Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
+        /// </summary>
+        [Input("isCompressionEnabled")]
+        public Input<bool>? IsCompressionEnabled { get; set; }
+
+        /// <summary>
+        /// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        /// </summary>
+        [Input("isHttpAllowed")]
+        public Input<bool>? IsHttpAllowed { get; set; }
+
+        /// <summary>
+        /// Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        /// </summary>
+        [Input("isHttpsAllowed")]
+        public Input<bool>? IsHttpsAllowed { get; set; }
+
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -102,16 +144,46 @@ namespace Pulumi.AzureRM.Cdn.V20161002
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Customer can specify what scenario they want this CDN endpoint to optimize, e.g. Download, Media services. With this information we can apply scenario driven optimization.
+        /// </summary>
+        [Input("optimizationType")]
+        public Input<string>? OptimizationType { get; set; }
+
+        /// <summary>
+        /// The host header CDN sends along with content requests to origin. The default value is the host name of the origin.
+        /// </summary>
+        [Input("originHostHeader")]
+        public Input<string>? OriginHostHeader { get; set; }
+
+        /// <summary>
+        /// The path used when CDN sends request to origin.
+        /// </summary>
+        [Input("originPath")]
+        public Input<string>? OriginPath { get; set; }
+
+        [Input("origins", required: true)]
+        private InputList<Inputs.DeepCreatedOriginArgs>? _origins;
+
+        /// <summary>
+        /// The source of the content being delivered via CDN.
+        /// </summary>
+        public InputList<Inputs.DeepCreatedOriginArgs> Origins
+        {
+            get => _origins ?? (_origins = new InputList<Inputs.DeepCreatedOriginArgs>());
+            set => _origins = value;
+        }
+
+        /// <summary>
         /// Name of the CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The JSON object that contains the properties required to create an endpoint.
+        /// Defines the query string caching behavior
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.EndpointPropertiesArgs>? Properties { get; set; }
+        [Input("queryStringCachingBehavior")]
+        public Input<string>? QueryStringCachingBehavior { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

@@ -90,10 +90,28 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
     public sealed class ReferenceDataSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+        /// </summary>
+        [Input("dataStringComparisonBehavior")]
+        public Input<string>? DataStringComparisonBehavior { get; set; }
+
+        /// <summary>
         /// The name of the Time Series Insights environment associated with the specified resource group.
         /// </summary>
         [Input("environmentName", required: true)]
         public Input<string> EnvironmentName { get; set; } = null!;
+
+        [Input("keyProperties", required: true)]
+        private InputList<Inputs.ReferenceDataSetKeyPropertyArgs>? _keyProperties;
+
+        /// <summary>
+        /// The list of key properties for the reference data set.
+        /// </summary>
+        public InputList<Inputs.ReferenceDataSetKeyPropertyArgs> KeyProperties
+        {
+            get => _keyProperties ?? (_keyProperties = new InputList<Inputs.ReferenceDataSetKeyPropertyArgs>());
+            set => _keyProperties = value;
+        }
 
         /// <summary>
         /// The location of the resource.
@@ -106,12 +124,6 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties used to create a reference data set.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ReferenceDataSetCreationPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

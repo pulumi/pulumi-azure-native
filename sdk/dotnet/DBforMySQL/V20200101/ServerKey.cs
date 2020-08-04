@@ -90,22 +90,28 @@ namespace Pulumi.AzureRM.DBforMySQL.V20200101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the ServerKey Resource.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ServerKeyPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The key type like 'AzureKeyVault'.
+        /// </summary>
+        [Input("serverKeyType", required: true)]
+        public Input<string> ServerKeyType { get; set; } = null!;
+
+        /// <summary>
         /// The name of the server.
         /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The URI of the key.
+        /// </summary>
+        [Input("uri")]
+        public Input<string>? Uri { get; set; }
 
         public ServerKeyArgs()
         {

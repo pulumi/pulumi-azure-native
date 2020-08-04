@@ -96,10 +96,28 @@ namespace Pulumi.AzureRM.Logic.V20160601
         public Input<string> IntegrationAccountName { get; set; } = null!;
 
         /// <summary>
+        /// The key details in the key vault.
+        /// </summary>
+        [Input("key")]
+        public Input<Inputs.KeyVaultKeyReferenceArgs>? Key { get; set; }
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        [Input("metadata")]
+        private InputMap<object>? _metadata;
+
+        /// <summary>
+        /// The metadata.
+        /// </summary>
+        public InputMap<object> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<object>());
+            set => _metadata = value;
+        }
 
         /// <summary>
         /// The integration account certificate name.
@@ -108,10 +126,10 @@ namespace Pulumi.AzureRM.Logic.V20160601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The integration account certificate properties.
+        /// The public certificate.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.IntegrationAccountCertificatePropertiesArgs> Properties { get; set; } = null!;
+        [Input("publicCertificate")]
+        public Input<string>? PublicCertificate { get; set; }
 
         /// <summary>
         /// The resource group name.

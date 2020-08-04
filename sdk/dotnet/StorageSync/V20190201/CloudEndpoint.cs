@@ -78,22 +78,34 @@ namespace Pulumi.AzureRM.StorageSync.V20190201
     public sealed class CloudEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Azure file share name
+        /// </summary>
+        [Input("azureFileShareName")]
+        public Input<string>? AzureFileShareName { get; set; }
+
+        /// <summary>
         /// Name of Cloud Endpoint object.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The parameters used to create the cloud endpoint.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.CloudEndpointCreateParametersPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Storage Account Resource Id
+        /// </summary>
+        [Input("storageAccountResourceId")]
+        public Input<string>? StorageAccountResourceId { get; set; }
+
+        /// <summary>
+        /// Storage Account Tenant Id
+        /// </summary>
+        [Input("storageAccountTenantId")]
+        public Input<string>? StorageAccountTenantId { get; set; }
 
         /// <summary>
         /// Name of Storage Sync Service resource.

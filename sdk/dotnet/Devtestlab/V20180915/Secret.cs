@@ -108,12 +108,6 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.SecretPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -136,6 +130,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// </summary>
         [Input("userName", required: true)]
         public Input<string> UserName { get; set; } = null!;
+
+        /// <summary>
+        /// The value of the secret for secret creation.
+        /// </summary>
+        [Input("value")]
+        public Input<string>? Value { get; set; }
 
         public SecretArgs()
         {

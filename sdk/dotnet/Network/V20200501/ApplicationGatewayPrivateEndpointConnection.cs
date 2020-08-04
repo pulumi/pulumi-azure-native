@@ -102,10 +102,10 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the application gateway private endpoint connection.
+        /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayPrivateEndpointConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("privateLinkServiceConnectionState")]
+        public Input<Inputs.PrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

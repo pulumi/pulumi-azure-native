@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20170301.Inputs
     public sealed class SubnetDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The address prefix for the subnet.
+        /// </summary>
+        [Input("addressPrefix")]
+        public Input<string>? AddressPrefix { get; set; }
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
@@ -33,8 +39,35 @@ namespace Pulumi.AzureRM.Network.V20170301.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("properties")]
-        public Input<Inputs.SubnetPropertiesFormatArgs>? Properties { get; set; }
+        /// <summary>
+        /// The reference of the NetworkSecurityGroup resource.
+        /// </summary>
+        [Input("networkSecurityGroup")]
+        public Input<Inputs.NetworkSecurityGroupArgs>? NetworkSecurityGroup { get; set; }
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        [Input("resourceNavigationLinks")]
+        private InputList<Inputs.ResourceNavigationLinkArgs>? _resourceNavigationLinks;
+
+        /// <summary>
+        /// Gets an array of references to the external resources using subnet.
+        /// </summary>
+        public InputList<Inputs.ResourceNavigationLinkArgs> ResourceNavigationLinks
+        {
+            get => _resourceNavigationLinks ?? (_resourceNavigationLinks = new InputList<Inputs.ResourceNavigationLinkArgs>());
+            set => _resourceNavigationLinks = value;
+        }
+
+        /// <summary>
+        /// The reference of the RouteTable resource.
+        /// </summary>
+        [Input("routeTable")]
+        public Input<Inputs.RouteTableArgs>? RouteTable { get; set; }
 
         public SubnetDefinitionArgs()
         {

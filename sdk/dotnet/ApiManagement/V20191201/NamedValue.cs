@@ -78,16 +78,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class NamedValueArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
+        /// </summary>
+        [Input("displayName", required: true)]
+        public Input<string> DisplayName { get; set; } = null!;
+
+        /// <summary>
         /// Identifier of the NamedValue.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// NamedValue entity contract properties for PUT operation.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NamedValueCreateContractPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -96,10 +96,34 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Determines whether the value is a secret and should be encrypted or not. Default value is false.
+        /// </summary>
+        [Input("secret")]
+        public Input<bool>? Secret { get; set; }
+
+        /// <summary>
         /// The name of the API Management service.
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<string>? _tags;
+
+        /// <summary>
+        /// Optional tags that when provided can be used to filter the NamedValue list.
+        /// </summary>
+        public InputList<string> Tags
+        {
+            get => _tags ?? (_tags = new InputList<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+        /// </summary>
+        [Input("value", required: true)]
+        public Input<string> Value { get; set; } = null!;
 
         public NamedValueArgs()
         {

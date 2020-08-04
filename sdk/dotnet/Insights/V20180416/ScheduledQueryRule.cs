@@ -90,6 +90,24 @@ namespace Pulumi.AzureRM.Insights.V20180416
     public sealed class ScheduledQueryRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Action needs to be taken on rule execution.
+        /// </summary>
+        [Input("action", required: true)]
+        public Input<Inputs.ActionArgs> Action { get; set; } = null!;
+
+        /// <summary>
+        /// The description of the Log Search rule.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        /// </summary>
+        [Input("enabled")]
+        public Input<string>? Enabled { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
@@ -102,16 +120,22 @@ namespace Pulumi.AzureRM.Insights.V20180416
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The rule properties of the resource.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.LogSearchRuleArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        /// </summary>
+        [Input("schedule")]
+        public Input<Inputs.ScheduleArgs>? Schedule { get; set; }
+
+        /// <summary>
+        /// Data Source against which rule will Query Data
+        /// </summary>
+        [Input("source", required: true)]
+        public Input<Inputs.SourceArgs> Source { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public sealed class IntegrationAccountPartnerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The partner content.
+        /// </summary>
+        [Input("content", required: true)]
+        public Input<Inputs.PartnerContentArgs> Content { get; set; } = null!;
+
+        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
@@ -101,6 +107,18 @@ namespace Pulumi.AzureRM.Logic.V20190501
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("metadata")]
+        private InputMap<object>? _metadata;
+
+        /// <summary>
+        /// The metadata.
+        /// </summary>
+        public InputMap<object> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<object>());
+            set => _metadata = value;
+        }
+
         /// <summary>
         /// The integration account partner name.
         /// </summary>
@@ -108,10 +126,10 @@ namespace Pulumi.AzureRM.Logic.V20190501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The integration account partner properties.
+        /// The partner type.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.IntegrationAccountPartnerPropertiesArgs> Properties { get; set; } = null!;
+        [Input("partnerType", required: true)]
+        public Input<string> PartnerType { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

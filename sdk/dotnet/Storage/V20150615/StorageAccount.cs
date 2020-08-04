@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.Storage.V20150615
     public sealed class StorageAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The sku name. Required for account creation; optional for update. Note that in older versions, sku name was called accountType.
+        /// </summary>
+        [Input("accountType", required: true)]
+        public Input<string> AccountType { get; set; } = null!;
+
+        /// <summary>
         /// The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
         /// </summary>
         [Input("location", required: true)]
@@ -100,12 +106,6 @@ namespace Pulumi.AzureRM.Storage.V20150615
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The parameters used to create the storage account.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.StorageAccountPropertiesCreateParametersArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

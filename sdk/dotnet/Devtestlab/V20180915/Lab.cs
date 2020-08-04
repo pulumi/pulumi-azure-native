@@ -90,10 +90,64 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class LabArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The properties of any lab announcement associated with this lab
+        /// </summary>
+        [Input("announcement")]
+        public Input<Inputs.LabAnnouncementPropertiesArgs>? Announcement { get; set; }
+
+        /// <summary>
+        /// The access rights to be granted to the user when provisioning an environment
+        /// </summary>
+        [Input("environmentPermission")]
+        public Input<string>? EnvironmentPermission { get; set; }
+
+        [Input("extendedProperties")]
+        private InputMap<string>? _extendedProperties;
+
+        /// <summary>
+        /// Extended properties of the lab used for experimental features
+        /// </summary>
+        public InputMap<string> ExtendedProperties
+        {
+            get => _extendedProperties ?? (_extendedProperties = new InputMap<string>());
+            set => _extendedProperties = value;
+        }
+
+        /// <summary>
+        /// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+        /// </summary>
+        [Input("labStorageType")]
+        public Input<string>? LabStorageType { get; set; }
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        [Input("mandatoryArtifactsResourceIdsLinux")]
+        private InputList<string>? _mandatoryArtifactsResourceIdsLinux;
+
+        /// <summary>
+        /// The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+        /// </summary>
+        public InputList<string> MandatoryArtifactsResourceIdsLinux
+        {
+            get => _mandatoryArtifactsResourceIdsLinux ?? (_mandatoryArtifactsResourceIdsLinux = new InputList<string>());
+            set => _mandatoryArtifactsResourceIdsLinux = value;
+        }
+
+        [Input("mandatoryArtifactsResourceIdsWindows")]
+        private InputList<string>? _mandatoryArtifactsResourceIdsWindows;
+
+        /// <summary>
+        /// The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+        /// </summary>
+        public InputList<string> MandatoryArtifactsResourceIdsWindows
+        {
+            get => _mandatoryArtifactsResourceIdsWindows ?? (_mandatoryArtifactsResourceIdsWindows = new InputList<string>());
+            set => _mandatoryArtifactsResourceIdsWindows = value;
+        }
 
         /// <summary>
         /// The name of the lab.
@@ -102,16 +156,24 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The setting to enable usage of premium data disks.
+        /// When its value is 'Enabled', creation of standard or premium data disks is allowed.
+        /// When its value is 'Disabled', only creation of standard data disks is allowed.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.LabPropertiesArgs>? Properties { get; set; }
+        [Input("premiumDataDisks")]
+        public Input<string>? PremiumDataDisks { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The properties of any lab support message associated with this lab
+        /// </summary>
+        [Input("support")]
+        public Input<Inputs.LabSupportPropertiesArgs>? Support { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

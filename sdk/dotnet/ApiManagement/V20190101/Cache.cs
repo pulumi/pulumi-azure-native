@@ -78,22 +78,34 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public sealed class CacheArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Runtime connection string to cache
+        /// </summary>
+        [Input("connectionString", required: true)]
+        public Input<string> ConnectionString { get; set; } = null!;
+
+        /// <summary>
+        /// Cache description
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Cache properties details.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.CacheContractPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Original uri of entity in external system cache points to
+        /// </summary>
+        [Input("resourceId")]
+        public Input<string>? ResourceId { get; set; }
 
         /// <summary>
         /// The name of the API Management service.

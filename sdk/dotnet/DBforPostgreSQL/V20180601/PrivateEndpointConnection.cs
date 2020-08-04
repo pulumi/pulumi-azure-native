@@ -81,10 +81,16 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20180601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Resource properties.
+        /// Private endpoint which the connection belongs to.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("privateEndpoint")]
+        public Input<Inputs.PrivateEndpointPropertyArgs>? PrivateEndpoint { get; set; }
+
+        /// <summary>
+        /// Connection state of the private endpoint connection.
+        /// </summary>
+        [Input("privateLinkServiceConnectionState")]
+        public Input<Inputs.PrivateLinkServiceConnectionStatePropertyArgs>? PrivateLinkServiceConnectionState { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

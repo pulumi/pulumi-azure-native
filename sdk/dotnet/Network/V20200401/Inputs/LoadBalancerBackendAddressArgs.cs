@@ -16,16 +16,22 @@ namespace Pulumi.AzureRM.Network.V20200401.Inputs
     public sealed class LoadBalancerBackendAddressArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// IP Address belonging to the referenced virtual network.
+        /// </summary>
+        [Input("ipAddress")]
+        public Input<string>? IpAddress { get; set; }
+
+        /// <summary>
         /// Name of the backend address.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of load balancer backend address pool.
+        /// Reference to an existing virtual network.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.LoadBalancerBackendAddressPropertiesFormatArgs>? Properties { get; set; }
+        [Input("virtualNetwork")]
+        public Input<Inputs.SubResourceArgs>? VirtualNetwork { get; set; }
 
         public LoadBalancerBackendAddressArgs()
         {

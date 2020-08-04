@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
     public sealed class RegistryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The value that indicates whether the admin user is enabled.
+        /// </summary>
+        [Input("adminUserEnabled")]
+        public Input<bool>? AdminUserEnabled { get; set; }
+
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         [Input("location", required: true)]
@@ -108,10 +114,10 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the container registry.
+        /// The network rule set for a container registry.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RegistryPropertiesArgs>? Properties { get; set; }
+        [Input("networkRuleSet")]
+        public Input<Inputs.NetworkRuleSetArgs>? NetworkRuleSet { get; set; }
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.
@@ -124,6 +130,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;
+
+        /// <summary>
+        /// The properties of the storage account for the container registry. Only applicable to Classic SKU.
+        /// </summary>
+        [Input("storageAccount")]
+        public Input<Inputs.StorageAccountPropertiesArgs>? StorageAccount { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

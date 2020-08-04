@@ -78,16 +78,64 @@ namespace Pulumi.AzureRM.Authorization.V20190601
     public sealed class PolicySetDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The policy set definition description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The display name of the policy set definition.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        [Input("metadata")]
+        private InputMap<object>? _metadata;
+
+        /// <summary>
+        /// The policy set definition metadata.
+        /// </summary>
+        public InputMap<object> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<object>());
+            set => _metadata = value;
+        }
+
+        /// <summary>
         /// The name of the policy set definition to create.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("parameters")]
+        private InputMap<object>? _parameters;
+
         /// <summary>
-        /// The policy definition properties.
+        /// The policy set definition parameters that can be used in policy definition references.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PolicySetDefinitionPropertiesArgs>? Properties { get; set; }
+        public InputMap<object> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<object>());
+            set => _parameters = value;
+        }
+
+        [Input("policyDefinitions", required: true)]
+        private InputList<Inputs.PolicyDefinitionReferenceArgs>? _policyDefinitions;
+
+        /// <summary>
+        /// An array of policy definition references.
+        /// </summary>
+        public InputList<Inputs.PolicyDefinitionReferenceArgs> PolicyDefinitions
+        {
+            get => _policyDefinitions ?? (_policyDefinitions = new InputList<Inputs.PolicyDefinitionReferenceArgs>());
+            set => _policyDefinitions = value;
+        }
+
+        /// <summary>
+        /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+        /// </summary>
+        [Input("policyType")]
+        public Input<string>? PolicyType { get; set; }
 
         public PolicySetDefinitionArgs()
         {

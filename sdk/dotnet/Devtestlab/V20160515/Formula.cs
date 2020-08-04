@@ -90,6 +90,24 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public sealed class FormulaArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The author of the formula.
+        /// </summary>
+        [Input("author")]
+        public Input<string>? Author { get; set; }
+
+        /// <summary>
+        /// The description of the formula.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The content of the formula.
+        /// </summary>
+        [Input("formulaContent")]
+        public Input<Inputs.LabVirtualMachineCreationParameterArgs>? FormulaContent { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -108,10 +126,16 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The OS type of the formula.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.FormulaPropertiesArgs> Properties { get; set; } = null!;
+        [Input("osType")]
+        public Input<string>? OsType { get; set; }
+
+        /// <summary>
+        /// The provisioning status of the resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -130,6 +154,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Input("uniqueIdentifier")]
+        public Input<string>? UniqueIdentifier { get; set; }
+
+        /// <summary>
+        /// Information about a VM from which a formula is to be created.
+        /// </summary>
+        [Input("vm")]
+        public Input<Inputs.FormulaPropertiesFromVmArgs>? Vm { get; set; }
 
         public FormulaArgs()
         {

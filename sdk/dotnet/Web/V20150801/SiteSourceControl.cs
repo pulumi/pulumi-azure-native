@@ -93,10 +93,34 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class SiteSourceControlArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of branch to use for deployment
+        /// </summary>
+        [Input("branch")]
+        public Input<string>? Branch { get; set; }
+
+        /// <summary>
+        /// Whether to manual or continuous integration
+        /// </summary>
+        [Input("deploymentRollbackEnabled")]
+        public Input<bool>? DeploymentRollbackEnabled { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Whether to manual or continuous integration
+        /// </summary>
+        [Input("isManualIntegration")]
+        public Input<bool>? IsManualIntegration { get; set; }
+
+        /// <summary>
+        /// Mercurial or Git repository type
+        /// </summary>
+        [Input("isMercurial")]
+        public Input<bool>? IsMercurial { get; set; }
 
         /// <summary>
         /// Kind of resource
@@ -116,8 +140,11 @@ namespace Pulumi.AzureRM.Web.V20150801
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.SiteSourceControlPropertiesArgs>? Properties { get; set; }
+        /// <summary>
+        /// Repository or source control url
+        /// </summary>
+        [Input("repoUrl")]
+        public Input<string>? RepoUrl { get; set; }
 
         /// <summary>
         /// Name of resource group

@@ -78,22 +78,52 @@ namespace Pulumi.AzureRM.StorageSync.V20190201
     public sealed class ServerEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Cloud Tiering.
+        /// </summary>
+        [Input("cloudTiering")]
+        public Input<string>? CloudTiering { get; set; }
+
+        /// <summary>
+        /// Friendly Name
+        /// </summary>
+        [Input("friendlyName")]
+        public Input<string>? FriendlyName { get; set; }
+
+        /// <summary>
         /// Name of Server Endpoint object.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The parameters used to create the server endpoint.
+        /// Offline data transfer
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ServerEndpointCreateParametersPropertiesArgs>? Properties { get; set; }
+        [Input("offlineDataTransfer")]
+        public Input<string>? OfflineDataTransfer { get; set; }
+
+        /// <summary>
+        /// Offline data transfer share name
+        /// </summary>
+        [Input("offlineDataTransferShareName")]
+        public Input<string>? OfflineDataTransferShareName { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Server Local path.
+        /// </summary>
+        [Input("serverLocalPath")]
+        public Input<string>? ServerLocalPath { get; set; }
+
+        /// <summary>
+        /// Server Resource Id.
+        /// </summary>
+        [Input("serverResourceId")]
+        public Input<string>? ServerResourceId { get; set; }
 
         /// <summary>
         /// Name of Storage Sync Service resource.
@@ -106,6 +136,18 @@ namespace Pulumi.AzureRM.StorageSync.V20190201
         /// </summary>
         [Input("syncGroupName", required: true)]
         public Input<string> SyncGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Tier files older than days.
+        /// </summary>
+        [Input("tierFilesOlderThanDays")]
+        public Input<int>? TierFilesOlderThanDays { get; set; }
+
+        /// <summary>
+        /// Level of free space to be maintained by Cloud Tiering if it is enabled.
+        /// </summary>
+        [Input("volumeFreeSpacePercent")]
+        public Input<int>? VolumeFreeSpacePercent { get; set; }
 
         public ServerEndpointArgs()
         {

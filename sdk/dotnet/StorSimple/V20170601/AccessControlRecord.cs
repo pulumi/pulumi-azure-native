@@ -84,6 +84,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class AccessControlRecordArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The iSCSI initiator name (IQN).
+        /// </summary>
+        [Input("initiatorName", required: true)]
+        public Input<string> InitiatorName { get; set; } = null!;
+
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Input("kind")]
@@ -100,12 +106,6 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of access control record.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AccessControlRecordPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

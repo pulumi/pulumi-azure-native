@@ -96,10 +96,10 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Chap properties
+        /// The chap password.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ChapPropertiesArgs> Properties { get; set; } = null!;
+        [Input("password", required: true)]
+        public Input<Inputs.AsymmetricEncryptedSecretArgs> Password { get; set; } = null!;
 
         /// <summary>
         /// The resource group name

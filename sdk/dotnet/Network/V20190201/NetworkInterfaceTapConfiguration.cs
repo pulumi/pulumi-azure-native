@@ -108,16 +108,16 @@ namespace Pulumi.AzureRM.Network.V20190201
         public Input<string> NetworkInterfaceName { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Virtual Network Tap configuration
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NetworkInterfaceTapConfigurationPropertiesFormatArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The reference of the Virtual Network Tap resource.
+        /// </summary>
+        [Input("virtualNetworkTap")]
+        public Input<Inputs.VirtualNetworkTapArgs>? VirtualNetworkTap { get; set; }
 
         public NetworkInterfaceTapConfigurationArgs()
         {

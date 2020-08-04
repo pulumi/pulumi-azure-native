@@ -22,16 +22,76 @@ namespace Pulumi.AzureRM.Network.V20190901.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// Include path in the redirected url.
+        /// </summary>
+        [Input("includePath")]
+        public Input<bool>? IncludePath { get; set; }
+
+        /// <summary>
+        /// Include query string in the redirected url.
+        /// </summary>
+        [Input("includeQueryString")]
+        public Input<bool>? IncludeQueryString { get; set; }
+
+        /// <summary>
         /// Name of the redirect configuration that is unique within an Application Gateway.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("pathRules")]
+        private InputList<Inputs.SubResourceArgs>? _pathRules;
+
         /// <summary>
-        /// Properties of the application gateway redirect configuration.
+        /// Path rules specifying redirect configuration.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayRedirectConfigurationPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.SubResourceArgs> PathRules
+        {
+            get => _pathRules ?? (_pathRules = new InputList<Inputs.SubResourceArgs>());
+            set => _pathRules = value;
+        }
+
+        /// <summary>
+        /// HTTP redirection type.
+        /// </summary>
+        [Input("redirectType")]
+        public Input<string>? RedirectType { get; set; }
+
+        [Input("requestRoutingRules")]
+        private InputList<Inputs.SubResourceArgs>? _requestRoutingRules;
+
+        /// <summary>
+        /// Request routing specifying redirect configuration.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> RequestRoutingRules
+        {
+            get => _requestRoutingRules ?? (_requestRoutingRules = new InputList<Inputs.SubResourceArgs>());
+            set => _requestRoutingRules = value;
+        }
+
+        /// <summary>
+        /// Reference to a listener to redirect the request to.
+        /// </summary>
+        [Input("targetListener")]
+        public Input<Inputs.SubResourceArgs>? TargetListener { get; set; }
+
+        /// <summary>
+        /// Url to redirect the request to.
+        /// </summary>
+        [Input("targetUrl")]
+        public Input<string>? TargetUrl { get; set; }
+
+        [Input("urlPathMaps")]
+        private InputList<Inputs.SubResourceArgs>? _urlPathMaps;
+
+        /// <summary>
+        /// Url path maps specifying default redirect configuration.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> UrlPathMaps
+        {
+            get => _urlPathMaps ?? (_urlPathMaps = new InputList<Inputs.SubResourceArgs>());
+            set => _urlPathMaps = value;
+        }
 
         public ApplicationGatewayRedirectConfigurationArgs()
         {

@@ -90,10 +90,10 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Policy.
+        /// Json escaped Xml Encoded contents of the Policy.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PolicyContractPropertiesArgs>? Properties { get; set; }
+        [Input("policyContent", required: true)]
+        public Input<string> PolicyContent { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

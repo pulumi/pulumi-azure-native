@@ -16,6 +16,24 @@ namespace Pulumi.AzureRM.Network.V20190601.Inputs
     public sealed class VirtualNetworkTapArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The reference to the private IP address on the internal Load Balancer that will receive the tap.
+        /// </summary>
+        [Input("destinationLoadBalancerFrontEndIPConfiguration")]
+        public Input<Inputs.FrontendIPConfigurationArgs>? DestinationLoadBalancerFrontEndIPConfiguration { get; set; }
+
+        /// <summary>
+        /// The reference to the private IP Address of the collector nic that will receive the tap.
+        /// </summary>
+        [Input("destinationNetworkInterfaceIPConfiguration")]
+        public Input<Inputs.NetworkInterfaceIPConfigurationArgs>? DestinationNetworkInterfaceIPConfiguration { get; set; }
+
+        /// <summary>
+        /// The VXLAN destination port that will receive the tapped traffic.
+        /// </summary>
+        [Input("destinationPort")]
+        public Input<int>? DestinationPort { get; set; }
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
@@ -32,12 +50,6 @@ namespace Pulumi.AzureRM.Network.V20190601.Inputs
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Virtual Network Tap Properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualNetworkTapPropertiesFormatArgs>? Properties { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

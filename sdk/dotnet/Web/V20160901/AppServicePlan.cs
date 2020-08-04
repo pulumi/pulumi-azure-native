@@ -102,6 +102,24 @@ namespace Pulumi.AzureRM.Web.V20160901
     public sealed class AppServicePlanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// App Service plan administration site.
+        /// </summary>
+        [Input("adminSiteName")]
+        public Input<string>? AdminSiteName { get; set; }
+
+        /// <summary>
+        /// Specification for the App Service Environment to use for the App Service plan.
+        /// </summary>
+        [Input("hostingEnvironmentProfile")]
+        public Input<Inputs.HostingEnvironmentProfileArgs>? HostingEnvironmentProfile { get; set; }
+
+        /// <summary>
+        /// If &lt;code&gt;true&lt;/code&gt;, this App Service Plan owns spot instances.
+        /// </summary>
+        [Input("isSpot")]
+        public Input<bool>? IsSpot { get; set; }
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
@@ -114,16 +132,23 @@ namespace Pulumi.AzureRM.Web.V20160901
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Name of the App Service plan.
+        /// Name for the App Service plan.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// AppServicePlan resource specific properties
+        /// If &lt;code&gt;true&lt;/code&gt;, apps assigned to this App Service plan can be scaled independently.
+        /// If &lt;code&gt;false&lt;/code&gt;, apps assigned to this App Service plan will scale to all instances of the plan.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AppServicePlanPropertiesArgs>? Properties { get; set; }
+        [Input("perSiteScaling")]
+        public Input<bool>? PerSiteScaling { get; set; }
+
+        /// <summary>
+        /// If Linux app service plan &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;false&lt;/code&gt; otherwise.
+        /// </summary>
+        [Input("reserved")]
+        public Input<bool>? Reserved { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
@@ -137,6 +162,12 @@ namespace Pulumi.AzureRM.Web.V20160901
         [Input("sku")]
         public Input<Inputs.SkuDescriptionArgs>? Sku { get; set; }
 
+        /// <summary>
+        /// The time when the server farm expires. Valid only if it is a spot server farm.
+        /// </summary>
+        [Input("spotExpirationTime")]
+        public Input<string>? SpotExpirationTime { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -148,6 +179,24 @@ namespace Pulumi.AzureRM.Web.V20160901
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Scaling worker count.
+        /// </summary>
+        [Input("targetWorkerCount")]
+        public Input<int>? TargetWorkerCount { get; set; }
+
+        /// <summary>
+        /// Scaling worker size ID.
+        /// </summary>
+        [Input("targetWorkerSizeId")]
+        public Input<int>? TargetWorkerSizeId { get; set; }
+
+        /// <summary>
+        /// Target worker tier assigned to the App Service plan.
+        /// </summary>
+        [Input("workerTierName")]
+        public Input<string>? WorkerTierName { get; set; }
 
         public AppServicePlanArgs()
         {

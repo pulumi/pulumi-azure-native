@@ -89,6 +89,18 @@ namespace Pulumi.AzureRM.Network.V20200401
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("labels")]
+        private InputList<string>? _labels;
+
+        /// <summary>
+        /// List of labels associated with this route table.
+        /// </summary>
+        public InputList<string> Labels
+        {
+            get => _labels ?? (_labels = new InputList<string>());
+            set => _labels = value;
+        }
+
         /// <summary>
         /// The name of the RouteTable.
         /// </summary>
@@ -96,16 +108,22 @@ namespace Pulumi.AzureRM.Network.V20200401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the RouteTable resource.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.HubRouteTablePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The resource group name of the VirtualHub.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("routes")]
+        private InputList<Inputs.HubRouteArgs>? _routes;
+
+        /// <summary>
+        /// List of all routes.
+        /// </summary>
+        public InputList<Inputs.HubRouteArgs> Routes
+        {
+            get => _routes ?? (_routes = new InputList<Inputs.HubRouteArgs>());
+            set => _routes = value;
+        }
 
         /// <summary>
         /// The name of the VirtualHub.

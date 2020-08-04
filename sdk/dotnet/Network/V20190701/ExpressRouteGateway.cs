@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.Network.V20190701
     public sealed class ExpressRouteGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration for auto scaling.
+        /// </summary>
+        [Input("autoScaleConfiguration")]
+        public Input<Inputs.ExpressRouteGatewayPropertiesPropertiesArgs>? AutoScaleConfiguration { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -114,10 +120,10 @@ namespace Pulumi.AzureRM.Network.V20190701
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the express route gateway.
+        /// The provisioning state of the express route gateway resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ExpressRouteGatewayPropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -136,6 +142,12 @@ namespace Pulumi.AzureRM.Network.V20190701
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The Virtual Hub where the ExpressRoute gateway is or will be deployed.
+        /// </summary>
+        [Input("virtualHub", required: true)]
+        public Input<Inputs.VirtualHubIdArgs> VirtualHub { get; set; } = null!;
 
         public ExpressRouteGatewayArgs()
         {

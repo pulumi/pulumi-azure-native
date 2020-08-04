@@ -89,11 +89,17 @@ namespace Pulumi.AzureRM.Storage.V20190401
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        [Input("metadata")]
+        private InputMap<string>? _metadata;
+
         /// <summary>
-        /// Properties of the file share.
+        /// A name-value pair to associate with the share as metadata.
         /// </summary>
-        [Input("fileShareProperties")]
-        public Input<Inputs.FileSharePropertiesArgs>? FileShareProperties { get; set; }
+        public InputMap<string> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<string>());
+            set => _metadata = value;
+        }
 
         /// <summary>
         /// The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
@@ -106,6 +112,12 @@ namespace Pulumi.AzureRM.Storage.V20190401
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
+        /// </summary>
+        [Input("shareQuota")]
+        public Input<int>? ShareQuota { get; set; }
 
         public FileShareArgs()
         {

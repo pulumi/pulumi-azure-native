@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.Media.V20200501
     public sealed class StreamingEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The access control definition of the StreamingEndpoint.
+        /// </summary>
+        [Input("accessControl")]
+        public Input<Inputs.StreamingEndpointAccessControlArgs>? AccessControl { get; set; }
+
+        /// <summary>
         /// The Media Services account name.
         /// </summary>
         [Input("accountName", required: true)]
@@ -102,10 +108,64 @@ namespace Pulumi.AzureRM.Media.V20200501
         public Input<bool>? AutoStart { get; set; }
 
         /// <summary>
+        /// The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+        /// </summary>
+        [Input("availabilitySetName")]
+        public Input<string>? AvailabilitySetName { get; set; }
+
+        /// <summary>
+        /// The CDN enabled flag.
+        /// </summary>
+        [Input("cdnEnabled")]
+        public Input<bool>? CdnEnabled { get; set; }
+
+        /// <summary>
+        /// The CDN profile name.
+        /// </summary>
+        [Input("cdnProfile")]
+        public Input<string>? CdnProfile { get; set; }
+
+        /// <summary>
+        /// The CDN provider name.
+        /// </summary>
+        [Input("cdnProvider")]
+        public Input<string>? CdnProvider { get; set; }
+
+        /// <summary>
+        /// The StreamingEndpoint access policies.
+        /// </summary>
+        [Input("crossSiteAccessPolicies")]
+        public Input<Inputs.CrossSiteAccessPoliciesArgs>? CrossSiteAccessPolicies { get; set; }
+
+        [Input("customHostNames")]
+        private InputList<string>? _customHostNames;
+
+        /// <summary>
+        /// The custom host names of the StreamingEndpoint
+        /// </summary>
+        public InputList<string> CustomHostNames
+        {
+            get => _customHostNames ?? (_customHostNames = new InputList<string>());
+            set => _customHostNames = value;
+        }
+
+        /// <summary>
+        /// The StreamingEndpoint description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// Max cache age
+        /// </summary>
+        [Input("maxCacheAge")]
+        public Input<int>? MaxCacheAge { get; set; }
 
         /// <summary>
         /// The name of the StreamingEndpoint.
@@ -114,16 +174,16 @@ namespace Pulumi.AzureRM.Media.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The StreamingEndpoint properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.StreamingEndpointPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The number of scale units.  Use the Scale operation to adjust this value.
+        /// </summary>
+        [Input("scaleUnits", required: true)]
+        public Input<int> ScaleUnits { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

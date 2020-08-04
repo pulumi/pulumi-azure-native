@@ -90,6 +90,30 @@ namespace Pulumi.AzureRM.Network.V20191101
     public sealed class ExperimentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The description of the details or intents of the Experiment
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The state of the Experiment
+        /// </summary>
+        [Input("enabledState")]
+        public Input<string>? EnabledState { get; set; }
+
+        /// <summary>
+        /// The endpoint A of an experiment
+        /// </summary>
+        [Input("endpointA")]
+        public Input<Inputs.EndpointArgs>? EndpointA { get; set; }
+
+        /// <summary>
+        /// The endpoint B of an experiment
+        /// </summary>
+        [Input("endpointB")]
+        public Input<Inputs.EndpointArgs>? EndpointB { get; set; }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
@@ -108,16 +132,16 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The properties of an Experiment
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ExperimentPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource status.
+        /// </summary>
+        [Input("resourceState")]
+        public Input<string>? ResourceState { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

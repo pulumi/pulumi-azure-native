@@ -92,6 +92,24 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
 
     public sealed class MachineArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Public Key that the client provides to be used during initial resource onboarding
+        /// </summary>
+        [Input("clientPublicKey")]
+        public Input<string>? ClientPublicKey { get; set; }
+
+        [Input("extensions")]
+        private InputList<Inputs.MachineExtensionInstanceViewArgs>? _extensions;
+
+        /// <summary>
+        /// Machine Extensions information
+        /// </summary>
+        public InputList<Inputs.MachineExtensionInstanceViewArgs> Extensions
+        {
+            get => _extensions ?? (_extensions = new InputList<Inputs.MachineExtensionInstanceViewArgs>());
+            set => _extensions = value;
+        }
+
         [Input("identity")]
         private InputMap<object>? _identity;
         public InputMap<object> Identity
@@ -107,21 +125,27 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to the geographic location of the resource.
+        /// </summary>
+        [Input("locationData")]
+        public Input<Inputs.LocationDataArgs>? LocationData { get; set; }
+
+        /// <summary>
         /// The name of the hybrid machine.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        private InputMap<object>? _properties;
+        [Input("osProfile")]
+        private InputMap<object>? _osProfile;
 
         /// <summary>
-        /// Hybrid Compute Machine properties
+        /// Specifies the operating system settings for the hybrid machine.
         /// </summary>
-        public InputMap<object> Properties
+        public InputMap<object> OsProfile
         {
-            get => _properties ?? (_properties = new InputMap<object>());
-            set => _properties = value;
+            get => _osProfile ?? (_osProfile = new InputMap<object>());
+            set => _osProfile = value;
         }
 
         /// <summary>
@@ -141,6 +165,12 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies the hybrid machine unique ID.
+        /// </summary>
+        [Input("vmId")]
+        public Input<string>? VmId { get; set; }
 
         public MachineArgs()
         {

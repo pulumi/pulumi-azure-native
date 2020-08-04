@@ -96,10 +96,22 @@ namespace Pulumi.AzureRM.Network.V20181001
     public sealed class InterfaceEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A reference to the service being brought into the virtual network.
+        /// </summary>
+        [Input("endpointService")]
+        public Input<Inputs.EndpointServiceArgs>? EndpointService { get; set; }
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
+        /// </summary>
+        [Input("fqdn")]
+        public Input<string>? Fqdn { get; set; }
 
         /// <summary>
         /// Resource ID.
@@ -120,16 +132,16 @@ namespace Pulumi.AzureRM.Network.V20181001
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the interface endpoint.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.InterfaceEndpointPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The ID of the subnet from which the private IP will be allocated.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.SubnetArgs>? Subnet { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

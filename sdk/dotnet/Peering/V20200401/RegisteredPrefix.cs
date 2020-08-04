@@ -90,10 +90,10 @@ namespace Pulumi.AzureRM.Peering.V20200401
         public Input<string> PeeringName { get; set; } = null!;
 
         /// <summary>
-        /// The properties that define a registered prefix.
+        /// The customer's prefix from which traffic originates.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PeeringRegisteredPrefixPropertiesArgs>? Properties { get; set; }
+        [Input("prefix")]
+        public Input<string>? Prefix { get; set; }
 
         /// <summary>
         /// The name of the resource group.

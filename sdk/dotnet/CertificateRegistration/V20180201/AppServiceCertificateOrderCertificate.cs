@@ -102,6 +102,18 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20180201
         public Input<string> CertificateOrderName { get; set; } = null!;
 
         /// <summary>
+        /// Key Vault resource Id.
+        /// </summary>
+        [Input("keyVaultId")]
+        public Input<string>? KeyVaultId { get; set; }
+
+        /// <summary>
+        /// Key Vault secret name.
+        /// </summary>
+        [Input("keyVaultSecretName")]
+        public Input<string>? KeyVaultSecretName { get; set; }
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
@@ -118,12 +130,6 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20180201
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Core resource properties
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AppServiceCertificateArgs>? Properties { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

@@ -102,16 +102,28 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the firewall policy rule collection group.
+        /// Priority of the Firewall Policy Rule Collection Group resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.FirewallPolicyRuleCollectionGroupPropertiesArgs>? Properties { get; set; }
+        [Input("priority")]
+        public Input<int>? Priority { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("ruleCollections")]
+        private InputList<Inputs.FirewallPolicyRuleCollectionArgs>? _ruleCollections;
+
+        /// <summary>
+        /// Group of Firewall Policy rule collections.
+        /// </summary>
+        public InputList<Inputs.FirewallPolicyRuleCollectionArgs> RuleCollections
+        {
+            get => _ruleCollections ?? (_ruleCollections = new InputList<Inputs.FirewallPolicyRuleCollectionArgs>());
+            set => _ruleCollections = value;
+        }
 
         public FirewallPolicyRuleCollectionGroupArgs()
         {

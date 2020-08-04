@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public sealed class ManagerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies if the Manager is Garda or Helsinki
+        /// </summary>
+        [Input("cisIntrinsicSettings")]
+        public Input<Inputs.ManagerIntrinsicSettingsArgs>? CisIntrinsicSettings { get; set; }
+
+        /// <summary>
         /// ETag of the Manager
         /// </summary>
         [Input("etag")]
@@ -114,16 +120,16 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// List of properties of the Manager
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ManagerPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the Sku
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.ManagerSkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

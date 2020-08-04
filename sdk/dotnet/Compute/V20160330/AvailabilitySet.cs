@@ -102,10 +102,16 @@ namespace Pulumi.AzureRM.Compute.V20160330
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The instance view of a resource.
+        /// Fault Domain count.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AvailabilitySetPropertiesArgs>? Properties { get; set; }
+        [Input("platformFaultDomainCount")]
+        public Input<int>? PlatformFaultDomainCount { get; set; }
+
+        /// <summary>
+        /// Update Domain count.
+        /// </summary>
+        [Input("platformUpdateDomainCount")]
+        public Input<int>? PlatformUpdateDomainCount { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -123,6 +129,18 @@ namespace Pulumi.AzureRM.Compute.V20160330
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("virtualMachines")]
+        private InputList<Inputs.SubResourceArgs>? _virtualMachines;
+
+        /// <summary>
+        /// A list of references to all virtual machines in the availability set.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> VirtualMachines
+        {
+            get => _virtualMachines ?? (_virtualMachines = new InputList<Inputs.SubResourceArgs>());
+            set => _virtualMachines = value;
         }
 
         public AvailabilitySetArgs()

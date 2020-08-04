@@ -74,6 +74,18 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
 
     public sealed class PrivateEndpointConnectionArgs : Pulumi.ResourceArgs
     {
+        [Input("groupIds")]
+        private InputList<string>? _groupIds;
+
+        /// <summary>
+        /// GroupIds from the private link service resource.
+        /// </summary>
+        public InputList<string> GroupIds
+        {
+            get => _groupIds ?? (_groupIds = new InputList<string>());
+            set => _groupIds = value;
+        }
+
         /// <summary>
         /// The name of the private endpoint connection connection.
         /// </summary>
@@ -93,10 +105,22 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         public Input<string> ParentType { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the PrivateEndpointConnection.
+        /// The Private Endpoint resource for this Connection.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("privateEndpoint")]
+        public Input<Inputs.PrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        /// <summary>
+        /// Details about the state of the connection.
+        /// </summary>
+        [Input("privateLinkServiceConnectionState")]
+        public Input<Inputs.ConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
+
+        /// <summary>
+        /// Provisioning state of the Private Endpoint Connection.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

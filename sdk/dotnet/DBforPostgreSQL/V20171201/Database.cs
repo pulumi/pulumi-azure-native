@@ -78,16 +78,22 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
     public sealed class DatabaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The charset of the database.
+        /// </summary>
+        [Input("charset")]
+        public Input<string>? Charset { get; set; }
+
+        /// <summary>
+        /// The collation of the database.
+        /// </summary>
+        [Input("collation")]
+        public Input<string>? Collation { get; set; }
+
+        /// <summary>
         /// The name of the database.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of a database.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DatabasePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

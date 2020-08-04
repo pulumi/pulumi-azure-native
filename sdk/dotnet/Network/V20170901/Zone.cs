@@ -114,12 +114,6 @@ namespace Pulumi.AzureRM.Network.V20170901
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the zone.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ZonePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]

@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class UserArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The identity of the user.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.UserIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
@@ -108,16 +114,16 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.UserPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The secret store of the user.
+        /// </summary>
+        [Input("secretStore")]
+        public Input<Inputs.UserSecretStoreArgs>? SecretStore { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

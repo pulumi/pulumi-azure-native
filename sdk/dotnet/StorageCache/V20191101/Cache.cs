@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
     public sealed class CacheArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The size of this Cache, in GB.
+        /// </summary>
+        [Input("cacheSizeGB")]
+        public Input<int>? CacheSizeGB { get; set; }
+
+        /// <summary>
         /// Region name string.
         /// </summary>
         [Input("location")]
@@ -108,10 +114,10 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Cache.
+        /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.CachePropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Target resource group.
@@ -125,6 +131,12 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
         [Input("sku")]
         public Input<Inputs.CachePropertiesArgs>? Sku { get; set; }
 
+        /// <summary>
+        /// Subnet used for the Cache.
+        /// </summary>
+        [Input("subnet")]
+        public Input<string>? Subnet { get; set; }
+
         [Input("tags")]
         private InputMap<object>? _tags;
 
@@ -136,6 +148,12 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
             get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Upgrade status of the Cache.
+        /// </summary>
+        [Input("upgradeStatus")]
+        public Input<Inputs.CacheUpgradeStatusArgs>? UpgradeStatus { get; set; }
 
         public CacheArgs()
         {

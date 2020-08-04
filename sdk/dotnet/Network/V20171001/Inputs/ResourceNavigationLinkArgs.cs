@@ -22,16 +22,22 @@ namespace Pulumi.AzureRM.Network.V20171001.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// Link to the external resource
+        /// </summary>
+        [Input("link")]
+        public Input<string>? Link { get; set; }
+
+        /// <summary>
+        /// Resource type of the linked resource.
+        /// </summary>
+        [Input("linkedResourceType")]
+        public Input<string>? LinkedResourceType { get; set; }
+
+        /// <summary>
         /// Name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Resource navigation link properties format.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ResourceNavigationLinkFormatArgs>? Properties { get; set; }
 
         public ResourceNavigationLinkArgs()
         {

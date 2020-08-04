@@ -113,6 +113,18 @@ namespace Pulumi.AzureRM.Network.V20190901
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("ipTags")]
+        private InputList<Inputs.IpTagArgs>? _ipTags;
+
+        /// <summary>
+        /// The list of tags associated with the public IP prefix.
+        /// </summary>
+        public InputList<Inputs.IpTagArgs> IpTags
+        {
+            get => _ipTags ?? (_ipTags = new InputList<Inputs.IpTagArgs>());
+            set => _ipTags = value;
+        }
+
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -126,10 +138,16 @@ namespace Pulumi.AzureRM.Network.V20190901
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Public IP prefix properties.
+        /// The Length of the Public IP Prefix.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PublicIPPrefixPropertiesFormatArgs>? Properties { get; set; }
+        [Input("prefixLength")]
+        public Input<int>? PrefixLength { get; set; }
+
+        /// <summary>
+        /// The public IP address version.
+        /// </summary>
+        [Input("publicIPAddressVersion")]
+        public Input<string>? PublicIPAddressVersion { get; set; }
 
         /// <summary>
         /// The name of the resource group.

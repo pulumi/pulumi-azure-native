@@ -96,12 +96,6 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Customer subscription properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.CustomerSubscriptionPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the Azure Stack registration.
         /// </summary>
         [Input("registrationName", required: true)]
@@ -112,6 +106,12 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
         /// </summary>
         [Input("resourceGroup", required: true)]
         public Input<string> ResourceGroup { get; set; } = null!;
+
+        /// <summary>
+        /// Tenant Id.
+        /// </summary>
+        [Input("tenantId")]
+        public Input<string>? TenantId { get; set; }
 
         public CustomerSubscriptionArgs()
         {

@@ -78,6 +78,12 @@ namespace Pulumi.AzureRM.Network.V20200401
     public sealed class ServiceEndpointPolicyDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A description for this rule. Restricted to 140 chars.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -90,22 +96,34 @@ namespace Pulumi.AzureRM.Network.V20200401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the service endpoint policy definition.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ServiceEndpointPolicyDefinitionPropertiesFormatArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Service endpoint name.
+        /// </summary>
+        [Input("service")]
+        public Input<string>? Service { get; set; }
+
+        /// <summary>
         /// The name of the service endpoint policy.
         /// </summary>
         [Input("serviceEndpointPolicyName", required: true)]
         public Input<string> ServiceEndpointPolicyName { get; set; } = null!;
+
+        [Input("serviceResources")]
+        private InputList<string>? _serviceResources;
+
+        /// <summary>
+        /// A list of service resources.
+        /// </summary>
+        public InputList<string> ServiceResources
+        {
+            get => _serviceResources ?? (_serviceResources = new InputList<string>());
+            set => _serviceResources = value;
+        }
 
         public ServiceEndpointPolicyDefinitionArgs()
         {

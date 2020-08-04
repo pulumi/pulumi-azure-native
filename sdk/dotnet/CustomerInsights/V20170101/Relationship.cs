@@ -78,10 +78,70 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public sealed class RelationshipArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Relationship Cardinality.
+        /// </summary>
+        [Input("cardinality")]
+        public Input<string>? Cardinality { get; set; }
+
+        [Input("description")]
+        private InputMap<string>? _description;
+
+        /// <summary>
+        /// Localized descriptions for the Relationship.
+        /// </summary>
+        public InputMap<string> Description
+        {
+            get => _description ?? (_description = new InputMap<string>());
+            set => _description = value;
+        }
+
+        [Input("displayName")]
+        private InputMap<string>? _displayName;
+
+        /// <summary>
+        /// Localized display name for the Relationship.
+        /// </summary>
+        public InputMap<string> DisplayName
+        {
+            get => _displayName ?? (_displayName = new InputMap<string>());
+            set => _displayName = value;
+        }
+
+        /// <summary>
+        /// The expiry date time in UTC.
+        /// </summary>
+        [Input("expiryDateTimeUtc")]
+        public Input<string>? ExpiryDateTimeUtc { get; set; }
+
+        [Input("fields")]
+        private InputList<Inputs.PropertyDefinitionArgs>? _fields;
+
+        /// <summary>
+        /// The properties of the Relationship.
+        /// </summary>
+        public InputList<Inputs.PropertyDefinitionArgs> Fields
+        {
+            get => _fields ?? (_fields = new InputList<Inputs.PropertyDefinitionArgs>());
+            set => _fields = value;
+        }
+
+        /// <summary>
         /// The name of the hub.
         /// </summary>
         [Input("hubName", required: true)]
         public Input<string> HubName { get; set; } = null!;
+
+        [Input("lookupMappings")]
+        private InputList<Inputs.RelationshipTypeMappingArgs>? _lookupMappings;
+
+        /// <summary>
+        /// Optional property to be used to map fields in profile to their strong ids in related profile.
+        /// </summary>
+        public InputList<Inputs.RelationshipTypeMappingArgs> LookupMappings
+        {
+            get => _lookupMappings ?? (_lookupMappings = new InputList<Inputs.RelationshipTypeMappingArgs>());
+            set => _lookupMappings = value;
+        }
 
         /// <summary>
         /// The name of the Relationship.
@@ -90,10 +150,16 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The definition of Relationship.
+        /// Profile type.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RelationshipDefinitionArgs>? Properties { get; set; }
+        [Input("profileType", required: true)]
+        public Input<string> ProfileType { get; set; } = null!;
+
+        /// <summary>
+        /// Related profile being referenced.
+        /// </summary>
+        [Input("relatedProfileType", required: true)]
+        public Input<string> RelatedProfileType { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

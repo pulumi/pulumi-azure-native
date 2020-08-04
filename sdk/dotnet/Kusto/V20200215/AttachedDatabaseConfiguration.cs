@@ -90,6 +90,24 @@ namespace Pulumi.AzureRM.Kusto.V20200215
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
+        /// The resource id of the cluster where the databases you would like to attach reside.
+        /// </summary>
+        [Input("clusterResourceId", required: true)]
+        public Input<string> ClusterResourceId { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+        /// </summary>
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The default principals modification kind
+        /// </summary>
+        [Input("defaultPrincipalsModificationKind", required: true)]
+        public Input<string> DefaultPrincipalsModificationKind { get; set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
@@ -100,12 +118,6 @@ namespace Pulumi.AzureRM.Kusto.V20200215
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of the attached database configuration.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AttachedDatabaseConfigurationPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group containing the Kusto cluster.

@@ -84,6 +84,24 @@ namespace Pulumi.AzureRM.Network.V20180201
     public sealed class RouteFilterRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The access type of the rule. Valid values are: 'Allow', 'Deny'
+        /// </summary>
+        [Input("access", required: true)]
+        public Input<string> Access { get; set; } = null!;
+
+        [Input("communities", required: true)]
+        private InputList<string>? _communities;
+
+        /// <summary>
+        /// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+        /// </summary>
+        public InputList<string> Communities
+        {
+            get => _communities ?? (_communities = new InputList<string>());
+            set => _communities = value;
+        }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -102,12 +120,6 @@ namespace Pulumi.AzureRM.Network.V20180201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Route Filter Rule Resource
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RouteFilterRulePropertiesFormatArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -118,6 +130,12 @@ namespace Pulumi.AzureRM.Network.V20180201
         /// </summary>
         [Input("routeFilterName", required: true)]
         public Input<string> RouteFilterName { get; set; } = null!;
+
+        /// <summary>
+        /// The rule type of the rule. Valid value is: 'Community'
+        /// </summary>
+        [Input("routeFilterRuleType", required: true)]
+        public Input<string> RouteFilterRuleType { get; set; } = null!;
 
         public RouteFilterRuleArgs()
         {

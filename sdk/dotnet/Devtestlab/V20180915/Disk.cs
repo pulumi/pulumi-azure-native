@@ -90,10 +90,46 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class DiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// When backed by a blob, the name of the VHD blob without extension.
+        /// </summary>
+        [Input("diskBlobName")]
+        public Input<string>? DiskBlobName { get; set; }
+
+        /// <summary>
+        /// The size of the disk in GibiBytes.
+        /// </summary>
+        [Input("diskSizeGiB")]
+        public Input<int>? DiskSizeGiB { get; set; }
+
+        /// <summary>
+        /// The storage type for the disk (i.e. Standard, Premium).
+        /// </summary>
+        [Input("diskType")]
+        public Input<string>? DiskType { get; set; }
+
+        /// <summary>
+        /// When backed by a blob, the URI of underlying blob.
+        /// </summary>
+        [Input("diskUri")]
+        public Input<string>? DiskUri { get; set; }
+
+        /// <summary>
+        /// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+        /// </summary>
+        [Input("hostCaching")]
+        public Input<string>? HostCaching { get; set; }
+
+        /// <summary>
         /// The name of the lab.
         /// </summary>
         [Input("labName", required: true)]
         public Input<string> LabName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource ID of the VM to which this disk is leased.
+        /// </summary>
+        [Input("leasedByLabVmId")]
+        public Input<string>? LeasedByLabVmId { get; set; }
 
         /// <summary>
         /// The location of the resource.
@@ -102,16 +138,16 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// When backed by managed disk, this is the ID of the compute disk resource.
+        /// </summary>
+        [Input("managedDiskId")]
+        public Input<string>? ManagedDiskId { get; set; }
+
+        /// <summary>
         /// The name of the disk.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of the resource.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DiskPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

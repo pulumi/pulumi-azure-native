@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.Logic.V20160601
     public sealed class SessionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The session content.
+        /// </summary>
+        [Input("content")]
+        public Input<Inputs.ObjectArgs>? Content { get; set; }
+
+        /// <summary>
         /// The integration account name.
         /// </summary>
         [Input("integrationAccountName", required: true)]
@@ -106,12 +112,6 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The integration account session properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.IntegrationAccountSessionPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

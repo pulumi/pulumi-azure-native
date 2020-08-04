@@ -90,12 +90,6 @@ namespace Pulumi.AzureRM.Relay.V20170401
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Authorization rule properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.AuthorizationRulePropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The relay name.
         /// </summary>
         [Input("relayName", required: true)]
@@ -106,6 +100,18 @@ namespace Pulumi.AzureRM.Relay.V20170401
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("rights", required: true)]
+        private InputList<string>? _rights;
+
+        /// <summary>
+        /// The rights associated with the rule.
+        /// </summary>
+        public InputList<string> Rights
+        {
+            get => _rights ?? (_rights = new InputList<string>());
+            set => _rights = value;
+        }
 
         public WCFRelayAuthorizationRuleArgs()
         {

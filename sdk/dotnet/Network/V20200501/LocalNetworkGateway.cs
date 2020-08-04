@@ -96,10 +96,34 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class LocalNetworkGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Local network gateway's BGP speaker settings.
+        /// </summary>
+        [Input("bgpSettings")]
+        public Input<Inputs.BgpSettingsArgs>? BgpSettings { get; set; }
+
+        /// <summary>
+        /// FQDN of local network gateway.
+        /// </summary>
+        [Input("fqdn")]
+        public Input<string>? Fqdn { get; set; }
+
+        /// <summary>
+        /// IP address of local network gateway.
+        /// </summary>
+        [Input("gatewayIpAddress")]
+        public Input<string>? GatewayIpAddress { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Local network site address space.
+        /// </summary>
+        [Input("localNetworkAddressSpace")]
+        public Input<Inputs.AddressSpaceArgs>? LocalNetworkAddressSpace { get; set; }
 
         /// <summary>
         /// Resource location.
@@ -112,12 +136,6 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the local network gateway.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.LocalNetworkGatewayPropertiesFormatArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

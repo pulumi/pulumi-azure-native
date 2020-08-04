@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20191201.Inputs
     public sealed class ApplicationGatewayAuthenticationCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Certificate public data.
+        /// </summary>
+        [Input("data")]
+        public Input<string>? Data { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -26,12 +32,6 @@ namespace Pulumi.AzureRM.Network.V20191201.Inputs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Properties of the application gateway authentication certificate.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayAuthenticationCertificatePropertiesFormatArgs>? Properties { get; set; }
 
         public ApplicationGatewayAuthenticationCertificateArgs()
         {

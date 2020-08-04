@@ -93,10 +93,58 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Raw bytes of .cer file
+        /// </summary>
+        [Input("cerBlob")]
+        public Input<string>? CerBlob { get; set; }
+
+        /// <summary>
+        /// Certificate expiration date
+        /// </summary>
+        [Input("expirationDate")]
+        public Input<string>? ExpirationDate { get; set; }
+
+        /// <summary>
+        /// Friendly name of the certificate
+        /// </summary>
+        [Input("friendlyName")]
+        public Input<string>? FriendlyName { get; set; }
+
+        [Input("hostNames")]
+        private InputList<string>? _hostNames;
+
+        /// <summary>
+        /// Host names the certificate applies to
+        /// </summary>
+        public InputList<string> HostNames
+        {
+            get => _hostNames ?? (_hostNames = new InputList<string>());
+            set => _hostNames = value;
+        }
+
+        /// <summary>
+        /// Specification for the hosting environment (App Service Environment) to use for the certificate
+        /// </summary>
+        [Input("hostingEnvironmentProfile")]
+        public Input<Inputs.HostingEnvironmentProfileArgs>? HostingEnvironmentProfile { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Certificate issue Date
+        /// </summary>
+        [Input("issueDate")]
+        public Input<string>? IssueDate { get; set; }
+
+        /// <summary>
+        /// Certificate issuer
+        /// </summary>
+        [Input("issuer")]
+        public Input<string>? Issuer { get; set; }
 
         /// <summary>
         /// Kind of resource
@@ -116,14 +164,47 @@ namespace Pulumi.AzureRM.Web.V20150801
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.CertificatePropertiesArgs>? Properties { get; set; }
+        /// <summary>
+        /// Certificate password
+        /// </summary>
+        [Input("password")]
+        public Input<string>? Password { get; set; }
+
+        /// <summary>
+        /// Pfx blob
+        /// </summary>
+        [Input("pfxBlob")]
+        public Input<string>? PfxBlob { get; set; }
+
+        /// <summary>
+        /// Public key hash
+        /// </summary>
+        [Input("publicKeyHash")]
+        public Input<string>? PublicKeyHash { get; set; }
 
         /// <summary>
         /// Name of the resource group
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Self link
+        /// </summary>
+        [Input("selfLink")]
+        public Input<string>? SelfLink { get; set; }
+
+        /// <summary>
+        /// App name
+        /// </summary>
+        [Input("siteName")]
+        public Input<string>? SiteName { get; set; }
+
+        /// <summary>
+        /// Subject name of the certificate
+        /// </summary>
+        [Input("subjectName")]
+        public Input<string>? SubjectName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -138,10 +219,22 @@ namespace Pulumi.AzureRM.Web.V20150801
         }
 
         /// <summary>
+        /// Certificate thumbprint
+        /// </summary>
+        [Input("thumbprint")]
+        public Input<string>? Thumbprint { get; set; }
+
+        /// <summary>
         /// Resource type
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Is the certificate valid?
+        /// </summary>
+        [Input("valid")]
+        public Input<bool>? Valid { get; set; }
 
         public CertificateArgs()
         {

@@ -102,12 +102,6 @@ namespace Pulumi.AzureRM.MixedReality.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Property bag.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.MixedRealityAccountPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of an Azure resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]

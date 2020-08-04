@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.Network.V20190201
     public sealed class P2sVpnGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The reference of the address space resource which represents the custom routes specified by the customer for P2SVpnGateway and P2S VpnClient.
+        /// </summary>
+        [Input("customRoutes")]
+        public Input<Inputs.AddressSpaceArgs>? CustomRoutes { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -114,10 +120,16 @@ namespace Pulumi.AzureRM.Network.V20190201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the P2SVpnGateway.
+        /// The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.P2SVpnGatewayPropertiesArgs>? Properties { get; set; }
+        [Input("p2SVpnServerConfiguration")]
+        public Input<Inputs.SubResourceArgs>? P2SVpnServerConfiguration { get; set; }
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The resource group name of the P2SVpnGateway.
@@ -136,6 +148,24 @@ namespace Pulumi.AzureRM.Network.V20190201
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The VirtualHub to which the gateway belongs
+        /// </summary>
+        [Input("virtualHub")]
+        public Input<Inputs.SubResourceArgs>? VirtualHub { get; set; }
+
+        /// <summary>
+        /// The reference of the address space resource which represents Address space for P2S VpnClient.
+        /// </summary>
+        [Input("vpnClientAddressPool")]
+        public Input<Inputs.AddressSpaceArgs>? VpnClientAddressPool { get; set; }
+
+        /// <summary>
+        /// The scale unit for this p2s vpn gateway.
+        /// </summary>
+        [Input("vpnGatewayScaleUnit")]
+        public Input<int>? VpnGatewayScaleUnit { get; set; }
 
         public P2sVpnGatewayArgs()
         {

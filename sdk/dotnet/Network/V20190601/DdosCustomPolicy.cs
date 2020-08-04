@@ -113,11 +113,17 @@ namespace Pulumi.AzureRM.Network.V20190601
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("protocolCustomSettings")]
+        private InputList<Inputs.ProtocolCustomSettingsFormatArgs>? _protocolCustomSettings;
+
         /// <summary>
-        /// Properties of the DDoS custom policy.
+        /// The protocol-specific DDoS policy customization parameters.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DdosCustomPolicyPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.ProtocolCustomSettingsFormatArgs> ProtocolCustomSettings
+        {
+            get => _protocolCustomSettings ?? (_protocolCustomSettings = new InputList<Inputs.ProtocolCustomSettingsFormatArgs>());
+            set => _protocolCustomSettings = value;
+        }
 
         /// <summary>
         /// The name of the resource group.

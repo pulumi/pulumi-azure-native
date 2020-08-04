@@ -90,6 +90,30 @@ namespace Pulumi.AzureRM.Solutions.V20190701
     public sealed class JitRequestArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The parent application id.
+        /// </summary>
+        [Input("applicationResourceId", required: true)]
+        public Input<string> ApplicationResourceId { get; set; } = null!;
+
+        [Input("jitAuthorizationPolicies", required: true)]
+        private InputList<Inputs.JitAuthorizationPoliciesArgs>? _jitAuthorizationPolicies;
+
+        /// <summary>
+        /// The JIT authorization policies.
+        /// </summary>
+        public InputList<Inputs.JitAuthorizationPoliciesArgs> JitAuthorizationPolicies
+        {
+            get => _jitAuthorizationPolicies ?? (_jitAuthorizationPolicies = new InputList<Inputs.JitAuthorizationPoliciesArgs>());
+            set => _jitAuthorizationPolicies = value;
+        }
+
+        /// <summary>
+        /// The JIT request properties.
+        /// </summary>
+        [Input("jitSchedulingPolicy", required: true)]
+        public Input<Inputs.JitSchedulingPolicyArgs> JitSchedulingPolicy { get; set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
@@ -100,12 +124,6 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The JIT request properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.JitRequestPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

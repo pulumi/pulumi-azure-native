@@ -96,6 +96,24 @@ namespace Pulumi.AzureRM.DataBox.V20190901
     public sealed class JobArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Delivery Info of Job.
+        /// </summary>
+        [Input("deliveryInfo")]
+        public Input<Inputs.JobDeliveryInfoArgs>? DeliveryInfo { get; set; }
+
+        /// <summary>
+        /// Delivery type of Job.
+        /// </summary>
+        [Input("deliveryType")]
+        public Input<string>? DeliveryType { get; set; }
+
+        /// <summary>
+        /// Details of a job run. This field will only be sent for expand details filter.
+        /// </summary>
+        [Input("details")]
+        public Input<Inputs.JobDetailsArgs>? Details { get; set; }
+
+        /// <summary>
         /// The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
         /// </summary>
         [Input("location", required: true)]
@@ -106,12 +124,6 @@ namespace Pulumi.AzureRM.DataBox.V20190901
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of a job.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.JobPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The Resource Group Name

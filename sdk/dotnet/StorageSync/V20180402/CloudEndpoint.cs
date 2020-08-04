@@ -90,16 +90,28 @@ namespace Pulumi.AzureRM.StorageSync.V20180402
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The parameters used to create the storage sync service.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.CloudEndpointCreateParametersPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Storage Account Resource Id
+        /// </summary>
+        [Input("storageAccountResourceId")]
+        public Input<string>? StorageAccountResourceId { get; set; }
+
+        /// <summary>
+        /// Storage Account Share name
+        /// </summary>
+        [Input("storageAccountShareName")]
+        public Input<string>? StorageAccountShareName { get; set; }
+
+        /// <summary>
+        /// Storage Account Tenant Id
+        /// </summary>
+        [Input("storageAccountTenantId")]
+        public Input<string>? StorageAccountTenantId { get; set; }
 
         /// <summary>
         /// Name of Storage Sync Service resource.

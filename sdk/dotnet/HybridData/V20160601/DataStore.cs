@@ -77,11 +77,41 @@ namespace Pulumi.AzureRM.HybridData.V20160601
 
     public sealed class DataStoreArgs : Pulumi.ResourceArgs
     {
+        [Input("customerSecrets")]
+        private InputList<Inputs.CustomerSecretArgs>? _customerSecrets;
+
+        /// <summary>
+        /// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        /// </summary>
+        public InputList<Inputs.CustomerSecretArgs> CustomerSecrets
+        {
+            get => _customerSecrets ?? (_customerSecrets = new InputList<Inputs.CustomerSecretArgs>());
+            set => _customerSecrets = value;
+        }
+
         /// <summary>
         /// The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         /// </summary>
         [Input("dataManagerName", required: true)]
         public Input<string> DataManagerName { get; set; } = null!;
+
+        /// <summary>
+        /// The arm id of the data store type.
+        /// </summary>
+        [Input("dataStoreTypeId", required: true)]
+        public Input<string> DataStoreTypeId { get; set; } = null!;
+
+        [Input("extendedProperties")]
+        private InputMap<object>? _extendedProperties;
+
+        /// <summary>
+        /// A generic json used differently by each data source type.
+        /// </summary>
+        public InputMap<object> ExtendedProperties
+        {
+            get => _extendedProperties ?? (_extendedProperties = new InputMap<object>());
+            set => _extendedProperties = value;
+        }
 
         /// <summary>
         /// The data store/repository name to be created or updated.
@@ -90,16 +120,22 @@ namespace Pulumi.AzureRM.HybridData.V20160601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// DataStore properties.
+        /// Arm Id for the manager resource to which the data source is associated. This is optional.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.DataStorePropertiesArgs> Properties { get; set; } = null!;
+        [Input("repositoryId")]
+        public Input<string>? RepositoryId { get; set; }
 
         /// <summary>
         /// The Resource Group Name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// State of the data source.
+        /// </summary>
+        [Input("state", required: true)]
+        public Input<string> State { get; set; } = null!;
 
         public DataStoreArgs()
         {

@@ -90,6 +90,24 @@ namespace Pulumi.AzureRM.Compute.V20190301
     public sealed class GalleryApplicationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The description of this gallery Application Definition resource. This property is updatable.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+        /// </summary>
+        [Input("endOfLifeDate")]
+        public Input<string>? EndOfLifeDate { get; set; }
+
+        /// <summary>
+        /// The Eula agreement for the gallery Application Definition.
+        /// </summary>
+        [Input("eula")]
+        public Input<string>? Eula { get; set; }
+
+        /// <summary>
         /// The name of the Shared Application Gallery in which the Application Definition is to be created.
         /// </summary>
         [Input("galleryName", required: true)]
@@ -108,16 +126,28 @@ namespace Pulumi.AzureRM.Compute.V20190301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Describes the properties of a gallery Application Definition.
+        /// The privacy statement uri.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.GalleryApplicationPropertiesArgs>? Properties { get; set; }
+        [Input("privacyStatementUri")]
+        public Input<string>? PrivacyStatementUri { get; set; }
+
+        /// <summary>
+        /// The release note uri.
+        /// </summary>
+        [Input("releaseNoteUri")]
+        public Input<string>? ReleaseNoteUri { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// This property allows you to specify the supported type of the OS that application is built for. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
+        /// </summary>
+        [Input("supportedOSType", required: true)]
+        public Input<string> SupportedOSType { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -78,10 +78,22 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class SubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Determines whether tracing can be enabled
+        /// </summary>
+        [Input("allowTracing")]
+        public Input<bool>? AllowTracing { get; set; }
+
+        /// <summary>
         /// Determines the type of application which send the create user request. Default is legacy publisher portal.
         /// </summary>
         [Input("appType")]
         public Input<string>? AppType { get; set; }
+
+        /// <summary>
+        /// Subscription name.
+        /// </summary>
+        [Input("displayName", required: true)]
+        public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
         /// Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
@@ -98,10 +110,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<bool>? Notify { get; set; }
 
         /// <summary>
-        /// Subscription contract properties.
+        /// User (user id path) for whom subscription is being created in form /users/{userId}
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SubscriptionCreateParameterPropertiesArgs>? Properties { get; set; }
+        [Input("ownerId")]
+        public Input<string>? OwnerId { get; set; }
+
+        /// <summary>
+        /// Primary subscription key. If not specified during request key will be generated automatically.
+        /// </summary>
+        [Input("primaryKey")]
+        public Input<string>? PrimaryKey { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -110,10 +128,28 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Scope like /products/{productId} or /apis or /apis/{apiId}.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        /// <summary>
+        /// Secondary subscription key. If not specified during request key will be generated automatically.
+        /// </summary>
+        [Input("secondaryKey")]
+        public Input<string>? SecondaryKey { get; set; }
+
+        /// <summary>
         /// The name of the API Management service.
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         public SubscriptionArgs()
         {

@@ -96,16 +96,16 @@ namespace Pulumi.AzureRM.EventHub.V20170401
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Single item in List or Get Consumer group operation
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ConsumerGroupPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the resource group within the azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+        /// </summary>
+        [Input("userMetadata")]
+        public Input<string>? UserMetadata { get; set; }
 
         public ConsumerGroupArgs()
         {

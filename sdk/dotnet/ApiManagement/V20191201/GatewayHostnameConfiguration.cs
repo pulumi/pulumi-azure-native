@@ -78,10 +78,22 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class GatewayHostnameConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Identifier of Certificate entity that will be used for TLS connection establishment
+        /// </summary>
+        [Input("certificateId")]
+        public Input<string>? CertificateId { get; set; }
+
+        /// <summary>
         /// Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
         /// </summary>
         [Input("gatewayId", required: true)]
         public Input<string> GatewayId { get; set; } = null!;
+
+        /// <summary>
+        /// Hostname value. Supports valid domain name, partial or full wildcard
+        /// </summary>
+        [Input("hostname")]
+        public Input<string>? Hostname { get; set; }
 
         /// <summary>
         /// Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
@@ -90,10 +102,10 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Gateway hostname configuration details.
+        /// Determines whether gateway requests client certificate
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.GatewayHostnameConfigurationContractPropertiesArgs>? Properties { get; set; }
+        [Input("negotiateClientCertificate")]
+        public Input<bool>? NegotiateClientCertificate { get; set; }
 
         /// <summary>
         /// The name of the resource group.

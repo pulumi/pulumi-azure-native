@@ -90,6 +90,30 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
     public sealed class MachineExtensionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        /// </summary>
+        [Input("autoUpgradeMinorVersion")]
+        public Input<bool>? AutoUpgradeMinorVersion { get; set; }
+
+        /// <summary>
+        /// How the extension handler should be forced to update even if the extension configuration has not changed.
+        /// </summary>
+        [Input("forceUpdateTag")]
+        public Input<string>? ForceUpdateTag { get; set; }
+
+        [Input("instanceView")]
+        private InputMap<object>? _instanceView;
+
+        /// <summary>
+        /// The machine extension instance view.
+        /// </summary>
+        public InputMap<object> InstanceView
+        {
+            get => _instanceView ?? (_instanceView = new InputMap<object>());
+            set => _instanceView = value;
+        }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location", required: true)]
@@ -101,23 +125,41 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        private InputMap<object>? _properties;
+        [Input("protectedSettings")]
+        private InputMap<object>? _protectedSettings;
 
         /// <summary>
-        /// Describes Machine Extension Properties.
+        /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
-        public InputMap<object> Properties
+        public InputMap<object> ProtectedSettings
         {
-            get => _properties ?? (_properties = new InputMap<object>());
-            set => _properties = value;
+            get => _protectedSettings ?? (_protectedSettings = new InputMap<object>());
+            set => _protectedSettings = value;
         }
+
+        /// <summary>
+        /// The name of the extension handler publisher.
+        /// </summary>
+        [Input("publisher")]
+        public Input<string>? Publisher { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("settings")]
+        private InputMap<object>? _settings;
+
+        /// <summary>
+        /// Json formatted public settings for the extension.
+        /// </summary>
+        public InputMap<object> Settings
+        {
+            get => _settings ?? (_settings = new InputMap<object>());
+            set => _settings = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -130,6 +172,18 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies the type of the extension; an example is "CustomScriptExtension".
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Specifies the version of the script handler.
+        /// </summary>
+        [Input("typeHandlerVersion")]
+        public Input<string>? TypeHandlerVersion { get; set; }
 
         public MachineExtensionArgs()
         {

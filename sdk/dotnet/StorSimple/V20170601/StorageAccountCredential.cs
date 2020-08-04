@@ -84,6 +84,18 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class StorageAccountCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The details of the storage account password.
+        /// </summary>
+        [Input("accessKey")]
+        public Input<Inputs.AsymmetricEncryptedSecretArgs>? AccessKey { get; set; }
+
+        /// <summary>
+        /// The storage endpoint
+        /// </summary>
+        [Input("endPoint", required: true)]
+        public Input<string> EndPoint { get; set; } = null!;
+
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Input("kind")]
@@ -102,16 +114,16 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The storage account credential properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.StorageAccountCredentialPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Signifies whether SSL needs to be enabled or not.
+        /// </summary>
+        [Input("sslStatus", required: true)]
+        public Input<string> SslStatus { get; set; } = null!;
 
         public StorageAccountCredentialArgs()
         {

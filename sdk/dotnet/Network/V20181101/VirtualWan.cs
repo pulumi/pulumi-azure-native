@@ -96,6 +96,24 @@ namespace Pulumi.AzureRM.Network.V20181101
     public sealed class VirtualWanArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// True if branch to branch traffic is allowed.
+        /// </summary>
+        [Input("allowBranchToBranchTraffic")]
+        public Input<bool>? AllowBranchToBranchTraffic { get; set; }
+
+        /// <summary>
+        /// True if Vnet to Vnet traffic is allowed.
+        /// </summary>
+        [Input("allowVnetToVnetTraffic")]
+        public Input<bool>? AllowVnetToVnetTraffic { get; set; }
+
+        /// <summary>
+        /// Vpn encryption to be disabled or not.
+        /// </summary>
+        [Input("disableVpnEncryption")]
+        public Input<bool>? DisableVpnEncryption { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -114,16 +132,40 @@ namespace Pulumi.AzureRM.Network.V20181101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Parameters for VirtualWAN
+        /// The office local breakout category.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualWanPropertiesArgs>? Properties { get; set; }
+        [Input("office365LocalBreakoutCategory")]
+        public Input<string>? Office365LocalBreakoutCategory { get; set; }
+
+        [Input("p2SVpnServerConfigurations")]
+        private InputList<Inputs.P2SVpnServerConfigurationArgs>? _p2SVpnServerConfigurations;
+
+        /// <summary>
+        /// list of all P2SVpnServerConfigurations associated with the virtual wan.
+        /// </summary>
+        public InputList<Inputs.P2SVpnServerConfigurationArgs> P2SVpnServerConfigurations
+        {
+            get => _p2SVpnServerConfigurations ?? (_p2SVpnServerConfigurations = new InputList<Inputs.P2SVpnServerConfigurationArgs>());
+            set => _p2SVpnServerConfigurations = value;
+        }
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The resource group name of the VirtualWan.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Security Provider name.
+        /// </summary>
+        [Input("securityProviderName")]
+        public Input<string>? SecurityProviderName { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

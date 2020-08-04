@@ -77,6 +77,30 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 
     public sealed class RelationshipLinkArgs : Pulumi.ResourceArgs
     {
+        [Input("description")]
+        private InputMap<string>? _description;
+
+        /// <summary>
+        /// Localized descriptions for the Relationship Link.
+        /// </summary>
+        public InputMap<string> Description
+        {
+            get => _description ?? (_description = new InputMap<string>());
+            set => _description = value;
+        }
+
+        [Input("displayName")]
+        private InputMap<string>? _displayName;
+
+        /// <summary>
+        /// Localized display name for the Relationship Link.
+        /// </summary>
+        public InputMap<string> DisplayName
+        {
+            get => _displayName ?? (_displayName = new InputMap<string>());
+            set => _displayName = value;
+        }
+
         /// <summary>
         /// The name of the hub.
         /// </summary>
@@ -84,16 +108,58 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         public Input<string> HubName { get; set; } = null!;
 
         /// <summary>
+        /// The InteractionType associated with the Relationship Link.
+        /// </summary>
+        [Input("interactionType", required: true)]
+        public Input<string> InteractionType { get; set; } = null!;
+
+        [Input("mappings")]
+        private InputList<Inputs.RelationshipLinkFieldMappingArgs>? _mappings;
+
+        /// <summary>
+        /// The mappings between Interaction and Relationship fields.
+        /// </summary>
+        public InputList<Inputs.RelationshipLinkFieldMappingArgs> Mappings
+        {
+            get => _mappings ?? (_mappings = new InputList<Inputs.RelationshipLinkFieldMappingArgs>());
+            set => _mappings = value;
+        }
+
+        /// <summary>
         /// The name of the relationship link.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("profilePropertyReferences", required: true)]
+        private InputList<Inputs.ParticipantProfilePropertyReferenceArgs>? _profilePropertyReferences;
+
         /// <summary>
-        /// The definition of relationship link.
+        /// The property references for the Profile of the Relationship.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RelationshipLinkDefinitionArgs>? Properties { get; set; }
+        public InputList<Inputs.ParticipantProfilePropertyReferenceArgs> ProfilePropertyReferences
+        {
+            get => _profilePropertyReferences ?? (_profilePropertyReferences = new InputList<Inputs.ParticipantProfilePropertyReferenceArgs>());
+            set => _profilePropertyReferences = value;
+        }
+
+        [Input("relatedProfilePropertyReferences", required: true)]
+        private InputList<Inputs.ParticipantProfilePropertyReferenceArgs>? _relatedProfilePropertyReferences;
+
+        /// <summary>
+        /// The property references for the Related Profile of the Relationship.
+        /// </summary>
+        public InputList<Inputs.ParticipantProfilePropertyReferenceArgs> RelatedProfilePropertyReferences
+        {
+            get => _relatedProfilePropertyReferences ?? (_relatedProfilePropertyReferences = new InputList<Inputs.ParticipantProfilePropertyReferenceArgs>());
+            set => _relatedProfilePropertyReferences = value;
+        }
+
+        /// <summary>
+        /// The Relationship associated with the Link.
+        /// </summary>
+        [Input("relationshipName", required: true)]
+        public Input<string> RelationshipName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

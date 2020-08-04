@@ -90,6 +90,18 @@ namespace Pulumi.AzureRM.Compute.V20190701
     public sealed class GalleryArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The description of this Shared Image Gallery resource. This property is updatable.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Describes the gallery unique name.
+        /// </summary>
+        [Input("identifier")]
+        public Input<Inputs.GalleryIdentifierArgs>? Identifier { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
@@ -100,12 +112,6 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Describes the properties of a Shared Image Gallery.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.GalleryPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

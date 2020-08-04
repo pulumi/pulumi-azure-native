@@ -34,10 +34,16 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the revoked VPN client certificate of virtual network gateway.
+        /// The provisioning state of the VPN client revoked certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VpnClientRevokedCertificatePropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// The revoked VPN client certificate thumbprint.
+        /// </summary>
+        [Input("thumbprint")]
+        public Input<string>? Thumbprint { get; set; }
 
         public VpnClientRevokedCertificateArgs()
         {

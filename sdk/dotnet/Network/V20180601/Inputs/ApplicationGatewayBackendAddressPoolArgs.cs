@@ -15,6 +15,30 @@ namespace Pulumi.AzureRM.Network.V20180601.Inputs
     /// </summary>
     public sealed class ApplicationGatewayBackendAddressPoolArgs : Pulumi.ResourceArgs
     {
+        [Input("backendAddresses")]
+        private InputList<Inputs.ApplicationGatewayBackendAddressArgs>? _backendAddresses;
+
+        /// <summary>
+        /// Backend addresses
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayBackendAddressArgs> BackendAddresses
+        {
+            get => _backendAddresses ?? (_backendAddresses = new InputList<Inputs.ApplicationGatewayBackendAddressArgs>());
+            set => _backendAddresses = value;
+        }
+
+        [Input("backendIPConfigurations")]
+        private InputList<Inputs.NetworkInterfaceIPConfigurationArgs>? _backendIPConfigurations;
+
+        /// <summary>
+        /// Collection of references to IPs defined in network interfaces.
+        /// </summary>
+        public InputList<Inputs.NetworkInterfaceIPConfigurationArgs> BackendIPConfigurations
+        {
+            get => _backendIPConfigurations ?? (_backendIPConfigurations = new InputList<Inputs.NetworkInterfaceIPConfigurationArgs>());
+            set => _backendIPConfigurations = value;
+        }
+
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -34,10 +58,10 @@ namespace Pulumi.AzureRM.Network.V20180601.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of Backend Address Pool of an application gateway.
+        /// Provisioning state of the backend address pool resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayBackendAddressPoolPropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Type of the resource.

@@ -95,6 +95,30 @@ namespace Pulumi.AzureRM.Web.V20160301
 
     public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
+        [Input("hostNames")]
+        private InputList<string>? _hostNames;
+
+        /// <summary>
+        /// Host names the certificate applies to.
+        /// </summary>
+        public InputList<string> HostNames
+        {
+            get => _hostNames ?? (_hostNames = new InputList<string>());
+            set => _hostNames = value;
+        }
+
+        /// <summary>
+        /// Key Vault Csm resource Id.
+        /// </summary>
+        [Input("keyVaultId")]
+        public Input<string>? KeyVaultId { get; set; }
+
+        /// <summary>
+        /// Key Vault secret name.
+        /// </summary>
+        [Input("keyVaultSecretName")]
+        public Input<string>? KeyVaultSecretName { get; set; }
+
         /// <summary>
         /// Kind of resource.
         /// </summary>
@@ -114,16 +138,28 @@ namespace Pulumi.AzureRM.Web.V20160301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Certificate resource specific properties
+        /// Certificate password.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.CertificatePropertiesArgs>? Properties { get; set; }
+        [Input("password", required: true)]
+        public Input<string> Password { get; set; } = null!;
+
+        /// <summary>
+        /// Pfx blob.
+        /// </summary>
+        [Input("pfxBlob")]
+        public Input<string>? PfxBlob { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+        /// </summary>
+        [Input("serverFarmId")]
+        public Input<string>? ServerFarmId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

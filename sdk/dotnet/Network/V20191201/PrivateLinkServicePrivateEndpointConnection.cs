@@ -96,10 +96,10 @@ namespace Pulumi.AzureRM.Network.V20191201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the private end point connection.
+        /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("privateLinkServiceConnectionState")]
+        public Input<Inputs.PrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
 
         /// <summary>
         /// The name of the resource group.

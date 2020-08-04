@@ -16,10 +16,28 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301.Inputs
     public sealed class ApnsCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Properties of NotificationHub ApnsCredential.
+        /// The APNS certificate.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApnsCredentialPropertiesArgs>? Properties { get; set; }
+        [Input("apnsCertificate")]
+        public Input<string>? ApnsCertificate { get; set; }
+
+        /// <summary>
+        /// The certificate key.
+        /// </summary>
+        [Input("certificateKey")]
+        public Input<string>? CertificateKey { get; set; }
+
+        /// <summary>
+        /// The endpoint of this credential.
+        /// </summary>
+        [Input("endpoint")]
+        public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// The APNS certificate Thumbprint
+        /// </summary>
+        [Input("thumbprint")]
+        public Input<string>? Thumbprint { get; set; }
 
         public ApnsCredentialArgs()
         {

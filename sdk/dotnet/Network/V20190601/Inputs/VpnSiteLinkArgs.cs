@@ -16,10 +16,28 @@ namespace Pulumi.AzureRM.Network.V20190601.Inputs
     public sealed class VpnSiteLinkArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The set of bgp properties.
+        /// </summary>
+        [Input("bgpProperties")]
+        public Input<Inputs.VpnLinkBgpSettingsArgs>? BgpProperties { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The ip-address for the vpn-site-link.
+        /// </summary>
+        [Input("ipAddress")]
+        public Input<string>? IpAddress { get; set; }
+
+        /// <summary>
+        /// The link provider properties.
+        /// </summary>
+        [Input("linkProperties")]
+        public Input<Inputs.VpnLinkProviderPropertiesArgs>? LinkProperties { get; set; }
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -28,10 +46,10 @@ namespace Pulumi.AzureRM.Network.V20190601.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the VPN site link.
+        /// The provisioning state of the resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VpnSiteLinkPropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         public VpnSiteLinkArgs()
         {

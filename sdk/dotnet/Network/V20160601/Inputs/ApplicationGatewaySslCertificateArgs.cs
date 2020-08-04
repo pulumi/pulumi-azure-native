@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20160601.Inputs
     public sealed class ApplicationGatewaySslCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// SSL Certificate data 
+        /// </summary>
+        [Input("data")]
+        public Input<string>? Data { get; set; }
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Input("etag")]
@@ -34,10 +40,22 @@ namespace Pulumi.AzureRM.Network.V20160601.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of SSL certificates of application gateway
+        /// SSL Certificate password 
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewaySslCertificatePropertiesFormatArgs>? Properties { get; set; }
+        [Input("password")]
+        public Input<string>? Password { get; set; }
+
+        /// <summary>
+        /// Provisioning state of the ssl certificate resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// SSL Certificate public data 
+        /// </summary>
+        [Input("publicCertData")]
+        public Input<string>? PublicCertData { get; set; }
 
         public ApplicationGatewaySslCertificateArgs()
         {

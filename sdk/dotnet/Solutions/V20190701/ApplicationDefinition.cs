@@ -101,11 +101,95 @@ namespace Pulumi.AzureRM.Solutions.V20190701
 
     public sealed class ApplicationDefinitionArgs : Pulumi.ResourceArgs
     {
+        [Input("artifacts")]
+        private InputList<Inputs.ApplicationDefinitionArtifactArgs>? _artifacts;
+
+        /// <summary>
+        /// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+        /// </summary>
+        public InputList<Inputs.ApplicationDefinitionArtifactArgs> Artifacts
+        {
+            get => _artifacts ?? (_artifacts = new InputList<Inputs.ApplicationDefinitionArtifactArgs>());
+            set => _artifacts = value;
+        }
+
+        [Input("authorizations")]
+        private InputList<Inputs.ApplicationAuthorizationArgs>? _authorizations;
+
+        /// <summary>
+        /// The managed application provider authorizations.
+        /// </summary>
+        public InputList<Inputs.ApplicationAuthorizationArgs> Authorizations
+        {
+            get => _authorizations ?? (_authorizations = new InputList<Inputs.ApplicationAuthorizationArgs>());
+            set => _authorizations = value;
+        }
+
+        [Input("createUiDefinition")]
+        private InputMap<object>? _createUiDefinition;
+
+        /// <summary>
+        /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+        /// </summary>
+        public InputMap<object> CreateUiDefinition
+        {
+            get => _createUiDefinition ?? (_createUiDefinition = new InputMap<object>());
+            set => _createUiDefinition = value;
+        }
+
+        /// <summary>
+        /// The managed application deployment policy.
+        /// </summary>
+        [Input("deploymentPolicy")]
+        public Input<Inputs.ApplicationDeploymentPolicyArgs>? DeploymentPolicy { get; set; }
+
+        /// <summary>
+        /// The managed application definition description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The managed application definition display name.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// A value indicating whether the package is enabled or not.
+        /// </summary>
+        [Input("isEnabled")]
+        public Input<bool>? IsEnabled { get; set; }
+
         /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The managed application lock level.
+        /// </summary>
+        [Input("lockLevel", required: true)]
+        public Input<string> LockLevel { get; set; } = null!;
+
+        /// <summary>
+        /// The managed application locking policy.
+        /// </summary>
+        [Input("lockingPolicy")]
+        public Input<Inputs.ApplicationPackageLockingPolicyDefinitionArgs>? LockingPolicy { get; set; }
+
+        [Input("mainTemplate")]
+        private InputMap<object>? _mainTemplate;
+
+        /// <summary>
+        /// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+        /// </summary>
+        public InputMap<object> MainTemplate
+        {
+            get => _mainTemplate ?? (_mainTemplate = new InputMap<object>());
+            set => _mainTemplate = value;
+        }
 
         /// <summary>
         /// ID of the resource that manages this resource.
@@ -114,16 +198,40 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         public Input<string>? ManagedBy { get; set; }
 
         /// <summary>
+        /// The managed application management policy that determines publisher's access to the managed resource group.
+        /// </summary>
+        [Input("managementPolicy")]
+        public Input<Inputs.ApplicationManagementPolicyArgs>? ManagementPolicy { get; set; }
+
+        /// <summary>
         /// The name of the managed application definition.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The managed application definition properties.
+        /// The managed application notification policy.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ApplicationDefinitionPropertiesArgs> Properties { get; set; } = null!;
+        [Input("notificationPolicy")]
+        public Input<Inputs.ApplicationNotificationPolicyArgs>? NotificationPolicy { get; set; }
+
+        /// <summary>
+        /// The managed application definition package file Uri. Use this element
+        /// </summary>
+        [Input("packageFileUri")]
+        public Input<string>? PackageFileUri { get; set; }
+
+        [Input("policies")]
+        private InputList<Inputs.ApplicationPolicyArgs>? _policies;
+
+        /// <summary>
+        /// The managed application provider policies.
+        /// </summary>
+        public InputList<Inputs.ApplicationPolicyArgs> Policies
+        {
+            get => _policies ?? (_policies = new InputList<Inputs.ApplicationPolicyArgs>());
+            set => _policies = value;
+        }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

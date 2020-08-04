@@ -108,12 +108,6 @@ namespace Pulumi.AzureRM.Logic.V20160601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The integration account properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.IntegrationAccountPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]

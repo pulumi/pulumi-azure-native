@@ -93,6 +93,42 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class SiteInstanceDeploymentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Active
+        /// </summary>
+        [Input("active")]
+        public Input<bool>? Active { get; set; }
+
+        /// <summary>
+        /// Author
+        /// </summary>
+        [Input("author")]
+        public Input<string>? Author { get; set; }
+
+        /// <summary>
+        /// AuthorEmail
+        /// </summary>
+        [Input("author_email")]
+        public Input<string>? Author_email { get; set; }
+
+        /// <summary>
+        /// Deployer
+        /// </summary>
+        [Input("deployer")]
+        public Input<string>? Deployer { get; set; }
+
+        /// <summary>
+        /// Detail
+        /// </summary>
+        [Input("details")]
+        public Input<string>? Details { get; set; }
+
+        /// <summary>
+        /// EndTime
+        /// </summary>
+        [Input("end_time")]
+        public Input<string>? End_time { get; set; }
+
+        /// <summary>
         /// Id of web app instance
         /// </summary>
         [Input("instanceId", required: true)]
@@ -111,19 +147,34 @@ namespace Pulumi.AzureRM.Web.V20150801
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// Message
+        /// </summary>
+        [Input("message")]
+        public Input<string>? Message { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        [Input("properties")]
-        public Input<Inputs.DeploymentPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// Name of resource group
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// StartTime
+        /// </summary>
+        [Input("start_time")]
+        public Input<string>? Start_time { get; set; }
+
+        /// <summary>
+        /// Status
+        /// </summary>
+        [Input("status")]
+        public Input<int>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

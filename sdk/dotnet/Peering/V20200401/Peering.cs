@@ -102,6 +102,18 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public sealed class PeeringArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The properties that define a direct peering.
+        /// </summary>
+        [Input("direct")]
+        public Input<Inputs.PeeringPropertiesDirectArgs>? Direct { get; set; }
+
+        /// <summary>
+        /// The properties that define an exchange peering.
+        /// </summary>
+        [Input("exchange")]
+        public Input<Inputs.PeeringPropertiesExchangeArgs>? Exchange { get; set; }
+
+        /// <summary>
         /// The kind of the peering.
         /// </summary>
         [Input("kind", required: true)]
@@ -120,10 +132,10 @@ namespace Pulumi.AzureRM.Peering.V20200401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties that define a peering.
+        /// The location of the peering.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PeeringPropertiesArgs>? Properties { get; set; }
+        [Input("peeringLocation")]
+        public Input<string>? PeeringLocation { get; set; }
 
         /// <summary>
         /// The name of the resource group.

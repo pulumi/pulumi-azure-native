@@ -84,16 +84,40 @@ namespace Pulumi.AzureRM.Media.V20200501
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// Configuration of CommonEncryptionCbcs
+        /// </summary>
+        [Input("commonEncryptionCbcs")]
+        public Input<Inputs.CommonEncryptionCbcsArgs>? CommonEncryptionCbcs { get; set; }
+
+        /// <summary>
+        /// Configuration of CommonEncryptionCenc
+        /// </summary>
+        [Input("commonEncryptionCenc")]
+        public Input<Inputs.CommonEncryptionCencArgs>? CommonEncryptionCenc { get; set; }
+
+        /// <summary>
+        /// Default ContentKey used by current Streaming Policy
+        /// </summary>
+        [Input("defaultContentKeyPolicyName")]
+        public Input<string>? DefaultContentKeyPolicyName { get; set; }
+
+        /// <summary>
+        /// Configuration of EnvelopeEncryption
+        /// </summary>
+        [Input("envelopeEncryption")]
+        public Input<Inputs.EnvelopeEncryptionArgs>? EnvelopeEncryption { get; set; }
+
+        /// <summary>
         /// The Streaming Policy name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Class to specify properties of Streaming Policy
+        /// Configurations of NoEncryption
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.StreamingPolicyPropertiesArgs>? Properties { get; set; }
+        [Input("noEncryption")]
+        public Input<Inputs.NoEncryptionArgs>? NoEncryption { get; set; }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

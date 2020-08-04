@@ -95,11 +95,41 @@ namespace Pulumi.AzureRM.Databricks.V20180401
 
     public sealed class WorkspaceArgs : Pulumi.ResourceArgs
     {
+        [Input("authorizations")]
+        private InputList<Inputs.WorkspaceProviderAuthorizationArgs>? _authorizations;
+
+        /// <summary>
+        /// The workspace provider authorizations.
+        /// </summary>
+        public InputList<Inputs.WorkspaceProviderAuthorizationArgs> Authorizations
+        {
+            get => _authorizations ?? (_authorizations = new InputList<Inputs.WorkspaceProviderAuthorizationArgs>());
+            set => _authorizations = value;
+        }
+
+        /// <summary>
+        /// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
+        /// </summary>
+        [Input("createdBy")]
+        public Input<Inputs.CreatedByArgs>? CreatedBy { get; set; }
+
+        /// <summary>
+        /// Specifies the date and time when the workspace is created.
+        /// </summary>
+        [Input("createdDateTime")]
+        public Input<string>? CreatedDateTime { get; set; }
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// The managed resource group Id.
+        /// </summary>
+        [Input("managedResourceGroupId", required: true)]
+        public Input<string> ManagedResourceGroupId { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.
@@ -108,10 +138,10 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The workspace properties.
+        /// The workspace's custom parameters.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.WorkspacePropertiesArgs> Properties { get; set; } = null!;
+        [Input("parameters")]
+        public Input<Inputs.WorkspaceCustomParametersArgs>? Parameters { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -125,6 +155,12 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
 
+        /// <summary>
+        /// The details of Managed Identity of Storage Account
+        /// </summary>
+        [Input("storageAccountIdentity")]
+        public Input<Inputs.ManagedIdentityConfigurationArgs>? StorageAccountIdentity { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -136,6 +172,18 @@ namespace Pulumi.AzureRM.Databricks.V20180401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The blob URI where the UI definition file is located.
+        /// </summary>
+        [Input("uiDefinitionUri")]
+        public Input<string>? UiDefinitionUri { get; set; }
+
+        /// <summary>
+        /// Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
+        /// </summary>
+        [Input("updatedBy")]
+        public Input<Inputs.CreatedByArgs>? UpdatedBy { get; set; }
 
         public WorkspaceArgs()
         {

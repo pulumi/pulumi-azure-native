@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
     /// </summary>
     public sealed class BackendAddressPoolArgs : Pulumi.ResourceArgs
     {
+        [Input("backendIPConfigurations")]
+        private InputList<Inputs.NetworkInterfaceIPConfigurationArgs>? _backendIPConfigurations;
+
+        /// <summary>
+        /// Gets collection of references to IP addresses defined in network interfaces.
+        /// </summary>
+        public InputList<Inputs.NetworkInterfaceIPConfigurationArgs> BackendIPConfigurations
+        {
+            get => _backendIPConfigurations ?? (_backendIPConfigurations = new InputList<Inputs.NetworkInterfaceIPConfigurationArgs>());
+            set => _backendIPConfigurations = value;
+        }
+
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -34,10 +46,16 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the backend address pool.
+        /// Gets outbound rules that use this backend address pool.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.BackendAddressPoolPropertiesFormatArgs>? Properties { get; set; }
+        [Input("outboundNatRule")]
+        public Input<Inputs.SubResourceArgs>? OutboundNatRule { get; set; }
+
+        /// <summary>
+        /// Get provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         public BackendAddressPoolArgs()
         {

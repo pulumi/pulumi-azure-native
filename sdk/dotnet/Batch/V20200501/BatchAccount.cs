@@ -96,10 +96,28 @@ namespace Pulumi.AzureRM.Batch.V20200501
     public sealed class BatchAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The properties related to the auto-storage account.
+        /// </summary>
+        [Input("autoStorage")]
+        public Input<Inputs.AutoStorageBasePropertiesArgs>? AutoStorage { get; set; }
+
+        /// <summary>
+        /// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionPropertiesArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// The identity of the Batch account.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.BatchAccountIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// A reference to the Azure key vault associated with the Batch account.
+        /// </summary>
+        [Input("keyVaultReference")]
+        public Input<Inputs.KeyVaultReferenceArgs>? KeyVaultReference { get; set; }
 
         /// <summary>
         /// The region in which to create the account.
@@ -114,10 +132,16 @@ namespace Pulumi.AzureRM.Batch.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the Batch account.
+        /// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.BatchAccountCreatePropertiesArgs>? Properties { get; set; }
+        [Input("poolAllocationMode")]
+        public Input<string>? PoolAllocationMode { get; set; }
+
+        /// <summary>
+        /// If not specified, the default value is 'enabled'.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public Input<string>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the Batch account.

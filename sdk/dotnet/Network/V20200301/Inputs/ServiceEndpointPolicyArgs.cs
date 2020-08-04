@@ -27,11 +27,17 @@ namespace Pulumi.AzureRM.Network.V20200301.Inputs
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("serviceEndpointPolicyDefinitions")]
+        private InputList<Inputs.ServiceEndpointPolicyDefinitionArgs>? _serviceEndpointPolicyDefinitions;
+
         /// <summary>
-        /// Properties of the service end point policy.
+        /// A collection of service endpoint policy definitions of the service endpoint policy.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ServiceEndpointPolicyPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.ServiceEndpointPolicyDefinitionArgs> ServiceEndpointPolicyDefinitions
+        {
+            get => _serviceEndpointPolicyDefinitions ?? (_serviceEndpointPolicyDefinitions = new InputList<Inputs.ServiceEndpointPolicyDefinitionArgs>());
+            set => _serviceEndpointPolicyDefinitions = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

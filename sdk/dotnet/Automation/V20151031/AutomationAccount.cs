@@ -108,16 +108,16 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Gets or sets account create or update properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AutomationAccountCreateOrUpdatePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets account SKU.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

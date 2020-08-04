@@ -16,16 +16,22 @@ namespace Pulumi.AzureRM.Compute.V20171201.Inputs
     public sealed class VirtualMachineScaleSetPublicIPAddressConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The dns settings to be applied on the publicIP addresses .
+        /// </summary>
+        [Input("dnsSettings")]
+        public Input<Inputs.VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsArgs>? DnsSettings { get; set; }
+
+        /// <summary>
+        /// The idle timeout of the public IP address.
+        /// </summary>
+        [Input("idleTimeoutInMinutes")]
+        public Input<int>? IdleTimeoutInMinutes { get; set; }
+
+        /// <summary>
         /// The publicIP address configuration name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesArgs>? Properties { get; set; }
 
         public VirtualMachineScaleSetPublicIPAddressConfigurationArgs()
         {

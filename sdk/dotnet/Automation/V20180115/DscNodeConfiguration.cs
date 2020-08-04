@@ -84,22 +84,34 @@ namespace Pulumi.AzureRM.Automation.V20180115
         public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
+        /// Gets or sets the configuration of the node.
+        /// </summary>
+        [Input("configuration", required: true)]
+        public Input<Inputs.DscConfigurationAssociationPropertyArgs> Configuration { get; set; } = null!;
+
+        /// <summary>
+        /// If a new build version of NodeConfiguration is required.
+        /// </summary>
+        [Input("incrementNodeConfigurationBuild")]
+        public Input<bool>? IncrementNodeConfigurationBuild { get; set; }
+
+        /// <summary>
         /// The Dsc node configuration name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Node configuration properties
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DscNodeConfigurationCreateOrUpdateParametersPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of an Azure Resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        [Input("source", required: true)]
+        public Input<Inputs.ContentSourceArgs> Source { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

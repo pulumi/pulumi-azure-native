@@ -102,10 +102,10 @@ namespace Pulumi.AzureRM.Compute.V20200601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the SSH public key.
+        /// SSH public key used to authenticate to a virtual machine through ssh. If this property is not initially provided when the resource is created, the publicKey property will be populated when generateKeyPair is called. If the public key is provided upon resource creation, the provided public key needs to be at least 2048-bit and in ssh-rsa format.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SshPublicKeyResourcePropertiesArgs>? Properties { get; set; }
+        [Input("publicKey")]
+        public Input<string>? PublicKey { get; set; }
 
         /// <summary>
         /// The name of the resource group.

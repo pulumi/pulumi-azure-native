@@ -105,6 +105,18 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// Key Vault Csm resource Id
+        /// </summary>
+        [Input("keyVaultId")]
+        public Input<string>? KeyVaultId { get; set; }
+
+        /// <summary>
+        /// Key Vault secret name
+        /// </summary>
+        [Input("keyVaultSecretName")]
+        public Input<string>? KeyVaultSecretName { get; set; }
+
+        /// <summary>
         /// Kind of resource
         /// </summary>
         [Input("kind")]
@@ -122,8 +134,11 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.CertificateOrderCertificatePropertiesArgs>? Properties { get; set; }
+        /// <summary>
+        /// Status of the Key Vault secret
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Azure resource group name

@@ -21,12 +21,6 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401.Inputs
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        /// <summary>
-        /// Resource pool properties
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ResourcePoolPropertiesArgs>? Properties { get; set; }
-
         public ResourcePoolArgs()
         {
         }

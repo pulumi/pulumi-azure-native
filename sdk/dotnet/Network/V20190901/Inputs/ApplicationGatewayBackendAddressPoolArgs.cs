@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Network.V20190901.Inputs
     /// </summary>
     public sealed class ApplicationGatewayBackendAddressPoolArgs : Pulumi.ResourceArgs
     {
+        [Input("backendAddresses")]
+        private InputList<Inputs.ApplicationGatewayBackendAddressArgs>? _backendAddresses;
+
+        /// <summary>
+        /// Backend addresses.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayBackendAddressArgs> BackendAddresses
+        {
+            get => _backendAddresses ?? (_backendAddresses = new InputList<Inputs.ApplicationGatewayBackendAddressArgs>());
+            set => _backendAddresses = value;
+        }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -26,12 +38,6 @@ namespace Pulumi.AzureRM.Network.V20190901.Inputs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// Properties of the application gateway backend address pool.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayBackendAddressPoolPropertiesFormatArgs>? Properties { get; set; }
 
         public ApplicationGatewayBackendAddressPoolArgs()
         {

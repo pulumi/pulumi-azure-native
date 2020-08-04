@@ -95,17 +95,77 @@ namespace Pulumi.AzureRM.Network.V20161201
 
     public sealed class LoadBalancerArgs : Pulumi.ResourceArgs
     {
+        [Input("backendAddressPools")]
+        private InputList<Inputs.BackendAddressPoolArgs>? _backendAddressPools;
+
+        /// <summary>
+        /// Collection of backend address pools used by a load balancer
+        /// </summary>
+        public InputList<Inputs.BackendAddressPoolArgs> BackendAddressPools
+        {
+            get => _backendAddressPools ?? (_backendAddressPools = new InputList<Inputs.BackendAddressPoolArgs>());
+            set => _backendAddressPools = value;
+        }
+
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
+        [Input("frontendIPConfigurations")]
+        private InputList<Inputs.FrontendIPConfigurationArgs>? _frontendIPConfigurations;
+
+        /// <summary>
+        /// Object representing the frontend IPs to be used for the load balancer
+        /// </summary>
+        public InputList<Inputs.FrontendIPConfigurationArgs> FrontendIPConfigurations
+        {
+            get => _frontendIPConfigurations ?? (_frontendIPConfigurations = new InputList<Inputs.FrontendIPConfigurationArgs>());
+            set => _frontendIPConfigurations = value;
+        }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("inboundNatPools")]
+        private InputList<Inputs.InboundNatPoolArgs>? _inboundNatPools;
+
+        /// <summary>
+        /// Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
+        /// </summary>
+        public InputList<Inputs.InboundNatPoolArgs> InboundNatPools
+        {
+            get => _inboundNatPools ?? (_inboundNatPools = new InputList<Inputs.InboundNatPoolArgs>());
+            set => _inboundNatPools = value;
+        }
+
+        [Input("inboundNatRules")]
+        private InputList<Inputs.InboundNatRuleArgs>? _inboundNatRules;
+
+        /// <summary>
+        /// Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
+        /// </summary>
+        public InputList<Inputs.InboundNatRuleArgs> InboundNatRules
+        {
+            get => _inboundNatRules ?? (_inboundNatRules = new InputList<Inputs.InboundNatRuleArgs>());
+            set => _inboundNatRules = value;
+        }
+
+        [Input("loadBalancingRules")]
+        private InputList<Inputs.LoadBalancingRuleArgs>? _loadBalancingRules;
+
+        /// <summary>
+        /// Object collection representing the load balancing rules Gets the provisioning 
+        /// </summary>
+        public InputList<Inputs.LoadBalancingRuleArgs> LoadBalancingRules
+        {
+            get => _loadBalancingRules ?? (_loadBalancingRules = new InputList<Inputs.LoadBalancingRuleArgs>());
+            set => _loadBalancingRules = value;
+        }
 
         /// <summary>
         /// Resource location.
@@ -119,17 +179,47 @@ namespace Pulumi.AzureRM.Network.V20161201
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("outboundNatRules")]
+        private InputList<Inputs.OutboundNatRuleArgs>? _outboundNatRules;
+
         /// <summary>
-        /// Properties of the load balancer.
+        /// The outbound NAT rules.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.LoadBalancerPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.OutboundNatRuleArgs> OutboundNatRules
+        {
+            get => _outboundNatRules ?? (_outboundNatRules = new InputList<Inputs.OutboundNatRuleArgs>());
+            set => _outboundNatRules = value;
+        }
+
+        [Input("probes")]
+        private InputList<Inputs.ProbeArgs>? _probes;
+
+        /// <summary>
+        /// Collection of probe objects used in the load balancer
+        /// </summary>
+        public InputList<Inputs.ProbeArgs> Probes
+        {
+            get => _probes ?? (_probes = new InputList<Inputs.ProbeArgs>());
+            set => _probes = value;
+        }
+
+        /// <summary>
+        /// Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the load balancer resource.
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

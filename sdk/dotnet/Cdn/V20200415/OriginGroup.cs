@@ -84,10 +84,28 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
+        /// Health probe settings to the origin that is used to determine the health of the origin.
+        /// </summary>
+        [Input("healthProbeSettings")]
+        public Input<Inputs.HealthProbeParametersArgs>? HealthProbeSettings { get; set; }
+
+        /// <summary>
         /// Name of the origin group which is unique within the endpoint.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("origins", required: true)]
+        private InputList<Inputs.ResourceReferenceArgs>? _origins;
+
+        /// <summary>
+        /// The source of the content being delivered via CDN within given origin group.
+        /// </summary>
+        public InputList<Inputs.ResourceReferenceArgs> Origins
+        {
+            get => _origins ?? (_origins = new InputList<Inputs.ResourceReferenceArgs>());
+            set => _origins = value;
+        }
 
         /// <summary>
         /// Name of the CDN profile which is unique within the resource group.
@@ -96,16 +114,22 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The JSON object that contains the properties of the origin group.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.OriginGroupPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+        /// </summary>
+        [Input("responseBasedOriginErrorDetectionSettings")]
+        public Input<Inputs.ResponseBasedOriginErrorDetectionParametersArgs>? ResponseBasedOriginErrorDetectionSettings { get; set; }
+
+        /// <summary>
+        /// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+        /// </summary>
+        [Input("trafficRestorationTimeToHealedOrNewEndpointsInMinutes")]
+        public Input<int>? TrafficRestorationTimeToHealedOrNewEndpointsInMinutes { get; set; }
 
         public OriginGroupArgs()
         {

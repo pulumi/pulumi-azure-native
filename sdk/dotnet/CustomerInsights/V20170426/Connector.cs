@@ -77,6 +77,36 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 
     public sealed class ConnectorArgs : Pulumi.ResourceArgs
     {
+        [Input("connectorProperties", required: true)]
+        private InputMap<ImmutableDictionary<string, object>>? _connectorProperties;
+
+        /// <summary>
+        /// The connector properties.
+        /// </summary>
+        public InputMap<ImmutableDictionary<string, object>> ConnectorProperties
+        {
+            get => _connectorProperties ?? (_connectorProperties = new InputMap<ImmutableDictionary<string, object>>());
+            set => _connectorProperties = value;
+        }
+
+        /// <summary>
+        /// Type of connector.
+        /// </summary>
+        [Input("connectorType", required: true)]
+        public Input<string> ConnectorType { get; set; } = null!;
+
+        /// <summary>
+        /// Description of the connector.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Display name of the connector.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
         /// <summary>
         /// The name of the hub.
         /// </summary>
@@ -84,16 +114,16 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         public Input<string> HubName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the connector.
+        /// If this is an internal connector.
+        /// </summary>
+        [Input("isInternal")]
+        public Input<bool>? IsInternal { get; set; }
+
+        /// <summary>
+        /// Name of the connector.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of connector.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ConnectorDefinitionArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

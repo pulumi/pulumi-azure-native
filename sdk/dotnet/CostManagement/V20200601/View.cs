@@ -84,10 +84,52 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
     public sealed class ViewArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Show costs accumulated over time.
+        /// </summary>
+        [Input("accumulated")]
+        public Input<string>? Accumulated { get; set; }
+
+        /// <summary>
+        /// Chart type of the main view in Cost Analysis. Required.
+        /// </summary>
+        [Input("chart")]
+        public Input<string>? Chart { get; set; }
+
+        /// <summary>
+        /// Has definition for data in this report config.
+        /// </summary>
+        [Input("dataset")]
+        public Input<Inputs.ReportConfigDatasetArgs>? Dataset { get; set; }
+
+        /// <summary>
+        /// User input name of the view. Required.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
         /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         /// </summary>
         [Input("eTag")]
         public Input<string>? ETag { get; set; }
+
+        [Input("kpis")]
+        private InputList<Inputs.KpiPropertiesArgs>? _kpis;
+
+        /// <summary>
+        /// List of KPIs to show in Cost Analysis UI.
+        /// </summary>
+        public InputList<Inputs.KpiPropertiesArgs> Kpis
+        {
+            get => _kpis ?? (_kpis = new InputList<Inputs.KpiPropertiesArgs>());
+            set => _kpis = value;
+        }
+
+        /// <summary>
+        /// Metric to use when displaying costs.
+        /// </summary>
+        [Input("metric")]
+        public Input<string>? Metric { get; set; }
 
         /// <summary>
         /// View name
@@ -95,11 +137,41 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("pivots")]
+        private InputList<Inputs.PivotPropertiesArgs>? _pivots;
+
         /// <summary>
-        /// The properties of the view.
+        /// Configuration of 3 sub-views in the Cost Analysis UI.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ViewPropertiesArgs>? Properties { get; set; }
+        public InputList<Inputs.PivotPropertiesArgs> Pivots
+        {
+            get => _pivots ?? (_pivots = new InputList<Inputs.PivotPropertiesArgs>());
+            set => _pivots = value;
+        }
+
+        /// <summary>
+        /// Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+        /// </summary>
+        [Input("scope")]
+        public Input<string>? Scope { get; set; }
+
+        /// <summary>
+        /// Has time period for pulling data for the report.
+        /// </summary>
+        [Input("timePeriod")]
+        public Input<Inputs.ReportConfigTimePeriodArgs>? TimePeriod { get; set; }
+
+        /// <summary>
+        /// The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+        /// </summary>
+        [Input("timeframe", required: true)]
+        public Input<string> Timeframe { get; set; } = null!;
+
+        /// <summary>
+        /// The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
+        /// </summary>
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public ViewArgs()
         {

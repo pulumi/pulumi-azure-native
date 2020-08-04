@@ -84,10 +84,34 @@ namespace Pulumi.AzureRM.Network.V20190801
         public Input<string> CrossConnectionName { get; set; } = null!;
 
         /// <summary>
+        /// The GatewayManager Etag.
+        /// </summary>
+        [Input("gatewayManagerEtag")]
+        public Input<string>? GatewayManagerEtag { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The IPv6 peering configuration.
+        /// </summary>
+        [Input("ipv6PeeringConfig")]
+        public Input<Inputs.Ipv6ExpressRouteCircuitPeeringConfigArgs>? Ipv6PeeringConfig { get; set; }
+
+        /// <summary>
+        /// Who was the last to modify the peering.
+        /// </summary>
+        [Input("lastModifiedBy")]
+        public Input<string>? LastModifiedBy { get; set; }
+
+        /// <summary>
+        /// The Microsoft peering configuration.
+        /// </summary>
+        [Input("microsoftPeeringConfig")]
+        public Input<Inputs.ExpressRouteCircuitPeeringConfigArgs>? MicrosoftPeeringConfig { get; set; }
 
         /// <summary>
         /// The name of the peering.
@@ -96,16 +120,52 @@ namespace Pulumi.AzureRM.Network.V20190801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the express route cross connection peering.
+        /// The peer ASN.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ExpressRouteCrossConnectionPeeringPropertiesArgs>? Properties { get; set; }
+        [Input("peerASN")]
+        public Input<int>? PeerASN { get; set; }
+
+        /// <summary>
+        /// The peering type.
+        /// </summary>
+        [Input("peeringType")]
+        public Input<string>? PeeringType { get; set; }
+
+        /// <summary>
+        /// The primary address prefix.
+        /// </summary>
+        [Input("primaryPeerAddressPrefix")]
+        public Input<string>? PrimaryPeerAddressPrefix { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The secondary address prefix.
+        /// </summary>
+        [Input("secondaryPeerAddressPrefix")]
+        public Input<string>? SecondaryPeerAddressPrefix { get; set; }
+
+        /// <summary>
+        /// The shared key.
+        /// </summary>
+        [Input("sharedKey")]
+        public Input<string>? SharedKey { get; set; }
+
+        /// <summary>
+        /// The peering state.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// The VLAN ID.
+        /// </summary>
+        [Input("vlanId")]
+        public Input<int>? VlanId { get; set; }
 
         public ExpressRouteCrossConnectionPeeringArgs()
         {

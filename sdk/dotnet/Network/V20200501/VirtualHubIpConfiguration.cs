@@ -96,16 +96,34 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the Virtual Hub IPConfigurations.
+        /// The private IP address of the IP configuration.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.HubIPConfigurationPropertiesFormatArgs>? Properties { get; set; }
+        [Input("privateIPAddress")]
+        public Input<string>? PrivateIPAddress { get; set; }
+
+        /// <summary>
+        /// The private IP address allocation method.
+        /// </summary>
+        [Input("privateIPAllocationMethod")]
+        public Input<string>? PrivateIPAllocationMethod { get; set; }
+
+        /// <summary>
+        /// The reference to the public IP resource.
+        /// </summary>
+        [Input("publicIPAddress")]
+        public Input<Inputs.PublicIPAddressArgs>? PublicIPAddress { get; set; }
 
         /// <summary>
         /// The resource group name of the VirtualHub.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The reference to the subnet resource.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.SubnetArgs>? Subnet { get; set; }
 
         /// <summary>
         /// The name of the VirtualHub.

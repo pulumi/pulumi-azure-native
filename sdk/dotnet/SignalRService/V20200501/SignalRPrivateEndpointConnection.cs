@@ -84,10 +84,16 @@ namespace Pulumi.AzureRM.SignalRService.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the private endpoint connection
+        /// Private endpoint associated with the private endpoint connection
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("privateEndpoint")]
+        public Input<Inputs.PrivateEndpointArgs>? PrivateEndpoint { get; set; }
+
+        /// <summary>
+        /// Connection state
+        /// </summary>
+        [Input("privateLinkServiceConnectionState")]
+        public Input<Inputs.PrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

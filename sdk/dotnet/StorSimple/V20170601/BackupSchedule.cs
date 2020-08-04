@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Input<string> BackupPolicyName { get; set; } = null!;
 
         /// <summary>
+        /// The type of backup which needs to be taken.
+        /// </summary>
+        [Input("backupType", required: true)]
+        public Input<string> BackupType { get; set; } = null!;
+
+        /// <summary>
         /// The device name
         /// </summary>
         [Input("deviceName", required: true)]
@@ -114,16 +120,34 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the backup schedule.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.BackupSchedulePropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The number of backups to be retained.
+        /// </summary>
+        [Input("retentionCount", required: true)]
+        public Input<int> RetentionCount { get; set; } = null!;
+
+        /// <summary>
+        /// The schedule recurrence.
+        /// </summary>
+        [Input("scheduleRecurrence", required: true)]
+        public Input<Inputs.ScheduleRecurrenceArgs> ScheduleRecurrence { get; set; } = null!;
+
+        /// <summary>
+        /// The schedule status.
+        /// </summary>
+        [Input("scheduleStatus", required: true)]
+        public Input<string> ScheduleStatus { get; set; } = null!;
+
+        /// <summary>
+        /// The start time of the schedule.
+        /// </summary>
+        [Input("startTime", required: true)]
+        public Input<string> StartTime { get; set; } = null!;
 
         public BackupScheduleArgs()
         {

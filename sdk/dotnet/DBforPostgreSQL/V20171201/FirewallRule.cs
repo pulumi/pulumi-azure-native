@@ -78,16 +78,16 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
     public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The end IP address of the server firewall rule. Must be IPv4 format.
+        /// </summary>
+        [Input("endIpAddress", required: true)]
+        public Input<string> EndIpAddress { get; set; } = null!;
+
+        /// <summary>
         /// The name of the server firewall rule.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of a firewall rule.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.FirewallRulePropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -100,6 +100,12 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
         /// </summary>
         [Input("serverName", required: true)]
         public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// The start IP address of the server firewall rule. Must be IPv4 format.
+        /// </summary>
+        [Input("startIpAddress", required: true)]
+        public Input<string> StartIpAddress { get; set; } = null!;
 
         public FirewallRuleArgs()
         {

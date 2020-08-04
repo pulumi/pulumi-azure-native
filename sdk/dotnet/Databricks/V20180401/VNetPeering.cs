@@ -78,22 +78,64 @@ namespace Pulumi.AzureRM.Databricks.V20180401
     public sealed class VNetPeeringArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+        /// </summary>
+        [Input("allowForwardedTraffic")]
+        public Input<bool>? AllowForwardedTraffic { get; set; }
+
+        /// <summary>
+        /// If gateway links can be used in remote virtual networking to link to this virtual network.
+        /// </summary>
+        [Input("allowGatewayTransit")]
+        public Input<bool>? AllowGatewayTransit { get; set; }
+
+        /// <summary>
+        /// Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+        /// </summary>
+        [Input("allowVirtualNetworkAccess")]
+        public Input<bool>? AllowVirtualNetworkAccess { get; set; }
+
+        /// <summary>
+        /// The reference to the databricks virtual network address space.
+        /// </summary>
+        [Input("databricksAddressSpace")]
+        public Input<Inputs.AddressSpaceArgs>? DatabricksAddressSpace { get; set; }
+
+        /// <summary>
+        ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        /// </summary>
+        [Input("databricksVirtualNetwork")]
+        public Input<Inputs.VirtualNetworkPeeringPropertiesFormatPropertiesArgs>? DatabricksVirtualNetwork { get; set; }
+
+        /// <summary>
         /// The name of the workspace vNet peering.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// List of properties for vNet Peering
+        /// The reference to the remote virtual network address space.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.VirtualNetworkPeeringPropertiesFormatArgs> Properties { get; set; } = null!;
+        [Input("remoteAddressSpace")]
+        public Input<Inputs.AddressSpaceArgs>? RemoteAddressSpace { get; set; }
+
+        /// <summary>
+        ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        /// </summary>
+        [Input("remoteVirtualNetwork", required: true)]
+        public Input<Inputs.VirtualNetworkPeeringPropertiesFormatPropertiesArgs> RemoteVirtualNetwork { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        /// </summary>
+        [Input("useRemoteGateways")]
+        public Input<bool>? UseRemoteGateways { get; set; }
 
         /// <summary>
         /// The name of the workspace.

@@ -16,10 +16,34 @@ namespace Pulumi.AzureRM.Network.V20180601.Inputs
     public sealed class OutboundNatRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The number of outbound ports to be used for NAT.
+        /// </summary>
+        [Input("allocatedOutboundPorts")]
+        public Input<int>? AllocatedOutboundPorts { get; set; }
+
+        /// <summary>
+        /// A reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs.
+        /// </summary>
+        [Input("backendAddressPool", required: true)]
+        public Input<Inputs.SubResourceArgs> BackendAddressPool { get; set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        [Input("frontendIPConfigurations")]
+        private InputList<Inputs.SubResourceArgs>? _frontendIPConfigurations;
+
+        /// <summary>
+        /// The Frontend IP addresses of the load balancer.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> FrontendIPConfigurations
+        {
+            get => _frontendIPConfigurations ?? (_frontendIPConfigurations = new InputList<Inputs.SubResourceArgs>());
+            set => _frontendIPConfigurations = value;
+        }
 
         /// <summary>
         /// Resource ID.
@@ -34,10 +58,10 @@ namespace Pulumi.AzureRM.Network.V20180601.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of load balancer outbound nat rule.
+        /// Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.OutboundNatRulePropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         public OutboundNatRuleArgs()
         {

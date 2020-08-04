@@ -102,6 +102,12 @@ namespace Pulumi.AzureRM.Search.V20150819
     public sealed class ServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+        /// </summary>
+        [Input("hostingMode")]
+        public Input<string>? HostingMode { get; set; }
+
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
@@ -120,10 +126,16 @@ namespace Pulumi.AzureRM.Search.V20150819
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Search service.
+        /// The number of partitions in the Search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SearchServicePropertiesArgs>? Properties { get; set; }
+        [Input("partitionCount")]
+        public Input<int>? PartitionCount { get; set; }
+
+        /// <summary>
+        /// The number of replicas in the Search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
+        /// </summary>
+        [Input("replicaCount")]
+        public Input<int>? ReplicaCount { get; set; }
 
         /// <summary>
         /// The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.

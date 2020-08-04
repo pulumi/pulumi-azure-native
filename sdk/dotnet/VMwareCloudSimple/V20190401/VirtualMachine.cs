@@ -96,6 +96,36 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         public Input<string> Referer { get; set; } = null!;
 
         /// <summary>
+        /// The amount of memory
+        /// </summary>
+        [Input("amountOfRam", required: true)]
+        public Input<int> AmountOfRam { get; set; } = null!;
+
+        /// <summary>
+        /// Virtual machine properties
+        /// </summary>
+        [Input("customization")]
+        public Input<Inputs.GuestOSCustomizationArgs>? Customization { get; set; }
+
+        [Input("disks")]
+        private InputList<Inputs.VirtualDiskArgs>? _disks;
+
+        /// <summary>
+        /// The list of Virtual Disks
+        /// </summary>
+        public InputList<Inputs.VirtualDiskArgs> Disks
+        {
+            get => _disks ?? (_disks = new InputList<Inputs.VirtualDiskArgs>());
+            set => _disks = value;
+        }
+
+        /// <summary>
+        /// Expose Guest OS or not
+        /// </summary>
+        [Input("exposeToGuestVM")]
+        public Input<bool>? ExposeToGuestVM { get; set; }
+
+        /// <summary>
         /// Azure region
         /// </summary>
         [Input("location", required: true)]
@@ -107,11 +137,35 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("nics")]
+        private InputList<Inputs.VirtualNicArgs>? _nics;
+
         /// <summary>
-        /// Virtual machine properties
+        /// The list of Virtual NICs
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualMachinePropertiesArgs>? Properties { get; set; }
+        public InputList<Inputs.VirtualNicArgs> Nics
+        {
+            get => _nics ?? (_nics = new InputList<Inputs.VirtualNicArgs>());
+            set => _nics = value;
+        }
+
+        /// <summary>
+        /// The number of CPU cores
+        /// </summary>
+        [Input("numberOfCores", required: true)]
+        public Input<int> NumberOfCores { get; set; } = null!;
+
+        /// <summary>
+        /// Password for login. Deprecated - use customization property
+        /// </summary>
+        [Input("password")]
+        public Input<string>? Password { get; set; }
+
+        /// <summary>
+        /// Private Cloud Id
+        /// </summary>
+        [Input("privateCloudId", required: true)]
+        public Input<string> PrivateCloudId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group
@@ -120,10 +174,40 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Virtual Machines Resource Pool
+        /// </summary>
+        [Input("resourcePool")]
+        public Input<Inputs.ResourcePoolArgs>? ResourcePool { get; set; }
+
+        /// <summary>
         /// The list of tags
         /// </summary>
         [Input("tags")]
         public Input<Inputs.TagsArgs>? Tags { get; set; }
+
+        /// <summary>
+        /// Virtual Machine Template Id
+        /// </summary>
+        [Input("templateId")]
+        public Input<string>? TemplateId { get; set; }
+
+        /// <summary>
+        /// Username for login. Deprecated - use customization property
+        /// </summary>
+        [Input("username")]
+        public Input<string>? Username { get; set; }
+
+        [Input("vSphereNetworks")]
+        private InputList<string>? _vSphereNetworks;
+
+        /// <summary>
+        /// The list of Virtual VSphere Networks
+        /// </summary>
+        public InputList<string> VSphereNetworks
+        {
+            get => _vSphereNetworks ?? (_vSphereNetworks = new InputList<string>());
+            set => _vSphereNetworks = value;
+        }
 
         public VirtualMachineArgs()
         {

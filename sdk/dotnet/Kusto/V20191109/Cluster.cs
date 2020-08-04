@@ -108,10 +108,28 @@ namespace Pulumi.AzureRM.Kusto.V20191109
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A boolean value that indicates if the cluster's disks are encrypted.
+        /// </summary>
+        [Input("enableDiskEncryption")]
+        public Input<bool>? EnableDiskEncryption { get; set; }
+
+        /// <summary>
+        /// A boolean value that indicates if the streaming ingest is enabled.
+        /// </summary>
+        [Input("enableStreamingIngest")]
+        public Input<bool>? EnableStreamingIngest { get; set; }
+
+        /// <summary>
         /// The identity of the cluster, if configured.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// KeyVault properties for the cluster encryption.
+        /// </summary>
+        [Input("keyVaultProperties")]
+        public Input<Inputs.KeyVaultPropertiesArgs>? KeyVaultProperties { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -126,10 +144,10 @@ namespace Pulumi.AzureRM.Kusto.V20191109
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The cluster properties.
+        /// Optimized auto scale definition.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ClusterPropertiesArgs>? Properties { get; set; }
+        [Input("optimizedAutoscale")]
+        public Input<Inputs.OptimizedAutoscaleArgs>? OptimizedAutoscale { get; set; }
 
         /// <summary>
         /// The name of the resource group containing the Kusto cluster.
@@ -154,6 +172,24 @@ namespace Pulumi.AzureRM.Kusto.V20191109
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        [Input("trustedExternalTenants")]
+        private InputList<Inputs.TrustedExternalTenantArgs>? _trustedExternalTenants;
+
+        /// <summary>
+        /// The cluster's external tenants.
+        /// </summary>
+        public InputList<Inputs.TrustedExternalTenantArgs> TrustedExternalTenants
+        {
+            get => _trustedExternalTenants ?? (_trustedExternalTenants = new InputList<Inputs.TrustedExternalTenantArgs>());
+            set => _trustedExternalTenants = value;
+        }
+
+        /// <summary>
+        /// Virtual network definition.
+        /// </summary>
+        [Input("virtualNetworkConfiguration")]
+        public Input<Inputs.VirtualNetworkConfigurationArgs>? VirtualNetworkConfiguration { get; set; }
 
         /// <summary>
         /// The availability zones of the cluster.

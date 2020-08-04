@@ -78,22 +78,34 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
     public sealed class OrderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The contact details.
+        /// </summary>
+        [Input("contactInformation", required: true)]
+        public Input<Inputs.ContactDetailsArgs> ContactInformation { get; set; } = null!;
+
+        /// <summary>
+        /// Current status of the order.
+        /// </summary>
+        [Input("currentStatus")]
+        public Input<Inputs.OrderStatusArgs>? CurrentStatus { get; set; }
+
+        /// <summary>
         /// The device name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The order properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.OrderPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The shipping address.
+        /// </summary>
+        [Input("shippingAddress", required: true)]
+        public Input<Inputs.AddressArgs> ShippingAddress { get; set; } = null!;
 
         public OrderArgs()
         {

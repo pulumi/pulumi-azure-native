@@ -96,10 +96,16 @@ namespace Pulumi.AzureRM.Network.V20190901
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the Virtual Router Peering.
+        /// Peer ASN.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualRouterPeeringPropertiesArgs>? Properties { get; set; }
+        [Input("peerAsn")]
+        public Input<int>? PeerAsn { get; set; }
+
+        /// <summary>
+        /// Peer IP.
+        /// </summary>
+        [Input("peerIp")]
+        public Input<string>? PeerIp { get; set; }
 
         /// <summary>
         /// The name of the resource group.

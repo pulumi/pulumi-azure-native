@@ -78,6 +78,24 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class HubVirtualNetworkConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
+        /// </summary>
+        [Input("allowHubToRemoteVnetTransit")]
+        public Input<bool>? AllowHubToRemoteVnetTransit { get; set; }
+
+        /// <summary>
+        /// Deprecated: Allow RemoteVnet to use Virtual Hub's gateways.
+        /// </summary>
+        [Input("allowRemoteVnetToUseHubVnetGateways")]
+        public Input<bool>? AllowRemoteVnetToUseHubVnetGateways { get; set; }
+
+        /// <summary>
+        /// Enable internet security.
+        /// </summary>
+        [Input("enableInternetSecurity")]
+        public Input<bool>? EnableInternetSecurity { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -90,16 +108,22 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the hub virtual network connection.
+        /// Reference to the remote virtual network.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.HubVirtualNetworkConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("remoteVirtualNetwork")]
+        public Input<Inputs.SubResourceArgs>? RemoteVirtualNetwork { get; set; }
 
         /// <summary>
         /// The resource group name of the HubVirtualNetworkConnection.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The Routing Configuration indicating the associated and propagated route tables on this connection.
+        /// </summary>
+        [Input("routingConfiguration")]
+        public Input<Inputs.RoutingConfigurationArgs>? RoutingConfiguration { get; set; }
 
         /// <summary>
         /// The name of the VirtualHub.

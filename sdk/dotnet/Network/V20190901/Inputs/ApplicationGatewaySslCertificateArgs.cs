@@ -16,10 +16,22 @@ namespace Pulumi.AzureRM.Network.V20190901.Inputs
     public sealed class ApplicationGatewaySslCertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Base-64 encoded pfx certificate. Only applicable in PUT Request.
+        /// </summary>
+        [Input("data")]
+        public Input<string>? Data { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
+        /// </summary>
+        [Input("keyVaultSecretId")]
+        public Input<string>? KeyVaultSecretId { get; set; }
 
         /// <summary>
         /// Name of the SSL certificate that is unique within an Application Gateway.
@@ -28,10 +40,10 @@ namespace Pulumi.AzureRM.Network.V20190901.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the application gateway SSL certificate.
+        /// Password for the pfx file specified in data. Only applicable in PUT request.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewaySslCertificatePropertiesFormatArgs>? Properties { get; set; }
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         public ApplicationGatewaySslCertificateArgs()
         {

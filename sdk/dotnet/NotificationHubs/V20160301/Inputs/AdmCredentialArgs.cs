@@ -16,10 +16,22 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301.Inputs
     public sealed class AdmCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Properties of NotificationHub AdmCredential.
+        /// The URL of the authorization token.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AdmCredentialPropertiesArgs>? Properties { get; set; }
+        [Input("authTokenUrl")]
+        public Input<string>? AuthTokenUrl { get; set; }
+
+        /// <summary>
+        /// The client identifier.
+        /// </summary>
+        [Input("clientId")]
+        public Input<string>? ClientId { get; set; }
+
+        /// <summary>
+        /// The credential secret access key.
+        /// </summary>
+        [Input("clientSecret")]
+        public Input<string>? ClientSecret { get; set; }
 
         public AdmCredentialArgs()
         {

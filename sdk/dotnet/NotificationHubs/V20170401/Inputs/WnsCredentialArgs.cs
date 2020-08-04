@@ -16,10 +16,22 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401.Inputs
     public sealed class WnsCredentialArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Properties of NotificationHub WnsCredential.
+        /// The package ID for this credential.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.WnsCredentialPropertiesArgs>? Properties { get; set; }
+        [Input("packageSid")]
+        public Input<string>? PackageSid { get; set; }
+
+        /// <summary>
+        /// The secret key.
+        /// </summary>
+        [Input("secretKey")]
+        public Input<string>? SecretKey { get; set; }
+
+        /// <summary>
+        /// The Windows Live endpoint.
+        /// </summary>
+        [Input("windowsLiveEndpoint")]
+        public Input<string>? WindowsLiveEndpoint { get; set; }
 
         public WnsCredentialArgs()
         {

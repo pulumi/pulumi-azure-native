@@ -84,10 +84,28 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class VolumeContainerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The bandwidth-rate set on the volume container.
+        /// </summary>
+        [Input("bandWidthRateInMbps")]
+        public Input<int>? BandWidthRateInMbps { get; set; }
+
+        /// <summary>
+        /// The ID of the bandwidth setting associated with the volume container.
+        /// </summary>
+        [Input("bandwidthSettingId")]
+        public Input<string>? BandwidthSettingId { get; set; }
+
+        /// <summary>
         /// The device name
         /// </summary>
         [Input("deviceName", required: true)]
         public Input<string> DeviceName { get; set; } = null!;
+
+        /// <summary>
+        /// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+        /// </summary>
+        [Input("encryptionKey")]
+        public Input<Inputs.AsymmetricEncryptedSecretArgs>? EncryptionKey { get; set; }
 
         /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
@@ -108,16 +126,16 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The volume container properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.VolumeContainerPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The path ID of storage account associated with the volume container.
+        /// </summary>
+        [Input("storageAccountCredentialId", required: true)]
+        public Input<string> StorageAccountCredentialId { get; set; } = null!;
 
         public VolumeContainerArgs()
         {

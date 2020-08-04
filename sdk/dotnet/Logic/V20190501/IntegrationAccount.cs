@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public sealed class IntegrationAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The integration service environment.
+        /// </summary>
+        [Input("integrationServiceEnvironment")]
+        public Input<Inputs.IntegrationServiceEnvironmentArgs>? IntegrationServiceEnvironment { get; set; }
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Input("location")]
@@ -108,12 +114,6 @@ namespace Pulumi.AzureRM.Logic.V20190501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The integration account properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.IntegrationAccountPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -124,6 +124,12 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// </summary>
         [Input("sku")]
         public Input<Inputs.IntegrationAccountSkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// The workflow state.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

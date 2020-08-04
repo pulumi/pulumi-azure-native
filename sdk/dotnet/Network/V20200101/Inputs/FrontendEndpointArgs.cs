@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20200101.Inputs
     public sealed class FrontendEndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The host name of the frontendEndpoint. Must be a domain name.
+        /// </summary>
+        [Input("hostName")]
+        public Input<string>? HostName { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -28,10 +34,28 @@ namespace Pulumi.AzureRM.Network.V20200101.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the Frontend endpoint
+        /// Resource status.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.FrontendEndpointPropertiesArgs>? Properties { get; set; }
+        [Input("resourceState")]
+        public Input<string>? ResourceState { get; set; }
+
+        /// <summary>
+        /// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+        /// </summary>
+        [Input("sessionAffinityEnabledState")]
+        public Input<string>? SessionAffinityEnabledState { get; set; }
+
+        /// <summary>
+        /// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
+        /// </summary>
+        [Input("sessionAffinityTtlSeconds")]
+        public Input<int>? SessionAffinityTtlSeconds { get; set; }
+
+        /// <summary>
+        /// Defines the Web Application Firewall policy for each host (if applicable)
+        /// </summary>
+        [Input("webApplicationFirewallPolicyLink")]
+        public Input<Inputs.FrontendEndpointUpdateParametersPropertiesArgs>? WebApplicationFirewallPolicyLink { get; set; }
 
         public FrontendEndpointArgs()
         {

@@ -78,16 +78,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public sealed class TagArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Tag name.
+        /// </summary>
+        [Input("displayName", required: true)]
+        public Input<string> DisplayName { get; set; } = null!;
+
+        /// <summary>
         /// Tag identifier. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties supplied to Create Tag operation.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.TagContractPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

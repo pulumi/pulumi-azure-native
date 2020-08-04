@@ -34,10 +34,28 @@ namespace Pulumi.AzureRM.Network.V20180701.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Properties of the service end point policy
+        /// The provisioning state of the service endpoint policy. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ServiceEndpointPolicyPropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// The resource GUID property of the service endpoint policy resource.
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
+
+        [Input("serviceEndpointPolicyDefinitions")]
+        private InputList<Inputs.ServiceEndpointPolicyDefinitionArgs>? _serviceEndpointPolicyDefinitions;
+
+        /// <summary>
+        /// A collection of service endpoint policy definitions of the service endpoint policy.
+        /// </summary>
+        public InputList<Inputs.ServiceEndpointPolicyDefinitionArgs> ServiceEndpointPolicyDefinitions
+        {
+            get => _serviceEndpointPolicyDefinitions ?? (_serviceEndpointPolicyDefinitions = new InputList<Inputs.ServiceEndpointPolicyDefinitionArgs>());
+            set => _serviceEndpointPolicyDefinitions = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

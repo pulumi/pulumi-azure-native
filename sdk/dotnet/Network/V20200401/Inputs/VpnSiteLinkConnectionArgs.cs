@@ -16,10 +16,46 @@ namespace Pulumi.AzureRM.Network.V20200401.Inputs
     public sealed class VpnSiteLinkConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Expected bandwidth in MBPS.
+        /// </summary>
+        [Input("connectionBandwidth")]
+        public Input<int>? ConnectionBandwidth { get; set; }
+
+        /// <summary>
+        /// The connection status.
+        /// </summary>
+        [Input("connectionStatus")]
+        public Input<string>? ConnectionStatus { get; set; }
+
+        /// <summary>
+        /// EnableBgp flag.
+        /// </summary>
+        [Input("enableBgp")]
+        public Input<bool>? EnableBgp { get; set; }
+
+        /// <summary>
+        /// EnableBgp flag.
+        /// </summary>
+        [Input("enableRateLimiting")]
+        public Input<bool>? EnableRateLimiting { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("ipsecPolicies")]
+        private InputList<Inputs.IpsecPolicyArgs>? _ipsecPolicies;
+
+        /// <summary>
+        /// The IPSec Policies to be considered by this connection.
+        /// </summary>
+        public InputList<Inputs.IpsecPolicyArgs> IpsecPolicies
+        {
+            get => _ipsecPolicies ?? (_ipsecPolicies = new InputList<Inputs.IpsecPolicyArgs>());
+            set => _ipsecPolicies = value;
+        }
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -28,10 +64,40 @@ namespace Pulumi.AzureRM.Network.V20200401.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the VPN site link connection.
+        /// Routing weight for vpn connection.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VpnSiteLinkConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("routingWeight")]
+        public Input<int>? RoutingWeight { get; set; }
+
+        /// <summary>
+        /// SharedKey for the vpn connection.
+        /// </summary>
+        [Input("sharedKey")]
+        public Input<string>? SharedKey { get; set; }
+
+        /// <summary>
+        /// Use local azure ip to initiate connection.
+        /// </summary>
+        [Input("useLocalAzureIpAddress")]
+        public Input<bool>? UseLocalAzureIpAddress { get; set; }
+
+        /// <summary>
+        /// Enable policy-based traffic selectors.
+        /// </summary>
+        [Input("usePolicyBasedTrafficSelectors")]
+        public Input<bool>? UsePolicyBasedTrafficSelectors { get; set; }
+
+        /// <summary>
+        /// Connection protocol used for this connection.
+        /// </summary>
+        [Input("vpnConnectionProtocolType")]
+        public Input<string>? VpnConnectionProtocolType { get; set; }
+
+        /// <summary>
+        /// Id of the connected vpn site link.
+        /// </summary>
+        [Input("vpnSiteLink")]
+        public Input<Inputs.SubResourceArgs>? VpnSiteLink { get; set; }
 
         public VpnSiteLinkConnectionArgs()
         {

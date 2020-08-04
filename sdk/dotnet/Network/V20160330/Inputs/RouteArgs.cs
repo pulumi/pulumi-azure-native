@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
     public sealed class RouteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Gets or sets the destination CIDR to which the route applies.
+        /// </summary>
+        [Input("addressPrefix")]
+        public Input<string>? AddressPrefix { get; set; }
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Input("etag")]
@@ -34,10 +40,22 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Route resource
+        /// Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RoutePropertiesFormatArgs>? Properties { get; set; }
+        [Input("nextHopIpAddress")]
+        public Input<string>? NextHopIpAddress { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type of Azure hop the packet should be sent to.
+        /// </summary>
+        [Input("nextHopType", required: true)]
+        public Input<string> NextHopType { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         public RouteArgs()
         {

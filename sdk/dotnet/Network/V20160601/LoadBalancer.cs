@@ -95,17 +95,77 @@ namespace Pulumi.AzureRM.Network.V20160601
 
     public sealed class LoadBalancerArgs : Pulumi.ResourceArgs
     {
+        [Input("backendAddressPools")]
+        private InputList<Inputs.BackendAddressPoolArgs>? _backendAddressPools;
+
+        /// <summary>
+        /// Gets or sets Pools of backend IP addresses
+        /// </summary>
+        public InputList<Inputs.BackendAddressPoolArgs> BackendAddressPools
+        {
+            get => _backendAddressPools ?? (_backendAddressPools = new InputList<Inputs.BackendAddressPoolArgs>());
+            set => _backendAddressPools = value;
+        }
+
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
+        [Input("frontendIPConfigurations")]
+        private InputList<Inputs.FrontendIPConfigurationArgs>? _frontendIPConfigurations;
+
+        /// <summary>
+        /// Gets or sets frontend IP addresses of the load balancer
+        /// </summary>
+        public InputList<Inputs.FrontendIPConfigurationArgs> FrontendIPConfigurations
+        {
+            get => _frontendIPConfigurations ?? (_frontendIPConfigurations = new InputList<Inputs.FrontendIPConfigurationArgs>());
+            set => _frontendIPConfigurations = value;
+        }
+
         /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("inboundNatPools")]
+        private InputList<Inputs.InboundNatPoolArgs>? _inboundNatPools;
+
+        /// <summary>
+        /// Gets or sets inbound NAT pools
+        /// </summary>
+        public InputList<Inputs.InboundNatPoolArgs> InboundNatPools
+        {
+            get => _inboundNatPools ?? (_inboundNatPools = new InputList<Inputs.InboundNatPoolArgs>());
+            set => _inboundNatPools = value;
+        }
+
+        [Input("inboundNatRules")]
+        private InputList<Inputs.InboundNatRuleArgs>? _inboundNatRules;
+
+        /// <summary>
+        /// Gets or sets list of inbound rules
+        /// </summary>
+        public InputList<Inputs.InboundNatRuleArgs> InboundNatRules
+        {
+            get => _inboundNatRules ?? (_inboundNatRules = new InputList<Inputs.InboundNatRuleArgs>());
+            set => _inboundNatRules = value;
+        }
+
+        [Input("loadBalancingRules")]
+        private InputList<Inputs.LoadBalancingRuleArgs>? _loadBalancingRules;
+
+        /// <summary>
+        /// Gets or sets load balancing rules
+        /// </summary>
+        public InputList<Inputs.LoadBalancingRuleArgs> LoadBalancingRules
+        {
+            get => _loadBalancingRules ?? (_loadBalancingRules = new InputList<Inputs.LoadBalancingRuleArgs>());
+            set => _loadBalancingRules = value;
+        }
 
         /// <summary>
         /// Resource location
@@ -119,17 +179,47 @@ namespace Pulumi.AzureRM.Network.V20160601
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("outboundNatRules")]
+        private InputList<Inputs.OutboundNatRuleArgs>? _outboundNatRules;
+
         /// <summary>
-        /// Properties of Load Balancer
+        /// Gets or sets outbound NAT rules
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.LoadBalancerPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.OutboundNatRuleArgs> OutboundNatRules
+        {
+            get => _outboundNatRules ?? (_outboundNatRules = new InputList<Inputs.OutboundNatRuleArgs>());
+            set => _outboundNatRules = value;
+        }
+
+        [Input("probes")]
+        private InputList<Inputs.ProbeArgs>? _probes;
+
+        /// <summary>
+        /// Gets or sets list of Load balancer probes
+        /// </summary>
+        public InputList<Inputs.ProbeArgs> Probes
+        {
+            get => _probes ?? (_probes = new InputList<Inputs.ProbeArgs>());
+            set => _probes = value;
+        }
+
+        /// <summary>
+        /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Gets or sets resource guid property of the Load balancer resource
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

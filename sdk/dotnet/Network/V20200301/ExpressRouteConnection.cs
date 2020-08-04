@@ -72,6 +72,24 @@ namespace Pulumi.AzureRM.Network.V20200301
     public sealed class ExpressRouteConnectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Authorization key to establish the connection.
+        /// </summary>
+        [Input("authorizationKey")]
+        public Input<string>? AuthorizationKey { get; set; }
+
+        /// <summary>
+        /// Enable internet security.
+        /// </summary>
+        [Input("enableInternetSecurity")]
+        public Input<bool>? EnableInternetSecurity { get; set; }
+
+        /// <summary>
+        /// The ExpressRoute circuit peering.
+        /// </summary>
+        [Input("expressRouteCircuitPeering", required: true)]
+        public Input<Inputs.ExpressRouteCircuitPeeringIdArgs> ExpressRouteCircuitPeering { get; set; } = null!;
+
+        /// <summary>
         /// The name of the ExpressRoute gateway.
         /// </summary>
         [Input("expressRouteGatewayName", required: true)]
@@ -90,16 +108,16 @@ namespace Pulumi.AzureRM.Network.V20200301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the express route connection.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ExpressRouteConnectionPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The routing weight associated to the connection.
+        /// </summary>
+        [Input("routingWeight")]
+        public Input<int>? RoutingWeight { get; set; }
 
         public ExpressRouteConnectionArgs()
         {

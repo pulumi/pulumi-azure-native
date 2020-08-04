@@ -34,10 +34,16 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of SSL certificates of application gateway
+        /// The provisioning state of the VPN client root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VpnClientRootCertificatePropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Gets or sets the certificate public data
+        /// </summary>
+        [Input("publicCertData")]
+        public Input<string>? PublicCertData { get; set; }
 
         public VpnClientRootCertificateArgs()
         {

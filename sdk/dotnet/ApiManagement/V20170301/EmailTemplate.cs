@@ -78,16 +78,34 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     public sealed class EmailTemplateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Email Template Body. This should be a valid XDocument
+        /// </summary>
+        [Input("body")]
+        public Input<string>? Body { get; set; }
+
+        /// <summary>
+        /// Description of the Email Template.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Email Template Name Identifier.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("parameters")]
+        private InputList<Inputs.EmailTemplateParametersContractPropertiesArgs>? _parameters;
+
         /// <summary>
-        /// Email Template Update contract properties.
+        /// Email Template Parameter values.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.EmailTemplateUpdateParameterPropertiesArgs>? Properties { get; set; }
+        public InputList<Inputs.EmailTemplateParametersContractPropertiesArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputList<Inputs.EmailTemplateParametersContractPropertiesArgs>());
+            set => _parameters = value;
+        }
 
         /// <summary>
         /// The name of the resource group.
@@ -100,6 +118,18 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Subject of the Template.
+        /// </summary>
+        [Input("subject")]
+        public Input<string>? Subject { get; set; }
+
+        /// <summary>
+        /// Title of the Template.
+        /// </summary>
+        [Input("title")]
+        public Input<string>? Title { get; set; }
 
         public EmailTemplateArgs()
         {

@@ -84,12 +84,6 @@ namespace Pulumi.AzureRM.Advisor.V20170331
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the suppression.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SuppressionPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The recommendation ID.
         /// </summary>
         [Input("recommendationId", required: true)]
@@ -100,6 +94,18 @@ namespace Pulumi.AzureRM.Advisor.V20170331
         /// </summary>
         [Input("resourceUri", required: true)]
         public Input<string> ResourceUri { get; set; } = null!;
+
+        /// <summary>
+        /// The GUID of the suppression.
+        /// </summary>
+        [Input("suppressionId")]
+        public Input<string>? SuppressionId { get; set; }
+
+        /// <summary>
+        /// The duration for which the suppression is valid.
+        /// </summary>
+        [Input("ttl")]
+        public Input<string>? Ttl { get; set; }
 
         public SuppressionArgs()
         {

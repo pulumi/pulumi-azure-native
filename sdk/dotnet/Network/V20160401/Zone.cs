@@ -108,16 +108,22 @@ namespace Pulumi.AzureRM.Network.V20160401
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        /// </summary>
+        [Input("maxNumberOfRecordSets")]
+        public Input<int>? MaxNumberOfRecordSets { get; set; }
+
+        /// <summary>
         /// The name of the DNS zone (without a terminating dot).
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the zone.
+        /// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ZonePropertiesArgs>? Properties { get; set; }
+        [Input("numberOfRecordSets")]
+        public Input<int>? NumberOfRecordSets { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

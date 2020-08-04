@@ -86,6 +86,36 @@ namespace Pulumi.AzureRM.ContainerInstance.V20180401
 
     public sealed class ContainerGroupArgs : Pulumi.ResourceArgs
     {
+        [Input("containers", required: true)]
+        private InputList<Inputs.ContainerArgs>? _containers;
+
+        /// <summary>
+        /// The containers within the container group.
+        /// </summary>
+        public InputList<Inputs.ContainerArgs> Containers
+        {
+            get => _containers ?? (_containers = new InputList<Inputs.ContainerArgs>());
+            set => _containers = value;
+        }
+
+        [Input("imageRegistryCredentials")]
+        private InputList<Inputs.ImageRegistryCredentialArgs>? _imageRegistryCredentials;
+
+        /// <summary>
+        /// The image registry credentials by which the container group is created from.
+        /// </summary>
+        public InputList<Inputs.ImageRegistryCredentialArgs> ImageRegistryCredentials
+        {
+            get => _imageRegistryCredentials ?? (_imageRegistryCredentials = new InputList<Inputs.ImageRegistryCredentialArgs>());
+            set => _imageRegistryCredentials = value;
+        }
+
+        /// <summary>
+        /// The IP address type of the container group.
+        /// </summary>
+        [Input("ipAddress")]
+        public Input<Inputs.IpAddressArgs>? IpAddress { get; set; }
+
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -98,14 +128,26 @@ namespace Pulumi.AzureRM.ContainerInstance.V20180401
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties", required: true)]
-        public Input<Inputs.ContainerGroupPropertiesArgs> Properties { get; set; } = null!;
+        /// <summary>
+        /// The operating system type required by the containers in the container group.
+        /// </summary>
+        [Input("osType", required: true)]
+        public Input<string> OsType { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Restart policy for all containers within the container group. 
+        /// - `Always` Always restart
+        /// - `OnFailure` Restart on failure
+        /// - `Never` Never restart
+        /// </summary>
+        [Input("restartPolicy")]
+        public Input<string>? RestartPolicy { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -117,6 +159,18 @@ namespace Pulumi.AzureRM.ContainerInstance.V20180401
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("volumes")]
+        private InputList<Inputs.VolumeArgs>? _volumes;
+
+        /// <summary>
+        /// The list of volumes that can be mounted by containers in this container group.
+        /// </summary>
+        public InputList<Inputs.VolumeArgs> Volumes
+        {
+            get => _volumes ?? (_volumes = new InputList<Inputs.VolumeArgs>());
+            set => _volumes = value;
         }
 
         public ContainerGroupArgs()

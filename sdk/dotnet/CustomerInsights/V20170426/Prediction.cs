@@ -78,28 +78,136 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
     public sealed class PredictionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether do auto analyze.
+        /// </summary>
+        [Input("autoAnalyze", required: true)]
+        public Input<bool> AutoAnalyze { get; set; } = null!;
+
+        [Input("description")]
+        private InputMap<string>? _description;
+
+        /// <summary>
+        /// Description of the prediction.
+        /// </summary>
+        public InputMap<string> Description
+        {
+            get => _description ?? (_description = new InputMap<string>());
+            set => _description = value;
+        }
+
+        [Input("displayName")]
+        private InputMap<string>? _displayName;
+
+        /// <summary>
+        /// Display name of the prediction.
+        /// </summary>
+        public InputMap<string> DisplayName
+        {
+            get => _displayName ?? (_displayName = new InputMap<string>());
+            set => _displayName = value;
+        }
+
+        [Input("grades")]
+        private InputList<Inputs.PredictionPropertiesArgs>? _grades;
+
+        /// <summary>
+        /// The prediction grades.
+        /// </summary>
+        public InputList<Inputs.PredictionPropertiesArgs> Grades
+        {
+            get => _grades ?? (_grades = new InputList<Inputs.PredictionPropertiesArgs>());
+            set => _grades = value;
+        }
+
+        /// <summary>
         /// The name of the hub.
         /// </summary>
         [Input("hubName", required: true)]
         public Input<string> HubName { get; set; } = null!;
 
+        [Input("involvedInteractionTypes")]
+        private InputList<string>? _involvedInteractionTypes;
+
         /// <summary>
-        /// The name of the Prediction.
+        /// Interaction types involved in the prediction.
+        /// </summary>
+        public InputList<string> InvolvedInteractionTypes
+        {
+            get => _involvedInteractionTypes ?? (_involvedInteractionTypes = new InputList<string>());
+            set => _involvedInteractionTypes = value;
+        }
+
+        [Input("involvedKpiTypes")]
+        private InputList<string>? _involvedKpiTypes;
+
+        /// <summary>
+        /// KPI types involved in the prediction.
+        /// </summary>
+        public InputList<string> InvolvedKpiTypes
+        {
+            get => _involvedKpiTypes ?? (_involvedKpiTypes = new InputList<string>());
+            set => _involvedKpiTypes = value;
+        }
+
+        [Input("involvedRelationships")]
+        private InputList<string>? _involvedRelationships;
+
+        /// <summary>
+        /// Relationships involved in the prediction.
+        /// </summary>
+        public InputList<string> InvolvedRelationships
+        {
+            get => _involvedRelationships ?? (_involvedRelationships = new InputList<string>());
+            set => _involvedRelationships = value;
+        }
+
+        /// <summary>
+        /// Definition of the link mapping of prediction.
+        /// </summary>
+        [Input("mappings", required: true)]
+        public Input<Inputs.PredictionPropertiesArgs> Mappings { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the prediction.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The prediction definition.
+        /// Negative outcome expression.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PredictionDefinitionArgs>? Properties { get; set; }
+        [Input("negativeOutcomeExpression", required: true)]
+        public Input<string> NegativeOutcomeExpression { get; set; } = null!;
+
+        /// <summary>
+        /// Positive outcome expression.
+        /// </summary>
+        [Input("positiveOutcomeExpression", required: true)]
+        public Input<string> PositiveOutcomeExpression { get; set; } = null!;
+
+        /// <summary>
+        /// Primary profile type.
+        /// </summary>
+        [Input("primaryProfileType", required: true)]
+        public Input<string> PrimaryProfileType { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Scope expression.
+        /// </summary>
+        [Input("scopeExpression", required: true)]
+        public Input<string> ScopeExpression { get; set; } = null!;
+
+        /// <summary>
+        /// Score label.
+        /// </summary>
+        [Input("scoreLabel", required: true)]
+        public Input<string> ScoreLabel { get; set; } = null!;
 
         public PredictionArgs()
         {

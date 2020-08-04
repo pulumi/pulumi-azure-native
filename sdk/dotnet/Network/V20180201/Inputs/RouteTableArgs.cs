@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20180201.Inputs
     public sealed class RouteTableArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
+        /// </summary>
+        [Input("disableBgpRoutePropagation")]
+        public Input<bool>? DisableBgpRoutePropagation { get; set; }
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
@@ -34,10 +40,22 @@ namespace Pulumi.AzureRM.Network.V20180201.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Properties of the route table.
+        /// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RouteTablePropertiesFormatArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        [Input("routes")]
+        private InputList<Inputs.RouteArgs>? _routes;
+
+        /// <summary>
+        /// Collection of routes contained within a route table.
+        /// </summary>
+        public InputList<Inputs.RouteArgs> Routes
+        {
+            get => _routes ?? (_routes = new InputList<Inputs.RouteArgs>());
+            set => _routes = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

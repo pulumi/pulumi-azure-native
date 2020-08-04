@@ -27,12 +27,6 @@ namespace Pulumi.AzureRM.Network.V20200301.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Properties of load balancer backend address pool.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.BackendAddressPoolPropertiesFormatArgs>? Properties { get; set; }
-
         public BackendAddressPoolArgs()
         {
         }

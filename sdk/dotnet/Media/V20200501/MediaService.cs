@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.Media.V20200501
     public sealed class MediaServiceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The account encryption properties.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.AccountEncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// The Managed Identity for the Media Services account.
         /// </summary>
         [Input("identity")]
@@ -114,16 +120,25 @@ namespace Pulumi.AzureRM.Media.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The resource properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.MediaServicePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("storageAccounts")]
+        private InputList<Inputs.StorageAccountArgs>? _storageAccounts;
+
+        /// <summary>
+        /// The storage accounts for this resource.
+        /// </summary>
+        public InputList<Inputs.StorageAccountArgs> StorageAccounts
+        {
+            get => _storageAccounts ?? (_storageAccounts = new InputList<Inputs.StorageAccountArgs>());
+            set => _storageAccounts = value;
+        }
+
+        [Input("storageAuthentication")]
+        public Input<string>? StorageAuthentication { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

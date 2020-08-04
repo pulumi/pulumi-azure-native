@@ -16,10 +16,34 @@ namespace Pulumi.AzureRM.Network.V20170801.Inputs
     public sealed class InboundNatPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+        /// </summary>
+        [Input("backendPort", required: true)]
+        public Input<int> BackendPort { get; set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// A reference to frontend IP addresses.
+        /// </summary>
+        [Input("frontendIPConfiguration")]
+        public Input<Inputs.SubResourceArgs>? FrontendIPConfiguration { get; set; }
+
+        /// <summary>
+        /// The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with a load balancer. Acceptable values range between 1 and 65535.
+        /// </summary>
+        [Input("frontendPortRangeEnd", required: true)]
+        public Input<int> FrontendPortRangeEnd { get; set; } = null!;
+
+        /// <summary>
+        /// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with a load balancer. Acceptable values range between 1 and 65534.
+        /// </summary>
+        [Input("frontendPortRangeStart", required: true)]
+        public Input<int> FrontendPortRangeStart { get; set; } = null!;
 
         /// <summary>
         /// Resource ID.
@@ -34,10 +58,16 @@ namespace Pulumi.AzureRM.Network.V20170801.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of load balancer inbound nat pool.
+        /// The transport protocol for the endpoint. Possible values are: 'Udp' or 'Tcp'.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.InboundNatPoolPropertiesFormatArgs>? Properties { get; set; }
+        [Input("protocol", required: true)]
+        public Input<string> Protocol { get; set; } = null!;
+
+        /// <summary>
+        /// Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         public InboundNatPoolArgs()
         {

@@ -78,10 +78,100 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
     public sealed class ProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
+        /// </summary>
+        [Input("apiEntitySetName")]
+        public Input<string>? ApiEntitySetName { get; set; }
+
+        [Input("attributes")]
+        private InputMap<ImmutableArray<string>>? _attributes;
+
+        /// <summary>
+        /// The attributes for the Type.
+        /// </summary>
+        public InputMap<ImmutableArray<string>> Attributes
+        {
+            get => _attributes ?? (_attributes = new InputMap<ImmutableArray<string>>());
+            set => _attributes = value;
+        }
+
+        [Input("description")]
+        private InputMap<string>? _description;
+
+        /// <summary>
+        /// Localized descriptions for the property.
+        /// </summary>
+        public InputMap<string> Description
+        {
+            get => _description ?? (_description = new InputMap<string>());
+            set => _description = value;
+        }
+
+        [Input("displayName")]
+        private InputMap<string>? _displayName;
+
+        /// <summary>
+        /// Localized display names for the property.
+        /// </summary>
+        public InputMap<string> DisplayName
+        {
+            get => _displayName ?? (_displayName = new InputMap<string>());
+            set => _displayName = value;
+        }
+
+        /// <summary>
+        /// Type of entity.
+        /// </summary>
+        [Input("entityType")]
+        public Input<string>? EntityType { get; set; }
+
+        [Input("fields")]
+        private InputList<Inputs.PropertyDefinitionArgs>? _fields;
+
+        /// <summary>
+        /// The properties of the Profile.
+        /// </summary>
+        public InputList<Inputs.PropertyDefinitionArgs> Fields
+        {
+            get => _fields ?? (_fields = new InputList<Inputs.PropertyDefinitionArgs>());
+            set => _fields = value;
+        }
+
+        /// <summary>
         /// The name of the hub.
         /// </summary>
         [Input("hubName", required: true)]
         public Input<string> HubName { get; set; } = null!;
+
+        /// <summary>
+        /// The instance count.
+        /// </summary>
+        [Input("instancesCount")]
+        public Input<int>? InstancesCount { get; set; }
+
+        /// <summary>
+        /// Large Image associated with the Property or EntityType.
+        /// </summary>
+        [Input("largeImage")]
+        public Input<string>? LargeImage { get; set; }
+
+        [Input("localizedAttributes")]
+        private InputMap<ImmutableDictionary<string, string>>? _localizedAttributes;
+
+        /// <summary>
+        /// Any custom localized attributes for the Type.
+        /// </summary>
+        public InputMap<ImmutableDictionary<string, string>> LocalizedAttributes
+        {
+            get => _localizedAttributes ?? (_localizedAttributes = new InputMap<ImmutableDictionary<string, string>>());
+            set => _localizedAttributes = value;
+        }
+
+        /// <summary>
+        /// Medium Image associated with the Property or EntityType.
+        /// </summary>
+        [Input("mediumImage")]
+        public Input<string>? MediumImage { get; set; }
 
         /// <summary>
         /// The name of the profile.
@@ -90,16 +180,46 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The profile type definition.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ProfileTypeDefinitionArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The schema org link. This helps ACI identify and suggest semantic models.
+        /// </summary>
+        [Input("schemaItemTypeLink")]
+        public Input<string>? SchemaItemTypeLink { get; set; }
+
+        /// <summary>
+        /// Small Image associated with the Property or EntityType.
+        /// </summary>
+        [Input("smallImage")]
+        public Input<string>? SmallImage { get; set; }
+
+        [Input("strongIds")]
+        private InputList<Inputs.StrongIdArgs>? _strongIds;
+
+        /// <summary>
+        /// The strong IDs.
+        /// </summary>
+        public InputList<Inputs.StrongIdArgs> StrongIds
+        {
+            get => _strongIds ?? (_strongIds = new InputList<Inputs.StrongIdArgs>());
+            set => _strongIds = value;
+        }
+
+        /// <summary>
+        /// The timestamp property name. Represents the time when the interaction or profile update happened.
+        /// </summary>
+        [Input("timestampFieldName")]
+        public Input<string>? TimestampFieldName { get; set; }
+
+        /// <summary>
+        /// The name of the entity.
+        /// </summary>
+        [Input("typeName")]
+        public Input<string>? TypeName { get; set; }
 
         public ProfileArgs()
         {

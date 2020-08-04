@@ -96,16 +96,16 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of BackupScheduleGroup
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.BackupScheduleGroupPropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+        /// </summary>
+        [Input("startTime", required: true)]
+        public Input<Inputs.TimeArgs> StartTime { get; set; } = null!;
 
         public BackupScheduleGroupArgs()
         {

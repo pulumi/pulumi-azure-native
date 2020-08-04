@@ -84,10 +84,58 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
     public sealed class IncidentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The reason the incident was closed
+        /// </summary>
+        [Input("classification")]
+        public Input<string>? Classification { get; set; }
+
+        /// <summary>
+        /// Describes the reason the incident was closed
+        /// </summary>
+        [Input("classificationComment")]
+        public Input<string>? ClassificationComment { get; set; }
+
+        /// <summary>
+        /// The classification reason the incident was closed with
+        /// </summary>
+        [Input("classificationReason")]
+        public Input<string>? ClassificationReason { get; set; }
+
+        /// <summary>
+        /// The description of the incident
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// The time of the first activity in the incident
+        /// </summary>
+        [Input("firstActivityTimeUtc")]
+        public Input<string>? FirstActivityTimeUtc { get; set; }
+
+        [Input("labels")]
+        private InputList<Inputs.IncidentLabelArgs>? _labels;
+
+        /// <summary>
+        /// List of labels relevant to this incident
+        /// </summary>
+        public InputList<Inputs.IncidentLabelArgs> Labels
+        {
+            get => _labels ?? (_labels = new InputList<Inputs.IncidentLabelArgs>());
+            set => _labels = value;
+        }
+
+        /// <summary>
+        /// The time of the last activity in the incident
+        /// </summary>
+        [Input("lastActivityTimeUtc")]
+        public Input<string>? LastActivityTimeUtc { get; set; }
 
         /// <summary>
         /// Incident ID
@@ -96,16 +144,34 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Incident properties
+        /// Describes a user that the incident is assigned to
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.IncidentPropertiesArgs>? Properties { get; set; }
+        [Input("owner")]
+        public Input<Inputs.IncidentOwnerInfoArgs>? Owner { get; set; }
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The severity of the incident
+        /// </summary>
+        [Input("severity", required: true)]
+        public Input<string> Severity { get; set; } = null!;
+
+        /// <summary>
+        /// The status of the incident
+        /// </summary>
+        [Input("status", required: true)]
+        public Input<string> Status { get; set; } = null!;
+
+        /// <summary>
+        /// The title of the incident
+        /// </summary>
+        [Input("title", required: true)]
+        public Input<string> Title { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

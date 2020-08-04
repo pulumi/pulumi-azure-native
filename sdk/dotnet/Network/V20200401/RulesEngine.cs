@@ -90,16 +90,28 @@ namespace Pulumi.AzureRM.Network.V20200401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Rules Engine Configuration.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RulesEnginePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource status.
+        /// </summary>
+        [Input("resourceState")]
+        public Input<string>? ResourceState { get; set; }
+
+        [Input("rules")]
+        private InputList<Inputs.RulesEngineRuleArgs>? _rules;
+
+        /// <summary>
+        /// A list of rules that define a particular Rules Engine Configuration.
+        /// </summary>
+        public InputList<Inputs.RulesEngineRuleArgs> Rules
+        {
+            get => _rules ?? (_rules = new InputList<Inputs.RulesEngineRuleArgs>());
+            set => _rules = value;
+        }
 
         public RulesEngineArgs()
         {

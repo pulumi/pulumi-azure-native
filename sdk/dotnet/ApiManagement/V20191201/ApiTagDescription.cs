@@ -84,16 +84,28 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
+        /// Description of the Tag.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Description of the external resources describing the tag.
+        /// </summary>
+        [Input("externalDocsDescription")]
+        public Input<string>? ExternalDocsDescription { get; set; }
+
+        /// <summary>
+        /// Absolute URL of external resources describing the tag.
+        /// </summary>
+        [Input("externalDocsUrl")]
+        public Input<string>? ExternalDocsUrl { get; set; }
+
+        /// <summary>
         /// Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties supplied to Create TagDescription operation.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.TagDescriptionBasePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

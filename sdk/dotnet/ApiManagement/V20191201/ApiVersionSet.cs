@@ -78,16 +78,22 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class ApiVersionSetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Description of API Version Set.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Name of API Version Set
+        /// </summary>
+        [Input("displayName", required: true)]
+        public Input<string> DisplayName { get; set; } = null!;
+
+        /// <summary>
         /// Api Version Set identifier. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Api VersionSet contract properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApiVersionSetContractPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -100,6 +106,24 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+        /// </summary>
+        [Input("versionHeaderName")]
+        public Input<string>? VersionHeaderName { get; set; }
+
+        /// <summary>
+        /// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+        /// </summary>
+        [Input("versionQueryName")]
+        public Input<string>? VersionQueryName { get; set; }
+
+        /// <summary>
+        /// An value that determines where the API Version identifer will be located in a HTTP request.
+        /// </summary>
+        [Input("versioningScheme", required: true)]
+        public Input<string> VersioningScheme { get; set; } = null!;
 
         public ApiVersionSetArgs()
         {

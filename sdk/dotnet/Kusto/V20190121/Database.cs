@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.Kusto.V20190121
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
+        /// The time the data that should be kept in cache for fast queries in TimeSpan.
+        /// </summary>
+        [Input("hotCachePeriod")]
+        public Input<string>? HotCachePeriod { get; set; }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
@@ -102,16 +108,22 @@ namespace Pulumi.AzureRM.Kusto.V20190121
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The database properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DatabasePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group containing the Kusto cluster.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The time the data should be kept before it stops being accessible to queries in TimeSpan.
+        /// </summary>
+        [Input("softDeletePeriod")]
+        public Input<string>? SoftDeletePeriod { get; set; }
+
+        /// <summary>
+        /// The statistics of the database.
+        /// </summary>
+        [Input("statistics")]
+        public Input<Inputs.DatabaseStatisticsArgs>? Statistics { get; set; }
 
         public DatabaseArgs()
         {

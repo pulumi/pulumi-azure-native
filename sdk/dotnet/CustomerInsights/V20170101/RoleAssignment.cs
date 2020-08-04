@@ -78,10 +78,64 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public sealed class RoleAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Widget types set for the assignment.
+        /// </summary>
+        [Input("conflationPolicies")]
+        public Input<Inputs.ResourceSetDescriptionArgs>? ConflationPolicies { get; set; }
+
+        /// <summary>
+        /// Connectors set for the assignment.
+        /// </summary>
+        [Input("connectors")]
+        public Input<Inputs.ResourceSetDescriptionArgs>? Connectors { get; set; }
+
+        [Input("description")]
+        private InputMap<string>? _description;
+
+        /// <summary>
+        /// Localized description for the metadata.
+        /// </summary>
+        public InputMap<string> Description
+        {
+            get => _description ?? (_description = new InputMap<string>());
+            set => _description = value;
+        }
+
+        [Input("displayName")]
+        private InputMap<string>? _displayName;
+
+        /// <summary>
+        /// Localized display names for the metadata.
+        /// </summary>
+        public InputMap<string> DisplayName
+        {
+            get => _displayName ?? (_displayName = new InputMap<string>());
+            set => _displayName = value;
+        }
+
+        /// <summary>
         /// The name of the hub.
         /// </summary>
         [Input("hubName", required: true)]
         public Input<string> HubName { get; set; } = null!;
+
+        /// <summary>
+        /// Interactions set for the assignment.
+        /// </summary>
+        [Input("interactions")]
+        public Input<Inputs.ResourceSetDescriptionArgs>? Interactions { get; set; }
+
+        /// <summary>
+        /// Kpis set for the assignment.
+        /// </summary>
+        [Input("kpis")]
+        public Input<Inputs.ResourceSetDescriptionArgs>? Kpis { get; set; }
+
+        /// <summary>
+        /// Links set for the assignment.
+        /// </summary>
+        [Input("links")]
+        public Input<Inputs.ResourceSetDescriptionArgs>? Links { get; set; }
 
         /// <summary>
         /// The assignment name
@@ -89,17 +143,77 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("principals", required: true)]
+        private InputList<Inputs.AssignmentPrincipalArgs>? _principals;
+
         /// <summary>
-        /// The Role Assignment definition.
+        /// The principals being assigned to.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RoleAssignmentDefinitionArgs>? Properties { get; set; }
+        public InputList<Inputs.AssignmentPrincipalArgs> Principals
+        {
+            get => _principals ?? (_principals = new InputList<Inputs.AssignmentPrincipalArgs>());
+            set => _principals = value;
+        }
+
+        /// <summary>
+        /// Profiles set for the assignment.
+        /// </summary>
+        [Input("profiles")]
+        public Input<Inputs.ResourceSetDescriptionArgs>? Profiles { get; set; }
+
+        /// <summary>
+        /// The Role assignments set for the relationship links.
+        /// </summary>
+        [Input("relationshipLinks")]
+        public Input<Inputs.ResourceSetDescriptionArgs>? RelationshipLinks { get; set; }
+
+        /// <summary>
+        /// The Role assignments set for the relationships.
+        /// </summary>
+        [Input("relationships")]
+        public Input<Inputs.ResourceSetDescriptionArgs>? Relationships { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Type of roles.
+        /// </summary>
+        [Input("role", required: true)]
+        public Input<string> Role { get; set; } = null!;
+
+        /// <summary>
+        /// The Role assignments set for the assignment.
+        /// </summary>
+        [Input("roleAssignments")]
+        public Input<Inputs.ResourceSetDescriptionArgs>? RoleAssignments { get; set; }
+
+        /// <summary>
+        /// Sas Policies set for the assignment.
+        /// </summary>
+        [Input("sasPolicies")]
+        public Input<Inputs.ResourceSetDescriptionArgs>? SasPolicies { get; set; }
+
+        /// <summary>
+        /// The Role assignments set for the assignment.
+        /// </summary>
+        [Input("segments")]
+        public Input<Inputs.ResourceSetDescriptionArgs>? Segments { get; set; }
+
+        /// <summary>
+        /// Views set for the assignment.
+        /// </summary>
+        [Input("views")]
+        public Input<Inputs.ResourceSetDescriptionArgs>? Views { get; set; }
+
+        /// <summary>
+        /// Widget types set for the assignment.
+        /// </summary>
+        [Input("widgetTypes")]
+        public Input<Inputs.ResourceSetDescriptionArgs>? WidgetTypes { get; set; }
 
         public RoleAssignmentArgs()
         {

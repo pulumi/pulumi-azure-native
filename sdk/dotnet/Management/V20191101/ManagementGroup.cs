@@ -78,16 +78,22 @@ namespace Pulumi.AzureRM.Management.V20191101
     public sealed class ManagementGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The details of a management group used during creation.
+        /// </summary>
+        [Input("details")]
+        public Input<Inputs.CreateManagementGroupDetailsArgs>? Details { get; set; }
+
+        /// <summary>
+        /// The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
         /// Management Group ID.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The generic properties of a management group used during creation.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.CreateManagementGroupPropertiesArgs>? Properties { get; set; }
 
         public ManagementGroupArgs()
         {

@@ -108,10 +108,46 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class PublicIPAddressArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The DDoS protection custom policy associated with the public IP address.
+        /// </summary>
+        [Input("ddosSettings")]
+        public Input<Inputs.DdosSettingsArgs>? DdosSettings { get; set; }
+
+        /// <summary>
+        /// The FQDN of the DNS record associated with the public IP address.
+        /// </summary>
+        [Input("dnsSettings")]
+        public Input<Inputs.PublicIPAddressDnsSettingsArgs>? DnsSettings { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The idle timeout of the public IP address.
+        /// </summary>
+        [Input("idleTimeoutInMinutes")]
+        public Input<int>? IdleTimeoutInMinutes { get; set; }
+
+        /// <summary>
+        /// The IP address associated with the public IP address resource.
+        /// </summary>
+        [Input("ipAddress")]
+        public Input<string>? IpAddress { get; set; }
+
+        [Input("ipTags")]
+        private InputList<Inputs.IpTagArgs>? _ipTags;
+
+        /// <summary>
+        /// The list of tags associated with the public IP address.
+        /// </summary>
+        public InputList<Inputs.IpTagArgs> IpTags
+        {
+            get => _ipTags ?? (_ipTags = new InputList<Inputs.IpTagArgs>());
+            set => _ipTags = value;
+        }
 
         /// <summary>
         /// Resource location.
@@ -126,10 +162,22 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Public IP address properties.
+        /// The public IP address version.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PublicIPAddressPropertiesFormatArgs>? Properties { get; set; }
+        [Input("publicIPAddressVersion")]
+        public Input<string>? PublicIPAddressVersion { get; set; }
+
+        /// <summary>
+        /// The public IP address allocation method.
+        /// </summary>
+        [Input("publicIPAllocationMethod")]
+        public Input<string>? PublicIPAllocationMethod { get; set; }
+
+        /// <summary>
+        /// The Public IP Prefix this Public IP Address should be allocated from.
+        /// </summary>
+        [Input("publicIPPrefix")]
+        public Input<Inputs.SubResourceArgs>? PublicIPPrefix { get; set; }
 
         /// <summary>
         /// The name of the resource group.

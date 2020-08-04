@@ -78,22 +78,28 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public sealed class ProductPolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Format of the policyContent.
+        /// </summary>
+        [Input("contentFormat")]
+        public Input<string>? ContentFormat { get; set; }
+
+        /// <summary>
         /// The identifier of the Policy.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Json escaped Xml Encoded contents of the Policy.
+        /// </summary>
+        [Input("policyContent", required: true)]
+        public Input<string> PolicyContent { get; set; } = null!;
+
+        /// <summary>
         /// Product identifier. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("productId", required: true)]
         public Input<string> ProductId { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the Policy.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PolicyContractPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

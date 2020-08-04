@@ -95,11 +95,29 @@ namespace Pulumi.AzureRM.Network.V20200501
 
     public sealed class IpAllocationArgs : Pulumi.ResourceArgs
     {
+        [Input("allocationTags")]
+        private InputMap<string>? _allocationTags;
+
+        /// <summary>
+        /// IpAllocation tags.
+        /// </summary>
+        public InputMap<string> AllocationTags
+        {
+            get => _allocationTags ?? (_allocationTags = new InputMap<string>());
+            set => _allocationTags = value;
+        }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The IPAM allocation ID.
+        /// </summary>
+        [Input("ipamAllocationId")]
+        public Input<string>? IpamAllocationId { get; set; }
 
         /// <summary>
         /// Resource location.
@@ -114,10 +132,22 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the IpAllocation.
+        /// The address prefix for the IpAllocation.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.IpAllocationPropertiesFormatArgs>? Properties { get; set; }
+        [Input("prefix")]
+        public Input<string>? Prefix { get; set; }
+
+        /// <summary>
+        /// The address prefix length for the IpAllocation.
+        /// </summary>
+        [Input("prefixLength")]
+        public Input<int>? PrefixLength { get; set; }
+
+        /// <summary>
+        /// The address prefix Type for the IpAllocation.
+        /// </summary>
+        [Input("prefixType")]
+        public Input<string>? PrefixType { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -136,6 +166,12 @@ namespace Pulumi.AzureRM.Network.V20200501
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The type for the IpAllocation.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public IpAllocationArgs()
         {

@@ -93,16 +93,76 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
     public sealed class CertificateOrderArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Auto renew
+        /// </summary>
+        [Input("autoRenew")]
+        public Input<bool>? AutoRenew { get; set; }
+
+        [Input("certificates")]
+        private InputMap<Inputs.CertificateOrderCertificateArgs>? _certificates;
+
+        /// <summary>
+        /// State of the Key Vault secret
+        /// </summary>
+        public InputMap<Inputs.CertificateOrderCertificateArgs> Certificates
+        {
+            get => _certificates ?? (_certificates = new InputMap<Inputs.CertificateOrderCertificateArgs>());
+            set => _certificates = value;
+        }
+
+        /// <summary>
+        /// Last CSR that was created for this order
+        /// </summary>
+        [Input("csr")]
+        public Input<string>? Csr { get; set; }
+
+        /// <summary>
+        /// Certificate distinguished name
+        /// </summary>
+        [Input("distinguishedName")]
+        public Input<string>? DistinguishedName { get; set; }
+
+        /// <summary>
+        /// Domain Verification Token
+        /// </summary>
+        [Input("domainVerificationToken")]
+        public Input<string>? DomainVerificationToken { get; set; }
+
+        /// <summary>
+        /// Certificate expiration time
+        /// </summary>
+        [Input("expirationTime")]
+        public Input<string>? ExpirationTime { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         /// <summary>
+        /// Intermediate certificate
+        /// </summary>
+        [Input("intermediate")]
+        public Input<Inputs.CertificateDetailsArgs>? Intermediate { get; set; }
+
+        /// <summary>
+        /// Certificate Key Size
+        /// </summary>
+        [Input("keySize")]
+        public Input<int>? KeySize { get; set; }
+
+        /// <summary>
         /// Kind of resource
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
+
+        /// <summary>
+        /// Certificate last issuance time
+        /// </summary>
+        [Input("lastCertificateIssuanceTime")]
+        public Input<string>? LastCertificateIssuanceTime { get; set; }
 
         /// <summary>
         /// Resource Location
@@ -116,14 +176,47 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("properties")]
-        public Input<Inputs.CertificateOrderPropertiesArgs>? Properties { get; set; }
+        /// <summary>
+        /// Certificate product type
+        /// </summary>
+        [Input("productType")]
+        public Input<string>? ProductType { get; set; }
+
+        /// <summary>
+        /// Status of certificate order
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Azure resource group name
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Root certificate
+        /// </summary>
+        [Input("root")]
+        public Input<Inputs.CertificateDetailsArgs>? Root { get; set; }
+
+        /// <summary>
+        /// Current serial number of the certificate
+        /// </summary>
+        [Input("serialNumber")]
+        public Input<string>? SerialNumber { get; set; }
+
+        /// <summary>
+        /// Signed certificate
+        /// </summary>
+        [Input("signedCertificate")]
+        public Input<Inputs.CertificateDetailsArgs>? SignedCertificate { get; set; }
+
+        /// <summary>
+        /// Current order status
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -142,6 +235,12 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Duration in years (must be between 1 and 3)
+        /// </summary>
+        [Input("validityInYears")]
+        public Input<int>? ValidityInYears { get; set; }
 
         public CertificateOrderArgs()
         {

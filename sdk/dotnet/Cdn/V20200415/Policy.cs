@@ -102,6 +102,12 @@ namespace Pulumi.AzureRM.Cdn.V20200415
     public sealed class PolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Describes custom rules inside the policy.
+        /// </summary>
+        [Input("customRules")]
+        public Input<Inputs.CustomRuleListArgs>? CustomRules { get; set; }
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
@@ -114,16 +120,28 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
+        /// Describes managed rules inside the policy.
+        /// </summary>
+        [Input("managedRules")]
+        public Input<Inputs.ManagedRuleSetListArgs>? ManagedRules { get; set; }
+
+        /// <summary>
         /// The name of the CdnWebApplicationFirewallPolicy.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the web application firewall policy.
+        /// Describes  policySettings for policy
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.CdnWebApplicationFirewallPolicyPropertiesArgs>? Properties { get; set; }
+        [Input("policySettings")]
+        public Input<Inputs.PolicySettingsArgs>? PolicySettings { get; set; }
+
+        /// <summary>
+        /// Describes rate limit rules inside the policy.
+        /// </summary>
+        [Input("rateLimitRules")]
+        public Input<Inputs.RateLimitRuleListArgs>? RateLimitRules { get; set; }
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

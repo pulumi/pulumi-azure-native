@@ -96,6 +96,24 @@ namespace Pulumi.AzureRM.Network.V20191101
     public sealed class VirtualHubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Address-prefix for this VirtualHub.
+        /// </summary>
+        [Input("addressPrefix")]
+        public Input<string>? AddressPrefix { get; set; }
+
+        /// <summary>
+        /// The azureFirewall associated with this VirtualHub.
+        /// </summary>
+        [Input("azureFirewall")]
+        public Input<Inputs.SubResourceArgs>? AzureFirewall { get; set; }
+
+        /// <summary>
+        /// The expressRouteGateway associated with this VirtualHub.
+        /// </summary>
+        [Input("expressRouteGateway")]
+        public Input<Inputs.SubResourceArgs>? ExpressRouteGateway { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -114,16 +132,34 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the virtual hub.
+        /// The P2SVpnGateway associated with this VirtualHub.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualHubPropertiesArgs>? Properties { get; set; }
+        [Input("p2SVpnGateway")]
+        public Input<Inputs.SubResourceArgs>? P2SVpnGateway { get; set; }
 
         /// <summary>
         /// The resource group name of the VirtualHub.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The routeTable associated with this virtual hub.
+        /// </summary>
+        [Input("routeTable")]
+        public Input<Inputs.VirtualHubRouteTableArgs>? RouteTable { get; set; }
+
+        /// <summary>
+        /// The Security Provider name.
+        /// </summary>
+        [Input("securityProviderName")]
+        public Input<string>? SecurityProviderName { get; set; }
+
+        /// <summary>
+        /// The sku of this VirtualHub.
+        /// </summary>
+        [Input("sku")]
+        public Input<string>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -136,6 +172,42 @@ namespace Pulumi.AzureRM.Network.V20191101
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        [Input("virtualHubRouteTableV2s")]
+        private InputList<Inputs.VirtualHubRouteTableV2Args>? _virtualHubRouteTableV2s;
+
+        /// <summary>
+        /// List of all virtual hub route table v2s associated with this VirtualHub.
+        /// </summary>
+        public InputList<Inputs.VirtualHubRouteTableV2Args> VirtualHubRouteTableV2s
+        {
+            get => _virtualHubRouteTableV2s ?? (_virtualHubRouteTableV2s = new InputList<Inputs.VirtualHubRouteTableV2Args>());
+            set => _virtualHubRouteTableV2s = value;
+        }
+
+        [Input("virtualNetworkConnections")]
+        private InputList<Inputs.HubVirtualNetworkConnectionArgs>? _virtualNetworkConnections;
+
+        /// <summary>
+        /// List of all vnet connections with this VirtualHub.
+        /// </summary>
+        public InputList<Inputs.HubVirtualNetworkConnectionArgs> VirtualNetworkConnections
+        {
+            get => _virtualNetworkConnections ?? (_virtualNetworkConnections = new InputList<Inputs.HubVirtualNetworkConnectionArgs>());
+            set => _virtualNetworkConnections = value;
+        }
+
+        /// <summary>
+        /// The VirtualWAN to which the VirtualHub belongs.
+        /// </summary>
+        [Input("virtualWan")]
+        public Input<Inputs.SubResourceArgs>? VirtualWan { get; set; }
+
+        /// <summary>
+        /// The VpnGateway associated with this VirtualHub.
+        /// </summary>
+        [Input("vpnGateway")]
+        public Input<Inputs.SubResourceArgs>? VpnGateway { get; set; }
 
         public VirtualHubArgs()
         {

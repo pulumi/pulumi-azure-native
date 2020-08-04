@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Web.V20160601.Inputs
     public sealed class ConnectionErrorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Code of the status
+        /// </summary>
+        [Input("code")]
+        public Input<string>? Code { get; set; }
+
+        /// <summary>
         /// Resource ETag
         /// </summary>
         [Input("etag")]
@@ -27,8 +33,11 @@ namespace Pulumi.AzureRM.Web.V20160601.Inputs
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("properties")]
-        public Input<Inputs.ConnectionErrorPropertiesArgs>? Properties { get; set; }
+        /// <summary>
+        /// Description of the status
+        /// </summary>
+        [Input("message")]
+        public Input<string>? Message { get; set; }
 
         /// <summary>
         /// Resource tags

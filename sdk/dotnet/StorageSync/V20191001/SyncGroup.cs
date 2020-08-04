@@ -84,12 +84,6 @@ namespace Pulumi.AzureRM.StorageSync.V20191001
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The parameters used to create the sync group
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SyncGroupCreateParametersPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]

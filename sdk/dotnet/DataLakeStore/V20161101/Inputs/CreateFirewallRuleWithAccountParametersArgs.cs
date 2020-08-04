@@ -16,16 +16,22 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101.Inputs
     public sealed class CreateFirewallRuleWithAccountParametersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        /// </summary>
+        [Input("endIpAddress", required: true)]
+        public Input<string> EndIpAddress { get; set; } = null!;
+
+        /// <summary>
         /// The unique name of the firewall rule to create.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The firewall rule properties to use when creating a new firewall rule.
+        /// The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.CreateOrUpdateFirewallRulePropertiesArgs> Properties { get; set; } = null!;
+        [Input("startIpAddress", required: true)]
+        public Input<string> StartIpAddress { get; set; } = null!;
 
         public CreateFirewallRuleWithAccountParametersArgs()
         {

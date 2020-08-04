@@ -114,12 +114,6 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The application type name properties
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationTypeResourcePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]

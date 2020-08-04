@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
     public sealed class ApplicationGatewayBackendHttpSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Cookie based affinity. Possible values are: 'Enabled' and 'Disabled'.
+        /// </summary>
+        [Input("cookieBasedAffinity")]
+        public Input<string>? CookieBasedAffinity { get; set; }
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
@@ -34,10 +40,34 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of Backend address pool settings of an application gateway.
+        /// Port
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayBackendHttpSettingsPropertiesFormatArgs>? Properties { get; set; }
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        /// <summary>
+        /// Probe resource of an application gateway.
+        /// </summary>
+        [Input("probe")]
+        public Input<Inputs.SubResourceArgs>? Probe { get; set; }
+
+        /// <summary>
+        /// Protocol. Possible values are: 'Http' and 'Https'.
+        /// </summary>
+        [Input("protocol")]
+        public Input<string>? Protocol { get; set; }
+
+        /// <summary>
+        /// Gets or sets Provisioning state of the backend http settings resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
+        /// </summary>
+        [Input("requestTimeout")]
+        public Input<int>? RequestTimeout { get; set; }
 
         public ApplicationGatewayBackendHttpSettingsArgs()
         {

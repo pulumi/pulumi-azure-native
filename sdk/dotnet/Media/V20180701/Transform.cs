@@ -84,16 +84,28 @@ namespace Pulumi.AzureRM.Media.V20180701
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// An optional verbose description of the Transform.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The Transform name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("outputs", required: true)]
+        private InputList<Inputs.TransformOutputArgs>? _outputs;
+
         /// <summary>
-        /// The resource properties.
+        /// An array of one or more TransformOutputs that the Transform should generate.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.TransformPropertiesArgs>? Properties { get; set; }
+        public InputList<Inputs.TransformOutputArgs> Outputs
+        {
+            get => _outputs ?? (_outputs = new InputList<Inputs.TransformOutputArgs>());
+            set => _outputs = value;
+        }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

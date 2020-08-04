@@ -90,6 +90,18 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public sealed class EnvironmentSettingArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Describes the user's progress in configuring their environment setting
+        /// </summary>
+        [Input("configurationState")]
+        public Input<string>? ConfigurationState { get; set; }
+
+        /// <summary>
+        /// Describes the environment and its resource settings
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The name of the lab Account.
         /// </summary>
         [Input("labAccountName", required: true)]
@@ -114,16 +126,22 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the Environment Setting resource
+        /// The provisioning status of the resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.EnvironmentSettingPropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource specific settings
+        /// </summary>
+        [Input("resourceSettings", required: true)]
+        public Input<Inputs.ResourceSettingsArgs> ResourceSettings { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -136,6 +154,18 @@ namespace Pulumi.AzureRM.LabServices.V20181015
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Brief title describing the environment and its resource settings
+        /// </summary>
+        [Input("title")]
+        public Input<string>? Title { get; set; }
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Input("uniqueIdentifier")]
+        public Input<string>? UniqueIdentifier { get; set; }
 
         public EnvironmentSettingArgs()
         {

@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20200501.Inputs
     public sealed class LoadBalancingSettingsModelArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The additional latency in milliseconds for probes to fall into the lowest latency bucket
+        /// </summary>
+        [Input("additionalLatencyMilliseconds")]
+        public Input<int>? AdditionalLatencyMilliseconds { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -28,10 +34,22 @@ namespace Pulumi.AzureRM.Network.V20200501.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the load balancing settings
+        /// Resource status.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.LoadBalancingSettingsPropertiesArgs>? Properties { get; set; }
+        [Input("resourceState")]
+        public Input<string>? ResourceState { get; set; }
+
+        /// <summary>
+        /// The number of samples to consider for load balancing decisions
+        /// </summary>
+        [Input("sampleSize")]
+        public Input<int>? SampleSize { get; set; }
+
+        /// <summary>
+        /// The number of samples within the sample period that must succeed
+        /// </summary>
+        [Input("successfulSamplesRequired")]
+        public Input<int>? SuccessfulSamplesRequired { get; set; }
 
         public LoadBalancingSettingsModelArgs()
         {

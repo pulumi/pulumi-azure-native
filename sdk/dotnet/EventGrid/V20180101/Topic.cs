@@ -102,12 +102,6 @@ namespace Pulumi.AzureRM.EventGrid.V20180101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the topic
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.TopicPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group within the user's subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]

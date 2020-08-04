@@ -78,16 +78,52 @@ namespace Pulumi.AzureRM.EventGrid.V20190601
     public sealed class EventSubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The DeadLetter destination of the event subscription.
+        /// </summary>
+        [Input("deadLetterDestination")]
+        public Input<Inputs.DeadLetterDestinationArgs>? DeadLetterDestination { get; set; }
+
+        /// <summary>
+        /// Information about the destination where events have to be delivered for the event subscription.
+        /// </summary>
+        [Input("destination")]
+        public Input<Inputs.EventSubscriptionDestinationArgs>? Destination { get; set; }
+
+        /// <summary>
+        /// Expiration time of the event subscription.
+        /// </summary>
+        [Input("expirationTimeUtc")]
+        public Input<string>? ExpirationTimeUtc { get; set; }
+
+        /// <summary>
+        /// Information about the filter for the event subscription.
+        /// </summary>
+        [Input("filter")]
+        public Input<Inputs.EventSubscriptionFilterArgs>? Filter { get; set; }
+
+        [Input("labels")]
+        private InputList<string>? _labels;
+
+        /// <summary>
+        /// List of user defined labels.
+        /// </summary>
+        public InputList<string> Labels
+        {
+            get => _labels ?? (_labels = new InputList<string>());
+            set => _labels = value;
+        }
+
+        /// <summary>
         /// Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the event subscription
+        /// The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.EventSubscriptionPropertiesArgs>? Properties { get; set; }
+        [Input("retryPolicy")]
+        public Input<Inputs.RetryPolicyArgs>? RetryPolicy { get; set; }
 
         /// <summary>
         /// The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.

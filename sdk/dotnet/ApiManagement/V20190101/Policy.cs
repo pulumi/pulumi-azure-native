@@ -78,16 +78,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public sealed class PolicyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Format of the policyContent.
+        /// </summary>
+        [Input("format")]
+        public Input<string>? Format { get; set; }
+
+        /// <summary>
         /// The identifier of the Policy.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the Policy.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PolicyContractPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -100,6 +100,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Contents of the Policy as defined by the format.
+        /// </summary>
+        [Input("value", required: true)]
+        public Input<string> Value { get; set; } = null!;
 
         public PolicyArgs()
         {

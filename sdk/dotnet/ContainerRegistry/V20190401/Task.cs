@@ -97,6 +97,18 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401
     public sealed class TaskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The machine configuration of the run agent.
+        /// </summary>
+        [Input("agentConfiguration")]
+        public Input<Inputs.AgentPropertiesArgs>? AgentConfiguration { get; set; }
+
+        /// <summary>
+        /// The properties that describes a set of credentials that will be used when this run is invoked.
+        /// </summary>
+        [Input("credentials")]
+        public Input<Inputs.CredentialsArgs>? Credentials { get; set; }
+
+        /// <summary>
         /// Identity for the resource.
         /// </summary>
         [Input("identity")]
@@ -115,10 +127,10 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of a task.
+        /// The platform properties against which the run has to happen.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.TaskPropertiesArgs>? Properties { get; set; }
+        [Input("platform", required: true)]
+        public Input<Inputs.PlatformPropertiesArgs> Platform { get; set; } = null!;
 
         /// <summary>
         /// The name of the container registry.
@@ -132,6 +144,18 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The current status of task.
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// The properties of a task step.
+        /// </summary>
+        [Input("step", required: true)]
+        public Input<Inputs.TaskStepPropertiesArgs> Step { get; set; } = null!;
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -143,6 +167,18 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Run timeout in seconds.
+        /// </summary>
+        [Input("timeout")]
+        public Input<int>? Timeout { get; set; }
+
+        /// <summary>
+        /// The properties that describe all triggers for the task.
+        /// </summary>
+        [Input("trigger")]
+        public Input<Inputs.TriggerPropertiesArgs>? Trigger { get; set; }
 
         public TaskArgs()
         {

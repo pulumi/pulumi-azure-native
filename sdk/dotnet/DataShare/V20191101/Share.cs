@@ -84,22 +84,34 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// Share description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// The name of the share.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties on the share
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SharePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Share kind.
+        /// </summary>
+        [Input("shareKind")]
+        public Input<string>? ShareKind { get; set; }
+
+        /// <summary>
+        /// Share terms.
+        /// </summary>
+        [Input("terms")]
+        public Input<string>? Terms { get; set; }
 
         public ShareArgs()
         {

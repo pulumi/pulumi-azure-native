@@ -28,10 +28,34 @@ namespace Pulumi.AzureRM.Network.V20200401.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the private link service ip configuration.
+        /// Whether the ip configuration is primary or not.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateLinkServiceIpConfigurationPropertiesArgs>? Properties { get; set; }
+        [Input("primary")]
+        public Input<bool>? Primary { get; set; }
+
+        /// <summary>
+        /// The private IP address of the IP configuration.
+        /// </summary>
+        [Input("privateIPAddress")]
+        public Input<string>? PrivateIPAddress { get; set; }
+
+        /// <summary>
+        /// Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+        /// </summary>
+        [Input("privateIPAddressVersion")]
+        public Input<string>? PrivateIPAddressVersion { get; set; }
+
+        /// <summary>
+        /// The private IP address allocation method.
+        /// </summary>
+        [Input("privateIPAllocationMethod")]
+        public Input<string>? PrivateIPAllocationMethod { get; set; }
+
+        /// <summary>
+        /// The reference to the subnet resource.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.SubnetArgs>? Subnet { get; set; }
 
         public PrivateLinkServiceIpConfigurationArgs()
         {

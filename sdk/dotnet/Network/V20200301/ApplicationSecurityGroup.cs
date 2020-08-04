@@ -114,12 +114,6 @@ namespace Pulumi.AzureRM.Network.V20200301
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the application security group.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationSecurityGroupPropertiesFormatArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]

@@ -81,6 +81,12 @@ namespace Pulumi.AzureRM.Cdn.V20160402
         public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
+        /// The host name of the custom domain. Must be a domain name.
+        /// </summary>
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
+
+        /// <summary>
         /// Name of the custom domain within an endpoint.
         /// </summary>
         [Input("name", required: true)]
@@ -91,9 +97,6 @@ namespace Pulumi.AzureRM.Cdn.V20160402
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
-
-        [Input("properties")]
-        public Input<Inputs.CustomDomainPropertiesParametersArgs>? Properties { get; set; }
 
         /// <summary>
         /// Name of the resource group within the Azure subscription.

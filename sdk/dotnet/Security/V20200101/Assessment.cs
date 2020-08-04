@@ -77,6 +77,30 @@ namespace Pulumi.AzureRM.Security.V20200101
 
     public sealed class AssessmentArgs : Pulumi.ResourceArgs
     {
+        [Input("additionalData")]
+        private InputMap<string>? _additionalData;
+
+        /// <summary>
+        /// Additional data regarding the assessment
+        /// </summary>
+        public InputMap<string> AdditionalData
+        {
+            get => _additionalData ?? (_additionalData = new InputMap<string>());
+            set => _additionalData = value;
+        }
+
+        /// <summary>
+        /// Links relevant to the assessment
+        /// </summary>
+        [Input("links")]
+        public Input<Inputs.AssessmentLinksArgs>? Links { get; set; }
+
+        /// <summary>
+        /// Describes properties of an assessment metadata.
+        /// </summary>
+        [Input("metadata")]
+        public Input<Inputs.SecurityAssessmentMetadataPropertiesArgs>? Metadata { get; set; }
+
         /// <summary>
         /// The Assessment Key - Unique key for the assessment type
         /// </summary>
@@ -84,16 +108,28 @@ namespace Pulumi.AzureRM.Security.V20200101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Describes properties of an assessment.
+        /// Data regarding 3rd party partner integration
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SecurityAssessmentPropertiesArgs>? Properties { get; set; }
+        [Input("partnersData")]
+        public Input<Inputs.SecurityAssessmentPartnerDataArgs>? PartnersData { get; set; }
+
+        /// <summary>
+        /// Details of the resource that was assessed
+        /// </summary>
+        [Input("resourceDetails", required: true)]
+        public Input<Inputs.ResourceDetailsArgs> ResourceDetails { get; set; } = null!;
 
         /// <summary>
         /// The identifier of the resource.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
+
+        /// <summary>
+        /// The result of the assessment
+        /// </summary>
+        [Input("status", required: true)]
+        public Input<Inputs.AssessmentStatusArgs> Status { get; set; } = null!;
 
         public AssessmentArgs()
         {

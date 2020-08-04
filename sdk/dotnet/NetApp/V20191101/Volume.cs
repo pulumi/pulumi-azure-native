@@ -96,10 +96,46 @@ namespace Pulumi.AzureRM.NetApp.V20191101
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// A unique file path for the volume. Used when creating mount targets
+        /// </summary>
+        [Input("creationToken", required: true)]
+        public Input<string> CreationToken { get; set; } = null!;
+
+        /// <summary>
+        /// DataProtection type volumes include an object containing details of the replication
+        /// </summary>
+        [Input("dataProtection")]
+        public Input<Inputs.VolumePropertiesPropertiesArgs>? DataProtection { get; set; }
+
+        /// <summary>
+        /// Set of export policy rules
+        /// </summary>
+        [Input("exportPolicy")]
+        public Input<Inputs.VolumePropertiesPropertiesArgs>? ExportPolicy { get; set; }
+
+        /// <summary>
+        /// Restoring
+        /// </summary>
+        [Input("isRestoring")]
+        public Input<bool>? IsRestoring { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        [Input("mountTargets")]
+        private InputList<Inputs.MountTargetPropertiesArgs>? _mountTargets;
+
+        /// <summary>
+        /// List of mount targets
+        /// </summary>
+        public InputList<Inputs.MountTargetPropertiesArgs> MountTargets
+        {
+            get => _mountTargets ?? (_mountTargets = new InputList<Inputs.MountTargetPropertiesArgs>());
+            set => _mountTargets = value;
+        }
 
         /// <summary>
         /// The name of the volume
@@ -113,11 +149,17 @@ namespace Pulumi.AzureRM.NetApp.V20191101
         [Input("poolName", required: true)]
         public Input<string> PoolName { get; set; } = null!;
 
+        [Input("protocolTypes")]
+        private InputList<string>? _protocolTypes;
+
         /// <summary>
-        /// Volume properties
+        /// Set of protocol types
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.VolumePropertiesArgs> Properties { get; set; } = null!;
+        public InputList<string> ProtocolTypes
+        {
+            get => _protocolTypes ?? (_protocolTypes = new InputList<string>());
+            set => _protocolTypes = value;
+        }
 
         /// <summary>
         /// The name of the resource group.
@@ -126,10 +168,40 @@ namespace Pulumi.AzureRM.NetApp.V20191101
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// The service level of the file system
+        /// </summary>
+        [Input("serviceLevel")]
+        public Input<string>? ServiceLevel { get; set; }
+
+        /// <summary>
+        /// UUID v4 or resource identifier used to identify the Snapshot.
+        /// </summary>
+        [Input("snapshotId")]
+        public Input<string>? SnapshotId { get; set; }
+
+        /// <summary>
+        /// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
+        /// </summary>
+        [Input("subnetId", required: true)]
+        public Input<string> SubnetId { get; set; } = null!;
+
+        /// <summary>
         /// Resource tags
         /// </summary>
         [Input("tags")]
         public Input<Inputs.ResourceTagsArgs>? Tags { get; set; }
+
+        /// <summary>
+        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        /// </summary>
+        [Input("usageThreshold", required: true)]
+        public Input<int> UsageThreshold { get; set; } = null!;
+
+        /// <summary>
+        /// What type of volume is this
+        /// </summary>
+        [Input("volumeType")]
+        public Input<string>? VolumeType { get; set; }
 
         public VolumeArgs()
         {

@@ -27,11 +27,17 @@ namespace Pulumi.AzureRM.Network.V20191201.Inputs
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("securityRules")]
+        private InputList<Inputs.SecurityRuleArgs>? _securityRules;
+
         /// <summary>
-        /// Properties of the network security group.
+        /// A collection of security rules of the network security group.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NetworkSecurityGroupPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.SecurityRuleArgs> SecurityRules
+        {
+            get => _securityRules ?? (_securityRules = new InputList<Inputs.SecurityRuleArgs>());
+            set => _securityRules = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

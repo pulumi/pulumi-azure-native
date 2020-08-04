@@ -78,19 +78,43 @@ namespace Pulumi.AzureRM.Authorization.V20161201
     public sealed class PolicyAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// This message will be part of response in case of policy violation.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The display name of the policy assignment.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
         /// The name of the policy assignment.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// Properties for the policy assignment.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PolicyAssignmentPropertiesArgs>? Properties { get; set; }
+        [Input("parameters")]
+        private InputMap<object>? _parameters;
 
         /// <summary>
-        /// The scope of the policy assignment.
+        /// Required if a parameter is used in policy rule.
+        /// </summary>
+        public InputMap<object> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<object>());
+            set => _parameters = value;
+        }
+
+        /// <summary>
+        /// The ID of the policy definition.
+        /// </summary>
+        [Input("policyDefinitionId")]
+        public Input<string>? PolicyDefinitionId { get; set; }
+
+        /// <summary>
+        /// The scope for the policy assignment.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

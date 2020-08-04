@@ -95,6 +95,18 @@ namespace Pulumi.AzureRM.Network.V20200501
 
     public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
     {
+        [Input("containerNetworkInterfaceConfigurations")]
+        private InputList<Inputs.ContainerNetworkInterfaceConfigurationArgs>? _containerNetworkInterfaceConfigurations;
+
+        /// <summary>
+        /// List of chid container network interface configurations.
+        /// </summary>
+        public InputList<Inputs.ContainerNetworkInterfaceConfigurationArgs> ContainerNetworkInterfaceConfigurations
+        {
+            get => _containerNetworkInterfaceConfigurations ?? (_containerNetworkInterfaceConfigurations = new InputList<Inputs.ContainerNetworkInterfaceConfigurationArgs>());
+            set => _containerNetworkInterfaceConfigurations = value;
+        }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -112,12 +124,6 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Network profile properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NetworkProfilePropertiesFormatArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

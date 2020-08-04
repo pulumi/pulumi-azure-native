@@ -90,6 +90,18 @@ namespace Pulumi.AzureRM.Batch.V20170901
     public sealed class BatchAccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The properties related to the auto-storage account.
+        /// </summary>
+        [Input("autoStorage")]
+        public Input<Inputs.AutoStorageBasePropertiesArgs>? AutoStorage { get; set; }
+
+        /// <summary>
+        /// A reference to the Azure key vault associated with the Batch account.
+        /// </summary>
+        [Input("keyVaultReference")]
+        public Input<Inputs.KeyVaultReferenceArgs>? KeyVaultReference { get; set; }
+
+        /// <summary>
         /// The region in which to create the account.
         /// </summary>
         [Input("location", required: true)]
@@ -102,10 +114,10 @@ namespace Pulumi.AzureRM.Batch.V20170901
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the Batch account.
+        /// The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.BatchAccountCreatePropertiesArgs>? Properties { get; set; }
+        [Input("poolAllocationMode")]
+        public Input<string>? PoolAllocationMode { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the Batch account.

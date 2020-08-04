@@ -83,29 +83,38 @@ namespace Pulumi.AzureRM.Web.V20181101
 
     public sealed class WebAppRelayServiceConnectionSlotArgs : Pulumi.ResourceArgs
     {
+        [Input("biztalkUri")]
+        public Input<string>? BiztalkUri { get; set; }
+
+        [Input("entityConnectionString")]
+        public Input<string>? EntityConnectionString { get; set; }
+
+        [Input("hostname")]
+        public Input<string>? Hostname { get; set; }
+
         /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
         public Input<string>? Kind { get; set; }
 
-        /// <summary>
-        /// Name of the hybrid connection configuration.
-        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// RelayServiceConnectionEntity resource specific properties
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RelayServiceConnectionEntityPropertiesArgs>? Properties { get; set; }
+        [Input("port")]
+        public Input<int>? Port { get; set; }
+
+        [Input("resourceConnectionString")]
+        public Input<string>? ResourceConnectionString { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("resourceType")]
+        public Input<string>? ResourceType { get; set; }
 
         /// <summary>
         /// Name of the deployment slot. If a slot is not specified, the API will create or update a hybrid connection for the production slot.

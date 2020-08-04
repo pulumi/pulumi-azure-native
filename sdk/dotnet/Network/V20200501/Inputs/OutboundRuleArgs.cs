@@ -16,10 +16,46 @@ namespace Pulumi.AzureRM.Network.V20200501.Inputs
     public sealed class OutboundRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The number of outbound ports to be used for NAT.
+        /// </summary>
+        [Input("allocatedOutboundPorts")]
+        public Input<int>? AllocatedOutboundPorts { get; set; }
+
+        /// <summary>
+        /// A reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs.
+        /// </summary>
+        [Input("backendAddressPool", required: true)]
+        public Input<Inputs.SubResourceArgs> BackendAddressPool { get; set; } = null!;
+
+        /// <summary>
+        /// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        /// </summary>
+        [Input("enableTcpReset")]
+        public Input<bool>? EnableTcpReset { get; set; }
+
+        [Input("frontendIPConfigurations", required: true)]
+        private InputList<Inputs.SubResourceArgs>? _frontendIPConfigurations;
+
+        /// <summary>
+        /// The Frontend IP addresses of the load balancer.
+        /// </summary>
+        public InputList<Inputs.SubResourceArgs> FrontendIPConfigurations
+        {
+            get => _frontendIPConfigurations ?? (_frontendIPConfigurations = new InputList<Inputs.SubResourceArgs>());
+            set => _frontendIPConfigurations = value;
+        }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The timeout for the TCP idle connection.
+        /// </summary>
+        [Input("idleTimeoutInMinutes")]
+        public Input<int>? IdleTimeoutInMinutes { get; set; }
 
         /// <summary>
         /// The name of the resource that is unique within the set of outbound rules used by the load balancer. This name can be used to access the resource.
@@ -28,10 +64,10 @@ namespace Pulumi.AzureRM.Network.V20200501.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of load balancer outbound rule.
+        /// The protocol for the outbound rule in load balancer.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.OutboundRulePropertiesFormatArgs>? Properties { get; set; }
+        [Input("protocol", required: true)]
+        public Input<string> Protocol { get; set; } = null!;
 
         public OutboundRuleArgs()
         {

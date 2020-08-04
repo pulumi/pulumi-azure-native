@@ -16,6 +16,12 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
     public sealed class SubnetDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The address prefix for the subnet.
+        /// </summary>
+        [Input("addressPrefix")]
+        public Input<string>? AddressPrefix { get; set; }
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
@@ -27,14 +33,41 @@ namespace Pulumi.AzureRM.Network.V20150615.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("ipConfigurations")]
+        private InputList<Inputs.IPConfigurationArgs>? _ipConfigurations;
+
+        /// <summary>
+        /// Gets an array of references to the network interface IP configurations using subnet.
+        /// </summary>
+        public InputList<Inputs.IPConfigurationArgs> IpConfigurations
+        {
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.IPConfigurationArgs>());
+            set => _ipConfigurations = value;
+        }
+
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("properties")]
-        public Input<Inputs.SubnetPropertiesFormatArgs>? Properties { get; set; }
+        /// <summary>
+        /// The reference of the NetworkSecurityGroup resource.
+        /// </summary>
+        [Input("networkSecurityGroup")]
+        public Input<Inputs.NetworkSecurityGroupArgs>? NetworkSecurityGroup { get; set; }
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// The reference of the RouteTable resource.
+        /// </summary>
+        [Input("routeTable")]
+        public Input<Inputs.RouteTableArgs>? RouteTable { get; set; }
 
         public SubnetDefinitionArgs()
         {

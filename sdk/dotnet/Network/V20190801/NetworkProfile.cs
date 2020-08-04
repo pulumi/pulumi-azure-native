@@ -95,6 +95,30 @@ namespace Pulumi.AzureRM.Network.V20190801
 
     public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
     {
+        [Input("containerNetworkInterfaceConfigurations")]
+        private InputList<Inputs.ContainerNetworkInterfaceConfigurationArgs>? _containerNetworkInterfaceConfigurations;
+
+        /// <summary>
+        /// List of chid container network interface configurations.
+        /// </summary>
+        public InputList<Inputs.ContainerNetworkInterfaceConfigurationArgs> ContainerNetworkInterfaceConfigurations
+        {
+            get => _containerNetworkInterfaceConfigurations ?? (_containerNetworkInterfaceConfigurations = new InputList<Inputs.ContainerNetworkInterfaceConfigurationArgs>());
+            set => _containerNetworkInterfaceConfigurations = value;
+        }
+
+        [Input("containerNetworkInterfaces")]
+        private InputList<Inputs.ContainerNetworkInterfaceArgs>? _containerNetworkInterfaces;
+
+        /// <summary>
+        /// List of child container network interfaces.
+        /// </summary>
+        public InputList<Inputs.ContainerNetworkInterfaceArgs> ContainerNetworkInterfaces
+        {
+            get => _containerNetworkInterfaces ?? (_containerNetworkInterfaces = new InputList<Inputs.ContainerNetworkInterfaceArgs>());
+            set => _containerNetworkInterfaces = value;
+        }
+
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -118,12 +142,6 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Network profile properties.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NetworkProfilePropertiesFormatArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.

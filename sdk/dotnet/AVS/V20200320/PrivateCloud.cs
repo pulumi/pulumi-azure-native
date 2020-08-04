@@ -96,10 +96,40 @@ namespace Pulumi.AzureRM.AVS.V20200320
     public sealed class PrivateCloudArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// An ExpressRoute Circuit
+        /// </summary>
+        [Input("circuit")]
+        public Input<Inputs.CircuitArgs>? Circuit { get; set; }
+
+        [Input("identitySources")]
+        private InputList<Inputs.IdentitySourceArgs>? _identitySources;
+
+        /// <summary>
+        /// vCenter Single Sign On Identity Sources
+        /// </summary>
+        public InputList<Inputs.IdentitySourceArgs> IdentitySources
+        {
+            get => _identitySources ?? (_identitySources = new InputList<Inputs.IdentitySourceArgs>());
+            set => _identitySources = value;
+        }
+
+        /// <summary>
+        /// Connectivity to internet is enabled or disabled
+        /// </summary>
+        [Input("internet")]
+        public Input<string>? Internet { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
+
+        /// <summary>
+        /// The default cluster used for management
+        /// </summary>
+        [Input("managementCluster", required: true)]
+        public Input<Inputs.ManagementClusterArgs> ManagementCluster { get; set; } = null!;
 
         /// <summary>
         /// Name of the private cloud
@@ -108,10 +138,16 @@ namespace Pulumi.AzureRM.AVS.V20200320
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of a private cloud resource
+        /// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PrivateCloudPropertiesArgs> Properties { get; set; } = null!;
+        [Input("networkBlock", required: true)]
+        public Input<string> NetworkBlock { get; set; } = null!;
+
+        /// <summary>
+        /// Optionally, set the NSX-T Manager password when the private cloud is created
+        /// </summary>
+        [Input("nsxtPassword")]
+        public Input<string>? NsxtPassword { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -136,6 +172,12 @@ namespace Pulumi.AzureRM.AVS.V20200320
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Optionally, set the vCenter admin password when the private cloud is created
+        /// </summary>
+        [Input("vcenterPassword")]
+        public Input<string>? VcenterPassword { get; set; }
 
         public PrivateCloudArgs()
         {

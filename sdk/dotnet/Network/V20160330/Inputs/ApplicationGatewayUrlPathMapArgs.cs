@@ -16,6 +16,18 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
     public sealed class ApplicationGatewayUrlPathMapArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Gets or sets default backend address pool resource of URL path map 
+        /// </summary>
+        [Input("defaultBackendAddressPool")]
+        public Input<Inputs.SubResourceArgs>? DefaultBackendAddressPool { get; set; }
+
+        /// <summary>
+        /// Gets or sets default backend http settings resource of URL path map 
+        /// </summary>
+        [Input("defaultBackendHttpSettings")]
+        public Input<Inputs.SubResourceArgs>? DefaultBackendHttpSettings { get; set; }
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Input("etag")]
@@ -33,11 +45,23 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("pathRules")]
+        private InputList<Inputs.ApplicationGatewayPathRuleArgs>? _pathRules;
+
         /// <summary>
-        /// Properties of probe of application gateway
+        /// Gets or sets path rule of URL path map resource
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayUrlPathMapPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.ApplicationGatewayPathRuleArgs> PathRules
+        {
+            get => _pathRules ?? (_pathRules = new InputList<Inputs.ApplicationGatewayPathRuleArgs>());
+            set => _pathRules = value;
+        }
+
+        /// <summary>
+        /// Gets or sets Provisioning state of the backend http settings resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         public ApplicationGatewayUrlPathMapArgs()
         {

@@ -84,6 +84,18 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
+        /// An HTTP link or Base64-encoded binary data.
+        /// </summary>
+        [Input("content", required: true)]
+        public Input<string> Content { get; set; } = null!;
+
+        /// <summary>
+        /// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+        /// </summary>
+        [Input("contentFormat", required: true)]
+        public Input<string> ContentFormat { get; set; } = null!;
+
+        /// <summary>
         /// Issue identifier. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("issueId", required: true)]
@@ -96,12 +108,6 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Issue Attachment.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.IssueAttachmentContractPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -112,6 +118,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Filename by which the binary data will be saved.
+        /// </summary>
+        [Input("title", required: true)]
+        public Input<string> Title { get; set; } = null!;
 
         public ApiIssueAttachmentArgs()
         {

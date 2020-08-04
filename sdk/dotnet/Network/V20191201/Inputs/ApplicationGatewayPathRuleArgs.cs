@@ -16,6 +16,24 @@ namespace Pulumi.AzureRM.Network.V20191201.Inputs
     public sealed class ApplicationGatewayPathRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Backend address pool resource of URL path map path rule.
+        /// </summary>
+        [Input("backendAddressPool")]
+        public Input<Inputs.SubResourceArgs>? BackendAddressPool { get; set; }
+
+        /// <summary>
+        /// Backend http settings resource of URL path map path rule.
+        /// </summary>
+        [Input("backendHttpSettings")]
+        public Input<Inputs.SubResourceArgs>? BackendHttpSettings { get; set; }
+
+        /// <summary>
+        /// Reference to the FirewallPolicy resource.
+        /// </summary>
+        [Input("firewallPolicy")]
+        public Input<Inputs.SubResourceArgs>? FirewallPolicy { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -27,11 +45,29 @@ namespace Pulumi.AzureRM.Network.V20191201.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("paths")]
+        private InputList<string>? _paths;
+
         /// <summary>
-        /// Properties of the application gateway path rule.
+        /// Path rules of URL path map.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationGatewayPathRulePropertiesFormatArgs>? Properties { get; set; }
+        public InputList<string> Paths
+        {
+            get => _paths ?? (_paths = new InputList<string>());
+            set => _paths = value;
+        }
+
+        /// <summary>
+        /// Redirect configuration resource of URL path map path rule.
+        /// </summary>
+        [Input("redirectConfiguration")]
+        public Input<Inputs.SubResourceArgs>? RedirectConfiguration { get; set; }
+
+        /// <summary>
+        /// Rewrite rule set resource of URL path map path rule.
+        /// </summary>
+        [Input("rewriteRuleSet")]
+        public Input<Inputs.SubResourceArgs>? RewriteRuleSet { get; set; }
 
         public ApplicationGatewayPathRuleArgs()
         {

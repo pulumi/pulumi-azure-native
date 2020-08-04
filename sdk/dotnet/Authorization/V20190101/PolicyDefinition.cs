@@ -78,16 +78,70 @@ namespace Pulumi.AzureRM.Authorization.V20190101
     public sealed class PolicyDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The policy definition description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The display name of the policy definition.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        [Input("metadata")]
+        private InputMap<object>? _metadata;
+
+        /// <summary>
+        /// The policy definition metadata.
+        /// </summary>
+        public InputMap<object> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<object>());
+            set => _metadata = value;
+        }
+
+        /// <summary>
+        /// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+        /// </summary>
+        [Input("mode")]
+        public Input<string>? Mode { get; set; }
+
+        /// <summary>
         /// The name of the policy definition to create.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("parameters")]
+        private InputMap<object>? _parameters;
+
         /// <summary>
-        /// The policy definition properties.
+        /// Required if a parameter is used in policy rule.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PolicyDefinitionPropertiesArgs>? Properties { get; set; }
+        public InputMap<object> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<object>());
+            set => _parameters = value;
+        }
+
+        [Input("policyRule")]
+        private InputMap<object>? _policyRule;
+
+        /// <summary>
+        /// The policy rule.
+        /// </summary>
+        public InputMap<object> PolicyRule
+        {
+            get => _policyRule ?? (_policyRule = new InputMap<object>());
+            set => _policyRule = value;
+        }
+
+        /// <summary>
+        /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+        /// </summary>
+        [Input("policyType")]
+        public Input<string>? PolicyType { get; set; }
 
         public PolicyDefinitionArgs()
         {

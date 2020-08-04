@@ -78,22 +78,64 @@ namespace Pulumi.AzureRM.StorageSync.V20191001
     public sealed class RegisteredServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// GUID identifying the on-premises server.
+        /// Registered Server Agent Version
+        /// </summary>
+        [Input("agentVersion")]
+        public Input<string>? AgentVersion { get; set; }
+
+        /// <summary>
+        /// Registered Server clusterId
+        /// </summary>
+        [Input("clusterId")]
+        public Input<string>? ClusterId { get; set; }
+
+        /// <summary>
+        /// Registered Server clusterName
+        /// </summary>
+        [Input("clusterName")]
+        public Input<string>? ClusterName { get; set; }
+
+        /// <summary>
+        /// Friendly Name
+        /// </summary>
+        [Input("friendlyName")]
+        public Input<string>? FriendlyName { get; set; }
+
+        /// <summary>
+        /// Registered Server last heart beat
+        /// </summary>
+        [Input("lastHeartBeat")]
+        public Input<string>? LastHeartBeat { get; set; }
+
+        /// <summary>
+        /// Registered Server serverId
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The parameters used to create the registered server.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.RegisteredServerCreateParametersPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Registered Server Certificate
+        /// </summary>
+        [Input("serverCertificate")]
+        public Input<string>? ServerCertificate { get; set; }
+
+        /// <summary>
+        /// Registered Server OS Version
+        /// </summary>
+        [Input("serverOSVersion")]
+        public Input<string>? ServerOSVersion { get; set; }
+
+        /// <summary>
+        /// Registered Server serverRole
+        /// </summary>
+        [Input("serverRole")]
+        public Input<string>? ServerRole { get; set; }
 
         /// <summary>
         /// Name of Storage Sync Service resource.

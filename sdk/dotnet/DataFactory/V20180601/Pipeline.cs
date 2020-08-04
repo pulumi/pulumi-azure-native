@@ -83,11 +83,53 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
 
     public sealed class PipelineArgs : Pulumi.ResourceArgs
     {
+        [Input("activities")]
+        private InputList<Inputs.ActivityArgs>? _activities;
+
+        /// <summary>
+        /// List of activities in pipeline.
+        /// </summary>
+        public InputList<Inputs.ActivityArgs> Activities
+        {
+            get => _activities ?? (_activities = new InputList<Inputs.ActivityArgs>());
+            set => _activities = value;
+        }
+
+        [Input("annotations")]
+        private InputList<ImmutableDictionary<string, object>>? _annotations;
+
+        /// <summary>
+        /// List of tags that can be used for describing the Pipeline.
+        /// </summary>
+        public InputList<ImmutableDictionary<string, object>> Annotations
+        {
+            get => _annotations ?? (_annotations = new InputList<ImmutableDictionary<string, object>>());
+            set => _annotations = value;
+        }
+
+        /// <summary>
+        /// The max number of concurrent runs for the pipeline.
+        /// </summary>
+        [Input("concurrency")]
+        public Input<int>? Concurrency { get; set; }
+
+        /// <summary>
+        /// The description of the pipeline.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
         /// <summary>
         /// The factory name.
         /// </summary>
         [Input("factoryName", required: true)]
         public Input<string> FactoryName { get; set; } = null!;
+
+        /// <summary>
+        /// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
+        /// </summary>
+        [Input("folder")]
+        public Input<Inputs.PipelinePropertiesArgs>? Folder { get; set; }
 
         /// <summary>
         /// The pipeline name.
@@ -96,16 +138,34 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the pipeline.
+        /// List of parameters for pipeline.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PipelineDefinitionArgs> Properties { get; set; } = null!;
+        [Input("parameters")]
+        public Input<Inputs.ParameterDefinitionSpecificationArgs>? Parameters { get; set; }
 
         /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("runDimensions")]
+        private InputMap<ImmutableDictionary<string, object>>? _runDimensions;
+
+        /// <summary>
+        /// Dimensions emitted by Pipeline.
+        /// </summary>
+        public InputMap<ImmutableDictionary<string, object>> RunDimensions
+        {
+            get => _runDimensions ?? (_runDimensions = new InputMap<ImmutableDictionary<string, object>>());
+            set => _runDimensions = value;
+        }
+
+        /// <summary>
+        /// List of variables for pipeline.
+        /// </summary>
+        [Input("variables")]
+        public Input<Inputs.VariableDefinitionSpecificationArgs>? Variables { get; set; }
 
         public PipelineArgs()
         {

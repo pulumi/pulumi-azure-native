@@ -108,6 +108,36 @@ namespace Pulumi.AzureRM.Compute.V20180601
     public sealed class DiskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Disk source information. CreationData information cannot be changed after the disk has been created.
+        /// </summary>
+        [Input("creationData", required: true)]
+        public Input<Inputs.CreationDataArgs> CreationData { get; set; } = null!;
+
+        /// <summary>
+        /// The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
+        /// </summary>
+        [Input("diskIOPSReadWrite")]
+        public Input<int>? DiskIOPSReadWrite { get; set; }
+
+        /// <summary>
+        /// The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10. For a description of the range of values you can set, see [Ultra SSD Managed Disk Offerings](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd#ultra-ssd-managed-disk-offerings).
+        /// </summary>
+        [Input("diskMBpsReadWrite")]
+        public Input<int>? DiskMBpsReadWrite { get; set; }
+
+        /// <summary>
+        /// If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+        /// </summary>
+        [Input("diskSizeGB")]
+        public Input<int>? DiskSizeGB { get; set; }
+
+        /// <summary>
+        /// Encryption settings for disk or snapshot
+        /// </summary>
+        [Input("encryptionSettings")]
+        public Input<Inputs.EncryptionSettingsArgs>? EncryptionSettings { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location", required: true)]
@@ -120,10 +150,10 @@ namespace Pulumi.AzureRM.Compute.V20180601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Disk resource properties.
+        /// The Operating System type.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.DiskPropertiesArgs>? Properties { get; set; }
+        [Input("osType")]
+        public Input<string>? OsType { get; set; }
 
         /// <summary>
         /// The name of the resource group.

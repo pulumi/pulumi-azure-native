@@ -96,10 +96,46 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20181119
     public sealed class WorkspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        [Input("applicationInsights")]
+        public Input<string>? ApplicationInsights { get; set; }
+
+        /// <summary>
+        /// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        [Input("containerRegistry")]
+        public Input<string>? ContainerRegistry { get; set; }
+
+        /// <summary>
+        /// The description of this workspace.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Url for the discovery service to identify regional endpoints for machine learning experimentation services
+        /// </summary>
+        [Input("discoveryUrl")]
+        public Input<string>? DiscoveryUrl { get; set; }
+
+        /// <summary>
+        /// The friendly name for this workspace. This name in mutable
+        /// </summary>
+        [Input("friendlyName")]
+        public Input<string>? FriendlyName { get; set; }
+
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        [Input("keyVault")]
+        public Input<string>? KeyVault { get; set; }
 
         /// <summary>
         /// Specifies the location of the resource.
@@ -114,16 +150,16 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20181119
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the machine learning workspace.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.WorkspacePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the resource group in which workspace is located.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        [Input("storageAccount")]
+        public Input<string>? StorageAccount { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

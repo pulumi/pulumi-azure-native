@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class ApiReleaseArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// API identifier. Must be unique in the current API Management service instance.
+        /// Identifier of the API the release belongs to.
         /// </summary>
         [Input("apiId", required: true)]
         public Input<string> ApiId { get; set; } = null!;
@@ -90,10 +90,10 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// ApiRelease entity contract properties.
+        /// Release Notes
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApiReleaseContractPropertiesArgs>? Properties { get; set; }
+        [Input("notes")]
+        public Input<string>? Notes { get; set; }
 
         /// <summary>
         /// The name of the resource group.

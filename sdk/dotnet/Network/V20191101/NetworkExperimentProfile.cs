@@ -96,6 +96,12 @@ namespace Pulumi.AzureRM.Network.V20191101
     public sealed class NetworkExperimentProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The state of the Experiment
+        /// </summary>
+        [Input("enabledState")]
+        public Input<string>? EnabledState { get; set; }
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
@@ -114,16 +120,16 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of a Profile
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ProfilePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Resource status.
+        /// </summary>
+        [Input("resourceState")]
+        public Input<string>? ResourceState { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

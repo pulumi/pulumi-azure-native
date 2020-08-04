@@ -84,6 +84,12 @@ namespace Pulumi.AzureRM.Web.V20160801
     public sealed class WebAppDomainOwnershipIdentifierArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// String representation of the identity.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Input("kind")]
@@ -94,12 +100,6 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Identifier resource specific properties
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.IdentifierPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

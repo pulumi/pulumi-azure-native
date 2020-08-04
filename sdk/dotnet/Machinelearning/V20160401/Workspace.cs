@@ -90,6 +90,12 @@ namespace Pulumi.AzureRM.MachineLearning.V20160401
     public sealed class WorkspaceArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The key vault identifier used for encrypted workspaces.
+        /// </summary>
+        [Input("keyVaultIdentifierId")]
+        public Input<string>? KeyVaultIdentifierId { get; set; }
+
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         [Input("location", required: true)]
@@ -102,10 +108,10 @@ namespace Pulumi.AzureRM.MachineLearning.V20160401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the machine learning workspace.
+        /// The email id of the owner for this workspace.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.WorkspacePropertiesArgs>? Properties { get; set; }
+        [Input("ownerEmail", required: true)]
+        public Input<string> OwnerEmail { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group to which the machine learning workspace belongs.
@@ -124,6 +130,12 @@ namespace Pulumi.AzureRM.MachineLearning.V20160401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The fully qualified arm id of the storage account associated with this workspace.
+        /// </summary>
+        [Input("userStorageAccountId", required: true)]
+        public Input<string> UserStorageAccountId { get; set; } = null!;
 
         public WorkspaceArgs()
         {

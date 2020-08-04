@@ -96,6 +96,30 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170801
     public sealed class ServerDetailsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A collection of AS server administrators
+        /// </summary>
+        [Input("asAdministrators")]
+        public Input<Inputs.ServerAdministratorsArgs>? AsAdministrators { get; set; }
+
+        /// <summary>
+        /// The SAS container URI to the backup container.
+        /// </summary>
+        [Input("backupBlobContainerUri")]
+        public Input<string>? BackupBlobContainerUri { get; set; }
+
+        /// <summary>
+        /// The gateway details configured for the AS server.
+        /// </summary>
+        [Input("gatewayDetails")]
+        public Input<Inputs.GatewayDetailsArgs>? GatewayDetails { get; set; }
+
+        /// <summary>
+        /// The firewall settings for the AS server.
+        /// </summary>
+        [Input("ipV4FirewallSettings")]
+        public Input<Inputs.IPv4FirewallSettingsArgs>? IpV4FirewallSettings { get; set; }
+
+        /// <summary>
         /// Location of the Analysis Services resource.
         /// </summary>
         [Input("location", required: true)]
@@ -108,10 +132,10 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the provision operation request.
+        /// How the read-write server's participation in the query pool is controlled.&lt;br/&gt;It can have the following values: &lt;ul&gt;&lt;li&gt;readOnly - indicates that the read-write server is intended not to participate in query operations&lt;/li&gt;&lt;li&gt;all - indicates that the read-write server can participate in query operations&lt;/li&gt;&lt;/ul&gt;Specifying readOnly when capacity is 1 results in error.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.AnalysisServicesServerPropertiesArgs>? Properties { get; set; }
+        [Input("querypoolConnectionMode")]
+        public Input<string>? QuerypoolConnectionMode { get; set; }
 
         /// <summary>
         /// The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.

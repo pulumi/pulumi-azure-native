@@ -95,6 +95,18 @@ namespace Pulumi.AzureRM.Network.V20190901
 
     public sealed class WebApplicationFirewallPolicyArgs : Pulumi.ResourceArgs
     {
+        [Input("customRules")]
+        private InputList<Inputs.WebApplicationFirewallCustomRuleArgs>? _customRules;
+
+        /// <summary>
+        /// Describes custom rules inside the policy.
+        /// </summary>
+        public InputList<Inputs.WebApplicationFirewallCustomRuleArgs> CustomRules
+        {
+            get => _customRules ?? (_customRules = new InputList<Inputs.WebApplicationFirewallCustomRuleArgs>());
+            set => _customRules = value;
+        }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -108,16 +120,22 @@ namespace Pulumi.AzureRM.Network.V20190901
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Describes the managedRules structure.
+        /// </summary>
+        [Input("managedRules", required: true)]
+        public Input<Inputs.ManagedRulesDefinitionArgs> ManagedRules { get; set; } = null!;
+
+        /// <summary>
         /// The name of the policy.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the web application firewall policy.
+        /// Describes policySettings for policy.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.WebApplicationFirewallPolicyPropertiesFormatArgs>? Properties { get; set; }
+        [Input("policySettings")]
+        public Input<Inputs.PolicySettingsArgs>? PolicySettings { get; set; }
 
         /// <summary>
         /// The name of the resource group.

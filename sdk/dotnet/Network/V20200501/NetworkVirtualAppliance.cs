@@ -101,6 +101,36 @@ namespace Pulumi.AzureRM.Network.V20200501
 
     public sealed class NetworkVirtualApplianceArgs : Pulumi.ResourceArgs
     {
+        [Input("bootStrapConfigurationBlobs")]
+        private InputList<string>? _bootStrapConfigurationBlobs;
+
+        /// <summary>
+        /// BootStrapConfigurationBlobs storage URLs.
+        /// </summary>
+        public InputList<string> BootStrapConfigurationBlobs
+        {
+            get => _bootStrapConfigurationBlobs ?? (_bootStrapConfigurationBlobs = new InputList<string>());
+            set => _bootStrapConfigurationBlobs = value;
+        }
+
+        /// <summary>
+        /// CloudInitConfiguration string in plain text.
+        /// </summary>
+        [Input("cloudInitConfiguration")]
+        public Input<string>? CloudInitConfiguration { get; set; }
+
+        [Input("cloudInitConfigurationBlobs")]
+        private InputList<string>? _cloudInitConfigurationBlobs;
+
+        /// <summary>
+        /// CloudInitConfigurationBlob storage URLs.
+        /// </summary>
+        public InputList<string> CloudInitConfigurationBlobs
+        {
+            get => _cloudInitConfigurationBlobs ?? (_cloudInitConfigurationBlobs = new InputList<string>());
+            set => _cloudInitConfigurationBlobs = value;
+        }
+
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -126,10 +156,10 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the Network Virtual Appliance.
+        /// Network Virtual Appliance SKU.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NetworkVirtualAppliancePropertiesFormatArgs>? Properties { get; set; }
+        [Input("nvaSku")]
+        public Input<Inputs.VirtualApplianceSkuPropertiesArgs>? NvaSku { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -148,6 +178,18 @@ namespace Pulumi.AzureRM.Network.V20200501
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// VirtualAppliance ASN.
+        /// </summary>
+        [Input("virtualApplianceAsn")]
+        public Input<int>? VirtualApplianceAsn { get; set; }
+
+        /// <summary>
+        /// The Virtual Hub where Network Virtual Appliance is being deployed.
+        /// </summary>
+        [Input("virtualHub")]
+        public Input<Inputs.SubResourceArgs>? VirtualHub { get; set; }
 
         public NetworkVirtualApplianceArgs()
         {

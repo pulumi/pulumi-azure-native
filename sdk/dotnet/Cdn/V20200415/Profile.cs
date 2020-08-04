@@ -108,12 +108,6 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The JSON object that contains the properties required to create a profile.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ProfilePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// Name of the Resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]

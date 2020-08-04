@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
     /// </summary>
     public sealed class NetworkSecurityGroupArgs : Pulumi.ResourceArgs
     {
+        [Input("defaultSecurityRules")]
+        private InputList<Inputs.SecurityRuleArgs>? _defaultSecurityRules;
+
+        /// <summary>
+        /// Gets or sets Default security rules of network security group
+        /// </summary>
+        public InputList<Inputs.SecurityRuleArgs> DefaultSecurityRules
+        {
+            get => _defaultSecurityRules ?? (_defaultSecurityRules = new InputList<Inputs.SecurityRuleArgs>());
+            set => _defaultSecurityRules = value;
+        }
+
         /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
@@ -33,11 +45,53 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("networkInterfaces")]
+        private InputList<Inputs.NetworkInterfaceArgs>? _networkInterfaces;
+
         /// <summary>
-        /// Network Security Group resource
+        /// Gets collection of references to Network Interfaces
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.NetworkSecurityGroupPropertiesFormatArgs>? Properties { get; set; }
+        public InputList<Inputs.NetworkInterfaceArgs> NetworkInterfaces
+        {
+            get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.NetworkInterfaceArgs>());
+            set => _networkInterfaces = value;
+        }
+
+        /// <summary>
+        /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// Gets or sets resource GUID property of the network security group resource
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
+
+        [Input("securityRules")]
+        private InputList<Inputs.SecurityRuleArgs>? _securityRules;
+
+        /// <summary>
+        /// Gets or sets Security rules of network security group
+        /// </summary>
+        public InputList<Inputs.SecurityRuleArgs> SecurityRules
+        {
+            get => _securityRules ?? (_securityRules = new InputList<Inputs.SecurityRuleArgs>());
+            set => _securityRules = value;
+        }
+
+        [Input("subnets")]
+        private InputList<Inputs.SubnetDefinitionArgs>? _subnets;
+
+        /// <summary>
+        /// Gets collection of references to subnets
+        /// </summary>
+        public InputList<Inputs.SubnetDefinitionArgs> Subnets
+        {
+            get => _subnets ?? (_subnets = new InputList<Inputs.SubnetDefinitionArgs>());
+            set => _subnets = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

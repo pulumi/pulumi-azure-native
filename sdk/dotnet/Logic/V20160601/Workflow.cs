@@ -90,6 +90,18 @@ namespace Pulumi.AzureRM.Logic.V20160601
     public sealed class WorkflowArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
+        /// </summary>
+        [Input("definition")]
+        public Input<Inputs.ObjectArgs>? Definition { get; set; }
+
+        /// <summary>
+        /// The integration account.
+        /// </summary>
+        [Input("integrationAccount")]
+        public Input<Inputs.ResourceReferenceArgs>? IntegrationAccount { get; set; }
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Input("location")]
@@ -101,17 +113,35 @@ namespace Pulumi.AzureRM.Logic.V20160601
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("parameters")]
+        private InputMap<Inputs.WorkflowParameterArgs>? _parameters;
+
         /// <summary>
-        /// The workflow properties.
+        /// The parameters.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.WorkflowPropertiesArgs>? Properties { get; set; }
+        public InputMap<Inputs.WorkflowParameterArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<Inputs.WorkflowParameterArgs>());
+            set => _parameters = value;
+        }
 
         /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The sku.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// The state.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

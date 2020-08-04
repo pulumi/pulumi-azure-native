@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Network.V20181101.Inputs
     /// </summary>
     public sealed class DelegationArgs : Pulumi.ResourceArgs
     {
+        [Input("actions")]
+        private InputList<string>? _actions;
+
+        /// <summary>
+        /// Describes the actions permitted to the service upon delegation
+        /// </summary>
+        public InputList<string> Actions
+        {
+            get => _actions ?? (_actions = new InputList<string>());
+            set => _actions = value;
+        }
+
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -34,10 +46,10 @@ namespace Pulumi.AzureRM.Network.V20181101.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the subnet.
+        /// The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers)
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ServiceDelegationPropertiesFormatArgs>? Properties { get; set; }
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
 
         public DelegationArgs()
         {

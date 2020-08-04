@@ -84,16 +84,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
+        /// Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). &lt;/br&gt; - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` &lt;/br&gt; - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` &lt;/br&gt; - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` &lt;/br&gt; - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.
+        /// </summary>
+        [Input("contentType", required: true)]
+        public Input<string> ContentType { get; set; } = null!;
+
+        /// <summary>
         /// Schema identifier within an API. Must be unique in the current API Management service instance.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Properties of the Schema.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.SchemaCreateOrUpdatePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -106,6 +106,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
         /// </summary>
         [Input("serviceName", required: true)]
         public Input<string> ServiceName { get; set; } = null!;
+
+        /// <summary>
+        /// Json escaped string defining the document representing the Schema.
+        /// </summary>
+        [Input("value")]
+        public Input<string>? Value { get; set; }
 
         public ApiSchemaArgs()
         {

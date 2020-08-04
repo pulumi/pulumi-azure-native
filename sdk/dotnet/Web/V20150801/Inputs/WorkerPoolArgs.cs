@@ -16,10 +16,28 @@ namespace Pulumi.AzureRM.Web.V20150801.Inputs
     public sealed class WorkerPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Shared or dedicated web app hosting
+        /// </summary>
+        [Input("computeMode")]
+        public Input<string>? ComputeMode { get; set; }
+
+        /// <summary>
         /// Resource Id
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
+
+        [Input("instanceNames")]
+        private InputList<string>? _instanceNames;
+
+        /// <summary>
+        /// Names of all instances in the worker pool (read only)
+        /// </summary>
+        public InputList<string> InstanceNames
+        {
+            get => _instanceNames ?? (_instanceNames = new InputList<string>());
+            set => _instanceNames = value;
+        }
 
         /// <summary>
         /// Kind of resource
@@ -38,9 +56,6 @@ namespace Pulumi.AzureRM.Web.V20150801.Inputs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("properties")]
-        public Input<Inputs.WorkerPoolPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// Describes a sku for a scalable resource
@@ -65,6 +80,24 @@ namespace Pulumi.AzureRM.Web.V20150801.Inputs
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Number of instances in the worker pool
+        /// </summary>
+        [Input("workerCount")]
+        public Input<int>? WorkerCount { get; set; }
+
+        /// <summary>
+        /// VM size of the worker pool instances
+        /// </summary>
+        [Input("workerSize")]
+        public Input<string>? WorkerSize { get; set; }
+
+        /// <summary>
+        /// Worker size id for referencing this worker pool
+        /// </summary>
+        [Input("workerSizeId")]
+        public Input<int>? WorkerSizeId { get; set; }
 
         public WorkerPoolArgs()
         {

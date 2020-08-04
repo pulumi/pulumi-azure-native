@@ -16,6 +16,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915.Inputs
     public sealed class ScheduleCreationParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If the schedule will occur once each day of the week, specify the daily recurrence.
+        /// </summary>
+        [Input("dailyRecurrence")]
+        public Input<Inputs.DayDetailsArgs>? DailyRecurrence { get; set; }
+
+        /// <summary>
+        /// If the schedule will occur multiple times a day, specify the hourly recurrence.
+        /// </summary>
+        [Input("hourlyRecurrence")]
+        public Input<Inputs.HourDetailsArgs>? HourlyRecurrence { get; set; }
+
+        /// <summary>
         /// The location of the new virtual machine or environment
         /// </summary>
         [Input("location")]
@@ -28,10 +40,16 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The properties of the schedule.
+        /// Notification settings.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ScheduleCreationParameterPropertiesArgs>? Properties { get; set; }
+        [Input("notificationSettings")]
+        public Input<Inputs.NotificationSettingsArgs>? NotificationSettings { get; set; }
+
+        /// <summary>
+        /// The status of the schedule (i.e. Enabled, Disabled)
+        /// </summary>
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -44,6 +62,30 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915.Inputs
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The resource ID to which the schedule belongs
+        /// </summary>
+        [Input("targetResourceId")]
+        public Input<string>? TargetResourceId { get; set; }
+
+        /// <summary>
+        /// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+        /// </summary>
+        [Input("taskType")]
+        public Input<string>? TaskType { get; set; }
+
+        /// <summary>
+        /// The time zone ID (e.g. Pacific Standard time).
+        /// </summary>
+        [Input("timeZoneId")]
+        public Input<string>? TimeZoneId { get; set; }
+
+        /// <summary>
+        /// If the schedule will occur only some days of the week, specify the weekly recurrence.
+        /// </summary>
+        [Input("weeklyRecurrence")]
+        public Input<Inputs.WeekDetailsArgs>? WeeklyRecurrence { get; set; }
 
         public ScheduleCreationParameterArgs()
         {

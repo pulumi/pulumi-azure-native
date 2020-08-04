@@ -77,11 +77,47 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
 
     public sealed class LinkArgs : Pulumi.ResourceArgs
     {
+        [Input("description")]
+        private InputMap<string>? _description;
+
+        /// <summary>
+        /// Localized descriptions for the Link.
+        /// </summary>
+        public InputMap<string> Description
+        {
+            get => _description ?? (_description = new InputMap<string>());
+            set => _description = value;
+        }
+
+        [Input("displayName")]
+        private InputMap<string>? _displayName;
+
+        /// <summary>
+        /// Localized display name for the Link.
+        /// </summary>
+        public InputMap<string> DisplayName
+        {
+            get => _displayName ?? (_displayName = new InputMap<string>());
+            set => _displayName = value;
+        }
+
         /// <summary>
         /// The name of the hub.
         /// </summary>
         [Input("hubName", required: true)]
         public Input<string> HubName { get; set; } = null!;
+
+        [Input("mappings")]
+        private InputList<Inputs.TypePropertiesMappingArgs>? _mappings;
+
+        /// <summary>
+        /// The set of properties mappings between the source and target Types.
+        /// </summary>
+        public InputList<Inputs.TypePropertiesMappingArgs> Mappings
+        {
+            get => _mappings ?? (_mappings = new InputList<Inputs.TypePropertiesMappingArgs>());
+            set => _mappings = value;
+        }
 
         /// <summary>
         /// The name of the link.
@@ -90,16 +126,46 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The definition of Link.
+        /// Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.LinkDefinitionArgs>? Properties { get; set; }
+        [Input("operationType")]
+        public Input<string>? OperationType { get; set; }
+
+        [Input("participantPropertyReferences", required: true)]
+        private InputList<Inputs.ParticipantPropertyReferenceArgs>? _participantPropertyReferences;
+
+        /// <summary>
+        /// The properties that represent the participating profile.
+        /// </summary>
+        public InputList<Inputs.ParticipantPropertyReferenceArgs> ParticipantPropertyReferences
+        {
+            get => _participantPropertyReferences ?? (_participantPropertyReferences = new InputList<Inputs.ParticipantPropertyReferenceArgs>());
+            set => _participantPropertyReferences = value;
+        }
+
+        /// <summary>
+        /// Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
+        /// </summary>
+        [Input("referenceOnly")]
+        public Input<bool>? ReferenceOnly { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the source Interaction Type.
+        /// </summary>
+        [Input("sourceInteractionType", required: true)]
+        public Input<string> SourceInteractionType { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the target Profile Type.
+        /// </summary>
+        [Input("targetProfileType", required: true)]
+        public Input<string> TargetProfileType { get; set; } = null!;
 
         public LinkArgs()
         {

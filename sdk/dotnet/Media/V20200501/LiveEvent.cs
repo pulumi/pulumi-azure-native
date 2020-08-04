@@ -102,6 +102,30 @@ namespace Pulumi.AzureRM.Media.V20200501
         public Input<bool>? AutoStart { get; set; }
 
         /// <summary>
+        /// The Live Event access policies.
+        /// </summary>
+        [Input("crossSiteAccessPolicies")]
+        public Input<Inputs.CrossSiteAccessPoliciesArgs>? CrossSiteAccessPolicies { get; set; }
+
+        /// <summary>
+        /// The Live Event description.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The Live Event encoding.
+        /// </summary>
+        [Input("encoding")]
+        public Input<Inputs.LiveEventEncodingArgs>? Encoding { get; set; }
+
+        /// <summary>
+        /// The Live Event input.
+        /// </summary>
+        [Input("input", required: true)]
+        public Input<Inputs.LiveEventInputArgs> Input { get; set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location", required: true)]
@@ -114,16 +138,28 @@ namespace Pulumi.AzureRM.Media.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The Live Event properties.
+        /// The Live Event preview.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.LiveEventPropertiesArgs>? Properties { get; set; }
+        [Input("preview")]
+        public Input<Inputs.LiveEventPreviewArgs>? Preview { get; set; }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("streamOptions")]
+        private InputList<string>? _streamOptions;
+
+        /// <summary>
+        /// The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
+        /// </summary>
+        public InputList<string> StreamOptions
+        {
+            get => _streamOptions ?? (_streamOptions = new InputList<string>());
+            set => _streamOptions = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -136,6 +172,12 @@ namespace Pulumi.AzureRM.Media.V20200501
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+        /// </summary>
+        [Input("useStaticHostname")]
+        public Input<bool>? UseStaticHostname { get; set; }
 
         public LiveEventArgs()
         {

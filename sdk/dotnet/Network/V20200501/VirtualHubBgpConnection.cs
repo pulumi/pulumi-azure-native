@@ -96,10 +96,16 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties of the Bgp connections.
+        /// Peer ASN.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.BgpConnectionPropertiesArgs>? Properties { get; set; }
+        [Input("peerAsn")]
+        public Input<int>? PeerAsn { get; set; }
+
+        /// <summary>
+        /// Peer IP.
+        /// </summary>
+        [Input("peerIp")]
+        public Input<string>? PeerIp { get; set; }
 
         /// <summary>
         /// The resource group name of the VirtualHub.

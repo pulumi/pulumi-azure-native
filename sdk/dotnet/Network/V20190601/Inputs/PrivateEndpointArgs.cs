@@ -33,11 +33,41 @@ namespace Pulumi.AzureRM.Network.V20190601.Inputs
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("manualPrivateLinkServiceConnections")]
+        private InputList<Inputs.PrivateLinkServiceConnectionArgs>? _manualPrivateLinkServiceConnections;
+
         /// <summary>
-        /// Properties of the private endpoint.
+        /// A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PrivateEndpointPropertiesArgs>? Properties { get; set; }
+        public InputList<Inputs.PrivateLinkServiceConnectionArgs> ManualPrivateLinkServiceConnections
+        {
+            get => _manualPrivateLinkServiceConnections ?? (_manualPrivateLinkServiceConnections = new InputList<Inputs.PrivateLinkServiceConnectionArgs>());
+            set => _manualPrivateLinkServiceConnections = value;
+        }
+
+        [Input("privateLinkServiceConnections")]
+        private InputList<Inputs.PrivateLinkServiceConnectionArgs>? _privateLinkServiceConnections;
+
+        /// <summary>
+        /// A grouping of information about the connection to the remote resource.
+        /// </summary>
+        public InputList<Inputs.PrivateLinkServiceConnectionArgs> PrivateLinkServiceConnections
+        {
+            get => _privateLinkServiceConnections ?? (_privateLinkServiceConnections = new InputList<Inputs.PrivateLinkServiceConnectionArgs>());
+            set => _privateLinkServiceConnections = value;
+        }
+
+        /// <summary>
+        /// The provisioning state of the private endpoint.
+        /// </summary>
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
+
+        /// <summary>
+        /// The ID of the subnet from which the private IP will be allocated.
+        /// </summary>
+        [Input("subnet")]
+        public Input<Inputs.SubnetArgs>? Subnet { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

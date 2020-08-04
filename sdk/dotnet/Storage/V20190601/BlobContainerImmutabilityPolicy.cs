@@ -90,22 +90,28 @@ namespace Pulumi.AzureRM.Storage.V20190601
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+        /// </summary>
+        [Input("allowProtectedAppendWrites")]
+        public Input<bool>? AllowProtectedAppendWrites { get; set; }
+
+        /// <summary>
         /// The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         /// </summary>
         [Input("containerName", required: true)]
         public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
+        /// The immutability period for the blobs in the container since the policy creation, in days.
+        /// </summary>
+        [Input("immutabilityPeriodSinceCreationInDays")]
+        public Input<int>? ImmutabilityPeriodSinceCreationInDays { get; set; }
+
+        /// <summary>
         /// The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// The properties of an ImmutabilityPolicy of a blob container.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.ImmutabilityPolicyPropertyArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

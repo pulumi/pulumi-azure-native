@@ -34,10 +34,10 @@ namespace Pulumi.AzureRM.Network.V20190601.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the Radius client root certificate.
+        /// The Radius client root certificate thumbprint.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.P2SVpnServerConfigRadiusClientRootCertificatePropertiesFormatArgs>? Properties { get; set; }
+        [Input("thumbprint")]
+        public Input<string>? Thumbprint { get; set; }
 
         public P2SVpnServerConfigRadiusClientRootCertificateArgs()
         {

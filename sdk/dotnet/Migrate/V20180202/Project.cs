@@ -96,6 +96,18 @@ namespace Pulumi.AzureRM.Migrate.V20180202
     public sealed class ProjectArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// ARM ID of the Service Map workspace created by user.
+        /// </summary>
+        [Input("customerWorkspaceId")]
+        public Input<string>? CustomerWorkspaceId { get; set; }
+
+        /// <summary>
+        /// Location of the Service Map workspace created by user.
+        /// </summary>
+        [Input("customerWorkspaceLocation")]
+        public Input<string>? CustomerWorkspaceLocation { get; set; }
+
+        /// <summary>
         /// For optimistic concurrency control.
         /// </summary>
         [Input("eTag")]
@@ -114,10 +126,10 @@ namespace Pulumi.AzureRM.Migrate.V20180202
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the project.
+        /// Provisioning state of the project.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ProjectPropertiesArgs>? Properties { get; set; }
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
         /// Name of the Azure Resource Group that project is part of.

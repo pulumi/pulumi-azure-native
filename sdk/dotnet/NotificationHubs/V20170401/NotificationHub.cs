@@ -96,10 +96,52 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
     public sealed class NotificationHubArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The AdmCredential of the created NotificationHub
+        /// </summary>
+        [Input("admCredential")]
+        public Input<Inputs.AdmCredentialArgs>? AdmCredential { get; set; }
+
+        /// <summary>
+        /// The ApnsCredential of the created NotificationHub
+        /// </summary>
+        [Input("apnsCredential")]
+        public Input<Inputs.ApnsCredentialArgs>? ApnsCredential { get; set; }
+
+        [Input("authorizationRules")]
+        private InputList<Inputs.SharedAccessAuthorizationRulePropertiesArgs>? _authorizationRules;
+
+        /// <summary>
+        /// The AuthorizationRules of the created NotificationHub
+        /// </summary>
+        public InputList<Inputs.SharedAccessAuthorizationRulePropertiesArgs> AuthorizationRules
+        {
+            get => _authorizationRules ?? (_authorizationRules = new InputList<Inputs.SharedAccessAuthorizationRulePropertiesArgs>());
+            set => _authorizationRules = value;
+        }
+
+        /// <summary>
+        /// The BaiduCredential of the created NotificationHub
+        /// </summary>
+        [Input("baiduCredential")]
+        public Input<Inputs.BaiduCredentialArgs>? BaiduCredential { get; set; }
+
+        /// <summary>
+        /// The GcmCredential of the created NotificationHub
+        /// </summary>
+        [Input("gcmCredential")]
+        public Input<Inputs.GcmCredentialArgs>? GcmCredential { get; set; }
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The MpnsCredential of the created NotificationHub
+        /// </summary>
+        [Input("mpnsCredential")]
+        public Input<Inputs.MpnsCredentialArgs>? MpnsCredential { get; set; }
 
         /// <summary>
         /// The notification hub name.
@@ -114,10 +156,10 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the NotificationHub.
+        /// The RegistrationTtl of the created NotificationHub
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.NotificationHubPropertiesArgs> Properties { get; set; } = null!;
+        [Input("registrationTtl")]
+        public Input<string>? RegistrationTtl { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -142,6 +184,12 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The WnsCredential of the created NotificationHub
+        /// </summary>
+        [Input("wnsCredential")]
+        public Input<Inputs.WnsCredentialArgs>? WnsCredential { get; set; }
 
         public NotificationHubArgs()
         {

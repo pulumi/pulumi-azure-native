@@ -114,16 +114,22 @@ namespace Pulumi.AzureRM.Network.V20190901
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the service end point policy.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ServiceEndpointPolicyPropertiesFormatArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        [Input("serviceEndpointPolicyDefinitions")]
+        private InputList<Inputs.ServiceEndpointPolicyDefinitionArgs>? _serviceEndpointPolicyDefinitions;
+
+        /// <summary>
+        /// A collection of service endpoint policy definitions of the service endpoint policy.
+        /// </summary>
+        public InputList<Inputs.ServiceEndpointPolicyDefinitionArgs> ServiceEndpointPolicyDefinitions
+        {
+            get => _serviceEndpointPolicyDefinitions ?? (_serviceEndpointPolicyDefinitions = new InputList<Inputs.ServiceEndpointPolicyDefinitionArgs>());
+            set => _serviceEndpointPolicyDefinitions = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

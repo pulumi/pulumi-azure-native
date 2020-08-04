@@ -77,11 +77,53 @@ namespace Pulumi.AzureRM.ContainerService.V20190201
 
     public sealed class AgentPoolArgs : Pulumi.ResourceArgs
     {
+        [Input("availabilityZones")]
+        private InputList<string>? _availabilityZones;
+
+        /// <summary>
+        /// (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+        /// </summary>
+        public InputList<string> AvailabilityZones
+        {
+            get => _availabilityZones ?? (_availabilityZones = new InputList<string>());
+            set => _availabilityZones = value;
+        }
+
+        /// <summary>
+        /// Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        /// </summary>
+        [Input("count", required: true)]
+        public Input<int> Count { get; set; } = null!;
+
+        /// <summary>
+        /// Whether to enable auto-scaler
+        /// </summary>
+        [Input("enableAutoScaling")]
+        public Input<bool>? EnableAutoScaling { get; set; }
+
         /// <summary>
         /// The name of the managed cluster resource.
         /// </summary>
         [Input("managedClusterName", required: true)]
         public Input<string> ManagedClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// Maximum number of nodes for auto-scaling
+        /// </summary>
+        [Input("maxCount")]
+        public Input<int>? MaxCount { get; set; }
+
+        /// <summary>
+        /// Maximum number of pods that can run on a node.
+        /// </summary>
+        [Input("maxPods")]
+        public Input<int>? MaxPods { get; set; }
+
+        /// <summary>
+        /// Minimum number of nodes for auto-scaling
+        /// </summary>
+        [Input("minCount")]
+        public Input<int>? MinCount { get; set; }
 
         /// <summary>
         /// The name of the agent pool.
@@ -90,16 +132,46 @@ namespace Pulumi.AzureRM.ContainerService.V20190201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of an agent pool.
+        /// Version of orchestrator specified when creating the managed cluster.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ManagedClusterAgentPoolProfilePropertiesArgs>? Properties { get; set; }
+        [Input("orchestratorVersion")]
+        public Input<string>? OrchestratorVersion { get; set; }
+
+        /// <summary>
+        /// OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        /// </summary>
+        [Input("osDiskSizeGB")]
+        public Input<int>? OsDiskSizeGB { get; set; }
+
+        /// <summary>
+        /// OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        /// </summary>
+        [Input("osType")]
+        public Input<string>? OsType { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// AgentPoolType represents types of an agent pool
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// Size of agent VMs.
+        /// </summary>
+        [Input("vmSize", required: true)]
+        public Input<string> VmSize { get; set; } = null!;
+
+        /// <summary>
+        /// VNet SubnetID specifies the VNet's subnet identifier.
+        /// </summary>
+        [Input("vnetSubnetID")]
+        public Input<string>? VnetSubnetID { get; set; }
 
         public AgentPoolArgs()
         {

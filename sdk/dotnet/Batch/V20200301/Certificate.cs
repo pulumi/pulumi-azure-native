@@ -90,22 +90,46 @@ namespace Pulumi.AzureRM.Batch.V20200301
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
+        /// The maximum size is 10KB.
+        /// </summary>
+        [Input("data", required: true)]
+        public Input<string> Data { get; set; } = null!;
+
+        /// <summary>
+        /// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+        /// </summary>
+        [Input("format")]
+        public Input<string>? Format { get; set; }
+
+        /// <summary>
         /// The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties associated with the certificate.
+        /// This must not be specified if the certificate format is Cer.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.CertificateCreateOrUpdatePropertiesArgs>? Properties { get; set; }
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// The name of the resource group that contains the Batch account.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// This must match the thumbprint from the name.
+        /// </summary>
+        [Input("thumbprint")]
+        public Input<string>? Thumbprint { get; set; }
+
+        /// <summary>
+        /// This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+        /// </summary>
+        [Input("thumbprintAlgorithm")]
+        public Input<string>? ThumbprintAlgorithm { get; set; }
 
         public CertificateArgs()
         {

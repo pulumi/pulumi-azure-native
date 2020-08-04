@@ -120,10 +120,10 @@ namespace Pulumi.AzureRM.Network.V20180901
         public Input<string> PrivateZoneName { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the virtual network link to the Private DNS zone.
+        /// Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualNetworkLinkPropertiesArgs>? Properties { get; set; }
+        [Input("registrationEnabled")]
+        public Input<bool>? RegistrationEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group.
@@ -142,6 +142,12 @@ namespace Pulumi.AzureRM.Network.V20180901
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The reference of the virtual network.
+        /// </summary>
+        [Input("virtualNetwork")]
+        public Input<Inputs.SubResourceArgs>? VirtualNetwork { get; set; }
 
         public VirtualNetworkLinkArgs()
         {

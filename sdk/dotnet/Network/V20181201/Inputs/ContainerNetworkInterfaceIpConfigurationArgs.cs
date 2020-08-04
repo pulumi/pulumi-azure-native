@@ -27,12 +27,6 @@ namespace Pulumi.AzureRM.Network.V20181201.Inputs
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        /// <summary>
-        /// Properties of the container network interface IP configuration.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ContainerNetworkInterfaceIpConfigurationPropertiesFormatArgs>? Properties { get; set; }
-
         public ContainerNetworkInterfaceIpConfigurationArgs()
         {
         }

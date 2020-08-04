@@ -34,10 +34,10 @@ namespace Pulumi.AzureRM.Network.V20180801.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the IP configuration profile.
+        /// The reference of the subnet resource to create a container network interface ip configuration.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.IPConfigurationProfilePropertiesFormatArgs>? Properties { get; set; }
+        [Input("subnet")]
+        public Input<Inputs.SubnetArgs>? Subnet { get; set; }
 
         public IPConfigurationProfileArgs()
         {

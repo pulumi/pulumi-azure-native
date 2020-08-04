@@ -89,6 +89,36 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
 
     public sealed class ManagedClusterArgs : Pulumi.ResourceArgs
     {
+        [Input("agentPoolProfiles")]
+        private InputList<Inputs.ContainerServiceAgentPoolProfileArgs>? _agentPoolProfiles;
+
+        /// <summary>
+        /// Properties of the agent pool.
+        /// </summary>
+        public InputList<Inputs.ContainerServiceAgentPoolProfileArgs> AgentPoolProfiles
+        {
+            get => _agentPoolProfiles ?? (_agentPoolProfiles = new InputList<Inputs.ContainerServiceAgentPoolProfileArgs>());
+            set => _agentPoolProfiles = value;
+        }
+
+        /// <summary>
+        /// DNS prefix specified when creating the managed cluster.
+        /// </summary>
+        [Input("dnsPrefix")]
+        public Input<string>? DnsPrefix { get; set; }
+
+        /// <summary>
+        /// Version of Kubernetes specified when creating the managed cluster.
+        /// </summary>
+        [Input("kubernetesVersion")]
+        public Input<string>? KubernetesVersion { get; set; }
+
+        /// <summary>
+        /// Profile for Linux VMs in the container service cluster.
+        /// </summary>
+        [Input("linuxProfile")]
+        public Input<Inputs.ContainerServiceLinuxProfileArgs>? LinuxProfile { get; set; }
+
         /// <summary>
         /// Resource location
         /// </summary>
@@ -102,16 +132,16 @@ namespace Pulumi.AzureRM.ContainerService.V20170831
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of a managed cluster.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ManagedClusterPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Either secret or keyVaultSecretRef must be specified.
+        /// </summary>
+        [Input("servicePrincipalProfile")]
+        public Input<Inputs.ContainerServiceServicePrincipalProfileArgs>? ServicePrincipalProfile { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -83,17 +83,53 @@ namespace Pulumi.AzureRM.Media.V20180701
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 
+        [Input("correlationData")]
+        private InputMap<string>? _correlationData;
+
+        /// <summary>
+        /// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+        /// </summary>
+        public InputMap<string> CorrelationData
+        {
+            get => _correlationData ?? (_correlationData = new InputMap<string>());
+            set => _correlationData = value;
+        }
+
+        /// <summary>
+        /// Optional customer supplied description of the Job.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The inputs for the Job.
+        /// </summary>
+        [Input("input", required: true)]
+        public Input<Inputs.JobInputArgs> Input { get; set; } = null!;
+
         /// <summary>
         /// The Job name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("outputs", required: true)]
+        private InputList<Inputs.JobOutputArgs>? _outputs;
+
         /// <summary>
-        /// The resource properties.
+        /// The outputs for the Job.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.JobPropertiesArgs>? Properties { get; set; }
+        public InputList<Inputs.JobOutputArgs> Outputs
+        {
+            get => _outputs ?? (_outputs = new InputList<Inputs.JobOutputArgs>());
+            set => _outputs = value;
+        }
+
+        /// <summary>
+        /// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+        /// </summary>
+        [Input("priority")]
+        public Input<string>? Priority { get; set; }
 
         /// <summary>
         /// The name of the resource group within the Azure subscription.

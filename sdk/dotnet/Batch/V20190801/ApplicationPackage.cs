@@ -102,12 +102,6 @@ namespace Pulumi.AzureRM.Batch.V20190801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The properties associated with the Application Package.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ApplicationPackagePropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group that contains the Batch account.
         /// </summary>
         [Input("resourceGroupName", required: true)]

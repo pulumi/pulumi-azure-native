@@ -78,6 +78,12 @@ namespace Pulumi.AzureRM.Authorization.V20160401
     public sealed class PolicyAssignmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The display name of the policy assignment.
+        /// </summary>
+        [Input("displayName")]
+        public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
         /// The ID of the policy assignment.
         /// </summary>
         [Input("id")]
@@ -90,13 +96,13 @@ namespace Pulumi.AzureRM.Authorization.V20160401
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties for the policy assignment.
+        /// The ID of the policy definition.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.PolicyAssignmentPropertiesArgs>? Properties { get; set; }
+        [Input("policyDefinitionId")]
+        public Input<string>? PolicyDefinitionId { get; set; }
 
         /// <summary>
-        /// The scope of the policy assignment.
+        /// The scope for the policy assignment.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

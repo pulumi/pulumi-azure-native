@@ -102,6 +102,18 @@ namespace Pulumi.AzureRM.Network.V20190801
     public sealed class ExpressRoutePortArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Bandwidth of procured ports in Gbps.
+        /// </summary>
+        [Input("bandwidthInGbps")]
+        public Input<int>? BandwidthInGbps { get; set; }
+
+        /// <summary>
+        /// Encapsulation method on physical ports.
+        /// </summary>
+        [Input("encapsulation")]
+        public Input<string>? Encapsulation { get; set; }
+
+        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -112,6 +124,18 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
+        [Input("links")]
+        private InputList<Inputs.ExpressRouteLinkArgs>? _links;
+
+        /// <summary>
+        /// The set of physical links of the ExpressRoutePort resource.
+        /// </summary>
+        public InputList<Inputs.ExpressRouteLinkArgs> Links
+        {
+            get => _links ?? (_links = new InputList<Inputs.ExpressRouteLinkArgs>());
+            set => _links = value;
+        }
 
         /// <summary>
         /// Resource location.
@@ -126,16 +150,22 @@ namespace Pulumi.AzureRM.Network.V20190801
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// ExpressRoutePort properties.
+        /// The name of the peering location that the ExpressRoutePort is mapped to physically.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.ExpressRoutePortPropertiesFormatArgs>? Properties { get; set; }
+        [Input("peeringLocation")]
+        public Input<string>? PeeringLocation { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the express route port resource.
+        /// </summary>
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

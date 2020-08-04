@@ -78,22 +78,34 @@ namespace Pulumi.AzureRM.Cache.V20171001
     public sealed class LinkedServerArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Fully qualified resourceId of the linked redis cache.
+        /// </summary>
+        [Input("linkedRedisCacheId", required: true)]
+        public Input<string> LinkedRedisCacheId { get; set; } = null!;
+
+        /// <summary>
+        /// Location of the linked redis cache.
+        /// </summary>
+        [Input("linkedRedisCacheLocation", required: true)]
+        public Input<string> LinkedRedisCacheLocation { get; set; } = null!;
+
+        /// <summary>
         /// The name of the linked server that is being added to the Redis cache.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties required to create a linked server.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.RedisLinkedServerCreatePropertiesArgs> Properties { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Role of the linked server.
+        /// </summary>
+        [Input("serverRole", required: true)]
+        public Input<string> ServerRole { get; set; } = null!;
 
         public LinkedServerArgs()
         {

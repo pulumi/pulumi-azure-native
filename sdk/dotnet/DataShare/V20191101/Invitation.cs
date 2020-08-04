@@ -90,12 +90,6 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties on the Invitation
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.InvitationPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The resource group name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -106,6 +100,26 @@ namespace Pulumi.AzureRM.DataShare.V20191101
         /// </summary>
         [Input("shareName", required: true)]
         public Input<string> ShareName { get; set; } = null!;
+
+        /// <summary>
+        /// The target Azure AD Id. Can't be combined with email.
+        /// </summary>
+        [Input("targetActiveDirectoryId")]
+        public Input<string>? TargetActiveDirectoryId { get; set; }
+
+        /// <summary>
+        /// The email the invitation is directed to.
+        /// </summary>
+        [Input("targetEmail")]
+        public Input<string>? TargetEmail { get; set; }
+
+        /// <summary>
+        /// The target user or application Id that invitation is being sent to.
+        /// Must be specified along TargetActiveDirectoryId. This enables sending
+        /// invitations to specific users or applications in an AD tenant.
+        /// </summary>
+        [Input("targetObjectId")]
+        public Input<string>? TargetObjectId { get; set; }
 
         public InvitationArgs()
         {

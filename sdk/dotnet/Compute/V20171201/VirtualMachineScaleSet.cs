@@ -132,22 +132,34 @@ namespace Pulumi.AzureRM.Compute.V20171201
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+        /// </summary>
+        [Input("overprovision")]
+        public Input<bool>? Overprovision { get; set; }
+
+        /// <summary>
         /// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started -&gt;**. Enter any required information and then click **Save**.
         /// </summary>
         [Input("plan")]
         public Input<Inputs.PlanArgs>? Plan { get; set; }
 
         /// <summary>
-        /// Describes the properties of a Virtual Machine Scale Set.
+        /// Fault Domain count for each placement group.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VirtualMachineScaleSetPropertiesArgs>? Properties { get; set; }
+        [Input("platformFaultDomainCount")]
+        public Input<int>? PlatformFaultDomainCount { get; set; }
 
         /// <summary>
         /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+        /// </summary>
+        [Input("singlePlacementGroup")]
+        public Input<bool>? SinglePlacementGroup { get; set; }
 
         /// <summary>
         /// The virtual machine scale set sku.
@@ -166,6 +178,24 @@ namespace Pulumi.AzureRM.Compute.V20171201
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The upgrade policy.
+        /// </summary>
+        [Input("upgradePolicy")]
+        public Input<Inputs.UpgradePolicyArgs>? UpgradePolicy { get; set; }
+
+        /// <summary>
+        /// The virtual machine profile.
+        /// </summary>
+        [Input("virtualMachineProfile")]
+        public Input<Inputs.VirtualMachineScaleSetVMProfileArgs>? VirtualMachineProfile { get; set; }
+
+        /// <summary>
+        /// Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+        /// </summary>
+        [Input("zoneBalance")]
+        public Input<bool>? ZoneBalance { get; set; }
 
         [Input("zones")]
         private InputList<string>? _zones;
