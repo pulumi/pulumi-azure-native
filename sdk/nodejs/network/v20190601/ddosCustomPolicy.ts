@@ -51,7 +51,7 @@ export class DdosCustomPolicy extends pulumi.CustomResource {
     /**
      * Properties of the DDoS custom policy.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190601.DdosCustomPolicyPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190601.DdosCustomPolicyPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -83,10 +83,11 @@ export class DdosCustomPolicy extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["protocolCustomSettings"] = args ? args.protocolCustomSettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -117,9 +118,9 @@ export interface DdosCustomPolicyArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the DDoS custom policy.
+     * The protocol-specific DDoS policy customization parameters.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20190601.DdosCustomPolicyPropertiesFormat>;
+    readonly protocolCustomSettings?: pulumi.Input<pulumi.Input<inputs.network.v20190601.ProtocolCustomSettingsFormat>[]>;
     /**
      * The name of the resource group.
      */

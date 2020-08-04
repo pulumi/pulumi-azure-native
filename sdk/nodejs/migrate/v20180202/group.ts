@@ -47,7 +47,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * Properties of the group.
      */
-    public readonly properties!: pulumi.Output<outputs.migrate.v20180202.GroupPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.migrate.v20180202.GroupPropertiesResponse>;
     /**
      * Type of the object = [Microsoft.Migrate/projects/groups].
      */
@@ -66,23 +66,24 @@ export class Group extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as GroupArgs | undefined;
+            if (!args || args.machines === undefined) {
+                throw new Error("Missing required property 'machines'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.projectName === undefined) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
+            inputs["machines"] = args ? args.machines : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["projectName"] = args ? args.projectName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +106,10 @@ export interface GroupArgs {
      */
     readonly eTag?: pulumi.Input<string>;
     /**
+     * List of machine names that are part of this group.
+     */
+    readonly machines: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Unique name of a group within a project.
      */
     readonly name: pulumi.Input<string>;
@@ -112,10 +117,6 @@ export interface GroupArgs {
      * Name of the Azure Migrate project.
      */
     readonly projectName: pulumi.Input<string>;
-    /**
-     * Properties of the group.
-     */
-    readonly properties: pulumi.Input<inputs.migrate.v20180202.GroupProperties>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

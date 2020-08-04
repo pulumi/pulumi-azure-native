@@ -47,7 +47,7 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
     /**
      * The properties of the Bgp connections.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200501.BgpConnectionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.BgpConnectionPropertiesResponse>;
     /**
      * Connection type.
      */
@@ -77,10 +77,12 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
             }
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["peerAsn"] = args ? args.peerAsn : undefined;
+            inputs["peerIp"] = args ? args.peerIp : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["virtualHubName"] = args ? args.virtualHubName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,9 +109,13 @@ export interface VirtualHubBgpConnectionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the Bgp connections.
+     * Peer ASN.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20200501.BgpConnectionProperties>;
+    readonly peerAsn?: pulumi.Input<number>;
+    /**
+     * Peer IP.
+     */
+    readonly peerIp?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualHub.
      */

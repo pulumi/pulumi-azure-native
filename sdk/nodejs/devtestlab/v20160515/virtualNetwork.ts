@@ -47,7 +47,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.VirtualNetworkPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.VirtualNetworkPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -79,12 +79,19 @@ export class VirtualNetwork extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["allowedSubnets"] = args ? args.allowedSubnets : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["externalProviderResourceId"] = args ? args.externalProviderResourceId : undefined;
+            inputs["externalSubnets"] = args ? args.externalSubnets : undefined;
             inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["subnetOverrides"] = args ? args.subnetOverrides : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -103,6 +110,22 @@ export class VirtualNetwork extends pulumi.CustomResource {
  */
 export interface VirtualNetworkArgs {
     /**
+     * The allowed subnets of the virtual network.
+     */
+    readonly allowedSubnets?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.Subnet>[]>;
+    /**
+     * The description of the virtual network.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The Microsoft.Network resource identifier of the virtual network.
+     */
+    readonly externalProviderResourceId?: pulumi.Input<string>;
+    /**
+     * The external subnet properties.
+     */
+    readonly externalSubnets?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.ExternalSubnet>[]>;
+    /**
      * The name of the lab.
      */
     readonly labName: pulumi.Input<string>;
@@ -115,15 +138,23 @@ export interface VirtualNetworkArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    readonly properties?: pulumi.Input<inputs.devtestlab.v20160515.VirtualNetworkProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The subnet overrides of the virtual network.
+     */
+    readonly subnetOverrides?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20160515.SubnetOverride>[]>;
+    /**
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: pulumi.Input<string>;
 }

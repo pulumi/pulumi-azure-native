@@ -47,7 +47,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**
      * Gets or sets properties of the resource
      */
-    public readonly properties!: pulumi.Output<outputs.maintenance.v20200401.MaintenanceConfigurationPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.maintenance.v20200401.MaintenanceConfigurationPropertiesResponse>;
     /**
      * Gets or sets tags of the resource
      */
@@ -76,11 +76,14 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["extensionProperties"] = args ? args.extensionProperties : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maintenanceScope"] = args ? args.maintenanceScope : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["namespace"] = args ? args.namespace : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,17 +102,25 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
  */
 export interface MaintenanceConfigurationArgs {
     /**
+     * Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
+     */
+    readonly extensionProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * Gets or sets location of the resource
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
+     */
+    readonly maintenanceScope?: pulumi.Input<string>;
     /**
      * Resource Identifier
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Gets or sets properties of the resource
+     * Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
      */
-    readonly properties?: pulumi.Input<inputs.maintenance.v20200401.MaintenanceConfigurationProperties>;
+    readonly namespace?: pulumi.Input<string>;
     /**
      * Resource Group Name
      */

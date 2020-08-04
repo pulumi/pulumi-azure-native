@@ -51,7 +51,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Certificate resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20190801.CertificateResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20190801.CertificateResponseProperties>;
     /**
      * Resource tags.
      */
@@ -80,15 +80,25 @@ export class Certificate extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.password === undefined) {
+                throw new Error("Missing required property 'password'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["canonicalName"] = args ? args.canonicalName : undefined;
+            inputs["hostNames"] = args ? args.hostNames : undefined;
+            inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            inputs["keyVaultSecretName"] = args ? args.keyVaultSecretName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["password"] = args ? args.password : undefined;
+            inputs["pfxBlob"] = args ? args.pfxBlob : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serverFarmId"] = args ? args.serverFarmId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,6 +117,22 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateArgs {
     /**
+     * CNAME of the certificate to be issued via free certificate
+     */
+    readonly canonicalName?: pulumi.Input<string>;
+    /**
+     * Host names the certificate applies to.
+     */
+    readonly hostNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key Vault Csm resource Id.
+     */
+    readonly keyVaultId?: pulumi.Input<string>;
+    /**
+     * Key Vault secret name.
+     */
+    readonly keyVaultSecretName?: pulumi.Input<string>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
@@ -119,13 +145,21 @@ export interface CertificateArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Certificate resource specific properties
+     * Certificate password.
      */
-    readonly properties?: pulumi.Input<inputs.web.v20190801.CertificateProperties>;
+    readonly password: pulumi.Input<string>;
+    /**
+     * Pfx blob.
+     */
+    readonly pfxBlob?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+     */
+    readonly serverFarmId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

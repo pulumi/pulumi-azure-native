@@ -43,7 +43,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The resource properties.
      */
-    public readonly properties!: pulumi.Output<outputs.media.v20180701.JobPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20180701.JobPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -65,8 +65,14 @@ export class Job extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.input === undefined) {
+                throw new Error("Missing required property 'input'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
+            }
+            if (!args || args.outputs === undefined) {
+                throw new Error("Missing required property 'outputs'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -75,10 +81,15 @@ export class Job extends pulumi.CustomResource {
                 throw new Error("Missing required property 'transformName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["correlationData"] = args ? args.correlationData : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["input"] = args ? args.input : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["outputs"] = args ? args.outputs : undefined;
+            inputs["priority"] = args ? args.priority : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["transformName"] = args ? args.transformName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,13 +112,29 @@ export interface JobArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+     */
+    readonly correlationData?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Optional customer supplied description of the Job.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The inputs for the Job.
+     */
+    readonly input: pulumi.Input<inputs.media.v20180701.JobInput>;
+    /**
      * The Job name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The resource properties.
+     * The outputs for the Job.
      */
-    readonly properties?: pulumi.Input<inputs.media.v20180701.JobProperties>;
+    readonly outputs: pulumi.Input<pulumi.Input<inputs.media.v20180701.JobOutput>[]>;
+    /**
+     * Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+     */
+    readonly priority?: pulumi.Input<string>;
     /**
      * The name of the resource group within the Azure subscription.
      */

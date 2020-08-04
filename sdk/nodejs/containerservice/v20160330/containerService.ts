@@ -47,7 +47,7 @@ export class ContainerService extends pulumi.CustomResource {
     /**
      * Properties of the container service.
      */
-    public readonly properties!: pulumi.Output<outputs.containerservice.v20160330.ContainerServicePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.containerservice.v20160330.ContainerServicePropertiesResponse>;
     /**
      * Resource tags
      */
@@ -70,8 +70,17 @@ export class ContainerService extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ContainerServiceArgs | undefined;
+            if (!args || args.agentPoolProfiles === undefined) {
+                throw new Error("Missing required property 'agentPoolProfiles'");
+            }
+            if (!args || args.linuxProfile === undefined) {
+                throw new Error("Missing required property 'linuxProfile'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
+            }
+            if (!args || args.masterProfile === undefined) {
+                throw new Error("Missing required property 'masterProfile'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
@@ -79,11 +88,17 @@ export class ContainerService extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["agentPoolProfiles"] = args ? args.agentPoolProfiles : undefined;
+            inputs["diagnosticsProfile"] = args ? args.diagnosticsProfile : undefined;
+            inputs["linuxProfile"] = args ? args.linuxProfile : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["masterProfile"] = args ? args.masterProfile : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["orchestratorProfile"] = args ? args.orchestratorProfile : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["windowsProfile"] = args ? args.windowsProfile : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,17 +117,33 @@ export class ContainerService extends pulumi.CustomResource {
  */
 export interface ContainerServiceArgs {
     /**
+     * Properties of the agent pool.
+     */
+    readonly agentPoolProfiles: pulumi.Input<pulumi.Input<inputs.containerservice.v20160330.ContainerServiceAgentPoolProfile>[]>;
+    /**
+     * Properties of the diagnostic agent.
+     */
+    readonly diagnosticsProfile?: pulumi.Input<inputs.containerservice.v20160330.ContainerServiceDiagnosticsProfile>;
+    /**
+     * Properties of Linux VMs.
+     */
+    readonly linuxProfile: pulumi.Input<inputs.containerservice.v20160330.ContainerServiceLinuxProfile>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * Properties of master agents.
+     */
+    readonly masterProfile: pulumi.Input<inputs.containerservice.v20160330.ContainerServiceMasterProfile>;
     /**
      * The name of the container service in the specified subscription and resource group.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the container service.
+     * Properties of the orchestrator.
      */
-    readonly properties?: pulumi.Input<inputs.containerservice.v20160330.ContainerServiceProperties>;
+    readonly orchestratorProfile?: pulumi.Input<inputs.containerservice.v20160330.ContainerServiceOrchestratorProfile>;
     /**
      * The name of the resource group.
      */
@@ -121,4 +152,8 @@ export interface ContainerServiceArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Properties of Windows VMs.
+     */
+    readonly windowsProfile?: pulumi.Input<inputs.containerservice.v20160330.ContainerServiceWindowsProfile>;
 }

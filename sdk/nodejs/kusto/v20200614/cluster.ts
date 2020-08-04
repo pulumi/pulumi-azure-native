@@ -51,7 +51,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The cluster properties.
      */
-    public readonly properties!: pulumi.Output<outputs.kusto.v20200614.ClusterPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.kusto.v20200614.ClusterPropertiesResponse>;
     /**
      * The SKU of the cluster.
      */
@@ -94,14 +94,22 @@ export class Cluster extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["enableDiskEncryption"] = args ? args.enableDiskEncryption : undefined;
+            inputs["enableDoubleEncryption"] = args ? args.enableDoubleEncryption : undefined;
+            inputs["enablePurge"] = args ? args.enablePurge : undefined;
+            inputs["enableStreamingIngest"] = args ? args.enableStreamingIngest : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["optimizedAutoscale"] = args ? args.optimizedAutoscale : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["trustedExternalTenants"] = args ? args.trustedExternalTenants : undefined;
+            inputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
             inputs["zones"] = args ? args.zones : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -120,9 +128,29 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterArgs {
     /**
+     * A boolean value that indicates if the cluster's disks are encrypted.
+     */
+    readonly enableDiskEncryption?: pulumi.Input<boolean>;
+    /**
+     * A boolean value that indicates if double encryption is enabled.
+     */
+    readonly enableDoubleEncryption?: pulumi.Input<boolean>;
+    /**
+     * A boolean value that indicates if the purge operations are enabled.
+     */
+    readonly enablePurge?: pulumi.Input<boolean>;
+    /**
+     * A boolean value that indicates if the streaming ingest is enabled.
+     */
+    readonly enableStreamingIngest?: pulumi.Input<boolean>;
+    /**
      * The identity of the cluster, if configured.
      */
     readonly identity?: pulumi.Input<inputs.kusto.v20200614.Identity>;
+    /**
+     * KeyVault properties for the cluster encryption.
+     */
+    readonly keyVaultProperties?: pulumi.Input<inputs.kusto.v20200614.KeyVaultProperties>;
     /**
      * The geo-location where the resource lives
      */
@@ -132,9 +160,9 @@ export interface ClusterArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The cluster properties.
+     * Optimized auto scale definition.
      */
-    readonly properties?: pulumi.Input<inputs.kusto.v20200614.ClusterProperties>;
+    readonly optimizedAutoscale?: pulumi.Input<inputs.kusto.v20200614.OptimizedAutoscale>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
@@ -147,6 +175,14 @@ export interface ClusterArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The cluster's external tenants.
+     */
+    readonly trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.v20200614.TrustedExternalTenant>[]>;
+    /**
+     * Virtual network definition.
+     */
+    readonly virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.v20200614.VirtualNetworkConfiguration>;
     /**
      * The availability zones of the cluster.
      */

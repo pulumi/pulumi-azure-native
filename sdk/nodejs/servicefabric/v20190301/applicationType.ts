@@ -51,7 +51,7 @@ export class ApplicationType extends pulumi.CustomResource {
     /**
      * The application type name properties
      */
-    public readonly properties!: pulumi.Output<outputs.servicefabric.v20190301.ApplicationTypeResourcePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicefabric.v20190301.ApplicationTypeResourcePropertiesResponse>;
     /**
      * Azure resource tags.
      */
@@ -86,10 +86,10 @@ export class ApplicationType extends pulumi.CustomResource {
             inputs["clusterName"] = args ? args.clusterName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -119,10 +119,6 @@ export interface ApplicationTypeArgs {
      * The name of the application type name resource.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The application type name properties
-     */
-    readonly properties?: pulumi.Input<inputs.servicefabric.v20190301.ApplicationTypeResourceProperties>;
     /**
      * The name of the resource group.
      */

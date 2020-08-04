@@ -47,7 +47,7 @@ export class ServerDetails extends pulumi.CustomResource {
     /**
      * Properties of the provision operation request.
      */
-    public readonly properties!: pulumi.Output<outputs.analysisservices.v20160516.AnalysisServicesServerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.analysisservices.v20160516.AnalysisServicesServerPropertiesResponse>;
     /**
      * The SKU of the Analysis Services resource.
      */
@@ -86,12 +86,14 @@ export class ServerDetails extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["asAdministrators"] = args ? args.asAdministrators : undefined;
+            inputs["backupBlobContainerUri"] = args ? args.backupBlobContainerUri : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,6 +112,14 @@ export class ServerDetails extends pulumi.CustomResource {
  */
 export interface ServerDetailsArgs {
     /**
+     * A collection of AS server administrators
+     */
+    readonly asAdministrators?: pulumi.Input<inputs.analysisservices.v20160516.ServerAdministrators>;
+    /**
+     * The container URI of backup blob.
+     */
+    readonly backupBlobContainerUri?: pulumi.Input<string>;
+    /**
      * Location of the Analysis Services resource.
      */
     readonly location: pulumi.Input<string>;
@@ -117,10 +127,6 @@ export interface ServerDetailsArgs {
      * The name of the Analysis Services server. It must be a minimum of 3 characters, and a maximum of 63.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the provision operation request.
-     */
-    readonly properties?: pulumi.Input<inputs.analysisservices.v20160516.AnalysisServicesServerProperties>;
     /**
      * The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
      */

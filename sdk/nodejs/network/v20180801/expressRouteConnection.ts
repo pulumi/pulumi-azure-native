@@ -43,7 +43,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
     /**
      * Properties of the ExpressRouteConnection subresource.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180801.ExpressRouteConnectionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180801.ExpressRouteConnectionPropertiesResponse>;
 
     /**
      * Create a ExpressRouteConnection resource with the given unique name, arguments, and options.
@@ -58,6 +58,9 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ExpressRouteConnectionArgs | undefined;
+            if (!args || args.expressRouteCircuitPeering === undefined) {
+                throw new Error("Missing required property 'expressRouteCircuitPeering'");
+            }
             if (!args || args.expressRouteGatewayName === undefined) {
                 throw new Error("Missing required property 'expressRouteGatewayName'");
             }
@@ -67,11 +70,14 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            inputs["expressRouteCircuitPeering"] = args ? args.expressRouteCircuitPeering : undefined;
             inputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routingWeight"] = args ? args.routingWeight : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -89,6 +95,14 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
  */
 export interface ExpressRouteConnectionArgs {
     /**
+     * Authorization key to establish the connection.
+     */
+    readonly authorizationKey?: pulumi.Input<string>;
+    /**
+     * The ExpressRoute circuit peering.
+     */
+    readonly expressRouteCircuitPeering: pulumi.Input<inputs.network.v20180801.ExpressRouteCircuitPeeringId>;
+    /**
      * The name of the ExpressRoute gateway.
      */
     readonly expressRouteGatewayName: pulumi.Input<string>;
@@ -101,11 +115,11 @@ export interface ExpressRouteConnectionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the ExpressRouteConnection subresource.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20180801.ExpressRouteConnectionProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The routing weight associated to the connection.
+     */
+    readonly routingWeight?: pulumi.Input<number>;
 }

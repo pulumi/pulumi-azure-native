@@ -47,7 +47,7 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
     /**
      * HybridConnection resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20190801.HybridConnectionResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20190801.HybridConnectionResponseProperties>;
     /**
      * Resource type.
      */
@@ -75,11 +75,18 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["hostname"] = args ? args.hostname : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["port"] = args ? args.port : undefined;
+            inputs["relayArmUri"] = args ? args.relayArmUri : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sendKeyName"] = args ? args.sendKeyName : undefined;
+            inputs["sendKeyValue"] = args ? args.sendKeyValue : undefined;
+            inputs["serviceBusNamespace"] = args ? args.serviceBusNamespace : undefined;
+            inputs["serviceBusSuffix"] = args ? args.serviceBusSuffix : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,11 +105,15 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
  */
 export interface WebAppHybridConnectionArgs {
     /**
+     * The hostname of the endpoint.
+     */
+    readonly hostname?: pulumi.Input<string>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * The relay name for this hybrid connection.
+     * The name of the Service Bus relay.
      */
     readonly name: pulumi.Input<string>;
     /**
@@ -110,11 +121,32 @@ export interface WebAppHybridConnectionArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * HybridConnection resource specific properties
+     * The port of the endpoint.
      */
-    readonly properties?: pulumi.Input<inputs.web.v20190801.HybridConnectionProperties>;
+    readonly port?: pulumi.Input<number>;
+    /**
+     * The ARM URI to the Service Bus relay.
+     */
+    readonly relayArmUri?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+     */
+    readonly sendKeyName?: pulumi.Input<string>;
+    /**
+     * The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+     * normally, use the POST /listKeys API instead.
+     */
+    readonly sendKeyValue?: pulumi.Input<string>;
+    /**
+     * The name of the Service Bus namespace.
+     */
+    readonly serviceBusNamespace?: pulumi.Input<string>;
+    /**
+     * The suffix for the service bus endpoint. By default this is .servicebus.windows.net
+     */
+    readonly serviceBusSuffix?: pulumi.Input<string>;
 }

@@ -43,7 +43,7 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * RegisteredServer properties.
      */
-    public readonly properties!: pulumi.Output<outputs.storagesync.v20180402.RegisteredServerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storagesync.v20180402.RegisteredServerPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -71,12 +71,20 @@ export class RegisteredServer extends pulumi.CustomResource {
             if (!args || args.storageSyncServiceName === undefined) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
+            inputs["agentVersion"] = args ? args.agentVersion : undefined;
+            inputs["clusterId"] = args ? args.clusterId : undefined;
+            inputs["clusterName"] = args ? args.clusterName : undefined;
+            inputs["friendlyName"] = args ? args.friendlyName : undefined;
+            inputs["lastHeartBeat"] = args ? args.lastHeartBeat : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serverCertificate"] = args ? args.serverCertificate : undefined;
+            inputs["serverOSVersion"] = args ? args.serverOSVersion : undefined;
+            inputs["serverRole"] = args ? args.serverRole : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -95,21 +103,49 @@ export class RegisteredServer extends pulumi.CustomResource {
  */
 export interface RegisteredServerArgs {
     /**
+     * Registered Server Agent Version
+     */
+    readonly agentVersion?: pulumi.Input<string>;
+    /**
+     * Registered Server clusterId
+     */
+    readonly clusterId?: pulumi.Input<string>;
+    /**
+     * Registered Server clusterName
+     */
+    readonly clusterName?: pulumi.Input<string>;
+    /**
+     * Friendly Name
+     */
+    readonly friendlyName?: pulumi.Input<string>;
+    /**
+     * Registered Server last heart beat
+     */
+    readonly lastHeartBeat?: pulumi.Input<string>;
+    /**
      * Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
      */
     readonly location?: pulumi.Input<string>;
     /**
-     * GUID identifying the on-premises server.
+     * Registered Server serverId
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The parameters used to create the storage sync service.
-     */
-    readonly properties?: pulumi.Input<inputs.storagesync.v20180402.RegisteredServerCreateParametersProperties>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Registered Server Certificate
+     */
+    readonly serverCertificate?: pulumi.Input<string>;
+    /**
+     * Registered Server OS Version
+     */
+    readonly serverOSVersion?: pulumi.Input<string>;
+    /**
+     * Registered Server serverRole
+     */
+    readonly serverRole?: pulumi.Input<string>;
     /**
      * Name of Storage Sync Service resource.
      */

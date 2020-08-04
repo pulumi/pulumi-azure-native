@@ -51,7 +51,7 @@ export class Peering extends pulumi.CustomResource {
     /**
      * The properties that define a peering.
      */
-    public readonly properties!: pulumi.Output<outputs.peering.v20200401.PeeringPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.peering.v20200401.PeeringPropertiesResponse>;
     /**
      * The SKU that defines the tier and kind of the peering.
      */
@@ -93,13 +93,16 @@ export class Peering extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["direct"] = args ? args.direct : undefined;
+            inputs["exchange"] = args ? args.exchange : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["peeringLocation"] = args ? args.peeringLocation : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -118,6 +121,14 @@ export class Peering extends pulumi.CustomResource {
  */
 export interface PeeringArgs {
     /**
+     * The properties that define a direct peering.
+     */
+    readonly direct?: pulumi.Input<inputs.peering.v20200401.PeeringPropertiesDirect>;
+    /**
+     * The properties that define an exchange peering.
+     */
+    readonly exchange?: pulumi.Input<inputs.peering.v20200401.PeeringPropertiesExchange>;
+    /**
      * The kind of the peering.
      */
     readonly kind: pulumi.Input<string>;
@@ -130,9 +141,9 @@ export interface PeeringArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties that define a peering.
+     * The location of the peering.
      */
-    readonly properties?: pulumi.Input<inputs.peering.v20200401.PeeringProperties>;
+    readonly peeringLocation?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

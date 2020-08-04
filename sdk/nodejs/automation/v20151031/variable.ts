@@ -43,7 +43,7 @@ export class Variable extends pulumi.CustomResource {
     /**
      * Gets or sets the properties of the variable.
      */
-    public readonly properties!: pulumi.Output<outputs.automation.v20151031.VariablePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.VariablePropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -68,16 +68,16 @@ export class Variable extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["isEncrypted"] = args ? args.isEncrypted : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["value"] = args ? args.value : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,15 +100,23 @@ export interface VariableArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
+     * Gets or sets the description of the variable.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Gets or sets the encrypted flag of the variable.
+     */
+    readonly isEncrypted?: pulumi.Input<boolean>;
+    /**
      * The variable name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Gets or sets the properties of the variable.
-     */
-    readonly properties: pulumi.Input<inputs.automation.v20151031.VariableCreateOrUpdateProperties>;
-    /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets or sets the value of the variable.
+     */
+    readonly value?: pulumi.Input<string>;
 }

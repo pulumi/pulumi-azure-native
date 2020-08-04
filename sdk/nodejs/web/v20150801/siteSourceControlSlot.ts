@@ -48,7 +48,7 @@ export class SiteSourceControlSlot extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly properties!: pulumi.Output<outputs.web.v20150801.SiteSourceControlResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.SiteSourceControlResponseProperties>;
     /**
      * Resource tags
      */
@@ -80,14 +80,19 @@ export class SiteSourceControlSlot extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["branch"] = args ? args.branch : undefined;
+            inputs["deploymentRollbackEnabled"] = args ? args.deploymentRollbackEnabled : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["isManualIntegration"] = args ? args.isManualIntegration : undefined;
+            inputs["isMercurial"] = args ? args.isMercurial : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["repoUrl"] = args ? args.repoUrl : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,9 +110,25 @@ export class SiteSourceControlSlot extends pulumi.CustomResource {
  */
 export interface SiteSourceControlSlotArgs {
     /**
+     * Name of branch to use for deployment
+     */
+    readonly branch?: pulumi.Input<string>;
+    /**
+     * Whether to manual or continuous integration
+     */
+    readonly deploymentRollbackEnabled?: pulumi.Input<boolean>;
+    /**
      * Resource Id
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * Whether to manual or continuous integration
+     */
+    readonly isManualIntegration?: pulumi.Input<boolean>;
+    /**
+     * Mercurial or Git repository type
+     */
+    readonly isMercurial?: pulumi.Input<boolean>;
     /**
      * Kind of resource
      */
@@ -120,7 +141,10 @@ export interface SiteSourceControlSlotArgs {
      * Name of web app slot. If not specified then will default to production slot.
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.web.v20150801.SiteSourceControlProperties>;
+    /**
+     * Repository or source control url
+     */
+    readonly repoUrl?: pulumi.Input<string>;
     /**
      * Name of resource group
      */

@@ -47,7 +47,7 @@ export class Registry extends pulumi.CustomResource {
     /**
      * The properties of the container registry.
      */
-    public readonly properties!: pulumi.Output<outputs.containerregistry.v20171001.RegistryPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.containerregistry.v20171001.RegistryPropertiesResponse>;
     /**
      * The SKU of the container registry.
      */
@@ -86,12 +86,15 @@ export class Registry extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["adminUserEnabled"] = args ? args.adminUserEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["storageAccount"] = args ? args.storageAccount : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,6 +113,10 @@ export class Registry extends pulumi.CustomResource {
  */
 export interface RegistryArgs {
     /**
+     * The value that indicates whether the admin user is enabled.
+     */
+    readonly adminUserEnabled?: pulumi.Input<boolean>;
+    /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
     readonly location: pulumi.Input<string>;
@@ -118,9 +125,9 @@ export interface RegistryArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the container registry.
+     * The network rule set for a container registry.
      */
-    readonly properties?: pulumi.Input<inputs.containerregistry.v20171001.RegistryProperties>;
+    readonly networkRuleSet?: pulumi.Input<inputs.containerregistry.v20171001.NetworkRuleSet>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
@@ -129,6 +136,10 @@ export interface RegistryArgs {
      * The SKU of the container registry.
      */
     readonly sku: pulumi.Input<inputs.containerregistry.v20171001.Sku>;
+    /**
+     * The properties of the storage account for the container registry. Only applicable to Classic SKU.
+     */
+    readonly storageAccount?: pulumi.Input<inputs.containerregistry.v20171001.StorageAccountProperties>;
     /**
      * The tags of the resource.
      */

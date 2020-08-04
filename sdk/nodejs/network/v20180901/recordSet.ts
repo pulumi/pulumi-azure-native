@@ -47,7 +47,7 @@ export class RecordSet extends pulumi.CustomResource {
     /**
      * The properties of the record set.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180901.RecordSetPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180901.RecordSetPropertiesResponse>;
     /**
      * The type of the resource. Example - 'Microsoft.Network/privateDnsZones'.
      */
@@ -78,12 +78,22 @@ export class RecordSet extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["aRecords"] = args ? args.aRecords : undefined;
+            inputs["aaaaRecords"] = args ? args.aaaaRecords : undefined;
+            inputs["cnameRecord"] = args ? args.cnameRecord : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
+            inputs["mxRecords"] = args ? args.mxRecords : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["privateZoneName"] = args ? args.privateZoneName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["ptrRecords"] = args ? args.ptrRecords : undefined;
             inputs["recordType"] = args ? args.recordType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["soaRecord"] = args ? args.soaRecord : undefined;
+            inputs["srvRecords"] = args ? args.srvRecords : undefined;
+            inputs["ttl"] = args ? args.ttl : undefined;
+            inputs["txtRecords"] = args ? args.txtRecords : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,9 +112,29 @@ export class RecordSet extends pulumi.CustomResource {
  */
 export interface RecordSetArgs {
     /**
+     * The list of A records in the record set.
+     */
+    readonly aRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.ARecord>[]>;
+    /**
+     * The list of AAAA records in the record set.
+     */
+    readonly aaaaRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.AaaaRecord>[]>;
+    /**
+     * The CNAME record in the record set.
+     */
+    readonly cnameRecord?: pulumi.Input<inputs.network.v20180901.CnameRecord>;
+    /**
      * The ETag of the record set.
      */
     readonly etag?: pulumi.Input<string>;
+    /**
+     * The metadata attached to the record set.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The list of MX records in the record set.
+     */
+    readonly mxRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.MxRecord>[]>;
     /**
      * The name of the record set, relative to the name of the zone.
      */
@@ -114,9 +144,9 @@ export interface RecordSetArgs {
      */
     readonly privateZoneName: pulumi.Input<string>;
     /**
-     * The properties of the record set.
+     * The list of PTR records in the record set.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20180901.RecordSetProperties>;
+    readonly ptrRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.PtrRecord>[]>;
     /**
      * The type of DNS record in this record set. Record sets of type SOA can be updated but not created (they are created when the Private DNS zone is created).
      */
@@ -125,4 +155,20 @@ export interface RecordSetArgs {
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The SOA record in the record set.
+     */
+    readonly soaRecord?: pulumi.Input<inputs.network.v20180901.SoaRecord>;
+    /**
+     * The list of SRV records in the record set.
+     */
+    readonly srvRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.SrvRecord>[]>;
+    /**
+     * The TTL (time-to-live) of the records in the record set.
+     */
+    readonly ttl?: pulumi.Input<number>;
+    /**
+     * The list of TXT records in the record set.
+     */
+    readonly txtRecords?: pulumi.Input<pulumi.Input<inputs.network.v20180901.TxtRecord>[]>;
 }

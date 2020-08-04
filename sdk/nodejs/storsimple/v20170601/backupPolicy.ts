@@ -47,7 +47,7 @@ export class BackupPolicy extends pulumi.CustomResource {
     /**
      * The properties of the backup policy.
      */
-    public readonly properties!: pulumi.Output<outputs.storsimple.v20170601.BackupPolicyPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.BackupPolicyPropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -75,18 +75,19 @@ export class BackupPolicy extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.volumeIds === undefined) {
+                throw new Error("Missing required property 'volumeIds'");
             }
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["volumeIds"] = args ? args.volumeIds : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -121,11 +122,11 @@ export interface BackupPolicyArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the backup policy.
-     */
-    readonly properties: pulumi.Input<inputs.storsimple.v20170601.BackupPolicyProperties>;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The path IDs of the volumes which are part of the backup policy.
+     */
+    readonly volumeIds: pulumi.Input<pulumi.Input<string>[]>;
 }

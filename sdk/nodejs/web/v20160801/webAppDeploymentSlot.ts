@@ -47,7 +47,7 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
     /**
      * Deployment resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20160801.DeploymentResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20160801.DeploymentResponseProperties>;
     /**
      * Resource type.
      */
@@ -75,11 +75,20 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
+            inputs["active"] = args ? args.active : undefined;
+            inputs["author"] = args ? args.author : undefined;
+            inputs["authorEmail"] = args ? args.authorEmail : undefined;
+            inputs["deployer"] = args ? args.deployer : undefined;
+            inputs["details"] = args ? args.details : undefined;
+            inputs["endTime"] = args ? args.endTime : undefined;
             inputs["kind"] = args ? args.kind : undefined;
+            inputs["message"] = args ? args.message : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
+            inputs["startTime"] = args ? args.startTime : undefined;
+            inputs["status"] = args ? args.status : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,17 +107,41 @@ export class WebAppDeploymentSlot extends pulumi.CustomResource {
  */
 export interface WebAppDeploymentSlotArgs {
     /**
+     * True if deployment is currently active, false if completed and null if not started.
+     */
+    readonly active?: pulumi.Input<boolean>;
+    /**
+     * Who authored the deployment.
+     */
+    readonly author?: pulumi.Input<string>;
+    /**
+     * Author email.
+     */
+    readonly authorEmail?: pulumi.Input<string>;
+    /**
+     * Who performed the deployment.
+     */
+    readonly deployer?: pulumi.Input<string>;
+    /**
+     * Details on deployment.
+     */
+    readonly details?: pulumi.Input<string>;
+    /**
+     * End time.
+     */
+    readonly endTime?: pulumi.Input<string>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
     /**
-     * ID of an existing deployment.
+     * Details about deployment status.
+     */
+    readonly message?: pulumi.Input<string>;
+    /**
+     * Identifier for deployment.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Deployment resource specific properties
-     */
-    readonly properties?: pulumi.Input<inputs.web.v20160801.DeploymentProperties>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -117,4 +150,12 @@ export interface WebAppDeploymentSlotArgs {
      * Name of the deployment slot. If a slot is not specified, the API creates a deployment for the production slot.
      */
     readonly slot: pulumi.Input<string>;
+    /**
+     * Start time.
+     */
+    readonly startTime?: pulumi.Input<string>;
+    /**
+     * Deployment status.
+     */
+    readonly status?: pulumi.Input<number>;
 }

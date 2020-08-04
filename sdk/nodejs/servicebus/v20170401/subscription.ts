@@ -43,7 +43,7 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * Properties of subscriptions resource.
      */
-    public readonly properties!: pulumi.Output<outputs.servicebus.v20170401.SBSubscriptionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20170401.SBSubscriptionPropertiesResponse>;
     /**
      * Resource type
      */
@@ -74,11 +74,23 @@ export class Subscription extends pulumi.CustomResource {
             if (!args || args.topicName === undefined) {
                 throw new Error("Missing required property 'topicName'");
             }
+            inputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
+            inputs["deadLetteringOnFilterEvaluationExceptions"] = args ? args.deadLetteringOnFilterEvaluationExceptions : undefined;
+            inputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
+            inputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
+            inputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
+            inputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
+            inputs["forwardDeadLetteredMessagesTo"] = args ? args.forwardDeadLetteredMessagesTo : undefined;
+            inputs["forwardTo"] = args ? args.forwardTo : undefined;
+            inputs["lockDuration"] = args ? args.lockDuration : undefined;
+            inputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["requiresSession"] = args ? args.requiresSession : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["status"] = args ? args.status : undefined;
             inputs["topicName"] = args ? args.topicName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,6 +109,46 @@ export class Subscription extends pulumi.CustomResource {
  */
 export interface SubscriptionArgs {
     /**
+     * ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+     */
+    readonly autoDeleteOnIdle?: pulumi.Input<string>;
+    /**
+     * Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+     */
+    readonly deadLetteringOnFilterEvaluationExceptions?: pulumi.Input<boolean>;
+    /**
+     * Value that indicates whether a subscription has dead letter support when a message expires.
+     */
+    readonly deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
+    /**
+     * ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+     */
+    readonly defaultMessageTimeToLive?: pulumi.Input<string>;
+    /**
+     * ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+     */
+    readonly duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
+    /**
+     * Value that indicates whether server-side batched operations are enabled.
+     */
+    readonly enableBatchedOperations?: pulumi.Input<boolean>;
+    /**
+     * Queue/Topic name to forward the Dead Letter message
+     */
+    readonly forwardDeadLetteredMessagesTo?: pulumi.Input<string>;
+    /**
+     * Queue/Topic name to forward the messages
+     */
+    readonly forwardTo?: pulumi.Input<string>;
+    /**
+     * ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
+     */
+    readonly lockDuration?: pulumi.Input<string>;
+    /**
+     * Number of maximum deliveries.
+     */
+    readonly maxDeliveryCount?: pulumi.Input<number>;
+    /**
      * The subscription name.
      */
     readonly name: pulumi.Input<string>;
@@ -105,13 +157,17 @@ export interface SubscriptionArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Properties of subscriptions resource.
+     * Value indicating if a subscription supports the concept of sessions.
      */
-    readonly properties?: pulumi.Input<inputs.servicebus.v20170401.SBSubscriptionProperties>;
+    readonly requiresSession?: pulumi.Input<boolean>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Enumerates the possible values for the status of a messaging entity.
+     */
+    readonly status?: pulumi.Input<string>;
     /**
      * The topic name.
      */

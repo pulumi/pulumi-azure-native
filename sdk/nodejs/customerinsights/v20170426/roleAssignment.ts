@@ -43,7 +43,7 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * The Role Assignment definition.
      */
-    public readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.RoleAssignmentResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.RoleAssignmentResponse>;
     /**
      * Resource type.
      */
@@ -68,13 +68,36 @@ export class RoleAssignment extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.principals === undefined) {
+                throw new Error("Missing required property 'principals'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.role === undefined) {
+                throw new Error("Missing required property 'role'");
+            }
+            inputs["conflationPolicies"] = args ? args.conflationPolicies : undefined;
+            inputs["connectors"] = args ? args.connectors : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["hubName"] = args ? args.hubName : undefined;
+            inputs["interactions"] = args ? args.interactions : undefined;
+            inputs["kpis"] = args ? args.kpis : undefined;
+            inputs["links"] = args ? args.links : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["principals"] = args ? args.principals : undefined;
+            inputs["profiles"] = args ? args.profiles : undefined;
+            inputs["relationshipLinks"] = args ? args.relationshipLinks : undefined;
+            inputs["relationships"] = args ? args.relationships : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["role"] = args ? args.role : undefined;
+            inputs["roleAssignments"] = args ? args.roleAssignments : undefined;
+            inputs["sasPolicies"] = args ? args.sasPolicies : undefined;
+            inputs["segments"] = args ? args.segments : undefined;
+            inputs["views"] = args ? args.views : undefined;
+            inputs["widgetTypes"] = args ? args.widgetTypes : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,19 +116,83 @@ export class RoleAssignment extends pulumi.CustomResource {
  */
 export interface RoleAssignmentArgs {
     /**
+     * Widget types set for the assignment.
+     */
+    readonly conflationPolicies?: pulumi.Input<inputs.customerinsights.v20170426.ResourceSetDescription>;
+    /**
+     * Connectors set for the assignment.
+     */
+    readonly connectors?: pulumi.Input<inputs.customerinsights.v20170426.ResourceSetDescription>;
+    /**
+     * Localized description for the metadata.
+     */
+    readonly description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Localized display names for the metadata.
+     */
+    readonly displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The name of the hub.
      */
     readonly hubName: pulumi.Input<string>;
+    /**
+     * Interactions set for the assignment.
+     */
+    readonly interactions?: pulumi.Input<inputs.customerinsights.v20170426.ResourceSetDescription>;
+    /**
+     * Kpis set for the assignment.
+     */
+    readonly kpis?: pulumi.Input<inputs.customerinsights.v20170426.ResourceSetDescription>;
+    /**
+     * Links set for the assignment.
+     */
+    readonly links?: pulumi.Input<inputs.customerinsights.v20170426.ResourceSetDescription>;
     /**
      * The assignment name
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The Role Assignment definition.
+     * The principals being assigned to.
      */
-    readonly properties?: pulumi.Input<inputs.customerinsights.v20170426.RoleAssignmentDefinition>;
+    readonly principals: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.AssignmentPrincipal>[]>;
+    /**
+     * Profiles set for the assignment.
+     */
+    readonly profiles?: pulumi.Input<inputs.customerinsights.v20170426.ResourceSetDescription>;
+    /**
+     * The Role assignments set for the relationship links.
+     */
+    readonly relationshipLinks?: pulumi.Input<inputs.customerinsights.v20170426.ResourceSetDescription>;
+    /**
+     * The Role assignments set for the relationships.
+     */
+    readonly relationships?: pulumi.Input<inputs.customerinsights.v20170426.ResourceSetDescription>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Type of roles.
+     */
+    readonly role: pulumi.Input<string>;
+    /**
+     * The Role assignments set for the assignment.
+     */
+    readonly roleAssignments?: pulumi.Input<inputs.customerinsights.v20170426.ResourceSetDescription>;
+    /**
+     * Sas Policies set for the assignment.
+     */
+    readonly sasPolicies?: pulumi.Input<inputs.customerinsights.v20170426.ResourceSetDescription>;
+    /**
+     * The Role assignments set for the assignment.
+     */
+    readonly segments?: pulumi.Input<inputs.customerinsights.v20170426.ResourceSetDescription>;
+    /**
+     * Views set for the assignment.
+     */
+    readonly views?: pulumi.Input<inputs.customerinsights.v20170426.ResourceSetDescription>;
+    /**
+     * Widget types set for the assignment.
+     */
+    readonly widgetTypes?: pulumi.Input<inputs.customerinsights.v20170426.ResourceSetDescription>;
 }

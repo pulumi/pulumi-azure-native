@@ -51,7 +51,7 @@ export class NetworkProfile extends pulumi.CustomResource {
     /**
      * Network profile properties.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20181201.NetworkProfilePropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181201.NetworkProfilePropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,15 @@ export class NetworkProfile extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["containerNetworkInterfaceConfigurations"] = args ? args.containerNetworkInterfaceConfigurations : undefined;
+            inputs["containerNetworkInterfaces"] = args ? args.containerNetworkInterfaces : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +107,14 @@ export class NetworkProfile extends pulumi.CustomResource {
  */
 export interface NetworkProfileArgs {
     /**
+     * List of chid container network interface configurations.
+     */
+    readonly containerNetworkInterfaceConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20181201.ContainerNetworkInterfaceConfiguration>[]>;
+    /**
+     * List of child container network interfaces.
+     */
+    readonly containerNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.network.v20181201.ContainerNetworkInterface>[]>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: pulumi.Input<string>;
@@ -120,10 +130,6 @@ export interface NetworkProfileArgs {
      * The name of the network profile.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Network profile properties.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20181201.NetworkProfilePropertiesFormat>;
     /**
      * The name of the resource group.
      */

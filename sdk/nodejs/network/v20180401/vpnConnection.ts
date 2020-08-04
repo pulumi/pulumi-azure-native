@@ -47,7 +47,7 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * Parameters for VpnConnection
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180401.VpnConnectionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180401.VpnConnectionPropertiesResponse>;
 
     /**
      * Create a VpnConnection resource with the given unique name, arguments, and options.
@@ -71,12 +71,19 @@ export class VpnConnection extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["connectionStatus"] = args ? args.connectionStatus : undefined;
+            inputs["enableBgp"] = args ? args.enableBgp : undefined;
             inputs["gatewayName"] = args ? args.gatewayName : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["ipsecPolicies"] = args ? args.ipsecPolicies : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
+            inputs["remoteVpnSite"] = args ? args.remoteVpnSite : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routingWeight"] = args ? args.routingWeight : undefined;
+            inputs["sharedKey"] = args ? args.sharedKey : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -94,6 +101,14 @@ export class VpnConnection extends pulumi.CustomResource {
  */
 export interface VpnConnectionArgs {
     /**
+     * The connection status.
+     */
+    readonly connectionStatus?: pulumi.Input<string>;
+    /**
+     * EnableBgp flag
+     */
+    readonly enableBgp?: pulumi.Input<boolean>;
+    /**
      * The name of the gateway.
      */
     readonly gatewayName: pulumi.Input<string>;
@@ -102,15 +117,31 @@ export interface VpnConnectionArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
+     * The IPSec Policies to be considered by this connection.
+     */
+    readonly ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20180401.IpsecPolicy>[]>;
+    /**
      * The name of the connection.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Parameters for VpnConnection
+     * The provisioning state of the resource.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20180401.VpnConnectionProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
+    /**
+     * Id of the connected vpn site.
+     */
+    readonly remoteVpnSite?: pulumi.Input<inputs.network.v20180401.SubResource>;
     /**
      * The resource group name of the VpnGateway.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * routing weight for vpn connection.
+     */
+    readonly routingWeight?: pulumi.Input<number>;
+    /**
+     * SharedKey for the vpn connection.
+     */
+    readonly sharedKey?: pulumi.Input<string>;
 }

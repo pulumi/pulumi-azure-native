@@ -43,7 +43,7 @@ export class ShareSubscription extends pulumi.CustomResource {
     /**
      * Properties on the share subscription
      */
-    public readonly properties!: pulumi.Output<outputs.datashare.v20191101.ShareSubscriptionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.datashare.v20191101.ShareSubscriptionPropertiesResponse>;
     /**
      * Type of the azure resource
      */
@@ -65,19 +65,24 @@ export class ShareSubscription extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.invitationId === undefined) {
+                throw new Error("Missing required property 'invitationId'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.sourceShareLocation === undefined) {
+                throw new Error("Missing required property 'sourceShareLocation'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["invitationId"] = args ? args.invitationId : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sourceShareLocation"] = args ? args.sourceShareLocation : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,15 +105,19 @@ export interface ShareSubscriptionArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * The invitation id.
+     */
+    readonly invitationId: pulumi.Input<string>;
+    /**
      * The name of the shareSubscription.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties on the share subscription
-     */
-    readonly properties: pulumi.Input<inputs.datashare.v20191101.ShareSubscriptionProperties>;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Source share location.
+     */
+    readonly sourceShareLocation: pulumi.Input<string>;
 }

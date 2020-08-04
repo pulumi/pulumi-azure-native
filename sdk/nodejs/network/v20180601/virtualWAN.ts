@@ -51,7 +51,7 @@ export class VirtualWAN extends pulumi.CustomResource {
     /**
      * Parameters for VirtualWAN
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180601.VirtualWanPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180601.VirtualWanPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -83,13 +83,15 @@ export class VirtualWAN extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["disableVpnEncryption"] = args ? args.disableVpnEncryption : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -108,6 +110,10 @@ export class VirtualWAN extends pulumi.CustomResource {
  */
 export interface VirtualWANArgs {
     /**
+     * Vpn encryption to be disabled or not.
+     */
+    readonly disableVpnEncryption?: pulumi.Input<boolean>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -120,9 +126,9 @@ export interface VirtualWANArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Parameters for VirtualWAN
+     * The provisioning state of the resource.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20180601.VirtualWanProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualWan.
      */

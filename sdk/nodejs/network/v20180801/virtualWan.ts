@@ -51,7 +51,7 @@ export class VirtualWan extends pulumi.CustomResource {
     /**
      * Parameters for VirtualWAN
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180801.VirtualWanPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180801.VirtualWanPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -83,13 +83,20 @@ export class VirtualWan extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["allowBranchToBranchTraffic"] = args ? args.allowBranchToBranchTraffic : undefined;
+            inputs["allowVnetToVnetTraffic"] = args ? args.allowVnetToVnetTraffic : undefined;
+            inputs["disableVpnEncryption"] = args ? args.disableVpnEncryption : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["office365LocalBreakoutCategory"] = args ? args.office365LocalBreakoutCategory : undefined;
+            inputs["p2SVpnServerConfigurations"] = args ? args.p2SVpnServerConfigurations : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["securityProviderName"] = args ? args.securityProviderName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -108,6 +115,18 @@ export class VirtualWan extends pulumi.CustomResource {
  */
 export interface VirtualWanArgs {
     /**
+     * True if branch to branch traffic is allowed.
+     */
+    readonly allowBranchToBranchTraffic?: pulumi.Input<boolean>;
+    /**
+     * True if Vnet to Vnet traffic is allowed.
+     */
+    readonly allowVnetToVnetTraffic?: pulumi.Input<boolean>;
+    /**
+     * Vpn encryption to be disabled or not.
+     */
+    readonly disableVpnEncryption?: pulumi.Input<boolean>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -120,13 +139,25 @@ export interface VirtualWanArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Parameters for VirtualWAN
+     * The office local breakout category.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20180801.VirtualWanProperties>;
+    readonly office365LocalBreakoutCategory?: pulumi.Input<string>;
+    /**
+     * list of all P2SVpnServerConfigurations associated with the virtual wan.
+     */
+    readonly p2SVpnServerConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20180801.P2SVpnServerConfiguration>[]>;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualWan.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Security Provider name.
+     */
+    readonly securityProviderName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

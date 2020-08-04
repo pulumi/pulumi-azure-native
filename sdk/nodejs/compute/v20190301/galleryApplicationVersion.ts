@@ -47,7 +47,7 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
     /**
      * Describes the properties of a gallery Image Version.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20190301.GalleryApplicationVersionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20190301.GalleryApplicationVersionPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -82,6 +82,9 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.publishingProfile === undefined) {
+                throw new Error("Missing required property 'publishingProfile'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -89,9 +92,10 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
             inputs["galleryName"] = args ? args.galleryName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["publishingProfile"] = args ? args.publishingProfile : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -126,9 +130,9 @@ export interface GalleryApplicationVersionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Describes the properties of a gallery Image Version.
+     * The publishing profile of a gallery Image Version.
      */
-    readonly properties?: pulumi.Input<inputs.compute.v20190301.GalleryApplicationVersionProperties>;
+    readonly publishingProfile: pulumi.Input<inputs.compute.v20190301.GalleryApplicationVersionPublishingProfile>;
     /**
      * The name of the resource group.
      */

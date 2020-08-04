@@ -40,7 +40,7 @@ export class Origin extends pulumi.CustomResource {
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly properties!: pulumi.Output<outputs.cdn.v20150601.OriginPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20150601.OriginPropertiesResponse>;
     /**
      * Resource type
      */
@@ -62,6 +62,9 @@ export class Origin extends pulumi.CustomResource {
             if (!args || args.endpointName === undefined) {
                 throw new Error("Missing required property 'endpointName'");
             }
+            if (!args || args.hostName === undefined) {
+                throw new Error("Missing required property 'hostName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -72,10 +75,13 @@ export class Origin extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["endpointName"] = args ? args.endpointName : undefined;
+            inputs["hostName"] = args ? args.hostName : undefined;
+            inputs["httpPort"] = args ? args.httpPort : undefined;
+            inputs["httpsPort"] = args ? args.httpsPort : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,6 +104,18 @@ export interface OriginArgs {
      */
     readonly endpointName: pulumi.Input<string>;
     /**
+     * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+     */
+    readonly hostName: pulumi.Input<string>;
+    /**
+     * The value of the HTTP port. Must be between 1 and 65535.
+     */
+    readonly httpPort?: pulumi.Input<number>;
+    /**
+     * The value of the HTTPS port. Must be between 1 and 65535.
+     */
+    readonly httpsPort?: pulumi.Input<number>;
+    /**
      * Name of the origin, an arbitrary value but it needs to be unique under endpoint
      */
     readonly name: pulumi.Input<string>;
@@ -105,7 +123,6 @@ export interface OriginArgs {
      * Name of the CDN profile within the resource group.
      */
     readonly profileName: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.cdn.v20150601.OriginPropertiesParameters>;
     /**
      * Name of the resource group within the Azure subscription.
      */

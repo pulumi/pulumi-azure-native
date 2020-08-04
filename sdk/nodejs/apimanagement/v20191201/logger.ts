@@ -43,7 +43,7 @@ export class Logger extends pulumi.CustomResource {
     /**
      * Logger entity contract properties.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.LoggerContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.LoggerContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -62,6 +62,12 @@ export class Logger extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as LoggerArgs | undefined;
+            if (!args || args.credentials === undefined) {
+                throw new Error("Missing required property 'credentials'");
+            }
+            if (!args || args.loggerType === undefined) {
+                throw new Error("Missing required property 'loggerType'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -71,10 +77,15 @@ export class Logger extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["credentials"] = args ? args.credentials : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["isBuffered"] = args ? args.isBuffered : undefined;
+            inputs["loggerType"] = args ? args.loggerType : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,17 +104,34 @@ export class Logger extends pulumi.CustomResource {
  */
 export interface LoggerArgs {
     /**
+     * The name and SendRule connection string of the event hub for azureEventHub logger.
+     * Instrumentation key for applicationInsights logger.
+     */
+    readonly credentials: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Logger description.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Whether records are buffered in the logger before publishing. Default is assumed to be true.
+     */
+    readonly isBuffered?: pulumi.Input<boolean>;
+    /**
+     * Logger type.
+     */
+    readonly loggerType: pulumi.Input<string>;
+    /**
      * Logger identifier. Must be unique in the API Management service instance.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Logger entity contract properties.
-     */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20191201.LoggerContractProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
+     */
+    readonly resourceId?: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */

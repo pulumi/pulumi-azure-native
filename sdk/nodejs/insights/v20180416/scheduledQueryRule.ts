@@ -47,7 +47,7 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
     /**
      * The rule properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.insights.v20180416.LogSearchRuleResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20180416.LogSearchRuleResponse>;
     /**
      * Resource tags
      */
@@ -70,23 +70,31 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ScheduledQueryRuleArgs | undefined;
+            if (!args || args.action === undefined) {
+                throw new Error("Missing required property 'action'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.source === undefined) {
+                throw new Error("Missing required property 'source'");
+            }
+            inputs["action"] = args ? args.action : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["enabled"] = args ? args.enabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["schedule"] = args ? args.schedule : undefined;
+            inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +113,18 @@ export class ScheduledQueryRule extends pulumi.CustomResource {
  */
 export interface ScheduledQueryRuleArgs {
     /**
+     * Action needs to be taken on rule execution.
+     */
+    readonly action: pulumi.Input<inputs.insights.v20180416.Action>;
+    /**
+     * The description of the Log Search rule.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+     */
+    readonly enabled?: pulumi.Input<string>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
@@ -113,13 +133,17 @@ export interface ScheduledQueryRuleArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The rule properties of the resource.
-     */
-    readonly properties: pulumi.Input<inputs.insights.v20180416.LogSearchRule>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+     */
+    readonly schedule?: pulumi.Input<inputs.insights.v20180416.Schedule>;
+    /**
+     * Data Source against which rule will Query Data
+     */
+    readonly source: pulumi.Input<inputs.insights.v20180416.Source>;
     /**
      * Resource tags
      */

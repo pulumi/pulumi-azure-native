@@ -15,19 +15,34 @@ export function listSiteBackupStatusSecretsSlot(args: ListSiteBackupStatusSecret
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20150801:listSiteBackupStatusSecretsSlot", {
+        "backupSchedule": args.backupSchedule,
+        "databases": args.databases,
+        "enabled": args.enabled,
         "id": args.id,
         "kind": args.kind,
         "location": args.location,
         "name": args.name,
-        "properties": args.properties,
         "resourceGroupName": args.resourceGroupName,
         "slot": args.slot,
+        "storageAccountUrl": args.storageAccountUrl,
         "tags": args.tags,
         "type": args.type,
     }, opts);
 }
 
 export interface ListSiteBackupStatusSecretsSlotArgs {
+    /**
+     * Schedule for the backup if it is executed periodically
+     */
+    readonly backupSchedule?: inputs.web.v20150801.BackupSchedule;
+    /**
+     * Databases included in the backup
+     */
+    readonly databases?: inputs.web.v20150801.DatabaseBackupSetting[];
+    /**
+     * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled
+     */
+    readonly enabled?: boolean;
     /**
      * Resource Id
      */
@@ -44,7 +59,6 @@ export interface ListSiteBackupStatusSecretsSlotArgs {
      * Id of backup
      */
     readonly name: string;
-    readonly properties?: inputs.web.v20150801.BackupRequestProperties;
     /**
      * Name of resource group
      */
@@ -54,13 +68,17 @@ export interface ListSiteBackupStatusSecretsSlotArgs {
      */
     readonly slot: string;
     /**
+     * SAS URL to the container
+     */
+    readonly storageAccountUrl?: string;
+    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
     /**
      * Resource type
      */
-    readonly type?: string;
+    readonly type: string;
 }
 
 /**

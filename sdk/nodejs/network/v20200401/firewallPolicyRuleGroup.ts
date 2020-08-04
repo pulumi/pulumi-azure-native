@@ -47,7 +47,7 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
     /**
      * The properties of the firewall policy rule group.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200401.FirewallPolicyRuleGroupPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.FirewallPolicyRuleGroupPropertiesResponse>;
     /**
      * Rule Group type.
      */
@@ -78,9 +78,11 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
             inputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["priority"] = args ? args.priority : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["rules"] = args ? args.rules : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -111,11 +113,15 @@ export interface FirewallPolicyRuleGroupArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the firewall policy rule group.
+     * Priority of the Firewall Policy Rule Group resource.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20200401.FirewallPolicyRuleGroupProperties>;
+    readonly priority?: pulumi.Input<number>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Group of Firewall Policy rules.
+     */
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20200401.FirewallPolicyRule>[]>;
 }

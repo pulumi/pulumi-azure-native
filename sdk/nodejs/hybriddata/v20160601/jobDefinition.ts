@@ -43,7 +43,7 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * JobDefinition properties.
      */
-    public readonly properties!: pulumi.Output<outputs.hybriddata.v20160601.JobDefinitionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.hybriddata.v20160601.JobDefinitionPropertiesResponse>;
     /**
      * Type of the object.
      */
@@ -68,20 +68,35 @@ export class JobDefinition extends pulumi.CustomResource {
             if (!args || args.dataServiceName === undefined) {
                 throw new Error("Missing required property 'dataServiceName'");
             }
+            if (!args || args.dataSinkId === undefined) {
+                throw new Error("Missing required property 'dataSinkId'");
+            }
+            if (!args || args.dataSourceId === undefined) {
+                throw new Error("Missing required property 'dataSourceId'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.state === undefined) {
+                throw new Error("Missing required property 'state'");
+            }
+            inputs["customerSecrets"] = args ? args.customerSecrets : undefined;
             inputs["dataManagerName"] = args ? args.dataManagerName : undefined;
+            inputs["dataServiceInput"] = args ? args.dataServiceInput : undefined;
             inputs["dataServiceName"] = args ? args.dataServiceName : undefined;
+            inputs["dataSinkId"] = args ? args.dataSinkId : undefined;
+            inputs["dataSourceId"] = args ? args.dataSourceId : undefined;
+            inputs["lastModifiedTime"] = args ? args.lastModifiedTime : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["runLocation"] = args ? args.runLocation : undefined;
+            inputs["schedules"] = args ? args.schedules : undefined;
+            inputs["state"] = args ? args.state : undefined;
+            inputs["userConfirmation"] = args ? args.userConfirmation : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,23 +115,55 @@ export class JobDefinition extends pulumi.CustomResource {
  */
 export interface JobDefinitionArgs {
     /**
+     * List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+     */
+    readonly customerSecrets?: pulumi.Input<pulumi.Input<inputs.hybriddata.v20160601.CustomerSecret>[]>;
+    /**
      * The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
     readonly dataManagerName: pulumi.Input<string>;
+    /**
+     * A generic json used differently by each data service type.
+     */
+    readonly dataServiceInput?: pulumi.Input<{[key: string]: any}>;
     /**
      * The data service type of the job definition.
      */
     readonly dataServiceName: pulumi.Input<string>;
     /**
+     * Data Sink Id associated to the job definition.
+     */
+    readonly dataSinkId: pulumi.Input<string>;
+    /**
+     * Data Source Id associated to the job definition.
+     */
+    readonly dataSourceId: pulumi.Input<string>;
+    /**
+     * Last modified time of the job definition.
+     */
+    readonly lastModifiedTime?: pulumi.Input<string>;
+    /**
      * The job definition name to be created or updated.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * JobDefinition properties.
-     */
-    readonly properties: pulumi.Input<inputs.hybriddata.v20160601.JobDefinitionProperties>;
-    /**
      * The Resource Group Name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * This is the preferred geo location for the job to run.
+     */
+    readonly runLocation?: pulumi.Input<string>;
+    /**
+     * Schedule for running the job definition
+     */
+    readonly schedules?: pulumi.Input<pulumi.Input<inputs.hybriddata.v20160601.Schedule>[]>;
+    /**
+     * State of the job definition.
+     */
+    readonly state: pulumi.Input<string>;
+    /**
+     * Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+     */
+    readonly userConfirmation?: pulumi.Input<string>;
 }

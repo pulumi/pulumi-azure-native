@@ -47,7 +47,7 @@ export class InboundNatRule extends pulumi.CustomResource {
     /**
      * Properties of load balancer inbound nat rule.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190401.InboundNatRulePropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190401.InboundNatRulePropertiesFormatResponse>;
 
     /**
      * Create a InboundNatRule resource with the given unique name, arguments, and options.
@@ -71,12 +71,20 @@ export class InboundNatRule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["backendPort"] = args ? args.backendPort : undefined;
+            inputs["enableFloatingIP"] = args ? args.enableFloatingIP : undefined;
+            inputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["frontendIPConfiguration"] = args ? args.frontendIPConfiguration : undefined;
+            inputs["frontendPort"] = args ? args.frontendPort : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
             inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["protocol"] = args ? args.protocol : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -94,13 +102,37 @@ export class InboundNatRule extends pulumi.CustomResource {
  */
 export interface InboundNatRuleArgs {
     /**
+     * The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+     */
+    readonly backendPort?: pulumi.Input<number>;
+    /**
+     * Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+     */
+    readonly enableFloatingIP?: pulumi.Input<boolean>;
+    /**
+     * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+     */
+    readonly enableTcpReset?: pulumi.Input<boolean>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: pulumi.Input<string>;
     /**
+     * A reference to frontend IP addresses.
+     */
+    readonly frontendIPConfiguration?: pulumi.Input<inputs.network.v20190401.SubResource>;
+    /**
+     * The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+     */
+    readonly frontendPort?: pulumi.Input<number>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+     */
+    readonly idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * The name of the load balancer.
      */
@@ -110,9 +142,13 @@ export interface InboundNatRuleArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of load balancer inbound nat rule.
+     * The reference to the transport protocol used by the load balancing rule.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20190401.InboundNatRulePropertiesFormat>;
+    readonly protocol?: pulumi.Input<string>;
+    /**
+     * Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

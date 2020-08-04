@@ -47,7 +47,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
     /**
      * Properties supplied to the Create Or Update Consumer Group operation.
      */
-    public readonly properties!: pulumi.Output<outputs.eventhub.v20150801.ConsumerGroupPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.eventhub.v20150801.ConsumerGroupPropertiesResponse>;
     /**
      * Resource type
      */
@@ -85,9 +85,10 @@ export class ConsumerGroup extends pulumi.CustomResource {
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["userMetadata"] = args ? args.userMetadata : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -121,10 +122,6 @@ export interface ConsumerGroupArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Properties supplied to the Create Or Update Consumer Group operation.
-     */
-    readonly properties?: pulumi.Input<inputs.eventhub.v20150801.ConsumerGroupProperties>;
-    /**
      * Name of the resource group within the azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -132,4 +129,8 @@ export interface ConsumerGroupArgs {
      * ARM type of the Namespace.
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * The user metadata.
+     */
+    readonly userMetadata?: pulumi.Input<string>;
 }

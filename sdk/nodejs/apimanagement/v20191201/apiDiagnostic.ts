@@ -43,7 +43,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
     /**
      * Diagnostic entity contract properties.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.DiagnosticContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.DiagnosticContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -65,6 +65,9 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
+            if (!args || args.loggerId === undefined) {
+                throw new Error("Missing required property 'loggerId'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -74,11 +77,19 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["alwaysLog"] = args ? args.alwaysLog : undefined;
             inputs["apiId"] = args ? args.apiId : undefined;
+            inputs["backend"] = args ? args.backend : undefined;
+            inputs["frontend"] = args ? args.frontend : undefined;
+            inputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
+            inputs["logClientIp"] = args ? args.logClientIp : undefined;
+            inputs["loggerId"] = args ? args.loggerId : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sampling"] = args ? args.sampling : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["verbosity"] = args ? args.verbosity : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,23 +108,51 @@ export class ApiDiagnostic extends pulumi.CustomResource {
  */
 export interface ApiDiagnosticArgs {
     /**
+     * Specifies for what type of messages sampling settings should not apply.
+     */
+    readonly alwaysLog?: pulumi.Input<string>;
+    /**
      * API identifier. Must be unique in the current API Management service instance.
      */
     readonly apiId: pulumi.Input<string>;
+    /**
+     * Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+     */
+    readonly backend?: pulumi.Input<inputs.apimanagement.v20191201.PipelineDiagnosticSettings>;
+    /**
+     * Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+     */
+    readonly frontend?: pulumi.Input<inputs.apimanagement.v20191201.PipelineDiagnosticSettings>;
+    /**
+     * Sets correlation protocol to use for Application Insights diagnostics.
+     */
+    readonly httpCorrelationProtocol?: pulumi.Input<string>;
+    /**
+     * Log the ClientIP. Default is false.
+     */
+    readonly logClientIp?: pulumi.Input<boolean>;
+    /**
+     * Resource Id of a target logger.
+     */
+    readonly loggerId: pulumi.Input<string>;
     /**
      * Diagnostic identifier. Must be unique in the current API Management service instance.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Diagnostic entity contract properties.
-     */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20191201.DiagnosticContractProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Sampling settings for Diagnostic.
+     */
+    readonly sampling?: pulumi.Input<inputs.apimanagement.v20191201.SamplingSettings>;
+    /**
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * The verbosity level applied to traces emitted by trace policies.
+     */
+    readonly verbosity?: pulumi.Input<string>;
 }

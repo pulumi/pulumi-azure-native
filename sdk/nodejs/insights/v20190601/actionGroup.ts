@@ -47,7 +47,7 @@ export class ActionGroup extends pulumi.CustomResource {
     /**
      * The action groups properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.insights.v20190601.ActionGroupResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20190601.ActionGroupResponse>;
     /**
      * Resource tags
      */
@@ -70,6 +70,12 @@ export class ActionGroup extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ActionGroupArgs | undefined;
+            if (!args || args.enabled === undefined) {
+                throw new Error("Missing required property 'enabled'");
+            }
+            if (!args || args.groupShortName === undefined) {
+                throw new Error("Missing required property 'groupShortName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -79,11 +85,23 @@ export class ActionGroup extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["armRoleReceivers"] = args ? args.armRoleReceivers : undefined;
+            inputs["automationRunbookReceivers"] = args ? args.automationRunbookReceivers : undefined;
+            inputs["azureAppPushReceivers"] = args ? args.azureAppPushReceivers : undefined;
+            inputs["azureFunctionReceivers"] = args ? args.azureFunctionReceivers : undefined;
+            inputs["emailReceivers"] = args ? args.emailReceivers : undefined;
+            inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["groupShortName"] = args ? args.groupShortName : undefined;
+            inputs["itsmReceivers"] = args ? args.itsmReceivers : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["logicAppReceivers"] = args ? args.logicAppReceivers : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["smsReceivers"] = args ? args.smsReceivers : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["voiceReceivers"] = args ? args.voiceReceivers : undefined;
+            inputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,23 +120,67 @@ export class ActionGroup extends pulumi.CustomResource {
  */
 export interface ActionGroupArgs {
     /**
+     * The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
+     */
+    readonly armRoleReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190601.ArmRoleReceiver>[]>;
+    /**
+     * The list of AutomationRunbook receivers that are part of this action group.
+     */
+    readonly automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190601.AutomationRunbookReceiver>[]>;
+    /**
+     * The list of AzureAppPush receivers that are part of this action group.
+     */
+    readonly azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190601.AzureAppPushReceiver>[]>;
+    /**
+     * The list of azure function receivers that are part of this action group.
+     */
+    readonly azureFunctionReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190601.AzureFunctionReceiver>[]>;
+    /**
+     * The list of email receivers that are part of this action group.
+     */
+    readonly emailReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190601.EmailReceiver>[]>;
+    /**
+     * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
+     */
+    readonly enabled: pulumi.Input<boolean>;
+    /**
+     * The short name of the action group. This will be used in SMS messages.
+     */
+    readonly groupShortName: pulumi.Input<string>;
+    /**
+     * The list of ITSM receivers that are part of this action group.
+     */
+    readonly itsmReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190601.ItsmReceiver>[]>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The list of logic app receivers that are part of this action group.
+     */
+    readonly logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190601.LogicAppReceiver>[]>;
     /**
      * The name of the action group.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The action groups properties of the resource.
-     */
-    readonly properties?: pulumi.Input<inputs.insights.v20190601.ActionGroupDefinition>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The list of SMS receivers that are part of this action group.
+     */
+    readonly smsReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190601.SmsReceiver>[]>;
+    /**
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The list of voice receivers that are part of this action group.
+     */
+    readonly voiceReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190601.VoiceReceiver>[]>;
+    /**
+     * The list of webhook receivers that are part of this action group.
+     */
+    readonly webhookReceivers?: pulumi.Input<pulumi.Input<inputs.insights.v20190601.WebhookReceiver>[]>;
 }

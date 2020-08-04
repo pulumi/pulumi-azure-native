@@ -55,7 +55,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * Properties of the storage account.
      */
-    public readonly properties!: pulumi.Output<outputs.storage.v20190401.StorageAccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20190401.StorageAccountPropertiesResponse>;
     /**
      * Gets the SKU.
      */
@@ -97,14 +97,24 @@ export class StorageAccount extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["accessTier"] = args ? args.accessTier : undefined;
+            inputs["allowBlobPublicAccess"] = args ? args.allowBlobPublicAccess : undefined;
+            inputs["azureFilesIdentityBasedAuthentication"] = args ? args.azureFilesIdentityBasedAuthentication : undefined;
+            inputs["customDomain"] = args ? args.customDomain : undefined;
+            inputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
+            inputs["encryption"] = args ? args.encryption : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["isHnsEnabled"] = args ? args.isHnsEnabled : undefined;
             inputs["kind"] = args ? args.kind : undefined;
+            inputs["largeFileSharesState"] = args ? args.largeFileSharesState : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -123,25 +133,61 @@ export class StorageAccount extends pulumi.CustomResource {
  */
 export interface StorageAccountArgs {
     /**
+     * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+     */
+    readonly accessTier?: pulumi.Input<string>;
+    /**
+     * Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+     */
+    readonly allowBlobPublicAccess?: pulumi.Input<boolean>;
+    /**
+     * Provides the identity based authentication settings for Azure Files.
+     */
+    readonly azureFilesIdentityBasedAuthentication?: pulumi.Input<inputs.storage.v20190401.AzureFilesIdentityBasedAuthentication>;
+    /**
+     * User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
+     */
+    readonly customDomain?: pulumi.Input<inputs.storage.v20190401.CustomDomain>;
+    /**
+     * Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.
+     */
+    readonly enableHttpsTrafficOnly?: pulumi.Input<boolean>;
+    /**
+     * Not applicable. Azure Storage encryption is enabled for all storage accounts and cannot be disabled.
+     */
+    readonly encryption?: pulumi.Input<inputs.storage.v20190401.Encryption>;
+    /**
      * The identity of the resource.
      */
     readonly identity?: pulumi.Input<inputs.storage.v20190401.Identity>;
+    /**
+     * Account HierarchicalNamespace enabled if sets to true.
+     */
+    readonly isHnsEnabled?: pulumi.Input<boolean>;
     /**
      * Required. Indicates the type of storage account.
      */
     readonly kind: pulumi.Input<string>;
     /**
+     * Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
+     */
+    readonly largeFileSharesState?: pulumi.Input<string>;
+    /**
      * Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+     */
+    readonly minimumTlsVersion?: pulumi.Input<string>;
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The parameters used to create the storage account.
+     * Network rule set
      */
-    readonly properties?: pulumi.Input<inputs.storage.v20190401.StorageAccountPropertiesCreateParameters>;
+    readonly networkRuleSet?: pulumi.Input<inputs.storage.v20190401.NetworkRuleSet>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

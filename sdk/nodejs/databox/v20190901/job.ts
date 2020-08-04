@@ -47,7 +47,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Properties of a job.
      */
-    public readonly properties!: pulumi.Output<outputs.databox.v20190901.JobPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.databox.v20190901.JobPropertiesResponse>;
     /**
      * The sku type.
      */
@@ -80,21 +80,21 @@ export class Job extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
+            inputs["deliveryType"] = args ? args.deliveryType : undefined;
+            inputs["details"] = args ? args.details : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -113,6 +113,18 @@ export class Job extends pulumi.CustomResource {
  */
 export interface JobArgs {
     /**
+     * Delivery Info of Job.
+     */
+    readonly deliveryInfo?: pulumi.Input<inputs.databox.v20190901.JobDeliveryInfo>;
+    /**
+     * Delivery type of Job.
+     */
+    readonly deliveryType?: pulumi.Input<string>;
+    /**
+     * Details of a job run. This field will only be sent for expand details filter.
+     */
+    readonly details?: pulumi.Input<inputs.databox.v20190901.JobDetails>;
+    /**
      * The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
      */
     readonly location: pulumi.Input<string>;
@@ -120,10 +132,6 @@ export interface JobArgs {
      * The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of a job.
-     */
-    readonly properties: pulumi.Input<inputs.databox.v20190901.JobProperties>;
     /**
      * The Resource Group Name
      */

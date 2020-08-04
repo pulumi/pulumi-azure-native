@@ -47,7 +47,7 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
     /**
      * Property bag.
      */
-    public readonly properties!: pulumi.Output<outputs.mixedreality.v20200501.MixedRealityAccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.mixedreality.v20200501.MixedRealityAccountPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -81,9 +81,9 @@ export class SpatialAnchorsAccount extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,10 +109,6 @@ export interface SpatialAnchorsAccountArgs {
      * Name of an Mixed Reality Account.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Property bag.
-     */
-    readonly properties?: pulumi.Input<inputs.mixedreality.v20200501.MixedRealityAccountProperties>;
     /**
      * Name of an Azure resource group.
      */

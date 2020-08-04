@@ -47,7 +47,7 @@ export class Origin extends pulumi.CustomResource {
     /**
      * The JSON object that contains the properties of the origin.
      */
-    public readonly properties!: pulumi.Output<outputs.cdn.v20200415.OriginPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20200415.OriginPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -73,6 +73,9 @@ export class Origin extends pulumi.CustomResource {
             if (!args || args.endpointName === undefined) {
                 throw new Error("Missing required property 'endpointName'");
             }
+            if (!args || args.hostName === undefined) {
+                throw new Error("Missing required property 'hostName'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -85,13 +88,24 @@ export class Origin extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["enabled"] = args ? args.enabled : undefined;
             inputs["endpointName"] = args ? args.endpointName : undefined;
+            inputs["hostName"] = args ? args.hostName : undefined;
+            inputs["httpPort"] = args ? args.httpPort : undefined;
+            inputs["httpsPort"] = args ? args.httpsPort : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["originHostHeader"] = args ? args.originHostHeader : undefined;
+            inputs["priority"] = args ? args.priority : undefined;
+            inputs["privateLinkAlias"] = args ? args.privateLinkAlias : undefined;
+            inputs["privateLinkApprovalMessage"] = args ? args.privateLinkApprovalMessage : undefined;
+            inputs["privateLinkLocation"] = args ? args.privateLinkLocation : undefined;
+            inputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["weight"] = args ? args.weight : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,9 +124,25 @@ export class Origin extends pulumi.CustomResource {
  */
 export interface OriginArgs {
     /**
+     * Origin is enabled for load balancing or not
+     */
+    readonly enabled?: pulumi.Input<boolean>;
+    /**
      * Name of the endpoint under the profile which is unique globally.
      */
     readonly endpointName: pulumi.Input<string>;
+    /**
+     * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
+     */
+    readonly hostName: pulumi.Input<string>;
+    /**
+     * The value of the HTTP port. Must be between 1 and 65535.
+     */
+    readonly httpPort?: pulumi.Input<number>;
+    /**
+     * The value of the HTTPS port. Must be between 1 and 65535.
+     */
+    readonly httpsPort?: pulumi.Input<number>;
     /**
      * Resource location.
      */
@@ -122,13 +152,33 @@ export interface OriginArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
+     * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+     */
+    readonly originHostHeader?: pulumi.Input<string>;
+    /**
+     * Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+     */
+    readonly priority?: pulumi.Input<number>;
+    /**
+     * The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
+     */
+    readonly privateLinkAlias?: pulumi.Input<string>;
+    /**
+     * A custom message to be included in the approval request to connect to the Private Link.
+     */
+    readonly privateLinkApprovalMessage?: pulumi.Input<string>;
+    /**
+     * The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
+     */
+    readonly privateLinkLocation?: pulumi.Input<string>;
+    /**
+     * The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
+     */
+    readonly privateLinkResourceId?: pulumi.Input<string>;
+    /**
      * Name of the CDN profile which is unique within the resource group.
      */
     readonly profileName: pulumi.Input<string>;
-    /**
-     * The JSON object that contains the properties of the origin.
-     */
-    readonly properties?: pulumi.Input<inputs.cdn.v20200415.OriginProperties>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
@@ -137,4 +187,8 @@ export interface OriginArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+     */
+    readonly weight?: pulumi.Input<number>;
 }

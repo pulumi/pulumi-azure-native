@@ -47,7 +47,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The properties associated with the Cluster.
      */
-    public readonly properties!: pulumi.Output<outputs.batchai.v20180301.ClusterPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.batchai.v20180301.ClusterPropertiesResponse>;
     /**
      * The tags of the resource
      */
@@ -79,11 +79,24 @@ export class Cluster extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.userAccountSettings === undefined) {
+                throw new Error("Missing required property 'userAccountSettings'");
+            }
+            if (!args || args.vmSize === undefined) {
+                throw new Error("Missing required property 'vmSize'");
+            }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["nodeSetup"] = args ? args.nodeSetup : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scaleSettings"] = args ? args.scaleSettings : undefined;
+            inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["userAccountSettings"] = args ? args.userAccountSettings : undefined;
+            inputs["virtualMachineConfiguration"] = args ? args.virtualMachineConfiguration : undefined;
+            inputs["vmPriority"] = args ? args.vmPriority : undefined;
+            inputs["vmSize"] = args ? args.vmSize : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,15 +123,39 @@ export interface ClusterArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the Cluster.
+     * Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
      */
-    readonly properties?: pulumi.Input<inputs.batchai.v20180301.ClusterBaseProperties>;
+    readonly nodeSetup?: pulumi.Input<inputs.batchai.v20180301.NodeSetup>;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
+     */
+    readonly scaleSettings?: pulumi.Input<inputs.batchai.v20180301.ScaleSettings>;
+    /**
+     * Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+     */
+    readonly subnet?: pulumi.Input<inputs.batchai.v20180301.ResourceId>;
+    /**
      * The user specified tags associated with the Cluster.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Settings for user account that gets created on each on the nodes of a cluster.
+     */
+    readonly userAccountSettings: pulumi.Input<inputs.batchai.v20180301.UserAccountSettings>;
+    /**
+     * Settings for OS image.
+     */
+    readonly virtualMachineConfiguration?: pulumi.Input<inputs.batchai.v20180301.VirtualMachineConfiguration>;
+    /**
+     * Default is dedicated.
+     */
+    readonly vmPriority?: pulumi.Input<string>;
+    /**
+     * All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+     */
+    readonly vmSize: pulumi.Input<string>;
 }

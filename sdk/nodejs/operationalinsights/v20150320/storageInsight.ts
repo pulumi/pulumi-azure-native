@@ -47,7 +47,7 @@ export class StorageInsight extends pulumi.CustomResource {
     /**
      * Storage insight properties.
      */
-    public readonly properties!: pulumi.Output<outputs.operationalinsights.v20150320.StorageInsightPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.operationalinsights.v20150320.StorageInsightPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -76,15 +76,21 @@ export class StorageInsight extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.storageAccount === undefined) {
+                throw new Error("Missing required property 'storageAccount'");
+            }
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            inputs["containers"] = args ? args.containers : undefined;
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageAccount"] = args ? args.storageAccount : undefined;
+            inputs["tables"] = args ? args.tables : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -103,6 +109,10 @@ export class StorageInsight extends pulumi.CustomResource {
  */
 export interface StorageInsightArgs {
     /**
+     * The names of the blob containers that the workspace should read
+     */
+    readonly containers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The ETag of the storage insight.
      */
     readonly eTag?: pulumi.Input<string>;
@@ -111,13 +121,17 @@ export interface StorageInsightArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Storage insight properties.
-     */
-    readonly properties?: pulumi.Input<inputs.operationalinsights.v20150320.StorageInsightProperties>;
-    /**
      * The Resource Group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The storage account connection details
+     */
+    readonly storageAccount: pulumi.Input<inputs.operationalinsights.v20150320.StorageAccount>;
+    /**
+     * The names of the Azure tables that the workspace should read
+     */
+    readonly tables?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource tags
      */

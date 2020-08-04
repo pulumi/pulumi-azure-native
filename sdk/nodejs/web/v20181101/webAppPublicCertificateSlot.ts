@@ -47,7 +47,7 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
     /**
      * PublicCertificate resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20181101.PublicCertificateResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20181101.PublicCertificateResponseProperties>;
     /**
      * Resource type.
      */
@@ -75,11 +75,13 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
+            inputs["blob"] = args ? args.blob : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["publicCertificateLocation"] = args ? args.publicCertificateLocation : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,6 +100,10 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
  */
 export interface WebAppPublicCertificateSlotArgs {
     /**
+     * Public Certificate byte array
+     */
+    readonly blob?: pulumi.Input<string>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
@@ -106,9 +112,9 @@ export interface WebAppPublicCertificateSlotArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * PublicCertificate resource specific properties
+     * Public Certificate Location
      */
-    readonly properties?: pulumi.Input<inputs.web.v20181101.PublicCertificateProperties>;
+    readonly publicCertificateLocation?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

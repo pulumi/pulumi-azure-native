@@ -43,7 +43,7 @@ export class Suppression extends pulumi.CustomResource {
     /**
      * The properties of the suppression.
      */
-    public readonly properties!: pulumi.Output<outputs.advisor.v20170419.SuppressionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.advisor.v20170419.SuppressionPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -72,9 +72,11 @@ export class Suppression extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceUri'");
             }
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["recommendationId"] = args ? args.recommendationId : undefined;
             inputs["resourceUri"] = args ? args.resourceUri : undefined;
+            inputs["suppressionId"] = args ? args.suppressionId : undefined;
+            inputs["ttl"] = args ? args.ttl : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,10 +99,6 @@ export interface SuppressionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the suppression.
-     */
-    readonly properties?: pulumi.Input<inputs.advisor.v20170419.SuppressionProperties>;
-    /**
      * The recommendation ID.
      */
     readonly recommendationId: pulumi.Input<string>;
@@ -108,4 +106,12 @@ export interface SuppressionArgs {
      * The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
      */
     readonly resourceUri: pulumi.Input<string>;
+    /**
+     * The GUID of the suppression.
+     */
+    readonly suppressionId?: pulumi.Input<string>;
+    /**
+     * The duration for which the suppression is valid.
+     */
+    readonly ttl?: pulumi.Input<string>;
 }

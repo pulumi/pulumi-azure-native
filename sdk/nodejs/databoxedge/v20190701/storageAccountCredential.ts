@@ -43,7 +43,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     /**
      * The storage account credential properties.
      */
-    public readonly properties!: pulumi.Output<outputs.databoxedge.v20190701.StorageAccountCredentialPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.databoxedge.v20190701.StorageAccountCredentialPropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -62,22 +62,36 @@ export class StorageAccountCredential extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as StorageAccountCredentialArgs | undefined;
+            if (!args || args.accountType === undefined) {
+                throw new Error("Missing required property 'accountType'");
+            }
+            if (!args || args.alias === undefined) {
+                throw new Error("Missing required property 'alias'");
+            }
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.sslStatus === undefined) {
+                throw new Error("Missing required property 'sslStatus'");
+            }
+            inputs["accountKey"] = args ? args.accountKey : undefined;
+            inputs["accountType"] = args ? args.accountType : undefined;
+            inputs["alias"] = args ? args.alias : undefined;
+            inputs["blobDomainName"] = args ? args.blobDomainName : undefined;
+            inputs["connectionString"] = args ? args.connectionString : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sslStatus"] = args ? args.sslStatus : undefined;
+            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            inputs["userName"] = args ? args.userName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -96,6 +110,26 @@ export class StorageAccountCredential extends pulumi.CustomResource {
  */
 export interface StorageAccountCredentialArgs {
     /**
+     * Encrypted storage key.
+     */
+    readonly accountKey?: pulumi.Input<inputs.databoxedge.v20190701.AsymmetricEncryptedSecret>;
+    /**
+     * Type of storage accessed on the storage account.
+     */
+    readonly accountType: pulumi.Input<string>;
+    /**
+     * Alias for the storage account.
+     */
+    readonly alias: pulumi.Input<string>;
+    /**
+     * Blob end point for private clouds.
+     */
+    readonly blobDomainName?: pulumi.Input<string>;
+    /**
+     * Connection string for the storage account. Use this string if username and account key are not specified.
+     */
+    readonly connectionString?: pulumi.Input<string>;
+    /**
      * The device name.
      */
     readonly deviceName: pulumi.Input<string>;
@@ -104,11 +138,19 @@ export interface StorageAccountCredentialArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The storage account credential properties.
-     */
-    readonly properties: pulumi.Input<inputs.databoxedge.v20190701.StorageAccountCredentialProperties>;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Signifies whether SSL needs to be enabled or not.
+     */
+    readonly sslStatus: pulumi.Input<string>;
+    /**
+     * Id of the storage account.
+     */
+    readonly storageAccountId?: pulumi.Input<string>;
+    /**
+     * Username for the storage account.
+     */
+    readonly userName?: pulumi.Input<string>;
 }

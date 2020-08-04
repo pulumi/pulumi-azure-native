@@ -43,7 +43,7 @@ export class ApiTagDescription extends pulumi.CustomResource {
     /**
      * TagDescription entity contract properties.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.TagDescriptionContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.TagDescriptionContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -75,10 +75,13 @@ export class ApiTagDescription extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["externalDocsDescription"] = args ? args.externalDocsDescription : undefined;
+            inputs["externalDocsUrl"] = args ? args.externalDocsUrl : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,13 +104,21 @@ export interface ApiTagDescriptionArgs {
      */
     readonly apiId: pulumi.Input<string>;
     /**
+     * Description of the Tag.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Description of the external resources describing the tag.
+     */
+    readonly externalDocsDescription?: pulumi.Input<string>;
+    /**
+     * Absolute URL of external resources describing the tag.
+     */
+    readonly externalDocsUrl?: pulumi.Input<string>;
+    /**
      * Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties supplied to Create TagDescription operation.
-     */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20191201.TagDescriptionBaseProperties>;
     /**
      * The name of the resource group.
      */

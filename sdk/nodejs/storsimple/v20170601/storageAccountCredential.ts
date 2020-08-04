@@ -47,7 +47,7 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     /**
      * The storage account credential properties.
      */
-    public readonly properties!: pulumi.Output<outputs.storsimple.v20170601.StorageAccountCredentialPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.StorageAccountCredentialPropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -66,23 +66,29 @@ export class StorageAccountCredential extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as StorageAccountCredentialArgs | undefined;
+            if (!args || args.endPoint === undefined) {
+                throw new Error("Missing required property 'endPoint'");
+            }
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.sslStatus === undefined) {
+                throw new Error("Missing required property 'sslStatus'");
+            }
+            inputs["accessKey"] = args ? args.accessKey : undefined;
+            inputs["endPoint"] = args ? args.endPoint : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sslStatus"] = args ? args.sslStatus : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,6 +107,14 @@ export class StorageAccountCredential extends pulumi.CustomResource {
  */
 export interface StorageAccountCredentialArgs {
     /**
+     * The details of the storage account password.
+     */
+    readonly accessKey?: pulumi.Input<inputs.storsimple.v20170601.AsymmetricEncryptedSecret>;
+    /**
+     * The storage endpoint
+     */
+    readonly endPoint: pulumi.Input<string>;
+    /**
      * The Kind of the object. Currently only Series8000 is supported
      */
     readonly kind?: pulumi.Input<string>;
@@ -113,11 +127,11 @@ export interface StorageAccountCredentialArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The storage account credential properties.
-     */
-    readonly properties: pulumi.Input<inputs.storsimple.v20170601.StorageAccountCredentialProperties>;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Signifies whether SSL needs to be enabled or not.
+     */
+    readonly sslStatus: pulumi.Input<string>;
 }

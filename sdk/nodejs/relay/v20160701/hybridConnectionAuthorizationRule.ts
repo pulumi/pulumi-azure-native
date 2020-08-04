@@ -43,7 +43,7 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
     /**
      * Authorization Rule properties
      */
-    public readonly properties!: pulumi.Output<outputs.relay.v20160701.AuthorizationRulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.relay.v20160701.AuthorizationRulePropertiesResponse>;
     /**
      * Resource type
      */
@@ -71,17 +71,18 @@ export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.rights === undefined) {
+                throw new Error("Missing required property 'rights'");
             }
             inputs["hybridConnectionName"] = args ? args.hybridConnectionName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["rights"] = args ? args.rights : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,11 +113,11 @@ export interface HybridConnectionAuthorizationRuleArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Authorization Rule properties
-     */
-    readonly properties: pulumi.Input<inputs.relay.v20160701.AuthorizationRuleProperties>;
-    /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The rights associated with the rule.
+     */
+    readonly rights: pulumi.Input<pulumi.Input<string>[]>;
 }

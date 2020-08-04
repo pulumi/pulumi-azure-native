@@ -47,7 +47,7 @@ export class BatchAccount extends pulumi.CustomResource {
     /**
      * The properties associated with the account.
      */
-    public readonly properties!: pulumi.Output<outputs.batch.v20200301.BatchAccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.batch.v20200301.BatchAccountPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -79,11 +79,16 @@ export class BatchAccount extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["autoStorage"] = args ? args.autoStorage : undefined;
+            inputs["encryption"] = args ? args.encryption : undefined;
+            inputs["keyVaultReference"] = args ? args.keyVaultReference : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["poolAllocationMode"] = args ? args.poolAllocationMode : undefined;
+            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,6 +107,15 @@ export class BatchAccount extends pulumi.CustomResource {
  */
 export interface BatchAccountArgs {
     /**
+     * The properties related to the auto-storage account.
+     */
+    readonly autoStorage?: pulumi.Input<inputs.batch.v20200301.AutoStorageBaseProperties>;
+    readonly encryption?: pulumi.Input<inputs.batch.v20200301.EncryptionProperties>;
+    /**
+     * A reference to the Azure key vault associated with the Batch account.
+     */
+    readonly keyVaultReference?: pulumi.Input<inputs.batch.v20200301.KeyVaultReference>;
+    /**
      * The region in which to create the account.
      */
     readonly location: pulumi.Input<string>;
@@ -110,9 +124,13 @@ export interface BatchAccountArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the Batch account.
+     * The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
      */
-    readonly properties?: pulumi.Input<inputs.batch.v20200301.BatchAccountCreateProperties>;
+    readonly poolAllocationMode?: pulumi.Input<string>;
+    /**
+     * If not specified, the default value is 'enabled'.
+     */
+    readonly publicNetworkAccess?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the Batch account.
      */

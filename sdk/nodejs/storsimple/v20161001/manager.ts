@@ -51,7 +51,7 @@ export class Manager extends pulumi.CustomResource {
     /**
      * List of properties of the Manager
      */
-    public readonly properties!: pulumi.Output<outputs.storsimple.v20161001.ManagerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.ManagerPropertiesResponse>;
     /**
      * Tags attached to the Manager
      */
@@ -83,12 +83,14 @@ export class Manager extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["cisIntrinsicSettings"] = args ? args.cisIntrinsicSettings : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,6 +109,10 @@ export class Manager extends pulumi.CustomResource {
  */
 export interface ManagerArgs {
     /**
+     * Specifies if the Manager is Garda or Helsinki
+     */
+    readonly cisIntrinsicSettings?: pulumi.Input<inputs.storsimple.v20161001.ManagerIntrinsicSettings>;
+    /**
      * ETag of the Manager
      */
     readonly etag?: pulumi.Input<string>;
@@ -119,13 +125,13 @@ export interface ManagerArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * List of properties of the Manager
-     */
-    readonly properties?: pulumi.Input<inputs.storsimple.v20161001.ManagerProperties>;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the Sku
+     */
+    readonly sku?: pulumi.Input<inputs.storsimple.v20161001.ManagerSku>;
     /**
      * Tags attached to the Manager
      */

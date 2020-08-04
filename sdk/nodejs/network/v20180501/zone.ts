@@ -51,7 +51,7 @@ export class Zone extends pulumi.CustomResource {
     /**
      * The properties of the zone.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180501.ZonePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180501.ZonePropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -86,9 +86,12 @@ export class Zone extends pulumi.CustomResource {
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["registrationVirtualNetworks"] = args ? args.registrationVirtualNetworks : undefined;
+            inputs["resolutionVirtualNetworks"] = args ? args.resolutionVirtualNetworks : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["zoneType"] = args ? args.zoneType : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -119,9 +122,13 @@ export interface ZoneArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the zone.
+     * A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20180501.ZoneProperties>;
+    readonly registrationVirtualNetworks?: pulumi.Input<pulumi.Input<inputs.network.v20180501.SubResource>[]>;
+    /**
+     * A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+     */
+    readonly resolutionVirtualNetworks?: pulumi.Input<pulumi.Input<inputs.network.v20180501.SubResource>[]>;
     /**
      * The name of the resource group.
      */
@@ -130,4 +137,8 @@ export interface ZoneArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The type of this DNS zone (Public or Private).
+     */
+    readonly zoneType?: pulumi.Input<string>;
 }

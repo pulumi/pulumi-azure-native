@@ -47,7 +47,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The JSON object that contains the properties required to create an endpoint.
      */
-    public readonly properties!: pulumi.Output<outputs.cdn.v20200415.EndpointPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20200415.EndpointPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -76,18 +76,37 @@ export class Endpoint extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.origins === undefined) {
+                throw new Error("Missing required property 'origins'");
+            }
             if (!args || args.profileName === undefined) {
                 throw new Error("Missing required property 'profileName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["contentTypesToCompress"] = args ? args.contentTypesToCompress : undefined;
+            inputs["defaultOriginGroup"] = args ? args.defaultOriginGroup : undefined;
+            inputs["deliveryPolicy"] = args ? args.deliveryPolicy : undefined;
+            inputs["geoFilters"] = args ? args.geoFilters : undefined;
+            inputs["isCompressionEnabled"] = args ? args.isCompressionEnabled : undefined;
+            inputs["isHttpAllowed"] = args ? args.isHttpAllowed : undefined;
+            inputs["isHttpsAllowed"] = args ? args.isHttpsAllowed : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["optimizationType"] = args ? args.optimizationType : undefined;
+            inputs["originGroups"] = args ? args.originGroups : undefined;
+            inputs["originHostHeader"] = args ? args.originHostHeader : undefined;
+            inputs["originPath"] = args ? args.originPath : undefined;
+            inputs["origins"] = args ? args.origins : undefined;
+            inputs["probePath"] = args ? args.probePath : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["queryStringCachingBehavior"] = args ? args.queryStringCachingBehavior : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["urlSigningKeys"] = args ? args.urlSigningKeys : undefined;
+            inputs["webApplicationFirewallPolicyLink"] = args ? args.webApplicationFirewallPolicyLink : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,6 +125,34 @@ export class Endpoint extends pulumi.CustomResource {
  */
 export interface EndpointArgs {
     /**
+     * List of content types on which compression applies. The value should be a valid MIME type.
+     */
+    readonly contentTypesToCompress?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A reference to the origin group.
+     */
+    readonly defaultOriginGroup?: pulumi.Input<inputs.cdn.v20200415.ResourceReference>;
+    /**
+     * A policy that specifies the delivery rules to be used for an endpoint.
+     */
+    readonly deliveryPolicy?: pulumi.Input<inputs.cdn.v20200415.EndpointPropertiesUpdateParametersProperties>;
+    /**
+     * List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
+     */
+    readonly geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.v20200415.GeoFilter>[]>;
+    /**
+     * Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
+     */
+    readonly isCompressionEnabled?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+     */
+    readonly isHttpAllowed?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+     */
+    readonly isHttpsAllowed?: pulumi.Input<boolean>;
+    /**
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
@@ -114,13 +161,37 @@ export interface EndpointArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
+     * Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
+     */
+    readonly optimizationType?: pulumi.Input<string>;
+    /**
+     * The origin groups comprising of origins that are used for load balancing the traffic based on availability.
+     */
+    readonly originGroups?: pulumi.Input<pulumi.Input<inputs.cdn.v20200415.DeepCreatedOriginGroup>[]>;
+    /**
+     * The host header value sent to the origin with each request. This property at Endpoint is only allowed when endpoint uses single origin and can be overridden by the same property specified at origin.If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
+     */
+    readonly originHostHeader?: pulumi.Input<string>;
+    /**
+     * A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
+     */
+    readonly originPath?: pulumi.Input<string>;
+    /**
+     * The source of the content being delivered via CDN.
+     */
+    readonly origins: pulumi.Input<pulumi.Input<inputs.cdn.v20200415.DeepCreatedOrigin>[]>;
+    /**
+     * Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
+     */
+    readonly probePath?: pulumi.Input<string>;
+    /**
      * Name of the CDN profile which is unique within the resource group.
      */
     readonly profileName: pulumi.Input<string>;
     /**
-     * The JSON object that contains the properties required to create an endpoint.
+     * Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
      */
-    readonly properties?: pulumi.Input<inputs.cdn.v20200415.EndpointProperties>;
+    readonly queryStringCachingBehavior?: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
@@ -129,4 +200,12 @@ export interface EndpointArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of keys used to validate the signed URL hashes.
+     */
+    readonly urlSigningKeys?: pulumi.Input<pulumi.Input<inputs.cdn.v20200415.UrlSigningKey>[]>;
+    /**
+     * Defines the Web Application Firewall policy for the endpoint (if applicable)
+     */
+    readonly webApplicationFirewallPolicyLink?: pulumi.Input<inputs.cdn.v20200415.EndpointPropertiesUpdateParametersProperties>;
 }

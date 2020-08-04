@@ -47,7 +47,7 @@ export class LiveEvent extends pulumi.CustomResource {
     /**
      * The Live Event properties.
      */
-    public readonly properties!: pulumi.Output<outputs.media.v20180701.LiveEventPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20180701.LiveEventPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -73,6 +73,9 @@ export class LiveEvent extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.input === undefined) {
+                throw new Error("Missing required property 'input'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -81,11 +84,18 @@ export class LiveEvent extends pulumi.CustomResource {
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["autoStart"] = args ? args.autoStart : undefined;
+            inputs["crossSiteAccessPolicies"] = args ? args.crossSiteAccessPolicies : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["encoding"] = args ? args.encoding : undefined;
+            inputs["input"] = args ? args.input : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["preview"] = args ? args.preview : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["streamOptions"] = args ? args.streamOptions : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["vanityUrl"] = args ? args.vanityUrl : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,6 +122,22 @@ export interface LiveEventArgs {
      */
     readonly autoStart?: pulumi.Input<boolean>;
     /**
+     * The Live Event access policies.
+     */
+    readonly crossSiteAccessPolicies?: pulumi.Input<inputs.media.v20180701.CrossSiteAccessPolicies>;
+    /**
+     * The Live Event description.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The Live Event encoding.
+     */
+    readonly encoding?: pulumi.Input<inputs.media.v20180701.LiveEventEncoding>;
+    /**
+     * The Live Event input.
+     */
+    readonly input: pulumi.Input<inputs.media.v20180701.LiveEventInput>;
+    /**
      * The Azure Region of the resource.
      */
     readonly location?: pulumi.Input<string>;
@@ -120,15 +146,23 @@ export interface LiveEventArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The Live Event properties.
+     * The Live Event preview.
      */
-    readonly properties?: pulumi.Input<inputs.media.v20180701.LiveEventProperties>;
+    readonly preview?: pulumi.Input<inputs.media.v20180701.LiveEventPreview>;
     /**
      * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated.
+     */
+    readonly streamOptions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+     */
+    readonly vanityUrl?: pulumi.Input<boolean>;
 }

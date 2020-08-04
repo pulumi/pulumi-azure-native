@@ -43,7 +43,7 @@ export class ApiVersionSet extends pulumi.CustomResource {
     /**
      * Api VersionSet contract properties.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.ApiVersionSetContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.ApiVersionSetContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -62,6 +62,9 @@ export class ApiVersionSet extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ApiVersionSetArgs | undefined;
+            if (!args || args.displayName === undefined) {
+                throw new Error("Missing required property 'displayName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -71,10 +74,18 @@ export class ApiVersionSet extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (!args || args.versioningScheme === undefined) {
+                throw new Error("Missing required property 'versioningScheme'");
+            }
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["versionHeaderName"] = args ? args.versionHeaderName : undefined;
+            inputs["versionQueryName"] = args ? args.versionQueryName : undefined;
+            inputs["versioningScheme"] = args ? args.versioningScheme : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,13 +104,17 @@ export class ApiVersionSet extends pulumi.CustomResource {
  */
 export interface ApiVersionSetArgs {
     /**
+     * Description of API Version Set.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Name of API Version Set
+     */
+    readonly displayName: pulumi.Input<string>;
+    /**
      * Api Version Set identifier. Must be unique in the current API Management service instance.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Api VersionSet contract properties.
-     */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20190101.ApiVersionSetContractProperties>;
     /**
      * The name of the resource group.
      */
@@ -108,4 +123,16 @@ export interface ApiVersionSetArgs {
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+     */
+    readonly versionHeaderName?: pulumi.Input<string>;
+    /**
+     * Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+     */
+    readonly versionQueryName?: pulumi.Input<string>;
+    /**
+     * An value that determines where the API Version identifer will be located in a HTTP request.
+     */
+    readonly versioningScheme: pulumi.Input<string>;
 }

@@ -47,7 +47,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Properties of the domain.
      */
-    public readonly properties!: pulumi.Output<outputs.eventgrid.v20200601.DomainPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.eventgrid.v20200601.DomainPropertiesResponse>;
     /**
      * Tags of the resource.
      */
@@ -79,11 +79,16 @@ export class Domain extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
+            inputs["inputSchema"] = args ? args.inputSchema : undefined;
+            inputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
+            inputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,6 +107,18 @@ export class Domain extends pulumi.CustomResource {
  */
 export interface DomainArgs {
     /**
+     * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+     */
+    readonly inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.v20200601.InboundIpRule>[]>;
+    /**
+     * This determines the format that Event Grid should expect for incoming events published to the domain.
+     */
+    readonly inputSchema?: pulumi.Input<string>;
+    /**
+     * Information about the InputSchemaMapping which specified the info about mapping event payload.
+     */
+    readonly inputSchemaMapping?: pulumi.Input<inputs.eventgrid.v20200601.InputSchemaMapping>;
+    /**
      * Location of the resource.
      */
     readonly location: pulumi.Input<string>;
@@ -110,9 +127,14 @@ export interface DomainArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the domain.
+     * List of private endpoint connections.
      */
-    readonly properties?: pulumi.Input<inputs.eventgrid.v20200601.DomainProperties>;
+    readonly privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventgrid.v20200601.PrivateEndpointConnection>[]>;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled. 
+     * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
+     */
+    readonly publicNetworkAccess?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */

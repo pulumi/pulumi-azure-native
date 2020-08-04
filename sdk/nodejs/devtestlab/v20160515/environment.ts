@@ -47,7 +47,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.EnvironmentPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.EnvironmentPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -76,22 +76,23 @@ export class Environment extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.userName === undefined) {
                 throw new Error("Missing required property 'userName'");
             }
+            inputs["armTemplateDisplayName"] = args ? args.armTemplateDisplayName : undefined;
+            inputs["deploymentProperties"] = args ? args.deploymentProperties : undefined;
             inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
             inputs["userName"] = args ? args.userName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,6 +111,14 @@ export class Environment extends pulumi.CustomResource {
  */
 export interface EnvironmentArgs {
     /**
+     * The display name of the Azure Resource Manager template that produced the environment.
+     */
+    readonly armTemplateDisplayName?: pulumi.Input<string>;
+    /**
+     * The deployment properties of the environment.
+     */
+    readonly deploymentProperties?: pulumi.Input<inputs.devtestlab.v20160515.EnvironmentDeploymentProperties>;
+    /**
      * The name of the lab.
      */
     readonly labName: pulumi.Input<string>;
@@ -122,9 +131,9 @@ export interface EnvironmentArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    readonly properties: pulumi.Input<inputs.devtestlab.v20160515.EnvironmentProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -133,6 +142,10 @@ export interface EnvironmentArgs {
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: pulumi.Input<string>;
     /**
      * The name of the user profile.
      */

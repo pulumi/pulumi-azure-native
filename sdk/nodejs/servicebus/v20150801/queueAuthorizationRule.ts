@@ -47,7 +47,7 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
     /**
      * SharedAccessAuthorizationRule properties.
      */
-    public readonly properties!: pulumi.Output<outputs.servicebus.v20150801.SharedAccessAuthorizationRulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20150801.SharedAccessAuthorizationRulePropertiesResponse>;
     /**
      * Resource type
      */
@@ -78,12 +78,16 @@ export class QueueAuthorizationRule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.rights === undefined) {
+                throw new Error("Missing required property 'rights'");
+            }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["queueName"] = args ? args.queueName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["rights"] = args ? args.rights : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -114,10 +118,6 @@ export interface QueueAuthorizationRuleArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * SharedAccessAuthorizationRule properties.
-     */
-    readonly properties?: pulumi.Input<inputs.servicebus.v20150801.SharedAccessAuthorizationRuleProperties>;
-    /**
      * The queue name.
      */
     readonly queueName: pulumi.Input<string>;
@@ -125,4 +125,8 @@ export interface QueueAuthorizationRuleArgs {
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The rights associated with the rule.
+     */
+    readonly rights: pulumi.Input<pulumi.Input<string>[]>;
 }

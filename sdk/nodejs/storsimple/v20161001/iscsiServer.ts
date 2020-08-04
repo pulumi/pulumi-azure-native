@@ -43,7 +43,7 @@ export class IscsiServer extends pulumi.CustomResource {
     /**
      * The properties.
      */
-    public readonly properties!: pulumi.Output<outputs.storsimple.v20161001.ISCSIServerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.ISCSIServerPropertiesResponse>;
     /**
      * The type.
      */
@@ -62,6 +62,9 @@ export class IscsiServer extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as IscsiServerArgs | undefined;
+            if (!args || args.backupScheduleGroupId === undefined) {
+                throw new Error("Missing required property 'backupScheduleGroupId'");
+            }
             if (!args || args.deviceName === undefined) {
                 throw new Error("Missing required property 'deviceName'");
             }
@@ -71,17 +74,22 @@ export class IscsiServer extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.storageDomainId === undefined) {
+                throw new Error("Missing required property 'storageDomainId'");
+            }
+            inputs["backupScheduleGroupId"] = args ? args.backupScheduleGroupId : undefined;
+            inputs["chapId"] = args ? args.chapId : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["reverseChapId"] = args ? args.reverseChapId : undefined;
+            inputs["storageDomainId"] = args ? args.storageDomainId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,6 +108,18 @@ export class IscsiServer extends pulumi.CustomResource {
  */
 export interface IscsiServerArgs {
     /**
+     * The backup policy id.
+     */
+    readonly backupScheduleGroupId: pulumi.Input<string>;
+    /**
+     * The chap id.
+     */
+    readonly chapId?: pulumi.Input<string>;
+    /**
+     * The description.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * The device name.
      */
     readonly deviceName: pulumi.Input<string>;
@@ -112,11 +132,15 @@ export interface IscsiServerArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties.
-     */
-    readonly properties: pulumi.Input<inputs.storsimple.v20161001.ISCSIServerProperties>;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The reverse chap id.
+     */
+    readonly reverseChapId?: pulumi.Input<string>;
+    /**
+     * The storage domain id.
+     */
+    readonly storageDomainId: pulumi.Input<string>;
 }

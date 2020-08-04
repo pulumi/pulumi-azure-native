@@ -43,7 +43,7 @@ export class PolicyAssignment extends pulumi.CustomResource {
     /**
      * Properties for the policy assignment.
      */
-    public readonly properties!: pulumi.Output<outputs.authorization.v20160401.PolicyAssignmentPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20160401.PolicyAssignmentPropertiesResponse>;
     /**
      * The type of the policy assignment.
      */
@@ -68,11 +68,13 @@ export class PolicyAssignment extends pulumi.CustomResource {
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -90,6 +92,10 @@ export class PolicyAssignment extends pulumi.CustomResource {
  */
 export interface PolicyAssignmentArgs {
     /**
+     * The display name of the policy assignment.
+     */
+    readonly displayName?: pulumi.Input<string>;
+    /**
      * The ID of the policy assignment.
      */
     readonly id?: pulumi.Input<string>;
@@ -98,11 +104,11 @@ export interface PolicyAssignmentArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties for the policy assignment.
+     * The ID of the policy definition.
      */
-    readonly properties?: pulumi.Input<inputs.authorization.v20160401.PolicyAssignmentProperties>;
+    readonly policyDefinitionId?: pulumi.Input<string>;
     /**
-     * The scope of the policy assignment.
+     * The scope for the policy assignment.
      */
     readonly scope: pulumi.Input<string>;
     /**

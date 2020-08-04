@@ -51,7 +51,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
     /**
      * Public IP prefix properties.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190701.PublicIPPrefixPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190701.PublicIPPrefixPropertiesFormatResponse>;
     /**
      * The public IP prefix SKU.
      */
@@ -90,13 +90,20 @@ export class PublicIPPrefix extends pulumi.CustomResource {
             }
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["ipPrefix"] = args ? args.ipPrefix : undefined;
+            inputs["ipTags"] = args ? args.ipTags : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["prefixLength"] = args ? args.prefixLength : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
+            inputs["publicIPAddressVersion"] = args ? args.publicIPAddressVersion : undefined;
+            inputs["publicIPAddresses"] = args ? args.publicIPAddresses : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["zones"] = args ? args.zones : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -123,6 +130,14 @@ export interface PublicIPPrefixArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
+     * The allocated Prefix.
+     */
+    readonly ipPrefix?: pulumi.Input<string>;
+    /**
+     * The list of tags associated with the public IP prefix.
+     */
+    readonly ipTags?: pulumi.Input<pulumi.Input<inputs.network.v20190701.IpTag>[]>;
+    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
@@ -131,13 +146,29 @@ export interface PublicIPPrefixArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Public IP prefix properties.
+     * The Length of the Public IP Prefix.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20190701.PublicIPPrefixPropertiesFormat>;
+    readonly prefixLength?: pulumi.Input<number>;
+    /**
+     * The provisioning state of the public IP prefix resource.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
+    /**
+     * The public IP address version.
+     */
+    readonly publicIPAddressVersion?: pulumi.Input<string>;
+    /**
+     * The list of all referenced PublicIPAddresses.
+     */
+    readonly publicIPAddresses?: pulumi.Input<pulumi.Input<inputs.network.v20190701.ReferencedPublicIpAddress>[]>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource GUID property of the public IP prefix resource.
+     */
+    readonly resourceGuid?: pulumi.Input<string>;
     /**
      * The public IP prefix SKU.
      */

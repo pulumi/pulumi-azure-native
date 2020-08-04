@@ -43,7 +43,7 @@ export class JobSchedule extends pulumi.CustomResource {
     /**
      * Gets or sets the properties of the job schedule.
      */
-    public readonly properties!: pulumi.Output<outputs.automation.v20151031.JobSchedulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.JobSchedulePropertiesResponse>;
     /**
      * Resource type
      */
@@ -68,16 +68,23 @@ export class JobSchedule extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.runbook === undefined) {
+                throw new Error("Missing required property 'runbook'");
+            }
+            if (!args || args.schedule === undefined) {
+                throw new Error("Missing required property 'schedule'");
+            }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["runOn"] = args ? args.runOn : undefined;
+            inputs["runbook"] = args ? args.runbook : undefined;
+            inputs["schedule"] = args ? args.schedule : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,11 +111,23 @@ export interface JobScheduleArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Gets or sets the list of job schedule properties.
+     * Gets or sets a list of job properties.
      */
-    readonly properties: pulumi.Input<inputs.automation.v20151031.JobScheduleCreateProperties>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets or sets the hybrid worker group that the scheduled job should run on.
+     */
+    readonly runOn?: pulumi.Input<string>;
+    /**
+     * Gets or sets the runbook.
+     */
+    readonly runbook: pulumi.Input<inputs.automation.v20151031.RunbookAssociationProperty>;
+    /**
+     * Gets or sets the schedule.
+     */
+    readonly schedule: pulumi.Input<inputs.automation.v20151031.ScheduleAssociationProperty>;
 }

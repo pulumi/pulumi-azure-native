@@ -47,7 +47,7 @@ export class WebAppFunction extends pulumi.CustomResource {
     /**
      * FunctionEnvelope resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20160801.FunctionEnvelopeResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20160801.FunctionEnvelopeResponseProperties>;
     /**
      * Resource type.
      */
@@ -72,10 +72,18 @@ export class WebAppFunction extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["config"] = args ? args.config : undefined;
+            inputs["configHref"] = args ? args.configHref : undefined;
+            inputs["files"] = args ? args.files : undefined;
+            inputs["href"] = args ? args.href : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scriptHref"] = args ? args.scriptHref : undefined;
+            inputs["scriptRootPathHref"] = args ? args.scriptRootPathHref : undefined;
+            inputs["secretsFileHref"] = args ? args.secretsFileHref : undefined;
+            inputs["testData"] = args ? args.testData : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -94,6 +102,22 @@ export class WebAppFunction extends pulumi.CustomResource {
  */
 export interface WebAppFunctionArgs {
     /**
+     * Config information.
+     */
+    readonly config?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Config URI.
+     */
+    readonly configHref?: pulumi.Input<string>;
+    /**
+     * File list.
+     */
+    readonly files?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Function URI.
+     */
+    readonly href?: pulumi.Input<string>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
@@ -102,11 +126,23 @@ export interface WebAppFunctionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * FunctionEnvelope resource specific properties
-     */
-    readonly properties?: pulumi.Input<inputs.web.v20160801.FunctionEnvelopeProperties>;
-    /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Script URI.
+     */
+    readonly scriptHref?: pulumi.Input<string>;
+    /**
+     * Script root path URI.
+     */
+    readonly scriptRootPathHref?: pulumi.Input<string>;
+    /**
+     * Secrets file URI.
+     */
+    readonly secretsFileHref?: pulumi.Input<string>;
+    /**
+     * Test data used when testing via the Azure Portal.
+     */
+    readonly testData?: pulumi.Input<string>;
 }

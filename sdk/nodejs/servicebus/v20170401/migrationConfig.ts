@@ -43,7 +43,7 @@ export class MigrationConfig extends pulumi.CustomResource {
     /**
      * Properties required to the Create Migration Configuration
      */
-    public readonly properties!: pulumi.Output<outputs.servicebus.v20170401.MigrationConfigPropertiesResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20170401.MigrationConfigPropertiesResponseProperties>;
     /**
      * Resource type
      */
@@ -68,13 +68,21 @@ export class MigrationConfig extends pulumi.CustomResource {
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
             }
+            if (!args || args.postMigrationName === undefined) {
+                throw new Error("Missing required property 'postMigrationName'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.targetNamespace === undefined) {
+                throw new Error("Missing required property 'targetNamespace'");
+            }
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["postMigrationName"] = args ? args.postMigrationName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["targetNamespace"] = args ? args.targetNamespace : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,11 +109,15 @@ export interface MigrationConfigArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Properties required to the Create Migration Configuration
+     * Name to access Standard Namespace after migration
      */
-    readonly properties?: pulumi.Input<inputs.servicebus.v20170401.MigrationConfigPropertiesProperties>;
+    readonly postMigrationName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Existing premium Namespace ARM Id name which has no entities, will be used for migration
+     */
+    readonly targetNamespace: pulumi.Input<string>;
 }

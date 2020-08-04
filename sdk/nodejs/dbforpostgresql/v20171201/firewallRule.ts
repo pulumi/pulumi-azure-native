@@ -43,7 +43,7 @@ export class FirewallRule extends pulumi.CustomResource {
     /**
      * The properties of a firewall rule.
      */
-    public readonly properties!: pulumi.Output<outputs.dbforpostgresql.v20171201.FirewallRulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.dbforpostgresql.v20171201.FirewallRulePropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -62,11 +62,11 @@ export class FirewallRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as FirewallRuleArgs | undefined;
+            if (!args || args.endIpAddress === undefined) {
+                throw new Error("Missing required property 'endIpAddress'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -74,10 +74,15 @@ export class FirewallRule extends pulumi.CustomResource {
             if (!args || args.serverName === undefined) {
                 throw new Error("Missing required property 'serverName'");
             }
+            if (!args || args.startIpAddress === undefined) {
+                throw new Error("Missing required property 'startIpAddress'");
+            }
+            inputs["endIpAddress"] = args ? args.endIpAddress : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
+            inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -96,13 +101,13 @@ export class FirewallRule extends pulumi.CustomResource {
  */
 export interface FirewallRuleArgs {
     /**
+     * The end IP address of the server firewall rule. Must be IPv4 format.
+     */
+    readonly endIpAddress: pulumi.Input<string>;
+    /**
      * The name of the server firewall rule.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties of a firewall rule.
-     */
-    readonly properties: pulumi.Input<inputs.dbforpostgresql.v20171201.FirewallRuleProperties>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -111,4 +116,8 @@ export interface FirewallRuleArgs {
      * The name of the server.
      */
     readonly serverName: pulumi.Input<string>;
+    /**
+     * The start IP address of the server firewall rule. Must be IPv4 format.
+     */
+    readonly startIpAddress: pulumi.Input<string>;
 }

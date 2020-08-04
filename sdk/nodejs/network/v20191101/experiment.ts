@@ -47,7 +47,7 @@ export class Experiment extends pulumi.CustomResource {
     /**
      * The properties of an Experiment
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20191101.ExperimentPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191101.ExperimentPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -79,12 +79,17 @@ export class Experiment extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["description"] = args ? args.description : undefined;
+            inputs["enabledState"] = args ? args.enabledState : undefined;
+            inputs["endpointA"] = args ? args.endpointA : undefined;
+            inputs["endpointB"] = args ? args.endpointB : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceState"] = args ? args.resourceState : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -103,6 +108,22 @@ export class Experiment extends pulumi.CustomResource {
  */
 export interface ExperimentArgs {
     /**
+     * The description of the details or intents of the Experiment
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The state of the Experiment
+     */
+    readonly enabledState?: pulumi.Input<string>;
+    /**
+     * The endpoint A of an experiment
+     */
+    readonly endpointA?: pulumi.Input<inputs.network.v20191101.Endpoint>;
+    /**
+     * The endpoint B of an experiment
+     */
+    readonly endpointB?: pulumi.Input<inputs.network.v20191101.Endpoint>;
+    /**
      * Resource location.
      */
     readonly location?: pulumi.Input<string>;
@@ -115,13 +136,13 @@ export interface ExperimentArgs {
      */
     readonly profileName: pulumi.Input<string>;
     /**
-     * The properties of an Experiment
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20191101.ExperimentProperties>;
-    /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource status.
+     */
+    readonly resourceState?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

@@ -47,7 +47,7 @@ export class AutoscaleSetting extends pulumi.CustomResource {
     /**
      * The autoscale setting of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.insights.v20150401.AutoscaleSettingResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20150401.AutoscaleSettingResponse>;
     /**
      * Resource tags
      */
@@ -76,17 +76,21 @@ export class AutoscaleSetting extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
+            if (!args || args.profiles === undefined) {
+                throw new Error("Missing required property 'profiles'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["enabled"] = args ? args.enabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["notifications"] = args ? args.notifications : undefined;
+            inputs["profiles"] = args ? args.profiles : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["targetResourceUri"] = args ? args.targetResourceUri : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +109,10 @@ export class AutoscaleSetting extends pulumi.CustomResource {
  */
 export interface AutoscaleSettingArgs {
     /**
+     * the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'true'.
+     */
+    readonly enabled?: pulumi.Input<boolean>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
@@ -113,9 +121,13 @@ export interface AutoscaleSettingArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The autoscale setting of the resource.
+     * the collection of notifications.
      */
-    readonly properties: pulumi.Input<inputs.insights.v20150401.AutoscaleSettingDefinition>;
+    readonly notifications?: pulumi.Input<pulumi.Input<inputs.insights.v20150401.AutoscaleNotification>[]>;
+    /**
+     * the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
+     */
+    readonly profiles: pulumi.Input<pulumi.Input<inputs.insights.v20150401.AutoscaleProfile>[]>;
     /**
      * The name of the resource group.
      */
@@ -124,4 +136,8 @@ export interface AutoscaleSettingArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * the resource identifier of the resource that the autoscale setting should be added to.
+     */
+    readonly targetResourceUri?: pulumi.Input<string>;
 }

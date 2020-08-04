@@ -47,7 +47,7 @@ export class Lab extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.LabPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.LabPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -76,11 +76,19 @@ export class Lab extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["announcement"] = args ? args.announcement : undefined;
+            inputs["environmentPermission"] = args ? args.environmentPermission : undefined;
+            inputs["extendedProperties"] = args ? args.extendedProperties : undefined;
+            inputs["labStorageType"] = args ? args.labStorageType : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["mandatoryArtifactsResourceIdsLinux"] = args ? args.mandatoryArtifactsResourceIdsLinux : undefined;
+            inputs["mandatoryArtifactsResourceIdsWindows"] = args ? args.mandatoryArtifactsResourceIdsWindows : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["premiumDataDisks"] = args ? args.premiumDataDisks : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["support"] = args ? args.support : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,21 +107,51 @@ export class Lab extends pulumi.CustomResource {
  */
 export interface LabArgs {
     /**
+     * The properties of any lab announcement associated with this lab
+     */
+    readonly announcement?: pulumi.Input<inputs.devtestlab.v20180915.LabAnnouncementProperties>;
+    /**
+     * The access rights to be granted to the user when provisioning an environment
+     */
+    readonly environmentPermission?: pulumi.Input<string>;
+    /**
+     * Extended properties of the lab used for experimental features
+     */
+    readonly extendedProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+     */
+    readonly labStorageType?: pulumi.Input<string>;
+    /**
      * The location of the resource.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+     */
+    readonly mandatoryArtifactsResourceIdsLinux?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
+     */
+    readonly mandatoryArtifactsResourceIdsWindows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the lab.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the resource.
+     * The setting to enable usage of premium data disks.
+     * When its value is 'Enabled', creation of standard or premium data disks is allowed.
+     * When its value is 'Disabled', only creation of standard data disks is allowed.
      */
-    readonly properties?: pulumi.Input<inputs.devtestlab.v20180915.LabProperties>;
+    readonly premiumDataDisks?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The properties of any lab support message associated with this lab
+     */
+    readonly support?: pulumi.Input<inputs.devtestlab.v20180915.LabSupportProperties>;
     /**
      * The tags of the resource.
      */

@@ -51,7 +51,7 @@ export class PrivateLinkService extends pulumi.CustomResource {
     /**
      * Properties of the private link service.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200301.PrivateLinkServicePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200301.PrivateLinkServicePropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,19 @@ export class PrivateLinkService extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["autoApproval"] = args ? args.autoApproval : undefined;
+            inputs["enableProxyProtocol"] = args ? args.enableProxyProtocol : undefined;
+            inputs["fqdns"] = args ? args.fqdns : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
+            inputs["loadBalancerFrontendIpConfigurations"] = args ? args.loadBalancerFrontendIpConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["visibility"] = args ? args.visibility : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,9 +111,29 @@ export class PrivateLinkService extends pulumi.CustomResource {
  */
 export interface PrivateLinkServiceArgs {
     /**
+     * The auto-approval list of the private link service.
+     */
+    readonly autoApproval?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Whether the private link service is enabled for proxy protocol or not.
+     */
+    readonly enableProxyProtocol?: pulumi.Input<boolean>;
+    /**
+     * The list of Fqdn.
+     */
+    readonly fqdns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * An array of private link service IP configurations.
+     */
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200301.PrivateLinkServiceIpConfiguration>[]>;
+    /**
+     * An array of references to the load balancer IP configurations.
+     */
+    readonly loadBalancerFrontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200301.FrontendIPConfiguration>[]>;
     /**
      * Resource location.
      */
@@ -117,10 +143,6 @@ export interface PrivateLinkServiceArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the private link service.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20200301.PrivateLinkServiceProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -128,4 +150,8 @@ export interface PrivateLinkServiceArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The visibility list of the private link service.
+     */
+    readonly visibility?: pulumi.Input<{[key: string]: any}>;
 }

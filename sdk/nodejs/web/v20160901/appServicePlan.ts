@@ -51,7 +51,7 @@ export class AppServicePlan extends pulumi.CustomResource {
     /**
      * AppServicePlan resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20160901.AppServicePlanResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20160901.AppServicePlanResponseProperties>;
     /**
      * Description of a SKU for a scalable resource.
      */
@@ -87,13 +87,22 @@ export class AppServicePlan extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["adminSiteName"] = args ? args.adminSiteName : undefined;
+            inputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
+            inputs["isSpot"] = args ? args.isSpot : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["perSiteScaling"] = args ? args.perSiteScaling : undefined;
+            inputs["reserved"] = args ? args.reserved : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["spotExpirationTime"] = args ? args.spotExpirationTime : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["targetWorkerCount"] = args ? args.targetWorkerCount : undefined;
+            inputs["targetWorkerSizeId"] = args ? args.targetWorkerSizeId : undefined;
+            inputs["workerTierName"] = args ? args.workerTierName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,6 +121,18 @@ export class AppServicePlan extends pulumi.CustomResource {
  */
 export interface AppServicePlanArgs {
     /**
+     * App Service plan administration site.
+     */
+    readonly adminSiteName?: pulumi.Input<string>;
+    /**
+     * Specification for the App Service Environment to use for the App Service plan.
+     */
+    readonly hostingEnvironmentProfile?: pulumi.Input<inputs.web.v20160901.HostingEnvironmentProfile>;
+    /**
+     * If <code>true</code>, this App Service Plan owns spot instances.
+     */
+    readonly isSpot?: pulumi.Input<boolean>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
@@ -120,13 +141,18 @@ export interface AppServicePlanArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
-     * Name of the App Service plan.
+     * Name for the App Service plan.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * AppServicePlan resource specific properties
+     * If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
+     * If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
      */
-    readonly properties?: pulumi.Input<inputs.web.v20160901.AppServicePlanProperties>;
+    readonly perSiteScaling?: pulumi.Input<boolean>;
+    /**
+     * If Linux app service plan <code>true</code>, <code>false</code> otherwise.
+     */
+    readonly reserved?: pulumi.Input<boolean>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -136,7 +162,23 @@ export interface AppServicePlanArgs {
      */
     readonly sku?: pulumi.Input<inputs.web.v20160901.SkuDescription>;
     /**
+     * The time when the server farm expires. Valid only if it is a spot server farm.
+     */
+    readonly spotExpirationTime?: pulumi.Input<string>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Scaling worker count.
+     */
+    readonly targetWorkerCount?: pulumi.Input<number>;
+    /**
+     * Scaling worker size ID.
+     */
+    readonly targetWorkerSizeId?: pulumi.Input<number>;
+    /**
+     * Target worker tier assigned to the App Service plan.
+     */
+    readonly workerTierName?: pulumi.Input<string>;
 }

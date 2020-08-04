@@ -51,7 +51,7 @@ export class BastionHost extends pulumi.CustomResource {
     /**
      * Represents the bastion host resource.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200501.BastionHostPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.BastionHostPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,15 @@ export class BastionHost extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["dnsName"] = args ? args.dnsName : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,9 +107,17 @@ export class BastionHost extends pulumi.CustomResource {
  */
 export interface BastionHostArgs {
     /**
+     * FQDN for the endpoint on which bastion host is accessible.
+     */
+    readonly dnsName?: pulumi.Input<string>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * IP configuration of the Bastion Host resource.
+     */
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200501.BastionHostIPConfiguration>[]>;
     /**
      * Resource location.
      */
@@ -116,10 +126,6 @@ export interface BastionHostArgs {
      * The name of the Bastion Host.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Represents the bastion host resource.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20200501.BastionHostPropertiesFormat>;
     /**
      * The name of the resource group.
      */

@@ -47,7 +47,7 @@ export class AlertRule extends pulumi.CustomResource {
     /**
      * The alert rule properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.insights.v20160301.AlertRuleResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20160301.AlertRuleResponse>;
     /**
      * Resource tags
      */
@@ -70,23 +70,30 @@ export class AlertRule extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as AlertRuleArgs | undefined;
+            if (!args || args.condition === undefined) {
+                throw new Error("Missing required property 'condition'");
+            }
+            if (!args || args.isEnabled === undefined) {
+                throw new Error("Missing required property 'isEnabled'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["actions"] = args ? args.actions : undefined;
+            inputs["condition"] = args ? args.condition : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["isEnabled"] = args ? args.isEnabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +112,22 @@ export class AlertRule extends pulumi.CustomResource {
  */
 export interface AlertRuleArgs {
     /**
+     * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+     */
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.v20160301.RuleAction>[]>;
+    /**
+     * the condition that results in the alert rule being activated.
+     */
+    readonly condition: pulumi.Input<inputs.insights.v20160301.RuleCondition>;
+    /**
+     * the description of the alert rule that will be included in the alert email.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * the flag that indicates whether the alert rule is enabled.
+     */
+    readonly isEnabled: pulumi.Input<boolean>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
@@ -112,10 +135,6 @@ export interface AlertRuleArgs {
      * The name of the rule.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The alert rule properties of the resource.
-     */
-    readonly properties: pulumi.Input<inputs.insights.v20160301.AlertRuleDefinition>;
     /**
      * The name of the resource group.
      */

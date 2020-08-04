@@ -43,7 +43,7 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * Gets or sets the properties of the schedule.
      */
-    public readonly properties!: pulumi.Output<outputs.automation.v20151031.SchedulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.SchedulePropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -65,19 +65,29 @@ export class Schedule extends pulumi.CustomResource {
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
+            if (!args || args.frequency === undefined) {
+                throw new Error("Missing required property 'frequency'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.startTime === undefined) {
+                throw new Error("Missing required property 'startTime'");
+            }
+            inputs["advancedSchedule"] = args ? args.advancedSchedule : undefined;
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["expiryTime"] = args ? args.expiryTime : undefined;
+            inputs["frequency"] = args ? args.frequency : undefined;
+            inputs["interval"] = args ? args.interval : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["startTime"] = args ? args.startTime : undefined;
+            inputs["timeZone"] = args ? args.timeZone : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -96,19 +106,43 @@ export class Schedule extends pulumi.CustomResource {
  */
 export interface ScheduleArgs {
     /**
+     * Gets or sets the AdvancedSchedule.
+     */
+    readonly advancedSchedule?: pulumi.Input<inputs.automation.v20151031.AdvancedSchedule>;
+    /**
      * The name of the automation account.
      */
     readonly automationAccountName: pulumi.Input<string>;
+    /**
+     * Gets or sets the description of the schedule.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Gets or sets the end time of the schedule.
+     */
+    readonly expiryTime?: pulumi.Input<string>;
+    /**
+     * Gets or sets the frequency of the schedule.
+     */
+    readonly frequency: pulumi.Input<string>;
+    /**
+     * Gets or sets the interval of the schedule.
+     */
+    readonly interval?: pulumi.Input<{[key: string]: any}>;
     /**
      * The schedule name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Gets or sets the list of schedule properties.
-     */
-    readonly properties: pulumi.Input<inputs.automation.v20151031.ScheduleCreateOrUpdateProperties>;
-    /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets or sets the start time of the schedule.
+     */
+    readonly startTime: pulumi.Input<string>;
+    /**
+     * Gets or sets the time zone of the schedule.
+     */
+    readonly timeZone?: pulumi.Input<string>;
 }

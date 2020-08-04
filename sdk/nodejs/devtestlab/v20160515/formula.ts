@@ -47,7 +47,7 @@ export class Formula extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.FormulaPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.FormulaPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -76,18 +76,22 @@ export class Formula extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["author"] = args ? args.author : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["formulaContent"] = args ? args.formulaContent : undefined;
             inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["osType"] = args ? args.osType : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            inputs["vm"] = args ? args.vm : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,6 +110,18 @@ export class Formula extends pulumi.CustomResource {
  */
 export interface FormulaArgs {
     /**
+     * The author of the formula.
+     */
+    readonly author?: pulumi.Input<string>;
+    /**
+     * The description of the formula.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The content of the formula.
+     */
+    readonly formulaContent?: pulumi.Input<inputs.devtestlab.v20160515.LabVirtualMachineCreationParameter>;
+    /**
      * The name of the lab.
      */
     readonly labName: pulumi.Input<string>;
@@ -118,9 +134,13 @@ export interface FormulaArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the resource.
+     * The OS type of the formula.
      */
-    readonly properties: pulumi.Input<inputs.devtestlab.v20160515.FormulaProperties>;
+    readonly osType?: pulumi.Input<string>;
+    /**
+     * The provisioning status of the resource.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -129,4 +149,12 @@ export interface FormulaArgs {
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: pulumi.Input<string>;
+    /**
+     * Information about a VM from which a formula is to be created.
+     */
+    readonly vm?: pulumi.Input<inputs.devtestlab.v20160515.FormulaPropertiesFromVm>;
 }

@@ -51,7 +51,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Properties on the account
      */
-    public readonly properties!: pulumi.Output<outputs.datashare.v20191101.AccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.datashare.v20191101.AccountPropertiesResponse>;
     /**
      * Tags on the azure resource.
      */
@@ -86,9 +86,9 @@ export class Account extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -118,10 +118,6 @@ export interface AccountArgs {
      * The name of the share account.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties on the account
-     */
-    readonly properties?: pulumi.Input<inputs.datashare.v20191101.AccountProperties>;
     /**
      * The resource group name.
      */

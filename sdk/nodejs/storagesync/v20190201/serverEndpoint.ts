@@ -43,7 +43,7 @@ export class ServerEndpoint extends pulumi.CustomResource {
     /**
      * Server Endpoint properties.
      */
-    public readonly properties!: pulumi.Output<outputs.storagesync.v20190201.ServerEndpointPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storagesync.v20190201.ServerEndpointPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -74,11 +74,19 @@ export class ServerEndpoint extends pulumi.CustomResource {
             if (!args || args.syncGroupName === undefined) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
+            inputs["cloudTiering"] = args ? args.cloudTiering : undefined;
+            inputs["friendlyName"] = args ? args.friendlyName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["offlineDataTransfer"] = args ? args.offlineDataTransfer : undefined;
+            inputs["offlineDataTransferShareName"] = args ? args.offlineDataTransferShareName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serverLocalPath"] = args ? args.serverLocalPath : undefined;
+            inputs["serverResourceId"] = args ? args.serverResourceId : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
             inputs["syncGroupName"] = args ? args.syncGroupName : undefined;
+            inputs["tierFilesOlderThanDays"] = args ? args.tierFilesOlderThanDays : undefined;
+            inputs["volumeFreeSpacePercent"] = args ? args.volumeFreeSpacePercent : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,17 +105,37 @@ export class ServerEndpoint extends pulumi.CustomResource {
  */
 export interface ServerEndpointArgs {
     /**
+     * Cloud Tiering.
+     */
+    readonly cloudTiering?: pulumi.Input<string>;
+    /**
+     * Friendly Name
+     */
+    readonly friendlyName?: pulumi.Input<string>;
+    /**
      * Name of Server Endpoint object.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The parameters used to create the server endpoint.
+     * Offline data transfer
      */
-    readonly properties?: pulumi.Input<inputs.storagesync.v20190201.ServerEndpointCreateParametersProperties>;
+    readonly offlineDataTransfer?: pulumi.Input<string>;
+    /**
+     * Offline data transfer share name
+     */
+    readonly offlineDataTransferShareName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Server Local path.
+     */
+    readonly serverLocalPath?: pulumi.Input<string>;
+    /**
+     * Server Resource Id.
+     */
+    readonly serverResourceId?: pulumi.Input<string>;
     /**
      * Name of Storage Sync Service resource.
      */
@@ -116,4 +144,12 @@ export interface ServerEndpointArgs {
      * Name of Sync Group resource.
      */
     readonly syncGroupName: pulumi.Input<string>;
+    /**
+     * Tier files older than days.
+     */
+    readonly tierFilesOlderThanDays?: pulumi.Input<number>;
+    /**
+     * Level of free space to be maintained by Cloud Tiering if it is enabled.
+     */
+    readonly volumeFreeSpacePercent?: pulumi.Input<number>;
 }

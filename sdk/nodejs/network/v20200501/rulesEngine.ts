@@ -43,7 +43,7 @@ export class RulesEngine extends pulumi.CustomResource {
     /**
      * Properties of the Rules Engine Configuration.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200501.RulesEnginePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200501.RulesEnginePropertiesResponse>;
     /**
      * Resource type.
      */
@@ -73,8 +73,10 @@ export class RulesEngine extends pulumi.CustomResource {
             }
             inputs["frontDoorName"] = args ? args.frontDoorName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceState"] = args ? args.resourceState : undefined;
+            inputs["rules"] = args ? args.rules : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,11 +103,15 @@ export interface RulesEngineArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the Rules Engine Configuration.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20200501.RulesEngineProperties>;
-    /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Resource status.
+     */
+    readonly resourceState?: pulumi.Input<string>;
+    /**
+     * A list of rules that define a particular Rules Engine Configuration.
+     */
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20200501.RulesEngineRule>[]>;
 }

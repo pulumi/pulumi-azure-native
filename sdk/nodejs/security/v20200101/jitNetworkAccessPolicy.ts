@@ -45,7 +45,7 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly properties!: pulumi.Output<outputs.security.v20200101.JitNetworkAccessPolicyPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.security.v20200101.JitNetworkAccessPolicyPropertiesResponse>;
     /**
      * Resource type
      */
@@ -70,18 +70,20 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.virtualMachines === undefined) {
+                throw new Error("Missing required property 'virtualMachines'");
             }
             inputs["ascLocation"] = args ? args.ascLocation : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["requests"] = args ? args.requests : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["virtualMachines"] = args ? args.virtualMachines : undefined;
             inputs["location"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -111,9 +113,13 @@ export interface JitNetworkAccessPolicyArgs {
      * Name of a Just-in-Time access configuration policy.
      */
     readonly name: pulumi.Input<string>;
-    readonly properties: pulumi.Input<inputs.security.v20200101.JitNetworkAccessPolicyProperties>;
+    readonly requests?: pulumi.Input<pulumi.Input<inputs.security.v20200101.JitNetworkAccessRequest>[]>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Configurations for Microsoft.Compute/virtualMachines resource type.
+     */
+    readonly virtualMachines: pulumi.Input<pulumi.Input<inputs.security.v20200101.JitNetworkAccessPolicyVirtualMachine>[]>;
 }

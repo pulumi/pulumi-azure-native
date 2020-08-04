@@ -43,7 +43,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Class representing a Traffic Manager endpoint properties.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20151101.EndpointPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20151101.EndpointPropertiesResponse>;
     /**
      * Gets or sets the endpoint type of the Traffic Manager endpoint.
      */
@@ -74,13 +74,21 @@ export class Endpoint extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["endpointLocation"] = args ? args.endpointLocation : undefined;
+            inputs["endpointMonitorStatus"] = args ? args.endpointMonitorStatus : undefined;
+            inputs["endpointStatus"] = args ? args.endpointStatus : undefined;
             inputs["endpointType"] = args ? args.endpointType : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["minChildEndpoints"] = args ? args.minChildEndpoints : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["priority"] = args ? args.priority : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["target"] = args ? args.target : undefined;
+            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["weight"] = args ? args.weight : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -98,6 +106,18 @@ export class Endpoint extends pulumi.CustomResource {
  */
 export interface EndpointArgs {
     /**
+     * Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+     */
+    readonly endpointLocation?: pulumi.Input<string>;
+    /**
+     * Gets or sets the monitoring status of the endpoint.
+     */
+    readonly endpointMonitorStatus?: pulumi.Input<string>;
+    /**
+     * Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
+     */
+    readonly endpointStatus?: pulumi.Input<string>;
+    /**
      * The type of the Traffic Manager endpoint to be created or updated.
      */
     readonly endpointType: pulumi.Input<string>;
@@ -106,23 +126,39 @@ export interface EndpointArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
+     * Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+     */
+    readonly minChildEndpoints?: pulumi.Input<number>;
+    /**
      * The name of the Traffic Manager endpoint to be created or updated.
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+     */
+    readonly priority?: pulumi.Input<number>;
     /**
      * The name of the Traffic Manager profile.
      */
     readonly profileName: pulumi.Input<string>;
     /**
-     * Class representing a Traffic Manager endpoint properties.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20151101.EndpointProperties>;
-    /**
      * The name of the resource group containing the Traffic Manager endpoint to be created or updated.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+     */
+    readonly target?: pulumi.Input<string>;
+    /**
+     * Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
+     */
+    readonly targetResourceId?: pulumi.Input<string>;
+    /**
      * Gets or sets the endpoint type of the Traffic Manager endpoint.
      */
     readonly type?: pulumi.Input<string>;
+    /**
+     * Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+     */
+    readonly weight?: pulumi.Input<number>;
 }

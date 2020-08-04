@@ -51,7 +51,7 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
     /**
      * The extended info properties.
      */
-    public readonly properties!: pulumi.Output<outputs.storsimple.v20170601.ManagerExtendedInfoPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.ManagerExtendedInfoPropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -70,17 +70,29 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ManagerExtendedInfoArgs | undefined;
+            if (!args || args.algorithm === undefined) {
+                throw new Error("Missing required property 'algorithm'");
+            }
+            if (!args || args.integrityKey === undefined) {
+                throw new Error("Missing required property 'integrityKey'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["algorithm"] = args ? args.algorithm : undefined;
+            inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
+            inputs["encryptionKeyThumbprint"] = args ? args.encryptionKeyThumbprint : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["integrityKey"] = args ? args.integrityKey : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["portalCertificateThumbprint"] = args ? args.portalCertificateThumbprint : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["version"] = args ? args.version : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,9 +111,25 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
  */
 export interface ManagerExtendedInfoArgs {
     /**
+     * Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
+     */
+    readonly algorithm: pulumi.Input<string>;
+    /**
+     * Represents the CEK of the resource.
+     */
+    readonly encryptionKey?: pulumi.Input<string>;
+    /**
+     * Represents the Cert thumbprint that was used to encrypt the CEK.
+     */
+    readonly encryptionKeyThumbprint?: pulumi.Input<string>;
+    /**
      * The etag of the resource.
      */
     readonly etag?: pulumi.Input<string>;
+    /**
+     * Represents the CIK of the resource.
+     */
+    readonly integrityKey: pulumi.Input<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
@@ -111,11 +139,15 @@ export interface ManagerExtendedInfoArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The extended info properties.
+     * Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
      */
-    readonly properties?: pulumi.Input<inputs.storsimple.v20170601.ManagerExtendedInfoProperties>;
+    readonly portalCertificateThumbprint?: pulumi.Input<string>;
     /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The version of the extended info being persisted.
+     */
+    readonly version?: pulumi.Input<string>;
 }

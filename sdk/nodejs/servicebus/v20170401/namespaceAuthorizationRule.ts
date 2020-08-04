@@ -43,7 +43,7 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**
      * AuthorizationRule properties.
      */
-    public readonly properties!: pulumi.Output<outputs.servicebus.v20170401.SBAuthorizationRuleResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicebus.v20170401.SBAuthorizationRuleResponseProperties>;
     /**
      * Resource type
      */
@@ -71,10 +71,14 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.rights === undefined) {
+                throw new Error("Missing required property 'rights'");
+            }
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["rights"] = args ? args.rights : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,11 +105,11 @@ export interface NamespaceAuthorizationRuleArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * AuthorizationRule properties.
-     */
-    readonly properties?: pulumi.Input<inputs.servicebus.v20170401.SBAuthorizationRuleProperties>;
-    /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The rights associated with the rule.
+     */
+    readonly rights: pulumi.Input<pulumi.Input<string>[]>;
 }

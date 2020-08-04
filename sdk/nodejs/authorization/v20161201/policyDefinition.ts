@@ -43,7 +43,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
     /**
      * The policy definition properties.
      */
-    public readonly properties!: pulumi.Output<outputs.authorization.v20161201.PolicyDefinitionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20161201.PolicyDefinitionPropertiesResponse>;
 
     /**
      * Create a PolicyDefinition resource with the given unique name, arguments, and options.
@@ -61,8 +61,15 @@ export class PolicyDefinition extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
+            inputs["mode"] = args ? args.mode : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["policyRule"] = args ? args.policyRule : undefined;
+            inputs["policyType"] = args ? args.policyType : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -80,11 +87,35 @@ export class PolicyDefinition extends pulumi.CustomResource {
  */
 export interface PolicyDefinitionArgs {
     /**
+     * The policy definition description.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The display name of the policy definition.
+     */
+    readonly displayName?: pulumi.Input<string>;
+    /**
+     * The policy definition metadata.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The policy definition mode. Possible values are NotSpecified, Indexed, and All.
+     */
+    readonly mode?: pulumi.Input<string>;
+    /**
      * The name of the policy definition to create.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The policy definition properties.
+     * Required if a parameter is used in policy rule.
      */
-    readonly properties?: pulumi.Input<inputs.authorization.v20161201.PolicyDefinitionProperties>;
+    readonly parameters?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The policy rule.
+     */
+    readonly policyRule?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+     */
+    readonly policyType?: pulumi.Input<string>;
 }

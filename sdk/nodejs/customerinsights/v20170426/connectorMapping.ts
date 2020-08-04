@@ -43,7 +43,7 @@ export class ConnectorMapping extends pulumi.CustomResource {
     /**
      * The connector mapping definition.
      */
-    public readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.ConnectorMappingResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.ConnectorMappingResponse>;
     /**
      * Resource type.
      */
@@ -65,8 +65,17 @@ export class ConnectorMapping extends pulumi.CustomResource {
             if (!args || args.connectorName === undefined) {
                 throw new Error("Missing required property 'connectorName'");
             }
+            if (!args || args.entityType === undefined) {
+                throw new Error("Missing required property 'entityType'");
+            }
+            if (!args || args.entityTypeName === undefined) {
+                throw new Error("Missing required property 'entityTypeName'");
+            }
             if (!args || args.hubName === undefined) {
                 throw new Error("Missing required property 'hubName'");
+            }
+            if (!args || args.mappingProperties === undefined) {
+                throw new Error("Missing required property 'mappingProperties'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
@@ -75,10 +84,16 @@ export class ConnectorMapping extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["connectorName"] = args ? args.connectorName : undefined;
+            inputs["connectorType"] = args ? args.connectorType : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["entityType"] = args ? args.entityType : undefined;
+            inputs["entityTypeName"] = args ? args.entityTypeName : undefined;
             inputs["hubName"] = args ? args.hubName : undefined;
+            inputs["mappingProperties"] = args ? args.mappingProperties : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,17 +116,37 @@ export interface ConnectorMappingArgs {
      */
     readonly connectorName: pulumi.Input<string>;
     /**
+     * Type of connector.
+     */
+    readonly connectorType?: pulumi.Input<string>;
+    /**
+     * The description of the connector mapping.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Display name for the connector mapping.
+     */
+    readonly displayName?: pulumi.Input<string>;
+    /**
+     * Defines which entity type the file should map to.
+     */
+    readonly entityType: pulumi.Input<string>;
+    /**
+     * The mapping entity name.
+     */
+    readonly entityTypeName: pulumi.Input<string>;
+    /**
      * The name of the hub.
      */
     readonly hubName: pulumi.Input<string>;
     /**
+     * The properties of the mapping.
+     */
+    readonly mappingProperties: pulumi.Input<inputs.customerinsights.v20170426.ConnectorMappingProperties>;
+    /**
      * The name of the connector mapping.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The connector mapping definition.
-     */
-    readonly properties?: pulumi.Input<inputs.customerinsights.v20170426.ConnectorMappingDefinition>;
     /**
      * The name of the resource group.
      */

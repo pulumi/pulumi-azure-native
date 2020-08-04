@@ -47,7 +47,7 @@ export class Gallery extends pulumi.CustomResource {
     /**
      * Describes the properties of a Shared Image Gallery.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20190301.GalleryPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20190301.GalleryPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -79,11 +79,13 @@ export class Gallery extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["description"] = args ? args.description : undefined;
+            inputs["identifier"] = args ? args.identifier : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,6 +104,14 @@ export class Gallery extends pulumi.CustomResource {
  */
 export interface GalleryArgs {
     /**
+     * The description of this Shared Image Gallery resource. This property is updatable.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Describes the gallery unique name.
+     */
+    readonly identifier?: pulumi.Input<inputs.compute.v20190301.GalleryIdentifier>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
@@ -109,10 +119,6 @@ export interface GalleryArgs {
      * The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Describes the properties of a Shared Image Gallery.
-     */
-    readonly properties?: pulumi.Input<inputs.compute.v20190301.GalleryProperties>;
     /**
      * The name of the resource group.
      */

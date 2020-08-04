@@ -51,7 +51,7 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
     /**
      * Core resource properties
      */
-    public readonly properties!: pulumi.Output<outputs.certificateregistration.v20180201.AppServiceCertificateResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.certificateregistration.v20180201.AppServiceCertificateResponse>;
     /**
      * Resource tags.
      */
@@ -87,12 +87,14 @@ export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["certificateOrderName"] = args ? args.certificateOrderName : undefined;
+            inputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            inputs["keyVaultSecretName"] = args ? args.keyVaultSecretName : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,6 +117,14 @@ export interface AppServiceCertificateOrderCertificateArgs {
      */
     readonly certificateOrderName: pulumi.Input<string>;
     /**
+     * Key Vault resource Id.
+     */
+    readonly keyVaultId?: pulumi.Input<string>;
+    /**
+     * Key Vault secret name.
+     */
+    readonly keyVaultSecretName?: pulumi.Input<string>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
@@ -126,10 +136,6 @@ export interface AppServiceCertificateOrderCertificateArgs {
      * Name of the certificate.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Core resource properties
-     */
-    readonly properties?: pulumi.Input<inputs.certificateregistration.v20180201.AppServiceCertificate>;
     /**
      * Name of the resource group to which the resource belongs.
      */

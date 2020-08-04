@@ -43,7 +43,7 @@ export class Connector extends pulumi.CustomResource {
     /**
      * Properties of connector.
      */
-    public readonly properties!: pulumi.Output<outputs.customerinsights.v20170101.ConnectorResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170101.ConnectorResponse>;
     /**
      * Resource type.
      */
@@ -62,6 +62,12 @@ export class Connector extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ConnectorArgs | undefined;
+            if (!args || args.connectorProperties === undefined) {
+                throw new Error("Missing required property 'connectorProperties'");
+            }
+            if (!args || args.connectorType === undefined) {
+                throw new Error("Missing required property 'connectorType'");
+            }
             if (!args || args.hubName === undefined) {
                 throw new Error("Missing required property 'hubName'");
             }
@@ -71,10 +77,15 @@ export class Connector extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["connectorProperties"] = args ? args.connectorProperties : undefined;
+            inputs["connectorType"] = args ? args.connectorType : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["hubName"] = args ? args.hubName : undefined;
+            inputs["isInternal"] = args ? args.isInternal : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,17 +104,33 @@ export class Connector extends pulumi.CustomResource {
  */
 export interface ConnectorArgs {
     /**
+     * The connector properties.
+     */
+    readonly connectorProperties: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: any}>}>;
+    /**
+     * Type of connector.
+     */
+    readonly connectorType: pulumi.Input<string>;
+    /**
+     * Description of the connector.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Display name of the connector.
+     */
+    readonly displayName?: pulumi.Input<string>;
+    /**
      * The name of the hub.
      */
     readonly hubName: pulumi.Input<string>;
     /**
-     * The name of the connector.
+     * If this is an internal connector.
+     */
+    readonly isInternal?: pulumi.Input<boolean>;
+    /**
+     * Name of the connector.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of connector.
-     */
-    readonly properties?: pulumi.Input<inputs.customerinsights.v20170101.ConnectorDefinition>;
     /**
      * The name of the resource group.
      */

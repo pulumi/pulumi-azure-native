@@ -43,7 +43,7 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
     /**
      * Properties for the remediation.
      */
-    public readonly properties!: pulumi.Output<outputs.policyinsights.v20190701.RemediationPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.policyinsights.v20190701.RemediationPropertiesResponse>;
     /**
      * The type of the remediation.
      */
@@ -68,9 +68,13 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["filters"] = args ? args.filters : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
+            inputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
+            inputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -89,13 +93,25 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
  */
 export interface RemediationAtResourceGroupArgs {
     /**
+     * The filters that will be applied to determine which resources to remediate.
+     */
+    readonly filters?: pulumi.Input<inputs.policyinsights.v20190701.RemediationFilters>;
+    /**
      * The name of the remediation.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties for the remediation.
+     * The resource ID of the policy assignment that should be remediated.
      */
-    readonly properties?: pulumi.Input<inputs.policyinsights.v20190701.RemediationProperties>;
+    readonly policyAssignmentId?: pulumi.Input<string>;
+    /**
+     * The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+     */
+    readonly policyDefinitionReferenceId?: pulumi.Input<string>;
+    /**
+     * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
+     */
+    readonly resourceDiscoveryMode?: pulumi.Input<string>;
     /**
      * Resource group name.
      */

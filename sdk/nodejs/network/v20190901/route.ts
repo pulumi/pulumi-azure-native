@@ -47,7 +47,7 @@ export class Route extends pulumi.CustomResource {
     /**
      * Properties of the route.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190901.RoutePropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190901.RoutePropertiesFormatResponse>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -65,18 +65,24 @@ export class Route extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.nextHopType === undefined) {
+                throw new Error("Missing required property 'nextHopType'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.routeTableName === undefined) {
                 throw new Error("Missing required property 'routeTableName'");
             }
+            inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["nextHopIpAddress"] = args ? args.nextHopIpAddress : undefined;
+            inputs["nextHopType"] = args ? args.nextHopType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["routeTableName"] = args ? args.routeTableName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -94,6 +100,10 @@ export class Route extends pulumi.CustomResource {
  */
 export interface RouteArgs {
     /**
+     * The destination CIDR to which the route applies.
+     */
+    readonly addressPrefix?: pulumi.Input<string>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -102,9 +112,13 @@ export interface RouteArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the route.
+     * The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20190901.RoutePropertiesFormat>;
+    readonly nextHopIpAddress?: pulumi.Input<string>;
+    /**
+     * The type of Azure hop the packet should be sent to.
+     */
+    readonly nextHopType: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

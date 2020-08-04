@@ -43,7 +43,7 @@ export class AssetFilter extends pulumi.CustomResource {
     /**
      * The Media Filter properties.
      */
-    public readonly properties!: pulumi.Output<outputs.media.v20180701.MediaFilterPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20180701.MediaFilterPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -76,9 +76,12 @@ export class AssetFilter extends pulumi.CustomResource {
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["assetName"] = args ? args.assetName : undefined;
+            inputs["firstQuality"] = args ? args.firstQuality : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["presentationTimeRange"] = args ? args.presentationTimeRange : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["tracks"] = args ? args.tracks : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,15 +108,23 @@ export interface AssetFilterArgs {
      */
     readonly assetName: pulumi.Input<string>;
     /**
+     * The first quality.
+     */
+    readonly firstQuality?: pulumi.Input<inputs.media.v20180701.FirstQuality>;
+    /**
      * The Asset Filter name
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The Media Filter properties.
+     * The presentation time range.
      */
-    readonly properties?: pulumi.Input<inputs.media.v20180701.MediaFilterProperties>;
+    readonly presentationTimeRange?: pulumi.Input<inputs.media.v20180701.PresentationTimeRange>;
     /**
      * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The tracks selection conditions.
+     */
+    readonly tracks?: pulumi.Input<pulumi.Input<inputs.media.v20180701.FilterTrackSelection>[]>;
 }

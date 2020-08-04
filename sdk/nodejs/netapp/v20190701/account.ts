@@ -47,7 +47,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * NetApp Account properties
      */
-    public readonly properties!: pulumi.Output<outputs.netapp.v20190701.AccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.netapp.v20190701.AccountPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -79,11 +79,12 @@ export class Account extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["activeDirectories"] = args ? args.activeDirectories : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,6 +103,10 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountArgs {
     /**
+     * Active Directories
+     */
+    readonly activeDirectories?: pulumi.Input<pulumi.Input<inputs.netapp.v20190701.ActiveDirectory>[]>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
@@ -109,10 +114,6 @@ export interface AccountArgs {
      * The name of the NetApp account
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * NetApp Account properties
-     */
-    readonly properties?: pulumi.Input<inputs.netapp.v20190701.AccountProperties>;
     /**
      * The name of the resource group.
      */

@@ -43,7 +43,7 @@ export class NamedValue extends pulumi.CustomResource {
     /**
      * NamedValue entity contract properties.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.NamedValueContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.NamedValueContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -62,6 +62,9 @@ export class NamedValue extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as NamedValueArgs | undefined;
+            if (!args || args.displayName === undefined) {
+                throw new Error("Missing required property 'displayName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -71,10 +74,17 @@ export class NamedValue extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (!args || args.value === undefined) {
+                throw new Error("Missing required property 'value'");
+            }
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["secret"] = args ? args.secret : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["value"] = args ? args.value : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,19 +103,31 @@ export class NamedValue extends pulumi.CustomResource {
  */
 export interface NamedValueArgs {
     /**
+     * Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
+     */
+    readonly displayName: pulumi.Input<string>;
+    /**
      * Identifier of the NamedValue.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * NamedValue entity contract properties for PUT operation.
-     */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20191201.NamedValueCreateContractProperties>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Determines whether the value is a secret and should be encrypted or not. Default value is false.
+     */
+    readonly secret?: pulumi.Input<boolean>;
+    /**
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Optional tags that when provided can be used to filter the NamedValue list.
+     */
+    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+     */
+    readonly value: pulumi.Input<string>;
 }

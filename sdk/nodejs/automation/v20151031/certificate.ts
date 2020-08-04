@@ -43,7 +43,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * Gets or sets the properties of the certificate.
      */
-    public readonly properties!: pulumi.Output<outputs.automation.v20151031.CertificatePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.CertificatePropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -65,19 +65,23 @@ export class Certificate extends pulumi.CustomResource {
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
+            if (!args || args.base64Value === undefined) {
+                throw new Error("Missing required property 'base64Value'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            inputs["base64Value"] = args ? args.base64Value : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["isExportable"] = args ? args.isExportable : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["thumbprint"] = args ? args.thumbprint : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,15 +104,27 @@ export interface CertificateArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
+     * Gets or sets the base64 encoded value of the certificate.
+     */
+    readonly base64Value: pulumi.Input<string>;
+    /**
+     * Gets or sets the description of the certificate.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Gets or sets the is exportable flag of the certificate.
+     */
+    readonly isExportable?: pulumi.Input<boolean>;
+    /**
      * The parameters supplied to the create or update certificate operation.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Gets or sets the properties of the certificate.
-     */
-    readonly properties: pulumi.Input<inputs.automation.v20151031.CertificateCreateOrUpdateProperties>;
-    /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets or sets the thumbprint of the certificate.
+     */
+    readonly thumbprint?: pulumi.Input<string>;
 }

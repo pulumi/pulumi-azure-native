@@ -47,7 +47,7 @@ export class ReferenceDataSet extends pulumi.CustomResource {
     /**
      * Properties of the reference data set.
      */
-    public readonly properties!: pulumi.Output<outputs.timeseriesinsights.v20200515.ReferenceDataSetResourcePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.timeseriesinsights.v20200515.ReferenceDataSetResourcePropertiesResponse>;
     /**
      * Resource tags
      */
@@ -73,24 +73,26 @@ export class ReferenceDataSet extends pulumi.CustomResource {
             if (!args || args.environmentName === undefined) {
                 throw new Error("Missing required property 'environmentName'");
             }
+            if (!args || args.keyProperties === undefined) {
+                throw new Error("Missing required property 'keyProperties'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["dataStringComparisonBehavior"] = args ? args.dataStringComparisonBehavior : undefined;
             inputs["environmentName"] = args ? args.environmentName : undefined;
+            inputs["keyProperties"] = args ? args.keyProperties : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,9 +111,17 @@ export class ReferenceDataSet extends pulumi.CustomResource {
  */
 export interface ReferenceDataSetArgs {
     /**
+     * The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+     */
+    readonly dataStringComparisonBehavior?: pulumi.Input<string>;
+    /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
     readonly environmentName: pulumi.Input<string>;
+    /**
+     * The list of key properties for the reference data set.
+     */
+    readonly keyProperties: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.v20200515.ReferenceDataSetKeyProperty>[]>;
     /**
      * The location of the resource.
      */
@@ -120,10 +130,6 @@ export interface ReferenceDataSetArgs {
      * Name of the reference data set.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties used to create a reference data set.
-     */
-    readonly properties: pulumi.Input<inputs.timeseriesinsights.v20200515.ReferenceDataSetCreationProperties>;
     /**
      * Name of an Azure Resource group.
      */

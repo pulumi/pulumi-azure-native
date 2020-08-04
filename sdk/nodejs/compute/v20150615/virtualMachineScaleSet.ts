@@ -47,7 +47,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * Describes the properties of a Virtual Machine Scale Set.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20150615.VirtualMachineScaleSetPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20150615.VirtualMachineScaleSetPropertiesResponse>;
     /**
      * The virtual machine scale set sku.
      */
@@ -85,10 +85,14 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["overProvision"] = args ? args.overProvision : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
+            inputs["virtualMachineProfile"] = args ? args.virtualMachineProfile : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,9 +119,13 @@ export interface VirtualMachineScaleSetArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Describes the properties of a Virtual Machine Scale Set.
+     * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
      */
-    readonly properties?: pulumi.Input<inputs.compute.v20150615.VirtualMachineScaleSetProperties>;
+    readonly overProvision?: pulumi.Input<boolean>;
+    /**
+     * The provisioning state, which only appears in the response.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -130,4 +138,12 @@ export interface VirtualMachineScaleSetArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The upgrade policy.
+     */
+    readonly upgradePolicy?: pulumi.Input<inputs.compute.v20150615.UpgradePolicy>;
+    /**
+     * The virtual machine profile.
+     */
+    readonly virtualMachineProfile?: pulumi.Input<inputs.compute.v20150615.VirtualMachineScaleSetVMProfile>;
 }

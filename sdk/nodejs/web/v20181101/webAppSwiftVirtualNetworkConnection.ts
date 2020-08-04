@@ -47,7 +47,7 @@ export class WebAppSwiftVirtualNetworkConnection extends pulumi.CustomResource {
     /**
      * SwiftVirtualNetwork resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20181101.SwiftVirtualNetworkResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20181101.SwiftVirtualNetworkResponseProperties>;
     /**
      * Resource type.
      */
@@ -74,8 +74,10 @@ export class WebAppSwiftVirtualNetworkConnection extends pulumi.CustomResource {
             }
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["subnetResourceId"] = args ? args.subnetResourceId : undefined;
+            inputs["swiftSupported"] = args ? args.swiftSupported : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,11 +104,15 @@ export interface WebAppSwiftVirtualNetworkConnectionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * SwiftVirtualNetwork resource specific properties
-     */
-    readonly properties?: pulumi.Input<inputs.web.v20181101.SwiftVirtualNetworkProperties>;
-    /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
+     */
+    readonly subnetResourceId?: pulumi.Input<string>;
+    /**
+     * A flag that specifies if the scale unit this Web App is on supports Swift integration.
+     */
+    readonly swiftSupported?: pulumi.Input<boolean>;
 }

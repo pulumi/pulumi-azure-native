@@ -51,7 +51,7 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * Properties of load balancer.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20170601.LoadBalancerPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20170601.LoadBalancerPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,22 @@ export class LoadBalancer extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["frontendIPConfigurations"] = args ? args.frontendIPConfigurations : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["inboundNatPools"] = args ? args.inboundNatPools : undefined;
+            inputs["inboundNatRules"] = args ? args.inboundNatRules : undefined;
+            inputs["loadBalancingRules"] = args ? args.loadBalancingRules : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["outboundNatRules"] = args ? args.outboundNatRules : undefined;
+            inputs["probes"] = args ? args.probes : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,13 +114,33 @@ export class LoadBalancer extends pulumi.CustomResource {
  */
 export interface LoadBalancerArgs {
     /**
+     * Collection of backend address pools used by a load balancer
+     */
+    readonly backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.v20170601.BackendAddressPool>[]>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: pulumi.Input<string>;
     /**
+     * Object representing the frontend IPs to be used for the load balancer
+     */
+    readonly frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20170601.FrontendIPConfiguration>[]>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
+     */
+    readonly inboundNatPools?: pulumi.Input<pulumi.Input<inputs.network.v20170601.InboundNatPool>[]>;
+    /**
+     * Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
+     */
+    readonly inboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20170601.InboundNatRule>[]>;
+    /**
+     * Object collection representing the load balancing rules Gets the provisioning 
+     */
+    readonly loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.network.v20170601.LoadBalancingRule>[]>;
     /**
      * Resource location.
      */
@@ -121,13 +150,25 @@ export interface LoadBalancerArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of load balancer.
+     * The outbound NAT rules.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20170601.LoadBalancerPropertiesFormat>;
+    readonly outboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20170601.OutboundNatRule>[]>;
+    /**
+     * Collection of probe objects used in the load balancer
+     */
+    readonly probes?: pulumi.Input<pulumi.Input<inputs.network.v20170601.Probe>[]>;
+    /**
+     * Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource GUID property of the load balancer resource.
+     */
+    readonly resourceGuid?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

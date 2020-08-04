@@ -51,7 +51,7 @@ export class Device extends pulumi.CustomResource {
     /**
      * The properties of the Data Box Edge/Gateway device.
      */
-    public readonly properties!: pulumi.Output<outputs.databoxedge.v20190801.DataBoxEdgeDevicePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.databoxedge.v20190801.DataBoxEdgeDevicePropertiesResponse>;
     /**
      * The SKU type.
      */
@@ -87,13 +87,17 @@ export class Device extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["dataBoxEdgeDeviceStatus"] = args ? args.dataBoxEdgeDeviceStatus : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["friendlyName"] = args ? args.friendlyName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["modelDescription"] = args ? args.modelDescription : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,21 +116,33 @@ export class Device extends pulumi.CustomResource {
  */
 export interface DeviceArgs {
     /**
+     * The status of the Data Box Edge/Gateway device.
+     */
+    readonly dataBoxEdgeDeviceStatus?: pulumi.Input<string>;
+    /**
+     * The Description of the Data Box Edge/Gateway device.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * The etag for the devices.
      */
     readonly etag?: pulumi.Input<string>;
+    /**
+     * The Data Box Edge/Gateway device name.
+     */
+    readonly friendlyName?: pulumi.Input<string>;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */
     readonly location: pulumi.Input<string>;
     /**
+     * The description of the Data Box Edge/Gateway device model.
+     */
+    readonly modelDescription?: pulumi.Input<string>;
+    /**
      * The device name.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties of the Data Box Edge/Gateway device.
-     */
-    readonly properties?: pulumi.Input<inputs.databoxedge.v20190801.DataBoxEdgeDeviceProperties>;
     /**
      * The resource group name.
      */

@@ -51,7 +51,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
     /**
      * Properties of the firewall policy.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190701.FirewallPolicyPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190701.FirewallPolicyPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,16 @@ export class FirewallPolicy extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["basePolicy"] = args ? args.basePolicy : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +108,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
  */
 export interface FirewallPolicyArgs {
     /**
+     * The parent firewall policy from which rules are inherited.
+     */
+    readonly basePolicy?: pulumi.Input<inputs.network.v20190701.SubResource>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -117,9 +124,9 @@ export interface FirewallPolicyArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the firewall policy.
+     * The provisioning state of the firewall policy resource.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20190701.FirewallPolicyPropertiesFormat>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -128,4 +135,8 @@ export interface FirewallPolicyArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The operation mode for Threat Intelligence.
+     */
+    readonly threatIntelMode?: pulumi.Input<string>;
 }

@@ -51,7 +51,7 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     /**
      * Properties of the connection monitor result.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20191101.ConnectionMonitorResultPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191101.ConnectionMonitorResultPropertiesResponse>;
     /**
      * Connection monitor tags.
      */
@@ -80,19 +80,25 @@ export class ConnectionMonitor extends pulumi.CustomResource {
             if (!args || args.networkWatcherName === undefined) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["autoStart"] = args ? args.autoStart : undefined;
+            inputs["destination"] = args ? args.destination : undefined;
+            inputs["endpoints"] = args ? args.endpoints : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["monitoringIntervalInSeconds"] = args ? args.monitoringIntervalInSeconds : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["notes"] = args ? args.notes : undefined;
+            inputs["outputs"] = args ? args.outputs : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["testConfigurations"] = args ? args.testConfigurations : undefined;
+            inputs["testGroups"] = args ? args.testGroups : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -111,9 +117,25 @@ export class ConnectionMonitor extends pulumi.CustomResource {
  */
 export interface ConnectionMonitorArgs {
     /**
+     * Determines if the connection monitor will start automatically once created.
+     */
+    readonly autoStart?: pulumi.Input<boolean>;
+    /**
+     * Describes the destination of connection monitor.
+     */
+    readonly destination?: pulumi.Input<inputs.network.v20191101.ConnectionMonitorDestination>;
+    /**
+     * List of connection monitor endpoints.
+     */
+    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.v20191101.ConnectionMonitorEndpoint>[]>;
+    /**
      * Connection monitor location.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Monitoring interval in seconds.
+     */
+    readonly monitoringIntervalInSeconds?: pulumi.Input<number>;
     /**
      * The name of the connection monitor.
      */
@@ -123,15 +145,31 @@ export interface ConnectionMonitorArgs {
      */
     readonly networkWatcherName: pulumi.Input<string>;
     /**
-     * Properties of the connection monitor.
+     * Optional notes to be associated with the connection monitor.
      */
-    readonly properties: pulumi.Input<inputs.network.v20191101.ConnectionMonitorParameters>;
+    readonly notes?: pulumi.Input<string>;
+    /**
+     * List of connection monitor outputs.
+     */
+    readonly outputs?: pulumi.Input<pulumi.Input<inputs.network.v20191101.ConnectionMonitorOutput>[]>;
     /**
      * The name of the resource group containing Network Watcher.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Describes the source of connection monitor.
+     */
+    readonly source?: pulumi.Input<inputs.network.v20191101.ConnectionMonitorSource>;
+    /**
      * Connection monitor tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * List of connection monitor test configurations.
+     */
+    readonly testConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20191101.ConnectionMonitorTestConfiguration>[]>;
+    /**
+     * List of connection monitor test groups.
+     */
+    readonly testGroups?: pulumi.Input<pulumi.Input<inputs.network.v20191101.ConnectionMonitorTestGroup>[]>;
 }

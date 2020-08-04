@@ -47,7 +47,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * Properties of the Cache.
      */
-    public readonly properties!: pulumi.Output<outputs.storagecache.v20191101.CacheResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storagecache.v20191101.CacheResponseProperties>;
     /**
      * SKU for the Cache.
      */
@@ -80,12 +80,16 @@ export class Cache extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["cacheSizeGB"] = args ? args.cacheSizeGB : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["upgradeStatus"] = args ? args.upgradeStatus : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,6 +108,10 @@ export class Cache extends pulumi.CustomResource {
  */
 export interface CacheArgs {
     /**
+     * The size of this Cache, in GB.
+     */
+    readonly cacheSizeGB?: pulumi.Input<number>;
+    /**
      * Region name string.
      */
     readonly location?: pulumi.Input<string>;
@@ -112,9 +120,9 @@ export interface CacheArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the Cache.
+     * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    readonly properties?: pulumi.Input<inputs.storagecache.v20191101.CacheProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * Target resource group.
      */
@@ -124,7 +132,15 @@ export interface CacheArgs {
      */
     readonly sku?: pulumi.Input<inputs.storagecache.v20191101.CacheProperties>;
     /**
+     * Subnet used for the Cache.
+     */
+    readonly subnet?: pulumi.Input<string>;
+    /**
      * ARM tags as name/value pairs.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Upgrade status of the Cache.
+     */
+    readonly upgradeStatus?: pulumi.Input<inputs.storagecache.v20191101.CacheUpgradeStatus>;
 }

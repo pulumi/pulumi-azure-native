@@ -47,7 +47,7 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
     /**
      * Describes the properties of a Virtual Machine Extension.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20180601.VirtualMachineExtensionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20180601.VirtualMachineExtensionPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -55,7 +55,7 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachineExtension resource with the given unique name, arguments, and options.
@@ -82,13 +82,20 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
             if (!args || args.vmName === undefined) {
                 throw new Error("Missing required property 'vmName'");
             }
+            inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
+            inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
+            inputs["instanceView"] = args ? args.instanceView : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["protectedSettings"] = args ? args.protectedSettings : undefined;
+            inputs["publisher"] = args ? args.publisher : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["settings"] = args ? args.settings : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
             inputs["vmName"] = args ? args.vmName : undefined;
-            inputs["type"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -106,6 +113,18 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
  */
 export interface VirtualMachineExtensionArgs {
     /**
+     * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+     */
+    readonly autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+    /**
+     * How the extension handler should be forced to update even if the extension configuration has not changed.
+     */
+    readonly forceUpdateTag?: pulumi.Input<string>;
+    /**
+     * The virtual machine extension instance view.
+     */
+    readonly instanceView?: pulumi.Input<inputs.compute.v20180601.VirtualMachineExtensionInstanceView>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
@@ -114,17 +133,33 @@ export interface VirtualMachineExtensionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Describes the properties of a Virtual Machine Extension.
+     * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
-    readonly properties?: pulumi.Input<inputs.compute.v20180601.VirtualMachineExtensionProperties>;
+    readonly protectedSettings?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The name of the extension handler publisher.
+     */
+    readonly publisher?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Json formatted public settings for the extension.
+     */
+    readonly settings?: pulumi.Input<{[key: string]: any}>;
+    /**
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the type of the extension; an example is "CustomScriptExtension".
+     */
+    readonly type?: pulumi.Input<string>;
+    /**
+     * Specifies the version of the script handler.
+     */
+    readonly typeHandlerVersion?: pulumi.Input<string>;
     /**
      * The name of the virtual machine where the extension should be created or updated.
      */

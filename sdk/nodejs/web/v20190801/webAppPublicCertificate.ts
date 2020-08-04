@@ -47,7 +47,7 @@ export class WebAppPublicCertificate extends pulumi.CustomResource {
     /**
      * PublicCertificate resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20190801.PublicCertificateResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20190801.PublicCertificateResponseProperties>;
     /**
      * Resource type.
      */
@@ -72,10 +72,12 @@ export class WebAppPublicCertificate extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["blob"] = args ? args.blob : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["publicCertificateLocation"] = args ? args.publicCertificateLocation : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -94,6 +96,10 @@ export class WebAppPublicCertificate extends pulumi.CustomResource {
  */
 export interface WebAppPublicCertificateArgs {
     /**
+     * Public Certificate byte array
+     */
+    readonly blob?: pulumi.Input<string>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
@@ -102,9 +108,9 @@ export interface WebAppPublicCertificateArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * PublicCertificate resource specific properties
+     * Public Certificate Location
      */
-    readonly properties?: pulumi.Input<inputs.web.v20190801.PublicCertificateProperties>;
+    readonly publicCertificateLocation?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

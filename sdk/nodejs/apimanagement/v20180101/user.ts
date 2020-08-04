@@ -43,7 +43,7 @@ export class User extends pulumi.CustomResource {
     /**
      * User entity contract properties.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20180101.UserContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20180101.UserContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -62,6 +62,15 @@ export class User extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as UserArgs | undefined;
+            if (!args || args.email === undefined) {
+                throw new Error("Missing required property 'email'");
+            }
+            if (!args || args.firstName === undefined) {
+                throw new Error("Missing required property 'firstName'");
+            }
+            if (!args || args.lastName === undefined) {
+                throw new Error("Missing required property 'lastName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -71,10 +80,18 @@ export class User extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["confirmation"] = args ? args.confirmation : undefined;
+            inputs["email"] = args ? args.email : undefined;
+            inputs["firstName"] = args ? args.firstName : undefined;
+            inputs["identities"] = args ? args.identities : undefined;
+            inputs["lastName"] = args ? args.lastName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["note"] = args ? args.note : undefined;
+            inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["state"] = args ? args.state : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,13 +110,37 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserArgs {
     /**
+     * Determines the type of confirmation e-mail that will be sent to the newly created user.
+     */
+    readonly confirmation?: pulumi.Input<string>;
+    /**
+     * Email address. Must not be empty and must be unique within the service instance.
+     */
+    readonly email: pulumi.Input<string>;
+    /**
+     * First name.
+     */
+    readonly firstName: pulumi.Input<string>;
+    /**
+     * Collection of user identities.
+     */
+    readonly identities?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20180101.UserIdentityContract>[]>;
+    /**
+     * Last name.
+     */
+    readonly lastName: pulumi.Input<string>;
+    /**
      * User identifier. Must be unique in the current API Management service instance.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * User entity create contract properties.
+     * Optional note about a user set by the administrator.
      */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20180101.UserCreateParameterProperties>;
+    readonly note?: pulumi.Input<string>;
+    /**
+     * User Password. If no value is provided, a default password is generated.
+     */
+    readonly password?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -108,4 +149,8 @@ export interface UserArgs {
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+     */
+    readonly state?: pulumi.Input<string>;
 }

@@ -47,7 +47,7 @@ export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
     /**
      * VnetInfo resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20160801.VnetInfoResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20160801.VnetInfoResponseProperties>;
     /**
      * Resource type.
      */
@@ -75,11 +75,14 @@ export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
+            inputs["certBlob"] = args ? args.certBlob : undefined;
+            inputs["dnsServers"] = args ? args.dnsServers : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
+            inputs["vnetResourceId"] = args ? args.vnetResourceId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,6 +101,15 @@ export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
  */
 export interface WebAppVnetConnectionSlotArgs {
     /**
+     * A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+     * Point-To-Site VPN connection.
+     */
+    readonly certBlob?: pulumi.Input<string>;
+    /**
+     * DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+     */
+    readonly dnsServers?: pulumi.Input<string>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
@@ -106,10 +118,6 @@ export interface WebAppVnetConnectionSlotArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * VnetInfo resource specific properties
-     */
-    readonly properties?: pulumi.Input<inputs.web.v20160801.VnetInfoProperties>;
-    /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -117,4 +125,8 @@ export interface WebAppVnetConnectionSlotArgs {
      * Name of the deployment slot. If a slot is not specified, the API will add or update connections for the production slot.
      */
     readonly slot: pulumi.Input<string>;
+    /**
+     * The Virtual Network's resource ID.
+     */
+    readonly vnetResourceId?: pulumi.Input<string>;
 }

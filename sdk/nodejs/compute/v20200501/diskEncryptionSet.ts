@@ -48,7 +48,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly properties!: pulumi.Output<outputs.compute.v20200501.EncryptionSetPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20200501.EncryptionSetPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -80,12 +80,14 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["activeKey"] = args ? args.activeKey : undefined;
+            inputs["encryptionType"] = args ? args.encryptionType : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,6 +106,14 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
  */
 export interface DiskEncryptionSetArgs {
     /**
+     * The key vault key which is currently used by this disk encryption set.
+     */
+    readonly activeKey?: pulumi.Input<inputs.compute.v20200501.KeyVaultAndKeyReference>;
+    /**
+     * The type of key used to encrypt the data of the disk.
+     */
+    readonly encryptionType?: pulumi.Input<string>;
+    /**
      * The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
      */
     readonly identity?: pulumi.Input<inputs.compute.v20200501.EncryptionSetIdentity>;
@@ -115,7 +125,6 @@ export interface DiskEncryptionSetArgs {
      * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.compute.v20200501.EncryptionSetProperties>;
     /**
      * The name of the resource group.
      */

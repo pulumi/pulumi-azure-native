@@ -43,7 +43,7 @@ export class Relationship extends pulumi.CustomResource {
     /**
      * The definition of Relationship.
      */
-    public readonly properties!: pulumi.Output<outputs.customerinsights.v20170101.RelationshipDefinitionResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170101.RelationshipDefinitionResponse>;
     /**
      * Resource type.
      */
@@ -68,13 +68,27 @@ export class Relationship extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.profileType === undefined) {
+                throw new Error("Missing required property 'profileType'");
+            }
+            if (!args || args.relatedProfileType === undefined) {
+                throw new Error("Missing required property 'relatedProfileType'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["cardinality"] = args ? args.cardinality : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["expiryDateTimeUtc"] = args ? args.expiryDateTimeUtc : undefined;
+            inputs["fields"] = args ? args.fields : undefined;
             inputs["hubName"] = args ? args.hubName : undefined;
+            inputs["lookupMappings"] = args ? args.lookupMappings : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["profileType"] = args ? args.profileType : undefined;
+            inputs["relatedProfileType"] = args ? args.relatedProfileType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,17 +107,45 @@ export class Relationship extends pulumi.CustomResource {
  */
 export interface RelationshipArgs {
     /**
+     * The Relationship Cardinality.
+     */
+    readonly cardinality?: pulumi.Input<string>;
+    /**
+     * Localized descriptions for the Relationship.
+     */
+    readonly description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Localized display name for the Relationship.
+     */
+    readonly displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The expiry date time in UTC.
+     */
+    readonly expiryDateTimeUtc?: pulumi.Input<string>;
+    /**
+     * The properties of the Relationship.
+     */
+    readonly fields?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170101.PropertyDefinition>[]>;
+    /**
      * The name of the hub.
      */
     readonly hubName: pulumi.Input<string>;
+    /**
+     * Optional property to be used to map fields in profile to their strong ids in related profile.
+     */
+    readonly lookupMappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170101.RelationshipTypeMapping>[]>;
     /**
      * The name of the Relationship.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The definition of Relationship.
+     * Profile type.
      */
-    readonly properties?: pulumi.Input<inputs.customerinsights.v20170101.RelationshipDefinition>;
+    readonly profileType: pulumi.Input<string>;
+    /**
+     * Related profile being referenced.
+     */
+    readonly relatedProfileType: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

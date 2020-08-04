@@ -51,7 +51,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Properties of the web application firewall policy.
      */
-    public readonly properties!: pulumi.Output<outputs.cdn.v20200415.CdnWebApplicationFirewallPolicyPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.cdn.v20200415.CdnWebApplicationFirewallPolicyPropertiesResponse>;
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
      */
@@ -90,13 +90,17 @@ export class Policy extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["customRules"] = args ? args.customRules : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedRules"] = args ? args.managedRules : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["policySettings"] = args ? args.policySettings : undefined;
+            inputs["rateLimitRules"] = args ? args.rateLimitRules : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,6 +119,10 @@ export class Policy extends pulumi.CustomResource {
  */
 export interface PolicyArgs {
     /**
+     * Describes custom rules inside the policy.
+     */
+    readonly customRules?: pulumi.Input<inputs.cdn.v20200415.CustomRuleList>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: pulumi.Input<string>;
@@ -123,13 +131,21 @@ export interface PolicyArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * Describes managed rules inside the policy.
+     */
+    readonly managedRules?: pulumi.Input<inputs.cdn.v20200415.ManagedRuleSetList>;
+    /**
      * The name of the CdnWebApplicationFirewallPolicy.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the web application firewall policy.
+     * Describes  policySettings for policy
      */
-    readonly properties?: pulumi.Input<inputs.cdn.v20200415.CdnWebApplicationFirewallPolicyProperties>;
+    readonly policySettings?: pulumi.Input<inputs.cdn.v20200415.PolicySettings>;
+    /**
+     * Describes rate limit rules inside the policy.
+     */
+    readonly rateLimitRules?: pulumi.Input<inputs.cdn.v20200415.RateLimitRuleList>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

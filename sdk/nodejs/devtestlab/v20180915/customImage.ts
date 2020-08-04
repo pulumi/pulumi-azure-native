@@ -47,7 +47,7 @@ export class CustomImage extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.CustomImagePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.CustomImagePropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -76,18 +76,24 @@ export class CustomImage extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["author"] = args ? args.author : undefined;
+            inputs["customImagePlan"] = args ? args.customImagePlan : undefined;
+            inputs["dataDiskStorageInfo"] = args ? args.dataDiskStorageInfo : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["isPlanAuthorized"] = args ? args.isPlanAuthorized : undefined;
             inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedImageId"] = args ? args.managedImageId : undefined;
+            inputs["managedSnapshotId"] = args ? args.managedSnapshotId : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["vhd"] = args ? args.vhd : undefined;
+            inputs["vm"] = args ? args.vm : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,6 +112,26 @@ export class CustomImage extends pulumi.CustomResource {
  */
 export interface CustomImageArgs {
     /**
+     * The author of the custom image.
+     */
+    readonly author?: pulumi.Input<string>;
+    /**
+     * Storage information about the plan related to this custom image
+     */
+    readonly customImagePlan?: pulumi.Input<inputs.devtestlab.v20180915.CustomImagePropertiesFromPlan>;
+    /**
+     * Storage information about the data disks present in the custom image
+     */
+    readonly dataDiskStorageInfo?: pulumi.Input<pulumi.Input<inputs.devtestlab.v20180915.DataDiskStorageTypeInfo>[]>;
+    /**
+     * The description of the custom image.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
+     */
+    readonly isPlanAuthorized?: pulumi.Input<boolean>;
+    /**
      * The name of the lab.
      */
     readonly labName: pulumi.Input<string>;
@@ -114,13 +140,17 @@ export interface CustomImageArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The Managed Image Id backing the custom image.
+     */
+    readonly managedImageId?: pulumi.Input<string>;
+    /**
+     * The Managed Snapshot Id backing the custom image.
+     */
+    readonly managedSnapshotId?: pulumi.Input<string>;
+    /**
      * The name of the custom image.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties of the resource.
-     */
-    readonly properties: pulumi.Input<inputs.devtestlab.v20180915.CustomImageProperties>;
     /**
      * The name of the resource group.
      */
@@ -129,4 +159,12 @@ export interface CustomImageArgs {
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The VHD from which the image is to be created.
+     */
+    readonly vhd?: pulumi.Input<inputs.devtestlab.v20180915.CustomImagePropertiesCustom>;
+    /**
+     * The virtual machine from which the image is to be created.
+     */
+    readonly vm?: pulumi.Input<inputs.devtestlab.v20180915.CustomImagePropertiesFromVm>;
 }

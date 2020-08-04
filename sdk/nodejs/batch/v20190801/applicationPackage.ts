@@ -47,7 +47,7 @@ export class ApplicationPackage extends pulumi.CustomResource {
     /**
      * The properties associated with the Application Package.
      */
-    public readonly properties!: pulumi.Output<outputs.batch.v20190801.ApplicationPackagePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.batch.v20190801.ApplicationPackagePropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -81,9 +81,9 @@ export class ApplicationPackage extends pulumi.CustomResource {
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["applicationName"] = args ? args.applicationName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -113,10 +113,6 @@ export interface ApplicationPackageArgs {
      * The version of the application.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties associated with the Application Package.
-     */
-    readonly properties?: pulumi.Input<inputs.batch.v20190801.ApplicationPackageProperties>;
     /**
      * The name of the resource group that contains the Batch account.
      */

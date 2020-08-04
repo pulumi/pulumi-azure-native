@@ -43,7 +43,7 @@ export class RoleDefinition extends pulumi.CustomResource {
     /**
      * Role definition properties.
      */
-    public readonly properties!: pulumi.Output<outputs.authorization.v20150701.RoleDefinitionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20150701.RoleDefinitionPropertiesResponse>;
     /**
      * The role definition type.
      */
@@ -68,9 +68,14 @@ export class RoleDefinition extends pulumi.CustomResource {
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
+            inputs["assignableScopes"] = args ? args.assignableScopes : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["permissions"] = args ? args.permissions : undefined;
+            inputs["roleName"] = args ? args.roleName : undefined;
+            inputs["roleType"] = args ? args.roleType : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -89,13 +94,29 @@ export class RoleDefinition extends pulumi.CustomResource {
  */
 export interface RoleDefinitionArgs {
     /**
+     * Role definition assignable scopes.
+     */
+    readonly assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The role definition description.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * The ID of the role definition.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Role definition properties.
+     * Role definition permissions.
      */
-    readonly properties?: pulumi.Input<inputs.authorization.v20150701.RoleDefinitionProperties>;
+    readonly permissions?: pulumi.Input<pulumi.Input<inputs.authorization.v20150701.Permission>[]>;
+    /**
+     * The role name.
+     */
+    readonly roleName?: pulumi.Input<string>;
+    /**
+     * The role type.
+     */
+    readonly roleType?: pulumi.Input<string>;
     /**
      * The scope of the role definition.
      */

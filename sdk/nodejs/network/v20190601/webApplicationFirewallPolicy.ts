@@ -51,7 +51,7 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
     /**
      * Properties of the web application firewall policy.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190601.WebApplicationFirewallPolicyPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190601.WebApplicationFirewallPolicyPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,15 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["customRules"] = args ? args.customRules : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["policySettings"] = args ? args.policySettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +107,10 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
  */
 export interface WebApplicationFirewallPolicyArgs {
     /**
+     * Describes custom rules inside the policy.
+     */
+    readonly customRules?: pulumi.Input<pulumi.Input<inputs.network.v20190601.WebApplicationFirewallCustomRule>[]>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: pulumi.Input<string>;
@@ -121,9 +127,9 @@ export interface WebApplicationFirewallPolicyArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the web application firewall policy.
+     * Describes policySettings for policy.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20190601.WebApplicationFirewallPolicyPropertiesFormat>;
+    readonly policySettings?: pulumi.Input<inputs.network.v20190601.PolicySettings>;
     /**
      * The name of the resource group.
      */

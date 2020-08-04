@@ -47,7 +47,7 @@ export class HybridUseBenefit extends pulumi.CustomResource {
     /**
      * Property bag for a hybrid use benefit response
      */
-    public readonly properties!: pulumi.Output<outputs.softwareplan.v20191201.HybridUseBenefitPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.softwareplan.v20191201.HybridUseBenefitPropertiesResponse>;
     /**
      * Hybrid use benefit SKU
      */
@@ -80,10 +80,10 @@ export class HybridUseBenefit extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["scope"] = args ? args.scope : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,10 +105,6 @@ export interface HybridUseBenefitArgs {
      * This is a unique identifier for a plan. Should be a guid.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Property bag for a hybrid use benefit response
-     */
-    readonly properties?: pulumi.Input<inputs.softwareplan.v20191201.HybridUseBenefitProperties>;
     /**
      * The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
      */

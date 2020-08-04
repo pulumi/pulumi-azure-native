@@ -47,7 +47,7 @@ export class Map extends pulumi.CustomResource {
     /**
      * The integration account map properties.
      */
-    public readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountMapPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountMapPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -73,21 +73,26 @@ export class Map extends pulumi.CustomResource {
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
+            if (!args || args.mapType === undefined) {
+                throw new Error("Missing required property 'mapType'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["content"] = args ? args.content : undefined;
+            inputs["contentType"] = args ? args.contentType : undefined;
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["mapType"] = args ? args.mapType : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["parametersSchema"] = args ? args.parametersSchema : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,6 +111,14 @@ export class Map extends pulumi.CustomResource {
  */
 export interface MapArgs {
     /**
+     * The content.
+     */
+    readonly content?: pulumi.Input<string>;
+    /**
+     * The content type.
+     */
+    readonly contentType?: pulumi.Input<string>;
+    /**
      * The integration account name.
      */
     readonly integrationAccountName: pulumi.Input<string>;
@@ -114,13 +127,21 @@ export interface MapArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The map type.
+     */
+    readonly mapType: pulumi.Input<string>;
+    /**
+     * The metadata.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The integration account map name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The integration account map properties.
+     * The parameters schema of integration account map.
      */
-    readonly properties: pulumi.Input<inputs.logic.v20160601.IntegrationAccountMapProperties>;
+    readonly parametersSchema?: pulumi.Input<inputs.logic.v20160601.IntegrationAccountMapPropertiesProperties>;
     /**
      * The resource group name.
      */

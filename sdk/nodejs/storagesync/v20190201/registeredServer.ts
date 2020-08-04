@@ -43,7 +43,7 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * RegisteredServer properties.
      */
-    public readonly properties!: pulumi.Output<outputs.storagesync.v20190201.RegisteredServerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storagesync.v20190201.RegisteredServerPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -71,10 +71,18 @@ export class RegisteredServer extends pulumi.CustomResource {
             if (!args || args.storageSyncServiceName === undefined) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
+            inputs["agentVersion"] = args ? args.agentVersion : undefined;
+            inputs["clusterId"] = args ? args.clusterId : undefined;
+            inputs["clusterName"] = args ? args.clusterName : undefined;
+            inputs["friendlyName"] = args ? args.friendlyName : undefined;
+            inputs["lastHeartBeat"] = args ? args.lastHeartBeat : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serverCertificate"] = args ? args.serverCertificate : undefined;
+            inputs["serverOSVersion"] = args ? args.serverOSVersion : undefined;
+            inputs["serverRole"] = args ? args.serverRole : undefined;
             inputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,17 +101,45 @@ export class RegisteredServer extends pulumi.CustomResource {
  */
 export interface RegisteredServerArgs {
     /**
-     * GUID identifying the on-premises server.
+     * Registered Server Agent Version
+     */
+    readonly agentVersion?: pulumi.Input<string>;
+    /**
+     * Registered Server clusterId
+     */
+    readonly clusterId?: pulumi.Input<string>;
+    /**
+     * Registered Server clusterName
+     */
+    readonly clusterName?: pulumi.Input<string>;
+    /**
+     * Friendly Name
+     */
+    readonly friendlyName?: pulumi.Input<string>;
+    /**
+     * Registered Server last heart beat
+     */
+    readonly lastHeartBeat?: pulumi.Input<string>;
+    /**
+     * Registered Server serverId
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The parameters used to create the registered server.
-     */
-    readonly properties?: pulumi.Input<inputs.storagesync.v20190201.RegisteredServerCreateParametersProperties>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Registered Server Certificate
+     */
+    readonly serverCertificate?: pulumi.Input<string>;
+    /**
+     * Registered Server OS Version
+     */
+    readonly serverOSVersion?: pulumi.Input<string>;
+    /**
+     * Registered Server serverRole
+     */
+    readonly serverRole?: pulumi.Input<string>;
     /**
      * Name of Storage Sync Service resource.
      */

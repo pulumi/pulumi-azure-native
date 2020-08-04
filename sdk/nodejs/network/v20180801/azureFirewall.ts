@@ -51,7 +51,7 @@ export class AzureFirewall extends pulumi.CustomResource {
     /**
      * Properties of the Azure Firewall.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180801.AzureFirewallPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180801.AzureFirewallPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,18 @@ export class AzureFirewall extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["applicationRuleCollections"] = args ? args.applicationRuleCollections : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["natRuleCollections"] = args ? args.natRuleCollections : undefined;
+            inputs["networkRuleCollections"] = args ? args.networkRuleCollections : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,9 +110,17 @@ export class AzureFirewall extends pulumi.CustomResource {
  */
 export interface AzureFirewallArgs {
     /**
+     * Collection of application rule collections used by Azure Firewall.
+     */
+    readonly applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20180801.AzureFirewallApplicationRuleCollection>[]>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * IP configuration of the Azure Firewall resource.
+     */
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20180801.AzureFirewallIPConfiguration>[]>;
     /**
      * Resource location.
      */
@@ -117,9 +130,17 @@ export interface AzureFirewallArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the Azure Firewall.
+     * Collection of NAT rule collections used by Azure Firewall.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20180801.AzureFirewallPropertiesFormat>;
+    readonly natRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20180801.AzureFirewallNatRuleCollection>[]>;
+    /**
+     * Collection of network rule collections used by Azure Firewall.
+     */
+    readonly networkRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.v20180801.AzureFirewallNetworkRuleCollection>[]>;
+    /**
+     * The provisioning state of the resource.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

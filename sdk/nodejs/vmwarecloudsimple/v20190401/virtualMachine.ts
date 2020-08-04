@@ -47,7 +47,7 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * Virtual machine properties
      */
-    public readonly properties!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.VirtualMachinePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.vmwarecloudsimple.v20190401.VirtualMachinePropertiesResponse>;
     /**
      * The list of tags
      */
@@ -73,21 +73,42 @@ export class VirtualMachine extends pulumi.CustomResource {
             if (!args || args.Referer === undefined) {
                 throw new Error("Missing required property 'Referer'");
             }
+            if (!args || args.amountOfRam === undefined) {
+                throw new Error("Missing required property 'amountOfRam'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.numberOfCores === undefined) {
+                throw new Error("Missing required property 'numberOfCores'");
+            }
+            if (!args || args.privateCloudId === undefined) {
+                throw new Error("Missing required property 'privateCloudId'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["Referer"] = args ? args.Referer : undefined;
+            inputs["amountOfRam"] = args ? args.amountOfRam : undefined;
+            inputs["customization"] = args ? args.customization : undefined;
+            inputs["disks"] = args ? args.disks : undefined;
+            inputs["exposeToGuestVM"] = args ? args.exposeToGuestVM : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["nics"] = args ? args.nics : undefined;
+            inputs["numberOfCores"] = args ? args.numberOfCores : undefined;
+            inputs["password"] = args ? args.password : undefined;
+            inputs["privateCloudId"] = args ? args.privateCloudId : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourcePool"] = args ? args.resourcePool : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["templateId"] = args ? args.templateId : undefined;
+            inputs["username"] = args ? args.username : undefined;
+            inputs["vSphereNetworks"] = args ? args.vSphereNetworks : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,6 +131,22 @@ export interface VirtualMachineArgs {
      */
     readonly Referer: pulumi.Input<string>;
     /**
+     * The amount of memory
+     */
+    readonly amountOfRam: pulumi.Input<number>;
+    /**
+     * Virtual machine properties
+     */
+    readonly customization?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.GuestOSCustomization>;
+    /**
+     * The list of Virtual Disks
+     */
+    readonly disks?: pulumi.Input<pulumi.Input<inputs.vmwarecloudsimple.v20190401.VirtualDisk>[]>;
+    /**
+     * Expose Guest OS or not
+     */
+    readonly exposeToGuestVM?: pulumi.Input<boolean>;
+    /**
      * Azure region
      */
     readonly location: pulumi.Input<string>;
@@ -118,15 +155,43 @@ export interface VirtualMachineArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Virtual machine properties
+     * The list of Virtual NICs
      */
-    readonly properties?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.VirtualMachineProperties>;
+    readonly nics?: pulumi.Input<pulumi.Input<inputs.vmwarecloudsimple.v20190401.VirtualNic>[]>;
+    /**
+     * The number of CPU cores
+     */
+    readonly numberOfCores: pulumi.Input<number>;
+    /**
+     * Password for login. Deprecated - use customization property
+     */
+    readonly password?: pulumi.Input<string>;
+    /**
+     * Private Cloud Id
+     */
+    readonly privateCloudId: pulumi.Input<string>;
     /**
      * The name of the resource group
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Virtual Machines Resource Pool
+     */
+    readonly resourcePool?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.ResourcePool>;
+    /**
      * The list of tags
      */
     readonly tags?: pulumi.Input<inputs.vmwarecloudsimple.v20190401.Tags>;
+    /**
+     * Virtual Machine Template Id
+     */
+    readonly templateId?: pulumi.Input<string>;
+    /**
+     * Username for login. Deprecated - use customization property
+     */
+    readonly username?: pulumi.Input<string>;
+    /**
+     * The list of Virtual VSphere Networks
+     */
+    readonly vSphereNetworks?: pulumi.Input<pulumi.Input<string>[]>;
 }

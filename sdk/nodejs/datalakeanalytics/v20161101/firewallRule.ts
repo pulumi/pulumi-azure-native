@@ -43,7 +43,7 @@ export class FirewallRule extends pulumi.CustomResource {
     /**
      * The firewall rule properties.
      */
-    public readonly properties!: pulumi.Output<outputs.datalakeanalytics.v20161101.FirewallRulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.datalakeanalytics.v20161101.FirewallRulePropertiesResponse>;
     /**
      * The resource type.
      */
@@ -65,19 +65,24 @@ export class FirewallRule extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.endIpAddress === undefined) {
+                throw new Error("Missing required property 'endIpAddress'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.startIpAddress === undefined) {
+                throw new Error("Missing required property 'startIpAddress'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["endIpAddress"] = args ? args.endIpAddress : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["startIpAddress"] = args ? args.startIpAddress : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,15 +105,19 @@ export interface FirewallRuleArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+     */
+    readonly endIpAddress: pulumi.Input<string>;
+    /**
      * The name of the firewall rule to create or update.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The firewall rule properties to use when creating a new firewall rule.
-     */
-    readonly properties: pulumi.Input<inputs.datalakeanalytics.v20161101.CreateOrUpdateFirewallRuleProperties>;
-    /**
      * The name of the Azure resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+     */
+    readonly startIpAddress: pulumi.Input<string>;
 }

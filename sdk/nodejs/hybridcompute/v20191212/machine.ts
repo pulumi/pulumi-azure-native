@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../../types/input";
+import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -46,7 +48,7 @@ export class Machine extends pulumi.CustomResource {
     /**
      * Hybrid Compute Machine properties
      */
-    public readonly properties!: pulumi.Output<{[key: string]: any}>;
+    public /*out*/ readonly properties!: pulumi.Output<{[key: string]: any}>;
     /**
      * Resource tags.
      */
@@ -78,12 +80,17 @@ export class Machine extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["clientPublicKey"] = args ? args.clientPublicKey : undefined;
+            inputs["extensions"] = args ? args.extensions : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["locationData"] = args ? args.locationData : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["osProfile"] = args ? args.osProfile : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["vmId"] = args ? args.vmId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,19 +108,31 @@ export class Machine extends pulumi.CustomResource {
  * The set of arguments for constructing a Machine resource.
  */
 export interface MachineArgs {
+    /**
+     * Public Key that the client provides to be used during initial resource onboarding
+     */
+    readonly clientPublicKey?: pulumi.Input<string>;
+    /**
+     * Machine Extensions information
+     */
+    readonly extensions?: pulumi.Input<pulumi.Input<inputs.hybridcompute.v20191212.MachineExtensionInstanceView>[]>;
     readonly identity?: pulumi.Input<{[key: string]: any}>;
     /**
      * The geo-location where the resource lives
      */
     readonly location: pulumi.Input<string>;
     /**
+     * Metadata pertaining to the geographic location of the resource.
+     */
+    readonly locationData?: pulumi.Input<inputs.hybridcompute.v20191212.LocationData>;
+    /**
      * The name of the hybrid machine.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Hybrid Compute Machine properties
+     * Specifies the operating system settings for the hybrid machine.
      */
-    readonly properties?: pulumi.Input<{[key: string]: any}>;
+    readonly osProfile?: pulumi.Input<{[key: string]: any}>;
     /**
      * The name of the resource group.
      */
@@ -122,4 +141,8 @@ export interface MachineArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the hybrid machine unique ID.
+     */
+    readonly vmId?: pulumi.Input<string>;
 }

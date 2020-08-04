@@ -15,14 +15,34 @@ export function listWebAppBackupStatusSecrets(args: ListWebAppBackupStatusSecret
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azurerm:web/v20180201:listWebAppBackupStatusSecrets", {
+        "backupName": args.backupName,
+        "backupSchedule": args.backupSchedule,
+        "databases": args.databases,
+        "enabled": args.enabled,
         "kind": args.kind,
         "name": args.name,
-        "properties": args.properties,
         "resourceGroupName": args.resourceGroupName,
+        "storageAccountUrl": args.storageAccountUrl,
     }, opts);
 }
 
 export interface ListWebAppBackupStatusSecretsArgs {
+    /**
+     * Name of the backup.
+     */
+    readonly backupName?: string;
+    /**
+     * Schedule for the backup if it is executed periodically.
+     */
+    readonly backupSchedule?: inputs.web.v20180201.BackupSchedule;
+    /**
+     * Databases included in the backup.
+     */
+    readonly databases?: inputs.web.v20180201.DatabaseBackupSetting[];
+    /**
+     * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+     */
+    readonly enabled?: boolean;
     /**
      * Kind of resource.
      */
@@ -32,13 +52,13 @@ export interface ListWebAppBackupStatusSecretsArgs {
      */
     readonly name: string;
     /**
-     * BackupRequest resource specific properties
-     */
-    readonly properties?: inputs.web.v20180201.BackupRequestProperties;
-    /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: string;
+    /**
+     * SAS URL to the container.
+     */
+    readonly storageAccountUrl: string;
 }
 
 /**

@@ -43,11 +43,11 @@ export class IdentityProvider extends pulumi.CustomResource {
     /**
      * Identity Provider contract properties.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.IdentityProviderContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.IdentityProviderContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a IdentityProvider resource with the given unique name, arguments, and options.
@@ -62,6 +62,12 @@ export class IdentityProvider extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as IdentityProviderArgs | undefined;
+            if (!args || args.clientId === undefined) {
+                throw new Error("Missing required property 'clientId'");
+            }
+            if (!args || args.clientSecret === undefined) {
+                throw new Error("Missing required property 'clientSecret'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -71,11 +77,18 @@ export class IdentityProvider extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["allowedTenants"] = args ? args.allowedTenants : undefined;
+            inputs["clientId"] = args ? args.clientId : undefined;
+            inputs["clientSecret"] = args ? args.clientSecret : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["passwordResetPolicyName"] = args ? args.passwordResetPolicyName : undefined;
+            inputs["profileEditingPolicyName"] = args ? args.profileEditingPolicyName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["type"] = undefined /*out*/;
+            inputs["signinPolicyName"] = args ? args.signinPolicyName : undefined;
+            inputs["signupPolicyName"] = args ? args.signupPolicyName : undefined;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,13 +106,29 @@ export class IdentityProvider extends pulumi.CustomResource {
  */
 export interface IdentityProviderArgs {
     /**
+     * List of Allowed Tenants when configuring Azure Active Directory login.
+     */
+    readonly allowedTenants?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+     */
+    readonly clientId: pulumi.Input<string>;
+    /**
+     * Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.
+     */
+    readonly clientSecret: pulumi.Input<string>;
+    /**
      * Identity Provider Type identifier.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Identity Provider contract properties.
+     * Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
      */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20170301.IdentityProviderContractProperties>;
+    readonly passwordResetPolicyName?: pulumi.Input<string>;
+    /**
+     * Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+     */
+    readonly profileEditingPolicyName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -108,4 +137,16 @@ export interface IdentityProviderArgs {
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Signin Policy Name. Only applies to AAD B2C Identity Provider.
+     */
+    readonly signinPolicyName?: pulumi.Input<string>;
+    /**
+     * Signup Policy Name. Only applies to AAD B2C Identity Provider.
+     */
+    readonly signupPolicyName?: pulumi.Input<string>;
+    /**
+     * Identity Provider Type identifier.
+     */
+    readonly type?: pulumi.Input<string>;
 }

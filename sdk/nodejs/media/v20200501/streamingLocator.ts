@@ -43,7 +43,7 @@ export class StreamingLocator extends pulumi.CustomResource {
     /**
      * Properties of the Streaming Locator.
      */
-    public readonly properties!: pulumi.Output<outputs.media.v20200501.StreamingLocatorPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20200501.StreamingLocatorPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -65,16 +65,31 @@ export class StreamingLocator extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.assetName === undefined) {
+                throw new Error("Missing required property 'assetName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.streamingPolicyName === undefined) {
+                throw new Error("Missing required property 'streamingPolicyName'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["alternativeMediaId"] = args ? args.alternativeMediaId : undefined;
+            inputs["assetName"] = args ? args.assetName : undefined;
+            inputs["contentKeys"] = args ? args.contentKeys : undefined;
+            inputs["defaultContentKeyPolicyName"] = args ? args.defaultContentKeyPolicyName : undefined;
+            inputs["endTime"] = args ? args.endTime : undefined;
+            inputs["filters"] = args ? args.filters : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["startTime"] = args ? args.startTime : undefined;
+            inputs["streamingLocatorId"] = args ? args.streamingLocatorId : undefined;
+            inputs["streamingPolicyName"] = args ? args.streamingPolicyName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,15 +112,47 @@ export interface StreamingLocatorArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * Alternative Media ID of this Streaming Locator
+     */
+    readonly alternativeMediaId?: pulumi.Input<string>;
+    /**
+     * Asset Name
+     */
+    readonly assetName: pulumi.Input<string>;
+    /**
+     * The ContentKeys used by this Streaming Locator.
+     */
+    readonly contentKeys?: pulumi.Input<pulumi.Input<inputs.media.v20200501.StreamingLocatorContentKey>[]>;
+    /**
+     * Name of the default ContentKeyPolicy used by this Streaming Locator.
+     */
+    readonly defaultContentKeyPolicyName?: pulumi.Input<string>;
+    /**
+     * The end time of the Streaming Locator.
+     */
+    readonly endTime?: pulumi.Input<string>;
+    /**
+     * A list of asset or account filters which apply to this streaming locator
+     */
+    readonly filters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The Streaming Locator name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the Streaming Locator.
-     */
-    readonly properties?: pulumi.Input<inputs.media.v20200501.StreamingLocatorProperties>;
-    /**
      * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The start time of the Streaming Locator.
+     */
+    readonly startTime?: pulumi.Input<string>;
+    /**
+     * The StreamingLocatorId of the Streaming Locator.
+     */
+    readonly streamingLocatorId?: pulumi.Input<string>;
+    /**
+     * Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
+     */
+    readonly streamingPolicyName: pulumi.Input<string>;
 }

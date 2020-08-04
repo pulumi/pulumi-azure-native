@@ -47,7 +47,7 @@ export class MetricAlert extends pulumi.CustomResource {
     /**
      * The alert rule properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.insights.v20180301.MetricAlertPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20180301.MetricAlertPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -70,23 +70,49 @@ export class MetricAlert extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as MetricAlertArgs | undefined;
+            if (!args || args.criteria === undefined) {
+                throw new Error("Missing required property 'criteria'");
+            }
+            if (!args || args.description === undefined) {
+                throw new Error("Missing required property 'description'");
+            }
+            if (!args || args.enabled === undefined) {
+                throw new Error("Missing required property 'enabled'");
+            }
+            if (!args || args.evaluationFrequency === undefined) {
+                throw new Error("Missing required property 'evaluationFrequency'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.severity === undefined) {
+                throw new Error("Missing required property 'severity'");
+            }
+            if (!args || args.windowSize === undefined) {
+                throw new Error("Missing required property 'windowSize'");
+            }
+            inputs["actions"] = args ? args.actions : undefined;
+            inputs["autoMitigate"] = args ? args.autoMitigate : undefined;
+            inputs["criteria"] = args ? args.criteria : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["evaluationFrequency"] = args ? args.evaluationFrequency : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scopes"] = args ? args.scopes : undefined;
+            inputs["severity"] = args ? args.severity : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["targetResourceRegion"] = args ? args.targetResourceRegion : undefined;
+            inputs["targetResourceType"] = args ? args.targetResourceType : undefined;
+            inputs["windowSize"] = args ? args.windowSize : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +131,30 @@ export class MetricAlert extends pulumi.CustomResource {
  */
 export interface MetricAlertArgs {
     /**
+     * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+     */
+    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.v20180301.MetricAlertAction>[]>;
+    /**
+     * the flag that indicates whether the alert should be auto resolved or not. The default is true.
+     */
+    readonly autoMitigate?: pulumi.Input<boolean>;
+    /**
+     * defines the specific alert criteria information.
+     */
+    readonly criteria: pulumi.Input<inputs.insights.v20180301.MetricAlertCriteria>;
+    /**
+     * the description of the metric alert that will be included in the alert email.
+     */
+    readonly description: pulumi.Input<string>;
+    /**
+     * the flag that indicates whether the metric alert is enabled.
+     */
+    readonly enabled: pulumi.Input<boolean>;
+    /**
+     * how often the metric alert is evaluated represented in ISO 8601 duration format.
+     */
+    readonly evaluationFrequency: pulumi.Input<string>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
@@ -113,15 +163,31 @@ export interface MetricAlertArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The alert rule properties of the resource.
-     */
-    readonly properties: pulumi.Input<inputs.insights.v20180301.MetricAlertProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * the list of resource id's that this metric alert is scoped to.
+     */
+    readonly scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Alert severity {0, 1, 2, 3, 4}
+     */
+    readonly severity: pulumi.Input<number>;
+    /**
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+     */
+    readonly targetResourceRegion?: pulumi.Input<string>;
+    /**
+     * the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+     */
+    readonly targetResourceType?: pulumi.Input<string>;
+    /**
+     * the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
+     */
+    readonly windowSize: pulumi.Input<string>;
 }

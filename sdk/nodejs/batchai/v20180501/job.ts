@@ -43,7 +43,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The properties associated with the Job.
      */
-    public readonly properties!: pulumi.Output<outputs.batchai.v20180501.JobPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.batchai.v20180501.JobPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -62,23 +62,53 @@ export class Job extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as JobArgs | undefined;
+            if (!args || args.cluster === undefined) {
+                throw new Error("Missing required property 'cluster'");
+            }
             if (!args || args.experimentName === undefined) {
                 throw new Error("Missing required property 'experimentName'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.nodeCount === undefined) {
+                throw new Error("Missing required property 'nodeCount'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.stdOutErrPathPrefix === undefined) {
+                throw new Error("Missing required property 'stdOutErrPathPrefix'");
             }
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            inputs["caffe2Settings"] = args ? args.caffe2Settings : undefined;
+            inputs["caffeSettings"] = args ? args.caffeSettings : undefined;
+            inputs["chainerSettings"] = args ? args.chainerSettings : undefined;
+            inputs["cluster"] = args ? args.cluster : undefined;
+            inputs["cntkSettings"] = args ? args.cntkSettings : undefined;
+            inputs["constraints"] = args ? args.constraints : undefined;
+            inputs["containerSettings"] = args ? args.containerSettings : undefined;
+            inputs["customMpiSettings"] = args ? args.customMpiSettings : undefined;
+            inputs["customToolkitSettings"] = args ? args.customToolkitSettings : undefined;
+            inputs["environmentVariables"] = args ? args.environmentVariables : undefined;
             inputs["experimentName"] = args ? args.experimentName : undefined;
+            inputs["horovodSettings"] = args ? args.horovodSettings : undefined;
+            inputs["inputDirectories"] = args ? args.inputDirectories : undefined;
+            inputs["jobPreparation"] = args ? args.jobPreparation : undefined;
+            inputs["mountVolumes"] = args ? args.mountVolumes : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["nodeCount"] = args ? args.nodeCount : undefined;
+            inputs["outputDirectories"] = args ? args.outputDirectories : undefined;
+            inputs["pyTorchSettings"] = args ? args.pyTorchSettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["schedulingPriority"] = args ? args.schedulingPriority : undefined;
+            inputs["secrets"] = args ? args.secrets : undefined;
+            inputs["stdOutErrPathPrefix"] = args ? args.stdOutErrPathPrefix : undefined;
+            inputs["tensorFlowSettings"] = args ? args.tensorFlowSettings : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,21 +127,101 @@ export class Job extends pulumi.CustomResource {
  */
 export interface JobArgs {
     /**
+     * Settings for Caffe2 job.
+     */
+    readonly caffe2Settings?: pulumi.Input<inputs.batchai.v20180501.Caffe2Settings>;
+    /**
+     * Settings for Caffe job.
+     */
+    readonly caffeSettings?: pulumi.Input<inputs.batchai.v20180501.CaffeSettings>;
+    /**
+     * Settings for Chainer job.
+     */
+    readonly chainerSettings?: pulumi.Input<inputs.batchai.v20180501.ChainerSettings>;
+    /**
+     * Resource ID of the cluster on which this job will run.
+     */
+    readonly cluster: pulumi.Input<inputs.batchai.v20180501.ResourceId>;
+    /**
+     * Settings for CNTK (aka Microsoft Cognitive Toolkit) job.
+     */
+    readonly cntkSettings?: pulumi.Input<inputs.batchai.v20180501.CNTKsettings>;
+    /**
+     * Constraints associated with the Job.
+     */
+    readonly constraints?: pulumi.Input<inputs.batchai.v20180501.JobBasePropertiesProperties>;
+    /**
+     * Docker container settings for the job. If not provided, the job will run directly on the node.
+     */
+    readonly containerSettings?: pulumi.Input<inputs.batchai.v20180501.ContainerSettings>;
+    /**
+     * Settings for custom MPI job.
+     */
+    readonly customMpiSettings?: pulumi.Input<inputs.batchai.v20180501.CustomMpiSettings>;
+    /**
+     * Settings for custom tool kit job.
+     */
+    readonly customToolkitSettings?: pulumi.Input<inputs.batchai.v20180501.CustomToolkitSettings>;
+    /**
+     * A list of user defined environment variables which will be setup for the job.
+     */
+    readonly environmentVariables?: pulumi.Input<pulumi.Input<inputs.batchai.v20180501.EnvironmentVariable>[]>;
+    /**
      * The name of the experiment. Experiment names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
     readonly experimentName: pulumi.Input<string>;
+    /**
+     * Settings for Horovod job.
+     */
+    readonly horovodSettings?: pulumi.Input<inputs.batchai.v20180501.HorovodSettings>;
+    /**
+     * A list of input directories for the job.
+     */
+    readonly inputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20180501.InputDirectory>[]>;
+    /**
+     * A command line to be executed on each node allocated for the job before tool kit is launched.
+     */
+    readonly jobPreparation?: pulumi.Input<inputs.batchai.v20180501.JobPreparation>;
+    /**
+     * Information on mount volumes to be used by the job. These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
+     */
+    readonly mountVolumes?: pulumi.Input<inputs.batchai.v20180501.MountVolumes>;
     /**
      * The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the Job.
+     * Number of compute nodes to run the job on. The job will be gang scheduled on that many compute nodes.
      */
-    readonly properties?: pulumi.Input<inputs.batchai.v20180501.JobBaseProperties>;
+    readonly nodeCount: pulumi.Input<number>;
+    /**
+     * A list of output directories for the job.
+     */
+    readonly outputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20180501.OutputDirectory>[]>;
+    /**
+     * Settings for pyTorch job.
+     */
+    readonly pyTorchSettings?: pulumi.Input<inputs.batchai.v20180501.PyTorchSettings>;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Scheduling priority associated with the job. Possible values: low, normal, high.
+     */
+    readonly schedulingPriority?: pulumi.Input<string>;
+    /**
+     * A list of user defined environment variables with secret values which will be setup for the job. Server will never report values of these variables back.
+     */
+    readonly secrets?: pulumi.Input<pulumi.Input<inputs.batchai.v20180501.EnvironmentVariableWithSecretValue>[]>;
+    /**
+     * The path where the Batch AI service will store stdout, stderror and execution log of the job.
+     */
+    readonly stdOutErrPathPrefix: pulumi.Input<string>;
+    /**
+     * Settings for Tensor Flow job.
+     */
+    readonly tensorFlowSettings?: pulumi.Input<inputs.batchai.v20180501.TensorFlowSettings>;
     /**
      * The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */

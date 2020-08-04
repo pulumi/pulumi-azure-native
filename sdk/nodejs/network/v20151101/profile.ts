@@ -47,7 +47,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * Class representing the Traffic Manager profile properties.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20151101.ProfilePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20151101.ProfilePropertiesResponse>;
     /**
      * Resource tags
      */
@@ -76,11 +76,16 @@ export class Profile extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["dnsConfig"] = args ? args.dnsConfig : undefined;
+            inputs["endpoints"] = args ? args.endpoints : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["monitorConfig"] = args ? args.monitorConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["profileStatus"] = args ? args.profileStatus : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["trafficRoutingMethod"] = args ? args.trafficRoutingMethod : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,17 +104,29 @@ export class Profile extends pulumi.CustomResource {
  */
 export interface ProfileArgs {
     /**
+     * Gets or sets the DNS settings of the Traffic Manager profile.
+     */
+    readonly dnsConfig?: pulumi.Input<inputs.network.v20151101.DnsConfig>;
+    /**
+     * Gets or sets the list of endpoints in the Traffic Manager profile.
+     */
+    readonly endpoints?: pulumi.Input<pulumi.Input<inputs.network.v20151101.Endpoint>[]>;
+    /**
      * Resource location
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
+     */
+    readonly monitorConfig?: pulumi.Input<inputs.network.v20151101.MonitorConfig>;
     /**
      * The name of the Traffic Manager profile.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Class representing the Traffic Manager profile properties.
+     * Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20151101.ProfileProperties>;
+    readonly profileStatus?: pulumi.Input<string>;
     /**
      * The name of the resource group containing the Traffic Manager profile.
      */
@@ -118,4 +135,8 @@ export interface ProfileArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', or 'Priority'.
+     */
+    readonly trafficRoutingMethod?: pulumi.Input<string>;
 }

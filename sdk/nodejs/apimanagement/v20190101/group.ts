@@ -43,11 +43,11 @@ export class Group extends pulumi.CustomResource {
     /**
      * Group entity contract properties.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.GroupContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20190101.GroupContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a Group resource with the given unique name, arguments, and options.
@@ -62,6 +62,9 @@ export class Group extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as GroupArgs | undefined;
+            if (!args || args.displayName === undefined) {
+                throw new Error("Missing required property 'displayName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -71,11 +74,14 @@ export class Group extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["externalId"] = args ? args.externalId : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["type"] = undefined /*out*/;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,13 +99,21 @@ export class Group extends pulumi.CustomResource {
  */
 export interface GroupArgs {
     /**
+     * Group description.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * Group name.
+     */
+    readonly displayName: pulumi.Input<string>;
+    /**
+     * Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+     */
+    readonly externalId?: pulumi.Input<string>;
+    /**
      * Group identifier. Must be unique in the current API Management service instance.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties supplied to Create Group operation.
-     */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20190101.GroupCreateParametersProperties>;
     /**
      * The name of the resource group.
      */
@@ -108,4 +122,8 @@ export interface GroupArgs {
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Group type.
+     */
+    readonly type?: pulumi.Input<string>;
 }

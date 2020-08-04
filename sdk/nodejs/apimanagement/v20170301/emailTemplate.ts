@@ -43,7 +43,7 @@ export class EmailTemplate extends pulumi.CustomResource {
     /**
      * Email Template entity contract properties.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.EmailTemplateContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.EmailTemplateContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -71,10 +71,15 @@ export class EmailTemplate extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            inputs["body"] = args ? args.body : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["subject"] = args ? args.subject : undefined;
+            inputs["title"] = args ? args.title : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,13 +98,21 @@ export class EmailTemplate extends pulumi.CustomResource {
  */
 export interface EmailTemplateArgs {
     /**
+     * Email Template Body. This should be a valid XDocument
+     */
+    readonly body?: pulumi.Input<string>;
+    /**
+     * Description of the Email Template.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * Email Template Name Identifier.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Email Template Update contract properties.
+     * Email Template Parameter values.
      */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20170301.EmailTemplateUpdateParameterProperties>;
+    readonly parameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.v20170301.EmailTemplateParametersContractProperties>[]>;
     /**
      * The name of the resource group.
      */
@@ -108,4 +121,12 @@ export interface EmailTemplateArgs {
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Subject of the Template.
+     */
+    readonly subject?: pulumi.Input<string>;
+    /**
+     * Title of the Template.
+     */
+    readonly title?: pulumi.Input<string>;
 }

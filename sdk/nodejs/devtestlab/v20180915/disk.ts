@@ -47,7 +47,7 @@ export class Disk extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.DiskPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.DiskPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -76,22 +76,26 @@ export class Disk extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.userName === undefined) {
                 throw new Error("Missing required property 'userName'");
             }
+            inputs["diskBlobName"] = args ? args.diskBlobName : undefined;
+            inputs["diskSizeGiB"] = args ? args.diskSizeGiB : undefined;
+            inputs["diskType"] = args ? args.diskType : undefined;
+            inputs["diskUri"] = args ? args.diskUri : undefined;
+            inputs["hostCaching"] = args ? args.hostCaching : undefined;
             inputs["labName"] = args ? args.labName : undefined;
+            inputs["leasedByLabVmId"] = args ? args.leasedByLabVmId : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedDiskId"] = args ? args.managedDiskId : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userName"] = args ? args.userName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,21 +114,45 @@ export class Disk extends pulumi.CustomResource {
  */
 export interface DiskArgs {
     /**
+     * When backed by a blob, the name of the VHD blob without extension.
+     */
+    readonly diskBlobName?: pulumi.Input<string>;
+    /**
+     * The size of the disk in GibiBytes.
+     */
+    readonly diskSizeGiB?: pulumi.Input<number>;
+    /**
+     * The storage type for the disk (i.e. Standard, Premium).
+     */
+    readonly diskType?: pulumi.Input<string>;
+    /**
+     * When backed by a blob, the URI of underlying blob.
+     */
+    readonly diskUri?: pulumi.Input<string>;
+    /**
+     * The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+     */
+    readonly hostCaching?: pulumi.Input<string>;
+    /**
      * The name of the lab.
      */
     readonly labName: pulumi.Input<string>;
+    /**
+     * The resource ID of the VM to which this disk is leased.
+     */
+    readonly leasedByLabVmId?: pulumi.Input<string>;
     /**
      * The location of the resource.
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * When backed by managed disk, this is the ID of the compute disk resource.
+     */
+    readonly managedDiskId?: pulumi.Input<string>;
+    /**
      * The name of the disk.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties of the resource.
-     */
-    readonly properties: pulumi.Input<inputs.devtestlab.v20180915.DiskProperties>;
     /**
      * The name of the resource group.
      */

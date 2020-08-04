@@ -43,11 +43,11 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     /**
      * Describes the properties of a Virtual Machine Scale Set Extension.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20190701.VirtualMachineScaleSetExtensionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20190701.VirtualMachineScaleSetExtensionPropertiesResponse>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachineScaleSetExtension resource with the given unique name, arguments, and options.
@@ -71,11 +71,18 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             if (!args || args.vmScaleSetName === undefined) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
+            inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
+            inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["protectedSettings"] = args ? args.protectedSettings : undefined;
+            inputs["provisionAfterExtensions"] = args ? args.provisionAfterExtensions : undefined;
+            inputs["publisher"] = args ? args.publisher : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["settings"] = args ? args.settings : undefined;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
             inputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
-            inputs["type"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -93,17 +100,45 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
  */
 export interface VirtualMachineScaleSetExtensionArgs {
     /**
+     * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+     */
+    readonly autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+    /**
+     * If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+     */
+    readonly forceUpdateTag?: pulumi.Input<string>;
+    /**
      * The name of the VM scale set extension.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Describes the properties of a Virtual Machine Scale Set Extension.
+     * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
-    readonly properties?: pulumi.Input<inputs.compute.v20190701.VirtualMachineScaleSetExtensionProperties>;
+    readonly protectedSettings?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Collection of extension names after which this extension needs to be provisioned.
+     */
+    readonly provisionAfterExtensions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The name of the extension handler publisher.
+     */
+    readonly publisher?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Json formatted public settings for the extension.
+     */
+    readonly settings?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Specifies the type of the extension; an example is "CustomScriptExtension".
+     */
+    readonly type?: pulumi.Input<string>;
+    /**
+     * Specifies the version of the script handler.
+     */
+    readonly typeHandlerVersion?: pulumi.Input<string>;
     /**
      * The name of the VM scale set where the extension should be create or updated.
      */

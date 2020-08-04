@@ -43,7 +43,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     /**
      * Properties of a Diagnostic Settings Resource.
      */
-    public readonly properties!: pulumi.Output<outputs.aadiam.v20170401.DiagnosticSettingsResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.aadiam.v20170401.DiagnosticSettingsResponse>;
     /**
      * Azure resource type
      */
@@ -65,8 +65,14 @@ export class DiagnosticSetting extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            inputs["eventHubAuthorizationRuleId"] = args ? args.eventHubAuthorizationRuleId : undefined;
+            inputs["eventHubName"] = args ? args.eventHubName : undefined;
+            inputs["logs"] = args ? args.logs : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
+            inputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            inputs["workspaceId"] = args ? args.workspaceId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -85,11 +91,31 @@ export class DiagnosticSetting extends pulumi.CustomResource {
  */
 export interface DiagnosticSettingArgs {
     /**
+     * The resource Id for the event hub authorization rule.
+     */
+    readonly eventHubAuthorizationRuleId?: pulumi.Input<string>;
+    /**
+     * The name of the event hub. If none is specified, the default event hub will be selected.
+     */
+    readonly eventHubName?: pulumi.Input<string>;
+    /**
+     * The list of logs settings.
+     */
+    readonly logs?: pulumi.Input<pulumi.Input<inputs.aadiam.v20170401.LogSettings>[]>;
+    /**
      * The name of the diagnostic setting.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of a Diagnostic Settings Resource.
+     * The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
      */
-    readonly properties?: pulumi.Input<inputs.aadiam.v20170401.DiagnosticSettings>;
+    readonly serviceBusRuleId?: pulumi.Input<string>;
+    /**
+     * The resource ID of the storage account to which you would like to send Diagnostic Logs.
+     */
+    readonly storageAccountId?: pulumi.Input<string>;
+    /**
+     * The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
+     */
+    readonly workspaceId?: pulumi.Input<string>;
 }

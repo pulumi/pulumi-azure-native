@@ -43,7 +43,7 @@ export class Asset extends pulumi.CustomResource {
     /**
      * The resource properties.
      */
-    public readonly properties!: pulumi.Output<outputs.media.v20200501.AssetPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20200501.AssetPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -72,9 +72,13 @@ export class Asset extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["alternateId"] = args ? args.alternateId : undefined;
+            inputs["container"] = args ? args.container : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,15 +101,27 @@ export interface AssetArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * The alternate ID of the Asset.
+     */
+    readonly alternateId?: pulumi.Input<string>;
+    /**
+     * The name of the asset blob container.
+     */
+    readonly container?: pulumi.Input<string>;
+    /**
+     * The Asset description.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * The Asset name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The resource properties.
-     */
-    readonly properties?: pulumi.Input<inputs.media.v20200501.AssetProperties>;
-    /**
      * The name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The name of the storage account.
+     */
+    readonly storageAccountName?: pulumi.Input<string>;
 }

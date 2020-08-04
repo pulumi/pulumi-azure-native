@@ -48,7 +48,7 @@ export class Domain extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly properties!: pulumi.Output<outputs.domainregistration.v20150801.DomainResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.domainregistration.v20150801.DomainResponseProperties>;
     /**
      * Resource tags
      */
@@ -80,14 +80,30 @@ export class Domain extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["autoRenew"] = args ? args.autoRenew : undefined;
+            inputs["consent"] = args ? args.consent : undefined;
+            inputs["contactAdmin"] = args ? args.contactAdmin : undefined;
+            inputs["contactBilling"] = args ? args.contactBilling : undefined;
+            inputs["contactRegistrant"] = args ? args.contactRegistrant : undefined;
+            inputs["contactTech"] = args ? args.contactTech : undefined;
+            inputs["createdTime"] = args ? args.createdTime : undefined;
+            inputs["domainNotRenewableReasons"] = args ? args.domainNotRenewableReasons : undefined;
+            inputs["expirationTime"] = args ? args.expirationTime : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
+            inputs["lastRenewedTime"] = args ? args.lastRenewedTime : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managedHostNames"] = args ? args.managedHostNames : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["nameServers"] = args ? args.nameServers : undefined;
+            inputs["privacy"] = args ? args.privacy : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
+            inputs["readyForDnsRecordManagement"] = args ? args.readyForDnsRecordManagement : undefined;
+            inputs["registrationStatus"] = args ? args.registrationStatus : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -105,6 +121,42 @@ export class Domain extends pulumi.CustomResource {
  */
 export interface DomainArgs {
     /**
+     * If true then domain will renewed automatically
+     */
+    readonly autoRenew?: pulumi.Input<boolean>;
+    /**
+     * Legal agreement consent
+     */
+    readonly consent?: pulumi.Input<inputs.domainregistration.v20150801.DomainPurchaseConsent>;
+    /**
+     * Admin contact information
+     */
+    readonly contactAdmin?: pulumi.Input<inputs.domainregistration.v20150801.Contact>;
+    /**
+     * Billing contact information
+     */
+    readonly contactBilling?: pulumi.Input<inputs.domainregistration.v20150801.Contact>;
+    /**
+     * Registrant contact information
+     */
+    readonly contactRegistrant?: pulumi.Input<inputs.domainregistration.v20150801.Contact>;
+    /**
+     * Technical contact information
+     */
+    readonly contactTech?: pulumi.Input<inputs.domainregistration.v20150801.Contact>;
+    /**
+     * Domain creation timestamp
+     */
+    readonly createdTime?: pulumi.Input<string>;
+    /**
+     * Reasons why domain is not renewable
+     */
+    readonly domainNotRenewableReasons?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Domain expiration timestamp
+     */
+    readonly expirationTime?: pulumi.Input<string>;
+    /**
      * Resource Id
      */
     readonly id?: pulumi.Input<string>;
@@ -113,14 +165,41 @@ export interface DomainArgs {
      */
     readonly kind?: pulumi.Input<string>;
     /**
+     * Timestamp when the domain was renewed last time
+     */
+    readonly lastRenewedTime?: pulumi.Input<string>;
+    /**
      * Resource Location
      */
     readonly location: pulumi.Input<string>;
     /**
+     * All hostnames derived from the domain and assigned to Azure resources
+     */
+    readonly managedHostNames?: pulumi.Input<pulumi.Input<inputs.domainregistration.v20150801.HostName>[]>;
+    /**
      * Name of the domain
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.domainregistration.v20150801.DomainProperties>;
+    /**
+     * Name servers
+     */
+    readonly nameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * If true then domain privacy is enabled for this domain
+     */
+    readonly privacy?: pulumi.Input<boolean>;
+    /**
+     * Domain provisioning state
+     */
+    readonly provisioningState?: pulumi.Input<string>;
+    /**
+     * If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
+     */
+    readonly readyForDnsRecordManagement?: pulumi.Input<boolean>;
+    /**
+     * Domain registration status
+     */
+    readonly registrationStatus?: pulumi.Input<string>;
     /**
      * &gt;Name of the resource group
      */

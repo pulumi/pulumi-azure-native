@@ -43,7 +43,7 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * Properties of the event subscription
      */
-    public readonly properties!: pulumi.Output<outputs.eventgrid.v20190601.EventSubscriptionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.eventgrid.v20190601.EventSubscriptionPropertiesResponse>;
     /**
      * Type of the resource.
      */
@@ -68,9 +68,15 @@ export class EventSubscription extends pulumi.CustomResource {
             if (!args || args.scope === undefined) {
                 throw new Error("Missing required property 'scope'");
             }
+            inputs["deadLetterDestination"] = args ? args.deadLetterDestination : undefined;
+            inputs["destination"] = args ? args.destination : undefined;
+            inputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
+            inputs["filter"] = args ? args.filter : undefined;
+            inputs["labels"] = args ? args.labels : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["retryPolicy"] = args ? args.retryPolicy : undefined;
             inputs["scope"] = args ? args.scope : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -89,13 +95,33 @@ export class EventSubscription extends pulumi.CustomResource {
  */
 export interface EventSubscriptionArgs {
     /**
+     * The DeadLetter destination of the event subscription.
+     */
+    readonly deadLetterDestination?: pulumi.Input<inputs.eventgrid.v20190601.DeadLetterDestination>;
+    /**
+     * Information about the destination where events have to be delivered for the event subscription.
+     */
+    readonly destination?: pulumi.Input<inputs.eventgrid.v20190601.EventSubscriptionDestination>;
+    /**
+     * Expiration time of the event subscription.
+     */
+    readonly expirationTimeUtc?: pulumi.Input<string>;
+    /**
+     * Information about the filter for the event subscription.
+     */
+    readonly filter?: pulumi.Input<inputs.eventgrid.v20190601.EventSubscriptionFilter>;
+    /**
+     * List of user defined labels.
+     */
+    readonly labels?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Name of the event subscription. Event subscription names must be between 3 and 64 characters in length and should use alphanumeric letters only.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the event subscription
+     * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */
-    readonly properties?: pulumi.Input<inputs.eventgrid.v20190601.EventSubscriptionProperties>;
+    readonly retryPolicy?: pulumi.Input<inputs.eventgrid.v20190601.RetryPolicy>;
     /**
      * The identifier of the resource to which the event subscription needs to be created or updated. The scope can be a subscription, or a resource group, or a top level resource belonging to a resource provider namespace, or an EventGrid topic. For example, use '/subscriptions/{subscriptionId}/' for a subscription, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for a resource group, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}' for a resource, and '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topics/{topicName}' for an EventGrid topic.
      */

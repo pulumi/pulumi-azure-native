@@ -51,7 +51,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * Properties of the virtual network.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20170601.VirtualNetworkPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20170601.VirtualNetworkPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,19 @@ export class VirtualNetwork extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["addressSpace"] = args ? args.addressSpace : undefined;
+            inputs["dhcpOptions"] = args ? args.dhcpOptions : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
+            inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualNetworkPeerings"] = args ? args.virtualNetworkPeerings : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +111,14 @@ export class VirtualNetwork extends pulumi.CustomResource {
  */
 export interface VirtualNetworkArgs {
     /**
+     * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+     */
+    readonly addressSpace?: pulumi.Input<inputs.network.v20170601.AddressSpace>;
+    /**
+     * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+     */
+    readonly dhcpOptions?: pulumi.Input<inputs.network.v20170601.DhcpOptions>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: pulumi.Input<string>;
@@ -121,15 +135,27 @@ export interface VirtualNetworkArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the virtual network.
+     * The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20170601.VirtualNetworkPropertiesFormat>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The resourceGuid property of the Virtual Network resource.
+     */
+    readonly resourceGuid?: pulumi.Input<string>;
+    /**
+     * A list of subnets in a Virtual Network.
+     */
+    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20170601.Subnet>[]>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A list of peerings in a Virtual Network.
+     */
+    readonly virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.v20170601.VirtualNetworkPeering>[]>;
 }

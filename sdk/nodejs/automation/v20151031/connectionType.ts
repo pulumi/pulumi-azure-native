@@ -43,7 +43,7 @@ export class ConnectionType extends pulumi.CustomResource {
     /**
      * Gets or sets the properties of the connection type.
      */
-    public readonly properties!: pulumi.Output<outputs.automation.v20151031.ConnectionTypePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.ConnectionTypePropertiesResponse>;
     /**
      * Resource type
      */
@@ -65,19 +65,21 @@ export class ConnectionType extends pulumi.CustomResource {
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
+            if (!args || args.fieldDefinitions === undefined) {
+                throw new Error("Missing required property 'fieldDefinitions'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            inputs["fieldDefinitions"] = args ? args.fieldDefinitions : undefined;
+            inputs["isGlobal"] = args ? args.isGlobal : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -100,13 +102,17 @@ export interface ConnectionTypeArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
+     * Gets or sets the field definitions of the connection type.
+     */
+    readonly fieldDefinitions: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.v20151031.FieldDefinition>}>;
+    /**
+     * Gets or sets a Boolean value to indicate if the connection type is global.
+     */
+    readonly isGlobal?: pulumi.Input<boolean>;
+    /**
      * The parameters supplied to the create or update connection type operation.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Gets or sets the value of the connection type.
-     */
-    readonly properties: pulumi.Input<inputs.automation.v20151031.ConnectionTypeCreateOrUpdateProperties>;
     /**
      * Name of an Azure Resource group.
      */

@@ -43,7 +43,7 @@ export class Kpi extends pulumi.CustomResource {
     /**
      * Defines the KPI Threshold limits.
      */
-    public readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.KpiDefinitionResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.KpiDefinitionResponse>;
     /**
      * Resource type.
      */
@@ -62,6 +62,21 @@ export class Kpi extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as KpiArgs | undefined;
+            if (!args || args.calculationWindow === undefined) {
+                throw new Error("Missing required property 'calculationWindow'");
+            }
+            if (!args || args.entityType === undefined) {
+                throw new Error("Missing required property 'entityType'");
+            }
+            if (!args || args.entityTypeName === undefined) {
+                throw new Error("Missing required property 'entityTypeName'");
+            }
+            if (!args || args.expression === undefined) {
+                throw new Error("Missing required property 'expression'");
+            }
+            if (!args || args.function === undefined) {
+                throw new Error("Missing required property 'function'");
+            }
             if (!args || args.hubName === undefined) {
                 throw new Error("Missing required property 'hubName'");
             }
@@ -71,10 +86,24 @@ export class Kpi extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["aliases"] = args ? args.aliases : undefined;
+            inputs["calculationWindow"] = args ? args.calculationWindow : undefined;
+            inputs["calculationWindowFieldName"] = args ? args.calculationWindowFieldName : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["entityType"] = args ? args.entityType : undefined;
+            inputs["entityTypeName"] = args ? args.entityTypeName : undefined;
+            inputs["expression"] = args ? args.expression : undefined;
+            inputs["extracts"] = args ? args.extracts : undefined;
+            inputs["filter"] = args ? args.filter : undefined;
+            inputs["function"] = args ? args.function : undefined;
+            inputs["groupBy"] = args ? args.groupBy : undefined;
             inputs["hubName"] = args ? args.hubName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["thresHolds"] = args ? args.thresHolds : undefined;
+            inputs["unit"] = args ? args.unit : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,6 +122,54 @@ export class Kpi extends pulumi.CustomResource {
  */
 export interface KpiArgs {
     /**
+     * The aliases.
+     */
+    readonly aliases?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.KpiAlias>[]>;
+    /**
+     * The calculation window.
+     */
+    readonly calculationWindow: pulumi.Input<string>;
+    /**
+     * Name of calculation window field.
+     */
+    readonly calculationWindowFieldName?: pulumi.Input<string>;
+    /**
+     * Localized description for the KPI.
+     */
+    readonly description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Localized display name for the KPI.
+     */
+    readonly displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The mapping entity type.
+     */
+    readonly entityType: pulumi.Input<string>;
+    /**
+     * The mapping entity name.
+     */
+    readonly entityTypeName: pulumi.Input<string>;
+    /**
+     * The computation expression for the KPI.
+     */
+    readonly expression: pulumi.Input<string>;
+    /**
+     * The KPI extracts.
+     */
+    readonly extracts?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.KpiExtract>[]>;
+    /**
+     * The filter expression for the KPI.
+     */
+    readonly filter?: pulumi.Input<string>;
+    /**
+     * The computation function for the KPI.
+     */
+    readonly function: pulumi.Input<string>;
+    /**
+     * the group by properties for the KPI.
+     */
+    readonly groupBy?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The name of the hub.
      */
     readonly hubName: pulumi.Input<string>;
@@ -101,11 +178,15 @@ export interface KpiArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Defines the KPI Threshold limits.
-     */
-    readonly properties?: pulumi.Input<inputs.customerinsights.v20170426.KpiDefinition>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The KPI thresholds.
+     */
+    readonly thresHolds?: pulumi.Input<inputs.customerinsights.v20170426.KpiThresholds>;
+    /**
+     * The unit of measurement for the KPI.
+     */
+    readonly unit?: pulumi.Input<string>;
 }

@@ -43,7 +43,7 @@ export class Invitation extends pulumi.CustomResource {
     /**
      * Properties on the Invitation
      */
-    public readonly properties!: pulumi.Output<outputs.datashare.v20191101.InvitationPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.datashare.v20191101.InvitationPropertiesResponse>;
     /**
      * Type of the azure resource
      */
@@ -76,9 +76,12 @@ export class Invitation extends pulumi.CustomResource {
             }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["shareName"] = args ? args.shareName : undefined;
+            inputs["targetActiveDirectoryId"] = args ? args.targetActiveDirectoryId : undefined;
+            inputs["targetEmail"] = args ? args.targetEmail : undefined;
+            inputs["targetObjectId"] = args ? args.targetObjectId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,10 +108,6 @@ export interface InvitationArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties on the Invitation
-     */
-    readonly properties?: pulumi.Input<inputs.datashare.v20191101.InvitationProperties>;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -116,4 +115,18 @@ export interface InvitationArgs {
      * The name of the share to send the invitation for.
      */
     readonly shareName: pulumi.Input<string>;
+    /**
+     * The target Azure AD Id. Can't be combined with email.
+     */
+    readonly targetActiveDirectoryId?: pulumi.Input<string>;
+    /**
+     * The email the invitation is directed to.
+     */
+    readonly targetEmail?: pulumi.Input<string>;
+    /**
+     * The target user or application Id that invitation is being sent to.
+     * Must be specified along TargetActiveDirectoryId. This enables sending
+     * invitations to specific users or applications in an AD tenant.
+     */
+    readonly targetObjectId?: pulumi.Input<string>;
 }

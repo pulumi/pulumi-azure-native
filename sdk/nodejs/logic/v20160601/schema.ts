@@ -47,7 +47,7 @@ export class Schema extends pulumi.CustomResource {
     /**
      * The integration account schema properties.
      */
-    public readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountSchemaPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20160601.IntegrationAccountSchemaPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -76,18 +76,25 @@ export class Schema extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.schemaType === undefined) {
+                throw new Error("Missing required property 'schemaType'");
+            }
+            inputs["content"] = args ? args.content : undefined;
+            inputs["contentType"] = args ? args.contentType : undefined;
+            inputs["documentName"] = args ? args.documentName : undefined;
+            inputs["fileName"] = args ? args.fileName : undefined;
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["schemaType"] = args ? args.schemaType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["targetNamespace"] = args ? args.targetNamespace : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,6 +113,22 @@ export class Schema extends pulumi.CustomResource {
  */
 export interface SchemaArgs {
     /**
+     * The content.
+     */
+    readonly content?: pulumi.Input<string>;
+    /**
+     * The content type.
+     */
+    readonly contentType?: pulumi.Input<string>;
+    /**
+     * The document name.
+     */
+    readonly documentName?: pulumi.Input<string>;
+    /**
+     * The file name.
+     */
+    readonly fileName?: pulumi.Input<string>;
+    /**
      * The integration account name.
      */
     readonly integrationAccountName: pulumi.Input<string>;
@@ -114,19 +137,27 @@ export interface SchemaArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The metadata.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The integration account schema name.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The integration account schema properties.
-     */
-    readonly properties: pulumi.Input<inputs.logic.v20160601.IntegrationAccountSchemaProperties>;
     /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The schema type.
+     */
+    readonly schemaType: pulumi.Input<string>;
+    /**
      * The resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The target namespace of the schema.
+     */
+    readonly targetNamespace?: pulumi.Input<string>;
 }

@@ -51,7 +51,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * Properties of the network interface.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200401.NetworkInterfacePropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.NetworkInterfacePropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,18 @@ export class NetworkInterface extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["dnsSettings"] = args ? args.dnsSettings : undefined;
+            inputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
+            inputs["enableIPForwarding"] = args ? args.enableIPForwarding : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,9 +110,25 @@ export class NetworkInterface extends pulumi.CustomResource {
  */
 export interface NetworkInterfaceArgs {
     /**
+     * The DNS settings in network interface.
+     */
+    readonly dnsSettings?: pulumi.Input<inputs.network.v20200401.NetworkInterfaceDnsSettings>;
+    /**
+     * If the network interface is accelerated networking enabled.
+     */
+    readonly enableAcceleratedNetworking?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether IP forwarding is enabled on this network interface.
+     */
+    readonly enableIPForwarding?: pulumi.Input<boolean>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * A list of IPConfigurations of the network interface.
+     */
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20200401.NetworkInterfaceIPConfiguration>[]>;
     /**
      * Resource location.
      */
@@ -117,9 +138,9 @@ export interface NetworkInterfaceArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the network interface.
+     * The reference to the NetworkSecurityGroup resource.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20200401.NetworkInterfacePropertiesFormat>;
+    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20200401.NetworkSecurityGroup>;
     /**
      * The name of the resource group.
      */

@@ -51,7 +51,7 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**
      * Properties of the virtual network gateway connection.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190701.VirtualNetworkGatewayConnectionPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190701.VirtualNetworkGatewayConnectionPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -74,22 +74,40 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as VirtualNetworkGatewayConnectionArgs | undefined;
+            if (!args || args.connectionType === undefined) {
+                throw new Error("Missing required property 'connectionType'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.virtualNetworkGateway1 === undefined) {
+                throw new Error("Missing required property 'virtualNetworkGateway1'");
+            }
+            inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            inputs["connectionProtocol"] = args ? args.connectionProtocol : undefined;
+            inputs["connectionType"] = args ? args.connectionType : undefined;
+            inputs["enableBgp"] = args ? args.enableBgp : undefined;
             inputs["etag"] = args ? args.etag : undefined;
+            inputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["ipsecPolicies"] = args ? args.ipsecPolicies : undefined;
+            inputs["localNetworkGateway2"] = args ? args.localNetworkGateway2 : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["peer"] = args ? args.peer : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
+            inputs["routingWeight"] = args ? args.routingWeight : undefined;
+            inputs["sharedKey"] = args ? args.sharedKey : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["trafficSelectorPolicies"] = args ? args.trafficSelectorPolicies : undefined;
+            inputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
+            inputs["virtualNetworkGateway1"] = args ? args.virtualNetworkGateway1 : undefined;
+            inputs["virtualNetworkGateway2"] = args ? args.virtualNetworkGateway2 : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -108,13 +126,41 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
  */
 export interface VirtualNetworkGatewayConnectionArgs {
     /**
+     * The authorizationKey.
+     */
+    readonly authorizationKey?: pulumi.Input<string>;
+    /**
+     * Connection protocol used for this connection.
+     */
+    readonly connectionProtocol?: pulumi.Input<string>;
+    /**
+     * Gateway connection type.
+     */
+    readonly connectionType: pulumi.Input<string>;
+    /**
+     * EnableBgp flag.
+     */
+    readonly enableBgp?: pulumi.Input<boolean>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag?: pulumi.Input<string>;
     /**
+     * Bypass ExpressRoute Gateway for data forwarding.
+     */
+    readonly expressRouteGatewayBypass?: pulumi.Input<boolean>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
+    /**
+     * The IPSec Policies to be considered by this connection.
+     */
+    readonly ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20190701.IpsecPolicy>[]>;
+    /**
+     * The reference to local network gateway resource.
+     */
+    readonly localNetworkGateway2?: pulumi.Input<inputs.network.v20190701.LocalNetworkGateway>;
     /**
      * Resource location.
      */
@@ -124,15 +170,43 @@ export interface VirtualNetworkGatewayConnectionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the virtual network gateway connection.
+     * The reference to peerings resource.
      */
-    readonly properties: pulumi.Input<inputs.network.v20190701.VirtualNetworkGatewayConnectionPropertiesFormat>;
+    readonly peer?: pulumi.Input<inputs.network.v20190701.SubResource>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The resource GUID property of the virtual network gateway connection resource.
+     */
+    readonly resourceGuid?: pulumi.Input<string>;
+    /**
+     * The routing weight.
+     */
+    readonly routingWeight?: pulumi.Input<number>;
+    /**
+     * The IPSec shared key.
+     */
+    readonly sharedKey?: pulumi.Input<string>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Traffic Selector Policies to be considered by this connection.
+     */
+    readonly trafficSelectorPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20190701.TrafficSelectorPolicy>[]>;
+    /**
+     * Enable policy-based traffic selectors.
+     */
+    readonly usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
+    /**
+     * The reference to virtual network gateway resource.
+     */
+    readonly virtualNetworkGateway1: pulumi.Input<inputs.network.v20190701.VirtualNetworkGateway>;
+    /**
+     * The reference to virtual network gateway resource.
+     */
+    readonly virtualNetworkGateway2?: pulumi.Input<inputs.network.v20190701.VirtualNetworkGateway>;
 }

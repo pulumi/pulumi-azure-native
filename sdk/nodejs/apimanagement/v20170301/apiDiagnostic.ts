@@ -43,7 +43,7 @@ export class ApiDiagnostic extends pulumi.CustomResource {
     /**
      * Diagnostic entity contract properties.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.DiagnosticContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20170301.DiagnosticContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -65,6 +65,9 @@ export class ApiDiagnostic extends pulumi.CustomResource {
             if (!args || args.apiId === undefined) {
                 throw new Error("Missing required property 'apiId'");
             }
+            if (!args || args.enabled === undefined) {
+                throw new Error("Missing required property 'enabled'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -75,10 +78,11 @@ export class ApiDiagnostic extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             inputs["apiId"] = args ? args.apiId : undefined;
+            inputs["enabled"] = args ? args.enabled : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,13 +105,13 @@ export interface ApiDiagnosticArgs {
      */
     readonly apiId: pulumi.Input<string>;
     /**
+     * Indicates whether a diagnostic should receive data or not.
+     */
+    readonly enabled: pulumi.Input<boolean>;
+    /**
      * Diagnostic identifier. Must be unique in the current API Management service instance.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Diagnostic entity contract properties.
-     */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20170301.DiagnosticContractProperties>;
     /**
      * The name of the resource group.
      */

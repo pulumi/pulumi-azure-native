@@ -43,7 +43,7 @@ export class PolicySetDefinition extends pulumi.CustomResource {
     /**
      * The policy definition properties.
      */
-    public readonly properties!: pulumi.Output<outputs.authorization.v20190901.PolicySetDefinitionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.authorization.v20190901.PolicySetDefinitionPropertiesResponse>;
     /**
      * The type of the resource (Microsoft.Authorization/policySetDefinitions).
      */
@@ -65,8 +65,18 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.policyDefinitions === undefined) {
+                throw new Error("Missing required property 'policyDefinitions'");
+            }
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["parameters"] = args ? args.parameters : undefined;
+            inputs["policyDefinitionGroups"] = args ? args.policyDefinitionGroups : undefined;
+            inputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
+            inputs["policyType"] = args ? args.policyType : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -85,11 +95,35 @@ export class PolicySetDefinition extends pulumi.CustomResource {
  */
 export interface PolicySetDefinitionArgs {
     /**
+     * The policy set definition description.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The display name of the policy set definition.
+     */
+    readonly displayName?: pulumi.Input<string>;
+    /**
+     * The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The name of the policy set definition to create.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The policy definition properties.
+     * The policy set definition parameters that can be used in policy definition references.
      */
-    readonly properties?: pulumi.Input<inputs.authorization.v20190901.PolicySetDefinitionProperties>;
+    readonly parameters?: pulumi.Input<inputs.authorization.v20190901.ParameterDefinitions>;
+    /**
+     * The metadata describing groups of policy definition references within the policy set definition.
+     */
+    readonly policyDefinitionGroups?: pulumi.Input<pulumi.Input<inputs.authorization.v20190901.PolicyDefinitionGroup>[]>;
+    /**
+     * An array of policy definition references.
+     */
+    readonly policyDefinitions: pulumi.Input<pulumi.Input<inputs.authorization.v20190901.PolicyDefinitionReference>[]>;
+    /**
+     * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+     */
+    readonly policyType?: pulumi.Input<string>;
 }

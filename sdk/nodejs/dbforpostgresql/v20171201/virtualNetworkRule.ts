@@ -43,7 +43,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     /**
      * Resource properties.
      */
-    public readonly properties!: pulumi.Output<outputs.dbforpostgresql.v20171201.VirtualNetworkRulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.dbforpostgresql.v20171201.VirtualNetworkRulePropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -71,10 +71,15 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             if (!args || args.serverName === undefined) {
                 throw new Error("Missing required property 'serverName'");
             }
+            if (!args || args.virtualNetworkSubnetId === undefined) {
+                throw new Error("Missing required property 'virtualNetworkSubnetId'");
+            }
+            inputs["ignoreMissingVnetServiceEndpoint"] = args ? args.ignoreMissingVnetServiceEndpoint : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
+            inputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,13 +98,13 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
  */
 export interface VirtualNetworkRuleArgs {
     /**
+     * Create firewall rule before the virtual network has vnet service endpoint enabled.
+     */
+    readonly ignoreMissingVnetServiceEndpoint?: pulumi.Input<boolean>;
+    /**
      * The name of the virtual network rule.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Resource properties.
-     */
-    readonly properties?: pulumi.Input<inputs.dbforpostgresql.v20171201.VirtualNetworkRuleProperties>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -108,4 +113,8 @@ export interface VirtualNetworkRuleArgs {
      * The name of the server.
      */
     readonly serverName: pulumi.Input<string>;
+    /**
+     * The ARM resource id of the virtual network subnet.
+     */
+    readonly virtualNetworkSubnetId: pulumi.Input<string>;
 }

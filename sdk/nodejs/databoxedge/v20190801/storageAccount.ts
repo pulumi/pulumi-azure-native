@@ -43,7 +43,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * The Storage Account properties.
      */
-    public readonly properties!: pulumi.Output<outputs.databoxedge.v20190801.StorageAccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.databoxedge.v20190801.StorageAccountPropertiesResponse>;
     /**
      * The hierarchical type of the object.
      */
@@ -68,16 +68,17 @@ export class StorageAccount extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["dataPolicy"] = args ? args.dataPolicy : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageAccountCredentialId"] = args ? args.storageAccountCredentialId : undefined;
+            inputs["storageAccountStatus"] = args ? args.storageAccountStatus : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -96,6 +97,14 @@ export class StorageAccount extends pulumi.CustomResource {
  */
 export interface StorageAccountArgs {
     /**
+     * Data policy of the storage Account.
+     */
+    readonly dataPolicy?: pulumi.Input<string>;
+    /**
+     * Description for the storage Account.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * The device name.
      */
     readonly deviceName: pulumi.Input<string>;
@@ -104,11 +113,15 @@ export interface StorageAccountArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The Storage Account properties.
-     */
-    readonly properties: pulumi.Input<inputs.databoxedge.v20190801.StorageAccountProperties>;
-    /**
      * The resource group name.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Storage Account Credential Id
+     */
+    readonly storageAccountCredentialId?: pulumi.Input<string>;
+    /**
+     * Current status of the storage account
+     */
+    readonly storageAccountStatus?: pulumi.Input<string>;
 }

@@ -48,7 +48,7 @@ export class SiteRelayServiceConnection extends pulumi.CustomResource {
      * Resource Name
      */
     public readonly name!: pulumi.Output<string | undefined>;
-    public readonly properties!: pulumi.Output<outputs.web.v20150801.RelayServiceConnectionEntityResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20150801.RelayServiceConnectionEntityResponseProperties>;
     /**
      * Resource tags
      */
@@ -80,14 +80,20 @@ export class SiteRelayServiceConnection extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["biztalkUri"] = args ? args.biztalkUri : undefined;
+            inputs["entityConnectionString"] = args ? args.entityConnectionString : undefined;
+            inputs["hostname"] = args ? args.hostname : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["port"] = args ? args.port : undefined;
+            inputs["resourceConnectionString"] = args ? args.resourceConnectionString : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceType"] = args ? args.resourceType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["type"] = args ? args.type : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -104,6 +110,9 @@ export class SiteRelayServiceConnection extends pulumi.CustomResource {
  * The set of arguments for constructing a SiteRelayServiceConnection resource.
  */
 export interface SiteRelayServiceConnectionArgs {
+    readonly biztalkUri?: pulumi.Input<string>;
+    readonly entityConnectionString?: pulumi.Input<string>;
+    readonly hostname?: pulumi.Input<string>;
     /**
      * Resource Id
      */
@@ -116,15 +125,14 @@ export interface SiteRelayServiceConnectionArgs {
      * Resource Location
      */
     readonly location: pulumi.Input<string>;
-    /**
-     * The name by which the Hybrid Connection is identified
-     */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.web.v20150801.RelayServiceConnectionEntityProperties>;
+    readonly port?: pulumi.Input<number>;
+    readonly resourceConnectionString?: pulumi.Input<string>;
     /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    readonly resourceType?: pulumi.Input<string>;
     /**
      * Resource tags
      */

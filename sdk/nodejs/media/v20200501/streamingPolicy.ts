@@ -43,7 +43,7 @@ export class StreamingPolicy extends pulumi.CustomResource {
     /**
      * Class to specify properties of Streaming Policy
      */
-    public readonly properties!: pulumi.Output<outputs.media.v20200501.StreamingPolicyPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20200501.StreamingPolicyPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -72,9 +72,14 @@ export class StreamingPolicy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["commonEncryptionCbcs"] = args ? args.commonEncryptionCbcs : undefined;
+            inputs["commonEncryptionCenc"] = args ? args.commonEncryptionCenc : undefined;
+            inputs["defaultContentKeyPolicyName"] = args ? args.defaultContentKeyPolicyName : undefined;
+            inputs["envelopeEncryption"] = args ? args.envelopeEncryption : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["noEncryption"] = args ? args.noEncryption : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,13 +102,29 @@ export interface StreamingPolicyArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * Configuration of CommonEncryptionCbcs
+     */
+    readonly commonEncryptionCbcs?: pulumi.Input<inputs.media.v20200501.CommonEncryptionCbcs>;
+    /**
+     * Configuration of CommonEncryptionCenc
+     */
+    readonly commonEncryptionCenc?: pulumi.Input<inputs.media.v20200501.CommonEncryptionCenc>;
+    /**
+     * Default ContentKey used by current Streaming Policy
+     */
+    readonly defaultContentKeyPolicyName?: pulumi.Input<string>;
+    /**
+     * Configuration of EnvelopeEncryption
+     */
+    readonly envelopeEncryption?: pulumi.Input<inputs.media.v20200501.EnvelopeEncryption>;
+    /**
      * The Streaming Policy name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Class to specify properties of Streaming Policy
+     * Configurations of NoEncryption
      */
-    readonly properties?: pulumi.Input<inputs.media.v20200501.StreamingPolicyProperties>;
+    readonly noEncryption?: pulumi.Input<inputs.media.v20200501.NoEncryption>;
     /**
      * The name of the resource group within the Azure subscription.
      */

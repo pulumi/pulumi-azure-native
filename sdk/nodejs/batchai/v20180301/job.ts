@@ -47,7 +47,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * The properties associated with the job.
      */
-    public readonly properties!: pulumi.Output<outputs.batchai.v20180301.JobPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.batchai.v20180301.JobPropertiesResponse>;
     /**
      * The tags of the resource
      */
@@ -70,20 +70,49 @@ export class Job extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as JobArgs | undefined;
+            if (!args || args.cluster === undefined) {
+                throw new Error("Missing required property 'cluster'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.nodeCount === undefined) {
+                throw new Error("Missing required property 'nodeCount'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.stdOutErrPathPrefix === undefined) {
+                throw new Error("Missing required property 'stdOutErrPathPrefix'");
+            }
+            inputs["caffe2Settings"] = args ? args.caffe2Settings : undefined;
+            inputs["caffeSettings"] = args ? args.caffeSettings : undefined;
+            inputs["chainerSettings"] = args ? args.chainerSettings : undefined;
+            inputs["cluster"] = args ? args.cluster : undefined;
+            inputs["cntkSettings"] = args ? args.cntkSettings : undefined;
+            inputs["constraints"] = args ? args.constraints : undefined;
+            inputs["containerSettings"] = args ? args.containerSettings : undefined;
+            inputs["customToolkitSettings"] = args ? args.customToolkitSettings : undefined;
+            inputs["environmentVariables"] = args ? args.environmentVariables : undefined;
+            inputs["experimentName"] = args ? args.experimentName : undefined;
+            inputs["inputDirectories"] = args ? args.inputDirectories : undefined;
+            inputs["jobPreparation"] = args ? args.jobPreparation : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["mountVolumes"] = args ? args.mountVolumes : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["nodeCount"] = args ? args.nodeCount : undefined;
+            inputs["outputDirectories"] = args ? args.outputDirectories : undefined;
+            inputs["priority"] = args ? args.priority : undefined;
+            inputs["pyTorchSettings"] = args ? args.pyTorchSettings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["secrets"] = args ? args.secrets : undefined;
+            inputs["stdOutErrPathPrefix"] = args ? args.stdOutErrPathPrefix : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tensorFlowSettings"] = args ? args.tensorFlowSettings : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,23 +131,93 @@ export class Job extends pulumi.CustomResource {
  */
 export interface JobArgs {
     /**
+     * Specifies the settings for Caffe2 job.
+     */
+    readonly caffe2Settings?: pulumi.Input<inputs.batchai.v20180301.Caffe2Settings>;
+    /**
+     * Specifies the settings for Caffe job.
+     */
+    readonly caffeSettings?: pulumi.Input<inputs.batchai.v20180301.CaffeSettings>;
+    /**
+     * Specifies the settings for Chainer job.
+     */
+    readonly chainerSettings?: pulumi.Input<inputs.batchai.v20180301.ChainerSettings>;
+    /**
+     * Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+     */
+    readonly cluster: pulumi.Input<inputs.batchai.v20180301.ResourceId>;
+    /**
+     * Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
+     */
+    readonly cntkSettings?: pulumi.Input<inputs.batchai.v20180301.CNTKsettings>;
+    /**
+     * Constraints associated with the Job.
+     */
+    readonly constraints?: pulumi.Input<inputs.batchai.v20180301.JobBasePropertiesProperties>;
+    /**
+     * If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
+     */
+    readonly containerSettings?: pulumi.Input<inputs.batchai.v20180301.ContainerSettings>;
+    /**
+     * Specifies the settings for a custom tool kit job.
+     */
+    readonly customToolkitSettings?: pulumi.Input<inputs.batchai.v20180301.CustomToolkitSettings>;
+    /**
+     * Batch AI will setup these additional environment variables for the job.
+     */
+    readonly environmentVariables?: pulumi.Input<pulumi.Input<inputs.batchai.v20180301.EnvironmentVariable>[]>;
+    /**
+     * Describe the experiment information of the job
+     */
+    readonly experimentName?: pulumi.Input<string>;
+    readonly inputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20180301.InputDirectory>[]>;
+    /**
+     * The specified actions will run on all the nodes that are part of the job
+     */
+    readonly jobPreparation?: pulumi.Input<inputs.batchai.v20180301.JobPreparation>;
+    /**
      * The region in which to create the job.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
+     */
+    readonly mountVolumes?: pulumi.Input<inputs.batchai.v20180301.MountVolumes>;
     /**
      * The name of the job within the specified resource group. Job names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the Job.
+     * The job will be gang scheduled on that many compute nodes
      */
-    readonly properties?: pulumi.Input<inputs.batchai.v20180301.JobBaseProperties>;
+    readonly nodeCount: pulumi.Input<number>;
+    readonly outputDirectories?: pulumi.Input<pulumi.Input<inputs.batchai.v20180301.OutputDirectory>[]>;
+    /**
+     * Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
+     */
+    readonly priority?: pulumi.Input<number>;
+    /**
+     * Specifies the settings for pyTorch job.
+     */
+    readonly pyTorchSettings?: pulumi.Input<inputs.batchai.v20180301.PyTorchSettings>;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Batch AI will setup these additional environment variables for the job. Server will never report values of these variables back.
+     */
+    readonly secrets?: pulumi.Input<pulumi.Input<inputs.batchai.v20180301.EnvironmentVariableWithSecretValue>[]>;
+    /**
+     * The path where the Batch AI service will upload stdout and stderror of the job.
+     */
+    readonly stdOutErrPathPrefix: pulumi.Input<string>;
+    /**
      * The user specified tags associated with the job.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the settings for TensorFlow job.
+     */
+    readonly tensorFlowSettings?: pulumi.Input<inputs.batchai.v20180301.TensorFlowSettings>;
 }

@@ -51,7 +51,7 @@ export class Registration extends pulumi.CustomResource {
     /**
      * Registration resource.
      */
-    public readonly properties!: pulumi.Output<outputs.azurestack.v20170601.RegistrationPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.azurestack.v20170601.RegistrationPropertiesResponse>;
     /**
      * Custom tags for the resource.
      */
@@ -80,17 +80,18 @@ export class Registration extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
+            if (!args || args.registrationToken === undefined) {
+                throw new Error("Missing required property 'registrationToken'");
             }
             if (!args || args.resourceGroup === undefined) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["registrationToken"] = args ? args.registrationToken : undefined;
             inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["tags"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -118,9 +119,9 @@ export interface RegistrationArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the Azure Stack registration resource
+     * The token identifying registered Azure Stack
      */
-    readonly properties: pulumi.Input<inputs.azurestack.v20170601.RegistrationParameterProperties>;
+    readonly registrationToken: pulumi.Input<string>;
     /**
      * Name of the resource group.
      */

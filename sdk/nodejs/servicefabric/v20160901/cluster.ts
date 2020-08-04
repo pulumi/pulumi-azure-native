@@ -47,7 +47,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The cluster resource properties
      */
-    public readonly properties!: pulumi.Output<outputs.servicefabric.v20160901.ClusterPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicefabric.v20160901.ClusterPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -73,17 +73,37 @@ export class Cluster extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
+            if (!args || args.managementEndpoint === undefined) {
+                throw new Error("Missing required property 'managementEndpoint'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
+            }
+            if (!args || args.nodeTypes === undefined) {
+                throw new Error("Missing required property 'nodeTypes'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
+            inputs["certificate"] = args ? args.certificate : undefined;
+            inputs["clientCertificateCommonNames"] = args ? args.clientCertificateCommonNames : undefined;
+            inputs["clientCertificateThumbprints"] = args ? args.clientCertificateThumbprints : undefined;
+            inputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
+            inputs["diagnosticsStorageAccountConfig"] = args ? args.diagnosticsStorageAccountConfig : undefined;
+            inputs["fabricSettings"] = args ? args.fabricSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managementEndpoint"] = args ? args.managementEndpoint : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["nodeTypes"] = args ? args.nodeTypes : undefined;
+            inputs["reliabilityLevel"] = args ? args.reliabilityLevel : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["reverseProxyCertificate"] = args ? args.reverseProxyCertificate : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["upgradeDescription"] = args ? args.upgradeDescription : undefined;
+            inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
+            inputs["vmImage"] = args ? args.vmImage : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,23 +122,75 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterArgs {
     /**
+     * The settings to enable AAD authentication on the cluster
+     */
+    readonly azureActiveDirectory?: pulumi.Input<inputs.servicefabric.v20160901.AzureActiveDirectory>;
+    /**
+     * This primary certificate will be used as cluster node to node security, SSL certificate for cluster management endpoint and default admin client
+     */
+    readonly certificate?: pulumi.Input<inputs.servicefabric.v20160901.CertificateDescription>;
+    /**
+     *  List of client certificates to whitelist based on common names
+     */
+    readonly clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20160901.ClientCertificateCommonName>[]>;
+    /**
+     * The client thumbprint details ,it is used for client access for cluster operation
+     */
+    readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20160901.ClientCertificateThumbprint>[]>;
+    /**
+     * The ServiceFabric code version running in your cluster
+     */
+    readonly clusterCodeVersion?: pulumi.Input<string>;
+    /**
+     * The storage diagnostics account configuration details
+     */
+    readonly diagnosticsStorageAccountConfig?: pulumi.Input<inputs.servicefabric.v20160901.DiagnosticsStorageAccountConfig>;
+    /**
+     * List of custom fabric settings to configure the cluster.
+     */
+    readonly fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20160901.SettingsSectionDescription>[]>;
+    /**
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The http management endpoint of the cluster
+     */
+    readonly managementEndpoint: pulumi.Input<string>;
     /**
      * The name of the cluster resource
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The cluster resource properties
+     * The list of node types that make up the cluster
      */
-    readonly properties?: pulumi.Input<inputs.servicefabric.v20160901.ClusterProperties>;
+    readonly nodeTypes: pulumi.Input<pulumi.Input<inputs.servicefabric.v20160901.NodeTypeDescription>[]>;
+    /**
+     * Cluster reliability level indicates replica set size of system service
+     */
+    readonly reliabilityLevel?: pulumi.Input<string>;
     /**
      * The name of the resource group to which the resource belongs or get created
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The server certificate used by reverse proxy
+     */
+    readonly reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.v20160901.CertificateDescription>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The policy to use when upgrading the cluster.
+     */
+    readonly upgradeDescription?: pulumi.Input<inputs.servicefabric.v20160901.ClusterUpgradePolicy>;
+    /**
+     * Cluster upgrade mode indicates if fabric upgrade is initiated automatically by the system or not
+     */
+    readonly upgradeMode?: pulumi.Input<string>;
+    /**
+     * The name of VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+     */
+    readonly vmImage?: pulumi.Input<string>;
 }

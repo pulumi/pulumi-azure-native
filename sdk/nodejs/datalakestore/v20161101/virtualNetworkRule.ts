@@ -43,7 +43,7 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
     /**
      * The virtual network rule properties.
      */
-    public readonly properties!: pulumi.Output<outputs.datalakestore.v20161101.VirtualNetworkRulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.datalakestore.v20161101.VirtualNetworkRulePropertiesResponse>;
     /**
      * The resource type.
      */
@@ -68,16 +68,17 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.subnetId === undefined) {
+                throw new Error("Missing required property 'subnetId'");
+            }
             inputs["accountName"] = args ? args.accountName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["subnetId"] = args ? args.subnetId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -104,11 +105,11 @@ export interface VirtualNetworkRuleArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The virtual network rule properties to use when creating a new virtual network rule.
-     */
-    readonly properties: pulumi.Input<inputs.datalakestore.v20161101.CreateOrUpdateVirtualNetworkRuleProperties>;
-    /**
      * The name of the Azure resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The resource identifier for the subnet.
+     */
+    readonly subnetId: pulumi.Input<string>;
 }

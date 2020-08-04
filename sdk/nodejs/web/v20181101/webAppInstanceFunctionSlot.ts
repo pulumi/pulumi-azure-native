@@ -47,7 +47,7 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
     /**
      * FunctionEnvelope resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20181101.FunctionEnvelopeResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20181101.FunctionEnvelopeResponseProperties>;
     /**
      * Resource type.
      */
@@ -75,11 +75,20 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
             if (!args || args.slot === undefined) {
                 throw new Error("Missing required property 'slot'");
             }
+            inputs["config"] = args ? args.config : undefined;
+            inputs["config_href"] = args ? args.config_href : undefined;
+            inputs["files"] = args ? args.files : undefined;
+            inputs["function_app_id"] = args ? args.function_app_id : undefined;
+            inputs["href"] = args ? args.href : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["script_href"] = args ? args.script_href : undefined;
+            inputs["script_root_path_href"] = args ? args.script_root_path_href : undefined;
+            inputs["secrets_file_href"] = args ? args.secrets_file_href : undefined;
             inputs["slot"] = args ? args.slot : undefined;
+            inputs["test_data"] = args ? args.test_data : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -98,6 +107,26 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
  */
 export interface WebAppInstanceFunctionSlotArgs {
     /**
+     * Config information.
+     */
+    readonly config?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * Config URI.
+     */
+    readonly config_href?: pulumi.Input<string>;
+    /**
+     * File list.
+     */
+    readonly files?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Function App ID.
+     */
+    readonly function_app_id?: pulumi.Input<string>;
+    /**
+     * Function URI.
+     */
+    readonly href?: pulumi.Input<string>;
+    /**
      * Kind of resource.
      */
     readonly kind?: pulumi.Input<string>;
@@ -106,15 +135,27 @@ export interface WebAppInstanceFunctionSlotArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * FunctionEnvelope resource specific properties
-     */
-    readonly properties?: pulumi.Input<inputs.web.v20181101.FunctionEnvelopeProperties>;
-    /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Script URI.
+     */
+    readonly script_href?: pulumi.Input<string>;
+    /**
+     * Script root path URI.
+     */
+    readonly script_root_path_href?: pulumi.Input<string>;
+    /**
+     * Secrets file URI.
+     */
+    readonly secrets_file_href?: pulumi.Input<string>;
+    /**
      * Name of the deployment slot. If a slot is not specified, the API deletes a deployment for the production slot.
      */
     readonly slot: pulumi.Input<string>;
+    /**
+     * Test data used when testing via the Azure Portal.
+     */
+    readonly test_data?: pulumi.Input<string>;
 }

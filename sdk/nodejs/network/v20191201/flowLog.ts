@@ -51,7 +51,7 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * Properties of the flow log.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20191201.FlowLogPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191201.FlowLogPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -83,14 +83,26 @@ export class FlowLog extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.storageId === undefined) {
+                throw new Error("Missing required property 'storageId'");
+            }
+            if (!args || args.targetResourceId === undefined) {
+                throw new Error("Missing required property 'targetResourceId'");
+            }
+            inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["flowAnalyticsConfiguration"] = args ? args.flowAnalyticsConfiguration : undefined;
+            inputs["format"] = args ? args.format : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
+            inputs["storageId"] = args ? args.storageId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,6 +121,18 @@ export class FlowLog extends pulumi.CustomResource {
  */
 export interface FlowLogArgs {
     /**
+     * Flag to enable/disable flow logging.
+     */
+    readonly enabled?: pulumi.Input<boolean>;
+    /**
+     * Parameters that define the configuration of traffic analytics.
+     */
+    readonly flowAnalyticsConfiguration?: pulumi.Input<inputs.network.v20191201.TrafficAnalyticsProperties>;
+    /**
+     * Parameters that define the flow log format.
+     */
+    readonly format?: pulumi.Input<inputs.network.v20191201.FlowLogFormatParameters>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -125,15 +149,23 @@ export interface FlowLogArgs {
      */
     readonly networkWatcherName: pulumi.Input<string>;
     /**
-     * Properties of the flow log.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20191201.FlowLogPropertiesFormat>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Parameters that define the retention policy for flow log.
+     */
+    readonly retentionPolicy?: pulumi.Input<inputs.network.v20191201.RetentionPolicyParameters>;
+    /**
+     * ID of the storage account which is used to store the flow log.
+     */
+    readonly storageId: pulumi.Input<string>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * ID of network security group to which flow log will be applied.
+     */
+    readonly targetResourceId: pulumi.Input<string>;
 }

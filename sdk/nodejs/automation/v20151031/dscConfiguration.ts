@@ -51,7 +51,7 @@ export class DscConfiguration extends pulumi.CustomResource {
     /**
      * Gets or sets the configuration properties.
      */
-    public readonly properties!: pulumi.Output<outputs.automation.v20151031.DscConfigurationPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.DscConfigurationPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -80,19 +80,24 @@ export class DscConfiguration extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.source === undefined) {
+                throw new Error("Missing required property 'source'");
+            }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["logProgress"] = args ? args.logProgress : undefined;
+            inputs["logVerbose"] = args ? args.logVerbose : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["source"] = args ? args.source : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,21 +120,37 @@ export interface DscConfigurationArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
+     * Gets or sets the description of the configuration.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * Gets or sets the location of the resource.
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Gets or sets progress log option.
+     */
+    readonly logProgress?: pulumi.Input<boolean>;
+    /**
+     * Gets or sets verbose log option.
+     */
+    readonly logVerbose?: pulumi.Input<boolean>;
     /**
      * The create or update parameters for configuration.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Gets or sets configuration create or update properties.
+     * Gets or sets the configuration parameters.
      */
-    readonly properties: pulumi.Input<inputs.automation.v20151031.DscConfigurationCreateOrUpdateProperties>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.automation.v20151031.DscConfigurationParameter>}>;
     /**
      * Name of an Azure Resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets or sets the source.
+     */
+    readonly source: pulumi.Input<inputs.automation.v20151031.ContentSource>;
     /**
      * Gets or sets the tags attached to the resource.
      */

@@ -51,7 +51,7 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**
      * Properties of ExpressRouteCircuit
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20160330.ExpressRouteCircuitPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160330.ExpressRouteCircuitPropertiesFormatResponse>;
     /**
      * Gets or sets sku
      */
@@ -84,14 +84,23 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;
+            inputs["authorizations"] = args ? args.authorizations : undefined;
+            inputs["circuitProvisioningState"] = args ? args.circuitProvisioningState : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["peerings"] = args ? args.peerings : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serviceKey"] = args ? args.serviceKey : undefined;
+            inputs["serviceProviderNotes"] = args ? args.serviceProviderNotes : undefined;
+            inputs["serviceProviderProperties"] = args ? args.serviceProviderProperties : undefined;
+            inputs["serviceProviderProvisioningState"] = args ? args.serviceProviderProvisioningState : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,6 +119,18 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
  */
 export interface ExpressRouteCircuitArgs {
     /**
+     * allow classic operations
+     */
+    readonly allowClassicOperations?: pulumi.Input<boolean>;
+    /**
+     * Gets or sets list of authorizations
+     */
+    readonly authorizations?: pulumi.Input<pulumi.Input<inputs.network.v20160330.ExpressRouteCircuitAuthorization>[]>;
+    /**
+     * Gets or sets CircuitProvisioningState state of the resource 
+     */
+    readonly circuitProvisioningState?: pulumi.Input<string>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     readonly etag?: pulumi.Input<string>;
@@ -126,13 +147,33 @@ export interface ExpressRouteCircuitArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of ExpressRouteCircuit
+     * Gets or sets list of peerings
      */
-    readonly properties?: pulumi.Input<inputs.network.v20160330.ExpressRouteCircuitPropertiesFormat>;
+    readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20160330.ExpressRouteCircuitPeering>[]>;
+    /**
+     * Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets or sets ServiceKey
+     */
+    readonly serviceKey?: pulumi.Input<string>;
+    /**
+     * Gets or sets ServiceProviderNotes
+     */
+    readonly serviceProviderNotes?: pulumi.Input<string>;
+    /**
+     * Gets or sets ServiceProviderProperties
+     */
+    readonly serviceProviderProperties?: pulumi.Input<inputs.network.v20160330.ExpressRouteCircuitServiceProviderProperties>;
+    /**
+     * Gets or sets ServiceProviderProvisioningState state of the resource 
+     */
+    readonly serviceProviderProvisioningState?: pulumi.Input<string>;
     /**
      * Gets or sets sku
      */

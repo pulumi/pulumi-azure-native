@@ -51,7 +51,7 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
     /**
      * Properties of the P2SVpnServer configuration.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190901.VpnServerConfigurationPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190901.VpnServerConfigurationPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,23 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["aadAuthenticationParameters"] = args ? args.aadAuthenticationParameters : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["radiusClientRootCertificates"] = args ? args.radiusClientRootCertificates : undefined;
+            inputs["radiusServerAddress"] = args ? args.radiusServerAddress : undefined;
+            inputs["radiusServerRootCertificates"] = args ? args.radiusServerRootCertificates : undefined;
+            inputs["radiusServerSecret"] = args ? args.radiusServerSecret : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["vpnAuthenticationTypes"] = args ? args.vpnAuthenticationTypes : undefined;
+            inputs["vpnClientIpsecPolicies"] = args ? args.vpnClientIpsecPolicies : undefined;
+            inputs["vpnClientRevokedCertificates"] = args ? args.vpnClientRevokedCertificates : undefined;
+            inputs["vpnClientRootCertificates"] = args ? args.vpnClientRootCertificates : undefined;
+            inputs["vpnProtocols"] = args ? args.vpnProtocols : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +115,10 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
  */
 export interface VpnServerConfigurationArgs {
     /**
+     * The set of aad vpn authentication parameters.
+     */
+    readonly aadAuthenticationParameters?: pulumi.Input<inputs.network.v20190901.AadAuthenticationParameters>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -117,9 +131,21 @@ export interface VpnServerConfigurationArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the P2SVpnServer configuration.
+     * Radius client root certificate of VpnServerConfiguration.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20190901.VpnServerConfigurationProperties>;
+    readonly radiusClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190901.VpnServerConfigRadiusClientRootCertificate>[]>;
+    /**
+     * The radius server address property of the VpnServerConfiguration resource for point to site client connection.
+     */
+    readonly radiusServerAddress?: pulumi.Input<string>;
+    /**
+     * Radius Server root certificate of VpnServerConfiguration.
+     */
+    readonly radiusServerRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190901.VpnServerConfigRadiusServerRootCertificate>[]>;
+    /**
+     * The radius secret property of the VpnServerConfiguration resource for point to site client connection.
+     */
+    readonly radiusServerSecret?: pulumi.Input<string>;
     /**
      * The resource group name of the VpnServerConfiguration.
      */
@@ -128,4 +154,24 @@ export interface VpnServerConfigurationArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * VPN authentication types for the VpnServerConfiguration.
+     */
+    readonly vpnAuthenticationTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * VpnClientIpsecPolicies for VpnServerConfiguration.
+     */
+    readonly vpnClientIpsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20190901.IpsecPolicy>[]>;
+    /**
+     * VPN client revoked certificate of VpnServerConfiguration.
+     */
+    readonly vpnClientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190901.VpnServerConfigVpnClientRevokedCertificate>[]>;
+    /**
+     * VPN client root certificate of VpnServerConfiguration.
+     */
+    readonly vpnClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20190901.VpnServerConfigVpnClientRootCertificate>[]>;
+    /**
+     * VPN protocols for the VpnServerConfiguration.
+     */
+    readonly vpnProtocols?: pulumi.Input<pulumi.Input<string>[]>;
 }

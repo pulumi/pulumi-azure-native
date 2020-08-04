@@ -52,7 +52,7 @@ export class Task extends pulumi.CustomResource {
     /**
      * The properties of a task.
      */
-    public readonly properties!: pulumi.Output<outputs.containerregistry.v20190401.TaskPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.containerregistry.v20190401.TaskPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -81,19 +81,32 @@ export class Task extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.platform === undefined) {
+                throw new Error("Missing required property 'platform'");
+            }
             if (!args || args.registryName === undefined) {
                 throw new Error("Missing required property 'registryName'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.step === undefined) {
+                throw new Error("Missing required property 'step'");
+            }
+            inputs["agentConfiguration"] = args ? args.agentConfiguration : undefined;
+            inputs["credentials"] = args ? args.credentials : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["platform"] = args ? args.platform : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["status"] = args ? args.status : undefined;
+            inputs["step"] = args ? args.step : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["timeout"] = args ? args.timeout : undefined;
+            inputs["trigger"] = args ? args.trigger : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,6 +125,14 @@ export class Task extends pulumi.CustomResource {
  */
 export interface TaskArgs {
     /**
+     * The machine configuration of the run agent.
+     */
+    readonly agentConfiguration?: pulumi.Input<inputs.containerregistry.v20190401.AgentProperties>;
+    /**
+     * The properties that describes a set of credentials that will be used when this run is invoked.
+     */
+    readonly credentials?: pulumi.Input<inputs.containerregistry.v20190401.Credentials>;
+    /**
      * Identity for the resource.
      */
     readonly identity?: pulumi.Input<inputs.containerregistry.v20190401.IdentityProperties>;
@@ -124,9 +145,9 @@ export interface TaskArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of a task.
+     * The platform properties against which the run has to happen.
      */
-    readonly properties?: pulumi.Input<inputs.containerregistry.v20190401.TaskProperties>;
+    readonly platform: pulumi.Input<inputs.containerregistry.v20190401.PlatformProperties>;
     /**
      * The name of the container registry.
      */
@@ -136,7 +157,23 @@ export interface TaskArgs {
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The current status of task.
+     */
+    readonly status?: pulumi.Input<string>;
+    /**
+     * The properties of a task step.
+     */
+    readonly step: pulumi.Input<inputs.containerregistry.v20190401.TaskStepProperties>;
+    /**
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Run timeout in seconds.
+     */
+    readonly timeout?: pulumi.Input<number>;
+    /**
+     * The properties that describe all triggers for the task.
+     */
+    readonly trigger?: pulumi.Input<inputs.containerregistry.v20190401.TriggerProperties>;
 }

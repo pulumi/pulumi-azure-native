@@ -51,7 +51,7 @@ export class RouteTable extends pulumi.CustomResource {
     /**
      * Route Table resource
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20160330.RouteTablePropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160330.RouteTablePropertiesFormatResponse>;
     /**
      * Resource tags
      */
@@ -84,9 +84,12 @@ export class RouteTable extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routes"] = args ? args.routes : undefined;
+            inputs["subnets"] = args ? args.subnets : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -121,13 +124,21 @@ export interface RouteTableArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Route Table resource
+     * Gets or sets Provisioning state of the resource Updating/Deleting/Failed
      */
-    readonly properties?: pulumi.Input<inputs.network.v20160330.RouteTablePropertiesFormat>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Gets or sets Routes in a Route Table
+     */
+    readonly routes?: pulumi.Input<pulumi.Input<inputs.network.v20160330.Route>[]>;
+    /**
+     * Gets collection of references to subnets
+     */
+    readonly subnets?: pulumi.Input<pulumi.Input<inputs.network.v20160330.Subnet>[]>;
     /**
      * Resource tags
      */

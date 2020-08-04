@@ -47,7 +47,7 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * The properties of the webhook.
      */
-    public readonly properties!: pulumi.Output<outputs.containerregistry.v20190501.WebhookPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.containerregistry.v20190501.WebhookPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -70,6 +70,9 @@ export class Webhook extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as WebhookArgs | undefined;
+            if (!args || args.actions === undefined) {
+                throw new Error("Missing required property 'actions'");
+            }
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
@@ -82,12 +85,20 @@ export class Webhook extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.serviceUri === undefined) {
+                throw new Error("Missing required property 'serviceUri'");
+            }
+            inputs["actions"] = args ? args.actions : undefined;
+            inputs["customHeaders"] = args ? args.customHeaders : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["registryName"] = args ? args.registryName : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scope"] = args ? args.scope : undefined;
+            inputs["serviceUri"] = args ? args.serviceUri : undefined;
+            inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,6 +117,14 @@ export class Webhook extends pulumi.CustomResource {
  */
 export interface WebhookArgs {
     /**
+     * The list of actions that trigger the webhook to post notifications.
+     */
+    readonly actions: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Custom headers that will be added to the webhook notifications.
+     */
+    readonly customHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The location of the webhook. This cannot be changed after the resource is created.
      */
     readonly location: pulumi.Input<string>;
@@ -114,10 +133,6 @@ export interface WebhookArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties that the webhook will be created with.
-     */
-    readonly properties?: pulumi.Input<inputs.containerregistry.v20190501.WebhookPropertiesCreateParameters>;
-    /**
      * The name of the container registry.
      */
     readonly registryName: pulumi.Input<string>;
@@ -125,6 +140,18 @@ export interface WebhookArgs {
      * The name of the resource group to which the container registry belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+     */
+    readonly scope?: pulumi.Input<string>;
+    /**
+     * The service URI for the webhook to post notifications.
+     */
+    readonly serviceUri: pulumi.Input<string>;
+    /**
+     * The status of the webhook at the time the operation was called.
+     */
+    readonly status?: pulumi.Input<string>;
     /**
      * The tags for the webhook.
      */

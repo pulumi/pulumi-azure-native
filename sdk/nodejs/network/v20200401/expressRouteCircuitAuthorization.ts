@@ -47,7 +47,7 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     /**
      * Properties of the express route circuit authorization.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20200401.AuthorizationPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20200401.AuthorizationPropertiesFormatResponse>;
     /**
      * Type of the resource.
      */
@@ -75,12 +75,14 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["authorizationKey"] = args ? args.authorizationKey : undefined;
+            inputs["authorizationUseStatus"] = args ? args.authorizationUseStatus : undefined;
             inputs["circuitName"] = args ? args.circuitName : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -99,6 +101,14 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
  */
 export interface ExpressRouteCircuitAuthorizationArgs {
     /**
+     * The authorization key.
+     */
+    readonly authorizationKey?: pulumi.Input<string>;
+    /**
+     * The authorization use status.
+     */
+    readonly authorizationUseStatus?: pulumi.Input<string>;
+    /**
      * The name of the express route circuit.
      */
     readonly circuitName: pulumi.Input<string>;
@@ -110,10 +120,6 @@ export interface ExpressRouteCircuitAuthorizationArgs {
      * The name of the authorization.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the express route circuit authorization.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20200401.AuthorizationPropertiesFormat>;
     /**
      * The name of the resource group.
      */

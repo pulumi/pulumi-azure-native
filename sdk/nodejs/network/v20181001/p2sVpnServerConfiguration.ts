@@ -39,7 +39,7 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
@@ -47,7 +47,7 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
     /**
      * Parameters for P2SVpnServerConfiguration
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20181001.P2SVpnServerConfigurationPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181001.P2SVpnServerConfigurationPropertiesResponse>;
 
     /**
      * Create a P2sVpnServerConfiguration resource with the given unique name, arguments, and options.
@@ -71,12 +71,20 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
             if (!args || args.virtualWanName === undefined) {
                 throw new Error("Missing required property 'virtualWanName'");
             }
+            inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["p2SVpnServerConfigRadiusClientRootCertificates"] = args ? args.p2SVpnServerConfigRadiusClientRootCertificates : undefined;
+            inputs["p2SVpnServerConfigRadiusServerRootCertificates"] = args ? args.p2SVpnServerConfigRadiusServerRootCertificates : undefined;
+            inputs["p2SVpnServerConfigVpnClientRevokedCertificates"] = args ? args.p2SVpnServerConfigVpnClientRevokedCertificates : undefined;
+            inputs["p2SVpnServerConfigVpnClientRootCertificates"] = args ? args.p2SVpnServerConfigVpnClientRootCertificates : undefined;
+            inputs["radiusServerAddress"] = args ? args.radiusServerAddress : undefined;
+            inputs["radiusServerSecret"] = args ? args.radiusServerSecret : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["virtualWanName"] = args ? args.virtualWanName : undefined;
-            inputs["etag"] = undefined /*out*/;
+            inputs["vpnClientIpsecPolicies"] = args ? args.vpnClientIpsecPolicies : undefined;
+            inputs["vpnProtocols"] = args ? args.vpnProtocols : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -94,6 +102,10 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
  */
 export interface P2sVpnServerConfigurationArgs {
     /**
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    readonly etag?: pulumi.Input<string>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -102,9 +114,29 @@ export interface P2sVpnServerConfigurationArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Parameters for P2SVpnServerConfiguration
+     * Radius client root certificate of P2SVpnServerConfiguration.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20181001.P2SVpnServerConfigurationProperties>;
+    readonly p2SVpnServerConfigRadiusClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20181001.P2SVpnServerConfigRadiusClientRootCertificate>[]>;
+    /**
+     * Radius Server root certificate of P2SVpnServerConfiguration.
+     */
+    readonly p2SVpnServerConfigRadiusServerRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20181001.P2SVpnServerConfigRadiusServerRootCertificate>[]>;
+    /**
+     * VPN client revoked certificate of P2SVpnServerConfiguration.
+     */
+    readonly p2SVpnServerConfigVpnClientRevokedCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20181001.P2SVpnServerConfigVpnClientRevokedCertificate>[]>;
+    /**
+     * VPN client root certificate of P2SVpnServerConfiguration.
+     */
+    readonly p2SVpnServerConfigVpnClientRootCertificates?: pulumi.Input<pulumi.Input<inputs.network.v20181001.P2SVpnServerConfigVpnClientRootCertificate>[]>;
+    /**
+     * The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
+     */
+    readonly radiusServerAddress?: pulumi.Input<string>;
+    /**
+     * The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
+     */
+    readonly radiusServerSecret?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualWan.
      */
@@ -113,4 +145,12 @@ export interface P2sVpnServerConfigurationArgs {
      * The name of the VirtualWan.
      */
     readonly virtualWanName: pulumi.Input<string>;
+    /**
+     * VpnClientIpsecPolicies for P2SVpnServerConfiguration.
+     */
+    readonly vpnClientIpsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20181001.IpsecPolicy>[]>;
+    /**
+     * vpnProtocols for the P2SVpnServerConfiguration.
+     */
+    readonly vpnProtocols?: pulumi.Input<pulumi.Input<string>[]>;
 }

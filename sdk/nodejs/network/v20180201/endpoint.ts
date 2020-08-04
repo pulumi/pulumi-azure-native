@@ -43,7 +43,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The properties of the Traffic Manager endpoint.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20180201.EndpointPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20180201.EndpointPropertiesResponse>;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */
@@ -74,11 +74,20 @@ export class Endpoint extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["endpointLocation"] = args ? args.endpointLocation : undefined;
+            inputs["endpointMonitorStatus"] = args ? args.endpointMonitorStatus : undefined;
+            inputs["endpointStatus"] = args ? args.endpointStatus : undefined;
             inputs["endpointType"] = args ? args.endpointType : undefined;
+            inputs["geoMapping"] = args ? args.geoMapping : undefined;
+            inputs["minChildEndpoints"] = args ? args.minChildEndpoints : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["priority"] = args ? args.priority : undefined;
             inputs["profileName"] = args ? args.profileName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["target"] = args ? args.target : undefined;
+            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            inputs["weight"] = args ? args.weight : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,23 +106,55 @@ export class Endpoint extends pulumi.CustomResource {
  */
 export interface EndpointArgs {
     /**
+     * Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+     */
+    readonly endpointLocation?: pulumi.Input<string>;
+    /**
+     * The monitoring status of the endpoint.
+     */
+    readonly endpointMonitorStatus?: pulumi.Input<string>;
+    /**
+     * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+     */
+    readonly endpointStatus?: pulumi.Input<string>;
+    /**
      * The type of the Traffic Manager endpoint to be created or updated.
      */
     readonly endpointType: pulumi.Input<string>;
+    /**
+     * The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+     */
+    readonly geoMapping?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+     */
+    readonly minChildEndpoints?: pulumi.Input<number>;
     /**
      * The name of the Traffic Manager endpoint to be created or updated.
      */
     readonly name: pulumi.Input<string>;
     /**
+     * The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+     */
+    readonly priority?: pulumi.Input<number>;
+    /**
      * The name of the Traffic Manager profile.
      */
     readonly profileName: pulumi.Input<string>;
     /**
-     * The properties of the Traffic Manager endpoint.
-     */
-    readonly properties?: pulumi.Input<inputs.network.v20180201.EndpointProperties>;
-    /**
      * The name of the resource group containing the Traffic Manager endpoint to be created or updated.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The fully-qualified DNS name of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+     */
+    readonly target?: pulumi.Input<string>;
+    /**
+     * The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
+     */
+    readonly targetResourceId?: pulumi.Input<string>;
+    /**
+     * The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+     */
+    readonly weight?: pulumi.Input<number>;
 }

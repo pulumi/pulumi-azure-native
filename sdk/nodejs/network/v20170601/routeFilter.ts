@@ -51,7 +51,7 @@ export class RouteFilter extends pulumi.CustomResource {
     /**
      * Route Filter Resource
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20170601.RouteFilterPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20170601.RouteFilterPropertiesFormatResponse>;
     /**
      * Resource tags.
      */
@@ -86,10 +86,12 @@ export class RouteFilter extends pulumi.CustomResource {
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["peerings"] = args ? args.peerings : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["rules"] = args ? args.rules : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -120,13 +122,17 @@ export interface RouteFilterArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Route Filter Resource
+     * A collection of references to express route circuit peerings.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20170601.RouteFilterPropertiesFormat>;
+    readonly peerings?: pulumi.Input<pulumi.Input<inputs.network.v20170601.ExpressRouteCircuitPeering>[]>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Collection of RouteFilterRules contained within a route filter.
+     */
+    readonly rules?: pulumi.Input<pulumi.Input<inputs.network.v20170601.RouteFilterRule>[]>;
     /**
      * Resource tags.
      */

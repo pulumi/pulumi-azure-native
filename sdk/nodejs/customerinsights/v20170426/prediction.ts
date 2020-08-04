@@ -43,7 +43,7 @@ export class Prediction extends pulumi.CustomResource {
     /**
      * The prediction definition.
      */
-    public readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.PredictionResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170426.PredictionResponse>;
     /**
      * Resource type.
      */
@@ -62,19 +62,53 @@ export class Prediction extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PredictionArgs | undefined;
+            if (!args || args.autoAnalyze === undefined) {
+                throw new Error("Missing required property 'autoAnalyze'");
+            }
             if (!args || args.hubName === undefined) {
                 throw new Error("Missing required property 'hubName'");
+            }
+            if (!args || args.mappings === undefined) {
+                throw new Error("Missing required property 'mappings'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.negativeOutcomeExpression === undefined) {
+                throw new Error("Missing required property 'negativeOutcomeExpression'");
+            }
+            if (!args || args.positiveOutcomeExpression === undefined) {
+                throw new Error("Missing required property 'positiveOutcomeExpression'");
+            }
+            if (!args || args.primaryProfileType === undefined) {
+                throw new Error("Missing required property 'primaryProfileType'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.scopeExpression === undefined) {
+                throw new Error("Missing required property 'scopeExpression'");
+            }
+            if (!args || args.scoreLabel === undefined) {
+                throw new Error("Missing required property 'scoreLabel'");
+            }
+            inputs["autoAnalyze"] = args ? args.autoAnalyze : undefined;
+            inputs["description"] = args ? args.description : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
+            inputs["grades"] = args ? args.grades : undefined;
             inputs["hubName"] = args ? args.hubName : undefined;
+            inputs["involvedInteractionTypes"] = args ? args.involvedInteractionTypes : undefined;
+            inputs["involvedKpiTypes"] = args ? args.involvedKpiTypes : undefined;
+            inputs["involvedRelationships"] = args ? args.involvedRelationships : undefined;
+            inputs["mappings"] = args ? args.mappings : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["negativeOutcomeExpression"] = args ? args.negativeOutcomeExpression : undefined;
+            inputs["positiveOutcomeExpression"] = args ? args.positiveOutcomeExpression : undefined;
+            inputs["primaryProfileType"] = args ? args.primaryProfileType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scopeExpression"] = args ? args.scopeExpression : undefined;
+            inputs["scoreLabel"] = args ? args.scoreLabel : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,19 +127,67 @@ export class Prediction extends pulumi.CustomResource {
  */
 export interface PredictionArgs {
     /**
+     * Whether do auto analyze.
+     */
+    readonly autoAnalyze: pulumi.Input<boolean>;
+    /**
+     * Description of the prediction.
+     */
+    readonly description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Display name of the prediction.
+     */
+    readonly displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The prediction grades.
+     */
+    readonly grades?: pulumi.Input<pulumi.Input<inputs.customerinsights.v20170426.PredictionProperties>[]>;
+    /**
      * The name of the hub.
      */
     readonly hubName: pulumi.Input<string>;
     /**
-     * The name of the Prediction.
+     * Interaction types involved in the prediction.
+     */
+    readonly involvedInteractionTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * KPI types involved in the prediction.
+     */
+    readonly involvedKpiTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Relationships involved in the prediction.
+     */
+    readonly involvedRelationships?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Definition of the link mapping of prediction.
+     */
+    readonly mappings: pulumi.Input<inputs.customerinsights.v20170426.PredictionProperties>;
+    /**
+     * Name of the prediction.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The prediction definition.
+     * Negative outcome expression.
      */
-    readonly properties?: pulumi.Input<inputs.customerinsights.v20170426.PredictionDefinition>;
+    readonly negativeOutcomeExpression: pulumi.Input<string>;
+    /**
+     * Positive outcome expression.
+     */
+    readonly positiveOutcomeExpression: pulumi.Input<string>;
+    /**
+     * Primary profile type.
+     */
+    readonly primaryProfileType: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Scope expression.
+     */
+    readonly scopeExpression: pulumi.Input<string>;
+    /**
+     * Score label.
+     */
+    readonly scoreLabel: pulumi.Input<string>;
 }

@@ -51,7 +51,7 @@ export class Component extends pulumi.CustomResource {
     /**
      * Properties that define an Application Insights component resource.
      */
-    public readonly properties!: pulumi.Output<outputs.insights.v20150501.ApplicationInsightsComponentPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.insights.v20150501.ApplicationInsightsComponentPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -74,6 +74,9 @@ export class Component extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ComponentArgs | undefined;
+            if (!args || args.Application_Type === undefined) {
+                throw new Error("Missing required property 'Application_Type'");
+            }
             if (!args || args.kind === undefined) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -86,12 +89,21 @@ export class Component extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["Application_Type"] = args ? args.Application_Type : undefined;
+            inputs["DisableIpMasking"] = args ? args.DisableIpMasking : undefined;
+            inputs["Flow_Type"] = args ? args.Flow_Type : undefined;
+            inputs["HockeyAppId"] = args ? args.HockeyAppId : undefined;
+            inputs["ImmediatePurgeDataOn30Days"] = args ? args.ImmediatePurgeDataOn30Days : undefined;
+            inputs["IngestionMode"] = args ? args.IngestionMode : undefined;
+            inputs["Request_Source"] = args ? args.Request_Source : undefined;
+            inputs["RetentionInDays"] = args ? args.RetentionInDays : undefined;
+            inputs["SamplingPercentage"] = args ? args.SamplingPercentage : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,6 +122,42 @@ export class Component extends pulumi.CustomResource {
  */
 export interface ComponentArgs {
     /**
+     * Type of application being monitored.
+     */
+    readonly Application_Type: pulumi.Input<string>;
+    /**
+     * Disable IP masking.
+     */
+    readonly DisableIpMasking?: pulumi.Input<boolean>;
+    /**
+     * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
+     */
+    readonly Flow_Type?: pulumi.Input<string>;
+    /**
+     * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
+     */
+    readonly HockeyAppId?: pulumi.Input<string>;
+    /**
+     * Purge data immediately after 30 days.
+     */
+    readonly ImmediatePurgeDataOn30Days?: pulumi.Input<boolean>;
+    /**
+     * Indicates the flow of the ingestion.
+     */
+    readonly IngestionMode?: pulumi.Input<string>;
+    /**
+     * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+     */
+    readonly Request_Source?: pulumi.Input<string>;
+    /**
+     * Retention period in days.
+     */
+    readonly RetentionInDays?: pulumi.Input<number>;
+    /**
+     * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+     */
+    readonly SamplingPercentage?: pulumi.Input<number>;
+    /**
      * The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
      */
     readonly kind: pulumi.Input<string>;
@@ -121,10 +169,6 @@ export interface ComponentArgs {
      * The name of the Application Insights component resource.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties that define an Application Insights component resource.
-     */
-    readonly properties?: pulumi.Input<inputs.insights.v20150501.ApplicationInsightsComponentProperties>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

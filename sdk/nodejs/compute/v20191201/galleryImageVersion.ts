@@ -47,7 +47,7 @@ export class GalleryImageVersion extends pulumi.CustomResource {
     /**
      * Describes the properties of a gallery Image Version.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20191201.GalleryImageVersionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20191201.GalleryImageVersionPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -85,13 +85,18 @@ export class GalleryImageVersion extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.storageProfile === undefined) {
+                throw new Error("Missing required property 'storageProfile'");
+            }
             inputs["galleryImageName"] = args ? args.galleryImageName : undefined;
             inputs["galleryName"] = args ? args.galleryName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["publishingProfile"] = args ? args.publishingProfile : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageProfile"] = args ? args.storageProfile : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -126,13 +131,17 @@ export interface GalleryImageVersionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Describes the properties of a gallery Image Version.
+     * The publishing profile of a gallery Image Version.
      */
-    readonly properties?: pulumi.Input<inputs.compute.v20191201.GalleryImageVersionProperties>;
+    readonly publishingProfile?: pulumi.Input<inputs.compute.v20191201.GalleryImageVersionPublishingProfile>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * This is the storage profile of a Gallery Image Version.
+     */
+    readonly storageProfile: pulumi.Input<inputs.compute.v20191201.GalleryImageVersionStorageProfile>;
     /**
      * Resource tags
      */

@@ -47,7 +47,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.PolicyPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.PolicyPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -79,19 +79,24 @@ export class Policy extends pulumi.CustomResource {
             if (!args || args.policySetName === undefined) {
                 throw new Error("Missing required property 'policySetName'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["description"] = args ? args.description : undefined;
+            inputs["evaluatorType"] = args ? args.evaluatorType : undefined;
+            inputs["factData"] = args ? args.factData : undefined;
+            inputs["factName"] = args ? args.factName : undefined;
             inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["policySetName"] = args ? args.policySetName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["threshold"] = args ? args.threshold : undefined;
+            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,6 +115,22 @@ export class Policy extends pulumi.CustomResource {
  */
 export interface PolicyArgs {
     /**
+     * The description of the policy.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
+     * The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+     */
+    readonly evaluatorType?: pulumi.Input<string>;
+    /**
+     * The fact data of the policy.
+     */
+    readonly factData?: pulumi.Input<string>;
+    /**
+     * The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+     */
+    readonly factName?: pulumi.Input<string>;
+    /**
      * The name of the lab.
      */
     readonly labName: pulumi.Input<string>;
@@ -126,15 +147,27 @@ export interface PolicyArgs {
      */
     readonly policySetName: pulumi.Input<string>;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    readonly properties: pulumi.Input<inputs.devtestlab.v20160515.PolicyProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The status of the policy.
+     */
+    readonly status?: pulumi.Input<string>;
+    /**
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+     */
+    readonly threshold?: pulumi.Input<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: pulumi.Input<string>;
 }

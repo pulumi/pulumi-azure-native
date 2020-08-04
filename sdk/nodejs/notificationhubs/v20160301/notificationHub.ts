@@ -47,7 +47,7 @@ export class NotificationHub extends pulumi.CustomResource {
     /**
      * Properties of the NotificationHub.
      */
-    public readonly properties!: pulumi.Output<outputs.notificationhubs.v20160301.NotificationHubPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.notificationhubs.v20160301.NotificationHubPropertiesResponse>;
     /**
      * The sku of the created namespace
      */
@@ -83,19 +83,24 @@ export class NotificationHub extends pulumi.CustomResource {
             if (!args || args.namespaceName === undefined) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["admCredential"] = args ? args.admCredential : undefined;
+            inputs["apnsCredential"] = args ? args.apnsCredential : undefined;
+            inputs["authorizationRules"] = args ? args.authorizationRules : undefined;
+            inputs["baiduCredential"] = args ? args.baiduCredential : undefined;
+            inputs["gcmCredential"] = args ? args.gcmCredential : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["mpnsCredential"] = args ? args.mpnsCredential : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["registrationTtl"] = args ? args.registrationTtl : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["wnsCredential"] = args ? args.wnsCredential : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -114,9 +119,33 @@ export class NotificationHub extends pulumi.CustomResource {
  */
 export interface NotificationHubArgs {
     /**
+     * The AdmCredential of the created NotificationHub
+     */
+    readonly admCredential?: pulumi.Input<inputs.notificationhubs.v20160301.AdmCredential>;
+    /**
+     * The ApnsCredential of the created NotificationHub
+     */
+    readonly apnsCredential?: pulumi.Input<inputs.notificationhubs.v20160301.ApnsCredential>;
+    /**
+     * The AuthorizationRules of the created NotificationHub
+     */
+    readonly authorizationRules?: pulumi.Input<pulumi.Input<inputs.notificationhubs.v20160301.SharedAccessAuthorizationRuleProperties>[]>;
+    /**
+     * The BaiduCredential of the created NotificationHub
+     */
+    readonly baiduCredential?: pulumi.Input<inputs.notificationhubs.v20160301.BaiduCredential>;
+    /**
+     * The GcmCredential of the created NotificationHub
+     */
+    readonly gcmCredential?: pulumi.Input<inputs.notificationhubs.v20160301.GcmCredential>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The MpnsCredential of the created NotificationHub
+     */
+    readonly mpnsCredential?: pulumi.Input<inputs.notificationhubs.v20160301.MpnsCredential>;
     /**
      * The notification hub name.
      */
@@ -126,9 +155,9 @@ export interface NotificationHubArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Properties of the NotificationHub.
+     * The RegistrationTtl of the created NotificationHub
      */
-    readonly properties: pulumi.Input<inputs.notificationhubs.v20160301.NotificationHubProperties>;
+    readonly registrationTtl?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -141,4 +170,8 @@ export interface NotificationHubArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The WnsCredential of the created NotificationHub
+     */
+    readonly wnsCredential?: pulumi.Input<inputs.notificationhubs.v20160301.WnsCredential>;
 }

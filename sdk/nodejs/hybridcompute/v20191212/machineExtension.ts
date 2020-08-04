@@ -45,7 +45,7 @@ export class MachineExtension extends pulumi.CustomResource {
     /**
      * Describes Machine Extension Properties.
      */
-    public readonly properties!: pulumi.Output<{[key: string]: any}>;
+    public /*out*/ readonly properties!: pulumi.Output<{[key: string]: any}>;
     /**
      * Resource tags.
      */
@@ -53,7 +53,7 @@ export class MachineExtension extends pulumi.CustomResource {
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a MachineExtension resource with the given unique name, arguments, and options.
@@ -77,12 +77,19 @@ export class MachineExtension extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["autoUpgradeMinorVersion"] = args ? args.autoUpgradeMinorVersion : undefined;
+            inputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
+            inputs["instanceView"] = args ? args.instanceView : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["protectedSettings"] = args ? args.protectedSettings : undefined;
+            inputs["publisher"] = args ? args.publisher : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["settings"] = args ? args.settings : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = undefined /*out*/;
+            inputs["type"] = args ? args.type : undefined;
+            inputs["typeHandlerVersion"] = args ? args.typeHandlerVersion : undefined;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -100,6 +107,18 @@ export class MachineExtension extends pulumi.CustomResource {
  */
 export interface MachineExtensionArgs {
     /**
+     * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+     */
+    readonly autoUpgradeMinorVersion?: pulumi.Input<boolean>;
+    /**
+     * How the extension handler should be forced to update even if the extension configuration has not changed.
+     */
+    readonly forceUpdateTag?: pulumi.Input<string>;
+    /**
+     * The machine extension instance view.
+     */
+    readonly instanceView?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: pulumi.Input<string>;
@@ -108,15 +127,31 @@ export interface MachineExtensionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Describes Machine Extension Properties.
+     * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
-    readonly properties?: pulumi.Input<{[key: string]: any}>;
+    readonly protectedSettings?: pulumi.Input<{[key: string]: any}>;
+    /**
+     * The name of the extension handler publisher.
+     */
+    readonly publisher?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Json formatted public settings for the extension.
+     */
+    readonly settings?: pulumi.Input<{[key: string]: any}>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the type of the extension; an example is "CustomScriptExtension".
+     */
+    readonly type?: pulumi.Input<string>;
+    /**
+     * Specifies the version of the script handler.
+     */
+    readonly typeHandlerVersion?: pulumi.Input<string>;
 }

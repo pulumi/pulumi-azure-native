@@ -43,7 +43,7 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
     /**
      * Properties of BackupScheduleGroup
      */
-    public readonly properties!: pulumi.Output<outputs.storsimple.v20161001.BackupScheduleGroupPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.BackupScheduleGroupPropertiesResponse>;
     /**
      * The type.
      */
@@ -71,17 +71,18 @@ export class BackupScheduleGroup extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (!args || args.startTime === undefined) {
+                throw new Error("Missing required property 'startTime'");
             }
             inputs["deviceName"] = args ? args.deviceName : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["startTime"] = args ? args.startTime : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,11 +113,11 @@ export interface BackupScheduleGroupArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of BackupScheduleGroup
-     */
-    readonly properties: pulumi.Input<inputs.storsimple.v20161001.BackupScheduleGroupProperties>;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
+     */
+    readonly startTime: pulumi.Input<inputs.storsimple.v20161001.Time>;
 }

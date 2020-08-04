@@ -43,7 +43,7 @@ export class HybridConnection extends pulumi.CustomResource {
     /**
      * Properties of HybridConnection
      */
-    public readonly properties!: pulumi.Output<outputs.relay.v20160701.HybridConnectionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.relay.v20160701.HybridConnectionPropertiesResponse>;
     /**
      * Resource type
      */
@@ -73,8 +73,10 @@ export class HybridConnection extends pulumi.CustomResource {
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["namespaceName"] = args ? args.namespaceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["userMetadata"] = args ? args.userMetadata : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,11 +103,15 @@ export interface HybridConnectionArgs {
      */
     readonly namespaceName: pulumi.Input<string>;
     /**
-     * Properties of HybridConnection
+     * true if client authorization is needed for this HybridConnection; otherwise, false.
      */
-    readonly properties?: pulumi.Input<inputs.relay.v20160701.HybridConnectionProperties>;
+    readonly requiresClientAuthorization?: pulumi.Input<boolean>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+     */
+    readonly userMetadata?: pulumi.Input<string>;
 }

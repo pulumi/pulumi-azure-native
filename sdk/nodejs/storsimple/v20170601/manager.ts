@@ -51,7 +51,7 @@ export class Manager extends pulumi.CustomResource {
     /**
      * The properties of the StorSimple Manager.
      */
-    public readonly properties!: pulumi.Output<outputs.storsimple.v20170601.ManagerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20170601.ManagerPropertiesResponse>;
     /**
      * The tags attached to the resource.
      */
@@ -83,12 +83,15 @@ export class Manager extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["cisIntrinsicSettings"] = args ? args.cisIntrinsicSettings : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,6 +110,10 @@ export class Manager extends pulumi.CustomResource {
  */
 export interface ManagerArgs {
     /**
+     * Represents the type of StorSimple Manager.
+     */
+    readonly cisIntrinsicSettings?: pulumi.Input<inputs.storsimple.v20170601.ManagerIntrinsicSettings>;
+    /**
      * The etag of the manager.
      */
     readonly etag?: pulumi.Input<string>;
@@ -119,13 +126,17 @@ export interface ManagerArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the StorSimple Manager.
+     * Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
      */
-    readonly properties?: pulumi.Input<inputs.storsimple.v20170601.ManagerProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Specifies the Sku.
+     */
+    readonly sku?: pulumi.Input<inputs.storsimple.v20170601.ManagerSku>;
     /**
      * The tags attached to the resource.
      */

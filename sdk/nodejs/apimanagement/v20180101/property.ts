@@ -43,7 +43,7 @@ export class Property extends pulumi.CustomResource {
     /**
      * Property entity contract properties.
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.v20180101.PropertyContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20180101.PropertyContractPropertiesResponse>;
     /**
      * Resource type for API Management resource.
      */
@@ -62,6 +62,9 @@ export class Property extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as PropertyArgs | undefined;
+            if (!args || args.displayName === undefined) {
+                throw new Error("Missing required property 'displayName'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -71,10 +74,17 @@ export class Property extends pulumi.CustomResource {
             if (!args || args.serviceName === undefined) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (!args || args.value === undefined) {
+                throw new Error("Missing required property 'value'");
+            }
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["secret"] = args ? args.secret : undefined;
             inputs["serviceName"] = args ? args.serviceName : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["value"] = args ? args.value : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,19 +103,31 @@ export class Property extends pulumi.CustomResource {
  */
 export interface PropertyArgs {
     /**
+     * Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+     */
+    readonly displayName: pulumi.Input<string>;
+    /**
      * Identifier of the property.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Property entity contract properties.
-     */
-    readonly properties?: pulumi.Input<inputs.apimanagement.v20180101.PropertyContractProperties>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Determines whether the value is a secret and should be encrypted or not. Default value is false.
+     */
+    readonly secret?: pulumi.Input<boolean>;
+    /**
      * The name of the API Management service.
      */
     readonly serviceName: pulumi.Input<string>;
+    /**
+     * Optional tags that when provided can be used to filter the property list.
+     */
+    readonly tags?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
+     */
+    readonly value: pulumi.Input<string>;
 }

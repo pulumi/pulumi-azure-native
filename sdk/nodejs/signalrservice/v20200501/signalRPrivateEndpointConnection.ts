@@ -43,7 +43,7 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Properties of the private endpoint connection
      */
-    public readonly properties!: pulumi.Output<outputs.signalrservice.v20200501.PrivateEndpointConnectionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.signalrservice.v20200501.PrivateEndpointConnectionPropertiesResponse>;
     /**
      * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
      */
@@ -72,9 +72,11 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceName'");
             }
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
+            inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["resourceName"] = args ? args.resourceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,9 +99,13 @@ export interface SignalRPrivateEndpointConnectionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the private endpoint connection
+     * Private endpoint associated with the private endpoint connection
      */
-    readonly properties?: pulumi.Input<inputs.signalrservice.v20200501.PrivateEndpointConnectionProperties>;
+    readonly privateEndpoint?: pulumi.Input<inputs.signalrservice.v20200501.PrivateEndpoint>;
+    /**
+     * Connection state
+     */
+    readonly privateLinkServiceConnectionState?: pulumi.Input<inputs.signalrservice.v20200501.PrivateLinkServiceConnectionState>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

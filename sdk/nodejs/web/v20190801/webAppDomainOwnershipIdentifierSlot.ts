@@ -47,7 +47,7 @@ export class WebAppDomainOwnershipIdentifierSlot extends pulumi.CustomResource {
     /**
      * Identifier resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20190801.IdentifierResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20190801.IdentifierResponseProperties>;
     /**
      * Resource type.
      */
@@ -77,9 +77,10 @@ export class WebAppDomainOwnershipIdentifierSlot extends pulumi.CustomResource {
             }
             inputs["kind"] = args ? args.kind : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["slot"] = args ? args.slot : undefined;
+            inputs["value"] = args ? args.value : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,10 +107,6 @@ export interface WebAppDomainOwnershipIdentifierSlotArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Identifier resource specific properties
-     */
-    readonly properties?: pulumi.Input<inputs.web.v20190801.IdentifierProperties>;
-    /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -117,4 +114,8 @@ export interface WebAppDomainOwnershipIdentifierSlotArgs {
      * Name of the deployment slot. If a slot is not specified, the API will delete the binding for the production slot.
      */
     readonly slot: pulumi.Input<string>;
+    /**
+     * String representation of the identity.
+     */
+    readonly value?: pulumi.Input<string>;
 }

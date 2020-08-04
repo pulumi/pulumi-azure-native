@@ -55,7 +55,7 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * Properties of the storage account.
      */
-    public readonly properties!: pulumi.Output<outputs.storage.v20181101.StorageAccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20181101.StorageAccountPropertiesResponse>;
     /**
      * Gets the SKU.
      */
@@ -97,14 +97,21 @@ export class StorageAccount extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["accessTier"] = args ? args.accessTier : undefined;
+            inputs["customDomain"] = args ? args.customDomain : undefined;
+            inputs["enableAzureFilesAadIntegration"] = args ? args.enableAzureFilesAadIntegration : undefined;
+            inputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
+            inputs["encryption"] = args ? args.encryption : undefined;
             inputs["identity"] = args ? args.identity : undefined;
+            inputs["isHnsEnabled"] = args ? args.isHnsEnabled : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -123,9 +130,33 @@ export class StorageAccount extends pulumi.CustomResource {
  */
 export interface StorageAccountArgs {
     /**
+     * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+     */
+    readonly accessTier?: pulumi.Input<string>;
+    /**
+     * User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
+     */
+    readonly customDomain?: pulumi.Input<inputs.storage.v20181101.CustomDomain>;
+    /**
+     * Enables Azure Files AAD Integration for SMB if sets to true.
+     */
+    readonly enableAzureFilesAadIntegration?: pulumi.Input<boolean>;
+    /**
+     * Allows https traffic only to storage service if sets to true.
+     */
+    readonly enableHttpsTrafficOnly?: pulumi.Input<boolean>;
+    /**
+     * Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
+     */
+    readonly encryption?: pulumi.Input<inputs.storage.v20181101.Encryption>;
+    /**
      * The identity of the resource.
      */
     readonly identity?: pulumi.Input<inputs.storage.v20181101.Identity>;
+    /**
+     * Account HierarchicalNamespace enabled if sets to true.
+     */
+    readonly isHnsEnabled?: pulumi.Input<boolean>;
     /**
      * Required. Indicates the type of storage account.
      */
@@ -139,9 +170,9 @@ export interface StorageAccountArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The parameters used to create the storage account.
+     * Network rule set
      */
-    readonly properties?: pulumi.Input<inputs.storage.v20181101.StorageAccountPropertiesCreateParameters>;
+    readonly networkRuleSet?: pulumi.Input<inputs.storage.v20181101.NetworkRuleSet>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

@@ -43,7 +43,7 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
     /**
      * Device Security group data
      */
-    public readonly properties!: pulumi.Output<outputs.security.v20190801.DeviceSecurityGroupPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.security.v20190801.DeviceSecurityGroupPropertiesResponse>;
     /**
      * Resource type
      */
@@ -68,9 +68,13 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
             if (!args || args.resourceId === undefined) {
                 throw new Error("Missing required property 'resourceId'");
             }
+            inputs["allowlistRules"] = args ? args.allowlistRules : undefined;
+            inputs["denylistRules"] = args ? args.denylistRules : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
+            inputs["thresholdRules"] = args ? args.thresholdRules : undefined;
+            inputs["timeWindowRules"] = args ? args.timeWindowRules : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -89,15 +93,27 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
  */
 export interface DeviceSecurityGroupArgs {
     /**
+     * The allow-list custom alert rules.
+     */
+    readonly allowlistRules?: pulumi.Input<pulumi.Input<inputs.security.v20190801.AllowlistCustomAlertRule>[]>;
+    /**
+     * The deny-list custom alert rules.
+     */
+    readonly denylistRules?: pulumi.Input<pulumi.Input<inputs.security.v20190801.DenylistCustomAlertRule>[]>;
+    /**
      * The name of the device security group. Note that the name of the device security group is case insensitive.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Device Security group data
-     */
-    readonly properties?: pulumi.Input<inputs.security.v20190801.DeviceSecurityGroupProperties>;
-    /**
      * The identifier of the resource.
      */
     readonly resourceId: pulumi.Input<string>;
+    /**
+     * The list of custom alert threshold rules.
+     */
+    readonly thresholdRules?: pulumi.Input<pulumi.Input<inputs.security.v20190801.ThresholdCustomAlertRule>[]>;
+    /**
+     * The list of custom alert time-window rules.
+     */
+    readonly timeWindowRules?: pulumi.Input<pulumi.Input<inputs.security.v20190801.TimeWindowCustomAlertRule>[]>;
 }

@@ -51,7 +51,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Properties of the Search service.
      */
-    public readonly properties!: pulumi.Output<outputs.search.v20150819.SearchServicePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.search.v20150819.SearchServicePropertiesResponse>;
     /**
      * The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
      */
@@ -84,13 +84,16 @@ export class Service extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["hostingMode"] = args ? args.hostingMode : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["partitionCount"] = args ? args.partitionCount : undefined;
+            inputs["replicaCount"] = args ? args.replicaCount : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -109,6 +112,10 @@ export class Service extends pulumi.CustomResource {
  */
 export interface ServiceArgs {
     /**
+     * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+     */
+    readonly hostingMode?: pulumi.Input<string>;
+    /**
      * The identity of the resource.
      */
     readonly identity?: pulumi.Input<inputs.search.v20150819.Identity>;
@@ -121,9 +128,13 @@ export interface ServiceArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the Search service.
+     * The number of partitions in the Search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
      */
-    readonly properties?: pulumi.Input<inputs.search.v20150819.SearchServiceProperties>;
+    readonly partitionCount?: pulumi.Input<number>;
+    /**
+     * The number of replicas in the Search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
+     */
+    readonly replicaCount?: pulumi.Input<number>;
     /**
      * The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -51,7 +51,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Resource properties.
      */
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.v20200101.PrivateEndpointConnectionPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.machinelearningservices.v20200101.PrivateEndpointConnectionPropertiesResponse>;
     /**
      * The sku of the workspace.
      */
@@ -81,6 +81,9 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.privateLinkServiceConnectionState === undefined) {
+                throw new Error("Missing required property 'privateLinkServiceConnectionState'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -90,11 +93,14 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
+            inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -125,9 +131,17 @@ export interface PrivateEndpointConnectionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Resource properties.
+     * The resource of private end point.
      */
-    readonly properties?: pulumi.Input<inputs.machinelearningservices.v20200101.PrivateEndpointConnectionProperties>;
+    readonly privateEndpoint?: pulumi.Input<inputs.machinelearningservices.v20200101.PrivateEndpoint>;
+    /**
+     * A collection of information about the state of the connection between service consumer and provider.
+     */
+    readonly privateLinkServiceConnectionState: pulumi.Input<inputs.machinelearningservices.v20200101.PrivateLinkServiceConnectionState>;
+    /**
+     * The provisioning state of the private endpoint connection resource.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * Name of the resource group in which workspace is located.
      */

@@ -47,7 +47,7 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
     /**
      * Describes the properties of a Proximity Placement Group.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20191201.ProximityPlacementGroupPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20191201.ProximityPlacementGroupPropertiesResponse>;
     /**
      * Resource tags
      */
@@ -79,11 +79,13 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["colocationStatus"] = args ? args.colocationStatus : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["proximityPlacementGroupType"] = args ? args.proximityPlacementGroupType : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,6 +104,10 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
  */
 export interface ProximityPlacementGroupArgs {
     /**
+     * Describes colocation status of the Proximity Placement Group.
+     */
+    readonly colocationStatus?: pulumi.Input<inputs.compute.v20191201.InstanceViewStatus>;
+    /**
      * Resource location
      */
     readonly location: pulumi.Input<string>;
@@ -110,9 +116,9 @@ export interface ProximityPlacementGroupArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Describes the properties of a Proximity Placement Group.
+     * Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
      */
-    readonly properties?: pulumi.Input<inputs.compute.v20191201.ProximityPlacementGroupProperties>;
+    readonly proximityPlacementGroupType?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

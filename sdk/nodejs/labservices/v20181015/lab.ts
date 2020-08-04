@@ -47,7 +47,7 @@ export class Lab extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.labservices.v20181015.LabPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.labservices.v20181015.LabPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -81,10 +81,15 @@ export class Lab extends pulumi.CustomResource {
             }
             inputs["labAccountName"] = args ? args.labAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["maxUsersInLab"] = args ? args.maxUsersInLab : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            inputs["usageQuota"] = args ? args.usageQuota : undefined;
+            inputs["userAccessMode"] = args ? args.userAccessMode : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -111,13 +116,17 @@ export interface LabArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * Maximum number of users allowed in the lab.
+     */
+    readonly maxUsersInLab?: pulumi.Input<number>;
+    /**
      * The name of the lab.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the resource.
+     * The provisioning status of the resource.
      */
-    readonly properties?: pulumi.Input<inputs.labservices.v20181015.LabProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -126,4 +135,16 @@ export interface LabArgs {
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: pulumi.Input<string>;
+    /**
+     * Maximum duration a user can use an environment for in the lab.
+     */
+    readonly usageQuota?: pulumi.Input<string>;
+    /**
+     * Lab user access mode (open to all vs. restricted to those listed on the lab).
+     */
+    readonly userAccessMode?: pulumi.Input<string>;
 }

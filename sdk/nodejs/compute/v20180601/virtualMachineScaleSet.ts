@@ -55,7 +55,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * Describes the properties of a Virtual Machine Scale Set.
      */
-    public readonly properties!: pulumi.Output<outputs.compute.v20180601.VirtualMachineScaleSetPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.compute.v20180601.VirtualMachineScaleSetPropertiesResponse>;
     /**
      * The virtual machine scale set sku.
      */
@@ -98,12 +98,19 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["overprovision"] = args ? args.overprovision : undefined;
             inputs["plan"] = args ? args.plan : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
+            inputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
+            inputs["virtualMachineProfile"] = args ? args.virtualMachineProfile : undefined;
+            inputs["zoneBalance"] = args ? args.zoneBalance : undefined;
             inputs["zones"] = args ? args.zones : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -134,17 +141,29 @@ export interface VirtualMachineScaleSetArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
+     * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+     */
+    readonly overprovision?: pulumi.Input<boolean>;
+    /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
     readonly plan?: pulumi.Input<inputs.compute.v20180601.Plan>;
     /**
-     * Describes the properties of a Virtual Machine Scale Set.
+     * Fault Domain count for each placement group.
      */
-    readonly properties?: pulumi.Input<inputs.compute.v20180601.VirtualMachineScaleSetProperties>;
+    readonly platformFaultDomainCount?: pulumi.Input<number>;
+    /**
+     * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+     */
+    readonly proximityPlacementGroup?: pulumi.Input<inputs.compute.v20180601.SubResource>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * When true this limits the scale set to a single placement group, of max size 100 virtual machines.
+     */
+    readonly singlePlacementGroup?: pulumi.Input<boolean>;
     /**
      * The virtual machine scale set sku.
      */
@@ -153,6 +172,18 @@ export interface VirtualMachineScaleSetArgs {
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The upgrade policy.
+     */
+    readonly upgradePolicy?: pulumi.Input<inputs.compute.v20180601.UpgradePolicy>;
+    /**
+     * The virtual machine profile.
+     */
+    readonly virtualMachineProfile?: pulumi.Input<inputs.compute.v20180601.VirtualMachineScaleSetVMProfile>;
+    /**
+     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+     */
+    readonly zoneBalance?: pulumi.Input<boolean>;
     /**
      * The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
      */

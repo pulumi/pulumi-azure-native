@@ -47,7 +47,7 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Properties of the Namespace supplied for create or update Namespace operation
      */
-    public readonly properties!: pulumi.Output<outputs.eventhub.v20140901.NamespacePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.eventhub.v20140901.NamespacePropertiesResponse>;
     /**
      * SKU parameters supplied to the create Namespace operation
      */
@@ -83,12 +83,18 @@ export class Namespace extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["createdAt"] = args ? args.createdAt : undefined;
+            inputs["enabled"] = args ? args.enabled : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["serviceBusEndpoint"] = args ? args.serviceBusEndpoint : undefined;
             inputs["sku"] = args ? args.sku : undefined;
+            inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["updatedAt"] = args ? args.updatedAt : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,6 +113,14 @@ export class Namespace extends pulumi.CustomResource {
  */
 export interface NamespaceArgs {
     /**
+     * The time the Namespace was created.
+     */
+    readonly createdAt?: pulumi.Input<string>;
+    /**
+     * Specifies whether this instance is enabled.
+     */
+    readonly enabled?: pulumi.Input<boolean>;
+    /**
      * Namespace location.
      */
     readonly location: pulumi.Input<string>;
@@ -115,19 +129,31 @@ export interface NamespaceArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the Namespace supplied for create or update Namespace operation
+     * Provisioning state of the Namespace.
      */
-    readonly properties?: pulumi.Input<inputs.eventhub.v20140901.NamespaceProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * Name of the resource group within the azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Endpoint you can use to perform Service Bus operations.
+     */
+    readonly serviceBusEndpoint?: pulumi.Input<string>;
+    /**
      * SKU parameters supplied to the create Namespace operation
      */
     readonly sku?: pulumi.Input<inputs.eventhub.v20140901.Sku>;
     /**
+     * State of the Namespace.
+     */
+    readonly status?: pulumi.Input<string>;
+    /**
      * Namespace tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The time the Namespace was updated.
+     */
+    readonly updatedAt?: pulumi.Input<string>;
 }

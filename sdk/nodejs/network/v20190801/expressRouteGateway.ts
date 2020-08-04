@@ -51,7 +51,7 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
     /**
      * Properties of the express route gateway.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20190801.ExpressRouteGatewayPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20190801.ExpressRouteGatewayPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -80,13 +80,19 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.virtualHub === undefined) {
+                throw new Error("Missing required property 'virtualHub'");
+            }
+            inputs["autoScaleConfiguration"] = args ? args.autoScaleConfiguration : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualHub"] = args ? args.virtualHub : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +111,10 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
  */
 export interface ExpressRouteGatewayArgs {
     /**
+     * Configuration for auto scaling.
+     */
+    readonly autoScaleConfiguration?: pulumi.Input<inputs.network.v20190801.ExpressRouteGatewayPropertiesProperties>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -117,9 +127,9 @@ export interface ExpressRouteGatewayArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the express route gateway.
+     * The provisioning state of the express route gateway resource.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20190801.ExpressRouteGatewayProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -128,4 +138,8 @@ export interface ExpressRouteGatewayArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The Virtual Hub where the ExpressRoute gateway is or will be deployed.
+     */
+    readonly virtualHub: pulumi.Input<inputs.network.v20190801.VirtualHubId>;
 }

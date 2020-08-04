@@ -47,7 +47,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The properties associated with the certificate.
      */
-    public readonly properties!: pulumi.Output<outputs.batch.v20190801.CertificatePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.batch.v20190801.CertificatePropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -69,6 +69,9 @@ export class Certificate extends pulumi.CustomResource {
             if (!args || args.accountName === undefined) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (!args || args.data === undefined) {
+                throw new Error("Missing required property 'data'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
@@ -76,10 +79,15 @@ export class Certificate extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["data"] = args ? args.data : undefined;
+            inputs["format"] = args ? args.format : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["password"] = args ? args.password : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["thumbprint"] = args ? args.thumbprint : undefined;
+            inputs["thumbprintAlgorithm"] = args ? args.thumbprintAlgorithm : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,15 +110,31 @@ export interface CertificateArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * The maximum size is 10KB.
+     */
+    readonly data: pulumi.Input<string>;
+    /**
+     * The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+     */
+    readonly format?: pulumi.Input<string>;
+    /**
      * The identifier for the certificate. This must be made up of algorithm and thumbprint separated by a dash, and must match the certificate data in the request. For example SHA1-a3d1c5.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties associated with the certificate.
+     * This is required if the certificate format is pfx and must be omitted if the certificate format is cer.
      */
-    readonly properties?: pulumi.Input<inputs.batch.v20190801.CertificateCreateOrUpdateProperties>;
+    readonly password?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the Batch account.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * This must match the thumbprint from the name.
+     */
+    readonly thumbprint?: pulumi.Input<string>;
+    /**
+     * This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+     */
+    readonly thumbprintAlgorithm?: pulumi.Input<string>;
 }

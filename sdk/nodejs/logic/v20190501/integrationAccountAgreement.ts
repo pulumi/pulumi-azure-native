@@ -47,7 +47,7 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
     /**
      * The integration account agreement properties.
      */
-    public readonly properties!: pulumi.Output<outputs.logic.v20190501.IntegrationAccountAgreementPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.logic.v20190501.IntegrationAccountAgreementPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -70,24 +70,46 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as IntegrationAccountAgreementArgs | undefined;
+            if (!args || args.agreementType === undefined) {
+                throw new Error("Missing required property 'agreementType'");
+            }
+            if (!args || args.content === undefined) {
+                throw new Error("Missing required property 'content'");
+            }
+            if (!args || args.guestIdentity === undefined) {
+                throw new Error("Missing required property 'guestIdentity'");
+            }
+            if (!args || args.guestPartner === undefined) {
+                throw new Error("Missing required property 'guestPartner'");
+            }
+            if (!args || args.hostIdentity === undefined) {
+                throw new Error("Missing required property 'hostIdentity'");
+            }
+            if (!args || args.hostPartner === undefined) {
+                throw new Error("Missing required property 'hostPartner'");
+            }
             if (!args || args.integrationAccountName === undefined) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["agreementType"] = args ? args.agreementType : undefined;
+            inputs["content"] = args ? args.content : undefined;
+            inputs["guestIdentity"] = args ? args.guestIdentity : undefined;
+            inputs["guestPartner"] = args ? args.guestPartner : undefined;
+            inputs["hostIdentity"] = args ? args.hostIdentity : undefined;
+            inputs["hostPartner"] = args ? args.hostPartner : undefined;
             inputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -106,6 +128,30 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
  */
 export interface IntegrationAccountAgreementArgs {
     /**
+     * The agreement type.
+     */
+    readonly agreementType: pulumi.Input<string>;
+    /**
+     * The agreement content.
+     */
+    readonly content: pulumi.Input<inputs.logic.v20190501.AgreementContent>;
+    /**
+     * The business identity of the guest partner.
+     */
+    readonly guestIdentity: pulumi.Input<inputs.logic.v20190501.BusinessIdentity>;
+    /**
+     * The integration account partner that is set as guest partner for this agreement.
+     */
+    readonly guestPartner: pulumi.Input<string>;
+    /**
+     * The business identity of the host partner.
+     */
+    readonly hostIdentity: pulumi.Input<inputs.logic.v20190501.BusinessIdentity>;
+    /**
+     * The integration account partner that is set as host partner for this agreement.
+     */
+    readonly hostPartner: pulumi.Input<string>;
+    /**
      * The integration account name.
      */
     readonly integrationAccountName: pulumi.Input<string>;
@@ -114,13 +160,13 @@ export interface IntegrationAccountAgreementArgs {
      */
     readonly location?: pulumi.Input<string>;
     /**
+     * The metadata.
+     */
+    readonly metadata?: pulumi.Input<{[key: string]: any}>;
+    /**
      * The integration account agreement name.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The integration account agreement properties.
-     */
-    readonly properties: pulumi.Input<inputs.logic.v20190501.IntegrationAccountAgreementProperties>;
     /**
      * The resource group name.
      */

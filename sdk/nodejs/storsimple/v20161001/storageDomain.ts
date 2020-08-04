@@ -43,7 +43,7 @@ export class StorageDomain extends pulumi.CustomResource {
     /**
      * The properties.
      */
-    public readonly properties!: pulumi.Output<outputs.storsimple.v20161001.StorageDomainPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storsimple.v20161001.StorageDomainPropertiesResponse>;
     /**
      * The type.
      */
@@ -62,22 +62,28 @@ export class StorageDomain extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as StorageDomainArgs | undefined;
+            if (!args || args.encryptionStatus === undefined) {
+                throw new Error("Missing required property 'encryptionStatus'");
+            }
             if (!args || args.managerName === undefined) {
                 throw new Error("Missing required property 'managerName'");
             }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.storageAccountCredentialIds === undefined) {
+                throw new Error("Missing required property 'storageAccountCredentialIds'");
+            }
+            inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
+            inputs["encryptionStatus"] = args ? args.encryptionStatus : undefined;
             inputs["managerName"] = args ? args.managerName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageAccountCredentialIds"] = args ? args.storageAccountCredentialIds : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -96,6 +102,14 @@ export class StorageDomain extends pulumi.CustomResource {
  */
 export interface StorageDomainArgs {
     /**
+     * The encryption key used to encrypt the data. This is a user secret.
+     */
+    readonly encryptionKey?: pulumi.Input<inputs.storsimple.v20161001.AsymmetricEncryptedSecret>;
+    /**
+     * The encryption status "Enabled | Disabled".
+     */
+    readonly encryptionStatus: pulumi.Input<string>;
+    /**
      * The manager name
      */
     readonly managerName: pulumi.Input<string>;
@@ -104,11 +118,11 @@ export interface StorageDomainArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties.
-     */
-    readonly properties: pulumi.Input<inputs.storsimple.v20161001.StorageDomainProperties>;
-    /**
      * The resource group name
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The storage account credentials.
+     */
+    readonly storageAccountCredentialIds: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -41,7 +41,7 @@ export class Controller extends pulumi.CustomResource {
      * The name of the resource.
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly properties!: pulumi.Output<outputs.devspaces.v20190401.ControllerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.devspaces.v20190401.ControllerPropertiesResponse>;
     /**
      * Model representing SKU for Azure Dev Spaces Controller.
      */
@@ -74,21 +74,26 @@ export class Controller extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            if (!args || args.targetContainerHostCredentialsBase64 === undefined) {
+                throw new Error("Missing required property 'targetContainerHostCredentialsBase64'");
+            }
+            if (!args || args.targetContainerHostResourceId === undefined) {
+                throw new Error("Missing required property 'targetContainerHostResourceId'");
+            }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["targetContainerHostCredentialsBase64"] = args ? args.targetContainerHostCredentialsBase64 : undefined;
+            inputs["targetContainerHostResourceId"] = args ? args.targetContainerHostResourceId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -114,7 +119,6 @@ export interface ControllerArgs {
      * Name of the resource.
      */
     readonly name: pulumi.Input<string>;
-    readonly properties: pulumi.Input<inputs.devspaces.v20190401.ControllerProperties>;
     /**
      * Resource group to which the resource belongs.
      */
@@ -127,4 +131,12 @@ export interface ControllerArgs {
      * Tags for the Azure resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Credentials of the target container host (base64).
+     */
+    readonly targetContainerHostCredentialsBase64: pulumi.Input<string>;
+    /**
+     * Resource ID of the target container host
+     */
+    readonly targetContainerHostResourceId: pulumi.Input<string>;
 }

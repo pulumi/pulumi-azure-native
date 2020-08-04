@@ -43,7 +43,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The properties associated with the Cluster.
      */
-    public readonly properties!: pulumi.Output<outputs.batchai.v20180501.ClusterPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.batchai.v20180501.ClusterPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -68,13 +68,26 @@ export class Cluster extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.userAccountSettings === undefined) {
+                throw new Error("Missing required property 'userAccountSettings'");
+            }
+            if (!args || args.vmSize === undefined) {
+                throw new Error("Missing required property 'vmSize'");
+            }
             if (!args || args.workspaceName === undefined) {
                 throw new Error("Missing required property 'workspaceName'");
             }
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["nodeSetup"] = args ? args.nodeSetup : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["scaleSettings"] = args ? args.scaleSettings : undefined;
+            inputs["subnet"] = args ? args.subnet : undefined;
+            inputs["userAccountSettings"] = args ? args.userAccountSettings : undefined;
+            inputs["virtualMachineConfiguration"] = args ? args.virtualMachineConfiguration : undefined;
+            inputs["vmPriority"] = args ? args.vmPriority : undefined;
+            inputs["vmSize"] = args ? args.vmSize : undefined;
             inputs["workspaceName"] = args ? args.workspaceName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,13 +110,37 @@ export interface ClusterArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the Cluster.
+     * Setup to be performed on each compute node in the cluster.
      */
-    readonly properties?: pulumi.Input<inputs.batchai.v20180501.ClusterBaseProperties>;
+    readonly nodeSetup?: pulumi.Input<inputs.batchai.v20180501.NodeSetup>;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Scale settings for the cluster. Batch AI service supports manual and auto scale clusters.
+     */
+    readonly scaleSettings?: pulumi.Input<inputs.batchai.v20180501.ScaleSettings>;
+    /**
+     * Existing virtual network subnet to put the cluster nodes in. Note, if a File Server mount configured in node setup, the File Server's subnet will be used automatically.
+     */
+    readonly subnet?: pulumi.Input<inputs.batchai.v20180501.ResourceId>;
+    /**
+     * Settings for an administrator user account that will be created on each compute node in the cluster.
+     */
+    readonly userAccountSettings: pulumi.Input<inputs.batchai.v20180501.UserAccountSettings>;
+    /**
+     * OS image configuration for cluster nodes. All nodes in a cluster have the same OS image.
+     */
+    readonly virtualMachineConfiguration?: pulumi.Input<inputs.batchai.v20180501.VirtualMachineConfiguration>;
+    /**
+     * VM priority. Allowed values are: dedicated (default) and lowpriority.
+     */
+    readonly vmPriority?: pulumi.Input<string>;
+    /**
+     * The size of the virtual machines in the cluster. All nodes in a cluster have the same VM size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace see Sizes for Virtual Machines (Linux). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+     */
+    readonly vmSize: pulumi.Input<string>;
     /**
      * The name of the workspace. Workspace names can only contain a combination of alphanumeric characters along with dash (-) and underscore (_). The name must be from 1 through 64 characters long.
      */

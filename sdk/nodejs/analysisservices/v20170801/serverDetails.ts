@@ -47,7 +47,7 @@ export class ServerDetails extends pulumi.CustomResource {
     /**
      * Properties of the provision operation request.
      */
-    public readonly properties!: pulumi.Output<outputs.analysisservices.v20170801.AnalysisServicesServerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.analysisservices.v20170801.AnalysisServicesServerPropertiesResponse>;
     /**
      * The SKU of the Analysis Services resource.
      */
@@ -86,12 +86,17 @@ export class ServerDetails extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["asAdministrators"] = args ? args.asAdministrators : undefined;
+            inputs["backupBlobContainerUri"] = args ? args.backupBlobContainerUri : undefined;
+            inputs["gatewayDetails"] = args ? args.gatewayDetails : undefined;
+            inputs["ipV4FirewallSettings"] = args ? args.ipV4FirewallSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["querypoolConnectionMode"] = args ? args.querypoolConnectionMode : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -110,6 +115,22 @@ export class ServerDetails extends pulumi.CustomResource {
  */
 export interface ServerDetailsArgs {
     /**
+     * A collection of AS server administrators
+     */
+    readonly asAdministrators?: pulumi.Input<inputs.analysisservices.v20170801.ServerAdministrators>;
+    /**
+     * The SAS container URI to the backup container.
+     */
+    readonly backupBlobContainerUri?: pulumi.Input<string>;
+    /**
+     * The gateway details configured for the AS server.
+     */
+    readonly gatewayDetails?: pulumi.Input<inputs.analysisservices.v20170801.GatewayDetails>;
+    /**
+     * The firewall settings for the AS server.
+     */
+    readonly ipV4FirewallSettings?: pulumi.Input<inputs.analysisservices.v20170801.IPv4FirewallSettings>;
+    /**
      * Location of the Analysis Services resource.
      */
     readonly location: pulumi.Input<string>;
@@ -118,9 +139,9 @@ export interface ServerDetailsArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the provision operation request.
+     * How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
      */
-    readonly properties?: pulumi.Input<inputs.analysisservices.v20170801.AnalysisServicesServerProperties>;
+    readonly querypoolConnectionMode?: pulumi.Input<string>;
     /**
      * The name of the Azure Resource group of which a given Analysis Services server is part. This name must be at least 1 character in length, and no more than 90.
      */

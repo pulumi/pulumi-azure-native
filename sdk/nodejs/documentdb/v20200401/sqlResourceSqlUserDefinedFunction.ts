@@ -47,7 +47,7 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
     /**
      * The properties of an Azure Cosmos DB userDefinedFunction
      */
-    public readonly properties!: pulumi.Output<outputs.documentdb.v20200401.SqlUserDefinedFunctionGetPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.documentdb.v20200401.SqlUserDefinedFunctionGetPropertiesResponse>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
@@ -82,8 +82,11 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
+            if (!args || args.options === undefined) {
+                throw new Error("Missing required property 'options'");
+            }
+            if (!args || args.resource === undefined) {
+                throw new Error("Missing required property 'resource'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -93,9 +96,11 @@ export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["options"] = args ? args.options : undefined;
+            inputs["resource"] = args ? args.resource : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -134,9 +139,13 @@ export interface SqlResourceSqlUserDefinedFunctionArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties to create and update Azure Cosmos DB userDefinedFunction.
+     * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    readonly properties: pulumi.Input<inputs.documentdb.v20200401.SqlUserDefinedFunctionCreateUpdateProperties>;
+    readonly options: pulumi.Input<inputs.documentdb.v20200401.CreateUpdateOptions>;
+    /**
+     * The standard JSON format of a userDefinedFunction
+     */
+    readonly resource: pulumi.Input<inputs.documentdb.v20200401.SqlUserDefinedFunctionResource>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

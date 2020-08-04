@@ -43,7 +43,7 @@ export class Transform extends pulumi.CustomResource {
     /**
      * The resource properties.
      */
-    public readonly properties!: pulumi.Output<outputs.media.v20180701.TransformPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20180701.TransformPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -68,13 +68,18 @@ export class Transform extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.outputs === undefined) {
+                throw new Error("Missing required property 'outputs'");
+            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["accountName"] = args ? args.accountName : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["outputs"] = args ? args.outputs : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -97,13 +102,17 @@ export interface TransformArgs {
      */
     readonly accountName: pulumi.Input<string>;
     /**
+     * An optional verbose description of the Transform.
+     */
+    readonly description?: pulumi.Input<string>;
+    /**
      * The Transform name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The resource properties.
+     * An array of one or more TransformOutputs that the Transform should generate.
      */
-    readonly properties?: pulumi.Input<inputs.media.v20180701.TransformProperties>;
+    readonly outputs: pulumi.Input<pulumi.Input<inputs.media.v20180701.TransformOutput>[]>;
     /**
      * The name of the resource group within the Azure subscription.
      */

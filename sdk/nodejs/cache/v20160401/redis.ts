@@ -47,7 +47,7 @@ export class Redis extends pulumi.CustomResource {
     /**
      * Redis cache properties.
      */
-    public readonly properties!: pulumi.Output<outputs.cache.v20160401.RedisResourcePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.cache.v20160401.RedisResourcePropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -76,17 +76,24 @@ export class Redis extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (!args || args.sku === undefined) {
+                throw new Error("Missing required property 'sku'");
+            }
+            inputs["enableNonSslPort"] = args ? args.enableNonSslPort : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["shardCount"] = args ? args.shardCount : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
+            inputs["staticIP"] = args ? args.staticIP : undefined;
+            inputs["subnetId"] = args ? args.subnetId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tenantSettings"] = args ? args.tenantSettings : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +112,10 @@ export class Redis extends pulumi.CustomResource {
  */
 export interface RedisArgs {
     /**
+     * Specifies whether the non-ssl Redis server port (6379) is enabled.
+     */
+    readonly enableNonSslPort?: pulumi.Input<boolean>;
+    /**
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
@@ -113,15 +124,35 @@ export interface RedisArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Redis cache properties.
+     * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
      */
-    readonly properties: pulumi.Input<inputs.cache.v20160401.RedisCreateProperties>;
+    readonly redisConfiguration?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The number of shards to be created on a Premium Cluster Cache.
+     */
+    readonly shardCount?: pulumi.Input<number>;
+    /**
+     * The SKU of the Redis cache to deploy.
+     */
+    readonly sku: pulumi.Input<inputs.cache.v20160401.Sku>;
+    /**
+     * Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+     */
+    readonly staticIP?: pulumi.Input<string>;
+    /**
+     * The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
+     */
+    readonly subnetId?: pulumi.Input<string>;
+    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * tenantSettings
+     */
+    readonly tenantSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

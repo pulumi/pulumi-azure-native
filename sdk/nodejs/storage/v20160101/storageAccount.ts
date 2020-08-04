@@ -48,7 +48,7 @@ export class StorageAccount extends pulumi.CustomResource {
      * Resource name
      */
     public readonly name!: pulumi.Output<string>;
-    public readonly properties!: pulumi.Output<outputs.storage.v20160101.StorageAccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.storage.v20160101.StorageAccountPropertiesResponse>;
     /**
      * Gets the SKU.
      */
@@ -90,13 +90,16 @@ export class StorageAccount extends pulumi.CustomResource {
             if (!args || args.sku === undefined) {
                 throw new Error("Missing required property 'sku'");
             }
+            inputs["accessTier"] = args ? args.accessTier : undefined;
+            inputs["customDomain"] = args ? args.customDomain : undefined;
+            inputs["encryption"] = args ? args.encryption : undefined;
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,6 +118,18 @@ export class StorageAccount extends pulumi.CustomResource {
  */
 export interface StorageAccountArgs {
     /**
+     * Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+     */
+    readonly accessTier?: pulumi.Input<string>;
+    /**
+     * User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.
+     */
+    readonly customDomain?: pulumi.Input<inputs.storage.v20160101.CustomDomain>;
+    /**
+     * Provides the encryption settings on the account. If left unspecified the account encryption settings will remain the same. The default setting is unencrypted.
+     */
+    readonly encryption?: pulumi.Input<inputs.storage.v20160101.Encryption>;
+    /**
      * Required. Indicates the type of storage account.
      */
     readonly kind: pulumi.Input<string>;
@@ -126,7 +141,6 @@ export interface StorageAccountArgs {
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
     readonly name: pulumi.Input<string>;
-    readonly properties?: pulumi.Input<inputs.storage.v20160101.StorageAccountPropertiesCreateParameters>;
     /**
      * The name of the resource group within the user's subscription.
      */

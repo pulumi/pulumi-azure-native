@@ -47,7 +47,7 @@ export class GlobalSchedule extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.SchedulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20160515.SchedulePropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -73,17 +73,24 @@ export class GlobalSchedule extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["dailyRecurrence"] = args ? args.dailyRecurrence : undefined;
+            inputs["hourlyRecurrence"] = args ? args.hourlyRecurrence : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["notificationSettings"] = args ? args.notificationSettings : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["status"] = args ? args.status : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            inputs["taskType"] = args ? args.taskType : undefined;
+            inputs["timeZoneId"] = args ? args.timeZoneId : undefined;
+            inputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
+            inputs["weeklyRecurrence"] = args ? args.weeklyRecurrence : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,6 +109,14 @@ export class GlobalSchedule extends pulumi.CustomResource {
  */
 export interface GlobalScheduleArgs {
     /**
+     * If the schedule will occur once each day of the week, specify the daily recurrence.
+     */
+    readonly dailyRecurrence?: pulumi.Input<inputs.devtestlab.v20160515.DayDetails>;
+    /**
+     * If the schedule will occur multiple times a day, specify the hourly recurrence.
+     */
+    readonly hourlyRecurrence?: pulumi.Input<inputs.devtestlab.v20160515.HourDetails>;
+    /**
      * The location of the resource.
      */
     readonly location?: pulumi.Input<string>;
@@ -110,15 +125,43 @@ export interface GlobalScheduleArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the resource.
+     * Notification settings.
      */
-    readonly properties: pulumi.Input<inputs.devtestlab.v20160515.ScheduleProperties>;
+    readonly notificationSettings?: pulumi.Input<inputs.devtestlab.v20160515.NotificationSettings>;
+    /**
+     * The provisioning status of the resource.
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The status of the schedule (i.e. Enabled, Disabled)
+     */
+    readonly status?: pulumi.Input<string>;
+    /**
      * The tags of the resource.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The resource ID to which the schedule belongs
+     */
+    readonly targetResourceId?: pulumi.Input<string>;
+    /**
+     * The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+     */
+    readonly taskType?: pulumi.Input<string>;
+    /**
+     * The time zone ID (e.g. Pacific Standard time).
+     */
+    readonly timeZoneId?: pulumi.Input<string>;
+    /**
+     * The unique immutable identifier of a resource (Guid).
+     */
+    readonly uniqueIdentifier?: pulumi.Input<string>;
+    /**
+     * If the schedule will occur only some days of the week, specify the weekly recurrence.
+     */
+    readonly weeklyRecurrence?: pulumi.Input<inputs.devtestlab.v20160515.WeekDetails>;
 }

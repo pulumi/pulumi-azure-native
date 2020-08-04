@@ -51,7 +51,7 @@ export class Server extends pulumi.CustomResource {
     /**
      * Represents the properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.sql.v20140401.ServerPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.sql.v20140401.ServerPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -83,12 +83,15 @@ export class Server extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["administratorLogin"] = args ? args.administratorLogin : undefined;
+            inputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["version"] = args ? args.version : undefined;
             inputs["kind"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,6 +110,14 @@ export class Server extends pulumi.CustomResource {
  */
 export interface ServerArgs {
     /**
+     * Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+     */
+    readonly administratorLogin?: pulumi.Input<string>;
+    /**
+     * The administrator login password (required for server creation).
+     */
+    readonly administratorLoginPassword?: pulumi.Input<string>;
+    /**
      * Resource location.
      */
     readonly location: pulumi.Input<string>;
@@ -115,10 +126,6 @@ export interface ServerArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Represents the properties of the resource.
-     */
-    readonly properties?: pulumi.Input<inputs.sql.v20140401.ServerProperties>;
-    /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -126,4 +133,8 @@ export interface ServerArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The version of the server.
+     */
+    readonly version?: pulumi.Input<string>;
 }

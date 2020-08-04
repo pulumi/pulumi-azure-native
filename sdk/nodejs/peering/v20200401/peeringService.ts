@@ -47,7 +47,7 @@ export class PeeringService extends pulumi.CustomResource {
     /**
      * The properties that define a peering service.
      */
-    public readonly properties!: pulumi.Output<outputs.peering.v20200401.PeeringServicePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.peering.v20200401.PeeringServicePropertiesResponse>;
     /**
      * The SKU that defines the type of the peering service.
      */
@@ -85,10 +85,12 @@ export class PeeringService extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["peeringServiceLocation"] = args ? args.peeringServiceLocation : undefined;
+            inputs["peeringServiceProvider"] = args ? args.peeringServiceProvider : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,9 +117,13 @@ export interface PeeringServiceArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties that define a peering service.
+     * The PeeringServiceLocation of the Customer.
      */
-    readonly properties?: pulumi.Input<inputs.peering.v20200401.PeeringServiceProperties>;
+    readonly peeringServiceLocation?: pulumi.Input<string>;
+    /**
+     * The MAPS Provider Name.
+     */
+    readonly peeringServiceProvider?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

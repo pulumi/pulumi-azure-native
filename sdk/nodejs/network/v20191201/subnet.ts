@@ -47,7 +47,7 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * Properties of the subnet.
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20191201.SubnetPropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20191201.SubnetPropertiesFormatResponse>;
 
     /**
      * Create a Subnet resource with the given unique name, arguments, and options.
@@ -71,12 +71,22 @@ export class Subnet extends pulumi.CustomResource {
             if (!args || args.virtualNetworkName === undefined) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
+            inputs["addressPrefix"] = args ? args.addressPrefix : undefined;
+            inputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
+            inputs["delegations"] = args ? args.delegations : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["natGateway"] = args ? args.natGateway : undefined;
+            inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
+            inputs["privateEndpointNetworkPolicies"] = args ? args.privateEndpointNetworkPolicies : undefined;
+            inputs["privateLinkServiceNetworkPolicies"] = args ? args.privateLinkServiceNetworkPolicies : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["routeTable"] = args ? args.routeTable : undefined;
+            inputs["serviceEndpointPolicies"] = args ? args.serviceEndpointPolicies : undefined;
+            inputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
             inputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
         }
         if (!opts) {
             opts = {}
@@ -94,6 +104,18 @@ export class Subnet extends pulumi.CustomResource {
  */
 export interface SubnetArgs {
     /**
+     * The address prefix for the subnet.
+     */
+    readonly addressPrefix?: pulumi.Input<string>;
+    /**
+     * List of address prefixes for the subnet.
+     */
+    readonly addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An array of references to the delegations on the subnet.
+     */
+    readonly delegations?: pulumi.Input<pulumi.Input<inputs.network.v20191201.Delegation>[]>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -102,13 +124,37 @@ export interface SubnetArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Properties of the subnet.
+     * Nat gateway associated with this subnet.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20191201.SubnetPropertiesFormat>;
+    readonly natGateway?: pulumi.Input<inputs.network.v20191201.SubResource>;
+    /**
+     * The reference to the NetworkSecurityGroup resource.
+     */
+    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20191201.NetworkSecurityGroup>;
+    /**
+     * Enable or Disable apply network policies on private end point in the subnet.
+     */
+    readonly privateEndpointNetworkPolicies?: pulumi.Input<string>;
+    /**
+     * Enable or Disable apply network policies on private link service in the subnet.
+     */
+    readonly privateLinkServiceNetworkPolicies?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The reference to the RouteTable resource.
+     */
+    readonly routeTable?: pulumi.Input<inputs.network.v20191201.RouteTable>;
+    /**
+     * An array of service endpoint policies.
+     */
+    readonly serviceEndpointPolicies?: pulumi.Input<pulumi.Input<inputs.network.v20191201.ServiceEndpointPolicy>[]>;
+    /**
+     * An array of service endpoints.
+     */
+    readonly serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.v20191201.ServiceEndpointPropertiesFormat>[]>;
     /**
      * The name of the virtual network.
      */

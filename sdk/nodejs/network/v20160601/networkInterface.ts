@@ -51,7 +51,7 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * NetworkInterface properties. 
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20160601.NetworkInterfacePropertiesFormatResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20160601.NetworkInterfacePropertiesFormatResponse>;
     /**
      * Resource tags
      */
@@ -80,13 +80,22 @@ export class NetworkInterface extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["dnsSettings"] = args ? args.dnsSettings : undefined;
+            inputs["enableIPForwarding"] = args ? args.enableIPForwarding : undefined;
             inputs["etag"] = args ? args.etag : undefined;
             inputs["id"] = args ? args.id : undefined;
+            inputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["macAddress"] = args ? args.macAddress : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
+            inputs["primary"] = args ? args.primary : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["resourceGuid"] = args ? args.resourceGuid : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualMachine"] = args ? args.virtualMachine : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -105,6 +114,14 @@ export class NetworkInterface extends pulumi.CustomResource {
  */
 export interface NetworkInterfaceArgs {
     /**
+     * Gets or sets DNS settings in network interface
+     */
+    readonly dnsSettings?: pulumi.Input<inputs.network.v20160601.NetworkInterfaceDnsSettings>;
+    /**
+     * Gets or sets whether IPForwarding is enabled on the NIC
+     */
+    readonly enableIPForwarding?: pulumi.Input<boolean>;
+    /**
      * Gets a unique read-only string that changes whenever the resource is updated
      */
     readonly etag?: pulumi.Input<string>;
@@ -113,23 +130,47 @@ export interface NetworkInterfaceArgs {
      */
     readonly id?: pulumi.Input<string>;
     /**
+     * Gets or sets list of IPConfigurations of the network interface
+     */
+    readonly ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20160601.NetworkInterfaceIPConfiguration>[]>;
+    /**
      * Resource location
      */
     readonly location?: pulumi.Input<string>;
+    /**
+     * Gets the MAC address of the network interface
+     */
+    readonly macAddress?: pulumi.Input<string>;
     /**
      * The name of the network interface.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * NetworkInterface properties. 
+     * Gets or sets the reference of the NetworkSecurityGroup resource
      */
-    readonly properties?: pulumi.Input<inputs.network.v20160601.NetworkInterfacePropertiesFormat>;
+    readonly networkSecurityGroup?: pulumi.Input<inputs.network.v20160601.NetworkSecurityGroup>;
+    /**
+     * Gets whether this is a primary NIC on a virtual machine
+     */
+    readonly primary?: pulumi.Input<boolean>;
+    /**
+     * Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+     */
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * Gets or sets resource guid property of the network interface resource
+     */
+    readonly resourceGuid?: pulumi.Input<string>;
+    /**
      * Resource tags
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Gets or sets the reference of a VirtualMachine
+     */
+    readonly virtualMachine?: pulumi.Input<inputs.network.v20160601.SubResource>;
 }

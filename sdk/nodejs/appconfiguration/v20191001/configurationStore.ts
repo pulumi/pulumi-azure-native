@@ -51,7 +51,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
     /**
      * The properties of a configuration store.
      */
-    public readonly properties!: pulumi.Output<outputs.appconfiguration.v20191001.ConfigurationStorePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.appconfiguration.v20191001.ConfigurationStorePropertiesResponse>;
     /**
      * The sku of the configuration store.
      */
@@ -93,10 +93,10 @@ export class ConfigurationStore extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -126,10 +126,6 @@ export interface ConfigurationStoreArgs {
      * The name of the configuration store.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The properties of a configuration store.
-     */
-    readonly properties?: pulumi.Input<inputs.appconfiguration.v20191001.ConfigurationStoreProperties>;
     /**
      * The name of the resource group to which the container registry belongs.
      */

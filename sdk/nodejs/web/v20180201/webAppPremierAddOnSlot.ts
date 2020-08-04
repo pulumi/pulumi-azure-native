@@ -51,7 +51,7 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
     /**
      * PremierAddOn resource specific properties
      */
-    public readonly properties!: pulumi.Output<outputs.web.v20180201.PremierAddOnResponseProperties>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.web.v20180201.PremierAddOnResponseProperties>;
     /**
      * Resource tags.
      */
@@ -88,11 +88,16 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
             }
             inputs["kind"] = args ? args.kind : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["marketplaceOffer"] = args ? args.marketplaceOffer : undefined;
+            inputs["marketplacePublisher"] = args ? args.marketplacePublisher : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["product"] = args ? args.product : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["sku"] = args ? args.sku : undefined;
             inputs["slot"] = args ? args.slot : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["vendor"] = args ? args.vendor : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -119,17 +124,29 @@ export interface WebAppPremierAddOnSlotArgs {
      */
     readonly location: pulumi.Input<string>;
     /**
+     * Premier add on Marketplace offer.
+     */
+    readonly marketplaceOffer?: pulumi.Input<string>;
+    /**
+     * Premier add on Marketplace publisher.
+     */
+    readonly marketplacePublisher?: pulumi.Input<string>;
+    /**
      * Add-on name.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * PremierAddOn resource specific properties
+     * Premier add on Product.
      */
-    readonly properties?: pulumi.Input<inputs.web.v20180201.PremierAddOnProperties>;
+    readonly product?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * Premier add on SKU.
+     */
+    readonly sku?: pulumi.Input<string>;
     /**
      * Name of the deployment slot. If a slot is not specified, the API will update the named add-on for the production slot.
      */
@@ -138,4 +155,8 @@ export interface WebAppPremierAddOnSlotArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Premier add on Vendor.
+     */
+    readonly vendor?: pulumi.Input<string>;
 }

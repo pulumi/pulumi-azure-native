@@ -47,7 +47,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The cluster resource properties
      */
-    public readonly properties!: pulumi.Output<outputs.servicefabric.v20180201.ClusterPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.servicefabric.v20180201.ClusterPropertiesResponse>;
     /**
      * Azure resource tags.
      */
@@ -73,17 +73,40 @@ export class Cluster extends pulumi.CustomResource {
             if (!args || args.location === undefined) {
                 throw new Error("Missing required property 'location'");
             }
+            if (!args || args.managementEndpoint === undefined) {
+                throw new Error("Missing required property 'managementEndpoint'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
+            }
+            if (!args || args.nodeTypes === undefined) {
+                throw new Error("Missing required property 'nodeTypes'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["addOnFeatures"] = args ? args.addOnFeatures : undefined;
+            inputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
+            inputs["certificate"] = args ? args.certificate : undefined;
+            inputs["certificateCommonNames"] = args ? args.certificateCommonNames : undefined;
+            inputs["clientCertificateCommonNames"] = args ? args.clientCertificateCommonNames : undefined;
+            inputs["clientCertificateThumbprints"] = args ? args.clientCertificateThumbprints : undefined;
+            inputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
+            inputs["diagnosticsStorageAccountConfig"] = args ? args.diagnosticsStorageAccountConfig : undefined;
+            inputs["fabricSettings"] = args ? args.fabricSettings : undefined;
             inputs["location"] = args ? args.location : undefined;
+            inputs["managementEndpoint"] = args ? args.managementEndpoint : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["nodeTypes"] = args ? args.nodeTypes : undefined;
+            inputs["reliabilityLevel"] = args ? args.reliabilityLevel : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["reverseProxyCertificate"] = args ? args.reverseProxyCertificate : undefined;
+            inputs["reverseProxyCertificateCommonNames"] = args ? args.reverseProxyCertificateCommonNames : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["upgradeDescription"] = args ? args.upgradeDescription : undefined;
+            inputs["upgradeMode"] = args ? args.upgradeMode : undefined;
+            inputs["vmImage"] = args ? args.vmImage : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -102,23 +125,96 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterArgs {
     /**
+     * The list of add-on features to enable in the cluster.
+     */
+    readonly addOnFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The AAD authentication settings of the cluster.
+     */
+    readonly azureActiveDirectory?: pulumi.Input<inputs.servicefabric.v20180201.AzureActiveDirectory>;
+    /**
+     * The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
+     */
+    readonly certificate?: pulumi.Input<inputs.servicefabric.v20180201.CertificateDescription>;
+    /**
+     * Describes a list of server certificates referenced by common name that are used to secure the cluster.
+     */
+    readonly certificateCommonNames?: pulumi.Input<inputs.servicefabric.v20180201.ServerCertificateCommonNames>;
+    /**
+     * The list of client certificates referenced by common name that are allowed to manage the cluster.
+     */
+    readonly clientCertificateCommonNames?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20180201.ClientCertificateCommonName>[]>;
+    /**
+     * The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
+     */
+    readonly clientCertificateThumbprints?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20180201.ClientCertificateThumbprint>[]>;
+    /**
+     * The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+     */
+    readonly clusterCodeVersion?: pulumi.Input<string>;
+    /**
+     * The storage account information for storing Service Fabric diagnostic logs.
+     */
+    readonly diagnosticsStorageAccountConfig?: pulumi.Input<inputs.servicefabric.v20180201.DiagnosticsStorageAccountConfig>;
+    /**
+     * The list of custom fabric settings to configure the cluster.
+     */
+    readonly fabricSettings?: pulumi.Input<pulumi.Input<inputs.servicefabric.v20180201.SettingsSectionDescription>[]>;
+    /**
      * Azure resource location.
      */
     readonly location: pulumi.Input<string>;
+    /**
+     * The http management endpoint of the cluster.
+     */
+    readonly managementEndpoint: pulumi.Input<string>;
     /**
      * The name of the cluster resource.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The cluster resource properties
+     * The list of node types in the cluster.
      */
-    readonly properties?: pulumi.Input<inputs.servicefabric.v20180201.ClusterProperties>;
+    readonly nodeTypes: pulumi.Input<pulumi.Input<inputs.servicefabric.v20180201.NodeTypeDescription>[]>;
+    /**
+     * The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+     *
+     *   - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
+     *   - Bronze - Run the System services with a target replica set count of 3. This should only be used for test clusters.
+     *   - Silver - Run the System services with a target replica set count of 5.
+     *   - Gold - Run the System services with a target replica set count of 7.
+     *   - Platinum - Run the System services with a target replica set count of 9.
+     */
+    readonly reliabilityLevel?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
     /**
+     * The server certificate used by reverse proxy.
+     */
+    readonly reverseProxyCertificate?: pulumi.Input<inputs.servicefabric.v20180201.CertificateDescription>;
+    /**
+     * Describes a list of server certificates referenced by common name that are used to secure the cluster.
+     */
+    readonly reverseProxyCertificateCommonNames?: pulumi.Input<inputs.servicefabric.v20180201.ServerCertificateCommonNames>;
+    /**
      * Azure resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The policy to use when upgrading the cluster.
+     */
+    readonly upgradeDescription?: pulumi.Input<inputs.servicefabric.v20180201.ClusterUpgradePolicy>;
+    /**
+     * The upgrade mode of the cluster when new Service Fabric runtime version is available.
+     *
+     *   - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+     *   - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
+     */
+    readonly upgradeMode?: pulumi.Input<string>;
+    /**
+     * The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+     */
+    readonly vmImage?: pulumi.Input<string>;
 }

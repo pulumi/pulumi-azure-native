@@ -47,7 +47,7 @@ export class Secret extends pulumi.CustomResource {
     /**
      * The properties of the resource.
      */
-    public readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.SecretPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.devtestlab.v20180915.SecretPropertiesResponse>;
     /**
      * The tags of the resource.
      */
@@ -76,9 +76,6 @@ export class Secret extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -88,10 +85,11 @@ export class Secret extends pulumi.CustomResource {
             inputs["labName"] = args ? args.labName : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["userName"] = args ? args.userName : undefined;
+            inputs["value"] = args ? args.value : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -122,10 +120,6 @@ export interface SecretArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The properties of the resource.
-     */
-    readonly properties: pulumi.Input<inputs.devtestlab.v20180915.SecretProperties>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
@@ -137,4 +131,8 @@ export interface SecretArgs {
      * The name of the user profile.
      */
     readonly userName: pulumi.Input<string>;
+    /**
+     * The value of the secret for secret creation.
+     */
+    readonly value?: pulumi.Input<string>;
 }

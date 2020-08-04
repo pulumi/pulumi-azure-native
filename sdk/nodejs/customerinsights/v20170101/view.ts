@@ -43,7 +43,7 @@ export class View extends pulumi.CustomResource {
     /**
      * The view in Customer 360 web application.
      */
-    public readonly properties!: pulumi.Output<outputs.customerinsights.v20170101.ViewResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.customerinsights.v20170101.ViewResponse>;
     /**
      * Resource type.
      */
@@ -62,6 +62,9 @@ export class View extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (!(opts && opts.id)) {
             const args = argsOrState as ViewArgs | undefined;
+            if (!args || args.definition === undefined) {
+                throw new Error("Missing required property 'definition'");
+            }
             if (!args || args.hubName === undefined) {
                 throw new Error("Missing required property 'hubName'");
             }
@@ -71,10 +74,13 @@ export class View extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["definition"] = args ? args.definition : undefined;
+            inputs["displayName"] = args ? args.displayName : undefined;
             inputs["hubName"] = args ? args.hubName : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["userId"] = args ? args.userId : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -93,6 +99,14 @@ export class View extends pulumi.CustomResource {
  */
 export interface ViewArgs {
     /**
+     * View definition.
+     */
+    readonly definition: pulumi.Input<string>;
+    /**
+     * Localized display name for the view.
+     */
+    readonly displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The name of the hub.
      */
     readonly hubName: pulumi.Input<string>;
@@ -101,11 +115,11 @@ export interface ViewArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The view in Customer 360 web application.
-     */
-    readonly properties?: pulumi.Input<inputs.customerinsights.v20170101.ViewDefinition>;
-    /**
      * The name of the resource group.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * the user ID.
+     */
+    readonly userId?: pulumi.Input<string>;
 }

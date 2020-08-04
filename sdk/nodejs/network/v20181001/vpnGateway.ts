@@ -51,7 +51,7 @@ export class VpnGateway extends pulumi.CustomResource {
     /**
      * Parameters for VpnGateway
      */
-    public readonly properties!: pulumi.Output<outputs.network.v20181001.VpnGatewayPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.network.v20181001.VpnGatewayPropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -83,13 +83,18 @@ export class VpnGateway extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["bgpSettings"] = args ? args.bgpSettings : undefined;
+            inputs["connections"] = args ? args.connections : undefined;
             inputs["id"] = args ? args.id : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["virtualHub"] = args ? args.virtualHub : undefined;
+            inputs["vpnGatewayScaleUnit"] = args ? args.vpnGatewayScaleUnit : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -108,6 +113,14 @@ export class VpnGateway extends pulumi.CustomResource {
  */
 export interface VpnGatewayArgs {
     /**
+     * Local network gateway's BGP speaker settings.
+     */
+    readonly bgpSettings?: pulumi.Input<inputs.network.v20181001.BgpSettings>;
+    /**
+     * list of all vpn connections to the gateway.
+     */
+    readonly connections?: pulumi.Input<pulumi.Input<inputs.network.v20181001.VpnConnection>[]>;
+    /**
      * Resource ID.
      */
     readonly id?: pulumi.Input<string>;
@@ -120,9 +133,9 @@ export interface VpnGatewayArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Parameters for VpnGateway
+     * The provisioning state of the resource.
      */
-    readonly properties?: pulumi.Input<inputs.network.v20181001.VpnGatewayProperties>;
+    readonly provisioningState?: pulumi.Input<string>;
     /**
      * The resource group name of the VpnGateway.
      */
@@ -131,4 +144,12 @@ export interface VpnGatewayArgs {
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The VirtualHub to which the gateway belongs
+     */
+    readonly virtualHub?: pulumi.Input<inputs.network.v20181001.SubResource>;
+    /**
+     * The scale unit for this vpn gateway.
+     */
+    readonly vpnGatewayScaleUnit?: pulumi.Input<number>;
 }

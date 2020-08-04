@@ -43,7 +43,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Describes properties of an assessment.
      */
-    public readonly properties!: pulumi.Output<outputs.security.v20200101.SecurityAssessmentPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.security.v20200101.SecurityAssessmentPropertiesResponse>;
     /**
      * Resource type
      */
@@ -65,12 +65,24 @@ export class Assessment extends pulumi.CustomResource {
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
             }
+            if (!args || args.resourceDetails === undefined) {
+                throw new Error("Missing required property 'resourceDetails'");
+            }
             if (!args || args.resourceId === undefined) {
                 throw new Error("Missing required property 'resourceId'");
             }
+            if (!args || args.status === undefined) {
+                throw new Error("Missing required property 'status'");
+            }
+            inputs["additionalData"] = args ? args.additionalData : undefined;
+            inputs["links"] = args ? args.links : undefined;
+            inputs["metadata"] = args ? args.metadata : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["partnersData"] = args ? args.partnersData : undefined;
+            inputs["resourceDetails"] = args ? args.resourceDetails : undefined;
             inputs["resourceId"] = args ? args.resourceId : undefined;
+            inputs["status"] = args ? args.status : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -89,15 +101,35 @@ export class Assessment extends pulumi.CustomResource {
  */
 export interface AssessmentArgs {
     /**
+     * Additional data regarding the assessment
+     */
+    readonly additionalData?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Links relevant to the assessment
+     */
+    readonly links?: pulumi.Input<inputs.security.v20200101.AssessmentLinks>;
+    /**
+     * Describes properties of an assessment metadata.
+     */
+    readonly metadata?: pulumi.Input<inputs.security.v20200101.SecurityAssessmentMetadataProperties>;
+    /**
      * The Assessment Key - Unique key for the assessment type
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Describes properties of an assessment.
+     * Data regarding 3rd party partner integration
      */
-    readonly properties?: pulumi.Input<inputs.security.v20200101.SecurityAssessmentProperties>;
+    readonly partnersData?: pulumi.Input<inputs.security.v20200101.SecurityAssessmentPartnerData>;
+    /**
+     * Details of the resource that was assessed
+     */
+    readonly resourceDetails: pulumi.Input<inputs.security.v20200101.ResourceDetails>;
     /**
      * The identifier of the resource.
      */
     readonly resourceId: pulumi.Input<string>;
+    /**
+     * The result of the assessment
+     */
+    readonly status: pulumi.Input<inputs.security.v20200101.AssessmentStatus>;
 }

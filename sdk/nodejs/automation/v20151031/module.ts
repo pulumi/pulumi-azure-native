@@ -51,7 +51,7 @@ export class Module extends pulumi.CustomResource {
     /**
      * Gets or sets the module properties.
      */
-    public readonly properties!: pulumi.Output<outputs.automation.v20151031.ModulePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.automation.v20151031.ModulePropertiesResponse>;
     /**
      * Resource tags.
      */
@@ -77,22 +77,23 @@ export class Module extends pulumi.CustomResource {
             if (!args || args.automationAccountName === undefined) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
+            if (!args || args.contentLink === undefined) {
+                throw new Error("Missing required property 'contentLink'");
+            }
             if (!args || args.name === undefined) {
                 throw new Error("Missing required property 'name'");
-            }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
             }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["automationAccountName"] = args ? args.automationAccountName : undefined;
+            inputs["contentLink"] = args ? args.contentLink : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["etag"] = undefined /*out*/;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -115,6 +116,10 @@ export interface ModuleArgs {
      */
     readonly automationAccountName: pulumi.Input<string>;
     /**
+     * Gets or sets the module content link.
+     */
+    readonly contentLink: pulumi.Input<inputs.automation.v20151031.ContentLink>;
+    /**
      * Gets or sets the location of the resource.
      */
     readonly location?: pulumi.Input<string>;
@@ -122,10 +127,6 @@ export interface ModuleArgs {
      * The name of module.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Gets or sets the module create properties.
-     */
-    readonly properties: pulumi.Input<inputs.automation.v20151031.ModuleCreateOrUpdateProperties>;
     /**
      * Name of an Azure Resource group.
      */

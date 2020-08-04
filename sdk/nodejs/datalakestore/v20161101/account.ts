@@ -51,7 +51,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * The Data Lake Store account properties.
      */
-    public readonly properties!: pulumi.Output<outputs.datalakestore.v20161101.DataLakeStoreAccountPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.datalakestore.v20161101.DataLakeStoreAccountPropertiesResponse>;
     /**
      * The resource tags.
      */
@@ -83,12 +83,22 @@ export class Account extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            inputs["defaultGroup"] = args ? args.defaultGroup : undefined;
+            inputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
+            inputs["encryptionState"] = args ? args.encryptionState : undefined;
+            inputs["firewallAllowAzureIps"] = args ? args.firewallAllowAzureIps : undefined;
+            inputs["firewallRules"] = args ? args.firewallRules : undefined;
+            inputs["firewallState"] = args ? args.firewallState : undefined;
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["newTier"] = args ? args.newTier : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["trustedIdProviderState"] = args ? args.trustedIdProviderState : undefined;
+            inputs["trustedIdProviders"] = args ? args.trustedIdProviders : undefined;
+            inputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,6 +117,30 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountArgs {
     /**
+     * The default owner group for all new folders and files created in the Data Lake Store account.
+     */
+    readonly defaultGroup?: pulumi.Input<string>;
+    /**
+     * The Key Vault encryption configuration.
+     */
+    readonly encryptionConfig?: pulumi.Input<inputs.datalakestore.v20161101.EncryptionConfig>;
+    /**
+     * The current state of encryption for this Data Lake Store account.
+     */
+    readonly encryptionState?: pulumi.Input<string>;
+    /**
+     * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+     */
+    readonly firewallAllowAzureIps?: pulumi.Input<string>;
+    /**
+     * The list of firewall rules associated with this Data Lake Store account.
+     */
+    readonly firewallRules?: pulumi.Input<pulumi.Input<inputs.datalakestore.v20161101.CreateFirewallRuleWithAccountParameters>[]>;
+    /**
+     * The current state of the IP address firewall for this Data Lake Store account.
+     */
+    readonly firewallState?: pulumi.Input<string>;
+    /**
      * The Key Vault encryption identity, if any.
      */
     readonly identity?: pulumi.Input<inputs.datalakestore.v20161101.EncryptionIdentity>;
@@ -119,9 +153,9 @@ export interface AccountArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The Data Lake Store account properties to use for creating.
+     * The commitment tier to use for next month.
      */
-    readonly properties?: pulumi.Input<inputs.datalakestore.v20161101.CreateDataLakeStoreAccountProperties>;
+    readonly newTier?: pulumi.Input<string>;
     /**
      * The name of the Azure resource group.
      */
@@ -130,4 +164,16 @@ export interface AccountArgs {
      * The resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The current state of the trusted identity provider feature for this Data Lake Store account.
+     */
+    readonly trustedIdProviderState?: pulumi.Input<string>;
+    /**
+     * The list of trusted identity providers associated with this Data Lake Store account.
+     */
+    readonly trustedIdProviders?: pulumi.Input<pulumi.Input<inputs.datalakestore.v20161101.CreateTrustedIdProviderWithAccountParameters>[]>;
+    /**
+     * The list of virtual network rules associated with this Data Lake Store account.
+     */
+    readonly virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.datalakestore.v20161101.CreateVirtualNetworkRuleWithAccountParameters>[]>;
 }

@@ -43,7 +43,7 @@ export class Prefix extends pulumi.CustomResource {
     /**
      * Gets or sets the peering prefix properties.
      */
-    public readonly properties!: pulumi.Output<outputs.peering.v20200401.PeeringServicePrefixPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.peering.v20200401.PeeringServicePrefixPropertiesResponse>;
     /**
      * The type of the resource.
      */
@@ -73,8 +73,10 @@ export class Prefix extends pulumi.CustomResource {
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["peeringServiceName"] = args ? args.peeringServiceName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
+            inputs["peeringServicePrefixKey"] = args ? args.peeringServicePrefixKey : undefined;
+            inputs["prefix"] = args ? args.prefix : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -101,9 +103,13 @@ export interface PrefixArgs {
      */
     readonly peeringServiceName: pulumi.Input<string>;
     /**
-     * Gets or sets the peering prefix properties.
+     * The peering service prefix key
      */
-    readonly properties?: pulumi.Input<inputs.peering.v20200401.PeeringServicePrefixProperties>;
+    readonly peeringServicePrefixKey?: pulumi.Input<string>;
+    /**
+     * The prefix from which your traffic originates.
+     */
+    readonly prefix?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

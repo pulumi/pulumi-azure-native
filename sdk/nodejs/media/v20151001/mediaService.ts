@@ -47,7 +47,7 @@ export class MediaService extends pulumi.CustomResource {
     /**
      * The additional properties of a Media Service resource.
      */
-    public readonly properties!: pulumi.Output<outputs.media.v20151001.MediaServicePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.media.v20151001.MediaServicePropertiesResponse>;
     /**
      * Tags to help categorize the resource in the Azure portal.
      */
@@ -78,9 +78,10 @@ export class MediaService extends pulumi.CustomResource {
             }
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -107,13 +108,13 @@ export interface MediaServiceArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * The additional properties of a Media Service resource.
-     */
-    readonly properties?: pulumi.Input<inputs.media.v20151001.MediaServiceProperties>;
-    /**
      * Name of the resource group within the Azure subscription.
      */
     readonly resourceGroupName: pulumi.Input<string>;
+    /**
+     * The storage accounts for this resource.
+     */
+    readonly storageAccounts?: pulumi.Input<pulumi.Input<inputs.media.v20151001.StorageAccount>[]>;
     /**
      * Tags to help categorize the resource in the Azure portal.
      */
