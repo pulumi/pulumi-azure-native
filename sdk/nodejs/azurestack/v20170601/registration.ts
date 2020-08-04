@@ -39,7 +39,7 @@ export class Registration extends pulumi.CustomResource {
     /**
      * The entity tag used for optimistic concurrency when modifying the resource.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Location of the resource.
      */
@@ -55,7 +55,7 @@ export class Registration extends pulumi.CustomResource {
     /**
      * Custom tags for the resource.
      */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of Resource.
      */
@@ -68,7 +68,7 @@ export class Registration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: RegistrationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: RegistrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RegistrationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

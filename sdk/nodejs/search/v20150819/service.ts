@@ -39,11 +39,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * The identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.search.v20150819.IdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.search.v20150819.IdentityResponse | undefined>;
     /**
      * The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth). This property is required when creating a new resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
@@ -55,11 +55,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * The SKU of the Search Service, which determines price tier and capacity limits. This property is required when creating a new Search Service.
      */
-    public readonly sku!: pulumi.Output<outputs.search.v20150819.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.search.v20150819.SkuResponse | undefined>;
     /**
      * Tags to help categorize the resource in the Azure portal.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource type.
      */
@@ -72,7 +72,7 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ServiceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

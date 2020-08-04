@@ -39,11 +39,11 @@ export class Service extends pulumi.CustomResource {
     /**
      * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the resource lives
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    public /*out*/ readonly location!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -55,7 +55,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Resource tags.
      */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
@@ -68,7 +68,7 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ServiceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

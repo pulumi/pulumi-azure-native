@@ -47,7 +47,7 @@ export class Resource extends pulumi.CustomResource {
     /**
      * Gets or sets the plan of the resource.
      */
-    public readonly plan!: pulumi.Output<outputs.resources.v20151101.PlanResponse>;
+    public readonly plan!: pulumi.Output<outputs.resources.v20151101.PlanResponse | undefined>;
     /**
      * Gets or sets the resource properties.
      */
@@ -55,7 +55,7 @@ export class Resource extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -68,7 +68,7 @@ export class Resource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ResourceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ResourceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

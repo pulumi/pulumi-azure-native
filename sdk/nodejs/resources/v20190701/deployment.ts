@@ -39,7 +39,7 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * the location of the deployment.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The name of the deployment.
      */
@@ -60,7 +60,7 @@ export class Deployment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DeploymentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: DeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeploymentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

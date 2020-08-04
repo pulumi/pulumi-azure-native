@@ -39,7 +39,7 @@ export class SavedSearch extends pulumi.CustomResource {
     /**
      * The ETag of the saved search.
      */
-    public readonly eTag!: pulumi.Output<string>;
+    public readonly eTag!: pulumi.Output<string | undefined>;
     /**
      * The name of the saved search.
      */
@@ -60,7 +60,7 @@ export class SavedSearch extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SavedSearchArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: SavedSearchArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SavedSearchArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

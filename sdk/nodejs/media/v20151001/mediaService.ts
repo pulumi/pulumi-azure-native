@@ -39,7 +39,7 @@ export class MediaService extends pulumi.CustomResource {
     /**
      * The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
@@ -51,7 +51,7 @@ export class MediaService extends pulumi.CustomResource {
     /**
      * Tags to help categorize the resource in the Azure portal.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource
      */
@@ -64,7 +64,7 @@ export class MediaService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: MediaServiceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: MediaServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MediaServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

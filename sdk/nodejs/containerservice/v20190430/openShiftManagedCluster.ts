@@ -47,7 +47,7 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
     /**
      * Define the resource plan as required by ARM for billing purposes
      */
-    public readonly plan!: pulumi.Output<outputs.containerservice.v20190430.PurchasePlanResponse>;
+    public readonly plan!: pulumi.Output<outputs.containerservice.v20190430.PurchasePlanResponse | undefined>;
     /**
      * Properties of a OpenShift managed cluster.
      */
@@ -55,7 +55,7 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -68,7 +68,7 @@ export class OpenShiftManagedCluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: OpenShiftManagedClusterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: OpenShiftManagedClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OpenShiftManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

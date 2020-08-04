@@ -39,7 +39,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * For optimistic concurrency control.
      */
-    public readonly eTag!: pulumi.Output<string>;
+    public readonly eTag!: pulumi.Output<string | undefined>;
     /**
      * Unique name of an assessment.
      */
@@ -60,7 +60,7 @@ export class Assessment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AssessmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

@@ -39,7 +39,7 @@ export class AppServicePlan extends pulumi.CustomResource {
     /**
      * Kind of resource.
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * Resource Location.
      */
@@ -55,11 +55,11 @@ export class AppServicePlan extends pulumi.CustomResource {
     /**
      * Description of a SKU for a scalable resource.
      */
-    public readonly sku!: pulumi.Output<outputs.web.v20190801.SkuDescriptionResponse>;
+    public readonly sku!: pulumi.Output<outputs.web.v20190801.SkuDescriptionResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
@@ -72,7 +72,7 @@ export class AppServicePlan extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AppServicePlanArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: AppServicePlanArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AppServicePlanArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

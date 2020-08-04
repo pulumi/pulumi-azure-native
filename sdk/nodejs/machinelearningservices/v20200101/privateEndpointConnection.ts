@@ -39,11 +39,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.machinelearningservices.v20200101.IdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.machinelearningservices.v20200101.IdentityResponse | undefined>;
     /**
      * Specifies the location of the resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the resource.
      */
@@ -55,11 +55,11 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The sku of the workspace.
      */
-    public readonly sku!: pulumi.Output<outputs.machinelearningservices.v20200101.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.machinelearningservices.v20200101.SkuResponse | undefined>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the type of the resource.
      */
@@ -72,7 +72,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

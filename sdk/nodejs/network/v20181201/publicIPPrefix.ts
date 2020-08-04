@@ -39,11 +39,11 @@ export class PublicIPPrefix extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
@@ -55,11 +55,11 @@ export class PublicIPPrefix extends pulumi.CustomResource {
     /**
      * The public IP prefix SKU.
      */
-    public readonly sku!: pulumi.Output<outputs.network.v20181201.PublicIPPrefixSkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.network.v20181201.PublicIPPrefixSkuResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
@@ -67,7 +67,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
     /**
      * A list of availability zones denoting the IP allocated for the resource needs to come from.
      */
-    public readonly zones!: pulumi.Output<string[]>;
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a PublicIPPrefix resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class PublicIPPrefix extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PublicIPPrefixArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: PublicIPPrefixArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PublicIPPrefixArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

@@ -43,7 +43,7 @@ export class RegistrationDefinition extends pulumi.CustomResource {
     /**
      * Plan details for the managed services.
      */
-    public readonly plan!: pulumi.Output<outputs.managedservices.v20190901.PlanResponse>;
+    public readonly plan!: pulumi.Output<outputs.managedservices.v20190901.PlanResponse | undefined>;
     /**
      * Properties of a registration definition.
      */
@@ -60,7 +60,7 @@ export class RegistrationDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: RegistrationDefinitionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: RegistrationDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RegistrationDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

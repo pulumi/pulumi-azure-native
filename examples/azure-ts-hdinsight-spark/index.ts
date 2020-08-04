@@ -42,7 +42,7 @@ const storageAccountKeys = pulumi.all([resourceGroup.name, storageAccount.name, 
 const primaryStorageKey = storageAccountKeys.keys[0].value;
 
 // Create a Spark cluster in HDInsight
-const sparkCluster = new azurerm.hdinsight.v20180601beta1.Cluster("myspark", {
+const sparkCluster = new azurerm.hdinsight.v20180601preview.Cluster("myspark", {
     name: "spark-cluster12345",
     resourceGroupName: resourceGroup.name,
     location: location,

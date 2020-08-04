@@ -39,7 +39,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * Region name string.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Name of Cache.
      */
@@ -51,11 +51,11 @@ export class Cache extends pulumi.CustomResource {
     /**
      * SKU for the Cache.
      */
-    public readonly sku!: pulumi.Output<outputs.storagecache.v20191101.CacheResponseProperties>;
+    public readonly sku!: pulumi.Output<outputs.storagecache.v20191101.CacheResponseProperties | undefined>;
     /**
      * ARM tags as name/value pairs.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Type of the Cache; Microsoft.StorageCache/Cache
      */
@@ -68,7 +68,7 @@ export class Cache extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: CacheArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CacheArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

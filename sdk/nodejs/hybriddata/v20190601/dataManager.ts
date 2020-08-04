@@ -39,7 +39,7 @@ export class DataManager extends pulumi.CustomResource {
     /**
      * Etag of the Resource.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East
      * US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo
@@ -53,12 +53,12 @@ export class DataManager extends pulumi.CustomResource {
     /**
      * The sku type.
      */
-    public readonly sku!: pulumi.Output<outputs.hybriddata.v20190601.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.hybriddata.v20190601.SkuResponse | undefined>;
     /**
      * The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource
      * (across resource groups).
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Resource type.
      */
@@ -71,7 +71,7 @@ export class DataManager extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DataManagerArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: DataManagerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataManagerArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

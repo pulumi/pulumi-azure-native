@@ -43,7 +43,7 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
@@ -55,11 +55,11 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * The nat gateway SKU.
      */
-    public readonly sku!: pulumi.Output<outputs.network.v20191101.NatGatewaySkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.network.v20191101.NatGatewaySkuResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
@@ -67,7 +67,7 @@ export class NatGateway extends pulumi.CustomResource {
     /**
      * A list of availability zones denoting the zone in which Nat Gateway should be deployed.
      */
-    public readonly zones!: pulumi.Output<string[]>;
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a NatGateway resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class NatGateway extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: NatGatewayArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: NatGatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NatGatewayArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

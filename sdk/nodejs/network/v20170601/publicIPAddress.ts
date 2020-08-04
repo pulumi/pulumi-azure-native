@@ -39,11 +39,11 @@ export class PublicIPAddress extends pulumi.CustomResource {
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
@@ -55,7 +55,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
@@ -63,7 +63,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
     /**
      * A list of availability zones denoting the IP allocated for the resource needs to come from.
      */
-    public readonly zones!: pulumi.Output<string[]>;
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a PublicIPAddress resource with the given unique name, arguments, and options.
@@ -72,7 +72,7 @@ export class PublicIPAddress extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PublicIPAddressArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: PublicIPAddressArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PublicIPAddressArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

@@ -51,7 +51,7 @@ export class Volume extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<outputs.netapp.v20190701.ResourceTagsResponse>;
+    public readonly tags!: pulumi.Output<outputs.netapp.v20190701.ResourceTagsResponse | undefined>;
     /**
      * Resource type
      */
@@ -64,7 +64,7 @@ export class Volume extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VolumeArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

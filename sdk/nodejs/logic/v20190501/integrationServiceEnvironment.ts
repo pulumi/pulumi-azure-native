@@ -39,7 +39,7 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Gets the resource name.
      */
@@ -51,11 +51,11 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
     /**
      * The sku.
      */
-    public readonly sku!: pulumi.Output<outputs.logic.v20190501.IntegrationServiceEnvironmentSkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.logic.v20190501.IntegrationServiceEnvironmentSkuResponse | undefined>;
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets the resource type.
      */
@@ -68,7 +68,7 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: IntegrationServiceEnvironmentArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: IntegrationServiceEnvironmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationServiceEnvironmentArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

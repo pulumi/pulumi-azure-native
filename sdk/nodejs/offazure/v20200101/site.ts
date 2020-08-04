@@ -39,20 +39,20 @@ export class Site extends pulumi.CustomResource {
     /**
      * eTag for concurrency control.
      */
-    public readonly eTag!: pulumi.Output<string>;
+    public readonly eTag!: pulumi.Output<string | undefined>;
     /**
      * Azure location in which Sites is created.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Name of the VMware site.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * Nested properties of VMWare site.
      */
     public readonly properties!: pulumi.Output<outputs.offazure.v20200101.SitePropertiesResponse>;
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of resource. Type = Microsoft.OffAzure/VMWareSites.
      */
@@ -65,7 +65,7 @@ export class Site extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SiteArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: SiteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SiteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

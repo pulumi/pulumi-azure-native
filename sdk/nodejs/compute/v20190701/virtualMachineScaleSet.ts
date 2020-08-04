@@ -39,7 +39,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * The identity of the virtual machine scale set, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.compute.v20190701.VirtualMachineScaleSetIdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.compute.v20190701.VirtualMachineScaleSetIdentityResponse | undefined>;
     /**
      * Resource location
      */
@@ -51,7 +51,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    public readonly plan!: pulumi.Output<outputs.compute.v20190701.PlanResponse>;
+    public readonly plan!: pulumi.Output<outputs.compute.v20190701.PlanResponse | undefined>;
     /**
      * Describes the properties of a Virtual Machine Scale Set.
      */
@@ -59,11 +59,11 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * The virtual machine scale set sku.
      */
-    public readonly sku!: pulumi.Output<outputs.compute.v20190701.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.compute.v20190701.SkuResponse | undefined>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -71,7 +71,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
      */
-    public readonly zones!: pulumi.Output<string[]>;
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a VirtualMachineScaleSet resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VirtualMachineScaleSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: VirtualMachineScaleSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualMachineScaleSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

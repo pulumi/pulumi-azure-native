@@ -39,7 +39,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     /**
      * The name of the extension.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * Describes the properties of a Virtual Machine Scale Set Extension.
      */
@@ -56,7 +56,7 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VirtualMachineScaleSetExtensionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: VirtualMachineScaleSetExtensionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualMachineScaleSetExtensionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

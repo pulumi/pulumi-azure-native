@@ -34,7 +34,7 @@ export class Machine extends pulumi.CustomResource {
         return obj['__pulumiType'] === Machine.__pulumiType;
     }
 
-    public readonly identity!: pulumi.Output<{[key: string]: any}>;
+    public readonly identity!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -50,7 +50,7 @@ export class Machine extends pulumi.CustomResource {
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -63,7 +63,7 @@ export class Machine extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: MachineArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: MachineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MachineArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

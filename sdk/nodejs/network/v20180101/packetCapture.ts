@@ -36,7 +36,7 @@ export class PacketCapture extends pulumi.CustomResource {
         return obj['__pulumiType'] === PacketCapture.__pulumiType;
     }
 
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Name of the packet capture.
      */
@@ -57,7 +57,7 @@ export class PacketCapture extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PacketCaptureArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: PacketCaptureArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PacketCaptureArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

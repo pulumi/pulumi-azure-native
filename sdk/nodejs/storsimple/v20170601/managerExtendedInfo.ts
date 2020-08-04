@@ -39,11 +39,11 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
     /**
      * The etag of the resource.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * The name of the object.
      */
@@ -64,7 +64,7 @@ export class ManagerExtendedInfo extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ManagerExtendedInfoArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ManagerExtendedInfoArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagerExtendedInfoArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

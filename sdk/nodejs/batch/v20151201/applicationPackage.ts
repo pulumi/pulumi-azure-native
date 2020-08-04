@@ -37,27 +37,27 @@ export class ApplicationPackage extends pulumi.CustomResource {
     /**
      * The format of the application package, if the package is active.
      */
-    public /*out*/ readonly format!: pulumi.Output<string>;
+    public /*out*/ readonly format!: pulumi.Output<string | undefined>;
     /**
      * The time at which the package was last activated, if the package is active.
      */
-    public /*out*/ readonly lastActivationTime!: pulumi.Output<string>;
+    public /*out*/ readonly lastActivationTime!: pulumi.Output<string | undefined>;
     /**
      * The current state of the application package.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
     /**
      * The storage URL at which the application package is stored.
      */
-    public /*out*/ readonly storageUrl!: pulumi.Output<string>;
+    public /*out*/ readonly storageUrl!: pulumi.Output<string | undefined>;
     /**
      * The UTC time at which the storage URL will expire.
      */
-    public /*out*/ readonly storageUrlExpiry!: pulumi.Output<string>;
+    public /*out*/ readonly storageUrlExpiry!: pulumi.Output<string | undefined>;
     /**
      * The version of the application package. 
      */
-    public readonly version!: pulumi.Output<string>;
+    public readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApplicationPackage resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ export class ApplicationPackage extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ApplicationPackageArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ApplicationPackageArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationPackageArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

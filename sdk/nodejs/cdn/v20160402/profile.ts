@@ -48,7 +48,7 @@ export class Profile extends pulumi.CustomResource {
     /**
      * The SKU (pricing tier) of the CDN profile.
      */
-    public readonly sku!: pulumi.Output<outputs.cdn.v20160402.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.cdn.v20160402.SkuResponse | undefined>;
     /**
      * Resource tags
      */
@@ -65,7 +65,7 @@ export class Profile extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ProfileArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ProfileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

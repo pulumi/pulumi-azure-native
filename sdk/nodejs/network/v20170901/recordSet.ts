@@ -39,7 +39,7 @@ export class RecordSet extends pulumi.CustomResource {
     /**
      * The etag of the record set.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * The name of the record set.
      */
@@ -60,7 +60,7 @@ export class RecordSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: RecordSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: RecordSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RecordSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

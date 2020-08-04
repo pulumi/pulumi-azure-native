@@ -39,19 +39,19 @@ export class Application extends pulumi.CustomResource {
     /**
      * A value indicating whether packages within the application may be overwritten using the same version string.
      */
-    public readonly allowUpdates!: pulumi.Output<boolean>;
+    public readonly allowUpdates!: pulumi.Output<boolean | undefined>;
     /**
      * The package to use if a client requests the application but does not specify a version.
      */
-    public /*out*/ readonly defaultVersion!: pulumi.Output<string>;
+    public /*out*/ readonly defaultVersion!: pulumi.Output<string | undefined>;
     /**
      * The display name for the application.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * The list of packages under this application.
      */
-    public /*out*/ readonly packages!: pulumi.Output<outputs.batch.v20151201.ApplicationPackageResponse[]>;
+    public /*out*/ readonly packages!: pulumi.Output<outputs.batch.v20151201.ApplicationPackageResponse[] | undefined>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -60,7 +60,7 @@ export class Application extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

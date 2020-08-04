@@ -89,7 +89,7 @@ export class ExportConfiguration extends pulumi.CustomResource {
     /**
      * Deprecated
      */
-    public readonly NotificationQueueEnabled!: pulumi.Output<string>;
+    public readonly NotificationQueueEnabled!: pulumi.Output<string | undefined>;
     /**
      * This is the reason the Continuous Export configuration started failing. It can be 'AzureStorageNotFound' or 'AzureStorageAccessDenied'.
      */
@@ -97,7 +97,7 @@ export class ExportConfiguration extends pulumi.CustomResource {
     /**
      * This comma separated list of document types that will be exported. The possible values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
      */
-    public readonly RecordTypes!: pulumi.Output<string>;
+    public readonly RecordTypes!: pulumi.Output<string | undefined>;
     /**
      * The resource group of the Application Insights component.
      */
@@ -118,7 +118,7 @@ export class ExportConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ExportConfigurationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ExportConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ExportConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

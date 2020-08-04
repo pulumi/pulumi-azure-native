@@ -36,11 +36,11 @@ export class JobCollection extends pulumi.CustomResource {
     /**
      * Gets or sets the storage account location.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the job collection resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the job collection properties.
      */
@@ -48,7 +48,7 @@ export class JobCollection extends pulumi.CustomResource {
     /**
      * Gets or sets the tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets the job collection resource type.
      */
@@ -61,7 +61,7 @@ export class JobCollection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: JobCollectionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: JobCollectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobCollectionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

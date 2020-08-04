@@ -39,11 +39,11 @@ export class Project extends pulumi.CustomResource {
     /**
      * For optimistic concurrency control.
      */
-    public readonly eTag!: pulumi.Output<string>;
+    public readonly eTag!: pulumi.Output<string | undefined>;
     /**
      * Azure location in which project is created.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * Name of the project.
      */
@@ -55,7 +55,7 @@ export class Project extends pulumi.CustomResource {
     /**
      * Tags provided by Azure Tagging service.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: any}>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Type of the object = [Microsoft.Migrate/projects].
      */
@@ -68,7 +68,7 @@ export class Project extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ProjectArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProjectArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

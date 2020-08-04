@@ -39,7 +39,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
     /**
      * The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
      */
-    public readonly identity!: pulumi.Output<outputs.compute.v20200501.EncryptionSetIdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.compute.v20200501.EncryptionSetIdentityResponse | undefined>;
     /**
      * Resource location
      */
@@ -52,7 +52,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -65,7 +65,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DiskEncryptionSetArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: DiskEncryptionSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DiskEncryptionSetArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

@@ -39,7 +39,7 @@ export class BatchAccount extends pulumi.CustomResource {
     /**
      * The identity of the Batch account.
      */
-    public readonly identity!: pulumi.Output<outputs.batch.v20200501.BatchAccountIdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.batch.v20200501.BatchAccountIdentityResponse | undefined>;
     /**
      * The location of the resource.
      */
@@ -68,7 +68,7 @@ export class BatchAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: BatchAccountArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: BatchAccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BatchAccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

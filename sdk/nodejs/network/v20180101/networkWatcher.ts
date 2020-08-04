@@ -36,7 +36,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
         return obj['__pulumiType'] === NetworkWatcher.__pulumiType;
     }
 
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
@@ -52,7 +52,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
@@ -65,7 +65,7 @@ export class NetworkWatcher extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: NetworkWatcherArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: NetworkWatcherArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkWatcherArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

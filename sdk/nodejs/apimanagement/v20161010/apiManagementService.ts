@@ -47,7 +47,7 @@ export class ApiManagementService extends pulumi.CustomResource {
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * Properties of the API Management service.
      */
@@ -59,7 +59,7 @@ export class ApiManagementService extends pulumi.CustomResource {
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type for API Management resource is set to Microsoft.ApiManagement.
      */
@@ -72,7 +72,7 @@ export class ApiManagementService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ApiManagementServiceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ApiManagementServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiManagementServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

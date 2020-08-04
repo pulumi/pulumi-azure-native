@@ -39,7 +39,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
     /**
      * The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The policy definition properties.
      */
@@ -52,7 +52,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: PolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: PolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

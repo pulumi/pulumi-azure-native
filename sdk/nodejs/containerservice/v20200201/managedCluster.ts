@@ -39,7 +39,7 @@ export class ManagedCluster extends pulumi.CustomResource {
     /**
      * The identity of the managed cluster, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.containerservice.v20200201.ManagedClusterIdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.containerservice.v20200201.ManagedClusterIdentityResponse | undefined>;
     /**
      * Resource location
      */
@@ -55,7 +55,7 @@ export class ManagedCluster extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -68,7 +68,7 @@ export class ManagedCluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ManagedClusterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ManagedClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

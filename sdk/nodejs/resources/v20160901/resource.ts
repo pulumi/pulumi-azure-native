@@ -39,19 +39,19 @@ export class Resource extends pulumi.CustomResource {
     /**
      * The identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.resources.v20160901.IdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.resources.v20160901.IdentityResponse | undefined>;
     /**
      * The kind of the resource.
      */
-    public readonly kind!: pulumi.Output<string>;
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * ID of the resource that manages this resource.
      */
-    public readonly managedBy!: pulumi.Output<string>;
+    public readonly managedBy!: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
@@ -59,7 +59,7 @@ export class Resource extends pulumi.CustomResource {
     /**
      * The plan of the resource.
      */
-    public readonly plan!: pulumi.Output<outputs.resources.v20160901.PlanResponse>;
+    public readonly plan!: pulumi.Output<outputs.resources.v20160901.PlanResponse | undefined>;
     /**
      * The resource properties.
      */
@@ -67,11 +67,11 @@ export class Resource extends pulumi.CustomResource {
     /**
      * The SKU of the resource.
      */
-    public readonly sku!: pulumi.Output<outputs.resources.v20160901.SkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.resources.v20160901.SkuResponse | undefined>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -84,7 +84,7 @@ export class Resource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ResourceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ResourceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

@@ -39,11 +39,11 @@ export class ContainerGroup extends pulumi.CustomResource {
     /**
      * The identity of the container group, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.containerinstance.v20191201.ContainerGroupIdentityResponse>;
+    public readonly identity!: pulumi.Output<outputs.containerinstance.v20191201.ContainerGroupIdentityResponse | undefined>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    public readonly location!: pulumi.Output<string | undefined>;
     /**
      * The resource name.
      */
@@ -55,7 +55,7 @@ export class ContainerGroup extends pulumi.CustomResource {
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource type.
      */
@@ -68,7 +68,7 @@ export class ContainerGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ContainerGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ContainerGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ContainerGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

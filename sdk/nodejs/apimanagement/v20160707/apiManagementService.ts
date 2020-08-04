@@ -39,7 +39,7 @@ export class ApiManagementService extends pulumi.CustomResource {
     /**
      * ETag of the resource.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Datacenter location of the API Management service.
      */
@@ -59,7 +59,7 @@ export class ApiManagementService extends pulumi.CustomResource {
     /**
      * API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type of the API Management service.
      */
@@ -72,7 +72,7 @@ export class ApiManagementService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ApiManagementServiceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ApiManagementServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiManagementServiceArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

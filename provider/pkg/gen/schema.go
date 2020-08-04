@@ -42,6 +42,7 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 	csharpNamespaces := map[string]string{
 		"azurerm": "AzureRM",
 	}
+	pythonModuleNames := map[string]string{}
 
 	for _, swagger := range swaggers {
 		gen := packageGenerator{pkg: &pkg, metadata: &metadata, swagger: swagger}
@@ -59,7 +60,9 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 			prov := provider.ResourceProvider(key)
 			if prov != "" {
 				module := gen.providerToModule(prov)
-				csharpNamespaces[module] = fmt.Sprintf("%s.V%s", prov, gen.apiVersion())
+				version := strings.Replace(gen.apiVersion(), "preview", "Preview", 1)
+				csharpNamespaces[module] = fmt.Sprintf("%s.V%s", prov, version)
+				pythonModuleNames[module] = module
 			}
 
 			gen.genResources(key, &path)
@@ -68,8 +71,6 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 	}
 
 	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
-		// TODO: switch off the k8s compatibility mode (currently needed for Node.js submodules).
-		"compatibility": "kubernetes20",
 		"dependencies": map[string]string{
 			"@pulumi/pulumi": "^2.0.0",
 		},
@@ -77,6 +78,7 @@ func PulumiSchema(swaggers []*openapi.Spec) (*pschema.PackageSpec, *provider.Azu
 	})
 
 	pkg.Language["python"] = rawMessage(map[string]interface{}{
+		"moduleNameOverrides": pythonModuleNames,
 		"requires": map[string]string{
 			"pulumi": ">=2.0.0,<3.0.0",
 		},
@@ -273,8 +275,7 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 
 // apiVersion returns the module version from the Azure API spec version (e.g. `2020-07-01` => `v20200701`).
 func (g *packageGenerator) apiVersion() string {
-	// TODO: get rid of beta1 replacement: it was added to match the k8s compatibility regex.
-	return strings.ReplaceAll(strings.ReplaceAll(g.swagger.Info.Version, "-", ""), "preview", "beta1")
+	return strings.ReplaceAll(g.swagger.Info.Version, "-", "")
 }
 
 // providerToModule produces the module name from the provider name and the API version (e.g. (`Compute`, `2020-07-01` => `compute/v20200701`).

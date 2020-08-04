@@ -33,7 +33,7 @@ export class VMwareCollector extends pulumi.CustomResource {
         return obj['__pulumiType'] === VMwareCollector.__pulumiType;
     }
 
-    public readonly eTag!: pulumi.Output<string>;
+    public readonly eTag!: pulumi.Output<string | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly properties!: pulumi.Output<outputs.migrate.v20191001.CollectorPropertiesResponse>;
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -45,7 +45,7 @@ export class VMwareCollector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: VMwareCollectorArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: VMwareCollectorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VMwareCollectorArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

@@ -55,11 +55,11 @@ export class Disk extends pulumi.CustomResource {
     /**
      * The disks and snapshots sku name. Can be Standard_LRS or Premium_LRS.
      */
-    public readonly sku!: pulumi.Output<outputs.compute.v20170330.DiskSkuResponse>;
+    public readonly sku!: pulumi.Output<outputs.compute.v20170330.DiskSkuResponse | undefined>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
@@ -67,7 +67,7 @@ export class Disk extends pulumi.CustomResource {
     /**
      * The Logical zone list for Disk.
      */
-    public readonly zones!: pulumi.Output<string[]>;
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Disk resource with the given unique name, arguments, and options.
@@ -76,7 +76,7 @@ export class Disk extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DiskArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: DiskArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DiskArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

@@ -43,7 +43,7 @@ export class ResourceGroup extends pulumi.CustomResource {
     /**
      * Gets or sets the Name of the resource group.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The resource group properties.
      */
@@ -51,7 +51,7 @@ export class ResourceGroup extends pulumi.CustomResource {
     /**
      * Gets or sets the tags attached to the resource group.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a ResourceGroup resource with the given unique name, arguments, and options.
@@ -60,7 +60,7 @@ export class ResourceGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ResourceGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ResourceGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

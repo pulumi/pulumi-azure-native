@@ -51,7 +51,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<outputs.netapp.v20191101.ResourceTagsResponse>;
+    public readonly tags!: pulumi.Output<outputs.netapp.v20191101.ResourceTagsResponse | undefined>;
     /**
      * Resource type
      */
@@ -64,7 +64,7 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AccountArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

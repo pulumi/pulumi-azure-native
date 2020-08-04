@@ -55,7 +55,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -63,7 +63,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The availability zones of the cluster.
      */
-    public readonly zones!: pulumi.Output<outputs.kusto.v20190515.ZonesResponse>;
+    public readonly zones!: pulumi.Output<outputs.kusto.v20190515.ZonesResponse | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -72,7 +72,7 @@ export class Cluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ClusterArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

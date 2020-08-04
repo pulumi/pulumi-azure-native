@@ -55,7 +55,7 @@ export class ServerDetails extends pulumi.CustomResource {
     /**
      * Key-value pairs of additional resource provisioning properties.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the Analysis Services resource.
      */
@@ -68,7 +68,7 @@ export class ServerDetails extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ServerDetailsArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ServerDetailsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServerDetailsArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

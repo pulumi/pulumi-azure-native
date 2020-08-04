@@ -37,11 +37,11 @@ export class Favorite extends pulumi.CustomResource {
     /**
      * Favorite category, as defined by the user at creation time.
      */
-    public readonly Category!: pulumi.Output<string>;
+    public readonly Category!: pulumi.Output<string | undefined>;
     /**
      * Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
      */
-    public readonly Config!: pulumi.Output<string>;
+    public readonly Config!: pulumi.Output<string | undefined>;
     /**
      * Internally assigned unique id of the favorite definition.
      */
@@ -49,23 +49,23 @@ export class Favorite extends pulumi.CustomResource {
     /**
      * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    public readonly FavoriteType!: pulumi.Output<string>;
+    public readonly FavoriteType!: pulumi.Output<string | undefined>;
     /**
      * Flag denoting wether or not this favorite was generated from a template.
      */
-    public readonly IsGeneratedFromTemplate!: pulumi.Output<boolean>;
+    public readonly IsGeneratedFromTemplate!: pulumi.Output<boolean | undefined>;
     /**
      * The user-defined name of the favorite.
      */
-    public readonly Name!: pulumi.Output<string>;
+    public readonly Name!: pulumi.Output<string | undefined>;
     /**
      * The source of the favorite definition.
      */
-    public readonly SourceType!: pulumi.Output<string>;
+    public readonly SourceType!: pulumi.Output<string | undefined>;
     /**
      * A list of 0 or more tags that are associated with this favorite definition
      */
-    public readonly Tags!: pulumi.Output<string[]>;
+    public readonly Tags!: pulumi.Output<string[] | undefined>;
     /**
      * Date and time in UTC of the last modification that was made to this favorite definition.
      */
@@ -77,7 +77,7 @@ export class Favorite extends pulumi.CustomResource {
     /**
      * This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
      */
-    public readonly Version!: pulumi.Output<string>;
+    public readonly Version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Favorite resource with the given unique name, arguments, and options.
@@ -86,7 +86,7 @@ export class Favorite extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: FavoriteArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: FavoriteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FavoriteArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};

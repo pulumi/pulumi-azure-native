@@ -37,11 +37,11 @@ export class IotHubResourceEventHubConsumerGroup extends pulumi.CustomResource {
     /**
      * The Event Hub-compatible consumer group name.
      */
-    public readonly name!: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The tags.
      */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a IotHubResourceEventHubConsumerGroup resource with the given unique name, arguments, and options.
@@ -50,7 +50,7 @@ export class IotHubResourceEventHubConsumerGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: IotHubResourceEventHubConsumerGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: IotHubResourceEventHubConsumerGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, state: undefined, opts: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IotHubResourceEventHubConsumerGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
