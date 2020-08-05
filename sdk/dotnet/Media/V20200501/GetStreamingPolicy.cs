@@ -46,13 +46,33 @@ namespace Pulumi.AzureRM.Media.V20200501
     public sealed class GetStreamingPolicyResult
     {
         /// <summary>
+        /// Configuration of CommonEncryptionCbcs
+        /// </summary>
+        public readonly Outputs.CommonEncryptionCbcsResponseResult? CommonEncryptionCbcs;
+        /// <summary>
+        /// Configuration of CommonEncryptionCenc
+        /// </summary>
+        public readonly Outputs.CommonEncryptionCencResponseResult? CommonEncryptionCenc;
+        /// <summary>
+        /// Creation time of Streaming Policy
+        /// </summary>
+        public readonly string Created;
+        /// <summary>
+        /// Default ContentKey used by current Streaming Policy
+        /// </summary>
+        public readonly string? DefaultContentKeyPolicyName;
+        /// <summary>
+        /// Configuration of EnvelopeEncryption
+        /// </summary>
+        public readonly Outputs.EnvelopeEncryptionResponseResult? EnvelopeEncryption;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Class to specify properties of Streaming Policy
+        /// Configurations of NoEncryption
         /// </summary>
-        public readonly Outputs.StreamingPolicyPropertiesResponseResult Properties;
+        public readonly Outputs.NoEncryptionResponseResult? NoEncryption;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -60,14 +80,29 @@ namespace Pulumi.AzureRM.Media.V20200501
 
         [OutputConstructor]
         private GetStreamingPolicyResult(
+            Outputs.CommonEncryptionCbcsResponseResult? commonEncryptionCbcs,
+
+            Outputs.CommonEncryptionCencResponseResult? commonEncryptionCenc,
+
+            string created,
+
+            string? defaultContentKeyPolicyName,
+
+            Outputs.EnvelopeEncryptionResponseResult? envelopeEncryption,
+
             string name,
 
-            Outputs.StreamingPolicyPropertiesResponseResult properties,
+            Outputs.NoEncryptionResponseResult? noEncryption,
 
             string type)
         {
+            CommonEncryptionCbcs = commonEncryptionCbcs;
+            CommonEncryptionCenc = commonEncryptionCenc;
+            Created = created;
+            DefaultContentKeyPolicyName = defaultContentKeyPolicyName;
+            EnvelopeEncryption = envelopeEncryption;
             Name = name;
-            Properties = properties;
+            NoEncryption = noEncryption;
             Type = type;
         }
     }

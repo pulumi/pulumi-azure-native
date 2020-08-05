@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Compute.V20190301
     public partial class DedicatedHostGroup : Pulumi.CustomResource
     {
         /// <summary>
+        /// A list of references to all dedicated hosts in the dedicated host group.
+        /// </summary>
+        [Output("hosts")]
+        public Output<ImmutableArray<Outputs.SubResourceReadOnlyResponseResult>> Hosts { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,10 +33,10 @@ namespace Pulumi.AzureRM.Compute.V20190301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Dedicated Host Group Properties.
+        /// Number of fault domains that the host group can span.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DedicatedHostGroupPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("platformFaultDomainCount")]
+        public Output<int> PlatformFaultDomainCount { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

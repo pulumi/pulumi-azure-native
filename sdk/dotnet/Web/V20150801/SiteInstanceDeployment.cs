@@ -15,6 +15,42 @@ namespace Pulumi.AzureRM.Web.V20150801
     public partial class SiteInstanceDeployment : Pulumi.CustomResource
     {
         /// <summary>
+        /// Active
+        /// </summary>
+        [Output("active")]
+        public Output<bool?> Active { get; private set; } = null!;
+
+        /// <summary>
+        /// Author
+        /// </summary>
+        [Output("author")]
+        public Output<string?> Author { get; private set; } = null!;
+
+        /// <summary>
+        /// AuthorEmail
+        /// </summary>
+        [Output("author_email")]
+        public Output<string?> Author_email { get; private set; } = null!;
+
+        /// <summary>
+        /// Deployer
+        /// </summary>
+        [Output("deployer")]
+        public Output<string?> Deployer { get; private set; } = null!;
+
+        /// <summary>
+        /// Detail
+        /// </summary>
+        [Output("details")]
+        public Output<string?> Details { get; private set; } = null!;
+
+        /// <summary>
+        /// EndTime
+        /// </summary>
+        [Output("end_time")]
+        public Output<string?> End_time { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource
         /// </summary>
         [Output("kind")]
@@ -27,13 +63,28 @@ namespace Pulumi.AzureRM.Web.V20150801
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Message
+        /// </summary>
+        [Output("message")]
+        public Output<string?> Message { get; private set; } = null!;
+
+        /// <summary>
         /// Resource Name
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.DeploymentResponsePropertiesResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// StartTime
+        /// </summary>
+        [Output("start_time")]
+        public Output<string?> Start_time { get; private set; } = null!;
+
+        /// <summary>
+        /// Status
+        /// </summary>
+        [Output("status")]
+        public Output<int?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

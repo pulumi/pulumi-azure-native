@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
     public sealed class AzureFirewallNetworkRuleCollectionResponseResult
     {
         /// <summary>
+        /// The action type of a rule collection.
+        /// </summary>
+        public readonly Outputs.AzureFirewallRCActionResponseResult? Action;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -26,24 +30,41 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the azure firewall network rule collection.
+        /// Priority of the network rule collection resource.
         /// </summary>
-        public readonly Outputs.AzureFirewallNetworkRuleCollectionPropertiesFormatResponseResult? Properties;
+        public readonly int? Priority;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Collection of rules used by a network rule collection.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AzureFirewallNetworkRuleResponseResult> Rules;
 
         [OutputConstructor]
         private AzureFirewallNetworkRuleCollectionResponseResult(
+            Outputs.AzureFirewallRCActionResponseResult? action,
+
             string etag,
 
             string? id,
 
             string? name,
 
-            Outputs.AzureFirewallNetworkRuleCollectionPropertiesFormatResponseResult? properties)
+            int? priority,
+
+            string? provisioningState,
+
+            ImmutableArray<Outputs.AzureFirewallNetworkRuleResponseResult> rules)
         {
+            Action = action;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            Priority = priority;
+            ProvisioningState = provisioningState;
+            Rules = rules;
         }
     }
 }

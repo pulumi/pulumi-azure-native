@@ -15,10 +15,37 @@ namespace Pulumi.AzureRM.Batch.V20170501
     public partial class BatchAccount : Pulumi.CustomResource
     {
         /// <summary>
+        /// The account endpoint used to interact with the Batch service.
+        /// </summary>
+        [Output("accountEndpoint")]
+        public Output<string> AccountEndpoint { get; private set; } = null!;
+
+        [Output("activeJobAndJobScheduleQuota")]
+        public Output<int> ActiveJobAndJobScheduleQuota { get; private set; } = null!;
+
+        /// <summary>
+        /// Contains information about the auto-storage account associated with a Batch account.
+        /// </summary>
+        [Output("autoStorage")]
+        public Output<Outputs.AutoStoragePropertiesResponseResult> AutoStorage { get; private set; } = null!;
+
+        [Output("dedicatedCoreQuota")]
+        public Output<int> DedicatedCoreQuota { get; private set; } = null!;
+
+        /// <summary>
+        /// Identifies the Azure key vault associated with a Batch account.
+        /// </summary>
+        [Output("keyVaultReference")]
+        public Output<Outputs.KeyVaultReferenceResponseResult> KeyVaultReference { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        [Output("lowPriorityCoreQuota")]
+        public Output<int> LowPriorityCoreQuota { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -27,10 +54,19 @@ namespace Pulumi.AzureRM.Batch.V20170501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties associated with the account.
+        /// The allocation mode for creating pools in the Batch account.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.BatchAccountPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("poolAllocationMode")]
+        public Output<string> PoolAllocationMode { get; private set; } = null!;
+
+        [Output("poolQuota")]
+        public Output<int> PoolQuota { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioned state of the resource
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

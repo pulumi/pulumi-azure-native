@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.WindowsIoT.V20190601
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
+        /// Windows IoT Device Service OEM AAD domain
+        /// </summary>
+        [Output("adminDomainName")]
+        public Output<string?> AdminDomainName { get; private set; } = null!;
+
+        /// <summary>
+        /// Windows IoT Device Service ODM AAD domain
+        /// </summary>
+        [Output("billingDomainName")]
+        public Output<string?> BillingDomainName { get; private set; } = null!;
+
+        /// <summary>
         /// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
         /// </summary>
         [Output("etag")]
@@ -33,10 +45,22 @@ namespace Pulumi.AzureRM.WindowsIoT.V20190601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of a Windows IoT Device Service.
+        /// Windows IoT Device Service notes.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DeviceServicePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("notes")]
+        public Output<string?> Notes { get; private set; } = null!;
+
+        /// <summary>
+        /// Windows IoT Device Service device allocation,
+        /// </summary>
+        [Output("quantity")]
+        public Output<int?> Quantity { get; private set; } = null!;
+
+        /// <summary>
+        /// Windows IoT Device Service start date,
+        /// </summary>
+        [Output("startDate")]
+        public Output<string> StartDate { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

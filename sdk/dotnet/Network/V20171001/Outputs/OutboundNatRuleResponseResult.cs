@@ -14,9 +14,21 @@ namespace Pulumi.AzureRM.Network.V20171001.Outputs
     public sealed class OutboundNatRuleResponseResult
     {
         /// <summary>
+        /// The number of outbound ports to be used for NAT.
+        /// </summary>
+        public readonly int? AllocatedOutboundPorts;
+        /// <summary>
+        /// A reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult BackendAddressPool;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// The Frontend IP addresses of the load balancer.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> FrontendIPConfigurations;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -26,24 +38,33 @@ namespace Pulumi.AzureRM.Network.V20171001.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of load balancer outbound nat rule.
+        /// Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        public readonly Outputs.OutboundNatRulePropertiesFormatResponseResult? Properties;
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private OutboundNatRuleResponseResult(
+            int? allocatedOutboundPorts,
+
+            Outputs.SubResourceResponseResult backendAddressPool,
+
             string? etag,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> frontendIPConfigurations,
 
             string? id,
 
             string? name,
 
-            Outputs.OutboundNatRulePropertiesFormatResponseResult? properties)
+            string? provisioningState)
         {
+            AllocatedOutboundPorts = allocatedOutboundPorts;
+            BackendAddressPool = backendAddressPool;
             Etag = etag;
+            FrontendIPConfigurations = frontendIPConfigurations;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
         }
     }
 }

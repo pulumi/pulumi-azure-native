@@ -46,6 +46,10 @@ namespace Pulumi.AzureRM.Web.V20160801
     public sealed class ListWebAppFunctionSecretsSlotResult
     {
         /// <summary>
+        /// Secret key.
+        /// </summary>
+        public readonly string? Key;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -54,9 +58,9 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// FunctionSecrets resource specific properties
+        /// Trigger URL.
         /// </summary>
-        public readonly Outputs.FunctionSecretsResponsePropertiesResult Properties;
+        public readonly string? TriggerUrl;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -64,17 +68,20 @@ namespace Pulumi.AzureRM.Web.V20160801
 
         [OutputConstructor]
         private ListWebAppFunctionSecretsSlotResult(
+            string? key,
+
             string? kind,
 
             string name,
 
-            Outputs.FunctionSecretsResponsePropertiesResult properties,
+            string? triggerUrl,
 
             string type)
         {
+            Key = key;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            TriggerUrl = triggerUrl;
             Type = type;
         }
     }

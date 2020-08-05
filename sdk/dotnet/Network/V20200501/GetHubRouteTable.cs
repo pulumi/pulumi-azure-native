@@ -46,17 +46,33 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class GetHubRouteTableResult
     {
         /// <summary>
+        /// List of all connections associated with this route table.
+        /// </summary>
+        public readonly ImmutableArray<string> AssociatedConnections;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// List of labels associated with this route table.
+        /// </summary>
+        public readonly ImmutableArray<string> Labels;
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the RouteTable resource.
+        /// List of all connections that advertise to this route table.
         /// </summary>
-        public readonly Outputs.HubRouteTablePropertiesResponseResult Properties;
+        public readonly ImmutableArray<string> PropagatingConnections;
+        /// <summary>
+        /// The provisioning state of the RouteTable resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// List of all routes.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.HubRouteResponseResult> Routes;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -64,17 +80,29 @@ namespace Pulumi.AzureRM.Network.V20200501
 
         [OutputConstructor]
         private GetHubRouteTableResult(
+            ImmutableArray<string> associatedConnections,
+
             string etag,
+
+            ImmutableArray<string> labels,
 
             string? name,
 
-            Outputs.HubRouteTablePropertiesResponseResult properties,
+            ImmutableArray<string> propagatingConnections,
+
+            string provisioningState,
+
+            ImmutableArray<Outputs.HubRouteResponseResult> routes,
 
             string type)
         {
+            AssociatedConnections = associatedConnections;
             Etag = etag;
+            Labels = labels;
             Name = name;
-            Properties = properties;
+            PropagatingConnections = propagatingConnections;
+            ProvisioningState = provisioningState;
+            Routes = routes;
             Type = type;
         }
     }

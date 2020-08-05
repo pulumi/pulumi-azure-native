@@ -15,10 +15,52 @@ namespace Pulumi.AzureRM.Network.V20181001
     public partial class ExpressRouteCircuit : Pulumi.CustomResource
     {
         /// <summary>
+        /// Allow classic operations
+        /// </summary>
+        [Output("allowClassicOperations")]
+        public Output<bool?> AllowClassicOperations { get; private set; } = null!;
+
+        /// <summary>
+        /// Flag to enable Global Reach on the circuit.
+        /// </summary>
+        [Output("allowGlobalReach")]
+        public Output<bool?> AllowGlobalReach { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of authorizations.
+        /// </summary>
+        [Output("authorizations")]
+        public Output<ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponseResult>> Authorizations { get; private set; } = null!;
+
+        /// <summary>
+        /// The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
+        /// </summary>
+        [Output("bandwidthInGbps")]
+        public Output<double?> BandwidthInGbps { get; private set; } = null!;
+
+        /// <summary>
+        /// The CircuitProvisioningState state of the resource.
+        /// </summary>
+        [Output("circuitProvisioningState")]
+        public Output<string?> CircuitProvisioningState { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
+        /// </summary>
+        [Output("expressRoutePort")]
+        public Output<Outputs.SubResourceResponseResult?> ExpressRoutePort { get; private set; } = null!;
+
+        /// <summary>
+        /// The GatewayManager Etag.
+        /// </summary>
+        [Output("gatewayManagerEtag")]
+        public Output<string?> GatewayManagerEtag { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,16 +75,52 @@ namespace Pulumi.AzureRM.Network.V20181001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of ExpressRouteCircuit.
+        /// The list of peerings.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ExpressRouteCircuitPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("peerings")]
+        public Output<ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult>> Peerings { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The ServiceKey.
+        /// </summary>
+        [Output("serviceKey")]
+        public Output<string?> ServiceKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The ServiceProviderNotes.
+        /// </summary>
+        [Output("serviceProviderNotes")]
+        public Output<string?> ServiceProviderNotes { get; private set; } = null!;
+
+        /// <summary>
+        /// The ServiceProviderProperties.
+        /// </summary>
+        [Output("serviceProviderProperties")]
+        public Output<Outputs.ExpressRouteCircuitServiceProviderPropertiesResponseResult?> ServiceProviderProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
+        /// </summary>
+        [Output("serviceProviderProvisioningState")]
+        public Output<string?> ServiceProviderProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The SKU.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ExpressRouteCircuitSkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
+        /// </summary>
+        [Output("stag")]
+        public Output<int> Stag { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

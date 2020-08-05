@@ -15,10 +15,34 @@ namespace Pulumi.AzureRM.Databricks.V20180401
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
+        /// The workspace provider authorizations.
+        /// </summary>
+        [Output("authorizations")]
+        public Output<ImmutableArray<Outputs.WorkspaceProviderAuthorizationResponseResult>> Authorizations { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
+        /// </summary>
+        [Output("createdBy")]
+        public Output<Outputs.CreatedByResponseResult?> CreatedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the date and time when the workspace is created.
+        /// </summary>
+        [Output("createdDateTime")]
+        public Output<string?> CreatedDateTime { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed resource group Id.
+        /// </summary>
+        [Output("managedResourceGroupId")]
+        public Output<string> ManagedResourceGroupId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -27,16 +51,28 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The workspace properties.
+        /// The workspace's custom parameters.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WorkspacePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("parameters")]
+        public Output<Outputs.WorkspaceCustomParametersResponseResult?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// The workspace provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The details of Managed Identity of Storage Account
+        /// </summary>
+        [Output("storageAccountIdentity")]
+        public Output<Outputs.ManagedIdentityConfigurationResponseResult?> StorageAccountIdentity { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +85,30 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The blob URI where the UI definition file is located.
+        /// </summary>
+        [Output("uiDefinitionUri")]
+        public Output<string?> UiDefinitionUri { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
+        /// </summary>
+        [Output("updatedBy")]
+        public Output<Outputs.CreatedByResponseResult?> UpdatedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique identifier of the databricks workspace in databricks control plane.
+        /// </summary>
+        [Output("workspaceId")]
+        public Output<string> WorkspaceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+        /// </summary>
+        [Output("workspaceUrl")]
+        public Output<string> WorkspaceUrl { get; private set; } = null!;
 
 
         /// <summary>

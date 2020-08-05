@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.Network.V20160330
     public partial class SecurityRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets network traffic is allowed or denied. Possible values are 'Allow' and 'Deny'
+        /// </summary>
+        [Output("access")]
+        public Output<string> Access { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets a description for this rule. Restricted to 140 chars.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. 
+        /// </summary>
+        [Output("destinationAddressPrefix")]
+        public Output<string> DestinationAddressPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets Destination Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        /// </summary>
+        [Output("destinationPortRange")]
+        public Output<string?> DestinationPortRange { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the direction of the rule.InBound or Outbound. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+        /// </summary>
+        [Output("direction")]
+        public Output<string> Direction { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Output("etag")]
@@ -26,8 +56,35 @@ namespace Pulumi.AzureRM.Network.V20160330
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.SecurityRulePropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Gets or sets the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        /// </summary>
+        [Output("priority")]
+        public Output<int?> Priority { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets Network protocol this rule applies to. Can be Tcp, Udp or All(*).
+        /// </summary>
+        [Output("protocol")]
+        public Output<string> Protocol { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets source address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+        /// </summary>
+        [Output("sourceAddressPrefix")]
+        public Output<string> SourceAddressPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets Source Port or Range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        /// </summary>
+        [Output("sourcePortRange")]
+        public Output<string?> SourcePortRange { get; private set; } = null!;
 
 
         /// <summary>

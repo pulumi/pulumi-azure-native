@@ -14,6 +14,14 @@ namespace Pulumi.AzureRM.Network.V20180701.Outputs
     public sealed class HubVirtualNetworkConnectionResponseResult
     {
         /// <summary>
+        /// VirtualHub to RemoteVnet transit to enabled or not.
+        /// </summary>
+        public readonly bool? AllowHubToRemoteVnetTransit;
+        /// <summary>
+        /// Allow RemoteVnet to use Virtual Hub's gateways.
+        /// </summary>
+        public readonly bool? AllowRemoteVnetToUseHubVnetGateways;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -30,9 +38,13 @@ namespace Pulumi.AzureRM.Network.V20180701.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Parameters for HubVirtualNetworkConnection
+        /// The provisioning state of the resource.
         /// </summary>
-        public readonly Outputs.HubVirtualNetworkConnectionPropertiesResponseResult? Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Reference to the remote virtual network.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? RemoteVirtualNetwork;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -44,6 +56,10 @@ namespace Pulumi.AzureRM.Network.V20180701.Outputs
 
         [OutputConstructor]
         private HubVirtualNetworkConnectionResponseResult(
+            bool? allowHubToRemoteVnetTransit,
+
+            bool? allowRemoteVnetToUseHubVnetGateways,
+
             string etag,
 
             string? id,
@@ -52,17 +68,22 @@ namespace Pulumi.AzureRM.Network.V20180701.Outputs
 
             string name,
 
-            Outputs.HubVirtualNetworkConnectionPropertiesResponseResult? properties,
+            string? provisioningState,
+
+            Outputs.SubResourceResponseResult? remoteVirtualNetwork,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AllowHubToRemoteVnetTransit = allowHubToRemoteVnetTransit;
+            AllowRemoteVnetToUseHubVnetGateways = allowRemoteVnetToUseHubVnetGateways;
             Etag = etag;
             Id = id;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RemoteVirtualNetwork = remoteVirtualNetwork;
             Tags = tags;
             Type = type;
         }

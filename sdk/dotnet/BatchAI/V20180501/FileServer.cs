@@ -15,22 +15,64 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
     public partial class FileServer : Pulumi.CustomResource
     {
         /// <summary>
+        /// Time when the FileServer was created.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Information about disks attached to File Server VM.
+        /// </summary>
+        [Output("dataDisks")]
+        public Output<Outputs.DataDisksResponseResult?> DataDisks { get; private set; } = null!;
+
+        /// <summary>
+        /// File Server mount settings.
+        /// </summary>
+        [Output("mountSettings")]
+        public Output<Outputs.MountSettingsResponseResult> MountSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// File Server properties.
+        /// Provisioning state of the File Server. Possible values: creating - The File Server is getting created; updating - The File Server creation has been accepted and it is getting updated; deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted; failed - The File Server creation has failed with the specified error code. Details about the error code are specified in the message field; succeeded - The File Server creation has succeeded.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FileServerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Time when the provisioning state was changed.
+        /// </summary>
+        [Output("provisioningStateTransitionTime")]
+        public Output<string> ProvisioningStateTransitionTime { get; private set; } = null!;
+
+        /// <summary>
+        /// SSH configuration for accessing the File Server node.
+        /// </summary>
+        [Output("sshConfiguration")]
+        public Output<Outputs.SshConfigurationResponseResult?> SshConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// File Server virtual network subnet resource ID.
+        /// </summary>
+        [Output("subnet")]
+        public Output<Outputs.ResourceIdResponseResult?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// VM size of the File Server.
+        /// </summary>
+        [Output("vmSize")]
+        public Output<string?> VmSize { get; private set; } = null!;
 
 
         /// <summary>

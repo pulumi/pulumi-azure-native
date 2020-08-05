@@ -26,9 +26,13 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the IP configuration profile.
+        /// The provisioning state of the IP configuration profile resource.
         /// </summary>
-        public readonly Outputs.IPConfigurationProfilePropertiesFormatResponseResult? Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The reference to the subnet resource to create a container network interface ip configuration.
+        /// </summary>
+        public readonly Outputs.SubnetResponseResult? Subnet;
         /// <summary>
         /// Sub Resource type.
         /// </summary>
@@ -42,14 +46,17 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
 
             string? name,
 
-            Outputs.IPConfigurationProfilePropertiesFormatResponseResult? properties,
+            string provisioningState,
+
+            Outputs.SubnetResponseResult? subnet,
 
             string type)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Subnet = subnet;
             Type = type;
         }
     }

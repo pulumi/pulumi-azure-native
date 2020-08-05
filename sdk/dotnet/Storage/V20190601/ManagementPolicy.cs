@@ -15,16 +15,22 @@ namespace Pulumi.AzureRM.Storage.V20190601
     public partial class ManagementPolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// Returns the date and time the ManagementPolicies was last modified.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the Storage Account Data Policies Rules.
+        /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ManagementPolicyPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("policy")]
+        public Output<Outputs.ManagementPolicySchemaResponseResult> Policy { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

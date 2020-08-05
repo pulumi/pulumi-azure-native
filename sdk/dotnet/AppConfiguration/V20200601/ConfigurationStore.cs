@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
     public partial class ConfigurationStore : Pulumi.CustomResource
     {
         /// <summary>
+        /// The creation date of configuration store.
+        /// </summary>
+        [Output("creationDate")]
+        public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The encryption settings of the configuration store.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionPropertiesResponseResult?> Encryption { get; private set; } = null!;
+
+        /// <summary>
+        /// The DNS endpoint where the configuration store API will be available.
+        /// </summary>
+        [Output("endpoint")]
+        public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The managed identity information, if configured.
         /// </summary>
         [Output("identity")]
@@ -33,10 +51,22 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of a configuration store.
+        /// The list of private endpoint connections that are set up for this resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ConfigurationStorePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionReferenceResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the configuration store.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The sku of the configuration store.

@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Media.V20200501
     public partial class MediaService : Pulumi.CustomResource
     {
         /// <summary>
+        /// The account encryption properties.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.AccountEncryptionResponseResult?> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// The Managed Identity for the Media Services account.
         /// </summary>
         [Output("identity")]
@@ -27,16 +33,25 @@ namespace Pulumi.AzureRM.Media.V20200501
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The Media Services account ID.
+        /// </summary>
+        [Output("mediaServiceId")]
+        public Output<string> MediaServiceId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource properties.
+        /// The storage accounts for this resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.MediaServicePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("storageAccounts")]
+        public Output<ImmutableArray<Outputs.StorageAccountResponseResult>> StorageAccounts { get; private set; } = null!;
+
+        [Output("storageAuthentication")]
+        public Output<string?> StorageAuthentication { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -52,13 +52,21 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class GetGatewayHostnameConfigurationResult
     {
         /// <summary>
+        /// Identifier of Certificate entity that will be used for TLS connection establishment
+        /// </summary>
+        public readonly string? CertificateId;
+        /// <summary>
+        /// Hostname value. Supports valid domain name, partial or full wildcard
+        /// </summary>
+        public readonly string? Hostname;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gateway hostname configuration details.
+        /// Determines whether gateway requests client certificate
         /// </summary>
-        public readonly Outputs.GatewayHostnameConfigurationContractPropertiesResponseResult Properties;
+        public readonly bool? NegotiateClientCertificate;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -66,14 +74,20 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
 
         [OutputConstructor]
         private GetGatewayHostnameConfigurationResult(
+            string? certificateId,
+
+            string? hostname,
+
             string name,
 
-            Outputs.GatewayHostnameConfigurationContractPropertiesResponseResult properties,
+            bool? negotiateClientCertificate,
 
             string type)
         {
+            CertificateId = certificateId;
+            Hostname = hostname;
             Name = name;
-            Properties = properties;
+            NegotiateClientCertificate = negotiateClientCertificate;
             Type = type;
         }
     }

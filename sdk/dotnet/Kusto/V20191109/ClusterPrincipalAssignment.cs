@@ -21,10 +21,46 @@ namespace Pulumi.AzureRM.Kusto.V20191109
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The cluster principal.
+        /// The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ClusterPrincipalPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("principalId")]
+        public Output<string> PrincipalId { get; private set; } = null!;
+
+        /// <summary>
+        /// The principal name
+        /// </summary>
+        [Output("principalName")]
+        public Output<string> PrincipalName { get; private set; } = null!;
+
+        /// <summary>
+        /// Principal type.
+        /// </summary>
+        [Output("principalType")]
+        public Output<string> PrincipalType { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Cluster principal role.
+        /// </summary>
+        [Output("role")]
+        public Output<string> Role { get; private set; } = null!;
+
+        /// <summary>
+        /// The tenant id of the principal
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string?> TenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// The tenant name of the principal
+        /// </summary>
+        [Output("tenantName")]
+        public Output<string> TenantName { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

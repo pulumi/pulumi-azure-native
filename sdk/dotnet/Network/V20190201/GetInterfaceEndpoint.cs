@@ -40,9 +40,17 @@ namespace Pulumi.AzureRM.Network.V20190201
     public sealed class GetInterfaceEndpointResult
     {
         /// <summary>
+        /// A reference to the service being brought into the virtual network.
+        /// </summary>
+        public readonly Outputs.EndpointServiceResponseResult? EndpointService;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
+        /// </summary>
+        public readonly string? Fqdn;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,9 +60,21 @@ namespace Pulumi.AzureRM.Network.V20190201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the interface endpoint.
+        /// Gets an array of references to the network interfaces created for this interface endpoint.
         /// </summary>
-        public readonly Outputs.InterfaceEndpointPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceResponseResult> NetworkInterfaces;
+        /// <summary>
+        /// A read-only property that identifies who created this interface endpoint.
+        /// </summary>
+        public readonly string Owner;
+        /// <summary>
+        /// The provisioning state of the interface endpoint. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The ID of the subnet from which the private IP will be allocated.
+        /// </summary>
+        public readonly Outputs.SubnetResponseResult? Subnet;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,22 +86,37 @@ namespace Pulumi.AzureRM.Network.V20190201
 
         [OutputConstructor]
         private GetInterfaceEndpointResult(
+            Outputs.EndpointServiceResponseResult? endpointService,
+
             string? etag,
+
+            string? fqdn,
 
             string? location,
 
             string name,
 
-            Outputs.InterfaceEndpointPropertiesResponseResult properties,
+            ImmutableArray<Outputs.NetworkInterfaceResponseResult> networkInterfaces,
+
+            string owner,
+
+            string provisioningState,
+
+            Outputs.SubnetResponseResult? subnet,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            EndpointService = endpointService;
             Etag = etag;
+            Fqdn = fqdn;
             Location = location;
             Name = name;
-            Properties = properties;
+            NetworkInterfaces = networkInterfaces;
+            Owner = owner;
+            ProvisioningState = provisioningState;
+            Subnet = subnet;
             Tags = tags;
             Type = type;
         }

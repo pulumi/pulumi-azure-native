@@ -52,6 +52,22 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class GetVolumeContainerResult
     {
         /// <summary>
+        /// The bandwidth-rate set on the volume container.
+        /// </summary>
+        public readonly int? BandWidthRateInMbps;
+        /// <summary>
+        /// The ID of the bandwidth setting associated with the volume container.
+        /// </summary>
+        public readonly string? BandwidthSettingId;
+        /// <summary>
+        /// The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+        /// </summary>
+        public readonly Outputs.AsymmetricEncryptedSecretResponseResult? EncryptionKey;
+        /// <summary>
+        /// The flag to denote whether encryption is enabled or not.
+        /// </summary>
+        public readonly string EncryptionStatus;
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         public readonly string? Kind;
@@ -60,28 +76,61 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The volume container properties.
+        /// The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
         /// </summary>
-        public readonly Outputs.VolumeContainerPropertiesResponseResult Properties;
+        public readonly string OwnerShipStatus;
+        /// <summary>
+        /// The path ID of storage account associated with the volume container.
+        /// </summary>
+        public readonly string StorageAccountCredentialId;
+        /// <summary>
+        /// The total cloud storage for the volume container.
+        /// </summary>
+        public readonly int TotalCloudStorageUsageInBytes;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The number of volumes in the volume Container.
+        /// </summary>
+        public readonly int VolumeCount;
 
         [OutputConstructor]
         private GetVolumeContainerResult(
+            int? bandWidthRateInMbps,
+
+            string? bandwidthSettingId,
+
+            Outputs.AsymmetricEncryptedSecretResponseResult? encryptionKey,
+
+            string encryptionStatus,
+
             string? kind,
 
             string name,
 
-            Outputs.VolumeContainerPropertiesResponseResult properties,
+            string ownerShipStatus,
 
-            string type)
+            string storageAccountCredentialId,
+
+            int totalCloudStorageUsageInBytes,
+
+            string type,
+
+            int volumeCount)
         {
+            BandWidthRateInMbps = bandWidthRateInMbps;
+            BandwidthSettingId = bandwidthSettingId;
+            EncryptionKey = encryptionKey;
+            EncryptionStatus = encryptionStatus;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            OwnerShipStatus = ownerShipStatus;
+            StorageAccountCredentialId = storageAccountCredentialId;
+            TotalCloudStorageUsageInBytes = totalCloudStorageUsageInBytes;
             Type = type;
+            VolumeCount = volumeCount;
         }
     }
 }

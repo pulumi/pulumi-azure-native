@@ -21,10 +21,10 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Policy.
+        /// Json escaped Xml Encoded contents of the Policy.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PolicyContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("policyContent")]
+        public Output<string> PolicyContent { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

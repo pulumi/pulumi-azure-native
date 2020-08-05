@@ -40,6 +40,22 @@ namespace Pulumi.AzureRM.Cache.V20170201
     public sealed class GetRedisResult
     {
         /// <summary>
+        /// The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
+        /// </summary>
+        public readonly Outputs.RedisAccessKeysResponseResult AccessKeys;
+        /// <summary>
+        /// Specifies whether the non-ssl Redis server port (6379) is enabled.
+        /// </summary>
+        public readonly bool? EnableNonSslPort;
+        /// <summary>
+        /// Redis host name.
+        /// </summary>
+        public readonly string HostName;
+        /// <summary>
+        /// List of the linked servers associated with the cache
+        /// </summary>
+        public readonly Outputs.RedisLinkedServerListResponseResult LinkedServers;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
@@ -48,13 +64,49 @@ namespace Pulumi.AzureRM.Cache.V20170201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Redis cache properties.
+        /// Redis non-SSL port.
         /// </summary>
-        public readonly Outputs.RedisResourcePropertiesResponseResult Properties;
+        public readonly int Port;
+        /// <summary>
+        /// Redis instance provisioning status.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? RedisConfiguration;
+        /// <summary>
+        /// Redis version.
+        /// </summary>
+        public readonly string RedisVersion;
+        /// <summary>
+        /// The number of shards to be created on a Premium Cluster Cache.
+        /// </summary>
+        public readonly int? ShardCount;
+        /// <summary>
+        /// The SKU of the Redis cache to deploy.
+        /// </summary>
+        public readonly Outputs.SkuResponseResult? Sku;
+        /// <summary>
+        /// Redis SSL port.
+        /// </summary>
+        public readonly int SslPort;
+        /// <summary>
+        /// Static IP address. Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        /// </summary>
+        public readonly string? StaticIP;
+        /// <summary>
+        /// The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
+        /// </summary>
+        public readonly string? SubnetId;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// tenantSettings
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? TenantSettings;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -62,20 +114,59 @@ namespace Pulumi.AzureRM.Cache.V20170201
 
         [OutputConstructor]
         private GetRedisResult(
+            Outputs.RedisAccessKeysResponseResult accessKeys,
+
+            bool? enableNonSslPort,
+
+            string hostName,
+
+            Outputs.RedisLinkedServerListResponseResult linkedServers,
+
             string location,
 
             string name,
 
-            Outputs.RedisResourcePropertiesResponseResult properties,
+            int port,
+
+            string provisioningState,
+
+            ImmutableDictionary<string, string>? redisConfiguration,
+
+            string redisVersion,
+
+            int? shardCount,
+
+            Outputs.SkuResponseResult? sku,
+
+            int sslPort,
+
+            string? staticIP,
+
+            string? subnetId,
 
             ImmutableDictionary<string, string>? tags,
 
+            ImmutableDictionary<string, string>? tenantSettings,
+
             string type)
         {
+            AccessKeys = accessKeys;
+            EnableNonSslPort = enableNonSslPort;
+            HostName = hostName;
+            LinkedServers = linkedServers;
             Location = location;
             Name = name;
-            Properties = properties;
+            Port = port;
+            ProvisioningState = provisioningState;
+            RedisConfiguration = redisConfiguration;
+            RedisVersion = redisVersion;
+            ShardCount = shardCount;
+            Sku = sku;
+            SslPort = sslPort;
+            StaticIP = staticIP;
+            SubnetId = subnetId;
             Tags = tags;
+            TenantSettings = tenantSettings;
             Type = type;
         }
     }

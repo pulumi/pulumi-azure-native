@@ -15,16 +15,28 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public partial class StorageDomain : Pulumi.CustomResource
     {
         /// <summary>
+        /// The encryption key used to encrypt the data. This is a user secret.
+        /// </summary>
+        [Output("encryptionKey")]
+        public Output<Outputs.AsymmetricEncryptedSecretResponseResult?> EncryptionKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The encryption status "Enabled | Disabled".
+        /// </summary>
+        [Output("encryptionStatus")]
+        public Output<string> EncryptionStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties.
+        /// The storage account credentials.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.StorageDomainPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("storageAccountCredentialIds")]
+        public Output<ImmutableArray<string>> StorageAccountCredentialIds { get; private set; } = null!;
 
         /// <summary>
         /// The type.

@@ -15,16 +15,46 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public partial class StorageAccountCredential : Pulumi.CustomResource
     {
         /// <summary>
+        /// The details of the storage account password
+        /// </summary>
+        [Output("accessKey")]
+        public Output<Outputs.AsymmetricEncryptedSecretResponseResult?> AccessKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The cloud service provider
+        /// </summary>
+        [Output("cloudType")]
+        public Output<string> CloudType { get; private set; } = null!;
+
+        /// <summary>
+        /// SSL needs to be enabled or not
+        /// </summary>
+        [Output("enableSSL")]
+        public Output<string> EnableSSL { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage endpoint
+        /// </summary>
+        [Output("endPoint")]
+        public Output<string> EndPoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage account's geo location
+        /// </summary>
+        [Output("location")]
+        public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage account login
+        /// </summary>
+        [Output("login")]
+        public Output<string> Login { get; private set; } = null!;
+
+        /// <summary>
         /// The name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Credential properties
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.StorageAccountCredentialPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type.

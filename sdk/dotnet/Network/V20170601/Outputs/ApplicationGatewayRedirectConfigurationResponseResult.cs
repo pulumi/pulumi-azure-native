@@ -22,17 +22,45 @@ namespace Pulumi.AzureRM.Network.V20170601.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Include path in the redirected url.
+        /// </summary>
+        public readonly bool? IncludePath;
+        /// <summary>
+        /// Include query string in the redirected url.
+        /// </summary>
+        public readonly bool? IncludeQueryString;
+        /// <summary>
         /// Name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of redirect configuration of the application gateway.
+        /// Path rules specifying redirect configuration.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayRedirectConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> PathRules;
+        /// <summary>
+        /// Supported http redirection types - Permanent, Temporary, Found, SeeOther.
+        /// </summary>
+        public readonly string? RedirectType;
+        /// <summary>
+        /// Request routing specifying redirect configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> RequestRoutingRules;
+        /// <summary>
+        /// Reference to a listener to redirect the request to.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? TargetListener;
+        /// <summary>
+        /// Url to redirect the request to.
+        /// </summary>
+        public readonly string? TargetUrl;
         /// <summary>
         /// Type of the resource.
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// Url path maps specifying default redirect configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> UrlPathMaps;
 
         [OutputConstructor]
         private ApplicationGatewayRedirectConfigurationResponseResult(
@@ -40,17 +68,38 @@ namespace Pulumi.AzureRM.Network.V20170601.Outputs
 
             string? id,
 
+            bool? includePath,
+
+            bool? includeQueryString,
+
             string? name,
 
-            Outputs.ApplicationGatewayRedirectConfigurationPropertiesFormatResponseResult? properties,
+            ImmutableArray<Outputs.SubResourceResponseResult> pathRules,
 
-            string? type)
+            string? redirectType,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> requestRoutingRules,
+
+            Outputs.SubResourceResponseResult? targetListener,
+
+            string? targetUrl,
+
+            string? type,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> urlPathMaps)
         {
             Etag = etag;
             Id = id;
+            IncludePath = includePath;
+            IncludeQueryString = includeQueryString;
             Name = name;
-            Properties = properties;
+            PathRules = pathRules;
+            RedirectType = redirectType;
+            RequestRoutingRules = requestRoutingRules;
+            TargetListener = targetListener;
+            TargetUrl = targetUrl;
             Type = type;
+            UrlPathMaps = urlPathMaps;
         }
     }
 }

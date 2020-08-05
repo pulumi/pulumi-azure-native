@@ -40,6 +40,26 @@ namespace Pulumi.AzureRM.Logic.V20160601
     public sealed class GetWorkflowResult
     {
         /// <summary>
+        /// Gets the access endpoint.
+        /// </summary>
+        public readonly string AccessEndpoint;
+        /// <summary>
+        /// Gets the changed time.
+        /// </summary>
+        public readonly string ChangedTime;
+        /// <summary>
+        /// Gets the created time.
+        /// </summary>
+        public readonly string CreatedTime;
+        /// <summary>
+        /// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Definition;
+        /// <summary>
+        /// The integration account.
+        /// </summary>
+        public readonly Outputs.ResourceReferenceResponseResult? IntegrationAccount;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -48,9 +68,21 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The workflow properties.
+        /// The parameters.
         /// </summary>
-        public readonly Outputs.WorkflowPropertiesResponseResult Properties;
+        public readonly ImmutableDictionary<string, Outputs.WorkflowParameterResponseResult>? Parameters;
+        /// <summary>
+        /// Gets the provisioning state.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The sku.
+        /// </summary>
+        public readonly Outputs.SkuResponseResult? Sku;
+        /// <summary>
+        /// The state.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -59,24 +91,55 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// Gets the resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Gets the version.
+        /// </summary>
+        public readonly string Version;
 
         [OutputConstructor]
         private GetWorkflowResult(
+            string accessEndpoint,
+
+            string changedTime,
+
+            string createdTime,
+
+            ImmutableDictionary<string, object>? definition,
+
+            Outputs.ResourceReferenceResponseResult? integrationAccount,
+
             string? location,
 
             string name,
 
-            Outputs.WorkflowPropertiesResponseResult properties,
+            ImmutableDictionary<string, Outputs.WorkflowParameterResponseResult>? parameters,
+
+            string provisioningState,
+
+            Outputs.SkuResponseResult? sku,
+
+            string? state,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string version)
         {
+            AccessEndpoint = accessEndpoint;
+            ChangedTime = changedTime;
+            CreatedTime = createdTime;
+            Definition = definition;
+            IntegrationAccount = integrationAccount;
             Location = location;
             Name = name;
-            Properties = properties;
+            Parameters = parameters;
+            ProvisioningState = provisioningState;
+            Sku = sku;
+            State = state;
             Tags = tags;
             Type = type;
+            Version = version;
         }
     }
 }

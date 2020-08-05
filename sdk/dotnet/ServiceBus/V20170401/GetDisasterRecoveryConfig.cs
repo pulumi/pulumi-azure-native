@@ -46,13 +46,29 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
     public sealed class GetDisasterRecoveryConfigResult
     {
         /// <summary>
+        /// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+        /// </summary>
+        public readonly string? AlternateName;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
+        /// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         /// </summary>
-        public readonly Outputs.ArmDisasterRecoveryResponsePropertiesResult Properties;
+        public readonly string? PartnerNamespace;
+        /// <summary>
+        /// Number of entities pending to be replicated.
+        /// </summary>
+        public readonly int PendingReplicationOperationsCount;
+        /// <summary>
+        /// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
+        /// </summary>
+        public readonly string Role;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -60,14 +76,26 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
 
         [OutputConstructor]
         private GetDisasterRecoveryConfigResult(
+            string? alternateName,
+
             string name,
 
-            Outputs.ArmDisasterRecoveryResponsePropertiesResult properties,
+            string? partnerNamespace,
+
+            int pendingReplicationOperationsCount,
+
+            string provisioningState,
+
+            string role,
 
             string type)
         {
+            AlternateName = alternateName;
             Name = name;
-            Properties = properties;
+            PartnerNamespace = partnerNamespace;
+            PendingReplicationOperationsCount = pendingReplicationOperationsCount;
+            ProvisioningState = provisioningState;
+            Role = role;
             Type = type;
         }
     }

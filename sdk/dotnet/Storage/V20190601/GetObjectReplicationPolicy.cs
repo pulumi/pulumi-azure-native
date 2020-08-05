@@ -46,13 +46,29 @@ namespace Pulumi.AzureRM.Storage.V20190601
     public sealed class GetObjectReplicationPolicyResult
     {
         /// <summary>
+        /// Required. Destination account name.
+        /// </summary>
+        public readonly string DestinationAccount;
+        /// <summary>
+        /// Indicates when the policy is enabled on the source account.
+        /// </summary>
+        public readonly string EnabledTime;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Returns the Storage Account Object Replication Policy.
+        /// A unique id for object replication policy.
         /// </summary>
-        public readonly Outputs.ObjectReplicationPolicyPropertiesResponseResult Properties;
+        public readonly string PolicyId;
+        /// <summary>
+        /// The storage account object replication rules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ObjectReplicationPolicyRuleResponseResult> Rules;
+        /// <summary>
+        /// Required. Source account name.
+        /// </summary>
+        public readonly string SourceAccount;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -60,14 +76,26 @@ namespace Pulumi.AzureRM.Storage.V20190601
 
         [OutputConstructor]
         private GetObjectReplicationPolicyResult(
+            string destinationAccount,
+
+            string enabledTime,
+
             string name,
 
-            Outputs.ObjectReplicationPolicyPropertiesResponseResult properties,
+            string policyId,
+
+            ImmutableArray<Outputs.ObjectReplicationPolicyRuleResponseResult> rules,
+
+            string sourceAccount,
 
             string type)
         {
+            DestinationAccount = destinationAccount;
+            EnabledTime = enabledTime;
             Name = name;
-            Properties = properties;
+            PolicyId = policyId;
+            Rules = rules;
+            SourceAccount = sourceAccount;
             Type = type;
         }
     }

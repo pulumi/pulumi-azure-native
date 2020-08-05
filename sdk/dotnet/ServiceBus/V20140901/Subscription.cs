@@ -15,10 +15,88 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
     public partial class Subscription : Pulumi.CustomResource
     {
         /// <summary>
+        /// Last time there was a receive request to this subscription.
+        /// </summary>
+        [Output("accessedAt")]
+        public Output<string> AccessedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+        /// </summary>
+        [Output("autoDeleteOnIdle")]
+        public Output<string?> AutoDeleteOnIdle { get; private set; } = null!;
+
+        /// <summary>
+        /// Message Count Details.
+        /// </summary>
+        [Output("countDetails")]
+        public Output<Outputs.MessageCountDetailsResponseResult> CountDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// Exact time the message was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+        /// </summary>
+        [Output("deadLetteringOnFilterEvaluationExceptions")]
+        public Output<bool?> DeadLetteringOnFilterEvaluationExceptions { get; private set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether a subscription has dead letter support when a message expires.
+        /// </summary>
+        [Output("deadLetteringOnMessageExpiration")]
+        public Output<bool?> DeadLetteringOnMessageExpiration { get; private set; } = null!;
+
+        /// <summary>
+        /// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        /// </summary>
+        [Output("defaultMessageTimeToLive")]
+        public Output<string?> DefaultMessageTimeToLive { get; private set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether server-side batched operations are enabled.
+        /// </summary>
+        [Output("enableBatchedOperations")]
+        public Output<bool?> EnableBatchedOperations { get; private set; } = null!;
+
+        /// <summary>
+        /// Entity availability status for the topic.
+        /// </summary>
+        [Output("entityAvailabilityStatus")]
+        public Output<string?> EntityAvailabilityStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether the entity description is read-only.
+        /// </summary>
+        [Output("isReadOnly")]
+        public Output<bool?> IsReadOnly { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The lock duration time span for the subscription.
+        /// </summary>
+        [Output("lockDuration")]
+        public Output<string?> LockDuration { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of maximum deliveries.
+        /// </summary>
+        [Output("maxDeliveryCount")]
+        public Output<int?> MaxDeliveryCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of messages.
+        /// </summary>
+        [Output("messageCount")]
+        public Output<int> MessageCount { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -27,16 +105,28 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Description of Subscription Resource.
+        /// Value indicating if a subscription supports the concept of sessions.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SubscriptionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("requiresSession")]
+        public Output<bool?> RequiresSession { get; private set; } = null!;
+
+        /// <summary>
+        /// Enumerates the possible values for the status of a messaging entity.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The exact time the message was updated.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>

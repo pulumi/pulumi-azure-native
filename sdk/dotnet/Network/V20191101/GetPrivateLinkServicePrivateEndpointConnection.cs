@@ -50,13 +50,25 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The consumer link id.
+        /// </summary>
+        public readonly string LinkIdentifier;
+        /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the private end point connection.
+        /// The resource of private end point.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponseResult Properties;
+        public readonly Outputs.PrivateEndpointResponseResult PrivateEndpoint;
+        /// <summary>
+        /// A collection of information about the state of the connection between service consumer and provider.
+        /// </summary>
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponseResult? PrivateLinkServiceConnectionState;
+        /// <summary>
+        /// The provisioning state of the private endpoint connection resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -66,15 +78,24 @@ namespace Pulumi.AzureRM.Network.V20191101
         private GetPrivateLinkServicePrivateEndpointConnectionResult(
             string etag,
 
+            string linkIdentifier,
+
             string? name,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponseResult properties,
+            Outputs.PrivateEndpointResponseResult privateEndpoint,
+
+            Outputs.PrivateLinkServiceConnectionStateResponseResult? privateLinkServiceConnectionState,
+
+            string provisioningState,
 
             string type)
         {
             Etag = etag;
+            LinkIdentifier = linkIdentifier;
             Name = name;
-            Properties = properties;
+            PrivateEndpoint = privateEndpoint;
+            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

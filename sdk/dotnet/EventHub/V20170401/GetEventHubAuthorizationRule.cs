@@ -56,9 +56,9 @@ namespace Pulumi.AzureRM.EventHub.V20170401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties supplied to create or update AuthorizationRule
+        /// The rights associated with the rule.
         /// </summary>
-        public readonly Outputs.AuthorizationRuleResponsePropertiesResult Properties;
+        public readonly ImmutableArray<string> Rights;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureRM.EventHub.V20170401
         private GetEventHubAuthorizationRuleResult(
             string name,
 
-            Outputs.AuthorizationRuleResponsePropertiesResult properties,
+            ImmutableArray<string> rights,
 
             string type)
         {
             Name = name;
-            Properties = properties;
+            Rights = rights;
             Type = type;
         }
     }

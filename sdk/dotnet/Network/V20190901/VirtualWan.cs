@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Network.V20190901
     public partial class VirtualWan : Pulumi.CustomResource
     {
         /// <summary>
+        /// True if branch to branch traffic is allowed.
+        /// </summary>
+        [Output("allowBranchToBranchTraffic")]
+        public Output<bool?> AllowBranchToBranchTraffic { get; private set; } = null!;
+
+        /// <summary>
+        /// True if Vnet to Vnet traffic is allowed.
+        /// </summary>
+        [Output("allowVnetToVnetTraffic")]
+        public Output<bool?> AllowVnetToVnetTraffic { get; private set; } = null!;
+
+        /// <summary>
+        /// Vpn encryption to be disabled or not.
+        /// </summary>
+        [Output("disableVpnEncryption")]
+        public Output<bool?> DisableVpnEncryption { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -33,10 +51,16 @@ namespace Pulumi.AzureRM.Network.V20190901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the virtual WAN.
+        /// The office local breakout category.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualWanPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("office365LocalBreakoutCategory")]
+        public Output<string?> Office365LocalBreakoutCategory { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the virtual WAN resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +73,18 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// List of VirtualHubs in the VirtualWAN.
+        /// </summary>
+        [Output("virtualHubs")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualHubs { get; private set; } = null!;
+
+        /// <summary>
+        /// List of VpnSites in the VirtualWAN.
+        /// </summary>
+        [Output("vpnSites")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VpnSites { get; private set; } = null!;
 
 
         /// <summary>

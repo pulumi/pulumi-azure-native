@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Network.V20180201
     public sealed class GetRouteTableResult
     {
         /// <summary>
+        /// Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
+        /// </summary>
+        public readonly bool? DisableBgpRoutePropagation;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -52,9 +56,17 @@ namespace Pulumi.AzureRM.Network.V20180201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the route table.
+        /// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        public readonly Outputs.RouteTablePropertiesFormatResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Collection of routes contained within a route table.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RouteResponseResult> Routes;
+        /// <summary>
+        /// A collection of references to subnets.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubnetResponseResult> Subnets;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,22 +78,31 @@ namespace Pulumi.AzureRM.Network.V20180201
 
         [OutputConstructor]
         private GetRouteTableResult(
+            bool? disableBgpRoutePropagation,
+
             string? etag,
 
             string? location,
 
             string name,
 
-            Outputs.RouteTablePropertiesFormatResponseResult properties,
+            string? provisioningState,
+
+            ImmutableArray<Outputs.RouteResponseResult> routes,
+
+            ImmutableArray<Outputs.SubnetResponseResult> subnets,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            DisableBgpRoutePropagation = disableBgpRoutePropagation;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Routes = routes;
+            Subnets = subnets;
             Tags = tags;
             Type = type;
         }

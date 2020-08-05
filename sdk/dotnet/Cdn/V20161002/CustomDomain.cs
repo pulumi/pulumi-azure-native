@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Cdn.V20161002
     public partial class CustomDomain : Pulumi.CustomResource
     {
         /// <summary>
+        /// Provisioning state of Custom Https of the custom domain.
+        /// </summary>
+        [Output("customHttpsProvisioningState")]
+        public Output<string> CustomHttpsProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The host name of the custom domain. Must be a domain name.
+        /// </summary>
+        [Output("hostName")]
+        public Output<string> HostName { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -27,10 +39,16 @@ namespace Pulumi.AzureRM.Cdn.V20161002
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The JSON object that contains the properties of the custom domain to create.
+        /// Provisioning status of the custom domain.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.CustomDomainPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource status of the custom domain.
+        /// </summary>
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -43,6 +61,12 @@ namespace Pulumi.AzureRM.Cdn.V20161002
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
+        /// </summary>
+        [Output("validationData")]
+        public Output<string?> ValidationData { get; private set; } = null!;
 
 
         /// <summary>

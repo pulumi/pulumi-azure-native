@@ -14,6 +14,18 @@ namespace Pulumi.AzureRM.Web.V20150801
     /// </summary>
     public partial class SiteRelayServiceConnection : Pulumi.CustomResource
     {
+        [Output("biztalkUri")]
+        public Output<string?> BiztalkUri { get; private set; } = null!;
+
+        [Output("entityConnectionString")]
+        public Output<string?> EntityConnectionString { get; private set; } = null!;
+
+        [Output("entityName")]
+        public Output<string?> EntityName { get; private set; } = null!;
+
+        [Output("hostname")]
+        public Output<string?> Hostname { get; private set; } = null!;
+
         /// <summary>
         /// Kind of resource
         /// </summary>
@@ -32,8 +44,14 @@ namespace Pulumi.AzureRM.Web.V20150801
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.RelayServiceConnectionEntityResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("port")]
+        public Output<int?> Port { get; private set; } = null!;
+
+        [Output("resourceConnectionString")]
+        public Output<string?> ResourceConnectionString { get; private set; } = null!;
+
+        [Output("resourceType")]
+        public Output<string?> ResourceType { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

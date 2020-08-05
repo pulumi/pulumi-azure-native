@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20180801.Outputs
     public sealed class AzureFirewallApplicationRuleCollectionResponseResult
     {
         /// <summary>
+        /// The action type of a rule collection
+        /// </summary>
+        public readonly Outputs.AzureFirewallRCActionResponseResult? Action;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -26,24 +30,41 @@ namespace Pulumi.AzureRM.Network.V20180801.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the application rule collection.
+        /// Priority of the application rule collection resource.
         /// </summary>
-        public readonly Outputs.AzureFirewallApplicationRuleCollectionPropertiesFormatResponseResult? Properties;
+        public readonly int? Priority;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Collection of rules used by a application rule collection.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AzureFirewallApplicationRuleResponseResult> Rules;
 
         [OutputConstructor]
         private AzureFirewallApplicationRuleCollectionResponseResult(
+            Outputs.AzureFirewallRCActionResponseResult? action,
+
             string etag,
 
             string? id,
 
             string? name,
 
-            Outputs.AzureFirewallApplicationRuleCollectionPropertiesFormatResponseResult? properties)
+            int? priority,
+
+            string? provisioningState,
+
+            ImmutableArray<Outputs.AzureFirewallApplicationRuleResponseResult> rules)
         {
+            Action = action;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            Priority = priority;
+            ProvisioningState = provisioningState;
+            Rules = rules;
         }
     }
 }

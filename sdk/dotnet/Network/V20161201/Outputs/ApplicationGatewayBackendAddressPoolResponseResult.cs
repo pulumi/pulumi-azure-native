@@ -14,6 +14,14 @@ namespace Pulumi.AzureRM.Network.V20161201.Outputs
     public sealed class ApplicationGatewayBackendAddressPoolResponseResult
     {
         /// <summary>
+        /// Backend addresses
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendAddressResponseResult> BackendAddresses;
+        /// <summary>
+        /// Collection of references to IPs defined in network interfaces.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult> BackendIPConfigurations;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -26,24 +34,30 @@ namespace Pulumi.AzureRM.Network.V20161201.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of Backend Address Pool of an application gateway.
+        /// Provisioning state of the backend address pool resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayBackendAddressPoolPropertiesFormatResponseResult? Properties;
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private ApplicationGatewayBackendAddressPoolResponseResult(
+            ImmutableArray<Outputs.ApplicationGatewayBackendAddressResponseResult> backendAddresses,
+
+            ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult> backendIPConfigurations,
+
             string? etag,
 
             string? id,
 
             string? name,
 
-            Outputs.ApplicationGatewayBackendAddressPoolPropertiesFormatResponseResult? properties)
+            string? provisioningState)
         {
+            BackendAddresses = backendAddresses;
+            BackendIPConfigurations = backendIPConfigurations;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
         }
     }
 }

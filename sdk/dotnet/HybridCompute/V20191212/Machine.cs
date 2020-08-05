@@ -14,8 +14,44 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
     /// </summary>
     public partial class Machine : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The hybrid machine agent full version.
+        /// </summary>
+        [Output("agentVersion")]
+        public Output<string> AgentVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Public Key that the client provides to be used during initial resource onboarding
+        /// </summary>
+        [Output("clientPublicKey")]
+        public Output<string?> ClientPublicKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the hybrid machine display name.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Details about the error state.
+        /// </summary>
+        [Output("errorDetails")]
+        public Output<ImmutableArray<Outputs.ErrorDetailResponseResult>> ErrorDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// Machine Extensions information
+        /// </summary>
+        [Output("extensions")]
+        public Output<ImmutableArray<Outputs.MachineExtensionInstanceViewResponseResult>> Extensions { get; private set; } = null!;
+
         [Output("identity")]
         public Output<Outputs.MachineResponseIdentityResult?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The time of the last status change.
+        /// </summary>
+        [Output("lastStatusChange")]
+        public Output<string> LastStatusChange { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -24,16 +60,52 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to the geographic location of the resource.
+        /// </summary>
+        [Output("locationData")]
+        public Output<Outputs.LocationDataResponseResult?> LocationData { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the hybrid machine FQDN.
+        /// </summary>
+        [Output("machineFqdn")]
+        public Output<string> MachineFqdn { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Hybrid Compute Machine properties
+        /// The Operating System running on the hybrid machine.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.MachineResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("osName")]
+        public Output<string> OsName { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the operating system settings for the hybrid machine.
+        /// </summary>
+        [Output("osProfile")]
+        public Output<Outputs.MachinePropertiesResponseOsProfileResult?> OsProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of Operating System running on the hybrid machine.
+        /// </summary>
+        [Output("osVersion")]
+        public Output<string> OsVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state, which only appears in the response.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of the hybrid machine agent.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -46,6 +118,12 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the hybrid machine unique ID.
+        /// </summary>
+        [Output("vmId")]
+        public Output<string?> VmId { get; private set; } = null!;
 
 
         /// <summary>

@@ -27,10 +27,34 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the Virtual Hub IPConfigurations.
+        /// The private IP address of the IP configuration.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.HubIPConfigurationPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("privateIPAddress")]
+        public Output<string?> PrivateIPAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// The private IP address allocation method.
+        /// </summary>
+        [Output("privateIPAllocationMethod")]
+        public Output<string?> PrivateIPAllocationMethod { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the IP configuration resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference to the public IP resource.
+        /// </summary>
+        [Output("publicIPAddress")]
+        public Output<Outputs.PublicIPAddressResponseResult?> PublicIPAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference to the subnet resource.
+        /// </summary>
+        [Output("subnet")]
+        public Output<Outputs.SubnetResponseResult?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// Ipconfiguration type.

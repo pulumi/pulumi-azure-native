@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101
     public partial class ComputePolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// The maximum degree of parallelism per job this user can use to submit jobs.
+        /// </summary>
+        [Output("maxDegreeOfParallelismPerJob")]
+        public Output<int> MaxDegreeOfParallelismPerJob { get; private set; } = null!;
+
+        /// <summary>
+        /// The minimum priority per job this user can use to submit jobs.
+        /// </summary>
+        [Output("minPriorityPerJob")]
+        public Output<int> MinPriorityPerJob { get; private set; } = null!;
+
+        /// <summary>
         /// The resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The compute policy properties.
+        /// The AAD object identifier for the entity to create a policy for.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ComputePolicyPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("objectId")]
+        public Output<string> ObjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of AAD object the object identifier refers to.
+        /// </summary>
+        [Output("objectType")]
+        public Output<string> ObjectType { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

@@ -14,22 +14,36 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
     public sealed class LoadBalancerBackendAddressResponseResult
     {
         /// <summary>
+        /// IP Address belonging to the referenced virtual network.
+        /// </summary>
+        public readonly string? IpAddress;
+        /// <summary>
         /// Name of the backend address.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of load balancer backend address pool.
+        /// Reference to IP address defined in network interfaces.
         /// </summary>
-        public readonly Outputs.LoadBalancerBackendAddressPropertiesFormatResponseResult? Properties;
+        public readonly Outputs.SubResourceResponseResult NetworkInterfaceIPConfiguration;
+        /// <summary>
+        /// Reference to an existing virtual network.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualNetwork;
 
         [OutputConstructor]
         private LoadBalancerBackendAddressResponseResult(
+            string? ipAddress,
+
             string? name,
 
-            Outputs.LoadBalancerBackendAddressPropertiesFormatResponseResult? properties)
+            Outputs.SubResourceResponseResult networkInterfaceIPConfiguration,
+
+            Outputs.SubResourceResponseResult? virtualNetwork)
         {
+            IpAddress = ipAddress;
             Name = name;
-            Properties = properties;
+            NetworkInterfaceIPConfiguration = networkInterfaceIPConfiguration;
+            VirtualNetwork = virtualNetwork;
         }
     }
 }

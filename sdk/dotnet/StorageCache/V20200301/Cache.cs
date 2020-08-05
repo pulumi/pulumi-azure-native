@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
     public partial class Cache : Pulumi.CustomResource
     {
         /// <summary>
+        /// The size of this Cache, in GB.
+        /// </summary>
+        [Output("cacheSizeGB")]
+        public Output<int?> CacheSizeGB { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies encryption settings of the cache.
+        /// </summary>
+        [Output("encryptionSettings")]
+        public Output<Outputs.CacheEncryptionSettingsResponseResult?> EncryptionSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Health of the Cache.
+        /// </summary>
+        [Output("health")]
+        public Output<Outputs.CacheHealthResponseResult> Health { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the cache, if configured.
         /// </summary>
         [Output("identity")]
@@ -27,22 +45,46 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Array of IP addresses that can be used by clients mounting this Cache.
+        /// </summary>
+        [Output("mountAddresses")]
+        public Output<ImmutableArray<string>> MountAddresses { get; private set; } = null!;
+
+        /// <summary>
         /// Name of Cache.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Cache.
+        /// Specifies network settings of the cache.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.CacheResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("networkSettings")]
+        public Output<Outputs.CacheNetworkSettingsResponseResult?> NetworkSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies security settings of the cache.
+        /// </summary>
+        [Output("securitySettings")]
+        public Output<Outputs.CacheSecuritySettingsResponseResult?> SecuritySettings { get; private set; } = null!;
 
         /// <summary>
         /// SKU for the Cache.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.CacheResponseSkuResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Subnet used for the Cache.
+        /// </summary>
+        [Output("subnet")]
+        public Output<string?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// ARM tags as name/value pairs.
@@ -55,6 +97,12 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Upgrade status of the Cache.
+        /// </summary>
+        [Output("upgradeStatus")]
+        public Output<Outputs.CacheUpgradeStatusResponseResult?> UpgradeStatus { get; private set; } = null!;
 
 
         /// <summary>

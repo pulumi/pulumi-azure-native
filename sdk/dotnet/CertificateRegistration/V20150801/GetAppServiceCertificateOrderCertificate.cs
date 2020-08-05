@@ -46,6 +46,14 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
     public sealed class GetAppServiceCertificateOrderCertificateResult
     {
         /// <summary>
+        /// Key Vault resource Id.
+        /// </summary>
+        public readonly string? KeyVaultId;
+        /// <summary>
+        /// Key Vault secret name.
+        /// </summary>
+        public readonly string? KeyVaultSecretName;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -58,9 +66,9 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Core resource properties
+        /// Status of the Key Vault secret.
         /// </summary>
-        public readonly Outputs.AppServiceCertificateResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -72,22 +80,28 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
 
         [OutputConstructor]
         private GetAppServiceCertificateOrderCertificateResult(
+            string? keyVaultId,
+
+            string? keyVaultSecretName,
+
             string? kind,
 
             string location,
 
             string name,
 
-            Outputs.AppServiceCertificateResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            KeyVaultId = keyVaultId;
+            KeyVaultSecretName = keyVaultSecretName;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
         }

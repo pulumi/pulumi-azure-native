@@ -15,16 +15,28 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public partial class ApiIssueAttachment : Pulumi.CustomResource
     {
         /// <summary>
+        /// An HTTP link or Base64-encoded binary data.
+        /// </summary>
+        [Output("content")]
+        public Output<string> Content { get; private set; } = null!;
+
+        /// <summary>
+        /// Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
+        /// </summary>
+        [Output("contentFormat")]
+        public Output<string> ContentFormat { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Issue Attachment.
+        /// Filename by which the binary data will be saved.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.IssueAttachmentContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("title")]
+        public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

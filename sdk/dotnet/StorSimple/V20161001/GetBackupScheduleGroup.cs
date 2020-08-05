@@ -56,9 +56,9 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of BackupScheduleGroup
+        /// The start time. When this field is specified we will generate Default GrandFather Father Son Backup Schedules.
         /// </summary>
-        public readonly Outputs.BackupScheduleGroupPropertiesResponseResult Properties;
+        public readonly Outputs.TimeResponseResult StartTime;
         /// <summary>
         /// The type.
         /// </summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         private GetBackupScheduleGroupResult(
             string name,
 
-            Outputs.BackupScheduleGroupPropertiesResponseResult properties,
+            Outputs.TimeResponseResult startTime,
 
             string type)
         {
             Name = name;
-            Properties = properties;
+            StartTime = startTime;
             Type = type;
         }
     }

@@ -21,10 +21,10 @@ namespace Pulumi.AzureRM.Relay.V20160701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Authorization Rule properties
+        /// The rights associated with the rule.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AuthorizationRulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("rights")]
+        public Output<ImmutableArray<string>> Rights { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

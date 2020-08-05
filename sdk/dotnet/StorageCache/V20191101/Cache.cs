@@ -15,10 +15,28 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
     public partial class Cache : Pulumi.CustomResource
     {
         /// <summary>
+        /// The size of this Cache, in GB.
+        /// </summary>
+        [Output("cacheSizeGB")]
+        public Output<int?> CacheSizeGB { get; private set; } = null!;
+
+        /// <summary>
+        /// Health of the Cache.
+        /// </summary>
+        [Output("health")]
+        public Output<Outputs.CacheHealthResponseResult> Health { get; private set; } = null!;
+
+        /// <summary>
         /// Region name string.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Array of IP addresses that can be used by clients mounting this Cache.
+        /// </summary>
+        [Output("mountAddresses")]
+        public Output<ImmutableArray<string>> MountAddresses { get; private set; } = null!;
 
         /// <summary>
         /// Name of Cache.
@@ -27,16 +45,22 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Cache.
+        /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.CacheResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// SKU for the Cache.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.CacheResponseSkuResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Subnet used for the Cache.
+        /// </summary>
+        [Output("subnet")]
+        public Output<string?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// ARM tags as name/value pairs.
@@ -49,6 +73,12 @@ namespace Pulumi.AzureRM.StorageCache.V20191101
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Upgrade status of the Cache.
+        /// </summary>
+        [Output("upgradeStatus")]
+        public Output<Outputs.CacheUpgradeStatusResponseResult?> UpgradeStatus { get; private set; } = null!;
 
 
         /// <summary>

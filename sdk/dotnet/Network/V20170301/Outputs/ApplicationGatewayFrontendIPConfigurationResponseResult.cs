@@ -26,9 +26,25 @@ namespace Pulumi.AzureRM.Network.V20170301.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of Frontend IP configuration of an application gateway.
+        /// PrivateIPAddress of the network interface IP Configuration.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayFrontendIPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly string? PrivateIPAddress;
+        /// <summary>
+        /// PrivateIP allocation method.
+        /// </summary>
+        public readonly string? PrivateIPAllocationMethod;
+        /// <summary>
+        /// Provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Reference of the PublicIP resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? PublicIPAddress;
+        /// <summary>
+        /// Reference of the subnet resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? Subnet;
 
         [OutputConstructor]
         private ApplicationGatewayFrontendIPConfigurationResponseResult(
@@ -38,12 +54,24 @@ namespace Pulumi.AzureRM.Network.V20170301.Outputs
 
             string? name,
 
-            Outputs.ApplicationGatewayFrontendIPConfigurationPropertiesFormatResponseResult? properties)
+            string? privateIPAddress,
+
+            string? privateIPAllocationMethod,
+
+            string? provisioningState,
+
+            Outputs.SubResourceResponseResult? publicIPAddress,
+
+            Outputs.SubResourceResponseResult? subnet)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            PrivateIPAddress = privateIPAddress;
+            PrivateIPAllocationMethod = privateIPAllocationMethod;
+            ProvisioningState = provisioningState;
+            PublicIPAddress = publicIPAddress;
+            Subnet = subnet;
         }
     }
 }

@@ -46,6 +46,18 @@ namespace Pulumi.AzureRM.Compute.V20190701
     public sealed class GetGalleryApplicationResult
     {
         /// <summary>
+        /// The description of this gallery Application Definition resource. This property is updatable.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+        /// </summary>
+        public readonly string? EndOfLifeDate;
+        /// <summary>
+        /// The Eula agreement for the gallery Application Definition.
+        /// </summary>
+        public readonly string? Eula;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -54,9 +66,17 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of a gallery Application Definition.
+        /// The privacy statement uri.
         /// </summary>
-        public readonly Outputs.GalleryApplicationPropertiesResponseResult Properties;
+        public readonly string? PrivacyStatementUri;
+        /// <summary>
+        /// The release note uri.
+        /// </summary>
+        public readonly string? ReleaseNoteUri;
+        /// <summary>
+        /// This property allows you to specify the supported type of the OS that application is built for. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
+        /// </summary>
+        public readonly string SupportedOSType;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -68,19 +88,34 @@ namespace Pulumi.AzureRM.Compute.V20190701
 
         [OutputConstructor]
         private GetGalleryApplicationResult(
+            string? description,
+
+            string? endOfLifeDate,
+
+            string? eula,
+
             string location,
 
             string name,
 
-            Outputs.GalleryApplicationPropertiesResponseResult properties,
+            string? privacyStatementUri,
+
+            string? releaseNoteUri,
+
+            string supportedOSType,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Description = description;
+            EndOfLifeDate = endOfLifeDate;
+            Eula = eula;
             Location = location;
             Name = name;
-            Properties = properties;
+            PrivacyStatementUri = privacyStatementUri;
+            ReleaseNoteUri = releaseNoteUri;
+            SupportedOSType = supportedOSType;
             Tags = tags;
             Type = type;
         }

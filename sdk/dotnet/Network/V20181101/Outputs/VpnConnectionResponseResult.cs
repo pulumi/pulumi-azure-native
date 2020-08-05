@@ -14,6 +14,30 @@ namespace Pulumi.AzureRM.Network.V20181101.Outputs
     public sealed class VpnConnectionResponseResult
     {
         /// <summary>
+        /// Expected bandwidth in MBPS.
+        /// </summary>
+        public readonly int? ConnectionBandwidth;
+        /// <summary>
+        /// The connection status.
+        /// </summary>
+        public readonly string? ConnectionStatus;
+        /// <summary>
+        /// Egress bytes transferred.
+        /// </summary>
+        public readonly int EgressBytesTransferred;
+        /// <summary>
+        /// EnableBgp flag
+        /// </summary>
+        public readonly bool? EnableBgp;
+        /// <summary>
+        /// Enable internet security
+        /// </summary>
+        public readonly bool? EnableInternetSecurity;
+        /// <summary>
+        /// EnableBgp flag
+        /// </summary>
+        public readonly bool? EnableRateLimiting;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -22,28 +46,88 @@ namespace Pulumi.AzureRM.Network.V20181101.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Ingress bytes transferred.
+        /// </summary>
+        public readonly int IngressBytesTransferred;
+        /// <summary>
+        /// The IPSec Policies to be considered by this connection.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpsecPolicyResponseResult> IpsecPolicies;
+        /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Parameters for VpnConnection
+        /// The provisioning state of the resource.
         /// </summary>
-        public readonly Outputs.VpnConnectionPropertiesResponseResult? Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Id of the connected vpn site.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? RemoteVpnSite;
+        /// <summary>
+        /// routing weight for vpn connection.
+        /// </summary>
+        public readonly int? RoutingWeight;
+        /// <summary>
+        /// SharedKey for the vpn connection.
+        /// </summary>
+        public readonly string? SharedKey;
+        /// <summary>
+        /// Connection protocol used for this connection
+        /// </summary>
+        public readonly string? VpnConnectionProtocolType;
 
         [OutputConstructor]
         private VpnConnectionResponseResult(
+            int? connectionBandwidth,
+
+            string? connectionStatus,
+
+            int egressBytesTransferred,
+
+            bool? enableBgp,
+
+            bool? enableInternetSecurity,
+
+            bool? enableRateLimiting,
+
             string etag,
 
             string? id,
 
+            int ingressBytesTransferred,
+
+            ImmutableArray<Outputs.IpsecPolicyResponseResult> ipsecPolicies,
+
             string? name,
 
-            Outputs.VpnConnectionPropertiesResponseResult? properties)
+            string? provisioningState,
+
+            Outputs.SubResourceResponseResult? remoteVpnSite,
+
+            int? routingWeight,
+
+            string? sharedKey,
+
+            string? vpnConnectionProtocolType)
         {
+            ConnectionBandwidth = connectionBandwidth;
+            ConnectionStatus = connectionStatus;
+            EgressBytesTransferred = egressBytesTransferred;
+            EnableBgp = enableBgp;
+            EnableInternetSecurity = enableInternetSecurity;
+            EnableRateLimiting = enableRateLimiting;
             Etag = etag;
             Id = id;
+            IngressBytesTransferred = ingressBytesTransferred;
+            IpsecPolicies = ipsecPolicies;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RemoteVpnSite = remoteVpnSite;
+            RoutingWeight = routingWeight;
+            SharedKey = sharedKey;
+            VpnConnectionProtocolType = vpnConnectionProtocolType;
         }
     }
 }

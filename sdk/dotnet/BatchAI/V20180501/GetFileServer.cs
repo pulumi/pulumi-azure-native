@@ -46,29 +46,78 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
     public sealed class GetFileServerResult
     {
         /// <summary>
+        /// Time when the FileServer was created.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
+        /// Information about disks attached to File Server VM.
+        /// </summary>
+        public readonly Outputs.DataDisksResponseResult? DataDisks;
+        /// <summary>
+        /// File Server mount settings.
+        /// </summary>
+        public readonly Outputs.MountSettingsResponseResult MountSettings;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// File Server properties.
+        /// Provisioning state of the File Server. Possible values: creating - The File Server is getting created; updating - The File Server creation has been accepted and it is getting updated; deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted; failed - The File Server creation has failed with the specified error code. Details about the error code are specified in the message field; succeeded - The File Server creation has succeeded.
         /// </summary>
-        public readonly Outputs.FileServerPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Time when the provisioning state was changed.
+        /// </summary>
+        public readonly string ProvisioningStateTransitionTime;
+        /// <summary>
+        /// SSH configuration for accessing the File Server node.
+        /// </summary>
+        public readonly Outputs.SshConfigurationResponseResult? SshConfiguration;
+        /// <summary>
+        /// File Server virtual network subnet resource ID.
+        /// </summary>
+        public readonly Outputs.ResourceIdResponseResult? Subnet;
         /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// VM size of the File Server.
+        /// </summary>
+        public readonly string? VmSize;
 
         [OutputConstructor]
         private GetFileServerResult(
+            string creationTime,
+
+            Outputs.DataDisksResponseResult? dataDisks,
+
+            Outputs.MountSettingsResponseResult mountSettings,
+
             string name,
 
-            Outputs.FileServerPropertiesResponseResult properties,
+            string provisioningState,
 
-            string type)
+            string provisioningStateTransitionTime,
+
+            Outputs.SshConfigurationResponseResult? sshConfiguration,
+
+            Outputs.ResourceIdResponseResult? subnet,
+
+            string type,
+
+            string? vmSize)
         {
+            CreationTime = creationTime;
+            DataDisks = dataDisks;
+            MountSettings = mountSettings;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ProvisioningStateTransitionTime = provisioningStateTransitionTime;
+            SshConfiguration = sshConfiguration;
+            Subnet = subnet;
             Type = type;
+            VmSize = vmSize;
         }
     }
 }

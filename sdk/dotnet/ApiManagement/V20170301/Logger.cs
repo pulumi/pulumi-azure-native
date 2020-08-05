@@ -15,16 +15,41 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     public partial class Logger : Pulumi.CustomResource
     {
         /// <summary>
+        /// The name and SendRule connection string of the event hub for azureEventHub logger.
+        /// Instrumentation key for applicationInsights logger.
+        /// </summary>
+        [Output("credentials")]
+        public Output<ImmutableDictionary<string, string>> Credentials { get; private set; } = null!;
+
+        /// <summary>
+        /// Logger description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether records are buffered in the logger before publishing. Default is assumed to be true.
+        /// </summary>
+        [Output("isBuffered")]
+        public Output<bool?> IsBuffered { get; private set; } = null!;
+
+        /// <summary>
+        /// Logger type.
+        /// </summary>
+        [Output("loggerType")]
+        public Output<string> LoggerType { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Logger entity contract properties.
+        /// Sampling settings for an ApplicationInsights logger.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.LoggerContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("sampling")]
+        public Output<Outputs.LoggerSamplingContractResponseResult?> Sampling { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

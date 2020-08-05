@@ -52,6 +52,10 @@ namespace Pulumi.AzureRM.Web.V20181101
     public sealed class GetWebAppHybridConnectionSlotResult
     {
         /// <summary>
+        /// The hostname of the endpoint.
+        /// </summary>
+        public readonly string? Hostname;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -60,9 +64,34 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// HybridConnection resource specific properties
+        /// The port of the endpoint.
         /// </summary>
-        public readonly Outputs.HybridConnectionResponsePropertiesResult Properties;
+        public readonly int? Port;
+        /// <summary>
+        /// The ARM URI to the Service Bus relay.
+        /// </summary>
+        public readonly string? RelayArmUri;
+        /// <summary>
+        /// The name of the Service Bus relay.
+        /// </summary>
+        public readonly string? RelayName;
+        /// <summary>
+        /// The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+        /// </summary>
+        public readonly string? SendKeyName;
+        /// <summary>
+        /// The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+        /// normally, use the POST /listKeys API instead.
+        /// </summary>
+        public readonly string? SendKeyValue;
+        /// <summary>
+        /// The name of the Service Bus namespace.
+        /// </summary>
+        public readonly string? ServiceBusNamespace;
+        /// <summary>
+        /// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
+        /// </summary>
+        public readonly string? ServiceBusSuffix;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -70,17 +99,38 @@ namespace Pulumi.AzureRM.Web.V20181101
 
         [OutputConstructor]
         private GetWebAppHybridConnectionSlotResult(
+            string? hostname,
+
             string? kind,
 
             string name,
 
-            Outputs.HybridConnectionResponsePropertiesResult properties,
+            int? port,
+
+            string? relayArmUri,
+
+            string? relayName,
+
+            string? sendKeyName,
+
+            string? sendKeyValue,
+
+            string? serviceBusNamespace,
+
+            string? serviceBusSuffix,
 
             string type)
         {
+            Hostname = hostname;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            Port = port;
+            RelayArmUri = relayArmUri;
+            RelayName = relayName;
+            SendKeyName = sendKeyName;
+            SendKeyValue = sendKeyValue;
+            ServiceBusNamespace = serviceBusNamespace;
+            ServiceBusSuffix = serviceBusSuffix;
             Type = type;
         }
     }

@@ -46,13 +46,17 @@ namespace Pulumi.AzureRM.Storage.V20190401
     public sealed class GetManagementPolicyResult
     {
         /// <summary>
+        /// Returns the date and time the ManagementPolicies was last modified.
+        /// </summary>
+        public readonly string LastModifiedTime;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Returns the Storage Account Data Policies Rules.
+        /// The Storage Account ManagementPolicy, in JSON format. See more details in: https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts.
         /// </summary>
-        public readonly Outputs.ManagementPolicyPropertiesResponseResult Properties;
+        public readonly Outputs.ManagementPolicySchemaResponseResult Policy;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -60,14 +64,17 @@ namespace Pulumi.AzureRM.Storage.V20190401
 
         [OutputConstructor]
         private GetManagementPolicyResult(
+            string lastModifiedTime,
+
             string name,
 
-            Outputs.ManagementPolicyPropertiesResponseResult properties,
+            Outputs.ManagementPolicySchemaResponseResult policy,
 
             string type)
         {
+            LastModifiedTime = lastModifiedTime;
             Name = name;
-            Properties = properties;
+            Policy = policy;
             Type = type;
         }
     }

@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
+        /// A list that describes the correlation of the service with other services.
+        /// </summary>
+        [Output("correlationScheme")]
+        public Output<ImmutableArray<Outputs.ServiceCorrelationDescriptionResponseResult>> CorrelationScheme { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the move cost for the service.
+        /// </summary>
+        [Output("defaultMoveCost")]
+        public Output<string?> DefaultMoveCost { get; private set; } = null!;
+
+        /// <summary>
         /// Azure resource etag.
         /// </summary>
         [Output("etag")]
@@ -33,10 +45,58 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The service resource properties.
+        /// Describes how the service is partitioned.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ServiceResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("partitionDescription")]
+        public Output<Outputs.PartitionSchemeDescriptionResponseResult?> PartitionDescription { get; private set; } = null!;
+
+        /// <summary>
+        /// The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: "NodeColor == blue)".
+        /// </summary>
+        [Output("placementConstraints")]
+        public Output<string?> PlacementConstraints { get; private set; } = null!;
+
+        /// <summary>
+        /// The current deployment or provisioning state, which only appears in the response
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
+        /// </summary>
+        [Output("serviceDnsName")]
+        public Output<string?> ServiceDnsName { get; private set; } = null!;
+
+        /// <summary>
+        /// The kind of service (Stateless or Stateful).
+        /// </summary>
+        [Output("serviceKind")]
+        public Output<string> ServiceKind { get; private set; } = null!;
+
+        /// <summary>
+        /// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+        /// </summary>
+        [Output("serviceLoadMetrics")]
+        public Output<ImmutableArray<Outputs.ServiceLoadMetricDescriptionResponseResult>> ServiceLoadMetrics { get; private set; } = null!;
+
+        /// <summary>
+        /// The activation Mode of the service package
+        /// </summary>
+        [Output("servicePackageActivationMode")]
+        public Output<string?> ServicePackageActivationMode { get; private set; } = null!;
+
+        /// <summary>
+        /// A list that describes the correlation of the service with other services.
+        /// </summary>
+        [Output("servicePlacementPolicies")]
+        public Output<ImmutableArray<Outputs.ServicePlacementPolicyDescriptionResponseResult>> ServicePlacementPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the service type
+        /// </summary>
+        [Output("serviceTypeName")]
+        public Output<string?> ServiceTypeName { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.

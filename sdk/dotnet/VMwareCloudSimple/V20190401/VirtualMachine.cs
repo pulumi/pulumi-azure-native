@@ -15,6 +15,60 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
     public partial class VirtualMachine : Pulumi.CustomResource
     {
         /// <summary>
+        /// The amount of memory
+        /// </summary>
+        [Output("amountOfRam")]
+        public Output<int> AmountOfRam { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of Virtual Disks' Controllers
+        /// </summary>
+        [Output("controllers")]
+        public Output<ImmutableArray<Outputs.VirtualDiskControllerResponseResult>> Controllers { get; private set; } = null!;
+
+        /// <summary>
+        /// Virtual machine properties
+        /// </summary>
+        [Output("customization")]
+        public Output<Outputs.GuestOSCustomizationResponseResult?> Customization { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of Virtual Disks
+        /// </summary>
+        [Output("disks")]
+        public Output<ImmutableArray<Outputs.VirtualDiskResponseResult>> Disks { get; private set; } = null!;
+
+        /// <summary>
+        /// The DNS name of Virtual Machine in VCenter
+        /// </summary>
+        [Output("dnsname")]
+        public Output<string> Dnsname { get; private set; } = null!;
+
+        /// <summary>
+        /// Expose Guest OS or not
+        /// </summary>
+        [Output("exposeToGuestVM")]
+        public Output<bool?> ExposeToGuestVM { get; private set; } = null!;
+
+        /// <summary>
+        /// The path to virtual machine folder in VCenter
+        /// </summary>
+        [Output("folder")]
+        public Output<string> Folder { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of Guest OS
+        /// </summary>
+        [Output("guestOS")]
+        public Output<string> GuestOS { get; private set; } = null!;
+
+        /// <summary>
+        /// The Guest OS type
+        /// </summary>
+        [Output("guestOSType")]
+        public Output<string> GuestOSType { get; private set; } = null!;
+
+        /// <summary>
         /// Azure region
         /// </summary>
         [Output("location")]
@@ -27,10 +81,52 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Virtual machine properties
+        /// The list of Virtual NICs
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualMachinePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("nics")]
+        public Output<ImmutableArray<Outputs.VirtualNicResponseResult>> Nics { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of CPU cores
+        /// </summary>
+        [Output("numberOfCores")]
+        public Output<int> NumberOfCores { get; private set; } = null!;
+
+        /// <summary>
+        /// Password for login. Deprecated - use customization property
+        /// </summary>
+        [Output("password")]
+        public Output<string?> Password { get; private set; } = null!;
+
+        /// <summary>
+        /// Private Cloud Id
+        /// </summary>
+        [Output("privateCloudId")]
+        public Output<string> PrivateCloudId { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning status of the resource
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The public ip of Virtual Machine
+        /// </summary>
+        [Output("publicIP")]
+        public Output<string> PublicIP { get; private set; } = null!;
+
+        /// <summary>
+        /// Virtual Machines Resource Pool
+        /// </summary>
+        [Output("resourcePool")]
+        public Output<Outputs.ResourcePoolResponseResult?> ResourcePool { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of Virtual machine
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// The list of tags
@@ -39,10 +135,40 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Virtual Machine Template Id
+        /// </summary>
+        [Output("templateId")]
+        public Output<string?> TemplateId { get; private set; } = null!;
+
+        /// <summary>
         /// {resourceProviderNamespace}/{resourceType}
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Username for login. Deprecated - use customization property
+        /// </summary>
+        [Output("username")]
+        public Output<string?> Username { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of Virtual VSphere Networks
+        /// </summary>
+        [Output("vSphereNetworks")]
+        public Output<ImmutableArray<string>> VSphereNetworks { get; private set; } = null!;
+
+        /// <summary>
+        /// The internal id of Virtual Machine in VCenter
+        /// </summary>
+        [Output("vmId")]
+        public Output<string> VmId { get; private set; } = null!;
+
+        /// <summary>
+        /// VMware tools version
+        /// </summary>
+        [Output("vmwaretools")]
+        public Output<string> Vmwaretools { get; private set; } = null!;
 
 
         /// <summary>

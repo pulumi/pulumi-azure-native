@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
     public partial class StorageInsight : Pulumi.CustomResource
     {
         /// <summary>
+        /// The names of the blob containers that the workspace should read
+        /// </summary>
+        [Output("containers")]
+        public Output<ImmutableArray<string>> Containers { get; private set; } = null!;
+
+        /// <summary>
         /// The ETag of the storage insight.
         /// </summary>
         [Output("eTag")]
@@ -27,10 +33,22 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Storage insight properties.
+        /// The status of the storage insight
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.StorageInsightPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("status")]
+        public Output<Outputs.StorageInsightStatusResponseResult> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The storage account connection details
+        /// </summary>
+        [Output("storageAccount")]
+        public Output<Outputs.StorageAccountResponseResult> StorageAccount { get; private set; } = null!;
+
+        /// <summary>
+        /// The names of the Azure tables that the workspace should read
+        /// </summary>
+        [Output("tables")]
+        public Output<ImmutableArray<string>> Tables { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

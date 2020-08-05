@@ -46,13 +46,25 @@ namespace Pulumi.AzureRM.Media.V20180701
     public sealed class GetTransformResult
     {
         /// <summary>
+        /// The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        /// </summary>
+        public readonly string Created;
+        /// <summary>
+        /// An optional verbose description of the Transform.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        /// </summary>
+        public readonly string LastModified;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource properties.
+        /// An array of one or more TransformOutputs that the Transform should generate.
         /// </summary>
-        public readonly Outputs.TransformPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.TransformOutputResponseResult> Outputs;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -60,14 +72,23 @@ namespace Pulumi.AzureRM.Media.V20180701
 
         [OutputConstructor]
         private GetTransformResult(
+            string created,
+
+            string? description,
+
+            string lastModified,
+
             string name,
 
-            Outputs.TransformPropertiesResponseResult properties,
+            ImmutableArray<Outputs.TransformOutputResponseResult> outputs,
 
             string type)
         {
+            Created = created;
+            Description = description;
+            LastModified = lastModified;
             Name = name;
-            Properties = properties;
+            Outputs = outputs;
             Type = type;
         }
     }

@@ -14,17 +14,61 @@ namespace Pulumi.AzureRM.Sql.V20140401.Outputs
     public sealed class RecommendedIndexResponseResult
     {
         /// <summary>
+        /// The proposed index action. You can create a missing index, drop an unused index, or rebuild an existing index to improve its performance.
+        /// </summary>
+        public readonly string Action;
+        /// <summary>
+        /// Columns over which to build index
+        /// </summary>
+        public readonly ImmutableArray<string> Columns;
+        /// <summary>
+        /// The UTC datetime showing when this resource was created (ISO8601 format).
+        /// </summary>
+        public readonly string Created;
+        /// <summary>
+        /// The estimated impact of doing recommended index action.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OperationImpactResponseResult> EstimatedImpact;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The list of column names to be included in the index
+        /// </summary>
+        public readonly ImmutableArray<string> IncludedColumns;
+        /// <summary>
+        /// The full build index script
+        /// </summary>
+        public readonly string IndexScript;
+        /// <summary>
+        /// The type of index (CLUSTERED, NONCLUSTERED, COLUMNSTORE, CLUSTERED COLUMNSTORE)
+        /// </summary>
+        public readonly string IndexType;
+        /// <summary>
+        /// The UTC datetime of when was this resource last changed (ISO8601 format).
+        /// </summary>
+        public readonly string LastModified;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties representing the resource.
+        /// The values reported after index action is complete.
         /// </summary>
-        public readonly Outputs.RecommendedIndexPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.OperationImpactResponseResult> ReportedImpact;
+        /// <summary>
+        /// The schema where table to build index over resides
+        /// </summary>
+        public readonly string Schema;
+        /// <summary>
+        /// The current recommendation state.
+        /// </summary>
+        public readonly string State;
+        /// <summary>
+        /// The table on which to build index.
+        /// </summary>
+        public readonly string Table;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -32,17 +76,50 @@ namespace Pulumi.AzureRM.Sql.V20140401.Outputs
 
         [OutputConstructor]
         private RecommendedIndexResponseResult(
+            string action,
+
+            ImmutableArray<string> columns,
+
+            string created,
+
+            ImmutableArray<Outputs.OperationImpactResponseResult> estimatedImpact,
+
             string id,
+
+            ImmutableArray<string> includedColumns,
+
+            string indexScript,
+
+            string indexType,
+
+            string lastModified,
 
             string name,
 
-            Outputs.RecommendedIndexPropertiesResponseResult properties,
+            ImmutableArray<Outputs.OperationImpactResponseResult> reportedImpact,
+
+            string schema,
+
+            string state,
+
+            string table,
 
             string type)
         {
+            Action = action;
+            Columns = columns;
+            Created = created;
+            EstimatedImpact = estimatedImpact;
             Id = id;
+            IncludedColumns = includedColumns;
+            IndexScript = indexScript;
+            IndexType = indexType;
+            LastModified = lastModified;
             Name = name;
-            Properties = properties;
+            ReportedImpact = reportedImpact;
+            Schema = schema;
+            State = state;
+            Table = table;
             Type = type;
         }
     }

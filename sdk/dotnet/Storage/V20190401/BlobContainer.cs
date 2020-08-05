@@ -21,16 +21,70 @@ namespace Pulumi.AzureRM.Storage.V20190401
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
+        /// </summary>
+        [Output("hasImmutabilityPolicy")]
+        public Output<bool> HasImmutabilityPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+        /// </summary>
+        [Output("hasLegalHold")]
+        public Output<bool> HasLegalHold { get; private set; } = null!;
+
+        /// <summary>
+        /// The ImmutabilityPolicy property of the container.
+        /// </summary>
+        [Output("immutabilityPolicy")]
+        public Output<Outputs.ImmutabilityPolicyPropertiesResponseResult> ImmutabilityPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Returns the date and time the container was last modified.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
+        /// </summary>
+        [Output("leaseDuration")]
+        public Output<string> LeaseDuration { get; private set; } = null!;
+
+        /// <summary>
+        /// Lease state of the container.
+        /// </summary>
+        [Output("leaseState")]
+        public Output<string> LeaseState { get; private set; } = null!;
+
+        /// <summary>
+        /// The lease status of the container.
+        /// </summary>
+        [Output("leaseStatus")]
+        public Output<string> LeaseStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The LegalHold property of the container.
+        /// </summary>
+        [Output("legalHold")]
+        public Output<Outputs.LegalHoldPropertiesResponseResult> LegalHold { get; private set; } = null!;
+
+        /// <summary>
+        /// A name-value pair to associate with the container as metadata.
+        /// </summary>
+        [Output("metadata")]
+        public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the blob container.
+        /// Specifies whether data in the container may be accessed publicly and the level of access.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ContainerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("publicAccess")]
+        public Output<string?> PublicAccess { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

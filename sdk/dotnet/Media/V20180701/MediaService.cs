@@ -21,16 +21,22 @@ namespace Pulumi.AzureRM.Media.V20180701
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The Media Services account ID.
+        /// </summary>
+        [Output("mediaServiceId")]
+        public Output<string> MediaServiceId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource properties.
+        /// The storage accounts for this resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.MediaServicePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("storageAccounts")]
+        public Output<ImmutableArray<Outputs.StorageAccountResponseResult>> StorageAccounts { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

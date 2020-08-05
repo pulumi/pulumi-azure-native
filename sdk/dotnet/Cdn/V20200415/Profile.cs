@@ -27,10 +27,16 @@ namespace Pulumi.AzureRM.Cdn.V20200415
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The JSON object that contains the properties required to create a profile.
+        /// Provisioning status of the profile.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ProfilePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource status of the profile.
+        /// </summary>
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.

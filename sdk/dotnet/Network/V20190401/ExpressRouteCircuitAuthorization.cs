@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Network.V20190401
     public partial class ExpressRouteCircuitAuthorization : Pulumi.CustomResource
     {
         /// <summary>
+        /// The authorization key.
+        /// </summary>
+        [Output("authorizationKey")]
+        public Output<string?> AuthorizationKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The authorization use status.
+        /// </summary>
+        [Output("authorizationUseStatus")]
+        public Output<string?> AuthorizationUseStatus { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -27,10 +39,10 @@ namespace Pulumi.AzureRM.Network.V20190401
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the express route circuit authorization.
+        /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AuthorizationPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.

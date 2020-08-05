@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
     public partial class ApplicationTypeVersion : Pulumi.CustomResource
     {
         /// <summary>
+        /// The URL to the application package
+        /// </summary>
+        [Output("appPackageUrl")]
+        public Output<string> AppPackageUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// List of application type parameters that can be overridden when creating or updating the application.
+        /// </summary>
+        [Output("defaultParameterList")]
+        public Output<ImmutableDictionary<string, string>> DefaultParameterList { get; private set; } = null!;
+
+        /// <summary>
         /// Azure resource etag.
         /// </summary>
         [Output("etag")]
@@ -33,10 +45,10 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the application type version resource.
+        /// The current deployment or provisioning state, which only appears in the response
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApplicationTypeVersionResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource tags.

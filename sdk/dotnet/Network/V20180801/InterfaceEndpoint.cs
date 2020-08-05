@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.Network.V20180801
     public partial class InterfaceEndpoint : Pulumi.CustomResource
     {
         /// <summary>
+        /// A reference to the service being brought into the virtual network.
+        /// </summary>
+        [Output("endpointService")]
+        public Output<Outputs.EndpointServiceResponseResult?> EndpointService { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
+        /// </summary>
+        [Output("fqdn")]
+        public Output<string?> Fqdn { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +45,28 @@ namespace Pulumi.AzureRM.Network.V20180801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the interface endpoint.
+        /// Gets an array of references to the network interfaces created for this interface endpoint.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.InterfaceEndpointPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("networkInterfaces")]
+        public Output<ImmutableArray<Outputs.NetworkInterfaceResponseResult>> NetworkInterfaces { get; private set; } = null!;
+
+        /// <summary>
+        /// A read-only property that identifies who created this interface endpoint.
+        /// </summary>
+        [Output("owner")]
+        public Output<string> Owner { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the interface endpoint. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the subnet from which the private IP will be allocated.
+        /// </summary>
+        [Output("subnet")]
+        public Output<Outputs.SubnetResponseResult?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

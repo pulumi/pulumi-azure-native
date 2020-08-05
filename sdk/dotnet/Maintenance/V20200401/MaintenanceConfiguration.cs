@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.Maintenance.V20200401
     public partial class MaintenanceConfiguration : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
+        /// </summary>
+        [Output("extensionProperties")]
+        public Output<ImmutableDictionary<string, string>?> ExtensionProperties { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets location of the resource
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
+        /// </summary>
+        [Output("maintenanceScope")]
+        public Output<string?> MaintenanceScope { get; private set; } = null!;
 
         /// <summary>
         /// Name of the resource
@@ -27,10 +39,10 @@ namespace Pulumi.AzureRM.Maintenance.V20200401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets properties of the resource
+        /// Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.MaintenanceConfigurationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("namespace")]
+        public Output<string?> Namespace { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets tags of the resource

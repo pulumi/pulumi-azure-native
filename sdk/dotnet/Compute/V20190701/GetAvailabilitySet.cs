@@ -48,13 +48,25 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The instance view of a resource.
+        /// Fault Domain count.
         /// </summary>
-        public readonly Outputs.AvailabilitySetPropertiesResponseResult Properties;
+        public readonly int? PlatformFaultDomainCount;
+        /// <summary>
+        /// Update Domain count.
+        /// </summary>
+        public readonly int? PlatformUpdateDomainCount;
+        /// <summary>
+        /// Specifies information about the proximity placement group that the availability set should be assigned to. &lt;br&gt;&lt;br&gt;Minimum api-version: 2018-04-01.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? ProximityPlacementGroup;
         /// <summary>
         /// Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
         /// </summary>
         public readonly Outputs.SkuResponseResult? Sku;
+        /// <summary>
+        /// The resource status information.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InstanceViewStatusResponseResult> Statuses;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -63,6 +75,10 @@ namespace Pulumi.AzureRM.Compute.V20190701
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// A list of references to all virtual machines in the availability set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> VirtualMachines;
 
         [OutputConstructor]
         private GetAvailabilitySetResult(
@@ -70,20 +86,32 @@ namespace Pulumi.AzureRM.Compute.V20190701
 
             string name,
 
-            Outputs.AvailabilitySetPropertiesResponseResult properties,
+            int? platformFaultDomainCount,
+
+            int? platformUpdateDomainCount,
+
+            Outputs.SubResourceResponseResult? proximityPlacementGroup,
 
             Outputs.SkuResponseResult? sku,
 
+            ImmutableArray<Outputs.InstanceViewStatusResponseResult> statuses,
+
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> virtualMachines)
         {
             Location = location;
             Name = name;
-            Properties = properties;
+            PlatformFaultDomainCount = platformFaultDomainCount;
+            PlatformUpdateDomainCount = platformUpdateDomainCount;
+            ProximityPlacementGroup = proximityPlacementGroup;
             Sku = sku;
+            Statuses = statuses;
             Tags = tags;
             Type = type;
+            VirtualMachines = virtualMachines;
         }
     }
 }

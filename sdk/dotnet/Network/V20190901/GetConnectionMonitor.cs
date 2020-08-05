@@ -46,6 +46,14 @@ namespace Pulumi.AzureRM.Network.V20190901
     public sealed class GetConnectionMonitorResult
     {
         /// <summary>
+        /// Determines if the connection monitor will start automatically once created.
+        /// </summary>
+        public readonly bool? AutoStart;
+        /// <summary>
+        /// Describes the destination of connection monitor.
+        /// </summary>
+        public readonly Outputs.ConnectionMonitorDestinationResponseResult Destination;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -54,13 +62,29 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// Monitoring interval in seconds.
+        /// </summary>
+        public readonly int? MonitoringIntervalInSeconds;
+        /// <summary>
+        /// The monitoring status of the connection monitor.
+        /// </summary>
+        public readonly string? MonitoringStatus;
+        /// <summary>
         /// Name of the connection monitor.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the connection monitor result.
+        /// The provisioning state of the connection monitor.
         /// </summary>
-        public readonly Outputs.ConnectionMonitorResultPropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Describes the source of connection monitor.
+        /// </summary>
+        public readonly Outputs.ConnectionMonitorSourceResponseResult Source;
+        /// <summary>
+        /// The date and time when the connection monitor was started.
+        /// </summary>
+        public readonly string? StartTime;
         /// <summary>
         /// Connection monitor tags.
         /// </summary>
@@ -72,22 +96,40 @@ namespace Pulumi.AzureRM.Network.V20190901
 
         [OutputConstructor]
         private GetConnectionMonitorResult(
+            bool? autoStart,
+
+            Outputs.ConnectionMonitorDestinationResponseResult destination,
+
             string? etag,
 
             string? location,
 
+            int? monitoringIntervalInSeconds,
+
+            string? monitoringStatus,
+
             string name,
 
-            Outputs.ConnectionMonitorResultPropertiesResponseResult properties,
+            string? provisioningState,
+
+            Outputs.ConnectionMonitorSourceResponseResult source,
+
+            string? startTime,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AutoStart = autoStart;
+            Destination = destination;
             Etag = etag;
             Location = location;
+            MonitoringIntervalInSeconds = monitoringIntervalInSeconds;
+            MonitoringStatus = monitoringStatus;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Source = source;
+            StartTime = startTime;
             Tags = tags;
             Type = type;
         }

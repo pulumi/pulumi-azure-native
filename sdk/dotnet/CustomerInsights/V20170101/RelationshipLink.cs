@@ -15,16 +15,76 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public partial class RelationshipLink : Pulumi.CustomResource
     {
         /// <summary>
+        /// Localized descriptions for the Relationship Link.
+        /// </summary>
+        [Output("description")]
+        public Output<ImmutableDictionary<string, string>?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Localized display name for the Relationship Link.
+        /// </summary>
+        [Output("displayName")]
+        public Output<ImmutableDictionary<string, string>?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The InteractionType associated with the Relationship Link.
+        /// </summary>
+        [Output("interactionType")]
+        public Output<string> InteractionType { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the Relationship Link.
+        /// </summary>
+        [Output("linkName")]
+        public Output<string> LinkName { get; private set; } = null!;
+
+        /// <summary>
+        /// The mappings between Interaction and Relationship fields.
+        /// </summary>
+        [Output("mappings")]
+        public Output<ImmutableArray<Outputs.RelationshipLinkFieldMappingResponseResult>> Mappings { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The definition of relationship link.
+        /// The property references for the Profile of the Relationship.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RelationshipLinkDefinitionResponseResult> Properties { get; private set; } = null!;
+        [Output("profilePropertyReferences")]
+        public Output<ImmutableArray<Outputs.ParticipantPropertyReferenceResponseResult>> ProfilePropertyReferences { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The property references for the Related Profile of the Relationship.
+        /// </summary>
+        [Output("relatedProfilePropertyReferences")]
+        public Output<ImmutableArray<Outputs.ParticipantPropertyReferenceResponseResult>> RelatedProfilePropertyReferences { get; private set; } = null!;
+
+        /// <summary>
+        /// The relationship guid id.
+        /// </summary>
+        [Output("relationshipGuidId")]
+        public Output<string> RelationshipGuidId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Relationship associated with the Link.
+        /// </summary>
+        [Output("relationshipName")]
+        public Output<string> RelationshipName { get; private set; } = null!;
+
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

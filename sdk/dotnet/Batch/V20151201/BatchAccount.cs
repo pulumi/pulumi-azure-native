@@ -15,6 +15,30 @@ namespace Pulumi.AzureRM.Batch.V20151201
     public partial class BatchAccount : Pulumi.CustomResource
     {
         /// <summary>
+        /// The endpoint used by this account to interact with the Batch services.
+        /// </summary>
+        [Output("accountEndpoint")]
+        public Output<string> AccountEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The active job and job schedule quota for this Batch account.
+        /// </summary>
+        [Output("activeJobAndJobScheduleQuota")]
+        public Output<int> ActiveJobAndJobScheduleQuota { get; private set; } = null!;
+
+        /// <summary>
+        /// The properties and status of any auto storage account associated with the account.
+        /// </summary>
+        [Output("autoStorage")]
+        public Output<Outputs.AutoStoragePropertiesResponseResult?> AutoStorage { get; private set; } = null!;
+
+        /// <summary>
+        /// The core quota for this Batch account.
+        /// </summary>
+        [Output("coreQuota")]
+        public Output<int> CoreQuota { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource
         /// </summary>
         [Output("location")]
@@ -27,10 +51,16 @@ namespace Pulumi.AzureRM.Batch.V20151201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties associated with the account.
+        /// The pool quota for this Batch account.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.BatchAccountPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("poolQuota")]
+        public Output<int> PoolQuota { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioned state of the resource
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource

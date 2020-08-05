@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.EventHub.V20150801
     public partial class ConsumerGroup : Pulumi.CustomResource
     {
         /// <summary>
+        /// Exact time the message was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The path of the Event Hub.
+        /// </summary>
+        [Output("eventHubPath")]
+        public Output<string> EventHubPath { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,16 +39,22 @@ namespace Pulumi.AzureRM.EventHub.V20150801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties supplied to the Create Or Update Consumer Group operation.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ConsumerGroupPropertiesResponseResult> Properties { get; private set; } = null!;
-
-        /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The exact time the message was updated.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The user metadata.
+        /// </summary>
+        [Output("userMetadata")]
+        public Output<string?> UserMetadata { get; private set; } = null!;
 
 
         /// <summary>

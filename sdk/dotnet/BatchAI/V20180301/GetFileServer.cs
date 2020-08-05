@@ -39,18 +39,36 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
     [OutputType]
     public sealed class GetFileServerResult
     {
+        public readonly string CreationTime;
+        /// <summary>
+        /// Settings for the data disk which would be created for the File Server.
+        /// </summary>
+        public readonly Outputs.DataDisksResponseResult? DataDisks;
         /// <summary>
         /// The location of the resource
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Details of the File Server.
+        /// </summary>
+        public readonly Outputs.MountSettingsResponseResult MountSettings;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties associated with the File Server.
+        /// Possible values: creating - The File Server is getting created. updating - The File Server creation has been accepted and it is getting updated. deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted. failed - The File Server creation has failed with the specified errorCode. Details about the error code are specified in the message field. succeeded - The File Server creation has succeeded.
         /// </summary>
-        public readonly Outputs.FileServerPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        public readonly string ProvisioningStateTransitionTime;
+        /// <summary>
+        /// SSH configuration settings for the VM
+        /// </summary>
+        public readonly Outputs.SshConfigurationResponseResult? SshConfiguration;
+        /// <summary>
+        /// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        /// </summary>
+        public readonly Outputs.ResourceIdResponseResult? Subnet;
         /// <summary>
         /// The tags of the resource
         /// </summary>
@@ -59,24 +77,49 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         /// The type of the resource
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// For information about available VM sizes for File Server from the Virtual Machines Marketplace, see Sizes for Virtual Machines (Linux).
+        /// </summary>
+        public readonly string? VmSize;
 
         [OutputConstructor]
         private GetFileServerResult(
+            string creationTime,
+
+            Outputs.DataDisksResponseResult? dataDisks,
+
             string location,
+
+            Outputs.MountSettingsResponseResult mountSettings,
 
             string name,
 
-            Outputs.FileServerPropertiesResponseResult properties,
+            string provisioningState,
+
+            string provisioningStateTransitionTime,
+
+            Outputs.SshConfigurationResponseResult? sshConfiguration,
+
+            Outputs.ResourceIdResponseResult? subnet,
 
             ImmutableDictionary<string, string> tags,
 
-            string type)
+            string type,
+
+            string? vmSize)
         {
+            CreationTime = creationTime;
+            DataDisks = dataDisks;
             Location = location;
+            MountSettings = mountSettings;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ProvisioningStateTransitionTime = provisioningStateTransitionTime;
+            SshConfiguration = sshConfiguration;
+            Subnet = subnet;
             Tags = tags;
             Type = type;
+            VmSize = vmSize;
         }
     }
 }

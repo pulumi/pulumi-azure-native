@@ -46,6 +46,38 @@ namespace Pulumi.AzureRM.Network.V20180401
     public sealed class GetSecurityRuleResult
     {
         /// <summary>
+        /// The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
+        /// </summary>
+        public readonly string Access;
+        /// <summary>
+        /// A description for this rule. Restricted to 140 chars.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+        /// </summary>
+        public readonly string? DestinationAddressPrefix;
+        /// <summary>
+        /// The destination address prefixes. CIDR or destination IP ranges.
+        /// </summary>
+        public readonly ImmutableArray<string> DestinationAddressPrefixes;
+        /// <summary>
+        /// The application security group specified as destination.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationSecurityGroupResponseResult> DestinationApplicationSecurityGroups;
+        /// <summary>
+        /// The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        /// </summary>
+        public readonly string? DestinationPortRange;
+        /// <summary>
+        /// The destination port ranges.
+        /// </summary>
+        public readonly ImmutableArray<string> DestinationPortRanges;
+        /// <summary>
+        /// The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
+        /// </summary>
+        public readonly string Direction;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -54,21 +86,94 @@ namespace Pulumi.AzureRM.Network.V20180401
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the security rule
+        /// The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         /// </summary>
-        public readonly Outputs.SecurityRulePropertiesFormatResponseResult Properties;
+        public readonly int? Priority;
+        /// <summary>
+        /// Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
+        /// </summary>
+        public readonly string Protocol;
+        /// <summary>
+        /// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+        /// </summary>
+        public readonly string? SourceAddressPrefix;
+        /// <summary>
+        /// The CIDR or source IP ranges.
+        /// </summary>
+        public readonly ImmutableArray<string> SourceAddressPrefixes;
+        /// <summary>
+        /// The application security group specified as source.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationSecurityGroupResponseResult> SourceApplicationSecurityGroups;
+        /// <summary>
+        /// The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        /// </summary>
+        public readonly string? SourcePortRange;
+        /// <summary>
+        /// The source port ranges.
+        /// </summary>
+        public readonly ImmutableArray<string> SourcePortRanges;
 
         [OutputConstructor]
         private GetSecurityRuleResult(
+            string access,
+
+            string? description,
+
+            string? destinationAddressPrefix,
+
+            ImmutableArray<string> destinationAddressPrefixes,
+
+            ImmutableArray<Outputs.ApplicationSecurityGroupResponseResult> destinationApplicationSecurityGroups,
+
+            string? destinationPortRange,
+
+            ImmutableArray<string> destinationPortRanges,
+
+            string direction,
+
             string? etag,
 
             string? name,
 
-            Outputs.SecurityRulePropertiesFormatResponseResult properties)
+            int? priority,
+
+            string protocol,
+
+            string? provisioningState,
+
+            string? sourceAddressPrefix,
+
+            ImmutableArray<string> sourceAddressPrefixes,
+
+            ImmutableArray<Outputs.ApplicationSecurityGroupResponseResult> sourceApplicationSecurityGroups,
+
+            string? sourcePortRange,
+
+            ImmutableArray<string> sourcePortRanges)
         {
+            Access = access;
+            Description = description;
+            DestinationAddressPrefix = destinationAddressPrefix;
+            DestinationAddressPrefixes = destinationAddressPrefixes;
+            DestinationApplicationSecurityGroups = destinationApplicationSecurityGroups;
+            DestinationPortRange = destinationPortRange;
+            DestinationPortRanges = destinationPortRanges;
+            Direction = direction;
             Etag = etag;
             Name = name;
-            Properties = properties;
+            Priority = priority;
+            Protocol = protocol;
+            ProvisioningState = provisioningState;
+            SourceAddressPrefix = sourceAddressPrefix;
+            SourceAddressPrefixes = sourceAddressPrefixes;
+            SourceApplicationSecurityGroups = sourceApplicationSecurityGroups;
+            SourcePortRange = sourcePortRange;
+            SourcePortRanges = sourcePortRanges;
         }
     }
 }

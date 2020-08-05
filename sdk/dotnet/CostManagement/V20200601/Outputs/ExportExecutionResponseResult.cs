@@ -14,6 +14,18 @@ namespace Pulumi.AzureRM.CostManagement.V20200601.Outputs
     public sealed class ExportExecutionResponseResult
     {
         /// <summary>
+        /// The details of any error.
+        /// </summary>
+        public readonly Outputs.ErrorDetailsResponseResult? Error;
+        /// <summary>
+        /// The type of the export execution.
+        /// </summary>
+        public readonly string? ExecutionType;
+        /// <summary>
+        /// The name of the exported file.
+        /// </summary>
+        public readonly string? FileName;
+        /// <summary>
         /// Resource Id.
         /// </summary>
         public readonly string Id;
@@ -22,9 +34,29 @@ namespace Pulumi.AzureRM.CostManagement.V20200601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the export execution.
+        /// The time when the export execution finished.
         /// </summary>
-        public readonly Outputs.ExportExecutionPropertiesResponseResult? Properties;
+        public readonly string? ProcessingEndTime;
+        /// <summary>
+        /// The time when export was picked up to be executed.
+        /// </summary>
+        public readonly string? ProcessingStartTime;
+        /// <summary>
+        /// The export settings that were in effect for this execution.
+        /// </summary>
+        public readonly Outputs.CommonExportPropertiesResponseResult? RunSettings;
+        /// <summary>
+        /// The last known status of the export execution.
+        /// </summary>
+        public readonly string? Status;
+        /// <summary>
+        /// The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
+        /// </summary>
+        public readonly string? SubmittedBy;
+        /// <summary>
+        /// The time when export was queued to be executed.
+        /// </summary>
+        public readonly string? SubmittedTime;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -36,19 +68,43 @@ namespace Pulumi.AzureRM.CostManagement.V20200601.Outputs
 
         [OutputConstructor]
         private ExportExecutionResponseResult(
+            Outputs.ErrorDetailsResponseResult? error,
+
+            string? executionType,
+
+            string? fileName,
+
             string id,
 
             string name,
 
-            Outputs.ExportExecutionPropertiesResponseResult? properties,
+            string? processingEndTime,
+
+            string? processingStartTime,
+
+            Outputs.CommonExportPropertiesResponseResult? runSettings,
+
+            string? status,
+
+            string? submittedBy,
+
+            string? submittedTime,
 
             ImmutableDictionary<string, string> tags,
 
             string type)
         {
+            Error = error;
+            ExecutionType = executionType;
+            FileName = fileName;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProcessingEndTime = processingEndTime;
+            ProcessingStartTime = processingStartTime;
+            RunSettings = runSettings;
+            Status = status;
+            SubmittedBy = submittedBy;
+            SubmittedTime = submittedTime;
             Tags = tags;
             Type = type;
         }

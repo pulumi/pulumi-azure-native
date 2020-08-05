@@ -27,16 +27,40 @@ namespace Pulumi.AzureRM.Network.V20180501
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        /// </summary>
+        [Output("maxNumberOfRecordSets")]
+        public Output<int> MaxNumberOfRecordSets { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the zone.
+        /// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ZonePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("nameServers")]
+        public Output<ImmutableArray<string>> NameServers { get; private set; } = null!;
+
+        /// <summary>
+        /// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        /// </summary>
+        [Output("numberOfRecordSets")]
+        public Output<int> NumberOfRecordSets { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
+        /// </summary>
+        [Output("registrationVirtualNetworks")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> RegistrationVirtualNetworks { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
+        /// </summary>
+        [Output("resolutionVirtualNetworks")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> ResolutionVirtualNetworks { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +73,12 @@ namespace Pulumi.AzureRM.Network.V20180501
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of this DNS zone (Public or Private).
+        /// </summary>
+        [Output("zoneType")]
+        public Output<string?> ZoneType { get; private set; } = null!;
 
 
         /// <summary>

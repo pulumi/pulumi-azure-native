@@ -46,13 +46,29 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public sealed class GetConnectionResult
     {
         /// <summary>
+        /// Gets or sets the connectionType of the connection.
+        /// </summary>
+        public readonly Outputs.ConnectionTypeAssociationPropertyResponseResult? ConnectionType;
+        /// <summary>
+        /// Gets the creation time.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Gets the field definition values of the connection.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> FieldDefinitionValues;
+        /// <summary>
+        /// Gets the last modified time.
+        /// </summary>
+        public readonly string LastModifiedTime;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Gets or sets the properties of the connection.
-        /// </summary>
-        public readonly Outputs.ConnectionPropertiesResponseResult Properties;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -60,14 +76,26 @@ namespace Pulumi.AzureRM.Automation.V20151031
 
         [OutputConstructor]
         private GetConnectionResult(
-            string name,
+            Outputs.ConnectionTypeAssociationPropertyResponseResult? connectionType,
 
-            Outputs.ConnectionPropertiesResponseResult properties,
+            string creationTime,
+
+            string? description,
+
+            ImmutableDictionary<string, string> fieldDefinitionValues,
+
+            string lastModifiedTime,
+
+            string name,
 
             string type)
         {
+            ConnectionType = connectionType;
+            CreationTime = creationTime;
+            Description = description;
+            FieldDefinitionValues = fieldDefinitionValues;
+            LastModifiedTime = lastModifiedTime;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

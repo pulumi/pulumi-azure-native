@@ -15,13 +15,28 @@ namespace Pulumi.AzureRM.Cdn.V20150601
     public partial class CustomDomain : Pulumi.CustomResource
     {
         /// <summary>
+        /// The host name of the custom domain. Must be a domain name.
+        /// </summary>
+        [Output("hostName")]
+        public Output<string> HostName { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.CustomDomainPropertiesResponseResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Provisioning status of the custom domain.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource status of the custom domain.
+        /// </summary>
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

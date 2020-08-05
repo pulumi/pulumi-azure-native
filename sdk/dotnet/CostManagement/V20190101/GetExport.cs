@@ -40,13 +40,25 @@ namespace Pulumi.AzureRM.CostManagement.V20190101
     public sealed class GetExportResult
     {
         /// <summary>
+        /// Has definition for the export.
+        /// </summary>
+        public readonly Outputs.QueryDefinitionResponseResult Definition;
+        /// <summary>
+        /// Has delivery information for the export.
+        /// </summary>
+        public readonly Outputs.ExportDeliveryInfoResponseResult DeliveryInfo;
+        /// <summary>
+        /// The format of the export being delivered.
+        /// </summary>
+        public readonly string? Format;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the export.
+        /// Has schedule information for the export.
         /// </summary>
-        public readonly Outputs.ExportPropertiesResponseResult Properties;
+        public readonly Outputs.ExportScheduleResponseResult? Schedule;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -58,16 +70,25 @@ namespace Pulumi.AzureRM.CostManagement.V20190101
 
         [OutputConstructor]
         private GetExportResult(
+            Outputs.QueryDefinitionResponseResult definition,
+
+            Outputs.ExportDeliveryInfoResponseResult deliveryInfo,
+
+            string? format,
+
             string name,
 
-            Outputs.ExportPropertiesResponseResult properties,
+            Outputs.ExportScheduleResponseResult? schedule,
 
             ImmutableDictionary<string, string> tags,
 
             string type)
         {
+            Definition = definition;
+            DeliveryInfo = deliveryInfo;
+            Format = format;
             Name = name;
-            Properties = properties;
+            Schedule = schedule;
             Tags = tags;
             Type = type;
         }

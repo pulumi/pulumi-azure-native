@@ -15,22 +15,124 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>
+        /// The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
+        /// </summary>
+        [Output("apiEntitySetName")]
+        public Output<string?> ApiEntitySetName { get; private set; } = null!;
+
+        /// <summary>
+        /// The attributes for the Type.
+        /// </summary>
+        [Output("attributes")]
+        public Output<ImmutableDictionary<string, ImmutableArray<string>>?> Attributes { get; private set; } = null!;
+
+        /// <summary>
+        /// Localized descriptions for the property.
+        /// </summary>
+        [Output("description")]
+        public Output<ImmutableDictionary<string, string>?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Localized display names for the property.
+        /// </summary>
+        [Output("displayName")]
+        public Output<ImmutableDictionary<string, string>?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of entity.
+        /// </summary>
+        [Output("entityType")]
+        public Output<string?> EntityType { get; private set; } = null!;
+
+        /// <summary>
+        /// The properties of the Profile.
+        /// </summary>
+        [Output("fields")]
+        public Output<ImmutableArray<Outputs.PropertyDefinitionResponseResult>> Fields { get; private set; } = null!;
+
+        /// <summary>
+        /// The instance count.
+        /// </summary>
+        [Output("instancesCount")]
+        public Output<int?> InstancesCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Large Image associated with the Property or EntityType.
+        /// </summary>
+        [Output("largeImage")]
+        public Output<string?> LargeImage { get; private set; } = null!;
+
+        /// <summary>
+        /// The last changed time for the type definition.
+        /// </summary>
+        [Output("lastChangedUtc")]
+        public Output<string> LastChangedUtc { get; private set; } = null!;
+
+        /// <summary>
+        /// Any custom localized attributes for the Type.
+        /// </summary>
+        [Output("localizedAttributes")]
+        public Output<ImmutableDictionary<string, ImmutableDictionary<string, string>>?> LocalizedAttributes { get; private set; } = null!;
+
+        /// <summary>
+        /// Medium Image associated with the Property or EntityType.
+        /// </summary>
+        [Output("mediumImage")]
+        public Output<string?> MediumImage { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The profile type definition.
+        /// Provisioning state.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ProfileTypeDefinitionResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The schema org link. This helps ACI identify and suggest semantic models.
+        /// </summary>
+        [Output("schemaItemTypeLink")]
+        public Output<string?> SchemaItemTypeLink { get; private set; } = null!;
+
+        /// <summary>
+        /// Small Image associated with the Property or EntityType.
+        /// </summary>
+        [Output("smallImage")]
+        public Output<string?> SmallImage { get; private set; } = null!;
+
+        /// <summary>
+        /// The strong IDs.
+        /// </summary>
+        [Output("strongIds")]
+        public Output<ImmutableArray<Outputs.StrongIdResponseResult>> StrongIds { get; private set; } = null!;
+
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// The timestamp property name. Represents the time when the interaction or profile update happened.
+        /// </summary>
+        [Output("timestampFieldName")]
+        public Output<string?> TimestampFieldName { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the entity.
+        /// </summary>
+        [Output("typeName")]
+        public Output<string?> TypeName { get; private set; } = null!;
 
 
         /// <summary>

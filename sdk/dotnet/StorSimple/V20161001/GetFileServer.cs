@@ -52,13 +52,25 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public sealed class GetFileServerResult
     {
         /// <summary>
+        /// The backup policy id.
+        /// </summary>
+        public readonly string BackupScheduleGroupId;
+        /// <summary>
+        /// The description of the file server
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Domain of the file server
+        /// </summary>
+        public readonly string DomainName;
+        /// <summary>
         /// The name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties.
+        /// The storage domain id.
         /// </summary>
-        public readonly Outputs.FileServerPropertiesResponseResult Properties;
+        public readonly string StorageDomainId;
         /// <summary>
         /// The type.
         /// </summary>
@@ -66,14 +78,23 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
 
         [OutputConstructor]
         private GetFileServerResult(
+            string backupScheduleGroupId,
+
+            string? description,
+
+            string domainName,
+
             string name,
 
-            Outputs.FileServerPropertiesResponseResult properties,
+            string storageDomainId,
 
             string type)
         {
+            BackupScheduleGroupId = backupScheduleGroupId;
+            Description = description;
+            DomainName = domainName;
             Name = name;
-            Properties = properties;
+            StorageDomainId = storageDomainId;
             Type = type;
         }
     }

@@ -15,6 +15,72 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
     public partial class DatabaseAccount : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of Cosmos DB capabilities for the account
+        /// </summary>
+        [Output("capabilities")]
+        public Output<ImmutableArray<Outputs.CapabilityResponseResult>> Capabilities { get; private set; } = null!;
+
+        /// <summary>
+        /// The cassandra connector offer type for the Cosmos DB database C* account.
+        /// </summary>
+        [Output("connectorOffer")]
+        public Output<string?> ConnectorOffer { get; private set; } = null!;
+
+        /// <summary>
+        /// The consistency policy for the Cosmos DB database account.
+        /// </summary>
+        [Output("consistencyPolicy")]
+        public Output<Outputs.ConsistencyPolicyResponseResult?> ConsistencyPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// The offer type for the Cosmos DB database account. Default value: Standard.
+        /// </summary>
+        [Output("databaseAccountOfferType")]
+        public Output<string> DatabaseAccountOfferType { get; private set; } = null!;
+
+        /// <summary>
+        /// The connection endpoint for the Cosmos DB database account.
+        /// </summary>
+        [Output("documentEndpoint")]
+        public Output<string> DocumentEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
+        /// </summary>
+        [Output("enableAutomaticFailover")]
+        public Output<bool?> EnableAutomaticFailover { get; private set; } = null!;
+
+        /// <summary>
+        /// Enables the cassandra connector on the Cosmos DB C* account
+        /// </summary>
+        [Output("enableCassandraConnector")]
+        public Output<bool?> EnableCassandraConnector { get; private set; } = null!;
+
+        /// <summary>
+        /// Enables the account to write in multiple locations
+        /// </summary>
+        [Output("enableMultipleWriteLocations")]
+        public Output<bool?> EnableMultipleWriteLocations { get; private set; } = null!;
+
+        /// <summary>
+        /// An array that contains the regions ordered by their failover priorities.
+        /// </summary>
+        [Output("failoverPolicies")]
+        public Output<ImmutableArray<Outputs.FailoverPolicyResponseResult>> FailoverPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// Cosmos DB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces.
+        /// </summary>
+        [Output("ipRangeFilter")]
+        public Output<string?> IpRangeFilter { get; private set; } = null!;
+
+        /// <summary>
+        /// Flag to indicate whether to enable/disable Virtual Network ACL rules.
+        /// </summary>
+        [Output("isVirtualNetworkFilterEnabled")]
+        public Output<bool?> IsVirtualNetworkFilterEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Indicates the type of database account. This can only be set at database account creation.
         /// </summary>
         [Output("kind")]
@@ -33,10 +99,16 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties for the database account.
+        /// The status of the Cosmos DB account at the time the operation was called. The status can be one of following. 'Creating' – the Cosmos DB account is being created. When an account is in Creating state, only properties that are specified as input for the Create Cosmos DB account operation are returned. 'Succeeded' – the Cosmos DB account is active for use. 'Updating' – the Cosmos DB account is being updated. 'Deleting' – the Cosmos DB account is being deleted. 'Failed' – the Cosmos DB account failed creation. 'Offline' - the Cosmos DB account is not active. 'DeletionFailed' – the Cosmos DB account deletion failed.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DatabaseAccountPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// An array that contains of the read locations enabled for the Cosmos DB account.
+        /// </summary>
+        [Output("readLocations")]
+        public Output<ImmutableArray<Outputs.LocationResponseResult>> ReadLocations { get; private set; } = null!;
 
         /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -49,6 +121,18 @@ namespace Pulumi.AzureRM.DocumentDB.V20151106
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// List of Virtual Network ACL rules configured for the Cosmos DB account.
+        /// </summary>
+        [Output("virtualNetworkRules")]
+        public Output<ImmutableArray<Outputs.VirtualNetworkRuleResponseResult>> VirtualNetworkRules { get; private set; } = null!;
+
+        /// <summary>
+        /// An array that contains the write location for the Cosmos DB account.
+        /// </summary>
+        [Output("writeLocations")]
+        public Output<ImmutableArray<Outputs.LocationResponseResult>> WriteLocations { get; private set; } = null!;
 
 
         /// <summary>

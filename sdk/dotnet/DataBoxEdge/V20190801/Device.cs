@@ -15,10 +15,70 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
     public partial class Device : Pulumi.CustomResource
     {
         /// <summary>
+        /// Type of compute roles configured.
+        /// </summary>
+        [Output("configuredRoleTypes")]
+        public Output<ImmutableArray<string>> ConfiguredRoleTypes { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Box Edge/Gateway device culture.
+        /// </summary>
+        [Output("culture")]
+        public Output<string> Culture { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of the Data Box Edge/Gateway device.
+        /// </summary>
+        [Output("dataBoxEdgeDeviceStatus")]
+        public Output<string?> DataBoxEdgeDeviceStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The Description of the Data Box Edge/Gateway device.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The device software version number of the device (eg: 1.2.18105.6).
+        /// </summary>
+        [Output("deviceHcsVersion")]
+        public Output<string> DeviceHcsVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Box Edge/Gateway device local capacity in MB.
+        /// </summary>
+        [Output("deviceLocalCapacity")]
+        public Output<int> DeviceLocalCapacity { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Box Edge/Gateway device model.
+        /// </summary>
+        [Output("deviceModel")]
+        public Output<string> DeviceModel { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Box Edge/Gateway device software version.
+        /// </summary>
+        [Output("deviceSoftwareVersion")]
+        public Output<string> DeviceSoftwareVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the Data Box Edge/Gateway device.
+        /// </summary>
+        [Output("deviceType")]
+        public Output<string> DeviceType { get; private set; } = null!;
+
+        /// <summary>
         /// The etag for the devices.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Box Edge/Gateway device name.
+        /// </summary>
+        [Output("friendlyName")]
+        public Output<string?> FriendlyName { get; private set; } = null!;
 
         /// <summary>
         /// The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
@@ -27,16 +87,28 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The description of the Data Box Edge/Gateway device model.
+        /// </summary>
+        [Output("modelDescription")]
+        public Output<string?> ModelDescription { get; private set; } = null!;
+
+        /// <summary>
         /// The object name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the Data Box Edge/Gateway device.
+        /// The number of nodes in the cluster.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DataBoxEdgeDevicePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("nodeCount")]
+        public Output<int> NodeCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The Serial Number of Data Box Edge/Gateway device.
+        /// </summary>
+        [Output("serialNumber")]
+        public Output<string> SerialNumber { get; private set; } = null!;
 
         /// <summary>
         /// The SKU type.
@@ -49,6 +121,12 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The Data Box Edge/Gateway device timezone.
+        /// </summary>
+        [Output("timeZone")]
+        public Output<string> TimeZone { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

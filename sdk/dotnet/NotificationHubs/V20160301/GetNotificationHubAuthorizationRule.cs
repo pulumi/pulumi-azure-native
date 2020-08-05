@@ -60,9 +60,9 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Namespace AuthorizationRule.
+        /// The rights associated with the rule.
         /// </summary>
-        public readonly Outputs.SharedAccessAuthorizationRulePropertiesResponseResult Properties;
+        public readonly ImmutableArray<string> Rights;
         /// <summary>
         /// The sku of the created namespace
         /// </summary>
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
 
             string name,
 
-            Outputs.SharedAccessAuthorizationRulePropertiesResponseResult properties,
+            ImmutableArray<string> rights,
 
             Outputs.SkuResponseResult? sku,
 
@@ -92,7 +92,7 @@ namespace Pulumi.AzureRM.NotificationHubs.V20160301
         {
             Location = location;
             Name = name;
-            Properties = properties;
+            Rights = rights;
             Sku = sku;
             Tags = tags;
             Type = type;

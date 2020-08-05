@@ -40,9 +40,17 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
     public sealed class GetFactoryResult
     {
         /// <summary>
+        /// Time the factory was created in ISO8601 format.
+        /// </summary>
+        public readonly string CreateTime;
+        /// <summary>
         /// Etag identifies change in the resource.
         /// </summary>
         public readonly string ETag;
+        /// <summary>
+        /// List of parameters for factory.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponseResult>? GlobalParameters;
         /// <summary>
         /// Managed service identity of the factory.
         /// </summary>
@@ -56,9 +64,13 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the factory.
+        /// Factory provisioning state, example Succeeded.
         /// </summary>
-        public readonly Outputs.FactoryPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Git repo information of the factory.
+        /// </summary>
+        public readonly Outputs.FactoryRepoConfigurationResponseResult? RepoConfiguration;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -67,10 +79,18 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// The resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Version of the factory.
+        /// </summary>
+        public readonly string Version;
 
         [OutputConstructor]
         private GetFactoryResult(
+            string createTime,
+
             string eTag,
+
+            ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponseResult>? globalParameters,
 
             Outputs.FactoryIdentityResponseResult? identity,
 
@@ -78,19 +98,27 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
 
             string name,
 
-            Outputs.FactoryPropertiesResponseResult properties,
+            string provisioningState,
+
+            Outputs.FactoryRepoConfigurationResponseResult? repoConfiguration,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string version)
         {
+            CreateTime = createTime;
             ETag = eTag;
+            GlobalParameters = globalParameters;
             Identity = identity;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RepoConfiguration = repoConfiguration;
             Tags = tags;
             Type = type;
+            Version = version;
         }
     }
 }

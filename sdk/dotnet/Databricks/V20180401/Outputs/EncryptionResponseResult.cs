@@ -24,11 +24,11 @@ namespace Pulumi.AzureRM.Databricks.V20180401.Outputs
         /// <summary>
         /// The Uri of KeyVault.
         /// </summary>
-        public readonly string? Keyvaulturi;
+        public readonly string? KeyVaultUri;
         /// <summary>
         /// The version of KeyVault key.
         /// </summary>
-        public readonly string? Keyversion;
+        public readonly string? KeyVersion;
 
         [OutputConstructor]
         private EncryptionResponseResult(
@@ -36,14 +36,14 @@ namespace Pulumi.AzureRM.Databricks.V20180401.Outputs
 
             string? keySource,
 
-            string? keyvaulturi,
+            string? keyVaultUri,
 
-            string? keyversion)
+            string? keyVersion)
         {
             this.KeyName = KeyName;
             KeySource = keySource;
-            Keyvaulturi = keyvaulturi;
-            Keyversion = keyversion;
+            KeyVaultUri = keyVaultUri;
+            KeyVersion = keyVersion;
         }
     }
 }

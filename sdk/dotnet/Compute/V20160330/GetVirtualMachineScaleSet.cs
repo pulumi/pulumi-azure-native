@@ -52,9 +52,13 @@ namespace Pulumi.AzureRM.Compute.V20160330
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of a Virtual Machine Scale Set.
+        /// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetPropertiesResponseResult Properties;
+        public readonly bool? OverProvision;
+        /// <summary>
+        /// The provisioning state, which only appears in the response.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The virtual machine scale set sku.
         /// </summary>
@@ -67,6 +71,14 @@ namespace Pulumi.AzureRM.Compute.V20160330
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The upgrade policy.
+        /// </summary>
+        public readonly Outputs.UpgradePolicyResponseResult? UpgradePolicy;
+        /// <summary>
+        /// The virtual machine profile.
+        /// </summary>
+        public readonly Outputs.VirtualMachineScaleSetVMProfileResponseResult? VirtualMachineProfile;
 
         [OutputConstructor]
         private GetVirtualMachineScaleSetResult(
@@ -76,21 +88,30 @@ namespace Pulumi.AzureRM.Compute.V20160330
 
             string name,
 
-            Outputs.VirtualMachineScaleSetPropertiesResponseResult properties,
+            bool? overProvision,
+
+            string provisioningState,
 
             Outputs.SkuResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.UpgradePolicyResponseResult? upgradePolicy,
+
+            Outputs.VirtualMachineScaleSetVMProfileResponseResult? virtualMachineProfile)
         {
             Identity = identity;
             Location = location;
             Name = name;
-            Properties = properties;
+            OverProvision = overProvision;
+            ProvisioningState = provisioningState;
             Sku = sku;
             Tags = tags;
             Type = type;
+            UpgradePolicy = upgradePolicy;
+            VirtualMachineProfile = virtualMachineProfile;
         }
     }
 }

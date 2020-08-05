@@ -15,10 +15,91 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
     public partial class Topic : Pulumi.CustomResource
     {
         /// <summary>
+        /// Last time the message was sent, or a request was received, for this topic.
+        /// </summary>
+        [Output("accessedAt")]
+        public Output<string> AccessedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+        /// </summary>
+        [Output("autoDeleteOnIdle")]
+        public Output<string?> AutoDeleteOnIdle { get; private set; } = null!;
+
+        /// <summary>
+        /// Message Count Details.
+        /// </summary>
+        [Output("countDetails")]
+        public Output<Outputs.MessageCountDetailsResponseResult> CountDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// Exact time the message was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        /// </summary>
+        [Output("defaultMessageTimeToLive")]
+        public Output<string?> DefaultMessageTimeToLive { get; private set; } = null!;
+
+        /// <summary>
+        /// TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+        /// </summary>
+        [Output("duplicateDetectionHistoryTimeWindow")]
+        public Output<string?> DuplicateDetectionHistoryTimeWindow { get; private set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether server-side batched operations are enabled.
+        /// </summary>
+        [Output("enableBatchedOperations")]
+        public Output<bool?> EnableBatchedOperations { get; private set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+        /// </summary>
+        [Output("enableExpress")]
+        public Output<bool?> EnableExpress { get; private set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
+        /// </summary>
+        [Output("enablePartitioning")]
+        public Output<bool?> EnablePartitioning { get; private set; } = null!;
+
+        /// <summary>
+        /// Entity availability status for the topic.
+        /// </summary>
+        [Output("entityAvailabilityStatus")]
+        public Output<string?> EntityAvailabilityStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether messages should be filtered before publishing.
+        /// </summary>
+        [Output("filteringMessagesBeforePublishing")]
+        public Output<bool?> FilteringMessagesBeforePublishing { get; private set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether the message is accessible anonymously.
+        /// </summary>
+        [Output("isAnonymousAccessible")]
+        public Output<bool?> IsAnonymousAccessible { get; private set; } = null!;
+
+        [Output("isExpress")]
+        public Output<bool?> IsExpress { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
+        /// </summary>
+        [Output("maxSizeInMegabytes")]
+        public Output<int?> MaxSizeInMegabytes { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -27,16 +108,46 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Topic Properties definition.
+        /// Value indicating if this topic requires duplicate detection.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.TopicPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("requiresDuplicateDetection")]
+        public Output<bool?> RequiresDuplicateDetection { get; private set; } = null!;
+
+        /// <summary>
+        /// Size of the topic, in bytes.
+        /// </summary>
+        [Output("sizeInBytes")]
+        public Output<int> SizeInBytes { get; private set; } = null!;
+
+        /// <summary>
+        /// Enumerates the possible values for the status of a messaging entity.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of subscriptions.
+        /// </summary>
+        [Output("subscriptionCount")]
+        public Output<int> SubscriptionCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Value that indicates whether the topic supports ordering.
+        /// </summary>
+        [Output("supportOrdering")]
+        public Output<bool?> SupportOrdering { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The exact time the message was updated.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>

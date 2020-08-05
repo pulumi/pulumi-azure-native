@@ -15,22 +15,64 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public partial class Diagnostic : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies for what type of messages sampling settings should not apply.
+        /// </summary>
+        [Output("alwaysLog")]
+        public Output<string?> AlwaysLog { get; private set; } = null!;
+
+        /// <summary>
+        /// Diagnostic settings for incoming/outgoing HTTP messages to the Backend
+        /// </summary>
+        [Output("backend")]
+        public Output<Outputs.PipelineDiagnosticSettingsResponseResult?> Backend { get; private set; } = null!;
+
+        /// <summary>
+        /// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
+        /// </summary>
+        [Output("frontend")]
+        public Output<Outputs.PipelineDiagnosticSettingsResponseResult?> Frontend { get; private set; } = null!;
+
+        /// <summary>
+        /// Sets correlation protocol to use for Application Insights diagnostics.
+        /// </summary>
+        [Output("httpCorrelationProtocol")]
+        public Output<string?> HttpCorrelationProtocol { get; private set; } = null!;
+
+        /// <summary>
+        /// Log the ClientIP. Default is false.
+        /// </summary>
+        [Output("logClientIp")]
+        public Output<bool?> LogClientIp { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource Id of a target logger.
+        /// </summary>
+        [Output("loggerId")]
+        public Output<string> LoggerId { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Diagnostic entity contract properties.
+        /// Sampling settings for Diagnostic.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DiagnosticContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("sampling")]
+        public Output<Outputs.SamplingSettingsResponseResult?> Sampling { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The verbosity level applied to traces emitted by trace policies.
+        /// </summary>
+        [Output("verbosity")]
+        public Output<string?> Verbosity { get; private set; } = null!;
 
 
         /// <summary>

@@ -15,22 +15,64 @@ namespace Pulumi.AzureRM.Relay.V20170401
     public partial class WCFRelay : Pulumi.CustomResource
     {
         /// <summary>
+        /// The time the WCF relay was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Returns true if the relay is dynamic; otherwise, false.
+        /// </summary>
+        [Output("isDynamic")]
+        public Output<bool> IsDynamic { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of listeners for this relay. Note that min :1 and max:25 are supported.
+        /// </summary>
+        [Output("listenerCount")]
+        public Output<int> ListenerCount { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the WCF relay.
+        /// WCF relay type.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WcfRelayResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("relayType")]
+        public Output<string?> RelayType { get; private set; } = null!;
+
+        /// <summary>
+        /// Returns true if client authorization is needed for this relay; otherwise, false.
+        /// </summary>
+        [Output("requiresClientAuthorization")]
+        public Output<bool?> RequiresClientAuthorization { get; private set; } = null!;
+
+        /// <summary>
+        /// Returns true if transport security is needed for this relay; otherwise, false.
+        /// </summary>
+        [Output("requiresTransportSecurity")]
+        public Output<bool?> RequiresTransportSecurity { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The time the namespace was updated.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
+        /// </summary>
+        [Output("userMetadata")]
+        public Output<string?> UserMetadata { get; private set; } = null!;
 
 
         /// <summary>

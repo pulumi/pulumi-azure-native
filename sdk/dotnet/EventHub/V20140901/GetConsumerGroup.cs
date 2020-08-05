@@ -52,6 +52,14 @@ namespace Pulumi.AzureRM.EventHub.V20140901
     public sealed class GetConsumerGroupResult
     {
         /// <summary>
+        /// Exact time the message was created.
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
+        /// The path of the Event Hub.
+        /// </summary>
+        public readonly string EventHubPath;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
@@ -60,28 +68,41 @@ namespace Pulumi.AzureRM.EventHub.V20140901
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties supplied to the Create Or Update Consumer Group operation.
-        /// </summary>
-        public readonly Outputs.ConsumerGroupPropertiesResponseResult Properties;
-        /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The exact time the message was updated.
+        /// </summary>
+        public readonly string UpdatedAt;
+        /// <summary>
+        /// The user metadata.
+        /// </summary>
+        public readonly string? UserMetadata;
 
         [OutputConstructor]
         private GetConsumerGroupResult(
+            string createdAt,
+
+            string eventHubPath,
+
             string? location,
 
             string name,
 
-            Outputs.ConsumerGroupPropertiesResponseResult properties,
+            string type,
 
-            string type)
+            string updatedAt,
+
+            string? userMetadata)
         {
+            CreatedAt = createdAt;
+            EventHubPath = eventHubPath;
             Location = location;
             Name = name;
-            Properties = properties;
             Type = type;
+            UpdatedAt = updatedAt;
+            UserMetadata = userMetadata;
         }
     }
 }

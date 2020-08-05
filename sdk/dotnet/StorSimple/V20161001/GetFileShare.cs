@@ -58,29 +58,78 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public sealed class GetFileShareResult
     {
         /// <summary>
+        /// The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\xyz.
+        /// </summary>
+        public readonly string AdminUser;
+        /// <summary>
+        /// The data policy
+        /// </summary>
+        public readonly string DataPolicy;
+        /// <summary>
+        /// Description for file share
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The local used capacity in Bytes.
+        /// </summary>
+        public readonly int LocalUsedCapacityInBytes;
+        /// <summary>
+        /// The monitoring status
+        /// </summary>
+        public readonly string MonitoringStatus;
+        /// <summary>
         /// The name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties.
+        /// The total provisioned capacity in Bytes
         /// </summary>
-        public readonly Outputs.FileSharePropertiesResponseResult Properties;
+        public readonly int ProvisionedCapacityInBytes;
+        /// <summary>
+        /// The Share Status
+        /// </summary>
+        public readonly string ShareStatus;
         /// <summary>
         /// The type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The used capacity in Bytes.
+        /// </summary>
+        public readonly int UsedCapacityInBytes;
 
         [OutputConstructor]
         private GetFileShareResult(
+            string adminUser,
+
+            string dataPolicy,
+
+            string? description,
+
+            int localUsedCapacityInBytes,
+
+            string monitoringStatus,
+
             string name,
 
-            Outputs.FileSharePropertiesResponseResult properties,
+            int provisionedCapacityInBytes,
 
-            string type)
+            string shareStatus,
+
+            string type,
+
+            int usedCapacityInBytes)
         {
+            AdminUser = adminUser;
+            DataPolicy = dataPolicy;
+            Description = description;
+            LocalUsedCapacityInBytes = localUsedCapacityInBytes;
+            MonitoringStatus = monitoringStatus;
             Name = name;
-            Properties = properties;
+            ProvisionedCapacityInBytes = provisionedCapacityInBytes;
+            ShareStatus = shareStatus;
             Type = type;
+            UsedCapacityInBytes = usedCapacityInBytes;
         }
     }
 }

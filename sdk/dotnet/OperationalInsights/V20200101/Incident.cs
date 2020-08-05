@@ -15,10 +15,82 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
     public partial class Incident : Pulumi.CustomResource
     {
         /// <summary>
+        /// Additional data on the incident
+        /// </summary>
+        [Output("additionalData")]
+        public Output<Outputs.IncidentAdditionalDataResponseResult> AdditionalData { get; private set; } = null!;
+
+        /// <summary>
+        /// The reason the incident was closed
+        /// </summary>
+        [Output("classification")]
+        public Output<string?> Classification { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the reason the incident was closed
+        /// </summary>
+        [Output("classificationComment")]
+        public Output<string?> ClassificationComment { get; private set; } = null!;
+
+        /// <summary>
+        /// The classification reason the incident was closed with
+        /// </summary>
+        [Output("classificationReason")]
+        public Output<string?> ClassificationReason { get; private set; } = null!;
+
+        /// <summary>
+        /// The time the incident was created
+        /// </summary>
+        [Output("createdTimeUtc")]
+        public Output<string> CreatedTimeUtc { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the incident
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The time of the first activity in the incident
+        /// </summary>
+        [Output("firstActivityTimeUtc")]
+        public Output<string?> FirstActivityTimeUtc { get; private set; } = null!;
+
+        /// <summary>
+        /// A sequential number
+        /// </summary>
+        [Output("incidentNumber")]
+        public Output<int> IncidentNumber { get; private set; } = null!;
+
+        /// <summary>
+        /// The deep-link url to the incident in Azure portal
+        /// </summary>
+        [Output("incidentUrl")]
+        public Output<string> IncidentUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// List of labels relevant to this incident
+        /// </summary>
+        [Output("labels")]
+        public Output<ImmutableArray<Outputs.IncidentLabelResponseResult>> Labels { get; private set; } = null!;
+
+        /// <summary>
+        /// The time of the last activity in the incident
+        /// </summary>
+        [Output("lastActivityTimeUtc")]
+        public Output<string?> LastActivityTimeUtc { get; private set; } = null!;
+
+        /// <summary>
+        /// The last time the incident was updated
+        /// </summary>
+        [Output("lastModifiedTimeUtc")]
+        public Output<string> LastModifiedTimeUtc { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name
@@ -27,10 +99,34 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Incident properties
+        /// Describes a user that the incident is assigned to
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.IncidentPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("owner")]
+        public Output<Outputs.IncidentOwnerInfoResponseResult?> Owner { get; private set; } = null!;
+
+        /// <summary>
+        /// List of resource ids of Analytic rules related to the incident
+        /// </summary>
+        [Output("relatedAnalyticRuleIds")]
+        public Output<ImmutableArray<string>> RelatedAnalyticRuleIds { get; private set; } = null!;
+
+        /// <summary>
+        /// The severity of the incident
+        /// </summary>
+        [Output("severity")]
+        public Output<string> Severity { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of the incident
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The title of the incident
+        /// </summary>
+        [Output("title")]
+        public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource type

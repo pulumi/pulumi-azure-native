@@ -46,13 +46,26 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public sealed class GetLoggerResult
     {
         /// <summary>
+        /// The name and SendRule connection string of the event hub for azureEventHub logger.
+        /// Instrumentation key for applicationInsights logger.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Credentials;
+        /// <summary>
+        /// Logger description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Whether records are buffered in the logger before publishing. Default is assumed to be true.
+        /// </summary>
+        public readonly bool? IsBuffered;
+        /// <summary>
+        /// Logger type.
+        /// </summary>
+        public readonly string LoggerType;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// Logger entity contract properties.
-        /// </summary>
-        public readonly Outputs.LoggerContractPropertiesResponseResult Properties;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -60,14 +73,23 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
 
         [OutputConstructor]
         private GetLoggerResult(
-            string name,
+            ImmutableDictionary<string, string> credentials,
 
-            Outputs.LoggerContractPropertiesResponseResult properties,
+            string? description,
+
+            bool? isBuffered,
+
+            string loggerType,
+
+            string name,
 
             string type)
         {
+            Credentials = credentials;
+            Description = description;
+            IsBuffered = isBuffered;
+            LoggerType = loggerType;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

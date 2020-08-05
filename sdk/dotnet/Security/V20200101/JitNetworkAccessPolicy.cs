@@ -29,14 +29,26 @@ namespace Pulumi.AzureRM.Security.V20200101
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.JitNetworkAccessPolicyPropertiesResponseResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Gets the provisioning state of the Just-in-Time policy.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        [Output("requests")]
+        public Output<ImmutableArray<Outputs.JitNetworkAccessRequestResponseResult>> Requests { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Configurations for Microsoft.Compute/virtualMachines resource type.
+        /// </summary>
+        [Output("virtualMachines")]
+        public Output<ImmutableArray<Outputs.JitNetworkAccessPolicyVirtualMachineResponseResult>> VirtualMachines { get; private set; } = null!;
 
 
         /// <summary>

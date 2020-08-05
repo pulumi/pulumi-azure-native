@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20200101
     public partial class ServerKey : Pulumi.CustomResource
     {
         /// <summary>
+        /// The key creation date.
+        /// </summary>
+        [Output("creationDate")]
+        public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of encryption protector used to protect the key.
         /// </summary>
         [Output("kind")]
@@ -27,16 +33,22 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20200101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the ServerKey Resource.
+        /// The key type like 'AzureKeyVault'.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ServerKeyPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("serverKeyType")]
+        public Output<string> ServerKeyType { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The URI of the key.
+        /// </summary>
+        [Output("uri")]
+        public Output<string?> Uri { get; private set; } = null!;
 
 
         /// <summary>

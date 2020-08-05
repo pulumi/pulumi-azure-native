@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
     public partial class Rule : Pulumi.CustomResource
     {
         /// <summary>
+        /// Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+        /// </summary>
+        [Output("action")]
+        public Output<Outputs.ActionResponseResult?> Action { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of correlationFilter
+        /// </summary>
+        [Output("correlationFilter")]
+        public Output<Outputs.CorrelationFilterResponseResult?> CorrelationFilter { get; private set; } = null!;
+
+        /// <summary>
+        /// Filter type that is evaluated against a BrokeredMessage.
+        /// </summary>
+        [Output("filterType")]
+        public Output<string?> FilterType { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of Rule resource
+        /// Properties of sqlFilter
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RulepropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("sqlFilter")]
+        public Output<Outputs.SqlFilterResponseResult?> SqlFilter { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

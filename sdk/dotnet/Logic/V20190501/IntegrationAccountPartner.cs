@@ -15,10 +15,34 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public partial class IntegrationAccountPartner : Pulumi.CustomResource
     {
         /// <summary>
+        /// The changed time.
+        /// </summary>
+        [Output("changedTime")]
+        public Output<string> ChangedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The partner content.
+        /// </summary>
+        [Output("content")]
+        public Output<Outputs.PartnerContentResponseResult> Content { get; private set; } = null!;
+
+        /// <summary>
+        /// The created time.
+        /// </summary>
+        [Output("createdTime")]
+        public Output<string> CreatedTime { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The metadata.
+        /// </summary>
+        [Output("metadata")]
+        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// Gets the resource name.
@@ -27,10 +51,10 @@ namespace Pulumi.AzureRM.Logic.V20190501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The integration account partner properties.
+        /// The partner type.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.IntegrationAccountPartnerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("partnerType")]
+        public Output<string> PartnerType { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

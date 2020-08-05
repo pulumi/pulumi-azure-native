@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
     public partial class OpenShiftCluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// The cluster API server profile.
+        /// </summary>
+        [Output("apiserverProfile")]
+        public Output<Outputs.APIServerProfileResponseResult?> ApiserverProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The cluster profile.
+        /// </summary>
+        [Output("clusterProfile")]
+        public Output<Outputs.ClusterProfileResponseResult?> ClusterProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The console profile.
+        /// </summary>
+        [Output("consoleProfile")]
+        public Output<Outputs.ConsoleProfileResponseResult?> ConsoleProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The cluster ingress profiles.
+        /// </summary>
+        [Output("ingressProfiles")]
+        public Output<ImmutableArray<Outputs.IngressProfileResponseResult>> IngressProfiles { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The cluster master profile.
+        /// </summary>
+        [Output("masterProfile")]
+        public Output<Outputs.MasterProfileResponseResult?> MasterProfile { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -27,10 +57,22 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The cluster properties.
+        /// The cluster network profile.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.OpenShiftClusterPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("networkProfile")]
+        public Output<Outputs.NetworkProfileResponseResult?> NetworkProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The cluster provisioning state (immutable).
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The cluster service principal profile.
+        /// </summary>
+        [Output("servicePrincipalProfile")]
+        public Output<Outputs.ServicePrincipalProfileResponseResult?> ServicePrincipalProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -43,6 +85,12 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The cluster worker profiles.
+        /// </summary>
+        [Output("workerProfiles")]
+        public Output<ImmutableArray<Outputs.WorkerProfileResponseResult>> WorkerProfiles { get; private set; } = null!;
 
 
         /// <summary>

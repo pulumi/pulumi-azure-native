@@ -15,16 +15,40 @@ namespace Pulumi.AzureRM.Authorization.V20161201
     public partial class PolicyAssignment : Pulumi.CustomResource
     {
         /// <summary>
+        /// This message will be part of response in case of policy violation.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The display name of the policy assignment.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the policy assignment.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties for the policy assignment.
+        /// Required if a parameter is used in policy rule.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PolicyAssignmentPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("parameters")]
+        public Output<ImmutableDictionary<string, object>?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the policy definition.
+        /// </summary>
+        [Output("policyDefinitionId")]
+        public Output<string?> PolicyDefinitionId { get; private set; } = null!;
+
+        /// <summary>
+        /// The scope for the policy assignment.
+        /// </summary>
+        [Output("scope")]
+        public Output<string?> Scope { get; private set; } = null!;
 
         /// <summary>
         /// The type of the policy assignment.

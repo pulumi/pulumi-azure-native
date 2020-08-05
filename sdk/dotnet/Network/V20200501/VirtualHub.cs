@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.Network.V20200501
     public partial class VirtualHub : Pulumi.CustomResource
     {
         /// <summary>
+        /// Address-prefix for this VirtualHub.
+        /// </summary>
+        [Output("addressPrefix")]
+        public Output<string?> AddressPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The azureFirewall associated with this VirtualHub.
+        /// </summary>
+        [Output("azureFirewall")]
+        public Output<Outputs.SubResourceResponseResult?> AzureFirewall { get; private set; } = null!;
+
+        /// <summary>
+        /// List of references to Bgp Connections.
+        /// </summary>
+        [Output("bgpConnections")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> BgpConnections { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The expressRouteGateway associated with this VirtualHub.
+        /// </summary>
+        [Output("expressRouteGateway")]
+        public Output<Outputs.SubResourceResponseResult?> ExpressRouteGateway { get; private set; } = null!;
+
+        /// <summary>
+        /// List of references to IpConfigurations.
+        /// </summary>
+        [Output("ipConfigurations")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +63,46 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the virtual hub.
+        /// The P2SVpnGateway associated with this VirtualHub.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualHubPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("p2SVpnGateway")]
+        public Output<Outputs.SubResourceResponseResult?> P2SVpnGateway { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the virtual hub resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The routeTable associated with this virtual hub.
+        /// </summary>
+        [Output("routeTable")]
+        public Output<Outputs.VirtualHubRouteTableResponseResult?> RouteTable { get; private set; } = null!;
+
+        /// <summary>
+        /// The routing state.
+        /// </summary>
+        [Output("routingState")]
+        public Output<string?> RoutingState { get; private set; } = null!;
+
+        /// <summary>
+        /// The securityPartnerProvider associated with this VirtualHub.
+        /// </summary>
+        [Output("securityPartnerProvider")]
+        public Output<Outputs.SubResourceResponseResult?> SecurityPartnerProvider { get; private set; } = null!;
+
+        /// <summary>
+        /// The Security Provider name.
+        /// </summary>
+        [Output("securityProviderName")]
+        public Output<string?> SecurityProviderName { get; private set; } = null!;
+
+        /// <summary>
+        /// The sku of this VirtualHub.
+        /// </summary>
+        [Output("sku")]
+        public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +115,36 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// List of all virtual hub route table v2s associated with this VirtualHub.
+        /// </summary>
+        [Output("virtualHubRouteTableV2s")]
+        public Output<ImmutableArray<Outputs.VirtualHubRouteTableV2ResponseResult>> VirtualHubRouteTableV2s { get; private set; } = null!;
+
+        /// <summary>
+        /// VirtualRouter ASN.
+        /// </summary>
+        [Output("virtualRouterAsn")]
+        public Output<int?> VirtualRouterAsn { get; private set; } = null!;
+
+        /// <summary>
+        /// VirtualRouter IPs.
+        /// </summary>
+        [Output("virtualRouterIps")]
+        public Output<ImmutableArray<string>> VirtualRouterIps { get; private set; } = null!;
+
+        /// <summary>
+        /// The VirtualWAN to which the VirtualHub belongs.
+        /// </summary>
+        [Output("virtualWan")]
+        public Output<Outputs.SubResourceResponseResult?> VirtualWan { get; private set; } = null!;
+
+        /// <summary>
+        /// The VpnGateway associated with this VirtualHub.
+        /// </summary>
+        [Output("vpnGateway")]
+        public Output<Outputs.SubResourceResponseResult?> VpnGateway { get; private set; } = null!;
 
 
         /// <summary>

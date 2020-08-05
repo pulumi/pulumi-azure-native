@@ -15,10 +15,34 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public partial class Volume : Pulumi.CustomResource
     {
         /// <summary>
+        /// The IDs of the access control records, associated with the volume.
+        /// </summary>
+        [Output("accessControlRecordIds")]
+        public Output<ImmutableArray<string>> AccessControlRecordIds { get; private set; } = null!;
+
+        /// <summary>
+        /// The IDs of the backup policies, in which this volume is part of.
+        /// </summary>
+        [Output("backupPolicyIds")]
+        public Output<ImmutableArray<string>> BackupPolicyIds { get; private set; } = null!;
+
+        /// <summary>
+        /// The backup status of the volume.
+        /// </summary>
+        [Output("backupStatus")]
+        public Output<string> BackupStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// The monitoring status of the volume.
+        /// </summary>
+        [Output("monitoringStatus")]
+        public Output<string> MonitoringStatus { get; private set; } = null!;
 
         /// <summary>
         /// The name of the object.
@@ -27,16 +51,40 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the volume.
+        /// The operation status on the volume.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VolumePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("operationStatus")]
+        public Output<string> OperationStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The size of the volume in bytes.
+        /// </summary>
+        [Output("sizeInBytes")]
+        public Output<int> SizeInBytes { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the volume container, in which this volume is created.
+        /// </summary>
+        [Output("volumeContainerId")]
+        public Output<string> VolumeContainerId { get; private set; } = null!;
+
+        /// <summary>
+        /// The volume status.
+        /// </summary>
+        [Output("volumeStatus")]
+        public Output<string> VolumeStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the volume.
+        /// </summary>
+        [Output("volumeType")]
+        public Output<string> VolumeType { get; private set; } = null!;
 
 
         /// <summary>

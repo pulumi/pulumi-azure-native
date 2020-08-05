@@ -15,6 +15,126 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public partial class VirtualMachine : Pulumi.CustomResource
     {
         /// <summary>
+        /// Indicates whether another user can take ownership of the virtual machine
+        /// </summary>
+        [Output("allowClaim")]
+        public Output<bool?> AllowClaim { get; private set; } = null!;
+
+        /// <summary>
+        /// The applicable schedule for the virtual machine.
+        /// </summary>
+        [Output("applicableSchedule")]
+        public Output<Outputs.ApplicableScheduleResponseResult> ApplicableSchedule { get; private set; } = null!;
+
+        /// <summary>
+        /// The artifact deployment status for the virtual machine.
+        /// </summary>
+        [Output("artifactDeploymentStatus")]
+        public Output<Outputs.ArtifactDeploymentStatusPropertiesResponseResult?> ArtifactDeploymentStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The artifacts to be installed on the virtual machine.
+        /// </summary>
+        [Output("artifacts")]
+        public Output<ImmutableArray<Outputs.ArtifactInstallPropertiesResponseResult>> Artifacts { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource identifier (Microsoft.Compute) of the virtual machine.
+        /// </summary>
+        [Output("computeId")]
+        public Output<string?> ComputeId { get; private set; } = null!;
+
+        /// <summary>
+        /// The compute virtual machine properties.
+        /// </summary>
+        [Output("computeVm")]
+        public Output<Outputs.ComputeVmPropertiesResponseResult> ComputeVm { get; private set; } = null!;
+
+        /// <summary>
+        /// The email address of creator of the virtual machine.
+        /// </summary>
+        [Output("createdByUser")]
+        public Output<string?> CreatedByUser { get; private set; } = null!;
+
+        /// <summary>
+        /// The object identifier of the creator of the virtual machine.
+        /// </summary>
+        [Output("createdByUserId")]
+        public Output<string?> CreatedByUserId { get; private set; } = null!;
+
+        /// <summary>
+        /// The creation date of the virtual machine.
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string?> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The custom image identifier of the virtual machine.
+        /// </summary>
+        [Output("customImageId")]
+        public Output<string?> CustomImageId { get; private set; } = null!;
+
+        /// <summary>
+        /// New or existing data disks to attach to the virtual machine after creation
+        /// </summary>
+        [Output("dataDiskParameters")]
+        public Output<ImmutableArray<Outputs.DataDiskPropertiesResponseResult>> DataDiskParameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the virtual machine is to be created without a public IP address.
+        /// </summary>
+        [Output("disallowPublicIpAddress")]
+        public Output<bool?> DisallowPublicIpAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource ID of the environment that contains this virtual machine, if any.
+        /// </summary>
+        [Output("environmentId")]
+        public Output<string?> EnvironmentId { get; private set; } = null!;
+
+        /// <summary>
+        /// The expiration date for VM.
+        /// </summary>
+        [Output("expirationDate")]
+        public Output<string?> ExpirationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The fully-qualified domain name of the virtual machine.
+        /// </summary>
+        [Output("fqdn")]
+        public Output<string?> Fqdn { get; private set; } = null!;
+
+        /// <summary>
+        /// The Microsoft Azure Marketplace image reference of the virtual machine.
+        /// </summary>
+        [Output("galleryImageReference")]
+        public Output<Outputs.GalleryImageReferenceResponseResult?> GalleryImageReference { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether this virtual machine uses an SSH key for authentication.
+        /// </summary>
+        [Output("isAuthenticationWithSshKey")]
+        public Output<bool?> IsAuthenticationWithSshKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The lab subnet name of the virtual machine.
+        /// </summary>
+        [Output("labSubnetName")]
+        public Output<string?> LabSubnetName { get; private set; } = null!;
+
+        /// <summary>
+        /// The lab virtual network identifier of the virtual machine.
+        /// </summary>
+        [Output("labVirtualNetworkId")]
+        public Output<string?> LabVirtualNetworkId { get; private set; } = null!;
+
+        /// <summary>
+        /// Last known compute power state captured in DTL
+        /// </summary>
+        [Output("lastKnownPowerState")]
+        public Output<string?> LastKnownPowerState { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -27,10 +147,76 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The network interface properties.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.LabVirtualMachinePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("networkInterface")]
+        public Output<Outputs.NetworkInterfacePropertiesResponseResult?> NetworkInterface { get; private set; } = null!;
+
+        /// <summary>
+        /// The notes of the virtual machine.
+        /// </summary>
+        [Output("notes")]
+        public Output<string?> Notes { get; private set; } = null!;
+
+        /// <summary>
+        /// The OS type of the virtual machine.
+        /// </summary>
+        [Output("osType")]
+        public Output<string?> OsType { get; private set; } = null!;
+
+        /// <summary>
+        /// The object identifier of the owner of the virtual machine.
+        /// </summary>
+        [Output("ownerObjectId")]
+        public Output<string?> OwnerObjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// The user principal name of the virtual machine owner.
+        /// </summary>
+        [Output("ownerUserPrincipalName")]
+        public Output<string?> OwnerUserPrincipalName { get; private set; } = null!;
+
+        /// <summary>
+        /// The password of the virtual machine administrator.
+        /// </summary>
+        [Output("password")]
+        public Output<string?> Password { get; private set; } = null!;
+
+        /// <summary>
+        /// The id of the plan associated with the virtual machine image
+        /// </summary>
+        [Output("planId")]
+        public Output<string?> PlanId { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning status of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Virtual Machine schedules to be created
+        /// </summary>
+        [Output("scheduleParameters")]
+        public Output<ImmutableArray<Outputs.ScheduleCreationParameterResponseResult>> ScheduleParameters { get; private set; } = null!;
+
+        /// <summary>
+        /// The size of the virtual machine.
+        /// </summary>
+        [Output("size")]
+        public Output<string?> Size { get; private set; } = null!;
+
+        /// <summary>
+        /// The SSH key of the virtual machine administrator.
+        /// </summary>
+        [Output("sshKey")]
+        public Output<string?> SshKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Storage type to use for virtual machine (i.e. Standard, Premium).
+        /// </summary>
+        [Output("storageType")]
+        public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -43,6 +229,24 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string> UniqueIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The user name of the virtual machine.
+        /// </summary>
+        [Output("userName")]
+        public Output<string?> UserName { get; private set; } = null!;
+
+        /// <summary>
+        /// Tells source of creation of lab virtual machine. Output property only.
+        /// </summary>
+        [Output("virtualMachineCreationSource")]
+        public Output<string?> VirtualMachineCreationSource { get; private set; } = null!;
 
 
         /// <summary>

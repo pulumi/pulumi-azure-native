@@ -40,9 +40,53 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
     public sealed class GetAppServiceCertificateOrderResult
     {
         /// <summary>
+        /// Reasons why App Service Certificate is not renewable at the current moment.
+        /// </summary>
+        public readonly ImmutableArray<string> AppServiceCertificateNotRenewableReasons;
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the certificate should be automatically renewed when it expires; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        public readonly bool? AutoRenew;
+        /// <summary>
+        /// State of the Key Vault secret.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.AppServiceCertificateResponseResult>? Certificates;
+        /// <summary>
+        /// Last CSR that was created for this order.
+        /// </summary>
+        public readonly string? Csr;
+        /// <summary>
+        /// Certificate distinguished name.
+        /// </summary>
+        public readonly string? DistinguishedName;
+        /// <summary>
+        /// Domain verification token.
+        /// </summary>
+        public readonly string DomainVerificationToken;
+        /// <summary>
+        /// Certificate expiration time.
+        /// </summary>
+        public readonly string ExpirationTime;
+        /// <summary>
+        /// Intermediate certificate.
+        /// </summary>
+        public readonly Outputs.CertificateDetailsResponseResult Intermediate;
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if private key is external; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        public readonly bool IsPrivateKeyExternal;
+        /// <summary>
+        /// Certificate key size.
+        /// </summary>
+        public readonly int? KeySize;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// Certificate last issuance time.
+        /// </summary>
+        public readonly string LastCertificateIssuanceTime;
         /// <summary>
         /// Resource Location.
         /// </summary>
@@ -52,9 +96,33 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// AppServiceCertificateOrder resource specific properties
+        /// Time stamp when the certificate would be auto renewed next
         /// </summary>
-        public readonly Outputs.AppServiceCertificateOrderResponsePropertiesResult Properties;
+        public readonly string NextAutoRenewalTimeStamp;
+        /// <summary>
+        /// Certificate product type.
+        /// </summary>
+        public readonly string ProductType;
+        /// <summary>
+        /// Status of certificate order.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Root certificate.
+        /// </summary>
+        public readonly Outputs.CertificateDetailsResponseResult Root;
+        /// <summary>
+        /// Current serial number of the certificate.
+        /// </summary>
+        public readonly string SerialNumber;
+        /// <summary>
+        /// Signed certificate.
+        /// </summary>
+        public readonly Outputs.CertificateDetailsResponseResult SignedCertificate;
+        /// <summary>
+        /// Current order status.
+        /// </summary>
+        public readonly string Status;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +131,85 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Duration in years (must be between 1 and 3).
+        /// </summary>
+        public readonly int? ValidityInYears;
 
         [OutputConstructor]
         private GetAppServiceCertificateOrderResult(
+            ImmutableArray<string> appServiceCertificateNotRenewableReasons,
+
+            bool? autoRenew,
+
+            ImmutableDictionary<string, Outputs.AppServiceCertificateResponseResult>? certificates,
+
+            string? csr,
+
+            string? distinguishedName,
+
+            string domainVerificationToken,
+
+            string expirationTime,
+
+            Outputs.CertificateDetailsResponseResult intermediate,
+
+            bool isPrivateKeyExternal,
+
+            int? keySize,
+
             string? kind,
+
+            string lastCertificateIssuanceTime,
 
             string location,
 
             string name,
 
-            Outputs.AppServiceCertificateOrderResponsePropertiesResult properties,
+            string nextAutoRenewalTimeStamp,
+
+            string productType,
+
+            string provisioningState,
+
+            Outputs.CertificateDetailsResponseResult root,
+
+            string serialNumber,
+
+            Outputs.CertificateDetailsResponseResult signedCertificate,
+
+            string status,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            int? validityInYears)
         {
+            AppServiceCertificateNotRenewableReasons = appServiceCertificateNotRenewableReasons;
+            AutoRenew = autoRenew;
+            Certificates = certificates;
+            Csr = csr;
+            DistinguishedName = distinguishedName;
+            DomainVerificationToken = domainVerificationToken;
+            ExpirationTime = expirationTime;
+            Intermediate = intermediate;
+            IsPrivateKeyExternal = isPrivateKeyExternal;
+            KeySize = keySize;
             Kind = kind;
+            LastCertificateIssuanceTime = lastCertificateIssuanceTime;
             Location = location;
             Name = name;
-            Properties = properties;
+            NextAutoRenewalTimeStamp = nextAutoRenewalTimeStamp;
+            ProductType = productType;
+            ProvisioningState = provisioningState;
+            Root = root;
+            SerialNumber = serialNumber;
+            SignedCertificate = signedCertificate;
+            Status = status;
             Tags = tags;
             Type = type;
+            ValidityInYears = validityInYears;
         }
     }
 }

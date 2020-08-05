@@ -54,9 +54,9 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Customer subscription properties.
+        /// Tenant Id.
         /// </summary>
-        public readonly Outputs.CustomerSubscriptionPropertiesResponseResult Properties;
+        public readonly string? TenantId;
         /// <summary>
         /// Type of Resource.
         /// </summary>
@@ -68,13 +68,13 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
 
             string name,
 
-            Outputs.CustomerSubscriptionPropertiesResponseResult properties,
+            string? tenantId,
 
             string type)
         {
             Etag = etag;
             Name = name;
-            Properties = properties;
+            TenantId = tenantId;
             Type = type;
         }
     }

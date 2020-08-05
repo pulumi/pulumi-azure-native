@@ -15,16 +15,94 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public partial class Schedule : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets the advanced schedule.
+        /// </summary>
+        [Output("advancedSchedule")]
+        public Output<Outputs.AdvancedScheduleResponseResult?> AdvancedSchedule { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the creation time.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string?> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the end time of the schedule.
+        /// </summary>
+        [Output("expiryTime")]
+        public Output<string?> ExpiryTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the expiry time's offset in minutes.
+        /// </summary>
+        [Output("expiryTimeOffsetMinutes")]
+        public Output<double?> ExpiryTimeOffsetMinutes { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the frequency of the schedule.
+        /// </summary>
+        [Output("frequency")]
+        public Output<string?> Frequency { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the interval of the schedule.
+        /// </summary>
+        [Output("interval")]
+        public Output<ImmutableDictionary<string, object>?> Interval { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this schedule is enabled.
+        /// </summary>
+        [Output("isEnabled")]
+        public Output<bool?> IsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string?> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the properties of the schedule.
+        /// Gets or sets the next run time of the schedule.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SchedulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("nextRun")]
+        public Output<string?> NextRun { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the next run time's offset in minutes.
+        /// </summary>
+        [Output("nextRunOffsetMinutes")]
+        public Output<double?> NextRunOffsetMinutes { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the start time of the schedule.
+        /// </summary>
+        [Output("startTime")]
+        public Output<string?> StartTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the start time's offset in minutes.
+        /// </summary>
+        [Output("startTimeOffsetMinutes")]
+        public Output<double> StartTimeOffsetMinutes { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the time zone of the schedule.
+        /// </summary>
+        [Output("timeZone")]
+        public Output<string?> TimeZone { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

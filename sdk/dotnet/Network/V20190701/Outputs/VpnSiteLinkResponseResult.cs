@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20190701.Outputs
     public sealed class VpnSiteLinkResponseResult
     {
         /// <summary>
+        /// The set of bgp properties.
+        /// </summary>
+        public readonly Outputs.VpnLinkBgpSettingsResponseResult? BgpProperties;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -22,13 +26,21 @@ namespace Pulumi.AzureRM.Network.V20190701.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The ip-address for the vpn-site-link.
+        /// </summary>
+        public readonly string? IpAddress;
+        /// <summary>
+        /// The link provider properties.
+        /// </summary>
+        public readonly Outputs.VpnLinkProviderPropertiesResponseResult? LinkProperties;
+        /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the VPN site link.
+        /// The provisioning state of the VPN site link resource.
         /// </summary>
-        public readonly Outputs.VpnSiteLinkPropertiesResponseResult? Properties;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -36,20 +48,29 @@ namespace Pulumi.AzureRM.Network.V20190701.Outputs
 
         [OutputConstructor]
         private VpnSiteLinkResponseResult(
+            Outputs.VpnLinkBgpSettingsResponseResult? bgpProperties,
+
             string etag,
 
             string? id,
 
+            string? ipAddress,
+
+            Outputs.VpnLinkProviderPropertiesResponseResult? linkProperties,
+
             string? name,
 
-            Outputs.VpnSiteLinkPropertiesResponseResult? properties,
+            string? provisioningState,
 
             string type)
         {
+            BgpProperties = bgpProperties;
             Etag = etag;
             Id = id;
+            IpAddress = ipAddress;
+            LinkProperties = linkProperties;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

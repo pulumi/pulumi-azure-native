@@ -14,22 +14,43 @@ namespace Pulumi.AzureRM.Compute.V20180601.Outputs
     public sealed class VirtualMachineScaleSetPublicIPAddressConfigurationResponseResult
     {
         /// <summary>
+        /// The dns settings to be applied on the publicIP addresses .
+        /// </summary>
+        public readonly Outputs.VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponseResult? DnsSettings;
+        /// <summary>
+        /// The idle timeout of the public IP address.
+        /// </summary>
+        public readonly int? IdleTimeoutInMinutes;
+        /// <summary>
+        /// The list of IP tags associated with the public IP address.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualMachineScaleSetIpTagResponseResult> IpTags;
+        /// <summary>
         /// The publicIP address configuration name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
+        /// The PublicIPPrefix from which to allocate publicIP addresses.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseResult? Properties;
+        public readonly Outputs.SubResourceResponseResult? PublicIPPrefix;
 
         [OutputConstructor]
         private VirtualMachineScaleSetPublicIPAddressConfigurationResponseResult(
+            Outputs.VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettingsResponseResult? dnsSettings,
+
+            int? idleTimeoutInMinutes,
+
+            ImmutableArray<Outputs.VirtualMachineScaleSetIpTagResponseResult> ipTags,
+
             string name,
 
-            Outputs.VirtualMachineScaleSetPublicIPAddressConfigurationPropertiesResponseResult? properties)
+            Outputs.SubResourceResponseResult? publicIPPrefix)
         {
+            DnsSettings = dnsSettings;
+            IdleTimeoutInMinutes = idleTimeoutInMinutes;
+            IpTags = ipTags;
             Name = name;
-            Properties = properties;
+            PublicIPPrefix = publicIPPrefix;
         }
     }
 }

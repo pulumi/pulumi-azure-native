@@ -46,6 +46,14 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class GetRouteFilterRuleResult
     {
         /// <summary>
+        /// The access type of the rule.
+        /// </summary>
+        public readonly string Access;
+        /// <summary>
+        /// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+        /// </summary>
+        public readonly ImmutableArray<string> Communities;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -58,24 +66,37 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the route filter rule.
+        /// The provisioning state of the route filter rule resource.
         /// </summary>
-        public readonly Outputs.RouteFilterRulePropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The rule type of the rule.
+        /// </summary>
+        public readonly string RouteFilterRuleType;
 
         [OutputConstructor]
         private GetRouteFilterRuleResult(
+            string access,
+
+            ImmutableArray<string> communities,
+
             string etag,
 
             string? location,
 
             string? name,
 
-            Outputs.RouteFilterRulePropertiesFormatResponseResult properties)
+            string provisioningState,
+
+            string routeFilterRuleType)
         {
+            Access = access;
+            Communities = communities;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RouteFilterRuleType = routeFilterRuleType;
         }
     }
 }

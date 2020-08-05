@@ -27,10 +27,16 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the replication.
+        /// The provisioning state of the replication at the time the operation was called.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ReplicationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of the replication at the time the operation was called.
+        /// </summary>
+        [Output("status")]
+        public Output<Outputs.StatusResponseResult> Status { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

@@ -40,21 +40,57 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
     public sealed class GetServerResult
     {
         /// <summary>
+        /// The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+        /// </summary>
+        public readonly string? AdministratorLogin;
+        /// <summary>
+        /// Earliest restore point creation time (ISO8601 format)
+        /// </summary>
+        public readonly string? EarliestRestoreDate;
+        /// <summary>
+        /// The fully qualified domain name of a server.
+        /// </summary>
+        public readonly string? FullyQualifiedDomainName;
+        /// <summary>
         /// The location the resource resides in.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The master server id of a replica server.
+        /// </summary>
+        public readonly string? MasterServerId;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the server.
+        /// List of private endpoint connections on a server
         /// </summary>
-        public readonly Outputs.ServerPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult> PrivateEndpointConnections;
+        /// <summary>
+        /// Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
+        /// The maximum number of replicas that a master server can have.
+        /// </summary>
+        public readonly int? ReplicaCapacity;
+        /// <summary>
+        /// The replication role of the server.
+        /// </summary>
+        public readonly string? ReplicationRole;
         /// <summary>
         /// The SKU (pricing tier) of the server.
         /// </summary>
         public readonly Outputs.SkuResponseResult? Sku;
+        /// <summary>
+        /// Enable ssl enforcement or not when connect to server.
+        /// </summary>
+        public readonly string? SslEnforcement;
+        /// <summary>
+        /// Storage profile of a server.
+        /// </summary>
+        public readonly Outputs.StorageProfileResponseResult? StorageProfile;
         /// <summary>
         /// Application-specific metadata in the form of key-value pairs.
         /// </summary>
@@ -63,27 +99,68 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// A state of a server that is visible to user.
+        /// </summary>
+        public readonly string? UserVisibleState;
+        /// <summary>
+        /// Server version.
+        /// </summary>
+        public readonly string? Version;
 
         [OutputConstructor]
         private GetServerResult(
+            string? administratorLogin,
+
+            string? earliestRestoreDate,
+
+            string? fullyQualifiedDomainName,
+
             string location,
+
+            string? masterServerId,
 
             string name,
 
-            Outputs.ServerPropertiesResponseResult properties,
+            ImmutableArray<Outputs.ServerPrivateEndpointConnectionResponseResult> privateEndpointConnections,
+
+            string? publicNetworkAccess,
+
+            int? replicaCapacity,
+
+            string? replicationRole,
 
             Outputs.SkuResponseResult? sku,
 
+            string? sslEnforcement,
+
+            Outputs.StorageProfileResponseResult? storageProfile,
+
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? userVisibleState,
+
+            string? version)
         {
+            AdministratorLogin = administratorLogin;
+            EarliestRestoreDate = earliestRestoreDate;
+            FullyQualifiedDomainName = fullyQualifiedDomainName;
             Location = location;
+            MasterServerId = masterServerId;
             Name = name;
-            Properties = properties;
+            PrivateEndpointConnections = privateEndpointConnections;
+            PublicNetworkAccess = publicNetworkAccess;
+            ReplicaCapacity = replicaCapacity;
+            ReplicationRole = replicationRole;
             Sku = sku;
+            SslEnforcement = sslEnforcement;
+            StorageProfile = storageProfile;
             Tags = tags;
             Type = type;
+            UserVisibleState = userVisibleState;
+            Version = version;
         }
     }
 }

@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public partial class ArtifactSource : Pulumi.CustomResource
     {
         /// <summary>
+        /// The folder containing Azure Resource Manager templates.
+        /// </summary>
+        [Output("armTemplateFolderPath")]
+        public Output<string?> ArmTemplateFolderPath { get; private set; } = null!;
+
+        /// <summary>
+        /// The artifact source's branch reference.
+        /// </summary>
+        [Output("branchRef")]
+        public Output<string?> BranchRef { get; private set; } = null!;
+
+        /// <summary>
+        /// The artifact source's creation date.
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The artifact source's display name.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The folder containing artifacts.
+        /// </summary>
+        [Output("folderPath")]
+        public Output<string?> FolderPath { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -27,10 +57,28 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ArtifactSourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The security token to authenticate to the artifact source.
+        /// </summary>
+        [Output("securityToken")]
+        public Output<string?> SecurityToken { get; private set; } = null!;
+
+        /// <summary>
+        /// The artifact source's type.
+        /// </summary>
+        [Output("sourceType")]
+        public Output<string?> SourceType { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates if the artifact source is enabled (values: Enabled, Disabled).
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -43,6 +91,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string> UniqueIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The artifact source's URI.
+        /// </summary>
+        [Output("uri")]
+        public Output<string?> Uri { get; private set; } = null!;
 
 
         /// <summary>

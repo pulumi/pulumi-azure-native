@@ -14,6 +14,18 @@ namespace Pulumi.AzureRM.Network.V20180201.Outputs
     public sealed class VirtualNetworkPeeringResponseResult
     {
         /// <summary>
+        /// Whether the forwarded traffic from the VMs in the remote virtual network will be allowed/disallowed.
+        /// </summary>
+        public readonly bool? AllowForwardedTraffic;
+        /// <summary>
+        /// If gateway links can be used in remote virtual networking to link to this virtual network.
+        /// </summary>
+        public readonly bool? AllowGatewayTransit;
+        /// <summary>
+        /// Whether the VMs in the linked virtual network space would be able to access all the VMs in local Virtual network space.
+        /// </summary>
+        public readonly bool? AllowVirtualNetworkAccess;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -26,24 +38,61 @@ namespace Pulumi.AzureRM.Network.V20180201.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the virtual network peering.
+        /// The status of the virtual network peering. Possible values are 'Initiated', 'Connected', and 'Disconnected'.
         /// </summary>
-        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatResponseResult? Properties;
+        public readonly string? PeeringState;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The reference of the remote virtual network address space.
+        /// </summary>
+        public readonly Outputs.AddressSpaceResponseResult? RemoteAddressSpace;
+        /// <summary>
+        /// The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? RemoteVirtualNetwork;
+        /// <summary>
+        /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        /// </summary>
+        public readonly bool? UseRemoteGateways;
 
         [OutputConstructor]
         private VirtualNetworkPeeringResponseResult(
+            bool? allowForwardedTraffic,
+
+            bool? allowGatewayTransit,
+
+            bool? allowVirtualNetworkAccess,
+
             string? etag,
 
             string? id,
 
             string? name,
 
-            Outputs.VirtualNetworkPeeringPropertiesFormatResponseResult? properties)
+            string? peeringState,
+
+            string? provisioningState,
+
+            Outputs.AddressSpaceResponseResult? remoteAddressSpace,
+
+            Outputs.SubResourceResponseResult? remoteVirtualNetwork,
+
+            bool? useRemoteGateways)
         {
+            AllowForwardedTraffic = allowForwardedTraffic;
+            AllowGatewayTransit = allowGatewayTransit;
+            AllowVirtualNetworkAccess = allowVirtualNetworkAccess;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            PeeringState = peeringState;
+            ProvisioningState = provisioningState;
+            RemoteAddressSpace = remoteAddressSpace;
+            RemoteVirtualNetwork = remoteVirtualNetwork;
+            UseRemoteGateways = useRemoteGateways;
         }
     }
 }

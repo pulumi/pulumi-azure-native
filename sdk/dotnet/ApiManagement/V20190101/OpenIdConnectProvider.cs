@@ -15,16 +15,40 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public partial class OpenIdConnectProvider : Pulumi.CustomResource
     {
         /// <summary>
+        /// Client ID of developer console which is the client application.
+        /// </summary>
+        [Output("clientId")]
+        public Output<string> ClientId { get; private set; } = null!;
+
+        /// <summary>
+        /// Client Secret of developer console which is the client application.
+        /// </summary>
+        [Output("clientSecret")]
+        public Output<string?> ClientSecret { get; private set; } = null!;
+
+        /// <summary>
+        /// User-friendly description of OpenID Connect Provider.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// User-friendly OpenID Connect Provider name.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata endpoint URI.
+        /// </summary>
+        [Output("metadataEndpoint")]
+        public Output<string> MetadataEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// OpenId Connect Provider contract properties.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.OpenidConnectProviderContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

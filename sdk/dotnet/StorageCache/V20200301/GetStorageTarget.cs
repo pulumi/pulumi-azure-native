@@ -46,29 +46,71 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
     public sealed class GetStorageTargetResult
     {
         /// <summary>
+        /// Properties when targetType is clfs.
+        /// </summary>
+        public readonly Outputs.ClfsTargetResponseResult? Clfs;
+        /// <summary>
+        /// List of Cache namespace junctions to target for namespace associations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NamespaceJunctionResponseResult> Junctions;
+        /// <summary>
         /// Name of the Storage Target.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// StorageTarget properties
+        /// Properties when targetType is nfs3.
         /// </summary>
-        public readonly Outputs.StorageTargetPropertiesResponseResult Properties;
+        public readonly Outputs.Nfs3TargetResponseResult? Nfs3;
+        /// <summary>
+        /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Type of the Storage Target.
+        /// </summary>
+        public readonly string TargetBaseType;
+        /// <summary>
+        /// Type of the Storage Target.
+        /// </summary>
+        public readonly string? TargetType;
         /// <summary>
         /// Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Properties when targetType is unknown.
+        /// </summary>
+        public readonly Outputs.UnknownTargetResponseResult? Unknown;
 
         [OutputConstructor]
         private GetStorageTargetResult(
+            Outputs.ClfsTargetResponseResult? clfs,
+
+            ImmutableArray<Outputs.NamespaceJunctionResponseResult> junctions,
+
             string name,
 
-            Outputs.StorageTargetPropertiesResponseResult properties,
+            Outputs.Nfs3TargetResponseResult? nfs3,
 
-            string type)
+            string? provisioningState,
+
+            string targetBaseType,
+
+            string? targetType,
+
+            string type,
+
+            Outputs.UnknownTargetResponseResult? unknown)
         {
+            Clfs = clfs;
+            Junctions = junctions;
             Name = name;
-            Properties = properties;
+            Nfs3 = nfs3;
+            ProvisioningState = provisioningState;
+            TargetBaseType = targetBaseType;
+            TargetType = targetType;
             Type = type;
+            Unknown = unknown;
         }
     }
 }

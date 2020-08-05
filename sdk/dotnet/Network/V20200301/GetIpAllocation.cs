@@ -40,9 +40,17 @@ namespace Pulumi.AzureRM.Network.V20200301
     public sealed class GetIpAllocationResult
     {
         /// <summary>
+        /// IpAllocation tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? AllocationTags;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// The IPAM allocation ID.
+        /// </summary>
+        public readonly string? IpamAllocationId;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,9 +60,21 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the IpAllocation.
+        /// The address prefix for the IpAllocation.
         /// </summary>
-        public readonly Outputs.IpAllocationPropertiesFormatResponseResult Properties;
+        public readonly string? Prefix;
+        /// <summary>
+        /// The address prefix length for the IpAllocation.
+        /// </summary>
+        public readonly int? PrefixLength;
+        /// <summary>
+        /// The address prefix Type for the IpAllocation.
+        /// </summary>
+        public readonly string? PrefixType;
+        /// <summary>
+        /// The Subnet that using the prefix of this IpAllocation resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult Subnet;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +83,49 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The VirtualNetwork that using the prefix of this IpAllocation resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult VirtualNetwork;
 
         [OutputConstructor]
         private GetIpAllocationResult(
+            ImmutableDictionary<string, string>? allocationTags,
+
             string etag,
+
+            string? ipamAllocationId,
 
             string? location,
 
             string name,
 
-            Outputs.IpAllocationPropertiesFormatResponseResult properties,
+            string? prefix,
+
+            int? prefixLength,
+
+            string? prefixType,
+
+            Outputs.SubResourceResponseResult subnet,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.SubResourceResponseResult virtualNetwork)
         {
+            AllocationTags = allocationTags;
             Etag = etag;
+            IpamAllocationId = ipamAllocationId;
             Location = location;
             Name = name;
-            Properties = properties;
+            Prefix = prefix;
+            PrefixLength = prefixLength;
+            PrefixType = prefixType;
+            Subnet = subnet;
             Tags = tags;
             Type = type;
+            VirtualNetwork = virtualNetwork;
         }
     }
 }

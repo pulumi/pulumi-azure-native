@@ -52,29 +52,148 @@ namespace Pulumi.AzureRM.StorageSync.V20200301
     public sealed class GetServerEndpointResult
     {
         /// <summary>
+        /// Cloud Tiering.
+        /// </summary>
+        public readonly string? CloudTiering;
+        /// <summary>
+        /// Cloud tiering status. Only populated if cloud tiering is enabled.
+        /// </summary>
+        public readonly Outputs.ServerEndpointCloudTieringStatusResponseResult CloudTieringStatus;
+        /// <summary>
+        /// Friendly Name
+        /// </summary>
+        public readonly string? FriendlyName;
+        /// <summary>
+        /// Policy for how namespace and files are recalled during FastDr.
+        /// </summary>
+        public readonly string? InitialDownloadPolicy;
+        /// <summary>
+        /// Resource Last Operation Name
+        /// </summary>
+        public readonly string LastOperationName;
+        /// <summary>
+        /// ServerEndpoint lastWorkflowId
+        /// </summary>
+        public readonly string LastWorkflowId;
+        /// <summary>
+        /// Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
+        /// </summary>
+        public readonly string? LocalCacheMode;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Server Endpoint properties.
+        /// Offline data transfer
         /// </summary>
-        public readonly Outputs.ServerEndpointPropertiesResponseResult Properties;
+        public readonly string? OfflineDataTransfer;
+        /// <summary>
+        /// Offline data transfer share name
+        /// </summary>
+        public readonly string? OfflineDataTransferShareName;
+        /// <summary>
+        /// Offline data transfer storage account resource ID
+        /// </summary>
+        public readonly string OfflineDataTransferStorageAccountResourceId;
+        /// <summary>
+        /// Offline data transfer storage account tenant ID
+        /// </summary>
+        public readonly string OfflineDataTransferStorageAccountTenantId;
+        /// <summary>
+        /// ServerEndpoint Provisioning State
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Recall status. Only populated if cloud tiering is enabled.
+        /// </summary>
+        public readonly Outputs.ServerEndpointRecallStatusResponseResult RecallStatus;
+        /// <summary>
+        /// Server Local path.
+        /// </summary>
+        public readonly string? ServerLocalPath;
+        /// <summary>
+        /// Server Resource Id.
+        /// </summary>
+        public readonly string? ServerResourceId;
+        /// <summary>
+        /// Server Endpoint sync status
+        /// </summary>
+        public readonly Outputs.ServerEndpointSyncStatusResponseResult SyncStatus;
+        /// <summary>
+        /// Tier files older than days.
+        /// </summary>
+        public readonly int? TierFilesOlderThanDays;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Level of free space to be maintained by Cloud Tiering if it is enabled.
+        /// </summary>
+        public readonly int? VolumeFreeSpacePercent;
 
         [OutputConstructor]
         private GetServerEndpointResult(
+            string? cloudTiering,
+
+            Outputs.ServerEndpointCloudTieringStatusResponseResult cloudTieringStatus,
+
+            string? friendlyName,
+
+            string? initialDownloadPolicy,
+
+            string lastOperationName,
+
+            string lastWorkflowId,
+
+            string? localCacheMode,
+
             string name,
 
-            Outputs.ServerEndpointPropertiesResponseResult properties,
+            string? offlineDataTransfer,
 
-            string type)
+            string? offlineDataTransferShareName,
+
+            string offlineDataTransferStorageAccountResourceId,
+
+            string offlineDataTransferStorageAccountTenantId,
+
+            string provisioningState,
+
+            Outputs.ServerEndpointRecallStatusResponseResult recallStatus,
+
+            string? serverLocalPath,
+
+            string? serverResourceId,
+
+            Outputs.ServerEndpointSyncStatusResponseResult syncStatus,
+
+            int? tierFilesOlderThanDays,
+
+            string type,
+
+            int? volumeFreeSpacePercent)
         {
+            CloudTiering = cloudTiering;
+            CloudTieringStatus = cloudTieringStatus;
+            FriendlyName = friendlyName;
+            InitialDownloadPolicy = initialDownloadPolicy;
+            LastOperationName = lastOperationName;
+            LastWorkflowId = lastWorkflowId;
+            LocalCacheMode = localCacheMode;
             Name = name;
-            Properties = properties;
+            OfflineDataTransfer = offlineDataTransfer;
+            OfflineDataTransferShareName = offlineDataTransferShareName;
+            OfflineDataTransferStorageAccountResourceId = offlineDataTransferStorageAccountResourceId;
+            OfflineDataTransferStorageAccountTenantId = offlineDataTransferStorageAccountTenantId;
+            ProvisioningState = provisioningState;
+            RecallStatus = recallStatus;
+            ServerLocalPath = serverLocalPath;
+            ServerResourceId = serverResourceId;
+            SyncStatus = syncStatus;
+            TierFilesOlderThanDays = tierFilesOlderThanDays;
             Type = type;
+            VolumeFreeSpacePercent = volumeFreeSpacePercent;
         }
     }
 }

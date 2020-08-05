@@ -40,9 +40,17 @@ namespace Pulumi.AzureRM.Network.V20190401
     public sealed class GetBastionHostResult
     {
         /// <summary>
+        /// FQDN for the endpoint on which bastion host is accessible.
+        /// </summary>
+        public readonly string? DnsName;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// IP configuration of the Bastion Host resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.BastionHostIPConfigurationResponseResult> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,9 +60,9 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Represents the bastion host resource.
+        /// The provisioning state of the resource.
         /// </summary>
-        public readonly Outputs.BastionHostPropertiesFormatResponseResult Properties;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,22 +74,28 @@ namespace Pulumi.AzureRM.Network.V20190401
 
         [OutputConstructor]
         private GetBastionHostResult(
+            string? dnsName,
+
             string etag,
+
+            ImmutableArray<Outputs.BastionHostIPConfigurationResponseResult> ipConfigurations,
 
             string? location,
 
             string name,
 
-            Outputs.BastionHostPropertiesFormatResponseResult properties,
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            DnsName = dnsName;
             Etag = etag;
+            IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
         }

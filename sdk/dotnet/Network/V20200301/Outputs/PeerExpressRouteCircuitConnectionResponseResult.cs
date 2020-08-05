@@ -14,9 +14,29 @@ namespace Pulumi.AzureRM.Network.V20200301.Outputs
     public sealed class PeerExpressRouteCircuitConnectionResponseResult
     {
         /// <summary>
+        /// /29 IP address space to carve out Customer addresses for tunnels.
+        /// </summary>
+        public readonly string? AddressPrefix;
+        /// <summary>
+        /// The resource guid of the authorization used for the express route circuit connection.
+        /// </summary>
+        public readonly string? AuthResourceGuid;
+        /// <summary>
+        /// Express Route Circuit connection state.
+        /// </summary>
+        public readonly string? CircuitConnectionStatus;
+        /// <summary>
+        /// The name of the express route circuit connection resource.
+        /// </summary>
+        public readonly string? ConnectionName;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// Reference to Express Route Circuit Private Peering Resource of the circuit.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? ExpressRouteCircuitPeering;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -26,9 +46,13 @@ namespace Pulumi.AzureRM.Network.V20200301.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the peer express route circuit connection.
+        /// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         /// </summary>
-        public readonly Outputs.PeerExpressRouteCircuitConnectionPropertiesFormatResponseResult? Properties;
+        public readonly Outputs.SubResourceResponseResult? PeerExpressRouteCircuitPeering;
+        /// <summary>
+        /// The provisioning state of the peer express route circuit connection resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -36,20 +60,38 @@ namespace Pulumi.AzureRM.Network.V20200301.Outputs
 
         [OutputConstructor]
         private PeerExpressRouteCircuitConnectionResponseResult(
+            string? addressPrefix,
+
+            string? authResourceGuid,
+
+            string? circuitConnectionStatus,
+
+            string? connectionName,
+
             string etag,
+
+            Outputs.SubResourceResponseResult? expressRouteCircuitPeering,
 
             string? id,
 
             string? name,
 
-            Outputs.PeerExpressRouteCircuitConnectionPropertiesFormatResponseResult? properties,
+            Outputs.SubResourceResponseResult? peerExpressRouteCircuitPeering,
+
+            string provisioningState,
 
             string type)
         {
+            AddressPrefix = addressPrefix;
+            AuthResourceGuid = authResourceGuid;
+            CircuitConnectionStatus = circuitConnectionStatus;
+            ConnectionName = connectionName;
             Etag = etag;
+            ExpressRouteCircuitPeering = expressRouteCircuitPeering;
             Id = id;
             Name = name;
-            Properties = properties;
+            PeerExpressRouteCircuitPeering = peerExpressRouteCircuitPeering;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

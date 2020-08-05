@@ -14,6 +14,18 @@ namespace Pulumi.AzureRM.Network.V20200401.Outputs
     public sealed class HubVirtualNetworkConnectionResponseResult
     {
         /// <summary>
+        /// VirtualHub to RemoteVnet transit to enabled or not.
+        /// </summary>
+        public readonly bool? AllowHubToRemoteVnetTransit;
+        /// <summary>
+        /// Allow RemoteVnet to use Virtual Hub's gateways.
+        /// </summary>
+        public readonly bool? AllowRemoteVnetToUseHubVnetGateways;
+        /// <summary>
+        /// Enable internet security.
+        /// </summary>
+        public readonly bool? EnableInternetSecurity;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -26,24 +38,47 @@ namespace Pulumi.AzureRM.Network.V20200401.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the hub virtual network connection.
+        /// The provisioning state of the hub virtual network connection resource.
         /// </summary>
-        public readonly Outputs.HubVirtualNetworkConnectionPropertiesResponseResult? Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Reference to the remote virtual network.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? RemoteVirtualNetwork;
+        /// <summary>
+        /// The Routing Configuration indicating the associated and propagated route tables on this connection.
+        /// </summary>
+        public readonly Outputs.RoutingConfigurationResponseResult? RoutingConfiguration;
 
         [OutputConstructor]
         private HubVirtualNetworkConnectionResponseResult(
+            bool? allowHubToRemoteVnetTransit,
+
+            bool? allowRemoteVnetToUseHubVnetGateways,
+
+            bool? enableInternetSecurity,
+
             string etag,
 
             string? id,
 
             string? name,
 
-            Outputs.HubVirtualNetworkConnectionPropertiesResponseResult? properties)
+            string provisioningState,
+
+            Outputs.SubResourceResponseResult? remoteVirtualNetwork,
+
+            Outputs.RoutingConfigurationResponseResult? routingConfiguration)
         {
+            AllowHubToRemoteVnetTransit = allowHubToRemoteVnetTransit;
+            AllowRemoteVnetToUseHubVnetGateways = allowRemoteVnetToUseHubVnetGateways;
+            EnableInternetSecurity = enableInternetSecurity;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RemoteVirtualNetwork = remoteVirtualNetwork;
+            RoutingConfiguration = routingConfiguration;
         }
     }
 }

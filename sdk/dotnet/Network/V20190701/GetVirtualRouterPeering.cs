@@ -54,9 +54,17 @@ namespace Pulumi.AzureRM.Network.V20190701
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The properties of the Virtual Router Peering.
+        /// Peer ASN.
         /// </summary>
-        public readonly Outputs.VirtualRouterPeeringPropertiesResponseResult Properties;
+        public readonly int? PeerAsn;
+        /// <summary>
+        /// Peer IP.
+        /// </summary>
+        public readonly string? PeerIp;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Peering type.
         /// </summary>
@@ -68,13 +76,19 @@ namespace Pulumi.AzureRM.Network.V20190701
 
             string? name,
 
-            Outputs.VirtualRouterPeeringPropertiesResponseResult properties,
+            int? peerAsn,
+
+            string? peerIp,
+
+            string provisioningState,
 
             string type)
         {
             Etag = etag;
             Name = name;
-            Properties = properties;
+            PeerAsn = peerAsn;
+            PeerIp = peerIp;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

@@ -15,22 +15,73 @@ namespace Pulumi.AzureRM.Network.V20181101
     public partial class P2sVpnServerConfiguration : Pulumi.CustomResource
     {
         /// <summary>
-        /// Gets a unique read-only string that changes whenever the resource is updated.
+        /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        /// The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Paren VirtualWan resource name.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        [Output("p2SVpnGateways")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> P2SVpnGateways { get; private set; } = null!;
+
         /// <summary>
-        /// Parameters for P2SVpnServerConfiguration
+        /// Radius client root certificate of P2SVpnServerConfiguration.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.P2SVpnServerConfigurationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("p2SVpnServerConfigRadiusClientRootCertificates")]
+        public Output<ImmutableArray<Outputs.P2SVpnServerConfigRadiusClientRootCertificateResponseResult>> P2SVpnServerConfigRadiusClientRootCertificates { get; private set; } = null!;
+
+        /// <summary>
+        /// Radius Server root certificate of P2SVpnServerConfiguration.
+        /// </summary>
+        [Output("p2SVpnServerConfigRadiusServerRootCertificates")]
+        public Output<ImmutableArray<Outputs.P2SVpnServerConfigRadiusServerRootCertificateResponseResult>> P2SVpnServerConfigRadiusServerRootCertificates { get; private set; } = null!;
+
+        /// <summary>
+        /// VPN client revoked certificate of P2SVpnServerConfiguration.
+        /// </summary>
+        [Output("p2SVpnServerConfigVpnClientRevokedCertificates")]
+        public Output<ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRevokedCertificateResponseResult>> P2SVpnServerConfigVpnClientRevokedCertificates { get; private set; } = null!;
+
+        /// <summary>
+        /// VPN client root certificate of P2SVpnServerConfiguration.
+        /// </summary>
+        [Output("p2SVpnServerConfigVpnClientRootCertificates")]
+        public Output<ImmutableArray<Outputs.P2SVpnServerConfigVpnClientRootCertificateResponseResult>> P2SVpnServerConfigVpnClientRootCertificates { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the P2SVpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
+        /// </summary>
+        [Output("radiusServerAddress")]
+        public Output<string?> RadiusServerAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
+        /// </summary>
+        [Output("radiusServerSecret")]
+        public Output<string?> RadiusServerSecret { get; private set; } = null!;
+
+        /// <summary>
+        /// VpnClientIpsecPolicies for P2SVpnServerConfiguration.
+        /// </summary>
+        [Output("vpnClientIpsecPolicies")]
+        public Output<ImmutableArray<Outputs.IpsecPolicyResponseResult>> VpnClientIpsecPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// vpnProtocols for the P2SVpnServerConfiguration.
+        /// </summary>
+        [Output("vpnProtocols")]
+        public Output<ImmutableArray<string>> VpnProtocols { get; private set; } = null!;
 
 
         /// <summary>

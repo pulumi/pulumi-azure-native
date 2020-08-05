@@ -46,36 +46,71 @@ namespace Pulumi.AzureRM.EventHub.V20140901
     public sealed class GetEventHubResult
     {
         /// <summary>
+        /// Exact time the Event Hub was created.
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// Number of days to retain the events for this Event Hub.
+        /// </summary>
+        public readonly int? MessageRetentionInDays;
         /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties supplied to the Create Or Update Event Hub operation.
+        /// Number of partitions created for the Event Hub.
         /// </summary>
-        public readonly Outputs.EventHubPropertiesResponseResult Properties;
+        public readonly int? PartitionCount;
+        /// <summary>
+        /// Current number of shards on the Event Hub.
+        /// </summary>
+        public readonly ImmutableArray<string> PartitionIds;
+        /// <summary>
+        /// Enumerates the possible values for the status of the Event Hub.
+        /// </summary>
+        public readonly string? Status;
         /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The exact time the message was updated.
+        /// </summary>
+        public readonly string UpdatedAt;
 
         [OutputConstructor]
         private GetEventHubResult(
+            string createdAt,
+
             string? location,
+
+            int? messageRetentionInDays,
 
             string name,
 
-            Outputs.EventHubPropertiesResponseResult properties,
+            int? partitionCount,
 
-            string type)
+            ImmutableArray<string> partitionIds,
+
+            string? status,
+
+            string type,
+
+            string updatedAt)
         {
+            CreatedAt = createdAt;
             Location = location;
+            MessageRetentionInDays = messageRetentionInDays;
             Name = name;
-            Properties = properties;
+            PartitionCount = partitionCount;
+            PartitionIds = partitionIds;
+            Status = status;
             Type = type;
+            UpdatedAt = updatedAt;
         }
     }
 }

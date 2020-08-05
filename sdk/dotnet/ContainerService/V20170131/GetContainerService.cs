@@ -40,17 +40,45 @@ namespace Pulumi.AzureRM.ContainerService.V20170131
     public sealed class GetContainerServiceResult
     {
         /// <summary>
+        /// Properties of the agent pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult> AgentPoolProfiles;
+        /// <summary>
+        /// Properties for custom clusters.
+        /// </summary>
+        public readonly Outputs.ContainerServiceCustomProfileResponseResult? CustomProfile;
+        /// <summary>
+        /// Properties of the diagnostic agent.
+        /// </summary>
+        public readonly Outputs.ContainerServiceDiagnosticsProfileResponseResult? DiagnosticsProfile;
+        /// <summary>
+        /// Properties of Linux VMs.
+        /// </summary>
+        public readonly Outputs.ContainerServiceLinuxProfileResponseResult LinuxProfile;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Properties of master agents.
+        /// </summary>
+        public readonly Outputs.ContainerServiceMasterProfileResponseResult MasterProfile;
         /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the container service.
+        /// Properties of the orchestrator.
         /// </summary>
-        public readonly Outputs.ContainerServicePropertiesResponseResult Properties;
+        public readonly Outputs.ContainerServiceOrchestratorProfileResponseResult? OrchestratorProfile;
+        /// <summary>
+        /// the current deployment or provisioning state, which only appears in the response.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Properties for cluster service principals.
+        /// </summary>
+        public readonly Outputs.ContainerServiceServicePrincipalProfileResponseResult? ServicePrincipalProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -59,24 +87,52 @@ namespace Pulumi.AzureRM.ContainerService.V20170131
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Properties of Windows VMs.
+        /// </summary>
+        public readonly Outputs.ContainerServiceWindowsProfileResponseResult? WindowsProfile;
 
         [OutputConstructor]
         private GetContainerServiceResult(
+            ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult> agentPoolProfiles,
+
+            Outputs.ContainerServiceCustomProfileResponseResult? customProfile,
+
+            Outputs.ContainerServiceDiagnosticsProfileResponseResult? diagnosticsProfile,
+
+            Outputs.ContainerServiceLinuxProfileResponseResult linuxProfile,
+
             string location,
+
+            Outputs.ContainerServiceMasterProfileResponseResult masterProfile,
 
             string name,
 
-            Outputs.ContainerServicePropertiesResponseResult properties,
+            Outputs.ContainerServiceOrchestratorProfileResponseResult? orchestratorProfile,
+
+            string provisioningState,
+
+            Outputs.ContainerServiceServicePrincipalProfileResponseResult? servicePrincipalProfile,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.ContainerServiceWindowsProfileResponseResult? windowsProfile)
         {
+            AgentPoolProfiles = agentPoolProfiles;
+            CustomProfile = customProfile;
+            DiagnosticsProfile = diagnosticsProfile;
+            LinuxProfile = linuxProfile;
             Location = location;
+            MasterProfile = masterProfile;
             Name = name;
-            Properties = properties;
+            OrchestratorProfile = orchestratorProfile;
+            ProvisioningState = provisioningState;
+            ServicePrincipalProfile = servicePrincipalProfile;
             Tags = tags;
             Type = type;
+            WindowsProfile = windowsProfile;
         }
     }
 }

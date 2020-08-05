@@ -46,6 +46,26 @@ namespace Pulumi.AzureRM.Web.V20181101
     public sealed class GetWebAppInstanceFunctionSlotResult
     {
         /// <summary>
+        /// Config information.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Config;
+        /// <summary>
+        /// Config URI.
+        /// </summary>
+        public readonly string? Config_href;
+        /// <summary>
+        /// File list.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Files;
+        /// <summary>
+        /// Function App ID.
+        /// </summary>
+        public readonly string? Function_app_id;
+        /// <summary>
+        /// Function URI.
+        /// </summary>
+        public readonly string? Href;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -54,9 +74,21 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// FunctionEnvelope resource specific properties
+        /// Script URI.
         /// </summary>
-        public readonly Outputs.FunctionEnvelopeResponsePropertiesResult Properties;
+        public readonly string? Script_href;
+        /// <summary>
+        /// Script root path URI.
+        /// </summary>
+        public readonly string? Script_root_path_href;
+        /// <summary>
+        /// Secrets file URI.
+        /// </summary>
+        public readonly string? Secrets_file_href;
+        /// <summary>
+        /// Test data used when testing via the Azure Portal.
+        /// </summary>
+        public readonly string? Test_data;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -64,17 +96,41 @@ namespace Pulumi.AzureRM.Web.V20181101
 
         [OutputConstructor]
         private GetWebAppInstanceFunctionSlotResult(
+            ImmutableDictionary<string, object>? config,
+
+            string? config_href,
+
+            ImmutableDictionary<string, string>? files,
+
+            string? function_app_id,
+
+            string? href,
+
             string? kind,
 
             string name,
 
-            Outputs.FunctionEnvelopeResponsePropertiesResult properties,
+            string? script_href,
+
+            string? script_root_path_href,
+
+            string? secrets_file_href,
+
+            string? test_data,
 
             string type)
         {
+            Config = config;
+            Config_href = config_href;
+            Files = files;
+            Function_app_id = function_app_id;
+            Href = href;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            Script_href = script_href;
+            Script_root_path_href = script_root_path_href;
+            Secrets_file_href = secrets_file_href;
+            Test_data = test_data;
             Type = type;
         }
     }

@@ -26,9 +26,13 @@ namespace Pulumi.AzureRM.Network.V20170301.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of Frontend port of an application gateway.
+        /// Frontend port
         /// </summary>
-        public readonly Outputs.ApplicationGatewayFrontendPortPropertiesFormatResponseResult? Properties;
+        public readonly int? Port;
+        /// <summary>
+        /// Provisioning state of the frontend port resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private ApplicationGatewayFrontendPortResponseResult(
@@ -38,12 +42,15 @@ namespace Pulumi.AzureRM.Network.V20170301.Outputs
 
             string? name,
 
-            Outputs.ApplicationGatewayFrontendPortPropertiesFormatResponseResult? properties)
+            int? port,
+
+            string? provisioningState)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            Port = port;
+            ProvisioningState = provisioningState;
         }
     }
 }

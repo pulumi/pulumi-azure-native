@@ -40,6 +40,26 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class GetManagedHostingEnvironmentResult
     {
         /// <summary>
+        /// Resource id of the api management account associated with this managed hosting environment (read only)
+        /// </summary>
+        public readonly string? ApiManagementAccount;
+        /// <summary>
+        /// DNS suffix of the managed hosting environment
+        /// </summary>
+        public readonly string? DnsSuffix;
+        /// <summary>
+        /// True/false indicating whether the managed hosting environment is healthy
+        /// </summary>
+        public readonly bool? EnvironmentIsHealthy;
+        /// <summary>
+        /// Detailed message about with results of the last check of the managed hosting environment
+        /// </summary>
+        public readonly string? EnvironmentStatus;
+        /// <summary>
+        /// Number of ip ssl addresses reserved for the managed hosting environment
+        /// </summary>
+        public readonly int? IpsslAddressCount;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -51,7 +71,23 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// Resource Name
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.ManagedHostingEnvironmentResponsePropertiesResult Properties;
+        /// <summary>
+        /// Resource group of the managed hosting environment (read only)
+        /// </summary>
+        public readonly string? ResourceGroup;
+        /// <summary>
+        /// Current status of the managed hosting environment
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
+        /// Subscription of the managed hosting environment (read only)
+        /// </summary>
+        public readonly string? SubscriptionId;
+        /// <summary>
+        /// True/false indicating whether the managed hosting environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+        ///             (most likely because NSG blocked the incoming traffic)
+        /// </summary>
+        public readonly bool? Suspended;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -60,27 +96,58 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// Resource type
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// Description of the managed hosting environment's virtual network
+        /// </summary>
+        public readonly Outputs.VirtualNetworkProfileResponseResult? VirtualNetwork;
 
         [OutputConstructor]
         private GetManagedHostingEnvironmentResult(
+            string? apiManagementAccount,
+
+            string? dnsSuffix,
+
+            bool? environmentIsHealthy,
+
+            string? environmentStatus,
+
+            int? ipsslAddressCount,
+
             string? kind,
 
             string location,
 
             string? name,
 
-            Outputs.ManagedHostingEnvironmentResponsePropertiesResult properties,
+            string? resourceGroup,
+
+            string status,
+
+            string? subscriptionId,
+
+            bool? suspended,
 
             ImmutableDictionary<string, string>? tags,
 
-            string? type)
+            string? type,
+
+            Outputs.VirtualNetworkProfileResponseResult? virtualNetwork)
         {
+            ApiManagementAccount = apiManagementAccount;
+            DnsSuffix = dnsSuffix;
+            EnvironmentIsHealthy = environmentIsHealthy;
+            EnvironmentStatus = environmentStatus;
+            IpsslAddressCount = ipsslAddressCount;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            ResourceGroup = resourceGroup;
+            Status = status;
+            SubscriptionId = subscriptionId;
+            Suspended = suspended;
             Tags = tags;
             Type = type;
+            VirtualNetwork = virtualNetwork;
         }
     }
 }

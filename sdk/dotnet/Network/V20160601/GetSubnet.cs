@@ -46,26 +46,64 @@ namespace Pulumi.AzureRM.Network.V20160601
     public sealed class GetSubnetResult
     {
         /// <summary>
+        /// Gets or sets Address prefix for the subnet.
+        /// </summary>
+        public readonly string? AddressPrefix;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Gets array of references to the network interface IP configurations using subnet
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IPConfigurationResponseResult> IpConfigurations;
+        /// <summary>
         /// Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.SubnetPropertiesFormatResponseResult Properties;
+        /// <summary>
+        /// Gets or sets the reference of the NetworkSecurityGroup resource
+        /// </summary>
+        public readonly Outputs.NetworkSecurityGroupResponseResult? NetworkSecurityGroup;
+        /// <summary>
+        /// Gets provisioning state of the resource
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets array of references to the external resources using subnet
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResourceNavigationLinkResponseResult> ResourceNavigationLinks;
+        /// <summary>
+        /// Gets or sets the reference of the RouteTable resource
+        /// </summary>
+        public readonly Outputs.RouteTableResponseResult? RouteTable;
 
         [OutputConstructor]
         private GetSubnetResult(
+            string? addressPrefix,
+
             string? etag,
+
+            ImmutableArray<Outputs.IPConfigurationResponseResult> ipConfigurations,
 
             string? name,
 
-            Outputs.SubnetPropertiesFormatResponseResult properties)
+            Outputs.NetworkSecurityGroupResponseResult? networkSecurityGroup,
+
+            string? provisioningState,
+
+            ImmutableArray<Outputs.ResourceNavigationLinkResponseResult> resourceNavigationLinks,
+
+            Outputs.RouteTableResponseResult? routeTable)
         {
+            AddressPrefix = addressPrefix;
             Etag = etag;
+            IpConfigurations = ipConfigurations;
             Name = name;
-            Properties = properties;
+            NetworkSecurityGroup = networkSecurityGroup;
+            ProvisioningState = provisioningState;
+            ResourceNavigationLinks = resourceNavigationLinks;
+            RouteTable = routeTable;
         }
     }
 }

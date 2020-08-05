@@ -27,10 +27,10 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SecretPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -43,6 +43,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string?> UniqueIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The value of the secret for secret creation.
+        /// </summary>
+        [Output("value")]
+        public Output<string?> Value { get; private set; } = null!;
 
 
         /// <summary>

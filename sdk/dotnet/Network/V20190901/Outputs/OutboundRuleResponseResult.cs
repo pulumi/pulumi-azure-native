@@ -14,21 +14,45 @@ namespace Pulumi.AzureRM.Network.V20190901.Outputs
     public sealed class OutboundRuleResponseResult
     {
         /// <summary>
+        /// The number of outbound ports to be used for NAT.
+        /// </summary>
+        public readonly int? AllocatedOutboundPorts;
+        /// <summary>
+        /// A reference to a pool of DIPs. Outbound traffic is randomly load balanced across IPs in the backend IPs.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult BackendAddressPool;
+        /// <summary>
+        /// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        /// </summary>
+        public readonly bool? EnableTcpReset;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// The Frontend IP addresses of the load balancer.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> FrontendIPConfigurations;
         /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The timeout for the TCP idle connection.
+        /// </summary>
+        public readonly int? IdleTimeoutInMinutes;
+        /// <summary>
         /// The name of the resource that is unique within the set of outbound rules used by the load balancer. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of load balancer outbound rule.
+        /// The protocol for the outbound rule in load balancer.
         /// </summary>
-        public readonly Outputs.OutboundRulePropertiesFormatResponseResult? Properties;
+        public readonly string Protocol;
+        /// <summary>
+        /// The provisioning state of the outbound rule resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -36,20 +60,38 @@ namespace Pulumi.AzureRM.Network.V20190901.Outputs
 
         [OutputConstructor]
         private OutboundRuleResponseResult(
+            int? allocatedOutboundPorts,
+
+            Outputs.SubResourceResponseResult backendAddressPool,
+
+            bool? enableTcpReset,
+
             string etag,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> frontendIPConfigurations,
 
             string? id,
 
+            int? idleTimeoutInMinutes,
+
             string? name,
 
-            Outputs.OutboundRulePropertiesFormatResponseResult? properties,
+            string protocol,
+
+            string provisioningState,
 
             string type)
         {
+            AllocatedOutboundPorts = allocatedOutboundPorts;
+            BackendAddressPool = backendAddressPool;
+            EnableTcpReset = enableTcpReset;
             Etag = etag;
+            FrontendIPConfigurations = frontendIPConfigurations;
             Id = id;
+            IdleTimeoutInMinutes = idleTimeoutInMinutes;
             Name = name;
-            Properties = properties;
+            Protocol = protocol;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

@@ -40,6 +40,18 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
     public sealed class GetConfigurationStoreResult
     {
         /// <summary>
+        /// The creation date of configuration store.
+        /// </summary>
+        public readonly string CreationDate;
+        /// <summary>
+        /// The encryption settings of the configuration store.
+        /// </summary>
+        public readonly Outputs.EncryptionPropertiesResponseResult? Encryption;
+        /// <summary>
+        /// The DNS endpoint where the configuration store API will be available.
+        /// </summary>
+        public readonly string Endpoint;
+        /// <summary>
         /// The managed identity information, if configured.
         /// </summary>
         public readonly Outputs.ResourceIdentityResponseResult? Identity;
@@ -52,9 +64,17 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of a configuration store.
+        /// The list of private endpoint connections that are set up for this resource.
         /// </summary>
-        public readonly Outputs.ConfigurationStorePropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionReferenceResponseResult> PrivateEndpointConnections;
+        /// <summary>
+        /// The provisioning state of the configuration store.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// The sku of the configuration store.
         /// </summary>
@@ -70,13 +90,23 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
 
         [OutputConstructor]
         private GetConfigurationStoreResult(
+            string creationDate,
+
+            Outputs.EncryptionPropertiesResponseResult? encryption,
+
+            string endpoint,
+
             Outputs.ResourceIdentityResponseResult? identity,
 
             string location,
 
             string name,
 
-            Outputs.ConfigurationStorePropertiesResponseResult properties,
+            ImmutableArray<Outputs.PrivateEndpointConnectionReferenceResponseResult> privateEndpointConnections,
+
+            string provisioningState,
+
+            string? publicNetworkAccess,
 
             Outputs.SkuResponseResult sku,
 
@@ -84,10 +114,15 @@ namespace Pulumi.AzureRM.AppConfiguration.V20200601
 
             string type)
         {
+            CreationDate = creationDate;
+            Encryption = encryption;
+            Endpoint = endpoint;
             Identity = identity;
             Location = location;
             Name = name;
-            Properties = properties;
+            PrivateEndpointConnections = privateEndpointConnections;
+            ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             Sku = sku;
             Tags = tags;
             Type = type;

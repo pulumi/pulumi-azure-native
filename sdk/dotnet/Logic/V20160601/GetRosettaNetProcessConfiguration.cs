@@ -46,17 +46,53 @@ namespace Pulumi.AzureRM.Logic.V20160601
     public sealed class GetRosettaNetProcessConfigurationResult
     {
         /// <summary>
+        /// The RosettaNet process configuration activity settings.
+        /// </summary>
+        public readonly Outputs.RosettaNetPipActivitySettingsResponseResult ActivitySettings;
+        /// <summary>
+        /// The changed time.
+        /// </summary>
+        public readonly string ChangedTime;
+        /// <summary>
+        /// The created time.
+        /// </summary>
+        public readonly string CreatedTime;
+        /// <summary>
+        /// The integration account RosettaNet ProcessConfiguration properties.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The RosettaNet initiator role settings.
+        /// </summary>
+        public readonly Outputs.RosettaNetPipRoleSettingsResponseResult InitiatorRoleSettings;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// The metadata.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Metadata;
         /// <summary>
         /// Gets the resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The integration account RosettaNet process configuration properties.
+        /// The integration account RosettaNet process code.
         /// </summary>
-        public readonly Outputs.IntegrationAccountRosettaNetProcessConfigurationPropertiesResponseResult Properties;
+        public readonly string ProcessCode;
+        /// <summary>
+        /// The integration account RosettaNet process name.
+        /// </summary>
+        public readonly string ProcessName;
+        /// <summary>
+        /// The integration account RosettaNet process version.
+        /// </summary>
+        public readonly string ProcessVersion;
+        /// <summary>
+        /// The RosettaNet responder role settings.
+        /// </summary>
+        public readonly Outputs.RosettaNetPipRoleSettingsResponseResult ResponderRoleSettings;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -68,19 +104,46 @@ namespace Pulumi.AzureRM.Logic.V20160601
 
         [OutputConstructor]
         private GetRosettaNetProcessConfigurationResult(
+            Outputs.RosettaNetPipActivitySettingsResponseResult activitySettings,
+
+            string changedTime,
+
+            string createdTime,
+
+            string? description,
+
+            Outputs.RosettaNetPipRoleSettingsResponseResult initiatorRoleSettings,
+
             string? location,
+
+            ImmutableDictionary<string, string>? metadata,
 
             string name,
 
-            Outputs.IntegrationAccountRosettaNetProcessConfigurationPropertiesResponseResult properties,
+            string processCode,
+
+            string processName,
+
+            string processVersion,
+
+            Outputs.RosettaNetPipRoleSettingsResponseResult responderRoleSettings,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            ActivitySettings = activitySettings;
+            ChangedTime = changedTime;
+            CreatedTime = createdTime;
+            Description = description;
+            InitiatorRoleSettings = initiatorRoleSettings;
             Location = location;
+            Metadata = metadata;
             Name = name;
-            Properties = properties;
+            ProcessCode = processCode;
+            ProcessName = processName;
+            ProcessVersion = processVersion;
+            ResponderRoleSettings = responderRoleSettings;
             Tags = tags;
             Type = type;
         }

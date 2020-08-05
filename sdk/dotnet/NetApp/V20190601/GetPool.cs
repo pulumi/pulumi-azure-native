@@ -54,9 +54,21 @@ namespace Pulumi.AzureRM.NetApp.V20190601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Capacity pool properties
+        /// UUID v4 used to identify the Pool
         /// </summary>
-        public readonly Outputs.PoolPropertiesResponseResult Properties;
+        public readonly string PoolId;
+        /// <summary>
+        /// Azure lifecycle management
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The service level of the file system
+        /// </summary>
+        public readonly string ServiceLevel;
+        /// <summary>
+        /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        /// </summary>
+        public readonly int Size;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -72,7 +84,13 @@ namespace Pulumi.AzureRM.NetApp.V20190601
 
             string name,
 
-            Outputs.PoolPropertiesResponseResult properties,
+            string poolId,
+
+            string provisioningState,
+
+            string serviceLevel,
+
+            int size,
 
             ImmutableDictionary<string, object>? tags,
 
@@ -80,7 +98,10 @@ namespace Pulumi.AzureRM.NetApp.V20190601
         {
             Location = location;
             Name = name;
-            Properties = properties;
+            PoolId = poolId;
+            ProvisioningState = provisioningState;
+            ServiceLevel = serviceLevel;
+            Size = size;
             Tags = tags;
             Type = type;
         }

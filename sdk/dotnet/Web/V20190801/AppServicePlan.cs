@@ -15,6 +15,42 @@ namespace Pulumi.AzureRM.Web.V20190801
     public partial class AppServicePlan : Pulumi.CustomResource
     {
         /// <summary>
+        /// The time when the server farm free offer expires.
+        /// </summary>
+        [Output("freeOfferExpirationTime")]
+        public Output<string?> FreeOfferExpirationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Geographical location for the App Service plan.
+        /// </summary>
+        [Output("geoRegion")]
+        public Output<string> GeoRegion { get; private set; } = null!;
+
+        /// <summary>
+        /// Specification for the App Service Environment to use for the App Service plan.
+        /// </summary>
+        [Output("hostingEnvironmentProfile")]
+        public Output<Outputs.HostingEnvironmentProfileResponseResult?> HostingEnvironmentProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// If Hyper-V container app service plan &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;false&lt;/code&gt; otherwise.
+        /// </summary>
+        [Output("hyperV")]
+        public Output<bool?> HyperV { get; private set; } = null!;
+
+        /// <summary>
+        /// If &lt;code&gt;true&lt;/code&gt;, this App Service Plan owns spot instances.
+        /// </summary>
+        [Output("isSpot")]
+        public Output<bool?> IsSpot { get; private set; } = null!;
+
+        /// <summary>
+        /// Obsolete: If Hyper-V container app service plan &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;false&lt;/code&gt; otherwise.
+        /// </summary>
+        [Output("isXenon")]
+        public Output<bool?> IsXenon { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Output("kind")]
@@ -27,16 +63,53 @@ namespace Pulumi.AzureRM.Web.V20190801
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
+        /// </summary>
+        [Output("maximumElasticWorkerCount")]
+        public Output<int?> MaximumElasticWorkerCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum number of instances that can be assigned to this App Service plan.
+        /// </summary>
+        [Output("maximumNumberOfWorkers")]
+        public Output<int> MaximumNumberOfWorkers { get; private set; } = null!;
+
+        /// <summary>
         /// Resource Name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// AppServicePlan resource specific properties
+        /// Number of apps assigned to this App Service plan.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AppServicePlanResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("numberOfSites")]
+        public Output<int> NumberOfSites { get; private set; } = null!;
+
+        /// <summary>
+        /// If &lt;code&gt;true&lt;/code&gt;, apps assigned to this App Service plan can be scaled independently.
+        /// If &lt;code&gt;false&lt;/code&gt;, apps assigned to this App Service plan will scale to all instances of the plan.
+        /// </summary>
+        [Output("perSiteScaling")]
+        public Output<bool?> PerSiteScaling { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the App Service Environment.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// If Linux app service plan &lt;code&gt;true&lt;/code&gt;, &lt;code&gt;false&lt;/code&gt; otherwise.
+        /// </summary>
+        [Output("reserved")]
+        public Output<bool?> Reserved { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource group of the App Service plan.
+        /// </summary>
+        [Output("resourceGroup")]
+        public Output<string> ResourceGroup { get; private set; } = null!;
 
         /// <summary>
         /// Description of a SKU for a scalable resource.
@@ -45,16 +118,52 @@ namespace Pulumi.AzureRM.Web.V20190801
         public Output<Outputs.SkuDescriptionResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// The time when the server farm expires. Valid only if it is a spot server farm.
+        /// </summary>
+        [Output("spotExpirationTime")]
+        public Output<string?> SpotExpirationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// App Service plan status.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// App Service plan subscription.
+        /// </summary>
+        [Output("subscription")]
+        public Output<string> Subscription { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Scaling worker count.
+        /// </summary>
+        [Output("targetWorkerCount")]
+        public Output<int?> TargetWorkerCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Scaling worker size ID.
+        /// </summary>
+        [Output("targetWorkerSizeId")]
+        public Output<int?> TargetWorkerSizeId { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Target worker tier assigned to the App Service plan.
+        /// </summary>
+        [Output("workerTierName")]
+        public Output<string?> WorkerTierName { get; private set; } = null!;
 
 
         /// <summary>

@@ -14,9 +14,21 @@ namespace Pulumi.AzureRM.Network.V20160330.Outputs
     public sealed class ApplicationGatewayRequestRoutingRuleResponseResult
     {
         /// <summary>
+        /// Gets or sets backend address pool resource of application gateway 
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? BackendAddressPool;
+        /// <summary>
+        /// Gets or sets frontend port resource of application gateway 
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? BackendHttpSettings;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Gets or sets http listener resource of application gateway 
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? HttpListener;
         /// <summary>
         /// Resource Id
         /// </summary>
@@ -26,24 +38,47 @@ namespace Pulumi.AzureRM.Network.V20160330.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of Request routing rule of application gateway
+        /// Gets or sets Provisioning state of the request routing rule resource Updating/Deleting/Failed
         /// </summary>
-        public readonly Outputs.ApplicationGatewayRequestRoutingRulePropertiesFormatResponseResult? Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets the rule type
+        /// </summary>
+        public readonly string? RuleType;
+        /// <summary>
+        /// Gets or sets url path map resource of application gateway 
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? UrlPathMap;
 
         [OutputConstructor]
         private ApplicationGatewayRequestRoutingRuleResponseResult(
+            Outputs.SubResourceResponseResult? backendAddressPool,
+
+            Outputs.SubResourceResponseResult? backendHttpSettings,
+
             string? etag,
+
+            Outputs.SubResourceResponseResult? httpListener,
 
             string? id,
 
             string? name,
 
-            Outputs.ApplicationGatewayRequestRoutingRulePropertiesFormatResponseResult? properties)
+            string? provisioningState,
+
+            string? ruleType,
+
+            Outputs.SubResourceResponseResult? urlPathMap)
         {
+            BackendAddressPool = backendAddressPool;
+            BackendHttpSettings = backendHttpSettings;
             Etag = etag;
+            HttpListener = httpListener;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RuleType = ruleType;
+            UrlPathMap = urlPathMap;
         }
     }
 }

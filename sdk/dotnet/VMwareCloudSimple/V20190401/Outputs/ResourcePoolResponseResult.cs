@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401.Outputs
     public sealed class ResourcePoolResponseResult
     {
         /// <summary>
+        /// Hierarchical resource pool name
+        /// </summary>
+        public readonly string FullName;
+        /// <summary>
         /// resource pool id (privateCloudId:vsphereId)
         /// </summary>
         public readonly string Id;
@@ -30,16 +34,14 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401.Outputs
         /// </summary>
         public readonly string PrivateCloudId;
         /// <summary>
-        /// Resource pool properties
-        /// </summary>
-        public readonly Outputs.ResourcePoolPropertiesResponseResult? Properties;
-        /// <summary>
         /// {resourceProviderNamespace}/{resourceType}
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private ResourcePoolResponseResult(
+            string fullName,
+
             string id,
 
             string location,
@@ -48,15 +50,13 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401.Outputs
 
             string privateCloudId,
 
-            Outputs.ResourcePoolPropertiesResponseResult? properties,
-
             string type)
         {
+            FullName = fullName;
             Id = id;
             Location = location;
             Name = name;
             PrivateCloudId = privateCloudId;
-            Properties = properties;
             Type = type;
         }
     }

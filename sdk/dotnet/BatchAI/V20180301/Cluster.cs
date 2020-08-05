@@ -15,6 +15,27 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// Possible values are: steady and resizing. steady state indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing state indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
+        /// </summary>
+        [Output("allocationState")]
+        public Output<string> AllocationState { get; private set; } = null!;
+
+        [Output("allocationStateTransitionTime")]
+        public Output<string> AllocationStateTransitionTime { get; private set; } = null!;
+
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        [Output("currentNodeCount")]
+        public Output<int> CurrentNodeCount { get; private set; } = null!;
+
+        /// <summary>
+        /// This element contains all the errors encountered by various compute nodes during node setup.
+        /// </summary>
+        [Output("errors")]
+        public Output<ImmutableArray<Outputs.BatchAIErrorResponseResult>> Errors { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource
         /// </summary>
         [Output("location")]
@@ -27,10 +48,37 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties associated with the Cluster.
+        /// Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ClusterPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("nodeSetup")]
+        public Output<Outputs.NodeSetupResponseResult?> NodeSetup { get; private set; } = null!;
+
+        /// <summary>
+        /// Counts of various compute node states on the cluster.
+        /// </summary>
+        [Output("nodeStateCounts")]
+        public Output<Outputs.NodeStateCountsResponseResult> NodeStateCounts { get; private set; } = null!;
+
+        /// <summary>
+        /// Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        [Output("provisioningStateTransitionTime")]
+        public Output<string> ProvisioningStateTransitionTime { get; private set; } = null!;
+
+        /// <summary>
+        /// At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
+        /// </summary>
+        [Output("scaleSettings")]
+        public Output<Outputs.ScaleSettingsResponseResult?> ScaleSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        /// </summary>
+        [Output("subnet")]
+        public Output<Outputs.ResourceIdResponseResult?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource
@@ -43,6 +91,30 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Settings for user account that gets created on each on the nodes of a cluster.
+        /// </summary>
+        [Output("userAccountSettings")]
+        public Output<Outputs.UserAccountSettingsResponseResult?> UserAccountSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Settings for OS image.
+        /// </summary>
+        [Output("virtualMachineConfiguration")]
+        public Output<Outputs.VirtualMachineConfigurationResponseResult?> VirtualMachineConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The default value is dedicated. The node can get preempted while the task is running if lowpriority is chosen. This is best suited if the workload is checkpointing and can be restarted.
+        /// </summary>
+        [Output("vmPriority")]
+        public Output<string?> VmPriority { get; private set; } = null!;
+
+        /// <summary>
+        /// All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        /// </summary>
+        [Output("vmSize")]
+        public Output<string?> VmSize { get; private set; } = null!;
 
 
         /// <summary>

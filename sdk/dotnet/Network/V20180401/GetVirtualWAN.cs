@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Network.V20180401
     public sealed class GetVirtualWANResult
     {
         /// <summary>
+        /// Vpn encryption to be disabled or not.
+        /// </summary>
+        public readonly bool? DisableVpnEncryption;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -52,9 +56,9 @@ namespace Pulumi.AzureRM.Network.V20180401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Parameters for VirtualWAN
+        /// The provisioning state of the resource.
         /// </summary>
-        public readonly Outputs.VirtualWanPropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +67,41 @@ namespace Pulumi.AzureRM.Network.V20180401
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// List of VirtualHubs in the VirtualWAN.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> VirtualHubs;
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> VpnSites;
 
         [OutputConstructor]
         private GetVirtualWANResult(
+            bool? disableVpnEncryption,
+
             string etag,
 
             string location,
 
             string name,
 
-            Outputs.VirtualWanPropertiesResponseResult properties,
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> virtualHubs,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> vpnSites)
         {
+            DisableVpnEncryption = disableVpnEncryption;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            VirtualHubs = virtualHubs;
+            VpnSites = vpnSites;
         }
     }
 }

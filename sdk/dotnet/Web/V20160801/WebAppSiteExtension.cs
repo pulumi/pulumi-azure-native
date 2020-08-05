@@ -15,10 +15,82 @@ namespace Pulumi.AzureRM.Web.V20160801
     public partial class WebAppSiteExtension : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of authors.
+        /// </summary>
+        [Output("authors")]
+        public Output<ImmutableArray<string>> Authors { get; private set; } = null!;
+
+        /// <summary>
+        /// Site Extension comment.
+        /// </summary>
+        [Output("comment")]
+        public Output<string?> Comment { get; private set; } = null!;
+
+        /// <summary>
+        /// Detailed description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Count of downloads.
+        /// </summary>
+        [Output("downloadCount")]
+        public Output<int?> DownloadCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Extension URL.
+        /// </summary>
+        [Output("extensionUrl")]
+        public Output<string?> ExtensionUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Feed URL.
+        /// </summary>
+        [Output("feedUrl")]
+        public Output<string?> FeedUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Icon URL.
+        /// </summary>
+        [Output("iconUrl")]
+        public Output<string?> IconUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Installer command line parameters.
+        /// </summary>
+        [Output("installationArgs")]
+        public Output<string?> InstallationArgs { get; private set; } = null!;
+
+        /// <summary>
+        /// Installed timestamp.
+        /// </summary>
+        [Output("installedDateTime")]
+        public Output<string?> InstalledDateTime { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// License URL.
+        /// </summary>
+        [Output("licenseUrl")]
+        public Output<string?> LicenseUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the local version is the latest version; &lt;code&gt;false&lt;/code&gt; otherwise.
+        /// </summary>
+        [Output("localIsLatestVersion")]
+        public Output<bool?> LocalIsLatestVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Local path.
+        /// </summary>
+        [Output("localPath")]
+        public Output<string?> LocalPath { get; private set; } = null!;
 
         /// <summary>
         /// Resource Name.
@@ -27,16 +99,46 @@ namespace Pulumi.AzureRM.Web.V20160801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// SiteExtensionInfo resource specific properties
+        /// Project URL.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SiteExtensionInfoResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("projectUrl")]
+        public Output<string?> ProjectUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Published timestamp.
+        /// </summary>
+        [Output("publishedDateTime")]
+        public Output<string?> PublishedDateTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Summary description.
+        /// </summary>
+        [Output("summary")]
+        public Output<string?> Summary { get; private set; } = null!;
+
+        /// <summary>
+        /// Site extension title.
+        /// </summary>
+        [Output("title")]
+        public Output<string?> Title { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Version information.
+        /// </summary>
+        [Output("version")]
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>

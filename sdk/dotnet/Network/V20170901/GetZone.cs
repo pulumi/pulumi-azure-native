@@ -48,13 +48,21 @@ namespace Pulumi.AzureRM.Network.V20170901
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        /// </summary>
+        public readonly int MaxNumberOfRecordSets;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the zone.
+        /// The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
         /// </summary>
-        public readonly Outputs.ZonePropertiesResponseResult Properties;
+        public readonly ImmutableArray<string> NameServers;
+        /// <summary>
+        /// The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
+        /// </summary>
+        public readonly int NumberOfRecordSets;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -70,9 +78,13 @@ namespace Pulumi.AzureRM.Network.V20170901
 
             string location,
 
+            int maxNumberOfRecordSets,
+
             string name,
 
-            Outputs.ZonePropertiesResponseResult properties,
+            ImmutableArray<string> nameServers,
+
+            int numberOfRecordSets,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -80,8 +92,10 @@ namespace Pulumi.AzureRM.Network.V20170901
         {
             Etag = etag;
             Location = location;
+            MaxNumberOfRecordSets = maxNumberOfRecordSets;
             Name = name;
-            Properties = properties;
+            NameServers = nameServers;
+            NumberOfRecordSets = numberOfRecordSets;
             Tags = tags;
             Type = type;
         }

@@ -15,16 +15,58 @@ namespace Pulumi.AzureRM.Compute.V20170330
     public partial class VirtualMachineScaleSetExtension : Pulumi.CustomResource
     {
         /// <summary>
+        /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        /// </summary>
+        [Output("autoUpgradeMinorVersion")]
+        public Output<bool?> AutoUpgradeMinorVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+        /// </summary>
+        [Output("forceUpdateTag")]
+        public Output<string?> ForceUpdateTag { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the extension.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the properties of a Virtual Machine Scale Set Extension.
+        /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualMachineScaleSetExtensionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("protectedSettings")]
+        public Output<ImmutableDictionary<string, object>?> ProtectedSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state, which only appears in the response.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the extension handler publisher.
+        /// </summary>
+        [Output("publisher")]
+        public Output<string?> Publisher { get; private set; } = null!;
+
+        /// <summary>
+        /// Json formatted public settings for the extension.
+        /// </summary>
+        [Output("settings")]
+        public Output<ImmutableDictionary<string, object>?> Settings { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the type of the extension; an example is "CustomScriptExtension".
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the version of the script handler.
+        /// </summary>
+        [Output("typeHandlerVersion")]
+        public Output<string?> TypeHandlerVersion { get; private set; } = null!;
 
 
         /// <summary>

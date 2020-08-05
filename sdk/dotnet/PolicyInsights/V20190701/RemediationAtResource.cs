@@ -15,16 +15,58 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
     public partial class RemediationAtResource : Pulumi.CustomResource
     {
         /// <summary>
+        /// The time at which the remediation was created.
+        /// </summary>
+        [Output("createdOn")]
+        public Output<string> CreatedOn { get; private set; } = null!;
+
+        /// <summary>
+        /// The deployment status summary for all deployments created by the remediation.
+        /// </summary>
+        [Output("deploymentStatus")]
+        public Output<Outputs.RemediationDeploymentSummaryResponseResult> DeploymentStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The filters that will be applied to determine which resources to remediate.
+        /// </summary>
+        [Output("filters")]
+        public Output<Outputs.RemediationFiltersResponseResult?> Filters { get; private set; } = null!;
+
+        /// <summary>
+        /// The time at which the remediation was last updated.
+        /// </summary>
+        [Output("lastUpdatedOn")]
+        public Output<string> LastUpdatedOn { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the remediation.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties for the remediation.
+        /// The resource ID of the policy assignment that should be remediated.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RemediationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("policyAssignmentId")]
+        public Output<string?> PolicyAssignmentId { get; private set; } = null!;
+
+        /// <summary>
+        /// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        /// </summary>
+        [Output("policyDefinitionReferenceId")]
+        public Output<string?> PolicyDefinitionReferenceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of the remediation.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
+        /// </summary>
+        [Output("resourceDiscoveryMode")]
+        public Output<string?> ResourceDiscoveryMode { get; private set; } = null!;
 
         /// <summary>
         /// The type of the remediation.

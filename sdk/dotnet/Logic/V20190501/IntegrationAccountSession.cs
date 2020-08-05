@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public partial class IntegrationAccountSession : Pulumi.CustomResource
     {
         /// <summary>
+        /// The changed time.
+        /// </summary>
+        [Output("changedTime")]
+        public Output<string> ChangedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The session content.
+        /// </summary>
+        [Output("content")]
+        public Output<ImmutableDictionary<string, object>?> Content { get; private set; } = null!;
+
+        /// <summary>
+        /// The created time.
+        /// </summary>
+        [Output("createdTime")]
+        public Output<string> CreatedTime { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
@@ -25,12 +43,6 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The integration account session properties.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.IntegrationAccountSessionPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

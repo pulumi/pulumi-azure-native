@@ -40,6 +40,26 @@ namespace Pulumi.AzureRM.Solutions.V20190701
     public sealed class GetJitRequestResult
     {
         /// <summary>
+        /// The parent application id.
+        /// </summary>
+        public readonly string ApplicationResourceId;
+        /// <summary>
+        /// The client entity that created the JIT request.
+        /// </summary>
+        public readonly Outputs.ApplicationClientDetailsResponseResult CreatedBy;
+        /// <summary>
+        /// The JIT authorization policies.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.JitAuthorizationPoliciesResponseResult> JitAuthorizationPolicies;
+        /// <summary>
+        /// The JIT request state.
+        /// </summary>
+        public readonly string JitRequestState;
+        /// <summary>
+        /// The JIT request properties.
+        /// </summary>
+        public readonly Outputs.JitSchedulingPolicyResponseResult JitSchedulingPolicy;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
@@ -48,9 +68,13 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The JIT request properties.
+        /// The JIT request provisioning state.
         /// </summary>
-        public readonly Outputs.JitRequestPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The publisher tenant id.
+        /// </summary>
+        public readonly string PublisherTenantId;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -59,24 +83,49 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The client entity that last updated the JIT request.
+        /// </summary>
+        public readonly Outputs.ApplicationClientDetailsResponseResult UpdatedBy;
 
         [OutputConstructor]
         private GetJitRequestResult(
+            string applicationResourceId,
+
+            Outputs.ApplicationClientDetailsResponseResult createdBy,
+
+            ImmutableArray<Outputs.JitAuthorizationPoliciesResponseResult> jitAuthorizationPolicies,
+
+            string jitRequestState,
+
+            Outputs.JitSchedulingPolicyResponseResult jitSchedulingPolicy,
+
             string? location,
 
             string name,
 
-            Outputs.JitRequestPropertiesResponseResult properties,
+            string provisioningState,
+
+            string publisherTenantId,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.ApplicationClientDetailsResponseResult updatedBy)
         {
+            ApplicationResourceId = applicationResourceId;
+            CreatedBy = createdBy;
+            JitAuthorizationPolicies = jitAuthorizationPolicies;
+            JitRequestState = jitRequestState;
+            JitSchedulingPolicy = jitSchedulingPolicy;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            PublisherTenantId = publisherTenantId;
             Tags = tags;
             Type = type;
+            UpdatedBy = updatedBy;
         }
     }
 }

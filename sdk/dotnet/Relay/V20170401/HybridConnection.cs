@@ -15,22 +15,46 @@ namespace Pulumi.AzureRM.Relay.V20170401
     public partial class HybridConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// The time the hybrid connection was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported.
+        /// </summary>
+        [Output("listenerCount")]
+        public Output<int> ListenerCount { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the HybridConnection.
+        /// Returns true if client authorization is needed for this hybrid connection; otherwise, false.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.HybridConnectionResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("requiresClientAuthorization")]
+        public Output<bool?> RequiresClientAuthorization { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The time the namespace was updated.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
+        /// </summary>
+        [Output("userMetadata")]
+        public Output<string?> UserMetadata { get; private set; } = null!;
 
 
         /// <summary>

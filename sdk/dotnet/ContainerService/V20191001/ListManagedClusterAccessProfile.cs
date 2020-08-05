@@ -46,6 +46,10 @@ namespace Pulumi.AzureRM.ContainerService.V20191001
     public sealed class ListManagedClusterAccessProfileResult
     {
         /// <summary>
+        /// Base64-encoded Kubernetes configuration file.
+        /// </summary>
+        public readonly string? KubeConfig;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -53,10 +57,6 @@ namespace Pulumi.AzureRM.ContainerService.V20191001
         /// Resource name
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// AccessProfile of a managed cluster.
-        /// </summary>
-        public readonly Outputs.AccessProfileResponseResult Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -68,19 +68,19 @@ namespace Pulumi.AzureRM.ContainerService.V20191001
 
         [OutputConstructor]
         private ListManagedClusterAccessProfileResult(
+            string? kubeConfig,
+
             string location,
 
             string name,
-
-            Outputs.AccessProfileResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            KubeConfig = kubeConfig;
             Location = location;
             Name = name;
-            Properties = properties;
             Tags = tags;
             Type = type;
         }

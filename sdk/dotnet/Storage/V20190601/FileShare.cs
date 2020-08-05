@@ -15,10 +15,58 @@ namespace Pulumi.AzureRM.Storage.V20190601
     public partial class FileShare : Pulumi.CustomResource
     {
         /// <summary>
+        /// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
+        /// </summary>
+        [Output("accessTier")]
+        public Output<string?> AccessTier { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the last modification time for share access tier.
+        /// </summary>
+        [Output("accessTierChangeTime")]
+        public Output<string> AccessTierChangeTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates if there is a pending transition for access tier.
+        /// </summary>
+        [Output("accessTierStatus")]
+        public Output<string> AccessTierStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the share was deleted.
+        /// </summary>
+        [Output("deleted")]
+        public Output<bool> Deleted { get; private set; } = null!;
+
+        /// <summary>
+        /// The deleted time if the share was deleted.
+        /// </summary>
+        [Output("deletedTime")]
+        public Output<string> DeletedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The authentication protocol that is used for the file share. Can only be specified when creating a share.
+        /// </summary>
+        [Output("enabledProtocols")]
+        public Output<string?> EnabledProtocols { get; private set; } = null!;
+
+        /// <summary>
         /// Resource Etag.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Returns the date and time the share was last modified.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// A name-value pair to associate with the share as metadata.
+        /// </summary>
+        [Output("metadata")]
+        public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -27,16 +75,40 @@ namespace Pulumi.AzureRM.Storage.V20190601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the file share.
+        /// Remaining retention days for share that was soft deleted.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FileSharePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("remainingRetentionDays")]
+        public Output<int> RemainingRetentionDays { get; private set; } = null!;
+
+        /// <summary>
+        /// The property is for NFS share only. The default is NoRootSquash.
+        /// </summary>
+        [Output("rootSquash")]
+        public Output<string?> RootSquash { get; private set; } = null!;
+
+        /// <summary>
+        /// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+        /// </summary>
+        [Output("shareQuota")]
+        public Output<int?> ShareQuota { get; private set; } = null!;
+
+        /// <summary>
+        /// The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
+        /// </summary>
+        [Output("shareUsageBytes")]
+        public Output<int> ShareUsageBytes { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of the share.
+        /// </summary>
+        [Output("version")]
+        public Output<string> Version { get; private set; } = null!;
 
 
         /// <summary>

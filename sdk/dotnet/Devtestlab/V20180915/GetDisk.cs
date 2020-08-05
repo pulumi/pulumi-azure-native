@@ -52,17 +52,49 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class GetDiskResult
     {
         /// <summary>
+        /// The creation date of the disk.
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
+        /// When backed by a blob, the name of the VHD blob without extension.
+        /// </summary>
+        public readonly string? DiskBlobName;
+        /// <summary>
+        /// The size of the disk in GibiBytes.
+        /// </summary>
+        public readonly int? DiskSizeGiB;
+        /// <summary>
+        /// The storage type for the disk (i.e. Standard, Premium).
+        /// </summary>
+        public readonly string? DiskType;
+        /// <summary>
+        /// When backed by a blob, the URI of underlying blob.
+        /// </summary>
+        public readonly string? DiskUri;
+        /// <summary>
+        /// The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
+        /// </summary>
+        public readonly string? HostCaching;
+        /// <summary>
+        /// The resource ID of the VM to which this disk is leased.
+        /// </summary>
+        public readonly string? LeasedByLabVmId;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// When backed by managed disk, this is the ID of the compute disk resource.
+        /// </summary>
+        public readonly string? ManagedDiskId;
         /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        public readonly Outputs.DiskPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -71,24 +103,55 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string UniqueIdentifier;
 
         [OutputConstructor]
         private GetDiskResult(
+            string createdDate,
+
+            string? diskBlobName,
+
+            int? diskSizeGiB,
+
+            string? diskType,
+
+            string? diskUri,
+
+            string? hostCaching,
+
+            string? leasedByLabVmId,
+
             string? location,
+
+            string? managedDiskId,
 
             string name,
 
-            Outputs.DiskPropertiesResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string uniqueIdentifier)
         {
+            CreatedDate = createdDate;
+            DiskBlobName = diskBlobName;
+            DiskSizeGiB = diskSizeGiB;
+            DiskType = diskType;
+            DiskUri = diskUri;
+            HostCaching = hostCaching;
+            LeasedByLabVmId = leasedByLabVmId;
             Location = location;
+            ManagedDiskId = managedDiskId;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
         }
     }
 }

@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
     public partial class Topic : Pulumi.CustomResource
     {
         /// <summary>
+        /// Endpoint for the topic.
+        /// </summary>
+        [Output("endpoint")]
+        public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+        /// </summary>
+        [Output("inboundIpRules")]
+        public Output<ImmutableArray<Outputs.InboundIpRuleResponseResult>> InboundIpRules { get; private set; } = null!;
+
+        /// <summary>
+        /// This determines the format that Event Grid should expect for incoming events published to the topic.
+        /// </summary>
+        [Output("inputSchema")]
+        public Output<string?> InputSchema { get; private set; } = null!;
+
+        /// <summary>
+        /// This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
+        /// </summary>
+        [Output("inputSchemaMapping")]
+        public Output<Outputs.InputSchemaMappingResponseResult?> InputSchemaMapping { get; private set; } = null!;
+
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Metric resource id for the topic.
+        /// </summary>
+        [Output("metricResourceId")]
+        public Output<string> MetricResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the resource.
@@ -26,11 +56,21 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+
         /// <summary>
-        /// Properties of the topic.
+        /// Provisioning state of the topic.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.TopicPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled. 
+        /// You can further restrict to specific IPs by configuring &lt;seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" /&gt;
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Tags of the resource.

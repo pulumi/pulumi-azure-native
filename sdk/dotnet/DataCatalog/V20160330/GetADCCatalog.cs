@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.DataCatalog.V20160330
     public sealed class GetADCCatalogResult
     {
         /// <summary>
+        /// Azure data catalog admin list.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrincipalsResponseResult> Admins;
+        /// <summary>
+        /// Automatic unit adjustment enabled or not.
+        /// </summary>
+        public readonly bool? EnableAutomaticUnitAdjustment;
+        /// <summary>
         /// Resource etag
         /// </summary>
         public readonly string? Etag;
@@ -52,9 +60,13 @@ namespace Pulumi.AzureRM.DataCatalog.V20160330
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Azure Data Catalog properties.
+        /// Azure data catalog SKU.
         /// </summary>
-        public readonly Outputs.ADCCatalogPropertiesResponseResult Properties;
+        public readonly string? Sku;
+        /// <summary>
+        /// Azure data catalog provision status.
+        /// </summary>
+        public readonly bool? SuccessfullyProvisioned;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -63,27 +75,50 @@ namespace Pulumi.AzureRM.DataCatalog.V20160330
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Azure data catalog units.
+        /// </summary>
+        public readonly int? Units;
+        /// <summary>
+        /// Azure data catalog user list.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrincipalsResponseResult> Users;
 
         [OutputConstructor]
         private GetADCCatalogResult(
+            ImmutableArray<Outputs.PrincipalsResponseResult> admins,
+
+            bool? enableAutomaticUnitAdjustment,
+
             string? etag,
 
             string? location,
 
             string name,
 
-            Outputs.ADCCatalogPropertiesResponseResult properties,
+            string? sku,
+
+            bool? successfullyProvisioned,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            int? units,
+
+            ImmutableArray<Outputs.PrincipalsResponseResult> users)
         {
+            Admins = admins;
+            EnableAutomaticUnitAdjustment = enableAutomaticUnitAdjustment;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            Sku = sku;
+            SuccessfullyProvisioned = successfullyProvisioned;
             Tags = tags;
             Type = type;
+            Units = units;
+            Users = users;
         }
     }
 }

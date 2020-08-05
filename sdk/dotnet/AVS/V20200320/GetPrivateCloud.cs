@@ -40,17 +40,57 @@ namespace Pulumi.AzureRM.AVS.V20200320
     public sealed class GetPrivateCloudResult
     {
         /// <summary>
+        /// An ExpressRoute Circuit
+        /// </summary>
+        public readonly Outputs.CircuitResponseResult? Circuit;
+        /// <summary>
+        /// The endpoints
+        /// </summary>
+        public readonly Outputs.EndpointsResponseResult Endpoints;
+        /// <summary>
+        /// vCenter Single Sign On Identity Sources
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IdentitySourceResponseResult> IdentitySources;
+        /// <summary>
+        /// Connectivity to internet is enabled or disabled
+        /// </summary>
+        public readonly string? Internet;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The default cluster used for management
+        /// </summary>
+        public readonly Outputs.ManagementClusterResponseResult ManagementCluster;
+        /// <summary>
+        /// Network used to access vCenter Server and NSX-T Manager
+        /// </summary>
+        public readonly string ManagementNetwork;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of a private cloud resource
+        /// The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
         /// </summary>
-        public readonly Outputs.PrivateCloudPropertiesResponseResult Properties;
+        public readonly string NetworkBlock;
+        /// <summary>
+        /// Thumbprint of the NSX-T Manager SSL certificate
+        /// </summary>
+        public readonly string NsxtCertificateThumbprint;
+        /// <summary>
+        /// Optionally, set the NSX-T Manager password when the private cloud is created
+        /// </summary>
+        public readonly string? NsxtPassword;
+        /// <summary>
+        /// Used for virtual machine cold migration, cloning, and snapshot migration
+        /// </summary>
+        public readonly string ProvisioningNetwork;
+        /// <summary>
+        /// The provisioning state
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The private cloud SKU
         /// </summary>
@@ -63,27 +103,78 @@ namespace Pulumi.AzureRM.AVS.V20200320
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Thumbprint of the vCenter Server SSL certificate
+        /// </summary>
+        public readonly string VcenterCertificateThumbprint;
+        /// <summary>
+        /// Optionally, set the vCenter admin password when the private cloud is created
+        /// </summary>
+        public readonly string? VcenterPassword;
+        /// <summary>
+        /// Used for live migration of virtual machines
+        /// </summary>
+        public readonly string VmotionNetwork;
 
         [OutputConstructor]
         private GetPrivateCloudResult(
+            Outputs.CircuitResponseResult? circuit,
+
+            Outputs.EndpointsResponseResult endpoints,
+
+            ImmutableArray<Outputs.IdentitySourceResponseResult> identitySources,
+
+            string? internet,
+
             string location,
+
+            Outputs.ManagementClusterResponseResult managementCluster,
+
+            string managementNetwork,
 
             string name,
 
-            Outputs.PrivateCloudPropertiesResponseResult properties,
+            string networkBlock,
+
+            string nsxtCertificateThumbprint,
+
+            string? nsxtPassword,
+
+            string provisioningNetwork,
+
+            string provisioningState,
 
             Outputs.SkuResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string vcenterCertificateThumbprint,
+
+            string? vcenterPassword,
+
+            string vmotionNetwork)
         {
+            Circuit = circuit;
+            Endpoints = endpoints;
+            IdentitySources = identitySources;
+            Internet = internet;
             Location = location;
+            ManagementCluster = managementCluster;
+            ManagementNetwork = managementNetwork;
             Name = name;
-            Properties = properties;
+            NetworkBlock = networkBlock;
+            NsxtCertificateThumbprint = nsxtCertificateThumbprint;
+            NsxtPassword = nsxtPassword;
+            ProvisioningNetwork = provisioningNetwork;
+            ProvisioningState = provisioningState;
             Sku = sku;
             Tags = tags;
             Type = type;
+            VcenterCertificateThumbprint = vcenterCertificateThumbprint;
+            VcenterPassword = vcenterPassword;
+            VmotionNetwork = vmotionNetwork;
         }
     }
 }

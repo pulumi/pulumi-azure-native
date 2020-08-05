@@ -34,29 +34,100 @@ namespace Pulumi.AzureRM.Security.V20200101
     public sealed class GetAssessmentMetadataInSubscriptionResult
     {
         /// <summary>
+        /// BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+        /// </summary>
+        public readonly string AssessmentType;
+        public readonly ImmutableArray<string> Category;
+        /// <summary>
+        /// Human readable description of the assessment
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// User friendly display name of the assessment
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
+        /// The implementation effort required to remediate this assessment
+        /// </summary>
+        public readonly string? ImplementationEffort;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes properties of an assessment metadata.
+        /// Describes the partner that created the assessment
         /// </summary>
-        public readonly Outputs.SecurityAssessmentMetadataPropertiesResponseResult Properties;
+        public readonly Outputs.SecurityAssessmentMetadataPartnerDataResponseResult? PartnerData;
+        /// <summary>
+        /// Azure resource ID of the policy definition that turns this assessment calculation on
+        /// </summary>
+        public readonly string PolicyDefinitionId;
+        /// <summary>
+        /// True if this assessment is in preview release status
+        /// </summary>
+        public readonly bool? Preview;
+        /// <summary>
+        /// Human readable description of what you should do to mitigate this security issue
+        /// </summary>
+        public readonly string? RemediationDescription;
+        /// <summary>
+        /// The severity level of the assessment
+        /// </summary>
+        public readonly string Severity;
+        public readonly ImmutableArray<string> Threats;
         /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The user impact of the assessment
+        /// </summary>
+        public readonly string? UserImpact;
 
         [OutputConstructor]
         private GetAssessmentMetadataInSubscriptionResult(
+            string assessmentType,
+
+            ImmutableArray<string> category,
+
+            string? description,
+
+            string displayName,
+
+            string? implementationEffort,
+
             string name,
 
-            Outputs.SecurityAssessmentMetadataPropertiesResponseResult properties,
+            Outputs.SecurityAssessmentMetadataPartnerDataResponseResult? partnerData,
 
-            string type)
+            string policyDefinitionId,
+
+            bool? preview,
+
+            string? remediationDescription,
+
+            string severity,
+
+            ImmutableArray<string> threats,
+
+            string type,
+
+            string? userImpact)
         {
+            AssessmentType = assessmentType;
+            Category = category;
+            Description = description;
+            DisplayName = displayName;
+            ImplementationEffort = implementationEffort;
             Name = name;
-            Properties = properties;
+            PartnerData = partnerData;
+            PolicyDefinitionId = policyDefinitionId;
+            Preview = preview;
+            RemediationDescription = remediationDescription;
+            Severity = severity;
+            Threats = threats;
             Type = type;
+            UserImpact = userImpact;
         }
     }
 }

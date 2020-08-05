@@ -15,10 +15,28 @@ namespace Pulumi.AzureRM.Network.V20180201
     public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>
+        /// The DNS settings of the Traffic Manager profile.
+        /// </summary>
+        [Output("dnsConfig")]
+        public Output<Outputs.DnsConfigResponseResult?> DnsConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of endpoints in the Traffic Manager profile.
+        /// </summary>
+        [Output("endpoints")]
+        public Output<ImmutableArray<Outputs.EndpointResponseResult>> Endpoints { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The endpoint monitoring settings of the Traffic Manager profile.
+        /// </summary>
+        [Output("monitorConfig")]
+        public Output<Outputs.MonitorConfigResponseResult?> MonitorConfig { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -27,16 +45,28 @@ namespace Pulumi.AzureRM.Network.V20180201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the Traffic Manager profile.
+        /// The status of the Traffic Manager profile.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ProfilePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("profileStatus")]
+        public Output<string?> ProfileStatus { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The traffic routing method of the Traffic Manager profile.
+        /// </summary>
+        [Output("trafficRoutingMethod")]
+        public Output<string?> TrafficRoutingMethod { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
+        /// </summary>
+        [Output("trafficViewEnrollmentStatus")]
+        public Output<string?> TrafficViewEnrollmentStatus { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.

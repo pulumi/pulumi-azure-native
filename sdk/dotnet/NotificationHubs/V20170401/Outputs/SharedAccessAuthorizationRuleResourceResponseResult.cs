@@ -14,21 +14,53 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401.Outputs
     public sealed class SharedAccessAuthorizationRuleResourceResponseResult
     {
         /// <summary>
+        /// A string that describes the claim type
+        /// </summary>
+        public readonly string ClaimType;
+        /// <summary>
+        /// A string that describes the claim value
+        /// </summary>
+        public readonly string ClaimValue;
+        /// <summary>
+        /// The created time for this rule
+        /// </summary>
+        public readonly string CreatedTime;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A string that describes the authorization rule.
+        /// </summary>
+        public readonly string KeyName;
         /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// The last modified time for this rule
+        /// </summary>
+        public readonly string ModifiedTime;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Namespace AuthorizationRule.
+        /// A base64-encoded 256-bit primary key for signing and validating the SAS token.
         /// </summary>
-        public readonly Outputs.SharedAccessAuthorizationRulePropertiesResponseResult? Properties;
+        public readonly string PrimaryKey;
+        /// <summary>
+        /// The revision number for the rule
+        /// </summary>
+        public readonly int Revision;
+        /// <summary>
+        /// The rights associated with the rule.
+        /// </summary>
+        public readonly ImmutableArray<string> Rights;
+        /// <summary>
+        /// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+        /// </summary>
+        public readonly string SecondaryKey;
         /// <summary>
         /// The sku of the created namespace
         /// </summary>
@@ -44,13 +76,29 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401.Outputs
 
         [OutputConstructor]
         private SharedAccessAuthorizationRuleResourceResponseResult(
+            string claimType,
+
+            string claimValue,
+
+            string createdTime,
+
             string id,
+
+            string keyName,
 
             string? location,
 
+            string modifiedTime,
+
             string name,
 
-            Outputs.SharedAccessAuthorizationRulePropertiesResponseResult? properties,
+            string primaryKey,
+
+            int revision,
+
+            ImmutableArray<string> rights,
+
+            string secondaryKey,
 
             Outputs.SkuResponseResult? sku,
 
@@ -58,10 +106,18 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401.Outputs
 
             string type)
         {
+            ClaimType = claimType;
+            ClaimValue = claimValue;
+            CreatedTime = createdTime;
             Id = id;
+            KeyName = keyName;
             Location = location;
+            ModifiedTime = modifiedTime;
             Name = name;
-            Properties = properties;
+            PrimaryKey = primaryKey;
+            Revision = revision;
+            Rights = rights;
+            SecondaryKey = secondaryKey;
             Sku = sku;
             Tags = tags;
             Type = type;

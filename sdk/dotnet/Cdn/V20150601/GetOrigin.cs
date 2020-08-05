@@ -52,10 +52,29 @@ namespace Pulumi.AzureRM.Cdn.V20150601
     public sealed class GetOriginResult
     {
         /// <summary>
+        /// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+        /// </summary>
+        public readonly string HostName;
+        /// <summary>
+        /// The value of the HTTP port. Must be between 1 and 65535.
+        /// </summary>
+        public readonly int? HttpPort;
+        /// <summary>
+        /// The value of the https port. Must be between 1 and 65535.
+        /// </summary>
+        public readonly int? HttpsPort;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.OriginPropertiesResponseResult Properties;
+        /// <summary>
+        /// Provisioning status of the origin.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Resource status of the origin.
+        /// </summary>
+        public readonly string ResourceState;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -63,14 +82,26 @@ namespace Pulumi.AzureRM.Cdn.V20150601
 
         [OutputConstructor]
         private GetOriginResult(
+            string hostName,
+
+            int? httpPort,
+
+            int? httpsPort,
+
             string name,
 
-            Outputs.OriginPropertiesResponseResult properties,
+            string? provisioningState,
+
+            string resourceState,
 
             string type)
         {
+            HostName = hostName;
+            HttpPort = httpPort;
+            HttpsPort = httpsPort;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceState = resourceState;
             Type = type;
         }
     }

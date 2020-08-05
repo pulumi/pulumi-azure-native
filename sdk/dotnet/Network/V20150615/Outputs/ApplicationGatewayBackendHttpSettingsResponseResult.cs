@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20150615.Outputs
     public sealed class ApplicationGatewayBackendHttpSettingsResponseResult
     {
         /// <summary>
+        /// Cookie based affinity. Possible values are: 'Enabled' and 'Disabled'.
+        /// </summary>
+        public readonly string? CookieBasedAffinity;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -26,24 +30,55 @@ namespace Pulumi.AzureRM.Network.V20150615.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of Backend address pool settings of an application gateway.
+        /// Port
         /// </summary>
-        public readonly Outputs.ApplicationGatewayBackendHttpSettingsPropertiesFormatResponseResult? Properties;
+        public readonly int? Port;
+        /// <summary>
+        /// Probe resource of an application gateway.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? Probe;
+        /// <summary>
+        /// Protocol. Possible values are: 'Http' and 'Https'.
+        /// </summary>
+        public readonly string? Protocol;
+        /// <summary>
+        /// Gets or sets Provisioning state of the backend http settings resource Updating/Deleting/Failed
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
+        /// </summary>
+        public readonly int? RequestTimeout;
 
         [OutputConstructor]
         private ApplicationGatewayBackendHttpSettingsResponseResult(
+            string? cookieBasedAffinity,
+
             string? etag,
 
             string? id,
 
             string? name,
 
-            Outputs.ApplicationGatewayBackendHttpSettingsPropertiesFormatResponseResult? properties)
+            int? port,
+
+            Outputs.SubResourceResponseResult? probe,
+
+            string? protocol,
+
+            string? provisioningState,
+
+            int? requestTimeout)
         {
+            CookieBasedAffinity = cookieBasedAffinity;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            Port = port;
+            Probe = probe;
+            Protocol = protocol;
+            ProvisioningState = provisioningState;
+            RequestTimeout = requestTimeout;
         }
     }
 }

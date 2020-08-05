@@ -46,6 +46,26 @@ namespace Pulumi.AzureRM.Cdn.V20160402
     public sealed class GetEndpointResult
     {
         /// <summary>
+        /// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+        /// </summary>
+        public readonly ImmutableArray<string> ContentTypesToCompress;
+        /// <summary>
+        /// The host name of the endpoint {endpointName}.{DNSZone}
+        /// </summary>
+        public readonly string HostName;
+        /// <summary>
+        /// Indicates whether the compression is enabled. Default value is false. If compression is enabled, the content transferred from cdn endpoint to end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
+        /// </summary>
+        public readonly bool? IsCompressionEnabled;
+        /// <summary>
+        /// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        /// </summary>
+        public readonly bool? IsHttpAllowed;
+        /// <summary>
+        /// Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        /// </summary>
+        public readonly bool? IsHttpsAllowed;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -53,7 +73,30 @@ namespace Pulumi.AzureRM.Cdn.V20160402
         /// Resource name
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.EndpointPropertiesResponseResult Properties;
+        /// <summary>
+        /// The host header the CDN provider will send along with content requests to origins. The default value is the host name of the origin.
+        /// </summary>
+        public readonly string? OriginHostHeader;
+        /// <summary>
+        /// The path used for origin requests.
+        /// </summary>
+        public readonly string? OriginPath;
+        /// <summary>
+        /// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DeepCreatedOriginResponseResult> Origins;
+        /// <summary>
+        /// Provisioning status of the endpoint.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Defines the query string caching behavior.
+        /// </summary>
+        public readonly string? QueryStringCachingBehavior;
+        /// <summary>
+        /// Resource status of the endpoint.
+        /// </summary>
+        public readonly string ResourceState;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -65,19 +108,49 @@ namespace Pulumi.AzureRM.Cdn.V20160402
 
         [OutputConstructor]
         private GetEndpointResult(
+            ImmutableArray<string> contentTypesToCompress,
+
+            string hostName,
+
+            bool? isCompressionEnabled,
+
+            bool? isHttpAllowed,
+
+            bool? isHttpsAllowed,
+
             string location,
 
             string name,
 
-            Outputs.EndpointPropertiesResponseResult properties,
+            string? originHostHeader,
+
+            string? originPath,
+
+            ImmutableArray<Outputs.DeepCreatedOriginResponseResult> origins,
+
+            string? provisioningState,
+
+            string? queryStringCachingBehavior,
+
+            string resourceState,
 
             ImmutableDictionary<string, string> tags,
 
             string type)
         {
+            ContentTypesToCompress = contentTypesToCompress;
+            HostName = hostName;
+            IsCompressionEnabled = isCompressionEnabled;
+            IsHttpAllowed = isHttpAllowed;
+            IsHttpsAllowed = isHttpsAllowed;
             Location = location;
             Name = name;
-            Properties = properties;
+            OriginHostHeader = originHostHeader;
+            OriginPath = originPath;
+            Origins = origins;
+            ProvisioningState = provisioningState;
+            QueryStringCachingBehavior = queryStringCachingBehavior;
+            ResourceState = resourceState;
             Tags = tags;
             Type = type;
         }

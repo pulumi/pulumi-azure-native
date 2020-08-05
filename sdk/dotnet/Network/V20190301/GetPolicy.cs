@@ -40,21 +40,38 @@ namespace Pulumi.AzureRM.Network.V20190301
     public sealed class GetPolicyResult
     {
         /// <summary>
+        /// Describes custom rules inside the policy.
+        /// </summary>
+        public readonly Outputs.CustomRuleListResponseResult? CustomRules;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Describes Frontend Endpoints associated with this Web Application Firewall policy.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FrontendEndpointLinkResponseResult> FrontendEndpointLinks;
         /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// Describes managed rules inside the policy.
+        /// </summary>
+        public readonly Outputs.ManagedRuleSetListResponseResult? ManagedRules;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the web application firewall policy.
+        /// Describes settings for the policy.
         /// </summary>
-        public readonly Outputs.WebApplicationFirewallPolicyPropertiesResponseResult Properties;
+        public readonly Outputs.PolicySettingsResponseResult? PolicySettings;
+        /// <summary>
+        /// Provisioning state of the policy.
+        /// </summary>
+        public readonly string ProvisioningState;
+        public readonly string ResourceState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,22 +83,37 @@ namespace Pulumi.AzureRM.Network.V20190301
 
         [OutputConstructor]
         private GetPolicyResult(
+            Outputs.CustomRuleListResponseResult? customRules,
+
             string? etag,
+
+            ImmutableArray<Outputs.FrontendEndpointLinkResponseResult> frontendEndpointLinks,
 
             string? location,
 
+            Outputs.ManagedRuleSetListResponseResult? managedRules,
+
             string name,
 
-            Outputs.WebApplicationFirewallPolicyPropertiesResponseResult properties,
+            Outputs.PolicySettingsResponseResult? policySettings,
+
+            string provisioningState,
+
+            string resourceState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            CustomRules = customRules;
             Etag = etag;
+            FrontendEndpointLinks = frontendEndpointLinks;
             Location = location;
+            ManagedRules = managedRules;
             Name = name;
-            Properties = properties;
+            PolicySettings = policySettings;
+            ProvisioningState = provisioningState;
+            ResourceState = resourceState;
             Tags = tags;
             Type = type;
         }

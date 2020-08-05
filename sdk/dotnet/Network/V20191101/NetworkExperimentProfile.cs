@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Network.V20191101
     public partial class NetworkExperimentProfile : Pulumi.CustomResource
     {
         /// <summary>
+        /// The state of the Experiment
+        /// </summary>
+        [Output("enabledState")]
+        public Output<string?> EnabledState { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -33,10 +39,10 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of a Profile
+        /// Resource status.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ProfilePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("resourceState")]
+        public Output<string?> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

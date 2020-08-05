@@ -15,22 +15,76 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190301
     public partial class Share : Pulumi.CustomResource
     {
         /// <summary>
+        /// Access protocol to be used by the share.
+        /// </summary>
+        [Output("accessProtocol")]
+        public Output<string> AccessProtocol { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure container mapping for the share.
+        /// </summary>
+        [Output("azureContainerInfo")]
+        public Output<Outputs.AzureContainerInfoResponseResult?> AzureContainerInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// List of IP addresses and corresponding access rights on the share(required for NFS protocol).
+        /// </summary>
+        [Output("clientAccessRights")]
+        public Output<ImmutableArray<Outputs.ClientAccessRightResponseResult>> ClientAccessRights { get; private set; } = null!;
+
+        /// <summary>
+        /// Data policy of the share.
+        /// </summary>
+        [Output("dataPolicy")]
+        public Output<string?> DataPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Description for the share.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Current monitoring status of the share.
+        /// </summary>
+        [Output("monitoringStatus")]
+        public Output<string> MonitoringStatus { get; private set; } = null!;
+
+        /// <summary>
         /// The object name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The share properties.
+        /// Details of the refresh job on this share.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SharePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("refreshDetails")]
+        public Output<Outputs.RefreshDetailsResponseResult?> RefreshDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// Share mount point to the role.
+        /// </summary>
+        [Output("shareMappings")]
+        public Output<ImmutableArray<Outputs.MountPointMapResponseResult>> ShareMappings { get; private set; } = null!;
+
+        /// <summary>
+        /// Current status of the share.
+        /// </summary>
+        [Output("shareStatus")]
+        public Output<string> ShareStatus { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Mapping of users and corresponding access rights on the share (required for SMB protocol).
+        /// </summary>
+        [Output("userAccessRights")]
+        public Output<ImmutableArray<Outputs.UserAccessRightResponseResult>> UserAccessRights { get; private set; } = null!;
 
 
         /// <summary>

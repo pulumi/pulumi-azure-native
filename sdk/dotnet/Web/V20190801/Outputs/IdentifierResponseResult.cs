@@ -26,13 +26,13 @@ namespace Pulumi.AzureRM.Web.V20190801.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Identifier resource specific properties
-        /// </summary>
-        public readonly Outputs.IdentifierResponsePropertiesResult? Properties;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// String representation of the identity.
+        /// </summary>
+        public readonly string? Value;
 
         [OutputConstructor]
         private IdentifierResponseResult(
@@ -42,15 +42,15 @@ namespace Pulumi.AzureRM.Web.V20190801.Outputs
 
             string name,
 
-            Outputs.IdentifierResponsePropertiesResult? properties,
+            string type,
 
-            string type)
+            string? value)
         {
             Id = id;
             Kind = kind;
             Name = name;
-            Properties = properties;
             Type = type;
+            Value = value;
         }
     }
 }

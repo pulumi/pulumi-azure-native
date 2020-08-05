@@ -15,16 +15,118 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public partial class Api : Pulumi.CustomResource
     {
         /// <summary>
+        /// Describes the Revision of the Api. If no value is provided, default revision 1 is created
+        /// </summary>
+        [Output("apiRevision")]
+        public Output<string?> ApiRevision { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of the Api Revision.
+        /// </summary>
+        [Output("apiRevisionDescription")]
+        public Output<string?> ApiRevisionDescription { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of API.
+        /// </summary>
+        [Output("apiType")]
+        public Output<string?> ApiType { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the Version identifier of the API if the API is versioned
+        /// </summary>
+        [Output("apiVersion")]
+        public Output<string?> ApiVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of the Api Version.
+        /// </summary>
+        [Output("apiVersionDescription")]
+        public Output<string?> ApiVersionDescription { get; private set; } = null!;
+
+        /// <summary>
+        /// Version set details
+        /// </summary>
+        [Output("apiVersionSet")]
+        public Output<Outputs.ApiVersionSetContractDetailsResponseResult?> ApiVersionSet { get; private set; } = null!;
+
+        /// <summary>
+        /// A resource identifier for the related ApiVersionSet.
+        /// </summary>
+        [Output("apiVersionSetId")]
+        public Output<string?> ApiVersionSetId { get; private set; } = null!;
+
+        /// <summary>
+        /// Collection of authentication settings included into this API.
+        /// </summary>
+        [Output("authenticationSettings")]
+        public Output<Outputs.AuthenticationSettingsContractResponseResult?> AuthenticationSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of the API. May include HTML formatting tags.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// API name. Must be 1 to 300 characters long.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates if API revision is current api revision.
+        /// </summary>
+        [Output("isCurrent")]
+        public Output<bool?> IsCurrent { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates if API revision is accessible via the gateway.
+        /// </summary>
+        [Output("isOnline")]
+        public Output<bool> IsOnline { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Api entity contract properties.
+        /// Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApiContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("path")]
+        public Output<string> Path { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes on which protocols the operations in this API can be invoked.
+        /// </summary>
+        [Output("protocols")]
+        public Output<ImmutableArray<string>> Protocols { get; private set; } = null!;
+
+        /// <summary>
+        /// Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
+        /// </summary>
+        [Output("serviceUrl")]
+        public Output<string?> ServiceUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// API identifier of the source API.
+        /// </summary>
+        [Output("sourceApiId")]
+        public Output<string?> SourceApiId { get; private set; } = null!;
+
+        /// <summary>
+        /// Protocols over which API is made available.
+        /// </summary>
+        [Output("subscriptionKeyParameterNames")]
+        public Output<Outputs.SubscriptionKeyParameterNamesContractResponseResult?> SubscriptionKeyParameterNames { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether an API or Product subscription is required for accessing the API.
+        /// </summary>
+        [Output("subscriptionRequired")]
+        public Output<bool?> SubscriptionRequired { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

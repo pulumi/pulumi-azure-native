@@ -40,6 +40,26 @@ namespace Pulumi.AzureRM.ContainerInstance.V20180601
     public sealed class GetContainerGroupResult
     {
         /// <summary>
+        /// The containers within the container group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ContainerResponseResult> Containers;
+        /// <summary>
+        /// The diagnostic information for a container group.
+        /// </summary>
+        public readonly Outputs.ContainerGroupDiagnosticsResponseResult? Diagnostics;
+        /// <summary>
+        /// The image registry credentials by which the container group is created from.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ImageRegistryCredentialResponseResult> ImageRegistryCredentials;
+        /// <summary>
+        /// The instance view of the container group. Only valid in response.
+        /// </summary>
+        public readonly Outputs.ContainerGroupResponseInstanceViewResult InstanceView;
+        /// <summary>
+        /// The IP address type of the container group.
+        /// </summary>
+        public readonly Outputs.IpAddressResponseResult? IpAddress;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -47,7 +67,21 @@ namespace Pulumi.AzureRM.ContainerInstance.V20180601
         /// The resource name.
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.ContainerGroupResponsePropertiesResult Properties;
+        /// <summary>
+        /// The operating system type required by the containers in the container group.
+        /// </summary>
+        public readonly string OsType;
+        /// <summary>
+        /// The provisioning state of the container group. This only appears in the response.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Restart policy for all containers within the container group. 
+        /// - `Always` Always restart
+        /// - `OnFailure` Restart on failure
+        /// - `Never` Never restart
+        /// </summary>
+        public readonly string? RestartPolicy;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -56,24 +90,52 @@ namespace Pulumi.AzureRM.ContainerInstance.V20180601
         /// The resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The list of volumes that can be mounted by containers in this container group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VolumeResponseResult> Volumes;
 
         [OutputConstructor]
         private GetContainerGroupResult(
+            ImmutableArray<Outputs.ContainerResponseResult> containers,
+
+            Outputs.ContainerGroupDiagnosticsResponseResult? diagnostics,
+
+            ImmutableArray<Outputs.ImageRegistryCredentialResponseResult> imageRegistryCredentials,
+
+            Outputs.ContainerGroupResponseInstanceViewResult instanceView,
+
+            Outputs.IpAddressResponseResult? ipAddress,
+
             string? location,
 
             string name,
 
-            Outputs.ContainerGroupResponsePropertiesResult properties,
+            string osType,
+
+            string provisioningState,
+
+            string? restartPolicy,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.VolumeResponseResult> volumes)
         {
+            Containers = containers;
+            Diagnostics = diagnostics;
+            ImageRegistryCredentials = imageRegistryCredentials;
+            InstanceView = instanceView;
+            IpAddress = ipAddress;
             Location = location;
             Name = name;
-            Properties = properties;
+            OsType = osType;
+            ProvisioningState = provisioningState;
+            RestartPolicy = restartPolicy;
             Tags = tags;
             Type = type;
+            Volumes = volumes;
         }
     }
 }

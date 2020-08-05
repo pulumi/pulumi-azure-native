@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.Sql.V20140401
     public partial class Server : Pulumi.CustomResource
     {
         /// <summary>
+        /// Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
+        /// </summary>
+        [Output("administratorLogin")]
+        public Output<string?> AdministratorLogin { get; private set; } = null!;
+
+        /// <summary>
+        /// The administrator login password (required for server creation).
+        /// </summary>
+        [Output("administratorLoginPassword")]
+        public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// The display name of the Azure Active Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators
+        /// </summary>
+        [Output("externalAdministratorLogin")]
+        public Output<string> ExternalAdministratorLogin { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Active Azure Directory object with admin permissions on this server. Legacy parameter, always null. To check for Active Directory admin, query .../servers/{serverName}/administrators.
+        /// </summary>
+        [Output("externalAdministratorSid")]
+        public Output<string> ExternalAdministratorSid { get; private set; } = null!;
+
+        /// <summary>
+        /// The fully qualified domain name of the server.
+        /// </summary>
+        [Output("fullyQualifiedDomainName")]
+        public Output<string> FullyQualifiedDomainName { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of sql server.  This is metadata used for the Azure portal experience.
         /// </summary>
         [Output("kind")]
@@ -33,10 +63,10 @@ namespace Pulumi.AzureRM.Sql.V20140401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Represents the properties of the resource.
+        /// The state of the server.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ServerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +79,12 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of the server.
+        /// </summary>
+        [Output("version")]
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>

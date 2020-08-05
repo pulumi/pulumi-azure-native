@@ -15,6 +15,30 @@ namespace Pulumi.AzureRM.Kusto.V20200614
     public partial class AttachedDatabaseConfiguration : Pulumi.CustomResource
     {
         /// <summary>
+        /// The list of databases from the clusterResourceId which are currently attached to the cluster.
+        /// </summary>
+        [Output("attachedDatabaseNames")]
+        public Output<ImmutableArray<string>> AttachedDatabaseNames { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource id of the cluster where the databases you would like to attach reside.
+        /// </summary>
+        [Output("clusterResourceId")]
+        public Output<string> ClusterResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the database which you would like to attach, use * if you want to follow all current and future databases.
+        /// </summary>
+        [Output("databaseName")]
+        public Output<string> DatabaseName { get; private set; } = null!;
+
+        /// <summary>
+        /// The default principals modification kind
+        /// </summary>
+        [Output("defaultPrincipalsModificationKind")]
+        public Output<string> DefaultPrincipalsModificationKind { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -27,10 +51,10 @@ namespace Pulumi.AzureRM.Kusto.V20200614
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the attached database configuration.
+        /// The provisioned state of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AttachedDatabaseConfigurationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

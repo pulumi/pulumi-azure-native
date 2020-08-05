@@ -40,21 +40,57 @@ namespace Pulumi.AzureRM.ContainerService.V20190430
     public sealed class GetOpenShiftManagedClusterResult
     {
         /// <summary>
+        /// Configuration of OpenShift cluster VMs.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OpenShiftManagedClusterAgentPoolProfileResponseResult> AgentPoolProfiles;
+        /// <summary>
+        /// Configures OpenShift authentication.
+        /// </summary>
+        public readonly Outputs.OpenShiftManagedClusterAuthProfileResponseResult? AuthProfile;
+        /// <summary>
+        /// Version of OpenShift specified when creating the cluster.
+        /// </summary>
+        public readonly string ClusterVersion;
+        /// <summary>
+        /// Service generated FQDN for OpenShift API server loadbalancer internal hostname.
+        /// </summary>
+        public readonly string Fqdn;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Configuration for OpenShift master VMs.
+        /// </summary>
+        public readonly Outputs.OpenShiftManagedClusterMasterPoolProfileResponseResult? MasterPoolProfile;
         /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Configuration for OpenShift networking.
+        /// </summary>
+        public readonly Outputs.NetworkProfileResponseResult? NetworkProfile;
+        /// <summary>
+        /// Version of OpenShift specified when creating the cluster.
+        /// </summary>
+        public readonly string OpenShiftVersion;
+        /// <summary>
         /// Define the resource plan as required by ARM for billing purposes
         /// </summary>
         public readonly Outputs.PurchasePlanResponseResult? Plan;
         /// <summary>
-        /// Properties of a OpenShift managed cluster.
+        /// The current deployment or provisioning state, which only appears in the response.
         /// </summary>
-        public readonly Outputs.OpenShiftManagedClusterPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Service generated FQDN for OpenShift API server.
+        /// </summary>
+        public readonly string PublicHostname;
+        /// <summary>
+        /// Configuration for OpenShift router(s).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OpenShiftRouterProfileResponseResult> RouterProfiles;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -66,22 +102,49 @@ namespace Pulumi.AzureRM.ContainerService.V20190430
 
         [OutputConstructor]
         private GetOpenShiftManagedClusterResult(
+            ImmutableArray<Outputs.OpenShiftManagedClusterAgentPoolProfileResponseResult> agentPoolProfiles,
+
+            Outputs.OpenShiftManagedClusterAuthProfileResponseResult? authProfile,
+
+            string clusterVersion,
+
+            string fqdn,
+
             string location,
+
+            Outputs.OpenShiftManagedClusterMasterPoolProfileResponseResult? masterPoolProfile,
 
             string name,
 
+            Outputs.NetworkProfileResponseResult? networkProfile,
+
+            string openShiftVersion,
+
             Outputs.PurchasePlanResponseResult? plan,
 
-            Outputs.OpenShiftManagedClusterPropertiesResponseResult properties,
+            string provisioningState,
+
+            string publicHostname,
+
+            ImmutableArray<Outputs.OpenShiftRouterProfileResponseResult> routerProfiles,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AgentPoolProfiles = agentPoolProfiles;
+            AuthProfile = authProfile;
+            ClusterVersion = clusterVersion;
+            Fqdn = fqdn;
             Location = location;
+            MasterPoolProfile = masterPoolProfile;
             Name = name;
+            NetworkProfile = networkProfile;
+            OpenShiftVersion = openShiftVersion;
             Plan = plan;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            PublicHostname = publicHostname;
+            RouterProfiles = routerProfiles;
             Tags = tags;
             Type = type;
         }

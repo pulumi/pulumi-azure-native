@@ -46,13 +46,17 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
     public sealed class GetFirewallRuleResult
     {
         /// <summary>
+        /// The end IP address of the server firewall rule. Must be IPv4 format.
+        /// </summary>
+        public readonly string EndIpAddress;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of a firewall rule.
+        /// The start IP address of the server firewall rule. Must be IPv4 format.
         /// </summary>
-        public readonly Outputs.FirewallRulePropertiesResponseResult Properties;
+        public readonly string StartIpAddress;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -60,14 +64,17 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
 
         [OutputConstructor]
         private GetFirewallRuleResult(
+            string endIpAddress,
+
             string name,
 
-            Outputs.FirewallRulePropertiesResponseResult properties,
+            string startIpAddress,
 
             string type)
         {
+            EndIpAddress = endIpAddress;
             Name = name;
-            Properties = properties;
+            StartIpAddress = startIpAddress;
             Type = type;
         }
     }

@@ -15,10 +15,46 @@ namespace Pulumi.AzureRM.Network.V20150615
     public partial class ApplicationGateway : Pulumi.CustomResource
     {
         /// <summary>
+        /// Backend address pool of the application gateway resource.
+        /// </summary>
+        [Output("backendAddressPools")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseResult>> BackendAddressPools { get; private set; } = null!;
+
+        /// <summary>
+        /// Backend http settings of the application gateway resource.
+        /// </summary>
+        [Output("backendHttpSettingsCollection")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponseResult>> BackendHttpSettingsCollection { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Frontend IP addresses of the application gateway resource.
+        /// </summary>
+        [Output("frontendIPConfigurations")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponseResult>> FrontendIPConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// Frontend ports of the application gateway resource.
+        /// </summary>
+        [Output("frontendPorts")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponseResult>> FrontendPorts { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets subnets of application gateway resource
+        /// </summary>
+        [Output("gatewayIPConfigurations")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponseResult>> GatewayIPConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// Http listeners of the application gateway resource.
+        /// </summary>
+        [Output("httpListeners")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponseResult>> HttpListeners { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +69,46 @@ namespace Pulumi.AzureRM.Network.V20150615
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the application gateway.
+        /// Operational state of the application gateway resource. Possible values are: 'Stopped', 'Started', 'Running', and 'Stopping'.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApplicationGatewayPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("operationalState")]
+        public Output<string> OperationalState { get; private set; } = null!;
+
+        /// <summary>
+        /// Probes of the application gateway resource.
+        /// </summary>
+        [Output("probes")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayProbeResponseResult>> Probes { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Request routing rules of the application gateway resource.
+        /// </summary>
+        [Output("requestRoutingRules")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponseResult>> RequestRoutingRules { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource GUID property of the application gateway resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// SKU of the application gateway resource.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.ApplicationGatewaySkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// SSL certificates of the application gateway resource.
+        /// </summary>
+        [Output("sslCertificates")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponseResult>> SslCertificates { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +121,12 @@ namespace Pulumi.AzureRM.Network.V20150615
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// URL path map of the application gateway resource.
+        /// </summary>
+        [Output("urlPathMaps")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayUrlPathMapResponseResult>> UrlPathMaps { get; private set; } = null!;
 
 
         /// <summary>

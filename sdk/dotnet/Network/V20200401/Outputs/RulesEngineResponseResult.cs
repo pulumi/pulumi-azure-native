@@ -22,9 +22,13 @@ namespace Pulumi.AzureRM.Network.V20200401.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Rules Engine Configuration.
+        /// Resource status.
         /// </summary>
-        public readonly Outputs.RulesEnginePropertiesResponseResult? Properties;
+        public readonly string? ResourceState;
+        /// <summary>
+        /// A list of rules that define a particular Rules Engine Configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RulesEngineRuleResponseResult> Rules;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -36,13 +40,16 @@ namespace Pulumi.AzureRM.Network.V20200401.Outputs
 
             string name,
 
-            Outputs.RulesEnginePropertiesResponseResult? properties,
+            string? resourceState,
+
+            ImmutableArray<Outputs.RulesEngineRuleResponseResult> rules,
 
             string type)
         {
             Id = id;
             Name = name;
-            Properties = properties;
+            ResourceState = resourceState;
+            Rules = rules;
             Type = type;
         }
     }

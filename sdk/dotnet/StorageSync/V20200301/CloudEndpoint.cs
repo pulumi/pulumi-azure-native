@@ -15,16 +15,64 @@ namespace Pulumi.AzureRM.StorageSync.V20200301
     public partial class CloudEndpoint : Pulumi.CustomResource
     {
         /// <summary>
+        /// Azure file share name
+        /// </summary>
+        [Output("azureFileShareName")]
+        public Output<string?> AzureFileShareName { get; private set; } = null!;
+
+        /// <summary>
+        /// Backup Enabled
+        /// </summary>
+        [Output("backupEnabled")]
+        public Output<string> BackupEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Friendly Name
+        /// </summary>
+        [Output("friendlyName")]
+        public Output<string?> FriendlyName { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource Last Operation Name
+        /// </summary>
+        [Output("lastOperationName")]
+        public Output<string?> LastOperationName { get; private set; } = null!;
+
+        /// <summary>
+        /// CloudEndpoint lastWorkflowId
+        /// </summary>
+        [Output("lastWorkflowId")]
+        public Output<string?> LastWorkflowId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Cloud Endpoint properties.
+        /// Partnership Id
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.CloudEndpointPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("partnershipId")]
+        public Output<string?> PartnershipId { get; private set; } = null!;
+
+        /// <summary>
+        /// CloudEndpoint Provisioning State
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Storage Account Resource Id
+        /// </summary>
+        [Output("storageAccountResourceId")]
+        public Output<string?> StorageAccountResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Storage Account Tenant Id
+        /// </summary>
+        [Output("storageAccountTenantId")]
+        public Output<string?> StorageAccountTenantId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

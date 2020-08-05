@@ -46,9 +46,21 @@ namespace Pulumi.AzureRM.Network.V20200401
     public sealed class GetFlowLogResult
     {
         /// <summary>
+        /// Flag to enable/disable flow logging.
+        /// </summary>
+        public readonly bool? Enabled;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// Parameters that define the configuration of traffic analytics.
+        /// </summary>
+        public readonly Outputs.TrafficAnalyticsPropertiesResponseResult? FlowAnalyticsConfiguration;
+        /// <summary>
+        /// Parameters that define the flow log format.
+        /// </summary>
+        public readonly Outputs.FlowLogFormatParametersResponseResult? Format;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -58,13 +70,29 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the flow log.
+        /// The provisioning state of the flow log.
         /// </summary>
-        public readonly Outputs.FlowLogPropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Parameters that define the retention policy for flow log.
+        /// </summary>
+        public readonly Outputs.RetentionPolicyParametersResponseResult? RetentionPolicy;
+        /// <summary>
+        /// ID of the storage account which is used to store the flow log.
+        /// </summary>
+        public readonly string StorageId;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Guid of network security group to which flow log will be applied.
+        /// </summary>
+        public readonly string TargetResourceGuid;
+        /// <summary>
+        /// ID of network security group to which flow log will be applied.
+        /// </summary>
+        public readonly string TargetResourceId;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -72,23 +100,44 @@ namespace Pulumi.AzureRM.Network.V20200401
 
         [OutputConstructor]
         private GetFlowLogResult(
+            bool? enabled,
+
             string etag,
+
+            Outputs.TrafficAnalyticsPropertiesResponseResult? flowAnalyticsConfiguration,
+
+            Outputs.FlowLogFormatParametersResponseResult? format,
 
             string? location,
 
             string name,
 
-            Outputs.FlowLogPropertiesFormatResponseResult properties,
+            string provisioningState,
+
+            Outputs.RetentionPolicyParametersResponseResult? retentionPolicy,
+
+            string storageId,
 
             ImmutableDictionary<string, string>? tags,
 
+            string targetResourceGuid,
+
+            string targetResourceId,
+
             string type)
         {
+            Enabled = enabled;
             Etag = etag;
+            FlowAnalyticsConfiguration = flowAnalyticsConfiguration;
+            Format = format;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RetentionPolicy = retentionPolicy;
+            StorageId = storageId;
             Tags = tags;
+            TargetResourceGuid = targetResourceGuid;
+            TargetResourceId = targetResourceId;
             Type = type;
         }
     }

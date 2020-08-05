@@ -46,6 +46,19 @@ namespace Pulumi.AzureRM.Web.V20160801
     public sealed class GetWebAppVnetConnectionSlotResult
     {
         /// <summary>
+        /// A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+        /// Point-To-Site VPN connection.
+        /// </summary>
+        public readonly string? CertBlob;
+        /// <summary>
+        /// The client certificate thumbprint.
+        /// </summary>
+        public readonly string CertThumbprint;
+        /// <summary>
+        /// DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+        /// </summary>
+        public readonly string? DnsServers;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -54,28 +67,51 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// VnetInfo resource specific properties
+        /// &lt;code&gt;true&lt;/code&gt; if a resync is required; otherwise, &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
-        public readonly Outputs.VnetInfoResponsePropertiesResult Properties;
+        public readonly bool ResyncRequired;
+        /// <summary>
+        /// The routes that this Virtual Network connection uses.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VnetRouteResponseResult> Routes;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The Virtual Network's resource ID.
+        /// </summary>
+        public readonly string? VnetResourceId;
 
         [OutputConstructor]
         private GetWebAppVnetConnectionSlotResult(
+            string? certBlob,
+
+            string certThumbprint,
+
+            string? dnsServers,
+
             string? kind,
 
             string name,
 
-            Outputs.VnetInfoResponsePropertiesResult properties,
+            bool resyncRequired,
 
-            string type)
+            ImmutableArray<Outputs.VnetRouteResponseResult> routes,
+
+            string type,
+
+            string? vnetResourceId)
         {
+            CertBlob = certBlob;
+            CertThumbprint = certThumbprint;
+            DnsServers = dnsServers;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            ResyncRequired = resyncRequired;
+            Routes = routes;
             Type = type;
+            VnetResourceId = vnetResourceId;
         }
     }
 }

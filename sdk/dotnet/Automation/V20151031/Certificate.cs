@@ -15,16 +15,46 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public partial class Certificate : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets the creation time.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the expiry time of the certificate.
+        /// </summary>
+        [Output("expiryTime")]
+        public Output<string> ExpiryTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the is exportable flag of the certificate.
+        /// </summary>
+        [Output("isExportable")]
+        public Output<bool> IsExportable { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the last modified time.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the properties of the certificate.
+        /// Gets the thumbprint of the certificate.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.CertificatePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("thumbprint")]
+        public Output<string> Thumbprint { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

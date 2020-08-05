@@ -40,6 +40,18 @@ namespace Pulumi.AzureRM.Network.V20160330
     public sealed class GetExpressRouteCircuitResult
     {
         /// <summary>
+        /// allow classic operations
+        /// </summary>
+        public readonly bool? AllowClassicOperations;
+        /// <summary>
+        /// Gets or sets list of authorizations
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponseResult> Authorizations;
+        /// <summary>
+        /// Gets or sets CircuitProvisioningState state of the resource 
+        /// </summary>
+        public readonly string? CircuitProvisioningState;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         public readonly string? Etag;
@@ -52,9 +64,29 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of ExpressRouteCircuit
+        /// Gets or sets list of peerings
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitPropertiesFormatResponseResult Properties;
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult> Peerings;
+        /// <summary>
+        /// Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets ServiceKey
+        /// </summary>
+        public readonly string? ServiceKey;
+        /// <summary>
+        /// Gets or sets ServiceProviderNotes
+        /// </summary>
+        public readonly string? ServiceProviderNotes;
+        /// <summary>
+        /// Gets or sets ServiceProviderProperties
+        /// </summary>
+        public readonly Outputs.ExpressRouteCircuitServiceProviderPropertiesResponseResult? ServiceProviderProperties;
+        /// <summary>
+        /// Gets or sets ServiceProviderProvisioningState state of the resource 
+        /// </summary>
+        public readonly string? ServiceProviderProvisioningState;
         /// <summary>
         /// Gets or sets sku
         /// </summary>
@@ -70,13 +102,29 @@ namespace Pulumi.AzureRM.Network.V20160330
 
         [OutputConstructor]
         private GetExpressRouteCircuitResult(
+            bool? allowClassicOperations,
+
+            ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponseResult> authorizations,
+
+            string? circuitProvisioningState,
+
             string? etag,
 
             string? location,
 
             string name,
 
-            Outputs.ExpressRouteCircuitPropertiesFormatResponseResult properties,
+            ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult> peerings,
+
+            string? provisioningState,
+
+            string? serviceKey,
+
+            string? serviceProviderNotes,
+
+            Outputs.ExpressRouteCircuitServiceProviderPropertiesResponseResult? serviceProviderProperties,
+
+            string? serviceProviderProvisioningState,
 
             Outputs.ExpressRouteCircuitSkuResponseResult? sku,
 
@@ -84,10 +132,18 @@ namespace Pulumi.AzureRM.Network.V20160330
 
             string type)
         {
+            AllowClassicOperations = allowClassicOperations;
+            Authorizations = authorizations;
+            CircuitProvisioningState = circuitProvisioningState;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            Peerings = peerings;
+            ProvisioningState = provisioningState;
+            ServiceKey = serviceKey;
+            ServiceProviderNotes = serviceProviderNotes;
+            ServiceProviderProperties = serviceProviderProperties;
+            ServiceProviderProvisioningState = serviceProviderProvisioningState;
             Sku = sku;
             Tags = tags;
             Type = type;

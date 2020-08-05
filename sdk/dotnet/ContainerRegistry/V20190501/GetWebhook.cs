@@ -46,6 +46,10 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
     public sealed class GetWebhookResult
     {
         /// <summary>
+        /// The list of actions that trigger the webhook to post notifications.
+        /// </summary>
+        public readonly ImmutableArray<string> Actions;
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         public readonly string Location;
@@ -54,9 +58,17 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the webhook.
+        /// The provisioning state of the webhook at the time the operation was called.
         /// </summary>
-        public readonly Outputs.WebhookPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+        /// </summary>
+        public readonly string? Scope;
+        /// <summary>
+        /// The status of the webhook at the time the operation was called.
+        /// </summary>
+        public readonly string? Status;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -68,19 +80,28 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
 
         [OutputConstructor]
         private GetWebhookResult(
+            ImmutableArray<string> actions,
+
             string location,
 
             string name,
 
-            Outputs.WebhookPropertiesResponseResult properties,
+            string provisioningState,
+
+            string? scope,
+
+            string? status,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Actions = actions;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Scope = scope;
+            Status = status;
             Tags = tags;
             Type = type;
         }

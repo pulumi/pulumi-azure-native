@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public partial class IntegrationAccount : Pulumi.CustomResource
     {
         /// <summary>
+        /// The integration service environment.
+        /// </summary>
+        [Output("integrationServiceEnvironment")]
+        public Output<Outputs.IntegrationServiceEnvironmentResponseResult?> IntegrationServiceEnvironment { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
@@ -27,16 +33,16 @@ namespace Pulumi.AzureRM.Logic.V20190501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The integration account properties.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.IntegrationAccountPropertiesResponseResult> Properties { get; private set; } = null!;
-
-        /// <summary>
         /// The sku.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.IntegrationAccountSkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The workflow state.
+        /// </summary>
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

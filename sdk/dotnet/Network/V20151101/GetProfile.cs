@@ -40,21 +40,37 @@ namespace Pulumi.AzureRM.Network.V20151101
     public sealed class GetProfileResult
     {
         /// <summary>
+        /// Gets or sets the DNS settings of the Traffic Manager profile.
+        /// </summary>
+        public readonly Outputs.DnsConfigResponseResult? DnsConfig;
+        /// <summary>
+        /// Gets or sets the list of endpoints in the Traffic Manager profile.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.EndpointResponseResult> Endpoints;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
+        /// </summary>
+        public readonly Outputs.MonitorConfigResponseResult? MonitorConfig;
         /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Class representing the Traffic Manager profile properties.
+        /// Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
         /// </summary>
-        public readonly Outputs.ProfilePropertiesResponseResult Properties;
+        public readonly string? ProfileStatus;
         /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', or 'Priority'.
+        /// </summary>
+        public readonly string? TrafficRoutingMethod;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -62,20 +78,32 @@ namespace Pulumi.AzureRM.Network.V20151101
 
         [OutputConstructor]
         private GetProfileResult(
+            Outputs.DnsConfigResponseResult? dnsConfig,
+
+            ImmutableArray<Outputs.EndpointResponseResult> endpoints,
+
             string? location,
+
+            Outputs.MonitorConfigResponseResult? monitorConfig,
 
             string name,
 
-            Outputs.ProfilePropertiesResponseResult properties,
+            string? profileStatus,
 
             ImmutableDictionary<string, string>? tags,
 
+            string? trafficRoutingMethod,
+
             string type)
         {
+            DnsConfig = dnsConfig;
+            Endpoints = endpoints;
             Location = location;
+            MonitorConfig = monitorConfig;
             Name = name;
-            Properties = properties;
+            ProfileStatus = profileStatus;
             Tags = tags;
+            TrafficRoutingMethod = trafficRoutingMethod;
             Type = type;
         }
     }

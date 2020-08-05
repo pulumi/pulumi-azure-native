@@ -15,22 +15,52 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     public partial class ApiIssue : Pulumi.CustomResource
     {
         /// <summary>
+        /// A resource identifier for the API the issue was created for.
+        /// </summary>
+        [Output("apiId")]
+        public Output<string?> ApiId { get; private set; } = null!;
+
+        /// <summary>
+        /// Date and time when the issue was created.
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string?> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Text describing the issue.
+        /// </summary>
+        [Output("description")]
+        public Output<string> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Issue.
+        /// Status of the issue.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.IssueContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
+
+        /// <summary>
+        /// The issue title.
+        /// </summary>
+        [Output("title")]
+        public Output<string> Title { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// A resource identifier for the user created the issue.
+        /// </summary>
+        [Output("userId")]
+        public Output<string> UserId { get; private set; } = null!;
 
 
         /// <summary>

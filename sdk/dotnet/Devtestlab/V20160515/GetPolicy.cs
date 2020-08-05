@@ -52,6 +52,26 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public sealed class GetPolicyResult
     {
         /// <summary>
+        /// The creation date of the policy.
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
+        /// The description of the policy.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+        /// </summary>
+        public readonly string? EvaluatorType;
+        /// <summary>
+        /// The fact data of the policy.
+        /// </summary>
+        public readonly string? FactData;
+        /// <summary>
+        /// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+        /// </summary>
+        public readonly string? FactName;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -60,35 +80,71 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        public readonly Outputs.PolicyPropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The status of the policy.
+        /// </summary>
+        public readonly string? Status;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+        /// </summary>
+        public readonly string? Threshold;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string? UniqueIdentifier;
 
         [OutputConstructor]
         private GetPolicyResult(
+            string createdDate,
+
+            string? description,
+
+            string? evaluatorType,
+
+            string? factData,
+
+            string? factName,
+
             string? location,
 
             string name,
 
-            Outputs.PolicyPropertiesResponseResult properties,
+            string? provisioningState,
+
+            string? status,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string? threshold,
+
+            string type,
+
+            string? uniqueIdentifier)
         {
+            CreatedDate = createdDate;
+            Description = description;
+            EvaluatorType = evaluatorType;
+            FactData = factData;
+            FactName = factName;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Status = status;
             Tags = tags;
+            Threshold = threshold;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
         }
     }
 }

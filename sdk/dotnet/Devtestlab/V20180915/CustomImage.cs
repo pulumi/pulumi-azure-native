@@ -15,10 +15,58 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public partial class CustomImage : Pulumi.CustomResource
     {
         /// <summary>
+        /// The author of the custom image.
+        /// </summary>
+        [Output("author")]
+        public Output<string?> Author { get; private set; } = null!;
+
+        /// <summary>
+        /// The creation date of the custom image.
+        /// </summary>
+        [Output("creationDate")]
+        public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Storage information about the plan related to this custom image
+        /// </summary>
+        [Output("customImagePlan")]
+        public Output<Outputs.CustomImagePropertiesFromPlanResponseResult?> CustomImagePlan { get; private set; } = null!;
+
+        /// <summary>
+        /// Storage information about the data disks present in the custom image
+        /// </summary>
+        [Output("dataDiskStorageInfo")]
+        public Output<ImmutableArray<Outputs.DataDiskStorageTypeInfoResponseResult>> DataDiskStorageInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the custom image.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
+        /// </summary>
+        [Output("isPlanAuthorized")]
+        public Output<bool?> IsPlanAuthorized { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The Managed Image Id backing the custom image.
+        /// </summary>
+        [Output("managedImageId")]
+        public Output<string?> ManagedImageId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Managed Snapshot Id backing the custom image.
+        /// </summary>
+        [Output("managedSnapshotId")]
+        public Output<string?> ManagedSnapshotId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -27,10 +75,10 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.CustomImagePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -43,6 +91,24 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string> UniqueIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The VHD from which the image is to be created.
+        /// </summary>
+        [Output("vhd")]
+        public Output<Outputs.CustomImagePropertiesCustomResponseResult?> Vhd { get; private set; } = null!;
+
+        /// <summary>
+        /// The virtual machine from which the image is to be created.
+        /// </summary>
+        [Output("vm")]
+        public Output<Outputs.CustomImagePropertiesFromVmResponseResult?> Vm { get; private set; } = null!;
 
 
         /// <summary>

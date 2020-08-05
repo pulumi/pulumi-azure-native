@@ -15,22 +15,64 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public partial class ApiOperation : Pulumi.CustomResource
     {
         /// <summary>
+        /// Description of the operation. May include HTML formatting tags.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Operation Name.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
+        /// </summary>
+        [Output("method")]
+        public Output<string> Method { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Operation Contract.
+        /// Operation Policies
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.OperationContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("policies")]
+        public Output<string?> Policies { get; private set; } = null!;
+
+        /// <summary>
+        /// An entity containing request details.
+        /// </summary>
+        [Output("request")]
+        public Output<Outputs.RequestContractResponseResult?> Request { get; private set; } = null!;
+
+        /// <summary>
+        /// Array of Operation responses.
+        /// </summary>
+        [Output("responses")]
+        public Output<ImmutableArray<Outputs.ResponseContractResponseResult>> Responses { get; private set; } = null!;
+
+        /// <summary>
+        /// Collection of URL template parameters.
+        /// </summary>
+        [Output("templateParameters")]
+        public Output<ImmutableArray<Outputs.ParameterContractResponseResult>> TemplateParameters { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
+        /// </summary>
+        [Output("urlTemplate")]
+        public Output<string> UrlTemplate { get; private set; } = null!;
 
 
         /// <summary>

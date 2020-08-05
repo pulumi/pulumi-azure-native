@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Compute.V20191201
     public sealed class GetImageResult
     {
         /// <summary>
+        /// Gets the HyperVGenerationType of the VirtualMachine created from the image
+        /// </summary>
+        public readonly string? HyperVGeneration;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -48,9 +52,17 @@ namespace Pulumi.AzureRM.Compute.V20191201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of an Image.
+        /// The provisioning state.
         /// </summary>
-        public readonly Outputs.ImagePropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The source virtual machine from which Image is created.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? SourceVirtualMachine;
+        /// <summary>
+        /// Specifies the storage settings for the virtual machine disks.
+        /// </summary>
+        public readonly Outputs.ImageStorageProfileResponseResult? StorageProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -62,19 +74,28 @@ namespace Pulumi.AzureRM.Compute.V20191201
 
         [OutputConstructor]
         private GetImageResult(
+            string? hyperVGeneration,
+
             string location,
 
             string name,
 
-            Outputs.ImagePropertiesResponseResult properties,
+            string provisioningState,
+
+            Outputs.SubResourceResponseResult? sourceVirtualMachine,
+
+            Outputs.ImageStorageProfileResponseResult? storageProfile,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            HyperVGeneration = hyperVGeneration;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            SourceVirtualMachine = sourceVirtualMachine;
+            StorageProfile = storageProfile;
             Tags = tags;
             Type = type;
         }

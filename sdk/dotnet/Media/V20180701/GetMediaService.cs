@@ -44,13 +44,17 @@ namespace Pulumi.AzureRM.Media.V20180701
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// The Media Services account ID.
+        /// </summary>
+        public readonly string MediaServiceId;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource properties.
+        /// The storage accounts for this resource.
         /// </summary>
-        public readonly Outputs.MediaServicePropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.StorageAccountResponseResult> StorageAccounts;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -64,17 +68,20 @@ namespace Pulumi.AzureRM.Media.V20180701
         private GetMediaServiceResult(
             string? location,
 
+            string mediaServiceId,
+
             string name,
 
-            Outputs.MediaServicePropertiesResponseResult properties,
+            ImmutableArray<Outputs.StorageAccountResponseResult> storageAccounts,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
             Location = location;
+            MediaServiceId = mediaServiceId;
             Name = name;
-            Properties = properties;
+            StorageAccounts = storageAccounts;
             Tags = tags;
             Type = type;
         }

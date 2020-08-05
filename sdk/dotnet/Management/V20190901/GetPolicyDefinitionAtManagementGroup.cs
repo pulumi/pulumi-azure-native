@@ -40,13 +40,37 @@ namespace Pulumi.AzureRM.Management.V20190901
     public sealed class GetPolicyDefinitionAtManagementGroupResult
     {
         /// <summary>
+        /// The policy definition description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The display name of the policy definition.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Metadata;
+        /// <summary>
+        /// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+        /// </summary>
+        public readonly string? Mode;
+        /// <summary>
         /// The name of the policy definition.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The policy definition properties.
+        /// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
         /// </summary>
-        public readonly Outputs.PolicyDefinitionPropertiesResponseResult Properties;
+        public readonly ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponseResult>? Parameters;
+        /// <summary>
+        /// The policy rule.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? PolicyRule;
+        /// <summary>
+        /// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        /// </summary>
+        public readonly string? PolicyType;
         /// <summary>
         /// The type of the resource (Microsoft.Authorization/policyDefinitions).
         /// </summary>
@@ -54,14 +78,32 @@ namespace Pulumi.AzureRM.Management.V20190901
 
         [OutputConstructor]
         private GetPolicyDefinitionAtManagementGroupResult(
+            string? description,
+
+            string? displayName,
+
+            ImmutableDictionary<string, object>? metadata,
+
+            string? mode,
+
             string name,
 
-            Outputs.PolicyDefinitionPropertiesResponseResult properties,
+            ImmutableDictionary<string, Outputs.ParameterDefinitionsValueResponseResult>? parameters,
+
+            ImmutableDictionary<string, object>? policyRule,
+
+            string? policyType,
 
             string type)
         {
+            Description = description;
+            DisplayName = displayName;
+            Metadata = metadata;
+            Mode = mode;
             Name = name;
-            Properties = properties;
+            Parameters = parameters;
+            PolicyRule = policyRule;
+            PolicyType = policyType;
             Type = type;
         }
     }

@@ -40,17 +40,45 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
     public sealed class GetOpenShiftClusterResult
     {
         /// <summary>
+        /// The cluster API server profile.
+        /// </summary>
+        public readonly Outputs.APIServerProfileResponseResult? ApiserverProfile;
+        /// <summary>
+        /// The cluster profile.
+        /// </summary>
+        public readonly Outputs.ClusterProfileResponseResult? ClusterProfile;
+        /// <summary>
+        /// The console profile.
+        /// </summary>
+        public readonly Outputs.ConsoleProfileResponseResult? ConsoleProfile;
+        /// <summary>
+        /// The cluster ingress profiles.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IngressProfileResponseResult> IngressProfiles;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The cluster master profile.
+        /// </summary>
+        public readonly Outputs.MasterProfileResponseResult? MasterProfile;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The cluster properties.
+        /// The cluster network profile.
         /// </summary>
-        public readonly Outputs.OpenShiftClusterPropertiesResponseResult Properties;
+        public readonly Outputs.NetworkProfileResponseResult? NetworkProfile;
+        /// <summary>
+        /// The cluster provisioning state (immutable).
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The cluster service principal profile.
+        /// </summary>
+        public readonly Outputs.ServicePrincipalProfileResponseResult? ServicePrincipalProfile;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -59,24 +87,52 @@ namespace Pulumi.AzureRM.RedHatOpenShift.V20200430
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The cluster worker profiles.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WorkerProfileResponseResult> WorkerProfiles;
 
         [OutputConstructor]
         private GetOpenShiftClusterResult(
+            Outputs.APIServerProfileResponseResult? apiserverProfile,
+
+            Outputs.ClusterProfileResponseResult? clusterProfile,
+
+            Outputs.ConsoleProfileResponseResult? consoleProfile,
+
+            ImmutableArray<Outputs.IngressProfileResponseResult> ingressProfiles,
+
             string location,
+
+            Outputs.MasterProfileResponseResult? masterProfile,
 
             string name,
 
-            Outputs.OpenShiftClusterPropertiesResponseResult properties,
+            Outputs.NetworkProfileResponseResult? networkProfile,
+
+            string? provisioningState,
+
+            Outputs.ServicePrincipalProfileResponseResult? servicePrincipalProfile,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.WorkerProfileResponseResult> workerProfiles)
         {
+            ApiserverProfile = apiserverProfile;
+            ClusterProfile = clusterProfile;
+            ConsoleProfile = consoleProfile;
+            IngressProfiles = ingressProfiles;
             Location = location;
+            MasterProfile = masterProfile;
             Name = name;
-            Properties = properties;
+            NetworkProfile = networkProfile;
+            ProvisioningState = provisioningState;
+            ServicePrincipalProfile = servicePrincipalProfile;
             Tags = tags;
             Type = type;
+            WorkerProfiles = workerProfiles;
         }
     }
 }

@@ -21,10 +21,10 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The virtual network rule properties.
+        /// The resource identifier for the subnet.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualNetworkRulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("subnetId")]
+        public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

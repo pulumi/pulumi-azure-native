@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.Network.V20160601
     public partial class Subnet : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets Address prefix for the subnet.
+        /// </summary>
+        [Output("addressPrefix")]
+        public Output<string?> AddressPrefix { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets array of references to the network interface IP configurations using subnet
+        /// </summary>
+        [Output("ipConfigurations")]
+        public Output<ImmutableArray<Outputs.IPConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the name of the resource that is unique within a resource group. This name can be used to access the resource
@@ -26,8 +38,29 @@ namespace Pulumi.AzureRM.Network.V20160601
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.SubnetPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Gets or sets the reference of the NetworkSecurityGroup resource
+        /// </summary>
+        [Output("networkSecurityGroup")]
+        public Output<Outputs.NetworkSecurityGroupResponseResult?> NetworkSecurityGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets provisioning state of the resource
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets array of references to the external resources using subnet
+        /// </summary>
+        [Output("resourceNavigationLinks")]
+        public Output<ImmutableArray<Outputs.ResourceNavigationLinkResponseResult>> ResourceNavigationLinks { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the reference of the RouteTable resource
+        /// </summary>
+        [Output("routeTable")]
+        public Output<Outputs.RouteTableResponseResult?> RouteTable { get; private set; } = null!;
 
 
         /// <summary>

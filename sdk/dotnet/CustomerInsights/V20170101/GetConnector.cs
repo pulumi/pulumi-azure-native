@@ -46,13 +46,53 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public sealed class GetConnectorResult
     {
         /// <summary>
+        /// ID of the connector.
+        /// </summary>
+        public readonly int ConnectorId;
+        /// <summary>
+        /// Name of the connector.
+        /// </summary>
+        public readonly string? ConnectorName;
+        /// <summary>
+        /// The connector properties.
+        /// </summary>
+        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>> ConnectorProperties;
+        /// <summary>
+        /// Type of connector.
+        /// </summary>
+        public readonly string ConnectorType;
+        /// <summary>
+        /// The created time.
+        /// </summary>
+        public readonly string Created;
+        /// <summary>
+        /// Description of the connector.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Display name of the connector.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// If this is an internal connector.
+        /// </summary>
+        public readonly bool? IsInternal;
+        /// <summary>
+        /// The last modified time.
+        /// </summary>
+        public readonly string LastModified;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of connector.
+        /// State of connector.
         /// </summary>
-        public readonly Outputs.ConnectorResponseResult Properties;
+        public readonly string State;
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        public readonly string TenantId;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -60,14 +100,44 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
 
         [OutputConstructor]
         private GetConnectorResult(
+            int connectorId,
+
+            string? connectorName,
+
+            ImmutableDictionary<string, ImmutableDictionary<string, object>> connectorProperties,
+
+            string connectorType,
+
+            string created,
+
+            string? description,
+
+            string? displayName,
+
+            bool? isInternal,
+
+            string lastModified,
+
             string name,
 
-            Outputs.ConnectorResponseResult properties,
+            string state,
+
+            string tenantId,
 
             string type)
         {
+            ConnectorId = connectorId;
+            ConnectorName = connectorName;
+            ConnectorProperties = connectorProperties;
+            ConnectorType = connectorType;
+            Created = created;
+            Description = description;
+            DisplayName = displayName;
+            IsInternal = isInternal;
+            LastModified = lastModified;
             Name = name;
-            Properties = properties;
+            State = state;
+            TenantId = tenantId;
             Type = type;
         }
     }

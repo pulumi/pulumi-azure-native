@@ -46,6 +46,30 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class GetSiteInstanceDeploymentResult
     {
         /// <summary>
+        /// Active
+        /// </summary>
+        public readonly bool? Active;
+        /// <summary>
+        /// Author
+        /// </summary>
+        public readonly string? Author;
+        /// <summary>
+        /// AuthorEmail
+        /// </summary>
+        public readonly string? Author_email;
+        /// <summary>
+        /// Deployer
+        /// </summary>
+        public readonly string? Deployer;
+        /// <summary>
+        /// Detail
+        /// </summary>
+        public readonly string? Details;
+        /// <summary>
+        /// EndTime
+        /// </summary>
+        public readonly string? End_time;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -54,10 +78,21 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Message
+        /// </summary>
+        public readonly string? Message;
+        /// <summary>
         /// Resource Name
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.DeploymentResponsePropertiesResult Properties;
+        /// <summary>
+        /// StartTime
+        /// </summary>
+        public readonly string? Start_time;
+        /// <summary>
+        /// Status
+        /// </summary>
+        public readonly int? Status;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -69,22 +104,46 @@ namespace Pulumi.AzureRM.Web.V20150801
 
         [OutputConstructor]
         private GetSiteInstanceDeploymentResult(
+            bool? active,
+
+            string? author,
+
+            string? author_email,
+
+            string? deployer,
+
+            string? details,
+
+            string? end_time,
+
             string? kind,
 
             string location,
 
+            string? message,
+
             string? name,
 
-            Outputs.DeploymentResponsePropertiesResult properties,
+            string? start_time,
+
+            int? status,
 
             ImmutableDictionary<string, string>? tags,
 
             string? type)
         {
+            Active = active;
+            Author = author;
+            Author_email = author_email;
+            Deployer = deployer;
+            Details = details;
+            End_time = end_time;
             Kind = kind;
             Location = location;
+            Message = message;
             Name = name;
-            Properties = properties;
+            Start_time = start_time;
+            Status = status;
             Tags = tags;
             Type = type;
         }

@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.Network.V20191201
     public partial class ExpressRouteGateway : Pulumi.CustomResource
     {
         /// <summary>
+        /// Configuration for auto scaling.
+        /// </summary>
+        [Output("autoScaleConfiguration")]
+        public Output<Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationResult?> AutoScaleConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// List of ExpressRoute connections to the ExpressRoute gateway.
+        /// </summary>
+        [Output("expressRouteConnections")]
+        public Output<ImmutableArray<Outputs.ExpressRouteConnectionResponseResult>> ExpressRouteConnections { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +45,10 @@ namespace Pulumi.AzureRM.Network.V20191201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the express route gateway.
+        /// The provisioning state of the express route gateway resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ExpressRouteGatewayPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +61,12 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The Virtual Hub where the ExpressRoute gateway is or will be deployed.
+        /// </summary>
+        [Output("virtualHub")]
+        public Output<Outputs.VirtualHubIdResponseResult> VirtualHub { get; private set; } = null!;
 
 
         /// <summary>

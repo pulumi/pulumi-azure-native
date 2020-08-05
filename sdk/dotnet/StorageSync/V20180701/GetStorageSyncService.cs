@@ -48,9 +48,13 @@ namespace Pulumi.AzureRM.StorageSync.V20180701
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Storage Sync Service properties.
+        /// Storage Sync service status.
         /// </summary>
-        public readonly Outputs.StorageSyncServicePropertiesResponseResult Properties;
+        public readonly int StorageSyncServiceStatus;
+        /// <summary>
+        /// Storage Sync service Uid
+        /// </summary>
+        public readonly string StorageSyncServiceUid;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,7 +70,9 @@ namespace Pulumi.AzureRM.StorageSync.V20180701
 
             string name,
 
-            Outputs.StorageSyncServicePropertiesResponseResult properties,
+            int storageSyncServiceStatus,
+
+            string storageSyncServiceUid,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -74,7 +80,8 @@ namespace Pulumi.AzureRM.StorageSync.V20180701
         {
             Location = location;
             Name = name;
-            Properties = properties;
+            StorageSyncServiceStatus = storageSyncServiceStatus;
+            StorageSyncServiceUid = storageSyncServiceUid;
             Tags = tags;
             Type = type;
         }

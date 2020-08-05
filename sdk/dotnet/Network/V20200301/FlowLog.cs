@@ -15,10 +15,28 @@ namespace Pulumi.AzureRM.Network.V20200301
     public partial class FlowLog : Pulumi.CustomResource
     {
         /// <summary>
+        /// Flag to enable/disable flow logging.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Parameters that define the configuration of traffic analytics.
+        /// </summary>
+        [Output("flowAnalyticsConfiguration")]
+        public Output<Outputs.TrafficAnalyticsPropertiesResponseResult?> FlowAnalyticsConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Parameters that define the flow log format.
+        /// </summary>
+        [Output("format")]
+        public Output<Outputs.FlowLogFormatParametersResponseResult?> Format { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,16 +51,40 @@ namespace Pulumi.AzureRM.Network.V20200301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the flow log.
+        /// The provisioning state of the flow log.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FlowLogPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Parameters that define the retention policy for flow log.
+        /// </summary>
+        [Output("retentionPolicy")]
+        public Output<Outputs.RetentionPolicyParametersResponseResult?> RetentionPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of the storage account which is used to store the flow log.
+        /// </summary>
+        [Output("storageId")]
+        public Output<string> StorageId { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Guid of network security group to which flow log will be applied.
+        /// </summary>
+        [Output("targetResourceGuid")]
+        public Output<string> TargetResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of network security group to which flow log will be applied.
+        /// </summary>
+        [Output("targetResourceId")]
+        public Output<string> TargetResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

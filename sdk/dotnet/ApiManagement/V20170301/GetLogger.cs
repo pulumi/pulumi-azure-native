@@ -46,13 +46,30 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     public sealed class GetLoggerResult
     {
         /// <summary>
+        /// The name and SendRule connection string of the event hub for azureEventHub logger.
+        /// Instrumentation key for applicationInsights logger.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Credentials;
+        /// <summary>
+        /// Logger description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Whether records are buffered in the logger before publishing. Default is assumed to be true.
+        /// </summary>
+        public readonly bool? IsBuffered;
+        /// <summary>
+        /// Logger type.
+        /// </summary>
+        public readonly string LoggerType;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Logger entity contract properties.
+        /// Sampling settings for an ApplicationInsights logger.
         /// </summary>
-        public readonly Outputs.LoggerContractPropertiesResponseResult Properties;
+        public readonly Outputs.LoggerSamplingContractResponseResult? Sampling;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -60,14 +77,26 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
 
         [OutputConstructor]
         private GetLoggerResult(
+            ImmutableDictionary<string, string> credentials,
+
+            string? description,
+
+            bool? isBuffered,
+
+            string loggerType,
+
             string name,
 
-            Outputs.LoggerContractPropertiesResponseResult properties,
+            Outputs.LoggerSamplingContractResponseResult? sampling,
 
             string type)
         {
+            Credentials = credentials;
+            Description = description;
+            IsBuffered = isBuffered;
+            LoggerType = loggerType;
             Name = name;
-            Properties = properties;
+            Sampling = sampling;
             Type = type;
         }
     }

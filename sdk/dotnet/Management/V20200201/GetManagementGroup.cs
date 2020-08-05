@@ -34,13 +34,33 @@ namespace Pulumi.AzureRM.Management.V20200201
     public sealed class GetManagementGroupResult
     {
         /// <summary>
+        /// The list of children.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ManagementGroupChildInfoResponseResult> Children;
+        /// <summary>
+        /// The details of a management group.
+        /// </summary>
+        public readonly Outputs.ManagementGroupDetailsResponseResult? Details;
+        /// <summary>
+        /// The friendly name of the management group.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
         /// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The generic properties of a management group.
+        /// The path from the root to the current group.
         /// </summary>
-        public readonly Outputs.ManagementGroupPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.ManagementGroupPathElementResponseResult> Path;
+        /// <summary>
+        /// The role definitions associated with the management group.
+        /// </summary>
+        public readonly ImmutableArray<string> Roles;
+        /// <summary>
+        /// The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
+        /// </summary>
+        public readonly string? TenantId;
         /// <summary>
         /// The type of the resource.  For example, Microsoft.Management/managementGroups
         /// </summary>
@@ -48,14 +68,29 @@ namespace Pulumi.AzureRM.Management.V20200201
 
         [OutputConstructor]
         private GetManagementGroupResult(
+            ImmutableArray<Outputs.ManagementGroupChildInfoResponseResult> children,
+
+            Outputs.ManagementGroupDetailsResponseResult? details,
+
+            string? displayName,
+
             string name,
 
-            Outputs.ManagementGroupPropertiesResponseResult properties,
+            ImmutableArray<Outputs.ManagementGroupPathElementResponseResult> path,
+
+            ImmutableArray<string> roles,
+
+            string? tenantId,
 
             string type)
         {
+            Children = children;
+            Details = details;
+            DisplayName = displayName;
             Name = name;
-            Properties = properties;
+            Path = path;
+            Roles = roles;
+            TenantId = tenantId;
             Type = type;
         }
     }

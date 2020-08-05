@@ -40,9 +40,33 @@ namespace Pulumi.AzureRM.Network.V20160330
     public sealed class GetApplicationGatewayResult
     {
         /// <summary>
+        /// Gets or sets backend address pool of application gateway resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseResult> BackendAddressPools;
+        /// <summary>
+        /// Gets or sets backend http settings of application gateway resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponseResult> BackendHttpSettingsCollection;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Gets or sets frontend IP addresses of application gateway resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponseResult> FrontendIPConfigurations;
+        /// <summary>
+        /// Gets or sets frontend ports of application gateway resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponseResult> FrontendPorts;
+        /// <summary>
+        /// Gets or sets subnets of application gateway resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponseResult> GatewayIPConfigurations;
+        /// <summary>
+        /// Gets or sets HTTP listeners of application gateway resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponseResult> HttpListeners;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -52,9 +76,33 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of Application Gateway
+        /// Gets operational state of application gateway resource
         /// </summary>
-        public readonly Outputs.ApplicationGatewayPropertiesFormatResponseResult Properties;
+        public readonly string OperationalState;
+        /// <summary>
+        /// Gets or sets probes of application gateway resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayProbeResponseResult> Probes;
+        /// <summary>
+        /// Gets or sets Provisioning state of the ApplicationGateway resource Updating/Deleting/Failed
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets request routing rules of application gateway resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponseResult> RequestRoutingRules;
+        /// <summary>
+        /// Gets or sets resource GUID property of the ApplicationGateway resource
+        /// </summary>
+        public readonly string? ResourceGuid;
+        /// <summary>
+        /// Gets or sets sku of application gateway resource
+        /// </summary>
+        public readonly Outputs.ApplicationGatewaySkuResponseResult? Sku;
+        /// <summary>
+        /// Gets or sets ssl certificates of application gateway resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponseResult> SslCertificates;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -63,27 +111,70 @@ namespace Pulumi.AzureRM.Network.V20160330
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Gets or sets URL path map of application gateway resource
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayUrlPathMapResponseResult> UrlPathMaps;
 
         [OutputConstructor]
         private GetApplicationGatewayResult(
+            ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseResult> backendAddressPools,
+
+            ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponseResult> backendHttpSettingsCollection,
+
             string? etag,
+
+            ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponseResult> frontendIPConfigurations,
+
+            ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponseResult> frontendPorts,
+
+            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponseResult> gatewayIPConfigurations,
+
+            ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponseResult> httpListeners,
 
             string? location,
 
             string name,
 
-            Outputs.ApplicationGatewayPropertiesFormatResponseResult properties,
+            string operationalState,
+
+            ImmutableArray<Outputs.ApplicationGatewayProbeResponseResult> probes,
+
+            string? provisioningState,
+
+            ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponseResult> requestRoutingRules,
+
+            string? resourceGuid,
+
+            Outputs.ApplicationGatewaySkuResponseResult? sku,
+
+            ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponseResult> sslCertificates,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.ApplicationGatewayUrlPathMapResponseResult> urlPathMaps)
         {
+            BackendAddressPools = backendAddressPools;
+            BackendHttpSettingsCollection = backendHttpSettingsCollection;
             Etag = etag;
+            FrontendIPConfigurations = frontendIPConfigurations;
+            FrontendPorts = frontendPorts;
+            GatewayIPConfigurations = gatewayIPConfigurations;
+            HttpListeners = httpListeners;
             Location = location;
             Name = name;
-            Properties = properties;
+            OperationalState = operationalState;
+            Probes = probes;
+            ProvisioningState = provisioningState;
+            RequestRoutingRules = requestRoutingRules;
+            ResourceGuid = resourceGuid;
+            Sku = sku;
+            SslCertificates = sslCertificates;
             Tags = tags;
             Type = type;
+            UrlPathMaps = urlPathMaps;
         }
     }
 }

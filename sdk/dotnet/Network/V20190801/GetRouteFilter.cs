@@ -44,6 +44,10 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// A collection of references to express route circuit ipv6 peerings.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult> Ipv6Peerings;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string Location;
@@ -52,9 +56,17 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the route filter.
+        /// A collection of references to express route circuit peerings.
         /// </summary>
-        public readonly Outputs.RouteFilterPropertiesFormatResponseResult Properties;
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult> Peerings;
+        /// <summary>
+        /// The provisioning state of the route filter resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Collection of RouteFilterRules contained within a route filter.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RouteFilterRuleResponseResult> Rules;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -68,20 +80,29 @@ namespace Pulumi.AzureRM.Network.V20190801
         private GetRouteFilterResult(
             string etag,
 
+            ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult> ipv6Peerings,
+
             string location,
 
             string name,
 
-            Outputs.RouteFilterPropertiesFormatResponseResult properties,
+            ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult> peerings,
+
+            string provisioningState,
+
+            ImmutableArray<Outputs.RouteFilterRuleResponseResult> rules,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
             Etag = etag;
+            Ipv6Peerings = ipv6Peerings;
             Location = location;
             Name = name;
-            Properties = properties;
+            Peerings = peerings;
+            ProvisioningState = provisioningState;
+            Rules = rules;
             Tags = tags;
             Type = type;
         }

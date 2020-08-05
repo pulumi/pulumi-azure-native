@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20160901.Outputs
     public sealed class BackendAddressPoolResponseResult
     {
         /// <summary>
+        /// Gets collection of references to IP addresses defined in network interfaces.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult> BackendIPConfigurations;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -22,28 +26,45 @@ namespace Pulumi.AzureRM.Network.V20160901.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Gets load balancing rules that use this backend address pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> LoadBalancingRules;
+        /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the backend address pool.
+        /// Gets outbound rules that use this backend address pool.
         /// </summary>
-        public readonly Outputs.BackendAddressPoolPropertiesFormatResponseResult? Properties;
+        public readonly Outputs.SubResourceResponseResult OutboundNatRule;
+        /// <summary>
+        /// Get provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private BackendAddressPoolResponseResult(
+            ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult> backendIPConfigurations,
+
             string? etag,
 
             string? id,
 
+            ImmutableArray<Outputs.SubResourceResponseResult> loadBalancingRules,
+
             string? name,
 
-            Outputs.BackendAddressPoolPropertiesFormatResponseResult? properties)
+            Outputs.SubResourceResponseResult outboundNatRule,
+
+            string? provisioningState)
         {
+            BackendIPConfigurations = backendIPConfigurations;
             Etag = etag;
             Id = id;
+            LoadBalancingRules = loadBalancingRules;
             Name = name;
-            Properties = properties;
+            OutboundNatRule = outboundNatRule;
+            ProvisioningState = provisioningState;
         }
     }
 }

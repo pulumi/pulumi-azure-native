@@ -48,10 +48,6 @@ namespace Pulumi.AzureRM.Web.V20160801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Identifier resource specific properties
-        /// </summary>
-        public readonly Outputs.IdentifierResponsePropertiesResult Properties;
-        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -62,13 +58,10 @@ namespace Pulumi.AzureRM.Web.V20160801
 
             string name,
 
-            Outputs.IdentifierResponsePropertiesResult properties,
-
             string type)
         {
             Kind = kind;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

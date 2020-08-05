@@ -15,16 +15,16 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public partial class TagByOperation : Pulumi.CustomResource
     {
         /// <summary>
+        /// Tag name.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Tag entity contract properties.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.TagContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

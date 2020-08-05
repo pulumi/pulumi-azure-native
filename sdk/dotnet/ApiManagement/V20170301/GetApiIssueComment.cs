@@ -58,29 +58,43 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     public sealed class GetApiIssueCommentResult
     {
         /// <summary>
+        /// Date and time when the comment was created.
+        /// </summary>
+        public readonly string? CreatedDate;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Issue Comment.
+        /// Comment text.
         /// </summary>
-        public readonly Outputs.IssueCommentContractPropertiesResponseResult Properties;
+        public readonly string Text;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// A resource identifier for the user who left the comment.
+        /// </summary>
+        public readonly string UserId;
 
         [OutputConstructor]
         private GetApiIssueCommentResult(
+            string? createdDate,
+
             string name,
 
-            Outputs.IssueCommentContractPropertiesResponseResult properties,
+            string text,
 
-            string type)
+            string type,
+
+            string userId)
         {
+            CreatedDate = createdDate;
             Name = name;
-            Properties = properties;
+            Text = text;
             Type = type;
+            UserId = userId;
         }
     }
 }

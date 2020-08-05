@@ -15,16 +15,52 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public partial class IdentityProvider : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of Allowed Tenants when configuring Azure Active Directory login.
+        /// </summary>
+        [Output("allowedTenants")]
+        public Output<ImmutableArray<string>> AllowedTenants { get; private set; } = null!;
+
+        /// <summary>
+        /// Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+        /// </summary>
+        [Output("clientId")]
+        public Output<string> ClientId { get; private set; } = null!;
+
+        /// <summary>
+        /// Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft.
+        /// </summary>
+        [Output("clientSecret")]
+        public Output<string> ClientSecret { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Identity Provider contract properties.
+        /// Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.IdentityProviderContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("passwordResetPolicyName")]
+        public Output<string?> PasswordResetPolicyName { get; private set; } = null!;
+
+        /// <summary>
+        /// Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+        /// </summary>
+        [Output("profileEditingPolicyName")]
+        public Output<string?> ProfileEditingPolicyName { get; private set; } = null!;
+
+        /// <summary>
+        /// Signin Policy Name. Only applies to AAD B2C Identity Provider.
+        /// </summary>
+        [Output("signinPolicyName")]
+        public Output<string?> SigninPolicyName { get; private set; } = null!;
+
+        /// <summary>
+        /// Signup Policy Name. Only applies to AAD B2C Identity Provider.
+        /// </summary>
+        [Output("signupPolicyName")]
+        public Output<string?> SignupPolicyName { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public sealed class GetHubResult
     {
         /// <summary>
+        /// API endpoint URL of the hub.
+        /// </summary>
+        public readonly string ApiEndpoint;
+        /// <summary>
+        /// Billing settings of the hub.
+        /// </summary>
+        public readonly Outputs.HubBillingInfoFormatResponseResult? HubBillingInfo;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -48,35 +56,55 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of hub.
+        /// Provisioning state of the hub.
         /// </summary>
-        public readonly Outputs.HubPropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+        /// </summary>
+        public readonly int? TenantFeatures;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Web endpoint URL of the hub.
+        /// </summary>
+        public readonly string WebEndpoint;
 
         [OutputConstructor]
         private GetHubResult(
+            string apiEndpoint,
+
+            Outputs.HubBillingInfoFormatResponseResult? hubBillingInfo,
+
             string? location,
 
             string name,
 
-            Outputs.HubPropertiesFormatResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            int? tenantFeatures,
+
+            string type,
+
+            string webEndpoint)
         {
+            ApiEndpoint = apiEndpoint;
+            HubBillingInfo = hubBillingInfo;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
+            TenantFeatures = tenantFeatures;
             Type = type;
+            WebEndpoint = webEndpoint;
         }
     }
 }

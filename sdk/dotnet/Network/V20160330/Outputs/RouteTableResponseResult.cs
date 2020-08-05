@@ -30,9 +30,17 @@ namespace Pulumi.AzureRM.Network.V20160330.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Route Table resource
+        /// Gets or sets Provisioning state of the resource Updating/Deleting/Failed
         /// </summary>
-        public readonly Outputs.RouteTablePropertiesFormatResponseResult? Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets Routes in a Route Table
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RouteResponseResult> Routes;
+        /// <summary>
+        /// Gets collection of references to subnets
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubnetResponseResult> Subnets;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -52,7 +60,11 @@ namespace Pulumi.AzureRM.Network.V20160330.Outputs
 
             string name,
 
-            Outputs.RouteTablePropertiesFormatResponseResult? properties,
+            string? provisioningState,
+
+            ImmutableArray<Outputs.RouteResponseResult> routes,
+
+            ImmutableArray<Outputs.SubnetResponseResult> subnets,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -62,7 +74,9 @@ namespace Pulumi.AzureRM.Network.V20160330.Outputs
             Id = id;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Routes = routes;
+            Subnets = subnets;
             Tags = tags;
             Type = type;
         }

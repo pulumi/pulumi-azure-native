@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Cache.V20150801
     public partial class Redis : Pulumi.CustomResource
     {
         /// <summary>
+        /// Redis cache access keys.
+        /// </summary>
+        [Output("accessKeys")]
+        public Output<Outputs.RedisAccessKeysResponse?> AccessKeys { get; private set; } = null!;
+
+        /// <summary>
+        /// If the value is true, then the non-SLL Redis server port (6379) will be enabled.
+        /// </summary>
+        [Output("enableNonSslPort")]
+        public Output<bool?> EnableNonSslPort { get; private set; } = null!;
+
+        /// <summary>
+        /// Redis host name.
+        /// </summary>
+        [Output("hostName")]
+        public Output<string?> HostName { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -27,10 +45,58 @@ namespace Pulumi.AzureRM.Cache.V20150801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Redis cache properties.
+        /// Redis non-SSL port.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RedisReadablePropertiesWithAccessKeyResponse> Properties { get; private set; } = null!;
+        [Output("port")]
+        public Output<int?> Port { get; private set; } = null!;
+
+        /// <summary>
+        /// Redis instance provisioning status.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        /// </summary>
+        [Output("redisConfiguration")]
+        public Output<ImmutableDictionary<string, string>?> RedisConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// RedisVersion parameter has been deprecated. As such, it is no longer necessary to provide this parameter and any value specified is ignored.
+        /// </summary>
+        [Output("redisVersion")]
+        public Output<string?> RedisVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of shards to be created on a Premium Cluster Cache.
+        /// </summary>
+        [Output("shardCount")]
+        public Output<int?> ShardCount { get; private set; } = null!;
+
+        /// <summary>
+        /// What SKU of Redis cache to deploy.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Redis SSL port.
+        /// </summary>
+        [Output("sslPort")]
+        public Output<int?> SslPort { get; private set; } = null!;
+
+        /// <summary>
+        /// Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        /// </summary>
+        [Output("staticIP")]
+        public Output<string?> StaticIP { get; private set; } = null!;
+
+        /// <summary>
+        /// Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        /// </summary>
+        [Output("subnet")]
+        public Output<string?> Subnet { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -39,10 +105,22 @@ namespace Pulumi.AzureRM.Cache.V20150801
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// tenantSettings
+        /// </summary>
+        [Output("tenantSettings")]
+        public Output<ImmutableDictionary<string, string>?> TenantSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The exact ARM resource ID of the virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
+        /// </summary>
+        [Output("virtualNetwork")]
+        public Output<string?> VirtualNetwork { get; private set; } = null!;
 
 
         /// <summary>

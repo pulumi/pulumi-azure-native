@@ -27,10 +27,16 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the private dns zone group.
+        /// A collection of private dns zone configurations of the private dns zone group.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PrivateDnsZoneGroupPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("privateDnsZoneConfigs")]
+        public Output<ImmutableArray<Outputs.PrivateDnsZoneConfigResponseResult>> PrivateDnsZoneConfigs { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the private dns zone group resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
 
         /// <summary>

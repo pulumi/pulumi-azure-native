@@ -40,21 +40,89 @@ namespace Pulumi.AzureRM.ContainerService.V20200301
     public sealed class GetManagedClusterResult
     {
         /// <summary>
+        /// Profile of Azure Active Directory configuration.
+        /// </summary>
+        public readonly Outputs.ManagedClusterAADProfileResponseResult? AadProfile;
+        /// <summary>
+        /// Profile of managed cluster add-on.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponseResult>? AddonProfiles;
+        /// <summary>
+        /// Properties of the agent pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponseResult> AgentPoolProfiles;
+        /// <summary>
+        /// Access profile for managed cluster API server.
+        /// </summary>
+        public readonly Outputs.ManagedClusterAPIServerAccessProfileResponseResult? ApiServerAccessProfile;
+        /// <summary>
+        /// ResourceId of the disk encryption set to use for enabling encryption at rest.
+        /// </summary>
+        public readonly string? DiskEncryptionSetID;
+        /// <summary>
+        /// DNS prefix specified when creating the managed cluster.
+        /// </summary>
+        public readonly string? DnsPrefix;
+        /// <summary>
+        /// (PREVIEW) Whether to enable Kubernetes Pod security policy.
+        /// </summary>
+        public readonly bool? EnablePodSecurityPolicy;
+        /// <summary>
+        /// Whether to enable Kubernetes Role-Based Access Control.
+        /// </summary>
+        public readonly bool? EnableRBAC;
+        /// <summary>
+        /// FQDN for the master pool.
+        /// </summary>
+        public readonly string Fqdn;
+        /// <summary>
         /// The identity of the managed cluster, if configured.
         /// </summary>
         public readonly Outputs.ManagedClusterIdentityResponseResult? Identity;
+        /// <summary>
+        /// Identities associated with the cluster.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.ManagedClusterPropertiesResponseIdentityProfileResult>? IdentityProfile;
+        /// <summary>
+        /// Version of Kubernetes specified when creating the managed cluster.
+        /// </summary>
+        public readonly string? KubernetesVersion;
+        /// <summary>
+        /// Profile for Linux VMs in the container service cluster.
+        /// </summary>
+        public readonly Outputs.ContainerServiceLinuxProfileResponseResult? LinuxProfile;
         /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// The max number of agent pools for the managed cluster.
+        /// </summary>
+        public readonly int MaxAgentPools;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of a managed cluster.
+        /// Profile of network configuration.
         /// </summary>
-        public readonly Outputs.ManagedClusterPropertiesResponseResult Properties;
+        public readonly Outputs.ContainerServiceNetworkProfileResponseResult? NetworkProfile;
+        /// <summary>
+        /// Name of the resource group containing agent pool nodes.
+        /// </summary>
+        public readonly string? NodeResourceGroup;
+        /// <summary>
+        /// FQDN of private cluster.
+        /// </summary>
+        public readonly string PrivateFQDN;
+        /// <summary>
+        /// The current deployment or provisioning state, which only appears in the response.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+        /// </summary>
+        public readonly Outputs.ManagedClusterServicePrincipalProfileResponseResult? ServicePrincipalProfile;
         /// <summary>
         /// The managed cluster SKU.
         /// </summary>
@@ -67,30 +135,88 @@ namespace Pulumi.AzureRM.ContainerService.V20200301
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Profile for Windows VMs in the container service cluster.
+        /// </summary>
+        public readonly Outputs.ManagedClusterWindowsProfileResponseResult? WindowsProfile;
 
         [OutputConstructor]
         private GetManagedClusterResult(
+            Outputs.ManagedClusterAADProfileResponseResult? aadProfile,
+
+            ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponseResult>? addonProfiles,
+
+            ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponseResult> agentPoolProfiles,
+
+            Outputs.ManagedClusterAPIServerAccessProfileResponseResult? apiServerAccessProfile,
+
+            string? diskEncryptionSetID,
+
+            string? dnsPrefix,
+
+            bool? enablePodSecurityPolicy,
+
+            bool? enableRBAC,
+
+            string fqdn,
+
             Outputs.ManagedClusterIdentityResponseResult? identity,
+
+            ImmutableDictionary<string, Outputs.ManagedClusterPropertiesResponseIdentityProfileResult>? identityProfile,
+
+            string? kubernetesVersion,
+
+            Outputs.ContainerServiceLinuxProfileResponseResult? linuxProfile,
 
             string location,
 
+            int maxAgentPools,
+
             string name,
 
-            Outputs.ManagedClusterPropertiesResponseResult properties,
+            Outputs.ContainerServiceNetworkProfileResponseResult? networkProfile,
+
+            string? nodeResourceGroup,
+
+            string privateFQDN,
+
+            string provisioningState,
+
+            Outputs.ManagedClusterServicePrincipalProfileResponseResult? servicePrincipalProfile,
 
             Outputs.ManagedClusterSKUResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.ManagedClusterWindowsProfileResponseResult? windowsProfile)
         {
+            AadProfile = aadProfile;
+            AddonProfiles = addonProfiles;
+            AgentPoolProfiles = agentPoolProfiles;
+            ApiServerAccessProfile = apiServerAccessProfile;
+            DiskEncryptionSetID = diskEncryptionSetID;
+            DnsPrefix = dnsPrefix;
+            EnablePodSecurityPolicy = enablePodSecurityPolicy;
+            EnableRBAC = enableRBAC;
+            Fqdn = fqdn;
             Identity = identity;
+            IdentityProfile = identityProfile;
+            KubernetesVersion = kubernetesVersion;
+            LinuxProfile = linuxProfile;
             Location = location;
+            MaxAgentPools = maxAgentPools;
             Name = name;
-            Properties = properties;
+            NetworkProfile = networkProfile;
+            NodeResourceGroup = nodeResourceGroup;
+            PrivateFQDN = privateFQDN;
+            ProvisioningState = provisioningState;
+            ServicePrincipalProfile = servicePrincipalProfile;
             Sku = sku;
             Tags = tags;
             Type = type;
+            WindowsProfile = windowsProfile;
         }
     }
 }

@@ -14,9 +14,21 @@ namespace Pulumi.AzureRM.Network.V20190901.Outputs
     public sealed class ApplicationGatewayPathRuleResponseResult
     {
         /// <summary>
+        /// Backend address pool resource of URL path map path rule.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? BackendAddressPool;
+        /// <summary>
+        /// Backend http settings resource of URL path map path rule.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? BackendHttpSettings;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// Reference to the FirewallPolicy resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? FirewallPolicy;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -26,9 +38,21 @@ namespace Pulumi.AzureRM.Network.V20190901.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the application gateway path rule.
+        /// Path rules of URL path map.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayPathRulePropertiesFormatResponseResult? Properties;
+        public readonly ImmutableArray<string> Paths;
+        /// <summary>
+        /// The provisioning state of the path rule resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Redirect configuration resource of URL path map path rule.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? RedirectConfiguration;
+        /// <summary>
+        /// Rewrite rule set resource of URL path map path rule.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? RewriteRuleSet;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -36,20 +60,38 @@ namespace Pulumi.AzureRM.Network.V20190901.Outputs
 
         [OutputConstructor]
         private ApplicationGatewayPathRuleResponseResult(
+            Outputs.SubResourceResponseResult? backendAddressPool,
+
+            Outputs.SubResourceResponseResult? backendHttpSettings,
+
             string etag,
+
+            Outputs.SubResourceResponseResult? firewallPolicy,
 
             string? id,
 
             string? name,
 
-            Outputs.ApplicationGatewayPathRulePropertiesFormatResponseResult? properties,
+            ImmutableArray<string> paths,
+
+            string provisioningState,
+
+            Outputs.SubResourceResponseResult? redirectConfiguration,
+
+            Outputs.SubResourceResponseResult? rewriteRuleSet,
 
             string type)
         {
+            BackendAddressPool = backendAddressPool;
+            BackendHttpSettings = backendHttpSettings;
             Etag = etag;
+            FirewallPolicy = firewallPolicy;
             Id = id;
             Name = name;
-            Properties = properties;
+            Paths = paths;
+            ProvisioningState = provisioningState;
+            RedirectConfiguration = redirectConfiguration;
+            RewriteRuleSet = rewriteRuleSet;
             Type = type;
         }
     }

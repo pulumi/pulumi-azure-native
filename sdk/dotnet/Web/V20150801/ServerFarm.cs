@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Web.V20150801
     public partial class ServerFarm : Pulumi.CustomResource
     {
         /// <summary>
+        /// App Service Plan administration site
+        /// </summary>
+        [Output("adminSiteName")]
+        public Output<string?> AdminSiteName { get; private set; } = null!;
+
+        /// <summary>
+        /// Geographical location for the App Service Plan
+        /// </summary>
+        [Output("geoRegion")]
+        public Output<string> GeoRegion { get; private set; } = null!;
+
+        /// <summary>
+        /// Specification for the hosting environment (App Service Environment) to use for the App Service Plan
+        /// </summary>
+        [Output("hostingEnvironmentProfile")]
+        public Output<Outputs.HostingEnvironmentProfileResponseResult?> HostingEnvironmentProfile { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource
         /// </summary>
         [Output("kind")]
@@ -27,19 +45,59 @@ namespace Pulumi.AzureRM.Web.V20150801
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Maximum number of instances that can be assigned to this App Service Plan
+        /// </summary>
+        [Output("maximumNumberOfWorkers")]
+        public Output<int?> MaximumNumberOfWorkers { get; private set; } = null!;
+
+        /// <summary>
         /// Resource Name
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.ServerFarmWithRichSkuResponsePropertiesResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Number of web apps assigned to this App Service Plan
+        /// </summary>
+        [Output("numberOfSites")]
+        public Output<int> NumberOfSites { get; private set; } = null!;
+
+        /// <summary>
+        /// If True apps assigned to this App Service Plan can be scaled independently
+        ///             If False apps assigned to this App Service Plan will scale to all instances of the plan
+        /// </summary>
+        [Output("perSiteScaling")]
+        public Output<bool?> PerSiteScaling { get; private set; } = null!;
+
+        /// <summary>
+        /// Enables creation of a Linux App Service Plan
+        /// </summary>
+        [Output("reserved")]
+        public Output<bool?> Reserved { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource group of the server farm
+        /// </summary>
+        [Output("resourceGroup")]
+        public Output<string> ResourceGroup { get; private set; } = null!;
 
         /// <summary>
         /// Describes a sku for a scalable resource
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuDescriptionResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// App Service Plan Status
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// App Service Plan Subscription
+        /// </summary>
+        [Output("subscription")]
+        public Output<string> Subscription { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -52,6 +110,12 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Target worker tier assigned to the App Service Plan
+        /// </summary>
+        [Output("workerTierName")]
+        public Output<string?> WorkerTierName { get; private set; } = null!;
 
 
         /// <summary>

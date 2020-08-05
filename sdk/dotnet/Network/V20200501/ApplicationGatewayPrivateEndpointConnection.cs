@@ -21,16 +21,34 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The consumer link id.
+        /// </summary>
+        [Output("linkIdentifier")]
+        public Output<string> LinkIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the private endpoint connection on an application gateway.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the application gateway private endpoint connection.
+        /// The resource of private end point.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApplicationGatewayPrivateEndpointConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("privateEndpoint")]
+        public Output<Outputs.PrivateEndpointResponseResult> PrivateEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of information about the state of the connection between service consumer and provider.
+        /// </summary>
+        [Output("privateLinkServiceConnectionState")]
+        public Output<Outputs.PrivateLinkServiceConnectionStateResponseResult?> PrivateLinkServiceConnectionState { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the application gateway private endpoint connection resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.

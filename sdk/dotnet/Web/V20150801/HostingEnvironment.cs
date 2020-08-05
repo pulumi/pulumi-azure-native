@@ -15,10 +15,94 @@ namespace Pulumi.AzureRM.Web.V20150801
     public partial class HostingEnvironment : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of comma separated strings describing which VM sizes are allowed for front-ends
+        /// </summary>
+        [Output("allowedMultiSizes")]
+        public Output<string?> AllowedMultiSizes { get; private set; } = null!;
+
+        /// <summary>
+        /// List of comma separated strings describing which VM sizes are allowed for workers
+        /// </summary>
+        [Output("allowedWorkerSizes")]
+        public Output<string?> AllowedWorkerSizes { get; private set; } = null!;
+
+        /// <summary>
+        /// Api Management Account associated with this Hosting Environment
+        /// </summary>
+        [Output("apiManagementAccountId")]
+        public Output<string?> ApiManagementAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// Custom settings for changing the behavior of the hosting environment
+        /// </summary>
+        [Output("clusterSettings")]
+        public Output<ImmutableArray<Outputs.NameValuePairResponseResult>> ClusterSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
+        /// </summary>
+        [Output("databaseEdition")]
+        public Output<string?> DatabaseEdition { get; private set; } = null!;
+
+        /// <summary>
+        /// Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
+        /// </summary>
+        [Output("databaseServiceObjective")]
+        public Output<string?> DatabaseServiceObjective { get; private set; } = null!;
+
+        /// <summary>
+        /// DNS suffix of the hostingEnvironment (App Service Environment)
+        /// </summary>
+        [Output("dnsSuffix")]
+        public Output<string?> DnsSuffix { get; private set; } = null!;
+
+        /// <summary>
+        /// Current total, used, and available worker capacities
+        /// </summary>
+        [Output("environmentCapacities")]
+        public Output<ImmutableArray<Outputs.StampCapacityResponseResult>> EnvironmentCapacities { get; private set; } = null!;
+
+        /// <summary>
+        /// True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
+        /// </summary>
+        [Output("environmentIsHealthy")]
+        public Output<bool?> EnvironmentIsHealthy { get; private set; } = null!;
+
+        /// <summary>
+        /// Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
+        /// </summary>
+        [Output("environmentStatus")]
+        public Output<string?> EnvironmentStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
+        /// </summary>
+        [Output("internalLoadBalancingMode")]
+        public Output<string?> InternalLoadBalancingMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
+        /// </summary>
+        [Output("ipsslAddressCount")]
+        public Output<int?> IpsslAddressCount { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// Last deployment action on this hostingEnvironment (App Service Environment)
+        /// </summary>
+        [Output("lastAction")]
+        public Output<string?> LastAction { get; private set; } = null!;
+
+        /// <summary>
+        /// Result of the last deployment action on this hostingEnvironment (App Service Environment)
+        /// </summary>
+        [Output("lastActionResult")]
+        public Output<string?> LastActionResult { get; private set; } = null!;
 
         /// <summary>
         /// Resource Location
@@ -27,13 +111,65 @@ namespace Pulumi.AzureRM.Web.V20150801
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Maximum number of VMs in this hostingEnvironment (App Service Environment)
+        /// </summary>
+        [Output("maximumNumberOfMachines")]
+        public Output<int?> MaximumNumberOfMachines { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of front-end instances
+        /// </summary>
+        [Output("multiRoleCount")]
+        public Output<int?> MultiRoleCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Front-end VM size, e.g. "Medium", "Large"
+        /// </summary>
+        [Output("multiSize")]
+        public Output<string?> MultiSize { get; private set; } = null!;
+
+        /// <summary>
         /// Resource Name
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.HostingEnvironmentResponsePropertiesResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
+        /// </summary>
+        [Output("networkAccessControlList")]
+        public Output<ImmutableArray<Outputs.NetworkAccessControlEntryResponseResult>> NetworkAccessControlList { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the hostingEnvironment (App Service Environment)
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource group of the hostingEnvironment (App Service Environment)
+        /// </summary>
+        [Output("resourceGroup")]
+        public Output<string?> ResourceGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// Current status of the hostingEnvironment (App Service Environment)
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// Subscription of the hostingEnvironment (App Service Environment)
+        /// </summary>
+        [Output("subscriptionId")]
+        public Output<string?> SubscriptionId { get; private set; } = null!;
+
+        /// <summary>
+        /// True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+        ///             (most likely because NSG blocked the incoming traffic)
+        /// </summary>
+        [Output("suspended")]
+        public Output<bool?> Suspended { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -46,6 +182,48 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of upgrade domains of this hostingEnvironment (App Service Environment)
+        /// </summary>
+        [Output("upgradeDomains")]
+        public Output<int?> UpgradeDomains { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
+        /// </summary>
+        [Output("vipMappings")]
+        public Output<ImmutableArray<Outputs.VirtualIPMappingResponseResult>> VipMappings { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of the hostingEnvironment's (App Service Environment) virtual network
+        /// </summary>
+        [Output("virtualNetwork")]
+        public Output<Outputs.VirtualNetworkProfileResponseResult?> VirtualNetwork { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the hostingEnvironment's (App Service Environment) virtual network
+        /// </summary>
+        [Output("vnetName")]
+        public Output<string?> VnetName { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource group of the hostingEnvironment's (App Service Environment) virtual network
+        /// </summary>
+        [Output("vnetResourceGroupName")]
+        public Output<string?> VnetResourceGroupName { get; private set; } = null!;
+
+        /// <summary>
+        /// Subnet of the hostingEnvironment's (App Service Environment) virtual network
+        /// </summary>
+        [Output("vnetSubnetName")]
+        public Output<string?> VnetSubnetName { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
+        /// </summary>
+        [Output("workerPools")]
+        public Output<ImmutableArray<Outputs.WorkerPoolResponseResult>> WorkerPools { get; private set; } = null!;
 
 
         /// <summary>

@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20190901.Outputs
     public sealed class ServiceAssociationLinkResponseResult
     {
         /// <summary>
+        /// If true, the resource can be deleted.
+        /// </summary>
+        public readonly bool? AllowDelete;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -22,13 +26,25 @@ namespace Pulumi.AzureRM.Network.V20190901.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Link to the external resource.
+        /// </summary>
+        public readonly string? Link;
+        /// <summary>
+        /// Resource type of the linked resource.
+        /// </summary>
+        public readonly string? LinkedResourceType;
+        /// <summary>
+        /// A list of locations.
+        /// </summary>
+        public readonly ImmutableArray<string> Locations;
+        /// <summary>
         /// Name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Resource navigation link properties format.
+        /// The provisioning state of the service association link resource.
         /// </summary>
-        public readonly Outputs.ServiceAssociationLinkPropertiesFormatResponseResult? Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -36,20 +52,32 @@ namespace Pulumi.AzureRM.Network.V20190901.Outputs
 
         [OutputConstructor]
         private ServiceAssociationLinkResponseResult(
+            bool? allowDelete,
+
             string etag,
 
             string? id,
 
+            string? link,
+
+            string? linkedResourceType,
+
+            ImmutableArray<string> locations,
+
             string? name,
 
-            Outputs.ServiceAssociationLinkPropertiesFormatResponseResult? properties,
+            string provisioningState,
 
             string type)
         {
+            AllowDelete = allowDelete;
             Etag = etag;
             Id = id;
+            Link = link;
+            LinkedResourceType = linkedResourceType;
+            Locations = locations;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

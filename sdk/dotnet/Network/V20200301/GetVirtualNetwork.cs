@@ -40,9 +40,37 @@ namespace Pulumi.AzureRM.Network.V20200301
     public sealed class GetVirtualNetworkResult
     {
         /// <summary>
+        /// The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+        /// </summary>
+        public readonly Outputs.AddressSpaceResponseResult? AddressSpace;
+        /// <summary>
+        /// Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+        /// </summary>
+        public readonly Outputs.VirtualNetworkBgpCommunitiesResponseResult? BgpCommunities;
+        /// <summary>
+        /// The DDoS protection plan associated with the virtual network.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? DdosProtectionPlan;
+        /// <summary>
+        /// The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+        /// </summary>
+        public readonly Outputs.DhcpOptionsResponseResult? DhcpOptions;
+        /// <summary>
+        /// Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+        /// </summary>
+        public readonly bool? EnableDdosProtection;
+        /// <summary>
+        /// Indicates if VM protection is enabled for all the subnets in the virtual network.
+        /// </summary>
+        public readonly bool? EnableVmProtection;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// Array of IpAllocation which reference this VNET.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> IpAllocations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,9 +80,17 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the virtual network.
+        /// The provisioning state of the virtual network resource.
         /// </summary>
-        public readonly Outputs.VirtualNetworkPropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The resourceGuid property of the Virtual Network resource.
+        /// </summary>
+        public readonly string ResourceGuid;
+        /// <summary>
+        /// A list of subnets in a Virtual Network.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubnetResponseResult> Subnets;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +99,61 @@ namespace Pulumi.AzureRM.Network.V20200301
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// A list of peerings in a Virtual Network.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualNetworkPeeringResponseResult> VirtualNetworkPeerings;
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
+            Outputs.AddressSpaceResponseResult? addressSpace,
+
+            Outputs.VirtualNetworkBgpCommunitiesResponseResult? bgpCommunities,
+
+            Outputs.SubResourceResponseResult? ddosProtectionPlan,
+
+            Outputs.DhcpOptionsResponseResult? dhcpOptions,
+
+            bool? enableDdosProtection,
+
+            bool? enableVmProtection,
+
             string etag,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> ipAllocations,
 
             string? location,
 
             string name,
 
-            Outputs.VirtualNetworkPropertiesFormatResponseResult properties,
+            string provisioningState,
+
+            string resourceGuid,
+
+            ImmutableArray<Outputs.SubnetResponseResult> subnets,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.VirtualNetworkPeeringResponseResult> virtualNetworkPeerings)
         {
+            AddressSpace = addressSpace;
+            BgpCommunities = bgpCommunities;
+            DdosProtectionPlan = ddosProtectionPlan;
+            DhcpOptions = dhcpOptions;
+            EnableDdosProtection = enableDdosProtection;
+            EnableVmProtection = enableVmProtection;
             Etag = etag;
+            IpAllocations = ipAllocations;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
+            Subnets = subnets;
             Tags = tags;
             Type = type;
+            VirtualNetworkPeerings = virtualNetworkPeerings;
         }
     }
 }

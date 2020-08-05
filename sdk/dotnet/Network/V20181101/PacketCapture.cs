@@ -14,8 +14,17 @@ namespace Pulumi.AzureRM.Network.V20181101
     /// </summary>
     public partial class PacketCapture : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Number of bytes captured per packet, the remaining bytes are truncated.
+        /// </summary>
+        [Output("bytesToCapturePerPacket")]
+        public Output<int?> BytesToCapturePerPacket { get; private set; } = null!;
+
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        [Output("filters")]
+        public Output<ImmutableArray<Outputs.PacketCaptureFilterResponseResult>> Filters { get; private set; } = null!;
 
         /// <summary>
         /// Name of the packet capture session.
@@ -24,10 +33,34 @@ namespace Pulumi.AzureRM.Network.V20181101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the properties of a packet capture session.
+        /// The provisioning state of the packet capture session.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PacketCaptureResultPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the storage location for a packet capture session.
+        /// </summary>
+        [Output("storageLocation")]
+        public Output<Outputs.PacketCaptureStorageLocationResponseResult> StorageLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the targeted resource, only VM is currently supported.
+        /// </summary>
+        [Output("target")]
+        public Output<string> Target { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum duration of the capture session in seconds.
+        /// </summary>
+        [Output("timeLimitInSeconds")]
+        public Output<int?> TimeLimitInSeconds { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum size of the capture output.
+        /// </summary>
+        [Output("totalBytesPerSession")]
+        public Output<int?> TotalBytesPerSession { get; private set; } = null!;
 
 
         /// <summary>

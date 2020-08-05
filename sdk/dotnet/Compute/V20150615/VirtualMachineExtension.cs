@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Compute.V20150615
     public partial class VirtualMachineExtension : Pulumi.CustomResource
     {
         /// <summary>
+        /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        /// </summary>
+        [Output("autoUpgradeMinorVersion")]
+        public Output<bool?> AutoUpgradeMinorVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// How the extension handler should be forced to update even if the extension configuration has not changed.
+        /// </summary>
+        [Output("forceUpdateTag")]
+        public Output<string?> ForceUpdateTag { get; private set; } = null!;
+
+        /// <summary>
+        /// The virtual machine extension instance view.
+        /// </summary>
+        [Output("instanceView")]
+        public Output<Outputs.VirtualMachineExtensionInstanceViewResponseResult?> InstanceView { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,10 +45,28 @@ namespace Pulumi.AzureRM.Compute.V20150615
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the properties of a Virtual Machine Extension.
+        /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualMachineExtensionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("protectedSettings")]
+        public Output<ImmutableDictionary<string, object>?> ProtectedSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state, which only appears in the response.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the extension handler publisher.
+        /// </summary>
+        [Output("publisher")]
+        public Output<string?> Publisher { get; private set; } = null!;
+
+        /// <summary>
+        /// Json formatted public settings for the extension.
+        /// </summary>
+        [Output("settings")]
+        public Output<ImmutableDictionary<string, object>?> Settings { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -43,6 +79,12 @@ namespace Pulumi.AzureRM.Compute.V20150615
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the version of the script handler.
+        /// </summary>
+        [Output("typeHandlerVersion")]
+        public Output<string?> TypeHandlerVersion { get; private set; } = null!;
 
 
         /// <summary>

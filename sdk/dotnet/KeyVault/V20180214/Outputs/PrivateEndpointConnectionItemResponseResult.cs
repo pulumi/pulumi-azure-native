@@ -14,14 +14,29 @@ namespace Pulumi.AzureRM.KeyVault.V20180214.Outputs
     public sealed class PrivateEndpointConnectionItemResponseResult
     {
         /// <summary>
-        /// Private endpoint connection properties.
+        /// Properties of the private endpoint object.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponseResult? Properties;
+        public readonly Outputs.PrivateEndpointResponseResult? PrivateEndpoint;
+        /// <summary>
+        /// Approval state of the private link connection.
+        /// </summary>
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponseResult? PrivateLinkServiceConnectionState;
+        /// <summary>
+        /// Provisioning state of the private endpoint connection.
+        /// </summary>
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
-        private PrivateEndpointConnectionItemResponseResult(Outputs.PrivateEndpointConnectionPropertiesResponseResult? properties)
+        private PrivateEndpointConnectionItemResponseResult(
+            Outputs.PrivateEndpointResponseResult? privateEndpoint,
+
+            Outputs.PrivateLinkServiceConnectionStateResponseResult? privateLinkServiceConnectionState,
+
+            string? provisioningState)
         {
-            Properties = properties;
+            PrivateEndpoint = privateEndpoint;
+            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
+            ProvisioningState = provisioningState;
         }
     }
 }

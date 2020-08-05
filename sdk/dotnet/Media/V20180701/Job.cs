@@ -15,16 +15,64 @@ namespace Pulumi.AzureRM.Media.V20180701
     public partial class Job : Pulumi.CustomResource
     {
         /// <summary>
+        /// Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+        /// </summary>
+        [Output("correlationData")]
+        public Output<ImmutableDictionary<string, string>?> CorrelationData { get; private set; } = null!;
+
+        /// <summary>
+        /// The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        /// </summary>
+        [Output("created")]
+        public Output<string> Created { get; private set; } = null!;
+
+        /// <summary>
+        /// Optional customer supplied description of the Job.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The UTC date and time at which this Job finished processing.
+        /// </summary>
+        [Output("endTime")]
+        public Output<string> EndTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        /// </summary>
+        [Output("lastModified")]
+        public Output<string> LastModified { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource properties.
+        /// The outputs for the Job.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.JobPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("outputs")]
+        public Output<ImmutableArray<Outputs.JobOutputResponseResult>> Outputs { get; private set; } = null!;
+
+        /// <summary>
+        /// Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+        /// </summary>
+        [Output("priority")]
+        public Output<string?> Priority { get; private set; } = null!;
+
+        /// <summary>
+        /// The UTC date and time at which this Job began processing.
+        /// </summary>
+        [Output("startTime")]
+        public Output<string> StartTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The current state of the job.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

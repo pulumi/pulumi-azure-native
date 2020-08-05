@@ -20,16 +20,16 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501.Outputs
         /// <summary>
         /// Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
         /// </summary>
-        public readonly string Value;
+        public readonly string IPAddressOrRange;
 
         [OutputConstructor]
         private IPRuleResponseResult(
             string? action,
 
-            string value)
+            string iPAddressOrRange)
         {
             Action = action;
-            Value = value;
+            IPAddressOrRange = iPAddressOrRange;
         }
     }
 }

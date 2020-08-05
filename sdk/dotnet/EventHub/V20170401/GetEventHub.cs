@@ -46,29 +46,71 @@ namespace Pulumi.AzureRM.EventHub.V20170401
     public sealed class GetEventHubResult
     {
         /// <summary>
+        /// Properties of capture description
+        /// </summary>
+        public readonly Outputs.CaptureDescriptionResponseResult? CaptureDescription;
+        /// <summary>
+        /// Exact time the Event Hub was created.
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
+        /// Number of days to retain the events for this Event Hub, value should be 1 to 7 days
+        /// </summary>
+        public readonly int? MessageRetentionInDays;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties supplied to the Create Or Update Event Hub operation.
+        /// Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         /// </summary>
-        public readonly Outputs.EventhubResponsePropertiesResult Properties;
+        public readonly int? PartitionCount;
+        /// <summary>
+        /// Current number of shards on the Event Hub.
+        /// </summary>
+        public readonly ImmutableArray<string> PartitionIds;
+        /// <summary>
+        /// Enumerates the possible values for the status of the Event Hub.
+        /// </summary>
+        public readonly string? Status;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The exact time the message was updated.
+        /// </summary>
+        public readonly string UpdatedAt;
 
         [OutputConstructor]
         private GetEventHubResult(
+            Outputs.CaptureDescriptionResponseResult? captureDescription,
+
+            string createdAt,
+
+            int? messageRetentionInDays,
+
             string name,
 
-            Outputs.EventhubResponsePropertiesResult properties,
+            int? partitionCount,
 
-            string type)
+            ImmutableArray<string> partitionIds,
+
+            string? status,
+
+            string type,
+
+            string updatedAt)
         {
+            CaptureDescription = captureDescription;
+            CreatedAt = createdAt;
+            MessageRetentionInDays = messageRetentionInDays;
             Name = name;
-            Properties = properties;
+            PartitionCount = partitionCount;
+            PartitionIds = partitionIds;
+            Status = status;
             Type = type;
+            UpdatedAt = updatedAt;
         }
     }
 }

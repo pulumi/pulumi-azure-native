@@ -50,9 +50,13 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource properties.
+        /// Specifies the endpoint of Notebook server.
         /// </summary>
-        public readonly Outputs.NotebookWorkspacePropertiesResponseResult Properties;
+        public readonly string NotebookServerEndpoint;
+        /// <summary>
+        /// Status of the notebook workspace. Possible values are: Creating, Online, Deleting, Failed, Updating.
+        /// </summary>
+        public readonly string Status;
         /// <summary>
         /// The type of Azure resource.
         /// </summary>
@@ -62,12 +66,15 @@ namespace Pulumi.AzureRM.DocumentDB.V20200301
         private GetNotebookWorkspaceResult(
             string name,
 
-            Outputs.NotebookWorkspacePropertiesResponseResult properties,
+            string notebookServerEndpoint,
+
+            string status,
 
             string type)
         {
             Name = name;
-            Properties = properties;
+            NotebookServerEndpoint = notebookServerEndpoint;
+            Status = status;
             Type = type;
         }
     }

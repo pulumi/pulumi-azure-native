@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
     public partial class ReferenceDataSet : Pulumi.CustomResource
     {
         /// <summary>
+        /// The time the resource was created.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+        /// </summary>
+        [Output("dataStringComparisonBehavior")]
+        public Output<string?> DataStringComparisonBehavior { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of key properties for the reference data set.
+        /// </summary>
+        [Output("keyProperties")]
+        public Output<ImmutableArray<Outputs.ReferenceDataSetKeyPropertyResponseResult>> KeyProperties { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,10 +45,10 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the reference data set.
+        /// Provisioning state of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ReferenceDataSetResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

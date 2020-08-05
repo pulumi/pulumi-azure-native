@@ -15,16 +15,58 @@ namespace Pulumi.AzureRM.Media.V20180701
     public partial class Asset : Pulumi.CustomResource
     {
         /// <summary>
+        /// The alternate ID of the Asset.
+        /// </summary>
+        [Output("alternateId")]
+        public Output<string?> AlternateId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Asset ID.
+        /// </summary>
+        [Output("assetId")]
+        public Output<string> AssetId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the asset blob container.
+        /// </summary>
+        [Output("container")]
+        public Output<string?> Container { get; private set; } = null!;
+
+        /// <summary>
+        /// The creation date of the Asset.
+        /// </summary>
+        [Output("created")]
+        public Output<string> Created { get; private set; } = null!;
+
+        /// <summary>
+        /// The Asset description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The last modified date of the Asset.
+        /// </summary>
+        [Output("lastModified")]
+        public Output<string> LastModified { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource properties.
+        /// The name of the storage account.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AssetPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("storageAccountName")]
+        public Output<string?> StorageAccountName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Asset encryption format. One of None or MediaStorageEncryption.
+        /// </summary>
+        [Output("storageEncryptionFormat")]
+        public Output<string> StorageEncryptionFormat { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

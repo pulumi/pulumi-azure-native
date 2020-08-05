@@ -15,16 +15,82 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
     public partial class Relationship : Pulumi.CustomResource
     {
         /// <summary>
+        /// The Relationship Cardinality.
+        /// </summary>
+        [Output("cardinality")]
+        public Output<string?> Cardinality { get; private set; } = null!;
+
+        /// <summary>
+        /// Localized descriptions for the Relationship.
+        /// </summary>
+        [Output("description")]
+        public Output<ImmutableDictionary<string, string>?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Localized display name for the Relationship.
+        /// </summary>
+        [Output("displayName")]
+        public Output<ImmutableDictionary<string, string>?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The expiry date time in UTC.
+        /// </summary>
+        [Output("expiryDateTimeUtc")]
+        public Output<string?> ExpiryDateTimeUtc { get; private set; } = null!;
+
+        /// <summary>
+        /// The properties of the Relationship.
+        /// </summary>
+        [Output("fields")]
+        public Output<ImmutableArray<Outputs.PropertyDefinitionResponseResult>> Fields { get; private set; } = null!;
+
+        /// <summary>
+        /// Optional property to be used to map fields in profile to their strong ids in related profile.
+        /// </summary>
+        [Output("lookupMappings")]
+        public Output<ImmutableArray<Outputs.RelationshipTypeMappingResponseResult>> LookupMappings { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The definition of Relationship.
+        /// Profile type.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RelationshipDefinitionResponseResult> Properties { get; private set; } = null!;
+        [Output("profileType")]
+        public Output<string> ProfileType { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Related profile being referenced.
+        /// </summary>
+        [Output("relatedProfileType")]
+        public Output<string> RelatedProfileType { get; private set; } = null!;
+
+        /// <summary>
+        /// The relationship guid id.
+        /// </summary>
+        [Output("relationshipGuidId")]
+        public Output<string> RelationshipGuidId { get; private set; } = null!;
+
+        /// <summary>
+        /// The Relationship name.
+        /// </summary>
+        [Output("relationshipName")]
+        public Output<string> RelationshipName { get; private set; } = null!;
+
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

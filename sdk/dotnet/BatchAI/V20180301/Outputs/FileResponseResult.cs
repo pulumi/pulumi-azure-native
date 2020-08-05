@@ -13,34 +13,41 @@ namespace Pulumi.AzureRM.BatchAI.V20180301.Outputs
     [OutputType]
     public sealed class FileResponseResult
     {
+        /// <summary>
+        /// The file size.
+        /// </summary>
+        public readonly int? ContentLength;
         public readonly string? DownloadUrl;
         /// <summary>
         /// Indicates if the file is a directory.
         /// </summary>
         public readonly bool IsDirectory;
         /// <summary>
+        /// The time at which the file was last modified.
+        /// </summary>
+        public readonly string? LastModified;
+        /// <summary>
         /// Name of the file.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The properties associated with the file. The properties are not returned for directories.
-        /// </summary>
-        public readonly Outputs.FilePropertiesResponseResult? Properties;
 
         [OutputConstructor]
         private FileResponseResult(
+            int? contentLength,
+
             string? downloadUrl,
 
             bool isDirectory,
 
-            string name,
+            string? lastModified,
 
-            Outputs.FilePropertiesResponseResult? properties)
+            string name)
         {
+            ContentLength = contentLength;
             DownloadUrl = downloadUrl;
             IsDirectory = isDirectory;
+            LastModified = lastModified;
             Name = name;
-            Properties = properties;
         }
     }
 }

@@ -52,6 +52,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class GetServiceFabricResult
     {
         /// <summary>
+        /// The applicable schedule for the virtual machine.
+        /// </summary>
+        public readonly Outputs.ApplicableScheduleResponseResult ApplicableSchedule;
+        /// <summary>
+        /// The resource id of the environment under which the service fabric resource is present
+        /// </summary>
+        public readonly string? EnvironmentId;
+        /// <summary>
+        /// The backing service fabric resource's id
+        /// </summary>
+        public readonly string? ExternalServiceFabricId;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -60,9 +72,9 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        public readonly Outputs.ServiceFabricPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -71,24 +83,40 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string UniqueIdentifier;
 
         [OutputConstructor]
         private GetServiceFabricResult(
+            Outputs.ApplicableScheduleResponseResult applicableSchedule,
+
+            string? environmentId,
+
+            string? externalServiceFabricId,
+
             string? location,
 
             string name,
 
-            Outputs.ServiceFabricPropertiesResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string uniqueIdentifier)
         {
+            ApplicableSchedule = applicableSchedule;
+            EnvironmentId = environmentId;
+            ExternalServiceFabricId = externalServiceFabricId;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
         }
     }
 }

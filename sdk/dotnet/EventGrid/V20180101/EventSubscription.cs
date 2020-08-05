@@ -15,16 +15,40 @@ namespace Pulumi.AzureRM.EventGrid.V20180101
     public partial class EventSubscription : Pulumi.CustomResource
     {
         /// <summary>
+        /// Information about the destination where events have to be delivered for the event subscription.
+        /// </summary>
+        [Output("destination")]
+        public Output<Outputs.EventSubscriptionDestinationResponseResult?> Destination { get; private set; } = null!;
+
+        /// <summary>
+        /// Information about the filter for the event subscription.
+        /// </summary>
+        [Output("filter")]
+        public Output<Outputs.EventSubscriptionFilterResponseResult?> Filter { get; private set; } = null!;
+
+        /// <summary>
+        /// List of user defined labels.
+        /// </summary>
+        [Output("labels")]
+        public Output<ImmutableArray<string>> Labels { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the event subscription
+        /// Provisioning state of the event subscription.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.EventSubscriptionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the topic of the event subscription.
+        /// </summary>
+        [Output("topic")]
+        public Output<string> Topic { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource

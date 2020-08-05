@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class GetManagerResult
     {
         /// <summary>
+        /// Represents the type of StorSimple Manager.
+        /// </summary>
+        public readonly Outputs.ManagerIntrinsicSettingsResponseResult? CisIntrinsicSettings;
+        /// <summary>
         /// The etag of the manager.
         /// </summary>
         public readonly string? Etag;
@@ -52,9 +56,13 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the StorSimple Manager.
+        /// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
         /// </summary>
-        public readonly Outputs.ManagerPropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Specifies the Sku.
+        /// </summary>
+        public readonly Outputs.ManagerSkuResponseResult? Sku;
         /// <summary>
         /// The tags attached to the resource.
         /// </summary>
@@ -66,22 +74,28 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
 
         [OutputConstructor]
         private GetManagerResult(
+            Outputs.ManagerIntrinsicSettingsResponseResult? cisIntrinsicSettings,
+
             string? etag,
 
             string location,
 
             string name,
 
-            Outputs.ManagerPropertiesResponseResult properties,
+            string? provisioningState,
+
+            Outputs.ManagerSkuResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            CisIntrinsicSettings = cisIntrinsicSettings;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Sku = sku;
             Tags = tags;
             Type = type;
         }

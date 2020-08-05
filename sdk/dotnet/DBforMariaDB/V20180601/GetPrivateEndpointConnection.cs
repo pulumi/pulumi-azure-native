@@ -50,9 +50,17 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource properties.
+        /// Private endpoint which the connection belongs to.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponseResult Properties;
+        public readonly Outputs.PrivateEndpointPropertyResponseResult? PrivateEndpoint;
+        /// <summary>
+        /// Connection state of the private endpoint connection.
+        /// </summary>
+        public readonly Outputs.PrivateLinkServiceConnectionStatePropertyResponseResult? PrivateLinkServiceConnectionState;
+        /// <summary>
+        /// State of the private endpoint connection.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -62,12 +70,18 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
         private GetPrivateEndpointConnectionResult(
             string name,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponseResult properties,
+            Outputs.PrivateEndpointPropertyResponseResult? privateEndpoint,
+
+            Outputs.PrivateLinkServiceConnectionStatePropertyResponseResult? privateLinkServiceConnectionState,
+
+            string provisioningState,
 
             string type)
         {
             Name = name;
-            Properties = properties;
+            PrivateEndpoint = privateEndpoint;
+            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

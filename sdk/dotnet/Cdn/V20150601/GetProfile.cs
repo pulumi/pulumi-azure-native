@@ -47,7 +47,18 @@ namespace Pulumi.AzureRM.Cdn.V20150601
         /// Resource name
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.ProfilePropertiesResponseResult Properties;
+        /// <summary>
+        /// Provisioning status of the profile.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Resource status of the profile.
+        /// </summary>
+        public readonly string ResourceState;
+        /// <summary>
+        /// The SKU (pricing tier) of the CDN profile.
+        /// </summary>
+        public readonly Outputs.SkuResponseResult? Sku;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -63,7 +74,11 @@ namespace Pulumi.AzureRM.Cdn.V20150601
 
             string name,
 
-            Outputs.ProfilePropertiesResponseResult properties,
+            string? provisioningState,
+
+            string resourceState,
+
+            Outputs.SkuResponseResult? sku,
 
             ImmutableDictionary<string, string> tags,
 
@@ -71,7 +86,9 @@ namespace Pulumi.AzureRM.Cdn.V20150601
         {
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceState = resourceState;
+            Sku = sku;
             Tags = tags;
             Type = type;
         }

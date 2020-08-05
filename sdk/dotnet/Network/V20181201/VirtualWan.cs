@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.Network.V20181201
     public partial class VirtualWan : Pulumi.CustomResource
     {
         /// <summary>
+        /// True if branch to branch traffic is allowed.
+        /// </summary>
+        [Output("allowBranchToBranchTraffic")]
+        public Output<bool?> AllowBranchToBranchTraffic { get; private set; } = null!;
+
+        /// <summary>
+        /// True if Vnet to Vnet traffic is allowed.
+        /// </summary>
+        [Output("allowVnetToVnetTraffic")]
+        public Output<bool?> AllowVnetToVnetTraffic { get; private set; } = null!;
+
+        /// <summary>
+        /// Vpn encryption to be disabled or not.
+        /// </summary>
+        [Output("disableVpnEncryption")]
+        public Output<bool?> DisableVpnEncryption { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -33,10 +51,28 @@ namespace Pulumi.AzureRM.Network.V20181201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters for VirtualWAN
+        /// The office local breakout category.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualWanPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("office365LocalBreakoutCategory")]
+        public Output<string?> Office365LocalBreakoutCategory { get; private set; } = null!;
+
+        /// <summary>
+        /// List of all P2SVpnServerConfigurations associated with the virtual wan.
+        /// </summary>
+        [Output("p2SVpnServerConfigurations")]
+        public Output<ImmutableArray<Outputs.P2SVpnServerConfigurationResponseResult>> P2SVpnServerConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The Security Provider name.
+        /// </summary>
+        [Output("securityProviderName")]
+        public Output<string?> SecurityProviderName { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +85,15 @@ namespace Pulumi.AzureRM.Network.V20181201
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// List of VirtualHubs in the VirtualWAN.
+        /// </summary>
+        [Output("virtualHubs")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualHubs { get; private set; } = null!;
+
+        [Output("vpnSites")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VpnSites { get; private set; } = null!;
 
 
         /// <summary>

@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Network.V20200501
     public partial class VirtualHubBgpConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// The current state of the VirtualHub to Peer.
+        /// </summary>
+        [Output("connectionState")]
+        public Output<string> ConnectionState { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -27,10 +33,22 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the Bgp connections.
+        /// Peer ASN.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.BgpConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("peerAsn")]
+        public Output<int?> PeerAsn { get; private set; } = null!;
+
+        /// <summary>
+        /// Peer IP.
+        /// </summary>
+        [Output("peerIp")]
+        public Output<string?> PeerIp { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Connection type.

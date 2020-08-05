@@ -15,10 +15,28 @@ namespace Pulumi.AzureRM.Network.V20170301
     public partial class Profile : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets the DNS settings of the Traffic Manager profile.
+        /// </summary>
+        [Output("dnsConfig")]
+        public Output<Outputs.DnsConfigResponseResult?> DnsConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the list of endpoints in the Traffic Manager profile.
+        /// </summary>
+        [Output("endpoints")]
+        public Output<ImmutableArray<Outputs.EndpointResponseResult>> Endpoints { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the endpoint monitoring settings of the Traffic Manager profile.
+        /// </summary>
+        [Output("monitorConfig")]
+        public Output<Outputs.MonitorConfigResponseResult?> MonitorConfig { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -27,16 +45,22 @@ namespace Pulumi.AzureRM.Network.V20170301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Class representing the Traffic Manager profile properties.
+        /// Gets or sets the status of the Traffic Manager profile.  Possible values are 'Enabled' and 'Disabled'.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ProfilePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("profileStatus")]
+        public Output<string?> ProfileStatus { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the traffic routing method of the Traffic Manager profile.  Possible values are 'Performance', 'Weighted', 'Priority' or 'Geographic'.
+        /// </summary>
+        [Output("trafficRoutingMethod")]
+        public Output<string?> TrafficRoutingMethod { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

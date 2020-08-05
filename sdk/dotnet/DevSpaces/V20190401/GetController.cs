@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.DevSpaces.V20190401
     public sealed class GetControllerResult
     {
         /// <summary>
+        /// DNS name for accessing DataPlane services
+        /// </summary>
+        public readonly string DataPlaneFqdn;
+        /// <summary>
+        /// DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
+        /// </summary>
+        public readonly string HostSuffix;
+        /// <summary>
         /// Region where the Azure resource is located.
         /// </summary>
         public readonly string Location;
@@ -47,7 +55,10 @@ namespace Pulumi.AzureRM.DevSpaces.V20190401
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.ControllerPropertiesResponseResult Properties;
+        /// <summary>
+        /// Provisioning state of the Azure Dev Spaces Controller.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Model representing SKU for Azure Dev Spaces Controller.
         /// </summary>
@@ -57,29 +68,56 @@ namespace Pulumi.AzureRM.DevSpaces.V20190401
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// DNS of the target container host's API server
+        /// </summary>
+        public readonly string TargetContainerHostApiServerFqdn;
+        /// <summary>
+        /// Credentials of the target container host (base64).
+        /// </summary>
+        public readonly string TargetContainerHostCredentialsBase64;
+        /// <summary>
+        /// Resource ID of the target container host
+        /// </summary>
+        public readonly string TargetContainerHostResourceId;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetControllerResult(
+            string dataPlaneFqdn,
+
+            string hostSuffix,
+
             string location,
 
             string name,
 
-            Outputs.ControllerPropertiesResponseResult properties,
+            string provisioningState,
 
             Outputs.SkuResponseResult sku,
 
             ImmutableDictionary<string, string>? tags,
 
+            string targetContainerHostApiServerFqdn,
+
+            string targetContainerHostCredentialsBase64,
+
+            string targetContainerHostResourceId,
+
             string type)
         {
+            DataPlaneFqdn = dataPlaneFqdn;
+            HostSuffix = hostSuffix;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Sku = sku;
             Tags = tags;
+            TargetContainerHostApiServerFqdn = targetContainerHostApiServerFqdn;
+            TargetContainerHostCredentialsBase64 = targetContainerHostCredentialsBase64;
+            TargetContainerHostResourceId = targetContainerHostResourceId;
             Type = type;
         }
     }

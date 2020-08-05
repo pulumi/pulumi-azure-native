@@ -51,7 +51,18 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// Resource Name
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.UserResponsePropertiesResult Properties;
+        /// <summary>
+        /// Password used for publishing
+        /// </summary>
+        public readonly string? PublishingPassword;
+        /// <summary>
+        /// Username used for publishing
+        /// </summary>
+        public readonly string? PublishingUserName;
+        /// <summary>
+        /// Service Control Manager URI, including username and password
+        /// </summary>
+        public readonly string? ScmUri;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -69,7 +80,11 @@ namespace Pulumi.AzureRM.Web.V20150801
 
             string? name,
 
-            Outputs.UserResponsePropertiesResult properties,
+            string? publishingPassword,
+
+            string? publishingUserName,
+
+            string? scmUri,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -78,7 +93,9 @@ namespace Pulumi.AzureRM.Web.V20150801
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            PublishingPassword = publishingPassword;
+            PublishingUserName = publishingUserName;
+            ScmUri = scmUri;
             Tags = tags;
             Type = type;
         }

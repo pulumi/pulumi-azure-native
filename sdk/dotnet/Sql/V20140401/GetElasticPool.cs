@@ -46,6 +46,26 @@ namespace Pulumi.AzureRM.Sql.V20140401
     public sealed class GetElasticPoolResult
     {
         /// <summary>
+        /// The creation date of the elastic pool (ISO8601 format).
+        /// </summary>
+        public readonly string CreationDate;
+        /// <summary>
+        /// The maximum DTU any one database can consume.
+        /// </summary>
+        public readonly int? DatabaseDtuMax;
+        /// <summary>
+        /// The minimum DTU all databases are guaranteed.
+        /// </summary>
+        public readonly int? DatabaseDtuMin;
+        /// <summary>
+        /// The total shared DTU for the database elastic pool.
+        /// </summary>
+        public readonly int? Dtu;
+        /// <summary>
+        /// The edition of the elastic pool.
+        /// </summary>
+        public readonly string? Edition;
+        /// <summary>
         /// Kind of elastic pool.  This is metadata used for the Azure portal experience.
         /// </summary>
         public readonly string Kind;
@@ -58,9 +78,13 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties representing the resource.
+        /// The state of the elastic pool.
         /// </summary>
-        public readonly Outputs.ElasticPoolPropertiesResponseResult Properties;
+        public readonly string State;
+        /// <summary>
+        /// Gets storage limit for the database elastic pool in MB.
+        /// </summary>
+        public readonly int? StorageMB;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -69,27 +93,52 @@ namespace Pulumi.AzureRM.Sql.V20140401
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Whether or not this database elastic pool is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
+        /// </summary>
+        public readonly bool? ZoneRedundant;
 
         [OutputConstructor]
         private GetElasticPoolResult(
+            string creationDate,
+
+            int? databaseDtuMax,
+
+            int? databaseDtuMin,
+
+            int? dtu,
+
+            string? edition,
+
             string kind,
 
             string location,
 
             string name,
 
-            Outputs.ElasticPoolPropertiesResponseResult properties,
+            string state,
+
+            int? storageMB,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            bool? zoneRedundant)
         {
+            CreationDate = creationDate;
+            DatabaseDtuMax = databaseDtuMax;
+            DatabaseDtuMin = databaseDtuMin;
+            Dtu = dtu;
+            Edition = edition;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            State = state;
+            StorageMB = storageMB;
             Tags = tags;
             Type = type;
+            ZoneRedundant = zoneRedundant;
         }
     }
 }

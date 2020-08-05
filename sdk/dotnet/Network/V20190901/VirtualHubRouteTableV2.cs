@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Network.V20190901
     public partial class VirtualHubRouteTableV2 : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of all connections attached to this route table v2.
+        /// </summary>
+        [Output("attachedConnections")]
+        public Output<ImmutableArray<string>> AttachedConnections { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -27,10 +33,16 @@ namespace Pulumi.AzureRM.Network.V20190901
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the virtual hub route table v2.
+        /// The provisioning state of the virtual hub route table v2 resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualHubRouteTableV2PropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// List of all routes.
+        /// </summary>
+        [Output("routes")]
+        public Output<ImmutableArray<Outputs.VirtualHubRouteV2ResponseResult>> Routes { get; private set; } = null!;
 
 
         /// <summary>

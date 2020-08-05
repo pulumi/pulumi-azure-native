@@ -15,10 +15,46 @@ namespace Pulumi.AzureRM.Network.V20181101
     public partial class Subnet : Pulumi.CustomResource
     {
         /// <summary>
+        /// The address prefix for the subnet.
+        /// </summary>
+        [Output("addressPrefix")]
+        public Output<string?> AddressPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// List of  address prefixes for the subnet.
+        /// </summary>
+        [Output("addressPrefixes")]
+        public Output<ImmutableArray<string>> AddressPrefixes { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets an array of references to the delegations on the subnet.
+        /// </summary>
+        [Output("delegations")]
+        public Output<ImmutableArray<Outputs.DelegationResponseResult>> Delegations { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of references to interface endpoints 
+        /// </summary>
+        [Output("interfaceEndpoints")]
+        public Output<ImmutableArray<Outputs.InterfaceEndpointResponseResult>> InterfaceEndpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// Array of IP configuration profiles which reference this subnet.
+        /// </summary>
+        [Output("ipConfigurationProfiles")]
+        public Output<ImmutableArray<Outputs.IPConfigurationProfileResponseResult>> IpConfigurationProfiles { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets an array of references to the network interface IP configurations using subnet.
+        /// </summary>
+        [Output("ipConfigurations")]
+        public Output<ImmutableArray<Outputs.IPConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -27,10 +63,52 @@ namespace Pulumi.AzureRM.Network.V20181101
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the subnet.
+        /// The reference of the NetworkSecurityGroup resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SubnetPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("networkSecurityGroup")]
+        public Output<Outputs.NetworkSecurityGroupResponseResult?> NetworkSecurityGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+        /// </summary>
+        [Output("purpose")]
+        public Output<string> Purpose { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets an array of references to the external resources using subnet.
+        /// </summary>
+        [Output("resourceNavigationLinks")]
+        public Output<ImmutableArray<Outputs.ResourceNavigationLinkResponseResult>> ResourceNavigationLinks { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference of the RouteTable resource.
+        /// </summary>
+        [Output("routeTable")]
+        public Output<Outputs.RouteTableResponseResult?> RouteTable { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets an array of references to services injecting into this subnet.
+        /// </summary>
+        [Output("serviceAssociationLinks")]
+        public Output<ImmutableArray<Outputs.ServiceAssociationLinkResponseResult>> ServiceAssociationLinks { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of service endpoint policies.
+        /// </summary>
+        [Output("serviceEndpointPolicies")]
+        public Output<ImmutableArray<Outputs.ServiceEndpointPolicyResponseResult>> ServiceEndpointPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// An array of service endpoints.
+        /// </summary>
+        [Output("serviceEndpoints")]
+        public Output<ImmutableArray<Outputs.ServiceEndpointPropertiesFormatResponseResult>> ServiceEndpoints { get; private set; } = null!;
 
 
         /// <summary>

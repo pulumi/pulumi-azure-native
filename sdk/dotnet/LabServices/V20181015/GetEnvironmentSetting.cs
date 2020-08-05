@@ -52,6 +52,26 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public sealed class GetEnvironmentSettingResult
     {
         /// <summary>
+        /// Describes the user's progress in configuring their environment setting
+        /// </summary>
+        public readonly string? ConfigurationState;
+        /// <summary>
+        /// Describes the environment and its resource settings
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Time when the template VM was last changed.
+        /// </summary>
+        public readonly string LastChanged;
+        /// <summary>
+        /// Time when the template VM was last sent for publishing.
+        /// </summary>
+        public readonly string LastPublished;
+        /// <summary>
+        /// The details of the latest operation. ex: status, error
+        /// </summary>
+        public readonly Outputs.LatestOperationResultResponseResult LatestOperationResult;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -60,35 +80,78 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the Environment Setting resource
+        /// The provisioning status of the resource.
         /// </summary>
-        public readonly Outputs.EnvironmentSettingPropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Describes the readiness of this environment setting
+        /// </summary>
+        public readonly string PublishingState;
+        /// <summary>
+        /// The resource specific settings
+        /// </summary>
+        public readonly Outputs.ResourceSettingsResponseResult ResourceSettings;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Brief title describing the environment and its resource settings
+        /// </summary>
+        public readonly string? Title;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string? UniqueIdentifier;
 
         [OutputConstructor]
         private GetEnvironmentSettingResult(
+            string? configurationState,
+
+            string? description,
+
+            string lastChanged,
+
+            string lastPublished,
+
+            Outputs.LatestOperationResultResponseResult latestOperationResult,
+
             string? location,
 
             string name,
 
-            Outputs.EnvironmentSettingPropertiesResponseResult properties,
+            string? provisioningState,
+
+            string publishingState,
+
+            Outputs.ResourceSettingsResponseResult resourceSettings,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string? title,
+
+            string type,
+
+            string? uniqueIdentifier)
         {
+            ConfigurationState = configurationState;
+            Description = description;
+            LastChanged = lastChanged;
+            LastPublished = lastPublished;
+            LatestOperationResult = latestOperationResult;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            PublishingState = publishingState;
+            ResourceSettings = resourceSettings;
             Tags = tags;
+            Title = title;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
         }
     }
 }

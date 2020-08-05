@@ -14,9 +14,25 @@ namespace Pulumi.AzureRM.Network.V20171001.Outputs
     public sealed class InboundNatPoolResponseResult
     {
         /// <summary>
+        /// The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.
+        /// </summary>
+        public readonly int BackendPort;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// A reference to frontend IP addresses.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? FrontendIPConfiguration;
+        /// <summary>
+        /// The last port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with a load balancer. Acceptable values range between 1 and 65535.
+        /// </summary>
+        public readonly int FrontendPortRangeEnd;
+        /// <summary>
+        /// The first port number in the range of external ports that will be used to provide Inbound Nat to NICs associated with a load balancer. Acceptable values range between 1 and 65534.
+        /// </summary>
+        public readonly int FrontendPortRangeStart;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -26,24 +42,43 @@ namespace Pulumi.AzureRM.Network.V20171001.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of load balancer inbound nat pool.
+        /// The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All.'
         /// </summary>
-        public readonly Outputs.InboundNatPoolPropertiesFormatResponseResult? Properties;
+        public readonly string Protocol;
+        /// <summary>
+        /// Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private InboundNatPoolResponseResult(
+            int backendPort,
+
             string? etag,
+
+            Outputs.SubResourceResponseResult? frontendIPConfiguration,
+
+            int frontendPortRangeEnd,
+
+            int frontendPortRangeStart,
 
             string? id,
 
             string? name,
 
-            Outputs.InboundNatPoolPropertiesFormatResponseResult? properties)
+            string protocol,
+
+            string? provisioningState)
         {
+            BackendPort = backendPort;
             Etag = etag;
+            FrontendIPConfiguration = frontendIPConfiguration;
+            FrontendPortRangeEnd = frontendPortRangeEnd;
+            FrontendPortRangeStart = frontendPortRangeStart;
             Id = id;
             Name = name;
-            Properties = properties;
+            Protocol = protocol;
+            ProvisioningState = provisioningState;
         }
     }
 }

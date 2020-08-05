@@ -46,29 +46,92 @@ namespace Pulumi.AzureRM.Databricks.V20180401
     public sealed class GetvNetPeeringResult
     {
         /// <summary>
+        /// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+        /// </summary>
+        public readonly bool? AllowForwardedTraffic;
+        /// <summary>
+        /// If gateway links can be used in remote virtual networking to link to this virtual network.
+        /// </summary>
+        public readonly bool? AllowGatewayTransit;
+        /// <summary>
+        /// Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+        /// </summary>
+        public readonly bool? AllowVirtualNetworkAccess;
+        /// <summary>
+        /// The reference to the databricks virtual network address space.
+        /// </summary>
+        public readonly Outputs.AddressSpaceResponseResult? DatabricksAddressSpace;
+        /// <summary>
+        ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        /// </summary>
+        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkResult? DatabricksVirtualNetwork;
+        /// <summary>
         /// Name of the virtual network peering resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of properties for vNet Peering
+        /// The status of the virtual network peering.
         /// </summary>
-        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatResponseResult Properties;
+        public readonly string PeeringState;
+        /// <summary>
+        /// The provisioning state of the virtual network peering resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The reference to the remote virtual network address space.
+        /// </summary>
+        public readonly Outputs.AddressSpaceResponseResult? RemoteAddressSpace;
+        /// <summary>
+        ///  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        /// </summary>
+        public readonly Outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkResult RemoteVirtualNetwork;
         /// <summary>
         /// type of the virtual network peering resource
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        /// </summary>
+        public readonly bool? UseRemoteGateways;
 
         [OutputConstructor]
         private GetvNetPeeringResult(
+            bool? allowForwardedTraffic,
+
+            bool? allowGatewayTransit,
+
+            bool? allowVirtualNetworkAccess,
+
+            Outputs.AddressSpaceResponseResult? databricksAddressSpace,
+
+            Outputs.VirtualNetworkPeeringPropertiesFormatResponseDatabricksVirtualNetworkResult? databricksVirtualNetwork,
+
             string name,
 
-            Outputs.VirtualNetworkPeeringPropertiesFormatResponseResult properties,
+            string peeringState,
 
-            string type)
+            string provisioningState,
+
+            Outputs.AddressSpaceResponseResult? remoteAddressSpace,
+
+            Outputs.VirtualNetworkPeeringPropertiesFormatResponseRemoteVirtualNetworkResult remoteVirtualNetwork,
+
+            string type,
+
+            bool? useRemoteGateways)
         {
+            AllowForwardedTraffic = allowForwardedTraffic;
+            AllowGatewayTransit = allowGatewayTransit;
+            AllowVirtualNetworkAccess = allowVirtualNetworkAccess;
+            DatabricksAddressSpace = databricksAddressSpace;
+            DatabricksVirtualNetwork = databricksVirtualNetwork;
             Name = name;
-            Properties = properties;
+            PeeringState = peeringState;
+            ProvisioningState = provisioningState;
+            RemoteAddressSpace = remoteAddressSpace;
+            RemoteVirtualNetwork = remoteVirtualNetwork;
             Type = type;
+            UseRemoteGateways = useRemoteGateways;
         }
     }
 }

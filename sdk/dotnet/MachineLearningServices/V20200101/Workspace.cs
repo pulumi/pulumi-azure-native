@@ -15,10 +15,64 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200101
     public partial class Workspace : Pulumi.CustomResource
     {
         /// <summary>
+        /// ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        [Output("applicationInsights")]
+        public Output<string?> ApplicationInsights { get; private set; } = null!;
+
+        /// <summary>
+        /// ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        [Output("containerRegistry")]
+        public Output<string?> ContainerRegistry { get; private set; } = null!;
+
+        /// <summary>
+        /// The creation time of the machine learning workspace in ISO8601 format.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of this workspace.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Url for the discovery service to identify regional endpoints for machine learning experimentation services
+        /// </summary>
+        [Output("discoveryUrl")]
+        public Output<string?> DiscoveryUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// The encryption settings of Azure ML workspace.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionPropertyResponseResult?> Encryption { get; private set; } = null!;
+
+        /// <summary>
+        /// The friendly name for this workspace. This name in mutable
+        /// </summary>
+        [Output("friendlyName")]
+        public Output<string?> FriendlyName { get; private set; } = null!;
+
+        /// <summary>
+        /// The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
+        /// </summary>
+        [Output("hbiWorkspace")]
+        public Output<bool?> HbiWorkspace { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        [Output("keyVault")]
+        public Output<string?> KeyVault { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the location of the resource.
@@ -33,16 +87,28 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the machine learning workspace.
+        /// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WorkspacePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace
+        /// </summary>
+        [Output("serviceProvisionedResourceGroup")]
+        public Output<string> ServiceProvisionedResourceGroup { get; private set; } = null!;
 
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+        /// </summary>
+        [Output("storageAccount")]
+        public Output<string?> StorageAccount { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
@@ -55,6 +121,12 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200101
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The immutable id associated with this workspace.
+        /// </summary>
+        [Output("workspaceId")]
+        public Output<string> WorkspaceId { get; private set; } = null!;
 
 
         /// <summary>

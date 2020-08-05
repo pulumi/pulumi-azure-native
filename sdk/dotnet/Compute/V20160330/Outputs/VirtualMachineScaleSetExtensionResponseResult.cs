@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Compute.V20160330.Outputs
     public sealed class VirtualMachineScaleSetExtensionResponseResult
     {
         /// <summary>
+        /// Whether the extension handler should be automatically upgraded across minor versions.
+        /// </summary>
+        public readonly bool? AutoUpgradeMinorVersion;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string? Id;
@@ -22,21 +26,59 @@ namespace Pulumi.AzureRM.Compute.V20160330.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Describes the properties of a Virtual Machine Scale Set Extension.
+        /// Json formatted protected settings for the extension.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetExtensionPropertiesResponseResult? Properties;
+        public readonly ImmutableDictionary<string, object>? ProtectedSettings;
+        /// <summary>
+        /// The provisioning state, which only appears in the response.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The name of the extension handler publisher.
+        /// </summary>
+        public readonly string? Publisher;
+        /// <summary>
+        /// Json formatted public settings for the extension.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Settings;
+        /// <summary>
+        /// The type of the extension handler.
+        /// </summary>
+        public readonly string? Type;
+        /// <summary>
+        /// The type version of the extension handler.
+        /// </summary>
+        public readonly string? TypeHandlerVersion;
 
         [OutputConstructor]
         private VirtualMachineScaleSetExtensionResponseResult(
+            bool? autoUpgradeMinorVersion,
+
             string? id,
 
             string? name,
 
-            Outputs.VirtualMachineScaleSetExtensionPropertiesResponseResult? properties)
+            ImmutableDictionary<string, object>? protectedSettings,
+
+            string provisioningState,
+
+            string? publisher,
+
+            ImmutableDictionary<string, object>? settings,
+
+            string? type,
+
+            string? typeHandlerVersion)
         {
+            AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProtectedSettings = protectedSettings;
+            ProvisioningState = provisioningState;
+            Publisher = publisher;
+            Settings = settings;
+            Type = type;
+            TypeHandlerVersion = typeHandlerVersion;
         }
     }
 }

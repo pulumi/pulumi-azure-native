@@ -15,6 +15,42 @@ namespace Pulumi.AzureRM.Compute.V20190701
     public partial class GalleryImage : Pulumi.CustomResource
     {
         /// <summary>
+        /// The description of this gallery Image Definition resource. This property is updatable.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the disallowed disk types.
+        /// </summary>
+        [Output("disallowed")]
+        public Output<Outputs.DisallowedResponseResult?> Disallowed { get; private set; } = null!;
+
+        /// <summary>
+        /// The end of life date of the gallery Image Definition. This property can be used for decommissioning purposes. This property is updatable.
+        /// </summary>
+        [Output("endOfLifeDate")]
+        public Output<string?> EndOfLifeDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The Eula agreement for the gallery Image Definition.
+        /// </summary>
+        [Output("eula")]
+        public Output<string?> Eula { get; private set; } = null!;
+
+        /// <summary>
+        /// The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+        /// </summary>
+        [Output("hyperVGeneration")]
+        public Output<string?> HyperVGeneration { get; private set; } = null!;
+
+        /// <summary>
+        /// This is the gallery Image Definition identifier.
+        /// </summary>
+        [Output("identifier")]
+        public Output<Outputs.GalleryImageIdentifierResponseResult> Identifier { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,10 +63,46 @@ namespace Pulumi.AzureRM.Compute.V20190701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the properties of a gallery Image Definition.
+        /// This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.GalleryImagePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("osState")]
+        public Output<string> OsState { get; private set; } = null!;
+
+        /// <summary>
+        /// This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
+        /// </summary>
+        [Output("osType")]
+        public Output<string> OsType { get; private set; } = null!;
+
+        /// <summary>
+        /// The privacy statement uri.
+        /// </summary>
+        [Output("privacyStatementUri")]
+        public Output<string?> PrivacyStatementUri { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state, which only appears in the response.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the gallery Image Definition purchase plan. This is used by marketplace images.
+        /// </summary>
+        [Output("purchasePlan")]
+        public Output<Outputs.ImagePurchasePlanResponseResult?> PurchasePlan { get; private set; } = null!;
+
+        /// <summary>
+        /// The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
+        /// </summary>
+        [Output("recommended")]
+        public Output<Outputs.RecommendedMachineConfigurationResponseResult?> Recommended { get; private set; } = null!;
+
+        /// <summary>
+        /// The release note uri.
+        /// </summary>
+        [Output("releaseNoteUri")]
+        public Output<string?> ReleaseNoteUri { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

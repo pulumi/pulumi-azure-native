@@ -15,16 +15,46 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190801
     public partial class StorageAccount : Pulumi.CustomResource
     {
         /// <summary>
+        /// BlobEndpoint of Storage Account
+        /// </summary>
+        [Output("blobEndpoint")]
+        public Output<string> BlobEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
+        /// </summary>
+        [Output("containerCount")]
+        public Output<int> ContainerCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Data policy of the storage Account.
+        /// </summary>
+        [Output("dataPolicy")]
+        public Output<string?> DataPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Description for the storage Account.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// The object name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Storage Account properties.
+        /// Storage Account Credential Id
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.StorageAccountPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("storageAccountCredentialId")]
+        public Output<string?> StorageAccountCredentialId { get; private set; } = null!;
+
+        /// <summary>
+        /// Current status of the storage account
+        /// </summary>
+        [Output("storageAccountStatus")]
+        public Output<string?> StorageAccountStatus { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

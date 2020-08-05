@@ -52,10 +52,21 @@ namespace Pulumi.AzureRM.Cdn.V20150601
     public sealed class GetCustomDomainResult
     {
         /// <summary>
+        /// The host name of the custom domain. Must be a domain name.
+        /// </summary>
+        public readonly string HostName;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.CustomDomainPropertiesResponseResult Properties;
+        /// <summary>
+        /// Provisioning status of the custom domain.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Resource status of the custom domain.
+        /// </summary>
+        public readonly string ResourceState;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -63,14 +74,20 @@ namespace Pulumi.AzureRM.Cdn.V20150601
 
         [OutputConstructor]
         private GetCustomDomainResult(
+            string hostName,
+
             string name,
 
-            Outputs.CustomDomainPropertiesResponseResult properties,
+            string? provisioningState,
+
+            string resourceState,
 
             string type)
         {
+            HostName = hostName;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceState = resourceState;
             Type = type;
         }
     }

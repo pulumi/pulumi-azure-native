@@ -15,16 +15,40 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public partial class RegisteredPrefix : Pulumi.CustomResource
     {
         /// <summary>
+        /// The error message associated with the validation state, if any.
+        /// </summary>
+        [Output("errorMessage")]
+        public Output<string> ErrorMessage { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties that define a registered prefix.
+        /// The peering service prefix key that is to be shared with the customer.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PeeringRegisteredPrefixPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("peeringServicePrefixKey")]
+        public Output<string> PeeringServicePrefixKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The customer's prefix from which traffic originates.
+        /// </summary>
+        [Output("prefix")]
+        public Output<string?> Prefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The prefix validation state.
+        /// </summary>
+        [Output("prefixValidationState")]
+        public Output<string> PrefixValidationState { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

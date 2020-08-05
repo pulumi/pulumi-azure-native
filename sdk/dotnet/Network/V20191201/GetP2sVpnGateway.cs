@@ -52,9 +52,13 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the P2SVpnGateway.
+        /// List of all p2s connection configurations of the gateway.
         /// </summary>
-        public readonly Outputs.P2SVpnGatewayPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.P2SConnectionConfigurationResponseResult> P2SConnectionConfigurations;
+        /// <summary>
+        /// The provisioning state of the P2S VPN gateway resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,6 +67,22 @@ namespace Pulumi.AzureRM.Network.V20191201
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The VirtualHub to which the gateway belongs.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualHub;
+        /// <summary>
+        /// All P2S VPN clients' connection health status.
+        /// </summary>
+        public readonly Outputs.VpnClientConnectionHealthResponseResult VpnClientConnectionHealth;
+        /// <summary>
+        /// The scale unit for this p2s vpn gateway.
+        /// </summary>
+        public readonly int? VpnGatewayScaleUnit;
+        /// <summary>
+        /// The VpnServerConfiguration to which the p2sVpnGateway is attached to.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VpnServerConfiguration;
 
         [OutputConstructor]
         private GetP2sVpnGatewayResult(
@@ -72,18 +92,33 @@ namespace Pulumi.AzureRM.Network.V20191201
 
             string name,
 
-            Outputs.P2SVpnGatewayPropertiesResponseResult properties,
+            ImmutableArray<Outputs.P2SConnectionConfigurationResponseResult> p2SConnectionConfigurations,
+
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.SubResourceResponseResult? virtualHub,
+
+            Outputs.VpnClientConnectionHealthResponseResult vpnClientConnectionHealth,
+
+            int? vpnGatewayScaleUnit,
+
+            Outputs.SubResourceResponseResult? vpnServerConfiguration)
         {
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            P2SConnectionConfigurations = p2SConnectionConfigurations;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            VirtualHub = virtualHub;
+            VpnClientConnectionHealth = vpnClientConnectionHealth;
+            VpnGatewayScaleUnit = vpnGatewayScaleUnit;
+            VpnServerConfiguration = vpnServerConfiguration;
         }
     }
 }

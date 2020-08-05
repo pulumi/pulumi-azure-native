@@ -46,6 +46,18 @@ namespace Pulumi.AzureRM.Batch.V20181201
     public sealed class GetApplicationResult
     {
         /// <summary>
+        /// A value indicating whether packages within the application may be overwritten using the same version string.
+        /// </summary>
+        public readonly bool? AllowUpdates;
+        /// <summary>
+        /// The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+        /// </summary>
+        public readonly string? DefaultVersion;
+        /// <summary>
+        /// The display name for the application.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
         /// The ETag of the resource, used for concurrency statements.
         /// </summary>
         public readonly string Etag;
@@ -54,27 +66,29 @@ namespace Pulumi.AzureRM.Batch.V20181201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties associated with the Application.
-        /// </summary>
-        public readonly Outputs.ApplicationPropertiesResponseResult Properties;
-        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetApplicationResult(
+            bool? allowUpdates,
+
+            string? defaultVersion,
+
+            string? displayName,
+
             string etag,
 
             string name,
 
-            Outputs.ApplicationPropertiesResponseResult properties,
-
             string type)
         {
+            AllowUpdates = allowUpdates;
+            DefaultVersion = defaultVersion;
+            DisplayName = displayName;
             Etag = etag;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

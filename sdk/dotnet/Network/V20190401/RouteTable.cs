@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Network.V20190401
     public partial class RouteTable : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets whether to disable the routes learned by BGP on that route table. True means disable.
+        /// </summary>
+        [Output("disableBgpRoutePropagation")]
+        public Output<bool?> DisableBgpRoutePropagation { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -33,10 +39,22 @@ namespace Pulumi.AzureRM.Network.V20190401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the route table.
+        /// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RouteTablePropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Collection of routes contained within a route table.
+        /// </summary>
+        [Output("routes")]
+        public Output<ImmutableArray<Outputs.RouteResponseResult>> Routes { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of references to subnets.
+        /// </summary>
+        [Output("subnets")]
+        public Output<ImmutableArray<Outputs.SubnetResponseResult>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

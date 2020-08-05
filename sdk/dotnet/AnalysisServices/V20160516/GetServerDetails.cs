@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.AnalysisServices.V20160516
     public sealed class GetServerDetailsResult
     {
         /// <summary>
+        /// A collection of AS server administrators
+        /// </summary>
+        public readonly Outputs.ServerAdministratorsResponseResult? AsAdministrators;
+        /// <summary>
+        /// The container URI of backup blob.
+        /// </summary>
+        public readonly string? BackupBlobContainerUri;
+        /// <summary>
         /// Location of the Analysis Services resource.
         /// </summary>
         public readonly string Location;
@@ -48,13 +56,21 @@ namespace Pulumi.AzureRM.AnalysisServices.V20160516
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the provision operation request.
+        /// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
         /// </summary>
-        public readonly Outputs.AnalysisServicesServerPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The full name of the Analysis Services resource.
+        /// </summary>
+        public readonly string ServerFullName;
         /// <summary>
         /// The SKU of the Analysis Services resource.
         /// </summary>
         public readonly Outputs.ResourceSkuResponseResult Sku;
+        /// <summary>
+        /// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
+        /// </summary>
+        public readonly string State;
         /// <summary>
         /// Key-value pairs of additional resource provisioning properties.
         /// </summary>
@@ -66,22 +82,34 @@ namespace Pulumi.AzureRM.AnalysisServices.V20160516
 
         [OutputConstructor]
         private GetServerDetailsResult(
+            Outputs.ServerAdministratorsResponseResult? asAdministrators,
+
+            string? backupBlobContainerUri,
+
             string location,
 
             string name,
 
-            Outputs.AnalysisServicesServerPropertiesResponseResult properties,
+            string provisioningState,
+
+            string serverFullName,
 
             Outputs.ResourceSkuResponseResult sku,
+
+            string state,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AsAdministrators = asAdministrators;
+            BackupBlobContainerUri = backupBlobContainerUri;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ServerFullName = serverFullName;
             Sku = sku;
+            State = state;
             Tags = tags;
             Type = type;
         }

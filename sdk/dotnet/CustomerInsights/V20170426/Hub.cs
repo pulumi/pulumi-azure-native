@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
     public partial class Hub : Pulumi.CustomResource
     {
         /// <summary>
+        /// API endpoint URL of the hub.
+        /// </summary>
+        [Output("apiEndpoint")]
+        public Output<string> ApiEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Billing settings of the hub.
+        /// </summary>
+        [Output("hubBillingInfo")]
+        public Output<Outputs.HubBillingInfoFormatResponseResult?> HubBillingInfo { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -27,10 +39,10 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of hub.
+        /// Provisioning state of the hub.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.HubPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -39,10 +51,22 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
+        /// </summary>
+        [Output("tenantFeatures")]
+        public Output<int?> TenantFeatures { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Web endpoint URL of the hub.
+        /// </summary>
+        [Output("webEndpoint")]
+        public Output<string> WebEndpoint { get; private set; } = null!;
 
 
         /// <summary>

@@ -15,16 +15,46 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     public partial class EmailTemplate : Pulumi.CustomResource
     {
         /// <summary>
+        /// Email Template Body. This should be a valid XDocument
+        /// </summary>
+        [Output("body")]
+        public Output<string> Body { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of the Email Template.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the template is the default template provided by Api Management or has been edited.
+        /// </summary>
+        [Output("isDefault")]
+        public Output<bool> IsDefault { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Email Template entity contract properties.
+        /// Email Template Parameter values.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.EmailTemplateContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("parameters")]
+        public Output<ImmutableArray<Outputs.EmailTemplateParametersContractPropertiesResponseResult>> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Subject of the Template.
+        /// </summary>
+        [Output("subject")]
+        public Output<string> Subject { get; private set; } = null!;
+
+        /// <summary>
+        /// Title of the Template.
+        /// </summary>
+        [Output("title")]
+        public Output<string?> Title { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

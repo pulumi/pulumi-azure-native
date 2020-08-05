@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>
+        /// The creation date of the policy.
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the policy.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+        /// </summary>
+        [Output("evaluatorType")]
+        public Output<string?> EvaluatorType { get; private set; } = null!;
+
+        /// <summary>
+        /// The fact data of the policy.
+        /// </summary>
+        [Output("factData")]
+        public Output<string?> FactData { get; private set; } = null!;
+
+        /// <summary>
+        /// The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+        /// </summary>
+        [Output("factName")]
+        public Output<string?> FactName { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -27,10 +57,16 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PolicyPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of the policy.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -39,10 +75,22 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The threshold of the policy (i.e. a number for MaxValuePolicy, and a JSON array of values for AllowedValuesPolicy).
+        /// </summary>
+        [Output("threshold")]
+        public Output<string?> Threshold { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string?> UniqueIdentifier { get; private set; } = null!;
 
 
         /// <summary>

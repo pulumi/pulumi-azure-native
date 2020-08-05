@@ -15,22 +15,40 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
     public partial class Property : Pulumi.CustomResource
     {
         /// <summary>
+        /// Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Property entity contract properties.
+        /// Determines whether the value is a secret and should be encrypted or not. Default value is false.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PropertyContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("secret")]
+        public Output<bool?> Secret { get; private set; } = null!;
+
+        /// <summary>
+        /// Optional tags that when provided can be used to filter the property list.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<string>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
+        /// </summary>
+        [Output("value")]
+        public Output<string> Value { get; private set; } = null!;
 
 
         /// <summary>

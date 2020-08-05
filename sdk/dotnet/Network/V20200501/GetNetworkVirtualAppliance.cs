@@ -40,6 +40,18 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class GetNetworkVirtualApplianceResult
     {
         /// <summary>
+        /// BootStrapConfigurationBlobs storage URLs.
+        /// </summary>
+        public readonly ImmutableArray<string> BootStrapConfigurationBlobs;
+        /// <summary>
+        /// CloudInitConfiguration string in plain text.
+        /// </summary>
+        public readonly string? CloudInitConfiguration;
+        /// <summary>
+        /// CloudInitConfigurationBlob storage URLs.
+        /// </summary>
+        public readonly ImmutableArray<string> CloudInitConfigurationBlobs;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -56,9 +68,13 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Network Virtual Appliance.
+        /// Network Virtual Appliance SKU.
         /// </summary>
-        public readonly Outputs.NetworkVirtualAppliancePropertiesFormatResponseResult Properties;
+        public readonly Outputs.VirtualApplianceSkuPropertiesResponseResult? NvaSku;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -67,9 +83,31 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// VirtualAppliance ASN.
+        /// </summary>
+        public readonly int? VirtualApplianceAsn;
+        /// <summary>
+        /// List of Virtual Appliance Network Interfaces.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponseResult> VirtualApplianceNics;
+        /// <summary>
+        /// List of references to VirtualApplianceSite.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> VirtualApplianceSites;
+        /// <summary>
+        /// The Virtual Hub where Network Virtual Appliance is being deployed.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualHub;
 
         [OutputConstructor]
         private GetNetworkVirtualApplianceResult(
+            ImmutableArray<string> bootStrapConfigurationBlobs,
+
+            string? cloudInitConfiguration,
+
+            ImmutableArray<string> cloudInitConfigurationBlobs,
+
             string etag,
 
             Outputs.ManagedServiceIdentityResponseResult? identity,
@@ -78,19 +116,37 @@ namespace Pulumi.AzureRM.Network.V20200501
 
             string name,
 
-            Outputs.NetworkVirtualAppliancePropertiesFormatResponseResult properties,
+            Outputs.VirtualApplianceSkuPropertiesResponseResult? nvaSku,
+
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            int? virtualApplianceAsn,
+
+            ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponseResult> virtualApplianceNics,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> virtualApplianceSites,
+
+            Outputs.SubResourceResponseResult? virtualHub)
         {
+            BootStrapConfigurationBlobs = bootStrapConfigurationBlobs;
+            CloudInitConfiguration = cloudInitConfiguration;
+            CloudInitConfigurationBlobs = cloudInitConfigurationBlobs;
             Etag = etag;
             Identity = identity;
             Location = location;
             Name = name;
-            Properties = properties;
+            NvaSku = nvaSku;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            VirtualApplianceAsn = virtualApplianceAsn;
+            VirtualApplianceNics = virtualApplianceNics;
+            VirtualApplianceSites = virtualApplianceSites;
+            VirtualHub = virtualHub;
         }
     }
 }

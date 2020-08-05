@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301.Outputs
     public sealed class TransformationResponseResult
     {
         /// <summary>
+        /// The current entity tag for the transformation. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+        /// </summary>
+        public readonly string Etag;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string Id;
@@ -22,9 +26,13 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The properties that are associated with a transformation. Required on PUT (CreateOrReplace) requests.
+        /// Specifies the query that will be run in the streaming job. You can learn more about the Stream Analytics Query Language (SAQL) here: https://msdn.microsoft.com/library/azure/dn834998 . Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        public readonly Outputs.TransformationPropertiesResponseResult? Properties;
+        public readonly string? Query;
+        /// <summary>
+        /// Specifies the number of streaming units that the streaming job uses.
+        /// </summary>
+        public readonly int? StreamingUnits;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -32,17 +40,23 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301.Outputs
 
         [OutputConstructor]
         private TransformationResponseResult(
+            string etag,
+
             string id,
 
             string? name,
 
-            Outputs.TransformationPropertiesResponseResult? properties,
+            string? query,
+
+            int? streamingUnits,
 
             string type)
         {
+            Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            Query = query;
+            StreamingUnits = streamingUnits;
             Type = type;
         }
     }

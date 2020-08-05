@@ -21,16 +21,34 @@ namespace Pulumi.AzureRM.Network.V20200401
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The consumer link id.
+        /// </summary>
+        [Output("linkIdentifier")]
+        public Output<string> LinkIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the private end point connection.
+        /// The resource of private end point.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PrivateEndpointConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("privateEndpoint")]
+        public Output<Outputs.PrivateEndpointResponseResult> PrivateEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of information about the state of the connection between service consumer and provider.
+        /// </summary>
+        [Output("privateLinkServiceConnectionState")]
+        public Output<Outputs.PrivateLinkServiceConnectionStateResponseResult?> PrivateLinkServiceConnectionState { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the private endpoint connection resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

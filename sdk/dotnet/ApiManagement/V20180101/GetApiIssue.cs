@@ -52,29 +52,64 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public sealed class GetApiIssueResult
     {
         /// <summary>
+        /// A resource identifier for the API the issue was created for.
+        /// </summary>
+        public readonly string? ApiId;
+        /// <summary>
+        /// Date and time when the issue was created.
+        /// </summary>
+        public readonly string? CreatedDate;
+        /// <summary>
+        /// Text describing the issue.
+        /// </summary>
+        public readonly string Description;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Issue.
+        /// Status of the issue.
         /// </summary>
-        public readonly Outputs.IssueContractPropertiesResponseResult Properties;
+        public readonly string? State;
+        /// <summary>
+        /// The issue title.
+        /// </summary>
+        public readonly string Title;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// A resource identifier for the user created the issue.
+        /// </summary>
+        public readonly string UserId;
 
         [OutputConstructor]
         private GetApiIssueResult(
+            string? apiId,
+
+            string? createdDate,
+
+            string description,
+
             string name,
 
-            Outputs.IssueContractPropertiesResponseResult properties,
+            string? state,
 
-            string type)
+            string title,
+
+            string type,
+
+            string userId)
         {
+            ApiId = apiId;
+            CreatedDate = createdDate;
+            Description = description;
             Name = name;
-            Properties = properties;
+            State = state;
+            Title = title;
             Type = type;
+            UserId = userId;
         }
     }
 }

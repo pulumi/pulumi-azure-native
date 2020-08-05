@@ -40,6 +40,17 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// Possible values are: steady and resizing. steady state indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing state indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
+        /// </summary>
+        public readonly string AllocationState;
+        public readonly string AllocationStateTransitionTime;
+        public readonly string CreationTime;
+        public readonly int CurrentNodeCount;
+        /// <summary>
+        /// This element contains all the errors encountered by various compute nodes during node setup.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.BatchAIErrorResponseResult> Errors;
+        /// <summary>
         /// The location of the resource
         /// </summary>
         public readonly string Location;
@@ -48,9 +59,26 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties associated with the Cluster.
+        /// Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
         /// </summary>
-        public readonly Outputs.ClusterPropertiesResponseResult Properties;
+        public readonly Outputs.NodeSetupResponseResult? NodeSetup;
+        /// <summary>
+        /// Counts of various compute node states on the cluster.
+        /// </summary>
+        public readonly Outputs.NodeStateCountsResponseResult NodeStateCounts;
+        /// <summary>
+        /// Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
+        /// </summary>
+        public readonly string ProvisioningState;
+        public readonly string ProvisioningStateTransitionTime;
+        /// <summary>
+        /// At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
+        /// </summary>
+        public readonly Outputs.ScaleSettingsResponseResult? ScaleSettings;
+        /// <summary>
+        /// Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        /// </summary>
+        public readonly Outputs.ResourceIdResponseResult? Subnet;
         /// <summary>
         /// The tags of the resource
         /// </summary>
@@ -59,24 +87,82 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         /// The type of the resource
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Settings for user account that gets created on each on the nodes of a cluster.
+        /// </summary>
+        public readonly Outputs.UserAccountSettingsResponseResult? UserAccountSettings;
+        /// <summary>
+        /// Settings for OS image.
+        /// </summary>
+        public readonly Outputs.VirtualMachineConfigurationResponseResult? VirtualMachineConfiguration;
+        /// <summary>
+        /// The default value is dedicated. The node can get preempted while the task is running if lowpriority is chosen. This is best suited if the workload is checkpointing and can be restarted.
+        /// </summary>
+        public readonly string? VmPriority;
+        /// <summary>
+        /// All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+        /// </summary>
+        public readonly string? VmSize;
 
         [OutputConstructor]
         private GetClusterResult(
+            string allocationState,
+
+            string allocationStateTransitionTime,
+
+            string creationTime,
+
+            int currentNodeCount,
+
+            ImmutableArray<Outputs.BatchAIErrorResponseResult> errors,
+
             string location,
 
             string name,
 
-            Outputs.ClusterPropertiesResponseResult properties,
+            Outputs.NodeSetupResponseResult? nodeSetup,
+
+            Outputs.NodeStateCountsResponseResult nodeStateCounts,
+
+            string provisioningState,
+
+            string provisioningStateTransitionTime,
+
+            Outputs.ScaleSettingsResponseResult? scaleSettings,
+
+            Outputs.ResourceIdResponseResult? subnet,
 
             ImmutableDictionary<string, string> tags,
 
-            string type)
+            string type,
+
+            Outputs.UserAccountSettingsResponseResult? userAccountSettings,
+
+            Outputs.VirtualMachineConfigurationResponseResult? virtualMachineConfiguration,
+
+            string? vmPriority,
+
+            string? vmSize)
         {
+            AllocationState = allocationState;
+            AllocationStateTransitionTime = allocationStateTransitionTime;
+            CreationTime = creationTime;
+            CurrentNodeCount = currentNodeCount;
+            Errors = errors;
             Location = location;
             Name = name;
-            Properties = properties;
+            NodeSetup = nodeSetup;
+            NodeStateCounts = nodeStateCounts;
+            ProvisioningState = provisioningState;
+            ProvisioningStateTransitionTime = provisioningStateTransitionTime;
+            ScaleSettings = scaleSettings;
+            Subnet = subnet;
             Tags = tags;
             Type = type;
+            UserAccountSettings = userAccountSettings;
+            VirtualMachineConfiguration = virtualMachineConfiguration;
+            VmPriority = vmPriority;
+            VmSize = vmSize;
         }
     }
 }

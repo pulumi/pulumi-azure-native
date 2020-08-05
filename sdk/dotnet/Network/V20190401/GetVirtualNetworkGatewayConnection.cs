@@ -40,9 +40,49 @@ namespace Pulumi.AzureRM.Network.V20190401
     public sealed class GetVirtualNetworkGatewayConnectionResult
     {
         /// <summary>
+        /// The authorizationKey.
+        /// </summary>
+        public readonly string? AuthorizationKey;
+        /// <summary>
+        /// Connection protocol used for this connection.
+        /// </summary>
+        public readonly string? ConnectionProtocol;
+        /// <summary>
+        /// Virtual Network Gateway connection status.
+        /// </summary>
+        public readonly string ConnectionStatus;
+        /// <summary>
+        /// Gateway connection type.
+        /// </summary>
+        public readonly string ConnectionType;
+        /// <summary>
+        /// The egress bytes transferred in this connection.
+        /// </summary>
+        public readonly int EgressBytesTransferred;
+        /// <summary>
+        /// EnableBgp flag.
+        /// </summary>
+        public readonly bool? EnableBgp;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Bypass ExpressRoute Gateway for data forwarding.
+        /// </summary>
+        public readonly bool? ExpressRouteGatewayBypass;
+        /// <summary>
+        /// The ingress bytes transferred in this connection.
+        /// </summary>
+        public readonly int IngressBytesTransferred;
+        /// <summary>
+        /// The IPSec Policies to be considered by this connection.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpsecPolicyResponseResult> IpsecPolicies;
+        /// <summary>
+        /// The reference to local network gateway resource.
+        /// </summary>
+        public readonly Outputs.LocalNetworkGatewayResponseResult? LocalNetworkGateway2;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,38 +92,124 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the virtual network gateway connection.
+        /// The reference to peerings resource.
         /// </summary>
-        public readonly Outputs.VirtualNetworkGatewayConnectionPropertiesFormatResponseResult Properties;
+        public readonly Outputs.SubResourceResponseResult? Peer;
+        /// <summary>
+        /// The provisioning state of the VirtualNetworkGatewayConnection resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The resource GUID property of the VirtualNetworkGatewayConnection resource.
+        /// </summary>
+        public readonly string? ResourceGuid;
+        /// <summary>
+        /// The routing weight.
+        /// </summary>
+        public readonly int? RoutingWeight;
+        /// <summary>
+        /// The IPSec shared key.
+        /// </summary>
+        public readonly string? SharedKey;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Collection of all tunnels' connection health status.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TunnelConnectionHealthResponseResult> TunnelConnectionStatus;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Enable policy-based traffic selectors.
+        /// </summary>
+        public readonly bool? UsePolicyBasedTrafficSelectors;
+        /// <summary>
+        /// The reference to virtual network gateway resource.
+        /// </summary>
+        public readonly Outputs.VirtualNetworkGatewayResponseResult VirtualNetworkGateway1;
+        /// <summary>
+        /// The reference to virtual network gateway resource.
+        /// </summary>
+        public readonly Outputs.VirtualNetworkGatewayResponseResult? VirtualNetworkGateway2;
 
         [OutputConstructor]
         private GetVirtualNetworkGatewayConnectionResult(
+            string? authorizationKey,
+
+            string? connectionProtocol,
+
+            string connectionStatus,
+
+            string connectionType,
+
+            int egressBytesTransferred,
+
+            bool? enableBgp,
+
             string? etag,
+
+            bool? expressRouteGatewayBypass,
+
+            int ingressBytesTransferred,
+
+            ImmutableArray<Outputs.IpsecPolicyResponseResult> ipsecPolicies,
+
+            Outputs.LocalNetworkGatewayResponseResult? localNetworkGateway2,
 
             string? location,
 
             string name,
 
-            Outputs.VirtualNetworkGatewayConnectionPropertiesFormatResponseResult properties,
+            Outputs.SubResourceResponseResult? peer,
+
+            string provisioningState,
+
+            string? resourceGuid,
+
+            int? routingWeight,
+
+            string? sharedKey,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            ImmutableArray<Outputs.TunnelConnectionHealthResponseResult> tunnelConnectionStatus,
+
+            string type,
+
+            bool? usePolicyBasedTrafficSelectors,
+
+            Outputs.VirtualNetworkGatewayResponseResult virtualNetworkGateway1,
+
+            Outputs.VirtualNetworkGatewayResponseResult? virtualNetworkGateway2)
         {
+            AuthorizationKey = authorizationKey;
+            ConnectionProtocol = connectionProtocol;
+            ConnectionStatus = connectionStatus;
+            ConnectionType = connectionType;
+            EgressBytesTransferred = egressBytesTransferred;
+            EnableBgp = enableBgp;
             Etag = etag;
+            ExpressRouteGatewayBypass = expressRouteGatewayBypass;
+            IngressBytesTransferred = ingressBytesTransferred;
+            IpsecPolicies = ipsecPolicies;
+            LocalNetworkGateway2 = localNetworkGateway2;
             Location = location;
             Name = name;
-            Properties = properties;
+            Peer = peer;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
+            RoutingWeight = routingWeight;
+            SharedKey = sharedKey;
             Tags = tags;
+            TunnelConnectionStatus = tunnelConnectionStatus;
             Type = type;
+            UsePolicyBasedTrafficSelectors = usePolicyBasedTrafficSelectors;
+            VirtualNetworkGateway1 = virtualNetworkGateway1;
+            VirtualNetworkGateway2 = virtualNetworkGateway2;
         }
     }
 }

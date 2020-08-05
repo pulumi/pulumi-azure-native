@@ -15,16 +15,46 @@ namespace Pulumi.AzureRM.Management.V20200201
     public partial class ManagementGroup : Pulumi.CustomResource
     {
         /// <summary>
+        /// The list of children.
+        /// </summary>
+        [Output("children")]
+        public Output<ImmutableArray<Outputs.ManagementGroupChildInfoResponseResult>> Children { get; private set; } = null!;
+
+        /// <summary>
+        /// The details of a management group.
+        /// </summary>
+        [Output("details")]
+        public Output<Outputs.ManagementGroupDetailsResponseResult?> Details { get; private set; } = null!;
+
+        /// <summary>
+        /// The friendly name of the management group.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The generic properties of a management group.
+        /// The path from the root to the current group.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ManagementGroupPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("path")]
+        public Output<ImmutableArray<Outputs.ManagementGroupPathElementResponseResult>> Path { get; private set; } = null!;
+
+        /// <summary>
+        /// The role definitions associated with the management group.
+        /// </summary>
+        [Output("roles")]
+        public Output<ImmutableArray<string>> Roles { get; private set; } = null!;
+
+        /// <summary>
+        /// The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string?> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.  For example, Microsoft.Management/managementGroups

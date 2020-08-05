@@ -15,10 +15,46 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
     public partial class NotificationHub : Pulumi.CustomResource
     {
         /// <summary>
+        /// The AdmCredential of the created NotificationHub
+        /// </summary>
+        [Output("admCredential")]
+        public Output<Outputs.AdmCredentialResponseResult?> AdmCredential { get; private set; } = null!;
+
+        /// <summary>
+        /// The ApnsCredential of the created NotificationHub
+        /// </summary>
+        [Output("apnsCredential")]
+        public Output<Outputs.ApnsCredentialResponseResult?> ApnsCredential { get; private set; } = null!;
+
+        /// <summary>
+        /// The AuthorizationRules of the created NotificationHub
+        /// </summary>
+        [Output("authorizationRules")]
+        public Output<ImmutableArray<Outputs.SharedAccessAuthorizationRulePropertiesResponseResult>> AuthorizationRules { get; private set; } = null!;
+
+        /// <summary>
+        /// The BaiduCredential of the created NotificationHub
+        /// </summary>
+        [Output("baiduCredential")]
+        public Output<Outputs.BaiduCredentialResponseResult?> BaiduCredential { get; private set; } = null!;
+
+        /// <summary>
+        /// The GcmCredential of the created NotificationHub
+        /// </summary>
+        [Output("gcmCredential")]
+        public Output<Outputs.GcmCredentialResponseResult?> GcmCredential { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The MpnsCredential of the created NotificationHub
+        /// </summary>
+        [Output("mpnsCredential")]
+        public Output<Outputs.MpnsCredentialResponseResult?> MpnsCredential { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -27,10 +63,10 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the NotificationHub.
+        /// The RegistrationTtl of the created NotificationHub
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NotificationHubPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("registrationTtl")]
+        public Output<string?> RegistrationTtl { get; private set; } = null!;
 
         /// <summary>
         /// The sku of the created namespace
@@ -49,6 +85,12 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The WnsCredential of the created NotificationHub
+        /// </summary>
+        [Output("wnsCredential")]
+        public Output<Outputs.WnsCredentialResponseResult?> WnsCredential { get; private set; } = null!;
 
 
         /// <summary>

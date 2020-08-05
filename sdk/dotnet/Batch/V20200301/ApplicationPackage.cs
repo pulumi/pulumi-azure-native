@@ -21,16 +21,40 @@ namespace Pulumi.AzureRM.Batch.V20200301
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The format of the application package, if the package is active.
+        /// </summary>
+        [Output("format")]
+        public Output<string> Format { get; private set; } = null!;
+
+        /// <summary>
+        /// The time at which the package was last activated, if the package is active.
+        /// </summary>
+        [Output("lastActivationTime")]
+        public Output<string> LastActivationTime { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties associated with the Application Package.
+        /// The current state of the application package.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApplicationPackagePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// The URL for the application package in Azure Storage.
+        /// </summary>
+        [Output("storageUrl")]
+        public Output<string> StorageUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// The UTC time at which the Azure Storage URL will expire.
+        /// </summary>
+        [Output("storageUrlExpiry")]
+        public Output<string> StorageUrlExpiry { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

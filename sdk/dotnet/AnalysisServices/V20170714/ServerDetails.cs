@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170714
     public partial class ServerDetails : Pulumi.CustomResource
     {
         /// <summary>
+        /// A collection of AS server administrators
+        /// </summary>
+        [Output("asAdministrators")]
+        public Output<Outputs.ServerAdministratorsResponseResult?> AsAdministrators { get; private set; } = null!;
+
+        /// <summary>
+        /// The SAS container URI to the backup container.
+        /// </summary>
+        [Output("backupBlobContainerUri")]
+        public Output<string?> BackupBlobContainerUri { get; private set; } = null!;
+
+        /// <summary>
+        /// The gateway details configured for the AS server.
+        /// </summary>
+        [Output("gatewayDetails")]
+        public Output<Outputs.GatewayDetailsResponseResult?> GatewayDetails { get; private set; } = null!;
+
+        /// <summary>
         /// Location of the Analysis Services resource.
         /// </summary>
         [Output("location")]
@@ -27,16 +45,28 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170714
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the provision operation request.
+        /// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AnalysisServicesServerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The full name of the Analysis Services resource.
+        /// </summary>
+        [Output("serverFullName")]
+        public Output<string> ServerFullName { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the Analysis Services resource.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.ResourceSkuResponseResult> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// Key-value pairs of additional resource provisioning properties.

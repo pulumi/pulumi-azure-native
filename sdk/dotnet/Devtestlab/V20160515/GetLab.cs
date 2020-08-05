@@ -40,6 +40,26 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public sealed class GetLabResult
     {
         /// <summary>
+        /// The lab's artifact storage account.
+        /// </summary>
+        public readonly string ArtifactsStorageAccount;
+        /// <summary>
+        /// The creation date of the lab.
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
+        /// The lab's default premium storage account.
+        /// </summary>
+        public readonly string DefaultPremiumStorageAccount;
+        /// <summary>
+        /// The lab's default storage account.
+        /// </summary>
+        public readonly string DefaultStorageAccount;
+        /// <summary>
+        /// Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+        /// </summary>
+        public readonly string? LabStorageType;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -48,9 +68,19 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the resource.
+        /// The lab's premium data disk storage account.
         /// </summary>
-        public readonly Outputs.LabPropertiesResponseResult Properties;
+        public readonly string PremiumDataDiskStorageAccount;
+        /// <summary>
+        /// The setting to enable usage of premium data disks.
+        /// When its value is 'Enabled', creation of standard or premium data disks is allowed.
+        /// When its value is 'Disabled', only creation of standard data disks is allowed.
+        /// </summary>
+        public readonly string? PremiumDataDisks;
+        /// <summary>
+        /// The provisioning status of the resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -59,24 +89,59 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string? UniqueIdentifier;
+        /// <summary>
+        /// The lab's Key vault.
+        /// </summary>
+        public readonly string VaultName;
 
         [OutputConstructor]
         private GetLabResult(
+            string artifactsStorageAccount,
+
+            string createdDate,
+
+            string defaultPremiumStorageAccount,
+
+            string defaultStorageAccount,
+
+            string? labStorageType,
+
             string? location,
 
             string name,
 
-            Outputs.LabPropertiesResponseResult properties,
+            string premiumDataDiskStorageAccount,
+
+            string? premiumDataDisks,
+
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string? uniqueIdentifier,
+
+            string vaultName)
         {
+            ArtifactsStorageAccount = artifactsStorageAccount;
+            CreatedDate = createdDate;
+            DefaultPremiumStorageAccount = defaultPremiumStorageAccount;
+            DefaultStorageAccount = defaultStorageAccount;
+            LabStorageType = labStorageType;
             Location = location;
             Name = name;
-            Properties = properties;
+            PremiumDataDiskStorageAccount = premiumDataDiskStorageAccount;
+            PremiumDataDisks = premiumDataDisks;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
+            VaultName = vaultName;
         }
     }
 }

@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.Network.V20180801
     public partial class PublicIPAddress : Pulumi.CustomResource
     {
         /// <summary>
+        /// The FQDN of the DNS record associated with the public IP address.
+        /// </summary>
+        [Output("dnsSettings")]
+        public Output<Outputs.PublicIPAddressDnsSettingsResponseResult?> DnsSettings { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The idle timeout of the public IP address.
+        /// </summary>
+        [Output("idleTimeoutInMinutes")]
+        public Output<int?> IdleTimeoutInMinutes { get; private set; } = null!;
+
+        /// <summary>
+        /// The IP address associated with the public IP address resource.
+        /// </summary>
+        [Output("ipAddress")]
+        public Output<string?> IpAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// The IP configuration associated with the public IP address.
+        /// </summary>
+        [Output("ipConfiguration")]
+        public Output<Outputs.IPConfigurationResponseResult> IpConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of tags associated with the public IP address.
+        /// </summary>
+        [Output("ipTags")]
+        public Output<ImmutableArray<Outputs.IpTagResponseResult>> IpTags { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +63,34 @@ namespace Pulumi.AzureRM.Network.V20180801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Public IP address properties.
+        /// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PublicIPAddressPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+        /// </summary>
+        [Output("publicIPAddressVersion")]
+        public Output<string?> PublicIPAddressVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
+        /// </summary>
+        [Output("publicIPAllocationMethod")]
+        public Output<string?> PublicIPAllocationMethod { get; private set; } = null!;
+
+        /// <summary>
+        /// The Public IP Prefix this Public IP Address should be allocated from.
+        /// </summary>
+        [Output("publicIPPrefix")]
+        public Output<Outputs.SubResourceResponseResult?> PublicIPPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the public IP resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// The public IP address SKU.

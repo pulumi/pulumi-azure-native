@@ -18,13 +18,9 @@ namespace Pulumi.AzureRM.Network.V20190501.Outputs
         /// </summary>
         public readonly string CertificateSource;
         /// <summary>
-        /// Parameters required for enabling SSL with Front Door-managed certificates (if certificateSource=FrontDoor)
+        /// Defines the type of the certificate used for secure connections to a frontendEndpoint
         /// </summary>
-        public readonly Outputs.FrontDoorCertificateSourceParametersResponseResult? FrontDoorCertificateSourceParameters;
-        /// <summary>
-        /// KeyVault certificate source parameters (if certificateSource=AzureKeyVault)
-        /// </summary>
-        public readonly Outputs.KeyVaultCertificateSourceParametersResponseResult? KeyVaultCertificateSourceParameters;
+        public readonly string? CertificateType;
         /// <summary>
         /// The minimum TLS version required from the clients to establish an SSL handshake with Front Door.
         /// </summary>
@@ -33,24 +29,42 @@ namespace Pulumi.AzureRM.Network.V20190501.Outputs
         /// Defines the TLS extension protocol that is used for secure delivery
         /// </summary>
         public readonly string ProtocolType;
+        /// <summary>
+        /// The name of the Key Vault secret representing the full certificate PFX
+        /// </summary>
+        public readonly string? SecretName;
+        /// <summary>
+        /// The version of the Key Vault secret representing the full certificate PFX
+        /// </summary>
+        public readonly string? SecretVersion;
+        /// <summary>
+        /// The Key Vault containing the SSL certificate
+        /// </summary>
+        public readonly Outputs.KeyVaultCertificateSourceParametersResponseVaultResult? Vault;
 
         [OutputConstructor]
         private CustomHttpsConfigurationResponseResult(
             string certificateSource,
 
-            Outputs.FrontDoorCertificateSourceParametersResponseResult? frontDoorCertificateSourceParameters,
-
-            Outputs.KeyVaultCertificateSourceParametersResponseResult? keyVaultCertificateSourceParameters,
+            string? certificateType,
 
             string minimumTlsVersion,
 
-            string protocolType)
+            string protocolType,
+
+            string? secretName,
+
+            string? secretVersion,
+
+            Outputs.KeyVaultCertificateSourceParametersResponseVaultResult? vault)
         {
             CertificateSource = certificateSource;
-            FrontDoorCertificateSourceParameters = frontDoorCertificateSourceParameters;
-            KeyVaultCertificateSourceParameters = keyVaultCertificateSourceParameters;
+            CertificateType = certificateType;
             MinimumTlsVersion = minimumTlsVersion;
             ProtocolType = protocolType;
+            SecretName = secretName;
+            SecretVersion = secretVersion;
+            Vault = vault;
         }
     }
 }

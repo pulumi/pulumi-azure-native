@@ -15,10 +15,46 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public partial class Runbook : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets the creation time.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string?> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the draft runbook properties.
+        /// </summary>
+        [Output("draft")]
+        public Output<Outputs.RunbookDraftResponseResult?> Draft { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the job count of the runbook.
+        /// </summary>
+        [Output("jobCount")]
+        public Output<int?> JobCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the last modified by.
+        /// </summary>
+        [Output("lastModifiedBy")]
+        public Output<string?> LastModifiedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string?> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the resource lives
@@ -27,16 +63,64 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Gets or sets the option to log activity trace of the runbook.
+        /// </summary>
+        [Output("logActivityTrace")]
+        public Output<int?> LogActivityTrace { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets progress log option.
+        /// </summary>
+        [Output("logProgress")]
+        public Output<bool?> LogProgress { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets verbose log option.
+        /// </summary>
+        [Output("logVerbose")]
+        public Output<bool?> LogVerbose { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the runbook properties.
+        /// Gets or sets the runbook output types.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RunbookPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("outputTypes")]
+        public Output<ImmutableArray<string>> OutputTypes { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the runbook parameters.
+        /// </summary>
+        [Output("parameters")]
+        public Output<ImmutableDictionary<string, Outputs.RunbookParameterResponseResult>?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the provisioning state of the runbook.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the published runbook content link.
+        /// </summary>
+        [Output("publishContentLink")]
+        public Output<Outputs.ContentLinkResponseResult?> PublishContentLink { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the type of the runbook.
+        /// </summary>
+        [Output("runbookType")]
+        public Output<string?> RunbookType { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the state of the runbook.
+        /// </summary>
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20190601.Outputs
     public sealed class ServiceEndpointPolicyDefinitionResponseResult
     {
         /// <summary>
+        /// A description for this rule. Restricted to 140 chars.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -26,24 +30,41 @@ namespace Pulumi.AzureRM.Network.V20190601.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the service endpoint policy definition.
+        /// The provisioning state of the service end point policy definition. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        public readonly Outputs.ServiceEndpointPolicyDefinitionPropertiesFormatResponseResult? Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Service endpoint name.
+        /// </summary>
+        public readonly string? Service;
+        /// <summary>
+        /// A list of service resources.
+        /// </summary>
+        public readonly ImmutableArray<string> ServiceResources;
 
         [OutputConstructor]
         private ServiceEndpointPolicyDefinitionResponseResult(
+            string? description,
+
             string? etag,
 
             string? id,
 
             string? name,
 
-            Outputs.ServiceEndpointPolicyDefinitionPropertiesFormatResponseResult? properties)
+            string provisioningState,
+
+            string? service,
+
+            ImmutableArray<string> serviceResources)
         {
+            Description = description;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Service = service;
+            ServiceResources = serviceResources;
         }
     }
 }

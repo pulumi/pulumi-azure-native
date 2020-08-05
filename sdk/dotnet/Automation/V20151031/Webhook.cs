@@ -15,22 +15,82 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public partial class Webhook : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets the creation time.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string?> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the expiry time.
+        /// </summary>
+        [Output("expiryTime")]
+        public Output<string?> ExpiryTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the value of the enabled flag of the webhook.
+        /// </summary>
+        [Output("isEnabled")]
+        public Output<bool?> IsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the last invoked time.
+        /// </summary>
+        [Output("lastInvokedTime")]
+        public Output<string?> LastInvokedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Details of the user who last modified the Webhook
+        /// </summary>
+        [Output("lastModifiedBy")]
+        public Output<string?> LastModifiedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string?> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the webhook properties.
+        /// Gets or sets the parameters of the job that is created when the webhook calls the runbook it is associated with.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WebhookPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("parameters")]
+        public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the name of the hybrid worker group the webhook job will run on.
+        /// </summary>
+        [Output("runOn")]
+        public Output<string?> RunOn { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the runbook the webhook is associated with.
+        /// </summary>
+        [Output("runbook")]
+        public Output<Outputs.RunbookAssociationPropertyResponseResult?> Runbook { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the webhook uri.
+        /// </summary>
+        [Output("uri")]
+        public Output<string?> Uri { get; private set; } = null!;
 
 
         /// <summary>

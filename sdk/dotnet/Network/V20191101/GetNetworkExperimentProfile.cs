@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Network.V20191101
     public sealed class GetNetworkExperimentProfileResult
     {
         /// <summary>
+        /// The state of the Experiment
+        /// </summary>
+        public readonly string? EnabledState;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -52,9 +56,9 @@ namespace Pulumi.AzureRM.Network.V20191101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of a Profile
+        /// Resource status.
         /// </summary>
-        public readonly Outputs.ProfilePropertiesResponseResult Properties;
+        public readonly string? ResourceState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,22 +70,25 @@ namespace Pulumi.AzureRM.Network.V20191101
 
         [OutputConstructor]
         private GetNetworkExperimentProfileResult(
+            string? enabledState,
+
             string? etag,
 
             string? location,
 
             string name,
 
-            Outputs.ProfilePropertiesResponseResult properties,
+            string? resourceState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            EnabledState = enabledState;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ResourceState = resourceState;
             Tags = tags;
             Type = type;
         }

@@ -15,16 +15,70 @@ namespace Pulumi.AzureRM.Media.V20180701
     public partial class LiveOutput : Pulumi.CustomResource
     {
         /// <summary>
+        /// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+        /// </summary>
+        [Output("archiveWindowLength")]
+        public Output<string> ArchiveWindowLength { get; private set; } = null!;
+
+        /// <summary>
+        /// The asset name.
+        /// </summary>
+        [Output("assetName")]
+        public Output<string> AssetName { get; private set; } = null!;
+
+        /// <summary>
+        /// The exact time the Live Output was created.
+        /// </summary>
+        [Output("created")]
+        public Output<string> Created { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the Live Output.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The HLS configuration.
+        /// </summary>
+        [Output("hls")]
+        public Output<Outputs.HlsResponseResult?> Hls { get; private set; } = null!;
+
+        /// <summary>
+        /// The exact time the Live Output was last modified.
+        /// </summary>
+        [Output("lastModified")]
+        public Output<string> LastModified { get; private set; } = null!;
+
+        /// <summary>
+        /// The manifest file name.  If not provided, the service will generate one automatically.
+        /// </summary>
+        [Output("manifestName")]
+        public Output<string?> ManifestName { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Live Output properties.
+        /// The output snapshot time.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.LiveOutputPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("outputSnapTime")]
+        public Output<int?> OutputSnapTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the Live Output.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource state of the Live Output.
+        /// </summary>
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

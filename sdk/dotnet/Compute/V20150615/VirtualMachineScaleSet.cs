@@ -27,10 +27,16 @@ namespace Pulumi.AzureRM.Compute.V20150615
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the properties of a Virtual Machine Scale Set.
+        /// Specifies whether the Virtual Machine Scale Set should be overprovisioned.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualMachineScaleSetPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("overProvision")]
+        public Output<bool?> OverProvision { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state, which only appears in the response.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The virtual machine scale set sku.
@@ -49,6 +55,18 @@ namespace Pulumi.AzureRM.Compute.V20150615
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The upgrade policy.
+        /// </summary>
+        [Output("upgradePolicy")]
+        public Output<Outputs.UpgradePolicyResponseResult?> UpgradePolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// The virtual machine profile.
+        /// </summary>
+        [Output("virtualMachineProfile")]
+        public Output<Outputs.VirtualMachineScaleSetVMProfileResponseResult?> VirtualMachineProfile { get; private set; } = null!;
 
 
         /// <summary>

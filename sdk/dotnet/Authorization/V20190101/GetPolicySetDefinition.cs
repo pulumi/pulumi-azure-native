@@ -34,13 +34,33 @@ namespace Pulumi.AzureRM.Authorization.V20190101
     public sealed class GetPolicySetDefinitionResult
     {
         /// <summary>
+        /// The policy set definition description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The display name of the policy set definition.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// The policy set definition metadata.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Metadata;
+        /// <summary>
         /// The name of the policy set definition.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The policy definition properties.
+        /// The policy set definition parameters that can be used in policy definition references.
         /// </summary>
-        public readonly Outputs.PolicySetDefinitionPropertiesResponseResult Properties;
+        public readonly ImmutableDictionary<string, object>? Parameters;
+        /// <summary>
+        /// An array of policy definition references.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PolicyDefinitionReferenceResponseResult> PolicyDefinitions;
+        /// <summary>
+        /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+        /// </summary>
+        public readonly string? PolicyType;
         /// <summary>
         /// The type of the resource (Microsoft.Authorization/policySetDefinitions).
         /// </summary>
@@ -48,14 +68,29 @@ namespace Pulumi.AzureRM.Authorization.V20190101
 
         [OutputConstructor]
         private GetPolicySetDefinitionResult(
+            string? description,
+
+            string? displayName,
+
+            ImmutableDictionary<string, object>? metadata,
+
             string name,
 
-            Outputs.PolicySetDefinitionPropertiesResponseResult properties,
+            ImmutableDictionary<string, object>? parameters,
+
+            ImmutableArray<Outputs.PolicyDefinitionReferenceResponseResult> policyDefinitions,
+
+            string? policyType,
 
             string type)
         {
+            Description = description;
+            DisplayName = displayName;
+            Metadata = metadata;
             Name = name;
-            Properties = properties;
+            Parameters = parameters;
+            PolicyDefinitions = policyDefinitions;
+            PolicyType = policyType;
             Type = type;
         }
     }

@@ -21,6 +21,12 @@ namespace Pulumi.AzureRM.Network.V20200401
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// A collection of references to express route circuit ipv6 peerings.
+        /// </summary>
+        [Output("ipv6Peerings")]
+        public Output<ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult>> Ipv6Peerings { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -33,10 +39,22 @@ namespace Pulumi.AzureRM.Network.V20200401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the route filter.
+        /// A collection of references to express route circuit peerings.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RouteFilterPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("peerings")]
+        public Output<ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult>> Peerings { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the route filter resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Collection of RouteFilterRules contained within a route filter.
+        /// </summary>
+        [Output("rules")]
+        public Output<ImmutableArray<Outputs.RouteFilterRuleResponseResult>> Rules { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

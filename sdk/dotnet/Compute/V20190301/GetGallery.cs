@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.Compute.V20190301
     public sealed class GetGalleryResult
     {
         /// <summary>
+        /// The description of this Shared Image Gallery resource. This property is updatable.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Describes the gallery unique name.
+        /// </summary>
+        public readonly Outputs.GalleryIdentifierResponseResult? Identifier;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -48,9 +56,9 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of a Shared Image Gallery.
+        /// The provisioning state, which only appears in the response.
         /// </summary>
-        public readonly Outputs.GalleryPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -62,19 +70,25 @@ namespace Pulumi.AzureRM.Compute.V20190301
 
         [OutputConstructor]
         private GetGalleryResult(
+            string? description,
+
+            Outputs.GalleryIdentifierResponseResult? identifier,
+
             string location,
 
             string name,
 
-            Outputs.GalleryPropertiesResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Description = description;
+            Identifier = identifier;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
         }

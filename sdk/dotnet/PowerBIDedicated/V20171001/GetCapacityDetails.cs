@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.PowerBIDedicated.V20171001
     public sealed class GetCapacityDetailsResult
     {
         /// <summary>
+        /// A collection of Dedicated capacity administrators
+        /// </summary>
+        public readonly Outputs.DedicatedCapacityAdministratorsResponseResult? Administration;
+        /// <summary>
         /// Location of the PowerBI Dedicated resource.
         /// </summary>
         public readonly string Location;
@@ -48,13 +52,17 @@ namespace Pulumi.AzureRM.PowerBIDedicated.V20171001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the provision operation request.
+        /// The current deployment state of PowerBI Dedicated resource. The provisioningState is to indicate states for resource provisioning.
         /// </summary>
-        public readonly Outputs.DedicatedCapacityPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The SKU of the PowerBI Dedicated resource.
         /// </summary>
         public readonly Outputs.ResourceSkuResponseResult Sku;
+        /// <summary>
+        /// The current state of PowerBI Dedicated resource. The state is to indicate more states outside of resource provisioning.
+        /// </summary>
+        public readonly string State;
         /// <summary>
         /// Key-value pairs of additional resource provisioning properties.
         /// </summary>
@@ -66,22 +74,28 @@ namespace Pulumi.AzureRM.PowerBIDedicated.V20171001
 
         [OutputConstructor]
         private GetCapacityDetailsResult(
+            Outputs.DedicatedCapacityAdministratorsResponseResult? administration,
+
             string location,
 
             string name,
 
-            Outputs.DedicatedCapacityPropertiesResponseResult properties,
+            string provisioningState,
 
             Outputs.ResourceSkuResponseResult sku,
+
+            string state,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Administration = administration;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Sku = sku;
+            State = state;
             Tags = tags;
             Type = type;
         }

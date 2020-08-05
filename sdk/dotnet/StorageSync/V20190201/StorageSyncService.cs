@@ -27,10 +27,16 @@ namespace Pulumi.AzureRM.StorageSync.V20190201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Storage Sync Service properties.
+        /// Storage Sync service status.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.StorageSyncServicePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("storageSyncServiceStatus")]
+        public Output<int> StorageSyncServiceStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Storage Sync service Uid
+        /// </summary>
+        [Output("storageSyncServiceUid")]
+        public Output<string> StorageSyncServiceUid { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

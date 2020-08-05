@@ -18,18 +18,25 @@ namespace Pulumi.AzureRM.Network.V20200501.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the private dns zone configuration.
+        /// The resource id of the private dns zone.
         /// </summary>
-        public readonly Outputs.PrivateDnsZonePropertiesFormatResponseResult? Properties;
+        public readonly string? PrivateDnsZoneId;
+        /// <summary>
+        /// A collection of information regarding a recordSet, holding information to identify private resources.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RecordSetResponseResult> RecordSets;
 
         [OutputConstructor]
         private PrivateDnsZoneConfigResponseResult(
             string? name,
 
-            Outputs.PrivateDnsZonePropertiesFormatResponseResult? properties)
+            string? privateDnsZoneId,
+
+            ImmutableArray<Outputs.RecordSetResponseResult> recordSets)
         {
             Name = name;
-            Properties = properties;
+            PrivateDnsZoneId = privateDnsZoneId;
+            RecordSets = recordSets;
         }
     }
 }

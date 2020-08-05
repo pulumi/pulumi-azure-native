@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.Media.V20200501
     public partial class Transform : Pulumi.CustomResource
     {
         /// <summary>
+        /// The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        /// </summary>
+        [Output("created")]
+        public Output<string> Created { get; private set; } = null!;
+
+        /// <summary>
+        /// An optional verbose description of the Transform.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        /// </summary>
+        [Output("lastModified")]
+        public Output<string> LastModified { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The resource properties.
+        /// An array of one or more TransformOutputs that the Transform should generate.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.TransformPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("outputs")]
+        public Output<ImmutableArray<Outputs.TransformOutputResponseResult>> Outputs { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

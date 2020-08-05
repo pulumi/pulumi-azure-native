@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Insights.V20150501
     public partial class Workbook : Pulumi.CustomResource
     {
         /// <summary>
+        /// Workbook category, as defined by the user at creation time.
+        /// </summary>
+        [Output("category")]
+        public Output<string> Category { get; private set; } = null!;
+
+        /// <summary>
         /// The kind of workbook. Choices are user and shared.
         /// </summary>
         [Output("kind")]
@@ -33,10 +39,22 @@ namespace Pulumi.AzureRM.Insights.V20150501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata describing a web test for an Azure resource.
+        /// Configuration of this particular workbook. Configuration data is a string containing valid JSON
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WorkbookPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("serializedData")]
+        public Output<string> SerializedData { get; private set; } = null!;
+
+        /// <summary>
+        /// Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
+        /// </summary>
+        [Output("sharedTypeKind")]
+        public Output<string> SharedTypeKind { get; private set; } = null!;
+
+        /// <summary>
+        /// Optional resourceId for a source resource.
+        /// </summary>
+        [Output("sourceResourceId")]
+        public Output<string?> SourceResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -45,10 +63,34 @@ namespace Pulumi.AzureRM.Insights.V20150501
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Date and time in UTC of the last modification that was made to this workbook definition.
+        /// </summary>
+        [Output("timeModified")]
+        public Output<string> TimeModified { get; private set; } = null!;
+
+        /// <summary>
         /// Azure resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Unique user id of the specific user that owns this workbook.
+        /// </summary>
+        [Output("userId")]
+        public Output<string> UserId { get; private set; } = null!;
+
+        /// <summary>
+        /// This instance's version of the data model. This can change as new features are added that can be marked workbook.
+        /// </summary>
+        [Output("version")]
+        public Output<string?> Version { get; private set; } = null!;
+
+        /// <summary>
+        /// Internally assigned unique id of the workbook definition.
+        /// </summary>
+        [Output("workbookId")]
+        public Output<string> WorkbookId { get; private set; } = null!;
 
 
         /// <summary>

@@ -52,13 +52,21 @@ namespace Pulumi.AzureRM.Media.V20180701
     public sealed class GetAssetFilterResult
     {
         /// <summary>
+        /// The first quality.
+        /// </summary>
+        public readonly Outputs.FirstQualityResponseResult? FirstQuality;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Media Filter properties.
+        /// The presentation time range.
         /// </summary>
-        public readonly Outputs.MediaFilterPropertiesResponseResult Properties;
+        public readonly Outputs.PresentationTimeRangeResponseResult? PresentationTimeRange;
+        /// <summary>
+        /// The tracks selection conditions.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FilterTrackSelectionResponseResult> Tracks;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -66,14 +74,20 @@ namespace Pulumi.AzureRM.Media.V20180701
 
         [OutputConstructor]
         private GetAssetFilterResult(
+            Outputs.FirstQualityResponseResult? firstQuality,
+
             string name,
 
-            Outputs.MediaFilterPropertiesResponseResult properties,
+            Outputs.PresentationTimeRangeResponseResult? presentationTimeRange,
+
+            ImmutableArray<Outputs.FilterTrackSelectionResponseResult> tracks,
 
             string type)
         {
+            FirstQuality = firstQuality;
             Name = name;
-            Properties = properties;
+            PresentationTimeRange = presentationTimeRange;
+            Tracks = tracks;
             Type = type;
         }
     }

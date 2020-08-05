@@ -26,9 +26,21 @@ namespace Pulumi.AzureRM.Network.V20200301.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Represents the ip configuration associated with the resource.
+        /// Private IP allocation method.
         /// </summary>
-        public readonly Outputs.BastionHostIPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly string? PrivateIPAllocationMethod;
+        /// <summary>
+        /// The provisioning state of the bastion host IP configuration resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Reference of the PublicIP resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult PublicIPAddress;
+        /// <summary>
+        /// Reference of the subnet resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult Subnet;
         /// <summary>
         /// Ip configuration type.
         /// </summary>
@@ -42,14 +54,23 @@ namespace Pulumi.AzureRM.Network.V20200301.Outputs
 
             string? name,
 
-            Outputs.BastionHostIPConfigurationPropertiesFormatResponseResult? properties,
+            string? privateIPAllocationMethod,
+
+            string provisioningState,
+
+            Outputs.SubResourceResponseResult publicIPAddress,
+
+            Outputs.SubResourceResponseResult subnet,
 
             string type)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            PrivateIPAllocationMethod = privateIPAllocationMethod;
+            ProvisioningState = provisioningState;
+            PublicIPAddress = publicIPAddress;
+            Subnet = subnet;
             Type = type;
         }
     }

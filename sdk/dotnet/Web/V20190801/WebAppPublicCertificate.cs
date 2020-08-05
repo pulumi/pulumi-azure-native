@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Web.V20190801
     public partial class WebAppPublicCertificate : Pulumi.CustomResource
     {
         /// <summary>
+        /// Public Certificate byte array
+        /// </summary>
+        [Output("blob")]
+        public Output<string?> Blob { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Output("kind")]
@@ -27,10 +33,16 @@ namespace Pulumi.AzureRM.Web.V20190801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// PublicCertificate resource specific properties
+        /// Public Certificate Location
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PublicCertificateResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("publicCertificateLocation")]
+        public Output<string?> PublicCertificateLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// Certificate Thumbprint
+        /// </summary>
+        [Output("thumbprint")]
+        public Output<string> Thumbprint { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

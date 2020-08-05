@@ -14,22 +14,29 @@ namespace Pulumi.AzureRM.ImportExport.V20161101.Outputs
     public sealed class ExportResponseResult
     {
         /// <summary>
-        /// A list of the blobs to be exported.
-        /// </summary>
-        public readonly Outputs.ExportResponseBlobListResult? BlobList;
-        /// <summary>
         /// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
         /// </summary>
         public readonly string? BlobListblobPath;
+        /// <summary>
+        /// A collection of blob-path strings.
+        /// </summary>
+        public readonly ImmutableArray<string> BlobPath;
+        /// <summary>
+        /// A collection of blob-prefix strings.
+        /// </summary>
+        public readonly ImmutableArray<string> BlobPathPrefix;
 
         [OutputConstructor]
         private ExportResponseResult(
-            Outputs.ExportResponseBlobListResult? blobList,
+            string? blobListblobPath,
 
-            string? blobListblobPath)
+            ImmutableArray<string> blobPath,
+
+            ImmutableArray<string> blobPathPrefix)
         {
-            BlobList = blobList;
             BlobListblobPath = blobListblobPath;
+            BlobPath = blobPath;
+            BlobPathPrefix = blobPathPrefix;
         }
     }
 }

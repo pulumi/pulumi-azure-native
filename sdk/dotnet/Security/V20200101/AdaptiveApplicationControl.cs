@@ -12,6 +12,21 @@ namespace Pulumi.AzureRM.Security.V20200101
     public partial class AdaptiveApplicationControl : Pulumi.CustomResource
     {
         /// <summary>
+        /// The configuration status of the VM/server group or machine or rule on the machine
+        /// </summary>
+        [Output("configurationStatus")]
+        public Output<string> ConfigurationStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The application control policy enforcement/protection mode of the VM/server group
+        /// </summary>
+        [Output("enforcementMode")]
+        public Output<string?> EnforcementMode { get; private set; } = null!;
+
+        [Output("issues")]
+        public Output<ImmutableArray<Outputs.AppWhitelistingIssueSummaryResponseResult>> Issues { get; private set; } = null!;
+
+        /// <summary>
         /// Location where the resource is stored
         /// </summary>
         [Output("location")]
@@ -23,17 +38,35 @@ namespace Pulumi.AzureRM.Security.V20200101
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("pathRecommendations")]
+        public Output<ImmutableArray<Outputs.PathRecommendationResponseResult>> PathRecommendations { get; private set; } = null!;
+
         /// <summary>
-        /// Represents a VM/server group and set of rules to be allowed running on a machine
+        /// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AppWhitelistingGroupDataResponseResult> Properties { get; private set; } = null!;
+        [Output("protectionMode")]
+        public Output<Outputs.ProtectionModeResponseResult?> ProtectionMode { get; private set; } = null!;
+
+        /// <summary>
+        /// The recommendation status of the VM/server group or VM/server
+        /// </summary>
+        [Output("recommendationStatus")]
+        public Output<string> RecommendationStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The source type of the VM/server group
+        /// </summary>
+        [Output("sourceSystem")]
+        public Output<string> SourceSystem { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        [Output("vmRecommendations")]
+        public Output<ImmutableArray<Outputs.VmRecommendationResponseResult>> VmRecommendations { get; private set; } = null!;
 
 
         /// <summary>

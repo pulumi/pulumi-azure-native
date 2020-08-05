@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Network.V20200501
     public partial class VirtualApplianceSite : Pulumi.CustomResource
     {
         /// <summary>
+        /// Address Prefix.
+        /// </summary>
+        [Output("addressPrefix")]
+        public Output<string?> AddressPrefix { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -27,10 +33,16 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the Virtual Appliance Sites.
+        /// Office 365 Policy.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualApplianceSitePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("o365Policy")]
+        public Output<Outputs.Office365PolicyPropertiesResponseResult?> O365Policy { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Site type.

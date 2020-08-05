@@ -50,9 +50,9 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Domain Topic.
+        /// Provisioning state of the domain topic.
         /// </summary>
-        public readonly Outputs.DomainTopicPropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -62,12 +62,12 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         private GetDomainTopicResult(
             string name,
 
-            Outputs.DomainTopicPropertiesResponseResult properties,
+            string? provisioningState,
 
             string type)
         {
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

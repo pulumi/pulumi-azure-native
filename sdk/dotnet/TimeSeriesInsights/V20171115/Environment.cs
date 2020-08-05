@@ -15,6 +15,30 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>
+        /// The time the resource was created.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+        /// </summary>
+        [Output("dataAccessFqdn")]
+        public Output<string> DataAccessFqdn { get; private set; } = null!;
+
+        /// <summary>
+        /// An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+        /// </summary>
+        [Output("dataAccessId")]
+        public Output<string> DataAccessId { get; private set; } = null!;
+
+        /// <summary>
+        /// ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+        /// </summary>
+        [Output("dataRetentionTime")]
+        public Output<string> DataRetentionTime { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,16 +51,34 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the environment.
+        /// The list of partition keys according to which the data in the environment will be ordered.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.EnvironmentResourcePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("partitionKeyProperties")]
+        public Output<ImmutableArray<Outputs.PartitionKeyPropertyResponseResult>> PartitionKeyProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+        /// </summary>
+        [Output("status")]
+        public Output<Outputs.EnvironmentStatusResponseResult?> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+        /// </summary>
+        [Output("storageLimitExceededBehavior")]
+        public Output<string?> StorageLimitExceededBehavior { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

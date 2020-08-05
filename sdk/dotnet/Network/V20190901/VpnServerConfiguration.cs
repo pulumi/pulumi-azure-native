@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Network.V20190901
     public partial class VpnServerConfiguration : Pulumi.CustomResource
     {
         /// <summary>
+        /// The set of aad vpn authentication parameters.
+        /// </summary>
+        [Output("aadAuthenticationParameters")]
+        public Output<Outputs.AadAuthenticationParametersResponseResult?> AadAuthenticationParameters { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -33,10 +39,40 @@ namespace Pulumi.AzureRM.Network.V20190901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the P2SVpnServer configuration.
+        /// List of references to P2SVpnGateways.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VpnServerConfigurationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("p2SVpnGateways")]
+        public Output<ImmutableArray<Outputs.P2SVpnGatewayResponseResult>> P2SVpnGateways { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Radius client root certificate of VpnServerConfiguration.
+        /// </summary>
+        [Output("radiusClientRootCertificates")]
+        public Output<ImmutableArray<Outputs.VpnServerConfigRadiusClientRootCertificateResponseResult>> RadiusClientRootCertificates { get; private set; } = null!;
+
+        /// <summary>
+        /// The radius server address property of the VpnServerConfiguration resource for point to site client connection.
+        /// </summary>
+        [Output("radiusServerAddress")]
+        public Output<string?> RadiusServerAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// Radius Server root certificate of VpnServerConfiguration.
+        /// </summary>
+        [Output("radiusServerRootCertificates")]
+        public Output<ImmutableArray<Outputs.VpnServerConfigRadiusServerRootCertificateResponseResult>> RadiusServerRootCertificates { get; private set; } = null!;
+
+        /// <summary>
+        /// The radius secret property of the VpnServerConfiguration resource for point to site client connection.
+        /// </summary>
+        [Output("radiusServerSecret")]
+        public Output<string?> RadiusServerSecret { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +85,36 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// VPN authentication types for the VpnServerConfiguration.
+        /// </summary>
+        [Output("vpnAuthenticationTypes")]
+        public Output<ImmutableArray<string>> VpnAuthenticationTypes { get; private set; } = null!;
+
+        /// <summary>
+        /// VpnClientIpsecPolicies for VpnServerConfiguration.
+        /// </summary>
+        [Output("vpnClientIpsecPolicies")]
+        public Output<ImmutableArray<Outputs.IpsecPolicyResponseResult>> VpnClientIpsecPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// VPN client revoked certificate of VpnServerConfiguration.
+        /// </summary>
+        [Output("vpnClientRevokedCertificates")]
+        public Output<ImmutableArray<Outputs.VpnServerConfigVpnClientRevokedCertificateResponseResult>> VpnClientRevokedCertificates { get; private set; } = null!;
+
+        /// <summary>
+        /// VPN client root certificate of VpnServerConfiguration.
+        /// </summary>
+        [Output("vpnClientRootCertificates")]
+        public Output<ImmutableArray<Outputs.VpnServerConfigVpnClientRootCertificateResponseResult>> VpnClientRootCertificates { get; private set; } = null!;
+
+        /// <summary>
+        /// VPN protocols for the VpnServerConfiguration.
+        /// </summary>
+        [Output("vpnProtocols")]
+        public Output<ImmutableArray<string>> VpnProtocols { get; private set; } = null!;
 
 
         /// <summary>

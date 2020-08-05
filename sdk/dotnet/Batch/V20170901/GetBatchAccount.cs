@@ -40,17 +40,37 @@ namespace Pulumi.AzureRM.Batch.V20170901
     public sealed class GetBatchAccountResult
     {
         /// <summary>
+        /// The account endpoint used to interact with the Batch service.
+        /// </summary>
+        public readonly string AccountEndpoint;
+        public readonly int ActiveJobAndJobScheduleQuota;
+        /// <summary>
+        /// Contains information about the auto-storage account associated with a Batch account.
+        /// </summary>
+        public readonly Outputs.AutoStoragePropertiesResponseResult AutoStorage;
+        public readonly int DedicatedCoreQuota;
+        /// <summary>
+        /// Identifies the Azure key vault associated with a Batch account.
+        /// </summary>
+        public readonly Outputs.KeyVaultReferenceResponseResult KeyVaultReference;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string Location;
+        public readonly int LowPriorityCoreQuota;
         /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties associated with the account.
+        /// The allocation mode for creating pools in the Batch account.
         /// </summary>
-        public readonly Outputs.BatchAccountPropertiesResponseResult Properties;
+        public readonly string PoolAllocationMode;
+        public readonly int PoolQuota;
+        /// <summary>
+        /// The provisioned state of the resource
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -62,19 +82,43 @@ namespace Pulumi.AzureRM.Batch.V20170901
 
         [OutputConstructor]
         private GetBatchAccountResult(
+            string accountEndpoint,
+
+            int activeJobAndJobScheduleQuota,
+
+            Outputs.AutoStoragePropertiesResponseResult autoStorage,
+
+            int dedicatedCoreQuota,
+
+            Outputs.KeyVaultReferenceResponseResult keyVaultReference,
+
             string location,
+
+            int lowPriorityCoreQuota,
 
             string name,
 
-            Outputs.BatchAccountPropertiesResponseResult properties,
+            string poolAllocationMode,
+
+            int poolQuota,
+
+            string provisioningState,
 
             ImmutableDictionary<string, string> tags,
 
             string type)
         {
+            AccountEndpoint = accountEndpoint;
+            ActiveJobAndJobScheduleQuota = activeJobAndJobScheduleQuota;
+            AutoStorage = autoStorage;
+            DedicatedCoreQuota = dedicatedCoreQuota;
+            KeyVaultReference = keyVaultReference;
             Location = location;
+            LowPriorityCoreQuota = lowPriorityCoreQuota;
             Name = name;
-            Properties = properties;
+            PoolAllocationMode = poolAllocationMode;
+            PoolQuota = poolQuota;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
         }

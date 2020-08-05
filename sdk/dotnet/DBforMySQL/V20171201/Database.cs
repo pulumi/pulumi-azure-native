@@ -15,16 +15,22 @@ namespace Pulumi.AzureRM.DBforMySQL.V20171201
     public partial class Database : Pulumi.CustomResource
     {
         /// <summary>
+        /// The charset of the database.
+        /// </summary>
+        [Output("charset")]
+        public Output<string?> Charset { get; private set; } = null!;
+
+        /// <summary>
+        /// The collation of the database.
+        /// </summary>
+        [Output("collation")]
+        public Output<string?> Collation { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The properties of a database.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DatabasePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

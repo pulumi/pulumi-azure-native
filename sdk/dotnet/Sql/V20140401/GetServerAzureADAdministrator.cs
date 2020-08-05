@@ -46,13 +46,25 @@ namespace Pulumi.AzureRM.Sql.V20140401
     public sealed class GetServerAzureADAdministratorResult
     {
         /// <summary>
+        /// The type of administrator.
+        /// </summary>
+        public readonly string AdministratorType;
+        /// <summary>
+        /// The server administrator login value.
+        /// </summary>
+        public readonly string Login;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the resource.
+        /// The server administrator Sid (Secure ID).
         /// </summary>
-        public readonly Outputs.ServerAdministratorPropertiesResponseResult Properties;
+        public readonly string Sid;
+        /// <summary>
+        /// The server Active Directory Administrator tenant id.
+        /// </summary>
+        public readonly string TenantId;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -60,14 +72,23 @@ namespace Pulumi.AzureRM.Sql.V20140401
 
         [OutputConstructor]
         private GetServerAzureADAdministratorResult(
+            string administratorType,
+
+            string login,
+
             string name,
 
-            Outputs.ServerAdministratorPropertiesResponseResult properties,
+            string sid,
+
+            string tenantId,
 
             string type)
         {
+            AdministratorType = administratorType;
+            Login = login;
             Name = name;
-            Properties = properties;
+            Sid = sid;
+            TenantId = tenantId;
             Type = type;
         }
     }

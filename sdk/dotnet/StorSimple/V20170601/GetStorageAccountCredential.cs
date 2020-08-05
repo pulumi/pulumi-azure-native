@@ -46,6 +46,14 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class GetStorageAccountCredentialResult
     {
         /// <summary>
+        /// The details of the storage account password.
+        /// </summary>
+        public readonly Outputs.AsymmetricEncryptedSecretResponseResult? AccessKey;
+        /// <summary>
+        /// The storage endpoint
+        /// </summary>
+        public readonly string EndPoint;
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         public readonly string? Kind;
@@ -54,28 +62,41 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The storage account credential properties.
+        /// Signifies whether SSL needs to be enabled or not.
         /// </summary>
-        public readonly Outputs.StorageAccountCredentialPropertiesResponseResult Properties;
+        public readonly string SslStatus;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The count of volumes using this storage account credential.
+        /// </summary>
+        public readonly int VolumesCount;
 
         [OutputConstructor]
         private GetStorageAccountCredentialResult(
+            Outputs.AsymmetricEncryptedSecretResponseResult? accessKey,
+
+            string endPoint,
+
             string? kind,
 
             string name,
 
-            Outputs.StorageAccountCredentialPropertiesResponseResult properties,
+            string sslStatus,
 
-            string type)
+            string type,
+
+            int volumesCount)
         {
+            AccessKey = accessKey;
+            EndPoint = endPoint;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            SslStatus = sslStatus;
             Type = type;
+            VolumesCount = volumesCount;
         }
     }
 }

@@ -15,22 +15,34 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public partial class ContentType : Pulumi.CustomResource
     {
         /// <summary>
+        /// Content type description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the content type.
+        /// Content type schema.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ContentTypeContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("schema")]
+        public Output<ImmutableDictionary<string, object>?> Schema { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Content type version.
+        /// </summary>
+        [Output("version")]
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>

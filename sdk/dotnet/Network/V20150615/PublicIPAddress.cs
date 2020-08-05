@@ -15,10 +15,31 @@ namespace Pulumi.AzureRM.Network.V20150615
     public partial class PublicIPAddress : Pulumi.CustomResource
     {
         /// <summary>
+        /// The FQDN of the DNS record associated with the public IP address.
+        /// </summary>
+        [Output("dnsSettings")]
+        public Output<Outputs.PublicIPAddressDnsSettingsResponseResult?> DnsSettings { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The idle timeout of the public IP address.
+        /// </summary>
+        [Output("idleTimeoutInMinutes")]
+        public Output<int?> IdleTimeoutInMinutes { get; private set; } = null!;
+
+        [Output("ipAddress")]
+        public Output<string?> IpAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// IPConfiguration
+        /// </summary>
+        [Output("ipConfiguration")]
+        public Output<Outputs.IPConfigurationResponseResult?> IpConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +54,22 @@ namespace Pulumi.AzureRM.Network.V20150615
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Public IP address properties.
+        /// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PublicIPAddressPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
+        /// </summary>
+        [Output("publicIPAllocationMethod")]
+        public Output<string?> PublicIPAllocationMethod { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the public IP resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

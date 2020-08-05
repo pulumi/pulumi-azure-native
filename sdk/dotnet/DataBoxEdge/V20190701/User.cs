@@ -15,16 +15,22 @@ namespace Pulumi.AzureRM.DataBoxEdge.V20190701
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>
+        /// The password details.
+        /// </summary>
+        [Output("encryptedPassword")]
+        public Output<Outputs.AsymmetricEncryptedSecretResponseResult?> EncryptedPassword { get; private set; } = null!;
+
+        /// <summary>
         /// The object name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The storage account credential properties.
+        /// List of shares that the user has rights on. This field should not be specified during user creation.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.UserPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("shareAccessRights")]
+        public Output<ImmutableArray<Outputs.ShareAccessRightResponseResult>> ShareAccessRights { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

@@ -40,21 +40,73 @@ namespace Pulumi.AzureRM.Solutions.V20190701
     public sealed class GetApplicationDefinitionResult
     {
         /// <summary>
+        /// The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationDefinitionArtifactResponseResult> Artifacts;
+        /// <summary>
+        /// The managed application provider authorizations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationAuthorizationResponseResult> Authorizations;
+        /// <summary>
+        /// The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? CreateUiDefinition;
+        /// <summary>
+        /// The managed application deployment policy.
+        /// </summary>
+        public readonly Outputs.ApplicationDeploymentPolicyResponseResult? DeploymentPolicy;
+        /// <summary>
+        /// The managed application definition description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The managed application definition display name.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// A value indicating whether the package is enabled or not.
+        /// </summary>
+        public readonly bool? IsEnabled;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// The managed application lock level.
+        /// </summary>
+        public readonly string LockLevel;
+        /// <summary>
+        /// The managed application locking policy.
+        /// </summary>
+        public readonly Outputs.ApplicationPackageLockingPolicyDefinitionResponseResult? LockingPolicy;
+        /// <summary>
+        /// The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? MainTemplate;
         /// <summary>
         /// ID of the resource that manages this resource.
         /// </summary>
         public readonly string? ManagedBy;
         /// <summary>
+        /// The managed application management policy that determines publisher's access to the managed resource group.
+        /// </summary>
+        public readonly Outputs.ApplicationManagementPolicyResponseResult? ManagementPolicy;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The managed application definition properties.
+        /// The managed application notification policy.
         /// </summary>
-        public readonly Outputs.ApplicationDefinitionPropertiesResponseResult Properties;
+        public readonly Outputs.ApplicationNotificationPolicyResponseResult? NotificationPolicy;
+        /// <summary>
+        /// The managed application definition package file Uri. Use this element
+        /// </summary>
+        public readonly string? PackageFileUri;
+        /// <summary>
+        /// The managed application provider policies.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationPolicyResponseResult> Policies;
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
@@ -70,13 +122,39 @@ namespace Pulumi.AzureRM.Solutions.V20190701
 
         [OutputConstructor]
         private GetApplicationDefinitionResult(
+            ImmutableArray<Outputs.ApplicationDefinitionArtifactResponseResult> artifacts,
+
+            ImmutableArray<Outputs.ApplicationAuthorizationResponseResult> authorizations,
+
+            ImmutableDictionary<string, object>? createUiDefinition,
+
+            Outputs.ApplicationDeploymentPolicyResponseResult? deploymentPolicy,
+
+            string? description,
+
+            string? displayName,
+
+            bool? isEnabled,
+
             string? location,
+
+            string lockLevel,
+
+            Outputs.ApplicationPackageLockingPolicyDefinitionResponseResult? lockingPolicy,
+
+            ImmutableDictionary<string, object>? mainTemplate,
 
             string? managedBy,
 
+            Outputs.ApplicationManagementPolicyResponseResult? managementPolicy,
+
             string name,
 
-            Outputs.ApplicationDefinitionPropertiesResponseResult properties,
+            Outputs.ApplicationNotificationPolicyResponseResult? notificationPolicy,
+
+            string? packageFileUri,
+
+            ImmutableArray<Outputs.ApplicationPolicyResponseResult> policies,
 
             Outputs.SkuResponseResult? sku,
 
@@ -84,10 +162,23 @@ namespace Pulumi.AzureRM.Solutions.V20190701
 
             string type)
         {
+            Artifacts = artifacts;
+            Authorizations = authorizations;
+            CreateUiDefinition = createUiDefinition;
+            DeploymentPolicy = deploymentPolicy;
+            Description = description;
+            DisplayName = displayName;
+            IsEnabled = isEnabled;
             Location = location;
+            LockLevel = lockLevel;
+            LockingPolicy = lockingPolicy;
+            MainTemplate = mainTemplate;
             ManagedBy = managedBy;
+            ManagementPolicy = managementPolicy;
             Name = name;
-            Properties = properties;
+            NotificationPolicy = notificationPolicy;
+            PackageFileUri = packageFileUri;
+            Policies = policies;
             Sku = sku;
             Tags = tags;
             Type = type;

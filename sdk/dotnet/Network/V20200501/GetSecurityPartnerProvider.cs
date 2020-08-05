@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class GetSecurityPartnerProviderResult
     {
         /// <summary>
+        /// The connection status with the Security Partner Provider.
+        /// </summary>
+        public readonly string ConnectionStatus;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -52,9 +56,13 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Security Partner Provider.
+        /// The provisioning state of the Security Partner Provider resource.
         /// </summary>
-        public readonly Outputs.SecurityPartnerProviderPropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The security provider name.
+        /// </summary>
+        public readonly string? SecurityProviderName;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +71,40 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The virtualHub to which the Security Partner Provider belongs.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualHub;
 
         [OutputConstructor]
         private GetSecurityPartnerProviderResult(
+            string connectionStatus,
+
             string etag,
 
             string? location,
 
             string name,
 
-            Outputs.SecurityPartnerProviderPropertiesFormatResponseResult properties,
+            string provisioningState,
+
+            string? securityProviderName,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.SubResourceResponseResult? virtualHub)
         {
+            ConnectionStatus = connectionStatus;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            SecurityProviderName = securityProviderName;
             Tags = tags;
             Type = type;
+            VirtualHub = virtualHub;
         }
     }
 }

@@ -14,6 +14,14 @@ namespace Pulumi.AzureRM.Network.V20190201.Outputs
     public sealed class ExpressRouteLinkResponseResult
     {
         /// <summary>
+        /// Administrative state of the physical port
+        /// </summary>
+        public readonly string? AdminState;
+        /// <summary>
+        /// Physical fiber port type.
+        /// </summary>
+        public readonly string ConnectorType;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -22,28 +30,62 @@ namespace Pulumi.AzureRM.Network.V20190201.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Name of Azure router interface.
+        /// </summary>
+        public readonly string InterfaceName;
+        /// <summary>
         /// Name of child port resource that is unique among child port resources of the parent.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// ExpressRouteLink properties
+        /// Mapping between physical port to patch panel port.
         /// </summary>
-        public readonly Outputs.ExpressRouteLinkPropertiesFormatResponseResult? Properties;
+        public readonly string PatchPanelId;
+        /// <summary>
+        /// The provisioning state of the ExpressRouteLink resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Mapping of physical patch panel to rack.
+        /// </summary>
+        public readonly string RackId;
+        /// <summary>
+        /// Name of Azure router associated with physical port.
+        /// </summary>
+        public readonly string RouterName;
 
         [OutputConstructor]
         private ExpressRouteLinkResponseResult(
+            string? adminState,
+
+            string connectorType,
+
             string etag,
 
             string? id,
 
+            string interfaceName,
+
             string? name,
 
-            Outputs.ExpressRouteLinkPropertiesFormatResponseResult? properties)
+            string patchPanelId,
+
+            string provisioningState,
+
+            string rackId,
+
+            string routerName)
         {
+            AdminState = adminState;
+            ConnectorType = connectorType;
             Etag = etag;
             Id = id;
+            InterfaceName = interfaceName;
             Name = name;
-            Properties = properties;
+            PatchPanelId = patchPanelId;
+            ProvisioningState = provisioningState;
+            RackId = rackId;
+            RouterName = routerName;
         }
     }
 }

@@ -60,9 +60,21 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of a gallery Image Version.
+        /// The provisioning state, which only appears in the response.
         /// </summary>
-        public readonly Outputs.GalleryImageVersionPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The publishing profile of a gallery Image Version.
+        /// </summary>
+        public readonly Outputs.GalleryImageVersionPublishingProfileResponseResult PublishingProfile;
+        /// <summary>
+        /// This is the replication status of the gallery Image Version.
+        /// </summary>
+        public readonly Outputs.ReplicationStatusResponseResult ReplicationStatus;
+        /// <summary>
+        /// This is the storage profile of a Gallery Image Version.
+        /// </summary>
+        public readonly Outputs.GalleryImageVersionStorageProfileResponseResult StorageProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -78,7 +90,13 @@ namespace Pulumi.AzureRM.Compute.V20190301
 
             string name,
 
-            Outputs.GalleryImageVersionPropertiesResponseResult properties,
+            string provisioningState,
+
+            Outputs.GalleryImageVersionPublishingProfileResponseResult publishingProfile,
+
+            Outputs.ReplicationStatusResponseResult replicationStatus,
+
+            Outputs.GalleryImageVersionStorageProfileResponseResult storageProfile,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -86,7 +104,10 @@ namespace Pulumi.AzureRM.Compute.V20190301
         {
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            PublishingProfile = publishingProfile;
+            ReplicationStatus = replicationStatus;
+            StorageProfile = storageProfile;
             Tags = tags;
             Type = type;
         }

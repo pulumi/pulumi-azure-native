@@ -27,10 +27,28 @@ namespace Pulumi.AzureRM.NetApp.V20190701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Capacity pool properties
+        /// UUID v4 used to identify the Pool
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PoolPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("poolId")]
+        public Output<string> PoolId { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure lifecycle management
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The service level of the file system
+        /// </summary>
+        [Output("serviceLevel")]
+        public Output<string> ServiceLevel { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
+        /// </summary>
+        [Output("size")]
+        public Output<int> Size { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

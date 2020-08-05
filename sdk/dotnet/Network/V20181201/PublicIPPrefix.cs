@@ -21,6 +21,24 @@ namespace Pulumi.AzureRM.Network.V20181201
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The allocated Prefix
+        /// </summary>
+        [Output("ipPrefix")]
+        public Output<string?> IpPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of tags associated with the public IP prefix.
+        /// </summary>
+        [Output("ipTags")]
+        public Output<ImmutableArray<Outputs.IpTagResponseResult>> IpTags { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference to load balancer frontend IP configuration associated with the public IP prefix.
+        /// </summary>
+        [Output("loadBalancerFrontendIpConfiguration")]
+        public Output<Outputs.SubResourceResponseResult> LoadBalancerFrontendIpConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -33,10 +51,34 @@ namespace Pulumi.AzureRM.Network.V20181201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Public IP prefix properties.
+        /// The Length of the Public IP Prefix.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PublicIPPrefixPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("prefixLength")]
+        public Output<int?> PrefixLength { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+        /// </summary>
+        [Output("publicIPAddressVersion")]
+        public Output<string?> PublicIPAddressVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of all referenced PublicIPAddresses
+        /// </summary>
+        [Output("publicIPAddresses")]
+        public Output<ImmutableArray<Outputs.ReferencedPublicIpAddressResponseResult>> PublicIPAddresses { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the public IP prefix resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// The public IP prefix SKU.

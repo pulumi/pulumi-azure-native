@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.StorageSync.V20200301
     public partial class StorageSyncService : Pulumi.CustomResource
     {
         /// <summary>
+        /// Incoming Traffic Policy
+        /// </summary>
+        [Output("incomingTrafficPolicy")]
+        public Output<string?> IncomingTrafficPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource Last Operation Name
+        /// </summary>
+        [Output("lastOperationName")]
+        public Output<string> LastOperationName { get; private set; } = null!;
+
+        /// <summary>
+        /// StorageSyncService lastWorkflowId
+        /// </summary>
+        [Output("lastWorkflowId")]
+        public Output<string> LastWorkflowId { get; private set; } = null!;
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
@@ -27,10 +45,28 @@ namespace Pulumi.AzureRM.StorageSync.V20200301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Storage Sync Service properties.
+        /// List of private endpoint connection associated with the specified storage sync service
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.StorageSyncServicePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// StorageSyncService Provisioning State
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Storage Sync service status.
+        /// </summary>
+        [Output("storageSyncServiceStatus")]
+        public Output<int> StorageSyncServiceStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Storage Sync service Uid
+        /// </summary>
+        [Output("storageSyncServiceUid")]
+        public Output<string> StorageSyncServiceUid { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

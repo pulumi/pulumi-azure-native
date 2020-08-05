@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.Logic.V20160601
     public partial class Workflow : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets the access endpoint.
+        /// </summary>
+        [Output("accessEndpoint")]
+        public Output<string> AccessEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the changed time.
+        /// </summary>
+        [Output("changedTime")]
+        public Output<string> ChangedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the created time.
+        /// </summary>
+        [Output("createdTime")]
+        public Output<string> CreatedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
+        /// </summary>
+        [Output("definition")]
+        public Output<ImmutableDictionary<string, object>?> Definition { get; private set; } = null!;
+
+        /// <summary>
+        /// The integration account.
+        /// </summary>
+        [Output("integrationAccount")]
+        public Output<Outputs.ResourceReferenceResponseResult?> IntegrationAccount { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
@@ -27,10 +57,28 @@ namespace Pulumi.AzureRM.Logic.V20160601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The workflow properties.
+        /// The parameters.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WorkflowPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("parameters")]
+        public Output<ImmutableDictionary<string, Outputs.WorkflowParameterResponseResult>?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The sku.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The state.
+        /// </summary>
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -43,6 +91,12 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the version.
+        /// </summary>
+        [Output("version")]
+        public Output<string> Version { get; private set; } = null!;
 
 
         /// <summary>

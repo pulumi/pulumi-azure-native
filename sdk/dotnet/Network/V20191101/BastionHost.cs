@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.Network.V20191101
     public partial class BastionHost : Pulumi.CustomResource
     {
         /// <summary>
+        /// FQDN for the endpoint on which bastion host is accessible.
+        /// </summary>
+        [Output("dnsName")]
+        public Output<string?> DnsName { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// IP configuration of the Bastion Host resource.
+        /// </summary>
+        [Output("ipConfigurations")]
+        public Output<ImmutableArray<Outputs.BastionHostIPConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +45,10 @@ namespace Pulumi.AzureRM.Network.V20191101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Represents the bastion host resource.
+        /// The provisioning state of the bastion host resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.BastionHostPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

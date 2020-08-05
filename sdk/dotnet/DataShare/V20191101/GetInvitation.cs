@@ -52,29 +52,87 @@ namespace Pulumi.AzureRM.DataShare.V20191101
     public sealed class GetInvitationResult
     {
         /// <summary>
+        /// unique invitation id
+        /// </summary>
+        public readonly string InvitationId;
+        /// <summary>
+        /// The status of the invitation.
+        /// </summary>
+        public readonly string InvitationStatus;
+        /// <summary>
         /// Name of the azure resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties on the Invitation
+        /// The time the recipient responded to the invitation.
         /// </summary>
-        public readonly Outputs.InvitationPropertiesResponseResult Properties;
+        public readonly string RespondedAt;
+        /// <summary>
+        /// Gets the time at which the invitation was sent.
+        /// </summary>
+        public readonly string SentAt;
+        /// <summary>
+        /// The target Azure AD Id. Can't be combined with email.
+        /// </summary>
+        public readonly string? TargetActiveDirectoryId;
+        /// <summary>
+        /// The email the invitation is directed to.
+        /// </summary>
+        public readonly string? TargetEmail;
+        /// <summary>
+        /// The target user or application Id that invitation is being sent to.
+        /// Must be specified along TargetActiveDirectoryId. This enables sending
+        /// invitations to specific users or applications in an AD tenant.
+        /// </summary>
+        public readonly string? TargetObjectId;
         /// <summary>
         /// Type of the azure resource
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Email of the user who created the resource
+        /// </summary>
+        public readonly string UserEmail;
+        /// <summary>
+        /// Name of the user who created the resource
+        /// </summary>
+        public readonly string UserName;
 
         [OutputConstructor]
         private GetInvitationResult(
+            string invitationId,
+
+            string invitationStatus,
+
             string name,
 
-            Outputs.InvitationPropertiesResponseResult properties,
+            string respondedAt,
 
-            string type)
+            string sentAt,
+
+            string? targetActiveDirectoryId,
+
+            string? targetEmail,
+
+            string? targetObjectId,
+
+            string type,
+
+            string userEmail,
+
+            string userName)
         {
+            InvitationId = invitationId;
+            InvitationStatus = invitationStatus;
             Name = name;
-            Properties = properties;
+            RespondedAt = respondedAt;
+            SentAt = sentAt;
+            TargetActiveDirectoryId = targetActiveDirectoryId;
+            TargetEmail = targetEmail;
+            TargetObjectId = targetObjectId;
             Type = type;
+            UserEmail = userEmail;
+            UserName = userName;
         }
     }
 }

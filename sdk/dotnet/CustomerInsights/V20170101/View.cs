@@ -15,22 +15,58 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170101
     public partial class View : Pulumi.CustomResource
     {
         /// <summary>
+        /// Date time when view was last modified.
+        /// </summary>
+        [Output("changed")]
+        public Output<string> Changed { get; private set; } = null!;
+
+        /// <summary>
+        /// Date time when view was created.
+        /// </summary>
+        [Output("created")]
+        public Output<string> Created { get; private set; } = null!;
+
+        /// <summary>
+        /// View definition.
+        /// </summary>
+        [Output("definition")]
+        public Output<string> Definition { get; private set; } = null!;
+
+        /// <summary>
+        /// Localized display name for the view.
+        /// </summary>
+        [Output("displayName")]
+        public Output<ImmutableDictionary<string, string>?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The view in Customer 360 web application.
+        /// the hub name.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ViewResponseResult> Properties { get; private set; } = null!;
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// the user ID.
+        /// </summary>
+        [Output("userId")]
+        public Output<string?> UserId { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the view.
+        /// </summary>
+        [Output("viewName")]
+        public Output<string> ViewName { get; private set; } = null!;
 
 
         /// <summary>

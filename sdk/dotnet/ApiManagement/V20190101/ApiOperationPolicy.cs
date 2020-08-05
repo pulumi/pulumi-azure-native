@@ -15,22 +15,28 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public partial class ApiOperationPolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// Format of the policyContent.
+        /// </summary>
+        [Output("format")]
+        public Output<string?> Format { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Policy.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PolicyContractPropertiesResponseResult> Properties { get; private set; } = null!;
-
-        /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Contents of the Policy as defined by the format.
+        /// </summary>
+        [Output("value")]
+        public Output<string> Value { get; private set; } = null!;
 
 
         /// <summary>

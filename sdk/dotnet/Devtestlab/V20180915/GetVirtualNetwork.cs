@@ -46,6 +46,26 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class GetVirtualNetworkResult
     {
         /// <summary>
+        /// The allowed subnets of the virtual network.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubnetResponseResult> AllowedSubnets;
+        /// <summary>
+        /// The creation date of the virtual network.
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
+        /// The description of the virtual network.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The Microsoft.Network resource identifier of the virtual network.
+        /// </summary>
+        public readonly string? ExternalProviderResourceId;
+        /// <summary>
+        /// The external subnet properties.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ExternalSubnetResponseResult> ExternalSubnets;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -54,9 +74,13 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        public readonly Outputs.VirtualNetworkPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The subnet overrides of the virtual network.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubnetOverrideResponseResult> SubnetOverrides;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -65,24 +89,49 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string UniqueIdentifier;
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
+            ImmutableArray<Outputs.SubnetResponseResult> allowedSubnets,
+
+            string createdDate,
+
+            string? description,
+
+            string? externalProviderResourceId,
+
+            ImmutableArray<Outputs.ExternalSubnetResponseResult> externalSubnets,
+
             string? location,
 
             string name,
 
-            Outputs.VirtualNetworkPropertiesResponseResult properties,
+            string provisioningState,
+
+            ImmutableArray<Outputs.SubnetOverrideResponseResult> subnetOverrides,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string uniqueIdentifier)
         {
+            AllowedSubnets = allowedSubnets;
+            CreatedDate = createdDate;
+            Description = description;
+            ExternalProviderResourceId = externalProviderResourceId;
+            ExternalSubnets = externalSubnets;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            SubnetOverrides = subnetOverrides;
             Tags = tags;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
         }
     }
 }

@@ -15,16 +15,58 @@ namespace Pulumi.AzureRM.AlertsManagement.V20190301
     public partial class SmartDetectorAlertRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// The alert rule actions.
+        /// </summary>
+        [Output("actionGroups")]
+        public Output<Outputs.ActionGroupsInformationResponseResult> ActionGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// The alert rule description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The alert rule's detector.
+        /// </summary>
+        [Output("detector")]
+        public Output<Outputs.DetectorResponseResult> Detector { get; private set; } = null!;
+
+        /// <summary>
+        /// The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+        /// </summary>
+        [Output("frequency")]
+        public Output<string> Frequency { get; private set; } = null!;
+
+        /// <summary>
         /// The resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the alert rule.
+        /// The alert rule resources scope.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AlertRulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("scope")]
+        public Output<ImmutableArray<string>> Scope { get; private set; } = null!;
+
+        /// <summary>
+        /// The alert rule severity.
+        /// </summary>
+        [Output("severity")]
+        public Output<string> Severity { get; private set; } = null!;
+
+        /// <summary>
+        /// The alert rule state.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// The alert rule throttling information.
+        /// </summary>
+        [Output("throttling")]
+        public Output<Outputs.ThrottlingInformationResponseResult?> Throttling { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

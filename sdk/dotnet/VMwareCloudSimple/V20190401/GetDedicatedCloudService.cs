@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
     public sealed class GetDedicatedCloudServiceResult
     {
         /// <summary>
+        /// gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+        /// </summary>
+        public readonly string GatewaySubnet;
+        /// <summary>
+        /// indicates whether account onboarded or not in a given region
+        /// </summary>
+        public readonly string IsAccountOnboarded;
+        /// <summary>
         /// Azure region
         /// </summary>
         public readonly string Location;
@@ -48,9 +56,13 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of Dedicated Node Service
+        /// total nodes purchased
         /// </summary>
-        public readonly Outputs.DedicatedCloudServicePropertiesResponseResult Properties;
+        public readonly int Nodes;
+        /// <summary>
+        /// link to a service management web portal
+        /// </summary>
+        public readonly string ServiceURL;
         /// <summary>
         /// The list of tags
         /// </summary>
@@ -62,19 +74,28 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
 
         [OutputConstructor]
         private GetDedicatedCloudServiceResult(
+            string gatewaySubnet,
+
+            string isAccountOnboarded,
+
             string location,
 
             string name,
 
-            Outputs.DedicatedCloudServicePropertiesResponseResult properties,
+            int nodes,
+
+            string serviceURL,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            GatewaySubnet = gatewaySubnet;
+            IsAccountOnboarded = isAccountOnboarded;
             Location = location;
             Name = name;
-            Properties = properties;
+            Nodes = nodes;
+            ServiceURL = serviceURL;
             Tags = tags;
             Type = type;
         }

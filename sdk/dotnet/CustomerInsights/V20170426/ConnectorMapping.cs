@@ -15,16 +15,100 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
     public partial class ConnectorMapping : Pulumi.CustomResource
     {
         /// <summary>
+        /// The connector mapping name
+        /// </summary>
+        [Output("connectorMappingName")]
+        public Output<string> ConnectorMappingName { get; private set; } = null!;
+
+        /// <summary>
+        /// The connector name.
+        /// </summary>
+        [Output("connectorName")]
+        public Output<string> ConnectorName { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of connector.
+        /// </summary>
+        [Output("connectorType")]
+        public Output<string?> ConnectorType { get; private set; } = null!;
+
+        /// <summary>
+        /// The created time.
+        /// </summary>
+        [Output("created")]
+        public Output<string> Created { get; private set; } = null!;
+
+        /// <summary>
+        /// The DataFormat ID.
+        /// </summary>
+        [Output("dataFormatId")]
+        public Output<string> DataFormatId { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the connector mapping.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Display name for the connector mapping.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines which entity type the file should map to.
+        /// </summary>
+        [Output("entityType")]
+        public Output<string> EntityType { get; private set; } = null!;
+
+        /// <summary>
+        /// The mapping entity name.
+        /// </summary>
+        [Output("entityTypeName")]
+        public Output<string> EntityTypeName { get; private set; } = null!;
+
+        /// <summary>
+        /// The last modified time.
+        /// </summary>
+        [Output("lastModified")]
+        public Output<string> LastModified { get; private set; } = null!;
+
+        /// <summary>
+        /// The properties of the mapping.
+        /// </summary>
+        [Output("mappingProperties")]
+        public Output<Outputs.ConnectorMappingPropertiesResponseResult> MappingProperties { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The connector mapping definition.
+        /// The next run time based on customer's settings.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ConnectorMappingResponseResult> Properties { get; private set; } = null!;
+        [Output("nextRunTime")]
+        public Output<string> NextRunTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The RunId.
+        /// </summary>
+        [Output("runId")]
+        public Output<string> RunId { get; private set; } = null!;
+
+        /// <summary>
+        /// State of connector mapping.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

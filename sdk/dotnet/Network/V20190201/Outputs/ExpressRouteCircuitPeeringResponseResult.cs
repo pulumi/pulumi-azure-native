@@ -14,36 +14,169 @@ namespace Pulumi.AzureRM.Network.V20190201.Outputs
     public sealed class ExpressRouteCircuitPeeringResponseResult
     {
         /// <summary>
+        /// The Azure ASN.
+        /// </summary>
+        public readonly int? AzureASN;
+        /// <summary>
+        /// The list of circuit connections associated with Azure Private Peering for this circuit.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitConnectionResponseResult> Connections;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// The ExpressRoute connection.
+        /// </summary>
+        public readonly Outputs.ExpressRouteConnectionIdResponseResult? ExpressRouteConnection;
+        /// <summary>
+        /// The GatewayManager Etag.
+        /// </summary>
+        public readonly string? GatewayManagerEtag;
         /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The IPv6 peering configuration.
+        /// </summary>
+        public readonly Outputs.Ipv6ExpressRouteCircuitPeeringConfigResponseResult? Ipv6PeeringConfig;
+        /// <summary>
+        /// Gets whether the provider or the customer last modified the peering.
+        /// </summary>
+        public readonly string? LastModifiedBy;
+        /// <summary>
+        /// The Microsoft peering configuration.
+        /// </summary>
+        public readonly Outputs.ExpressRouteCircuitPeeringConfigResponseResult? MicrosoftPeeringConfig;
+        /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the express route circuit peering.
+        /// The peer ASN.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitPeeringPropertiesFormatResponseResult? Properties;
+        public readonly int? PeerASN;
+        /// <summary>
+        /// The list of peered circuit connections associated with Azure Private Peering for this circuit.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PeerExpressRouteCircuitConnectionResponseResult> PeeredConnections;
+        /// <summary>
+        /// The peering type.
+        /// </summary>
+        public readonly string? PeeringType;
+        /// <summary>
+        /// The primary port.
+        /// </summary>
+        public readonly string? PrimaryAzurePort;
+        /// <summary>
+        /// The primary address prefix.
+        /// </summary>
+        public readonly string? PrimaryPeerAddressPrefix;
+        /// <summary>
+        /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The reference of the RouteFilter resource.
+        /// </summary>
+        public readonly Outputs.RouteFilterResponseResult? RouteFilter;
+        /// <summary>
+        /// The secondary port.
+        /// </summary>
+        public readonly string? SecondaryAzurePort;
+        /// <summary>
+        /// The secondary address prefix.
+        /// </summary>
+        public readonly string? SecondaryPeerAddressPrefix;
+        /// <summary>
+        /// The shared key.
+        /// </summary>
+        public readonly string? SharedKey;
+        /// <summary>
+        /// The peering state.
+        /// </summary>
+        public readonly string? State;
+        /// <summary>
+        /// Gets peering stats.
+        /// </summary>
+        public readonly Outputs.ExpressRouteCircuitStatsResponseResult? Stats;
+        /// <summary>
+        /// The VLAN ID.
+        /// </summary>
+        public readonly int? VlanId;
 
         [OutputConstructor]
         private ExpressRouteCircuitPeeringResponseResult(
+            int? azureASN,
+
+            ImmutableArray<Outputs.ExpressRouteCircuitConnectionResponseResult> connections,
+
             string etag,
+
+            Outputs.ExpressRouteConnectionIdResponseResult? expressRouteConnection,
+
+            string? gatewayManagerEtag,
 
             string? id,
 
+            Outputs.Ipv6ExpressRouteCircuitPeeringConfigResponseResult? ipv6PeeringConfig,
+
+            string? lastModifiedBy,
+
+            Outputs.ExpressRouteCircuitPeeringConfigResponseResult? microsoftPeeringConfig,
+
             string? name,
 
-            Outputs.ExpressRouteCircuitPeeringPropertiesFormatResponseResult? properties)
+            int? peerASN,
+
+            ImmutableArray<Outputs.PeerExpressRouteCircuitConnectionResponseResult> peeredConnections,
+
+            string? peeringType,
+
+            string? primaryAzurePort,
+
+            string? primaryPeerAddressPrefix,
+
+            string? provisioningState,
+
+            Outputs.RouteFilterResponseResult? routeFilter,
+
+            string? secondaryAzurePort,
+
+            string? secondaryPeerAddressPrefix,
+
+            string? sharedKey,
+
+            string? state,
+
+            Outputs.ExpressRouteCircuitStatsResponseResult? stats,
+
+            int? vlanId)
         {
+            AzureASN = azureASN;
+            Connections = connections;
             Etag = etag;
+            ExpressRouteConnection = expressRouteConnection;
+            GatewayManagerEtag = gatewayManagerEtag;
             Id = id;
+            Ipv6PeeringConfig = ipv6PeeringConfig;
+            LastModifiedBy = lastModifiedBy;
+            MicrosoftPeeringConfig = microsoftPeeringConfig;
             Name = name;
-            Properties = properties;
+            PeerASN = peerASN;
+            PeeredConnections = peeredConnections;
+            PeeringType = peeringType;
+            PrimaryAzurePort = primaryAzurePort;
+            PrimaryPeerAddressPrefix = primaryPeerAddressPrefix;
+            ProvisioningState = provisioningState;
+            RouteFilter = routeFilter;
+            SecondaryAzurePort = secondaryAzurePort;
+            SecondaryPeerAddressPrefix = secondaryPeerAddressPrefix;
+            SharedKey = sharedKey;
+            State = state;
+            Stats = stats;
+            VlanId = vlanId;
         }
     }
 }

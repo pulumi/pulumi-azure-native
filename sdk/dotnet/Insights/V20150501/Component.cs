@@ -15,6 +15,108 @@ namespace Pulumi.AzureRM.Insights.V20150501
     public partial class Component : Pulumi.CustomResource
     {
         /// <summary>
+        /// Application Insights Unique ID for your Application.
+        /// </summary>
+        [Output("AppId")]
+        public Output<string> AppId { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.
+        /// </summary>
+        [Output("ApplicationId")]
+        public Output<string> ApplicationId { get; private set; } = null!;
+
+        /// <summary>
+        /// Type of application being monitored.
+        /// </summary>
+        [Output("Application_Type")]
+        public Output<string> Application_Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Application Insights component connection string.
+        /// </summary>
+        [Output("ConnectionString")]
+        public Output<string> ConnectionString { get; private set; } = null!;
+
+        /// <summary>
+        /// Creation Date for the Application Insights component, in ISO 8601 format.
+        /// </summary>
+        [Output("CreationDate")]
+        public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Disable IP masking.
+        /// </summary>
+        [Output("DisableIpMasking")]
+        public Output<bool?> DisableIpMasking { get; private set; } = null!;
+
+        /// <summary>
+        /// Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
+        /// </summary>
+        [Output("Flow_Type")]
+        public Output<string?> Flow_Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
+        /// </summary>
+        [Output("HockeyAppId")]
+        public Output<string?> HockeyAppId { get; private set; } = null!;
+
+        /// <summary>
+        /// Token used to authenticate communications with between Application Insights and HockeyApp.
+        /// </summary>
+        [Output("HockeyAppToken")]
+        public Output<string> HockeyAppToken { get; private set; } = null!;
+
+        /// <summary>
+        /// Purge data immediately after 30 days.
+        /// </summary>
+        [Output("ImmediatePurgeDataOn30Days")]
+        public Output<bool?> ImmediatePurgeDataOn30Days { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the flow of the ingestion.
+        /// </summary>
+        [Output("IngestionMode")]
+        public Output<string?> IngestionMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.
+        /// </summary>
+        [Output("InstrumentationKey")]
+        public Output<string> InstrumentationKey { get; private set; } = null!;
+
+        /// <summary>
+        /// List of linked private link scope resources.
+        /// </summary>
+        [Output("PrivateLinkScopedResources")]
+        public Output<ImmutableArray<Outputs.PrivateLinkScopedResourceResponseResult>> PrivateLinkScopedResources { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
+        /// </summary>
+        [Output("Request_Source")]
+        public Output<string?> Request_Source { get; private set; } = null!;
+
+        /// <summary>
+        /// Retention period in days.
+        /// </summary>
+        [Output("RetentionInDays")]
+        public Output<int?> RetentionInDays { get; private set; } = null!;
+
+        /// <summary>
+        /// Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
+        /// </summary>
+        [Output("SamplingPercentage")]
+        public Output<double?> SamplingPercentage { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Tenant Id.
+        /// </summary>
+        [Output("TenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
+
+        /// <summary>
         /// The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
         /// </summary>
         [Output("kind")]
@@ -33,10 +135,10 @@ namespace Pulumi.AzureRM.Insights.V20150501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties that define an Application Insights component resource.
+        /// Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApplicationInsightsComponentPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

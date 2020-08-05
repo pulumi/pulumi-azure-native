@@ -15,16 +15,22 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public partial class Gateway : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gateway description
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Gateway location.
+        /// </summary>
+        [Output("locationData")]
+        public Output<Outputs.ResourceLocationDataContractResponseResult?> LocationData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Gateway details.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.GatewayContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

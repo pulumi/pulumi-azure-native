@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20190801.Outputs
     public sealed class AzureFirewallNatRuleCollectionResponseResult
     {
         /// <summary>
+        /// The action type of a NAT rule collection.
+        /// </summary>
+        public readonly Outputs.AzureFirewallNatRCActionResponseResult? Action;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -26,24 +30,41 @@ namespace Pulumi.AzureRM.Network.V20190801.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the azure firewall NAT rule collection.
+        /// Priority of the NAT rule collection resource.
         /// </summary>
-        public readonly Outputs.AzureFirewallNatRuleCollectionPropertiesResponseResult? Properties;
+        public readonly int? Priority;
+        /// <summary>
+        /// The provisioning state of the NAT rule collection resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Collection of rules used by a NAT rule collection.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AzureFirewallNatRuleResponseResult> Rules;
 
         [OutputConstructor]
         private AzureFirewallNatRuleCollectionResponseResult(
+            Outputs.AzureFirewallNatRCActionResponseResult? action,
+
             string etag,
 
             string? id,
 
             string? name,
 
-            Outputs.AzureFirewallNatRuleCollectionPropertiesResponseResult? properties)
+            int? priority,
+
+            string? provisioningState,
+
+            ImmutableArray<Outputs.AzureFirewallNatRuleResponseResult> rules)
         {
+            Action = action;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            Priority = priority;
+            ProvisioningState = provisioningState;
+            Rules = rules;
         }
     }
 }

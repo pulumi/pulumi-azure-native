@@ -58,9 +58,9 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The application type name properties
+        /// The current deployment or provisioning state, which only appears in the response.
         /// </summary>
-        public readonly Outputs.ApplicationTypeResourcePropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Azure resource tags.
         /// </summary>
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
 
             string name,
 
-            Outputs.ApplicationTypeResourcePropertiesResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
         }

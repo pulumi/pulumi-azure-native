@@ -14,9 +14,17 @@ namespace Pulumi.AzureRM.Web.V20150801.Outputs
     public sealed class WorkerPoolResponseResult
     {
         /// <summary>
+        /// Shared or dedicated web app hosting
+        /// </summary>
+        public readonly string? ComputeMode;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Names of all instances in the worker pool (read only)
+        /// </summary>
+        public readonly ImmutableArray<string> InstanceNames;
         /// <summary>
         /// Kind of resource
         /// </summary>
@@ -29,7 +37,6 @@ namespace Pulumi.AzureRM.Web.V20150801.Outputs
         /// Resource Name
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.WorkerPoolResponsePropertiesResult? Properties;
         /// <summary>
         /// Describes a sku for a scalable resource
         /// </summary>
@@ -42,10 +49,26 @@ namespace Pulumi.AzureRM.Web.V20150801.Outputs
         /// Resource type
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// Number of instances in the worker pool
+        /// </summary>
+        public readonly int? WorkerCount;
+        /// <summary>
+        /// VM size of the worker pool instances
+        /// </summary>
+        public readonly string? WorkerSize;
+        /// <summary>
+        /// Worker size id for referencing this worker pool
+        /// </summary>
+        public readonly int? WorkerSizeId;
 
         [OutputConstructor]
         private WorkerPoolResponseResult(
+            string? computeMode,
+
             string? id,
+
+            ImmutableArray<string> instanceNames,
 
             string? kind,
 
@@ -53,22 +76,30 @@ namespace Pulumi.AzureRM.Web.V20150801.Outputs
 
             string? name,
 
-            Outputs.WorkerPoolResponsePropertiesResult? properties,
-
             Outputs.SkuDescriptionResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string? type)
+            string? type,
+
+            int? workerCount,
+
+            string? workerSize,
+
+            int? workerSizeId)
         {
+            ComputeMode = computeMode;
             Id = id;
+            InstanceNames = instanceNames;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
             Sku = sku;
             Tags = tags;
             Type = type;
+            WorkerCount = workerCount;
+            WorkerSize = workerSize;
+            WorkerSizeId = workerSizeId;
         }
     }
 }

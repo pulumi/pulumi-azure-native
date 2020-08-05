@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Network.V20180401
     public partial class VirtualWAN : Pulumi.CustomResource
     {
         /// <summary>
+        /// Vpn encryption to be disabled or not.
+        /// </summary>
+        [Output("disableVpnEncryption")]
+        public Output<bool?> DisableVpnEncryption { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -33,10 +39,10 @@ namespace Pulumi.AzureRM.Network.V20180401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Parameters for VirtualWAN
+        /// The provisioning state of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualWanPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +55,15 @@ namespace Pulumi.AzureRM.Network.V20180401
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// List of VirtualHubs in the VirtualWAN.
+        /// </summary>
+        [Output("virtualHubs")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualHubs { get; private set; } = null!;
+
+        [Output("vpnSites")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VpnSites { get; private set; } = null!;
 
 
         /// <summary>

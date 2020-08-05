@@ -14,6 +14,14 @@ namespace Pulumi.AzureRM.Network.V20160601.Outputs
     public sealed class NetworkInterfaceResponseResult
     {
         /// <summary>
+        /// Gets or sets DNS settings in network interface
+        /// </summary>
+        public readonly Outputs.NetworkInterfaceDnsSettingsResponseResult? DnsSettings;
+        /// <summary>
+        /// Gets or sets whether IPForwarding is enabled on the NIC
+        /// </summary>
+        public readonly bool? EnableIPForwarding;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         public readonly string? Etag;
@@ -22,17 +30,37 @@ namespace Pulumi.AzureRM.Network.V20160601.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Gets or sets list of IPConfigurations of the network interface
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult> IpConfigurations;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// Gets the MAC address of the network interface
+        /// </summary>
+        public readonly string? MacAddress;
         /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// NetworkInterface properties. 
+        /// Gets or sets the reference of the NetworkSecurityGroup resource
         /// </summary>
-        public readonly Outputs.NetworkInterfacePropertiesFormatResponseResult? Properties;
+        public readonly Outputs.NetworkSecurityGroupResponseResult? NetworkSecurityGroup;
+        /// <summary>
+        /// Gets whether this is a primary NIC on a virtual machine
+        /// </summary>
+        public readonly bool? Primary;
+        /// <summary>
+        /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets resource guid property of the network interface resource
+        /// </summary>
+        public readonly string? ResourceGuid;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -41,30 +69,58 @@ namespace Pulumi.AzureRM.Network.V20160601.Outputs
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Gets or sets the reference of a VirtualMachine
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualMachine;
 
         [OutputConstructor]
         private NetworkInterfaceResponseResult(
+            Outputs.NetworkInterfaceDnsSettingsResponseResult? dnsSettings,
+
+            bool? enableIPForwarding,
+
             string? etag,
 
             string? id,
 
+            ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult> ipConfigurations,
+
             string? location,
+
+            string? macAddress,
 
             string name,
 
-            Outputs.NetworkInterfacePropertiesFormatResponseResult? properties,
+            Outputs.NetworkSecurityGroupResponseResult? networkSecurityGroup,
+
+            bool? primary,
+
+            string? provisioningState,
+
+            string? resourceGuid,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.SubResourceResponseResult? virtualMachine)
         {
+            DnsSettings = dnsSettings;
+            EnableIPForwarding = enableIPForwarding;
             Etag = etag;
             Id = id;
+            IpConfigurations = ipConfigurations;
             Location = location;
+            MacAddress = macAddress;
             Name = name;
-            Properties = properties;
+            NetworkSecurityGroup = networkSecurityGroup;
+            Primary = primary;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             Tags = tags;
             Type = type;
+            VirtualMachine = virtualMachine;
         }
     }
 }

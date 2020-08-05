@@ -18,13 +18,25 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The number of seconds between health probes.
+        /// </summary>
+        public readonly int? IntervalInSeconds;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the health probe settings
+        /// The path to use for the health probe. Default is /
         /// </summary>
-        public readonly Outputs.HealthProbeSettingsPropertiesResponseResult? Properties;
+        public readonly string? Path;
+        /// <summary>
+        /// Protocol scheme to use for this probe
+        /// </summary>
+        public readonly string? Protocol;
+        /// <summary>
+        /// Resource status.
+        /// </summary>
+        public readonly string? ResourceState;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -34,15 +46,24 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
         private HealthProbeSettingsModelResponseResult(
             string? id,
 
+            int? intervalInSeconds,
+
             string? name,
 
-            Outputs.HealthProbeSettingsPropertiesResponseResult? properties,
+            string? path,
+
+            string? protocol,
+
+            string? resourceState,
 
             string type)
         {
             Id = id;
+            IntervalInSeconds = intervalInSeconds;
             Name = name;
-            Properties = properties;
+            Path = path;
+            Protocol = protocol;
+            ResourceState = resourceState;
             Type = type;
         }
     }

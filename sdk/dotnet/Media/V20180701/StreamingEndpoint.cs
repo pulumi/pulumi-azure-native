@@ -15,10 +15,88 @@ namespace Pulumi.AzureRM.Media.V20180701
     public partial class StreamingEndpoint : Pulumi.CustomResource
     {
         /// <summary>
+        /// The access control definition of the StreamingEndpoint.
+        /// </summary>
+        [Output("accessControl")]
+        public Output<Outputs.StreamingEndpointAccessControlResponseResult?> AccessControl { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+        /// </summary>
+        [Output("availabilitySetName")]
+        public Output<string?> AvailabilitySetName { get; private set; } = null!;
+
+        /// <summary>
+        /// The CDN enabled flag.
+        /// </summary>
+        [Output("cdnEnabled")]
+        public Output<bool?> CdnEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The CDN profile name.
+        /// </summary>
+        [Output("cdnProfile")]
+        public Output<string?> CdnProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The CDN provider name.
+        /// </summary>
+        [Output("cdnProvider")]
+        public Output<string?> CdnProvider { get; private set; } = null!;
+
+        /// <summary>
+        /// The exact time the StreamingEndpoint was created.
+        /// </summary>
+        [Output("created")]
+        public Output<string> Created { get; private set; } = null!;
+
+        /// <summary>
+        /// The StreamingEndpoint access policies.
+        /// </summary>
+        [Output("crossSiteAccessPolicies")]
+        public Output<Outputs.CrossSiteAccessPoliciesResponseResult?> CrossSiteAccessPolicies { get; private set; } = null!;
+
+        /// <summary>
+        /// The custom host names of the StreamingEndpoint
+        /// </summary>
+        [Output("customHostNames")]
+        public Output<ImmutableArray<string>> CustomHostNames { get; private set; } = null!;
+
+        /// <summary>
+        /// The StreamingEndpoint description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The free trial expiration time.
+        /// </summary>
+        [Output("freeTrialEndTime")]
+        public Output<string> FreeTrialEndTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The StreamingEndpoint host name.
+        /// </summary>
+        [Output("hostName")]
+        public Output<string> HostName { get; private set; } = null!;
+
+        /// <summary>
+        /// The exact time the StreamingEndpoint was last modified.
+        /// </summary>
+        [Output("lastModified")]
+        public Output<string> LastModified { get; private set; } = null!;
+
+        /// <summary>
         /// The Azure Region of the resource.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Max cache age
+        /// </summary>
+        [Output("maxCacheAge")]
+        public Output<int?> MaxCacheAge { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -27,10 +105,22 @@ namespace Pulumi.AzureRM.Media.V20180701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The StreamingEndpoint properties.
+        /// The provisioning state of the StreamingEndpoint.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.StreamingEndpointPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource state of the StreamingEndpoint.
+        /// </summary>
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of scale units.  Use the Scale operation to adjust this value.
+        /// </summary>
+        [Output("scaleUnits")]
+        public Output<int> ScaleUnits { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

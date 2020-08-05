@@ -15,22 +15,72 @@ namespace Pulumi.AzureRM.DataShare.V20191101
     public partial class Invitation : Pulumi.CustomResource
     {
         /// <summary>
+        /// unique invitation id
+        /// </summary>
+        [Output("invitationId")]
+        public Output<string> InvitationId { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of the invitation.
+        /// </summary>
+        [Output("invitationStatus")]
+        public Output<string> InvitationStatus { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the azure resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties on the Invitation
+        /// The time the recipient responded to the invitation.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.InvitationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("respondedAt")]
+        public Output<string> RespondedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the time at which the invitation was sent.
+        /// </summary>
+        [Output("sentAt")]
+        public Output<string> SentAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The target Azure AD Id. Can't be combined with email.
+        /// </summary>
+        [Output("targetActiveDirectoryId")]
+        public Output<string?> TargetActiveDirectoryId { get; private set; } = null!;
+
+        /// <summary>
+        /// The email the invitation is directed to.
+        /// </summary>
+        [Output("targetEmail")]
+        public Output<string?> TargetEmail { get; private set; } = null!;
+
+        /// <summary>
+        /// The target user or application Id that invitation is being sent to.
+        /// Must be specified along TargetActiveDirectoryId. This enables sending
+        /// invitations to specific users or applications in an AD tenant.
+        /// </summary>
+        [Output("targetObjectId")]
+        public Output<string?> TargetObjectId { get; private set; } = null!;
 
         /// <summary>
         /// Type of the azure resource
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Email of the user who created the resource
+        /// </summary>
+        [Output("userEmail")]
+        public Output<string> UserEmail { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the user who created the resource
+        /// </summary>
+        [Output("userName")]
+        public Output<string> UserName { get; private set; } = null!;
 
 
         /// <summary>

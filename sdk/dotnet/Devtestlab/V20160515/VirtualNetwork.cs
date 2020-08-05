@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public partial class VirtualNetwork : Pulumi.CustomResource
     {
         /// <summary>
+        /// The allowed subnets of the virtual network.
+        /// </summary>
+        [Output("allowedSubnets")]
+        public Output<ImmutableArray<Outputs.SubnetResponseResult>> AllowedSubnets { get; private set; } = null!;
+
+        /// <summary>
+        /// The creation date of the virtual network.
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the virtual network.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The Microsoft.Network resource identifier of the virtual network.
+        /// </summary>
+        [Output("externalProviderResourceId")]
+        public Output<string?> ExternalProviderResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The external subnet properties.
+        /// </summary>
+        [Output("externalSubnets")]
+        public Output<ImmutableArray<Outputs.ExternalSubnetResponseResult>> ExternalSubnets { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -27,10 +57,16 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualNetworkPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The subnet overrides of the virtual network.
+        /// </summary>
+        [Output("subnetOverrides")]
+        public Output<ImmutableArray<Outputs.SubnetOverrideResponseResult>> SubnetOverrides { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -43,6 +79,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string?> UniqueIdentifier { get; private set; } = null!;
 
 
         /// <summary>

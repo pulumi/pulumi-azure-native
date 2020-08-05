@@ -14,9 +14,29 @@ namespace Pulumi.AzureRM.Network.V20181201.Outputs
     public sealed class PeerExpressRouteCircuitConnectionResponseResult
     {
         /// <summary>
+        /// /29 IP address space to carve out Customer addresses for tunnels.
+        /// </summary>
+        public readonly string? AddressPrefix;
+        /// <summary>
+        /// The resource guid of the authorization used for the express route circuit connection.
+        /// </summary>
+        public readonly string? AuthResourceGuid;
+        /// <summary>
+        /// Express Route Circuit Connection State. Possible values are: 'Connected' and 'Disconnected'.
+        /// </summary>
+        public readonly string CircuitConnectionStatus;
+        /// <summary>
+        /// The name of the express route circuit connection resource.
+        /// </summary>
+        public readonly string? ConnectionName;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// Reference to Express Route Circuit Private Peering Resource of the circuit.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? ExpressRouteCircuitPeering;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -25,22 +45,47 @@ namespace Pulumi.AzureRM.Network.V20181201.Outputs
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.PeerExpressRouteCircuitConnectionPropertiesFormatResponseResult? Properties;
+        /// <summary>
+        /// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? PeerExpressRouteCircuitPeering;
+        /// <summary>
+        /// Provisioning state of the peer express route circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private PeerExpressRouteCircuitConnectionResponseResult(
+            string? addressPrefix,
+
+            string? authResourceGuid,
+
+            string circuitConnectionStatus,
+
+            string? connectionName,
+
             string etag,
+
+            Outputs.SubResourceResponseResult? expressRouteCircuitPeering,
 
             string? id,
 
             string? name,
 
-            Outputs.PeerExpressRouteCircuitConnectionPropertiesFormatResponseResult? properties)
+            Outputs.SubResourceResponseResult? peerExpressRouteCircuitPeering,
+
+            string provisioningState)
         {
+            AddressPrefix = addressPrefix;
+            AuthResourceGuid = authResourceGuid;
+            CircuitConnectionStatus = circuitConnectionStatus;
+            ConnectionName = connectionName;
             Etag = etag;
+            ExpressRouteCircuitPeering = expressRouteCircuitPeering;
             Id = id;
             Name = name;
-            Properties = properties;
+            PeerExpressRouteCircuitPeering = peerExpressRouteCircuitPeering;
+            ProvisioningState = provisioningState;
         }
     }
 }

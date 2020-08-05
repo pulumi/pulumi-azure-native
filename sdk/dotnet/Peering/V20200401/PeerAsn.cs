@@ -15,22 +15,46 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public partial class PeerAsn : Pulumi.CustomResource
     {
         /// <summary>
+        /// The error message for the validation state
+        /// </summary>
+        [Output("errorMessage")]
+        public Output<string> ErrorMessage { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties that define a peer's ASN.
+        /// The Autonomous System Number (ASN) of the peer.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PeerAsnPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("peerAsn")]
+        public Output<int?> PeerAsnValue { get; private set; } = null!;
+
+        /// <summary>
+        /// The contact details of the peer.
+        /// </summary>
+        [Output("peerContactDetail")]
+        public Output<ImmutableArray<Outputs.ContactDetailResponseResult>> PeerContactDetail { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the peer.
+        /// </summary>
+        [Output("peerName")]
+        public Output<string?> PeerName { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The validation state of the ASN associated with the peer.
+        /// </summary>
+        [Output("validationState")]
+        public Output<string?> ValidationState { get; private set; } = null!;
 
 
         /// <summary>

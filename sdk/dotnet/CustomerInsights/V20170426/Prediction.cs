@@ -15,16 +15,112 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
     public partial class Prediction : Pulumi.CustomResource
     {
         /// <summary>
+        /// Whether do auto analyze.
+        /// </summary>
+        [Output("autoAnalyze")]
+        public Output<bool> AutoAnalyze { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of the prediction.
+        /// </summary>
+        [Output("description")]
+        public Output<ImmutableDictionary<string, string>?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Display name of the prediction.
+        /// </summary>
+        [Output("displayName")]
+        public Output<ImmutableDictionary<string, string>?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The prediction grades.
+        /// </summary>
+        [Output("grades")]
+        public Output<ImmutableArray<Outputs.PredictionResponseGradesResult>> Grades { get; private set; } = null!;
+
+        /// <summary>
+        /// Interaction types involved in the prediction.
+        /// </summary>
+        [Output("involvedInteractionTypes")]
+        public Output<ImmutableArray<string>> InvolvedInteractionTypes { get; private set; } = null!;
+
+        /// <summary>
+        /// KPI types involved in the prediction.
+        /// </summary>
+        [Output("involvedKpiTypes")]
+        public Output<ImmutableArray<string>> InvolvedKpiTypes { get; private set; } = null!;
+
+        /// <summary>
+        /// Relationships involved in the prediction.
+        /// </summary>
+        [Output("involvedRelationships")]
+        public Output<ImmutableArray<string>> InvolvedRelationships { get; private set; } = null!;
+
+        /// <summary>
+        /// Definition of the link mapping of prediction.
+        /// </summary>
+        [Output("mappings")]
+        public Output<Outputs.PredictionResponseMappingsResult> Mappings { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The prediction definition.
+        /// Negative outcome expression.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PredictionResponseResult> Properties { get; private set; } = null!;
+        [Output("negativeOutcomeExpression")]
+        public Output<string> NegativeOutcomeExpression { get; private set; } = null!;
+
+        /// <summary>
+        /// Positive outcome expression.
+        /// </summary>
+        [Output("positiveOutcomeExpression")]
+        public Output<string> PositiveOutcomeExpression { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the prediction.
+        /// </summary>
+        [Output("predictionName")]
+        public Output<string?> PredictionName { get; private set; } = null!;
+
+        /// <summary>
+        /// Primary profile type.
+        /// </summary>
+        [Output("primaryProfileType")]
+        public Output<string> PrimaryProfileType { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Scope expression.
+        /// </summary>
+        [Output("scopeExpression")]
+        public Output<string> ScopeExpression { get; private set; } = null!;
+
+        /// <summary>
+        /// Score label.
+        /// </summary>
+        [Output("scoreLabel")]
+        public Output<string> ScoreLabel { get; private set; } = null!;
+
+        /// <summary>
+        /// System generated entities.
+        /// </summary>
+        [Output("systemGeneratedEntities")]
+        public Output<Outputs.PredictionResponseSystemGeneratedEntitiesResult> SystemGeneratedEntities { get; private set; } = null!;
+
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

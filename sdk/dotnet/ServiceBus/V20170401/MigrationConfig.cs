@@ -15,16 +15,40 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
     public partial class MigrationConfig : Pulumi.CustomResource
     {
         /// <summary>
+        /// State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
+        /// </summary>
+        [Output("migrationState")]
+        public Output<string> MigrationState { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties required to the Create Migration Configuration
+        /// Number of entities pending to be replicated.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.MigrationConfigPropertiesResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("pendingReplicationOperationsCount")]
+        public Output<int> PendingReplicationOperationsCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Name to access Standard Namespace after migration
+        /// </summary>
+        [Output("postMigrationName")]
+        public Output<string> PostMigrationName { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of Migration Configuration 
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Existing premium Namespace ARM Id name which has no entities, will be used for migration
+        /// </summary>
+        [Output("targetNamespace")]
+        public Output<string> TargetNamespace { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

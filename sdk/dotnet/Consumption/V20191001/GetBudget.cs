@@ -40,17 +40,41 @@ namespace Pulumi.AzureRM.Consumption.V20191001
     public sealed class GetBudgetResult
     {
         /// <summary>
+        /// The total amount of cost to track with the budget
+        /// </summary>
+        public readonly double Amount;
+        /// <summary>
+        /// The category of the budget, whether the budget tracks cost or usage.
+        /// </summary>
+        public readonly string Category;
+        /// <summary>
+        /// The current amount of cost which is being tracked for a budget.
+        /// </summary>
+        public readonly Outputs.CurrentSpendResponseResult CurrentSpend;
+        /// <summary>
         /// eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         /// </summary>
         public readonly string? ETag;
+        /// <summary>
+        /// May be used to filter budgets by resource group, resource, or meter.
+        /// </summary>
+        public readonly Outputs.BudgetFilterResponseResult? Filter;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the budget.
+        /// Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         /// </summary>
-        public readonly Outputs.BudgetPropertiesResponseResult Properties;
+        public readonly ImmutableDictionary<string, Outputs.NotificationResponseResult>? Notifications;
+        /// <summary>
+        /// The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
+        /// </summary>
+        public readonly string TimeGrain;
+        /// <summary>
+        /// Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
+        /// </summary>
+        public readonly Outputs.BudgetTimePeriodResponseResult TimePeriod;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -58,17 +82,35 @@ namespace Pulumi.AzureRM.Consumption.V20191001
 
         [OutputConstructor]
         private GetBudgetResult(
+            double amount,
+
+            string category,
+
+            Outputs.CurrentSpendResponseResult currentSpend,
+
             string? eTag,
+
+            Outputs.BudgetFilterResponseResult? filter,
 
             string name,
 
-            Outputs.BudgetPropertiesResponseResult properties,
+            ImmutableDictionary<string, Outputs.NotificationResponseResult>? notifications,
+
+            string timeGrain,
+
+            Outputs.BudgetTimePeriodResponseResult timePeriod,
 
             string type)
         {
+            Amount = amount;
+            Category = category;
+            CurrentSpend = currentSpend;
             ETag = eTag;
+            Filter = filter;
             Name = name;
-            Properties = properties;
+            Notifications = notifications;
+            TimeGrain = timeGrain;
+            TimePeriod = timePeriod;
             Type = type;
         }
     }

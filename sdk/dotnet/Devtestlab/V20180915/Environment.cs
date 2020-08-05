@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public partial class Environment : Pulumi.CustomResource
     {
         /// <summary>
+        /// The display name of the Azure Resource Manager template that produced the environment.
+        /// </summary>
+        [Output("armTemplateDisplayName")]
+        public Output<string?> ArmTemplateDisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The creator of the environment.
+        /// </summary>
+        [Output("createdByUser")]
+        public Output<string> CreatedByUser { get; private set; } = null!;
+
+        /// <summary>
+        /// The deployment properties of the environment.
+        /// </summary>
+        [Output("deploymentProperties")]
+        public Output<Outputs.EnvironmentDeploymentPropertiesResponseResult?> DeploymentProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -27,10 +45,16 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The provisioning status of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.EnvironmentPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The identifier of the resource group containing the environment's resources.
+        /// </summary>
+        [Output("resourceGroupId")]
+        public Output<string> ResourceGroupId { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -43,6 +67,12 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string> UniqueIdentifier { get; private set; } = null!;
 
 
         /// <summary>

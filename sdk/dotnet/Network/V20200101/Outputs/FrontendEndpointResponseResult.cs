@@ -14,6 +14,22 @@ namespace Pulumi.AzureRM.Network.V20200101.Outputs
     public sealed class FrontendEndpointResponseResult
     {
         /// <summary>
+        /// The configuration specifying how to enable HTTPS
+        /// </summary>
+        public readonly Outputs.CustomHttpsConfigurationResponseResult CustomHttpsConfiguration;
+        /// <summary>
+        /// Provisioning status of Custom Https of the frontendEndpoint.
+        /// </summary>
+        public readonly string CustomHttpsProvisioningState;
+        /// <summary>
+        /// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+        /// </summary>
+        public readonly string CustomHttpsProvisioningSubstate;
+        /// <summary>
+        /// The host name of the frontendEndpoint. Must be a domain name.
+        /// </summary>
+        public readonly string? HostName;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -22,28 +38,61 @@ namespace Pulumi.AzureRM.Network.V20200101.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the Frontend endpoint
+        /// Resource status.
         /// </summary>
-        public readonly Outputs.FrontendEndpointPropertiesResponseResult? Properties;
+        public readonly string? ResourceState;
+        /// <summary>
+        /// Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+        /// </summary>
+        public readonly string? SessionAffinityEnabledState;
+        /// <summary>
+        /// UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
+        /// </summary>
+        public readonly int? SessionAffinityTtlSeconds;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Defines the Web Application Firewall policy for each host (if applicable)
+        /// </summary>
+        public readonly Outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? WebApplicationFirewallPolicyLink;
 
         [OutputConstructor]
         private FrontendEndpointResponseResult(
+            Outputs.CustomHttpsConfigurationResponseResult customHttpsConfiguration,
+
+            string customHttpsProvisioningState,
+
+            string customHttpsProvisioningSubstate,
+
+            string? hostName,
+
             string? id,
 
             string? name,
 
-            Outputs.FrontendEndpointPropertiesResponseResult? properties,
+            string? resourceState,
 
-            string type)
+            string? sessionAffinityEnabledState,
+
+            int? sessionAffinityTtlSeconds,
+
+            string type,
+
+            Outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? webApplicationFirewallPolicyLink)
         {
+            CustomHttpsConfiguration = customHttpsConfiguration;
+            CustomHttpsProvisioningState = customHttpsProvisioningState;
+            CustomHttpsProvisioningSubstate = customHttpsProvisioningSubstate;
+            HostName = hostName;
             Id = id;
             Name = name;
-            Properties = properties;
+            ResourceState = resourceState;
+            SessionAffinityEnabledState = sessionAffinityEnabledState;
+            SessionAffinityTtlSeconds = sessionAffinityTtlSeconds;
             Type = type;
+            WebApplicationFirewallPolicyLink = webApplicationFirewallPolicyLink;
         }
     }
 }

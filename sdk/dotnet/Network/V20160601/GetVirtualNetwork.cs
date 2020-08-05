@@ -40,6 +40,18 @@ namespace Pulumi.AzureRM.Network.V20160601
     public sealed class GetVirtualNetworkResult
     {
         /// <summary>
+        /// Gets or sets list of peerings in a VirtualNetwork
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualNetworkPeeringResponseResult> VirtualNetworkPeerings;
+        /// <summary>
+        /// Gets or sets AddressSpace that contains an array of IP address ranges that can be used by subnets
+        /// </summary>
+        public readonly Outputs.AddressSpaceResponseResult? AddressSpace;
+        /// <summary>
+        /// Gets or sets DHCPOptions that contains an array of DNS servers available to VMs deployed in the virtual network
+        /// </summary>
+        public readonly Outputs.DhcpOptionsResponseResult? DhcpOptions;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         public readonly string? Etag;
@@ -51,7 +63,18 @@ namespace Pulumi.AzureRM.Network.V20160601
         /// Resource name
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.VirtualNetworkPropertiesFormatResponseResult Properties;
+        /// <summary>
+        /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets resource guid property of the VirtualNetwork resource
+        /// </summary>
+        public readonly string? ResourceGuid;
+        /// <summary>
+        /// Gets or sets list of subnets in a VirtualNetwork
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubnetResponseResult> Subnets;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -63,22 +86,37 @@ namespace Pulumi.AzureRM.Network.V20160601
 
         [OutputConstructor]
         private GetVirtualNetworkResult(
+            ImmutableArray<Outputs.VirtualNetworkPeeringResponseResult> VirtualNetworkPeerings,
+
+            Outputs.AddressSpaceResponseResult? addressSpace,
+
+            Outputs.DhcpOptionsResponseResult? dhcpOptions,
+
             string? etag,
 
             string? location,
 
             string name,
 
-            Outputs.VirtualNetworkPropertiesFormatResponseResult properties,
+            string? provisioningState,
+
+            string? resourceGuid,
+
+            ImmutableArray<Outputs.SubnetResponseResult> subnets,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            this.VirtualNetworkPeerings = VirtualNetworkPeerings;
+            AddressSpace = addressSpace;
+            DhcpOptions = dhcpOptions;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
+            Subnets = subnets;
             Tags = tags;
             Type = type;
         }

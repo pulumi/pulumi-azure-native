@@ -40,13 +40,25 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
     public sealed class GetServerAdministratorResult
     {
         /// <summary>
+        /// The type of administrator.
+        /// </summary>
+        public readonly string AdministratorType;
+        /// <summary>
+        /// The server administrator login account name.
+        /// </summary>
+        public readonly string Login;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the server AAD administrator.
+        /// The server administrator Sid (Secure ID).
         /// </summary>
-        public readonly Outputs.ServerAdministratorPropertiesResponseResult Properties;
+        public readonly string Sid;
+        /// <summary>
+        /// The server Active Directory Administrator tenant id.
+        /// </summary>
+        public readonly string TenantId;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -54,14 +66,23 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20171201
 
         [OutputConstructor]
         private GetServerAdministratorResult(
+            string administratorType,
+
+            string login,
+
             string name,
 
-            Outputs.ServerAdministratorPropertiesResponseResult properties,
+            string sid,
+
+            string tenantId,
 
             string type)
         {
+            AdministratorType = administratorType;
+            Login = login;
             Name = name;
-            Properties = properties;
+            Sid = sid;
+            TenantId = tenantId;
             Type = type;
         }
     }

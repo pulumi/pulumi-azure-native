@@ -46,29 +46,57 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class GetApiVersionSetResult
     {
         /// <summary>
+        /// Description of API Version Set.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Name of API Version Set
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Api VersionSet contract properties.
-        /// </summary>
-        public readonly Outputs.ApiVersionSetContractPropertiesResponseResult Properties;
-        /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+        /// </summary>
+        public readonly string? VersionHeaderName;
+        /// <summary>
+        /// Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+        /// </summary>
+        public readonly string? VersionQueryName;
+        /// <summary>
+        /// An value that determines where the API Version identifer will be located in a HTTP request.
+        /// </summary>
+        public readonly string VersioningScheme;
 
         [OutputConstructor]
         private GetApiVersionSetResult(
+            string? description,
+
+            string displayName,
+
             string name,
 
-            Outputs.ApiVersionSetContractPropertiesResponseResult properties,
+            string type,
 
-            string type)
+            string? versionHeaderName,
+
+            string? versionQueryName,
+
+            string versioningScheme)
         {
+            Description = description;
+            DisplayName = displayName;
             Name = name;
-            Properties = properties;
             Type = type;
+            VersionHeaderName = versionHeaderName;
+            VersionQueryName = versionQueryName;
+            VersioningScheme = versioningScheme;
         }
     }
 }

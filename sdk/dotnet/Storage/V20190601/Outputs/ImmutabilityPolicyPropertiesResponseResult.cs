@@ -14,13 +14,21 @@ namespace Pulumi.AzureRM.Storage.V20190601.Outputs
     public sealed class ImmutabilityPolicyPropertiesResponseResult
     {
         /// <summary>
+        /// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+        /// </summary>
+        public readonly bool? AllowProtectedAppendWrites;
+        /// <summary>
         /// ImmutabilityPolicy Etag.
         /// </summary>
         public readonly string Etag;
         /// <summary>
-        /// The properties of an ImmutabilityPolicy of a blob container.
+        /// The immutability period for the blobs in the container since the policy creation, in days.
         /// </summary>
-        public readonly Outputs.ImmutabilityPolicyPropertyResponseResult? Properties;
+        public readonly int? ImmutabilityPeriodSinceCreationInDays;
+        /// <summary>
+        /// The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+        /// </summary>
+        public readonly string State;
         /// <summary>
         /// The ImmutabilityPolicy update history of the blob container.
         /// </summary>
@@ -28,14 +36,20 @@ namespace Pulumi.AzureRM.Storage.V20190601.Outputs
 
         [OutputConstructor]
         private ImmutabilityPolicyPropertiesResponseResult(
+            bool? allowProtectedAppendWrites,
+
             string etag,
 
-            Outputs.ImmutabilityPolicyPropertyResponseResult? properties,
+            int? immutabilityPeriodSinceCreationInDays,
+
+            string state,
 
             ImmutableArray<Outputs.UpdateHistoryPropertyResponseResult> updateHistory)
         {
+            AllowProtectedAppendWrites = allowProtectedAppendWrites;
             Etag = etag;
-            Properties = properties;
+            ImmutabilityPeriodSinceCreationInDays = immutabilityPeriodSinceCreationInDays;
+            State = state;
             UpdateHistory = updateHistory;
         }
     }

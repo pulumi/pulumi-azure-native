@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.Web.V20160801
     public partial class WebAppFunction : Pulumi.CustomResource
     {
         /// <summary>
+        /// Config information.
+        /// </summary>
+        [Output("config")]
+        public Output<ImmutableDictionary<string, object>?> Config { get; private set; } = null!;
+
+        /// <summary>
+        /// Config URI.
+        /// </summary>
+        [Output("configHref")]
+        public Output<string?> ConfigHref { get; private set; } = null!;
+
+        /// <summary>
+        /// File list.
+        /// </summary>
+        [Output("files")]
+        public Output<ImmutableDictionary<string, string>?> Files { get; private set; } = null!;
+
+        /// <summary>
+        /// Function App ID.
+        /// </summary>
+        [Output("functionAppId")]
+        public Output<string> FunctionAppId { get; private set; } = null!;
+
+        /// <summary>
+        /// Function URI.
+        /// </summary>
+        [Output("href")]
+        public Output<string?> Href { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Output("kind")]
@@ -27,10 +57,28 @@ namespace Pulumi.AzureRM.Web.V20160801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// FunctionEnvelope resource specific properties
+        /// Script URI.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FunctionEnvelopeResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("scriptHref")]
+        public Output<string?> ScriptHref { get; private set; } = null!;
+
+        /// <summary>
+        /// Script root path URI.
+        /// </summary>
+        [Output("scriptRootPathHref")]
+        public Output<string?> ScriptRootPathHref { get; private set; } = null!;
+
+        /// <summary>
+        /// Secrets file URI.
+        /// </summary>
+        [Output("secretsFileHref")]
+        public Output<string?> SecretsFileHref { get; private set; } = null!;
+
+        /// <summary>
+        /// Test data used when testing via the Azure Portal.
+        /// </summary>
+        [Output("testData")]
+        public Output<string?> TestData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

@@ -15,10 +15,70 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>
+        /// If true then domain will renewed automatically
+        /// </summary>
+        [Output("autoRenew")]
+        public Output<bool?> AutoRenew { get; private set; } = null!;
+
+        /// <summary>
+        /// Legal agreement consent
+        /// </summary>
+        [Output("consent")]
+        public Output<Outputs.DomainPurchaseConsentResponseResult?> Consent { get; private set; } = null!;
+
+        /// <summary>
+        /// Admin contact information
+        /// </summary>
+        [Output("contactAdmin")]
+        public Output<Outputs.ContactResponseResult?> ContactAdmin { get; private set; } = null!;
+
+        /// <summary>
+        /// Billing contact information
+        /// </summary>
+        [Output("contactBilling")]
+        public Output<Outputs.ContactResponseResult?> ContactBilling { get; private set; } = null!;
+
+        /// <summary>
+        /// Registrant contact information
+        /// </summary>
+        [Output("contactRegistrant")]
+        public Output<Outputs.ContactResponseResult?> ContactRegistrant { get; private set; } = null!;
+
+        /// <summary>
+        /// Technical contact information
+        /// </summary>
+        [Output("contactTech")]
+        public Output<Outputs.ContactResponseResult?> ContactTech { get; private set; } = null!;
+
+        /// <summary>
+        /// Domain creation timestamp
+        /// </summary>
+        [Output("createdTime")]
+        public Output<string?> CreatedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Reasons why domain is not renewable
+        /// </summary>
+        [Output("domainNotRenewableReasons")]
+        public Output<ImmutableArray<string>> DomainNotRenewableReasons { get; private set; } = null!;
+
+        /// <summary>
+        /// Domain expiration timestamp
+        /// </summary>
+        [Output("expirationTime")]
+        public Output<string?> ExpirationTime { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// Timestamp when the domain was renewed last time
+        /// </summary>
+        [Output("lastRenewedTime")]
+        public Output<string?> LastRenewedTime { get; private set; } = null!;
 
         /// <summary>
         /// Resource Location
@@ -27,13 +87,46 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150801
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// All hostnames derived from the domain and assigned to Azure resources
+        /// </summary>
+        [Output("managedHostNames")]
+        public Output<ImmutableArray<Outputs.HostNameResponseResult>> ManagedHostNames { get; private set; } = null!;
+
+        /// <summary>
         /// Resource Name
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.DomainResponsePropertiesResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Name servers
+        /// </summary>
+        [Output("nameServers")]
+        public Output<ImmutableArray<string>> NameServers { get; private set; } = null!;
+
+        /// <summary>
+        /// If true then domain privacy is enabled for this domain
+        /// </summary>
+        [Output("privacy")]
+        public Output<bool?> Privacy { get; private set; } = null!;
+
+        /// <summary>
+        /// Domain provisioning state
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
+        /// </summary>
+        [Output("readyForDnsRecordManagement")]
+        public Output<bool?> ReadyForDnsRecordManagement { get; private set; } = null!;
+
+        /// <summary>
+        /// Domain registration status
+        /// </summary>
+        [Output("registrationStatus")]
+        public Output<string?> RegistrationStatus { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

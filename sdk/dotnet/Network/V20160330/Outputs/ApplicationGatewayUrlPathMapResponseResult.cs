@@ -14,6 +14,14 @@ namespace Pulumi.AzureRM.Network.V20160330.Outputs
     public sealed class ApplicationGatewayUrlPathMapResponseResult
     {
         /// <summary>
+        /// Gets or sets default backend address pool resource of URL path map 
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? DefaultBackendAddressPool;
+        /// <summary>
+        /// Gets or sets default backend http settings resource of URL path map 
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? DefaultBackendHttpSettings;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         public readonly string? Etag;
@@ -26,24 +34,37 @@ namespace Pulumi.AzureRM.Network.V20160330.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of probe of application gateway
+        /// Gets or sets path rule of URL path map resource
         /// </summary>
-        public readonly Outputs.ApplicationGatewayUrlPathMapPropertiesFormatResponseResult? Properties;
+        public readonly ImmutableArray<Outputs.ApplicationGatewayPathRuleResponseResult> PathRules;
+        /// <summary>
+        /// Gets or sets Provisioning state of the backend http settings resource Updating/Deleting/Failed
+        /// </summary>
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private ApplicationGatewayUrlPathMapResponseResult(
+            Outputs.SubResourceResponseResult? defaultBackendAddressPool,
+
+            Outputs.SubResourceResponseResult? defaultBackendHttpSettings,
+
             string? etag,
 
             string? id,
 
             string? name,
 
-            Outputs.ApplicationGatewayUrlPathMapPropertiesFormatResponseResult? properties)
+            ImmutableArray<Outputs.ApplicationGatewayPathRuleResponseResult> pathRules,
+
+            string? provisioningState)
         {
+            DefaultBackendAddressPool = defaultBackendAddressPool;
+            DefaultBackendHttpSettings = defaultBackendHttpSettings;
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            PathRules = pathRules;
+            ProvisioningState = provisioningState;
         }
     }
 }

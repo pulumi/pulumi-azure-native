@@ -40,13 +40,41 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
     public sealed class GetRemediationAtResourceGroupResult
     {
         /// <summary>
+        /// The time at which the remediation was created.
+        /// </summary>
+        public readonly string CreatedOn;
+        /// <summary>
+        /// The deployment status summary for all deployments created by the remediation.
+        /// </summary>
+        public readonly Outputs.RemediationDeploymentSummaryResponseResult DeploymentStatus;
+        /// <summary>
+        /// The filters that will be applied to determine which resources to remediate.
+        /// </summary>
+        public readonly Outputs.RemediationFiltersResponseResult? Filters;
+        /// <summary>
+        /// The time at which the remediation was last updated.
+        /// </summary>
+        public readonly string LastUpdatedOn;
+        /// <summary>
         /// The name of the remediation.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties for the remediation.
+        /// The resource ID of the policy assignment that should be remediated.
         /// </summary>
-        public readonly Outputs.RemediationPropertiesResponseResult Properties;
+        public readonly string? PolicyAssignmentId;
+        /// <summary>
+        /// The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+        /// </summary>
+        public readonly string? PolicyDefinitionReferenceId;
+        /// <summary>
+        /// The status of the remediation.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
+        /// </summary>
+        public readonly string? ResourceDiscoveryMode;
         /// <summary>
         /// The type of the remediation.
         /// </summary>
@@ -54,14 +82,35 @@ namespace Pulumi.AzureRM.PolicyInsights.V20190701
 
         [OutputConstructor]
         private GetRemediationAtResourceGroupResult(
+            string createdOn,
+
+            Outputs.RemediationDeploymentSummaryResponseResult deploymentStatus,
+
+            Outputs.RemediationFiltersResponseResult? filters,
+
+            string lastUpdatedOn,
+
             string name,
 
-            Outputs.RemediationPropertiesResponseResult properties,
+            string? policyAssignmentId,
+
+            string? policyDefinitionReferenceId,
+
+            string provisioningState,
+
+            string? resourceDiscoveryMode,
 
             string type)
         {
+            CreatedOn = createdOn;
+            DeploymentStatus = deploymentStatus;
+            Filters = filters;
+            LastUpdatedOn = lastUpdatedOn;
             Name = name;
-            Properties = properties;
+            PolicyAssignmentId = policyAssignmentId;
+            PolicyDefinitionReferenceId = policyDefinitionReferenceId;
+            ProvisioningState = provisioningState;
+            ResourceDiscoveryMode = resourceDiscoveryMode;
             Type = type;
         }
     }

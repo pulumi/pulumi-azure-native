@@ -50,9 +50,13 @@ namespace Pulumi.AzureRM.Advisor.V20200101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the suppression.
+        /// The GUID of the suppression.
         /// </summary>
-        public readonly Outputs.SuppressionPropertiesResponseResult Properties;
+        public readonly string? SuppressionId;
+        /// <summary>
+        /// The duration for which the suppression is valid.
+        /// </summary>
+        public readonly string? Ttl;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -62,12 +66,15 @@ namespace Pulumi.AzureRM.Advisor.V20200101
         private GetSuppressionResult(
             string name,
 
-            Outputs.SuppressionPropertiesResponseResult properties,
+            string? suppressionId,
+
+            string? ttl,
 
             string type)
         {
             Name = name;
-            Properties = properties;
+            SuppressionId = suppressionId;
+            Ttl = ttl;
             Type = type;
         }
     }

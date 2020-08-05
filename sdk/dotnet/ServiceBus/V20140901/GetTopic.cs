@@ -46,36 +46,166 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
     public sealed class GetTopicResult
     {
         /// <summary>
+        /// Last time the message was sent, or a request was received, for this topic.
+        /// </summary>
+        public readonly string AccessedAt;
+        /// <summary>
+        /// TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+        /// </summary>
+        public readonly string? AutoDeleteOnIdle;
+        /// <summary>
+        /// Message Count Details.
+        /// </summary>
+        public readonly Outputs.MessageCountDetailsResponseResult CountDetails;
+        /// <summary>
+        /// Exact time the message was created.
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
+        /// Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        /// </summary>
+        public readonly string? DefaultMessageTimeToLive;
+        /// <summary>
+        /// TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+        /// </summary>
+        public readonly string? DuplicateDetectionHistoryTimeWindow;
+        /// <summary>
+        /// Value that indicates whether server-side batched operations are enabled.
+        /// </summary>
+        public readonly bool? EnableBatchedOperations;
+        /// <summary>
+        /// Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+        /// </summary>
+        public readonly bool? EnableExpress;
+        /// <summary>
+        /// Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
+        /// </summary>
+        public readonly bool? EnablePartitioning;
+        /// <summary>
+        /// Entity availability status for the topic.
+        /// </summary>
+        public readonly string? EntityAvailabilityStatus;
+        /// <summary>
+        /// Whether messages should be filtered before publishing.
+        /// </summary>
+        public readonly bool? FilteringMessagesBeforePublishing;
+        /// <summary>
+        /// Value that indicates whether the message is accessible anonymously.
+        /// </summary>
+        public readonly bool? IsAnonymousAccessible;
+        public readonly bool? IsExpress;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
+        /// </summary>
+        public readonly int? MaxSizeInMegabytes;
         /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Topic Properties definition.
+        /// Value indicating if this topic requires duplicate detection.
         /// </summary>
-        public readonly Outputs.TopicPropertiesResponseResult Properties;
+        public readonly bool? RequiresDuplicateDetection;
+        /// <summary>
+        /// Size of the topic, in bytes.
+        /// </summary>
+        public readonly int SizeInBytes;
+        /// <summary>
+        /// Enumerates the possible values for the status of a messaging entity.
+        /// </summary>
+        public readonly string? Status;
+        /// <summary>
+        /// Number of subscriptions.
+        /// </summary>
+        public readonly int SubscriptionCount;
+        /// <summary>
+        /// Value that indicates whether the topic supports ordering.
+        /// </summary>
+        public readonly bool? SupportOrdering;
         /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The exact time the message was updated.
+        /// </summary>
+        public readonly string UpdatedAt;
 
         [OutputConstructor]
         private GetTopicResult(
+            string accessedAt,
+
+            string? autoDeleteOnIdle,
+
+            Outputs.MessageCountDetailsResponseResult countDetails,
+
+            string createdAt,
+
+            string? defaultMessageTimeToLive,
+
+            string? duplicateDetectionHistoryTimeWindow,
+
+            bool? enableBatchedOperations,
+
+            bool? enableExpress,
+
+            bool? enablePartitioning,
+
+            string? entityAvailabilityStatus,
+
+            bool? filteringMessagesBeforePublishing,
+
+            bool? isAnonymousAccessible,
+
+            bool? isExpress,
+
             string? location,
+
+            int? maxSizeInMegabytes,
 
             string name,
 
-            Outputs.TopicPropertiesResponseResult properties,
+            bool? requiresDuplicateDetection,
 
-            string type)
+            int sizeInBytes,
+
+            string? status,
+
+            int subscriptionCount,
+
+            bool? supportOrdering,
+
+            string type,
+
+            string updatedAt)
         {
+            AccessedAt = accessedAt;
+            AutoDeleteOnIdle = autoDeleteOnIdle;
+            CountDetails = countDetails;
+            CreatedAt = createdAt;
+            DefaultMessageTimeToLive = defaultMessageTimeToLive;
+            DuplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
+            EnableBatchedOperations = enableBatchedOperations;
+            EnableExpress = enableExpress;
+            EnablePartitioning = enablePartitioning;
+            EntityAvailabilityStatus = entityAvailabilityStatus;
+            FilteringMessagesBeforePublishing = filteringMessagesBeforePublishing;
+            IsAnonymousAccessible = isAnonymousAccessible;
+            IsExpress = isExpress;
             Location = location;
+            MaxSizeInMegabytes = maxSizeInMegabytes;
             Name = name;
-            Properties = properties;
+            RequiresDuplicateDetection = requiresDuplicateDetection;
+            SizeInBytes = sizeInBytes;
+            Status = status;
+            SubscriptionCount = subscriptionCount;
+            SupportOrdering = supportOrdering;
             Type = type;
+            UpdatedAt = updatedAt;
         }
     }
 }

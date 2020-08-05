@@ -46,17 +46,33 @@ namespace Pulumi.AzureRM.Logic.V20160601
     public sealed class GetPartnerResult
     {
         /// <summary>
+        /// The changed time.
+        /// </summary>
+        public readonly string ChangedTime;
+        /// <summary>
+        /// The partner content.
+        /// </summary>
+        public readonly Outputs.PartnerContentResponseResult Content;
+        /// <summary>
+        /// The created time.
+        /// </summary>
+        public readonly string CreatedTime;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// The metadata.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// Gets the resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The integration account partner properties.
+        /// The partner type.
         /// </summary>
-        public readonly Outputs.IntegrationAccountPartnerPropertiesResponseResult Properties;
+        public readonly string PartnerType;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -68,19 +84,31 @@ namespace Pulumi.AzureRM.Logic.V20160601
 
         [OutputConstructor]
         private GetPartnerResult(
+            string changedTime,
+
+            Outputs.PartnerContentResponseResult content,
+
+            string createdTime,
+
             string? location,
+
+            ImmutableDictionary<string, object>? metadata,
 
             string name,
 
-            Outputs.IntegrationAccountPartnerPropertiesResponseResult properties,
+            string partnerType,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            ChangedTime = changedTime;
+            Content = content;
+            CreatedTime = createdTime;
             Location = location;
+            Metadata = metadata;
             Name = name;
-            Properties = properties;
+            PartnerType = partnerType;
             Tags = tags;
             Type = type;
         }

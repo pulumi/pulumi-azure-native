@@ -52,36 +52,78 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public sealed class GetBackupPolicyResult
     {
         /// <summary>
+        /// The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
+        /// </summary>
+        public readonly string BackupPolicyCreationType;
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// The time of the last backup for the backup policy.
+        /// </summary>
+        public readonly string LastBackupTime;
         /// <summary>
         /// The name of the object.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the backup policy.
+        /// The time of the next backup for the backup policy.
         /// </summary>
-        public readonly Outputs.BackupPolicyPropertiesResponseResult Properties;
+        public readonly string NextBackupTime;
+        /// <summary>
+        /// Indicates whether at least one of the schedules in the backup policy is active or not.
+        /// </summary>
+        public readonly string ScheduledBackupStatus;
+        /// <summary>
+        /// The count of schedules the backup policy contains.
+        /// </summary>
+        public readonly int SchedulesCount;
+        /// <summary>
+        /// If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
+        /// </summary>
+        public readonly string SsmHostName;
         /// <summary>
         /// The hierarchical type of the object.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The path IDs of the volumes which are part of the backup policy.
+        /// </summary>
+        public readonly ImmutableArray<string> VolumeIds;
 
         [OutputConstructor]
         private GetBackupPolicyResult(
+            string backupPolicyCreationType,
+
             string? kind,
+
+            string lastBackupTime,
 
             string name,
 
-            Outputs.BackupPolicyPropertiesResponseResult properties,
+            string nextBackupTime,
 
-            string type)
+            string scheduledBackupStatus,
+
+            int schedulesCount,
+
+            string ssmHostName,
+
+            string type,
+
+            ImmutableArray<string> volumeIds)
         {
+            BackupPolicyCreationType = backupPolicyCreationType;
             Kind = kind;
+            LastBackupTime = lastBackupTime;
             Name = name;
-            Properties = properties;
+            NextBackupTime = nextBackupTime;
+            ScheduledBackupStatus = scheduledBackupStatus;
+            SchedulesCount = schedulesCount;
+            SsmHostName = ssmHostName;
             Type = type;
+            VolumeIds = volumeIds;
         }
     }
 }

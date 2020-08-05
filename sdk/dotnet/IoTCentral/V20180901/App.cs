@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.IoTCentral.V20180901
     public partial class App : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ID of the application.
+        /// </summary>
+        [Output("applicationId")]
+        public Output<string> ApplicationId { get; private set; } = null!;
+
+        /// <summary>
+        /// The display name of the application.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
@@ -27,22 +39,28 @@ namespace Pulumi.AzureRM.IoTCentral.V20180901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The common properties of an IoT Central application.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AppPropertiesResponseResult> Properties { get; private set; } = null!;
-
-        /// <summary>
         /// A valid instance SKU.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.AppSkuInfoResponseResult> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// The subdomain of the application.
+        /// </summary>
+        [Output("subdomain")]
+        public Output<string?> Subdomain { get; private set; } = null!;
+
+        /// <summary>
         /// The resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
+        /// </summary>
+        [Output("template")]
+        public Output<string?> Template { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

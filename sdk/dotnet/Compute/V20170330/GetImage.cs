@@ -48,9 +48,17 @@ namespace Pulumi.AzureRM.Compute.V20170330
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of an Image.
+        /// The provisioning state.
         /// </summary>
-        public readonly Outputs.ImagePropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The source virtual machine from which Image is created.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? SourceVirtualMachine;
+        /// <summary>
+        /// Specifies the storage settings for the virtual machine disks.
+        /// </summary>
+        public readonly Outputs.ImageStorageProfileResponseResult? StorageProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -66,7 +74,11 @@ namespace Pulumi.AzureRM.Compute.V20170330
 
             string name,
 
-            Outputs.ImagePropertiesResponseResult properties,
+            string provisioningState,
+
+            Outputs.SubResourceResponseResult? sourceVirtualMachine,
+
+            Outputs.ImageStorageProfileResponseResult? storageProfile,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -74,7 +86,9 @@ namespace Pulumi.AzureRM.Compute.V20170330
         {
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            SourceVirtualMachine = sourceVirtualMachine;
+            StorageProfile = storageProfile;
             Tags = tags;
             Type = type;
         }

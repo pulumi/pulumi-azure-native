@@ -46,22 +46,50 @@ namespace Pulumi.AzureRM.Network.V20191201
     public sealed class GetExpressRouteConnectionResult
     {
         /// <summary>
+        /// Authorization key to establish the connection.
+        /// </summary>
+        public readonly string? AuthorizationKey;
+        /// <summary>
+        /// Enable internet security.
+        /// </summary>
+        public readonly bool? EnableInternetSecurity;
+        /// <summary>
+        /// The ExpressRoute circuit peering.
+        /// </summary>
+        public readonly Outputs.ExpressRouteCircuitPeeringIdResponseResult ExpressRouteCircuitPeering;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the express route connection.
+        /// The provisioning state of the express route connection resource.
         /// </summary>
-        public readonly Outputs.ExpressRouteConnectionPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The routing weight associated to the connection.
+        /// </summary>
+        public readonly int? RoutingWeight;
 
         [OutputConstructor]
         private GetExpressRouteConnectionResult(
+            string? authorizationKey,
+
+            bool? enableInternetSecurity,
+
+            Outputs.ExpressRouteCircuitPeeringIdResponseResult expressRouteCircuitPeering,
+
             string name,
 
-            Outputs.ExpressRouteConnectionPropertiesResponseResult properties)
+            string provisioningState,
+
+            int? routingWeight)
         {
+            AuthorizationKey = authorizationKey;
+            EnableInternetSecurity = enableInternetSecurity;
+            ExpressRouteCircuitPeering = expressRouteCircuitPeering;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RoutingWeight = routingWeight;
         }
     }
 }

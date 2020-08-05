@@ -15,16 +15,22 @@ namespace Pulumi.AzureRM.AVS.V20200320
     public partial class HcxEnterpriseSite : Pulumi.CustomResource
     {
         /// <summary>
+        /// The activation key
+        /// </summary>
+        [Output("activationKey")]
+        public Output<string> ActivationKey { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of an HCX Enterprise Site resource
+        /// The status of the HCX Enterprise Site
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.HcxEnterpriseSitePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

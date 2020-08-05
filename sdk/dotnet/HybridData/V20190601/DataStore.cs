@@ -15,16 +15,40 @@ namespace Pulumi.AzureRM.HybridData.V20190601
     public partial class DataStore : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+        /// </summary>
+        [Output("customerSecrets")]
+        public Output<ImmutableArray<Outputs.CustomerSecretResponseResult>> CustomerSecrets { get; private set; } = null!;
+
+        /// <summary>
+        /// The arm id of the data store type.
+        /// </summary>
+        [Output("dataStoreTypeId")]
+        public Output<string> DataStoreTypeId { get; private set; } = null!;
+
+        /// <summary>
+        /// A generic json used differently by each data source type.
+        /// </summary>
+        [Output("extendedProperties")]
+        public Output<ImmutableDictionary<string, object>?> ExtendedProperties { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the object.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// DataStore properties.
+        /// Arm Id for the manager resource to which the data source is associated. This is optional.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DataStorePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("repositoryId")]
+        public Output<string?> RepositoryId { get; private set; } = null!;
+
+        /// <summary>
+        /// State of the data source.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// Type of the object.

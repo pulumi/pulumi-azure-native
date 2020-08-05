@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Web.V20181101
     public partial class WebAppHybridConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// The hostname of the endpoint.
+        /// </summary>
+        [Output("hostname")]
+        public Output<string?> Hostname { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Output("kind")]
@@ -27,10 +33,47 @@ namespace Pulumi.AzureRM.Web.V20181101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// HybridConnection resource specific properties
+        /// The port of the endpoint.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.HybridConnectionResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("port")]
+        public Output<int?> Port { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARM URI to the Service Bus relay.
+        /// </summary>
+        [Output("relayArmUri")]
+        public Output<string?> RelayArmUri { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the Service Bus relay.
+        /// </summary>
+        [Output("relayName")]
+        public Output<string?> RelayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+        /// </summary>
+        [Output("sendKeyName")]
+        public Output<string?> SendKeyName { get; private set; } = null!;
+
+        /// <summary>
+        /// The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+        /// normally, use the POST /listKeys API instead.
+        /// </summary>
+        [Output("sendKeyValue")]
+        public Output<string?> SendKeyValue { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the Service Bus namespace.
+        /// </summary>
+        [Output("serviceBusNamespace")]
+        public Output<string?> ServiceBusNamespace { get; private set; } = null!;
+
+        /// <summary>
+        /// The suffix for the service bus endpoint. By default this is .servicebus.windows.net
+        /// </summary>
+        [Output("serviceBusSuffix")]
+        public Output<string?> ServiceBusSuffix { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

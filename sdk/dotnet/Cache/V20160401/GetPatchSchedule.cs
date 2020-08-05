@@ -50,7 +50,7 @@ namespace Pulumi.AzureRM.Cache.V20160401
         /// <summary>
         /// List of patch schedules for a Redis cache.
         /// </summary>
-        public readonly Outputs.ScheduleEntriesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.ScheduleEntryResponseResult> ScheduleEntries;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -62,13 +62,13 @@ namespace Pulumi.AzureRM.Cache.V20160401
 
             string name,
 
-            Outputs.ScheduleEntriesResponseResult properties,
+            ImmutableArray<Outputs.ScheduleEntryResponseResult> scheduleEntries,
 
             string type)
         {
             Location = location;
             Name = name;
-            Properties = properties;
+            ScheduleEntries = scheduleEntries;
             Type = type;
         }
     }

@@ -45,6 +45,10 @@ namespace Pulumi.AzureRM.Web.V20181101
     [OutputType]
     public sealed class GetWebAppRelayServiceConnectionSlotResult
     {
+        public readonly string? BiztalkUri;
+        public readonly string? EntityConnectionString;
+        public readonly string? EntityName;
+        public readonly string? Hostname;
         /// <summary>
         /// Kind of resource.
         /// </summary>
@@ -53,10 +57,9 @@ namespace Pulumi.AzureRM.Web.V20181101
         /// Resource Name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// RelayServiceConnectionEntity resource specific properties
-        /// </summary>
-        public readonly Outputs.RelayServiceConnectionEntityResponsePropertiesResult Properties;
+        public readonly int? Port;
+        public readonly string? ResourceConnectionString;
+        public readonly string? ResourceType;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -64,17 +67,35 @@ namespace Pulumi.AzureRM.Web.V20181101
 
         [OutputConstructor]
         private GetWebAppRelayServiceConnectionSlotResult(
+            string? biztalkUri,
+
+            string? entityConnectionString,
+
+            string? entityName,
+
+            string? hostname,
+
             string? kind,
 
             string name,
 
-            Outputs.RelayServiceConnectionEntityResponsePropertiesResult properties,
+            int? port,
+
+            string? resourceConnectionString,
+
+            string? resourceType,
 
             string type)
         {
+            BiztalkUri = biztalkUri;
+            EntityConnectionString = entityConnectionString;
+            EntityName = entityName;
+            Hostname = hostname;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            Port = port;
+            ResourceConnectionString = resourceConnectionString;
+            ResourceType = resourceType;
             Type = type;
         }
     }

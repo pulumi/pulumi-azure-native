@@ -34,22 +34,43 @@ namespace Pulumi.AzureRM.Authorization.V20160401
     public sealed class GetPolicyDefinitionResult
     {
         /// <summary>
+        /// The policy definition description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The display name of the policy definition.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
         /// The name of the policy definition. If you do not specify a value for name, the value is inferred from the name value in the request URI.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The policy definition properties.
+        /// The policy rule.
         /// </summary>
-        public readonly Outputs.PolicyDefinitionPropertiesResponseResult Properties;
+        public readonly ImmutableDictionary<string, object>? PolicyRule;
+        /// <summary>
+        /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+        /// </summary>
+        public readonly string? PolicyType;
 
         [OutputConstructor]
         private GetPolicyDefinitionResult(
+            string? description,
+
+            string? displayName,
+
             string? name,
 
-            Outputs.PolicyDefinitionPropertiesResponseResult properties)
+            ImmutableDictionary<string, object>? policyRule,
+
+            string? policyType)
         {
+            Description = description;
+            DisplayName = displayName;
             Name = name;
-            Properties = properties;
+            PolicyRule = policyRule;
+            PolicyType = policyType;
         }
     }
 }

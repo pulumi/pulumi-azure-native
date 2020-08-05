@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
     public partial class QueueAuthorizationRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// A string that describes Claim Type for authorization rule.
+        /// </summary>
+        [Output("claimType")]
+        public Output<string?> ClaimType { get; private set; } = null!;
+
+        /// <summary>
+        /// A string that describes Claim Value of authorization rule.
+        /// </summary>
+        [Output("claimValue")]
+        public Output<string?> ClaimValue { get; private set; } = null!;
+
+        /// <summary>
+        /// The time the namespace was created.
+        /// </summary>
+        [Output("createdTime")]
+        public Output<string> CreatedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// A string that describes the Key Name of authorization rule.
+        /// </summary>
+        [Output("keyName")]
+        public Output<string?> KeyName { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The time the namespace was updated.
+        /// </summary>
+        [Output("modifiedTime")]
+        public Output<string> ModifiedTime { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -27,10 +57,22 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// AuthorizationRule properties.
+        /// A base64-encoded 256-bit primary key for signing and validating the SAS token.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SharedAccessAuthorizationRulePropertiesResponse> Properties { get; private set; } = null!;
+        [Output("primaryKey")]
+        public Output<string?> PrimaryKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The rights associated with the rule.
+        /// </summary>
+        [Output("rights")]
+        public Output<ImmutableArray<string>> Rights { get; private set; } = null!;
+
+        /// <summary>
+        /// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+        /// </summary>
+        [Output("secondaryKey")]
+        public Output<string?> SecondaryKey { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

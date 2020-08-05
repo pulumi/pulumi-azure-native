@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>
+        /// Endpoint for the domain.
+        /// </summary>
+        [Output("endpoint")]
+        public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+        /// </summary>
+        [Output("inboundIpRules")]
+        public Output<ImmutableArray<Outputs.InboundIpRuleResponseResult>> InboundIpRules { get; private set; } = null!;
+
+        /// <summary>
+        /// This determines the format that Event Grid should expect for incoming events published to the domain.
+        /// </summary>
+        [Output("inputSchema")]
+        public Output<string?> InputSchema { get; private set; } = null!;
+
+        /// <summary>
+        /// Information about the InputSchemaMapping which specified the info about mapping event payload.
+        /// </summary>
+        [Output("inputSchemaMapping")]
+        public Output<Outputs.InputSchemaMappingResponseResult?> InputSchemaMapping { get; private set; } = null!;
+
+        /// <summary>
         /// Location of the resource.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Metric resource id for the domain.
+        /// </summary>
+        [Output("metricResourceId")]
+        public Output<string> MetricResourceId { get; private set; } = null!;
 
         /// <summary>
         /// Name of the resource.
@@ -27,10 +57,23 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the domain.
+        /// List of private endpoint connections.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DomainPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the domain.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled. 
+        /// You can further restrict to specific IPs by configuring &lt;seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" /&gt;
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Tags of the resource.

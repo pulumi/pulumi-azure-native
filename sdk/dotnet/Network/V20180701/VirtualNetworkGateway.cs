@@ -15,10 +15,46 @@ namespace Pulumi.AzureRM.Network.V20180701
     public partial class VirtualNetworkGateway : Pulumi.CustomResource
     {
         /// <summary>
+        /// ActiveActive flag
+        /// </summary>
+        [Output("activeActive")]
+        public Output<bool?> ActiveActive { get; private set; } = null!;
+
+        /// <summary>
+        /// Virtual network gateway's BGP speaker settings.
+        /// </summary>
+        [Output("bgpSettings")]
+        public Output<Outputs.BgpSettingsResponseResult?> BgpSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether BGP is enabled for this virtual network gateway or not.
+        /// </summary>
+        [Output("enableBgp")]
+        public Output<bool?> EnableBgp { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+        /// </summary>
+        [Output("gatewayDefaultSite")]
+        public Output<Outputs.SubResourceResponseResult?> GatewayDefaultSite { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of this virtual network gateway. Possible values are: 'Vpn' and 'ExpressRoute'.
+        /// </summary>
+        [Output("gatewayType")]
+        public Output<string?> GatewayType { get; private set; } = null!;
+
+        /// <summary>
+        /// IP configurations for virtual network gateway.
+        /// </summary>
+        [Output("ipConfigurations")]
+        public Output<ImmutableArray<Outputs.VirtualNetworkGatewayIPConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +69,22 @@ namespace Pulumi.AzureRM.Network.V20180701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the virtual network gateway.
+        /// The provisioning state of the VirtualNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualNetworkGatewayPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the VirtualNetworkGateway resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.VirtualNetworkGatewaySkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +97,18 @@ namespace Pulumi.AzureRM.Network.V20180701
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+        /// </summary>
+        [Output("vpnClientConfiguration")]
+        public Output<Outputs.VpnClientConfigurationResponseResult?> VpnClientConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
+        /// </summary>
+        [Output("vpnType")]
+        public Output<string?> VpnType { get; private set; } = null!;
 
 
         /// <summary>

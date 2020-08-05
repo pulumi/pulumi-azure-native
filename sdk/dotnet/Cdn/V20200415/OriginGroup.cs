@@ -15,16 +15,46 @@ namespace Pulumi.AzureRM.Cdn.V20200415
     public partial class OriginGroup : Pulumi.CustomResource
     {
         /// <summary>
+        /// Health probe settings to the origin that is used to determine the health of the origin.
+        /// </summary>
+        [Output("healthProbeSettings")]
+        public Output<Outputs.HealthProbeParametersResponseResult?> HealthProbeSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The JSON object that contains the properties of the origin group.
+        /// The source of the content being delivered via CDN within given origin group.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.OriginGroupPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("origins")]
+        public Output<ImmutableArray<Outputs.ResourceReferenceResponseResult>> Origins { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning status of the origin group.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource status of the origin group.
+        /// </summary>
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
+
+        /// <summary>
+        /// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+        /// </summary>
+        [Output("responseBasedOriginErrorDetectionSettings")]
+        public Output<Outputs.ResponseBasedOriginErrorDetectionParametersResponseResult?> ResponseBasedOriginErrorDetectionSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+        /// </summary>
+        [Output("trafficRestorationTimeToHealedOrNewEndpointsInMinutes")]
+        public Output<int?> TrafficRestorationTimeToHealedOrNewEndpointsInMinutes { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

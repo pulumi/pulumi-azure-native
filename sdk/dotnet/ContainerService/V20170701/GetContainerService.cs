@@ -40,17 +40,45 @@ namespace Pulumi.AzureRM.ContainerService.V20170701
     public sealed class GetContainerServiceResult
     {
         /// <summary>
+        /// Properties of the agent pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult> AgentPoolProfiles;
+        /// <summary>
+        /// Properties to configure a custom container service cluster.
+        /// </summary>
+        public readonly Outputs.ContainerServiceCustomProfileResponseResult? CustomProfile;
+        /// <summary>
+        /// Profile for diagnostics in the container service cluster.
+        /// </summary>
+        public readonly Outputs.ContainerServiceDiagnosticsProfileResponseResult? DiagnosticsProfile;
+        /// <summary>
+        /// Profile for Linux VMs in the container service cluster.
+        /// </summary>
+        public readonly Outputs.ContainerServiceLinuxProfileResponseResult LinuxProfile;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// Profile for the container service master.
+        /// </summary>
+        public readonly Outputs.ContainerServiceMasterProfileResponseResult MasterProfile;
         /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the container service.
+        /// Profile for the container service orchestrator.
         /// </summary>
-        public readonly Outputs.ContainerServicePropertiesResponseResult Properties;
+        public readonly Outputs.ContainerServiceOrchestratorProfileResponseResult OrchestratorProfile;
+        /// <summary>
+        /// The current deployment or provisioning state, which only appears in the response.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Information about a service principal identity for the cluster to use for manipulating Azure APIs. Exact one of secret or keyVaultSecretRef need to be specified.
+        /// </summary>
+        public readonly Outputs.ContainerServiceServicePrincipalProfileResponseResult? ServicePrincipalProfile;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -59,24 +87,52 @@ namespace Pulumi.AzureRM.ContainerService.V20170701
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Profile for Windows VMs in the container service cluster.
+        /// </summary>
+        public readonly Outputs.ContainerServiceWindowsProfileResponseResult? WindowsProfile;
 
         [OutputConstructor]
         private GetContainerServiceResult(
+            ImmutableArray<Outputs.ContainerServiceAgentPoolProfileResponseResult> agentPoolProfiles,
+
+            Outputs.ContainerServiceCustomProfileResponseResult? customProfile,
+
+            Outputs.ContainerServiceDiagnosticsProfileResponseResult? diagnosticsProfile,
+
+            Outputs.ContainerServiceLinuxProfileResponseResult linuxProfile,
+
             string location,
+
+            Outputs.ContainerServiceMasterProfileResponseResult masterProfile,
 
             string name,
 
-            Outputs.ContainerServicePropertiesResponseResult properties,
+            Outputs.ContainerServiceOrchestratorProfileResponseResult orchestratorProfile,
+
+            string provisioningState,
+
+            Outputs.ContainerServiceServicePrincipalProfileResponseResult? servicePrincipalProfile,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.ContainerServiceWindowsProfileResponseResult? windowsProfile)
         {
+            AgentPoolProfiles = agentPoolProfiles;
+            CustomProfile = customProfile;
+            DiagnosticsProfile = diagnosticsProfile;
+            LinuxProfile = linuxProfile;
             Location = location;
+            MasterProfile = masterProfile;
             Name = name;
-            Properties = properties;
+            OrchestratorProfile = orchestratorProfile;
+            ProvisioningState = provisioningState;
+            ServicePrincipalProfile = servicePrincipalProfile;
             Tags = tags;
             Type = type;
+            WindowsProfile = windowsProfile;
         }
     }
 }

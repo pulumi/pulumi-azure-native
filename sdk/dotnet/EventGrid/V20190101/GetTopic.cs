@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
     public sealed class GetTopicResult
     {
         /// <summary>
+        /// Endpoint for the topic.
+        /// </summary>
+        public readonly string Endpoint;
+        /// <summary>
         /// Location of the resource
         /// </summary>
         public readonly string Location;
@@ -48,9 +52,9 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the topic
+        /// Provisioning state of the topic.
         /// </summary>
-        public readonly Outputs.TopicPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Tags of the resource
         /// </summary>
@@ -62,19 +66,22 @@ namespace Pulumi.AzureRM.EventGrid.V20190101
 
         [OutputConstructor]
         private GetTopicResult(
+            string endpoint,
+
             string location,
 
             string name,
 
-            Outputs.TopicPropertiesResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Endpoint = endpoint;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
         }

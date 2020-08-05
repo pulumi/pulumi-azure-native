@@ -22,9 +22,9 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Data Lake Store account properties.
+        /// The optional suffix for the Data Lake Store account.
         /// </summary>
-        public readonly Outputs.DataLakeStoreAccountInformationPropertiesResponseResult Properties;
+        public readonly string Suffix;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -36,13 +36,13 @@ namespace Pulumi.AzureRM.DataLakeAnalytics.V20161101.Outputs
 
             string name,
 
-            Outputs.DataLakeStoreAccountInformationPropertiesResponseResult properties,
+            string suffix,
 
             string type)
         {
             Id = id;
             Name = name;
-            Properties = properties;
+            Suffix = suffix;
             Type = type;
         }
     }

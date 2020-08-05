@@ -40,9 +40,25 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
     public sealed class GetVirtualMachineImageTemplateResult
     {
         /// <summary>
+        /// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+        /// </summary>
+        public readonly int? BuildTimeoutInMinutes;
+        /// <summary>
+        /// Specifies the properties used to describe the customization steps of the image, like Image source etc
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ImageTemplateCustomizerResponseResult> Customize;
+        /// <summary>
+        /// The distribution targets where the image output needs to go to.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ImageTemplateDistributorResponseResult> Distribute;
+        /// <summary>
         /// The identity of the image template, if configured.
         /// </summary>
         public readonly Outputs.ImageTemplateIdentityResponseResult Identity;
+        /// <summary>
+        /// State of 'run' that is currently executing or was last executed.
+        /// </summary>
+        public readonly Outputs.ImageTemplateLastRunStatusResponseResult LastRunStatus;
         /// <summary>
         /// Resource location
         /// </summary>
@@ -52,9 +68,17 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the image template
+        /// Provisioning error, if any
         /// </summary>
-        public readonly Outputs.ImageTemplatePropertiesResponseResult Properties;
+        public readonly Outputs.ProvisioningErrorResponseResult ProvisioningError;
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Specifies the properties used to describe the source image.
+        /// </summary>
+        public readonly Outputs.ImageTemplateSourceResponseResult Source;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -63,27 +87,52 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Describes how virtual machine is set up to build images
+        /// </summary>
+        public readonly Outputs.ImageTemplateVmProfileResponseResult? VmProfile;
 
         [OutputConstructor]
         private GetVirtualMachineImageTemplateResult(
+            int? buildTimeoutInMinutes,
+
+            ImmutableArray<Outputs.ImageTemplateCustomizerResponseResult> customize,
+
+            ImmutableArray<Outputs.ImageTemplateDistributorResponseResult> distribute,
+
             Outputs.ImageTemplateIdentityResponseResult identity,
+
+            Outputs.ImageTemplateLastRunStatusResponseResult lastRunStatus,
 
             string location,
 
             string name,
 
-            Outputs.ImageTemplatePropertiesResponseResult properties,
+            Outputs.ProvisioningErrorResponseResult provisioningError,
+
+            string provisioningState,
+
+            Outputs.ImageTemplateSourceResponseResult source,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.ImageTemplateVmProfileResponseResult? vmProfile)
         {
+            BuildTimeoutInMinutes = buildTimeoutInMinutes;
+            Customize = customize;
+            Distribute = distribute;
             Identity = identity;
+            LastRunStatus = lastRunStatus;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningError = provisioningError;
+            ProvisioningState = provisioningState;
+            Source = source;
             Tags = tags;
             Type = type;
+            VmProfile = vmProfile;
         }
     }
 }

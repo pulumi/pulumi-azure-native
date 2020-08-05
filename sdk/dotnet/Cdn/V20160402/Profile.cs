@@ -26,8 +26,17 @@ namespace Pulumi.AzureRM.Cdn.V20160402
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.ProfilePropertiesResponseResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Provisioning status of the profile.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource status of the profile.
+        /// </summary>
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// The SKU (pricing tier) of the CDN profile.

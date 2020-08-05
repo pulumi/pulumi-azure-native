@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public partial class Manager : Pulumi.CustomResource
     {
         /// <summary>
+        /// Represents the type of StorSimple Manager.
+        /// </summary>
+        [Output("cisIntrinsicSettings")]
+        public Output<Outputs.ManagerIntrinsicSettingsResponseResult?> CisIntrinsicSettings { get; private set; } = null!;
+
+        /// <summary>
         /// The etag of the manager.
         /// </summary>
         [Output("etag")]
@@ -33,10 +39,16 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the StorSimple Manager.
+        /// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ManagerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the Sku.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.ManagerSkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The tags attached to the resource.

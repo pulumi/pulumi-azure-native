@@ -40,6 +40,18 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170714
     public sealed class GetServerDetailsResult
     {
         /// <summary>
+        /// A collection of AS server administrators
+        /// </summary>
+        public readonly Outputs.ServerAdministratorsResponseResult? AsAdministrators;
+        /// <summary>
+        /// The SAS container URI to the backup container.
+        /// </summary>
+        public readonly string? BackupBlobContainerUri;
+        /// <summary>
+        /// The gateway details configured for the AS server.
+        /// </summary>
+        public readonly Outputs.GatewayDetailsResponseResult? GatewayDetails;
+        /// <summary>
         /// Location of the Analysis Services resource.
         /// </summary>
         public readonly string Location;
@@ -48,13 +60,21 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170714
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the provision operation request.
+        /// The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
         /// </summary>
-        public readonly Outputs.AnalysisServicesServerPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The full name of the Analysis Services resource.
+        /// </summary>
+        public readonly string ServerFullName;
         /// <summary>
         /// The SKU of the Analysis Services resource.
         /// </summary>
         public readonly Outputs.ResourceSkuResponseResult Sku;
+        /// <summary>
+        /// The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
+        /// </summary>
+        public readonly string State;
         /// <summary>
         /// Key-value pairs of additional resource provisioning properties.
         /// </summary>
@@ -66,22 +86,37 @@ namespace Pulumi.AzureRM.AnalysisServices.V20170714
 
         [OutputConstructor]
         private GetServerDetailsResult(
+            Outputs.ServerAdministratorsResponseResult? asAdministrators,
+
+            string? backupBlobContainerUri,
+
+            Outputs.GatewayDetailsResponseResult? gatewayDetails,
+
             string location,
 
             string name,
 
-            Outputs.AnalysisServicesServerPropertiesResponseResult properties,
+            string provisioningState,
+
+            string serverFullName,
 
             Outputs.ResourceSkuResponseResult sku,
+
+            string state,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AsAdministrators = asAdministrators;
+            BackupBlobContainerUri = backupBlobContainerUri;
+            GatewayDetails = gatewayDetails;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ServerFullName = serverFullName;
             Sku = sku;
+            State = state;
             Tags = tags;
             Type = type;
         }

@@ -40,9 +40,57 @@ namespace Pulumi.AzureRM.Network.V20190401
     public sealed class GetApplicationGatewayResult
     {
         /// <summary>
+        /// Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayAuthenticationCertificateResponseResult> AuthenticationCertificates;
+        /// <summary>
+        /// Autoscale Configuration.
+        /// </summary>
+        public readonly Outputs.ApplicationGatewayAutoscaleConfigurationResponseResult? AutoscaleConfiguration;
+        /// <summary>
+        /// Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseResult> BackendAddressPools;
+        /// <summary>
+        /// Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponseResult> BackendHttpSettingsCollection;
+        /// <summary>
+        /// Custom error configurations of the application gateway resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayCustomErrorResponseResult> CustomErrorConfigurations;
+        /// <summary>
+        /// Whether FIPS is enabled on the application gateway resource.
+        /// </summary>
+        public readonly bool? EnableFips;
+        /// <summary>
+        /// Whether HTTP2 is enabled on the application gateway resource.
+        /// </summary>
+        public readonly bool? EnableHttp2;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Reference of the FirewallPolicy resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? FirewallPolicy;
+        /// <summary>
+        /// Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponseResult> FrontendIPConfigurations;
+        /// <summary>
+        /// Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponseResult> FrontendPorts;
+        /// <summary>
+        /// Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponseResult> GatewayIPConfigurations;
+        /// <summary>
+        /// Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponseResult> HttpListeners;
         /// <summary>
         /// The identity of the application gateway, if configured.
         /// </summary>
@@ -56,17 +104,65 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the application gateway.
+        /// Operational state of the application gateway resource.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayPropertiesFormatResponseResult Properties;
+        public readonly string OperationalState;
+        /// <summary>
+        /// Probes of the application gateway resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayProbeResponseResult> Probes;
+        /// <summary>
+        /// Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayRedirectConfigurationResponseResult> RedirectConfigurations;
+        /// <summary>
+        /// Request routing rules of the application gateway resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponseResult> RequestRoutingRules;
+        /// <summary>
+        /// Resource GUID property of the application gateway resource.
+        /// </summary>
+        public readonly string? ResourceGuid;
+        /// <summary>
+        /// Rewrite rules for the application gateway resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSetResponseResult> RewriteRuleSets;
+        /// <summary>
+        /// SKU of the application gateway resource.
+        /// </summary>
+        public readonly Outputs.ApplicationGatewaySkuResponseResult? Sku;
+        /// <summary>
+        /// SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponseResult> SslCertificates;
+        /// <summary>
+        /// SSL policy of the application gateway resource.
+        /// </summary>
+        public readonly Outputs.ApplicationGatewaySslPolicyResponseResult? SslPolicy;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayTrustedRootCertificateResponseResult> TrustedRootCertificates;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayUrlPathMapResponseResult> UrlPathMaps;
+        /// <summary>
+        /// Web application firewall configuration.
+        /// </summary>
+        public readonly Outputs.ApplicationGatewayWebApplicationFirewallConfigurationResponseResult? WebApplicationFirewallConfiguration;
         /// <summary>
         /// A list of availability zones denoting where the resource needs to come from.
         /// </summary>
@@ -74,7 +170,31 @@ namespace Pulumi.AzureRM.Network.V20190401
 
         [OutputConstructor]
         private GetApplicationGatewayResult(
+            ImmutableArray<Outputs.ApplicationGatewayAuthenticationCertificateResponseResult> authenticationCertificates,
+
+            Outputs.ApplicationGatewayAutoscaleConfigurationResponseResult? autoscaleConfiguration,
+
+            ImmutableArray<Outputs.ApplicationGatewayBackendAddressPoolResponseResult> backendAddressPools,
+
+            ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponseResult> backendHttpSettingsCollection,
+
+            ImmutableArray<Outputs.ApplicationGatewayCustomErrorResponseResult> customErrorConfigurations,
+
+            bool? enableFips,
+
+            bool? enableHttp2,
+
             string? etag,
+
+            Outputs.SubResourceResponseResult? firewallPolicy,
+
+            ImmutableArray<Outputs.ApplicationGatewayFrontendIPConfigurationResponseResult> frontendIPConfigurations,
+
+            ImmutableArray<Outputs.ApplicationGatewayFrontendPortResponseResult> frontendPorts,
+
+            ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponseResult> gatewayIPConfigurations,
+
+            ImmutableArray<Outputs.ApplicationGatewayHttpListenerResponseResult> httpListeners,
 
             Outputs.ManagedServiceIdentityResponseResult? identity,
 
@@ -82,21 +202,69 @@ namespace Pulumi.AzureRM.Network.V20190401
 
             string name,
 
-            Outputs.ApplicationGatewayPropertiesFormatResponseResult properties,
+            string operationalState,
+
+            ImmutableArray<Outputs.ApplicationGatewayProbeResponseResult> probes,
+
+            string? provisioningState,
+
+            ImmutableArray<Outputs.ApplicationGatewayRedirectConfigurationResponseResult> redirectConfigurations,
+
+            ImmutableArray<Outputs.ApplicationGatewayRequestRoutingRuleResponseResult> requestRoutingRules,
+
+            string? resourceGuid,
+
+            ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSetResponseResult> rewriteRuleSets,
+
+            Outputs.ApplicationGatewaySkuResponseResult? sku,
+
+            ImmutableArray<Outputs.ApplicationGatewaySslCertificateResponseResult> sslCertificates,
+
+            Outputs.ApplicationGatewaySslPolicyResponseResult? sslPolicy,
 
             ImmutableDictionary<string, string>? tags,
 
+            ImmutableArray<Outputs.ApplicationGatewayTrustedRootCertificateResponseResult> trustedRootCertificates,
+
             string type,
+
+            ImmutableArray<Outputs.ApplicationGatewayUrlPathMapResponseResult> urlPathMaps,
+
+            Outputs.ApplicationGatewayWebApplicationFirewallConfigurationResponseResult? webApplicationFirewallConfiguration,
 
             ImmutableArray<string> zones)
         {
+            AuthenticationCertificates = authenticationCertificates;
+            AutoscaleConfiguration = autoscaleConfiguration;
+            BackendAddressPools = backendAddressPools;
+            BackendHttpSettingsCollection = backendHttpSettingsCollection;
+            CustomErrorConfigurations = customErrorConfigurations;
+            EnableFips = enableFips;
+            EnableHttp2 = enableHttp2;
             Etag = etag;
+            FirewallPolicy = firewallPolicy;
+            FrontendIPConfigurations = frontendIPConfigurations;
+            FrontendPorts = frontendPorts;
+            GatewayIPConfigurations = gatewayIPConfigurations;
+            HttpListeners = httpListeners;
             Identity = identity;
             Location = location;
             Name = name;
-            Properties = properties;
+            OperationalState = operationalState;
+            Probes = probes;
+            ProvisioningState = provisioningState;
+            RedirectConfigurations = redirectConfigurations;
+            RequestRoutingRules = requestRoutingRules;
+            ResourceGuid = resourceGuid;
+            RewriteRuleSets = rewriteRuleSets;
+            Sku = sku;
+            SslCertificates = sslCertificates;
+            SslPolicy = sslPolicy;
             Tags = tags;
+            TrustedRootCertificates = trustedRootCertificates;
             Type = type;
+            UrlPathMaps = urlPathMaps;
+            WebApplicationFirewallConfiguration = webApplicationFirewallConfiguration;
             Zones = zones;
         }
     }

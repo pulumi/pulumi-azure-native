@@ -40,6 +40,18 @@ namespace Pulumi.AzureRM.Insights.V20180416
     public sealed class GetScheduledQueryRuleResult
     {
         /// <summary>
+        /// The description of the Log Search rule.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        /// </summary>
+        public readonly string? Enabled;
+        /// <summary>
+        /// Last time the rule was updated in IS08601 format.
+        /// </summary>
+        public readonly string LastUpdatedTime;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -48,9 +60,17 @@ namespace Pulumi.AzureRM.Insights.V20180416
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The rule properties of the resource.
+        /// Provisioning state of the scheduled query rule
         /// </summary>
-        public readonly Outputs.LogSearchRuleResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        /// </summary>
+        public readonly Outputs.ScheduleResponseResult? Schedule;
+        /// <summary>
+        /// Data Source against which rule will Query Data
+        /// </summary>
+        public readonly Outputs.SourceResponseResult Source;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -62,19 +82,34 @@ namespace Pulumi.AzureRM.Insights.V20180416
 
         [OutputConstructor]
         private GetScheduledQueryRuleResult(
+            string? description,
+
+            string? enabled,
+
+            string lastUpdatedTime,
+
             string location,
 
             string name,
 
-            Outputs.LogSearchRuleResponseResult properties,
+            string provisioningState,
+
+            Outputs.ScheduleResponseResult? schedule,
+
+            Outputs.SourceResponseResult source,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Description = description;
+            Enabled = enabled;
+            LastUpdatedTime = lastUpdatedTime;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Schedule = schedule;
+            Source = source;
             Tags = tags;
             Type = type;
         }

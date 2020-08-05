@@ -33,10 +33,22 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource properties.
+        /// The resource of private end point.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PrivateEndpointConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("privateEndpoint")]
+        public Output<Outputs.PrivateEndpointResponseResult?> PrivateEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// A collection of information about the state of the connection between service consumer and provider.
+        /// </summary>
+        [Output("privateLinkServiceConnectionState")]
+        public Output<Outputs.PrivateLinkServiceConnectionStateResponseResult> PrivateLinkServiceConnectionState { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the private endpoint connection resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The sku of the workspace.

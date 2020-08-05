@@ -15,6 +15,54 @@ namespace Pulumi.AzureRM.Insights.V20150501
     public partial class WebTest : Pulumi.CustomResource
     {
         /// <summary>
+        /// An XML configuration specification for a WebTest.
+        /// </summary>
+        [Output("Configuration")]
+        public Output<Outputs.WebTestPropertiesResponseConfigurationResult?> Configuration { get; private set; } = null!;
+
+        /// <summary>
+        /// Purpose/user defined descriptive test for this WebTest.
+        /// </summary>
+        [Output("Description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Is the test actively being monitored.
+        /// </summary>
+        [Output("Enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Interval in seconds between test runs for this WebTest. Default value is 300.
+        /// </summary>
+        [Output("Frequency")]
+        public Output<int?> Frequency { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        /// </summary>
+        [Output("Locations")]
+        public Output<ImmutableArray<Outputs.WebTestGeolocationResponseResult>> Locations { get; private set; } = null!;
+
+        /// <summary>
+        /// Allow for retries should this WebTest fail.
+        /// </summary>
+        [Output("RetryEnabled")]
+        public Output<bool?> RetryEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Unique ID of this WebTest. This is typically the same value as the Name field.
+        /// </summary>
+        [Output("SyntheticMonitorId")]
+        public Output<string> SyntheticMonitorId { get; private set; } = null!;
+
+        /// <summary>
+        /// Seconds until this WebTest will timeout and fail. Default value is 30.
+        /// </summary>
+        [Output("Timeout")]
+        public Output<int?> Timeout { get; private set; } = null!;
+
+        /// <summary>
         /// The kind of web test that this web test watches. Choices are ping and multistep.
         /// </summary>
         [Output("kind")]
@@ -33,10 +81,10 @@ namespace Pulumi.AzureRM.Insights.V20150501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata describing a web test for an Azure resource.
+        /// Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WebTestPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -49,6 +97,18 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The kind of web test this is, valid choices are ping and multistep.
+        /// </summary>
+        [Output("webTestKind")]
+        public Output<string> WebTestKind { get; private set; } = null!;
+
+        /// <summary>
+        /// User defined name if this WebTest.
+        /// </summary>
+        [Output("webTestName")]
+        public Output<string> WebTestName { get; private set; } = null!;
 
 
         /// <summary>

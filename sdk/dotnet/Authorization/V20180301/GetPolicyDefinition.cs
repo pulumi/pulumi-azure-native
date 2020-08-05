@@ -34,13 +34,37 @@ namespace Pulumi.AzureRM.Authorization.V20180301
     public sealed class GetPolicyDefinitionResult
     {
         /// <summary>
+        /// The policy definition description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The display name of the policy definition.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// The policy definition metadata.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Metadata;
+        /// <summary>
+        /// The policy definition mode. Possible values are NotSpecified, Indexed, and All.
+        /// </summary>
+        public readonly string? Mode;
+        /// <summary>
         /// The name of the policy definition.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The policy definition properties.
+        /// Required if a parameter is used in policy rule.
         /// </summary>
-        public readonly Outputs.PolicyDefinitionPropertiesResponseResult Properties;
+        public readonly ImmutableDictionary<string, object>? Parameters;
+        /// <summary>
+        /// The policy rule.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? PolicyRule;
+        /// <summary>
+        /// The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+        /// </summary>
+        public readonly string? PolicyType;
         /// <summary>
         /// The type of the resource (Microsoft.Authorization/policyDefinitions).
         /// </summary>
@@ -48,14 +72,32 @@ namespace Pulumi.AzureRM.Authorization.V20180301
 
         [OutputConstructor]
         private GetPolicyDefinitionResult(
+            string? description,
+
+            string? displayName,
+
+            ImmutableDictionary<string, object>? metadata,
+
+            string? mode,
+
             string name,
 
-            Outputs.PolicyDefinitionPropertiesResponseResult properties,
+            ImmutableDictionary<string, object>? parameters,
+
+            ImmutableDictionary<string, object>? policyRule,
+
+            string? policyType,
 
             string type)
         {
+            Description = description;
+            DisplayName = displayName;
+            Metadata = metadata;
+            Mode = mode;
             Name = name;
-            Properties = properties;
+            Parameters = parameters;
+            PolicyRule = policyRule;
+            PolicyType = policyType;
             Type = type;
         }
     }

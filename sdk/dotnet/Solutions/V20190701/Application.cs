@@ -15,10 +15,52 @@ namespace Pulumi.AzureRM.Solutions.V20190701
     public partial class Application : Pulumi.CustomResource
     {
         /// <summary>
+        /// The fully qualified path of managed application definition Id.
+        /// </summary>
+        [Output("applicationDefinitionId")]
+        public Output<string?> ApplicationDefinitionId { get; private set; } = null!;
+
+        /// <summary>
+        /// The collection of managed application artifacts.
+        /// </summary>
+        [Output("artifacts")]
+        public Output<ImmutableArray<Outputs.ApplicationArtifactResponseResult>> Artifacts { get; private set; } = null!;
+
+        /// <summary>
+        /// The  read-only authorizations property that is retrieved from the application package.
+        /// </summary>
+        [Output("authorizations")]
+        public Output<ImmutableArray<Outputs.ApplicationAuthorizationResponseResult>> Authorizations { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed application billing details.
+        /// </summary>
+        [Output("billingDetails")]
+        public Output<Outputs.ApplicationBillingDetailsDefinitionResponseResult> BillingDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// The client entity that created the JIT request.
+        /// </summary>
+        [Output("createdBy")]
+        public Output<Outputs.ApplicationClientDetailsResponseResult> CreatedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The read-only customer support property that is retrieved from the application package.
+        /// </summary>
+        [Output("customerSupport")]
+        public Output<Outputs.ApplicationPackageContactResponseResult> CustomerSupport { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.IdentityResponseResult?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed application Jit access policy.
+        /// </summary>
+        [Output("jitAccessPolicy")]
+        public Output<Outputs.ApplicationJitAccessPolicyResponseResult?> JitAccessPolicy { get; private set; } = null!;
 
         /// <summary>
         /// The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
@@ -39,10 +81,34 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         public Output<string?> ManagedBy { get; private set; } = null!;
 
         /// <summary>
+        /// The managed resource group Id.
+        /// </summary>
+        [Output("managedResourceGroupId")]
+        public Output<string?> ManagedResourceGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed application management mode.
+        /// </summary>
+        [Output("managementMode")]
+        public Output<string> ManagementMode { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Name and value pairs that define the managed application outputs.
+        /// </summary>
+        [Output("outputs")]
+        public Output<ImmutableDictionary<string, object>> Outputs { get; private set; } = null!;
+
+        /// <summary>
+        /// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+        /// </summary>
+        [Output("parameters")]
+        public Output<ImmutableDictionary<string, object>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// The plan information.
@@ -51,16 +117,28 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         public Output<Outputs.PlanResponseResult?> Plan { get; private set; } = null!;
 
         /// <summary>
-        /// The managed application properties.
+        /// The managed application provisioning state.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ApplicationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The publisher tenant Id.
+        /// </summary>
+        [Output("publisherTenantId")]
+        public Output<string> PublisherTenantId { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The read-only support URLs property that is retrieved from the application package.
+        /// </summary>
+        [Output("supportUrls")]
+        public Output<Outputs.ApplicationPackageSupportUrlsResponseResult> SupportUrls { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -73,6 +151,12 @@ namespace Pulumi.AzureRM.Solutions.V20190701
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The client entity that last updated the JIT request.
+        /// </summary>
+        [Output("updatedBy")]
+        public Output<Outputs.ApplicationClientDetailsResponseResult> UpdatedBy { get; private set; } = null!;
 
 
         /// <summary>

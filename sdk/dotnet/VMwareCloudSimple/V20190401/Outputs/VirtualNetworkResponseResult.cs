@@ -30,9 +30,9 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Virtual Network properties
+        /// The Private Cloud id
         /// </summary>
-        public readonly Outputs.VirtualNetworkPropertiesResponseResult? Properties;
+        public readonly string PrivateCloudId;
         /// <summary>
         /// {resourceProviderNamespace}/{resourceType}
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401.Outputs
 
             string name,
 
-            Outputs.VirtualNetworkPropertiesResponseResult? properties,
+            string privateCloudId,
 
             string type)
         {
@@ -56,7 +56,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401.Outputs
             Id = id;
             Location = location;
             Name = name;
-            Properties = properties;
+            PrivateCloudId = privateCloudId;
             Type = type;
         }
     }

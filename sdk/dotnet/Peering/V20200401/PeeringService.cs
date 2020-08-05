@@ -27,10 +27,22 @@ namespace Pulumi.AzureRM.Peering.V20200401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties that define a peering service.
+        /// The PeeringServiceLocation of the Customer.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PeeringServicePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("peeringServiceLocation")]
+        public Output<string?> PeeringServiceLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// The MAPS Provider Name.
+        /// </summary>
+        [Output("peeringServiceProvider")]
+        public Output<string?> PeeringServiceProvider { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The SKU that defines the type of the peering service.

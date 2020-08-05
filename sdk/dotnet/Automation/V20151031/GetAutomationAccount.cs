@@ -40,9 +40,25 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public sealed class GetAutomationAccountResult
     {
         /// <summary>
+        /// Gets the creation time.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Gets or sets the last modified by.
+        /// </summary>
+        public readonly string? LastModifiedBy;
+        /// <summary>
+        /// Gets the last modified time.
+        /// </summary>
+        public readonly string LastModifiedTime;
         /// <summary>
         /// The Azure Region where the resource lives
         /// </summary>
@@ -52,9 +68,13 @@ namespace Pulumi.AzureRM.Automation.V20151031
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the automation account properties.
+        /// Gets or sets the SKU of account.
         /// </summary>
-        public readonly Outputs.AutomationAccountPropertiesResponseResult Properties;
+        public readonly Outputs.SkuResponseResult? Sku;
+        /// <summary>
+        /// Gets status of account.
+        /// </summary>
+        public readonly string State;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,22 +86,37 @@ namespace Pulumi.AzureRM.Automation.V20151031
 
         [OutputConstructor]
         private GetAutomationAccountResult(
+            string creationTime,
+
+            string? description,
+
             string? etag,
+
+            string? lastModifiedBy,
+
+            string lastModifiedTime,
 
             string? location,
 
             string name,
 
-            Outputs.AutomationAccountPropertiesResponseResult properties,
+            Outputs.SkuResponseResult? sku,
+
+            string state,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            CreationTime = creationTime;
+            Description = description;
             Etag = etag;
+            LastModifiedBy = lastModifiedBy;
+            LastModifiedTime = lastModifiedTime;
             Location = location;
             Name = name;
-            Properties = properties;
+            Sku = sku;
+            State = state;
             Tags = tags;
             Type = type;
         }

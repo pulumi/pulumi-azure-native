@@ -15,10 +15,34 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public partial class AutomationAccount : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets the creation time.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the last modified by.
+        /// </summary>
+        [Output("lastModifiedBy")]
+        public Output<string?> LastModifiedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the last modified time.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the resource lives
@@ -33,10 +57,16 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the automation account properties.
+        /// Gets or sets the SKU of account.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AutomationAccountPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("sku")]
+        public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets status of account.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

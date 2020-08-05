@@ -15,16 +15,88 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public partial class Subscription : Pulumi.CustomResource
     {
         /// <summary>
+        /// Determines whether tracing is enabled
+        /// </summary>
+        [Output("allowTracing")]
+        public Output<bool?> AllowTracing { get; private set; } = null!;
+
+        /// <summary>
+        /// Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the subscription, or null if the subscription has no name.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        /// </summary>
+        [Output("endDate")]
+        public Output<string?> EndDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        /// </summary>
+        [Output("expirationDate")]
+        public Output<string?> ExpirationDate { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Subscription contract properties.
+        /// Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SubscriptionContractPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("notificationDate")]
+        public Output<string?> NotificationDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.
+        /// </summary>
+        [Output("ownerId")]
+        public Output<string?> OwnerId { get; private set; } = null!;
+
+        /// <summary>
+        /// Subscription primary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+        /// </summary>
+        [Output("primaryKey")]
+        public Output<string?> PrimaryKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Scope like /products/{productId} or /apis or /apis/{apiId}.
+        /// </summary>
+        [Output("scope")]
+        public Output<string> Scope { get; private set; } = null!;
+
+        /// <summary>
+        /// Subscription secondary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+        /// </summary>
+        [Output("secondaryKey")]
+        public Output<string?> SecondaryKey { get; private set; } = null!;
+
+        /// <summary>
+        /// Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        /// </summary>
+        [Output("startDate")]
+        public Output<string?> StartDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
+        /// </summary>
+        [Output("stateComment")]
+        public Output<string?> StateComment { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

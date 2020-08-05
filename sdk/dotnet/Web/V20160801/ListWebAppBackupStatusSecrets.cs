@@ -88,36 +88,120 @@ namespace Pulumi.AzureRM.Web.V20160801
     public sealed class ListWebAppBackupStatusSecretsResult
     {
         /// <summary>
+        /// Id of the backup.
+        /// </summary>
+        public readonly int BackupId;
+        /// <summary>
+        /// Name of the blob which contains data for this backup.
+        /// </summary>
+        public readonly string BlobName;
+        /// <summary>
+        /// Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.
+        /// </summary>
+        public readonly string CorrelationId;
+        /// <summary>
+        /// Timestamp of the backup creation.
+        /// </summary>
+        public readonly string Created;
+        /// <summary>
+        /// List of databases included in the backup.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DatabaseBackupSettingResponseResult> Databases;
+        /// <summary>
+        /// Timestamp when this backup finished.
+        /// </summary>
+        public readonly string FinishedTimeStamp;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
+        /// <summary>
+        /// Timestamp of a last restore operation which used this backup.
+        /// </summary>
+        public readonly string LastRestoreTimeStamp;
+        /// <summary>
+        /// Details regarding this backup. Might contain an error message.
+        /// </summary>
+        public readonly string Log;
         /// <summary>
         /// Resource Name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// BackupItem resource specific properties
+        /// True if this backup has been created due to a schedule being triggered.
         /// </summary>
-        public readonly Outputs.BackupItemResponsePropertiesResult Properties;
+        public readonly bool Scheduled;
+        /// <summary>
+        /// Size of the backup in bytes.
+        /// </summary>
+        public readonly int SizeInBytes;
+        /// <summary>
+        /// Backup status.
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
+        /// SAS URL for the storage account container which contains this backup.
+        /// </summary>
+        public readonly string StorageAccountUrl;
         /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Size of the original web app which has been backed up.
+        /// </summary>
+        public readonly int WebsiteSizeInBytes;
 
         [OutputConstructor]
         private ListWebAppBackupStatusSecretsResult(
+            int backupId,
+
+            string blobName,
+
+            string correlationId,
+
+            string created,
+
+            ImmutableArray<Outputs.DatabaseBackupSettingResponseResult> databases,
+
+            string finishedTimeStamp,
+
             string? kind,
+
+            string lastRestoreTimeStamp,
+
+            string log,
 
             string name,
 
-            Outputs.BackupItemResponsePropertiesResult properties,
+            bool scheduled,
 
-            string type)
+            int sizeInBytes,
+
+            string status,
+
+            string storageAccountUrl,
+
+            string type,
+
+            int websiteSizeInBytes)
         {
+            BackupId = backupId;
+            BlobName = blobName;
+            CorrelationId = correlationId;
+            Created = created;
+            Databases = databases;
+            FinishedTimeStamp = finishedTimeStamp;
             Kind = kind;
+            LastRestoreTimeStamp = lastRestoreTimeStamp;
+            Log = log;
             Name = name;
-            Properties = properties;
+            Scheduled = scheduled;
+            SizeInBytes = sizeInBytes;
+            Status = status;
+            StorageAccountUrl = storageAccountUrl;
             Type = type;
+            WebsiteSizeInBytes = websiteSizeInBytes;
         }
     }
 }

@@ -14,9 +14,25 @@ namespace Pulumi.AzureRM.Network.V20181201.Outputs
     public sealed class ApplicationGatewayHttpListenerResponseResult
     {
         /// <summary>
+        /// Custom error configurations of the HTTP listener.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayCustomErrorResponseResult> CustomErrorConfigurations;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Frontend IP configuration resource of an application gateway.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? FrontendIPConfiguration;
+        /// <summary>
+        /// Frontend port resource of an application gateway.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? FrontendPort;
+        /// <summary>
+        /// Host name of HTTP listener.
+        /// </summary>
+        public readonly string? HostName;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -26,9 +42,21 @@ namespace Pulumi.AzureRM.Network.V20181201.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of HTTP listener of an application gateway.
+        /// Protocol of the HTTP listener. Possible values are 'Http' and 'Https'.
         /// </summary>
-        public readonly Outputs.ApplicationGatewayHttpListenerPropertiesFormatResponseResult? Properties;
+        public readonly string? Protocol;
+        /// <summary>
+        /// Provisioning state of the HTTP listener resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Applicable only if protocol is https. Enables SNI for multi-hosting.
+        /// </summary>
+        public readonly bool? RequireServerNameIndication;
+        /// <summary>
+        /// SSL certificate resource of an application gateway.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? SslCertificate;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -36,20 +64,41 @@ namespace Pulumi.AzureRM.Network.V20181201.Outputs
 
         [OutputConstructor]
         private ApplicationGatewayHttpListenerResponseResult(
+            ImmutableArray<Outputs.ApplicationGatewayCustomErrorResponseResult> customErrorConfigurations,
+
             string? etag,
+
+            Outputs.SubResourceResponseResult? frontendIPConfiguration,
+
+            Outputs.SubResourceResponseResult? frontendPort,
+
+            string? hostName,
 
             string? id,
 
             string? name,
 
-            Outputs.ApplicationGatewayHttpListenerPropertiesFormatResponseResult? properties,
+            string? protocol,
+
+            string? provisioningState,
+
+            bool? requireServerNameIndication,
+
+            Outputs.SubResourceResponseResult? sslCertificate,
 
             string? type)
         {
+            CustomErrorConfigurations = customErrorConfigurations;
             Etag = etag;
+            FrontendIPConfiguration = frontendIPConfiguration;
+            FrontendPort = frontendPort;
+            HostName = hostName;
             Id = id;
             Name = name;
-            Properties = properties;
+            Protocol = protocol;
+            ProvisioningState = provisioningState;
+            RequireServerNameIndication = requireServerNameIndication;
+            SslCertificate = sslCertificate;
             Type = type;
         }
     }

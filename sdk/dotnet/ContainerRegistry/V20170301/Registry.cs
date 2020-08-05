@@ -15,10 +15,28 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20170301
     public partial class Registry : Pulumi.CustomResource
     {
         /// <summary>
+        /// The value that indicates whether the admin user is enabled.
+        /// </summary>
+        [Output("adminUserEnabled")]
+        public Output<bool?> AdminUserEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// The creation date of the container registry in ISO8601 format.
+        /// </summary>
+        [Output("creationDate")]
+        public Output<string> CreationDate { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The URL that can be used to log into the container registry.
+        /// </summary>
+        [Output("loginServer")]
+        public Output<string> LoginServer { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource.
@@ -27,16 +45,22 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20170301
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the container registry.
+        /// The provisioning state of the container registry at the time the operation was called.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RegistryPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The SKU of the container registry.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The properties of the storage account for the container registry.
+        /// </summary>
+        [Output("storageAccount")]
+        public Output<Outputs.StorageAccountPropertiesResponseResult?> StorageAccount { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

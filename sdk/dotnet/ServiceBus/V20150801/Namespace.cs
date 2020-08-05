@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
     public partial class Namespace : Pulumi.CustomResource
     {
         /// <summary>
+        /// Indicates whether to create an ACS namespace.
+        /// </summary>
+        [Output("createACSNamespace")]
+        public Output<bool?> CreateACSNamespace { get; private set; } = null!;
+
+        /// <summary>
+        /// The time the namespace was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether this instance is enabled.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -27,16 +45,28 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the namespace.
+        /// Provisioning state of the namespace.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NamespacePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Endpoint you can use to perform Service Bus operations.
+        /// </summary>
+        [Output("serviceBusEndpoint")]
+        public Output<string> ServiceBusEndpoint { get; private set; } = null!;
 
         /// <summary>
         /// SKU of the namespace.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponseResult?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// State of the namespace.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -49,6 +79,12 @@ namespace Pulumi.AzureRM.ServiceBus.V20150801
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The time the namespace was updated.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>

@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.Network.V20190201
     public partial class VirtualHub : Pulumi.CustomResource
     {
         /// <summary>
+        /// Address-prefix for this VirtualHub.
+        /// </summary>
+        [Output("addressPrefix")]
+        public Output<string?> AddressPrefix { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The expressRouteGateway associated with this VirtualHub
+        /// </summary>
+        [Output("expressRouteGateway")]
+        public Output<Outputs.SubResourceResponseResult?> ExpressRouteGateway { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +45,22 @@ namespace Pulumi.AzureRM.Network.V20190201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the virtual hub.
+        /// The P2SVpnGateway associated with this VirtualHub
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualHubPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("p2SVpnGateway")]
+        public Output<Outputs.SubResourceResponseResult?> P2SVpnGateway { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The routeTable associated with this virtual hub.
+        /// </summary>
+        [Output("routeTable")]
+        public Output<Outputs.VirtualHubRouteTableResponseResult?> RouteTable { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +73,24 @@ namespace Pulumi.AzureRM.Network.V20190201
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// List of all vnet connections with this VirtualHub.
+        /// </summary>
+        [Output("virtualNetworkConnections")]
+        public Output<ImmutableArray<Outputs.HubVirtualNetworkConnectionResponseResult>> VirtualNetworkConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// The VirtualWAN to which the VirtualHub belongs
+        /// </summary>
+        [Output("virtualWan")]
+        public Output<Outputs.SubResourceResponseResult?> VirtualWan { get; private set; } = null!;
+
+        /// <summary>
+        /// The VpnGateway associated with this VirtualHub
+        /// </summary>
+        [Output("vpnGateway")]
+        public Output<Outputs.SubResourceResponseResult?> VpnGateway { get; private set; } = null!;
 
 
         /// <summary>

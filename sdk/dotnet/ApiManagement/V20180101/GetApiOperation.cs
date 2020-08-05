@@ -52,29 +52,78 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public sealed class GetApiOperationResult
     {
         /// <summary>
+        /// Description of the operation. May include HTML formatting tags.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Operation Name.
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
+        /// A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
+        /// </summary>
+        public readonly string Method;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Operation Contract.
+        /// Operation Policies
         /// </summary>
-        public readonly Outputs.OperationContractPropertiesResponseResult Properties;
+        public readonly string? Policies;
+        /// <summary>
+        /// An entity containing request details.
+        /// </summary>
+        public readonly Outputs.RequestContractResponseResult? Request;
+        /// <summary>
+        /// Array of Operation responses.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ResponseContractResponseResult> Responses;
+        /// <summary>
+        /// Collection of URL template parameters.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ParameterContractResponseResult> TemplateParameters;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
+        /// </summary>
+        public readonly string UrlTemplate;
 
         [OutputConstructor]
         private GetApiOperationResult(
+            string? description,
+
+            string displayName,
+
+            string method,
+
             string name,
 
-            Outputs.OperationContractPropertiesResponseResult properties,
+            string? policies,
 
-            string type)
+            Outputs.RequestContractResponseResult? request,
+
+            ImmutableArray<Outputs.ResponseContractResponseResult> responses,
+
+            ImmutableArray<Outputs.ParameterContractResponseResult> templateParameters,
+
+            string type,
+
+            string urlTemplate)
         {
+            Description = description;
+            DisplayName = displayName;
+            Method = method;
             Name = name;
-            Properties = properties;
+            Policies = policies;
+            Request = request;
+            Responses = responses;
+            TemplateParameters = templateParameters;
             Type = type;
+            UrlTemplate = urlTemplate;
         }
     }
 }

@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.NetApp.V20190601
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
+        /// Active Directories
+        /// </summary>
+        [Output("activeDirectories")]
+        public Output<ImmutableArray<Outputs.ActiveDirectoryResponseResult>> ActiveDirectories { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,10 +33,10 @@ namespace Pulumi.AzureRM.NetApp.V20190601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// NetApp Account properties
+        /// Azure lifecycle management
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.AccountPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

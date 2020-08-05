@@ -15,10 +15,82 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
+        /// The unique identifier associated with this Data Lake Store account.
+        /// </summary>
+        [Output("accountId")]
+        public Output<string> AccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// The account creation time.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The commitment tier in use for the current month.
+        /// </summary>
+        [Output("currentTier")]
+        public Output<string> CurrentTier { get; private set; } = null!;
+
+        /// <summary>
+        /// The default owner group for all new folders and files created in the Data Lake Store account.
+        /// </summary>
+        [Output("defaultGroup")]
+        public Output<string> DefaultGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// The Key Vault encryption configuration.
+        /// </summary>
+        [Output("encryptionConfig")]
+        public Output<Outputs.EncryptionConfigResponseResult> EncryptionConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// The current state of encryption provisioning for this Data Lake Store account.
+        /// </summary>
+        [Output("encryptionProvisioningState")]
+        public Output<string> EncryptionProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The current state of encryption for this Data Lake Store account.
+        /// </summary>
+        [Output("encryptionState")]
+        public Output<string> EncryptionState { get; private set; } = null!;
+
+        /// <summary>
+        /// The full CName endpoint for this account.
+        /// </summary>
+        [Output("endpoint")]
+        public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+        /// </summary>
+        [Output("firewallAllowAzureIps")]
+        public Output<string> FirewallAllowAzureIps { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of firewall rules associated with this Data Lake Store account.
+        /// </summary>
+        [Output("firewallRules")]
+        public Output<ImmutableArray<Outputs.FirewallRuleResponseResult>> FirewallRules { get; private set; } = null!;
+
+        /// <summary>
+        /// The current state of the IP address firewall for this Data Lake Store account.
+        /// </summary>
+        [Output("firewallState")]
+        public Output<string> FirewallState { get; private set; } = null!;
+
+        /// <summary>
         /// The Key Vault encryption identity, if any.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.EncryptionIdentityResponseResult> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The account last modified time.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.
@@ -33,10 +105,22 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Data Lake Store account properties.
+        /// The commitment tier to use for next month.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DataLakeStoreAccountPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("newTier")]
+        public Output<string> NewTier { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning status of the Data Lake Store account.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The state of the Data Lake Store account.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -45,10 +129,28 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
         public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The current state of the trusted identity provider feature for this Data Lake Store account.
+        /// </summary>
+        [Output("trustedIdProviderState")]
+        public Output<string> TrustedIdProviderState { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of trusted identity providers associated with this Data Lake Store account.
+        /// </summary>
+        [Output("trustedIdProviders")]
+        public Output<ImmutableArray<Outputs.TrustedIdProviderResponseResult>> TrustedIdProviders { get; private set; } = null!;
+
+        /// <summary>
         /// The resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of virtual network rules associated with this Data Lake Store account.
+        /// </summary>
+        [Output("virtualNetworkRules")]
+        public Output<ImmutableArray<Outputs.VirtualNetworkRuleResponseResult>> VirtualNetworkRules { get; private set; } = null!;
 
 
         /// <summary>

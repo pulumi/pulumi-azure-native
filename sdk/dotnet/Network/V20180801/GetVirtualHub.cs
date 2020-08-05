@@ -40,9 +40,17 @@ namespace Pulumi.AzureRM.Network.V20180801
     public sealed class GetVirtualHubResult
     {
         /// <summary>
+        /// Address-prefix for this VirtualHub.
+        /// </summary>
+        public readonly string? AddressPrefix;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// The expressRouteGateway associated with this VirtualHub
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? ExpressRouteGateway;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,9 +60,17 @@ namespace Pulumi.AzureRM.Network.V20180801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Parameters for VirtualHub
+        /// The P2SVpnGateway associated with this VirtualHub
         /// </summary>
-        public readonly Outputs.VirtualHubPropertiesResponseResult Properties;
+        public readonly Outputs.SubResourceResponseResult? P2SVpnGateway;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The routeTable associated with this virtual hub.
+        /// </summary>
+        public readonly Outputs.VirtualHubRouteTableResponseResult? RouteTable;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +79,60 @@ namespace Pulumi.AzureRM.Network.V20180801
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// list of all vnet connections with this VirtualHub.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.HubVirtualNetworkConnectionResponseResult> VirtualNetworkConnections;
+        /// <summary>
+        /// The VirtualWAN to which the VirtualHub belongs
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualWan;
+        /// <summary>
+        /// The VpnGateway associated with this VirtualHub
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VpnGateway;
 
         [OutputConstructor]
         private GetVirtualHubResult(
+            string? addressPrefix,
+
             string etag,
+
+            Outputs.SubResourceResponseResult? expressRouteGateway,
 
             string location,
 
             string name,
 
-            Outputs.VirtualHubPropertiesResponseResult properties,
+            Outputs.SubResourceResponseResult? p2SVpnGateway,
+
+            string? provisioningState,
+
+            Outputs.VirtualHubRouteTableResponseResult? routeTable,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.HubVirtualNetworkConnectionResponseResult> virtualNetworkConnections,
+
+            Outputs.SubResourceResponseResult? virtualWan,
+
+            Outputs.SubResourceResponseResult? vpnGateway)
         {
+            AddressPrefix = addressPrefix;
             Etag = etag;
+            ExpressRouteGateway = expressRouteGateway;
             Location = location;
             Name = name;
-            Properties = properties;
+            P2SVpnGateway = p2SVpnGateway;
+            ProvisioningState = provisioningState;
+            RouteTable = routeTable;
             Tags = tags;
             Type = type;
+            VirtualNetworkConnections = virtualNetworkConnections;
+            VirtualWan = virtualWan;
+            VpnGateway = vpnGateway;
         }
     }
 }

@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Network.V20190901
     public sealed class GetVpnServerConfigurationResult
     {
         /// <summary>
+        /// The set of aad vpn authentication parameters.
+        /// </summary>
+        public readonly Outputs.AadAuthenticationParametersResponseResult? AadAuthenticationParameters;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -52,9 +56,29 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the P2SVpnServer configuration.
+        /// List of references to P2SVpnGateways.
         /// </summary>
-        public readonly Outputs.VpnServerConfigurationPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.P2SVpnGatewayResponseResult> P2SVpnGateways;
+        /// <summary>
+        /// The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Radius client root certificate of VpnServerConfiguration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VpnServerConfigRadiusClientRootCertificateResponseResult> RadiusClientRootCertificates;
+        /// <summary>
+        /// The radius server address property of the VpnServerConfiguration resource for point to site client connection.
+        /// </summary>
+        public readonly string? RadiusServerAddress;
+        /// <summary>
+        /// Radius Server root certificate of VpnServerConfiguration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VpnServerConfigRadiusServerRootCertificateResponseResult> RadiusServerRootCertificates;
+        /// <summary>
+        /// The radius secret property of the VpnServerConfiguration resource for point to site client connection.
+        /// </summary>
+        public readonly string? RadiusServerSecret;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +87,80 @@ namespace Pulumi.AzureRM.Network.V20190901
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// VPN authentication types for the VpnServerConfiguration.
+        /// </summary>
+        public readonly ImmutableArray<string> VpnAuthenticationTypes;
+        /// <summary>
+        /// VpnClientIpsecPolicies for VpnServerConfiguration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IpsecPolicyResponseResult> VpnClientIpsecPolicies;
+        /// <summary>
+        /// VPN client revoked certificate of VpnServerConfiguration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VpnServerConfigVpnClientRevokedCertificateResponseResult> VpnClientRevokedCertificates;
+        /// <summary>
+        /// VPN client root certificate of VpnServerConfiguration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VpnServerConfigVpnClientRootCertificateResponseResult> VpnClientRootCertificates;
+        /// <summary>
+        /// VPN protocols for the VpnServerConfiguration.
+        /// </summary>
+        public readonly ImmutableArray<string> VpnProtocols;
 
         [OutputConstructor]
         private GetVpnServerConfigurationResult(
+            Outputs.AadAuthenticationParametersResponseResult? aadAuthenticationParameters,
+
             string etag,
 
             string? location,
 
             string name,
 
-            Outputs.VpnServerConfigurationPropertiesResponseResult properties,
+            ImmutableArray<Outputs.P2SVpnGatewayResponseResult> p2SVpnGateways,
+
+            string provisioningState,
+
+            ImmutableArray<Outputs.VpnServerConfigRadiusClientRootCertificateResponseResult> radiusClientRootCertificates,
+
+            string? radiusServerAddress,
+
+            ImmutableArray<Outputs.VpnServerConfigRadiusServerRootCertificateResponseResult> radiusServerRootCertificates,
+
+            string? radiusServerSecret,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<string> vpnAuthenticationTypes,
+
+            ImmutableArray<Outputs.IpsecPolicyResponseResult> vpnClientIpsecPolicies,
+
+            ImmutableArray<Outputs.VpnServerConfigVpnClientRevokedCertificateResponseResult> vpnClientRevokedCertificates,
+
+            ImmutableArray<Outputs.VpnServerConfigVpnClientRootCertificateResponseResult> vpnClientRootCertificates,
+
+            ImmutableArray<string> vpnProtocols)
         {
+            AadAuthenticationParameters = aadAuthenticationParameters;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            P2SVpnGateways = p2SVpnGateways;
+            ProvisioningState = provisioningState;
+            RadiusClientRootCertificates = radiusClientRootCertificates;
+            RadiusServerAddress = radiusServerAddress;
+            RadiusServerRootCertificates = radiusServerRootCertificates;
+            RadiusServerSecret = radiusServerSecret;
             Tags = tags;
             Type = type;
+            VpnAuthenticationTypes = vpnAuthenticationTypes;
+            VpnClientIpsecPolicies = vpnClientIpsecPolicies;
+            VpnClientRevokedCertificates = vpnClientRevokedCertificates;
+            VpnClientRootCertificates = vpnClientRootCertificates;
+            VpnProtocols = vpnProtocols;
         }
     }
 }

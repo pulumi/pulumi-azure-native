@@ -12,16 +12,34 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// GroupIds from the private link service resource.
+        /// </summary>
+        [Output("groupIds")]
+        public Output<ImmutableArray<string>> GroupIds { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the PrivateEndpointConnection.
+        /// The Private Endpoint resource for this Connection.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PrivateEndpointConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("privateEndpoint")]
+        public Output<Outputs.PrivateEndpointResponseResult?> PrivateEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Details about the state of the connection.
+        /// </summary>
+        [Output("privateLinkServiceConnectionState")]
+        public Output<Outputs.ConnectionStateResponseResult?> PrivateLinkServiceConnectionState { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the Private Endpoint Connection.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.

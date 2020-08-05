@@ -46,17 +46,40 @@ namespace Pulumi.AzureRM.Batch.V20181201
     public sealed class GetCertificateResult
     {
         /// <summary>
+        /// This is only returned when the certificate provisioningState is 'Failed'.
+        /// </summary>
+        public readonly Outputs.DeleteCertificateErrorResponseResult DeleteCertificateError;
+        /// <summary>
         /// The ETag of the resource, used for concurrency statements.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+        /// </summary>
+        public readonly string? Format;
         /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties associated with the certificate.
+        /// The previous provisioned state of the resource
         /// </summary>
-        public readonly Outputs.CertificatePropertiesResponseResult Properties;
+        public readonly string PreviousProvisioningState;
+        public readonly string PreviousProvisioningStateTransitionTime;
+        public readonly string ProvisioningState;
+        public readonly string ProvisioningStateTransitionTime;
+        /// <summary>
+        /// The public key of the certificate.
+        /// </summary>
+        public readonly string PublicData;
+        /// <summary>
+        /// This must match the thumbprint from the name.
+        /// </summary>
+        public readonly string? Thumbprint;
+        /// <summary>
+        /// This must match the first portion of the certificate name. Currently required to be 'SHA1'.
+        /// </summary>
+        public readonly string? ThumbprintAlgorithm;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -64,17 +87,41 @@ namespace Pulumi.AzureRM.Batch.V20181201
 
         [OutputConstructor]
         private GetCertificateResult(
+            Outputs.DeleteCertificateErrorResponseResult deleteCertificateError,
+
             string etag,
+
+            string? format,
 
             string name,
 
-            Outputs.CertificatePropertiesResponseResult properties,
+            string previousProvisioningState,
+
+            string previousProvisioningStateTransitionTime,
+
+            string provisioningState,
+
+            string provisioningStateTransitionTime,
+
+            string publicData,
+
+            string? thumbprint,
+
+            string? thumbprintAlgorithm,
 
             string type)
         {
+            DeleteCertificateError = deleteCertificateError;
             Etag = etag;
+            Format = format;
             Name = name;
-            Properties = properties;
+            PreviousProvisioningState = previousProvisioningState;
+            PreviousProvisioningStateTransitionTime = previousProvisioningStateTransitionTime;
+            ProvisioningState = provisioningState;
+            ProvisioningStateTransitionTime = provisioningStateTransitionTime;
+            PublicData = publicData;
+            Thumbprint = thumbprint;
+            ThumbprintAlgorithm = thumbprintAlgorithm;
             Type = type;
         }
     }

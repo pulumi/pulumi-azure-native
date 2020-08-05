@@ -15,10 +15,34 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public partial class IntegrationAccountCertificate : Pulumi.CustomResource
     {
         /// <summary>
+        /// The changed time.
+        /// </summary>
+        [Output("changedTime")]
+        public Output<string> ChangedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The created time.
+        /// </summary>
+        [Output("createdTime")]
+        public Output<string> CreatedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The key details in the key vault.
+        /// </summary>
+        [Output("key")]
+        public Output<Outputs.KeyVaultKeyReferenceResponseResult?> Key { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// The metadata.
+        /// </summary>
+        [Output("metadata")]
+        public Output<ImmutableDictionary<string, object>?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// Gets the resource name.
@@ -27,10 +51,10 @@ namespace Pulumi.AzureRM.Logic.V20190501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The integration account certificate properties.
+        /// The public certificate.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.IntegrationAccountCertificatePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("publicCertificate")]
+        public Output<string?> PublicCertificate { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.

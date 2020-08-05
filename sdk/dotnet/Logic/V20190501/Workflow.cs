@@ -15,6 +15,54 @@ namespace Pulumi.AzureRM.Logic.V20190501
     public partial class Workflow : Pulumi.CustomResource
     {
         /// <summary>
+        /// The access control configuration.
+        /// </summary>
+        [Output("accessControl")]
+        public Output<Outputs.FlowAccessControlConfigurationResponseResult?> AccessControl { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the access endpoint.
+        /// </summary>
+        [Output("accessEndpoint")]
+        public Output<string> AccessEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the changed time.
+        /// </summary>
+        [Output("changedTime")]
+        public Output<string> ChangedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the created time.
+        /// </summary>
+        [Output("createdTime")]
+        public Output<string> CreatedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The definition.
+        /// </summary>
+        [Output("definition")]
+        public Output<ImmutableDictionary<string, object>?> Definition { get; private set; } = null!;
+
+        /// <summary>
+        /// The endpoints configuration.
+        /// </summary>
+        [Output("endpointsConfiguration")]
+        public Output<Outputs.FlowEndpointsConfigurationResponseResult?> EndpointsConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The integration account.
+        /// </summary>
+        [Output("integrationAccount")]
+        public Output<Outputs.ResourceReferenceResponseResult?> IntegrationAccount { get; private set; } = null!;
+
+        /// <summary>
+        /// The integration service environment.
+        /// </summary>
+        [Output("integrationServiceEnvironment")]
+        public Output<Outputs.ResourceReferenceResponseResult?> IntegrationServiceEnvironment { get; private set; } = null!;
+
+        /// <summary>
         /// The resource location.
         /// </summary>
         [Output("location")]
@@ -27,10 +75,28 @@ namespace Pulumi.AzureRM.Logic.V20190501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The workflow properties.
+        /// The parameters.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WorkflowPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("parameters")]
+        public Output<ImmutableDictionary<string, Outputs.WorkflowParameterResponseResult>?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the provisioning state.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The sku.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponseResult> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The state.
+        /// </summary>
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// The resource tags.
@@ -43,6 +109,12 @@ namespace Pulumi.AzureRM.Logic.V20190501
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets the version.
+        /// </summary>
+        [Output("version")]
+        public Output<string> Version { get; private set; } = null!;
 
 
         /// <summary>

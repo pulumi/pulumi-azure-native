@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Network.V20180401
     public partial class RouteFilterRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// The access type of the rule. Valid values are: 'Allow', 'Deny'
+        /// </summary>
+        [Output("access")]
+        public Output<string> Access { get; private set; } = null!;
+
+        /// <summary>
+        /// The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+        /// </summary>
+        [Output("communities")]
+        public Output<ImmutableArray<string>> Communities { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -33,10 +45,16 @@ namespace Pulumi.AzureRM.Network.V20180401
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Route Filter Rule Resource
+        /// The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RouteFilterRulePropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The rule type of the rule. Valid value is: 'Community'
+        /// </summary>
+        [Output("routeFilterRuleType")]
+        public Output<string> RouteFilterRuleType { get; private set; } = null!;
 
 
         /// <summary>

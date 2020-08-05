@@ -52,6 +52,14 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public sealed class ListServiceFabricApplicableSchedulesResult
     {
         /// <summary>
+        /// The auto-shutdown schedule, if one has been set at the lab or lab resource level.
+        /// </summary>
+        public readonly Outputs.ScheduleResponseResult? LabVmsShutdown;
+        /// <summary>
+        /// The auto-startup schedule, if one has been set at the lab or lab resource level.
+        /// </summary>
+        public readonly Outputs.ScheduleResponseResult? LabVmsStartup;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -59,10 +67,6 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The properties of the resource.
-        /// </summary>
-        public readonly Outputs.ApplicableSchedulePropertiesResponseResult Properties;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -74,19 +78,22 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
 
         [OutputConstructor]
         private ListServiceFabricApplicableSchedulesResult(
+            Outputs.ScheduleResponseResult? labVmsShutdown,
+
+            Outputs.ScheduleResponseResult? labVmsStartup,
+
             string? location,
 
             string name,
-
-            Outputs.ApplicableSchedulePropertiesResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            LabVmsShutdown = labVmsShutdown;
+            LabVmsStartup = labVmsStartup;
             Location = location;
             Name = name;
-            Properties = properties;
             Tags = tags;
             Type = type;
         }

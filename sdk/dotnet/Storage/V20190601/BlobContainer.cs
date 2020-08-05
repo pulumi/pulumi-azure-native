@@ -15,10 +15,88 @@ namespace Pulumi.AzureRM.Storage.V20190601
     public partial class BlobContainer : Pulumi.CustomResource
     {
         /// <summary>
+        /// Default the container to use specified encryption scope for all writes.
+        /// </summary>
+        [Output("defaultEncryptionScope")]
+        public Output<string?> DefaultEncryptionScope { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the blob container was deleted.
+        /// </summary>
+        [Output("deleted")]
+        public Output<bool> Deleted { get; private set; } = null!;
+
+        /// <summary>
+        /// Blob container deletion time.
+        /// </summary>
+        [Output("deletedTime")]
+        public Output<string> DeletedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Block override of encryption scope from the container default.
+        /// </summary>
+        [Output("denyEncryptionScopeOverride")]
+        public Output<bool?> DenyEncryptionScopeOverride { get; private set; } = null!;
+
+        /// <summary>
         /// Resource Etag.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
+        /// </summary>
+        [Output("hasImmutabilityPolicy")]
+        public Output<bool> HasImmutabilityPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+        /// </summary>
+        [Output("hasLegalHold")]
+        public Output<bool> HasLegalHold { get; private set; } = null!;
+
+        /// <summary>
+        /// The ImmutabilityPolicy property of the container.
+        /// </summary>
+        [Output("immutabilityPolicy")]
+        public Output<Outputs.ImmutabilityPolicyPropertiesResponseResult> ImmutabilityPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Returns the date and time the container was last modified.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
+        /// </summary>
+        [Output("leaseDuration")]
+        public Output<string> LeaseDuration { get; private set; } = null!;
+
+        /// <summary>
+        /// Lease state of the container.
+        /// </summary>
+        [Output("leaseState")]
+        public Output<string> LeaseState { get; private set; } = null!;
+
+        /// <summary>
+        /// The lease status of the container.
+        /// </summary>
+        [Output("leaseStatus")]
+        public Output<string> LeaseStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The LegalHold property of the container.
+        /// </summary>
+        [Output("legalHold")]
+        public Output<Outputs.LegalHoldPropertiesResponseResult> LegalHold { get; private set; } = null!;
+
+        /// <summary>
+        /// A name-value pair to associate with the container as metadata.
+        /// </summary>
+        [Output("metadata")]
+        public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -27,16 +105,28 @@ namespace Pulumi.AzureRM.Storage.V20190601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the blob container.
+        /// Specifies whether data in the container may be accessed publicly and the level of access.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ContainerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("publicAccess")]
+        public Output<string?> PublicAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Remaining retention days for soft deleted blob container.
+        /// </summary>
+        [Output("remainingRetentionDays")]
+        public Output<int> RemainingRetentionDays { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The version of the deleted blob container.
+        /// </summary>
+        [Output("version")]
+        public Output<string> Version { get; private set; } = null!;
 
 
         /// <summary>

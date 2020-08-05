@@ -52,9 +52,13 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the DDoS protection plan.
+        /// The provisioning state of the DDoS protection plan resource.
         /// </summary>
-        public readonly Outputs.DdosProtectionPlanPropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+        /// </summary>
+        public readonly string ResourceGuid;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,6 +67,10 @@ namespace Pulumi.AzureRM.Network.V20190801
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> VirtualNetworks;
 
         [OutputConstructor]
         private GetDdosProtectionPlanResult(
@@ -72,18 +80,24 @@ namespace Pulumi.AzureRM.Network.V20190801
 
             string name,
 
-            Outputs.DdosProtectionPlanPropertiesFormatResponseResult properties,
+            string provisioningState,
+
+            string resourceGuid,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> virtualNetworks)
         {
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             Tags = tags;
             Type = type;
+            VirtualNetworks = virtualNetworks;
         }
     }
 }

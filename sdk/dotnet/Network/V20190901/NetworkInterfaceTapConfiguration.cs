@@ -27,16 +27,22 @@ namespace Pulumi.AzureRM.Network.V20190901
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Virtual Network Tap configuration.
+        /// The provisioning state of the network interface tap configuration resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NetworkInterfaceTapConfigurationPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Sub Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference of the Virtual Network Tap resource.
+        /// </summary>
+        [Output("virtualNetworkTap")]
+        public Output<Outputs.VirtualNetworkTapResponseResult?> VirtualNetworkTap { get; private set; } = null!;
 
 
         /// <summary>

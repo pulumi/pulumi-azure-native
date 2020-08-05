@@ -52,13 +52,49 @@ namespace Pulumi.AzureRM.Media.V20180701
     public sealed class GetLiveOutputResult
     {
         /// <summary>
+        /// ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+        /// </summary>
+        public readonly string ArchiveWindowLength;
+        /// <summary>
+        /// The asset name.
+        /// </summary>
+        public readonly string AssetName;
+        /// <summary>
+        /// The exact time the Live Output was created.
+        /// </summary>
+        public readonly string Created;
+        /// <summary>
+        /// The description of the Live Output.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The HLS configuration.
+        /// </summary>
+        public readonly Outputs.HlsResponseResult? Hls;
+        /// <summary>
+        /// The exact time the Live Output was last modified.
+        /// </summary>
+        public readonly string LastModified;
+        /// <summary>
+        /// The manifest file name.  If not provided, the service will generate one automatically.
+        /// </summary>
+        public readonly string? ManifestName;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The Live Output properties.
+        /// The output snapshot time.
         /// </summary>
-        public readonly Outputs.LiveOutputPropertiesResponseResult Properties;
+        public readonly int? OutputSnapTime;
+        /// <summary>
+        /// The provisioning state of the Live Output.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The resource state of the Live Output.
+        /// </summary>
+        public readonly string ResourceState;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -66,14 +102,41 @@ namespace Pulumi.AzureRM.Media.V20180701
 
         [OutputConstructor]
         private GetLiveOutputResult(
+            string archiveWindowLength,
+
+            string assetName,
+
+            string created,
+
+            string? description,
+
+            Outputs.HlsResponseResult? hls,
+
+            string lastModified,
+
+            string? manifestName,
+
             string name,
 
-            Outputs.LiveOutputPropertiesResponseResult properties,
+            int? outputSnapTime,
+
+            string provisioningState,
+
+            string resourceState,
 
             string type)
         {
+            ArchiveWindowLength = archiveWindowLength;
+            AssetName = assetName;
+            Created = created;
+            Description = description;
+            Hls = hls;
+            LastModified = lastModified;
+            ManifestName = manifestName;
             Name = name;
-            Properties = properties;
+            OutputSnapTime = outputSnapTime;
+            ProvisioningState = provisioningState;
+            ResourceState = resourceState;
             Type = type;
         }
     }

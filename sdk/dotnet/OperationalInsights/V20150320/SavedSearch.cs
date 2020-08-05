@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
     public partial class SavedSearch : Pulumi.CustomResource
     {
         /// <summary>
+        /// The category of the saved search. This helps the user to find a saved search faster. 
+        /// </summary>
+        [Output("category")]
+        public Output<string> Category { get; private set; } = null!;
+
+        /// <summary>
+        /// Saved search display name.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// The ETag of the saved search.
         /// </summary>
         [Output("eTag")]
@@ -27,16 +39,28 @@ namespace Pulumi.AzureRM.OperationalInsights.V20150320
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the saved search.
+        /// The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SavedSearchPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("query")]
+        public Output<string> Query { get; private set; } = null!;
+
+        /// <summary>
+        /// The tags attached to the saved search.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Outputs.TagResponseResult>> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The type of the saved search.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The version number of the query language. The current version is 2 and is the default.
+        /// </summary>
+        [Output("version")]
+        public Output<int?> Version { get; private set; } = null!;
 
 
         /// <summary>

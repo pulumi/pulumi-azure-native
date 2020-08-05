@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.Network.V20190401
     public sealed class GetWebApplicationFirewallPolicyResult
     {
         /// <summary>
+        /// A collection of references to application gateways.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ApplicationGatewayResponseResult> ApplicationGateways;
+        /// <summary>
+        /// Describes custom rules inside the policy.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponseResult> CustomRules;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -52,9 +60,17 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the web application firewall policy.
+        /// Describes policySettings for policy.
         /// </summary>
-        public readonly Outputs.WebApplicationFirewallPolicyPropertiesFormatResponseResult Properties;
+        public readonly Outputs.PolicySettingsResponseResult? PolicySettings;
+        /// <summary>
+        /// Provisioning state of the WebApplicationFirewallPolicy.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Resource status of the policy.
+        /// </summary>
+        public readonly string ResourceState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,22 +82,34 @@ namespace Pulumi.AzureRM.Network.V20190401
 
         [OutputConstructor]
         private GetWebApplicationFirewallPolicyResult(
+            ImmutableArray<Outputs.ApplicationGatewayResponseResult> applicationGateways,
+
+            ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponseResult> customRules,
+
             string? etag,
 
             string? location,
 
             string name,
 
-            Outputs.WebApplicationFirewallPolicyPropertiesFormatResponseResult properties,
+            Outputs.PolicySettingsResponseResult? policySettings,
+
+            string provisioningState,
+
+            string resourceState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            ApplicationGateways = applicationGateways;
+            CustomRules = customRules;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            PolicySettings = policySettings;
+            ProvisioningState = provisioningState;
+            ResourceState = resourceState;
             Tags = tags;
             Type = type;
         }

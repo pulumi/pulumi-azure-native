@@ -15,6 +15,60 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public partial class GalleryImage : Pulumi.CustomResource
     {
         /// <summary>
+        /// The author of the gallery image.
+        /// </summary>
+        [Output("author")]
+        public Output<string> Author { get; private set; } = null!;
+
+        /// <summary>
+        /// The creation date of the gallery image.
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
+        /// The description of the gallery image.
+        /// </summary>
+        [Output("description")]
+        public Output<string> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The icon of the gallery image.
+        /// </summary>
+        [Output("icon")]
+        public Output<string> Icon { get; private set; } = null!;
+
+        /// <summary>
+        /// The image reference of the gallery image.
+        /// </summary>
+        [Output("imageReference")]
+        public Output<Outputs.GalleryImageReferenceResponseResult> ImageReference { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether this gallery image is enabled.
+        /// </summary>
+        [Output("isEnabled")]
+        public Output<bool?> IsEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether this gallery has been overridden for this lab account
+        /// </summary>
+        [Output("isOverride")]
+        public Output<bool?> IsOverride { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates if the plan has been authorized for programmatic deployment.
+        /// </summary>
+        [Output("isPlanAuthorized")]
+        public Output<bool?> IsPlanAuthorized { get; private set; } = null!;
+
+        /// <summary>
+        /// The details of the latest operation. ex: status, error
+        /// </summary>
+        [Output("latestOperationResult")]
+        public Output<Outputs.LatestOperationResultResponseResult> LatestOperationResult { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -27,10 +81,16 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The gallery image properties
+        /// The third party plan that applies to this image
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.GalleryImagePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("planId")]
+        public Output<string> PlanId { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning status of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -43,6 +103,12 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string?> UniqueIdentifier { get; private set; } = null!;
 
 
         /// <summary>

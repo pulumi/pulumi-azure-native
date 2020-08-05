@@ -40,13 +40,25 @@ namespace Pulumi.AzureRM.Cache.V20180301
     public sealed class GetLinkedServerResult
     {
         /// <summary>
+        /// Fully qualified resourceId of the linked redis cache.
+        /// </summary>
+        public readonly string LinkedRedisCacheId;
+        /// <summary>
+        /// Location of the linked redis cache.
+        /// </summary>
+        public readonly string LinkedRedisCacheLocation;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the linked server.
+        /// Terminal state of the link between primary and secondary redis cache.
         /// </summary>
-        public readonly Outputs.RedisLinkedServerPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Role of the linked server.
+        /// </summary>
+        public readonly string ServerRole;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -54,14 +66,23 @@ namespace Pulumi.AzureRM.Cache.V20180301
 
         [OutputConstructor]
         private GetLinkedServerResult(
+            string linkedRedisCacheId,
+
+            string linkedRedisCacheLocation,
+
             string name,
 
-            Outputs.RedisLinkedServerPropertiesResponseResult properties,
+            string provisioningState,
+
+            string serverRole,
 
             string type)
         {
+            LinkedRedisCacheId = linkedRedisCacheId;
+            LinkedRedisCacheLocation = linkedRedisCacheLocation;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ServerRole = serverRole;
             Type = type;
         }
     }

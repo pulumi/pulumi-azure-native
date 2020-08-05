@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public partial class ApiTagDescription : Pulumi.CustomResource
     {
         /// <summary>
+        /// Description of the Tag.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Tag name.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of the external resources describing the tag.
+        /// </summary>
+        [Output("externalDocsDescription")]
+        public Output<string?> ExternalDocsDescription { get; private set; } = null!;
+
+        /// <summary>
+        /// Absolute URL of external resources describing the tag.
+        /// </summary>
+        [Output("externalDocsUrl")]
+        public Output<string?> ExternalDocsUrl { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// TagDescription entity contract properties.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.TagDescriptionContractPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource type for API Management resource.

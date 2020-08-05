@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Compute.V20181001
     public partial class ProximityPlacementGroup : Pulumi.CustomResource
     {
         /// <summary>
+        /// A list of references to all availability sets in the proximity placement group.
+        /// </summary>
+        [Output("availabilitySets")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> AvailabilitySets { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -27,10 +33,10 @@ namespace Pulumi.AzureRM.Compute.V20181001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the properties of a Proximity Placement Group.
+        /// Specifies the type of the proximity placement group. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Standard** : Co-locate resources within an Azure region or Availability Zone. &lt;br&gt;&lt;br&gt; **Ultra** : For future use.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ProximityPlacementGroupPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("proximityPlacementGroupType")]
+        public Output<string?> ProximityPlacementGroupType { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -43,6 +49,18 @@ namespace Pulumi.AzureRM.Compute.V20181001
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of references to all virtual machine scale sets in the proximity placement group.
+        /// </summary>
+        [Output("virtualMachineScaleSets")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualMachineScaleSets { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of references to all virtual machines in the proximity placement group.
+        /// </summary>
+        [Output("virtualMachines")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> VirtualMachines { get; private set; } = null!;
 
 
         /// <summary>

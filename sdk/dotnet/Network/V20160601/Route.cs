@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.Network.V20160601
     public partial class Route : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets the destination CIDR to which the route applies.
+        /// </summary>
+        [Output("addressPrefix")]
+        public Output<string?> AddressPrefix { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Output("etag")]
@@ -27,10 +33,22 @@ namespace Pulumi.AzureRM.Network.V20160601
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Route resource
+        /// Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RoutePropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("nextHopIpAddress")]
+        public Output<string?> NextHopIpAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the type of Azure hop the packet should be sent to.
+        /// </summary>
+        [Output("nextHopType")]
+        public Output<string> NextHopType { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets provisioning state of the resource Updating/Deleting/Failed
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
 
         /// <summary>

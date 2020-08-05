@@ -58,6 +58,30 @@ namespace Pulumi.AzureRM.LabServices.V20181015
     public sealed class GetEnvironmentResult
     {
         /// <summary>
+        /// The name or email address of the user who has claimed the environment
+        /// </summary>
+        public readonly string ClaimedByUserName;
+        /// <summary>
+        /// The AAD object Id of the user who has claimed the environment
+        /// </summary>
+        public readonly string ClaimedByUserObjectId;
+        /// <summary>
+        /// The user principal Id of the user who has claimed the environment
+        /// </summary>
+        public readonly string ClaimedByUserPrincipalId;
+        /// <summary>
+        /// Is the environment claimed or not
+        /// </summary>
+        public readonly bool IsClaimed;
+        /// <summary>
+        /// Last known power state of the environment
+        /// </summary>
+        public readonly string LastKnownPowerState;
+        /// <summary>
+        /// The details of the latest operation. ex: status, error
+        /// </summary>
+        public readonly Outputs.LatestOperationResultResponseResult LatestOperationResult;
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         public readonly string? Location;
@@ -66,35 +90,88 @@ namespace Pulumi.AzureRM.LabServices.V20181015
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the Environment resource
+        /// Network details of the environment
         /// </summary>
-        public readonly Outputs.EnvironmentPropertiesResponseResult Properties;
+        public readonly Outputs.NetworkInterfaceResponseResult NetworkInterface;
+        /// <summary>
+        /// When the password was last reset on the environment.
+        /// </summary>
+        public readonly string PasswordLastReset;
+        /// <summary>
+        /// The provisioning status of the resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The set of a VM and the setting id it was created for
+        /// </summary>
+        public readonly Outputs.ResourceSetResponseResult? ResourceSets;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// How long the environment has been used by a lab user
+        /// </summary>
+        public readonly string TotalUsage;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        public readonly string? UniqueIdentifier;
 
         [OutputConstructor]
         private GetEnvironmentResult(
+            string claimedByUserName,
+
+            string claimedByUserObjectId,
+
+            string claimedByUserPrincipalId,
+
+            bool isClaimed,
+
+            string lastKnownPowerState,
+
+            Outputs.LatestOperationResultResponseResult latestOperationResult,
+
             string? location,
 
             string name,
 
-            Outputs.EnvironmentPropertiesResponseResult properties,
+            Outputs.NetworkInterfaceResponseResult networkInterface,
+
+            string passwordLastReset,
+
+            string? provisioningState,
+
+            Outputs.ResourceSetResponseResult? resourceSets,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string totalUsage,
+
+            string type,
+
+            string? uniqueIdentifier)
         {
+            ClaimedByUserName = claimedByUserName;
+            ClaimedByUserObjectId = claimedByUserObjectId;
+            ClaimedByUserPrincipalId = claimedByUserPrincipalId;
+            IsClaimed = isClaimed;
+            LastKnownPowerState = lastKnownPowerState;
+            LatestOperationResult = latestOperationResult;
             Location = location;
             Name = name;
-            Properties = properties;
+            NetworkInterface = networkInterface;
+            PasswordLastReset = passwordLastReset;
+            ProvisioningState = provisioningState;
+            ResourceSets = resourceSets;
             Tags = tags;
+            TotalUsage = totalUsage;
             Type = type;
+            UniqueIdentifier = uniqueIdentifier;
         }
     }
 }

@@ -30,9 +30,17 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200301.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Resource properties.
+        /// The resource of private end point.
         /// </summary>
-        public readonly Outputs.PrivateEndpointConnectionPropertiesResponseResult? Properties;
+        public readonly Outputs.PrivateEndpointResponseResult? PrivateEndpoint;
+        /// <summary>
+        /// A collection of information about the state of the connection between service consumer and provider.
+        /// </summary>
+        public readonly Outputs.PrivateLinkServiceConnectionStateResponseResult PrivateLinkServiceConnectionState;
+        /// <summary>
+        /// The provisioning state of the private endpoint connection resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
@@ -56,7 +64,11 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200301.Outputs
 
             string name,
 
-            Outputs.PrivateEndpointConnectionPropertiesResponseResult? properties,
+            Outputs.PrivateEndpointResponseResult? privateEndpoint,
+
+            Outputs.PrivateLinkServiceConnectionStateResponseResult privateLinkServiceConnectionState,
+
+            string? provisioningState,
 
             Outputs.SkuResponseResult? sku,
 
@@ -68,7 +80,9 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200301.Outputs
             Identity = identity;
             Location = location;
             Name = name;
-            Properties = properties;
+            PrivateEndpoint = privateEndpoint;
+            PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
+            ProvisioningState = provisioningState;
             Sku = sku;
             Tags = tags;
             Type = type;

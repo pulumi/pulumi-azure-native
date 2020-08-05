@@ -60,9 +60,17 @@ namespace Pulumi.AzureRM.Compute.V20190301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of a gallery Image Version.
+        /// The provisioning state, which only appears in the response.
         /// </summary>
-        public readonly Outputs.GalleryApplicationVersionPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The publishing profile of a gallery Image Version.
+        /// </summary>
+        public readonly Outputs.GalleryApplicationVersionPublishingProfileResponseResult PublishingProfile;
+        /// <summary>
+        /// This is the replication status of the gallery Image Version.
+        /// </summary>
+        public readonly Outputs.ReplicationStatusResponseResult ReplicationStatus;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -78,7 +86,11 @@ namespace Pulumi.AzureRM.Compute.V20190301
 
             string name,
 
-            Outputs.GalleryApplicationVersionPropertiesResponseResult properties,
+            string provisioningState,
+
+            Outputs.GalleryApplicationVersionPublishingProfileResponseResult publishingProfile,
+
+            Outputs.ReplicationStatusResponseResult replicationStatus,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -86,7 +98,9 @@ namespace Pulumi.AzureRM.Compute.V20190301
         {
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            PublishingProfile = publishingProfile;
+            ReplicationStatus = replicationStatus;
             Tags = tags;
             Type = type;
         }

@@ -20,16 +20,16 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20171001.Outputs
         /// <summary>
         /// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
         /// </summary>
-        public readonly string Id;
+        public readonly string VirtualNetworkResourceId;
 
         [OutputConstructor]
         private VirtualNetworkRuleResponseResult(
             string? action,
 
-            string id)
+            string virtualNetworkResourceId)
         {
             Action = action;
-            Id = id;
+            VirtualNetworkResourceId = virtualNetworkResourceId;
         }
     }
 }

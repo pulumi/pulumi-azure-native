@@ -18,25 +18,39 @@ namespace Pulumi.AzureRM.Compute.V20150615.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The load balancer backend address pools.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> LoadBalancerBackendAddressPools;
+        /// <summary>
+        /// The load balancer inbound nat pools.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> LoadBalancerInboundNatPools;
+        /// <summary>
         /// The IP configuration name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes a virtual machine scale set network profile's IP configuration properties.
+        /// The subnet.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetIPConfigurationPropertiesResponseResult? Properties;
+        public readonly Outputs.ApiEntityReferenceResponseResult Subnet;
 
         [OutputConstructor]
         private VirtualMachineScaleSetIPConfigurationResponseResult(
             string? id,
 
+            ImmutableArray<Outputs.SubResourceResponseResult> loadBalancerBackendAddressPools,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> loadBalancerInboundNatPools,
+
             string name,
 
-            Outputs.VirtualMachineScaleSetIPConfigurationPropertiesResponseResult? properties)
+            Outputs.ApiEntityReferenceResponseResult subnet)
         {
             Id = id;
+            LoadBalancerBackendAddressPools = loadBalancerBackendAddressPools;
+            LoadBalancerInboundNatPools = loadBalancerInboundNatPools;
             Name = name;
-            Properties = properties;
+            Subnet = subnet;
         }
     }
 }

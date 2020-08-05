@@ -46,13 +46,41 @@ namespace Pulumi.AzureRM.Media.V20200501
     public sealed class GetAssetResult
     {
         /// <summary>
+        /// The alternate ID of the Asset.
+        /// </summary>
+        public readonly string? AlternateId;
+        /// <summary>
+        /// The Asset ID.
+        /// </summary>
+        public readonly string AssetId;
+        /// <summary>
+        /// The name of the asset blob container.
+        /// </summary>
+        public readonly string? Container;
+        /// <summary>
+        /// The creation date of the Asset.
+        /// </summary>
+        public readonly string Created;
+        /// <summary>
+        /// The Asset description.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// The last modified date of the Asset.
+        /// </summary>
+        public readonly string LastModified;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The resource properties.
+        /// The name of the storage account.
         /// </summary>
-        public readonly Outputs.AssetPropertiesResponseResult Properties;
+        public readonly string? StorageAccountName;
+        /// <summary>
+        /// The Asset encryption format. One of None or MediaStorageEncryption.
+        /// </summary>
+        public readonly string StorageEncryptionFormat;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -60,14 +88,35 @@ namespace Pulumi.AzureRM.Media.V20200501
 
         [OutputConstructor]
         private GetAssetResult(
+            string? alternateId,
+
+            string assetId,
+
+            string? container,
+
+            string created,
+
+            string? description,
+
+            string lastModified,
+
             string name,
 
-            Outputs.AssetPropertiesResponseResult properties,
+            string? storageAccountName,
+
+            string storageEncryptionFormat,
 
             string type)
         {
+            AlternateId = alternateId;
+            AssetId = assetId;
+            Container = container;
+            Created = created;
+            Description = description;
+            LastModified = lastModified;
             Name = name;
-            Properties = properties;
+            StorageAccountName = storageAccountName;
+            StorageEncryptionFormat = storageEncryptionFormat;
             Type = type;
         }
     }

@@ -21,10 +21,10 @@ namespace Pulumi.AzureRM.EventGrid.V20200601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Domain Topic.
+        /// Provisioning state of the domain topic.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DomainTopicPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Type of the resource.

@@ -27,10 +27,22 @@ namespace Pulumi.AzureRM.Network.V20191201
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the Virtual Router Peering.
+        /// Peer ASN.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualRouterPeeringPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("peerAsn")]
+        public Output<int?> PeerAsn { get; private set; } = null!;
+
+        /// <summary>
+        /// Peer IP.
+        /// </summary>
+        [Output("peerIp")]
+        public Output<string?> PeerIp { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Peering type.

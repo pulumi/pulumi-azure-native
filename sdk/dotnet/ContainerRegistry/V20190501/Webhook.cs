@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
     public partial class Webhook : Pulumi.CustomResource
     {
         /// <summary>
+        /// The list of actions that trigger the webhook to post notifications.
+        /// </summary>
+        [Output("actions")]
+        public Output<ImmutableArray<string>> Actions { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         [Output("location")]
@@ -27,10 +33,22 @@ namespace Pulumi.AzureRM.ContainerRegistry.V20190501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the webhook.
+        /// The provisioning state of the webhook at the time the operation was called.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WebhookPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+        /// </summary>
+        [Output("scope")]
+        public Output<string?> Scope { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of the webhook at the time the operation was called.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

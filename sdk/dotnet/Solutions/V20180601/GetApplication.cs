@@ -40,6 +40,10 @@ namespace Pulumi.AzureRM.Solutions.V20180601
     public sealed class GetApplicationResult
     {
         /// <summary>
+        /// The fully qualified path of managed application definition Id.
+        /// </summary>
+        public readonly string? ApplicationDefinitionId;
+        /// <summary>
         /// The identity of the resource.
         /// </summary>
         public readonly Outputs.IdentityResponseResult? Identity;
@@ -56,17 +60,29 @@ namespace Pulumi.AzureRM.Solutions.V20180601
         /// </summary>
         public readonly string? ManagedBy;
         /// <summary>
+        /// The managed resource group Id.
+        /// </summary>
+        public readonly string ManagedResourceGroupId;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Name and value pairs that define the managed application outputs.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object> Outputs;
+        /// <summary>
+        /// Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Parameters;
         /// <summary>
         /// The plan information.
         /// </summary>
         public readonly Outputs.PlanResponseResult? Plan;
         /// <summary>
-        /// The managed application properties.
+        /// The managed application provisioning state.
         /// </summary>
-        public readonly Outputs.ApplicationPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The SKU of the resource.
         /// </summary>
@@ -82,6 +98,8 @@ namespace Pulumi.AzureRM.Solutions.V20180601
 
         [OutputConstructor]
         private GetApplicationResult(
+            string? applicationDefinitionId,
+
             Outputs.IdentityResponseResult? identity,
 
             string kind,
@@ -90,11 +108,17 @@ namespace Pulumi.AzureRM.Solutions.V20180601
 
             string? managedBy,
 
+            string managedResourceGroupId,
+
             string name,
+
+            ImmutableDictionary<string, object> outputs,
+
+            ImmutableDictionary<string, object>? parameters,
 
             Outputs.PlanResponseResult? plan,
 
-            Outputs.ApplicationPropertiesResponseResult properties,
+            string provisioningState,
 
             Outputs.SkuResponseResult? sku,
 
@@ -102,13 +126,17 @@ namespace Pulumi.AzureRM.Solutions.V20180601
 
             string type)
         {
+            ApplicationDefinitionId = applicationDefinitionId;
             Identity = identity;
             Kind = kind;
             Location = location;
             ManagedBy = managedBy;
+            ManagedResourceGroupId = managedResourceGroupId;
             Name = name;
+            Outputs = outputs;
+            Parameters = parameters;
             Plan = plan;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Sku = sku;
             Tags = tags;
             Type = type;

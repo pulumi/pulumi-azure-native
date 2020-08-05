@@ -15,10 +15,58 @@ namespace Pulumi.AzureRM.Automation.V20180630
     public partial class Python2Package : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets the activity count of the module.
+        /// </summary>
+        [Output("activityCount")]
+        public Output<int?> ActivityCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the contentLink of the module.
+        /// </summary>
+        [Output("contentLink")]
+        public Output<Outputs.ContentLinkResponseResult?> ContentLink { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the creation time.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string?> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the error info of the module.
+        /// </summary>
+        [Output("error")]
+        public Output<Outputs.ModuleErrorInfoResponseResult?> Error { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets type of module, if its composite or not.
+        /// </summary>
+        [Output("isComposite")]
+        public Output<bool?> IsComposite { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the isGlobal flag of the module.
+        /// </summary>
+        [Output("isGlobal")]
+        public Output<bool?> IsGlobal { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string?> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the resource lives
@@ -33,10 +81,16 @@ namespace Pulumi.AzureRM.Automation.V20180630
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the module properties.
+        /// Gets or sets the provisioning state of the module.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ModulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the size in bytes of the module.
+        /// </summary>
+        [Output("sizeInBytes")]
+        public Output<int?> SizeInBytes { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +103,12 @@ namespace Pulumi.AzureRM.Automation.V20180630
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the version of the module.
+        /// </summary>
+        [Output("version")]
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>

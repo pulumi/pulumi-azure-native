@@ -56,9 +56,9 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Policy.
+        /// Json escaped Xml Encoded contents of the Policy.
         /// </summary>
-        public readonly Outputs.PolicyContractPropertiesResponseResult Properties;
+        public readonly string PolicyContent;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -68,12 +68,12 @@ namespace Pulumi.AzureRM.ApiManagement.V20170301
         private GetApiPolicyResult(
             string name,
 
-            Outputs.PolicyContractPropertiesResponseResult properties,
+            string policyContent,
 
             string type)
         {
             Name = name;
-            Properties = properties;
+            PolicyContent = policyContent;
             Type = type;
         }
     }

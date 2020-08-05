@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.Network.V20190801
     public partial class ExpressRouteConnection : Pulumi.CustomResource
     {
         /// <summary>
+        /// Authorization key to establish the connection.
+        /// </summary>
+        [Output("authorizationKey")]
+        public Output<string?> AuthorizationKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The ExpressRoute circuit peering.
+        /// </summary>
+        [Output("expressRouteCircuitPeering")]
+        public Output<Outputs.ExpressRouteCircuitPeeringIdResponseResult> ExpressRouteCircuitPeering { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the express route connection.
+        /// The provisioning state of the express route connection resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ExpressRouteConnectionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The routing weight associated to the connection.
+        /// </summary>
+        [Output("routingWeight")]
+        public Output<int?> RoutingWeight { get; private set; } = null!;
 
 
         /// <summary>

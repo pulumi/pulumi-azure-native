@@ -15,6 +15,24 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
     public partial class GlobalSchedule : Pulumi.CustomResource
     {
         /// <summary>
+        /// The creation date of the schedule.
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
+        /// If the schedule will occur once each day of the week, specify the daily recurrence.
+        /// </summary>
+        [Output("dailyRecurrence")]
+        public Output<Outputs.DayDetailsResponseResult?> DailyRecurrence { get; private set; } = null!;
+
+        /// <summary>
+        /// If the schedule will occur multiple times a day, specify the hourly recurrence.
+        /// </summary>
+        [Output("hourlyRecurrence")]
+        public Output<Outputs.HourDetailsResponseResult?> HourlyRecurrence { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -27,10 +45,22 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// Notification settings.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SchedulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("notificationSettings")]
+        public Output<Outputs.NotificationSettingsResponseResult?> NotificationSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning status of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The status of the schedule (i.e. Enabled, Disabled)
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -39,10 +69,40 @@ namespace Pulumi.AzureRM.DevTestLab.V20160515
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// The resource ID to which the schedule belongs
+        /// </summary>
+        [Output("targetResourceId")]
+        public Output<string?> TargetResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+        /// </summary>
+        [Output("taskType")]
+        public Output<string?> TaskType { get; private set; } = null!;
+
+        /// <summary>
+        /// The time zone ID (e.g. Pacific Standard time).
+        /// </summary>
+        [Output("timeZoneId")]
+        public Output<string?> TimeZoneId { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string?> UniqueIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// If the schedule will occur only some days of the week, specify the weekly recurrence.
+        /// </summary>
+        [Output("weeklyRecurrence")]
+        public Output<Outputs.WeekDetailsResponseResult?> WeeklyRecurrence { get; private set; } = null!;
 
 
         /// <summary>

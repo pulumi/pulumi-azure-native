@@ -46,13 +46,33 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
     public sealed class GetEmailTemplateResult
     {
         /// <summary>
+        /// Email Template Body. This should be a valid XDocument
+        /// </summary>
+        public readonly string Body;
+        /// <summary>
+        /// Description of the Email Template.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Whether the template is the default template provided by Api Management or has been edited.
+        /// </summary>
+        public readonly bool IsDefault;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Email Template entity contract properties.
+        /// Email Template Parameter values.
         /// </summary>
-        public readonly Outputs.EmailTemplateContractPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.EmailTemplateParametersContractPropertiesResponseResult> Parameters;
+        /// <summary>
+        /// Subject of the Template.
+        /// </summary>
+        public readonly string Subject;
+        /// <summary>
+        /// Title of the Template.
+        /// </summary>
+        public readonly string? Title;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -60,14 +80,29 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
 
         [OutputConstructor]
         private GetEmailTemplateResult(
+            string body,
+
+            string? description,
+
+            bool isDefault,
+
             string name,
 
-            Outputs.EmailTemplateContractPropertiesResponseResult properties,
+            ImmutableArray<Outputs.EmailTemplateParametersContractPropertiesResponseResult> parameters,
+
+            string subject,
+
+            string? title,
 
             string type)
         {
+            Body = body;
+            Description = description;
+            IsDefault = isDefault;
             Name = name;
-            Properties = properties;
+            Parameters = parameters;
+            Subject = subject;
+            Title = title;
             Type = type;
         }
     }

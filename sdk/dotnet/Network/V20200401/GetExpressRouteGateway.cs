@@ -40,9 +40,17 @@ namespace Pulumi.AzureRM.Network.V20200401
     public sealed class GetExpressRouteGatewayResult
     {
         /// <summary>
+        /// Configuration for auto scaling.
+        /// </summary>
+        public readonly Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationResult? AutoScaleConfiguration;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// List of ExpressRoute connections to the ExpressRoute gateway.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ExpressRouteConnectionResponseResult> ExpressRouteConnections;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,9 +60,9 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the express route gateway.
+        /// The provisioning state of the express route gateway resource.
         /// </summary>
-        public readonly Outputs.ExpressRouteGatewayPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +71,40 @@ namespace Pulumi.AzureRM.Network.V20200401
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The Virtual Hub where the ExpressRoute gateway is or will be deployed.
+        /// </summary>
+        public readonly Outputs.VirtualHubIdResponseResult VirtualHub;
 
         [OutputConstructor]
         private GetExpressRouteGatewayResult(
+            Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationResult? autoScaleConfiguration,
+
             string etag,
+
+            ImmutableArray<Outputs.ExpressRouteConnectionResponseResult> expressRouteConnections,
 
             string? location,
 
             string name,
 
-            Outputs.ExpressRouteGatewayPropertiesResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.VirtualHubIdResponseResult virtualHub)
         {
+            AutoScaleConfiguration = autoScaleConfiguration;
             Etag = etag;
+            ExpressRouteConnections = expressRouteConnections;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            VirtualHub = virtualHub;
         }
     }
 }

@@ -15,16 +15,16 @@ namespace Pulumi.AzureRM.DataLakeStore.V20161101
     public partial class TrustedIdProvider : Pulumi.CustomResource
     {
         /// <summary>
+        /// The URL of this trusted identity provider.
+        /// </summary>
+        [Output("idProvider")]
+        public Output<string> IdProvider { get; private set; } = null!;
+
+        /// <summary>
         /// The resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The trusted identity provider properties.
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.TrustedIdProviderPropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.

@@ -21,6 +21,18 @@ namespace Pulumi.AzureRM.Network.V20190701
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// The Gateway on which VirtualRouter is hosted.
+        /// </summary>
+        [Output("hostedGateway")]
+        public Output<Outputs.SubResourceResponseResult?> HostedGateway { get; private set; } = null!;
+
+        /// <summary>
+        /// The Subnet on which VirtualRouter is hosted.
+        /// </summary>
+        [Output("hostedSubnet")]
+        public Output<Outputs.SubResourceResponseResult?> HostedSubnet { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -33,10 +45,16 @@ namespace Pulumi.AzureRM.Network.V20190701
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the Virtual Router.
+        /// List of references to VirtualRouterPeerings
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualRouterPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("peerings")]
+        public Output<ImmutableArray<Outputs.SubResourceResponseResult>> Peerings { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +67,18 @@ namespace Pulumi.AzureRM.Network.V20190701
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// VirtualRouter ASN.
+        /// </summary>
+        [Output("virtualRouterAsn")]
+        public Output<int?> VirtualRouterAsn { get; private set; } = null!;
+
+        /// <summary>
+        /// VirtualRouter IPs
+        /// </summary>
+        [Output("virtualRouterIps")]
+        public Output<ImmutableArray<string>> VirtualRouterIps { get; private set; } = null!;
 
 
         /// <summary>

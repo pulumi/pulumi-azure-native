@@ -21,10 +21,16 @@ namespace Pulumi.AzureRM.Advisor.V20170419
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the suppression.
+        /// The GUID of the suppression.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SuppressionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("suppressionId")]
+        public Output<string?> SuppressionId { get; private set; } = null!;
+
+        /// <summary>
+        /// The duration for which the suppression is valid.
+        /// </summary>
+        [Output("ttl")]
+        public Output<string?> Ttl { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

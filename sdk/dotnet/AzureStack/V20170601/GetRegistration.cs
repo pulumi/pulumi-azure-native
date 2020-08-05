@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
     public sealed class GetRegistrationResult
     {
         /// <summary>
+        /// Specifies the billing mode for the Azure Stack registration.
+        /// </summary>
+        public readonly string? BillingModel;
+        /// <summary>
+        /// The identifier of the registered Azure Stack.
+        /// </summary>
+        public readonly string? CloudId;
+        /// <summary>
         /// The entity tag used for optimistic concurrency when modifying the resource.
         /// </summary>
         public readonly string? Etag;
@@ -52,9 +60,9 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Registration resource.
+        /// The object identifier associated with the Azure Stack connecting to Azure.
         /// </summary>
-        public readonly Outputs.RegistrationPropertiesResponseResult Properties;
+        public readonly string? ObjectId;
         /// <summary>
         /// Custom tags for the resource.
         /// </summary>
@@ -66,22 +74,28 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
 
         [OutputConstructor]
         private GetRegistrationResult(
+            string? billingModel,
+
+            string? cloudId,
+
             string? etag,
 
             string location,
 
             string name,
 
-            Outputs.RegistrationPropertiesResponseResult properties,
+            string? objectId,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            BillingModel = billingModel;
+            CloudId = cloudId;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            ObjectId = objectId;
             Tags = tags;
             Type = type;
         }

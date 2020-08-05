@@ -46,17 +46,33 @@ namespace Pulumi.AzureRM.Logic.V20160601
     public sealed class GetCertificateResult
     {
         /// <summary>
+        /// The changed time.
+        /// </summary>
+        public readonly string ChangedTime;
+        /// <summary>
+        /// The created time.
+        /// </summary>
+        public readonly string CreatedTime;
+        /// <summary>
+        /// The key details in the key vault.
+        /// </summary>
+        public readonly Outputs.KeyVaultKeyReferenceResponseResult? Key;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// The metadata.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// Gets the resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The integration account certificate properties.
+        /// The public certificate.
         /// </summary>
-        public readonly Outputs.IntegrationAccountCertificatePropertiesResponseResult Properties;
+        public readonly string? PublicCertificate;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -68,19 +84,31 @@ namespace Pulumi.AzureRM.Logic.V20160601
 
         [OutputConstructor]
         private GetCertificateResult(
+            string changedTime,
+
+            string createdTime,
+
+            Outputs.KeyVaultKeyReferenceResponseResult? key,
+
             string? location,
+
+            ImmutableDictionary<string, object>? metadata,
 
             string name,
 
-            Outputs.IntegrationAccountCertificatePropertiesResponseResult properties,
+            string? publicCertificate,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            ChangedTime = changedTime;
+            CreatedTime = createdTime;
+            Key = key;
             Location = location;
+            Metadata = metadata;
             Name = name;
-            Properties = properties;
+            PublicCertificate = publicCertificate;
             Tags = tags;
             Type = type;
         }

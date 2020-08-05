@@ -18,25 +18,32 @@ namespace Pulumi.AzureRM.Compute.V20150615.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The virtual machine scale set IP Configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualMachineScaleSetIPConfigurationResponseResult> IpConfigurations;
+        /// <summary>
         /// The network configuration name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes a virtual machine scale set network profile's IP configuration.
+        /// Whether this is a primary NIC on a virtual machine.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetNetworkConfigurationPropertiesResponseResult? Properties;
+        public readonly bool? Primary;
 
         [OutputConstructor]
         private VirtualMachineScaleSetNetworkConfigurationResponseResult(
             string? id,
 
+            ImmutableArray<Outputs.VirtualMachineScaleSetIPConfigurationResponseResult> ipConfigurations,
+
             string name,
 
-            Outputs.VirtualMachineScaleSetNetworkConfigurationPropertiesResponseResult? properties)
+            bool? primary)
         {
             Id = id;
+            IpConfigurations = ipConfigurations;
             Name = name;
-            Properties = properties;
+            Primary = primary;
         }
     }
 }

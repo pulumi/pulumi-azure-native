@@ -21,10 +21,10 @@ namespace Pulumi.AzureRM.Storage.V20190601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Table resource properties.
+        /// Table name under the specified account
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.TablePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("tableName")]
+        public Output<string> TableName { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

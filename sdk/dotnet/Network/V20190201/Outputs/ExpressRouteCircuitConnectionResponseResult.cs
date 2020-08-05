@@ -14,9 +14,25 @@ namespace Pulumi.AzureRM.Network.V20190201.Outputs
     public sealed class ExpressRouteCircuitConnectionResponseResult
     {
         /// <summary>
+        /// /29 IP address space to carve out Customer addresses for tunnels.
+        /// </summary>
+        public readonly string? AddressPrefix;
+        /// <summary>
+        /// The authorization key.
+        /// </summary>
+        public readonly string? AuthorizationKey;
+        /// <summary>
+        /// Express Route Circuit connection state.
+        /// </summary>
+        public readonly string? CircuitConnectionStatus;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? ExpressRouteCircuitPeering;
         /// <summary>
         /// Resource ID.
         /// </summary>
@@ -26,24 +42,43 @@ namespace Pulumi.AzureRM.Network.V20190201.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the express route circuit connection.
+        /// Reference to Express Route Circuit Private Peering Resource of the peered circuit.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitConnectionPropertiesFormatResponseResult? Properties;
+        public readonly Outputs.SubResourceResponseResult? PeerExpressRouteCircuitPeering;
+        /// <summary>
+        /// Provisioning state of the circuit connection resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private ExpressRouteCircuitConnectionResponseResult(
+            string? addressPrefix,
+
+            string? authorizationKey,
+
+            string? circuitConnectionStatus,
+
             string etag,
+
+            Outputs.SubResourceResponseResult? expressRouteCircuitPeering,
 
             string? id,
 
             string? name,
 
-            Outputs.ExpressRouteCircuitConnectionPropertiesFormatResponseResult? properties)
+            Outputs.SubResourceResponseResult? peerExpressRouteCircuitPeering,
+
+            string provisioningState)
         {
+            AddressPrefix = addressPrefix;
+            AuthorizationKey = authorizationKey;
+            CircuitConnectionStatus = circuitConnectionStatus;
             Etag = etag;
+            ExpressRouteCircuitPeering = expressRouteCircuitPeering;
             Id = id;
             Name = name;
-            Properties = properties;
+            PeerExpressRouteCircuitPeering = peerExpressRouteCircuitPeering;
+            ProvisioningState = provisioningState;
         }
     }
 }

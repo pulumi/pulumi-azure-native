@@ -40,6 +40,42 @@ namespace Pulumi.AzureRM.Network.V20200101
     public sealed class GetFrontDoorResult
     {
         /// <summary>
+        /// Backend pools available to routing rules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.BackendPoolResponseResult> BackendPools;
+        /// <summary>
+        /// Settings for all backendPools
+        /// </summary>
+        public readonly Outputs.BackendPoolsSettingsResponseResult? BackendPoolsSettings;
+        /// <summary>
+        /// The host that each frontendEndpoint must CNAME to.
+        /// </summary>
+        public readonly string Cname;
+        /// <summary>
+        /// Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+        /// </summary>
+        public readonly string? EnabledState;
+        /// <summary>
+        /// A friendly name for the frontDoor
+        /// </summary>
+        public readonly string? FriendlyName;
+        /// <summary>
+        /// The Id of the frontdoor.
+        /// </summary>
+        public readonly string FrontdoorId;
+        /// <summary>
+        /// Frontend endpoints available to routing rules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FrontendEndpointResponseResult> FrontendEndpoints;
+        /// <summary>
+        /// Health probe settings associated with this Front Door instance.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.HealthProbeSettingsModelResponseResult> HealthProbeSettings;
+        /// <summary>
+        /// Load balancing settings associated with this Front Door instance.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LoadBalancingSettingsModelResponseResult> LoadBalancingSettings;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -48,9 +84,21 @@ namespace Pulumi.AzureRM.Network.V20200101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Front Door Load Balancer
+        /// Provisioning state of the Front Door.
         /// </summary>
-        public readonly Outputs.FrontDoorPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Resource status of the Front Door.
+        /// </summary>
+        public readonly string? ResourceState;
+        /// <summary>
+        /// Routing rules associated with this Front Door.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RoutingRuleResponseResult> RoutingRules;
+        /// <summary>
+        /// Rules Engine Configurations available to routing rules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RulesEngineResponseResult> RulesEngines;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -62,19 +110,55 @@ namespace Pulumi.AzureRM.Network.V20200101
 
         [OutputConstructor]
         private GetFrontDoorResult(
+            ImmutableArray<Outputs.BackendPoolResponseResult> backendPools,
+
+            Outputs.BackendPoolsSettingsResponseResult? backendPoolsSettings,
+
+            string cname,
+
+            string? enabledState,
+
+            string? friendlyName,
+
+            string frontdoorId,
+
+            ImmutableArray<Outputs.FrontendEndpointResponseResult> frontendEndpoints,
+
+            ImmutableArray<Outputs.HealthProbeSettingsModelResponseResult> healthProbeSettings,
+
+            ImmutableArray<Outputs.LoadBalancingSettingsModelResponseResult> loadBalancingSettings,
+
             string? location,
 
             string name,
 
-            Outputs.FrontDoorPropertiesResponseResult properties,
+            string provisioningState,
+
+            string? resourceState,
+
+            ImmutableArray<Outputs.RoutingRuleResponseResult> routingRules,
+
+            ImmutableArray<Outputs.RulesEngineResponseResult> rulesEngines,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            BackendPools = backendPools;
+            BackendPoolsSettings = backendPoolsSettings;
+            Cname = cname;
+            EnabledState = enabledState;
+            FriendlyName = friendlyName;
+            FrontdoorId = frontdoorId;
+            FrontendEndpoints = frontendEndpoints;
+            HealthProbeSettings = healthProbeSettings;
+            LoadBalancingSettings = loadBalancingSettings;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ResourceState = resourceState;
+            RoutingRules = routingRules;
+            RulesEngines = rulesEngines;
             Tags = tags;
             Type = type;
         }

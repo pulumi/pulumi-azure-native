@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.Network.V20180701
     public sealed class GetVpnGatewayResult
     {
         /// <summary>
+        /// Local network gateway's BGP speaker settings.
+        /// </summary>
+        public readonly Outputs.BgpSettingsResponseResult? BgpSettings;
+        /// <summary>
+        /// list of all vpn connections to the gateway.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VpnConnectionResponseResult> Connections;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -52,9 +60,13 @@ namespace Pulumi.AzureRM.Network.V20180701
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Parameters for VpnGateway
+        /// The policies applied to this vpn gateway.
         /// </summary>
-        public readonly Outputs.VpnGatewayPropertiesResponseResult Properties;
+        public readonly Outputs.PoliciesResponseResult? Policies;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,27 +75,43 @@ namespace Pulumi.AzureRM.Network.V20180701
         /// Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The VirtualHub to which the gateway belongs
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? VirtualHub;
 
         [OutputConstructor]
         private GetVpnGatewayResult(
+            Outputs.BgpSettingsResponseResult? bgpSettings,
+
+            ImmutableArray<Outputs.VpnConnectionResponseResult> connections,
+
             string etag,
 
             string location,
 
             string name,
 
-            Outputs.VpnGatewayPropertiesResponseResult properties,
+            Outputs.PoliciesResponseResult? policies,
+
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.SubResourceResponseResult? virtualHub)
         {
+            BgpSettings = bgpSettings;
+            Connections = connections;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            Policies = policies;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            VirtualHub = virtualHub;
         }
     }
 }

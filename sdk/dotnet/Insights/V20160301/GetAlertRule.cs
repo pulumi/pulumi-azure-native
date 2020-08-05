@@ -40,6 +40,22 @@ namespace Pulumi.AzureRM.Insights.V20160301
     public sealed class GetAlertRuleResult
     {
         /// <summary>
+        /// the condition that results in the alert rule being activated.
+        /// </summary>
+        public readonly Outputs.RuleConditionResponseResult Condition;
+        /// <summary>
+        /// the description of the alert rule that will be included in the alert email.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// the flag that indicates whether the alert rule is enabled.
+        /// </summary>
+        public readonly bool IsEnabled;
+        /// <summary>
+        /// Last time the rule was updated in ISO8601 format.
+        /// </summary>
+        public readonly string LastUpdatedTime;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -47,10 +63,6 @@ namespace Pulumi.AzureRM.Insights.V20160301
         /// Azure resource name
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The alert rule properties of the resource.
-        /// </summary>
-        public readonly Outputs.AlertRuleResponseResult Properties;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -62,19 +74,28 @@ namespace Pulumi.AzureRM.Insights.V20160301
 
         [OutputConstructor]
         private GetAlertRuleResult(
+            Outputs.RuleConditionResponseResult condition,
+
+            string? description,
+
+            bool isEnabled,
+
+            string lastUpdatedTime,
+
             string location,
 
             string name,
-
-            Outputs.AlertRuleResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            Condition = condition;
+            Description = description;
+            IsEnabled = isEnabled;
+            LastUpdatedTime = lastUpdatedTime;
             Location = location;
             Name = name;
-            Properties = properties;
             Tags = tags;
             Type = type;
         }

@@ -26,9 +26,21 @@ namespace Pulumi.AzureRM.Network.V20160601.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of VirtualNetworkGatewayIPConfiguration
+        /// Gets or sets PrivateIP allocation method
         /// </summary>
-        public readonly Outputs.VirtualNetworkGatewayIPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly string? PrivateIPAllocationMethod;
+        /// <summary>
+        /// Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Gets or sets the reference of the PublicIP resource
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? PublicIPAddress;
+        /// <summary>
+        /// Gets or sets the reference of the subnet resource
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? Subnet;
 
         [OutputConstructor]
         private VirtualNetworkGatewayIPConfigurationResponseResult(
@@ -38,12 +50,21 @@ namespace Pulumi.AzureRM.Network.V20160601.Outputs
 
             string? name,
 
-            Outputs.VirtualNetworkGatewayIPConfigurationPropertiesFormatResponseResult? properties)
+            string? privateIPAllocationMethod,
+
+            string? provisioningState,
+
+            Outputs.SubResourceResponseResult? publicIPAddress,
+
+            Outputs.SubResourceResponseResult? subnet)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            PrivateIPAllocationMethod = privateIPAllocationMethod;
+            ProvisioningState = provisioningState;
+            PublicIPAddress = publicIPAddress;
+            Subnet = subnet;
         }
     }
 }

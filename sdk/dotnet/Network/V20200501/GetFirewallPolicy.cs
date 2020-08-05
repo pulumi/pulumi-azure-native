@@ -40,9 +40,25 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class GetFirewallPolicyResult
     {
         /// <summary>
+        /// The parent firewall policy from which rules are inherited.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? BasePolicy;
+        /// <summary>
+        /// List of references to Child Firewall Policies.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> ChildPolicies;
+        /// <summary>
+        /// DNS Proxy Settings definition.
+        /// </summary>
+        public readonly Outputs.DnsSettingsResponseResult? DnsSettings;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// List of references to Azure Firewalls that this Firewall Policy is associated with.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> Firewalls;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,13 +68,25 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the firewall policy.
+        /// The provisioning state of the firewall policy resource.
         /// </summary>
-        public readonly Outputs.FirewallPolicyPropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// List of references to FirewallPolicyRuleCollectionGroups.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> RuleCollectionGroups;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The operation mode for Threat Intelligence.
+        /// </summary>
+        public readonly string? ThreatIntelMode;
+        /// <summary>
+        /// ThreatIntel Whitelist for Firewall Policy.
+        /// </summary>
+        public readonly Outputs.FirewallPolicyThreatIntelWhitelistResponseResult? ThreatIntelWhitelist;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -66,23 +94,44 @@ namespace Pulumi.AzureRM.Network.V20200501
 
         [OutputConstructor]
         private GetFirewallPolicyResult(
+            Outputs.SubResourceResponseResult? basePolicy,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> childPolicies,
+
+            Outputs.DnsSettingsResponseResult? dnsSettings,
+
             string etag,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> firewalls,
 
             string? location,
 
             string name,
 
-            Outputs.FirewallPolicyPropertiesFormatResponseResult properties,
+            string provisioningState,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> ruleCollectionGroups,
 
             ImmutableDictionary<string, string>? tags,
 
+            string? threatIntelMode,
+
+            Outputs.FirewallPolicyThreatIntelWhitelistResponseResult? threatIntelWhitelist,
+
             string type)
         {
+            BasePolicy = basePolicy;
+            ChildPolicies = childPolicies;
+            DnsSettings = dnsSettings;
             Etag = etag;
+            Firewalls = firewalls;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            RuleCollectionGroups = ruleCollectionGroups;
             Tags = tags;
+            ThreatIntelMode = threatIntelMode;
+            ThreatIntelWhitelist = threatIntelWhitelist;
             Type = type;
         }
     }

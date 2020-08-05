@@ -14,29 +14,71 @@ namespace Pulumi.AzureRM.Compute.V20171201.Outputs
     public sealed class VirtualMachineScaleSetIPConfigurationResponseResult
     {
         /// <summary>
+        /// Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> ApplicationGatewayBackendAddressPools;
+        /// <summary>
         /// Resource Id
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> LoadBalancerBackendAddressPools;
+        /// <summary>
+        /// Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponseResult> LoadBalancerInboundNatPools;
         /// <summary>
         /// The IP configuration name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes a virtual machine scale set network profile's IP configuration properties.
+        /// Specifies the primary network interface in case the virtual machine has more than 1 network interface.
         /// </summary>
-        public readonly Outputs.VirtualMachineScaleSetIPConfigurationPropertiesResponseResult? Properties;
+        public readonly bool? Primary;
+        /// <summary>
+        /// Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
+        /// </summary>
+        public readonly string? PrivateIPAddressVersion;
+        /// <summary>
+        /// The publicIPAddressConfiguration.
+        /// </summary>
+        public readonly Outputs.VirtualMachineScaleSetPublicIPAddressConfigurationResponseResult? PublicIPAddressConfiguration;
+        /// <summary>
+        /// Specifies the identifier of the subnet.
+        /// </summary>
+        public readonly Outputs.ApiEntityReferenceResponseResult? Subnet;
 
         [OutputConstructor]
         private VirtualMachineScaleSetIPConfigurationResponseResult(
+            ImmutableArray<Outputs.SubResourceResponseResult> applicationGatewayBackendAddressPools,
+
             string? id,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> loadBalancerBackendAddressPools,
+
+            ImmutableArray<Outputs.SubResourceResponseResult> loadBalancerInboundNatPools,
 
             string name,
 
-            Outputs.VirtualMachineScaleSetIPConfigurationPropertiesResponseResult? properties)
+            bool? primary,
+
+            string? privateIPAddressVersion,
+
+            Outputs.VirtualMachineScaleSetPublicIPAddressConfigurationResponseResult? publicIPAddressConfiguration,
+
+            Outputs.ApiEntityReferenceResponseResult? subnet)
         {
+            ApplicationGatewayBackendAddressPools = applicationGatewayBackendAddressPools;
             Id = id;
+            LoadBalancerBackendAddressPools = loadBalancerBackendAddressPools;
+            LoadBalancerInboundNatPools = loadBalancerInboundNatPools;
             Name = name;
-            Properties = properties;
+            Primary = primary;
+            PrivateIPAddressVersion = privateIPAddressVersion;
+            PublicIPAddressConfiguration = publicIPAddressConfiguration;
+            Subnet = subnet;
         }
     }
 }

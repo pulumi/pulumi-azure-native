@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.Web.V20180201
     public partial class WebAppHostNameBinding : Pulumi.CustomResource
     {
         /// <summary>
+        /// Azure resource name.
+        /// </summary>
+        [Output("azureResourceName")]
+        public Output<string?> AzureResourceName { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure resource type.
+        /// </summary>
+        [Output("azureResourceType")]
+        public Output<string?> AzureResourceType { get; private set; } = null!;
+
+        /// <summary>
+        /// Custom DNS record type.
+        /// </summary>
+        [Output("customHostNameDnsRecordType")]
+        public Output<string?> CustomHostNameDnsRecordType { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified ARM domain resource URI.
+        /// </summary>
+        [Output("domainId")]
+        public Output<string?> DomainId { get; private set; } = null!;
+
+        /// <summary>
+        /// Hostname type.
+        /// </summary>
+        [Output("hostNameType")]
+        public Output<string?> HostNameType { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         [Output("kind")]
@@ -27,16 +57,34 @@ namespace Pulumi.AzureRM.Web.V20180201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// HostNameBinding resource specific properties
+        /// App Service app name.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.HostNameBindingResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("siteName")]
+        public Output<string?> SiteName { get; private set; } = null!;
+
+        /// <summary>
+        /// SSL type
+        /// </summary>
+        [Output("sslState")]
+        public Output<string?> SslState { get; private set; } = null!;
+
+        /// <summary>
+        /// SSL certificate thumbprint
+        /// </summary>
+        [Output("thumbprint")]
+        public Output<string?> Thumbprint { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Virtual IP address assigned to the hostname if IP based SSL is enabled.
+        /// </summary>
+        [Output("virtualIP")]
+        public Output<string> VirtualIP { get; private set; } = null!;
 
 
         /// <summary>

@@ -15,10 +15,58 @@ namespace Pulumi.AzureRM.AAD.V20170601
     public partial class DomainService : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of Domain Controller IP Address
+        /// </summary>
+        [Output("domainControllerIpAddress")]
+        public Output<ImmutableArray<string>> DomainControllerIpAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the Azure domain that the user would like to deploy Domain Services to.
+        /// </summary>
+        [Output("domainName")]
+        public Output<string?> DomainName { get; private set; } = null!;
+
+        /// <summary>
+        /// DomainSecurity Settings
+        /// </summary>
+        [Output("domainSecuritySettings")]
+        public Output<Outputs.DomainSecuritySettingsResponseResult?> DomainSecuritySettings { get; private set; } = null!;
+
+        /// <summary>
         /// Resource etag
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Enabled or Disabled flag to turn on Group-based filtered sync
+        /// </summary>
+        [Output("filteredSync")]
+        public Output<string?> FilteredSync { get; private set; } = null!;
+
+        /// <summary>
+        /// List of Domain Health Alerts
+        /// </summary>
+        [Output("healthAlerts")]
+        public Output<ImmutableArray<Outputs.HealthAlertResponseResult>> HealthAlerts { get; private set; } = null!;
+
+        /// <summary>
+        /// Last domain evaluation run DateTime
+        /// </summary>
+        [Output("healthLastEvaluated")]
+        public Output<string> HealthLastEvaluated { get; private set; } = null!;
+
+        /// <summary>
+        /// List of Domain Health Monitors
+        /// </summary>
+        [Output("healthMonitors")]
+        public Output<ImmutableArray<Outputs.HealthMonitorResponseResult>> HealthMonitors { get; private set; } = null!;
+
+        /// <summary>
+        /// Secure LDAP Settings
+        /// </summary>
+        [Output("ldapsSettings")]
+        public Output<Outputs.LdapsSettingsResponseResult?> LdapsSettings { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -33,10 +81,28 @@ namespace Pulumi.AzureRM.AAD.V20170601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Domain service properties
+        /// Notification Settings
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DomainServicePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("notificationSettings")]
+        public Output<Outputs.NotificationSettingsResponseResult?> NotificationSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// the current deployment or provisioning state, which only appears in the response.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Status of Domain Service instance
+        /// </summary>
+        [Output("serviceStatus")]
+        public Output<string> ServiceStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
+        /// </summary>
+        [Output("subnetId")]
+        public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -45,10 +111,22 @@ namespace Pulumi.AzureRM.AAD.V20170601
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Active Directory tenant id
+        /// </summary>
+        [Output("tenantId")]
+        public Output<string> TenantId { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Virtual network site id
+        /// </summary>
+        [Output("vnetSiteId")]
+        public Output<string> VnetSiteId { get; private set; } = null!;
 
 
         /// <summary>

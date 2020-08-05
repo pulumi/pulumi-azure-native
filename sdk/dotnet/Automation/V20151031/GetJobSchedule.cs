@@ -46,13 +46,29 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public sealed class GetJobScheduleResult
     {
         /// <summary>
+        /// Gets or sets the id of job schedule.
+        /// </summary>
+        public readonly string? JobScheduleId;
+        /// <summary>
         /// Gets the name of the variable.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Gets or sets the properties of the job schedule.
+        /// Gets or sets the parameters of the job schedule.
         /// </summary>
-        public readonly Outputs.JobSchedulePropertiesResponseResult Properties;
+        public readonly ImmutableDictionary<string, string>? Parameters;
+        /// <summary>
+        /// Gets or sets the hybrid worker group that the scheduled job should run on.
+        /// </summary>
+        public readonly string? RunOn;
+        /// <summary>
+        /// Gets or sets the runbook.
+        /// </summary>
+        public readonly Outputs.RunbookAssociationPropertyResponseResult? Runbook;
+        /// <summary>
+        /// Gets or sets the schedule.
+        /// </summary>
+        public readonly Outputs.ScheduleAssociationPropertyResponseResult? Schedule;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -60,14 +76,26 @@ namespace Pulumi.AzureRM.Automation.V20151031
 
         [OutputConstructor]
         private GetJobScheduleResult(
+            string? jobScheduleId,
+
             string name,
 
-            Outputs.JobSchedulePropertiesResponseResult properties,
+            ImmutableDictionary<string, string>? parameters,
+
+            string? runOn,
+
+            Outputs.RunbookAssociationPropertyResponseResult? runbook,
+
+            Outputs.ScheduleAssociationPropertyResponseResult? schedule,
 
             string type)
         {
+            JobScheduleId = jobScheduleId;
             Name = name;
-            Properties = properties;
+            Parameters = parameters;
+            RunOn = runOn;
+            Runbook = runbook;
+            Schedule = schedule;
             Type = type;
         }
     }

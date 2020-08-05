@@ -46,6 +46,10 @@ namespace Pulumi.AzureRM.Kusto.V20190515
     public sealed class GetDatabaseResult
     {
         /// <summary>
+        /// The time the data should be kept in cache for fast queries in TimeSpan.
+        /// </summary>
+        public readonly string? HotCachePeriod;
+        /// <summary>
         /// Resource location.
         /// </summary>
         public readonly string? Location;
@@ -54,9 +58,17 @@ namespace Pulumi.AzureRM.Kusto.V20190515
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The database properties.
+        /// The provisioned state of the resource.
         /// </summary>
-        public readonly Outputs.DatabasePropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The time the data should be kept before it stops being accessible to queries in TimeSpan.
+        /// </summary>
+        public readonly string? SoftDeletePeriod;
+        /// <summary>
+        /// The statistics of the database.
+        /// </summary>
+        public readonly Outputs.DatabaseStatisticsResponseResult? Statistics;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -64,17 +76,26 @@ namespace Pulumi.AzureRM.Kusto.V20190515
 
         [OutputConstructor]
         private GetDatabaseResult(
+            string? hotCachePeriod,
+
             string? location,
 
             string name,
 
-            Outputs.DatabasePropertiesResponseResult properties,
+            string provisioningState,
+
+            string? softDeletePeriod,
+
+            Outputs.DatabaseStatisticsResponseResult? statistics,
 
             string type)
         {
+            HotCachePeriod = hotCachePeriod;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            SoftDeletePeriod = softDeletePeriod;
+            Statistics = statistics;
             Type = type;
         }
     }

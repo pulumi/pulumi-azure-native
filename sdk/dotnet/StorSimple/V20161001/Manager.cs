@@ -15,6 +15,12 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
     public partial class Manager : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies if the Manager is Garda or Helsinki
+        /// </summary>
+        [Output("cisIntrinsicSettings")]
+        public Output<Outputs.ManagerIntrinsicSettingsResponseResult?> CisIntrinsicSettings { get; private set; } = null!;
+
+        /// <summary>
         /// ETag of the Manager
         /// </summary>
         [Output("etag")]
@@ -33,10 +39,16 @@ namespace Pulumi.AzureRM.StorSimple.V20161001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// List of properties of the Manager
+        /// Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ManagerPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the Sku
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.ManagerSkuResponseResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Tags attached to the Manager

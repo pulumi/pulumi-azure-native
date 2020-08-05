@@ -14,6 +14,14 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915.Outputs
     public sealed class ScheduleCreationParameterResponseResult
     {
         /// <summary>
+        /// If the schedule will occur once each day of the week, specify the daily recurrence.
+        /// </summary>
+        public readonly Outputs.DayDetailsResponseResult? DailyRecurrence;
+        /// <summary>
+        /// If the schedule will occur multiple times a day, specify the hourly recurrence.
+        /// </summary>
+        public readonly Outputs.HourDetailsResponseResult? HourlyRecurrence;
+        /// <summary>
         /// The location of the new virtual machine or environment
         /// </summary>
         public readonly string? Location;
@@ -22,28 +30,69 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The properties of the schedule.
+        /// Notification settings.
         /// </summary>
-        public readonly Outputs.ScheduleCreationParameterPropertiesResponseResult? Properties;
+        public readonly Outputs.NotificationSettingsResponseResult? NotificationSettings;
+        /// <summary>
+        /// The status of the schedule (i.e. Enabled, Disabled)
+        /// </summary>
+        public readonly string? Status;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The resource ID to which the schedule belongs
+        /// </summary>
+        public readonly string? TargetResourceId;
+        /// <summary>
+        /// The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+        /// </summary>
+        public readonly string? TaskType;
+        /// <summary>
+        /// The time zone ID (e.g. Pacific Standard time).
+        /// </summary>
+        public readonly string? TimeZoneId;
+        /// <summary>
+        /// If the schedule will occur only some days of the week, specify the weekly recurrence.
+        /// </summary>
+        public readonly Outputs.WeekDetailsResponseResult? WeeklyRecurrence;
 
         [OutputConstructor]
         private ScheduleCreationParameterResponseResult(
+            Outputs.DayDetailsResponseResult? dailyRecurrence,
+
+            Outputs.HourDetailsResponseResult? hourlyRecurrence,
+
             string? location,
 
             string? name,
 
-            Outputs.ScheduleCreationParameterPropertiesResponseResult? properties,
+            Outputs.NotificationSettingsResponseResult? notificationSettings,
 
-            ImmutableDictionary<string, string>? tags)
+            string? status,
+
+            ImmutableDictionary<string, string>? tags,
+
+            string? targetResourceId,
+
+            string? taskType,
+
+            string? timeZoneId,
+
+            Outputs.WeekDetailsResponseResult? weeklyRecurrence)
         {
+            DailyRecurrence = dailyRecurrence;
+            HourlyRecurrence = hourlyRecurrence;
             Location = location;
             Name = name;
-            Properties = properties;
+            NotificationSettings = notificationSettings;
+            Status = status;
             Tags = tags;
+            TargetResourceId = targetResourceId;
+            TaskType = taskType;
+            TimeZoneId = timeZoneId;
+            WeeklyRecurrence = weeklyRecurrence;
         }
     }
 }

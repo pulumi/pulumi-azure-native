@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview.Outputs
         /// <summary>
         /// The autoscale configurations.
         /// </summary>
-        public readonly Outputs.AutoscaleResponseResult? Autoscale;
+        public readonly Outputs.AutoscaleResponseResult? AutoscaleConfiguration;
         /// <summary>
         /// The data disks groups for the role.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview.Outputs
 
         [OutputConstructor]
         private RoleResponseResult(
-            Outputs.AutoscaleResponseResult? autoscale,
+            Outputs.AutoscaleResponseResult? autoscaleConfiguration,
 
             ImmutableArray<Outputs.DataDisksGroupsResponseResult> dataDisksGroups,
 
@@ -70,7 +70,7 @@ namespace Pulumi.AzureRM.HDInsight.V20180601Preview.Outputs
 
             Outputs.VirtualNetworkProfileResponseResult? virtualNetworkProfile)
         {
-            Autoscale = autoscale;
+            AutoscaleConfiguration = autoscaleConfiguration;
             DataDisksGroups = dataDisksGroups;
             HardwareProfile = hardwareProfile;
             MinInstanceCount = minInstanceCount;

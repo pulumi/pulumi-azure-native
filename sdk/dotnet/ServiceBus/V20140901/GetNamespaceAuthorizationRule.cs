@@ -54,9 +54,9 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// SharedAccessAuthorizationRule properties.
+        /// The rights associated with the rule.
         /// </summary>
-        public readonly Outputs.SharedAccessAuthorizationRuleGetPropertiesResponseResult Properties;
+        public readonly ImmutableArray<string> Rights;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -68,13 +68,13 @@ namespace Pulumi.AzureRM.ServiceBus.V20140901
 
             string name,
 
-            Outputs.SharedAccessAuthorizationRuleGetPropertiesResponseResult properties,
+            ImmutableArray<string> rights,
 
             string type)
         {
             Location = location;
             Name = name;
-            Properties = properties;
+            Rights = rights;
             Type = type;
         }
     }

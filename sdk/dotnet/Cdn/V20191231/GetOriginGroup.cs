@@ -52,13 +52,33 @@ namespace Pulumi.AzureRM.Cdn.V20191231
     public sealed class GetOriginGroupResult
     {
         /// <summary>
+        /// Health probe settings to the origin that is used to determine the health of the origin.
+        /// </summary>
+        public readonly Outputs.HealthProbeParametersResponseResult? HealthProbeSettings;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The JSON object that contains the properties of the origin group.
+        /// The source of the content being delivered via CDN within given origin group.
         /// </summary>
-        public readonly Outputs.OriginGroupPropertiesResponseResult Properties;
+        public readonly ImmutableArray<Outputs.ResourceReferenceResponseResult> Origins;
+        /// <summary>
+        /// Provisioning status of the origin group.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Resource status of the origin group.
+        /// </summary>
+        public readonly string ResourceState;
+        /// <summary>
+        /// The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
+        /// </summary>
+        public readonly Outputs.ResponseBasedOriginErrorDetectionParametersResponseResult? ResponseBasedOriginErrorDetectionSettings;
+        /// <summary>
+        /// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+        /// </summary>
+        public readonly int? TrafficRestorationTimeToHealedOrNewEndpointsInMinutes;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -66,14 +86,29 @@ namespace Pulumi.AzureRM.Cdn.V20191231
 
         [OutputConstructor]
         private GetOriginGroupResult(
+            Outputs.HealthProbeParametersResponseResult? healthProbeSettings,
+
             string name,
 
-            Outputs.OriginGroupPropertiesResponseResult properties,
+            ImmutableArray<Outputs.ResourceReferenceResponseResult> origins,
+
+            string provisioningState,
+
+            string resourceState,
+
+            Outputs.ResponseBasedOriginErrorDetectionParametersResponseResult? responseBasedOriginErrorDetectionSettings,
+
+            int? trafficRestorationTimeToHealedOrNewEndpointsInMinutes,
 
             string type)
         {
+            HealthProbeSettings = healthProbeSettings;
             Name = name;
-            Properties = properties;
+            Origins = origins;
+            ProvisioningState = provisioningState;
+            ResourceState = resourceState;
+            ResponseBasedOriginErrorDetectionSettings = responseBasedOriginErrorDetectionSettings;
+            TrafficRestorationTimeToHealedOrNewEndpointsInMinutes = trafficRestorationTimeToHealedOrNewEndpointsInMinutes;
             Type = type;
         }
     }

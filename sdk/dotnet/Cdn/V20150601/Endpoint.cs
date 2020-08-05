@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.Cdn.V20150601
     public partial class Endpoint : Pulumi.CustomResource
     {
         /// <summary>
+        /// List of content types on which compression will be applied. The value for the elements should be a valid MIME type.
+        /// </summary>
+        [Output("contentTypesToCompress")]
+        public Output<ImmutableArray<string>> ContentTypesToCompress { get; private set; } = null!;
+
+        /// <summary>
+        /// The host name of the endpoint {endpointName}.{DNSZone}
+        /// </summary>
+        [Output("hostName")]
+        public Output<string> HostName { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the compression is enabled. Default value is false. If compression is enabled, the content transferred from cdn endpoint to end user will be compressed. The requested content must be larger than 1 byte and smaller than 1 MB.
+        /// </summary>
+        [Output("isCompressionEnabled")]
+        public Output<bool?> IsCompressionEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        /// </summary>
+        [Output("isHttpAllowed")]
+        public Output<bool?> IsHttpAllowed { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether https traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        /// </summary>
+        [Output("isHttpsAllowed")]
+        public Output<bool?> IsHttpsAllowed { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -26,8 +56,41 @@ namespace Pulumi.AzureRM.Cdn.V20150601
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.EndpointPropertiesResponseResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// The host header the CDN provider will send along with content requests to origins. The default value is the host name of the origin.
+        /// </summary>
+        [Output("originHostHeader")]
+        public Output<string?> OriginHostHeader { get; private set; } = null!;
+
+        /// <summary>
+        /// The path used for origin requests.
+        /// </summary>
+        [Output("originPath")]
+        public Output<string?> OriginPath { get; private set; } = null!;
+
+        /// <summary>
+        /// The set of origins for the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options.
+        /// </summary>
+        [Output("origins")]
+        public Output<ImmutableArray<Outputs.DeepCreatedOriginResponseResult>> Origins { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning status of the endpoint.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Defines the query string caching behavior.
+        /// </summary>
+        [Output("queryStringCachingBehavior")]
+        public Output<string?> QueryStringCachingBehavior { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource status of the endpoint.
+        /// </summary>
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

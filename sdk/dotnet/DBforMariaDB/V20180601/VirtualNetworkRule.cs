@@ -15,22 +15,34 @@ namespace Pulumi.AzureRM.DBforMariaDB.V20180601
     public partial class VirtualNetworkRule : Pulumi.CustomResource
     {
         /// <summary>
+        /// Create firewall rule before the virtual network has vnet service endpoint enabled.
+        /// </summary>
+        [Output("ignoreMissingVnetServiceEndpoint")]
+        public Output<bool?> IgnoreMissingVnetServiceEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Resource properties.
+        /// Virtual Network Rule State
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VirtualNetworkRulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARM resource id of the virtual network subnet.
+        /// </summary>
+        [Output("virtualNetworkSubnetId")]
+        public Output<string> VirtualNetworkSubnetId { get; private set; } = null!;
 
 
         /// <summary>

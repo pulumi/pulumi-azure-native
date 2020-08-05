@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.Network.V20200501
     public partial class VpnSite : Pulumi.CustomResource
     {
         /// <summary>
+        /// The AddressSpace that contains an array of IP address ranges.
+        /// </summary>
+        [Output("addressSpace")]
+        public Output<Outputs.AddressSpaceResponseResult?> AddressSpace { get; private set; } = null!;
+
+        /// <summary>
+        /// The set of bgp properties.
+        /// </summary>
+        [Output("bgpProperties")]
+        public Output<Outputs.BgpSettingsResponseResult?> BgpProperties { get; private set; } = null!;
+
+        /// <summary>
+        /// The device properties.
+        /// </summary>
+        [Output("deviceProperties")]
+        public Output<Outputs.DevicePropertiesResponseResult?> DeviceProperties { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// The ip-address for the vpn-site.
+        /// </summary>
+        [Output("ipAddress")]
+        public Output<string?> IpAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// IsSecuritySite flag.
+        /// </summary>
+        [Output("isSecuritySite")]
+        public Output<bool?> IsSecuritySite { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -33,10 +63,16 @@ namespace Pulumi.AzureRM.Network.V20200501
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the VPN site.
+        /// The provisioning state of the VPN site resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VpnSitePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The key for vpn-site that can be used for connections.
+        /// </summary>
+        [Output("siteKey")]
+        public Output<string?> SiteKey { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +85,18 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The VirtualWAN to which the vpnSite belongs.
+        /// </summary>
+        [Output("virtualWan")]
+        public Output<Outputs.SubResourceResponseResult?> VirtualWan { get; private set; } = null!;
+
+        /// <summary>
+        /// List of all vpn site links.
+        /// </summary>
+        [Output("vpnSiteLinks")]
+        public Output<ImmutableArray<Outputs.VpnSiteLinkResponseResult>> VpnSiteLinks { get; private set; } = null!;
 
 
         /// <summary>

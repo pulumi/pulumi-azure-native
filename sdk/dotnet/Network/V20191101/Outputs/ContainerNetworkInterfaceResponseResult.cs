@@ -14,6 +14,14 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
     public sealed class ContainerNetworkInterfaceResponseResult
     {
         /// <summary>
+        /// Reference to the container to which this container network interface is attached.
+        /// </summary>
+        public readonly Outputs.ContainerResponseResult? Container;
+        /// <summary>
+        /// Container network interface configuration from which this container network interface is created.
+        /// </summary>
+        public readonly Outputs.ContainerNetworkInterfaceConfigurationResponseResult ContainerNetworkInterfaceConfiguration;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -22,13 +30,17 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Reference to the ip configuration on this container nic.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ContainerNetworkInterfaceIpConfigurationResponseResult> IpConfigurations;
+        /// <summary>
         /// The name of the resource. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Container network interface properties.
+        /// The provisioning state of the container network interface resource.
         /// </summary>
-        public readonly Outputs.ContainerNetworkInterfacePropertiesFormatResponseResult? Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Sub Resource type.
         /// </summary>
@@ -36,20 +48,29 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
 
         [OutputConstructor]
         private ContainerNetworkInterfaceResponseResult(
+            Outputs.ContainerResponseResult? container,
+
+            Outputs.ContainerNetworkInterfaceConfigurationResponseResult containerNetworkInterfaceConfiguration,
+
             string etag,
 
             string? id,
 
+            ImmutableArray<Outputs.ContainerNetworkInterfaceIpConfigurationResponseResult> ipConfigurations,
+
             string? name,
 
-            Outputs.ContainerNetworkInterfacePropertiesFormatResponseResult? properties,
+            string provisioningState,
 
             string type)
         {
+            Container = container;
+            ContainerNetworkInterfaceConfiguration = containerNetworkInterfaceConfiguration;
             Etag = etag;
             Id = id;
+            IpConfigurations = ipConfigurations;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

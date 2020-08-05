@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Network.V20190201
     public partial class VpnGateway : Pulumi.CustomResource
     {
         /// <summary>
+        /// Local network gateway's BGP speaker settings.
+        /// </summary>
+        [Output("bgpSettings")]
+        public Output<Outputs.BgpSettingsResponseResult?> BgpSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// List of all vpn connections to the gateway.
+        /// </summary>
+        [Output("connections")]
+        public Output<ImmutableArray<Outputs.VpnConnectionResponseResult>> Connections { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -33,10 +45,10 @@ namespace Pulumi.AzureRM.Network.V20190201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the VPN gateway.
+        /// The provisioning state of the resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.VpnGatewayPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +61,18 @@ namespace Pulumi.AzureRM.Network.V20190201
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The VirtualHub to which the gateway belongs
+        /// </summary>
+        [Output("virtualHub")]
+        public Output<Outputs.SubResourceResponseResult?> VirtualHub { get; private set; } = null!;
+
+        /// <summary>
+        /// The scale unit for this vpn gateway.
+        /// </summary>
+        [Output("vpnGatewayScaleUnit")]
+        public Output<int?> VpnGatewayScaleUnit { get; private set; } = null!;
 
 
         /// <summary>

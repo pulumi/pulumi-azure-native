@@ -48,9 +48,25 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// User resource specific properties
+        /// Password used for publishing.
         /// </summary>
-        public readonly Outputs.UserResponsePropertiesResult Properties;
+        public readonly string? PublishingPassword;
+        /// <summary>
+        /// Password hash used for publishing.
+        /// </summary>
+        public readonly string? PublishingPasswordHash;
+        /// <summary>
+        /// Password hash salt used for publishing.
+        /// </summary>
+        public readonly string? PublishingPasswordHashSalt;
+        /// <summary>
+        /// Username used for publishing.
+        /// </summary>
+        public readonly string PublishingUserName;
+        /// <summary>
+        /// Url of SCM site.
+        /// </summary>
+        public readonly string? ScmUri;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -62,13 +78,25 @@ namespace Pulumi.AzureRM.Web.V20190801
 
             string name,
 
-            Outputs.UserResponsePropertiesResult properties,
+            string? publishingPassword,
+
+            string? publishingPasswordHash,
+
+            string? publishingPasswordHashSalt,
+
+            string publishingUserName,
+
+            string? scmUri,
 
             string type)
         {
             Kind = kind;
             Name = name;
-            Properties = properties;
+            PublishingPassword = publishingPassword;
+            PublishingPasswordHash = publishingPasswordHash;
+            PublishingPasswordHashSalt = publishingPasswordHashSalt;
+            PublishingUserName = publishingUserName;
+            ScmUri = scmUri;
             Type = type;
         }
     }

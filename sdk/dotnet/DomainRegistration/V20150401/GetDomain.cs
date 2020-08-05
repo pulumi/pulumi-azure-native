@@ -39,26 +39,100 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150401
     [OutputType]
     public sealed class GetDomainResult
     {
+        public readonly string? AuthCode;
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if the domain should be automatically renewed; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        public readonly bool? AutoRenew;
+        /// <summary>
+        /// Legal agreement consent.
+        /// </summary>
+        public readonly Outputs.DomainPurchaseConsentResponseResult Consent;
+        /// <summary>
+        /// Administrative contact.
+        /// </summary>
+        public readonly Outputs.ContactResponseResult ContactAdmin;
+        /// <summary>
+        /// Billing contact.
+        /// </summary>
+        public readonly Outputs.ContactResponseResult ContactBilling;
+        /// <summary>
+        /// Registrant contact.
+        /// </summary>
+        public readonly Outputs.ContactResponseResult ContactRegistrant;
+        /// <summary>
+        /// Technical contact.
+        /// </summary>
+        public readonly Outputs.ContactResponseResult ContactTech;
+        /// <summary>
+        /// Domain creation timestamp.
+        /// </summary>
+        public readonly string CreatedTime;
+        /// <summary>
+        /// Current DNS type
+        /// </summary>
+        public readonly string? DnsType;
+        /// <summary>
+        /// Azure DNS Zone to use
+        /// </summary>
+        public readonly string? DnsZoneId;
+        /// <summary>
+        /// Reasons why domain is not renewable.
+        /// </summary>
+        public readonly ImmutableArray<string> DomainNotRenewableReasons;
+        /// <summary>
+        /// Domain expiration timestamp.
+        /// </summary>
+        public readonly string ExpirationTime;
         /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
         /// <summary>
+        /// Timestamp when the domain was renewed last time.
+        /// </summary>
+        public readonly string LastRenewedTime;
+        /// <summary>
         /// Resource Location.
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// All hostnames derived from the domain and assigned to Azure resources.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.HostNameResponseResult> ManagedHostNames;
         /// <summary>
         /// Resource Name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Domain resource specific properties
+        /// Name servers.
         /// </summary>
-        public readonly Outputs.DomainResponsePropertiesResult Properties;
+        public readonly ImmutableArray<string> NameServers;
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if domain privacy is enabled for this domain; otherwise, &lt;code&gt;false&lt;/code&gt;.
+        /// </summary>
+        public readonly bool? Privacy;
+        /// <summary>
+        /// Domain provisioning state.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// &lt;code&gt;true&lt;/code&gt; if Azure can assign this domain to App Service apps; otherwise, &lt;code&gt;false&lt;/code&gt;. This value will be &lt;code&gt;true&lt;/code&gt; if domain registration status is active and 
+        ///  it is hosted on name servers Azure has programmatic access to.
+        /// </summary>
+        public readonly bool ReadyForDnsRecordManagement;
+        /// <summary>
+        /// Domain registration status.
+        /// </summary>
+        public readonly string RegistrationStatus;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Target DNS type (would be used for migration)
+        /// </summary>
+        public readonly string? TargetDnsType;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -66,23 +140,80 @@ namespace Pulumi.AzureRM.DomainRegistration.V20150401
 
         [OutputConstructor]
         private GetDomainResult(
+            string? authCode,
+
+            bool? autoRenew,
+
+            Outputs.DomainPurchaseConsentResponseResult consent,
+
+            Outputs.ContactResponseResult contactAdmin,
+
+            Outputs.ContactResponseResult contactBilling,
+
+            Outputs.ContactResponseResult contactRegistrant,
+
+            Outputs.ContactResponseResult contactTech,
+
+            string createdTime,
+
+            string? dnsType,
+
+            string? dnsZoneId,
+
+            ImmutableArray<string> domainNotRenewableReasons,
+
+            string expirationTime,
+
             string? kind,
+
+            string lastRenewedTime,
 
             string location,
 
+            ImmutableArray<Outputs.HostNameResponseResult> managedHostNames,
+
             string name,
 
-            Outputs.DomainResponsePropertiesResult properties,
+            ImmutableArray<string> nameServers,
+
+            bool? privacy,
+
+            string provisioningState,
+
+            bool readyForDnsRecordManagement,
+
+            string registrationStatus,
 
             ImmutableDictionary<string, string>? tags,
 
+            string? targetDnsType,
+
             string type)
         {
+            AuthCode = authCode;
+            AutoRenew = autoRenew;
+            Consent = consent;
+            ContactAdmin = contactAdmin;
+            ContactBilling = contactBilling;
+            ContactRegistrant = contactRegistrant;
+            ContactTech = contactTech;
+            CreatedTime = createdTime;
+            DnsType = dnsType;
+            DnsZoneId = dnsZoneId;
+            DomainNotRenewableReasons = domainNotRenewableReasons;
+            ExpirationTime = expirationTime;
             Kind = kind;
+            LastRenewedTime = lastRenewedTime;
             Location = location;
+            ManagedHostNames = managedHostNames;
             Name = name;
-            Properties = properties;
+            NameServers = nameServers;
+            Privacy = privacy;
+            ProvisioningState = provisioningState;
+            ReadyForDnsRecordManagement = readyForDnsRecordManagement;
+            RegistrationStatus = registrationStatus;
             Tags = tags;
+            TargetDnsType = targetDnsType;
             Type = type;
         }
     }

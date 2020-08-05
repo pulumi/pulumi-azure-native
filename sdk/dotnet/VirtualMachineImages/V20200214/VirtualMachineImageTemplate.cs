@@ -15,10 +15,34 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
     public partial class VirtualMachineImageTemplate : Pulumi.CustomResource
     {
         /// <summary>
+        /// Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+        /// </summary>
+        [Output("buildTimeoutInMinutes")]
+        public Output<int?> BuildTimeoutInMinutes { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the properties used to describe the customization steps of the image, like Image source etc
+        /// </summary>
+        [Output("customize")]
+        public Output<ImmutableArray<Outputs.ImageTemplateCustomizerResponseResult>> Customize { get; private set; } = null!;
+
+        /// <summary>
+        /// The distribution targets where the image output needs to go to.
+        /// </summary>
+        [Output("distribute")]
+        public Output<ImmutableArray<Outputs.ImageTemplateDistributorResponseResult>> Distribute { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the image template, if configured.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ImageTemplateIdentityResponseResult> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// State of 'run' that is currently executing or was last executed.
+        /// </summary>
+        [Output("lastRunStatus")]
+        public Output<Outputs.ImageTemplateLastRunStatusResponseResult> LastRunStatus { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -33,10 +57,22 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the image template
+        /// Provisioning error, if any
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ImageTemplatePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningError")]
+        public Output<Outputs.ProvisioningErrorResponseResult> ProvisioningError { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the resource
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the properties used to describe the source image.
+        /// </summary>
+        [Output("source")]
+        public Output<Outputs.ImageTemplateSourceResponseResult> Source { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -49,6 +85,12 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes how virtual machine is set up to build images
+        /// </summary>
+        [Output("vmProfile")]
+        public Output<Outputs.ImageTemplateVmProfileResponseResult?> VmProfile { get; private set; } = null!;
 
 
         /// <summary>

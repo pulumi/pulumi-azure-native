@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.Compute.V20200601
     public sealed class GetDedicatedHostGroupResult
     {
         /// <summary>
+        /// A list of references to all dedicated hosts in the dedicated host group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponseResult> Hosts;
+        /// <summary>
+        /// The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
+        /// </summary>
+        public readonly Outputs.DedicatedHostGroupInstanceViewResponseResult InstanceView;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -48,9 +56,13 @@ namespace Pulumi.AzureRM.Compute.V20200601
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Dedicated Host Group Properties.
+        /// Number of fault domains that the host group can span.
         /// </summary>
-        public readonly Outputs.DedicatedHostGroupPropertiesResponseResult Properties;
+        public readonly int PlatformFaultDomainCount;
+        /// <summary>
+        /// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-06-01.
+        /// </summary>
+        public readonly bool? SupportAutomaticPlacement;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -66,11 +78,17 @@ namespace Pulumi.AzureRM.Compute.V20200601
 
         [OutputConstructor]
         private GetDedicatedHostGroupResult(
+            ImmutableArray<Outputs.SubResourceReadOnlyResponseResult> hosts,
+
+            Outputs.DedicatedHostGroupInstanceViewResponseResult instanceView,
+
             string location,
 
             string name,
 
-            Outputs.DedicatedHostGroupPropertiesResponseResult properties,
+            int platformFaultDomainCount,
+
+            bool? supportAutomaticPlacement,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -78,9 +96,12 @@ namespace Pulumi.AzureRM.Compute.V20200601
 
             ImmutableArray<string> zones)
         {
+            Hosts = hosts;
+            InstanceView = instanceView;
             Location = location;
             Name = name;
-            Properties = properties;
+            PlatformFaultDomainCount = platformFaultDomainCount;
+            SupportAutomaticPlacement = supportAutomaticPlacement;
             Tags = tags;
             Type = type;
             Zones = zones;

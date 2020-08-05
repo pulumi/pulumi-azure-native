@@ -40,9 +40,37 @@ namespace Pulumi.AzureRM.Kusto.V20200614
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// The cluster data ingestion URI.
+        /// </summary>
+        public readonly string DataIngestionUri;
+        /// <summary>
+        /// A boolean value that indicates if the cluster's disks are encrypted.
+        /// </summary>
+        public readonly bool? EnableDiskEncryption;
+        /// <summary>
+        /// A boolean value that indicates if double encryption is enabled.
+        /// </summary>
+        public readonly bool? EnableDoubleEncryption;
+        /// <summary>
+        /// A boolean value that indicates if the purge operations are enabled.
+        /// </summary>
+        public readonly bool? EnablePurge;
+        /// <summary>
+        /// A boolean value that indicates if the streaming ingest is enabled.
+        /// </summary>
+        public readonly bool? EnableStreamingIngest;
+        /// <summary>
         /// The identity of the cluster, if configured.
         /// </summary>
         public readonly Outputs.IdentityResponseResult? Identity;
+        /// <summary>
+        /// KeyVault properties for the cluster encryption.
+        /// </summary>
+        public readonly Outputs.KeyVaultPropertiesResponseResult? KeyVaultProperties;
+        /// <summary>
+        /// List of the cluster's language extensions.
+        /// </summary>
+        public readonly Outputs.LanguageExtensionsListResponseResult LanguageExtensions;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -52,21 +80,45 @@ namespace Pulumi.AzureRM.Kusto.V20200614
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The cluster properties.
+        /// Optimized auto scale definition.
         /// </summary>
-        public readonly Outputs.ClusterPropertiesResponseResult Properties;
+        public readonly Outputs.OptimizedAutoscaleResponseResult? OptimizedAutoscale;
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// The SKU of the cluster.
         /// </summary>
         public readonly Outputs.AzureSkuResponseResult Sku;
         /// <summary>
+        /// The state of the resource.
+        /// </summary>
+        public readonly string State;
+        /// <summary>
+        /// The reason for the cluster's current state.
+        /// </summary>
+        public readonly string StateReason;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
+        /// The cluster's external tenants.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.TrustedExternalTenantResponseResult> TrustedExternalTenants;
+        /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The cluster URI.
+        /// </summary>
+        public readonly string Uri;
+        /// <summary>
+        /// Virtual network definition.
+        /// </summary>
+        public readonly Outputs.VirtualNetworkConfigurationResponseResult? VirtualNetworkConfiguration;
         /// <summary>
         /// The availability zones of the cluster.
         /// </summary>
@@ -74,29 +126,68 @@ namespace Pulumi.AzureRM.Kusto.V20200614
 
         [OutputConstructor]
         private GetClusterResult(
+            string dataIngestionUri,
+
+            bool? enableDiskEncryption,
+
+            bool? enableDoubleEncryption,
+
+            bool? enablePurge,
+
+            bool? enableStreamingIngest,
+
             Outputs.IdentityResponseResult? identity,
+
+            Outputs.KeyVaultPropertiesResponseResult? keyVaultProperties,
+
+            Outputs.LanguageExtensionsListResponseResult languageExtensions,
 
             string location,
 
             string name,
 
-            Outputs.ClusterPropertiesResponseResult properties,
+            Outputs.OptimizedAutoscaleResponseResult? optimizedAutoscale,
+
+            string provisioningState,
 
             Outputs.AzureSkuResponseResult sku,
 
+            string state,
+
+            string stateReason,
+
             ImmutableDictionary<string, string>? tags,
+
+            ImmutableArray<Outputs.TrustedExternalTenantResponseResult> trustedExternalTenants,
 
             string type,
 
+            string uri,
+
+            Outputs.VirtualNetworkConfigurationResponseResult? virtualNetworkConfiguration,
+
             ImmutableArray<string> zones)
         {
+            DataIngestionUri = dataIngestionUri;
+            EnableDiskEncryption = enableDiskEncryption;
+            EnableDoubleEncryption = enableDoubleEncryption;
+            EnablePurge = enablePurge;
+            EnableStreamingIngest = enableStreamingIngest;
             Identity = identity;
+            KeyVaultProperties = keyVaultProperties;
+            LanguageExtensions = languageExtensions;
             Location = location;
             Name = name;
-            Properties = properties;
+            OptimizedAutoscale = optimizedAutoscale;
+            ProvisioningState = provisioningState;
             Sku = sku;
+            State = state;
+            StateReason = stateReason;
             Tags = tags;
+            TrustedExternalTenants = trustedExternalTenants;
             Type = type;
+            Uri = uri;
+            VirtualNetworkConfiguration = virtualNetworkConfiguration;
             Zones = zones;
         }
     }

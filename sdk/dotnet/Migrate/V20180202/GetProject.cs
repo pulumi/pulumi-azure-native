@@ -40,9 +40,37 @@ namespace Pulumi.AzureRM.Migrate.V20180202
     public sealed class GetProjectResult
     {
         /// <summary>
+        /// Time when this project was created. Date-Time represented in ISO-8601 format.
+        /// </summary>
+        public readonly string CreatedTimestamp;
+        /// <summary>
+        /// ARM ID of the Service Map workspace created by user.
+        /// </summary>
+        public readonly string? CustomerWorkspaceId;
+        /// <summary>
+        /// Location of the Service Map workspace created by user.
+        /// </summary>
+        public readonly string? CustomerWorkspaceLocation;
+        /// <summary>
+        /// Reports whether project is under discovery.
+        /// </summary>
+        public readonly string DiscoveryStatus;
+        /// <summary>
         /// For optimistic concurrency control.
         /// </summary>
         public readonly string? ETag;
+        /// <summary>
+        /// Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
+        /// </summary>
+        public readonly string LastAssessmentTimestamp;
+        /// <summary>
+        /// Session id of the last discovery.
+        /// </summary>
+        public readonly string LastDiscoverySessionId;
+        /// <summary>
+        /// Time when this project was created. Date-Time represented in ISO-8601 format. This value will be null until discovery is complete.
+        /// </summary>
+        public readonly string LastDiscoveryTimestamp;
         /// <summary>
         /// Azure location in which project is created.
         /// </summary>
@@ -52,9 +80,21 @@ namespace Pulumi.AzureRM.Migrate.V20180202
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the project.
+        /// Number of assessments created in the project.
         /// </summary>
-        public readonly Outputs.ProjectPropertiesResponseResult Properties;
+        public readonly int NumberOfAssessments;
+        /// <summary>
+        /// Number of groups created in the project.
+        /// </summary>
+        public readonly int NumberOfGroups;
+        /// <summary>
+        /// Number of machines in the project.
+        /// </summary>
+        public readonly int NumberOfMachines;
+        /// <summary>
+        /// Provisioning state of the project.
+        /// </summary>
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Tags provided by Azure Tagging service.
         /// </summary>
@@ -63,27 +103,64 @@ namespace Pulumi.AzureRM.Migrate.V20180202
         /// Type of the object = [Microsoft.Migrate/projects].
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+        /// </summary>
+        public readonly string UpdatedTimestamp;
 
         [OutputConstructor]
         private GetProjectResult(
+            string createdTimestamp,
+
+            string? customerWorkspaceId,
+
+            string? customerWorkspaceLocation,
+
+            string discoveryStatus,
+
             string? eTag,
+
+            string lastAssessmentTimestamp,
+
+            string lastDiscoverySessionId,
+
+            string lastDiscoveryTimestamp,
 
             string? location,
 
             string name,
 
-            Outputs.ProjectPropertiesResponseResult properties,
+            int numberOfAssessments,
+
+            int numberOfGroups,
+
+            int numberOfMachines,
+
+            string? provisioningState,
 
             ImmutableDictionary<string, object>? tags,
 
-            string type)
+            string type,
+
+            string updatedTimestamp)
         {
+            CreatedTimestamp = createdTimestamp;
+            CustomerWorkspaceId = customerWorkspaceId;
+            CustomerWorkspaceLocation = customerWorkspaceLocation;
+            DiscoveryStatus = discoveryStatus;
             ETag = eTag;
+            LastAssessmentTimestamp = lastAssessmentTimestamp;
+            LastDiscoverySessionId = lastDiscoverySessionId;
+            LastDiscoveryTimestamp = lastDiscoveryTimestamp;
             Location = location;
             Name = name;
-            Properties = properties;
+            NumberOfAssessments = numberOfAssessments;
+            NumberOfGroups = numberOfGroups;
+            NumberOfMachines = numberOfMachines;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            UpdatedTimestamp = updatedTimestamp;
         }
     }
 }

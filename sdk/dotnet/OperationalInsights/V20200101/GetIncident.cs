@@ -46,17 +46,81 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
     public sealed class GetIncidentResult
     {
         /// <summary>
+        /// Additional data on the incident
+        /// </summary>
+        public readonly Outputs.IncidentAdditionalDataResponseResult AdditionalData;
+        /// <summary>
+        /// The reason the incident was closed
+        /// </summary>
+        public readonly string? Classification;
+        /// <summary>
+        /// Describes the reason the incident was closed
+        /// </summary>
+        public readonly string? ClassificationComment;
+        /// <summary>
+        /// The classification reason the incident was closed with
+        /// </summary>
+        public readonly string? ClassificationReason;
+        /// <summary>
+        /// The time the incident was created
+        /// </summary>
+        public readonly string CreatedTimeUtc;
+        /// <summary>
+        /// The description of the incident
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// The time of the first activity in the incident
+        /// </summary>
+        public readonly string? FirstActivityTimeUtc;
+        /// <summary>
+        /// A sequential number
+        /// </summary>
+        public readonly int IncidentNumber;
+        /// <summary>
+        /// The deep-link url to the incident in Azure portal
+        /// </summary>
+        public readonly string IncidentUrl;
+        /// <summary>
+        /// List of labels relevant to this incident
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IncidentLabelResponseResult> Labels;
+        /// <summary>
+        /// The time of the last activity in the incident
+        /// </summary>
+        public readonly string? LastActivityTimeUtc;
+        /// <summary>
+        /// The last time the incident was updated
+        /// </summary>
+        public readonly string LastModifiedTimeUtc;
         /// <summary>
         /// Azure resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Incident properties
+        /// Describes a user that the incident is assigned to
         /// </summary>
-        public readonly Outputs.IncidentPropertiesResponseResult Properties;
+        public readonly Outputs.IncidentOwnerInfoResponseResult? Owner;
+        /// <summary>
+        /// List of resource ids of Analytic rules related to the incident
+        /// </summary>
+        public readonly ImmutableArray<string> RelatedAnalyticRuleIds;
+        /// <summary>
+        /// The severity of the incident
+        /// </summary>
+        public readonly string Severity;
+        /// <summary>
+        /// The status of the incident
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
+        /// The title of the incident
+        /// </summary>
+        public readonly string Title;
         /// <summary>
         /// Azure resource type
         /// </summary>
@@ -64,17 +128,65 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
 
         [OutputConstructor]
         private GetIncidentResult(
+            Outputs.IncidentAdditionalDataResponseResult additionalData,
+
+            string? classification,
+
+            string? classificationComment,
+
+            string? classificationReason,
+
+            string createdTimeUtc,
+
+            string? description,
+
             string? etag,
+
+            string? firstActivityTimeUtc,
+
+            int incidentNumber,
+
+            string incidentUrl,
+
+            ImmutableArray<Outputs.IncidentLabelResponseResult> labels,
+
+            string? lastActivityTimeUtc,
+
+            string lastModifiedTimeUtc,
 
             string name,
 
-            Outputs.IncidentPropertiesResponseResult properties,
+            Outputs.IncidentOwnerInfoResponseResult? owner,
+
+            ImmutableArray<string> relatedAnalyticRuleIds,
+
+            string severity,
+
+            string status,
+
+            string title,
 
             string type)
         {
+            AdditionalData = additionalData;
+            Classification = classification;
+            ClassificationComment = classificationComment;
+            ClassificationReason = classificationReason;
+            CreatedTimeUtc = createdTimeUtc;
+            Description = description;
             Etag = etag;
+            FirstActivityTimeUtc = firstActivityTimeUtc;
+            IncidentNumber = incidentNumber;
+            IncidentUrl = incidentUrl;
+            Labels = labels;
+            LastActivityTimeUtc = lastActivityTimeUtc;
+            LastModifiedTimeUtc = lastModifiedTimeUtc;
             Name = name;
-            Properties = properties;
+            Owner = owner;
+            RelatedAnalyticRuleIds = relatedAnalyticRuleIds;
+            Severity = severity;
+            Status = status;
+            Title = title;
             Type = type;
         }
     }

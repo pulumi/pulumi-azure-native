@@ -21,16 +21,28 @@ namespace Pulumi.AzureRM.Storage.V20190401
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// Returns the date and time the share was last modified.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string> LastModifiedTime { get; private set; } = null!;
+
+        /// <summary>
+        /// A name-value pair to associate with the share as metadata.
+        /// </summary>
+        [Output("metadata")]
+        public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the file share.
+        /// The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.FileSharePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("shareQuota")]
+        public Output<int?> ShareQuota { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

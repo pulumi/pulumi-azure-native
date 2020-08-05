@@ -52,29 +52,50 @@ namespace Pulumi.AzureRM.ApiManagement.V20180101
     public sealed class GetApiReleaseResult
     {
         /// <summary>
+        /// Identifier of the API the release belongs to.
+        /// </summary>
+        public readonly string? ApiId;
+        /// <summary>
+        /// The time the API was released. The date conforms to the following format: yyyy-MM-ddTHH:mm:ssZ as specified by the ISO 8601 standard.
+        /// </summary>
+        public readonly string CreatedDateTime;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the Api Release Contract.
+        /// Release Notes
         /// </summary>
-        public readonly Outputs.ApiReleaseContractPropertiesResponseResult Properties;
+        public readonly string? Notes;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The time the API release was updated.
+        /// </summary>
+        public readonly string UpdatedDateTime;
 
         [OutputConstructor]
         private GetApiReleaseResult(
+            string? apiId,
+
+            string createdDateTime,
+
             string name,
 
-            Outputs.ApiReleaseContractPropertiesResponseResult properties,
+            string? notes,
 
-            string type)
+            string type,
+
+            string updatedDateTime)
         {
+            ApiId = apiId;
+            CreatedDateTime = createdDateTime;
             Name = name;
-            Properties = properties;
+            Notes = notes;
             Type = type;
+            UpdatedDateTime = updatedDateTime;
         }
     }
 }

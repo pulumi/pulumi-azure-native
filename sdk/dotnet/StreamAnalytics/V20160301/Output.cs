@@ -15,16 +15,34 @@ namespace Pulumi.AzureRM.StreamAnalytics.V20160301
     public partial class Output : Pulumi.CustomResource
     {
         /// <summary>
+        /// Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        /// </summary>
+        [Output("datasource")]
+        public Output<Outputs.OutputDataSourceResponseResult?> Datasource { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+        /// </summary>
+        [Output("diagnostics")]
+        public Output<Outputs.DiagnosticsResponseResult> Diagnostics { get; private set; } = null!;
+
+        /// <summary>
+        /// The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+        /// </summary>
+        [Output("etag")]
+        public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
+        /// Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.OutputPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("serialization")]
+        public Output<Outputs.SerializationResponseResult?> Serialization { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

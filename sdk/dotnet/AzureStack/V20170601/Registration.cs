@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
     public partial class Registration : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies the billing mode for the Azure Stack registration.
+        /// </summary>
+        [Output("billingModel")]
+        public Output<string?> BillingModel { get; private set; } = null!;
+
+        /// <summary>
+        /// The identifier of the registered Azure Stack.
+        /// </summary>
+        [Output("cloudId")]
+        public Output<string?> CloudId { get; private set; } = null!;
+
+        /// <summary>
         /// The entity tag used for optimistic concurrency when modifying the resource.
         /// </summary>
         [Output("etag")]
@@ -33,10 +45,10 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Registration resource.
+        /// The object identifier associated with the Azure Stack connecting to Azure.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.RegistrationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("objectId")]
+        public Output<string?> ObjectId { get; private set; } = null!;
 
         /// <summary>
         /// Custom tags for the resource.

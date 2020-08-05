@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.DocumentDB.V20160331
     public partial class DatabaseAccountSqlDatabase : Pulumi.CustomResource
     {
         /// <summary>
+        /// A system generated property that specified the addressable path of the collections resource.
+        /// </summary>
+        [Output("_colls")]
+        public Output<string?> _colls { get; private set; } = null!;
+
+        /// <summary>
+        /// A system generated property representing the resource etag required for optimistic concurrency control.
+        /// </summary>
+        [Output("_etag")]
+        public Output<string?> _etag { get; private set; } = null!;
+
+        /// <summary>
+        /// A system generated property. A unique identifier.
+        /// </summary>
+        [Output("_rid")]
+        public Output<string?> _rid { get; private set; } = null!;
+
+        /// <summary>
+        /// A system generated property that denotes the last updated timestamp of the resource.
+        /// </summary>
+        [Output("_ts")]
+        public Output<ImmutableDictionary<string, object>?> _ts { get; private set; } = null!;
+
+        /// <summary>
+        /// A system generated property that specifies the addressable path of the users resource.
+        /// </summary>
+        [Output("_users")]
+        public Output<string?> _users { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource group to which the resource belongs.
         /// </summary>
         [Output("location")]
@@ -25,12 +55,6 @@ namespace Pulumi.AzureRM.DocumentDB.V20160331
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The properties of an Azure Cosmos DB SQL database
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.SqlDatabasePropertiesResponseResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".

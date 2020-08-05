@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.MachineLearning.V20191001
     public sealed class GetWorkspaceResult
     {
         /// <summary>
+        /// The creation time for this workspace resource.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
+        /// The key vault identifier used for encrypted workspaces.
+        /// </summary>
+        public readonly string? KeyVaultIdentifierId;
+        /// <summary>
         /// The location of the resource. This cannot be changed after the resource is created.
         /// </summary>
         public readonly string Location;
@@ -48,13 +56,17 @@ namespace Pulumi.AzureRM.MachineLearning.V20191001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties of the machine learning workspace.
+        /// The email id of the owner for this workspace.
         /// </summary>
-        public readonly Outputs.WorkspacePropertiesResponseResult Properties;
+        public readonly string OwnerEmail;
         /// <summary>
         /// The sku of the workspace.
         /// </summary>
         public readonly Outputs.SkuResponseResult? Sku;
+        /// <summary>
+        /// The regional endpoint for the machine learning studio service which hosts this workspace.
+        /// </summary>
+        public readonly string StudioEndpoint;
         /// <summary>
         /// The tags of the resource.
         /// </summary>
@@ -63,27 +75,64 @@ namespace Pulumi.AzureRM.MachineLearning.V20191001
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The fully qualified arm id of the storage account associated with this workspace.
+        /// </summary>
+        public readonly string UserStorageAccountId;
+        /// <summary>
+        /// The immutable id associated with this workspace.
+        /// </summary>
+        public readonly string WorkspaceId;
+        /// <summary>
+        /// The current state of workspace resource.
+        /// </summary>
+        public readonly string WorkspaceState;
+        /// <summary>
+        /// The type of this workspace.
+        /// </summary>
+        public readonly string WorkspaceType;
 
         [OutputConstructor]
         private GetWorkspaceResult(
+            string creationTime,
+
+            string? keyVaultIdentifierId,
+
             string location,
 
             string name,
 
-            Outputs.WorkspacePropertiesResponseResult properties,
+            string ownerEmail,
 
             Outputs.SkuResponseResult? sku,
 
+            string studioEndpoint,
+
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string userStorageAccountId,
+
+            string workspaceId,
+
+            string workspaceState,
+
+            string workspaceType)
         {
+            CreationTime = creationTime;
+            KeyVaultIdentifierId = keyVaultIdentifierId;
             Location = location;
             Name = name;
-            Properties = properties;
+            OwnerEmail = ownerEmail;
             Sku = sku;
+            StudioEndpoint = studioEndpoint;
             Tags = tags;
             Type = type;
+            UserStorageAccountId = userStorageAccountId;
+            WorkspaceId = workspaceId;
+            WorkspaceState = workspaceState;
+            WorkspaceType = workspaceType;
         }
     }
 }

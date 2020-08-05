@@ -46,17 +46,41 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
     public sealed class GetNotificationHubResult
     {
         /// <summary>
+        /// The AdmCredential of the created NotificationHub
+        /// </summary>
+        public readonly Outputs.AdmCredentialResponseResult? AdmCredential;
+        /// <summary>
+        /// The ApnsCredential of the created NotificationHub
+        /// </summary>
+        public readonly Outputs.ApnsCredentialResponseResult? ApnsCredential;
+        /// <summary>
+        /// The AuthorizationRules of the created NotificationHub
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SharedAccessAuthorizationRulePropertiesResponseResult> AuthorizationRules;
+        /// <summary>
+        /// The BaiduCredential of the created NotificationHub
+        /// </summary>
+        public readonly Outputs.BaiduCredentialResponseResult? BaiduCredential;
+        /// <summary>
+        /// The GcmCredential of the created NotificationHub
+        /// </summary>
+        public readonly Outputs.GcmCredentialResponseResult? GcmCredential;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string? Location;
+        /// <summary>
+        /// The MpnsCredential of the created NotificationHub
+        /// </summary>
+        public readonly Outputs.MpnsCredentialResponseResult? MpnsCredential;
         /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the NotificationHub.
+        /// The RegistrationTtl of the created NotificationHub
         /// </summary>
-        public readonly Outputs.NotificationHubPropertiesResponseResult Properties;
+        public readonly string? RegistrationTtl;
         /// <summary>
         /// The sku of the created namespace
         /// </summary>
@@ -69,27 +93,52 @@ namespace Pulumi.AzureRM.NotificationHubs.V20170401
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The WnsCredential of the created NotificationHub
+        /// </summary>
+        public readonly Outputs.WnsCredentialResponseResult? WnsCredential;
 
         [OutputConstructor]
         private GetNotificationHubResult(
+            Outputs.AdmCredentialResponseResult? admCredential,
+
+            Outputs.ApnsCredentialResponseResult? apnsCredential,
+
+            ImmutableArray<Outputs.SharedAccessAuthorizationRulePropertiesResponseResult> authorizationRules,
+
+            Outputs.BaiduCredentialResponseResult? baiduCredential,
+
+            Outputs.GcmCredentialResponseResult? gcmCredential,
+
             string? location,
+
+            Outputs.MpnsCredentialResponseResult? mpnsCredential,
 
             string name,
 
-            Outputs.NotificationHubPropertiesResponseResult properties,
+            string? registrationTtl,
 
             Outputs.SkuResponseResult? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            Outputs.WnsCredentialResponseResult? wnsCredential)
         {
+            AdmCredential = admCredential;
+            ApnsCredential = apnsCredential;
+            AuthorizationRules = authorizationRules;
+            BaiduCredential = baiduCredential;
+            GcmCredential = gcmCredential;
             Location = location;
+            MpnsCredential = mpnsCredential;
             Name = name;
-            Properties = properties;
+            RegistrationTtl = registrationTtl;
             Sku = sku;
             Tags = tags;
             Type = type;
+            WnsCredential = wnsCredential;
         }
     }
 }

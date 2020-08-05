@@ -15,16 +15,46 @@ namespace Pulumi.AzureRM.Media.V20200501
     public partial class StreamingPolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// Configuration of CommonEncryptionCbcs
+        /// </summary>
+        [Output("commonEncryptionCbcs")]
+        public Output<Outputs.CommonEncryptionCbcsResponseResult?> CommonEncryptionCbcs { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration of CommonEncryptionCenc
+        /// </summary>
+        [Output("commonEncryptionCenc")]
+        public Output<Outputs.CommonEncryptionCencResponseResult?> CommonEncryptionCenc { get; private set; } = null!;
+
+        /// <summary>
+        /// Creation time of Streaming Policy
+        /// </summary>
+        [Output("created")]
+        public Output<string> Created { get; private set; } = null!;
+
+        /// <summary>
+        /// Default ContentKey used by current Streaming Policy
+        /// </summary>
+        [Output("defaultContentKeyPolicyName")]
+        public Output<string?> DefaultContentKeyPolicyName { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration of EnvelopeEncryption
+        /// </summary>
+        [Output("envelopeEncryption")]
+        public Output<Outputs.EnvelopeEncryptionResponseResult?> EnvelopeEncryption { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Class to specify properties of Streaming Policy
+        /// Configurations of NoEncryption
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.StreamingPolicyPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("noEncryption")]
+        public Output<Outputs.NoEncryptionResponseResult?> NoEncryption { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.

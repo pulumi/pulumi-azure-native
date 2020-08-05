@@ -15,6 +15,18 @@ namespace Pulumi.AzureRM.Network.V20181201
     public partial class WebApplicationFirewallPolicy : Pulumi.CustomResource
     {
         /// <summary>
+        /// A collection of references to application gateways.
+        /// </summary>
+        [Output("applicationGateways")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayResponseResult>> ApplicationGateways { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes custom rules inside the policy
+        /// </summary>
+        [Output("customRules")]
+        public Output<ImmutableArray<Outputs.WebApplicationFirewallCustomRuleResponseResult>> CustomRules { get; private set; } = null!;
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
@@ -33,10 +45,19 @@ namespace Pulumi.AzureRM.Network.V20181201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the web application firewall policy.
+        /// Describes  policySettings for policy
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.WebApplicationFirewallPolicyPropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("policySettings")]
+        public Output<Outputs.PolicySettingsResponseResult?> PolicySettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the WebApplicationFirewallPolicy.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        [Output("resourceState")]
+        public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

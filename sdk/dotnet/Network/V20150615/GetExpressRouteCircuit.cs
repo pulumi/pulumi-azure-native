@@ -40,6 +40,14 @@ namespace Pulumi.AzureRM.Network.V20150615
     public sealed class GetExpressRouteCircuitResult
     {
         /// <summary>
+        /// The list of authorizations.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponseResult> Authorizations;
+        /// <summary>
+        /// The CircuitProvisioningState state of the resource.
+        /// </summary>
+        public readonly string? CircuitProvisioningState;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
@@ -52,9 +60,29 @@ namespace Pulumi.AzureRM.Network.V20150615
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of ExpressRouteCircuit.
+        /// The list of peerings.
         /// </summary>
-        public readonly Outputs.ExpressRouteCircuitPropertiesFormatResponseResult Properties;
+        public readonly ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult> Peerings;
+        /// <summary>
+        /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The ServiceKey.
+        /// </summary>
+        public readonly string? ServiceKey;
+        /// <summary>
+        /// The ServiceProviderNotes.
+        /// </summary>
+        public readonly string? ServiceProviderNotes;
+        /// <summary>
+        /// The ServiceProviderProperties.
+        /// </summary>
+        public readonly Outputs.ExpressRouteCircuitServiceProviderPropertiesResponseResult? ServiceProviderProperties;
+        /// <summary>
+        /// The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
+        /// </summary>
+        public readonly string? ServiceProviderProvisioningState;
         /// <summary>
         /// The SKU.
         /// </summary>
@@ -70,13 +98,27 @@ namespace Pulumi.AzureRM.Network.V20150615
 
         [OutputConstructor]
         private GetExpressRouteCircuitResult(
+            ImmutableArray<Outputs.ExpressRouteCircuitAuthorizationResponseResult> authorizations,
+
+            string? circuitProvisioningState,
+
             string? etag,
 
             string? location,
 
             string name,
 
-            Outputs.ExpressRouteCircuitPropertiesFormatResponseResult properties,
+            ImmutableArray<Outputs.ExpressRouteCircuitPeeringResponseResult> peerings,
+
+            string? provisioningState,
+
+            string? serviceKey,
+
+            string? serviceProviderNotes,
+
+            Outputs.ExpressRouteCircuitServiceProviderPropertiesResponseResult? serviceProviderProperties,
+
+            string? serviceProviderProvisioningState,
 
             Outputs.ExpressRouteCircuitSkuResponseResult? sku,
 
@@ -84,10 +126,17 @@ namespace Pulumi.AzureRM.Network.V20150615
 
             string type)
         {
+            Authorizations = authorizations;
+            CircuitProvisioningState = circuitProvisioningState;
             Etag = etag;
             Location = location;
             Name = name;
-            Properties = properties;
+            Peerings = peerings;
+            ProvisioningState = provisioningState;
+            ServiceKey = serviceKey;
+            ServiceProviderNotes = serviceProviderNotes;
+            ServiceProviderProperties = serviceProviderProperties;
+            ServiceProviderProvisioningState = serviceProviderProvisioningState;
             Sku = sku;
             Tags = tags;
             Type = type;

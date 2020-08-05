@@ -26,9 +26,13 @@ namespace Pulumi.AzureRM.Network.V20170901.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the vpn client root certificate.
+        /// The provisioning state of the VPN client root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        public readonly Outputs.VpnClientRootCertificatePropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The certificate public data.
+        /// </summary>
+        public readonly string PublicCertData;
 
         [OutputConstructor]
         private VpnClientRootCertificateResponseResult(
@@ -38,12 +42,15 @@ namespace Pulumi.AzureRM.Network.V20170901.Outputs
 
             string? name,
 
-            Outputs.VpnClientRootCertificatePropertiesFormatResponseResult properties)
+            string provisioningState,
+
+            string publicCertData)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            PublicCertData = publicCertData;
         }
     }
 }

@@ -14,6 +14,10 @@ namespace Pulumi.AzureRM.Network.V20200101.Outputs
     public sealed class LoadBalancingSettingsModelResponseResult
     {
         /// <summary>
+        /// The additional latency in milliseconds for probes to fall into the lowest latency bucket
+        /// </summary>
+        public readonly int? AdditionalLatencyMilliseconds;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -22,9 +26,17 @@ namespace Pulumi.AzureRM.Network.V20200101.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the load balancing settings
+        /// Resource status.
         /// </summary>
-        public readonly Outputs.LoadBalancingSettingsPropertiesResponseResult? Properties;
+        public readonly string? ResourceState;
+        /// <summary>
+        /// The number of samples to consider for load balancing decisions
+        /// </summary>
+        public readonly int? SampleSize;
+        /// <summary>
+        /// The number of samples within the sample period that must succeed
+        /// </summary>
+        public readonly int? SuccessfulSamplesRequired;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -32,17 +44,26 @@ namespace Pulumi.AzureRM.Network.V20200101.Outputs
 
         [OutputConstructor]
         private LoadBalancingSettingsModelResponseResult(
+            int? additionalLatencyMilliseconds,
+
             string? id,
 
             string? name,
 
-            Outputs.LoadBalancingSettingsPropertiesResponseResult? properties,
+            string? resourceState,
+
+            int? sampleSize,
+
+            int? successfulSamplesRequired,
 
             string type)
         {
+            AdditionalLatencyMilliseconds = additionalLatencyMilliseconds;
             Id = id;
             Name = name;
-            Properties = properties;
+            ResourceState = resourceState;
+            SampleSize = sampleSize;
+            SuccessfulSamplesRequired = successfulSamplesRequired;
             Type = type;
         }
     }

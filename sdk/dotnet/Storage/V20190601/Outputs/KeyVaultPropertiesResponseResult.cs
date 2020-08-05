@@ -20,15 +20,15 @@ namespace Pulumi.AzureRM.Storage.V20190601.Outputs
         /// <summary>
         /// The name of KeyVault key.
         /// </summary>
-        public readonly string? Keyname;
+        public readonly string? KeyName;
         /// <summary>
         /// The Uri of KeyVault.
         /// </summary>
-        public readonly string? Keyvaulturi;
+        public readonly string? KeyVaultUri;
         /// <summary>
         /// The version of KeyVault key.
         /// </summary>
-        public readonly string? Keyversion;
+        public readonly string? KeyVersion;
         /// <summary>
         /// Timestamp of last rotation of the Key Vault Key.
         /// </summary>
@@ -38,18 +38,18 @@ namespace Pulumi.AzureRM.Storage.V20190601.Outputs
         private KeyVaultPropertiesResponseResult(
             string currentVersionedKeyIdentifier,
 
-            string? keyname,
+            string? keyName,
 
-            string? keyvaulturi,
+            string? keyVaultUri,
 
-            string? keyversion,
+            string? keyVersion,
 
             string lastKeyRotationTimestamp)
         {
             CurrentVersionedKeyIdentifier = currentVersionedKeyIdentifier;
-            Keyname = keyname;
-            Keyvaulturi = keyvaulturi;
-            Keyversion = keyversion;
+            KeyName = keyName;
+            KeyVaultUri = keyVaultUri;
+            KeyVersion = keyVersion;
             LastKeyRotationTimestamp = lastKeyRotationTimestamp;
         }
     }

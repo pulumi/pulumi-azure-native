@@ -14,36 +14,85 @@ namespace Pulumi.AzureRM.Network.V20151101.Outputs
     public sealed class EndpointResponseResult
     {
         /// <summary>
+        /// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+        /// </summary>
+        public readonly string? EndpointLocation;
+        /// <summary>
+        /// Gets or sets the monitoring status of the endpoint.
+        /// </summary>
+        public readonly string? EndpointMonitorStatus;
+        /// <summary>
+        /// Gets or sets the status of the endpoint..  If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.  Possible values are 'Enabled' and 'Disabled'.
+        /// </summary>
+        public readonly string? EndpointStatus;
+        /// <summary>
         /// Gets or sets the ID of the Traffic Manager endpoint.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Gets or sets the minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        /// </summary>
+        public readonly int? MinChildEndpoints;
         /// <summary>
         /// Gets or sets the name of the Traffic Manager endpoint.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Class representing a Traffic Manager endpoint properties.
+        /// Gets or sets the priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         /// </summary>
-        public readonly Outputs.EndpointPropertiesResponseResult? Properties;
+        public readonly int? Priority;
+        /// <summary>
+        /// Gets or sets the fully-qualified DNS name of the endpoint.  Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+        /// </summary>
+        public readonly string? Target;
+        /// <summary>
+        /// Gets or sets the Azure Resource URI of the of the endpoint.  Not applicable to endpoints of type 'ExternalEndpoints'.
+        /// </summary>
+        public readonly string? TargetResourceId;
         /// <summary>
         /// Gets or sets the endpoint type of the Traffic Manager endpoint.
         /// </summary>
         public readonly string? Type;
+        /// <summary>
+        /// Gets or sets the weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+        /// </summary>
+        public readonly int? Weight;
 
         [OutputConstructor]
         private EndpointResponseResult(
+            string? endpointLocation,
+
+            string? endpointMonitorStatus,
+
+            string? endpointStatus,
+
             string? id,
+
+            int? minChildEndpoints,
 
             string? name,
 
-            Outputs.EndpointPropertiesResponseResult? properties,
+            int? priority,
 
-            string? type)
+            string? target,
+
+            string? targetResourceId,
+
+            string? type,
+
+            int? weight)
         {
+            EndpointLocation = endpointLocation;
+            EndpointMonitorStatus = endpointMonitorStatus;
+            EndpointStatus = endpointStatus;
             Id = id;
+            MinChildEndpoints = minChildEndpoints;
             Name = name;
-            Properties = properties;
+            Priority = priority;
+            Target = target;
+            TargetResourceId = targetResourceId;
             Type = type;
+            Weight = weight;
         }
     }
 }

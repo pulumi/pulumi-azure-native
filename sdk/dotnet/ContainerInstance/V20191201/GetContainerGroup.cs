@@ -40,9 +40,41 @@ namespace Pulumi.AzureRM.ContainerInstance.V20191201
     public sealed class GetContainerGroupResult
     {
         /// <summary>
+        /// The containers within the container group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ContainerResponseResult> Containers;
+        /// <summary>
+        /// The diagnostic information for a container group.
+        /// </summary>
+        public readonly Outputs.ContainerGroupDiagnosticsResponseResult? Diagnostics;
+        /// <summary>
+        /// The DNS config information for a container group.
+        /// </summary>
+        public readonly Outputs.DnsConfigurationResponseResult? DnsConfig;
+        /// <summary>
+        /// The encryption properties for a container group.
+        /// </summary>
+        public readonly Outputs.EncryptionPropertiesResponseResult? EncryptionProperties;
+        /// <summary>
         /// The identity of the container group, if configured.
         /// </summary>
         public readonly Outputs.ContainerGroupIdentityResponseResult? Identity;
+        /// <summary>
+        /// The image registry credentials by which the container group is created from.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ImageRegistryCredentialResponseResult> ImageRegistryCredentials;
+        /// <summary>
+        /// The init containers for a container group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InitContainerDefinitionResponseResult> InitContainers;
+        /// <summary>
+        /// The instance view of the container group. Only valid in response.
+        /// </summary>
+        public readonly Outputs.ContainerGroupResponseInstanceViewResult InstanceView;
+        /// <summary>
+        /// The IP address type of the container group.
+        /// </summary>
+        public readonly Outputs.IpAddressResponseResult? IpAddress;
         /// <summary>
         /// The resource location.
         /// </summary>
@@ -52,9 +84,28 @@ namespace Pulumi.AzureRM.ContainerInstance.V20191201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The container group properties
+        /// The network profile information for a container group.
         /// </summary>
-        public readonly Outputs.ContainerGroupResponsePropertiesResult Properties;
+        public readonly Outputs.ContainerGroupNetworkProfileResponseResult? NetworkProfile;
+        /// <summary>
+        /// The operating system type required by the containers in the container group.
+        /// </summary>
+        public readonly string OsType;
+        /// <summary>
+        /// The provisioning state of the container group. This only appears in the response.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Restart policy for all containers within the container group. 
+        /// - `Always` Always restart
+        /// - `OnFailure` Restart on failure
+        /// - `Never` Never restart
+        /// </summary>
+        public readonly string? RestartPolicy;
+        /// <summary>
+        /// The SKU for a container group.
+        /// </summary>
+        public readonly string? Sku;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -63,27 +114,70 @@ namespace Pulumi.AzureRM.ContainerInstance.V20191201
         /// The resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The list of volumes that can be mounted by containers in this container group.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VolumeResponseResult> Volumes;
 
         [OutputConstructor]
         private GetContainerGroupResult(
+            ImmutableArray<Outputs.ContainerResponseResult> containers,
+
+            Outputs.ContainerGroupDiagnosticsResponseResult? diagnostics,
+
+            Outputs.DnsConfigurationResponseResult? dnsConfig,
+
+            Outputs.EncryptionPropertiesResponseResult? encryptionProperties,
+
             Outputs.ContainerGroupIdentityResponseResult? identity,
+
+            ImmutableArray<Outputs.ImageRegistryCredentialResponseResult> imageRegistryCredentials,
+
+            ImmutableArray<Outputs.InitContainerDefinitionResponseResult> initContainers,
+
+            Outputs.ContainerGroupResponseInstanceViewResult instanceView,
+
+            Outputs.IpAddressResponseResult? ipAddress,
 
             string? location,
 
             string name,
 
-            Outputs.ContainerGroupResponsePropertiesResult properties,
+            Outputs.ContainerGroupNetworkProfileResponseResult? networkProfile,
+
+            string osType,
+
+            string provisioningState,
+
+            string? restartPolicy,
+
+            string? sku,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            ImmutableArray<Outputs.VolumeResponseResult> volumes)
         {
+            Containers = containers;
+            Diagnostics = diagnostics;
+            DnsConfig = dnsConfig;
+            EncryptionProperties = encryptionProperties;
             Identity = identity;
+            ImageRegistryCredentials = imageRegistryCredentials;
+            InitContainers = initContainers;
+            InstanceView = instanceView;
+            IpAddress = ipAddress;
             Location = location;
             Name = name;
-            Properties = properties;
+            NetworkProfile = networkProfile;
+            OsType = osType;
+            ProvisioningState = provisioningState;
+            RestartPolicy = restartPolicy;
+            Sku = sku;
             Tags = tags;
             Type = type;
+            Volumes = volumes;
         }
     }
 }

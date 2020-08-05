@@ -46,36 +46,57 @@ namespace Pulumi.AzureRM.Migrate.V20180202
     public sealed class GetGroupResult
     {
         /// <summary>
+        /// List of References to Assessments created on this group.
+        /// </summary>
+        public readonly ImmutableArray<string> Assessments;
+        /// <summary>
+        /// Time when this project was created. Date-Time represented in ISO-8601 format.
+        /// </summary>
+        public readonly string CreatedTimestamp;
+        /// <summary>
         /// For optimistic concurrency control.
         /// </summary>
         public readonly string? ETag;
+        /// <summary>
+        /// List of machine names that are part of this group.
+        /// </summary>
+        public readonly ImmutableArray<string> Machines;
         /// <summary>
         /// Name of the group.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the group.
-        /// </summary>
-        public readonly Outputs.GroupPropertiesResponseResult Properties;
-        /// <summary>
         /// Type of the object = [Microsoft.Migrate/projects/groups].
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+        /// </summary>
+        public readonly string UpdatedTimestamp;
 
         [OutputConstructor]
         private GetGroupResult(
+            ImmutableArray<string> assessments,
+
+            string createdTimestamp,
+
             string? eTag,
+
+            ImmutableArray<string> machines,
 
             string name,
 
-            Outputs.GroupPropertiesResponseResult properties,
+            string type,
 
-            string type)
+            string updatedTimestamp)
         {
+            Assessments = assessments;
+            CreatedTimestamp = createdTimestamp;
             ETag = eTag;
+            Machines = machines;
             Name = name;
-            Properties = properties;
             Type = type;
+            UpdatedTimestamp = updatedTimestamp;
         }
     }
 }

@@ -14,22 +14,43 @@ namespace Pulumi.AzureRM.Cdn.V20191231.Outputs
     public sealed class DeepCreatedOriginGroupResponseResult
     {
         /// <summary>
+        /// Health probe settings to the origin that is used to determine the health of the origin.
+        /// </summary>
+        public readonly Outputs.HealthProbeParametersResponseResult? HealthProbeSettings;
+        /// <summary>
         /// Origin group name which must be unique within the endpoint.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the origin group created on the CDN endpoint.
+        /// The source of the content being delivered via CDN within given origin group.
         /// </summary>
-        public readonly Outputs.DeepCreatedOriginGroupPropertiesResponseResult? Properties;
+        public readonly ImmutableArray<Outputs.ResourceReferenceResponseResult> Origins;
+        /// <summary>
+        /// The JSON object that contains the properties to determine origin health using real requests/responses.This property is currently not supported.
+        /// </summary>
+        public readonly Outputs.ResponseBasedOriginErrorDetectionParametersResponseResult? ResponseBasedOriginErrorDetectionSettings;
+        /// <summary>
+        /// Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
+        /// </summary>
+        public readonly int? TrafficRestorationTimeToHealedOrNewEndpointsInMinutes;
 
         [OutputConstructor]
         private DeepCreatedOriginGroupResponseResult(
+            Outputs.HealthProbeParametersResponseResult? healthProbeSettings,
+
             string name,
 
-            Outputs.DeepCreatedOriginGroupPropertiesResponseResult? properties)
+            ImmutableArray<Outputs.ResourceReferenceResponseResult> origins,
+
+            Outputs.ResponseBasedOriginErrorDetectionParametersResponseResult? responseBasedOriginErrorDetectionSettings,
+
+            int? trafficRestorationTimeToHealedOrNewEndpointsInMinutes)
         {
+            HealthProbeSettings = healthProbeSettings;
             Name = name;
-            Properties = properties;
+            Origins = origins;
+            ResponseBasedOriginErrorDetectionSettings = responseBasedOriginErrorDetectionSettings;
+            TrafficRestorationTimeToHealedOrNewEndpointsInMinutes = trafficRestorationTimeToHealedOrNewEndpointsInMinutes;
         }
     }
 }

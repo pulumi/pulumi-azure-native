@@ -46,6 +46,18 @@ namespace Pulumi.AzureRM.Logic.V20160601
     public sealed class GetSessionResult
     {
         /// <summary>
+        /// The changed time.
+        /// </summary>
+        public readonly string ChangedTime;
+        /// <summary>
+        /// The session content.
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? Content;
+        /// <summary>
+        /// The created time.
+        /// </summary>
+        public readonly string CreatedTime;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string? Location;
@@ -53,10 +65,6 @@ namespace Pulumi.AzureRM.Logic.V20160601
         /// Gets the resource name.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The integration account session properties.
-        /// </summary>
-        public readonly Outputs.IntegrationAccountSessionPropertiesResponseResult Properties;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -68,19 +76,25 @@ namespace Pulumi.AzureRM.Logic.V20160601
 
         [OutputConstructor]
         private GetSessionResult(
+            string changedTime,
+
+            ImmutableDictionary<string, object>? content,
+
+            string createdTime,
+
             string? location,
 
             string name,
-
-            Outputs.IntegrationAccountSessionPropertiesResponseResult properties,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            ChangedTime = changedTime;
+            Content = content;
+            CreatedTime = createdTime;
             Location = location;
             Name = name;
-            Properties = properties;
             Tags = tags;
             Type = type;
         }

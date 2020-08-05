@@ -40,9 +40,17 @@ namespace Pulumi.AzureRM.Network.V20190401
     public sealed class GetAzureFirewallResult
     {
         /// <summary>
+        /// Collection of application rule collections used by Azure Firewall.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponseResult> ApplicationRuleCollections;
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// IP configuration of the Azure Firewall resource.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AzureFirewallIPConfigurationResponseResult> IpConfigurations;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,13 +60,25 @@ namespace Pulumi.AzureRM.Network.V20190401
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the azure firewall.
+        /// Collection of NAT rule collections used by Azure Firewall.
         /// </summary>
-        public readonly Outputs.AzureFirewallPropertiesFormatResponseResult Properties;
+        public readonly ImmutableArray<Outputs.AzureFirewallNatRuleCollectionResponseResult> NatRuleCollections;
+        /// <summary>
+        /// Collection of network rule collections used by Azure Firewall.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponseResult> NetworkRuleCollections;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// The operation mode for Threat Intelligence.
+        /// </summary>
+        public readonly string? ThreatIntelMode;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -70,25 +90,40 @@ namespace Pulumi.AzureRM.Network.V20190401
 
         [OutputConstructor]
         private GetAzureFirewallResult(
+            ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponseResult> applicationRuleCollections,
+
             string etag,
+
+            ImmutableArray<Outputs.AzureFirewallIPConfigurationResponseResult> ipConfigurations,
 
             string? location,
 
             string name,
 
-            Outputs.AzureFirewallPropertiesFormatResponseResult properties,
+            ImmutableArray<Outputs.AzureFirewallNatRuleCollectionResponseResult> natRuleCollections,
+
+            ImmutableArray<Outputs.AzureFirewallNetworkRuleCollectionResponseResult> networkRuleCollections,
+
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
+
+            string? threatIntelMode,
 
             string type,
 
             ImmutableArray<string> zones)
         {
+            ApplicationRuleCollections = applicationRuleCollections;
             Etag = etag;
+            IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
-            Properties = properties;
+            NatRuleCollections = natRuleCollections;
+            NetworkRuleCollections = networkRuleCollections;
+            ProvisioningState = provisioningState;
             Tags = tags;
+            ThreatIntelMode = threatIntelMode;
             Type = type;
             Zones = zones;
         }

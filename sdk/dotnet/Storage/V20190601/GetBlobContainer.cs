@@ -46,36 +46,141 @@ namespace Pulumi.AzureRM.Storage.V20190601
     public sealed class GetBlobContainerResult
     {
         /// <summary>
+        /// Default the container to use specified encryption scope for all writes.
+        /// </summary>
+        public readonly string? DefaultEncryptionScope;
+        /// <summary>
+        /// Indicates whether the blob container was deleted.
+        /// </summary>
+        public readonly bool Deleted;
+        /// <summary>
+        /// Blob container deletion time.
+        /// </summary>
+        public readonly string DeletedTime;
+        /// <summary>
+        /// Block override of encryption scope from the container default.
+        /// </summary>
+        public readonly bool? DenyEncryptionScopeOverride;
+        /// <summary>
         /// Resource Etag.
         /// </summary>
         public readonly string Etag;
+        /// <summary>
+        /// The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
+        /// </summary>
+        public readonly bool HasImmutabilityPolicy;
+        /// <summary>
+        /// The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
+        /// </summary>
+        public readonly bool HasLegalHold;
+        /// <summary>
+        /// The ImmutabilityPolicy property of the container.
+        /// </summary>
+        public readonly Outputs.ImmutabilityPolicyPropertiesResponseResult ImmutabilityPolicy;
+        /// <summary>
+        /// Returns the date and time the container was last modified.
+        /// </summary>
+        public readonly string LastModifiedTime;
+        /// <summary>
+        /// Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
+        /// </summary>
+        public readonly string LeaseDuration;
+        /// <summary>
+        /// Lease state of the container.
+        /// </summary>
+        public readonly string LeaseState;
+        /// <summary>
+        /// The lease status of the container.
+        /// </summary>
+        public readonly string LeaseStatus;
+        /// <summary>
+        /// The LegalHold property of the container.
+        /// </summary>
+        public readonly Outputs.LegalHoldPropertiesResponseResult LegalHold;
+        /// <summary>
+        /// A name-value pair to associate with the container as metadata.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Metadata;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the blob container.
+        /// Specifies whether data in the container may be accessed publicly and the level of access.
         /// </summary>
-        public readonly Outputs.ContainerPropertiesResponseResult Properties;
+        public readonly string? PublicAccess;
+        /// <summary>
+        /// Remaining retention days for soft deleted blob container.
+        /// </summary>
+        public readonly int RemainingRetentionDays;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The version of the deleted blob container.
+        /// </summary>
+        public readonly string Version;
 
         [OutputConstructor]
         private GetBlobContainerResult(
+            string? defaultEncryptionScope,
+
+            bool deleted,
+
+            string deletedTime,
+
+            bool? denyEncryptionScopeOverride,
+
             string etag,
+
+            bool hasImmutabilityPolicy,
+
+            bool hasLegalHold,
+
+            Outputs.ImmutabilityPolicyPropertiesResponseResult immutabilityPolicy,
+
+            string lastModifiedTime,
+
+            string leaseDuration,
+
+            string leaseState,
+
+            string leaseStatus,
+
+            Outputs.LegalHoldPropertiesResponseResult legalHold,
+
+            ImmutableDictionary<string, string>? metadata,
 
             string name,
 
-            Outputs.ContainerPropertiesResponseResult properties,
+            string? publicAccess,
 
-            string type)
+            int remainingRetentionDays,
+
+            string type,
+
+            string version)
         {
+            DefaultEncryptionScope = defaultEncryptionScope;
+            Deleted = deleted;
+            DeletedTime = deletedTime;
+            DenyEncryptionScopeOverride = denyEncryptionScopeOverride;
             Etag = etag;
+            HasImmutabilityPolicy = hasImmutabilityPolicy;
+            HasLegalHold = hasLegalHold;
+            ImmutabilityPolicy = immutabilityPolicy;
+            LastModifiedTime = lastModifiedTime;
+            LeaseDuration = leaseDuration;
+            LeaseState = leaseState;
+            LeaseStatus = leaseStatus;
+            LegalHold = legalHold;
+            Metadata = metadata;
             Name = name;
-            Properties = properties;
+            PublicAccess = publicAccess;
+            RemainingRetentionDays = remainingRetentionDays;
             Type = type;
+            Version = version;
         }
     }
 }

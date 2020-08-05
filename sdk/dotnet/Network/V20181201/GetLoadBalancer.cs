@@ -40,9 +40,29 @@ namespace Pulumi.AzureRM.Network.V20181201
     public sealed class GetLoadBalancerResult
     {
         /// <summary>
+        /// Collection of backend address pools used by a load balancer
+        /// </summary>
+        public readonly ImmutableArray<Outputs.BackendAddressPoolResponseResult> BackendAddressPools;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// Object representing the frontend IPs to be used for the load balancer
+        /// </summary>
+        public readonly ImmutableArray<Outputs.FrontendIPConfigurationResponseResult> FrontendIPConfigurations;
+        /// <summary>
+        /// Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InboundNatPoolResponseResult> InboundNatPools;
+        /// <summary>
+        /// Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InboundNatRuleResponseResult> InboundNatRules;
+        /// <summary>
+        /// Object collection representing the load balancing rules Gets the provisioning 
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LoadBalancingRuleResponseResult> LoadBalancingRules;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,9 +72,21 @@ namespace Pulumi.AzureRM.Network.V20181201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of load balancer.
+        /// The outbound rules.
         /// </summary>
-        public readonly Outputs.LoadBalancerPropertiesFormatResponseResult Properties;
+        public readonly ImmutableArray<Outputs.OutboundRuleResponseResult> OutboundRules;
+        /// <summary>
+        /// Collection of probe objects used in the load balancer
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ProbeResponseResult> Probes;
+        /// <summary>
+        /// Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The resource GUID property of the load balancer resource.
+        /// </summary>
+        public readonly string? ResourceGuid;
         /// <summary>
         /// The load balancer SKU.
         /// </summary>
@@ -70,13 +102,29 @@ namespace Pulumi.AzureRM.Network.V20181201
 
         [OutputConstructor]
         private GetLoadBalancerResult(
+            ImmutableArray<Outputs.BackendAddressPoolResponseResult> backendAddressPools,
+
             string? etag,
+
+            ImmutableArray<Outputs.FrontendIPConfigurationResponseResult> frontendIPConfigurations,
+
+            ImmutableArray<Outputs.InboundNatPoolResponseResult> inboundNatPools,
+
+            ImmutableArray<Outputs.InboundNatRuleResponseResult> inboundNatRules,
+
+            ImmutableArray<Outputs.LoadBalancingRuleResponseResult> loadBalancingRules,
 
             string? location,
 
             string name,
 
-            Outputs.LoadBalancerPropertiesFormatResponseResult properties,
+            ImmutableArray<Outputs.OutboundRuleResponseResult> outboundRules,
+
+            ImmutableArray<Outputs.ProbeResponseResult> probes,
+
+            string? provisioningState,
+
+            string? resourceGuid,
 
             Outputs.LoadBalancerSkuResponseResult? sku,
 
@@ -84,10 +132,18 @@ namespace Pulumi.AzureRM.Network.V20181201
 
             string type)
         {
+            BackendAddressPools = backendAddressPools;
             Etag = etag;
+            FrontendIPConfigurations = frontendIPConfigurations;
+            InboundNatPools = inboundNatPools;
+            InboundNatRules = inboundNatRules;
+            LoadBalancingRules = loadBalancingRules;
             Location = location;
             Name = name;
-            Properties = properties;
+            OutboundRules = outboundRules;
+            Probes = probes;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             Sku = sku;
             Tags = tags;
             Type = type;

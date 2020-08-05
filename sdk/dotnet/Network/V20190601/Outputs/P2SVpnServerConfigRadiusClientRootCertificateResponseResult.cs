@@ -26,9 +26,13 @@ namespace Pulumi.AzureRM.Network.V20190601.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the Radius client root certificate.
+        /// The provisioning state of the Radius client root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        public readonly Outputs.P2SVpnServerConfigRadiusClientRootCertificatePropertiesFormatResponseResult? Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The Radius client root certificate thumbprint.
+        /// </summary>
+        public readonly string? Thumbprint;
 
         [OutputConstructor]
         private P2SVpnServerConfigRadiusClientRootCertificateResponseResult(
@@ -38,12 +42,15 @@ namespace Pulumi.AzureRM.Network.V20190601.Outputs
 
             string? name,
 
-            Outputs.P2SVpnServerConfigRadiusClientRootCertificatePropertiesFormatResponseResult? properties)
+            string provisioningState,
+
+            string? thumbprint)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            Thumbprint = thumbprint;
         }
     }
 }

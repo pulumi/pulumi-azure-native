@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
     public partial class BackupSchedule : Pulumi.CustomResource
     {
         /// <summary>
+        /// The type of backup which needs to be taken.
+        /// </summary>
+        [Output("backupType")]
+        public Output<string> BackupType { get; private set; } = null!;
+
+        /// <summary>
         /// The Kind of the object. Currently only Series8000 is supported
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
+
+        /// <summary>
+        /// The last successful backup run which was triggered for the schedule.
+        /// </summary>
+        [Output("lastSuccessfulRun")]
+        public Output<string> LastSuccessfulRun { get; private set; } = null!;
 
         /// <summary>
         /// The name of the object.
@@ -27,10 +39,28 @@ namespace Pulumi.AzureRM.StorSimple.V20170601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the backup schedule.
+        /// The number of backups to be retained.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.BackupSchedulePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("retentionCount")]
+        public Output<int> RetentionCount { get; private set; } = null!;
+
+        /// <summary>
+        /// The schedule recurrence.
+        /// </summary>
+        [Output("scheduleRecurrence")]
+        public Output<Outputs.ScheduleRecurrenceResponseResult> ScheduleRecurrence { get; private set; } = null!;
+
+        /// <summary>
+        /// The schedule status.
+        /// </summary>
+        [Output("scheduleStatus")]
+        public Output<string> ScheduleStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// The start time of the schedule.
+        /// </summary>
+        [Output("startTime")]
+        public Output<string> StartTime { get; private set; } = null!;
 
         /// <summary>
         /// The hierarchical type of the object.

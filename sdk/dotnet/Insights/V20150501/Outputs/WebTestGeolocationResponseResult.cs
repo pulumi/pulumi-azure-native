@@ -16,12 +16,12 @@ namespace Pulumi.AzureRM.Insights.V20150501.Outputs
         /// <summary>
         /// Location ID for the webtest to run from.
         /// </summary>
-        public readonly string? Id;
+        public readonly string? Location;
 
         [OutputConstructor]
-        private WebTestGeolocationResponseResult(string? Id)
+        private WebTestGeolocationResponseResult(string? location)
         {
-            this.Id = Id;
+            Location = location;
         }
     }
 }

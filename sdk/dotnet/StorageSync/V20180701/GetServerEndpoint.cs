@@ -52,29 +52,92 @@ namespace Pulumi.AzureRM.StorageSync.V20180701
     public sealed class GetServerEndpointResult
     {
         /// <summary>
+        /// Cloud Tiering.
+        /// </summary>
+        public readonly string? CloudTiering;
+        /// <summary>
+        /// Friendly Name
+        /// </summary>
+        public readonly string? FriendlyName;
+        /// <summary>
+        /// Resource Last Operation Name
+        /// </summary>
+        public readonly string? LastOperationName;
+        /// <summary>
+        /// ServerEndpoint lastWorkflowId
+        /// </summary>
+        public readonly string? LastWorkflowId;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Server Endpoint properties.
+        /// ServerEndpoint Provisioning State
         /// </summary>
-        public readonly Outputs.ServerEndpointPropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Server Local path.
+        /// </summary>
+        public readonly string? ServerLocalPath;
+        /// <summary>
+        /// Server Resource Id.
+        /// </summary>
+        public readonly string? ServerResourceId;
+        /// <summary>
+        /// Sync Health Status
+        /// </summary>
+        public readonly ImmutableDictionary<string, object>? SyncStatus;
+        /// <summary>
+        /// Tier files older than days.
+        /// </summary>
+        public readonly int? TierFilesOlderThanDays;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Level of free space to be maintained by Cloud Tiering if it is enabled.
+        /// </summary>
+        public readonly int? VolumeFreeSpacePercent;
 
         [OutputConstructor]
         private GetServerEndpointResult(
+            string? cloudTiering,
+
+            string? friendlyName,
+
+            string? lastOperationName,
+
+            string? lastWorkflowId,
+
             string name,
 
-            Outputs.ServerEndpointPropertiesResponseResult properties,
+            string? provisioningState,
 
-            string type)
+            string? serverLocalPath,
+
+            string? serverResourceId,
+
+            ImmutableDictionary<string, object>? syncStatus,
+
+            int? tierFilesOlderThanDays,
+
+            string type,
+
+            int? volumeFreeSpacePercent)
         {
+            CloudTiering = cloudTiering;
+            FriendlyName = friendlyName;
+            LastOperationName = lastOperationName;
+            LastWorkflowId = lastWorkflowId;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ServerLocalPath = serverLocalPath;
+            ServerResourceId = serverResourceId;
+            SyncStatus = syncStatus;
+            TierFilesOlderThanDays = tierFilesOlderThanDays;
             Type = type;
+            VolumeFreeSpacePercent = volumeFreeSpacePercent;
         }
     }
 }

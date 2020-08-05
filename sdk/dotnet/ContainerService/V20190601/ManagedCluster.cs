@@ -15,10 +15,70 @@ namespace Pulumi.AzureRM.ContainerService.V20190601
     public partial class ManagedCluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// Profile of Azure Active Directory configuration.
+        /// </summary>
+        [Output("aadProfile")]
+        public Output<Outputs.ManagedClusterAADProfileResponseResult?> AadProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Profile of managed cluster add-on.
+        /// </summary>
+        [Output("addonProfiles")]
+        public Output<ImmutableDictionary<string, Outputs.ManagedClusterAddonProfileResponseResult>?> AddonProfiles { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of the agent pool.
+        /// </summary>
+        [Output("agentPoolProfiles")]
+        public Output<ImmutableArray<Outputs.ManagedClusterAgentPoolProfileResponseResult>> AgentPoolProfiles { get; private set; } = null!;
+
+        /// <summary>
+        /// (PREVIEW) Authorized IP Ranges to kubernetes API server.
+        /// </summary>
+        [Output("apiServerAuthorizedIPRanges")]
+        public Output<ImmutableArray<string>> ApiServerAuthorizedIPRanges { get; private set; } = null!;
+
+        /// <summary>
+        /// DNS prefix specified when creating the managed cluster.
+        /// </summary>
+        [Output("dnsPrefix")]
+        public Output<string?> DnsPrefix { get; private set; } = null!;
+
+        /// <summary>
+        /// (PREVIEW) Whether to enable Kubernetes Pod security policy.
+        /// </summary>
+        [Output("enablePodSecurityPolicy")]
+        public Output<bool?> EnablePodSecurityPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to enable Kubernetes Role-Based Access Control.
+        /// </summary>
+        [Output("enableRBAC")]
+        public Output<bool?> EnableRBAC { get; private set; } = null!;
+
+        /// <summary>
+        /// FQDN for the master pool.
+        /// </summary>
+        [Output("fqdn")]
+        public Output<string> Fqdn { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the managed cluster, if configured.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedClusterIdentityResponseResult?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Version of Kubernetes specified when creating the managed cluster.
+        /// </summary>
+        [Output("kubernetesVersion")]
+        public Output<string?> KubernetesVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// Profile for Linux VMs in the container service cluster.
+        /// </summary>
+        [Output("linuxProfile")]
+        public Output<Outputs.ContainerServiceLinuxProfileResponseResult?> LinuxProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource location
@@ -27,16 +87,40 @@ namespace Pulumi.AzureRM.ContainerService.V20190601
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The max number of agent pools for the managed cluster.
+        /// </summary>
+        [Output("maxAgentPools")]
+        public Output<int> MaxAgentPools { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of a managed cluster.
+        /// Profile of network configuration.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ManagedClusterPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("networkProfile")]
+        public Output<Outputs.ContainerServiceNetworkProfileResponseResult?> NetworkProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the resource group containing agent pool nodes.
+        /// </summary>
+        [Output("nodeResourceGroup")]
+        public Output<string?> NodeResourceGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// The current deployment or provisioning state, which only appears in the response.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+        /// </summary>
+        [Output("servicePrincipalProfile")]
+        public Output<Outputs.ManagedClusterServicePrincipalProfileResponseResult?> ServicePrincipalProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags
@@ -49,6 +133,12 @@ namespace Pulumi.AzureRM.ContainerService.V20190601
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Profile for Windows VMs in the container service cluster.
+        /// </summary>
+        [Output("windowsProfile")]
+        public Output<Outputs.ManagedClusterWindowsProfileResponseResult?> WindowsProfile { get; private set; } = null!;
 
 
         /// <summary>

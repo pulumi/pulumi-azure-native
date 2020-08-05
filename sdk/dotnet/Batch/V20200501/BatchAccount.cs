@@ -15,10 +15,55 @@ namespace Pulumi.AzureRM.Batch.V20200501
     public partial class BatchAccount : Pulumi.CustomResource
     {
         /// <summary>
+        /// The account endpoint used to interact with the Batch service.
+        /// </summary>
+        [Output("accountEndpoint")]
+        public Output<string> AccountEndpoint { get; private set; } = null!;
+
+        [Output("activeJobAndJobScheduleQuota")]
+        public Output<int> ActiveJobAndJobScheduleQuota { get; private set; } = null!;
+
+        /// <summary>
+        /// Contains information about the auto-storage account associated with a Batch account.
+        /// </summary>
+        [Output("autoStorage")]
+        public Output<Outputs.AutoStoragePropertiesResponseResult> AutoStorage { get; private set; } = null!;
+
+        /// <summary>
+        /// For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+        /// </summary>
+        [Output("dedicatedCoreQuota")]
+        public Output<int> DedicatedCoreQuota { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+        /// </summary>
+        [Output("dedicatedCoreQuotaPerVMFamily")]
+        public Output<ImmutableArray<Outputs.VirtualMachineFamilyCoreQuotaResponseResult>> DedicatedCoreQuotaPerVMFamily { get; private set; } = null!;
+
+        /// <summary>
+        /// Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+        /// </summary>
+        [Output("dedicatedCoreQuotaPerVMFamilyEnforced")]
+        public Output<bool> DedicatedCoreQuotaPerVMFamilyEnforced { get; private set; } = null!;
+
+        /// <summary>
+        /// Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionPropertiesResponseResult> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// The identity of the Batch account.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.BatchAccountIdentityResponseResult?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Identifies the Azure key vault associated with a Batch account.
+        /// </summary>
+        [Output("keyVaultReference")]
+        public Output<Outputs.KeyVaultReferenceResponseResult> KeyVaultReference { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource.
@@ -27,16 +72,43 @@ namespace Pulumi.AzureRM.Batch.V20200501
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+        /// </summary>
+        [Output("lowPriorityCoreQuota")]
+        public Output<int> LowPriorityCoreQuota { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties associated with the account.
+        /// The allocation mode for creating pools in the Batch account.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.BatchAccountPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("poolAllocationMode")]
+        public Output<string> PoolAllocationMode { get; private set; } = null!;
+
+        [Output("poolQuota")]
+        public Output<int> PoolQuota { get; private set; } = null!;
+
+        /// <summary>
+        /// List of private endpoint connections associated with the Batch account
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponseResult>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioned state of the resource
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// If not specified, the default value is 'enabled'.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.

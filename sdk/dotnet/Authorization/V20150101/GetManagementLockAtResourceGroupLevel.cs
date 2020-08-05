@@ -40,13 +40,17 @@ namespace Pulumi.AzureRM.Authorization.V20150101
     public sealed class GetManagementLockAtResourceGroupLevelResult
     {
         /// <summary>
+        /// The lock level of the management lock.
+        /// </summary>
+        public readonly string? Level;
+        /// <summary>
         /// The name of the lock.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The properties of the lock.
+        /// The notes of the management lock.
         /// </summary>
-        public readonly Outputs.ManagementLockPropertiesResponseResult Properties;
+        public readonly string? Notes;
         /// <summary>
         /// The type of the lock.
         /// </summary>
@@ -54,14 +58,17 @@ namespace Pulumi.AzureRM.Authorization.V20150101
 
         [OutputConstructor]
         private GetManagementLockAtResourceGroupLevelResult(
+            string? level,
+
             string? name,
 
-            Outputs.ManagementLockPropertiesResponseResult properties,
+            string? notes,
 
             string type)
         {
+            Level = level;
             Name = name;
-            Properties = properties;
+            Notes = notes;
             Type = type;
         }
     }

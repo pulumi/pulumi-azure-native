@@ -15,10 +15,34 @@ namespace Pulumi.AzureRM.Automation.V20151031
     public partial class DscConfiguration : Pulumi.CustomResource
     {
         /// <summary>
+        /// Gets or sets the creation time.
+        /// </summary>
+        [Output("creationTime")]
+        public Output<string?> CreationTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets the etag of the resource.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the job count of the configuration.
+        /// </summary>
+        [Output("jobCount")]
+        public Output<int?> JobCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the last modified time.
+        /// </summary>
+        [Output("lastModifiedTime")]
+        public Output<string?> LastModifiedTime { get; private set; } = null!;
 
         /// <summary>
         /// The Azure Region where the resource lives
@@ -27,16 +51,46 @@ namespace Pulumi.AzureRM.Automation.V20151031
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Gets or sets verbose log option.
+        /// </summary>
+        [Output("logVerbose")]
+        public Output<bool?> LogVerbose { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the configuration properties.
+        /// Gets the number of compiled node configurations.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.DscConfigurationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("nodeConfigurationCount")]
+        public Output<int?> NodeConfigurationCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the configuration parameters.
+        /// </summary>
+        [Output("parameters")]
+        public Output<ImmutableDictionary<string, Outputs.DscConfigurationParameterResponseResult>?> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the provisioning state of the configuration.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the source.
+        /// </summary>
+        [Output("source")]
+        public Output<Outputs.ContentSourceResponseResult?> Source { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the state of the configuration.
+        /// </summary>
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.

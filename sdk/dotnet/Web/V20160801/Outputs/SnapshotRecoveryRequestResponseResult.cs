@@ -18,6 +18,11 @@ namespace Pulumi.AzureRM.Web.V20160801.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// If true, custom hostname conflicts will be ignored when recovering to a target web app.
+        /// This setting is only necessary when RecoverConfiguration is enabled.
+        /// </summary>
+        public readonly bool? IgnoreConflictingHostNames;
+        /// <summary>
         /// Kind of resource.
         /// </summary>
         public readonly string? Kind;
@@ -26,9 +31,21 @@ namespace Pulumi.AzureRM.Web.V20160801.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// SnapshotRecoveryRequest resource specific properties
+        /// If &lt;code&gt;true&lt;/code&gt; the recovery operation can overwrite source app; otherwise, &lt;code&gt;false&lt;/code&gt;.
         /// </summary>
-        public readonly Outputs.SnapshotRecoveryRequestResponsePropertiesResult? Properties;
+        public readonly bool Overwrite;
+        /// <summary>
+        /// If true, site configuration, in addition to content, will be reverted.
+        /// </summary>
+        public readonly bool? RecoverConfiguration;
+        /// <summary>
+        /// Specifies the web app that snapshot contents will be written to.
+        /// </summary>
+        public readonly Outputs.SnapshotRecoveryTargetResponseResult? RecoveryTarget;
+        /// <summary>
+        /// Point in time in which the app recovery should be attempted, formatted as a DateTime string.
+        /// </summary>
+        public readonly string? SnapshotTime;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -38,18 +55,30 @@ namespace Pulumi.AzureRM.Web.V20160801.Outputs
         private SnapshotRecoveryRequestResponseResult(
             string id,
 
+            bool? ignoreConflictingHostNames,
+
             string? kind,
 
             string name,
 
-            Outputs.SnapshotRecoveryRequestResponsePropertiesResult? properties,
+            bool overwrite,
+
+            bool? recoverConfiguration,
+
+            Outputs.SnapshotRecoveryTargetResponseResult? recoveryTarget,
+
+            string? snapshotTime,
 
             string type)
         {
             Id = id;
+            IgnoreConflictingHostNames = ignoreConflictingHostNames;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            Overwrite = overwrite;
+            RecoverConfiguration = recoverConfiguration;
+            RecoveryTarget = recoveryTarget;
+            SnapshotTime = snapshotTime;
             Type = type;
         }
     }

@@ -14,6 +14,18 @@ namespace Pulumi.AzureRM.Network.V20191201.Outputs
     public sealed class VirtualNetworkTapResponseResult
     {
         /// <summary>
+        /// The reference to the private IP address on the internal Load Balancer that will receive the tap.
+        /// </summary>
+        public readonly Outputs.FrontendIPConfigurationResponseResult? DestinationLoadBalancerFrontEndIPConfiguration;
+        /// <summary>
+        /// The reference to the private IP Address of the collector nic that will receive the tap.
+        /// </summary>
+        public readonly Outputs.NetworkInterfaceIPConfigurationResponseResult? DestinationNetworkInterfaceIPConfiguration;
+        /// <summary>
+        /// The VXLAN destination port that will receive the tapped traffic.
+        /// </summary>
+        public readonly int? DestinationPort;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -30,9 +42,17 @@ namespace Pulumi.AzureRM.Network.V20191201.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Virtual Network Tap Properties.
+        /// Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
         /// </summary>
-        public readonly Outputs.VirtualNetworkTapPropertiesFormatResponseResult? Properties;
+        public readonly ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponseResult> NetworkInterfaceTapConfigurations;
+        /// <summary>
+        /// The provisioning state of the virtual network tap resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The resource GUID property of the virtual network tap resource.
+        /// </summary>
+        public readonly string ResourceGuid;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -44,6 +64,12 @@ namespace Pulumi.AzureRM.Network.V20191201.Outputs
 
         [OutputConstructor]
         private VirtualNetworkTapResponseResult(
+            Outputs.FrontendIPConfigurationResponseResult? destinationLoadBalancerFrontEndIPConfiguration,
+
+            Outputs.NetworkInterfaceIPConfigurationResponseResult? destinationNetworkInterfaceIPConfiguration,
+
+            int? destinationPort,
+
             string etag,
 
             string? id,
@@ -52,17 +78,26 @@ namespace Pulumi.AzureRM.Network.V20191201.Outputs
 
             string name,
 
-            Outputs.VirtualNetworkTapPropertiesFormatResponseResult? properties,
+            ImmutableArray<Outputs.NetworkInterfaceTapConfigurationResponseResult> networkInterfaceTapConfigurations,
+
+            string provisioningState,
+
+            string resourceGuid,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            DestinationLoadBalancerFrontEndIPConfiguration = destinationLoadBalancerFrontEndIPConfiguration;
+            DestinationNetworkInterfaceIPConfiguration = destinationNetworkInterfaceIPConfiguration;
+            DestinationPort = destinationPort;
             Etag = etag;
             Id = id;
             Location = location;
             Name = name;
-            Properties = properties;
+            NetworkInterfaceTapConfigurations = networkInterfaceTapConfigurations;
+            ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             Tags = tags;
             Type = type;
         }

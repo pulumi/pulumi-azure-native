@@ -15,10 +15,22 @@ namespace Pulumi.AzureRM.EventHub.V20140901
     public partial class EventHub : Pulumi.CustomResource
     {
         /// <summary>
+        /// Exact time the Event Hub was created.
+        /// </summary>
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of days to retain the events for this Event Hub.
+        /// </summary>
+        [Output("messageRetentionInDays")]
+        public Output<int?> MessageRetentionInDays { get; private set; } = null!;
 
         /// <summary>
         /// Resource name
@@ -27,16 +39,34 @@ namespace Pulumi.AzureRM.EventHub.V20140901
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties supplied to the Create Or Update Event Hub operation.
+        /// Number of partitions created for the Event Hub.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.EventHubPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("partitionCount")]
+        public Output<int?> PartitionCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Current number of shards on the Event Hub.
+        /// </summary>
+        [Output("partitionIds")]
+        public Output<ImmutableArray<string>> PartitionIds { get; private set; } = null!;
+
+        /// <summary>
+        /// Enumerates the possible values for the status of the Event Hub.
+        /// </summary>
+        [Output("status")]
+        public Output<string?> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The exact time the message was updated.
+        /// </summary>
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>

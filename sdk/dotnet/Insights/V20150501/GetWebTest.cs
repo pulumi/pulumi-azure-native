@@ -40,6 +40,38 @@ namespace Pulumi.AzureRM.Insights.V20150501
     public sealed class GetWebTestResult
     {
         /// <summary>
+        /// An XML configuration specification for a WebTest.
+        /// </summary>
+        public readonly Outputs.WebTestPropertiesResponseConfigurationResult? Configuration;
+        /// <summary>
+        /// Purpose/user defined descriptive test for this WebTest.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
+        /// Is the test actively being monitored.
+        /// </summary>
+        public readonly bool? Enabled;
+        /// <summary>
+        /// Interval in seconds between test runs for this WebTest. Default value is 300.
+        /// </summary>
+        public readonly int? Frequency;
+        /// <summary>
+        /// A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WebTestGeolocationResponseResult> Locations;
+        /// <summary>
+        /// Allow for retries should this WebTest fail.
+        /// </summary>
+        public readonly bool? RetryEnabled;
+        /// <summary>
+        /// Unique ID of this WebTest. This is typically the same value as the Name field.
+        /// </summary>
+        public readonly string SyntheticMonitorId;
+        /// <summary>
+        /// Seconds until this WebTest will timeout and fail. Default value is 30.
+        /// </summary>
+        public readonly int? Timeout;
+        /// <summary>
         /// The kind of web test that this web test watches. Choices are ping and multistep.
         /// </summary>
         public readonly string? Kind;
@@ -52,9 +84,9 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Metadata describing a web test for an Azure resource.
+        /// Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
         /// </summary>
-        public readonly Outputs.WebTestPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -63,27 +95,65 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// Azure resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The kind of web test this is, valid choices are ping and multistep.
+        /// </summary>
+        public readonly string WebTestKind;
+        /// <summary>
+        /// User defined name if this WebTest.
+        /// </summary>
+        public readonly string WebTestName;
 
         [OutputConstructor]
         private GetWebTestResult(
+            Outputs.WebTestPropertiesResponseConfigurationResult? Configuration,
+
+            string? Description,
+
+            bool? Enabled,
+
+            int? Frequency,
+
+            ImmutableArray<Outputs.WebTestGeolocationResponseResult> Locations,
+
+            bool? RetryEnabled,
+
+            string SyntheticMonitorId,
+
+            int? Timeout,
+
             string? kind,
 
             string location,
 
             string name,
 
-            Outputs.WebTestPropertiesResponseResult properties,
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type)
+            string type,
+
+            string webTestKind,
+
+            string webTestName)
         {
+            this.Configuration = Configuration;
+            this.Description = Description;
+            this.Enabled = Enabled;
+            this.Frequency = Frequency;
+            this.Locations = Locations;
+            this.RetryEnabled = RetryEnabled;
+            this.SyntheticMonitorId = SyntheticMonitorId;
+            this.Timeout = Timeout;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
+            WebTestKind = webTestKind;
+            WebTestName = webTestName;
         }
     }
 }

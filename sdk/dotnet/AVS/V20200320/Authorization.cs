@@ -15,16 +15,28 @@ namespace Pulumi.AzureRM.AVS.V20200320
     public partial class Authorization : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ID of the ExpressRoute Circuit Authorization
+        /// </summary>
+        [Output("expressRouteAuthorizationId")]
+        public Output<string> ExpressRouteAuthorizationId { get; private set; } = null!;
+
+        /// <summary>
+        /// The key of the ExpressRoute Circuit Authorization
+        /// </summary>
+        [Output("expressRouteAuthorizationKey")]
+        public Output<string> ExpressRouteAuthorizationKey { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of an ExpressRoute Circuit Authorization resource
+        /// The state of the  ExpressRoute Circuit Authorization provisioning
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ExpressRouteAuthorizationPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Resource type.

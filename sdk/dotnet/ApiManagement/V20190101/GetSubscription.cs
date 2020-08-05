@@ -46,13 +46,61 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public sealed class GetSubscriptionResult
     {
         /// <summary>
+        /// Determines whether tracing is enabled
+        /// </summary>
+        public readonly bool? AllowTracing;
+        /// <summary>
+        /// Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
+        /// The name of the subscription, or null if the subscription has no name.
+        /// </summary>
+        public readonly string? DisplayName;
+        /// <summary>
+        /// Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        /// </summary>
+        public readonly string? EndDate;
+        /// <summary>
+        /// Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        /// </summary>
+        public readonly string? ExpirationDate;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Subscription contract properties.
+        /// Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
         /// </summary>
-        public readonly Outputs.SubscriptionContractPropertiesResponseResult Properties;
+        public readonly string? NotificationDate;
+        /// <summary>
+        /// The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.
+        /// </summary>
+        public readonly string? OwnerId;
+        /// <summary>
+        /// Subscription primary key.
+        /// </summary>
+        public readonly string PrimaryKey;
+        /// <summary>
+        /// Scope like /products/{productId} or /apis or /apis/{apiId}.
+        /// </summary>
+        public readonly string Scope;
+        /// <summary>
+        /// Subscription secondary key.
+        /// </summary>
+        public readonly string SecondaryKey;
+        /// <summary>
+        /// Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        /// </summary>
+        public readonly string? StartDate;
+        /// <summary>
+        /// Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+        /// </summary>
+        public readonly string State;
+        /// <summary>
+        /// Optional subscription comment added by an administrator.
+        /// </summary>
+        public readonly string? StateComment;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -60,14 +108,50 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
 
         [OutputConstructor]
         private GetSubscriptionResult(
+            bool? allowTracing,
+
+            string createdDate,
+
+            string? displayName,
+
+            string? endDate,
+
+            string? expirationDate,
+
             string name,
 
-            Outputs.SubscriptionContractPropertiesResponseResult properties,
+            string? notificationDate,
+
+            string? ownerId,
+
+            string primaryKey,
+
+            string scope,
+
+            string secondaryKey,
+
+            string? startDate,
+
+            string state,
+
+            string? stateComment,
 
             string type)
         {
+            AllowTracing = allowTracing;
+            CreatedDate = createdDate;
+            DisplayName = displayName;
+            EndDate = endDate;
+            ExpirationDate = expirationDate;
             Name = name;
-            Properties = properties;
+            NotificationDate = notificationDate;
+            OwnerId = ownerId;
+            PrimaryKey = primaryKey;
+            Scope = scope;
+            SecondaryKey = secondaryKey;
+            StartDate = startDate;
+            State = state;
+            StateComment = stateComment;
             Type = type;
         }
     }

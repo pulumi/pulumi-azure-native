@@ -15,6 +15,30 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
     public partial class NotificationChannel : Pulumi.CustomResource
     {
         /// <summary>
+        /// The creation date of the notification channel.
+        /// </summary>
+        [Output("createdDate")]
+        public Output<string> CreatedDate { get; private set; } = null!;
+
+        /// <summary>
+        /// Description of notification.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+        /// </summary>
+        [Output("emailRecipient")]
+        public Output<string?> EmailRecipient { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of event for which this notification is enabled.
+        /// </summary>
+        [Output("events")]
+        public Output<ImmutableArray<Outputs.EventResponseResult>> Events { get; private set; } = null!;
+
+        /// <summary>
         /// The location of the resource.
         /// </summary>
         [Output("location")]
@@ -27,10 +51,16 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the resource.
+        /// The locale to use when sending a notification (fallback for unsupported languages is EN).
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NotificationChannelPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("notificationLocale")]
+        public Output<string?> NotificationLocale { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning status of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The tags of the resource.
@@ -43,6 +73,18 @@ namespace Pulumi.AzureRM.DevTestLab.V20180915
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique immutable identifier of a resource (Guid).
+        /// </summary>
+        [Output("uniqueIdentifier")]
+        public Output<string> UniqueIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// The webhook URL to send notifications to.
+        /// </summary>
+        [Output("webHookUrl")]
+        public Output<string?> WebHookUrl { get; private set; } = null!;
 
 
         /// <summary>

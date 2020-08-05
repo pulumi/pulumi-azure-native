@@ -45,27 +45,66 @@ namespace Pulumi.AzureRM.Network.V20180801
     [OutputType]
     public sealed class GetPacketCaptureResult
     {
+        /// <summary>
+        /// Number of bytes captured per packet, the remaining bytes are truncated.
+        /// </summary>
+        public readonly int? BytesToCapturePerPacket;
         public readonly string? Etag;
+        public readonly ImmutableArray<Outputs.PacketCaptureFilterResponseResult> Filters;
         /// <summary>
         /// Name of the packet capture session.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of a packet capture session.
+        /// The provisioning state of the packet capture session.
         /// </summary>
-        public readonly Outputs.PacketCaptureResultPropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// Describes the storage location for a packet capture session.
+        /// </summary>
+        public readonly Outputs.PacketCaptureStorageLocationResponseResult StorageLocation;
+        /// <summary>
+        /// The ID of the targeted resource, only VM is currently supported.
+        /// </summary>
+        public readonly string Target;
+        /// <summary>
+        /// Maximum duration of the capture session in seconds.
+        /// </summary>
+        public readonly int? TimeLimitInSeconds;
+        /// <summary>
+        /// Maximum size of the capture output.
+        /// </summary>
+        public readonly int? TotalBytesPerSession;
 
         [OutputConstructor]
         private GetPacketCaptureResult(
+            int? bytesToCapturePerPacket,
+
             string? etag,
+
+            ImmutableArray<Outputs.PacketCaptureFilterResponseResult> filters,
 
             string name,
 
-            Outputs.PacketCaptureResultPropertiesResponseResult properties)
+            string? provisioningState,
+
+            Outputs.PacketCaptureStorageLocationResponseResult storageLocation,
+
+            string target,
+
+            int? timeLimitInSeconds,
+
+            int? totalBytesPerSession)
         {
+            BytesToCapturePerPacket = bytesToCapturePerPacket;
             Etag = etag;
+            Filters = filters;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            StorageLocation = storageLocation;
+            Target = target;
+            TimeLimitInSeconds = timeLimitInSeconds;
+            TotalBytesPerSession = totalBytesPerSession;
         }
     }
 }

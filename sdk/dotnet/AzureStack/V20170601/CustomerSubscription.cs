@@ -27,10 +27,10 @@ namespace Pulumi.AzureRM.AzureStack.V20170601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Customer subscription properties.
+        /// Tenant Id.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.CustomerSubscriptionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("tenantId")]
+        public Output<string?> TenantId { get; private set; } = null!;
 
         /// <summary>
         /// Type of Resource.

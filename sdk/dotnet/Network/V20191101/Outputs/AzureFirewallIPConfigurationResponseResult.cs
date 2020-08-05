@@ -26,9 +26,21 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the azure firewall IP configuration.
+        /// The Firewall Internal Load Balancer IP to be used as the next hop in User Defined Routes.
         /// </summary>
-        public readonly Outputs.AzureFirewallIPConfigurationPropertiesFormatResponseResult? Properties;
+        public readonly string PrivateIPAddress;
+        /// <summary>
+        /// The provisioning state of the Azure firewall IP configuration resource.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Reference to the PublicIP resource. This field is a mandatory input if subnet is not null.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? PublicIPAddress;
+        /// <summary>
+        /// Reference to the subnet resource. This resource must be named 'AzureFirewallSubnet' or 'AzureFirewallManagementSubnet'.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? Subnet;
         /// <summary>
         /// Type of the resource.
         /// </summary>
@@ -42,14 +54,23 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
 
             string? name,
 
-            Outputs.AzureFirewallIPConfigurationPropertiesFormatResponseResult? properties,
+            string privateIPAddress,
+
+            string provisioningState,
+
+            Outputs.SubResourceResponseResult? publicIPAddress,
+
+            Outputs.SubResourceResponseResult? subnet,
 
             string type)
         {
             Etag = etag;
             Id = id;
             Name = name;
-            Properties = properties;
+            PrivateIPAddress = privateIPAddress;
+            ProvisioningState = provisioningState;
+            PublicIPAddress = publicIPAddress;
+            Subnet = subnet;
             Type = type;
         }
     }

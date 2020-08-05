@@ -54,9 +54,13 @@ namespace Pulumi.AzureRM.Web.V20190801
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// HybridConnectionKey resource specific properties
+        /// The name of the send key.
         /// </summary>
-        public readonly Outputs.HybridConnectionKeyResponsePropertiesResult Properties;
+        public readonly string SendKeyName;
+        /// <summary>
+        /// The value of the send key.
+        /// </summary>
+        public readonly string SendKeyValue;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -68,13 +72,16 @@ namespace Pulumi.AzureRM.Web.V20190801
 
             string name,
 
-            Outputs.HybridConnectionKeyResponsePropertiesResult properties,
+            string sendKeyName,
+
+            string sendKeyValue,
 
             string type)
         {
             Kind = kind;
             Name = name;
-            Properties = properties;
+            SendKeyName = sendKeyName;
+            SendKeyValue = sendKeyValue;
             Type = type;
         }
     }

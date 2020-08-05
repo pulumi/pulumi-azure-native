@@ -15,22 +15,70 @@ namespace Pulumi.AzureRM.StorageSync.V20180402
     public partial class ServerEndpoint : Pulumi.CustomResource
     {
         /// <summary>
+        /// Cloud Tiering.
+        /// </summary>
+        [Output("cloudTiering")]
+        public Output<string?> CloudTiering { get; private set; } = null!;
+
+        /// <summary>
+        /// Friendly Name
+        /// </summary>
+        [Output("friendlyName")]
+        public Output<string?> FriendlyName { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource Last Operation Name
+        /// </summary>
+        [Output("lastOperationName")]
+        public Output<string?> LastOperationName { get; private set; } = null!;
+
+        /// <summary>
+        /// ServerEndpoint lastWorkflowId
+        /// </summary>
+        [Output("lastWorkflowId")]
+        public Output<string?> LastWorkflowId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Server Endpoint properties.
+        /// ServerEndpoint Provisioning State
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ServerEndpointPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Server Local path.
+        /// </summary>
+        [Output("serverLocalPath")]
+        public Output<string?> ServerLocalPath { get; private set; } = null!;
+
+        /// <summary>
+        /// Server Resource Id.
+        /// </summary>
+        [Output("serverResourceId")]
+        public Output<string?> ServerResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Sync Health Status
+        /// </summary>
+        [Output("syncStatus")]
+        public Output<ImmutableDictionary<string, object>?> SyncStatus { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Level of free space to be maintained by Cloud Tiering if it is enabled.
+        /// </summary>
+        [Output("volumeFreeSpacePercent")]
+        public Output<int?> VolumeFreeSpacePercent { get; private set; } = null!;
 
 
         /// <summary>

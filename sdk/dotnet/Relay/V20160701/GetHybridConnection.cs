@@ -46,29 +46,57 @@ namespace Pulumi.AzureRM.Relay.V20160701
     public sealed class GetHybridConnectionResult
     {
         /// <summary>
+        /// The time the HybridConnection was created.
+        /// </summary>
+        public readonly string CreatedAt;
+        /// <summary>
+        /// The number of listeners for this HybridConnection. min : 1 and max:25 supported
+        /// </summary>
+        public readonly int ListenerCount;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of HybridConnection
+        /// true if client authorization is needed for this HybridConnection; otherwise, false.
         /// </summary>
-        public readonly Outputs.HybridConnectionPropertiesResponseResult Properties;
+        public readonly bool? RequiresClientAuthorization;
         /// <summary>
         /// Resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The time the namespace was updated.
+        /// </summary>
+        public readonly string UpdatedAt;
+        /// <summary>
+        /// usermetadata is a placeholder to store user-defined string data for the HybridConnection endpoint.e.g. it can be used to store  descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
+        /// </summary>
+        public readonly string? UserMetadata;
 
         [OutputConstructor]
         private GetHybridConnectionResult(
+            string createdAt,
+
+            int listenerCount,
+
             string name,
 
-            Outputs.HybridConnectionPropertiesResponseResult properties,
+            bool? requiresClientAuthorization,
 
-            string type)
+            string type,
+
+            string updatedAt,
+
+            string? userMetadata)
         {
+            CreatedAt = createdAt;
+            ListenerCount = listenerCount;
             Name = name;
-            Properties = properties;
+            RequiresClientAuthorization = requiresClientAuthorization;
             Type = type;
+            UpdatedAt = updatedAt;
+            UserMetadata = userMetadata;
         }
     }
 }

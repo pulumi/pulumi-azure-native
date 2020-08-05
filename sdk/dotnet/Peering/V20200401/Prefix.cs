@@ -15,16 +15,52 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public partial class Prefix : Pulumi.CustomResource
     {
         /// <summary>
+        /// The error message for validation state
+        /// </summary>
+        [Output("errorMessage")]
+        public Output<string> ErrorMessage { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of events for peering service prefix
+        /// </summary>
+        [Output("events")]
+        public Output<ImmutableArray<Outputs.PeeringServicePrefixEventResponseResult>> Events { get; private set; } = null!;
+
+        /// <summary>
+        /// The prefix learned type
+        /// </summary>
+        [Output("learnedType")]
+        public Output<string> LearnedType { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the peering prefix properties.
+        /// The peering service prefix key
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.PeeringServicePrefixPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("peeringServicePrefixKey")]
+        public Output<string?> PeeringServicePrefixKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The prefix from which your traffic originates.
+        /// </summary>
+        [Output("prefix")]
+        public Output<string?> PrefixValue { get; private set; } = null!;
+
+        /// <summary>
+        /// The prefix validation state
+        /// </summary>
+        [Output("prefixValidationState")]
+        public Output<string> PrefixValidationState { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.

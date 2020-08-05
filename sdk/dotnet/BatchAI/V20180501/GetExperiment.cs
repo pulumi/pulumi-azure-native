@@ -46,13 +46,21 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
     public sealed class GetExperimentResult
     {
         /// <summary>
+        /// Time when the Experiment was created.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties associated with the experiment.
+        /// The provisioned state of the experiment
         /// </summary>
-        public readonly Outputs.ExperimentPropertiesResponseResult Properties;
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// The time at which the experiment entered its current provisioning state.
+        /// </summary>
+        public readonly string ProvisioningStateTransitionTime;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -60,14 +68,20 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
 
         [OutputConstructor]
         private GetExperimentResult(
+            string creationTime,
+
             string name,
 
-            Outputs.ExperimentPropertiesResponseResult properties,
+            string provisioningState,
+
+            string provisioningStateTransitionTime,
 
             string type)
         {
+            CreationTime = creationTime;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            ProvisioningStateTransitionTime = provisioningStateTransitionTime;
             Type = type;
         }
     }

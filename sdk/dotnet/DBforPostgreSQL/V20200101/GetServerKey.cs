@@ -46,6 +46,10 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20200101
     public sealed class GetServerKeyResult
     {
         /// <summary>
+        /// The key creation date.
+        /// </summary>
+        public readonly string CreationDate;
+        /// <summary>
         /// Kind of encryption protector used to protect the key.
         /// </summary>
         public readonly string Kind;
@@ -54,28 +58,38 @@ namespace Pulumi.AzureRM.DBforPostgreSQL.V20200101
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the ServerKey Resource.
+        /// The key type like 'AzureKeyVault'.
         /// </summary>
-        public readonly Outputs.ServerKeyPropertiesResponseResult Properties;
+        public readonly string ServerKeyType;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The URI of the key.
+        /// </summary>
+        public readonly string? Uri;
 
         [OutputConstructor]
         private GetServerKeyResult(
+            string creationDate,
+
             string kind,
 
             string name,
 
-            Outputs.ServerKeyPropertiesResponseResult properties,
+            string serverKeyType,
 
-            string type)
+            string type,
+
+            string? uri)
         {
+            CreationDate = creationDate;
             Kind = kind;
             Name = name;
-            Properties = properties;
+            ServerKeyType = serverKeyType;
             Type = type;
+            Uri = uri;
         }
     }
 }

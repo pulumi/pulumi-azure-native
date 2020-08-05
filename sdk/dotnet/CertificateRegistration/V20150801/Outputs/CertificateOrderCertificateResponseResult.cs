@@ -18,6 +18,14 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Key Vault Csm resource Id
+        /// </summary>
+        public readonly string? KeyVaultId;
+        /// <summary>
+        /// Key Vault secret name
+        /// </summary>
+        public readonly string? KeyVaultSecretName;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -29,7 +37,10 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801.Outputs
         /// Resource Name
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.CertificateOrderCertificateResponsePropertiesResult? Properties;
+        /// <summary>
+        /// Status of the Key Vault secret
+        /// </summary>
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -43,23 +54,29 @@ namespace Pulumi.AzureRM.CertificateRegistration.V20150801.Outputs
         private CertificateOrderCertificateResponseResult(
             string? id,
 
+            string? keyVaultId,
+
+            string? keyVaultSecretName,
+
             string? kind,
 
             string location,
 
             string? name,
 
-            Outputs.CertificateOrderCertificateResponsePropertiesResult? properties,
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
             string? type)
         {
             Id = id;
+            KeyVaultId = keyVaultId;
+            KeyVaultSecretName = keyVaultSecretName;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
         }

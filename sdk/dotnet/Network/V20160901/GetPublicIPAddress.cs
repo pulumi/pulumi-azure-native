@@ -40,9 +40,22 @@ namespace Pulumi.AzureRM.Network.V20160901
     public sealed class GetPublicIPAddressResult
     {
         /// <summary>
+        /// The FQDN of the DNS record associated with the public IP address.
+        /// </summary>
+        public readonly Outputs.PublicIPAddressDnsSettingsResponseResult? DnsSettings;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// The idle timeout of the public IP address.
+        /// </summary>
+        public readonly int? IdleTimeoutInMinutes;
+        public readonly string? IpAddress;
+        /// <summary>
+        /// IPConfiguration
+        /// </summary>
+        public readonly Outputs.IPConfigurationResponseResult IpConfiguration;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -52,9 +65,21 @@ namespace Pulumi.AzureRM.Network.V20160901
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Public IP address properties.
+        /// The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        public readonly Outputs.PublicIPAddressPropertiesFormatResponseResult Properties;
+        public readonly string? ProvisioningState;
+        /// <summary>
+        /// The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+        /// </summary>
+        public readonly string? PublicIPAddressVersion;
+        /// <summary>
+        /// The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
+        /// </summary>
+        public readonly string? PublicIPAllocationMethod;
+        /// <summary>
+        /// The resource GUID property of the public IP resource.
+        /// </summary>
+        public readonly string? ResourceGuid;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -66,22 +91,43 @@ namespace Pulumi.AzureRM.Network.V20160901
 
         [OutputConstructor]
         private GetPublicIPAddressResult(
+            Outputs.PublicIPAddressDnsSettingsResponseResult? dnsSettings,
+
             string? etag,
+
+            int? idleTimeoutInMinutes,
+
+            string? ipAddress,
+
+            Outputs.IPConfigurationResponseResult ipConfiguration,
 
             string? location,
 
             string name,
 
-            Outputs.PublicIPAddressPropertiesFormatResponseResult properties,
+            string? provisioningState,
+
+            string? publicIPAddressVersion,
+
+            string? publicIPAllocationMethod,
+
+            string? resourceGuid,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            DnsSettings = dnsSettings;
             Etag = etag;
+            IdleTimeoutInMinutes = idleTimeoutInMinutes;
+            IpAddress = ipAddress;
+            IpConfiguration = ipConfiguration;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
+            PublicIPAddressVersion = publicIPAddressVersion;
+            PublicIPAllocationMethod = publicIPAllocationMethod;
+            ResourceGuid = resourceGuid;
             Tags = tags;
             Type = type;
         }

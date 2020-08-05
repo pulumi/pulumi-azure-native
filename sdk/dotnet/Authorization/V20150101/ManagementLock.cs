@@ -15,16 +15,22 @@ namespace Pulumi.AzureRM.Authorization.V20150101
     public partial class ManagementLock : Pulumi.CustomResource
     {
         /// <summary>
+        /// The lock level of the management lock.
+        /// </summary>
+        [Output("level")]
+        public Output<string?> Level { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the lock.
         /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The properties of the lock.
+        /// The notes of the management lock.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ManagementLockPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("notes")]
+        public Output<string?> Notes { get; private set; } = null!;
 
         /// <summary>
         /// The type of the lock.

@@ -15,22 +15,112 @@ namespace Pulumi.AzureRM.StorageSync.V20190601
     public partial class ServerEndpoint : Pulumi.CustomResource
     {
         /// <summary>
+        /// Cloud Tiering.
+        /// </summary>
+        [Output("cloudTiering")]
+        public Output<string?> CloudTiering { get; private set; } = null!;
+
+        /// <summary>
+        /// Cloud tiering status. Only populated if cloud tiering is enabled.
+        /// </summary>
+        [Output("cloudTieringStatus")]
+        public Output<Outputs.ServerEndpointCloudTieringStatusResponseResult> CloudTieringStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Friendly Name
+        /// </summary>
+        [Output("friendlyName")]
+        public Output<string?> FriendlyName { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource Last Operation Name
+        /// </summary>
+        [Output("lastOperationName")]
+        public Output<string> LastOperationName { get; private set; } = null!;
+
+        /// <summary>
+        /// ServerEndpoint lastWorkflowId
+        /// </summary>
+        [Output("lastWorkflowId")]
+        public Output<string> LastWorkflowId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Server Endpoint properties.
+        /// Offline data transfer
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ServerEndpointPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("offlineDataTransfer")]
+        public Output<string?> OfflineDataTransfer { get; private set; } = null!;
+
+        /// <summary>
+        /// Offline data transfer share name
+        /// </summary>
+        [Output("offlineDataTransferShareName")]
+        public Output<string?> OfflineDataTransferShareName { get; private set; } = null!;
+
+        /// <summary>
+        /// Offline data transfer storage account resource ID
+        /// </summary>
+        [Output("offlineDataTransferStorageAccountResourceId")]
+        public Output<string> OfflineDataTransferStorageAccountResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Offline data transfer storage account tenant ID
+        /// </summary>
+        [Output("offlineDataTransferStorageAccountTenantId")]
+        public Output<string> OfflineDataTransferStorageAccountTenantId { get; private set; } = null!;
+
+        /// <summary>
+        /// ServerEndpoint Provisioning State
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Recall status. Only populated if cloud tiering is enabled.
+        /// </summary>
+        [Output("recallStatus")]
+        public Output<Outputs.ServerEndpointRecallStatusResponseResult> RecallStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Server Local path.
+        /// </summary>
+        [Output("serverLocalPath")]
+        public Output<string?> ServerLocalPath { get; private set; } = null!;
+
+        /// <summary>
+        /// Server Resource Id.
+        /// </summary>
+        [Output("serverResourceId")]
+        public Output<string?> ServerResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Server Endpoint sync status
+        /// </summary>
+        [Output("syncStatus")]
+        public Output<Outputs.ServerEndpointSyncStatusResponseResult> SyncStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Tier files older than days.
+        /// </summary>
+        [Output("tierFilesOlderThanDays")]
+        public Output<int?> TierFilesOlderThanDays { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Level of free space to be maintained by Cloud Tiering if it is enabled.
+        /// </summary>
+        [Output("volumeFreeSpacePercent")]
+        public Output<int?> VolumeFreeSpacePercent { get; private set; } = null!;
 
 
         /// <summary>

@@ -46,6 +46,18 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
     public sealed class GetReferenceDataSetResult
     {
         /// <summary>
+        /// The time the resource was created.
+        /// </summary>
+        public readonly string CreationTime;
+        /// <summary>
+        /// The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+        /// </summary>
+        public readonly string? DataStringComparisonBehavior;
+        /// <summary>
+        /// The list of key properties for the reference data set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ReferenceDataSetKeyPropertyResponseResult> KeyProperties;
+        /// <summary>
         /// Resource location
         /// </summary>
         public readonly string Location;
@@ -54,9 +66,9 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Properties of the reference data set.
+        /// Provisioning state of the resource.
         /// </summary>
-        public readonly Outputs.ReferenceDataSetResourcePropertiesResponseResult Properties;
+        public readonly string? ProvisioningState;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -68,19 +80,28 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20171115
 
         [OutputConstructor]
         private GetReferenceDataSetResult(
+            string creationTime,
+
+            string? dataStringComparisonBehavior,
+
+            ImmutableArray<Outputs.ReferenceDataSetKeyPropertyResponseResult> keyProperties,
+
             string location,
 
             string name,
 
-            Outputs.ReferenceDataSetResourcePropertiesResponseResult properties,
+            string? provisioningState,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            CreationTime = creationTime;
+            DataStringComparisonBehavior = dataStringComparisonBehavior;
+            KeyProperties = keyProperties;
             Location = location;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
             Type = type;
         }

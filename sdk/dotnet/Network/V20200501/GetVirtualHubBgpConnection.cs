@@ -46,6 +46,10 @@ namespace Pulumi.AzureRM.Network.V20200501
     public sealed class GetVirtualHubBgpConnectionResult
     {
         /// <summary>
+        /// The current state of the VirtualHub to Peer.
+        /// </summary>
+        public readonly string ConnectionState;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -54,9 +58,17 @@ namespace Pulumi.AzureRM.Network.V20200501
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The properties of the Bgp connections.
+        /// Peer ASN.
         /// </summary>
-        public readonly Outputs.BgpConnectionPropertiesResponseResult Properties;
+        public readonly int? PeerAsn;
+        /// <summary>
+        /// Peer IP.
+        /// </summary>
+        public readonly string? PeerIp;
+        /// <summary>
+        /// The provisioning state of the resource.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Connection type.
         /// </summary>
@@ -64,17 +76,26 @@ namespace Pulumi.AzureRM.Network.V20200501
 
         [OutputConstructor]
         private GetVirtualHubBgpConnectionResult(
+            string connectionState,
+
             string etag,
 
             string? name,
 
-            Outputs.BgpConnectionPropertiesResponseResult properties,
+            int? peerAsn,
+
+            string? peerIp,
+
+            string provisioningState,
 
             string type)
         {
+            ConnectionState = connectionState;
             Etag = etag;
             Name = name;
-            Properties = properties;
+            PeerAsn = peerAsn;
+            PeerIp = peerIp;
+            ProvisioningState = provisioningState;
             Type = type;
         }
     }

@@ -46,13 +46,77 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
     public sealed class GetPredictionResult
     {
         /// <summary>
+        /// Whether do auto analyze.
+        /// </summary>
+        public readonly bool AutoAnalyze;
+        /// <summary>
+        /// Description of the prediction.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Description;
+        /// <summary>
+        /// Display name of the prediction.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? DisplayName;
+        /// <summary>
+        /// The prediction grades.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PredictionResponseGradesResult> Grades;
+        /// <summary>
+        /// Interaction types involved in the prediction.
+        /// </summary>
+        public readonly ImmutableArray<string> InvolvedInteractionTypes;
+        /// <summary>
+        /// KPI types involved in the prediction.
+        /// </summary>
+        public readonly ImmutableArray<string> InvolvedKpiTypes;
+        /// <summary>
+        /// Relationships involved in the prediction.
+        /// </summary>
+        public readonly ImmutableArray<string> InvolvedRelationships;
+        /// <summary>
+        /// Definition of the link mapping of prediction.
+        /// </summary>
+        public readonly Outputs.PredictionResponseMappingsResult Mappings;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The prediction definition.
+        /// Negative outcome expression.
         /// </summary>
-        public readonly Outputs.PredictionResponseResult Properties;
+        public readonly string NegativeOutcomeExpression;
+        /// <summary>
+        /// Positive outcome expression.
+        /// </summary>
+        public readonly string PositiveOutcomeExpression;
+        /// <summary>
+        /// Name of the prediction.
+        /// </summary>
+        public readonly string? PredictionName;
+        /// <summary>
+        /// Primary profile type.
+        /// </summary>
+        public readonly string PrimaryProfileType;
+        /// <summary>
+        /// Provisioning state.
+        /// </summary>
+        public readonly string ProvisioningState;
+        /// <summary>
+        /// Scope expression.
+        /// </summary>
+        public readonly string ScopeExpression;
+        /// <summary>
+        /// Score label.
+        /// </summary>
+        public readonly string ScoreLabel;
+        /// <summary>
+        /// System generated entities.
+        /// </summary>
+        public readonly Outputs.PredictionResponseSystemGeneratedEntitiesResult SystemGeneratedEntities;
+        /// <summary>
+        /// The hub name.
+        /// </summary>
+        public readonly string TenantId;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -60,14 +124,62 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
 
         [OutputConstructor]
         private GetPredictionResult(
+            bool autoAnalyze,
+
+            ImmutableDictionary<string, string>? description,
+
+            ImmutableDictionary<string, string>? displayName,
+
+            ImmutableArray<Outputs.PredictionResponseGradesResult> grades,
+
+            ImmutableArray<string> involvedInteractionTypes,
+
+            ImmutableArray<string> involvedKpiTypes,
+
+            ImmutableArray<string> involvedRelationships,
+
+            Outputs.PredictionResponseMappingsResult mappings,
+
             string name,
 
-            Outputs.PredictionResponseResult properties,
+            string negativeOutcomeExpression,
+
+            string positiveOutcomeExpression,
+
+            string? predictionName,
+
+            string primaryProfileType,
+
+            string provisioningState,
+
+            string scopeExpression,
+
+            string scoreLabel,
+
+            Outputs.PredictionResponseSystemGeneratedEntitiesResult systemGeneratedEntities,
+
+            string tenantId,
 
             string type)
         {
+            AutoAnalyze = autoAnalyze;
+            Description = description;
+            DisplayName = displayName;
+            Grades = grades;
+            InvolvedInteractionTypes = involvedInteractionTypes;
+            InvolvedKpiTypes = involvedKpiTypes;
+            InvolvedRelationships = involvedRelationships;
+            Mappings = mappings;
             Name = name;
-            Properties = properties;
+            NegativeOutcomeExpression = negativeOutcomeExpression;
+            PositiveOutcomeExpression = positiveOutcomeExpression;
+            PredictionName = predictionName;
+            PrimaryProfileType = primaryProfileType;
+            ProvisioningState = provisioningState;
+            ScopeExpression = scopeExpression;
+            ScoreLabel = scoreLabel;
+            SystemGeneratedEntities = systemGeneratedEntities;
+            TenantId = tenantId;
             Type = type;
         }
     }

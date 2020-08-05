@@ -34,29 +34,57 @@ namespace Pulumi.AzureRM.Peering.V20200401
     public sealed class GetPeerAsnResult
     {
         /// <summary>
+        /// The error message for the validation state
+        /// </summary>
+        public readonly string ErrorMessage;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The properties that define a peer's ASN.
+        /// The Autonomous System Number (ASN) of the peer.
         /// </summary>
-        public readonly Outputs.PeerAsnPropertiesResponseResult Properties;
+        public readonly int? PeerAsn;
+        /// <summary>
+        /// The contact details of the peer.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ContactDetailResponseResult> PeerContactDetail;
+        /// <summary>
+        /// The name of the peer.
+        /// </summary>
+        public readonly string? PeerName;
         /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The validation state of the ASN associated with the peer.
+        /// </summary>
+        public readonly string? ValidationState;
 
         [OutputConstructor]
         private GetPeerAsnResult(
+            string errorMessage,
+
             string name,
 
-            Outputs.PeerAsnPropertiesResponseResult properties,
+            int? peerAsn,
 
-            string type)
+            ImmutableArray<Outputs.ContactDetailResponseResult> peerContactDetail,
+
+            string? peerName,
+
+            string type,
+
+            string? validationState)
         {
+            ErrorMessage = errorMessage;
             Name = name;
-            Properties = properties;
+            PeerAsn = peerAsn;
+            PeerContactDetail = peerContactDetail;
+            PeerName = peerName;
             Type = type;
+            ValidationState = validationState;
         }
     }
 }

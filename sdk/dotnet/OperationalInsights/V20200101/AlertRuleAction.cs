@@ -21,22 +21,28 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         public Output<string?> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+        /// </summary>
+        [Output("logicAppResourceId")]
+        public Output<string> LogicAppResourceId { get; private set; } = null!;
+
+        /// <summary>
         /// Azure resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Action properties for get request
-        /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ActionResponsePropertiesResponseResult> Properties { get; private set; } = null!;
-
-        /// <summary>
         /// Azure resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the logic app's workflow.
+        /// </summary>
+        [Output("workflowId")]
+        public Output<string?> WorkflowId { get; private set; } = null!;
 
 
         /// <summary>

@@ -40,6 +40,18 @@ namespace Pulumi.AzureRM.Web.V20150801
     public sealed class GetCertificateCsrResult
     {
         /// <summary>
+        /// Actual CSR string created
+        /// </summary>
+        public readonly string? CsrString;
+        /// <summary>
+        /// Distinguished name of certificate to be created
+        /// </summary>
+        public readonly string? DistinguishedName;
+        /// <summary>
+        /// Hosting environment
+        /// </summary>
+        public readonly string? HostingEnvironment;
+        /// <summary>
         /// Kind of resource
         /// </summary>
         public readonly string? Kind;
@@ -51,7 +63,18 @@ namespace Pulumi.AzureRM.Web.V20150801
         /// Resource Name
         /// </summary>
         public readonly string? Name;
-        public readonly Outputs.CsrResponsePropertiesResult Properties;
+        /// <summary>
+        /// PFX password
+        /// </summary>
+        public readonly string? Password;
+        /// <summary>
+        /// PFX certificate of created certificate
+        /// </summary>
+        public readonly string? PfxBlob;
+        /// <summary>
+        /// Hash of the certificates public key
+        /// </summary>
+        public readonly string? PublicKeyHash;
         /// <summary>
         /// Resource tags
         /// </summary>
@@ -63,22 +86,37 @@ namespace Pulumi.AzureRM.Web.V20150801
 
         [OutputConstructor]
         private GetCertificateCsrResult(
+            string? csrString,
+
+            string? distinguishedName,
+
+            string? hostingEnvironment,
+
             string? kind,
 
             string location,
 
             string? name,
 
-            Outputs.CsrResponsePropertiesResult properties,
+            string? password,
+
+            string? pfxBlob,
+
+            string? publicKeyHash,
 
             ImmutableDictionary<string, string>? tags,
 
             string? type)
         {
+            CsrString = csrString;
+            DistinguishedName = distinguishedName;
+            HostingEnvironment = hostingEnvironment;
             Kind = kind;
             Location = location;
             Name = name;
-            Properties = properties;
+            Password = password;
+            PfxBlob = pfxBlob;
+            PublicKeyHash = publicKeyHash;
             Tags = tags;
             Type = type;
         }

@@ -15,10 +15,52 @@ namespace Pulumi.AzureRM.Migrate.V20180202
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>
+        /// Time when this project was created. Date-Time represented in ISO-8601 format.
+        /// </summary>
+        [Output("createdTimestamp")]
+        public Output<string> CreatedTimestamp { get; private set; } = null!;
+
+        /// <summary>
+        /// ARM ID of the Service Map workspace created by user.
+        /// </summary>
+        [Output("customerWorkspaceId")]
+        public Output<string?> CustomerWorkspaceId { get; private set; } = null!;
+
+        /// <summary>
+        /// Location of the Service Map workspace created by user.
+        /// </summary>
+        [Output("customerWorkspaceLocation")]
+        public Output<string?> CustomerWorkspaceLocation { get; private set; } = null!;
+
+        /// <summary>
+        /// Reports whether project is under discovery.
+        /// </summary>
+        [Output("discoveryStatus")]
+        public Output<string> DiscoveryStatus { get; private set; } = null!;
+
+        /// <summary>
         /// For optimistic concurrency control.
         /// </summary>
         [Output("eTag")]
         public Output<string?> ETag { get; private set; } = null!;
+
+        /// <summary>
+        /// Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
+        /// </summary>
+        [Output("lastAssessmentTimestamp")]
+        public Output<string> LastAssessmentTimestamp { get; private set; } = null!;
+
+        /// <summary>
+        /// Session id of the last discovery.
+        /// </summary>
+        [Output("lastDiscoverySessionId")]
+        public Output<string> LastDiscoverySessionId { get; private set; } = null!;
+
+        /// <summary>
+        /// Time when this project was created. Date-Time represented in ISO-8601 format. This value will be null until discovery is complete.
+        /// </summary>
+        [Output("lastDiscoveryTimestamp")]
+        public Output<string> LastDiscoveryTimestamp { get; private set; } = null!;
 
         /// <summary>
         /// Azure location in which project is created.
@@ -33,10 +75,28 @@ namespace Pulumi.AzureRM.Migrate.V20180202
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties of the project.
+        /// Number of assessments created in the project.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ProjectPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("numberOfAssessments")]
+        public Output<int> NumberOfAssessments { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of groups created in the project.
+        /// </summary>
+        [Output("numberOfGroups")]
+        public Output<int> NumberOfGroups { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of machines in the project.
+        /// </summary>
+        [Output("numberOfMachines")]
+        public Output<int> NumberOfMachines { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the project.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Tags provided by Azure Tagging service.
@@ -49,6 +109,12 @@ namespace Pulumi.AzureRM.Migrate.V20180202
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Time when this project was last updated. Date-Time represented in ISO-8601 format.
+        /// </summary>
+        [Output("updatedTimestamp")]
+        public Output<string> UpdatedTimestamp { get; private set; } = null!;
 
 
         /// <summary>

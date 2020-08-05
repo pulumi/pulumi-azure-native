@@ -27,10 +27,22 @@ namespace Pulumi.AzureRM.Compute.V20191201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the properties of a gallery Image Version.
+        /// The provisioning state, which only appears in the response.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.GalleryApplicationVersionPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The publishing profile of a gallery Image Version.
+        /// </summary>
+        [Output("publishingProfile")]
+        public Output<Outputs.GalleryApplicationVersionPublishingProfileResponseResult> PublishingProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// This is the replication status of the gallery Image Version.
+        /// </summary>
+        [Output("replicationStatus")]
+        public Output<Outputs.ReplicationStatusResponseResult> ReplicationStatus { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

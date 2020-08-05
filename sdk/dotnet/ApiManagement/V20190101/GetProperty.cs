@@ -46,29 +46,50 @@ namespace Pulumi.AzureRM.ApiManagement.V20190101
     public sealed class GetPropertyResult
     {
         /// <summary>
+        /// Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Property entity contract properties.
+        /// Determines whether the value is a secret and should be encrypted or not. Default value is false.
         /// </summary>
-        public readonly Outputs.PropertyContractPropertiesResponseResult Properties;
+        public readonly bool? Secret;
+        /// <summary>
+        /// Optional tags that when provided can be used to filter the property list.
+        /// </summary>
+        public readonly ImmutableArray<string> Tags;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
+        /// </summary>
+        public readonly string Value;
 
         [OutputConstructor]
         private GetPropertyResult(
+            string displayName,
+
             string name,
 
-            Outputs.PropertyContractPropertiesResponseResult properties,
+            bool? secret,
 
-            string type)
+            ImmutableArray<string> tags,
+
+            string type,
+
+            string value)
         {
+            DisplayName = displayName;
             Name = name;
-            Properties = properties;
+            Secret = secret;
+            Tags = tags;
             Type = type;
+            Value = value;
         }
     }
 }

@@ -22,13 +22,21 @@ namespace Pulumi.AzureRM.Network.V20170301.Outputs
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// Link to the external resource
+        /// </summary>
+        public readonly string? Link;
+        /// <summary>
+        /// Resource type of the linked resource.
+        /// </summary>
+        public readonly string? LinkedResourceType;
+        /// <summary>
         /// Name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of ResourceNavigationLink.
+        /// Provisioning state of the ResourceNavigationLink resource.
         /// </summary>
-        public readonly Outputs.ResourceNavigationLinkFormatResponseResult? Properties;
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private ResourceNavigationLinkResponseResult(
@@ -36,14 +44,20 @@ namespace Pulumi.AzureRM.Network.V20170301.Outputs
 
             string? id,
 
+            string? link,
+
+            string? linkedResourceType,
+
             string? name,
 
-            Outputs.ResourceNavigationLinkFormatResponseResult? properties)
+            string provisioningState)
         {
             Etag = etag;
             Id = id;
+            Link = link;
+            LinkedResourceType = linkedResourceType;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
         }
     }
 }

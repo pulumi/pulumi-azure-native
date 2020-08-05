@@ -15,6 +15,36 @@ namespace Pulumi.AzureRM.Web.V20150801
     public partial class SiteHostNameBinding : Pulumi.CustomResource
     {
         /// <summary>
+        /// Azure resource name
+        /// </summary>
+        [Output("azureResourceName")]
+        public Output<string?> AzureResourceName { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure resource type
+        /// </summary>
+        [Output("azureResourceType")]
+        public Output<string?> AzureResourceType { get; private set; } = null!;
+
+        /// <summary>
+        /// Custom DNS record type
+        /// </summary>
+        [Output("customHostNameDnsRecordType")]
+        public Output<string?> CustomHostNameDnsRecordType { get; private set; } = null!;
+
+        /// <summary>
+        /// Fully qualified ARM domain resource URI
+        /// </summary>
+        [Output("domainId")]
+        public Output<string?> DomainId { get; private set; } = null!;
+
+        /// <summary>
+        /// Host name type
+        /// </summary>
+        [Output("hostNameType")]
+        public Output<string?> HostNameType { get; private set; } = null!;
+
+        /// <summary>
         /// Kind of resource
         /// </summary>
         [Output("kind")]
@@ -32,8 +62,11 @@ namespace Pulumi.AzureRM.Web.V20150801
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
-        [Output("properties")]
-        public Output<Outputs.HostNameBindingResponsePropertiesResult> Properties { get; private set; } = null!;
+        /// <summary>
+        /// Web app name
+        /// </summary>
+        [Output("siteName")]
+        public Output<string?> SiteName { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

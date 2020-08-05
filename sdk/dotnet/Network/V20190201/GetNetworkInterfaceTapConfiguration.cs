@@ -54,13 +54,17 @@ namespace Pulumi.AzureRM.Network.V20190201
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of the Virtual Network Tap configuration
+        /// The provisioning state of the network interface tap configuration. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         /// </summary>
-        public readonly Outputs.NetworkInterfaceTapConfigurationPropertiesFormatResponseResult Properties;
+        public readonly string ProvisioningState;
         /// <summary>
         /// Sub Resource type.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The reference of the Virtual Network Tap resource.
+        /// </summary>
+        public readonly Outputs.VirtualNetworkTapResponseResult? VirtualNetworkTap;
 
         [OutputConstructor]
         private GetNetworkInterfaceTapConfigurationResult(
@@ -68,14 +72,17 @@ namespace Pulumi.AzureRM.Network.V20190201
 
             string? name,
 
-            Outputs.NetworkInterfaceTapConfigurationPropertiesFormatResponseResult properties,
+            string provisioningState,
 
-            string type)
+            string type,
+
+            Outputs.VirtualNetworkTapResponseResult? virtualNetworkTap)
         {
             Etag = etag;
             Name = name;
-            Properties = properties;
+            ProvisioningState = provisioningState;
             Type = type;
+            VirtualNetworkTap = virtualNetworkTap;
         }
     }
 }

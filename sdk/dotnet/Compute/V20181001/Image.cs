@@ -27,10 +27,22 @@ namespace Pulumi.AzureRM.Compute.V20181001
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the properties of an Image.
+        /// The provisioning state.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ImagePropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The source virtual machine from which Image is created.
+        /// </summary>
+        [Output("sourceVirtualMachine")]
+        public Output<Outputs.SubResourceResponseResult?> SourceVirtualMachine { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the storage settings for the virtual machine disks.
+        /// </summary>
+        [Output("storageProfile")]
+        public Output<Outputs.ImageStorageProfileResponseResult?> StorageProfile { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags

@@ -15,10 +15,28 @@ namespace Pulumi.AzureRM.Network.V20150615
     public partial class NetworkInterface : Pulumi.CustomResource
     {
         /// <summary>
+        /// The DNS settings in network interface.
+        /// </summary>
+        [Output("dnsSettings")]
+        public Output<Outputs.NetworkInterfaceDnsSettingsResponseResult?> DnsSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether IP forwarding is enabled on this network interface.
+        /// </summary>
+        [Output("enableIPForwarding")]
+        public Output<bool?> EnableIPForwarding { get; private set; } = null!;
+
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of IPConfigurations of the network interface.
+        /// </summary>
+        [Output("ipConfigurations")]
+        public Output<ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponseResult>> IpConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -27,16 +45,40 @@ namespace Pulumi.AzureRM.Network.V20150615
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The MAC address of the network interface.
+        /// </summary>
+        [Output("macAddress")]
+        public Output<string?> MacAddress { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// NetworkInterface properties. 
+        /// The reference of the NetworkSecurityGroup resource.
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.NetworkInterfacePropertiesFormatResponseResult> Properties { get; private set; } = null!;
+        [Output("networkSecurityGroup")]
+        public Output<Outputs.NetworkSecurityGroupResponseResult?> NetworkSecurityGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets whether this is a primary network interface on a virtual machine.
+        /// </summary>
+        [Output("primary")]
+        public Output<bool?> Primary { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string?> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource GUID property of the network interface resource.
+        /// </summary>
+        [Output("resourceGuid")]
+        public Output<string?> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -49,6 +91,12 @@ namespace Pulumi.AzureRM.Network.V20150615
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference of a virtual machine.
+        /// </summary>
+        [Output("virtualMachine")]
+        public Output<Outputs.SubResourceResponseResult?> VirtualMachine { get; private set; } = null!;
 
 
         /// <summary>

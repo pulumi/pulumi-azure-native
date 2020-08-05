@@ -15,16 +15,40 @@ namespace Pulumi.AzureRM.ServiceBus.V20170401
     public partial class DisasterRecoveryConfig : Pulumi.CustomResource
     {
         /// <summary>
+        /// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+        /// </summary>
+        [Output("alternateName")]
+        public Output<string?> AlternateName { get; private set; } = null!;
+
+        /// <summary>
         /// Resource name
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Properties required to the Create Or Update Alias(Disaster Recovery configurations)
+        /// ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.ArmDisasterRecoveryResponsePropertiesResult> Properties { get; private set; } = null!;
+        [Output("partnerNamespace")]
+        public Output<string?> PartnerNamespace { get; private set; } = null!;
+
+        /// <summary>
+        /// Number of entities pending to be replicated.
+        /// </summary>
+        [Output("pendingReplicationOperationsCount")]
+        public Output<int> PendingReplicationOperationsCount { get; private set; } = null!;
+
+        /// <summary>
+        /// Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
+        /// </summary>
+        [Output("role")]
+        public Output<string> Role { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

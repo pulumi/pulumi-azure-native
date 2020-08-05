@@ -56,32 +56,39 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         /// </summary>
         public readonly string? Etag;
         /// <summary>
+        /// Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+        /// </summary>
+        public readonly string LogicAppResourceId;
+        /// <summary>
         /// Azure resource name
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Action properties for get request
-        /// </summary>
-        public readonly Outputs.ActionResponsePropertiesResponseResult Properties;
-        /// <summary>
         /// Azure resource type
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The name of the logic app's workflow.
+        /// </summary>
+        public readonly string? WorkflowId;
 
         [OutputConstructor]
         private GetAlertRuleActionResult(
             string? etag,
 
+            string logicAppResourceId,
+
             string name,
 
-            Outputs.ActionResponsePropertiesResponseResult properties,
+            string type,
 
-            string type)
+            string? workflowId)
         {
             Etag = etag;
+            LogicAppResourceId = logicAppResourceId;
             Name = name;
-            Properties = properties;
             Type = type;
+            WorkflowId = workflowId;
         }
     }
 }

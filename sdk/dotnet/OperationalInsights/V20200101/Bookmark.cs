@@ -15,10 +15,40 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
     public partial class Bookmark : Pulumi.CustomResource
     {
         /// <summary>
+        /// The time the bookmark was created
+        /// </summary>
+        [Output("created")]
+        public Output<string?> Created { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes a user that created the bookmark
+        /// </summary>
+        [Output("createdBy")]
+        public Output<Outputs.UserInfoResponseResult?> CreatedBy { get; private set; } = null!;
+
+        /// <summary>
+        /// The display name of the bookmark
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes an incident that relates to bookmark
+        /// </summary>
+        [Output("incidentInfo")]
+        public Output<Outputs.IncidentInfoResponseResult?> IncidentInfo { get; private set; } = null!;
+
+        /// <summary>
+        /// List of labels relevant to this bookmark
+        /// </summary>
+        [Output("labels")]
+        public Output<ImmutableArray<string>> Labels { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource name
@@ -27,16 +57,40 @@ namespace Pulumi.AzureRM.OperationalInsights.V20200101
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Bookmark properties
+        /// The notes of the bookmark
         /// </summary>
-        [Output("properties")]
-        public Output<Outputs.BookmarkPropertiesResponseResult> Properties { get; private set; } = null!;
+        [Output("notes")]
+        public Output<string?> Notes { get; private set; } = null!;
+
+        /// <summary>
+        /// The query of the bookmark.
+        /// </summary>
+        [Output("query")]
+        public Output<string> Query { get; private set; } = null!;
+
+        /// <summary>
+        /// The query result of the bookmark.
+        /// </summary>
+        [Output("queryResult")]
+        public Output<string?> QueryResult { get; private set; } = null!;
 
         /// <summary>
         /// Azure resource type
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The last time the bookmark was updated
+        /// </summary>
+        [Output("updated")]
+        public Output<string?> Updated { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes a user that updated the bookmark
+        /// </summary>
+        [Output("updatedBy")]
+        public Output<Outputs.UserInfoResponseResult?> UpdatedBy { get; private set; } = null!;
 
 
         /// <summary>

@@ -46,29 +46,85 @@ namespace Pulumi.AzureRM.Network.V20190401
     public sealed class GetInboundNatRuleResult
     {
         /// <summary>
+        /// A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
+        /// </summary>
+        public readonly Outputs.NetworkInterfaceIPConfigurationResponseResult BackendIPConfiguration;
+        /// <summary>
+        /// The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+        /// </summary>
+        public readonly int? BackendPort;
+        /// <summary>
+        /// Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+        /// </summary>
+        public readonly bool? EnableFloatingIP;
+        /// <summary>
+        /// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        /// </summary>
+        public readonly bool? EnableTcpReset;
+        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string? Etag;
+        /// <summary>
+        /// A reference to frontend IP addresses.
+        /// </summary>
+        public readonly Outputs.SubResourceResponseResult? FrontendIPConfiguration;
+        /// <summary>
+        /// The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+        /// </summary>
+        public readonly int? FrontendPort;
+        /// <summary>
+        /// The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+        /// </summary>
+        public readonly int? IdleTimeoutInMinutes;
         /// <summary>
         /// Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Properties of load balancer inbound nat rule.
+        /// The reference to the transport protocol used by the load balancing rule.
         /// </summary>
-        public readonly Outputs.InboundNatRulePropertiesFormatResponseResult Properties;
+        public readonly string? Protocol;
+        /// <summary>
+        /// Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        /// </summary>
+        public readonly string? ProvisioningState;
 
         [OutputConstructor]
         private GetInboundNatRuleResult(
+            Outputs.NetworkInterfaceIPConfigurationResponseResult backendIPConfiguration,
+
+            int? backendPort,
+
+            bool? enableFloatingIP,
+
+            bool? enableTcpReset,
+
             string? etag,
+
+            Outputs.SubResourceResponseResult? frontendIPConfiguration,
+
+            int? frontendPort,
+
+            int? idleTimeoutInMinutes,
 
             string? name,
 
-            Outputs.InboundNatRulePropertiesFormatResponseResult properties)
+            string? protocol,
+
+            string? provisioningState)
         {
+            BackendIPConfiguration = backendIPConfiguration;
+            BackendPort = backendPort;
+            EnableFloatingIP = enableFloatingIP;
+            EnableTcpReset = enableTcpReset;
             Etag = etag;
+            FrontendIPConfiguration = frontendIPConfiguration;
+            FrontendPort = frontendPort;
+            IdleTimeoutInMinutes = idleTimeoutInMinutes;
             Name = name;
-            Properties = properties;
+            Protocol = protocol;
+            ProvisioningState = provisioningState;
         }
     }
 }
