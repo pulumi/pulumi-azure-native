@@ -13,18 +13,72 @@ class GetLiveOutputResult:
     """
     The Live Output.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, archive_window_length=None, asset_name=None, created=None, description=None, hls=None, last_modified=None, manifest_name=None, name=None, output_snap_time=None, provisioning_state=None, resource_state=None, type=None):
+        if archive_window_length and not isinstance(archive_window_length, str):
+            raise TypeError("Expected argument 'archive_window_length' to be a str")
+        __self__.archive_window_length = archive_window_length
+        """
+        ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+        """
+        if asset_name and not isinstance(asset_name, str):
+            raise TypeError("Expected argument 'asset_name' to be a str")
+        __self__.asset_name = asset_name
+        """
+        The asset name.
+        """
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        __self__.created = created
+        """
+        The exact time the Live Output was created.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of the Live Output.
+        """
+        if hls and not isinstance(hls, dict):
+            raise TypeError("Expected argument 'hls' to be a dict")
+        __self__.hls = hls
+        """
+        The HLS configuration.
+        """
+        if last_modified and not isinstance(last_modified, str):
+            raise TypeError("Expected argument 'last_modified' to be a str")
+        __self__.last_modified = last_modified
+        """
+        The exact time the Live Output was last modified.
+        """
+        if manifest_name and not isinstance(manifest_name, str):
+            raise TypeError("Expected argument 'manifest_name' to be a str")
+        __self__.manifest_name = manifest_name
+        """
+        The manifest file name.  If not provided, the service will generate one automatically.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if output_snap_time and not isinstance(output_snap_time, float):
+            raise TypeError("Expected argument 'output_snap_time' to be a float")
+        __self__.output_snap_time = output_snap_time
         """
-        The Live Output properties.
+        The output snapshot time.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the Live Output.
+        """
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
+        """
+        The resource state of the Live Output.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +94,17 @@ class AwaitableGetLiveOutputResult(GetLiveOutputResult):
         if False:
             yield self
         return GetLiveOutputResult(
+            archive_window_length=self.archive_window_length,
+            asset_name=self.asset_name,
+            created=self.created,
+            description=self.description,
+            hls=self.hls,
+            last_modified=self.last_modified,
+            manifest_name=self.manifest_name,
             name=self.name,
-            properties=self.properties,
+            output_snap_time=self.output_snap_time,
+            provisioning_state=self.provisioning_state,
+            resource_state=self.resource_state,
             type=self.type)
 
 
@@ -66,6 +129,15 @@ def get_live_output(account_name=None, live_event_name=None, name=None, resource
     __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:getLiveOutput', __args__, opts=opts).value
 
     return AwaitableGetLiveOutputResult(
+        archive_window_length=__ret__.get('archiveWindowLength'),
+        asset_name=__ret__.get('assetName'),
+        created=__ret__.get('created'),
+        description=__ret__.get('description'),
+        hls=__ret__.get('hls'),
+        last_modified=__ret__.get('lastModified'),
+        manifest_name=__ret__.get('manifestName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        output_snap_time=__ret__.get('outputSnapTime'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_state=__ret__.get('resourceState'),
         type=__ret__.get('type'))

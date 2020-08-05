@@ -10,6 +10,56 @@ from ... import _utilities, _tables
 
 
 class ManagedCluster(pulumi.CustomResource):
+    aad_profile: pulumi.Output[dict]
+    """
+    Profile of Azure Active Directory configuration.
+      * `client_app_id` (`str`) - The client AAD application ID.
+      * `server_app_id` (`str`) - The server AAD application ID.
+      * `server_app_secret` (`str`) - The server AAD application secret.
+      * `tenant_id` (`str`) - The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
+    """
+    addon_profiles: pulumi.Output[dict]
+    """
+    Profile of managed cluster add-on.
+    """
+    agent_pool_profiles: pulumi.Output[list]
+    """
+    Properties of the agent pool.
+      * `availability_zones` (`list`) - (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+      * `count` (`float`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+      * `enable_auto_scaling` (`bool`) - Whether to enable auto-scaler
+      * `max_count` (`float`) - Maximum number of nodes for auto-scaling
+      * `max_pods` (`float`) - Maximum number of pods that can run on a node.
+      * `min_count` (`float`) - Minimum number of nodes for auto-scaling
+      * `name` (`str`) - Unique name of the agent pool profile in the context of the subscription and resource group.
+      * `orchestrator_version` (`str`) - Version of orchestrator specified when creating the managed cluster.
+      * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+      * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+      * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response.
+      * `type` (`str`) - AgentPoolType represents types of an agent pool
+      * `vm_size` (`str`) - Size of agent VMs.
+      * `vnet_subnet_id` (`str`) - VNet SubnetID specifies the VNet's subnet identifier.
+    """
+    api_server_authorized_ip_ranges: pulumi.Output[list]
+    """
+    (PREVIEW) Authorized IP Ranges to kubernetes API server.
+    """
+    dns_prefix: pulumi.Output[str]
+    """
+    DNS prefix specified when creating the managed cluster.
+    """
+    enable_pod_security_policy: pulumi.Output[bool]
+    """
+    (PREVIEW) Whether to enable Kubernetes Pod security policy.
+    """
+    enable_rbac: pulumi.Output[bool]
+    """
+    Whether to enable Kubernetes Role-Based Access Control.
+    """
+    fqdn: pulumi.Output[str]
+    """
+    FQDN for the master pool.
+    """
     identity: pulumi.Output[dict]
     """
     The identity of the managed cluster, if configured.
@@ -17,71 +67,54 @@ class ManagedCluster(pulumi.CustomResource):
       * `tenant_id` (`str`) - The tenant id of the system assigned identity which is used by master components.
       * `type` (`str`) - The type of identity used for the managed cluster. Type 'SystemAssigned' will use an implicitly created identity in master components and an auto-created user assigned identity in MC_ resource group in agent nodes. Type 'None' will not use MSI for the managed cluster, service principal will be used instead.
     """
+    kubernetes_version: pulumi.Output[str]
+    """
+    Version of Kubernetes specified when creating the managed cluster.
+    """
+    linux_profile: pulumi.Output[dict]
+    """
+    Profile for Linux VMs in the container service cluster.
+      * `admin_username` (`str`) - The administrator username to use for Linux VMs.
+      * `ssh` (`dict`) - SSH configuration for Linux-based VMs running on Azure.
+        * `public_keys` (`list`) - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
+          * `key_data` (`str`) - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
+    """
     location: pulumi.Output[str]
     """
     Resource location
+    """
+    max_agent_pools: pulumi.Output[float]
+    """
+    The max number of agent pools for the managed cluster.
     """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    network_profile: pulumi.Output[dict]
     """
-    Properties of a managed cluster.
-      * `aad_profile` (`dict`) - Profile of Azure Active Directory configuration.
-        * `client_app_id` (`str`) - The client AAD application ID.
-        * `server_app_id` (`str`) - The server AAD application ID.
-        * `server_app_secret` (`str`) - The server AAD application secret.
-        * `tenant_id` (`str`) - The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.
-
-      * `addon_profiles` (`dict`) - Profile of managed cluster add-on.
-      * `agent_pool_profiles` (`list`) - Properties of the agent pool.
-        * `availability_zones` (`list`) - (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
-        * `count` (`float`) - Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
-        * `enable_auto_scaling` (`bool`) - Whether to enable auto-scaler
-        * `max_count` (`float`) - Maximum number of nodes for auto-scaling
-        * `max_pods` (`float`) - Maximum number of pods that can run on a node.
-        * `min_count` (`float`) - Minimum number of nodes for auto-scaling
-        * `name` (`str`) - Unique name of the agent pool profile in the context of the subscription and resource group.
-        * `orchestrator_version` (`str`) - Version of orchestrator specified when creating the managed cluster.
-        * `os_disk_size_gb` (`float`) - OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        * `os_type` (`str`) - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
-        * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response.
-        * `type` (`str`) - AgentPoolType represents types of an agent pool
-        * `vm_size` (`str`) - Size of agent VMs.
-        * `vnet_subnet_id` (`str`) - VNet SubnetID specifies the VNet's subnet identifier.
-
-      * `api_server_authorized_ip_ranges` (`list`) - (PREVIEW) Authorized IP Ranges to kubernetes API server.
-      * `dns_prefix` (`str`) - DNS prefix specified when creating the managed cluster.
-      * `enable_pod_security_policy` (`bool`) - (PREVIEW) Whether to enable Kubernetes Pod security policy.
-      * `enable_rbac` (`bool`) - Whether to enable Kubernetes Role-Based Access Control.
-      * `fqdn` (`str`) - FQDN for the master pool.
-      * `kubernetes_version` (`str`) - Version of Kubernetes specified when creating the managed cluster.
-      * `linux_profile` (`dict`) - Profile for Linux VMs in the container service cluster.
-        * `admin_username` (`str`) - The administrator username to use for Linux VMs.
-        * `ssh` (`dict`) - SSH configuration for Linux-based VMs running on Azure.
-          * `public_keys` (`list`) - The list of SSH public keys used to authenticate with Linux-based VMs. Only expect one key specified.
-            * `key_data` (`str`) - Certificate public key used to authenticate with VMs through SSH. The certificate must be in PEM format with or without headers.
-
-      * `max_agent_pools` (`float`) - The max number of agent pools for the managed cluster.
-      * `network_profile` (`dict`) - Profile of network configuration.
-        * `dns_service_ip` (`str`) - An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-        * `docker_bridge_cidr` (`str`) - A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
-        * `load_balancer_sku` (`str`) - The load balancer sku for the managed cluster.
-        * `network_plugin` (`str`) - Network plugin used for building Kubernetes network.
-        * `network_policy` (`str`) - Network policy used for building Kubernetes network.
-        * `pod_cidr` (`str`) - A CIDR notation IP range from which to assign pod IPs when kubenet is used.
-        * `service_cidr` (`str`) - A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
-
-      * `node_resource_group` (`str`) - Name of the resource group containing agent pool nodes.
-      * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response.
-      * `service_principal_profile` (`dict`) - Information about a service principal identity for the cluster to use for manipulating Azure APIs.
-        * `client_id` (`str`) - The ID for the service principal.
-        * `secret` (`str`) - The secret password associated with the service principal in plain text.
-
-      * `windows_profile` (`dict`) - Profile for Windows VMs in the container service cluster.
-        * `admin_password` (`str`) - The administrator password to use for Windows VMs.
-        * `admin_username` (`str`) - The administrator username to use for Windows VMs.
+    Profile of network configuration.
+      * `dns_service_ip` (`str`) - An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
+      * `docker_bridge_cidr` (`str`) - A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range.
+      * `load_balancer_sku` (`str`) - The load balancer sku for the managed cluster.
+      * `network_plugin` (`str`) - Network plugin used for building Kubernetes network.
+      * `network_policy` (`str`) - Network policy used for building Kubernetes network.
+      * `pod_cidr` (`str`) - A CIDR notation IP range from which to assign pod IPs when kubenet is used.
+      * `service_cidr` (`str`) - A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
+    """
+    node_resource_group: pulumi.Output[str]
+    """
+    Name of the resource group containing agent pool nodes.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The current deployment or provisioning state, which only appears in the response.
+    """
+    service_principal_profile: pulumi.Output[dict]
+    """
+    Information about a service principal identity for the cluster to use for manipulating Azure APIs.
+      * `client_id` (`str`) - The ID for the service principal.
+      * `secret` (`str`) - The secret password associated with the service principal in plain text.
     """
     tags: pulumi.Output[dict]
     """
@@ -90,6 +123,12 @@ class ManagedCluster(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    windows_profile: pulumi.Output[dict]
+    """
+    Profile for Windows VMs in the container service cluster.
+      * `admin_password` (`str`) - The administrator password to use for Windows VMs.
+      * `admin_username` (`str`) - The administrator username to use for Windows VMs.
     """
     def __init__(__self__, resource_name, opts=None, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, identity=None, kubernetes_version=None, linux_profile=None, location=None, name=None, network_profile=None, node_resource_group=None, resource_group_name=None, service_principal_profile=None, tags=None, windows_profile=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -211,7 +250,9 @@ class ManagedCluster(pulumi.CustomResource):
             __props__['service_principal_profile'] = service_principal_profile
             __props__['tags'] = tags
             __props__['windows_profile'] = windows_profile
-            __props__['properties'] = None
+            __props__['fqdn'] = None
+            __props__['max_agent_pools'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(ManagedCluster, __self__).__init__(
             'azurerm:containerservice/v20190401:ManagedCluster',

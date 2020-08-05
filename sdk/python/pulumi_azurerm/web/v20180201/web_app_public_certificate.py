@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class WebAppPublicCertificate(pulumi.CustomResource):
+    blob: pulumi.Output[str]
+    """
+    Public Certificate byte array
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
@@ -18,12 +22,13 @@ class WebAppPublicCertificate(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    public_certificate_location: pulumi.Output[str]
     """
-    PublicCertificate resource specific properties
-      * `blob` (`str`) - Public Certificate byte array
-      * `public_certificate_location` (`str`) - Public Certificate Location
-      * `thumbprint` (`str`) - Certificate Thumbprint
+    Public Certificate Location
+    """
+    thumbprint: pulumi.Output[str]
+    """
+    Certificate Thumbprint
     """
     type: pulumi.Output[str]
     """
@@ -67,7 +72,7 @@ class WebAppPublicCertificate(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['thumbprint'] = None
             __props__['type'] = None
         super(WebAppPublicCertificate, __self__).__init__(
             'azurerm:web/v20180201:WebAppPublicCertificate',

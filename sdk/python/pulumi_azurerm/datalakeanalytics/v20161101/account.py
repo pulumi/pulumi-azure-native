@@ -10,71 +10,121 @@ from ... import _utilities, _tables
 
 
 class Account(pulumi.CustomResource):
+    account_id: pulumi.Output[str]
+    """
+    The unique identifier associated with this Data Lake Analytics account.
+    """
+    compute_policies: pulumi.Output[list]
+    """
+    The list of compute policies associated with this account.
+      * `id` (`str`) - The resource identifier.
+      * `max_degree_of_parallelism_per_job` (`float`) - The maximum degree of parallelism per job this user can use to submit jobs.
+      * `min_priority_per_job` (`float`) - The minimum priority per job this user can use to submit jobs.
+      * `name` (`str`) - The resource name.
+      * `object_id` (`str`) - The AAD object identifier for the entity to create a policy for.
+      * `object_type` (`str`) - The type of AAD object the object identifier refers to.
+      * `type` (`str`) - The resource type.
+    """
+    creation_time: pulumi.Output[str]
+    """
+    The account creation time.
+    """
+    current_tier: pulumi.Output[str]
+    """
+    The commitment tier in use for the current month.
+    """
+    data_lake_store_accounts: pulumi.Output[list]
+    """
+    The list of Data Lake Store accounts associated with this account.
+      * `id` (`str`) - The resource identifier.
+      * `name` (`str`) - The resource name.
+      * `suffix` (`str`) - The optional suffix for the Data Lake Store account.
+      * `type` (`str`) - The resource type.
+    """
+    default_data_lake_store_account: pulumi.Output[str]
+    """
+    The default Data Lake Store account associated with this account.
+    """
+    endpoint: pulumi.Output[str]
+    """
+    The full CName endpoint for this account.
+    """
+    firewall_allow_azure_ips: pulumi.Output[str]
+    """
+    The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
+    """
+    firewall_rules: pulumi.Output[list]
+    """
+    The list of firewall rules associated with this account.
+      * `end_ip_address` (`str`) - The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+      * `id` (`str`) - The resource identifier.
+      * `name` (`str`) - The resource name.
+      * `start_ip_address` (`str`) - The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+      * `type` (`str`) - The resource type.
+    """
+    firewall_state: pulumi.Output[str]
+    """
+    The current state of the IP address firewall for this account.
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    The account last modified time.
+    """
     location: pulumi.Output[str]
     """
     The resource location.
+    """
+    max_degree_of_parallelism: pulumi.Output[float]
+    """
+    The maximum supported degree of parallelism for this account.
+    """
+    max_degree_of_parallelism_per_job: pulumi.Output[float]
+    """
+    The maximum supported degree of parallelism per job for this account.
+    """
+    max_job_count: pulumi.Output[float]
+    """
+    The maximum supported jobs running under the account at the same time.
+    """
+    min_priority_per_job: pulumi.Output[float]
+    """
+    The minimum supported priority per job for this account.
     """
     name: pulumi.Output[str]
     """
     The resource name.
     """
-    properties: pulumi.Output[dict]
+    new_tier: pulumi.Output[str]
     """
-    The properties defined by Data Lake Analytics all properties are specific to each resource provider.
-      * `account_id` (`str`) - The unique identifier associated with this Data Lake Analytics account.
-      * `compute_policies` (`list`) - The list of compute policies associated with this account.
-        * `id` (`str`) - The resource identifier.
-        * `name` (`str`) - The resource name.
-        * `properties` (`dict`) - The compute policy properties.
-          * `max_degree_of_parallelism_per_job` (`float`) - The maximum degree of parallelism per job this user can use to submit jobs.
-          * `min_priority_per_job` (`float`) - The minimum priority per job this user can use to submit jobs.
-          * `object_id` (`str`) - The AAD object identifier for the entity to create a policy for.
-          * `object_type` (`str`) - The type of AAD object the object identifier refers to.
-
-        * `type` (`str`) - The resource type.
-
-      * `creation_time` (`str`) - The account creation time.
-      * `current_tier` (`str`) - The commitment tier in use for the current month.
-      * `data_lake_store_accounts` (`list`) - The list of Data Lake Store accounts associated with this account.
-        * `id` (`str`) - The resource identifier.
-        * `name` (`str`) - The resource name.
-        * `properties` (`dict`) - The Data Lake Store account properties.
-          * `suffix` (`str`) - The optional suffix for the Data Lake Store account.
-
-        * `type` (`str`) - The resource type.
-
-      * `default_data_lake_store_account` (`str`) - The default Data Lake Store account associated with this account.
-      * `endpoint` (`str`) - The full CName endpoint for this account.
-      * `firewall_allow_azure_ips` (`str`) - The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
-      * `firewall_rules` (`list`) - The list of firewall rules associated with this account.
-        * `id` (`str`) - The resource identifier.
-        * `name` (`str`) - The resource name.
-        * `properties` (`dict`) - The firewall rule properties.
-          * `end_ip_address` (`str`) - The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-          * `start_ip_address` (`str`) - The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-
-        * `type` (`str`) - The resource type.
-
-      * `firewall_state` (`str`) - The current state of the IP address firewall for this account.
-      * `last_modified_time` (`str`) - The account last modified time.
-      * `max_degree_of_parallelism` (`float`) - The maximum supported degree of parallelism for this account.
-      * `max_degree_of_parallelism_per_job` (`float`) - The maximum supported degree of parallelism per job for this account.
-      * `max_job_count` (`float`) - The maximum supported jobs running under the account at the same time.
-      * `min_priority_per_job` (`float`) - The minimum supported priority per job for this account.
-      * `new_tier` (`str`) - The commitment tier for the next month.
-      * `provisioning_state` (`str`) - The provisioning status of the Data Lake Analytics account.
-      * `query_store_retention` (`float`) - The number of days that job metadata is retained.
-      * `state` (`str`) - The state of the Data Lake Analytics account.
-      * `storage_accounts` (`list`) - The list of Azure Blob Storage accounts associated with this account.
-        * `id` (`str`) - The resource identifier.
-        * `name` (`str`) - The resource name.
-        * `properties` (`dict`) - The Azure Storage account properties.
-          * `suffix` (`str`) - The optional suffix for the storage account.
-
-        * `type` (`str`) - The resource type.
-
-      * `system_max_degree_of_parallelism` (`float`) - The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
-      * `system_max_job_count` (`float`) - The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
+    The commitment tier for the next month.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning status of the Data Lake Analytics account.
+    """
+    query_store_retention: pulumi.Output[float]
+    """
+    The number of days that job metadata is retained.
+    """
+    state: pulumi.Output[str]
+    """
+    The state of the Data Lake Analytics account.
+    """
+    storage_accounts: pulumi.Output[list]
+    """
+    The list of Azure Blob Storage accounts associated with this account.
+      * `id` (`str`) - The resource identifier.
+      * `name` (`str`) - The resource name.
+      * `suffix` (`str`) - The optional suffix for the storage account.
+      * `type` (`str`) - The resource type.
+    """
+    system_max_degree_of_parallelism: pulumi.Output[float]
+    """
+    The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.
+    """
+    system_max_job_count: pulumi.Output[float]
+    """
+    The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.
     """
     tags: pulumi.Output[dict]
     """
@@ -177,7 +227,15 @@ class Account(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['storage_accounts'] = storage_accounts
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['account_id'] = None
+            __props__['creation_time'] = None
+            __props__['current_tier'] = None
+            __props__['endpoint'] = None
+            __props__['last_modified_time'] = None
+            __props__['provisioning_state'] = None
+            __props__['state'] = None
+            __props__['system_max_degree_of_parallelism'] = None
+            __props__['system_max_job_count'] = None
             __props__['type'] = None
         super(Account, __self__).__init__(
             'azurerm:datalakeanalytics/v20161101:Account',

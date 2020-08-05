@@ -10,27 +10,37 @@ from ... import _utilities, _tables
 
 
 class Partner(pulumi.CustomResource):
+    changed_time: pulumi.Output[str]
+    """
+    The changed time.
+    """
+    content: pulumi.Output[dict]
+    """
+    The partner content.
+      * `b2b` (`dict`) - The B2B partner content.
+        * `business_identities` (`list`) - The list of partner business identities.
+          * `qualifier` (`str`) - The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
+          * `value` (`str`) - The user defined business identity value.
+    """
+    created_time: pulumi.Output[str]
+    """
+    The created time.
+    """
     location: pulumi.Output[str]
     """
     The resource location.
+    """
+    metadata: pulumi.Output[dict]
+    """
+    The metadata.
     """
     name: pulumi.Output[str]
     """
     Gets the resource name.
     """
-    properties: pulumi.Output[dict]
+    partner_type: pulumi.Output[str]
     """
-    The integration account partner properties.
-      * `changed_time` (`str`) - The changed time.
-      * `content` (`dict`) - The partner content.
-        * `b2b` (`dict`) - The B2B partner content.
-          * `business_identities` (`list`) - The list of partner business identities.
-            * `qualifier` (`str`) - The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
-            * `value` (`str`) - The user defined business identity value.
-
-      * `created_time` (`str`) - The created time.
-      * `metadata` (`dict`) - The metadata.
-      * `partner_type` (`str`) - The partner type.
+    The partner type.
     """
     tags: pulumi.Output[dict]
     """
@@ -97,7 +107,8 @@ class Partner(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['changed_time'] = None
+            __props__['created_time'] = None
             __props__['type'] = None
         super(Partner, __self__).__init__(
             'azurerm:logic/v20160601:Partner',

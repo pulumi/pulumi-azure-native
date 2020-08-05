@@ -13,7 +13,13 @@ class GetStorageInsightResult:
     """
     The top level storage insight resource container.
     """
-    def __init__(__self__, e_tag=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, containers=None, e_tag=None, name=None, status=None, storage_account=None, tables=None, tags=None, type=None):
+        if containers and not isinstance(containers, list):
+            raise TypeError("Expected argument 'containers' to be a list")
+        __self__.containers = containers
+        """
+        The names of the blob containers that the workspace should read
+        """
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         __self__.e_tag = e_tag
@@ -26,11 +32,23 @@ class GetStorageInsightResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if status and not isinstance(status, dict):
+            raise TypeError("Expected argument 'status' to be a dict")
+        __self__.status = status
         """
-        Storage insight properties.
+        The status of the storage insight
+        """
+        if storage_account and not isinstance(storage_account, dict):
+            raise TypeError("Expected argument 'storage_account' to be a dict")
+        __self__.storage_account = storage_account
+        """
+        The storage account connection details
+        """
+        if tables and not isinstance(tables, list):
+            raise TypeError("Expected argument 'tables' to be a list")
+        __self__.tables = tables
+        """
+        The names of the Azure tables that the workspace should read
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +70,12 @@ class AwaitableGetStorageInsightResult(GetStorageInsightResult):
         if False:
             yield self
         return GetStorageInsightResult(
+            containers=self.containers,
             e_tag=self.e_tag,
             name=self.name,
-            properties=self.properties,
+            status=self.status,
+            storage_account=self.storage_account,
+            tables=self.tables,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +99,11 @@ def get_storage_insight(name=None, resource_group_name=None, workspace_name=None
     __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20150320:getStorageInsight', __args__, opts=opts).value
 
     return AwaitableGetStorageInsightResult(
+        containers=__ret__.get('containers'),
         e_tag=__ret__.get('eTag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        status=__ret__.get('status'),
+        storage_account=__ret__.get('storageAccount'),
+        tables=__ret__.get('tables'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

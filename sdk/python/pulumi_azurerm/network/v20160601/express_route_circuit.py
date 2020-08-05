@@ -10,9 +10,31 @@ from ... import _utilities, _tables
 
 
 class ExpressRouteCircuit(pulumi.CustomResource):
+    allow_classic_operations: pulumi.Output[bool]
+    """
+    allow classic operations
+    """
+    authorizations: pulumi.Output[list]
+    """
+    Gets or sets list of authorizations
+      * `authorization_key` (`str`) - Gets or sets the authorization key
+      * `authorization_use_status` (`str`) - Gets or sets AuthorizationUseStatus
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated
+      * `id` (`str`) - Resource Id
+      * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+      * `provisioning_state` (`str`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+    """
+    circuit_provisioning_state: pulumi.Output[str]
+    """
+    Gets or sets CircuitProvisioningState state of the resource 
+    """
     etag: pulumi.Output[str]
     """
     Gets a unique read-only string that changes whenever the resource is updated
+    """
+    gateway_manager_etag: pulumi.Output[str]
+    """
+    Gets or sets the GatewayManager Etag
     """
     location: pulumi.Output[str]
     """
@@ -22,61 +44,60 @@ class ExpressRouteCircuit(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    peerings: pulumi.Output[list]
     """
-    Properties of ExpressRouteCircuit
-      * `allow_classic_operations` (`bool`) - allow classic operations
-      * `authorizations` (`list`) - Gets or sets list of authorizations
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated
-        * `id` (`str`) - Resource Id
-        * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-        * `properties` (`dict`)
-          * `authorization_key` (`str`) - Gets or sets the authorization key
-          * `authorization_use_status` (`str`) - Gets or sets AuthorizationUseStatus
-          * `provisioning_state` (`str`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-
-      * `circuit_provisioning_state` (`str`) - Gets or sets CircuitProvisioningState state of the resource 
+    Gets or sets list of peerings
+      * `azure_asn` (`float`) - Gets or sets the azure ASN
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated
       * `gateway_manager_etag` (`str`) - Gets or sets the GatewayManager Etag
-      * `peerings` (`list`) - Gets or sets list of peerings
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated
-        * `id` (`str`) - Resource Id
-        * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
-        * `properties` (`dict`)
-          * `azure_asn` (`float`) - Gets or sets the azure ASN
-          * `gateway_manager_etag` (`str`) - Gets or sets the GatewayManager Etag
-          * `last_modified_by` (`str`) - Gets whether the provider or the customer last modified the peering
-          * `microsoft_peering_config` (`dict`) - Gets or sets the Microsoft peering config
-            * `advertised_public_prefixes` (`list`) - Gets or sets the reference of AdvertisedPublicPrefixes
-            * `advertised_public_prefixes_state` (`str`) - Gets or sets AdvertisedPublicPrefixState of the Peering resource 
-            * `customer_asn` (`float`) - Gets or Sets CustomerAsn of the peering.
-            * `routing_registry_name` (`str`) - Gets or Sets RoutingRegistryName of the config.
+      * `id` (`str`) - Resource Id
+      * `last_modified_by` (`str`) - Gets whether the provider or the customer last modified the peering
+      * `microsoft_peering_config` (`dict`) - Gets or sets the Microsoft peering config
+        * `advertised_public_prefixes` (`list`) - Gets or sets the reference of AdvertisedPublicPrefixes
+        * `advertised_public_prefixes_state` (`str`) - Gets or sets AdvertisedPublicPrefixState of the Peering resource 
+        * `customer_asn` (`float`) - Gets or Sets CustomerAsn of the peering.
+        * `routing_registry_name` (`str`) - Gets or Sets RoutingRegistryName of the config.
 
-          * `peer_asn` (`float`) - Gets or sets the peer ASN
-          * `peering_type` (`str`) - Gets or sets PeeringType
-          * `primary_azure_port` (`str`) - Gets or sets the primary port
-          * `primary_peer_address_prefix` (`str`) - Gets or sets the primary address prefix
-          * `provisioning_state` (`str`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-          * `secondary_azure_port` (`str`) - Gets or sets the secondary port
-          * `secondary_peer_address_prefix` (`str`) - Gets or sets the secondary address prefix
-          * `shared_key` (`str`) - Gets or sets the shared key
-          * `state` (`str`) - Gets or sets state of Peering
-          * `stats` (`dict`) - Gets or peering stats
-            * `primarybytes_in` (`float`) - Gets BytesIn of the peering.
-            * `primarybytes_out` (`float`) - Gets BytesOut of the peering.
-            * `secondarybytes_in` (`float`) - Gets BytesIn of the peering.
-            * `secondarybytes_out` (`float`) - Gets BytesOut of the peering.
-
-          * `vlan_id` (`float`) - Gets or sets the vlan id
-
+      * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource
+      * `peer_asn` (`float`) - Gets or sets the peer ASN
+      * `peering_type` (`str`) - Gets or sets PeeringType
+      * `primary_azure_port` (`str`) - Gets or sets the primary port
+      * `primary_peer_address_prefix` (`str`) - Gets or sets the primary address prefix
       * `provisioning_state` (`str`) - Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
-      * `service_key` (`str`) - Gets or sets ServiceKey
-      * `service_provider_notes` (`str`) - Gets or sets ServiceProviderNotes
-      * `service_provider_properties` (`dict`) - Gets or sets ServiceProviderProperties
-        * `bandwidth_in_mbps` (`float`) - Gets or sets BandwidthInMbps.
-        * `peering_location` (`str`) - Gets or sets peering location.
-        * `service_provider_name` (`str`) - Gets or sets serviceProviderName.
+      * `secondary_azure_port` (`str`) - Gets or sets the secondary port
+      * `secondary_peer_address_prefix` (`str`) - Gets or sets the secondary address prefix
+      * `shared_key` (`str`) - Gets or sets the shared key
+      * `state` (`str`) - Gets or sets state of Peering
+      * `stats` (`dict`) - Gets or peering stats
+        * `primarybytes_in` (`float`) - Gets BytesIn of the peering.
+        * `primarybytes_out` (`float`) - Gets BytesOut of the peering.
+        * `secondarybytes_in` (`float`) - Gets BytesIn of the peering.
+        * `secondarybytes_out` (`float`) - Gets BytesOut of the peering.
 
-      * `service_provider_provisioning_state` (`str`) - Gets or sets ServiceProviderProvisioningState state of the resource 
+      * `vlan_id` (`float`) - Gets or sets the vlan id
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Gets provisioning state of the PublicIP resource Updating/Deleting/Failed
+    """
+    service_key: pulumi.Output[str]
+    """
+    Gets or sets ServiceKey
+    """
+    service_provider_notes: pulumi.Output[str]
+    """
+    Gets or sets ServiceProviderNotes
+    """
+    service_provider_properties: pulumi.Output[dict]
+    """
+    Gets or sets ServiceProviderProperties
+      * `bandwidth_in_mbps` (`float`) - Gets or sets BandwidthInMbps.
+      * `peering_location` (`str`) - Gets or sets peering location.
+      * `service_provider_name` (`str`) - Gets or sets serviceProviderName.
+    """
+    service_provider_provisioning_state: pulumi.Output[str]
+    """
+    Gets or sets ServiceProviderProvisioningState state of the resource 
     """
     sku: pulumi.Output[dict]
     """
@@ -207,7 +228,6 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__['service_provider_provisioning_state'] = service_provider_provisioning_state
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(ExpressRouteCircuit, __self__).__init__(
             'azurerm:network/v20160601:ExpressRouteCircuit',

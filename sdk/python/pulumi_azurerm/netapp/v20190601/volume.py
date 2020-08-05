@@ -10,48 +10,71 @@ from ... import _utilities, _tables
 
 
 class Volume(pulumi.CustomResource):
+    baremetal_tenant_id: pulumi.Output[str]
+    """
+    Unique Baremetal Tenant Identifier.
+    """
+    creation_token: pulumi.Output[str]
+    """
+    A unique file path for the volume. Used when creating mount targets
+    """
+    export_policy: pulumi.Output[dict]
+    """
+    Set of export policy rules
+      * `rules` (`list`) - Export policy rule
+        * `allowed_clients` (`str`) - Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
+        * `cifs` (`bool`) - Allows CIFS protocol
+        * `nfsv3` (`bool`) - Allows NFSv3 protocol
+        * `nfsv4` (`bool`) - Deprecated: Will use the NFSv4.1 protocol, please use swagger version 2019-07-01 or later
+        * `rule_index` (`float`) - Order index
+        * `unix_read_only` (`bool`) - Read only access
+        * `unix_read_write` (`bool`) - Read and write access
+    """
+    file_system_id: pulumi.Output[str]
+    """
+    Unique FileSystem Identifier.
+    """
     location: pulumi.Output[str]
     """
     Resource location
+    """
+    mount_targets: pulumi.Output[list]
+    """
+    List of mount targets
+      * `end_ip` (`str`) - The end of IPv4 address range to use when creating a new mount target
+      * `file_system_id` (`str`) - UUID v4 used to identify the MountTarget
+      * `gateway` (`str`) - The gateway of the IPv4 address range to use when creating a new mount target
+      * `ip_address` (`str`) - The mount target's IPv4 address
+      * `mount_target_id` (`str`) - UUID v4 used to identify the MountTarget
+      * `netmask` (`str`) - The netmask of the IPv4 address range to use when creating a new mount target
+      * `provisioning_state` (`str`) - Azure lifecycle management
+      * `smb_server_fqdn` (`str`) - The SMB server's Fully Qualified Domain Name, FQDN
+      * `start_ip` (`str`) - The start of IPv4 address range to use when creating a new mount target
+      * `subnet` (`str`) - The subnet
     """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    protocol_types: pulumi.Output[list]
     """
-    Volume properties
-      * `baremetal_tenant_id` (`str`) - Unique Baremetal Tenant Identifier.
-      * `creation_token` (`str`) - A unique file path for the volume. Used when creating mount targets
-      * `export_policy` (`dict`) - Set of export policy rules
-        * `rules` (`list`) - Export policy rule
-          * `allowed_clients` (`str`) - Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
-          * `cifs` (`bool`) - Allows CIFS protocol
-          * `nfsv3` (`bool`) - Allows NFSv3 protocol
-          * `nfsv4` (`bool`) - Deprecated: Will use the NFSv4.1 protocol, please use swagger version 2019-07-01 or later
-          * `rule_index` (`float`) - Order index
-          * `unix_read_only` (`bool`) - Read only access
-          * `unix_read_write` (`bool`) - Read and write access
-
-      * `file_system_id` (`str`) - Unique FileSystem Identifier.
-      * `mount_targets` (`list`) - List of mount targets
-        * `end_ip` (`str`) - The end of IPv4 address range to use when creating a new mount target
-        * `file_system_id` (`str`) - UUID v4 used to identify the MountTarget
-        * `gateway` (`str`) - The gateway of the IPv4 address range to use when creating a new mount target
-        * `ip_address` (`str`) - The mount target's IPv4 address
-        * `mount_target_id` (`str`) - UUID v4 used to identify the MountTarget
-        * `netmask` (`str`) - The netmask of the IPv4 address range to use when creating a new mount target
-        * `provisioning_state` (`str`) - Azure lifecycle management
-        * `smb_server_fqdn` (`str`) - The SMB server's Fully Qualified Domain Name, FQDN
-        * `start_ip` (`str`) - The start of IPv4 address range to use when creating a new mount target
-        * `subnet` (`str`) - The subnet
-
-      * `protocol_types` (`list`) - Set of protocol types
-      * `provisioning_state` (`str`) - Azure lifecycle management
-      * `service_level` (`str`) - The service level of the file system
-      * `snapshot_id` (`str`) - UUID v4 or resource identifier used to identify the Snapshot.
-      * `subnet_id` (`str`) - The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
-      * `usage_threshold` (`float`) - Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+    Set of protocol types
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Azure lifecycle management
+    """
+    service_level: pulumi.Output[str]
+    """
+    The service level of the file system
+    """
+    snapshot_id: pulumi.Output[str]
+    """
+    UUID v4 or resource identifier used to identify the Snapshot.
+    """
+    subnet_id: pulumi.Output[str]
+    """
+    The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
     """
     tags: pulumi.Output[dict]
     """
@@ -60,6 +83,10 @@ class Volume(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    usage_threshold: pulumi.Output[float]
+    """
+    Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
     """
     def __init__(__self__, resource_name, opts=None, account_name=None, creation_token=None, export_policy=None, location=None, mount_targets=None, name=None, pool_name=None, protocol_types=None, resource_group_name=None, service_level=None, snapshot_id=None, subnet_id=None, tags=None, usage_threshold=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -150,7 +177,9 @@ class Volume(pulumi.CustomResource):
             if usage_threshold is None:
                 raise TypeError("Missing required property 'usage_threshold'")
             __props__['usage_threshold'] = usage_threshold
-            __props__['properties'] = None
+            __props__['baremetal_tenant_id'] = None
+            __props__['file_system_id'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Volume, __self__).__init__(
             'azurerm:netapp/v20190601:Volume',

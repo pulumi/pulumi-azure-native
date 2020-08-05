@@ -10,9 +10,25 @@ from ... import _utilities, _tables
 
 
 class AutomationAccount(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    """
+    Gets the creation time.
+    """
+    description: pulumi.Output[str]
+    """
+    Gets or sets the description.
+    """
     etag: pulumi.Output[str]
     """
     Gets or sets the etag of the resource.
+    """
+    last_modified_by: pulumi.Output[str]
+    """
+    Gets or sets the last modified by.
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    Gets the last modified time.
     """
     location: pulumi.Output[str]
     """
@@ -22,19 +38,16 @@ class AutomationAccount(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    sku: pulumi.Output[dict]
     """
-    Gets or sets the automation account properties.
-      * `creation_time` (`str`) - Gets the creation time.
-      * `description` (`str`) - Gets or sets the description.
-      * `last_modified_by` (`str`) - Gets or sets the last modified by.
-      * `last_modified_time` (`str`) - Gets the last modified time.
-      * `sku` (`dict`) - Gets or sets the SKU of account.
-        * `capacity` (`float`) - Gets or sets the SKU capacity.
-        * `family` (`str`) - Gets or sets the SKU family.
-        * `name` (`str`) - Gets or sets the SKU name of the account.
-
-      * `state` (`str`) - Gets status of account.
+    Gets or sets the SKU of account.
+      * `capacity` (`float`) - Gets or sets the SKU capacity.
+      * `family` (`str`) - Gets or sets the SKU family.
+      * `name` (`str`) - Gets or sets the SKU name of the account.
+    """
+    state: pulumi.Output[str]
+    """
+    Gets status of account.
     """
     tags: pulumi.Output[dict]
     """
@@ -88,8 +101,12 @@ class AutomationAccount(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
+            __props__['creation_time'] = None
+            __props__['description'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['last_modified_by'] = None
+            __props__['last_modified_time'] = None
+            __props__['state'] = None
             __props__['type'] = None
         super(AutomationAccount, __self__).__init__(
             'azurerm:automation/v20151031:AutomationAccount',

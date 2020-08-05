@@ -10,9 +10,37 @@ from ... import _utilities, _tables
 
 
 class Project(pulumi.CustomResource):
+    created_timestamp: pulumi.Output[str]
+    """
+    Time when this project was created. Date-Time represented in ISO-8601 format.
+    """
+    customer_workspace_id: pulumi.Output[str]
+    """
+    ARM ID of the Service Map workspace created by user.
+    """
+    customer_workspace_location: pulumi.Output[str]
+    """
+    Location of the Service Map workspace created by user.
+    """
+    discovery_status: pulumi.Output[str]
+    """
+    Reports whether project is under discovery.
+    """
     e_tag: pulumi.Output[str]
     """
     For optimistic concurrency control.
+    """
+    last_assessment_timestamp: pulumi.Output[str]
+    """
+    Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
+    """
+    last_discovery_session_id: pulumi.Output[str]
+    """
+    Session id of the last discovery.
+    """
+    last_discovery_timestamp: pulumi.Output[str]
+    """
+    Time when this project was created. Date-Time represented in ISO-8601 format. This value will be null until discovery is complete.
     """
     location: pulumi.Output[str]
     """
@@ -22,21 +50,21 @@ class Project(pulumi.CustomResource):
     """
     Name of the project.
     """
-    properties: pulumi.Output[dict]
+    number_of_assessments: pulumi.Output[float]
     """
-    Properties of the project.
-      * `created_timestamp` (`str`) - Time when this project was created. Date-Time represented in ISO-8601 format.
-      * `customer_workspace_id` (`str`) - ARM ID of the Service Map workspace created by user.
-      * `customer_workspace_location` (`str`) - Location of the Service Map workspace created by user.
-      * `discovery_status` (`str`) - Reports whether project is under discovery.
-      * `last_assessment_timestamp` (`str`) - Time when last assessment was created. Date-Time represented in ISO-8601 format. This value will be null until assessment is created.
-      * `last_discovery_session_id` (`str`) - Session id of the last discovery.
-      * `last_discovery_timestamp` (`str`) - Time when this project was created. Date-Time represented in ISO-8601 format. This value will be null until discovery is complete.
-      * `number_of_assessments` (`float`) - Number of assessments created in the project.
-      * `number_of_groups` (`float`) - Number of groups created in the project.
-      * `number_of_machines` (`float`) - Number of machines in the project.
-      * `provisioning_state` (`str`) - Provisioning state of the project.
-      * `updated_timestamp` (`str`) - Time when this project was last updated. Date-Time represented in ISO-8601 format.
+    Number of assessments created in the project.
+    """
+    number_of_groups: pulumi.Output[float]
+    """
+    Number of groups created in the project.
+    """
+    number_of_machines: pulumi.Output[float]
+    """
+    Number of machines in the project.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the project.
     """
     tags: pulumi.Output[dict]
     """
@@ -45,6 +73,10 @@ class Project(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Type of the object = [Microsoft.Migrate/projects].
+    """
+    updated_timestamp: pulumi.Output[str]
+    """
+    Time when this project was last updated. Date-Time represented in ISO-8601 format.
     """
     def __init__(__self__, resource_name, opts=None, customer_workspace_id=None, customer_workspace_location=None, e_tag=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -90,8 +122,16 @@ class Project(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['created_timestamp'] = None
+            __props__['discovery_status'] = None
+            __props__['last_assessment_timestamp'] = None
+            __props__['last_discovery_session_id'] = None
+            __props__['last_discovery_timestamp'] = None
+            __props__['number_of_assessments'] = None
+            __props__['number_of_groups'] = None
+            __props__['number_of_machines'] = None
             __props__['type'] = None
+            __props__['updated_timestamp'] = None
         super(Project, __self__).__init__(
             'azurerm:migrate/v20180202:Project',
             resource_name,

@@ -13,12 +13,36 @@ class GetServerResult:
     """
     Represents a server.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, administrator_login=None, earliest_restore_date=None, fully_qualified_domain_name=None, location=None, master_server_id=None, name=None, private_endpoint_connections=None, public_network_access=None, replica_capacity=None, replication_role=None, sku=None, ssl_enforcement=None, storage_profile=None, tags=None, type=None, user_visible_state=None, version=None):
+        if administrator_login and not isinstance(administrator_login, str):
+            raise TypeError("Expected argument 'administrator_login' to be a str")
+        __self__.administrator_login = administrator_login
+        """
+        The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
+        """
+        if earliest_restore_date and not isinstance(earliest_restore_date, str):
+            raise TypeError("Expected argument 'earliest_restore_date' to be a str")
+        __self__.earliest_restore_date = earliest_restore_date
+        """
+        Earliest restore point creation time (ISO8601 format)
+        """
+        if fully_qualified_domain_name and not isinstance(fully_qualified_domain_name, str):
+            raise TypeError("Expected argument 'fully_qualified_domain_name' to be a str")
+        __self__.fully_qualified_domain_name = fully_qualified_domain_name
+        """
+        The fully qualified domain name of a server.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The location the resource resides in.
+        """
+        if master_server_id and not isinstance(master_server_id, str):
+            raise TypeError("Expected argument 'master_server_id' to be a str")
+        __self__.master_server_id = master_server_id
+        """
+        The master server id of a replica server.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +50,47 @@ class GetServerResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        __self__.private_endpoint_connections = private_endpoint_connections
         """
-        Properties of the server.
+        List of private endpoint connections on a server
+        """
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        __self__.public_network_access = public_network_access
+        """
+        Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        """
+        if replica_capacity and not isinstance(replica_capacity, float):
+            raise TypeError("Expected argument 'replica_capacity' to be a float")
+        __self__.replica_capacity = replica_capacity
+        """
+        The maximum number of replicas that a master server can have.
+        """
+        if replication_role and not isinstance(replication_role, str):
+            raise TypeError("Expected argument 'replication_role' to be a str")
+        __self__.replication_role = replication_role
+        """
+        The replication role of the server.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         The SKU (pricing tier) of the server.
+        """
+        if ssl_enforcement and not isinstance(ssl_enforcement, str):
+            raise TypeError("Expected argument 'ssl_enforcement' to be a str")
+        __self__.ssl_enforcement = ssl_enforcement
+        """
+        Enable ssl enforcement or not when connect to server.
+        """
+        if storage_profile and not isinstance(storage_profile, dict):
+            raise TypeError("Expected argument 'storage_profile' to be a dict")
+        __self__.storage_profile = storage_profile
+        """
+        Storage profile of a server.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +104,18 @@ class GetServerResult:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        if user_visible_state and not isinstance(user_visible_state, str):
+            raise TypeError("Expected argument 'user_visible_state' to be a str")
+        __self__.user_visible_state = user_visible_state
+        """
+        A state of a server that is visible to user.
+        """
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        __self__.version = version
+        """
+        Server version.
+        """
 
 
 class AwaitableGetServerResult(GetServerResult):
@@ -58,12 +124,23 @@ class AwaitableGetServerResult(GetServerResult):
         if False:
             yield self
         return GetServerResult(
+            administrator_login=self.administrator_login,
+            earliest_restore_date=self.earliest_restore_date,
+            fully_qualified_domain_name=self.fully_qualified_domain_name,
             location=self.location,
+            master_server_id=self.master_server_id,
             name=self.name,
-            properties=self.properties,
+            private_endpoint_connections=self.private_endpoint_connections,
+            public_network_access=self.public_network_access,
+            replica_capacity=self.replica_capacity,
+            replication_role=self.replication_role,
             sku=self.sku,
+            ssl_enforcement=self.ssl_enforcement,
+            storage_profile=self.storage_profile,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            user_visible_state=self.user_visible_state,
+            version=self.version)
 
 
 def get_server(name=None, resource_group_name=None, opts=None):
@@ -83,9 +160,20 @@ def get_server(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:dbformariadb/v20180601:getServer', __args__, opts=opts).value
 
     return AwaitableGetServerResult(
+        administrator_login=__ret__.get('administratorLogin'),
+        earliest_restore_date=__ret__.get('earliestRestoreDate'),
+        fully_qualified_domain_name=__ret__.get('fullyQualifiedDomainName'),
         location=__ret__.get('location'),
+        master_server_id=__ret__.get('masterServerId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        private_endpoint_connections=__ret__.get('privateEndpointConnections'),
+        public_network_access=__ret__.get('publicNetworkAccess'),
+        replica_capacity=__ret__.get('replicaCapacity'),
+        replication_role=__ret__.get('replicationRole'),
         sku=__ret__.get('sku'),
+        ssl_enforcement=__ret__.get('sslEnforcement'),
+        storage_profile=__ret__.get('storageProfile'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        user_visible_state=__ret__.get('userVisibleState'),
+        version=__ret__.get('version'))

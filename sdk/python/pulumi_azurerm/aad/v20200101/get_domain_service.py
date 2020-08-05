@@ -13,12 +13,42 @@ class GetDomainServiceResult:
     """
     Domain service.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, deployment_id=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, ldaps_settings=None, location=None, name=None, notification_settings=None, provisioning_state=None, replica_sets=None, sync_owner=None, tags=None, tenant_id=None, type=None, version=None):
+        if deployment_id and not isinstance(deployment_id, str):
+            raise TypeError("Expected argument 'deployment_id' to be a str")
+        __self__.deployment_id = deployment_id
+        """
+        Deployment Id
+        """
+        if domain_name and not isinstance(domain_name, str):
+            raise TypeError("Expected argument 'domain_name' to be a str")
+        __self__.domain_name = domain_name
+        """
+        The name of the Azure domain that the user would like to deploy Domain Services to.
+        """
+        if domain_security_settings and not isinstance(domain_security_settings, dict):
+            raise TypeError("Expected argument 'domain_security_settings' to be a dict")
+        __self__.domain_security_settings = domain_security_settings
+        """
+        DomainSecurity Settings
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Resource etag
+        """
+        if filtered_sync and not isinstance(filtered_sync, str):
+            raise TypeError("Expected argument 'filtered_sync' to be a str")
+        __self__.filtered_sync = filtered_sync
+        """
+        Enabled or Disabled flag to turn on Group-based filtered sync
+        """
+        if ldaps_settings and not isinstance(ldaps_settings, dict):
+            raise TypeError("Expected argument 'ldaps_settings' to be a dict")
+        __self__.ldaps_settings = ldaps_settings
+        """
+        Secure LDAP Settings
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +62,29 @@ class GetDomainServiceResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if notification_settings and not isinstance(notification_settings, dict):
+            raise TypeError("Expected argument 'notification_settings' to be a dict")
+        __self__.notification_settings = notification_settings
         """
-        Domain service properties
+        Notification Settings
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        the current deployment or provisioning state, which only appears in the response.
+        """
+        if replica_sets and not isinstance(replica_sets, list):
+            raise TypeError("Expected argument 'replica_sets' to be a list")
+        __self__.replica_sets = replica_sets
+        """
+        List of ReplicaSets
+        """
+        if sync_owner and not isinstance(sync_owner, str):
+            raise TypeError("Expected argument 'sync_owner' to be a str")
+        __self__.sync_owner = sync_owner
+        """
+        SyncOwner ReplicaSet Id
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,11 +92,23 @@ class GetDomainServiceResult:
         """
         Resource tags
         """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        Azure Active Directory Tenant Id
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type
+        """
+        if version and not isinstance(version, float):
+            raise TypeError("Expected argument 'version' to be a float")
+        __self__.version = version
+        """
+        Data Model Version
         """
 
 
@@ -58,12 +118,22 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
         if False:
             yield self
         return GetDomainServiceResult(
+            deployment_id=self.deployment_id,
+            domain_name=self.domain_name,
+            domain_security_settings=self.domain_security_settings,
             etag=self.etag,
+            filtered_sync=self.filtered_sync,
+            ldaps_settings=self.ldaps_settings,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            notification_settings=self.notification_settings,
+            provisioning_state=self.provisioning_state,
+            replica_sets=self.replica_sets,
+            sync_owner=self.sync_owner,
             tags=self.tags,
-            type=self.type)
+            tenant_id=self.tenant_id,
+            type=self.type,
+            version=self.version)
 
 
 def get_domain_service(name=None, resource_group_name=None, opts=None):
@@ -83,9 +153,19 @@ def get_domain_service(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:aad/v20200101:getDomainService', __args__, opts=opts).value
 
     return AwaitableGetDomainServiceResult(
+        deployment_id=__ret__.get('deploymentId'),
+        domain_name=__ret__.get('domainName'),
+        domain_security_settings=__ret__.get('domainSecuritySettings'),
         etag=__ret__.get('etag'),
+        filtered_sync=__ret__.get('filteredSync'),
+        ldaps_settings=__ret__.get('ldapsSettings'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        notification_settings=__ret__.get('notificationSettings'),
+        provisioning_state=__ret__.get('provisioningState'),
+        replica_sets=__ret__.get('replicaSets'),
+        sync_owner=__ret__.get('syncOwner'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        tenant_id=__ret__.get('tenantId'),
+        type=__ret__.get('type'),
+        version=__ret__.get('version'))

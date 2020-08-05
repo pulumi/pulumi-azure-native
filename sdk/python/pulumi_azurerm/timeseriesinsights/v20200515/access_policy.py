@@ -10,11 +10,22 @@ from ... import _utilities, _tables
 
 
 class AccessPolicy(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    An description of the access policy.
+    """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    principal_object_id: pulumi.Output[str]
+    """
+    The objectId of the principal in Azure Active Directory.
+    """
+    roles: pulumi.Output[list]
+    """
+    The list of roles the principal is assigned on the environment.
+    """
     type: pulumi.Output[str]
     """
     Resource type
@@ -61,7 +72,6 @@ class AccessPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['roles'] = roles
-            __props__['properties'] = None
             __props__['type'] = None
         super(AccessPolicy, __self__).__init__(
             'azurerm:timeseriesinsights/v20200515:AccessPolicy',

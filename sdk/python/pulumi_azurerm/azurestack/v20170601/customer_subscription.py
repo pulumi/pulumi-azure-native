@@ -18,10 +18,9 @@ class CustomerSubscription(pulumi.CustomResource):
     """
     Name of the resource.
     """
-    properties: pulumi.Output[dict]
+    tenant_id: pulumi.Output[str]
     """
-    Customer subscription properties.
-      * `tenant_id` (`str`) - Tenant Id.
+    Tenant Id.
     """
     type: pulumi.Output[str]
     """
@@ -67,7 +66,6 @@ class CustomerSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group'")
             __props__['resource_group'] = resource_group
             __props__['tenant_id'] = tenant_id
-            __props__['properties'] = None
             __props__['type'] = None
         super(CustomerSubscription, __self__).__init__(
             'azurerm:azurestack/v20170601:CustomerSubscription',

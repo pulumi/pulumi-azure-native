@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class Image(pulumi.CustomResource):
+    hyper_v_generation: pulumi.Output[str]
+    """
+    Gets the HyperVGenerationType of the VirtualMachine created from the image
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,39 +22,44 @@ class Image(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Describes the properties of an Image.
-      * `hyper_v_generation` (`str`) - Gets the HyperVGenerationType of the VirtualMachine created from the image
-      * `provisioning_state` (`str`) - The provisioning state.
-      * `source_virtual_machine` (`dict`) - The source virtual machine from which Image is created.
-        * `id` (`str`) - Resource Id
+    The provisioning state.
+    """
+    source_virtual_machine: pulumi.Output[dict]
+    """
+    The source virtual machine from which Image is created.
+      * `id` (`str`) - Resource Id
+    """
+    storage_profile: pulumi.Output[dict]
+    """
+    Specifies the storage settings for the virtual machine disks.
+      * `data_disks` (`list`) - Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        * `blob_uri` (`str`) - The Virtual Hard Disk.
+        * `caching` (`str`) - Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+        * `disk_encryption_set` (`dict`) - Specifies the customer managed disk encryption set resource id for the managed image disk.
+          * `id` (`str`) - Resource Id
 
-      * `storage_profile` (`dict`) - Specifies the storage settings for the virtual machine disks.
-        * `data_disks` (`list`) - Specifies the parameters that are used to add a data disk to a virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-          * `blob_uri` (`str`) - The Virtual Hard Disk.
-          * `caching` (`str`) - Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-          * `disk_encryption_set` (`dict`) - Specifies the customer managed disk encryption set resource id for the managed image disk.
-            * `id` (`str`) - Resource Id
+        * `disk_size_gb` (`float`) - Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+        * `lun` (`float`) - Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+        * `managed_disk` (`dict`) - The managedDisk.
+          * `id` (`str`) - Resource Id
 
-          * `disk_size_gb` (`float`) - Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
-          * `lun` (`float`) - Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
-          * `managed_disk` (`dict`) - The managedDisk.
-          * `snapshot` (`dict`) - The snapshot.
-          * `storage_account_type` (`str`) - Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+        * `snapshot` (`dict`) - The snapshot.
+        * `storage_account_type` (`str`) - Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 
-        * `os_disk` (`dict`) - Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-          * `blob_uri` (`str`) - The Virtual Hard Disk.
-          * `caching` (`str`) - Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-          * `disk_encryption_set` (`dict`) - Specifies the customer managed disk encryption set resource id for the managed image disk.
-          * `disk_size_gb` (`float`) - Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
-          * `managed_disk` (`dict`) - The managedDisk.
-          * `os_state` (`str`) - The OS State.
-          * `os_type` (`str`) - This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-          * `snapshot` (`dict`) - The snapshot.
-          * `storage_account_type` (`str`) - Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+      * `os_disk` (`dict`) - Specifies information about the operating system disk used by the virtual machine. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+        * `blob_uri` (`str`) - The Virtual Hard Disk.
+        * `caching` (`str`) - Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+        * `disk_encryption_set` (`dict`) - Specifies the customer managed disk encryption set resource id for the managed image disk.
+        * `disk_size_gb` (`float`) - Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+        * `managed_disk` (`dict`) - The managedDisk.
+        * `os_state` (`str`) - The OS State.
+        * `os_type` (`str`) - This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+        * `snapshot` (`dict`) - The snapshot.
+        * `storage_account_type` (`str`) - Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
 
-        * `zone_resilient` (`bool`) - Specifies whether an image is zone resilient or not. Default is false. Zone resilient images can be created only in regions that provide Zone Redundant Storage (ZRS).
+      * `zone_resilient` (`bool`) - Specifies whether an image is zone resilient or not. Default is false. Zone resilient images can be created only in regions that provide Zone Redundant Storage (ZRS).
     """
     tags: pulumi.Output[dict]
     """
@@ -135,7 +144,7 @@ class Image(pulumi.CustomResource):
             __props__['source_virtual_machine'] = source_virtual_machine
             __props__['storage_profile'] = storage_profile
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Image, __self__).__init__(
             'azurerm:compute/v20190701:Image',

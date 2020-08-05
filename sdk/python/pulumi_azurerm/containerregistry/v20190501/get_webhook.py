@@ -13,7 +13,13 @@ class GetWebhookResult:
     """
     An object that represents a webhook for a container registry.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, actions=None, location=None, name=None, provisioning_state=None, scope=None, status=None, tags=None, type=None):
+        if actions and not isinstance(actions, list):
+            raise TypeError("Expected argument 'actions' to be a list")
+        __self__.actions = actions
+        """
+        The list of actions that trigger the webhook to post notifications.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +32,23 @@ class GetWebhookResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the webhook.
+        The provisioning state of the webhook at the time the operation was called.
+        """
+        if scope and not isinstance(scope, str):
+            raise TypeError("Expected argument 'scope' to be a str")
+        __self__.scope = scope
+        """
+        The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        The status of the webhook at the time the operation was called.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +70,12 @@ class AwaitableGetWebhookResult(GetWebhookResult):
         if False:
             yield self
         return GetWebhookResult(
+            actions=self.actions,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            scope=self.scope,
+            status=self.status,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +99,11 @@ def get_webhook(name=None, registry_name=None, resource_group_name=None, opts=No
     __ret__ = pulumi.runtime.invoke('azurerm:containerregistry/v20190501:getWebhook', __args__, opts=opts).value
 
     return AwaitableGetWebhookResult(
+        actions=__ret__.get('actions'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        scope=__ret__.get('scope'),
+        status=__ret__.get('status'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

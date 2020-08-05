@@ -10,6 +10,24 @@ from ... import _utilities, _tables
 
 
 class Cache(pulumi.CustomResource):
+    cache_size_gb: pulumi.Output[float]
+    """
+    The size of this Cache, in GB.
+    """
+    encryption_settings: pulumi.Output[dict]
+    """
+    Specifies encryption settings of the cache.
+      * `key_encryption_key` (`dict`) - Specifies the location of the key encryption key in Key Vault.
+        * `key_url` (`str`) - The URL referencing a key encryption key in Key Vault.
+        * `source_vault` (`dict`) - Describes a resource Id to source Key Vault.
+          * `id` (`str`) - Resource Id.
+    """
+    health: pulumi.Output[dict]
+    """
+    Health of the Cache.
+      * `state` (`str`) - List of Cache health states.
+      * `status_description` (`str`) - Describes explanation of state.
+    """
     identity: pulumi.Output[dict]
     """
     The identity of the cache, if configured.
@@ -21,45 +39,37 @@ class Cache(pulumi.CustomResource):
     """
     Region name string.
     """
+    mount_addresses: pulumi.Output[list]
+    """
+    Array of IP addresses that can be used by clients mounting this Cache.
+    """
     name: pulumi.Output[str]
     """
     Name of Cache.
     """
-    properties: pulumi.Output[dict]
+    network_settings: pulumi.Output[dict]
     """
-    Properties of the Cache.
-      * `cache_size_gb` (`float`) - The size of this Cache, in GB.
-      * `encryption_settings` (`dict`) - Specifies encryption settings of the cache.
-        * `key_encryption_key` (`dict`) - Specifies the location of the key encryption key in Key Vault.
-          * `key_url` (`str`) - The URL referencing a key encryption key in Key Vault.
-          * `source_vault` (`dict`) - Describes a resource Id to source Key Vault.
-            * `id` (`str`) - Resource Id.
-
-      * `health` (`dict`) - Health of the Cache.
-        * `state` (`str`) - List of Cache health states.
-        * `status_description` (`str`) - Describes explanation of state.
-
-      * `mount_addresses` (`list`) - Array of IP addresses that can be used by clients mounting this Cache.
-      * `network_settings` (`dict`) - Specifies network settings of the cache.
-        * `mtu` (`float`) - The IPv4 maximum transmission unit configured for the subnet.
-        * `utility_addresses` (`list`) - Array of additional IP addresses used by this Cache.
-
-      * `provisioning_state` (`str`) - ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-      * `security_settings` (`dict`) - Specifies security settings of the cache.
-        * `root_squash` (`bool`) - root squash of cache property.
-
-      * `subnet` (`str`) - Subnet used for the Cache.
-      * `upgrade_status` (`dict`) - Upgrade status of the Cache.
-        * `current_firmware_version` (`str`) - Version string of the firmware currently installed on this Cache.
-        * `firmware_update_deadline` (`str`) - Time at which the pending firmware update will automatically be installed on the Cache.
-        * `firmware_update_status` (`str`) - True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
-        * `last_firmware_update` (`str`) - Time of the last successful firmware update.
-        * `pending_firmware_version` (`str`) - When firmwareUpdateAvailable is true, this field holds the version string for the update.
+    Specifies network settings of the cache.
+      * `mtu` (`float`) - The IPv4 maximum transmission unit configured for the subnet.
+      * `utility_addresses` (`list`) - Array of additional IP addresses used by this Cache.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+    """
+    security_settings: pulumi.Output[dict]
+    """
+    Specifies security settings of the cache.
+      * `root_squash` (`bool`) - root squash of cache property.
     """
     sku: pulumi.Output[dict]
     """
     SKU for the Cache.
       * `name` (`str`) - SKU name for this Cache.
+    """
+    subnet: pulumi.Output[str]
+    """
+    Subnet used for the Cache.
     """
     tags: pulumi.Output[dict]
     """
@@ -68,6 +78,15 @@ class Cache(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Type of the Cache; Microsoft.StorageCache/Cache
+    """
+    upgrade_status: pulumi.Output[dict]
+    """
+    Upgrade status of the Cache.
+      * `current_firmware_version` (`str`) - Version string of the firmware currently installed on this Cache.
+      * `firmware_update_deadline` (`str`) - Time at which the pending firmware update will automatically be installed on the Cache.
+      * `firmware_update_status` (`str`) - True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+      * `last_firmware_update` (`str`) - Time of the last successful firmware update.
+      * `pending_firmware_version` (`str`) - When firmwareUpdateAvailable is true, this field holds the version string for the update.
     """
     def __init__(__self__, resource_name, opts=None, cache_size_gb=None, encryption_settings=None, identity=None, location=None, name=None, network_settings=None, provisioning_state=None, resource_group_name=None, security_settings=None, sku=None, subnet=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -144,8 +163,10 @@ class Cache(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['subnet'] = subnet
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['health'] = None
+            __props__['mount_addresses'] = None
             __props__['type'] = None
+            __props__['upgrade_status'] = None
         super(Cache, __self__).__init__(
             'azurerm:storagecache/v20200301:Cache',
             resource_name,

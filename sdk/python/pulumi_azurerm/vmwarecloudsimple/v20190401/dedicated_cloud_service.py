@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class DedicatedCloudService(pulumi.CustomResource):
+    gateway_subnet: pulumi.Output[str]
+    """
+    gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+    """
+    is_account_onboarded: pulumi.Output[str]
+    """
+    indicates whether account onboarded or not in a given region
+    """
     location: pulumi.Output[str]
     """
     Azure region
@@ -18,13 +26,13 @@ class DedicatedCloudService(pulumi.CustomResource):
     """
     {dedicatedCloudServiceName}
     """
-    properties: pulumi.Output[dict]
+    nodes: pulumi.Output[float]
     """
-    The properties of Dedicated Node Service
-      * `gateway_subnet` (`str`) - gateway Subnet for the account. It will collect the subnet address and always treat it as /28
-      * `is_account_onboarded` (`str`) - indicates whether account onboarded or not in a given region
-      * `nodes` (`float`) - total nodes purchased
-      * `service_url` (`str`) - link to a service management web portal
+    total nodes purchased
+    """
+    service_url: pulumi.Output[str]
+    """
+    link to a service management web portal
     """
     tags: pulumi.Output[dict]
     """
@@ -76,7 +84,9 @@ class DedicatedCloudService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['is_account_onboarded'] = None
+            __props__['nodes'] = None
+            __props__['service_url'] = None
             __props__['type'] = None
         super(DedicatedCloudService, __self__).__init__(
             'azurerm:vmwarecloudsimple/v20190401:DedicatedCloudService',

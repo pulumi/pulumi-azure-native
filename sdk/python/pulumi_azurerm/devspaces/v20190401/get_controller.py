@@ -10,7 +10,19 @@ from ... import _utilities, _tables
 
 
 class GetControllerResult:
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, data_plane_fqdn=None, host_suffix=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, target_container_host_api_server_fqdn=None, target_container_host_credentials_base64=None, target_container_host_resource_id=None, type=None):
+        if data_plane_fqdn and not isinstance(data_plane_fqdn, str):
+            raise TypeError("Expected argument 'data_plane_fqdn' to be a str")
+        __self__.data_plane_fqdn = data_plane_fqdn
+        """
+        DNS name for accessing DataPlane services
+        """
+        if host_suffix and not isinstance(host_suffix, str):
+            raise TypeError("Expected argument 'host_suffix' to be a str")
+        __self__.host_suffix = host_suffix
+        """
+        DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -23,9 +35,12 @@ class GetControllerResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state of the Azure Dev Spaces Controller.
+        """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
@@ -37,6 +52,24 @@ class GetControllerResult:
         __self__.tags = tags
         """
         Tags for the Azure resource.
+        """
+        if target_container_host_api_server_fqdn and not isinstance(target_container_host_api_server_fqdn, str):
+            raise TypeError("Expected argument 'target_container_host_api_server_fqdn' to be a str")
+        __self__.target_container_host_api_server_fqdn = target_container_host_api_server_fqdn
+        """
+        DNS of the target container host's API server
+        """
+        if target_container_host_credentials_base64 and not isinstance(target_container_host_credentials_base64, str):
+            raise TypeError("Expected argument 'target_container_host_credentials_base64' to be a str")
+        __self__.target_container_host_credentials_base64 = target_container_host_credentials_base64
+        """
+        Credentials of the target container host (base64).
+        """
+        if target_container_host_resource_id and not isinstance(target_container_host_resource_id, str):
+            raise TypeError("Expected argument 'target_container_host_resource_id' to be a str")
+        __self__.target_container_host_resource_id = target_container_host_resource_id
+        """
+        Resource ID of the target container host
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -52,11 +85,16 @@ class AwaitableGetControllerResult(GetControllerResult):
         if False:
             yield self
         return GetControllerResult(
+            data_plane_fqdn=self.data_plane_fqdn,
+            host_suffix=self.host_suffix,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
             tags=self.tags,
+            target_container_host_api_server_fqdn=self.target_container_host_api_server_fqdn,
+            target_container_host_credentials_base64=self.target_container_host_credentials_base64,
+            target_container_host_resource_id=self.target_container_host_resource_id,
             type=self.type)
 
 
@@ -77,9 +115,14 @@ def get_controller(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:devspaces/v20190401:getController', __args__, opts=opts).value
 
     return AwaitableGetControllerResult(
+        data_plane_fqdn=__ret__.get('dataPlaneFqdn'),
+        host_suffix=__ret__.get('hostSuffix'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
+        target_container_host_api_server_fqdn=__ret__.get('targetContainerHostApiServerFqdn'),
+        target_container_host_credentials_base64=__ret__.get('targetContainerHostCredentialsBase64'),
+        target_container_host_resource_id=__ret__.get('targetContainerHostResourceId'),
         type=__ret__.get('type'))

@@ -13,18 +13,42 @@ class GetConnectionResult:
     """
     Definition of the connection.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, connection_type=None, creation_time=None, description=None, field_definition_values=None, last_modified_time=None, name=None, type=None):
+        if connection_type and not isinstance(connection_type, dict):
+            raise TypeError("Expected argument 'connection_type' to be a dict")
+        __self__.connection_type = connection_type
+        """
+        Gets or sets the connectionType of the connection.
+        """
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        Gets the creation time.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Gets or sets the description.
+        """
+        if field_definition_values and not isinstance(field_definition_values, dict):
+            raise TypeError("Expected argument 'field_definition_values' to be a dict")
+        __self__.field_definition_values = field_definition_values
+        """
+        Gets the field definition values of the connection.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Gets the last modified time.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Gets or sets the properties of the connection.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +64,12 @@ class AwaitableGetConnectionResult(GetConnectionResult):
         if False:
             yield self
         return GetConnectionResult(
+            connection_type=self.connection_type,
+            creation_time=self.creation_time,
+            description=self.description,
+            field_definition_values=self.field_definition_values,
+            last_modified_time=self.last_modified_time,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -64,6 +92,10 @@ def get_connection(automation_account_name=None, name=None, resource_group_name=
     __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getConnection', __args__, opts=opts).value
 
     return AwaitableGetConnectionResult(
+        connection_type=__ret__.get('connectionType'),
+        creation_time=__ret__.get('creationTime'),
+        description=__ret__.get('description'),
+        field_definition_values=__ret__.get('fieldDefinitionValues'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         type=__ret__.get('type'))

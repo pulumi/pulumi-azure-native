@@ -10,21 +10,22 @@ from ... import _utilities, _tables
 
 
 class User(pulumi.CustomResource):
+    encrypted_password: pulumi.Output[dict]
+    """
+    The password details.
+      * `encryption_algorithm` (`str`) - The algorithm used to encrypt "Value".
+      * `encryption_cert_thumbprint` (`str`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
+      * `value` (`str`) - The value of the secret.
+    """
     name: pulumi.Output[str]
     """
     The object name.
     """
-    properties: pulumi.Output[dict]
+    share_access_rights: pulumi.Output[list]
     """
-    The storage account credential properties.
-      * `encrypted_password` (`dict`) - The password details.
-        * `encryption_algorithm` (`str`) - The algorithm used to encrypt "Value".
-        * `encryption_cert_thumbprint` (`str`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
-        * `value` (`str`) - The value of the secret.
-
-      * `share_access_rights` (`list`) - List of shares that the user has rights on. This field should not be specified during user creation.
-        * `access_type` (`str`) - Type of access to be allowed on the share for this user.
-        * `share_id` (`str`) - The share ID.
+    List of shares that the user has rights on. This field should not be specified during user creation.
+      * `access_type` (`str`) - Type of access to be allowed on the share for this user.
+      * `share_id` (`str`) - The share ID.
     """
     type: pulumi.Output[str]
     """
@@ -81,7 +82,6 @@ class User(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['share_access_rights'] = share_access_rights
-            __props__['properties'] = None
             __props__['type'] = None
         super(User, __self__).__init__(
             'azurerm:databoxedge/v20190301:User',

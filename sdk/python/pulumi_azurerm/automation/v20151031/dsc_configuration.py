@@ -10,39 +10,64 @@ from ... import _utilities, _tables
 
 
 class DscConfiguration(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    """
+    Gets or sets the creation time.
+    """
+    description: pulumi.Output[str]
+    """
+    Gets or sets the description.
+    """
     etag: pulumi.Output[str]
     """
     Gets or sets the etag of the resource.
+    """
+    job_count: pulumi.Output[float]
+    """
+    Gets or sets the job count of the configuration.
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    Gets or sets the last modified time.
     """
     location: pulumi.Output[str]
     """
     The Azure Region where the resource lives
     """
+    log_verbose: pulumi.Output[bool]
+    """
+    Gets or sets verbose log option.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    node_configuration_count: pulumi.Output[float]
     """
-    Gets or sets the configuration properties.
-      * `creation_time` (`str`) - Gets or sets the creation time.
-      * `description` (`str`) - Gets or sets the description.
-      * `job_count` (`float`) - Gets or sets the job count of the configuration.
-      * `last_modified_time` (`str`) - Gets or sets the last modified time.
-      * `log_verbose` (`bool`) - Gets or sets verbose log option.
-      * `node_configuration_count` (`float`) - Gets the number of compiled node configurations.
-      * `parameters` (`dict`) - Gets or sets the configuration parameters.
-      * `provisioning_state` (`str`) - Gets or sets the provisioning state of the configuration.
-      * `source` (`dict`) - Gets or sets the source.
-        * `hash` (`dict`) - Gets or sets the hash.
-          * `algorithm` (`str`) - Gets or sets the content hash algorithm used to hash the content.
-          * `value` (`str`) - Gets or sets expected hash value of the content.
+    Gets the number of compiled node configurations.
+    """
+    parameters: pulumi.Output[dict]
+    """
+    Gets or sets the configuration parameters.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Gets or sets the provisioning state of the configuration.
+    """
+    source: pulumi.Output[dict]
+    """
+    Gets or sets the source.
+      * `hash` (`dict`) - Gets or sets the hash.
+        * `algorithm` (`str`) - Gets or sets the content hash algorithm used to hash the content.
+        * `value` (`str`) - Gets or sets expected hash value of the content.
 
-        * `type` (`str`) - Gets or sets the content source type.
-        * `value` (`str`) - Gets or sets the value of the content. This is based on the content source type.
-        * `version` (`str`) - Gets or sets the version of the content.
-
-      * `state` (`str`) - Gets or sets the state of the configuration.
+      * `type` (`str`) - Gets or sets the content source type.
+      * `value` (`str`) - Gets or sets the value of the content. This is based on the content source type.
+      * `version` (`str`) - Gets or sets the version of the content.
+    """
+    state: pulumi.Output[str]
+    """
+    Gets or sets the state of the configuration.
     """
     tags: pulumi.Output[dict]
     """
@@ -114,8 +139,13 @@ class DscConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
             __props__['tags'] = tags
+            __props__['creation_time'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['job_count'] = None
+            __props__['last_modified_time'] = None
+            __props__['node_configuration_count'] = None
+            __props__['provisioning_state'] = None
+            __props__['state'] = None
             __props__['type'] = None
         super(DscConfiguration, __self__).__init__(
             'azurerm:automation/v20151031:DscConfiguration',

@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class VirtualWan(pulumi.CustomResource):
+    allow_branch_to_branch_traffic: pulumi.Output[bool]
+    """
+    True if branch to branch traffic is allowed.
+    """
+    allow_vnet_to_vnet_traffic: pulumi.Output[bool]
+    """
+    True if Vnet to Vnet traffic is allowed.
+    """
+    disable_vpn_encryption: pulumi.Output[bool]
+    """
+    Vpn encryption to be disabled or not.
+    """
     etag: pulumi.Output[str]
     """
     Gets a unique read-only string that changes whenever the resource is updated.
@@ -22,74 +34,69 @@ class VirtualWan(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    office365_local_breakout_category: pulumi.Output[str]
     """
-    Parameters for VirtualWAN
-      * `allow_branch_to_branch_traffic` (`bool`) - True if branch to branch traffic is allowed.
-      * `allow_vnet_to_vnet_traffic` (`bool`) - True if Vnet to Vnet traffic is allowed.
-      * `disable_vpn_encryption` (`bool`) - Vpn encryption to be disabled or not.
-      * `office365_local_breakout_category` (`str`) - The office local breakout category.
-      * `p2_s_vpn_server_configurations` (`list`) - list of all P2SVpnServerConfigurations associated with the virtual wan.
-        * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
+    The office local breakout category.
+    """
+    p2_s_vpn_server_configurations: pulumi.Output[list]
+    """
+    list of all P2SVpnServerConfigurations associated with the virtual wan.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Parent VirtualWan resource name.
+      * `p2_s_vpn_gateways` (`list`)
+        * `id` (`str`) - Resource ID.
+
+      * `p2_s_vpn_server_config_radius_client_root_certificates` (`list`) - Radius client root certificate of P2SVpnServerConfiguration.
+        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
         * `id` (`str`) - Resource ID.
         * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Parameters for P2SVpnServerConfiguration
-          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-          * `name` (`str`) - The name of the P2SVpnServerConfiguration that is unique within a VirtualWan in a resource group. This name can be used to access the resource along with Parent VirtualWan resource name.
-          * `p2_s_vpn_gateways` (`list`)
-            * `id` (`str`) - Resource ID.
+        * `provisioning_state` (`str`) - The provisioning state of the Radius client root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        * `thumbprint` (`str`) - The Radius client root certificate thumbprint.
 
-          * `p2_s_vpn_server_config_radius_client_root_certificates` (`list`) - Radius client root certificate of P2SVpnServerConfiguration.
-            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`str`) - Resource ID.
-            * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`dict`) - Properties of the Radius client root certificate.
-              * `provisioning_state` (`str`) - The provisioning state of the Radius client root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-              * `thumbprint` (`str`) - The Radius client root certificate thumbprint.
+      * `p2_s_vpn_server_config_radius_server_root_certificates` (`list`) - Radius Server root certificate of P2SVpnServerConfiguration.
+        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+        * `id` (`str`) - Resource ID.
+        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        * `provisioning_state` (`str`) - The provisioning state of the P2SVpnServerConfiguration Radius Server root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        * `public_cert_data` (`str`) - The certificate public data.
 
-          * `p2_s_vpn_server_config_radius_server_root_certificates` (`list`) - Radius Server root certificate of P2SVpnServerConfiguration.
-            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`str`) - Resource ID.
-            * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`dict`) - Properties of the P2SVpnServerConfiguration Radius Server root certificate.
-              * `provisioning_state` (`str`) - The provisioning state of the P2SVpnServerConfiguration Radius Server root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-              * `public_cert_data` (`str`) - The certificate public data.
+      * `p2_s_vpn_server_config_vpn_client_revoked_certificates` (`list`) - VPN client revoked certificate of P2SVpnServerConfiguration.
+        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+        * `id` (`str`) - Resource ID.
+        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        * `provisioning_state` (`str`) - The provisioning state of the VPN client revoked certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        * `thumbprint` (`str`) - The revoked VPN client certificate thumbprint.
 
-          * `p2_s_vpn_server_config_vpn_client_revoked_certificates` (`list`) - VPN client revoked certificate of P2SVpnServerConfiguration.
-            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`str`) - Resource ID.
-            * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`dict`) - Properties of the vpn client revoked certificate.
-              * `provisioning_state` (`str`) - The provisioning state of the VPN client revoked certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-              * `thumbprint` (`str`) - The revoked VPN client certificate thumbprint.
+      * `p2_s_vpn_server_config_vpn_client_root_certificates` (`list`) - VPN client root certificate of P2SVpnServerConfiguration.
+        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+        * `id` (`str`) - Resource ID.
+        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        * `provisioning_state` (`str`) - The provisioning state of the P2SVpnServerConfiguration VPN client root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        * `public_cert_data` (`str`) - The certificate public data.
 
-          * `p2_s_vpn_server_config_vpn_client_root_certificates` (`list`) - VPN client root certificate of P2SVpnServerConfiguration.
-            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`str`) - Resource ID.
-            * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`dict`) - Properties of the P2SVpnServerConfiguration VPN client root certificate.
-              * `provisioning_state` (`str`) - The provisioning state of the P2SVpnServerConfiguration VPN client root certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-              * `public_cert_data` (`str`) - The certificate public data.
+      * `provisioning_state` (`str`) - The provisioning state of the P2SVpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+      * `radius_server_address` (`str`) - The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
+      * `radius_server_secret` (`str`) - The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
+      * `vpn_client_ipsec_policies` (`list`) - VpnClientIpsecPolicies for P2SVpnServerConfiguration.
+        * `dh_group` (`str`) - The DH Groups used in IKE Phase 1 for initial SA.
+        * `ike_encryption` (`str`) - The IKE encryption algorithm (IKE phase 2).
+        * `ike_integrity` (`str`) - The IKE integrity algorithm (IKE phase 2).
+        * `ipsec_encryption` (`str`) - The IPSec encryption algorithm (IKE phase 1).
+        * `ipsec_integrity` (`str`) - The IPSec integrity algorithm (IKE phase 1).
+        * `pfs_group` (`str`) - The Pfs Groups used in IKE Phase 2 for new child SA.
+        * `sa_data_size_kilobytes` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
+        * `sa_life_time_seconds` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
 
-          * `provisioning_state` (`str`) - The provisioning state of the P2SVpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `radius_server_address` (`str`) - The radius server address property of the P2SVpnServerConfiguration resource for point to site client connection.
-          * `radius_server_secret` (`str`) - The radius secret property of the P2SVpnServerConfiguration resource for point to site client connection.
-          * `vpn_client_ipsec_policies` (`list`) - VpnClientIpsecPolicies for P2SVpnServerConfiguration.
-            * `dh_group` (`str`) - The DH Groups used in IKE Phase 1 for initial SA.
-            * `ike_encryption` (`str`) - The IKE encryption algorithm (IKE phase 2).
-            * `ike_integrity` (`str`) - The IKE integrity algorithm (IKE phase 2).
-            * `ipsec_encryption` (`str`) - The IPSec encryption algorithm (IKE phase 1).
-            * `ipsec_integrity` (`str`) - The IPSec integrity algorithm (IKE phase 1).
-            * `pfs_group` (`str`) - The Pfs Groups used in IKE Phase 2 for new child SA.
-            * `sa_data_size_kilobytes` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
-            * `sa_life_time_seconds` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
-
-          * `vpn_protocols` (`list`) - vpnProtocols for the P2SVpnServerConfiguration.
-
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
-      * `security_provider_name` (`str`) - The Security Provider name.
-      * `virtual_hubs` (`list`) - List of VirtualHubs in the VirtualWAN.
-      * `vpn_sites` (`list`)
+      * `vpn_protocols` (`list`) - vpnProtocols for the P2SVpnServerConfiguration.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the resource.
+    """
+    security_provider_name: pulumi.Output[str]
+    """
+    The Security Provider name.
     """
     tags: pulumi.Output[dict]
     """
@@ -99,6 +106,12 @@ class VirtualWan(pulumi.CustomResource):
     """
     Resource type.
     """
+    virtual_hubs: pulumi.Output[list]
+    """
+    List of VirtualHubs in the VirtualWAN.
+      * `id` (`str`) - Resource ID.
+    """
+    vpn_sites: pulumi.Output[list]
     def __init__(__self__, resource_name, opts=None, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, id=None, location=None, name=None, office365_local_breakout_category=None, p2_s_vpn_server_configurations=None, provisioning_state=None, resource_group_name=None, security_provider_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         VirtualWAN Resource.
@@ -197,8 +210,9 @@ class VirtualWan(pulumi.CustomResource):
             __props__['security_provider_name'] = security_provider_name
             __props__['tags'] = tags
             __props__['etag'] = None
-            __props__['properties'] = None
             __props__['type'] = None
+            __props__['virtual_hubs'] = None
+            __props__['vpn_sites'] = None
         super(VirtualWan, __self__).__init__(
             'azurerm:network/v20180801:VirtualWan',
             resource_name,

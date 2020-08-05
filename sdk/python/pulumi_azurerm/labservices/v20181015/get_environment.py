@@ -13,7 +13,43 @@ class GetEnvironmentResult:
     """
     Represents an environment instance
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, claimed_by_user_name=None, claimed_by_user_object_id=None, claimed_by_user_principal_id=None, is_claimed=None, last_known_power_state=None, latest_operation_result=None, location=None, name=None, network_interface=None, password_last_reset=None, provisioning_state=None, resource_sets=None, tags=None, total_usage=None, type=None, unique_identifier=None):
+        if claimed_by_user_name and not isinstance(claimed_by_user_name, str):
+            raise TypeError("Expected argument 'claimed_by_user_name' to be a str")
+        __self__.claimed_by_user_name = claimed_by_user_name
+        """
+        The name or email address of the user who has claimed the environment
+        """
+        if claimed_by_user_object_id and not isinstance(claimed_by_user_object_id, str):
+            raise TypeError("Expected argument 'claimed_by_user_object_id' to be a str")
+        __self__.claimed_by_user_object_id = claimed_by_user_object_id
+        """
+        The AAD object Id of the user who has claimed the environment
+        """
+        if claimed_by_user_principal_id and not isinstance(claimed_by_user_principal_id, str):
+            raise TypeError("Expected argument 'claimed_by_user_principal_id' to be a str")
+        __self__.claimed_by_user_principal_id = claimed_by_user_principal_id
+        """
+        The user principal Id of the user who has claimed the environment
+        """
+        if is_claimed and not isinstance(is_claimed, bool):
+            raise TypeError("Expected argument 'is_claimed' to be a bool")
+        __self__.is_claimed = is_claimed
+        """
+        Is the environment claimed or not
+        """
+        if last_known_power_state and not isinstance(last_known_power_state, str):
+            raise TypeError("Expected argument 'last_known_power_state' to be a str")
+        __self__.last_known_power_state = last_known_power_state
+        """
+        Last known power state of the environment
+        """
+        if latest_operation_result and not isinstance(latest_operation_result, dict):
+            raise TypeError("Expected argument 'latest_operation_result' to be a dict")
+        __self__.latest_operation_result = latest_operation_result
+        """
+        The details of the latest operation. ex: status, error
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +62,29 @@ class GetEnvironmentResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_interface and not isinstance(network_interface, dict):
+            raise TypeError("Expected argument 'network_interface' to be a dict")
+        __self__.network_interface = network_interface
         """
-        The properties of the Environment resource
+        Network details of the environment
+        """
+        if password_last_reset and not isinstance(password_last_reset, str):
+            raise TypeError("Expected argument 'password_last_reset' to be a str")
+        __self__.password_last_reset = password_last_reset
+        """
+        When the password was last reset on the environment.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning status of the resource.
+        """
+        if resource_sets and not isinstance(resource_sets, dict):
+            raise TypeError("Expected argument 'resource_sets' to be a dict")
+        __self__.resource_sets = resource_sets
+        """
+        The set of a VM and the setting id it was created for
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -38,11 +92,23 @@ class GetEnvironmentResult:
         """
         The tags of the resource.
         """
+        if total_usage and not isinstance(total_usage, str):
+            raise TypeError("Expected argument 'total_usage' to be a str")
+        __self__.total_usage = total_usage
+        """
+        How long the environment has been used by a lab user
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource.
+        """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
         """
 
 
@@ -52,11 +118,22 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
         if False:
             yield self
         return GetEnvironmentResult(
+            claimed_by_user_name=self.claimed_by_user_name,
+            claimed_by_user_object_id=self.claimed_by_user_object_id,
+            claimed_by_user_principal_id=self.claimed_by_user_principal_id,
+            is_claimed=self.is_claimed,
+            last_known_power_state=self.last_known_power_state,
+            latest_operation_result=self.latest_operation_result,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            network_interface=self.network_interface,
+            password_last_reset=self.password_last_reset,
+            provisioning_state=self.provisioning_state,
+            resource_sets=self.resource_sets,
             tags=self.tags,
-            type=self.type)
+            total_usage=self.total_usage,
+            type=self.type,
+            unique_identifier=self.unique_identifier)
 
 
 def get_environment(environment_setting_name=None, lab_account_name=None, lab_name=None, name=None, resource_group_name=None, opts=None):
@@ -82,8 +159,19 @@ def get_environment(environment_setting_name=None, lab_account_name=None, lab_na
     __ret__ = pulumi.runtime.invoke('azurerm:labservices/v20181015:getEnvironment', __args__, opts=opts).value
 
     return AwaitableGetEnvironmentResult(
+        claimed_by_user_name=__ret__.get('claimedByUserName'),
+        claimed_by_user_object_id=__ret__.get('claimedByUserObjectId'),
+        claimed_by_user_principal_id=__ret__.get('claimedByUserPrincipalId'),
+        is_claimed=__ret__.get('isClaimed'),
+        last_known_power_state=__ret__.get('lastKnownPowerState'),
+        latest_operation_result=__ret__.get('latestOperationResult'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_interface=__ret__.get('networkInterface'),
+        password_last_reset=__ret__.get('passwordLastReset'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_sets=__ret__.get('resourceSets'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        total_usage=__ret__.get('totalUsage'),
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'))

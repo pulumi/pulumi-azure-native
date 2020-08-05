@@ -13,24 +13,48 @@ class GetApiVersionSetResult:
     """
     Api Version Set Contract details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, description=None, display_name=None, name=None, type=None, version_header_name=None, version_query_name=None, versioning_scheme=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Description of API Version Set.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        Name of API Version Set
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Api VersionSet contract properties.
-        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type for API Management resource.
+        """
+        if version_header_name and not isinstance(version_header_name, str):
+            raise TypeError("Expected argument 'version_header_name' to be a str")
+        __self__.version_header_name = version_header_name
+        """
+        Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+        """
+        if version_query_name and not isinstance(version_query_name, str):
+            raise TypeError("Expected argument 'version_query_name' to be a str")
+        __self__.version_query_name = version_query_name
+        """
+        Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+        """
+        if versioning_scheme and not isinstance(versioning_scheme, str):
+            raise TypeError("Expected argument 'versioning_scheme' to be a str")
+        __self__.versioning_scheme = versioning_scheme
+        """
+        An value that determines where the API Version identifer will be located in a HTTP request.
         """
 
 
@@ -40,9 +64,13 @@ class AwaitableGetApiVersionSetResult(GetApiVersionSetResult):
         if False:
             yield self
         return GetApiVersionSetResult(
+            description=self.description,
+            display_name=self.display_name,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            type=self.type,
+            version_header_name=self.version_header_name,
+            version_query_name=self.version_query_name,
+            versioning_scheme=self.versioning_scheme)
 
 
 def get_api_version_set(name=None, resource_group_name=None, service_name=None, opts=None):
@@ -64,6 +92,10 @@ def get_api_version_set(name=None, resource_group_name=None, service_name=None, 
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getApiVersionSet', __args__, opts=opts).value
 
     return AwaitableGetApiVersionSetResult(
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        version_header_name=__ret__.get('versionHeaderName'),
+        version_query_name=__ret__.get('versionQueryName'),
+        versioning_scheme=__ret__.get('versioningScheme'))

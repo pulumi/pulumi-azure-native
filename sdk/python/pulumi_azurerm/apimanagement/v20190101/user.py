@@ -10,30 +10,48 @@ from ... import _utilities, _tables
 
 
 class User(pulumi.CustomResource):
+    email: pulumi.Output[str]
+    """
+    Email address.
+    """
+    first_name: pulumi.Output[str]
+    """
+    First name.
+    """
+    groups: pulumi.Output[list]
+    """
+    Collection of groups user is part of.
+      * `built_in` (`bool`) - true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+      * `description` (`str`) - Group description. Can contain HTML formatting tags.
+      * `display_name` (`str`) - Group name.
+      * `external_id` (`str`) - For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+      * `type` (`str`) - Group type.
+    """
+    identities: pulumi.Output[list]
+    """
+    Collection of user identities.
+      * `id` (`str`) - Identifier value within provider.
+      * `provider` (`str`) - Identity provider name.
+    """
+    last_name: pulumi.Output[str]
+    """
+    Last name.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    note: pulumi.Output[str]
     """
-    User entity contract properties.
-      * `email` (`str`) - Email address.
-      * `first_name` (`str`) - First name.
-      * `groups` (`list`) - Collection of groups user is part of.
-        * `built_in` (`bool`) - true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
-        * `description` (`str`) - Group description. Can contain HTML formatting tags.
-        * `display_name` (`str`) - Group name.
-        * `external_id` (`str`) - For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
-        * `type` (`str`) - Group type.
-
-      * `identities` (`list`) - Collection of user identities.
-        * `id` (`str`) - Identifier value within provider.
-        * `provider` (`str`) - Identity provider name.
-
-      * `last_name` (`str`) - Last name.
-      * `note` (`str`) - Optional note about a user set by the administrator.
-      * `registration_date` (`str`) - Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-      * `state` (`str`) - Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+    Optional note about a user set by the administrator.
+    """
+    registration_date: pulumi.Output[str]
+    """
+    Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    """
+    state: pulumi.Output[str]
+    """
+    Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
     """
     type: pulumi.Output[str]
     """
@@ -106,7 +124,8 @@ class User(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['state'] = state
-            __props__['properties'] = None
+            __props__['groups'] = None
+            __props__['registration_date'] = None
             __props__['type'] = None
         super(User, __self__).__init__(
             'azurerm:apimanagement/v20190101:User',

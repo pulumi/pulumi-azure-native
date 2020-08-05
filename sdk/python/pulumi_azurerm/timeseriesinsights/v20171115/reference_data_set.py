@@ -10,6 +10,20 @@ from ... import _utilities, _tables
 
 
 class ReferenceDataSet(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    """
+    The time the resource was created.
+    """
+    data_string_comparison_behavior: pulumi.Output[str]
+    """
+    The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+    """
+    key_properties: pulumi.Output[list]
+    """
+    The list of key properties for the reference data set.
+      * `name` (`str`) - The name of the key property.
+      * `type` (`str`) - The type of the key property.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,16 +32,9 @@ class ReferenceDataSet(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the reference data set.
-      * `creation_time` (`str`) - The time the resource was created.
-      * `data_string_comparison_behavior` (`str`) - The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
-      * `key_properties` (`list`) - The list of key properties for the reference data set.
-        * `name` (`str`) - The name of the key property.
-        * `type` (`str`) - The type of the key property.
-
-      * `provisioning_state` (`str`) - Provisioning state of the resource.
+    Provisioning state of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -90,7 +97,8 @@ class ReferenceDataSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(ReferenceDataSet, __self__).__init__(
             'azurerm:timeseriesinsights/v20171115:ReferenceDataSet',

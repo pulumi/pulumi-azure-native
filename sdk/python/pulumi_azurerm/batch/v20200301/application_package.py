@@ -14,18 +14,29 @@ class ApplicationPackage(pulumi.CustomResource):
     """
     The ETag of the resource, used for concurrency statements.
     """
+    format: pulumi.Output[str]
+    """
+    The format of the application package, if the package is active.
+    """
+    last_activation_time: pulumi.Output[str]
+    """
+    The time at which the package was last activated, if the package is active.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    state: pulumi.Output[str]
     """
-    The properties associated with the Application Package.
-      * `format` (`str`) - The format of the application package, if the package is active.
-      * `last_activation_time` (`str`) - The time at which the package was last activated, if the package is active.
-      * `state` (`str`) - The current state of the application package.
-      * `storage_url` (`str`) - The URL for the application package in Azure Storage.
-      * `storage_url_expiry` (`str`) - The UTC time at which the Azure Storage URL will expire.
+    The current state of the application package.
+    """
+    storage_url: pulumi.Output[str]
+    """
+    The URL for the application package in Azure Storage.
+    """
+    storage_url_expiry: pulumi.Output[str]
+    """
+    The UTC time at which the Azure Storage URL will expire.
     """
     type: pulumi.Output[str]
     """
@@ -72,7 +83,11 @@ class ApplicationPackage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['format'] = None
+            __props__['last_activation_time'] = None
+            __props__['state'] = None
+            __props__['storage_url'] = None
+            __props__['storage_url_expiry'] = None
             __props__['type'] = None
         super(ApplicationPackage, __self__).__init__(
             'azurerm:batch/v20200301:ApplicationPackage',

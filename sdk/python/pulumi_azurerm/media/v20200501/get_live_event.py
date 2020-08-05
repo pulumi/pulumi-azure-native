@@ -13,7 +13,43 @@ class GetLiveEventResult:
     """
     The Live Event.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, created=None, cross_site_access_policies=None, description=None, encoding=None, input=None, last_modified=None, location=None, name=None, preview=None, provisioning_state=None, resource_state=None, stream_options=None, tags=None, type=None, use_static_hostname=None):
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        __self__.created = created
+        """
+        The exact time the Live Event was created.
+        """
+        if cross_site_access_policies and not isinstance(cross_site_access_policies, dict):
+            raise TypeError("Expected argument 'cross_site_access_policies' to be a dict")
+        __self__.cross_site_access_policies = cross_site_access_policies
+        """
+        The Live Event access policies.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The Live Event description.
+        """
+        if encoding and not isinstance(encoding, dict):
+            raise TypeError("Expected argument 'encoding' to be a dict")
+        __self__.encoding = encoding
+        """
+        The Live Event encoding.
+        """
+        if input and not isinstance(input, dict):
+            raise TypeError("Expected argument 'input' to be a dict")
+        __self__.input = input
+        """
+        The Live Event input.
+        """
+        if last_modified and not isinstance(last_modified, str):
+            raise TypeError("Expected argument 'last_modified' to be a str")
+        __self__.last_modified = last_modified
+        """
+        The exact time the Live Event was last modified.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +62,29 @@ class GetLiveEventResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if preview and not isinstance(preview, dict):
+            raise TypeError("Expected argument 'preview' to be a dict")
+        __self__.preview = preview
         """
-        The Live Event properties.
+        The Live Event preview.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the Live Event.
+        """
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
+        """
+        The resource state of the Live Event.
+        """
+        if stream_options and not isinstance(stream_options, list):
+            raise TypeError("Expected argument 'stream_options' to be a list")
+        __self__.stream_options = stream_options
+        """
+        The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +98,12 @@ class GetLiveEventResult:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        if use_static_hostname and not isinstance(use_static_hostname, bool):
+            raise TypeError("Expected argument 'use_static_hostname' to be a bool")
+        __self__.use_static_hostname = use_static_hostname
+        """
+        Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+        """
 
 
 class AwaitableGetLiveEventResult(GetLiveEventResult):
@@ -52,11 +112,21 @@ class AwaitableGetLiveEventResult(GetLiveEventResult):
         if False:
             yield self
         return GetLiveEventResult(
+            created=self.created,
+            cross_site_access_policies=self.cross_site_access_policies,
+            description=self.description,
+            encoding=self.encoding,
+            input=self.input,
+            last_modified=self.last_modified,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            preview=self.preview,
+            provisioning_state=self.provisioning_state,
+            resource_state=self.resource_state,
+            stream_options=self.stream_options,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            use_static_hostname=self.use_static_hostname)
 
 
 def get_live_event(account_name=None, name=None, resource_group_name=None, opts=None):
@@ -78,8 +148,18 @@ def get_live_event(account_name=None, name=None, resource_group_name=None, opts=
     __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:getLiveEvent', __args__, opts=opts).value
 
     return AwaitableGetLiveEventResult(
+        created=__ret__.get('created'),
+        cross_site_access_policies=__ret__.get('crossSiteAccessPolicies'),
+        description=__ret__.get('description'),
+        encoding=__ret__.get('encoding'),
+        input=__ret__.get('input'),
+        last_modified=__ret__.get('lastModified'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        preview=__ret__.get('preview'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_state=__ret__.get('resourceState'),
+        stream_options=__ret__.get('streamOptions'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        use_static_hostname=__ret__.get('useStaticHostname'))

@@ -13,7 +13,25 @@ class GetReferenceDataSetResult:
     """
     A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, data_string_comparison_behavior=None, key_properties=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        The time the resource was created.
+        """
+        if data_string_comparison_behavior and not isinstance(data_string_comparison_behavior, str):
+            raise TypeError("Expected argument 'data_string_comparison_behavior' to be a str")
+        __self__.data_string_comparison_behavior = data_string_comparison_behavior
+        """
+        The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+        """
+        if key_properties and not isinstance(key_properties, list):
+            raise TypeError("Expected argument 'key_properties' to be a list")
+        __self__.key_properties = key_properties
+        """
+        The list of key properties for the reference data set.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +44,11 @@ class GetReferenceDataSetResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the reference data set.
+        Provisioning state of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +70,12 @@ class AwaitableGetReferenceDataSetResult(GetReferenceDataSetResult):
         if False:
             yield self
         return GetReferenceDataSetResult(
+            creation_time=self.creation_time,
+            data_string_comparison_behavior=self.data_string_comparison_behavior,
+            key_properties=self.key_properties,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +99,11 @@ def get_reference_data_set(environment_name=None, name=None, resource_group_name
     __ret__ = pulumi.runtime.invoke('azurerm:timeseriesinsights/v20200515:getReferenceDataSet', __args__, opts=opts).value
 
     return AwaitableGetReferenceDataSetResult(
+        creation_time=__ret__.get('creationTime'),
+        data_string_comparison_behavior=__ret__.get('dataStringComparisonBehavior'),
+        key_properties=__ret__.get('keyProperties'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

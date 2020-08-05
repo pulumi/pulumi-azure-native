@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
+    biztalk_uri: pulumi.Output[str]
+    entity_connection_string: pulumi.Output[str]
+    entity_name: pulumi.Output[str]
+    hostname: pulumi.Output[str]
     kind: pulumi.Output[str]
     """
     Kind of resource.
@@ -18,17 +22,9 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
-    """
-    RelayServiceConnectionEntity resource specific properties
-      * `biztalk_uri` (`str`)
-      * `entity_connection_string` (`str`)
-      * `entity_name` (`str`)
-      * `hostname` (`str`)
-      * `port` (`float`)
-      * `resource_connection_string` (`str`)
-      * `resource_type` (`str`)
-    """
+    port: pulumi.Output[float]
+    resource_connection_string: pulumi.Output[str]
+    resource_type: pulumi.Output[str]
     type: pulumi.Output[str]
     """
     Resource type.
@@ -76,7 +72,7 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
             if slot is None:
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
-            __props__['properties'] = None
+            __props__['entity_name'] = None
             __props__['type'] = None
         super(WebAppRelayServiceConnectionSlot, __self__).__init__(
             'azurerm:web/v20190801:WebAppRelayServiceConnectionSlot',

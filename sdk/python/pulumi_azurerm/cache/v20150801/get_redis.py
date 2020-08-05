@@ -13,7 +13,19 @@ class GetRedisResult:
     """
     A single Redis item in List or Get Operation.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, enable_non_ssl_port=None, host_name=None, location=None, name=None, port=None, provisioning_state=None, redis_configuration=None, redis_version=None, shard_count=None, sku=None, ssl_port=None, static_ip=None, subnet=None, tags=None, tenant_settings=None, type=None, virtual_network=None):
+        if enable_non_ssl_port and not isinstance(enable_non_ssl_port, bool):
+            raise TypeError("Expected argument 'enable_non_ssl_port' to be a bool")
+        __self__.enable_non_ssl_port = enable_non_ssl_port
+        """
+        If the value is true, then the non-SLL Redis server port (6379) will be enabled.
+        """
+        if host_name and not isinstance(host_name, str):
+            raise TypeError("Expected argument 'host_name' to be a str")
+        __self__.host_name = host_name
+        """
+        Redis host name.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +38,59 @@ class GetRedisResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if port and not isinstance(port, float):
+            raise TypeError("Expected argument 'port' to be a float")
+        __self__.port = port
         """
-        Redis cache properties.
+        Redis non-SSL port.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Redis instance provisioning status.
+        """
+        if redis_configuration and not isinstance(redis_configuration, dict):
+            raise TypeError("Expected argument 'redis_configuration' to be a dict")
+        __self__.redis_configuration = redis_configuration
+        """
+        All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        """
+        if redis_version and not isinstance(redis_version, str):
+            raise TypeError("Expected argument 'redis_version' to be a str")
+        __self__.redis_version = redis_version
+        """
+        RedisVersion parameter has been deprecated. As such, it is no longer necessary to provide this parameter and any value specified is ignored.
+        """
+        if shard_count and not isinstance(shard_count, float):
+            raise TypeError("Expected argument 'shard_count' to be a float")
+        __self__.shard_count = shard_count
+        """
+        The number of shards to be created on a Premium Cluster Cache.
+        """
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        __self__.sku = sku
+        """
+        What SKU of Redis cache to deploy.
+        """
+        if ssl_port and not isinstance(ssl_port, float):
+            raise TypeError("Expected argument 'ssl_port' to be a float")
+        __self__.ssl_port = ssl_port
+        """
+        Redis SSL port.
+        """
+        if static_ip and not isinstance(static_ip, str):
+            raise TypeError("Expected argument 'static_ip' to be a str")
+        __self__.static_ip = static_ip
+        """
+        Required when deploying a Redis cache inside an existing Azure Virtual Network.
+        """
+        if subnet and not isinstance(subnet, str):
+            raise TypeError("Expected argument 'subnet' to be a str")
+        __self__.subnet = subnet
+        """
+        Required when deploying a Redis cache inside an existing Azure Virtual Network.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -38,11 +98,23 @@ class GetRedisResult:
         """
         Resource tags.
         """
+        if tenant_settings and not isinstance(tenant_settings, dict):
+            raise TypeError("Expected argument 'tenant_settings' to be a dict")
+        __self__.tenant_settings = tenant_settings
+        """
+        tenantSettings
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if virtual_network and not isinstance(virtual_network, str):
+            raise TypeError("Expected argument 'virtual_network' to be a str")
+        __self__.virtual_network = virtual_network
+        """
+        The exact ARM resource ID of the virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1
         """
 
 
@@ -52,11 +124,23 @@ class AwaitableGetRedisResult(GetRedisResult):
         if False:
             yield self
         return GetRedisResult(
+            enable_non_ssl_port=self.enable_non_ssl_port,
+            host_name=self.host_name,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            port=self.port,
+            provisioning_state=self.provisioning_state,
+            redis_configuration=self.redis_configuration,
+            redis_version=self.redis_version,
+            shard_count=self.shard_count,
+            sku=self.sku,
+            ssl_port=self.ssl_port,
+            static_ip=self.static_ip,
+            subnet=self.subnet,
             tags=self.tags,
-            type=self.type)
+            tenant_settings=self.tenant_settings,
+            type=self.type,
+            virtual_network=self.virtual_network)
 
 
 def get_redis(name=None, resource_group_name=None, opts=None):
@@ -76,8 +160,20 @@ def get_redis(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:cache/v20150801:getRedis', __args__, opts=opts).value
 
     return AwaitableGetRedisResult(
+        enable_non_ssl_port=__ret__.get('enableNonSslPort'),
+        host_name=__ret__.get('hostName'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        port=__ret__.get('port'),
+        provisioning_state=__ret__.get('provisioningState'),
+        redis_configuration=__ret__.get('redisConfiguration'),
+        redis_version=__ret__.get('redisVersion'),
+        shard_count=__ret__.get('shardCount'),
+        sku=__ret__.get('sku'),
+        ssl_port=__ret__.get('sslPort'),
+        static_ip=__ret__.get('staticIP'),
+        subnet=__ret__.get('subnet'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        tenant_settings=__ret__.get('tenantSettings'),
+        type=__ret__.get('type'),
+        virtual_network=__ret__.get('virtualNetwork'))

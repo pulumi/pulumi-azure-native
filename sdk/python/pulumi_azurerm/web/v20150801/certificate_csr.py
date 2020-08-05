@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class CertificateCsr(pulumi.CustomResource):
+    csr_string: pulumi.Output[str]
+    """
+    Actual CSR string created
+    """
+    distinguished_name: pulumi.Output[str]
+    """
+    Distinguished name of certificate to be created
+    """
+    hosting_environment: pulumi.Output[str]
+    """
+    Hosting environment
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource
@@ -22,7 +34,18 @@ class CertificateCsr(pulumi.CustomResource):
     """
     Resource Name
     """
-    properties: pulumi.Output[dict]
+    password: pulumi.Output[str]
+    """
+    PFX password
+    """
+    pfx_blob: pulumi.Output[str]
+    """
+    PFX certificate of created certificate
+    """
+    public_key_hash: pulumi.Output[str]
+    """
+    Hash of the certificates public key
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -87,7 +110,6 @@ class CertificateCsr(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = type
-            __props__['properties'] = None
         super(CertificateCsr, __self__).__init__(
             'azurerm:web/v20150801:CertificateCsr',
             resource_name,

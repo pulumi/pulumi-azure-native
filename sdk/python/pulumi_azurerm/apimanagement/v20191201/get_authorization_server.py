@@ -13,18 +13,108 @@ class GetAuthorizationServerResult:
     """
     External OAuth authorization server settings.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, authorization_endpoint=None, authorization_methods=None, bearer_token_sending_methods=None, client_authentication_method=None, client_id=None, client_registration_endpoint=None, client_secret=None, default_scope=None, description=None, display_name=None, grant_types=None, name=None, resource_owner_password=None, resource_owner_username=None, support_state=None, token_body_parameters=None, token_endpoint=None, type=None):
+        if authorization_endpoint and not isinstance(authorization_endpoint, str):
+            raise TypeError("Expected argument 'authorization_endpoint' to be a str")
+        __self__.authorization_endpoint = authorization_endpoint
+        """
+        OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
+        """
+        if authorization_methods and not isinstance(authorization_methods, list):
+            raise TypeError("Expected argument 'authorization_methods' to be a list")
+        __self__.authorization_methods = authorization_methods
+        """
+        HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
+        """
+        if bearer_token_sending_methods and not isinstance(bearer_token_sending_methods, list):
+            raise TypeError("Expected argument 'bearer_token_sending_methods' to be a list")
+        __self__.bearer_token_sending_methods = bearer_token_sending_methods
+        """
+        Specifies the mechanism by which access token is passed to the API. 
+        """
+        if client_authentication_method and not isinstance(client_authentication_method, list):
+            raise TypeError("Expected argument 'client_authentication_method' to be a list")
+        __self__.client_authentication_method = client_authentication_method
+        """
+        Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
+        """
+        if client_id and not isinstance(client_id, str):
+            raise TypeError("Expected argument 'client_id' to be a str")
+        __self__.client_id = client_id
+        """
+        Client or app id registered with this authorization server.
+        """
+        if client_registration_endpoint and not isinstance(client_registration_endpoint, str):
+            raise TypeError("Expected argument 'client_registration_endpoint' to be a str")
+        __self__.client_registration_endpoint = client_registration_endpoint
+        """
+        Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
+        """
+        if client_secret and not isinstance(client_secret, str):
+            raise TypeError("Expected argument 'client_secret' to be a str")
+        __self__.client_secret = client_secret
+        """
+        Client or app secret registered with this authorization server. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+        """
+        if default_scope and not isinstance(default_scope, str):
+            raise TypeError("Expected argument 'default_scope' to be a str")
+        __self__.default_scope = default_scope
+        """
+        Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Description of the authorization server. Can contain HTML formatting tags.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        User-friendly authorization server name.
+        """
+        if grant_types and not isinstance(grant_types, list):
+            raise TypeError("Expected argument 'grant_types' to be a list")
+        __self__.grant_types = grant_types
+        """
+        Form of an authorization grant, which the client uses to request the access token.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if resource_owner_password and not isinstance(resource_owner_password, str):
+            raise TypeError("Expected argument 'resource_owner_password' to be a str")
+        __self__.resource_owner_password = resource_owner_password
         """
-        Properties of the External OAuth authorization server Contract.
+        Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
+        """
+        if resource_owner_username and not isinstance(resource_owner_username, str):
+            raise TypeError("Expected argument 'resource_owner_username' to be a str")
+        __self__.resource_owner_username = resource_owner_username
+        """
+        Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
+        """
+        if support_state and not isinstance(support_state, bool):
+            raise TypeError("Expected argument 'support_state' to be a bool")
+        __self__.support_state = support_state
+        """
+        If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
+        """
+        if token_body_parameters and not isinstance(token_body_parameters, list):
+            raise TypeError("Expected argument 'token_body_parameters' to be a list")
+        __self__.token_body_parameters = token_body_parameters
+        """
+        Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
+        """
+        if token_endpoint and not isinstance(token_endpoint, str):
+            raise TypeError("Expected argument 'token_endpoint' to be a str")
+        __self__.token_endpoint = token_endpoint
+        """
+        OAuth token endpoint. Contains absolute URI to entity being referenced.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +130,23 @@ class AwaitableGetAuthorizationServerResult(GetAuthorizationServerResult):
         if False:
             yield self
         return GetAuthorizationServerResult(
+            authorization_endpoint=self.authorization_endpoint,
+            authorization_methods=self.authorization_methods,
+            bearer_token_sending_methods=self.bearer_token_sending_methods,
+            client_authentication_method=self.client_authentication_method,
+            client_id=self.client_id,
+            client_registration_endpoint=self.client_registration_endpoint,
+            client_secret=self.client_secret,
+            default_scope=self.default_scope,
+            description=self.description,
+            display_name=self.display_name,
+            grant_types=self.grant_types,
             name=self.name,
-            properties=self.properties,
+            resource_owner_password=self.resource_owner_password,
+            resource_owner_username=self.resource_owner_username,
+            support_state=self.support_state,
+            token_body_parameters=self.token_body_parameters,
+            token_endpoint=self.token_endpoint,
             type=self.type)
 
 
@@ -64,6 +169,21 @@ def get_authorization_server(name=None, resource_group_name=None, service_name=N
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getAuthorizationServer', __args__, opts=opts).value
 
     return AwaitableGetAuthorizationServerResult(
+        authorization_endpoint=__ret__.get('authorizationEndpoint'),
+        authorization_methods=__ret__.get('authorizationMethods'),
+        bearer_token_sending_methods=__ret__.get('bearerTokenSendingMethods'),
+        client_authentication_method=__ret__.get('clientAuthenticationMethod'),
+        client_id=__ret__.get('clientId'),
+        client_registration_endpoint=__ret__.get('clientRegistrationEndpoint'),
+        client_secret=__ret__.get('clientSecret'),
+        default_scope=__ret__.get('defaultScope'),
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        grant_types=__ret__.get('grantTypes'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        resource_owner_password=__ret__.get('resourceOwnerPassword'),
+        resource_owner_username=__ret__.get('resourceOwnerUsername'),
+        support_state=__ret__.get('supportState'),
+        token_body_parameters=__ret__.get('tokenBodyParameters'),
+        token_endpoint=__ret__.get('tokenEndpoint'),
         type=__ret__.get('type'))

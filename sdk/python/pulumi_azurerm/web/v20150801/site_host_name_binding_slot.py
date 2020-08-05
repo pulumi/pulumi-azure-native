@@ -10,6 +10,26 @@ from ... import _utilities, _tables
 
 
 class SiteHostNameBindingSlot(pulumi.CustomResource):
+    azure_resource_name: pulumi.Output[str]
+    """
+    Azure resource name
+    """
+    azure_resource_type: pulumi.Output[str]
+    """
+    Azure resource type
+    """
+    custom_host_name_dns_record_type: pulumi.Output[str]
+    """
+    Custom DNS record type
+    """
+    domain_id: pulumi.Output[str]
+    """
+    Fully qualified ARM domain resource URI
+    """
+    host_name_type: pulumi.Output[str]
+    """
+    Host name type
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource
@@ -22,7 +42,10 @@ class SiteHostNameBindingSlot(pulumi.CustomResource):
     """
     Resource Name
     """
-    properties: pulumi.Output[dict]
+    site_name: pulumi.Output[str]
+    """
+    Web app name
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -91,7 +114,6 @@ class SiteHostNameBindingSlot(pulumi.CustomResource):
             __props__['slot'] = slot
             __props__['tags'] = tags
             __props__['type'] = type
-            __props__['properties'] = None
         super(SiteHostNameBindingSlot, __self__).__init__(
             'azurerm:web/v20150801:SiteHostNameBindingSlot',
             resource_name,

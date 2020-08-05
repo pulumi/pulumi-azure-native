@@ -14,15 +14,17 @@ class SyncGroup(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    sync_group_status: pulumi.Output[str]
     """
-    SyncGroup properties.
-      * `sync_group_status` (`str`) - Sync group status
-      * `unique_id` (`str`) - Unique Id
+    Sync group status
     """
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    unique_id: pulumi.Output[str]
+    """
+    Unique Id
     """
     def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, storage_sync_service_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -60,8 +62,9 @@ class SyncGroup(pulumi.CustomResource):
             if storage_sync_service_name is None:
                 raise TypeError("Missing required property 'storage_sync_service_name'")
             __props__['storage_sync_service_name'] = storage_sync_service_name
-            __props__['properties'] = None
+            __props__['sync_group_status'] = None
             __props__['type'] = None
+            __props__['unique_id'] = None
         super(SyncGroup, __self__).__init__(
             'azurerm:storagesync/v20200301:SyncGroup',
             resource_name,

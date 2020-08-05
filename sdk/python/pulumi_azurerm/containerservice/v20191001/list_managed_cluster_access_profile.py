@@ -13,7 +13,13 @@ class ListManagedClusterAccessProfileResult:
     """
     Managed cluster Access Profile.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, kube_config=None, location=None, name=None, tags=None, type=None):
+        if kube_config and not isinstance(kube_config, str):
+            raise TypeError("Expected argument 'kube_config' to be a str")
+        __self__.kube_config = kube_config
+        """
+        Base64-encoded Kubernetes configuration file.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -25,12 +31,6 @@ class ListManagedClusterAccessProfileResult:
         __self__.name = name
         """
         Resource name
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        AccessProfile of a managed cluster.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +52,9 @@ class AwaitableListManagedClusterAccessProfileResult(ListManagedClusterAccessPro
         if False:
             yield self
         return ListManagedClusterAccessProfileResult(
+            kube_config=self.kube_config,
             location=self.location,
             name=self.name,
-            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +78,8 @@ def list_managed_cluster_access_profile(name=None, resource_group_name=None, res
     __ret__ = pulumi.runtime.invoke('azurerm:containerservice/v20191001:listManagedClusterAccessProfile', __args__, opts=opts).value
 
     return AwaitableListManagedClusterAccessProfileResult(
+        kube_config=__ret__.get('kubeConfig'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

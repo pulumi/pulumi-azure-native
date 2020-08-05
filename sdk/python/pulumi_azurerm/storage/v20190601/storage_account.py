@@ -10,6 +10,88 @@ from ... import _utilities, _tables
 
 
 class StorageAccount(pulumi.CustomResource):
+    access_tier: pulumi.Output[str]
+    """
+    Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+    """
+    allow_blob_public_access: pulumi.Output[bool]
+    """
+    Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
+    """
+    azure_files_identity_based_authentication: pulumi.Output[dict]
+    """
+    Provides the identity based authentication settings for Azure Files.
+      * `active_directory_properties` (`dict`) - Required if choose AD.
+        * `azure_storage_sid` (`str`) - Specifies the security identifier (SID) for Azure Storage.
+        * `domain_guid` (`str`) - Specifies the domain GUID.
+        * `domain_name` (`str`) - Specifies the primary domain that the AD DNS server is authoritative for.
+        * `domain_sid` (`str`) - Specifies the security identifier (SID).
+        * `forest_name` (`str`) - Specifies the Active Directory forest to get.
+        * `net_bios_domain_name` (`str`) - Specifies the NetBIOS domain name.
+
+      * `directory_service_options` (`str`) - Indicates the directory service used.
+    """
+    blob_restore_status: pulumi.Output[dict]
+    """
+    Blob restore status
+      * `failure_reason` (`str`) - Failure reason when blob restore is failed.
+      * `parameters` (`dict`) - Blob restore request parameters.
+        * `blob_ranges` (`list`) - Blob ranges to restore.
+          * `end_range` (`str`) - Blob end range. This is exclusive. Empty means account end.
+          * `start_range` (`str`) - Blob start range. This is inclusive. Empty means account start.
+
+        * `time_to_restore` (`str`) - Restore blob to the specified time.
+
+      * `restore_id` (`str`) - Id for tracking blob restore request.
+      * `status` (`str`) - The status of blob restore progress. Possible values are: - InProgress: Indicates that blob restore is ongoing. - Complete: Indicates that blob restore has been completed successfully. - Failed: Indicates that blob restore is failed.
+    """
+    creation_time: pulumi.Output[str]
+    """
+    Gets the creation date and time of the storage account in UTC.
+    """
+    custom_domain: pulumi.Output[dict]
+    """
+    Gets the custom domain the user assigned to this storage account.
+      * `name` (`str`) - Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
+      * `use_sub_domain_name` (`bool`) - Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
+    """
+    enable_https_traffic_only: pulumi.Output[bool]
+    """
+    Allows https traffic only to storage service if sets to true.
+    """
+    encryption: pulumi.Output[dict]
+    """
+    Gets the encryption settings on the account. If unspecified, the account is unencrypted.
+      * `key_source` (`str`) - The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
+      * `key_vault_properties` (`dict`) - Properties provided by key vault.
+        * `current_versioned_key_identifier` (`str`) - The object identifier of the current versioned Key Vault Key in use.
+        * `key_name` (`str`) - The name of KeyVault key.
+        * `key_vault_uri` (`str`) - The Uri of KeyVault.
+        * `key_version` (`str`) - The version of KeyVault key.
+        * `last_key_rotation_timestamp` (`str`) - Timestamp of last rotation of the Key Vault Key.
+
+      * `require_infrastructure_encryption` (`bool`) - A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
+      * `services` (`dict`) - List of services which support encryption.
+        * `blob` (`dict`) - The encryption function of the blob storage service.
+          * `enabled` (`bool`) - A boolean indicating whether or not the service encrypts the data as it is stored.
+          * `key_type` (`str`) - Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
+          * `last_enabled_time` (`str`) - Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
+
+        * `file` (`dict`) - The encryption function of the file storage service.
+        * `queue` (`dict`) - The encryption function of the queue storage service.
+        * `table` (`dict`) - The encryption function of the table storage service.
+    """
+    failover_in_progress: pulumi.Output[bool]
+    """
+    If the failover is in progress, the value will be true, otherwise, it will be null.
+    """
+    geo_replication_stats: pulumi.Output[dict]
+    """
+    Geo Replication Stats
+      * `can_failover` (`bool`) - A boolean flag which indicates whether or not account failover is supported for the account.
+      * `last_sync_time` (`str`) - All primary writes preceding this UTC date/time value are guaranteed to be available for read operations. Primary writes following this point in time may or may not be available for reads. Element may be default value if value of LastSyncTime is not available, this can happen if secondary is offline or we are in bootstrap.
+      * `status` (`str`) - The status of the secondary location. Possible values are: - Live: Indicates that the secondary location is active and operational. - Bootstrap: Indicates initial synchronization from the primary location to the secondary location is in progress.This typically occurs when replication is first enabled. - Unavailable: Indicates that the secondary location is temporarily unavailable.
+    """
     identity: pulumi.Output[dict]
     """
     The identity of the resource.
@@ -17,149 +99,144 @@ class StorageAccount(pulumi.CustomResource):
       * `tenant_id` (`str`) - The tenant ID of resource.
       * `type` (`str`) - The identity type.
     """
+    is_hns_enabled: pulumi.Output[bool]
+    """
+    Account HierarchicalNamespace enabled if sets to true.
+    """
     kind: pulumi.Output[str]
     """
     Gets the Kind.
+    """
+    large_file_shares_state: pulumi.Output[str]
+    """
+    Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
+    """
+    last_geo_failover_time: pulumi.Output[str]
+    """
+    Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
     """
     location: pulumi.Output[str]
     """
     The geo-location where the resource lives
     """
+    minimum_tls_version: pulumi.Output[str]
+    """
+    Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    network_rule_set: pulumi.Output[dict]
     """
-    Properties of the storage account.
-      * `access_tier` (`str`) - Required for storage accounts where kind = BlobStorage. The access tier used for billing.
-      * `allow_blob_public_access` (`bool`) - Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is true for this property.
-      * `azure_files_identity_based_authentication` (`dict`) - Provides the identity based authentication settings for Azure Files.
-        * `active_directory_properties` (`dict`) - Required if choose AD.
-          * `azure_storage_sid` (`str`) - Specifies the security identifier (SID) for Azure Storage.
-          * `domain_guid` (`str`) - Specifies the domain GUID.
-          * `domain_name` (`str`) - Specifies the primary domain that the AD DNS server is authoritative for.
-          * `domain_sid` (`str`) - Specifies the security identifier (SID).
-          * `forest_name` (`str`) - Specifies the Active Directory forest to get.
-          * `net_bios_domain_name` (`str`) - Specifies the NetBIOS domain name.
+    Network rule set
+      * `bypass` (`str`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
+      * `default_action` (`str`) - Specifies the default action of allow or deny when no other rules match.
+      * `ip_rules` (`list`) - Sets the IP ACL rules
+        * `action` (`str`) - The action of IP ACL rule.
+        * `i_p_address_or_range` (`str`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
 
-        * `directory_service_options` (`str`) - Indicates the directory service used.
-
-      * `blob_restore_status` (`dict`) - Blob restore status
-        * `failure_reason` (`str`) - Failure reason when blob restore is failed.
-        * `parameters` (`dict`) - Blob restore request parameters.
-          * `blob_ranges` (`list`) - Blob ranges to restore.
-            * `end_range` (`str`) - Blob end range. This is exclusive. Empty means account end.
-            * `start_range` (`str`) - Blob start range. This is inclusive. Empty means account start.
-
-          * `time_to_restore` (`str`) - Restore blob to the specified time.
-
-        * `restore_id` (`str`) - Id for tracking blob restore request.
-        * `status` (`str`) - The status of blob restore progress. Possible values are: - InProgress: Indicates that blob restore is ongoing. - Complete: Indicates that blob restore has been completed successfully. - Failed: Indicates that blob restore is failed.
-
-      * `creation_time` (`str`) - Gets the creation date and time of the storage account in UTC.
-      * `custom_domain` (`dict`) - Gets the custom domain the user assigned to this storage account.
-        * `name` (`str`) - Gets or sets the custom domain name assigned to the storage account. Name is the CNAME source.
-        * `use_sub_domain_name` (`bool`) - Indicates whether indirect CName validation is enabled. Default value is false. This should only be set on updates.
-
-      * `encryption` (`dict`) - Gets the encryption settings on the account. If unspecified, the account is unencrypted.
-        * `key_source` (`str`) - The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Storage, Microsoft.Keyvault
-        * `keyvaultproperties` (`dict`) - Properties provided by key vault.
-          * `current_versioned_key_identifier` (`str`) - The object identifier of the current versioned Key Vault Key in use.
-          * `keyname` (`str`) - The name of KeyVault key.
-          * `keyvaulturi` (`str`) - The Uri of KeyVault.
-          * `keyversion` (`str`) - The version of KeyVault key.
-          * `last_key_rotation_timestamp` (`str`) - Timestamp of last rotation of the Key Vault Key.
-
-        * `require_infrastructure_encryption` (`bool`) - A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
-        * `services` (`dict`) - List of services which support encryption.
-          * `blob` (`dict`) - The encryption function of the blob storage service.
-            * `enabled` (`bool`) - A boolean indicating whether or not the service encrypts the data as it is stored.
-            * `key_type` (`str`) - Encryption key type to be used for the encryption service. 'Account' key type implies that an account-scoped encryption key will be used. 'Service' key type implies that a default service key is used.
-            * `last_enabled_time` (`str`) - Gets a rough estimate of the date/time when the encryption was last enabled by the user. Only returned when encryption is enabled. There might be some unencrypted blobs which were written after this time, as it is just a rough estimate.
-
-          * `file` (`dict`) - The encryption function of the file storage service.
-          * `queue` (`dict`) - The encryption function of the queue storage service.
-          * `table` (`dict`) - The encryption function of the table storage service.
-
-      * `failover_in_progress` (`bool`) - If the failover is in progress, the value will be true, otherwise, it will be null.
-      * `geo_replication_stats` (`dict`) - Geo Replication Stats
-        * `can_failover` (`bool`) - A boolean flag which indicates whether or not account failover is supported for the account.
-        * `last_sync_time` (`str`) - All primary writes preceding this UTC date/time value are guaranteed to be available for read operations. Primary writes following this point in time may or may not be available for reads. Element may be default value if value of LastSyncTime is not available, this can happen if secondary is offline or we are in bootstrap.
-        * `status` (`str`) - The status of the secondary location. Possible values are: - Live: Indicates that the secondary location is active and operational. - Bootstrap: Indicates initial synchronization from the primary location to the secondary location is in progress.This typically occurs when replication is first enabled. - Unavailable: Indicates that the secondary location is temporarily unavailable.
-
-      * `is_hns_enabled` (`bool`) - Account HierarchicalNamespace enabled if sets to true.
-      * `large_file_shares_state` (`str`) - Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.
-      * `last_geo_failover_time` (`str`) - Gets the timestamp of the most recent instance of a failover to the secondary location. Only the most recent timestamp is retained. This element is not returned if there has never been a failover instance. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-      * `minimum_tls_version` (`str`) - Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.
-      * `network_acls` (`dict`) - Network rule set
-        * `bypass` (`str`) - Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, "Logging, Metrics"), or None to bypass none of those traffics.
-        * `default_action` (`str`) - Specifies the default action of allow or deny when no other rules match.
-        * `ip_rules` (`list`) - Sets the IP ACL rules
-          * `action` (`str`) - The action of IP ACL rule.
-          * `value` (`str`) - Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
-
-        * `virtual_network_rules` (`list`) - Sets the virtual network rules
-          * `action` (`str`) - The action of virtual network rule.
-          * `id` (`str`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-          * `state` (`str`) - Gets the state of virtual network rule.
-
-      * `primary_endpoints` (`dict`) - Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+      * `virtual_network_rules` (`list`) - Sets the virtual network rules
+        * `action` (`str`) - The action of virtual network rule.
+        * `state` (`str`) - Gets the state of virtual network rule.
+        * `virtual_network_resource_id` (`str`) - Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+    """
+    primary_endpoints: pulumi.Output[dict]
+    """
+    Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object. Note that Standard_ZRS and Premium_LRS accounts only return the blob endpoint.
+      * `blob` (`str`) - Gets the blob endpoint.
+      * `dfs` (`str`) - Gets the dfs endpoint.
+      * `file` (`str`) - Gets the file endpoint.
+      * `internet_endpoints` (`dict`) - Gets the internet routing storage endpoints
         * `blob` (`str`) - Gets the blob endpoint.
         * `dfs` (`str`) - Gets the dfs endpoint.
         * `file` (`str`) - Gets the file endpoint.
-        * `internet_endpoints` (`dict`) - Gets the internet routing storage endpoints
-          * `blob` (`str`) - Gets the blob endpoint.
-          * `dfs` (`str`) - Gets the dfs endpoint.
-          * `file` (`str`) - Gets the file endpoint.
-          * `web` (`str`) - Gets the web endpoint.
+        * `web` (`str`) - Gets the web endpoint.
 
-        * `microsoft_endpoints` (`dict`) - Gets the microsoft routing storage endpoints.
-          * `blob` (`str`) - Gets the blob endpoint.
-          * `dfs` (`str`) - Gets the dfs endpoint.
-          * `file` (`str`) - Gets the file endpoint.
-          * `queue` (`str`) - Gets the queue endpoint.
-          * `table` (`str`) - Gets the table endpoint.
-          * `web` (`str`) - Gets the web endpoint.
-
+      * `microsoft_endpoints` (`dict`) - Gets the microsoft routing storage endpoints.
+        * `blob` (`str`) - Gets the blob endpoint.
+        * `dfs` (`str`) - Gets the dfs endpoint.
+        * `file` (`str`) - Gets the file endpoint.
         * `queue` (`str`) - Gets the queue endpoint.
         * `table` (`str`) - Gets the table endpoint.
         * `web` (`str`) - Gets the web endpoint.
 
-      * `primary_location` (`str`) - Gets the location of the primary data center for the storage account.
-      * `private_endpoint_connections` (`list`) - List of private endpoint connection associated with the specified storage account
-        * `id` (`str`) - Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-        * `name` (`str`) - The name of the resource
-        * `properties` (`dict`) - Resource properties.
-          * `private_endpoint` (`dict`) - The resource of private end point.
-            * `id` (`str`) - The ARM identifier for Private Endpoint
+      * `queue` (`str`) - Gets the queue endpoint.
+      * `table` (`str`) - Gets the table endpoint.
+      * `web` (`str`) - Gets the web endpoint.
+    """
+    primary_location: pulumi.Output[str]
+    """
+    Gets the location of the primary data center for the storage account.
+    """
+    private_endpoint_connections: pulumi.Output[list]
+    """
+    List of private endpoint connection associated with the specified storage account
+      * `id` (`str`) - Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+      * `name` (`str`) - The name of the resource
+      * `private_endpoint` (`dict`) - The resource of private end point.
+        * `id` (`str`) - The ARM identifier for Private Endpoint
 
-          * `private_link_service_connection_state` (`dict`) - A collection of information about the state of the connection between service consumer and provider.
-            * `action_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
-            * `description` (`str`) - The reason for approval/rejection of the connection.
-            * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+      * `private_link_service_connection_state` (`dict`) - A collection of information about the state of the connection between service consumer and provider.
+        * `action_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
+        * `description` (`str`) - The reason for approval/rejection of the connection.
+        * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 
-          * `provisioning_state` (`str`) - The provisioning state of the private endpoint connection resource.
+      * `provisioning_state` (`str`) - The provisioning state of the private endpoint connection resource.
+      * `type` (`str`) - The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Gets the status of the storage account at the time the operation was called.
+    """
+    routing_preference: pulumi.Output[dict]
+    """
+    Maintains information about the network routing choice opted by the user for data transfer
+      * `publish_internet_endpoints` (`bool`) - A boolean flag which indicates whether internet routing storage endpoints are to be published
+      * `publish_microsoft_endpoints` (`bool`) - A boolean flag which indicates whether microsoft routing storage endpoints are to be published
+      * `routing_choice` (`str`) - Routing Choice defines the kind of network routing opted by the user.
+    """
+    secondary_endpoints: pulumi.Output[dict]
+    """
+    Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
+      * `blob` (`str`) - Gets the blob endpoint.
+      * `dfs` (`str`) - Gets the dfs endpoint.
+      * `file` (`str`) - Gets the file endpoint.
+      * `internet_endpoints` (`dict`) - Gets the internet routing storage endpoints
+        * `blob` (`str`) - Gets the blob endpoint.
+        * `dfs` (`str`) - Gets the dfs endpoint.
+        * `file` (`str`) - Gets the file endpoint.
+        * `web` (`str`) - Gets the web endpoint.
 
-        * `type` (`str`) - The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+      * `microsoft_endpoints` (`dict`) - Gets the microsoft routing storage endpoints.
+        * `blob` (`str`) - Gets the blob endpoint.
+        * `dfs` (`str`) - Gets the dfs endpoint.
+        * `file` (`str`) - Gets the file endpoint.
+        * `queue` (`str`) - Gets the queue endpoint.
+        * `table` (`str`) - Gets the table endpoint.
+        * `web` (`str`) - Gets the web endpoint.
 
-      * `provisioning_state` (`str`) - Gets the status of the storage account at the time the operation was called.
-      * `routing_preference` (`dict`) - Maintains information about the network routing choice opted by the user for data transfer
-        * `publish_internet_endpoints` (`bool`) - A boolean flag which indicates whether internet routing storage endpoints are to be published
-        * `publish_microsoft_endpoints` (`bool`) - A boolean flag which indicates whether microsoft routing storage endpoints are to be published
-        * `routing_choice` (`str`) - Routing Choice defines the kind of network routing opted by the user.
-
-      * `secondary_endpoints` (`dict`) - Gets the URLs that are used to perform a retrieval of a public blob, queue, or table object from the secondary location of the storage account. Only available if the SKU name is Standard_RAGRS.
-      * `secondary_location` (`str`) - Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
-      * `status_of_primary` (`str`) - Gets the status indicating whether the primary location of the storage account is available or unavailable.
-      * `status_of_secondary` (`str`) - Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
-      * `supports_https_traffic_only` (`bool`) - Allows https traffic only to storage service if sets to true.
+      * `queue` (`str`) - Gets the queue endpoint.
+      * `table` (`str`) - Gets the table endpoint.
+      * `web` (`str`) - Gets the web endpoint.
+    """
+    secondary_location: pulumi.Output[str]
+    """
+    Gets the location of the geo-replicated secondary for the storage account. Only available if the accountType is Standard_GRS or Standard_RAGRS.
     """
     sku: pulumi.Output[dict]
     """
     Gets the SKU.
       * `name` (`str`) - The SKU name. Required for account creation; optional for update. Note that in older versions, SKU name was called accountType.
       * `tier` (`str`) - The SKU tier. This is based on the SKU name.
+    """
+    status_of_primary: pulumi.Output[str]
+    """
+    Gets the status indicating whether the primary location of the storage account is available or unavailable.
+    """
+    status_of_secondary: pulumi.Output[str]
+    """
+    Gets the status indicating whether the secondary location of the storage account is available or unavailable. Only available if the SKU name is Standard_GRS or Standard_RAGRS.
     """
     tags: pulumi.Output[dict]
     """
@@ -302,7 +379,19 @@ class StorageAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['blob_restore_status'] = None
+            __props__['creation_time'] = None
+            __props__['failover_in_progress'] = None
+            __props__['geo_replication_stats'] = None
+            __props__['last_geo_failover_time'] = None
+            __props__['primary_endpoints'] = None
+            __props__['primary_location'] = None
+            __props__['private_endpoint_connections'] = None
+            __props__['provisioning_state'] = None
+            __props__['secondary_endpoints'] = None
+            __props__['secondary_location'] = None
+            __props__['status_of_primary'] = None
+            __props__['status_of_secondary'] = None
             __props__['type'] = None
         super(StorageAccount, __self__).__init__(
             'azurerm:storage/v20190601:StorageAccount',

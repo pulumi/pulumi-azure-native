@@ -18,57 +18,8 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
     """
     The name of the ARM resource.
     """
-    properties: pulumi.Output[dict]
-    """
-    The properties of an Azure Cosmos DB container
-      * `options` (`dict`)
-        * `autoscale_settings` (`dict`) - Specifies the Autoscale settings.
-          * `max_throughput` (`float`) - Represents maximum throughput, the resource can scale up to.
-
-        * `throughput` (`float`) - Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
-
-      * `resource` (`dict`)
-        * `_etag` (`str`) - A system generated property representing the resource etag required for optimistic concurrency control.
-        * `_rid` (`str`) - A system generated property. A unique identifier.
-        * `_ts` (`dict`) - A system generated property that denotes the last updated timestamp of the resource.
-        * `conflict_resolution_policy` (`dict`) - The conflict resolution policy for the container.
-          * `conflict_resolution_path` (`str`) - The conflict resolution path in the case of LastWriterWins mode.
-          * `conflict_resolution_procedure` (`str`) - The procedure to resolve conflicts in the case of custom mode.
-          * `mode` (`str`) - Indicates the conflict resolution mode.
-
-        * `default_ttl` (`float`) - Default time to live
-        * `id` (`str`) - Name of the Cosmos DB SQL container
-        * `indexing_policy` (`dict`) - The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
-          * `automatic` (`bool`) - Indicates if the indexing policy is automatic
-          * `composite_indexes` (`list`) - List of composite path list
-            * `order` (`str`) - Sort order for composite paths.
-            * `path` (`str`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-
-          * `excluded_paths` (`list`) - List of paths to exclude from indexing
-            * `path` (`str`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-
-          * `included_paths` (`list`) - List of paths to include in the indexing
-            * `indexes` (`list`) - List of indexes for this path
-              * `data_type` (`str`) - The datatype for which the indexing behavior is applied to.
-              * `kind` (`str`) - Indicates the type of index.
-              * `precision` (`float`) - The precision of the index. -1 is maximum precision.
-
-            * `path` (`str`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-
-          * `indexing_mode` (`str`) - Indicates the indexing mode.
-          * `spatial_indexes` (`list`) - List of spatial specifics
-            * `path` (`str`) - The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
-            * `types` (`list`) - List of path's spatial type
-
-        * `partition_key` (`dict`) - The configuration of the partition key to be used for partitioning data into multiple partitions
-          * `kind` (`str`) - Indicates the kind of algorithm used for partitioning
-          * `paths` (`list`) - List of paths using which data within the container can be partitioned
-          * `version` (`float`) - Indicates the version of the partition key definition
-
-        * `unique_key_policy` (`dict`) - The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
-          * `unique_keys` (`list`) - List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
-            * `paths` (`list`) - List of paths must be unique for each document in the Azure Cosmos DB service
-    """
+    options: pulumi.Output[dict]
+    resource: pulumi.Output[dict]
     tags: pulumi.Output[dict]
     """
     Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
@@ -176,7 +127,6 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(SqlResourceSqlContainer, __self__).__init__(
             'azurerm:documentdb/v20200401:SqlResourceSqlContainer',

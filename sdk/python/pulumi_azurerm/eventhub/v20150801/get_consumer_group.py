@@ -13,7 +13,19 @@ class GetConsumerGroupResult:
     """
     Single item in List or Get Consumer group operation
     """
-    def __init__(__self__, location=None, name=None, properties=None, type=None):
+    def __init__(__self__, created_at=None, event_hub_path=None, location=None, name=None, type=None, updated_at=None, user_metadata=None):
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        __self__.created_at = created_at
+        """
+        Exact time the message was created.
+        """
+        if event_hub_path and not isinstance(event_hub_path, str):
+            raise TypeError("Expected argument 'event_hub_path' to be a str")
+        __self__.event_hub_path = event_hub_path
+        """
+        The path of the Event Hub.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,17 +38,23 @@ class GetConsumerGroupResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Properties supplied to the Create Or Update Consumer Group operation.
-        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type
+        """
+        if updated_at and not isinstance(updated_at, str):
+            raise TypeError("Expected argument 'updated_at' to be a str")
+        __self__.updated_at = updated_at
+        """
+        The exact time the message was updated.
+        """
+        if user_metadata and not isinstance(user_metadata, str):
+            raise TypeError("Expected argument 'user_metadata' to be a str")
+        __self__.user_metadata = user_metadata
+        """
+        The user metadata.
         """
 
 
@@ -46,10 +64,13 @@ class AwaitableGetConsumerGroupResult(GetConsumerGroupResult):
         if False:
             yield self
         return GetConsumerGroupResult(
+            created_at=self.created_at,
+            event_hub_path=self.event_hub_path,
             location=self.location,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            type=self.type,
+            updated_at=self.updated_at,
+            user_metadata=self.user_metadata)
 
 
 def get_consumer_group(event_hub_name=None, name=None, namespace_name=None, resource_group_name=None, opts=None):
@@ -73,7 +94,10 @@ def get_consumer_group(event_hub_name=None, name=None, namespace_name=None, reso
     __ret__ = pulumi.runtime.invoke('azurerm:eventhub/v20150801:getConsumerGroup', __args__, opts=opts).value
 
     return AwaitableGetConsumerGroupResult(
+        created_at=__ret__.get('createdAt'),
+        event_hub_path=__ret__.get('eventHubPath'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        updated_at=__ret__.get('updatedAt'),
+        user_metadata=__ret__.get('userMetadata'))

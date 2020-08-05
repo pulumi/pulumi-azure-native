@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class UserAssignedIdentity(pulumi.CustomResource):
+    client_id: pulumi.Output[str]
+    """
+    The id of the app associated with the identity. This is a random generated UUID by MSI.
+    """
     location: pulumi.Output[str]
     """
     The geo-location where the resource lives
@@ -18,16 +22,17 @@ class UserAssignedIdentity(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    principal_id: pulumi.Output[str]
     """
-    The properties associated with the identity.
-      * `client_id` (`str`) - The id of the app associated with the identity. This is a random generated UUID by MSI.
-      * `principal_id` (`str`) - The id of the service principal object associated with the created identity.
-      * `tenant_id` (`str`) - The id of the tenant which the identity belongs to.
+    The id of the service principal object associated with the created identity.
     """
     tags: pulumi.Output[dict]
     """
     Resource tags.
+    """
+    tenant_id: pulumi.Output[str]
+    """
+    The id of the tenant which the identity belongs to.
     """
     type: pulumi.Output[str]
     """
@@ -71,7 +76,9 @@ class UserAssignedIdentity(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['client_id'] = None
+            __props__['principal_id'] = None
+            __props__['tenant_id'] = None
             __props__['type'] = None
         super(UserAssignedIdentity, __self__).__init__(
             'azurerm:managedidentity/v20181130:UserAssignedIdentity',

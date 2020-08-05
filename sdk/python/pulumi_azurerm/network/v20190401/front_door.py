@@ -10,6 +10,90 @@ from ... import _utilities, _tables
 
 
 class FrontDoor(pulumi.CustomResource):
+    backend_pools: pulumi.Output[list]
+    """
+    Backend pools available to routing rules.
+      * `backends` (`list`) - The set of backends for this pool
+        * `address` (`str`) - Location of the backend (IP address or FQDN)
+        * `backend_host_header` (`str`) - The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
+        * `enabled_state` (`str`) - Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
+        * `http_port` (`float`) - The HTTP TCP port number. Must be between 1 and 65535.
+        * `https_port` (`float`) - The HTTPS TCP port number. Must be between 1 and 65535.
+        * `priority` (`float`) - Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
+        * `weight` (`float`) - Weight of this endpoint for load balancing purposes.
+
+      * `health_probe_settings` (`dict`) - L7 health probe settings for a backend pool
+        * `id` (`str`) - Resource ID.
+
+      * `id` (`str`) - Resource ID.
+      * `load_balancing_settings` (`dict`) - Load balancing settings for a backend pool
+      * `name` (`str`) - Resource name.
+      * `resource_state` (`str`) - Resource status.
+      * `type` (`str`) - Resource type.
+    """
+    backend_pools_settings: pulumi.Output[dict]
+    """
+    Settings for all backendPools
+      * `enforce_certificate_name_check` (`str`) - Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
+    """
+    cname: pulumi.Output[str]
+    """
+    The host that each frontendEndpoint must CNAME to.
+    """
+    enabled_state: pulumi.Output[str]
+    """
+    Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+    """
+    friendly_name: pulumi.Output[str]
+    """
+    A friendly name for the frontDoor
+    """
+    frontend_endpoints: pulumi.Output[list]
+    """
+    Frontend endpoints available to routing rules.
+      * `custom_https_configuration` (`dict`) - The configuration specifying how to enable HTTPS
+        * `certificate_source` (`str`) - Defines the source of the SSL certificate
+        * `certificate_type` (`str`) - Defines the type of the certificate used for secure connections to a frontendEndpoint
+        * `protocol_type` (`str`) - Defines the TLS extension protocol that is used for secure delivery
+        * `secret_name` (`str`) - The name of the Key Vault secret representing the full certificate PFX
+        * `secret_version` (`str`) - The version of the Key Vault secret representing the full certificate PFX
+        * `vault` (`dict`) - The Key Vault containing the SSL certificate
+          * `id` (`str`) - Resource ID.
+
+      * `custom_https_provisioning_state` (`str`) - Provisioning status of Custom Https of the frontendEndpoint.
+      * `custom_https_provisioning_substate` (`str`) - Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+      * `host_name` (`str`) - The host name of the frontendEndpoint. Must be a domain name.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Resource name.
+      * `resource_state` (`str`) - Resource status.
+      * `session_affinity_enabled_state` (`str`) - Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+      * `session_affinity_ttl_seconds` (`float`) - UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
+      * `type` (`str`) - Resource type.
+      * `web_application_firewall_policy_link` (`dict`) - Defines the Web Application Firewall policy for each host (if applicable)
+        * `id` (`str`) - Resource ID.
+    """
+    health_probe_settings: pulumi.Output[list]
+    """
+    Health probe settings associated with this Front Door instance.
+      * `id` (`str`) - Resource ID.
+      * `interval_in_seconds` (`float`) - The number of seconds between health probes.
+      * `name` (`str`) - Resource name.
+      * `path` (`str`) - The path to use for the health probe. Default is /
+      * `protocol` (`str`) - Protocol scheme to use for this probe
+      * `resource_state` (`str`) - Resource status.
+      * `type` (`str`) - Resource type.
+    """
+    load_balancing_settings: pulumi.Output[list]
+    """
+    Load balancing settings associated with this Front Door instance.
+      * `additional_latency_milliseconds` (`float`) - The additional latency in milliseconds for probes to fall into the lowest latency bucket
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Resource name.
+      * `resource_state` (`str`) - Resource status.
+      * `sample_size` (`float`) - The number of samples to consider for load balancing decisions
+      * `successful_samples_required` (`float`) - The number of samples within the sample period that must succeed
+      * `type` (`str`) - Resource type.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
@@ -18,99 +102,27 @@ class FrontDoor(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the Front Door Load Balancer
-      * `backend_pools` (`list`) - Backend pools available to routing rules.
+    Provisioning state of the Front Door.
+    """
+    resource_state: pulumi.Output[str]
+    """
+    Resource status of the Front Door.
+    """
+    routing_rules: pulumi.Output[list]
+    """
+    Routing rules associated with this Front Door.
+      * `accepted_protocols` (`list`) - Protocol schemes to match for this rule
+      * `enabled_state` (`str`) - Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+      * `frontend_endpoints` (`list`) - Frontend endpoints associated with this rule
         * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Resource name.
-        * `properties` (`dict`) - Properties of the Front Door Backend Pool
-          * `backends` (`list`) - The set of backends for this pool
-            * `address` (`str`) - Location of the backend (IP address or FQDN)
-            * `backend_host_header` (`str`) - The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.
-            * `enabled_state` (`str`) - Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
-            * `http_port` (`float`) - The HTTP TCP port number. Must be between 1 and 65535.
-            * `https_port` (`float`) - The HTTPS TCP port number. Must be between 1 and 65535.
-            * `priority` (`float`) - Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.
-            * `weight` (`float`) - Weight of this endpoint for load balancing purposes.
 
-          * `health_probe_settings` (`dict`) - L7 health probe settings for a backend pool
-            * `id` (`str`) - Resource ID.
-
-          * `load_balancing_settings` (`dict`) - Load balancing settings for a backend pool
-          * `resource_state` (`str`) - Resource status.
-
-        * `type` (`str`) - Resource type.
-
-      * `backend_pools_settings` (`dict`) - Settings for all backendPools
-        * `enforce_certificate_name_check` (`str`) - Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
-
-      * `cname` (`str`) - The host that each frontendEndpoint must CNAME to.
-      * `enabled_state` (`str`) - Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
-      * `friendly_name` (`str`) - A friendly name for the frontDoor
-      * `frontend_endpoints` (`list`) - Frontend endpoints available to routing rules.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Resource name.
-        * `properties` (`dict`) - Properties of the Frontend endpoint
-          * `custom_https_configuration` (`dict`) - The configuration specifying how to enable HTTPS
-            * `certificate_source` (`str`) - Defines the source of the SSL certificate
-            * `front_door_certificate_source_parameters` (`dict`) - Parameters required for enabling SSL with Front Door-managed certificates (if certificateSource=FrontDoor)
-              * `certificate_type` (`str`) - Defines the type of the certificate used for secure connections to a frontendEndpoint
-
-            * `key_vault_certificate_source_parameters` (`dict`) - KeyVault certificate source parameters (if certificateSource=AzureKeyVault)
-              * `secret_name` (`str`) - The name of the Key Vault secret representing the full certificate PFX
-              * `secret_version` (`str`) - The version of the Key Vault secret representing the full certificate PFX
-              * `vault` (`dict`) - The Key Vault containing the SSL certificate
-                * `id` (`str`) - Resource ID.
-
-            * `protocol_type` (`str`) - Defines the TLS extension protocol that is used for secure delivery
-
-          * `custom_https_provisioning_state` (`str`) - Provisioning status of Custom Https of the frontendEndpoint.
-          * `custom_https_provisioning_substate` (`str`) - Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
-          * `host_name` (`str`) - The host name of the frontendEndpoint. Must be a domain name.
-          * `resource_state` (`str`) - Resource status.
-          * `session_affinity_enabled_state` (`str`) - Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
-          * `session_affinity_ttl_seconds` (`float`) - UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.
-          * `web_application_firewall_policy_link` (`dict`) - Defines the Web Application Firewall policy for each host (if applicable)
-            * `id` (`str`) - Resource ID.
-
-        * `type` (`str`) - Resource type.
-
-      * `health_probe_settings` (`list`) - Health probe settings associated with this Front Door instance.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Resource name.
-        * `properties` (`dict`) - Properties of the health probe settings
-          * `interval_in_seconds` (`float`) - The number of seconds between health probes.
-          * `path` (`str`) - The path to use for the health probe. Default is /
-          * `protocol` (`str`) - Protocol scheme to use for this probe
-          * `resource_state` (`str`) - Resource status.
-
-        * `type` (`str`) - Resource type.
-
-      * `load_balancing_settings` (`list`) - Load balancing settings associated with this Front Door instance.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Resource name.
-        * `properties` (`dict`) - Properties of the load balancing settings
-          * `additional_latency_milliseconds` (`float`) - The additional latency in milliseconds for probes to fall into the lowest latency bucket
-          * `resource_state` (`str`) - Resource status.
-          * `sample_size` (`float`) - The number of samples to consider for load balancing decisions
-          * `successful_samples_required` (`float`) - The number of samples within the sample period that must succeed
-
-        * `type` (`str`) - Resource type.
-
-      * `provisioning_state` (`str`) - Provisioning state of the Front Door.
-      * `resource_state` (`str`) - Resource status of the Front Door.
-      * `routing_rules` (`list`) - Routing rules associated with this Front Door.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Resource name.
-        * `properties` (`dict`) - Properties of the Front Door Routing Rule
-          * `accepted_protocols` (`list`) - Protocol schemes to match for this rule
-          * `enabled_state` (`str`) - Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
-          * `frontend_endpoints` (`list`) - Frontend endpoints associated with this rule
-          * `patterns_to_match` (`list`) - The route patterns of the rule.
-          * `resource_state` (`str`) - Resource status.
-
-        * `type` (`str`) - Resource type.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Resource name.
+      * `patterns_to_match` (`list`) - The route patterns of the rule.
+      * `resource_state` (`str`) - Resource status.
+      * `type` (`str`) - Resource type.
     """
     tags: pulumi.Output[dict]
     """
@@ -236,7 +248,8 @@ class FrontDoor(pulumi.CustomResource):
             __props__['resource_state'] = resource_state
             __props__['routing_rules'] = routing_rules
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['cname'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(FrontDoor, __self__).__init__(
             'azurerm:network/v20190401:FrontDoor',

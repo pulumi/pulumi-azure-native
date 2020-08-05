@@ -10,6 +10,22 @@ from ... import _utilities, _tables
 
 
 class SiteSourceControl(pulumi.CustomResource):
+    branch: pulumi.Output[str]
+    """
+    Name of branch to use for deployment
+    """
+    deployment_rollback_enabled: pulumi.Output[bool]
+    """
+    Whether to manual or continuous integration
+    """
+    is_manual_integration: pulumi.Output[bool]
+    """
+    Whether to manual or continuous integration
+    """
+    is_mercurial: pulumi.Output[bool]
+    """
+    Mercurial or Git repository type
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource
@@ -22,7 +38,10 @@ class SiteSourceControl(pulumi.CustomResource):
     """
     Resource Name
     """
-    properties: pulumi.Output[dict]
+    repo_url: pulumi.Output[str]
+    """
+    Repository or source control url
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -85,7 +104,6 @@ class SiteSourceControl(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = type
-            __props__['properties'] = None
         super(SiteSourceControl, __self__).__init__(
             'azurerm:web/v20150801:SiteSourceControl',
             resource_name,

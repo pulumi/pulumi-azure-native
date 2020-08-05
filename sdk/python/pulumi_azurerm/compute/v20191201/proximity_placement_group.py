@@ -10,6 +10,27 @@ from ... import _utilities, _tables
 
 
 class ProximityPlacementGroup(pulumi.CustomResource):
+    availability_sets: pulumi.Output[list]
+    """
+    A list of references to all availability sets in the proximity placement group.
+      * `colocation_status` (`dict`) - Describes colocation status of a resource in the Proximity Placement Group.
+        * `code` (`str`) - The status code.
+        * `display_status` (`str`) - The short localizable label for the status.
+        * `level` (`str`) - The level code.
+        * `message` (`str`) - The detailed status message, including for alerts and error messages.
+        * `time` (`str`) - The time of the status.
+
+      * `id` (`str`) - Resource Id
+    """
+    colocation_status: pulumi.Output[dict]
+    """
+    Describes colocation status of the Proximity Placement Group.
+      * `code` (`str`) - The status code.
+      * `display_status` (`str`) - The short localizable label for the status.
+      * `level` (`str`) - The level code.
+      * `message` (`str`) - The detailed status message, including for alerts and error messages.
+      * `time` (`str`) - The time of the status.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,23 +39,9 @@ class ProximityPlacementGroup(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    proximity_placement_group_type: pulumi.Output[str]
     """
-    Describes the properties of a Proximity Placement Group.
-      * `availability_sets` (`list`) - A list of references to all availability sets in the proximity placement group.
-        * `colocation_status` (`dict`) - Describes colocation status of a resource in the Proximity Placement Group.
-          * `code` (`str`) - The status code.
-          * `display_status` (`str`) - The short localizable label for the status.
-          * `level` (`str`) - The level code.
-          * `message` (`str`) - The detailed status message, including for alerts and error messages.
-          * `time` (`str`) - The time of the status.
-
-        * `id` (`str`) - Resource Id
-
-      * `colocation_status` (`dict`) - Describes colocation status of the Proximity Placement Group.
-      * `proximity_placement_group_type` (`str`) - Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
-      * `virtual_machine_scale_sets` (`list`) - A list of references to all virtual machine scale sets in the proximity placement group.
-      * `virtual_machines` (`list`) - A list of references to all virtual machines in the proximity placement group.
+    Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
     """
     tags: pulumi.Output[dict]
     """
@@ -43,6 +50,30 @@ class ProximityPlacementGroup(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    virtual_machine_scale_sets: pulumi.Output[list]
+    """
+    A list of references to all virtual machine scale sets in the proximity placement group.
+      * `colocation_status` (`dict`) - Describes colocation status of a resource in the Proximity Placement Group.
+        * `code` (`str`) - The status code.
+        * `display_status` (`str`) - The short localizable label for the status.
+        * `level` (`str`) - The level code.
+        * `message` (`str`) - The detailed status message, including for alerts and error messages.
+        * `time` (`str`) - The time of the status.
+
+      * `id` (`str`) - Resource Id
+    """
+    virtual_machines: pulumi.Output[list]
+    """
+    A list of references to all virtual machines in the proximity placement group.
+      * `colocation_status` (`dict`) - Describes colocation status of a resource in the Proximity Placement Group.
+        * `code` (`str`) - The status code.
+        * `display_status` (`str`) - The short localizable label for the status.
+        * `level` (`str`) - The level code.
+        * `message` (`str`) - The detailed status message, including for alerts and error messages.
+        * `time` (`str`) - The time of the status.
+
+      * `id` (`str`) - Resource Id
     """
     def __init__(__self__, resource_name, opts=None, colocation_status=None, location=None, name=None, proximity_placement_group_type=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -94,8 +125,10 @@ class ProximityPlacementGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['availability_sets'] = None
             __props__['type'] = None
+            __props__['virtual_machine_scale_sets'] = None
+            __props__['virtual_machines'] = None
         super(ProximityPlacementGroup, __self__).__init__(
             'azurerm:compute/v20191201:ProximityPlacementGroup',
             resource_name,

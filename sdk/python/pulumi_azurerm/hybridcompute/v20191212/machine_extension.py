@@ -10,6 +10,28 @@ from ... import _utilities, _tables
 
 
 class MachineExtension(pulumi.CustomResource):
+    auto_upgrade_minor_version: pulumi.Output[bool]
+    """
+    Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+    """
+    force_update_tag: pulumi.Output[str]
+    """
+    How the extension handler should be forced to update even if the extension configuration has not changed.
+    """
+    instance_view: pulumi.Output[dict]
+    """
+    The machine extension instance view.
+      * `name` (`str`) - The machine extension name.
+      * `status` (`dict`) - Instance view status.
+        * `code` (`str`) - The status code.
+        * `display_status` (`str`) - The short localizable label for the status.
+        * `level` (`str`) - The level code.
+        * `message` (`str`) - The detailed status message, including for alerts and error messages.
+        * `time` (`str`) - The time of the status.
+
+      * `type` (`str`) - Specifies the type of the extension; an example is "CustomScriptExtension".
+      * `type_handler_version` (`str`) - Specifies the version of the script handler.
+    """
     location: pulumi.Output[str]
     """
     The geo-location where the resource lives
@@ -18,29 +40,21 @@ class MachineExtension(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    protected_settings: pulumi.Output[dict]
     """
-    Describes Machine Extension Properties.
-      * `auto_upgrade_minor_version` (`bool`) - Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-      * `force_update_tag` (`str`) - How the extension handler should be forced to update even if the extension configuration has not changed.
-      * `instance_view` (`dict`) - The machine extension instance view.
-        * `name` (`str`) - The machine extension name.
-        * `status` (`dict`) - Instance view status.
-          * `code` (`str`) - The status code.
-          * `display_status` (`str`) - The short localizable label for the status.
-          * `level` (`str`) - The level code.
-          * `message` (`str`) - The detailed status message, including for alerts and error messages.
-          * `time` (`str`) - The time of the status.
-
-        * `type` (`str`) - Specifies the type of the extension; an example is "CustomScriptExtension".
-        * `type_handler_version` (`str`) - Specifies the version of the script handler.
-
-      * `protected_settings` (`dict`) - The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-      * `provisioning_state` (`str`) - The provisioning state, which only appears in the response.
-      * `publisher` (`str`) - The name of the extension handler publisher.
-      * `settings` (`dict`) - Json formatted public settings for the extension.
-      * `type` (`str`) - Specifies the type of the extension; an example is "CustomScriptExtension".
-      * `type_handler_version` (`str`) - Specifies the version of the script handler.
+    The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state, which only appears in the response.
+    """
+    publisher: pulumi.Output[str]
+    """
+    The name of the extension handler publisher.
+    """
+    settings: pulumi.Output[dict]
+    """
+    Json formatted public settings for the extension.
     """
     tags: pulumi.Output[dict]
     """
@@ -49,6 +63,10 @@ class MachineExtension(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    type_handler_version: pulumi.Output[str]
+    """
+    Specifies the version of the script handler.
     """
     def __init__(__self__, resource_name, opts=None, auto_upgrade_minor_version=None, force_update_tag=None, instance_view=None, location=None, name=None, protected_settings=None, publisher=None, resource_group_name=None, settings=None, tags=None, type=None, type_handler_version=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -117,7 +135,7 @@ class MachineExtension(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['type_handler_version'] = type_handler_version
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
         super(MachineExtension, __self__).__init__(
             'azurerm:hybridcompute/v20191212:MachineExtension',
             resource_name,

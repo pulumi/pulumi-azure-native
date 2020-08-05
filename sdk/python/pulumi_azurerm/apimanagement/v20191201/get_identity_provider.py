@@ -13,18 +13,66 @@ class GetIdentityProviderResult:
     """
     Identity Provider details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, allowed_tenants=None, authority=None, client_id=None, client_secret=None, name=None, password_reset_policy_name=None, profile_editing_policy_name=None, signin_policy_name=None, signin_tenant=None, signup_policy_name=None, type=None):
+        if allowed_tenants and not isinstance(allowed_tenants, list):
+            raise TypeError("Expected argument 'allowed_tenants' to be a list")
+        __self__.allowed_tenants = allowed_tenants
+        """
+        List of Allowed Tenants when configuring Azure Active Directory login.
+        """
+        if authority and not isinstance(authority, str):
+            raise TypeError("Expected argument 'authority' to be a str")
+        __self__.authority = authority
+        """
+        OpenID Connect discovery endpoint hostname for AAD or AAD B2C.
+        """
+        if client_id and not isinstance(client_id, str):
+            raise TypeError("Expected argument 'client_id' to be a str")
+        __self__.client_id = client_id
+        """
+        Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
+        """
+        if client_secret and not isinstance(client_secret, str):
+            raise TypeError("Expected argument 'client_secret' to be a str")
+        __self__.client_secret = client_secret
+        """
+        Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if password_reset_policy_name and not isinstance(password_reset_policy_name, str):
+            raise TypeError("Expected argument 'password_reset_policy_name' to be a str")
+        __self__.password_reset_policy_name = password_reset_policy_name
         """
-        Identity Provider contract properties.
+        Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
+        """
+        if profile_editing_policy_name and not isinstance(profile_editing_policy_name, str):
+            raise TypeError("Expected argument 'profile_editing_policy_name' to be a str")
+        __self__.profile_editing_policy_name = profile_editing_policy_name
+        """
+        Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
+        """
+        if signin_policy_name and not isinstance(signin_policy_name, str):
+            raise TypeError("Expected argument 'signin_policy_name' to be a str")
+        __self__.signin_policy_name = signin_policy_name
+        """
+        Signin Policy Name. Only applies to AAD B2C Identity Provider.
+        """
+        if signin_tenant and not isinstance(signin_tenant, str):
+            raise TypeError("Expected argument 'signin_tenant' to be a str")
+        __self__.signin_tenant = signin_tenant
+        """
+        The TenantId to use instead of Common when logging into Active Directory
+        """
+        if signup_policy_name and not isinstance(signup_policy_name, str):
+            raise TypeError("Expected argument 'signup_policy_name' to be a str")
+        __self__.signup_policy_name = signup_policy_name
+        """
+        Signup Policy Name. Only applies to AAD B2C Identity Provider.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +88,16 @@ class AwaitableGetIdentityProviderResult(GetIdentityProviderResult):
         if False:
             yield self
         return GetIdentityProviderResult(
+            allowed_tenants=self.allowed_tenants,
+            authority=self.authority,
+            client_id=self.client_id,
+            client_secret=self.client_secret,
             name=self.name,
-            properties=self.properties,
+            password_reset_policy_name=self.password_reset_policy_name,
+            profile_editing_policy_name=self.profile_editing_policy_name,
+            signin_policy_name=self.signin_policy_name,
+            signin_tenant=self.signin_tenant,
+            signup_policy_name=self.signup_policy_name,
             type=self.type)
 
 
@@ -64,6 +120,14 @@ def get_identity_provider(name=None, resource_group_name=None, service_name=None
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getIdentityProvider', __args__, opts=opts).value
 
     return AwaitableGetIdentityProviderResult(
+        allowed_tenants=__ret__.get('allowedTenants'),
+        authority=__ret__.get('authority'),
+        client_id=__ret__.get('clientId'),
+        client_secret=__ret__.get('clientSecret'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        password_reset_policy_name=__ret__.get('passwordResetPolicyName'),
+        profile_editing_policy_name=__ret__.get('profileEditingPolicyName'),
+        signin_policy_name=__ret__.get('signinPolicyName'),
+        signin_tenant=__ret__.get('signinTenant'),
+        signup_policy_name=__ret__.get('signupPolicyName'),
         type=__ret__.get('type'))

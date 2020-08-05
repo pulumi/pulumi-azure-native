@@ -13,7 +13,31 @@ class ListWebAppBackupConfigurationSlotResult:
     """
     Description of a backup which will be performed.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, backup_name=None, backup_schedule=None, databases=None, enabled=None, kind=None, name=None, storage_account_url=None, type=None):
+        if backup_name and not isinstance(backup_name, str):
+            raise TypeError("Expected argument 'backup_name' to be a str")
+        __self__.backup_name = backup_name
+        """
+        Name of the backup.
+        """
+        if backup_schedule and not isinstance(backup_schedule, dict):
+            raise TypeError("Expected argument 'backup_schedule' to be a dict")
+        __self__.backup_schedule = backup_schedule
+        """
+        Schedule for the backup if it is executed periodically.
+        """
+        if databases and not isinstance(databases, list):
+            raise TypeError("Expected argument 'databases' to be a list")
+        __self__.databases = databases
+        """
+        Databases included in the backup.
+        """
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        __self__.enabled = enabled
+        """
+        True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,11 +50,11 @@ class ListWebAppBackupConfigurationSlotResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if storage_account_url and not isinstance(storage_account_url, str):
+            raise TypeError("Expected argument 'storage_account_url' to be a str")
+        __self__.storage_account_url = storage_account_url
         """
-        BackupRequest resource specific properties
+        SAS URL to the container.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +70,13 @@ class AwaitableListWebAppBackupConfigurationSlotResult(ListWebAppBackupConfigura
         if False:
             yield self
         return ListWebAppBackupConfigurationSlotResult(
+            backup_name=self.backup_name,
+            backup_schedule=self.backup_schedule,
+            databases=self.databases,
+            enabled=self.enabled,
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
+            storage_account_url=self.storage_account_url,
             type=self.type)
 
 
@@ -69,7 +97,11 @@ def list_web_app_backup_configuration_slot(name=None, resource_group_name=None, 
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20181101:listWebAppBackupConfigurationSlot', __args__, opts=opts).value
 
     return AwaitableListWebAppBackupConfigurationSlotResult(
+        backup_name=__ret__.get('backupName'),
+        backup_schedule=__ret__.get('backupSchedule'),
+        databases=__ret__.get('databases'),
+        enabled=__ret__.get('enabled'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        storage_account_url=__ret__.get('storageAccountUrl'),
         type=__ret__.get('type'))

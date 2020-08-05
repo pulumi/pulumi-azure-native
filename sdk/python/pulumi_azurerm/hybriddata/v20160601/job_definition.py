@@ -10,33 +10,54 @@ from ... import _utilities, _tables
 
 
 class JobDefinition(pulumi.CustomResource):
+    customer_secrets: pulumi.Output[list]
+    """
+    List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
+      * `algorithm` (`str`) - The encryption algorithm used to encrypt data.
+      * `key_identifier` (`str`) - The identifier to the data service input object which this secret corresponds to.
+      * `key_value` (`str`) - It contains the encrypted customer secret.
+    """
+    data_service_input: pulumi.Output[dict]
+    """
+    A generic json used differently by each data service type.
+    """
+    data_sink_id: pulumi.Output[str]
+    """
+    Data Sink Id associated to the job definition.
+    """
+    data_source_id: pulumi.Output[str]
+    """
+    Data Source Id associated to the job definition.
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    Last modified time of the job definition.
+    """
     name: pulumi.Output[str]
     """
     Name of the object.
     """
-    properties: pulumi.Output[dict]
+    run_location: pulumi.Output[str]
     """
-    JobDefinition properties.
-      * `customer_secrets` (`list`) - List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
-        * `algorithm` (`str`) - The encryption algorithm used to encrypt data.
-        * `key_identifier` (`str`) - The identifier to the data service input object which this secret corresponds to.
-        * `key_value` (`str`) - It contains the encrypted customer secret.
-
-      * `data_service_input` (`dict`) - A generic json used differently by each data service type.
-      * `data_sink_id` (`str`) - Data Sink Id associated to the job definition.
-      * `data_source_id` (`str`) - Data Source Id associated to the job definition.
-      * `last_modified_time` (`str`) - Last modified time of the job definition.
-      * `run_location` (`str`) - This is the preferred geo location for the job to run.
-      * `schedules` (`list`) - Schedule for running the job definition
-        * `name` (`str`) - Name of the schedule.
-        * `policy_list` (`list`) - A list of repetition intervals in ISO 8601 format.
-
-      * `state` (`str`) - State of the job definition.
-      * `user_confirmation` (`str`) - Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+    This is the preferred geo location for the job to run.
+    """
+    schedules: pulumi.Output[list]
+    """
+    Schedule for running the job definition
+      * `name` (`str`) - Name of the schedule.
+      * `policy_list` (`list`) - A list of repetition intervals in ISO 8601 format.
+    """
+    state: pulumi.Output[str]
+    """
+    State of the job definition.
     """
     type: pulumi.Output[str]
     """
     Type of the object.
+    """
+    user_confirmation: pulumi.Output[str]
+    """
+    Enum to detect if user confirmation is required. If not passed will default to NotRequired.
     """
     def __init__(__self__, resource_name, opts=None, customer_secrets=None, data_manager_name=None, data_service_input=None, data_service_name=None, data_sink_id=None, data_source_id=None, last_modified_time=None, name=None, resource_group_name=None, run_location=None, schedules=None, state=None, user_confirmation=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -113,7 +134,6 @@ class JobDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'state'")
             __props__['state'] = state
             __props__['user_confirmation'] = user_confirmation
-            __props__['properties'] = None
             __props__['type'] = None
         super(JobDefinition, __self__).__init__(
             'azurerm:hybriddata/v20160601:JobDefinition',

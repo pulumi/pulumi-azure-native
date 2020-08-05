@@ -10,9 +10,17 @@ from ... import _utilities, _tables
 
 
 class Factory(pulumi.CustomResource):
+    create_time: pulumi.Output[str]
+    """
+    Time the factory was created in ISO8601 format.
+    """
     e_tag: pulumi.Output[str]
     """
     Etag identifies change in the resource.
+    """
+    global_parameters: pulumi.Output[dict]
+    """
+    List of parameters for factory.
     """
     identity: pulumi.Output[dict]
     """
@@ -29,21 +37,19 @@ class Factory(pulumi.CustomResource):
     """
     The resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the factory.
-      * `create_time` (`str`) - Time the factory was created in ISO8601 format.
-      * `global_parameters` (`dict`) - List of parameters for factory.
-      * `provisioning_state` (`str`) - Factory provisioning state, example Succeeded.
-      * `repo_configuration` (`dict`) - Git repo information of the factory.
-        * `account_name` (`str`) - Account name.
-        * `collaboration_branch` (`str`) - Collaboration branch.
-        * `last_commit_id` (`str`) - Last commit id.
-        * `repository_name` (`str`) - Repository name.
-        * `root_folder` (`str`) - Root folder.
-        * `type` (`str`) - Type of repo configuration.
-
-      * `version` (`str`) - Version of the factory.
+    Factory provisioning state, example Succeeded.
+    """
+    repo_configuration: pulumi.Output[dict]
+    """
+    Git repo information of the factory.
+      * `account_name` (`str`) - Account name.
+      * `collaboration_branch` (`str`) - Collaboration branch.
+      * `last_commit_id` (`str`) - Last commit id.
+      * `repository_name` (`str`) - Repository name.
+      * `root_folder` (`str`) - Root folder.
+      * `type` (`str`) - Type of repo configuration.
     """
     tags: pulumi.Output[dict]
     """
@@ -52,6 +58,10 @@ class Factory(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The resource type.
+    """
+    version: pulumi.Output[str]
+    """
+    Version of the factory.
     """
     def __init__(__self__, resource_name, opts=None, global_parameters=None, identity=None, location=None, name=None, repo_configuration=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -108,9 +118,11 @@ class Factory(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['create_time'] = None
             __props__['e_tag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['version'] = None
         super(Factory, __self__).__init__(
             'azurerm:datafactory/v20180601:Factory',
             resource_name,

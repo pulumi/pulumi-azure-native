@@ -10,19 +10,33 @@ from ... import _utilities, _tables
 
 
 class StorageAccount(pulumi.CustomResource):
+    blob_endpoint: pulumi.Output[str]
+    """
+    BlobEndpoint of Storage Account
+    """
+    container_count: pulumi.Output[float]
+    """
+    The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
+    """
+    data_policy: pulumi.Output[str]
+    """
+    Data policy of the storage Account.
+    """
+    description: pulumi.Output[str]
+    """
+    Description for the storage Account.
+    """
     name: pulumi.Output[str]
     """
     The object name.
     """
-    properties: pulumi.Output[dict]
+    storage_account_credential_id: pulumi.Output[str]
     """
-    The Storage Account properties.
-      * `blob_endpoint` (`str`) - BlobEndpoint of Storage Account
-      * `container_count` (`float`) - The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
-      * `data_policy` (`str`) - Data policy of the storage Account.
-      * `description` (`str`) - Description for the storage Account.
-      * `storage_account_credential_id` (`str`) - Storage Account Credential Id
-      * `storage_account_status` (`str`) - Current status of the storage account
+    Storage Account Credential Id
+    """
+    storage_account_status: pulumi.Output[str]
+    """
+    Current status of the storage account
     """
     type: pulumi.Output[str]
     """
@@ -72,7 +86,8 @@ class StorageAccount(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['storage_account_credential_id'] = storage_account_credential_id
             __props__['storage_account_status'] = storage_account_status
-            __props__['properties'] = None
+            __props__['blob_endpoint'] = None
+            __props__['container_count'] = None
             __props__['type'] = None
         super(StorageAccount, __self__).__init__(
             'azurerm:databoxedge/v20190801:StorageAccount',

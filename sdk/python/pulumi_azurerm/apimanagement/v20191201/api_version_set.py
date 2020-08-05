@@ -10,22 +10,33 @@ from ... import _utilities, _tables
 
 
 class ApiVersionSet(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    Description of API Version Set.
+    """
+    display_name: pulumi.Output[str]
+    """
+    Name of API Version Set
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
-    """
-    Api VersionSet contract properties.
-      * `description` (`str`) - Description of API Version Set.
-      * `display_name` (`str`) - Name of API Version Set
-      * `version_header_name` (`str`) - Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
-      * `version_query_name` (`str`) - Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
-      * `versioning_scheme` (`str`) - An value that determines where the API Version identifer will be located in a HTTP request.
-    """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource.
+    """
+    version_header_name: pulumi.Output[str]
+    """
+    Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
+    """
+    version_query_name: pulumi.Output[str]
+    """
+    Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
+    """
+    versioning_scheme: pulumi.Output[str]
+    """
+    An value that determines where the API Version identifer will be located in a HTTP request.
     """
     def __init__(__self__, resource_name, opts=None, description=None, display_name=None, name=None, resource_group_name=None, service_name=None, version_header_name=None, version_query_name=None, versioning_scheme=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -77,7 +88,6 @@ class ApiVersionSet(pulumi.CustomResource):
             if versioning_scheme is None:
                 raise TypeError("Missing required property 'versioning_scheme'")
             __props__['versioning_scheme'] = versioning_scheme
-            __props__['properties'] = None
             __props__['type'] = None
         super(ApiVersionSet, __self__).__init__(
             'azurerm:apimanagement/v20191201:ApiVersionSet',

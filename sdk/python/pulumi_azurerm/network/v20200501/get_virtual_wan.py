@@ -13,7 +13,25 @@ class GetVirtualWanResult:
     """
     VirtualWAN Resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, etag=None, location=None, name=None, office365_local_breakout_category=None, provisioning_state=None, tags=None, type=None, virtual_hubs=None, vpn_sites=None):
+        if allow_branch_to_branch_traffic and not isinstance(allow_branch_to_branch_traffic, bool):
+            raise TypeError("Expected argument 'allow_branch_to_branch_traffic' to be a bool")
+        __self__.allow_branch_to_branch_traffic = allow_branch_to_branch_traffic
+        """
+        True if branch to branch traffic is allowed.
+        """
+        if allow_vnet_to_vnet_traffic and not isinstance(allow_vnet_to_vnet_traffic, bool):
+            raise TypeError("Expected argument 'allow_vnet_to_vnet_traffic' to be a bool")
+        __self__.allow_vnet_to_vnet_traffic = allow_vnet_to_vnet_traffic
+        """
+        True if Vnet to Vnet traffic is allowed.
+        """
+        if disable_vpn_encryption and not isinstance(disable_vpn_encryption, bool):
+            raise TypeError("Expected argument 'disable_vpn_encryption' to be a bool")
+        __self__.disable_vpn_encryption = disable_vpn_encryption
+        """
+        Vpn encryption to be disabled or not.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +50,17 @@ class GetVirtualWanResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if office365_local_breakout_category and not isinstance(office365_local_breakout_category, str):
+            raise TypeError("Expected argument 'office365_local_breakout_category' to be a str")
+        __self__.office365_local_breakout_category = office365_local_breakout_category
         """
-        Properties of the virtual WAN.
+        The office local breakout category.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the virtual WAN resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +74,18 @@ class GetVirtualWanResult:
         """
         Resource type.
         """
+        if virtual_hubs and not isinstance(virtual_hubs, list):
+            raise TypeError("Expected argument 'virtual_hubs' to be a list")
+        __self__.virtual_hubs = virtual_hubs
+        """
+        List of VirtualHubs in the VirtualWAN.
+        """
+        if vpn_sites and not isinstance(vpn_sites, list):
+            raise TypeError("Expected argument 'vpn_sites' to be a list")
+        __self__.vpn_sites = vpn_sites
+        """
+        List of VpnSites in the VirtualWAN.
+        """
 
 
 class AwaitableGetVirtualWanResult(GetVirtualWanResult):
@@ -58,12 +94,18 @@ class AwaitableGetVirtualWanResult(GetVirtualWanResult):
         if False:
             yield self
         return GetVirtualWanResult(
+            allow_branch_to_branch_traffic=self.allow_branch_to_branch_traffic,
+            allow_vnet_to_vnet_traffic=self.allow_vnet_to_vnet_traffic,
+            disable_vpn_encryption=self.disable_vpn_encryption,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            office365_local_breakout_category=self.office365_local_breakout_category,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_hubs=self.virtual_hubs,
+            vpn_sites=self.vpn_sites)
 
 
 def get_virtual_wan(name=None, resource_group_name=None, opts=None):
@@ -83,9 +125,15 @@ def get_virtual_wan(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getVirtualWan', __args__, opts=opts).value
 
     return AwaitableGetVirtualWanResult(
+        allow_branch_to_branch_traffic=__ret__.get('allowBranchToBranchTraffic'),
+        allow_vnet_to_vnet_traffic=__ret__.get('allowVnetToVnetTraffic'),
+        disable_vpn_encryption=__ret__.get('disableVpnEncryption'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        office365_local_breakout_category=__ret__.get('office365LocalBreakoutCategory'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_hubs=__ret__.get('virtualHubs'),
+        vpn_sites=__ret__.get('vpnSites'))

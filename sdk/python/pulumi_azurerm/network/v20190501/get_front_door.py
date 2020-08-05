@@ -13,7 +13,55 @@ class GetFrontDoorResult:
     """
     Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, backend_pools=None, backend_pools_settings=None, cname=None, enabled_state=None, friendly_name=None, frontend_endpoints=None, health_probe_settings=None, load_balancing_settings=None, location=None, name=None, provisioning_state=None, resource_state=None, routing_rules=None, tags=None, type=None):
+        if backend_pools and not isinstance(backend_pools, list):
+            raise TypeError("Expected argument 'backend_pools' to be a list")
+        __self__.backend_pools = backend_pools
+        """
+        Backend pools available to routing rules.
+        """
+        if backend_pools_settings and not isinstance(backend_pools_settings, dict):
+            raise TypeError("Expected argument 'backend_pools_settings' to be a dict")
+        __self__.backend_pools_settings = backend_pools_settings
+        """
+        Settings for all backendPools
+        """
+        if cname and not isinstance(cname, str):
+            raise TypeError("Expected argument 'cname' to be a str")
+        __self__.cname = cname
+        """
+        The host that each frontendEndpoint must CNAME to.
+        """
+        if enabled_state and not isinstance(enabled_state, str):
+            raise TypeError("Expected argument 'enabled_state' to be a str")
+        __self__.enabled_state = enabled_state
+        """
+        Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+        """
+        if friendly_name and not isinstance(friendly_name, str):
+            raise TypeError("Expected argument 'friendly_name' to be a str")
+        __self__.friendly_name = friendly_name
+        """
+        A friendly name for the frontDoor
+        """
+        if frontend_endpoints and not isinstance(frontend_endpoints, list):
+            raise TypeError("Expected argument 'frontend_endpoints' to be a list")
+        __self__.frontend_endpoints = frontend_endpoints
+        """
+        Frontend endpoints available to routing rules.
+        """
+        if health_probe_settings and not isinstance(health_probe_settings, list):
+            raise TypeError("Expected argument 'health_probe_settings' to be a list")
+        __self__.health_probe_settings = health_probe_settings
+        """
+        Health probe settings associated with this Front Door instance.
+        """
+        if load_balancing_settings and not isinstance(load_balancing_settings, list):
+            raise TypeError("Expected argument 'load_balancing_settings' to be a list")
+        __self__.load_balancing_settings = load_balancing_settings
+        """
+        Load balancing settings associated with this Front Door instance.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +74,23 @@ class GetFrontDoorResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the Front Door Load Balancer
+        Provisioning state of the Front Door.
+        """
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
+        """
+        Resource status of the Front Door.
+        """
+        if routing_rules and not isinstance(routing_rules, list):
+            raise TypeError("Expected argument 'routing_rules' to be a list")
+        __self__.routing_rules = routing_rules
+        """
+        Routing rules associated with this Front Door.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +112,19 @@ class AwaitableGetFrontDoorResult(GetFrontDoorResult):
         if False:
             yield self
         return GetFrontDoorResult(
+            backend_pools=self.backend_pools,
+            backend_pools_settings=self.backend_pools_settings,
+            cname=self.cname,
+            enabled_state=self.enabled_state,
+            friendly_name=self.friendly_name,
+            frontend_endpoints=self.frontend_endpoints,
+            health_probe_settings=self.health_probe_settings,
+            load_balancing_settings=self.load_balancing_settings,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            resource_state=self.resource_state,
+            routing_rules=self.routing_rules,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +146,18 @@ def get_front_door(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20190501:getFrontDoor', __args__, opts=opts).value
 
     return AwaitableGetFrontDoorResult(
+        backend_pools=__ret__.get('backendPools'),
+        backend_pools_settings=__ret__.get('backendPoolsSettings'),
+        cname=__ret__.get('cname'),
+        enabled_state=__ret__.get('enabledState'),
+        friendly_name=__ret__.get('friendlyName'),
+        frontend_endpoints=__ret__.get('frontendEndpoints'),
+        health_probe_settings=__ret__.get('healthProbeSettings'),
+        load_balancing_settings=__ret__.get('loadBalancingSettings'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_state=__ret__.get('resourceState'),
+        routing_rules=__ret__.get('routingRules'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

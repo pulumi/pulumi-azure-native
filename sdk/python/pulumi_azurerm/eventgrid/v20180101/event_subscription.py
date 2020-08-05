@@ -10,30 +10,39 @@ from ... import _utilities, _tables
 
 
 class EventSubscription(pulumi.CustomResource):
+    destination: pulumi.Output[dict]
+    """
+    Information about the destination where events have to be delivered for the event subscription.
+      * `endpoint_type` (`str`) - Type of the endpoint for the event subscription destination
+    """
+    filter: pulumi.Output[dict]
+    """
+    Information about the filter for the event subscription.
+      * `included_event_types` (`list`) - A list of applicable event types that need to be part of the event subscription. 
+        If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
+      * `is_subject_case_sensitive` (`bool`) - Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter 
+        should be compared in a case sensitive manner.
+      * `subject_begins_with` (`str`) - An optional string to filter events for an event subscription based on a resource path prefix.
+        The format of this depends on the publisher of the events. 
+        Wildcard characters are not supported in this path.
+      * `subject_ends_with` (`str`) - An optional string to filter events for an event subscription based on a resource path suffix.
+        Wildcard characters are not supported in this path.
+    """
+    labels: pulumi.Output[list]
+    """
+    List of user defined labels.
+    """
     name: pulumi.Output[str]
     """
     Name of the resource
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the event subscription
-      * `destination` (`dict`) - Information about the destination where events have to be delivered for the event subscription.
-        * `endpoint_type` (`str`) - Type of the endpoint for the event subscription destination
-
-      * `filter` (`dict`) - Information about the filter for the event subscription.
-        * `included_event_types` (`list`) - A list of applicable event types that need to be part of the event subscription. 
-          If it is desired to subscribe to all event types, the string "all" needs to be specified as an element in this list.
-        * `is_subject_case_sensitive` (`bool`) - Specifies if the SubjectBeginsWith and SubjectEndsWith properties of the filter 
-          should be compared in a case sensitive manner.
-        * `subject_begins_with` (`str`) - An optional string to filter events for an event subscription based on a resource path prefix.
-          The format of this depends on the publisher of the events. 
-          Wildcard characters are not supported in this path.
-        * `subject_ends_with` (`str`) - An optional string to filter events for an event subscription based on a resource path suffix.
-          Wildcard characters are not supported in this path.
-
-      * `labels` (`list`) - List of user defined labels.
-      * `provisioning_state` (`str`) - Provisioning state of the event subscription.
-      * `topic` (`str`) - Name of the topic of the event subscription.
+    Provisioning state of the event subscription.
+    """
+    topic: pulumi.Output[str]
+    """
+    Name of the topic of the event subscription.
     """
     type: pulumi.Output[str]
     """
@@ -93,7 +102,8 @@ class EventSubscription(pulumi.CustomResource):
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['topic'] = None
             __props__['type'] = None
         super(EventSubscription, __self__).__init__(
             'azurerm:eventgrid/v20180101:EventSubscription',

@@ -10,14 +10,13 @@ from ... import _utilities, _tables
 
 
 class TagByProduct(pulumi.CustomResource):
+    display_name: pulumi.Output[str]
+    """
+    Tag name.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Tag entity contract properties.
-      * `display_name` (`str`) - Tag name.
     """
     type: pulumi.Output[str]
     """
@@ -63,7 +62,7 @@ class TagByProduct(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['properties'] = None
+            __props__['display_name'] = None
             __props__['type'] = None
         super(TagByProduct, __self__).__init__(
             'azurerm:apimanagement/v20170301:TagByProduct',

@@ -13,7 +13,25 @@ class GetScheduledQueryRuleResult:
     """
     The Log Search Rule resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, description=None, enabled=None, last_updated_time=None, location=None, name=None, provisioning_state=None, schedule=None, source=None, tags=None, type=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of the Log Search rule.
+        """
+        if enabled and not isinstance(enabled, str):
+            raise TypeError("Expected argument 'enabled' to be a str")
+        __self__.enabled = enabled
+        """
+        The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+        """
+        if last_updated_time and not isinstance(last_updated_time, str):
+            raise TypeError("Expected argument 'last_updated_time' to be a str")
+        __self__.last_updated_time = last_updated_time
+        """
+        Last time the rule was updated in IS08601 format.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +44,23 @@ class GetScheduledQueryRuleResult:
         """
         Azure resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The rule properties of the resource.
+        Provisioning state of the scheduled query rule
+        """
+        if schedule and not isinstance(schedule, dict):
+            raise TypeError("Expected argument 'schedule' to be a dict")
+        __self__.schedule = schedule
+        """
+        Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+        """
+        if source and not isinstance(source, dict):
+            raise TypeError("Expected argument 'source' to be a dict")
+        __self__.source = source
+        """
+        Data Source against which rule will Query Data
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +82,14 @@ class AwaitableGetScheduledQueryRuleResult(GetScheduledQueryRuleResult):
         if False:
             yield self
         return GetScheduledQueryRuleResult(
+            description=self.description,
+            enabled=self.enabled,
+            last_updated_time=self.last_updated_time,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            schedule=self.schedule,
+            source=self.source,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +111,13 @@ def get_scheduled_query_rule(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:insights/v20180416:getScheduledQueryRule', __args__, opts=opts).value
 
     return AwaitableGetScheduledQueryRuleResult(
+        description=__ret__.get('description'),
+        enabled=__ret__.get('enabled'),
+        last_updated_time=__ret__.get('lastUpdatedTime'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        schedule=__ret__.get('schedule'),
+        source=__ret__.get('source'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

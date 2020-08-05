@@ -13,18 +13,42 @@ class GetPolicyAssignmentResult:
     """
     The policy assignment.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, description=None, display_name=None, name=None, parameters=None, policy_definition_id=None, scope=None, type=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        This message will be part of response in case of policy violation.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        The display name of the policy assignment.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the policy assignment.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        __self__.parameters = parameters
         """
-        Properties for the policy assignment.
+        Required if a parameter is used in policy rule.
+        """
+        if policy_definition_id and not isinstance(policy_definition_id, str):
+            raise TypeError("Expected argument 'policy_definition_id' to be a str")
+        __self__.policy_definition_id = policy_definition_id
+        """
+        The ID of the policy definition.
+        """
+        if scope and not isinstance(scope, str):
+            raise TypeError("Expected argument 'scope' to be a str")
+        __self__.scope = scope
+        """
+        The scope for the policy assignment.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +64,12 @@ class AwaitableGetPolicyAssignmentResult(GetPolicyAssignmentResult):
         if False:
             yield self
         return GetPolicyAssignmentResult(
+            description=self.description,
+            display_name=self.display_name,
             name=self.name,
-            properties=self.properties,
+            parameters=self.parameters,
+            policy_definition_id=self.policy_definition_id,
+            scope=self.scope,
             type=self.type)
 
 
@@ -62,6 +90,10 @@ def get_policy_assignment(name=None, scope=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20161201:getPolicyAssignment', __args__, opts=opts).value
 
     return AwaitableGetPolicyAssignmentResult(
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        parameters=__ret__.get('parameters'),
+        policy_definition_id=__ret__.get('policyDefinitionId'),
+        scope=__ret__.get('scope'),
         type=__ret__.get('type'))

@@ -10,29 +10,48 @@ from ... import _utilities, _tables
 
 
 class StorageAccountCredential(pulumi.CustomResource):
+    account_key: pulumi.Output[dict]
+    """
+    Encrypted storage key.
+      * `encryption_algorithm` (`str`) - The algorithm used to encrypt "Value".
+      * `encryption_cert_thumbprint` (`str`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
+      * `value` (`str`) - The value of the secret.
+    """
+    account_type: pulumi.Output[str]
+    """
+    Type of storage accessed on the storage account.
+    """
+    alias: pulumi.Output[str]
+    """
+    Alias for the storage account.
+    """
+    blob_domain_name: pulumi.Output[str]
+    """
+    Blob end point for private clouds.
+    """
+    connection_string: pulumi.Output[str]
+    """
+    Connection string for the storage account. Use this string if username and account key are not specified.
+    """
     name: pulumi.Output[str]
     """
     The object name.
     """
-    properties: pulumi.Output[dict]
+    ssl_status: pulumi.Output[str]
     """
-    The storage account credential properties.
-      * `account_key` (`dict`) - Encrypted storage key.
-        * `encryption_algorithm` (`str`) - The algorithm used to encrypt "Value".
-        * `encryption_cert_thumbprint` (`str`) - Thumbprint certificate used to encrypt \"Value\". If the value is unencrypted, it will be null.
-        * `value` (`str`) - The value of the secret.
-
-      * `account_type` (`str`) - Type of storage accessed on the storage account.
-      * `alias` (`str`) - Alias for the storage account.
-      * `blob_domain_name` (`str`) - Blob end point for private clouds.
-      * `connection_string` (`str`) - Connection string for the storage account. Use this string if username and account key are not specified.
-      * `ssl_status` (`str`) - Signifies whether SSL needs to be enabled or not.
-      * `storage_account_id` (`str`) - Id of the storage account.
-      * `user_name` (`str`) - Username for the storage account.
+    Signifies whether SSL needs to be enabled or not.
+    """
+    storage_account_id: pulumi.Output[str]
+    """
+    Id of the storage account.
     """
     type: pulumi.Output[str]
     """
     The hierarchical type of the object.
+    """
+    user_name: pulumi.Output[str]
+    """
+    Username for the storage account.
     """
     def __init__(__self__, resource_name, opts=None, account_key=None, account_type=None, alias=None, blob_domain_name=None, connection_string=None, device_name=None, name=None, resource_group_name=None, ssl_status=None, storage_account_id=None, user_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -98,7 +117,6 @@ class StorageAccountCredential(pulumi.CustomResource):
             __props__['ssl_status'] = ssl_status
             __props__['storage_account_id'] = storage_account_id
             __props__['user_name'] = user_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(StorageAccountCredential, __self__).__init__(
             'azurerm:databoxedge/v20190701:StorageAccountCredential',

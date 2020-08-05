@@ -13,7 +13,19 @@ class GetNetworkVirtualApplianceResult:
     """
     NetworkVirtualAppliance Resource.
     """
-    def __init__(__self__, etag=None, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, boot_strap_configuration_blob=None, cloud_init_configuration_blob=None, etag=None, identity=None, location=None, name=None, provisioning_state=None, sku=None, tags=None, type=None, virtual_appliance_asn=None, virtual_appliance_nics=None, virtual_hub=None):
+        if boot_strap_configuration_blob and not isinstance(boot_strap_configuration_blob, list):
+            raise TypeError("Expected argument 'boot_strap_configuration_blob' to be a list")
+        __self__.boot_strap_configuration_blob = boot_strap_configuration_blob
+        """
+        BootStrapConfigurationBlob storage URLs.
+        """
+        if cloud_init_configuration_blob and not isinstance(cloud_init_configuration_blob, list):
+            raise TypeError("Expected argument 'cloud_init_configuration_blob' to be a list")
+        __self__.cloud_init_configuration_blob = cloud_init_configuration_blob
+        """
+        CloudInitConfigurationBlob storage URLs.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -38,11 +50,11 @@ class GetNetworkVirtualApplianceResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the Network Virtual Appliance.
+        The provisioning state of the resource.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -62,6 +74,24 @@ class GetNetworkVirtualApplianceResult:
         """
         Resource type.
         """
+        if virtual_appliance_asn and not isinstance(virtual_appliance_asn, float):
+            raise TypeError("Expected argument 'virtual_appliance_asn' to be a float")
+        __self__.virtual_appliance_asn = virtual_appliance_asn
+        """
+        VirtualAppliance ASN.
+        """
+        if virtual_appliance_nics and not isinstance(virtual_appliance_nics, list):
+            raise TypeError("Expected argument 'virtual_appliance_nics' to be a list")
+        __self__.virtual_appliance_nics = virtual_appliance_nics
+        """
+        List of Virtual Appliance Network Interfaces.
+        """
+        if virtual_hub and not isinstance(virtual_hub, dict):
+            raise TypeError("Expected argument 'virtual_hub' to be a dict")
+        __self__.virtual_hub = virtual_hub
+        """
+        The Virtual Hub where Network Virtual Appliance is being deployed.
+        """
 
 
 class AwaitableGetNetworkVirtualApplianceResult(GetNetworkVirtualApplianceResult):
@@ -70,14 +100,19 @@ class AwaitableGetNetworkVirtualApplianceResult(GetNetworkVirtualApplianceResult
         if False:
             yield self
         return GetNetworkVirtualApplianceResult(
+            boot_strap_configuration_blob=self.boot_strap_configuration_blob,
+            cloud_init_configuration_blob=self.cloud_init_configuration_blob,
             etag=self.etag,
             identity=self.identity,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_appliance_asn=self.virtual_appliance_asn,
+            virtual_appliance_nics=self.virtual_appliance_nics,
+            virtual_hub=self.virtual_hub)
 
 
 def get_network_virtual_appliance(name=None, resource_group_name=None, opts=None):
@@ -97,11 +132,16 @@ def get_network_virtual_appliance(name=None, resource_group_name=None, opts=None
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200401:getNetworkVirtualAppliance', __args__, opts=opts).value
 
     return AwaitableGetNetworkVirtualApplianceResult(
+        boot_strap_configuration_blob=__ret__.get('bootStrapConfigurationBlob'),
+        cloud_init_configuration_blob=__ret__.get('cloudInitConfigurationBlob'),
         etag=__ret__.get('etag'),
         identity=__ret__.get('identity'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_appliance_asn=__ret__.get('virtualApplianceAsn'),
+        virtual_appliance_nics=__ret__.get('virtualApplianceNics'),
+        virtual_hub=__ret__.get('virtualHub'))

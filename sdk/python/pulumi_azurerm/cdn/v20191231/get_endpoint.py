@@ -13,7 +13,55 @@ class GetEndpointResult:
     """
     CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, content_types_to_compress=None, default_origin_group=None, delivery_policy=None, geo_filters=None, host_name=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origin_groups=None, origin_host_header=None, origin_path=None, origins=None, probe_path=None, provisioning_state=None, query_string_caching_behavior=None, resource_state=None, tags=None, type=None):
+        if content_types_to_compress and not isinstance(content_types_to_compress, list):
+            raise TypeError("Expected argument 'content_types_to_compress' to be a list")
+        __self__.content_types_to_compress = content_types_to_compress
+        """
+        List of content types on which compression applies. The value should be a valid MIME type.
+        """
+        if default_origin_group and not isinstance(default_origin_group, dict):
+            raise TypeError("Expected argument 'default_origin_group' to be a dict")
+        __self__.default_origin_group = default_origin_group
+        """
+        A reference to the origin group.
+        """
+        if delivery_policy and not isinstance(delivery_policy, dict):
+            raise TypeError("Expected argument 'delivery_policy' to be a dict")
+        __self__.delivery_policy = delivery_policy
+        """
+        A policy that specifies the delivery rules to be used for an endpoint.
+        """
+        if geo_filters and not isinstance(geo_filters, list):
+            raise TypeError("Expected argument 'geo_filters' to be a list")
+        __self__.geo_filters = geo_filters
+        """
+        List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
+        """
+        if host_name and not isinstance(host_name, str):
+            raise TypeError("Expected argument 'host_name' to be a str")
+        __self__.host_name = host_name
+        """
+        The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
+        """
+        if is_compression_enabled and not isinstance(is_compression_enabled, bool):
+            raise TypeError("Expected argument 'is_compression_enabled' to be a bool")
+        __self__.is_compression_enabled = is_compression_enabled
+        """
+        Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
+        """
+        if is_http_allowed and not isinstance(is_http_allowed, bool):
+            raise TypeError("Expected argument 'is_http_allowed' to be a bool")
+        __self__.is_http_allowed = is_http_allowed
+        """
+        Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        """
+        if is_https_allowed and not isinstance(is_https_allowed, bool):
+            raise TypeError("Expected argument 'is_https_allowed' to be a bool")
+        __self__.is_https_allowed = is_https_allowed
+        """
+        Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +74,59 @@ class GetEndpointResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if optimization_type and not isinstance(optimization_type, str):
+            raise TypeError("Expected argument 'optimization_type' to be a str")
+        __self__.optimization_type = optimization_type
         """
-        The JSON object that contains the properties required to create an endpoint.
+        Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
+        """
+        if origin_groups and not isinstance(origin_groups, list):
+            raise TypeError("Expected argument 'origin_groups' to be a list")
+        __self__.origin_groups = origin_groups
+        """
+        The origin groups comprising of origins that are used for load balancing the traffic based on availability.
+        """
+        if origin_host_header and not isinstance(origin_host_header, str):
+            raise TypeError("Expected argument 'origin_host_header' to be a str")
+        __self__.origin_host_header = origin_host_header
+        """
+        The host header value sent to the origin with each request. This property at Endpoint can only be set allowed when endpoint uses single origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
+        """
+        if origin_path and not isinstance(origin_path, str):
+            raise TypeError("Expected argument 'origin_path' to be a str")
+        __self__.origin_path = origin_path
+        """
+        A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
+        """
+        if origins and not isinstance(origins, list):
+            raise TypeError("Expected argument 'origins' to be a list")
+        __self__.origins = origins
+        """
+        The source of the content being delivered via CDN.
+        """
+        if probe_path and not isinstance(probe_path, str):
+            raise TypeError("Expected argument 'probe_path' to be a str")
+        __self__.probe_path = probe_path
+        """
+        Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning status of the endpoint.
+        """
+        if query_string_caching_behavior and not isinstance(query_string_caching_behavior, str):
+            raise TypeError("Expected argument 'query_string_caching_behavior' to be a str")
+        __self__.query_string_caching_behavior = query_string_caching_behavior
+        """
+        Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
+        """
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
+        """
+        Resource status of the endpoint.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +148,25 @@ class AwaitableGetEndpointResult(GetEndpointResult):
         if False:
             yield self
         return GetEndpointResult(
+            content_types_to_compress=self.content_types_to_compress,
+            default_origin_group=self.default_origin_group,
+            delivery_policy=self.delivery_policy,
+            geo_filters=self.geo_filters,
+            host_name=self.host_name,
+            is_compression_enabled=self.is_compression_enabled,
+            is_http_allowed=self.is_http_allowed,
+            is_https_allowed=self.is_https_allowed,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            optimization_type=self.optimization_type,
+            origin_groups=self.origin_groups,
+            origin_host_header=self.origin_host_header,
+            origin_path=self.origin_path,
+            origins=self.origins,
+            probe_path=self.probe_path,
+            provisioning_state=self.provisioning_state,
+            query_string_caching_behavior=self.query_string_caching_behavior,
+            resource_state=self.resource_state,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +190,24 @@ def get_endpoint(name=None, profile_name=None, resource_group_name=None, opts=No
     __ret__ = pulumi.runtime.invoke('azurerm:cdn/v20191231:getEndpoint', __args__, opts=opts).value
 
     return AwaitableGetEndpointResult(
+        content_types_to_compress=__ret__.get('contentTypesToCompress'),
+        default_origin_group=__ret__.get('defaultOriginGroup'),
+        delivery_policy=__ret__.get('deliveryPolicy'),
+        geo_filters=__ret__.get('geoFilters'),
+        host_name=__ret__.get('hostName'),
+        is_compression_enabled=__ret__.get('isCompressionEnabled'),
+        is_http_allowed=__ret__.get('isHttpAllowed'),
+        is_https_allowed=__ret__.get('isHttpsAllowed'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        optimization_type=__ret__.get('optimizationType'),
+        origin_groups=__ret__.get('originGroups'),
+        origin_host_header=__ret__.get('originHostHeader'),
+        origin_path=__ret__.get('originPath'),
+        origins=__ret__.get('origins'),
+        probe_path=__ret__.get('probePath'),
+        provisioning_state=__ret__.get('provisioningState'),
+        query_string_caching_behavior=__ret__.get('queryStringCachingBehavior'),
+        resource_state=__ret__.get('resourceState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

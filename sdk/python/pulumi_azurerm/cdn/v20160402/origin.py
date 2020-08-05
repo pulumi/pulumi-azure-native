@@ -10,11 +10,30 @@ from ... import _utilities, _tables
 
 
 class Origin(pulumi.CustomResource):
+    host_name: pulumi.Output[str]
+    """
+    The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+    """
+    http_port: pulumi.Output[float]
+    """
+    The value of the HTTP port. Must be between 1 and 65535.
+    """
+    https_port: pulumi.Output[float]
+    """
+    The value of the https port. Must be between 1 and 65535.
+    """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning status of the origin.
+    """
+    resource_state: pulumi.Output[str]
+    """
+    Resource status of the origin.
+    """
     type: pulumi.Output[str]
     """
     Resource type
@@ -67,7 +86,8 @@ class Origin(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_state'] = None
             __props__['type'] = None
         super(Origin, __self__).__init__(
             'azurerm:cdn/v20160402:Origin',

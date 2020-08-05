@@ -13,7 +13,37 @@ class GetWebAppHostNameBindingResult:
     """
     A hostname binding object.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, azure_resource_name=None, azure_resource_type=None, custom_host_name_dns_record_type=None, domain_id=None, host_name_type=None, kind=None, name=None, site_name=None, ssl_state=None, thumbprint=None, type=None, virtual_ip=None):
+        if azure_resource_name and not isinstance(azure_resource_name, str):
+            raise TypeError("Expected argument 'azure_resource_name' to be a str")
+        __self__.azure_resource_name = azure_resource_name
+        """
+        Azure resource name.
+        """
+        if azure_resource_type and not isinstance(azure_resource_type, str):
+            raise TypeError("Expected argument 'azure_resource_type' to be a str")
+        __self__.azure_resource_type = azure_resource_type
+        """
+        Azure resource type.
+        """
+        if custom_host_name_dns_record_type and not isinstance(custom_host_name_dns_record_type, str):
+            raise TypeError("Expected argument 'custom_host_name_dns_record_type' to be a str")
+        __self__.custom_host_name_dns_record_type = custom_host_name_dns_record_type
+        """
+        Custom DNS record type.
+        """
+        if domain_id and not isinstance(domain_id, str):
+            raise TypeError("Expected argument 'domain_id' to be a str")
+        __self__.domain_id = domain_id
+        """
+        Fully qualified ARM domain resource URI.
+        """
+        if host_name_type and not isinstance(host_name_type, str):
+            raise TypeError("Expected argument 'host_name_type' to be a str")
+        __self__.host_name_type = host_name_type
+        """
+        Hostname type.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,17 +56,35 @@ class GetWebAppHostNameBindingResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if site_name and not isinstance(site_name, str):
+            raise TypeError("Expected argument 'site_name' to be a str")
+        __self__.site_name = site_name
         """
-        HostNameBinding resource specific properties
+        App Service app name.
+        """
+        if ssl_state and not isinstance(ssl_state, str):
+            raise TypeError("Expected argument 'ssl_state' to be a str")
+        __self__.ssl_state = ssl_state
+        """
+        SSL type
+        """
+        if thumbprint and not isinstance(thumbprint, str):
+            raise TypeError("Expected argument 'thumbprint' to be a str")
+        __self__.thumbprint = thumbprint
+        """
+        SSL certificate thumbprint
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if virtual_ip and not isinstance(virtual_ip, str):
+            raise TypeError("Expected argument 'virtual_ip' to be a str")
+        __self__.virtual_ip = virtual_ip
+        """
+        Virtual IP address assigned to the hostname if IP based SSL is enabled.
         """
 
 
@@ -46,10 +94,18 @@ class AwaitableGetWebAppHostNameBindingResult(GetWebAppHostNameBindingResult):
         if False:
             yield self
         return GetWebAppHostNameBindingResult(
+            azure_resource_name=self.azure_resource_name,
+            azure_resource_type=self.azure_resource_type,
+            custom_host_name_dns_record_type=self.custom_host_name_dns_record_type,
+            domain_id=self.domain_id,
+            host_name_type=self.host_name_type,
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            site_name=self.site_name,
+            ssl_state=self.ssl_state,
+            thumbprint=self.thumbprint,
+            type=self.type,
+            virtual_ip=self.virtual_ip)
 
 
 def get_web_app_host_name_binding(name=None, resource_group_name=None, opts=None):
@@ -69,7 +125,15 @@ def get_web_app_host_name_binding(name=None, resource_group_name=None, opts=None
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20180201:getWebAppHostNameBinding', __args__, opts=opts).value
 
     return AwaitableGetWebAppHostNameBindingResult(
+        azure_resource_name=__ret__.get('azureResourceName'),
+        azure_resource_type=__ret__.get('azureResourceType'),
+        custom_host_name_dns_record_type=__ret__.get('customHostNameDnsRecordType'),
+        domain_id=__ret__.get('domainId'),
+        host_name_type=__ret__.get('hostNameType'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        site_name=__ret__.get('siteName'),
+        ssl_state=__ret__.get('sslState'),
+        thumbprint=__ret__.get('thumbprint'),
+        type=__ret__.get('type'),
+        virtual_ip=__ret__.get('virtualIP'))

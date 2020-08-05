@@ -13,24 +13,60 @@ class GetCustomDomainResult:
     """
     Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, custom_https_parameters=None, custom_https_provisioning_state=None, custom_https_provisioning_substate=None, host_name=None, name=None, provisioning_state=None, resource_state=None, type=None, validation_data=None):
+        if custom_https_parameters and not isinstance(custom_https_parameters, dict):
+            raise TypeError("Expected argument 'custom_https_parameters' to be a dict")
+        __self__.custom_https_parameters = custom_https_parameters
+        """
+        Certificate parameters for securing custom HTTPS
+        """
+        if custom_https_provisioning_state and not isinstance(custom_https_provisioning_state, str):
+            raise TypeError("Expected argument 'custom_https_provisioning_state' to be a str")
+        __self__.custom_https_provisioning_state = custom_https_provisioning_state
+        """
+        Provisioning status of Custom Https of the custom domain.
+        """
+        if custom_https_provisioning_substate and not isinstance(custom_https_provisioning_substate, str):
+            raise TypeError("Expected argument 'custom_https_provisioning_substate' to be a str")
+        __self__.custom_https_provisioning_substate = custom_https_provisioning_substate
+        """
+        Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
+        """
+        if host_name and not isinstance(host_name, str):
+            raise TypeError("Expected argument 'host_name' to be a str")
+        __self__.host_name = host_name
+        """
+        The host name of the custom domain. Must be a domain name.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The JSON object that contains the properties of the custom domain to create.
+        Provisioning status of the custom domain.
+        """
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
+        """
+        Resource status of the custom domain.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if validation_data and not isinstance(validation_data, str):
+            raise TypeError("Expected argument 'validation_data' to be a str")
+        __self__.validation_data = validation_data
+        """
+        Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
         """
 
 
@@ -40,9 +76,15 @@ class AwaitableGetCustomDomainResult(GetCustomDomainResult):
         if False:
             yield self
         return GetCustomDomainResult(
+            custom_https_parameters=self.custom_https_parameters,
+            custom_https_provisioning_state=self.custom_https_provisioning_state,
+            custom_https_provisioning_substate=self.custom_https_provisioning_substate,
+            host_name=self.host_name,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            provisioning_state=self.provisioning_state,
+            resource_state=self.resource_state,
+            type=self.type,
+            validation_data=self.validation_data)
 
 
 def get_custom_domain(endpoint_name=None, name=None, profile_name=None, resource_group_name=None, opts=None):
@@ -66,6 +108,12 @@ def get_custom_domain(endpoint_name=None, name=None, profile_name=None, resource
     __ret__ = pulumi.runtime.invoke('azurerm:cdn/v20190415:getCustomDomain', __args__, opts=opts).value
 
     return AwaitableGetCustomDomainResult(
+        custom_https_parameters=__ret__.get('customHttpsParameters'),
+        custom_https_provisioning_state=__ret__.get('customHttpsProvisioningState'),
+        custom_https_provisioning_substate=__ret__.get('customHttpsProvisioningSubstate'),
+        host_name=__ret__.get('hostName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_state=__ret__.get('resourceState'),
+        type=__ret__.get('type'),
+        validation_data=__ret__.get('validationData'))

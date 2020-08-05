@@ -18,11 +18,6 @@ class WebAppDomainOwnershipIdentifier(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
-    """
-    Identifier resource specific properties
-      * `id` (`str`) - String representation of the identity.
-    """
     type: pulumi.Output[str]
     """
     Resource type.
@@ -63,7 +58,6 @@ class WebAppDomainOwnershipIdentifier(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppDomainOwnershipIdentifier, __self__).__init__(
             'azurerm:web/v20180201:WebAppDomainOwnershipIdentifier',

@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class ApplicationTypeVersion(pulumi.CustomResource):
+    app_package_url: pulumi.Output[str]
+    """
+    The URL to the application package
+    """
+    default_parameter_list: pulumi.Output[dict]
+    """
+    List of application type parameters that can be overridden when creating or updating the application.
+    """
     etag: pulumi.Output[str]
     """
     Azure resource etag.
@@ -22,12 +30,9 @@ class ApplicationTypeVersion(pulumi.CustomResource):
     """
     Azure resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the application type version resource.
-      * `app_package_url` (`str`) - The URL to the application package
-      * `default_parameter_list` (`dict`) - List of application type parameters that can be overridden when creating or updating the application.
-      * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response
+    The current deployment or provisioning state, which only appears in the response
     """
     tags: pulumi.Output[dict]
     """
@@ -85,8 +90,9 @@ class ApplicationTypeVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['default_parameter_list'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(ApplicationTypeVersion, __self__).__init__(
             'azurerm:servicefabric/v20200301:ApplicationTypeVersion',

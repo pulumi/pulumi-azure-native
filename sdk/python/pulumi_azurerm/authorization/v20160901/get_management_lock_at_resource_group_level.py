@@ -13,18 +13,30 @@ class GetManagementLockAtResourceGroupLevelResult:
     """
     The lock information.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, level=None, name=None, notes=None, owners=None, type=None):
+        if level and not isinstance(level, str):
+            raise TypeError("Expected argument 'level' to be a str")
+        __self__.level = level
+        """
+        The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the lock.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if notes and not isinstance(notes, str):
+            raise TypeError("Expected argument 'notes' to be a str")
+        __self__.notes = notes
         """
-        The properties of the lock.
+        Notes about the lock. Maximum of 512 characters.
+        """
+        if owners and not isinstance(owners, list):
+            raise TypeError("Expected argument 'owners' to be a list")
+        __self__.owners = owners
+        """
+        The owners of the lock.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +52,10 @@ class AwaitableGetManagementLockAtResourceGroupLevelResult(GetManagementLockAtRe
         if False:
             yield self
         return GetManagementLockAtResourceGroupLevelResult(
+            level=self.level,
             name=self.name,
-            properties=self.properties,
+            notes=self.notes,
+            owners=self.owners,
             type=self.type)
 
 
@@ -62,6 +76,8 @@ def get_management_lock_at_resource_group_level(name=None, resource_group_name=N
     __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20160901:getManagementLockAtResourceGroupLevel', __args__, opts=opts).value
 
     return AwaitableGetManagementLockAtResourceGroupLevelResult(
+        level=__ret__.get('level'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        notes=__ret__.get('notes'),
+        owners=__ret__.get('owners'),
         type=__ret__.get('type'))

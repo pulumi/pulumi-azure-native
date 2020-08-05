@@ -10,54 +10,79 @@ from ... import _utilities, _tables
 
 
 class RecordSet(pulumi.CustomResource):
+    a_records: pulumi.Output[list]
+    """
+    The list of A records in the record set.
+      * `ipv4_address` (`str`) - The IPv4 address of this A record.
+    """
+    aaaa_records: pulumi.Output[list]
+    """
+    The list of AAAA records in the record set.
+      * `ipv6_address` (`str`) - The IPv6 address of this AAAA record.
+    """
+    cname_record: pulumi.Output[dict]
+    """
+    The CNAME record in the record set.
+      * `cname` (`str`) - The canonical name for this CNAME record.
+    """
     etag: pulumi.Output[str]
     """
     The ETag of the record set.
+    """
+    fqdn: pulumi.Output[str]
+    """
+    Fully qualified domain name of the record set.
+    """
+    is_auto_registered: pulumi.Output[bool]
+    """
+    Is the record set auto-registered in the Private DNS zone through a virtual network link?
+    """
+    metadata: pulumi.Output[dict]
+    """
+    The metadata attached to the record set.
+    """
+    mx_records: pulumi.Output[list]
+    """
+    The list of MX records in the record set.
+      * `exchange` (`str`) - The domain name of the mail host for this MX record.
+      * `preference` (`float`) - The preference value for this MX record.
     """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    ptr_records: pulumi.Output[list]
     """
-    The properties of the record set.
-      * `a_records` (`list`) - The list of A records in the record set.
-        * `ipv4_address` (`str`) - The IPv4 address of this A record.
-
-      * `aaaa_records` (`list`) - The list of AAAA records in the record set.
-        * `ipv6_address` (`str`) - The IPv6 address of this AAAA record.
-
-      * `cname_record` (`dict`) - The CNAME record in the record set.
-        * `cname` (`str`) - The canonical name for this CNAME record.
-
-      * `fqdn` (`str`) - Fully qualified domain name of the record set.
-      * `is_auto_registered` (`bool`) - Is the record set auto-registered in the Private DNS zone through a virtual network link?
-      * `metadata` (`dict`) - The metadata attached to the record set.
-      * `mx_records` (`list`) - The list of MX records in the record set.
-        * `exchange` (`str`) - The domain name of the mail host for this MX record.
-        * `preference` (`float`) - The preference value for this MX record.
-
-      * `ptr_records` (`list`) - The list of PTR records in the record set.
-        * `ptrdname` (`str`) - The PTR target domain name for this PTR record.
-
-      * `soa_record` (`dict`) - The SOA record in the record set.
-        * `email` (`str`) - The email contact for this SOA record.
-        * `expire_time` (`float`) - The expire time for this SOA record.
-        * `host` (`str`) - The domain name of the authoritative name server for this SOA record.
-        * `minimum_ttl` (`float`) - The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
-        * `refresh_time` (`float`) - The refresh value for this SOA record.
-        * `retry_time` (`float`) - The retry time for this SOA record.
-        * `serial_number` (`float`) - The serial number for this SOA record.
-
-      * `srv_records` (`list`) - The list of SRV records in the record set.
-        * `port` (`float`) - The port value for this SRV record.
-        * `priority` (`float`) - The priority value for this SRV record.
-        * `target` (`str`) - The target domain name for this SRV record.
-        * `weight` (`float`) - The weight value for this SRV record.
-
-      * `ttl` (`float`) - The TTL (time-to-live) of the records in the record set.
-      * `txt_records` (`list`) - The list of TXT records in the record set.
-        * `value` (`list`) - The text value of this TXT record.
+    The list of PTR records in the record set.
+      * `ptrdname` (`str`) - The PTR target domain name for this PTR record.
+    """
+    soa_record: pulumi.Output[dict]
+    """
+    The SOA record in the record set.
+      * `email` (`str`) - The email contact for this SOA record.
+      * `expire_time` (`float`) - The expire time for this SOA record.
+      * `host` (`str`) - The domain name of the authoritative name server for this SOA record.
+      * `minimum_ttl` (`float`) - The minimum value for this SOA record. By convention this is used to determine the negative caching duration.
+      * `refresh_time` (`float`) - The refresh value for this SOA record.
+      * `retry_time` (`float`) - The retry time for this SOA record.
+      * `serial_number` (`float`) - The serial number for this SOA record.
+    """
+    srv_records: pulumi.Output[list]
+    """
+    The list of SRV records in the record set.
+      * `port` (`float`) - The port value for this SRV record.
+      * `priority` (`float`) - The priority value for this SRV record.
+      * `target` (`str`) - The target domain name for this SRV record.
+      * `weight` (`float`) - The weight value for this SRV record.
+    """
+    ttl: pulumi.Output[float]
+    """
+    The TTL (time-to-live) of the records in the record set.
+    """
+    txt_records: pulumi.Output[list]
+    """
+    The list of TXT records in the record set.
+      * `value` (`list`) - The text value of this TXT record.
     """
     type: pulumi.Output[str]
     """
@@ -167,7 +192,8 @@ class RecordSet(pulumi.CustomResource):
             __props__['srv_records'] = srv_records
             __props__['ttl'] = ttl
             __props__['txt_records'] = txt_records
-            __props__['properties'] = None
+            __props__['fqdn'] = None
+            __props__['is_auto_registered'] = None
             __props__['type'] = None
         super(RecordSet, __self__).__init__(
             'azurerm:network/v20180901:RecordSet',

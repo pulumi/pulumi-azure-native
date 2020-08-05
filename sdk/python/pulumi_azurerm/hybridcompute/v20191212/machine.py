@@ -10,55 +10,85 @@ from ... import _utilities, _tables
 
 
 class Machine(pulumi.CustomResource):
+    agent_version: pulumi.Output[str]
+    """
+    The hybrid machine agent full version.
+    """
+    client_public_key: pulumi.Output[str]
+    """
+    Public Key that the client provides to be used during initial resource onboarding
+    """
+    display_name: pulumi.Output[str]
+    """
+    Specifies the hybrid machine display name.
+    """
+    error_details: pulumi.Output[list]
+    """
+    Details about the error state.
+      * `code` (`str`) - The error's code.
+      * `details` (`list`) - Additional error details.
+      * `message` (`str`) - A human readable error message.
+      * `target` (`str`) - Indicates which property in the request is responsible for the error.
+    """
+    extensions: pulumi.Output[list]
+    """
+    Machine Extensions information
+      * `name` (`str`) - The machine extension name.
+      * `status` (`dict`) - Instance view status.
+        * `code` (`str`) - The status code.
+        * `display_status` (`str`) - The short localizable label for the status.
+        * `level` (`str`) - The level code.
+        * `message` (`str`) - The detailed status message, including for alerts and error messages.
+        * `time` (`str`) - The time of the status.
+
+      * `type` (`str`) - Specifies the type of the extension; an example is "CustomScriptExtension".
+      * `type_handler_version` (`str`) - Specifies the version of the script handler.
+    """
     identity: pulumi.Output[dict]
+    last_status_change: pulumi.Output[str]
+    """
+    The time of the last status change.
+    """
     location: pulumi.Output[str]
     """
     The geo-location where the resource lives
+    """
+    location_data: pulumi.Output[dict]
+    """
+    Metadata pertaining to the geographic location of the resource.
+      * `city` (`str`) - The city or locality where the resource is located.
+      * `country_or_region` (`str`) - The country or region where the resource is located
+      * `district` (`str`) - The district, state, or province where the resource is located.
+      * `name` (`str`) - A canonical name for the geographic or physical location.
+    """
+    machine_fqdn: pulumi.Output[str]
+    """
+    Specifies the hybrid machine FQDN.
     """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    os_name: pulumi.Output[str]
     """
-    Hybrid Compute Machine properties
-      * `agent_version` (`str`) - The hybrid machine agent full version.
-      * `client_public_key` (`str`) - Public Key that the client provides to be used during initial resource onboarding
-      * `display_name` (`str`) - Specifies the hybrid machine display name.
-      * `error_details` (`list`) - Details about the error state.
-        * `code` (`str`) - The error's code.
-        * `details` (`list`) - Additional error details.
-        * `message` (`str`) - A human readable error message.
-        * `target` (`str`) - Indicates which property in the request is responsible for the error.
-
-      * `extensions` (`list`) - Machine Extensions information
-        * `name` (`str`) - The machine extension name.
-        * `status` (`dict`) - Instance view status.
-          * `code` (`str`) - The status code.
-          * `display_status` (`str`) - The short localizable label for the status.
-          * `level` (`str`) - The level code.
-          * `message` (`str`) - The detailed status message, including for alerts and error messages.
-          * `time` (`str`) - The time of the status.
-
-        * `type` (`str`) - Specifies the type of the extension; an example is "CustomScriptExtension".
-        * `type_handler_version` (`str`) - Specifies the version of the script handler.
-
-      * `last_status_change` (`str`) - The time of the last status change.
-      * `location_data` (`dict`) - Metadata pertaining to the geographic location of the resource.
-        * `city` (`str`) - The city or locality where the resource is located.
-        * `country_or_region` (`str`) - The country or region where the resource is located
-        * `district` (`str`) - The district, state, or province where the resource is located.
-        * `name` (`str`) - A canonical name for the geographic or physical location.
-
-      * `machine_fqdn` (`str`) - Specifies the hybrid machine FQDN.
-      * `os_name` (`str`) - The Operating System running on the hybrid machine.
-      * `os_profile` (`dict`) - Specifies the operating system settings for the hybrid machine.
-        * `computer_name` (`str`) - Specifies the host OS name of the hybrid machine.
-
-      * `os_version` (`str`) - The version of Operating System running on the hybrid machine.
-      * `provisioning_state` (`str`) - The provisioning state, which only appears in the response.
-      * `status` (`str`) - The status of the hybrid machine agent.
-      * `vm_id` (`str`) - Specifies the hybrid machine unique ID.
+    The Operating System running on the hybrid machine.
+    """
+    os_profile: pulumi.Output[dict]
+    """
+    Specifies the operating system settings for the hybrid machine.
+      * `computer_name` (`str`) - Specifies the host OS name of the hybrid machine.
+    """
+    os_version: pulumi.Output[str]
+    """
+    The version of Operating System running on the hybrid machine.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state, which only appears in the response.
+    """
+    status: pulumi.Output[str]
+    """
+    The status of the hybrid machine agent.
     """
     tags: pulumi.Output[dict]
     """
@@ -67,6 +97,10 @@ class Machine(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    vm_id: pulumi.Output[str]
+    """
+    Specifies the hybrid machine unique ID.
     """
     def __init__(__self__, resource_name, opts=None, client_public_key=None, extensions=None, identity=None, location=None, location_data=None, name=None, resource_group_name=None, tags=None, vm_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -139,7 +173,16 @@ class Machine(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['vm_id'] = vm_id
-            __props__['properties'] = None
+            __props__['agent_version'] = None
+            __props__['display_name'] = None
+            __props__['error_details'] = None
+            __props__['last_status_change'] = None
+            __props__['machine_fqdn'] = None
+            __props__['os_name'] = None
+            __props__['os_profile'] = None
+            __props__['os_version'] = None
+            __props__['provisioning_state'] = None
+            __props__['status'] = None
             __props__['type'] = None
         super(Machine, __self__).__init__(
             'azurerm:hybridcompute/v20191212:Machine',

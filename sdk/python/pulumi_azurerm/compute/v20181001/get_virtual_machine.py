@@ -13,12 +13,48 @@ class GetVirtualMachineResult:
     """
     Describes a Virtual Machine.
     """
-    def __init__(__self__, identity=None, location=None, name=None, plan=None, properties=None, resources=None, tags=None, type=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, availability_set=None, diagnostics_profile=None, hardware_profile=None, identity=None, instance_view=None, license_type=None, location=None, name=None, network_profile=None, os_profile=None, plan=None, provisioning_state=None, proximity_placement_group=None, resources=None, storage_profile=None, tags=None, type=None, vm_id=None, zones=None):
+        if additional_capabilities and not isinstance(additional_capabilities, dict):
+            raise TypeError("Expected argument 'additional_capabilities' to be a dict")
+        __self__.additional_capabilities = additional_capabilities
+        """
+        Specifies additional capabilities enabled or disabled on the virtual machine.
+        """
+        if availability_set and not isinstance(availability_set, dict):
+            raise TypeError("Expected argument 'availability_set' to be a dict")
+        __self__.availability_set = availability_set
+        """
+        Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+        """
+        if diagnostics_profile and not isinstance(diagnostics_profile, dict):
+            raise TypeError("Expected argument 'diagnostics_profile' to be a dict")
+        __self__.diagnostics_profile = diagnostics_profile
+        """
+        Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+        """
+        if hardware_profile and not isinstance(hardware_profile, dict):
+            raise TypeError("Expected argument 'hardware_profile' to be a dict")
+        __self__.hardware_profile = hardware_profile
+        """
+        Specifies the hardware settings for the virtual machine.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
         """
         The identity of the virtual machine, if configured.
+        """
+        if instance_view and not isinstance(instance_view, dict):
+            raise TypeError("Expected argument 'instance_view' to be a dict")
+        __self__.instance_view = instance_view
+        """
+        The virtual machine instance view.
+        """
+        if license_type and not isinstance(license_type, str):
+            raise TypeError("Expected argument 'license_type' to be a str")
+        __self__.license_type = license_type
+        """
+        Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,23 +68,47 @@ class GetVirtualMachineResult:
         """
         Resource name
         """
+        if network_profile and not isinstance(network_profile, dict):
+            raise TypeError("Expected argument 'network_profile' to be a dict")
+        __self__.network_profile = network_profile
+        """
+        Specifies the network interfaces of the virtual machine.
+        """
+        if os_profile and not isinstance(os_profile, dict):
+            raise TypeError("Expected argument 'os_profile' to be a dict")
+        __self__.os_profile = os_profile
+        """
+        Specifies the operating system settings for the virtual machine.
+        """
         if plan and not isinstance(plan, dict):
             raise TypeError("Expected argument 'plan' to be a dict")
         __self__.plan = plan
         """
         Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Describes the properties of a Virtual Machine.
+        The provisioning state, which only appears in the response.
+        """
+        if proximity_placement_group and not isinstance(proximity_placement_group, dict):
+            raise TypeError("Expected argument 'proximity_placement_group' to be a dict")
+        __self__.proximity_placement_group = proximity_placement_group
+        """
+        Specifies information about the proximity placement group that the virtual machine should be assigned to. <br><br>Minimum api-version: 2018-04-01.
         """
         if resources and not isinstance(resources, list):
             raise TypeError("Expected argument 'resources' to be a list")
         __self__.resources = resources
         """
         The virtual machine child extension resources.
+        """
+        if storage_profile and not isinstance(storage_profile, dict):
+            raise TypeError("Expected argument 'storage_profile' to be a dict")
+        __self__.storage_profile = storage_profile
+        """
+        Specifies the storage settings for the virtual machine disks.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -61,6 +121,12 @@ class GetVirtualMachineResult:
         __self__.type = type
         """
         Resource type
+        """
+        if vm_id and not isinstance(vm_id, str):
+            raise TypeError("Expected argument 'vm_id' to be a str")
+        __self__.vm_id = vm_id
+        """
+        Specifies the VM unique ID which is a 128-bits identifier that is encoded and stored in all Azure IaaS VMs SMBIOS and can be read using platform BIOS commands.
         """
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
@@ -76,14 +142,25 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
         if False:
             yield self
         return GetVirtualMachineResult(
+            additional_capabilities=self.additional_capabilities,
+            availability_set=self.availability_set,
+            diagnostics_profile=self.diagnostics_profile,
+            hardware_profile=self.hardware_profile,
             identity=self.identity,
+            instance_view=self.instance_view,
+            license_type=self.license_type,
             location=self.location,
             name=self.name,
+            network_profile=self.network_profile,
+            os_profile=self.os_profile,
             plan=self.plan,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            proximity_placement_group=self.proximity_placement_group,
             resources=self.resources,
+            storage_profile=self.storage_profile,
             tags=self.tags,
             type=self.type,
+            vm_id=self.vm_id,
             zones=self.zones)
 
 
@@ -104,12 +181,23 @@ def get_virtual_machine(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:compute/v20181001:getVirtualMachine', __args__, opts=opts).value
 
     return AwaitableGetVirtualMachineResult(
+        additional_capabilities=__ret__.get('additionalCapabilities'),
+        availability_set=__ret__.get('availabilitySet'),
+        diagnostics_profile=__ret__.get('diagnosticsProfile'),
+        hardware_profile=__ret__.get('hardwareProfile'),
         identity=__ret__.get('identity'),
+        instance_view=__ret__.get('instanceView'),
+        license_type=__ret__.get('licenseType'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
+        network_profile=__ret__.get('networkProfile'),
+        os_profile=__ret__.get('osProfile'),
         plan=__ret__.get('plan'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        proximity_placement_group=__ret__.get('proximityPlacementGroup'),
         resources=__ret__.get('resources'),
+        storage_profile=__ret__.get('storageProfile'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'),
+        vm_id=__ret__.get('vmId'),
         zones=__ret__.get('zones'))

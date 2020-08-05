@@ -13,24 +13,114 @@ class GetServerEndpointResult:
     """
     Server Endpoint object.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, cloud_tiering=None, cloud_tiering_status=None, friendly_name=None, last_operation_name=None, last_workflow_id=None, name=None, offline_data_transfer=None, offline_data_transfer_share_name=None, offline_data_transfer_storage_account_resource_id=None, offline_data_transfer_storage_account_tenant_id=None, provisioning_state=None, recall_status=None, server_local_path=None, server_resource_id=None, sync_status=None, tier_files_older_than_days=None, type=None, volume_free_space_percent=None):
+        if cloud_tiering and not isinstance(cloud_tiering, str):
+            raise TypeError("Expected argument 'cloud_tiering' to be a str")
+        __self__.cloud_tiering = cloud_tiering
+        """
+        Cloud Tiering.
+        """
+        if cloud_tiering_status and not isinstance(cloud_tiering_status, dict):
+            raise TypeError("Expected argument 'cloud_tiering_status' to be a dict")
+        __self__.cloud_tiering_status = cloud_tiering_status
+        """
+        Cloud tiering status. Only populated if cloud tiering is enabled.
+        """
+        if friendly_name and not isinstance(friendly_name, str):
+            raise TypeError("Expected argument 'friendly_name' to be a str")
+        __self__.friendly_name = friendly_name
+        """
+        Friendly Name
+        """
+        if last_operation_name and not isinstance(last_operation_name, str):
+            raise TypeError("Expected argument 'last_operation_name' to be a str")
+        __self__.last_operation_name = last_operation_name
+        """
+        Resource Last Operation Name
+        """
+        if last_workflow_id and not isinstance(last_workflow_id, str):
+            raise TypeError("Expected argument 'last_workflow_id' to be a str")
+        __self__.last_workflow_id = last_workflow_id
+        """
+        ServerEndpoint lastWorkflowId
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if offline_data_transfer and not isinstance(offline_data_transfer, str):
+            raise TypeError("Expected argument 'offline_data_transfer' to be a str")
+        __self__.offline_data_transfer = offline_data_transfer
         """
-        Server Endpoint properties.
+        Offline data transfer
+        """
+        if offline_data_transfer_share_name and not isinstance(offline_data_transfer_share_name, str):
+            raise TypeError("Expected argument 'offline_data_transfer_share_name' to be a str")
+        __self__.offline_data_transfer_share_name = offline_data_transfer_share_name
+        """
+        Offline data transfer share name
+        """
+        if offline_data_transfer_storage_account_resource_id and not isinstance(offline_data_transfer_storage_account_resource_id, str):
+            raise TypeError("Expected argument 'offline_data_transfer_storage_account_resource_id' to be a str")
+        __self__.offline_data_transfer_storage_account_resource_id = offline_data_transfer_storage_account_resource_id
+        """
+        Offline data transfer storage account resource ID
+        """
+        if offline_data_transfer_storage_account_tenant_id and not isinstance(offline_data_transfer_storage_account_tenant_id, str):
+            raise TypeError("Expected argument 'offline_data_transfer_storage_account_tenant_id' to be a str")
+        __self__.offline_data_transfer_storage_account_tenant_id = offline_data_transfer_storage_account_tenant_id
+        """
+        Offline data transfer storage account tenant ID
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        ServerEndpoint Provisioning State
+        """
+        if recall_status and not isinstance(recall_status, dict):
+            raise TypeError("Expected argument 'recall_status' to be a dict")
+        __self__.recall_status = recall_status
+        """
+        Recall status. Only populated if cloud tiering is enabled.
+        """
+        if server_local_path and not isinstance(server_local_path, str):
+            raise TypeError("Expected argument 'server_local_path' to be a str")
+        __self__.server_local_path = server_local_path
+        """
+        Server Local path.
+        """
+        if server_resource_id and not isinstance(server_resource_id, str):
+            raise TypeError("Expected argument 'server_resource_id' to be a str")
+        __self__.server_resource_id = server_resource_id
+        """
+        Server Resource Id.
+        """
+        if sync_status and not isinstance(sync_status, dict):
+            raise TypeError("Expected argument 'sync_status' to be a dict")
+        __self__.sync_status = sync_status
+        """
+        Server Endpoint sync status
+        """
+        if tier_files_older_than_days and not isinstance(tier_files_older_than_days, float):
+            raise TypeError("Expected argument 'tier_files_older_than_days' to be a float")
+        __self__.tier_files_older_than_days = tier_files_older_than_days
+        """
+        Tier files older than days.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        if volume_free_space_percent and not isinstance(volume_free_space_percent, float):
+            raise TypeError("Expected argument 'volume_free_space_percent' to be a float")
+        __self__.volume_free_space_percent = volume_free_space_percent
+        """
+        Level of free space to be maintained by Cloud Tiering if it is enabled.
         """
 
 
@@ -40,9 +130,24 @@ class AwaitableGetServerEndpointResult(GetServerEndpointResult):
         if False:
             yield self
         return GetServerEndpointResult(
+            cloud_tiering=self.cloud_tiering,
+            cloud_tiering_status=self.cloud_tiering_status,
+            friendly_name=self.friendly_name,
+            last_operation_name=self.last_operation_name,
+            last_workflow_id=self.last_workflow_id,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            offline_data_transfer=self.offline_data_transfer,
+            offline_data_transfer_share_name=self.offline_data_transfer_share_name,
+            offline_data_transfer_storage_account_resource_id=self.offline_data_transfer_storage_account_resource_id,
+            offline_data_transfer_storage_account_tenant_id=self.offline_data_transfer_storage_account_tenant_id,
+            provisioning_state=self.provisioning_state,
+            recall_status=self.recall_status,
+            server_local_path=self.server_local_path,
+            server_resource_id=self.server_resource_id,
+            sync_status=self.sync_status,
+            tier_files_older_than_days=self.tier_files_older_than_days,
+            type=self.type,
+            volume_free_space_percent=self.volume_free_space_percent)
 
 
 def get_server_endpoint(name=None, resource_group_name=None, storage_sync_service_name=None, sync_group_name=None, opts=None):
@@ -66,6 +171,21 @@ def get_server_endpoint(name=None, resource_group_name=None, storage_sync_servic
     __ret__ = pulumi.runtime.invoke('azurerm:storagesync/v20190601:getServerEndpoint', __args__, opts=opts).value
 
     return AwaitableGetServerEndpointResult(
+        cloud_tiering=__ret__.get('cloudTiering'),
+        cloud_tiering_status=__ret__.get('cloudTieringStatus'),
+        friendly_name=__ret__.get('friendlyName'),
+        last_operation_name=__ret__.get('lastOperationName'),
+        last_workflow_id=__ret__.get('lastWorkflowId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        offline_data_transfer=__ret__.get('offlineDataTransfer'),
+        offline_data_transfer_share_name=__ret__.get('offlineDataTransferShareName'),
+        offline_data_transfer_storage_account_resource_id=__ret__.get('offlineDataTransferStorageAccountResourceId'),
+        offline_data_transfer_storage_account_tenant_id=__ret__.get('offlineDataTransferStorageAccountTenantId'),
+        provisioning_state=__ret__.get('provisioningState'),
+        recall_status=__ret__.get('recallStatus'),
+        server_local_path=__ret__.get('serverLocalPath'),
+        server_resource_id=__ret__.get('serverResourceId'),
+        sync_status=__ret__.get('syncStatus'),
+        tier_files_older_than_days=__ret__.get('tierFilesOlderThanDays'),
+        type=__ret__.get('type'),
+        volume_free_space_percent=__ret__.get('volumeFreeSpacePercent'))

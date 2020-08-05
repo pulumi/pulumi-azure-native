@@ -13,18 +13,72 @@ class GetStreamingLocatorResult:
     """
     A Streaming Locator resource
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, alternative_media_id=None, asset_name=None, content_keys=None, created=None, default_content_key_policy_name=None, end_time=None, filters=None, name=None, start_time=None, streaming_locator_id=None, streaming_policy_name=None, type=None):
+        if alternative_media_id and not isinstance(alternative_media_id, str):
+            raise TypeError("Expected argument 'alternative_media_id' to be a str")
+        __self__.alternative_media_id = alternative_media_id
+        """
+        Alternative Media ID of this Streaming Locator
+        """
+        if asset_name and not isinstance(asset_name, str):
+            raise TypeError("Expected argument 'asset_name' to be a str")
+        __self__.asset_name = asset_name
+        """
+        Asset Name
+        """
+        if content_keys and not isinstance(content_keys, list):
+            raise TypeError("Expected argument 'content_keys' to be a list")
+        __self__.content_keys = content_keys
+        """
+        The ContentKeys used by this Streaming Locator.
+        """
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        __self__.created = created
+        """
+        The creation time of the Streaming Locator.
+        """
+        if default_content_key_policy_name and not isinstance(default_content_key_policy_name, str):
+            raise TypeError("Expected argument 'default_content_key_policy_name' to be a str")
+        __self__.default_content_key_policy_name = default_content_key_policy_name
+        """
+        Name of the default ContentKeyPolicy used by this Streaming Locator.
+        """
+        if end_time and not isinstance(end_time, str):
+            raise TypeError("Expected argument 'end_time' to be a str")
+        __self__.end_time = end_time
+        """
+        The end time of the Streaming Locator.
+        """
+        if filters and not isinstance(filters, list):
+            raise TypeError("Expected argument 'filters' to be a list")
+        __self__.filters = filters
+        """
+        A list of asset or account filters which apply to this streaming locator
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if start_time and not isinstance(start_time, str):
+            raise TypeError("Expected argument 'start_time' to be a str")
+        __self__.start_time = start_time
         """
-        Properties of the Streaming Locator.
+        The start time of the Streaming Locator.
+        """
+        if streaming_locator_id and not isinstance(streaming_locator_id, str):
+            raise TypeError("Expected argument 'streaming_locator_id' to be a str")
+        __self__.streaming_locator_id = streaming_locator_id
+        """
+        The StreamingLocatorId of the Streaming Locator.
+        """
+        if streaming_policy_name and not isinstance(streaming_policy_name, str):
+            raise TypeError("Expected argument 'streaming_policy_name' to be a str")
+        __self__.streaming_policy_name = streaming_policy_name
+        """
+        Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +94,17 @@ class AwaitableGetStreamingLocatorResult(GetStreamingLocatorResult):
         if False:
             yield self
         return GetStreamingLocatorResult(
+            alternative_media_id=self.alternative_media_id,
+            asset_name=self.asset_name,
+            content_keys=self.content_keys,
+            created=self.created,
+            default_content_key_policy_name=self.default_content_key_policy_name,
+            end_time=self.end_time,
+            filters=self.filters,
             name=self.name,
-            properties=self.properties,
+            start_time=self.start_time,
+            streaming_locator_id=self.streaming_locator_id,
+            streaming_policy_name=self.streaming_policy_name,
             type=self.type)
 
 
@@ -64,6 +127,15 @@ def get_streaming_locator(account_name=None, name=None, resource_group_name=None
     __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:getStreamingLocator', __args__, opts=opts).value
 
     return AwaitableGetStreamingLocatorResult(
+        alternative_media_id=__ret__.get('alternativeMediaId'),
+        asset_name=__ret__.get('assetName'),
+        content_keys=__ret__.get('contentKeys'),
+        created=__ret__.get('created'),
+        default_content_key_policy_name=__ret__.get('defaultContentKeyPolicyName'),
+        end_time=__ret__.get('endTime'),
+        filters=__ret__.get('filters'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        start_time=__ret__.get('startTime'),
+        streaming_locator_id=__ret__.get('streamingLocatorId'),
+        streaming_policy_name=__ret__.get('streamingPolicyName'),
         type=__ret__.get('type'))

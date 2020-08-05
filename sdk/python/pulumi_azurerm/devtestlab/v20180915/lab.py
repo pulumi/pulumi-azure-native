@@ -10,50 +10,92 @@ from ... import _utilities, _tables
 
 
 class Lab(pulumi.CustomResource):
+    announcement: pulumi.Output[dict]
+    """
+    The properties of any lab announcement associated with this lab
+      * `enabled` (`str`) - Is the lab announcement active/enabled at this time?
+      * `expiration_date` (`str`) - The time at which the announcement expires (null for never)
+      * `expired` (`bool`) - Has this announcement expired?
+      * `markdown` (`str`) - The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
+      * `provisioning_state` (`str`) - The provisioning status of the resource.
+      * `title` (`str`) - The plain text title for the lab announcement
+      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
+    """
+    artifacts_storage_account: pulumi.Output[str]
+    """
+    The lab's artifact storage account.
+    """
+    created_date: pulumi.Output[str]
+    """
+    The creation date of the lab.
+    """
+    default_premium_storage_account: pulumi.Output[str]
+    """
+    The lab's default premium storage account.
+    """
+    default_storage_account: pulumi.Output[str]
+    """
+    The lab's default storage account.
+    """
+    environment_permission: pulumi.Output[str]
+    """
+    The access rights to be granted to the user when provisioning an environment
+    """
+    extended_properties: pulumi.Output[dict]
+    """
+    Extended properties of the lab used for experimental features
+    """
+    lab_storage_type: pulumi.Output[str]
+    """
+    Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+    """
+    load_balancer_id: pulumi.Output[str]
+    """
+    The load balancer used to for lab VMs that use shared IP address.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
+    """
+    mandatory_artifacts_resource_ids_linux: pulumi.Output[list]
+    """
+    The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
+    """
+    mandatory_artifacts_resource_ids_windows: pulumi.Output[list]
+    """
+    The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
     """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    network_security_group_id: pulumi.Output[str]
     """
-    The properties of the resource.
-      * `announcement` (`dict`) - The properties of any lab announcement associated with this lab
-        * `enabled` (`str`) - Is the lab announcement active/enabled at this time?
-        * `expiration_date` (`str`) - The time at which the announcement expires (null for never)
-        * `expired` (`bool`) - Has this announcement expired?
-        * `markdown` (`str`) - The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
-        * `provisioning_state` (`str`) - The provisioning status of the resource.
-        * `title` (`str`) - The plain text title for the lab announcement
-        * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
-
-      * `artifacts_storage_account` (`str`) - The lab's artifact storage account.
-      * `created_date` (`str`) - The creation date of the lab.
-      * `default_premium_storage_account` (`str`) - The lab's default premium storage account.
-      * `default_storage_account` (`str`) - The lab's default storage account.
-      * `environment_permission` (`str`) - The access rights to be granted to the user when provisioning an environment
-      * `extended_properties` (`dict`) - Extended properties of the lab used for experimental features
-      * `lab_storage_type` (`str`) - Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-      * `load_balancer_id` (`str`) - The load balancer used to for lab VMs that use shared IP address.
-      * `mandatory_artifacts_resource_ids_linux` (`list`) - The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
-      * `mandatory_artifacts_resource_ids_windows` (`list`) - The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
-      * `network_security_group_id` (`str`) - The Network Security Group attached to the lab VMs Network interfaces to restrict open ports.
-      * `premium_data_disk_storage_account` (`str`) - The lab's premium data disk storage account.
-      * `premium_data_disks` (`str`) - The setting to enable usage of premium data disks.
-        When its value is 'Enabled', creation of standard or premium data disks is allowed.
-        When its value is 'Disabled', only creation of standard data disks is allowed.
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `public_ip_id` (`str`) - The public IP address for the lab's load balancer.
-      * `support` (`dict`) - The properties of any lab support message associated with this lab
-        * `enabled` (`str`) - Is the lab support banner active/enabled at this time?
-        * `markdown` (`str`) - The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
-
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
-      * `vault_name` (`str`) - The lab's Key vault.
-      * `vm_creation_resource_group` (`str`) - The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.
+    The Network Security Group attached to the lab VMs Network interfaces to restrict open ports.
+    """
+    premium_data_disk_storage_account: pulumi.Output[str]
+    """
+    The lab's premium data disk storage account.
+    """
+    premium_data_disks: pulumi.Output[str]
+    """
+    The setting to enable usage of premium data disks.
+    When its value is 'Enabled', creation of standard or premium data disks is allowed.
+    When its value is 'Disabled', only creation of standard data disks is allowed.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning status of the resource.
+    """
+    public_ip_id: pulumi.Output[str]
+    """
+    The public IP address for the lab's load balancer.
+    """
+    support: pulumi.Output[dict]
+    """
+    The properties of any lab support message associated with this lab
+      * `enabled` (`str`) - Is the lab support banner active/enabled at this time?
+      * `markdown` (`str`) - The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.
     """
     tags: pulumi.Output[dict]
     """
@@ -62,6 +104,18 @@ class Lab(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
+    """
+    vault_name: pulumi.Output[str]
+    """
+    The lab's Key vault.
+    """
+    vm_creation_resource_group: pulumi.Output[str]
+    """
+    The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.
     """
     def __init__(__self__, resource_name, opts=None, announcement=None, environment_permission=None, extended_properties=None, lab_storage_type=None, location=None, mandatory_artifacts_resource_ids_linux=None, mandatory_artifacts_resource_ids_windows=None, name=None, premium_data_disks=None, resource_group_name=None, support=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -130,8 +184,19 @@ class Lab(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['support'] = support
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['artifacts_storage_account'] = None
+            __props__['created_date'] = None
+            __props__['default_premium_storage_account'] = None
+            __props__['default_storage_account'] = None
+            __props__['load_balancer_id'] = None
+            __props__['network_security_group_id'] = None
+            __props__['premium_data_disk_storage_account'] = None
+            __props__['provisioning_state'] = None
+            __props__['public_ip_id'] = None
             __props__['type'] = None
+            __props__['unique_identifier'] = None
+            __props__['vault_name'] = None
+            __props__['vm_creation_resource_group'] = None
         super(Lab, __self__).__init__(
             'azurerm:devtestlab/v20180915:Lab',
             resource_name,

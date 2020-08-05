@@ -13,7 +13,7 @@ class GetPrivateEndpointResult:
     """
     Private endpoint resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, location=None, manual_private_link_service_connections=None, name=None, network_interfaces=None, private_link_service_connections=None, provisioning_state=None, subnet=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,17 +26,41 @@ class GetPrivateEndpointResult:
         """
         Resource location.
         """
+        if manual_private_link_service_connections and not isinstance(manual_private_link_service_connections, list):
+            raise TypeError("Expected argument 'manual_private_link_service_connections' to be a list")
+        __self__.manual_private_link_service_connections = manual_private_link_service_connections
+        """
+        A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_interfaces and not isinstance(network_interfaces, list):
+            raise TypeError("Expected argument 'network_interfaces' to be a list")
+        __self__.network_interfaces = network_interfaces
         """
-        Properties of the private endpoint.
+        An array of references to the network interfaces created for this private endpoint.
+        """
+        if private_link_service_connections and not isinstance(private_link_service_connections, list):
+            raise TypeError("Expected argument 'private_link_service_connections' to be a list")
+        __self__.private_link_service_connections = private_link_service_connections
+        """
+        A grouping of information about the connection to the remote resource.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the private endpoint resource.
+        """
+        if subnet and not isinstance(subnet, dict):
+            raise TypeError("Expected argument 'subnet' to be a dict")
+        __self__.subnet = subnet
+        """
+        The ID of the subnet from which the private IP will be allocated.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -60,8 +84,12 @@ class AwaitableGetPrivateEndpointResult(GetPrivateEndpointResult):
         return GetPrivateEndpointResult(
             etag=self.etag,
             location=self.location,
+            manual_private_link_service_connections=self.manual_private_link_service_connections,
             name=self.name,
-            properties=self.properties,
+            network_interfaces=self.network_interfaces,
+            private_link_service_connections=self.private_link_service_connections,
+            provisioning_state=self.provisioning_state,
+            subnet=self.subnet,
             tags=self.tags,
             type=self.type)
 
@@ -85,7 +113,11 @@ def get_private_endpoint(name=None, resource_group_name=None, opts=None):
     return AwaitableGetPrivateEndpointResult(
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
+        manual_private_link_service_connections=__ret__.get('manualPrivateLinkServiceConnections'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_interfaces=__ret__.get('networkInterfaces'),
+        private_link_service_connections=__ret__.get('privateLinkServiceConnections'),
+        provisioning_state=__ret__.get('provisioningState'),
+        subnet=__ret__.get('subnet'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

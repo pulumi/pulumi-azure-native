@@ -13,12 +13,30 @@ class GetFirewallPolicyResult:
     """
     FirewallPolicy Resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, base_policy=None, child_policies=None, etag=None, firewalls=None, location=None, name=None, provisioning_state=None, rule_groups=None, tags=None, threat_intel_mode=None, type=None):
+        if base_policy and not isinstance(base_policy, dict):
+            raise TypeError("Expected argument 'base_policy' to be a dict")
+        __self__.base_policy = base_policy
+        """
+        The parent firewall policy from which rules are inherited.
+        """
+        if child_policies and not isinstance(child_policies, list):
+            raise TypeError("Expected argument 'child_policies' to be a list")
+        __self__.child_policies = child_policies
+        """
+        List of references to Child Firewall Policies.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if firewalls and not isinstance(firewalls, list):
+            raise TypeError("Expected argument 'firewalls' to be a list")
+        __self__.firewalls = firewalls
+        """
+        List of references to Azure Firewalls that this Firewall Policy is associated with.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,17 +50,29 @@ class GetFirewallPolicyResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the firewall policy.
+        The provisioning state of the firewall policy resource.
+        """
+        if rule_groups and not isinstance(rule_groups, list):
+            raise TypeError("Expected argument 'rule_groups' to be a list")
+        __self__.rule_groups = rule_groups
+        """
+        List of references to FirewallPolicyRuleGroups.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Resource tags.
+        """
+        if threat_intel_mode and not isinstance(threat_intel_mode, str):
+            raise TypeError("Expected argument 'threat_intel_mode' to be a str")
+        __self__.threat_intel_mode = threat_intel_mode
+        """
+        The operation mode for Threat Intelligence.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -58,11 +88,16 @@ class AwaitableGetFirewallPolicyResult(GetFirewallPolicyResult):
         if False:
             yield self
         return GetFirewallPolicyResult(
+            base_policy=self.base_policy,
+            child_policies=self.child_policies,
             etag=self.etag,
+            firewalls=self.firewalls,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            rule_groups=self.rule_groups,
             tags=self.tags,
+            threat_intel_mode=self.threat_intel_mode,
             type=self.type)
 
 
@@ -83,9 +118,14 @@ def get_firewall_policy(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20191201:getFirewallPolicy', __args__, opts=opts).value
 
     return AwaitableGetFirewallPolicyResult(
+        base_policy=__ret__.get('basePolicy'),
+        child_policies=__ret__.get('childPolicies'),
         etag=__ret__.get('etag'),
+        firewalls=__ret__.get('firewalls'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        rule_groups=__ret__.get('ruleGroups'),
         tags=__ret__.get('tags'),
+        threat_intel_mode=__ret__.get('threatIntelMode'),
         type=__ret__.get('type'))

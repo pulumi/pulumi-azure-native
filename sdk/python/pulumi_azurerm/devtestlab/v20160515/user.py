@@ -10,6 +10,19 @@ from ... import _utilities, _tables
 
 
 class User(pulumi.CustomResource):
+    created_date: pulumi.Output[str]
+    """
+    The creation date of the user profile.
+    """
+    identity: pulumi.Output[dict]
+    """
+    The identity of the user.
+      * `app_id` (`str`) - Set to the app Id of the client JWT making the request.
+      * `object_id` (`str`) - Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
+      * `principal_id` (`str`) - Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
+      * `principal_name` (`str`) - Set to the principal name / UPN of the client JWT making the request.
+      * `tenant_id` (`str`) - Set to the tenant ID of the client JWT making the request.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
@@ -18,23 +31,15 @@ class User(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the resource.
-      * `created_date` (`str`) - The creation date of the user profile.
-      * `identity` (`dict`) - The identity of the user.
-        * `app_id` (`str`) - Set to the app Id of the client JWT making the request.
-        * `object_id` (`str`) - Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available.
-        * `principal_id` (`str`) - Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id.
-        * `principal_name` (`str`) - Set to the principal name / UPN of the client JWT making the request.
-        * `tenant_id` (`str`) - Set to the tenant ID of the client JWT making the request.
-
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `secret_store` (`dict`) - The secret store of the user.
-        * `key_vault_id` (`str`) - The ID of the user's Key vault.
-        * `key_vault_uri` (`str`) - The URI of the user's Key vault.
-
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
+    The provisioning status of the resource.
+    """
+    secret_store: pulumi.Output[dict]
+    """
+    The secret store of the user.
+      * `key_vault_id` (`str`) - The ID of the user's Key vault.
+      * `key_vault_uri` (`str`) - The URI of the user's Key vault.
     """
     tags: pulumi.Output[dict]
     """
@@ -43,6 +48,10 @@ class User(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
     """
     def __init__(__self__, resource_name, opts=None, identity=None, lab_name=None, location=None, name=None, provisioning_state=None, resource_group_name=None, secret_store=None, tags=None, unique_identifier=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -105,7 +114,7 @@ class User(pulumi.CustomResource):
             __props__['secret_store'] = secret_store
             __props__['tags'] = tags
             __props__['unique_identifier'] = unique_identifier
-            __props__['properties'] = None
+            __props__['created_date'] = None
             __props__['type'] = None
         super(User, __self__).__init__(
             'azurerm:devtestlab/v20160515:User',

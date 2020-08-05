@@ -10,33 +10,58 @@ from ... import _utilities, _tables
 
 
 class AssessmentMetadataInSubscription(pulumi.CustomResource):
+    assessment_type: pulumi.Output[str]
+    """
+    BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+    """
+    category: pulumi.Output[list]
+    description: pulumi.Output[str]
+    """
+    Human readable description of the assessment
+    """
+    display_name: pulumi.Output[str]
+    """
+    User friendly display name of the assessment
+    """
+    implementation_effort: pulumi.Output[str]
+    """
+    The implementation effort required to remediate this assessment
+    """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    partner_data: pulumi.Output[dict]
     """
-    Describes properties of an assessment metadata.
-      * `assessment_type` (`str`) - BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
-      * `category` (`list`)
-      * `description` (`str`) - Human readable description of the assessment
-      * `display_name` (`str`) - User friendly display name of the assessment
-      * `implementation_effort` (`str`) - The implementation effort required to remediate this assessment
-      * `partner_data` (`dict`) - Describes the partner that created the assessment
-        * `partner_name` (`str`) - Name of the company of the partner
-        * `product_name` (`str`) - Name of the product of the partner that created the assessment
-        * `secret` (`str`) - Secret to authenticate the partner and verify it created the assessment - write only
-
-      * `policy_definition_id` (`str`) - Azure resource ID of the policy definition that turns this assessment calculation on
-      * `preview` (`bool`) - True if this assessment is in preview release status
-      * `remediation_description` (`str`) - Human readable description of what you should do to mitigate this security issue
-      * `severity` (`str`) - The severity level of the assessment
-      * `threats` (`list`)
-      * `user_impact` (`str`) - The user impact of the assessment
+    Describes the partner that created the assessment
+      * `partner_name` (`str`) - Name of the company of the partner
+      * `product_name` (`str`) - Name of the product of the partner that created the assessment
+      * `secret` (`str`) - Secret to authenticate the partner and verify it created the assessment - write only
     """
+    policy_definition_id: pulumi.Output[str]
+    """
+    Azure resource ID of the policy definition that turns this assessment calculation on
+    """
+    preview: pulumi.Output[bool]
+    """
+    True if this assessment is in preview release status
+    """
+    remediation_description: pulumi.Output[str]
+    """
+    Human readable description of what you should do to mitigate this security issue
+    """
+    severity: pulumi.Output[str]
+    """
+    The severity level of the assessment
+    """
+    threats: pulumi.Output[list]
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    user_impact: pulumi.Output[str]
+    """
+    The user impact of the assessment
     """
     def __init__(__self__, resource_name, opts=None, assessment_type=None, category=None, description=None, display_name=None, implementation_effort=None, name=None, partner_data=None, preview=None, remediation_description=None, severity=None, threats=None, user_impact=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -98,7 +123,7 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
             __props__['severity'] = severity
             __props__['threats'] = threats
             __props__['user_impact'] = user_impact
-            __props__['properties'] = None
+            __props__['policy_definition_id'] = None
             __props__['type'] = None
         super(AssessmentMetadataInSubscription, __self__).__init__(
             'azurerm:security/v20200101:AssessmentMetadataInSubscription',

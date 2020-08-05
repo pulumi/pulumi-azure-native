@@ -13,7 +13,37 @@ class GetIotSecuritySolutionResult:
     """
     IoT Security solution configuration and resource information.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, auto_discovered_resources=None, disabled_data_sources=None, display_name=None, export=None, iot_hubs=None, location=None, name=None, recommendations_configuration=None, status=None, tags=None, type=None, unmasked_ip_logging_status=None, user_defined_resources=None, workspace=None):
+        if auto_discovered_resources and not isinstance(auto_discovered_resources, list):
+            raise TypeError("Expected argument 'auto_discovered_resources' to be a list")
+        __self__.auto_discovered_resources = auto_discovered_resources
+        """
+        List of resources that were automatically discovered as relevant to the security solution.
+        """
+        if disabled_data_sources and not isinstance(disabled_data_sources, list):
+            raise TypeError("Expected argument 'disabled_data_sources' to be a list")
+        __self__.disabled_data_sources = disabled_data_sources
+        """
+        Disabled data sources. Disabling these data sources compromises the system.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        Resource display name.
+        """
+        if export and not isinstance(export, list):
+            raise TypeError("Expected argument 'export' to be a list")
+        __self__.export = export
+        """
+        List of additional options for exporting to workspace data.
+        """
+        if iot_hubs and not isinstance(iot_hubs, list):
+            raise TypeError("Expected argument 'iot_hubs' to be a list")
+        __self__.iot_hubs = iot_hubs
+        """
+        IoT Hub resource IDs
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +56,17 @@ class GetIotSecuritySolutionResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if recommendations_configuration and not isinstance(recommendations_configuration, list):
+            raise TypeError("Expected argument 'recommendations_configuration' to be a list")
+        __self__.recommendations_configuration = recommendations_configuration
         """
-        Security Solution data
+        List of the configuration status for each recommendation type.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Status of the IoT Security solution.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +80,24 @@ class GetIotSecuritySolutionResult:
         """
         Resource type
         """
+        if unmasked_ip_logging_status and not isinstance(unmasked_ip_logging_status, str):
+            raise TypeError("Expected argument 'unmasked_ip_logging_status' to be a str")
+        __self__.unmasked_ip_logging_status = unmasked_ip_logging_status
+        """
+        Unmasked IP address logging status
+        """
+        if user_defined_resources and not isinstance(user_defined_resources, dict):
+            raise TypeError("Expected argument 'user_defined_resources' to be a dict")
+        __self__.user_defined_resources = user_defined_resources
+        """
+        Properties of the IoT Security solution's user defined resources.
+        """
+        if workspace and not isinstance(workspace, str):
+            raise TypeError("Expected argument 'workspace' to be a str")
+        __self__.workspace = workspace
+        """
+        Workspace resource ID
+        """
 
 
 class AwaitableGetIotSecuritySolutionResult(GetIotSecuritySolutionResult):
@@ -52,11 +106,20 @@ class AwaitableGetIotSecuritySolutionResult(GetIotSecuritySolutionResult):
         if False:
             yield self
         return GetIotSecuritySolutionResult(
+            auto_discovered_resources=self.auto_discovered_resources,
+            disabled_data_sources=self.disabled_data_sources,
+            display_name=self.display_name,
+            export=self.export,
+            iot_hubs=self.iot_hubs,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            recommendations_configuration=self.recommendations_configuration,
+            status=self.status,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unmasked_ip_logging_status=self.unmasked_ip_logging_status,
+            user_defined_resources=self.user_defined_resources,
+            workspace=self.workspace)
 
 
 def get_iot_security_solution(name=None, resource_group_name=None, opts=None):
@@ -76,8 +139,17 @@ def get_iot_security_solution(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:security/v20190801:getIotSecuritySolution', __args__, opts=opts).value
 
     return AwaitableGetIotSecuritySolutionResult(
+        auto_discovered_resources=__ret__.get('autoDiscoveredResources'),
+        disabled_data_sources=__ret__.get('disabledDataSources'),
+        display_name=__ret__.get('displayName'),
+        export=__ret__.get('export'),
+        iot_hubs=__ret__.get('iotHubs'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        recommendations_configuration=__ret__.get('recommendationsConfiguration'),
+        status=__ret__.get('status'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unmasked_ip_logging_status=__ret__.get('unmaskedIpLoggingStatus'),
+        user_defined_resources=__ret__.get('userDefinedResources'),
+        workspace=__ret__.get('workspace'))

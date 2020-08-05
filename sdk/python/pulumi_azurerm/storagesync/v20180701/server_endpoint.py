@@ -10,27 +10,53 @@ from ... import _utilities, _tables
 
 
 class ServerEndpoint(pulumi.CustomResource):
+    cloud_tiering: pulumi.Output[str]
+    """
+    Cloud Tiering.
+    """
+    friendly_name: pulumi.Output[str]
+    """
+    Friendly Name
+    """
+    last_operation_name: pulumi.Output[str]
+    """
+    Resource Last Operation Name
+    """
+    last_workflow_id: pulumi.Output[str]
+    """
+    ServerEndpoint lastWorkflowId
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Server Endpoint properties.
-      * `cloud_tiering` (`str`) - Cloud Tiering.
-      * `friendly_name` (`str`) - Friendly Name
-      * `last_operation_name` (`str`) - Resource Last Operation Name
-      * `last_workflow_id` (`str`) - ServerEndpoint lastWorkflowId
-      * `provisioning_state` (`str`) - ServerEndpoint Provisioning State
-      * `server_local_path` (`str`) - Server Local path.
-      * `server_resource_id` (`str`) - Server Resource Id.
-      * `sync_status` (`dict`) - Sync Health Status
-      * `tier_files_older_than_days` (`float`) - Tier files older than days.
-      * `volume_free_space_percent` (`float`) - Level of free space to be maintained by Cloud Tiering if it is enabled.
+    ServerEndpoint Provisioning State
+    """
+    server_local_path: pulumi.Output[str]
+    """
+    Server Local path.
+    """
+    server_resource_id: pulumi.Output[str]
+    """
+    Server Resource Id.
+    """
+    sync_status: pulumi.Output[dict]
+    """
+    Sync Health Status
+    """
+    tier_files_older_than_days: pulumi.Output[float]
+    """
+    Tier files older than days.
     """
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    volume_free_space_percent: pulumi.Output[float]
+    """
+    Level of free space to be maintained by Cloud Tiering if it is enabled.
     """
     def __init__(__self__, resource_name, opts=None, cloud_tiering=None, friendly_name=None, name=None, resource_group_name=None, server_local_path=None, server_resource_id=None, storage_sync_service_name=None, sync_group_name=None, tier_files_older_than_days=None, volume_free_space_percent=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -84,7 +110,10 @@ class ServerEndpoint(pulumi.CustomResource):
             __props__['sync_group_name'] = sync_group_name
             __props__['tier_files_older_than_days'] = tier_files_older_than_days
             __props__['volume_free_space_percent'] = volume_free_space_percent
-            __props__['properties'] = None
+            __props__['last_operation_name'] = None
+            __props__['last_workflow_id'] = None
+            __props__['provisioning_state'] = None
+            __props__['sync_status'] = None
             __props__['type'] = None
         super(ServerEndpoint, __self__).__init__(
             'azurerm:storagesync/v20180701:ServerEndpoint',

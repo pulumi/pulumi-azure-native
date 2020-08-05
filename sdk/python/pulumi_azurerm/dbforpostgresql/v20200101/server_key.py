@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class ServerKey(pulumi.CustomResource):
+    creation_date: pulumi.Output[str]
+    """
+    The key creation date.
+    """
     kind: pulumi.Output[str]
     """
     Kind of encryption protector used to protect the key.
@@ -18,16 +22,17 @@ class ServerKey(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    server_key_type: pulumi.Output[str]
     """
-    Properties of the ServerKey Resource.
-      * `creation_date` (`str`) - The key creation date.
-      * `server_key_type` (`str`) - The key type like 'AzureKeyVault'.
-      * `uri` (`str`) - The URI of the key.
+    The key type like 'AzureKeyVault'.
     """
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    uri: pulumi.Output[str]
+    """
+    The URI of the key.
     """
     def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, server_key_type=None, server_name=None, uri=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -71,8 +76,8 @@ class ServerKey(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
             __props__['uri'] = uri
+            __props__['creation_date'] = None
             __props__['kind'] = None
-            __props__['properties'] = None
             __props__['type'] = None
         super(ServerKey, __self__).__init__(
             'azurerm:dbforpostgresql/v20200101:ServerKey',

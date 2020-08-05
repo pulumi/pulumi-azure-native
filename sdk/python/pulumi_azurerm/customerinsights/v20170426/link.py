@@ -10,33 +10,66 @@ from ... import _utilities, _tables
 
 
 class Link(pulumi.CustomResource):
+    description: pulumi.Output[dict]
+    """
+    Localized descriptions for the Link.
+    """
+    display_name: pulumi.Output[dict]
+    """
+    Localized display name for the Link.
+    """
+    link_name: pulumi.Output[str]
+    """
+    The link name.
+    """
+    mappings: pulumi.Output[list]
+    """
+    The set of properties mappings between the source and target Types.
+      * `link_type` (`str`) - Link type.
+      * `source_property_name` (`str`) -  Property name on the source Entity Type.
+      * `target_property_name` (`str`) - Property name on the target Entity Type.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    operation_type: pulumi.Output[str]
     """
-    The definition of Link.
-      * `description` (`dict`) - Localized descriptions for the Link.
-      * `display_name` (`dict`) - Localized display name for the Link.
-      * `link_name` (`str`) - The link name.
-      * `mappings` (`list`) - The set of properties mappings between the source and target Types.
-        * `link_type` (`str`) - Link type.
-        * `source_property_name` (`str`) -  Property name on the source Entity Type.
-        * `target_property_name` (`str`) - Property name on the target Entity Type.
-
-      * `operation_type` (`str`) - Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
-      * `participant_property_references` (`list`) - The properties that represent the participating profile.
-        * `source_property_name` (`str`) - The source property that maps to the target property.
-        * `target_property_name` (`str`) - The target property that maps to the source property.
-
-      * `provisioning_state` (`str`) - Provisioning state.
-      * `reference_only` (`bool`) - Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
-      * `source_entity_type` (`str`) - Type of source entity.
-      * `source_entity_type_name` (`str`) - Name of the source Entity Type.
-      * `target_entity_type` (`str`) - Type of target entity.
-      * `target_entity_type_name` (`str`) - Name of the target Entity Type.
-      * `tenant_id` (`str`) - The hub name.
+    Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
+    """
+    participant_property_references: pulumi.Output[list]
+    """
+    The properties that represent the participating profile.
+      * `source_property_name` (`str`) - The source property that maps to the target property.
+      * `target_property_name` (`str`) - The target property that maps to the source property.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state.
+    """
+    reference_only: pulumi.Output[bool]
+    """
+    Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
+    """
+    source_entity_type: pulumi.Output[str]
+    """
+    Type of source entity.
+    """
+    source_entity_type_name: pulumi.Output[str]
+    """
+    Name of the source Entity Type.
+    """
+    target_entity_type: pulumi.Output[str]
+    """
+    Type of target entity.
+    """
+    target_entity_type_name: pulumi.Output[str]
+    """
+    Name of the target Entity Type.
+    """
+    tenant_id: pulumi.Output[str]
+    """
+    The hub name.
     """
     type: pulumi.Output[str]
     """
@@ -119,7 +152,9 @@ class Link(pulumi.CustomResource):
             if target_entity_type_name is None:
                 raise TypeError("Missing required property 'target_entity_type_name'")
             __props__['target_entity_type_name'] = target_entity_type_name
-            __props__['properties'] = None
+            __props__['link_name'] = None
+            __props__['provisioning_state'] = None
+            __props__['tenant_id'] = None
             __props__['type'] = None
         super(Link, __self__).__init__(
             'azurerm:customerinsights/v20170426:Link',

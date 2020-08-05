@@ -13,7 +13,13 @@ class GetRouteResult:
     """
     Route resource.
     """
-    def __init__(__self__, etag=None, name=None, properties=None):
+    def __init__(__self__, address_prefix=None, etag=None, name=None, next_hop_ip_address=None, next_hop_type=None, provisioning_state=None):
+        if address_prefix and not isinstance(address_prefix, str):
+            raise TypeError("Expected argument 'address_prefix' to be a str")
+        __self__.address_prefix = address_prefix
+        """
+        The destination CIDR to which the route applies.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,11 +32,23 @@ class GetRouteResult:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if next_hop_ip_address and not isinstance(next_hop_ip_address, str):
+            raise TypeError("Expected argument 'next_hop_ip_address' to be a str")
+        __self__.next_hop_ip_address = next_hop_ip_address
         """
-        Properties of the route.
+        The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+        """
+        if next_hop_type and not isinstance(next_hop_type, str):
+            raise TypeError("Expected argument 'next_hop_type' to be a str")
+        __self__.next_hop_type = next_hop_type
+        """
+        The type of Azure hop the packet should be sent to.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
         """
 
 
@@ -40,9 +58,12 @@ class AwaitableGetRouteResult(GetRouteResult):
         if False:
             yield self
         return GetRouteResult(
+            address_prefix=self.address_prefix,
             etag=self.etag,
             name=self.name,
-            properties=self.properties)
+            next_hop_ip_address=self.next_hop_ip_address,
+            next_hop_type=self.next_hop_type,
+            provisioning_state=self.provisioning_state)
 
 
 def get_route(name=None, resource_group_name=None, route_table_name=None, opts=None):
@@ -64,6 +85,9 @@ def get_route(name=None, resource_group_name=None, route_table_name=None, opts=N
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20190401:getRoute', __args__, opts=opts).value
 
     return AwaitableGetRouteResult(
+        address_prefix=__ret__.get('addressPrefix'),
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        next_hop_ip_address=__ret__.get('nextHopIpAddress'),
+        next_hop_type=__ret__.get('nextHopType'),
+        provisioning_state=__ret__.get('provisioningState'))

@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class Application(pulumi.CustomResource):
+    application_definition_id: pulumi.Output[str]
+    """
+    The fully qualified path of managed application definition Id.
+    """
     identity: pulumi.Output[dict]
     """
     The identity of the resource.
@@ -29,9 +33,21 @@ class Application(pulumi.CustomResource):
     """
     ID of the resource that manages this resource.
     """
+    managed_resource_group_id: pulumi.Output[str]
+    """
+    The managed resource group Id.
+    """
     name: pulumi.Output[str]
     """
     Resource name
+    """
+    outputs: pulumi.Output[dict]
+    """
+    Name and value pairs that define the managed application outputs.
+    """
+    parameters: pulumi.Output[dict]
+    """
+    Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
     """
     plan: pulumi.Output[dict]
     """
@@ -42,15 +58,9 @@ class Application(pulumi.CustomResource):
       * `publisher` (`str`) - The publisher ID.
       * `version` (`str`) - The plan's version.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The managed application properties.
-      * `application_definition_id` (`str`) - The fully qualified path of managed application definition Id.
-      * `managed_resource_group_id` (`str`) - The managed resource group Id.
-      * `outputs` (`dict`) - Name and value pairs that define the managed application outputs.
-      * `parameters` (`dict`) - Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
-      * `provisioning_state` (`str`) - The managed application provisioning state.
-      * `ui_definition_uri` (`str`) - The blob URI where the UI definition file is located.
+    The managed application provisioning state.
     """
     sku: pulumi.Output[dict]
     """
@@ -69,6 +79,10 @@ class Application(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    ui_definition_uri: pulumi.Output[str]
+    """
+    The blob URI where the UI definition file is located.
     """
     def __init__(__self__, resource_name, opts=None, application_definition_id=None, identity=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, name=None, parameters=None, plan=None, resource_group_name=None, sku=None, tags=None, ui_definition_uri=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -149,7 +163,8 @@ class Application(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['ui_definition_uri'] = ui_definition_uri
-            __props__['properties'] = None
+            __props__['outputs'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Application, __self__).__init__(
             'azurerm:solutions/v20170901:Application',

@@ -10,6 +10,33 @@ from ... import _utilities, _tables
 
 
 class AppServicePlan(pulumi.CustomResource):
+    free_offer_expiration_time: pulumi.Output[str]
+    """
+    The time when the server farm free offer expires.
+    """
+    geo_region: pulumi.Output[str]
+    """
+    Geographical location for the App Service plan.
+    """
+    hosting_environment_profile: pulumi.Output[dict]
+    """
+    Specification for the App Service Environment to use for the App Service plan.
+      * `id` (`str`) - Resource ID of the App Service Environment.
+      * `name` (`str`) - Name of the App Service Environment.
+      * `type` (`str`) - Resource type of the App Service Environment.
+    """
+    hyper_v: pulumi.Output[bool]
+    """
+    If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
+    """
+    is_spot: pulumi.Output[bool]
+    """
+    If <code>true</code>, this App Service Plan owns spot instances.
+    """
+    is_xenon: pulumi.Output[bool]
+    """
+    Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
@@ -18,37 +45,38 @@ class AppServicePlan(pulumi.CustomResource):
     """
     Resource Location.
     """
+    maximum_elastic_worker_count: pulumi.Output[float]
+    """
+    Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
+    """
+    maximum_number_of_workers: pulumi.Output[float]
+    """
+    Maximum number of instances that can be assigned to this App Service plan.
+    """
     name: pulumi.Output[str]
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    number_of_sites: pulumi.Output[float]
     """
-    AppServicePlan resource specific properties
-      * `free_offer_expiration_time` (`str`) - The time when the server farm free offer expires.
-      * `geo_region` (`str`) - Geographical location for the App Service plan.
-      * `hosting_environment_profile` (`dict`) - Specification for the App Service Environment to use for the App Service plan.
-        * `id` (`str`) - Resource ID of the App Service Environment.
-        * `name` (`str`) - Name of the App Service Environment.
-        * `type` (`str`) - Resource type of the App Service Environment.
-
-      * `hyper_v` (`bool`) - If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-      * `is_spot` (`bool`) - If <code>true</code>, this App Service Plan owns spot instances.
-      * `is_xenon` (`bool`) - Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
-      * `maximum_elastic_worker_count` (`float`) - Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
-      * `maximum_number_of_workers` (`float`) - Maximum number of instances that can be assigned to this App Service plan.
-      * `number_of_sites` (`float`) - Number of apps assigned to this App Service plan.
-      * `per_site_scaling` (`bool`) - If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
-        If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
-      * `provisioning_state` (`str`) - Provisioning state of the App Service Environment.
-      * `reserved` (`bool`) - If Linux app service plan <code>true</code>, <code>false</code> otherwise.
-      * `resource_group` (`str`) - Resource group of the App Service plan.
-      * `spot_expiration_time` (`str`) - The time when the server farm expires. Valid only if it is a spot server farm.
-      * `status` (`str`) - App Service plan status.
-      * `subscription` (`str`) - App Service plan subscription.
-      * `target_worker_count` (`float`) - Scaling worker count.
-      * `target_worker_size_id` (`float`) - Scaling worker size ID.
-      * `worker_tier_name` (`str`) - Target worker tier assigned to the App Service plan.
+    Number of apps assigned to this App Service plan.
+    """
+    per_site_scaling: pulumi.Output[bool]
+    """
+    If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
+    If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the App Service Environment.
+    """
+    reserved: pulumi.Output[bool]
+    """
+    If Linux app service plan <code>true</code>, <code>false</code> otherwise.
+    """
+    resource_group: pulumi.Output[str]
+    """
+    Resource group of the App Service plan.
     """
     sku: pulumi.Output[dict]
     """
@@ -71,13 +99,37 @@ class AppServicePlan(pulumi.CustomResource):
 
       * `tier` (`str`) - Service tier of the resource SKU.
     """
+    spot_expiration_time: pulumi.Output[str]
+    """
+    The time when the server farm expires. Valid only if it is a spot server farm.
+    """
+    status: pulumi.Output[str]
+    """
+    App Service plan status.
+    """
+    subscription: pulumi.Output[str]
+    """
+    App Service plan subscription.
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags.
     """
+    target_worker_count: pulumi.Output[float]
+    """
+    Scaling worker count.
+    """
+    target_worker_size_id: pulumi.Output[float]
+    """
+    Scaling worker size ID.
+    """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    worker_tier_name: pulumi.Output[str]
+    """
+    Target worker tier assigned to the App Service plan.
     """
     def __init__(__self__, resource_name, opts=None, free_offer_expiration_time=None, hosting_environment_profile=None, hyper_v=None, is_spot=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, name=None, per_site_scaling=None, reserved=None, resource_group_name=None, sku=None, spot_expiration_time=None, tags=None, target_worker_count=None, target_worker_size_id=None, worker_tier_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -170,7 +222,13 @@ class AppServicePlan(pulumi.CustomResource):
             __props__['target_worker_count'] = target_worker_count
             __props__['target_worker_size_id'] = target_worker_size_id
             __props__['worker_tier_name'] = worker_tier_name
-            __props__['properties'] = None
+            __props__['geo_region'] = None
+            __props__['maximum_number_of_workers'] = None
+            __props__['number_of_sites'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_group'] = None
+            __props__['status'] = None
+            __props__['subscription'] = None
             __props__['type'] = None
         super(AppServicePlan, __self__).__init__(
             'azurerm:web/v20190801:AppServicePlan',

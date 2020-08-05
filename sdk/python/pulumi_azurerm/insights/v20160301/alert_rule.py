@@ -10,6 +10,24 @@ from ... import _utilities, _tables
 
 
 class AlertRule(pulumi.CustomResource):
+    condition: pulumi.Output[dict]
+    """
+    the condition that results in the alert rule being activated.
+      * `data_source` (`dict`) - the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
+        * `resource_uri` (`str`) - the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
+    """
+    description: pulumi.Output[str]
+    """
+    the description of the alert rule that will be included in the alert email.
+    """
+    is_enabled: pulumi.Output[bool]
+    """
+    the flag that indicates whether the alert rule is enabled.
+    """
+    last_updated_time: pulumi.Output[str]
+    """
+    Last time the rule was updated in ISO8601 format.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -17,18 +35,6 @@ class AlertRule(pulumi.CustomResource):
     name: pulumi.Output[str]
     """
     Azure resource name
-    """
-    properties: pulumi.Output[dict]
-    """
-    The alert rule properties of the resource.
-      * `condition` (`dict`) - the condition that results in the alert rule being activated.
-        * `data_source` (`dict`) - the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.
-          * `resource_uri` (`str`) - the resource identifier of the resource the rule monitors. **NOTE**: this property cannot be updated for an existing rule.
-
-      * `description` (`str`) - the description of the alert rule that will be included in the alert email.
-      * `is_enabled` (`bool`) - the flag that indicates whether the alert rule is enabled.
-      * `last_updated_time` (`str`) - Last time the rule was updated in ISO8601 format.
-      * `name` (`str`) - the name of the alert rule.
     """
     tags: pulumi.Output[dict]
     """
@@ -91,7 +97,7 @@ class AlertRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['last_updated_time'] = None
             __props__['type'] = None
         super(AlertRule, __self__).__init__(
             'azurerm:insights/v20160301:AlertRule',

@@ -13,18 +13,18 @@ class GetVirtualNetworkRuleResult:
     """
     Data Lake Store virtual network rule information.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, name=None, subnet_id=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if subnet_id and not isinstance(subnet_id, str):
+            raise TypeError("Expected argument 'subnet_id' to be a str")
+        __self__.subnet_id = subnet_id
         """
-        The virtual network rule properties.
+        The resource identifier for the subnet.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -41,7 +41,7 @@ class AwaitableGetVirtualNetworkRuleResult(GetVirtualNetworkRuleResult):
             yield self
         return GetVirtualNetworkRuleResult(
             name=self.name,
-            properties=self.properties,
+            subnet_id=self.subnet_id,
             type=self.type)
 
 
@@ -65,5 +65,5 @@ def get_virtual_network_rule(account_name=None, name=None, resource_group_name=N
 
     return AwaitableGetVirtualNetworkRuleResult(
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        subnet_id=__ret__.get('subnetId'),
         type=__ret__.get('type'))

@@ -10,46 +10,54 @@ from ... import _utilities, _tables
 
 
 class CustomImage(pulumi.CustomResource):
+    author: pulumi.Output[str]
+    """
+    The author of the custom image.
+    """
+    creation_date: pulumi.Output[str]
+    """
+    The creation date of the custom image.
+    """
+    custom_image_plan: pulumi.Output[dict]
+    """
+    Storage information about the plan related to this custom image
+      * `id` (`str`) - The id of the plan, equivalent to name of the plan
+      * `offer` (`str`) - The offer for the plan from the marketplace image the custom image is derived from
+      * `publisher` (`str`) - The publisher for the plan from the marketplace image the custom image is derived from
+    """
+    data_disk_storage_info: pulumi.Output[list]
+    """
+    Storage information about the data disks present in the custom image
+      * `lun` (`str`) - Disk Lun
+      * `storage_type` (`str`) - Disk Storage Type
+    """
+    description: pulumi.Output[str]
+    """
+    The description of the custom image.
+    """
+    is_plan_authorized: pulumi.Output[bool]
+    """
+    Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
+    """
+    managed_image_id: pulumi.Output[str]
+    """
+    The Managed Image Id backing the custom image.
+    """
+    managed_snapshot_id: pulumi.Output[str]
+    """
+    The Managed Snapshot Id backing the custom image.
     """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the resource.
-      * `author` (`str`) - The author of the custom image.
-      * `creation_date` (`str`) - The creation date of the custom image.
-      * `custom_image_plan` (`dict`) - Storage information about the plan related to this custom image
-        * `id` (`str`) - The id of the plan, equivalent to name of the plan
-        * `offer` (`str`) - The offer for the plan from the marketplace image the custom image is derived from
-        * `publisher` (`str`) - The publisher for the plan from the marketplace image the custom image is derived from
-
-      * `data_disk_storage_info` (`list`) - Storage information about the data disks present in the custom image
-        * `lun` (`str`) - Disk Lun
-        * `storage_type` (`str`) - Disk Storage Type
-
-      * `description` (`str`) - The description of the custom image.
-      * `is_plan_authorized` (`bool`) - Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment
-      * `managed_image_id` (`str`) - The Managed Image Id backing the custom image.
-      * `managed_snapshot_id` (`str`) - The Managed Snapshot Id backing the custom image.
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
-      * `vhd` (`dict`) - The VHD from which the image is to be created.
-        * `image_name` (`str`) - The image name.
-        * `os_type` (`str`) - The OS type of the custom image (i.e. Windows, Linux)
-        * `sys_prep` (`bool`) - Indicates whether sysprep has been run on the VHD.
-
-      * `vm` (`dict`) - The virtual machine from which the image is to be created.
-        * `linux_os_info` (`dict`) - The Linux OS information of the VM.
-          * `linux_os_state` (`str`) - The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
-
-        * `source_vm_id` (`str`) - The source vm identifier.
-        * `windows_os_info` (`dict`) - The Windows OS information of the VM.
-          * `windows_os_state` (`str`) - The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
+    The provisioning status of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -58,6 +66,27 @@ class CustomImage(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
+    """
+    vhd: pulumi.Output[dict]
+    """
+    The VHD from which the image is to be created.
+      * `image_name` (`str`) - The image name.
+      * `os_type` (`str`) - The OS type of the custom image (i.e. Windows, Linux)
+      * `sys_prep` (`bool`) - Indicates whether sysprep has been run on the VHD.
+    """
+    vm: pulumi.Output[dict]
+    """
+    The virtual machine from which the image is to be created.
+      * `linux_os_info` (`dict`) - The Linux OS information of the VM.
+        * `linux_os_state` (`str`) - The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
+
+      * `source_vm_id` (`str`) - The source vm identifier.
+      * `windows_os_info` (`dict`) - The Windows OS information of the VM.
+        * `windows_os_state` (`str`) - The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
     """
     def __init__(__self__, resource_name, opts=None, author=None, custom_image_plan=None, data_disk_storage_info=None, description=None, is_plan_authorized=None, lab_name=None, location=None, managed_image_id=None, managed_snapshot_id=None, name=None, resource_group_name=None, tags=None, vhd=None, vm=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -143,8 +172,10 @@ class CustomImage(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['vhd'] = vhd
             __props__['vm'] = vm
-            __props__['properties'] = None
+            __props__['creation_date'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['unique_identifier'] = None
         super(CustomImage, __self__).__init__(
             'azurerm:devtestlab/v20180915:CustomImage',
             resource_name,

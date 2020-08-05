@@ -10,6 +10,23 @@ from ... import _utilities, _tables
 
 
 class Cluster(pulumi.CustomResource):
+    allocation_state: pulumi.Output[str]
+    """
+    Possible values are: steady and resizing. steady state indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing state indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
+    """
+    allocation_state_transition_time: pulumi.Output[str]
+    creation_time: pulumi.Output[str]
+    current_node_count: pulumi.Output[float]
+    errors: pulumi.Output[list]
+    """
+    This element contains all the errors encountered by various compute nodes during node setup.
+      * `code` (`str`) - An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+      * `details` (`list`) - A list of additional details about the error.
+        * `name` (`str`)
+        * `value` (`str`)
+
+      * `message` (`str`) - A message describing the error, intended to be suitable for display in a user interface.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource
@@ -18,110 +35,92 @@ class Cluster(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    node_setup: pulumi.Output[dict]
     """
-    The properties associated with the Cluster.
-      * `allocation_state` (`str`) - Possible values are: steady and resizing. steady state indicates that the cluster is not resizing. There are no changes to the number of compute nodes in the cluster in progress. A cluster enters this state when it is created and when no operations are being performed on the cluster to change the number of compute nodes. resizing state indicates that the cluster is resizing; that is, compute nodes are being added to or removed from the cluster.
-      * `allocation_state_transition_time` (`str`)
-      * `creation_time` (`str`)
-      * `current_node_count` (`float`)
-      * `errors` (`list`) - This element contains all the errors encountered by various compute nodes during node setup.
-        * `code` (`str`) - An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-        * `details` (`list`) - A list of additional details about the error.
+    Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
+      * `mount_volumes` (`dict`) - Specified mount volumes will be available to all jobs executing on the cluster. The volumes will be mounted at location specified by $AZ_BATCHAI_MOUNT_ROOT environment variable.
+        * `azure_blob_file_systems` (`list`) - References to Azure Blob FUSE that are to be mounted to the cluster nodes.
+          * `account_name` (`str`)
+          * `container_name` (`str`)
+          * `credentials` (`dict`) - Credentials to access Azure File Share.
+            * `account_key` (`str`) - One of accountKey or accountKeySecretReference must be specified.
+            * `account_key_secret_reference` (`dict`) - Users can store their secrets in Azure KeyVault and pass it to the Batch AI Service to integrate with KeyVault. One of accountKey or accountKeySecretReference must be specified.
+              * `secret_url` (`str`)
+              * `source_vault` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+                * `id` (`str`) - The ID of the resource
+
+          * `mount_options` (`str`)
+          * `relative_mount_path` (`str`) - Note that all cluster level blob file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level blob file systems will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+
+        * `azure_file_shares` (`list`) - References to Azure File Shares that are to be mounted to the cluster nodes.
+          * `account_name` (`str`)
+          * `azure_file_url` (`str`)
+          * `credentials` (`dict`) - Credentials to access Azure File Share.
+          * `directory_mode` (`str`) - Default value is 0777. Valid only if OS is linux.
+          * `file_mode` (`str`) - Default value is 0777. Valid only if OS is linux.
+          * `relative_mount_path` (`str`) - Note that all cluster level file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file shares will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+
+        * `file_servers` (`list`)
+          * `file_server` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+          * `mount_options` (`str`)
+          * `relative_mount_path` (`str`) - Note that all cluster level file servers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and job level file servers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+          * `source_directory` (`str`) - If this property is not specified, the entire File Server will be mounted.
+
+        * `unmanaged_file_systems` (`list`)
+          * `mount_command` (`str`)
+          * `relative_mount_path` (`str`) - Note that all cluster level unmanaged file system will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and job level unmanaged file system will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+
+      * `performance_counters_settings` (`dict`) - Performance counters reporting settings.
+        * `app_insights_reference` (`dict`) - If provided, Batch AI will upload node performance counters to the corresponding Azure Application Insights account.
+          * `component` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+          * `instrumentation_key` (`str`)
+          * `instrumentation_key_secret_reference` (`dict`) - Specifies KeyVault Store and Secret which contains Azure Application Insights instrumentation key. One of instrumentationKey or instrumentationKeySecretReference must be specified.
+
+      * `setup_task` (`dict`) - Specifies a setup task which can be used to customize the compute nodes of the cluster.
+        * `command_line` (`str`)
+        * `environment_variables` (`list`)
           * `name` (`str`)
           * `value` (`str`)
 
-        * `message` (`str`) - A message describing the error, intended to be suitable for display in a user interface.
+        * `run_elevated` (`bool`) - Note. Non-elevated tasks are run under an account added into sudoer list and can perform sudo when required.
+        * `secrets` (`list`) - Server will never report values of these variables back.
+          * `name` (`str`)
+          * `value` (`str`)
+          * `value_secret_reference` (`dict`) - Specifies KeyVault Store and Secret which contains the value for the environment variable. One of value or valueSecretReference must be provided.
 
-      * `node_setup` (`dict`) - Use this to prepare the VM. NOTE: The volumes specified in mountVolumes are mounted first and then the setupTask is run. Therefore the setup task can use local mountPaths in its execution.
-        * `mount_volumes` (`dict`) - Specified mount volumes will be available to all jobs executing on the cluster. The volumes will be mounted at location specified by $AZ_BATCHAI_MOUNT_ROOT environment variable.
-          * `azure_blob_file_systems` (`list`) - References to Azure Blob FUSE that are to be mounted to the cluster nodes.
-            * `account_name` (`str`)
-            * `container_name` (`str`)
-            * `credentials` (`dict`) - Credentials to access Azure File Share.
-              * `account_key` (`str`) - One of accountKey or accountKeySecretReference must be specified.
-              * `account_key_secret_reference` (`dict`) - Users can store their secrets in Azure KeyVault and pass it to the Batch AI Service to integrate with KeyVault. One of accountKey or accountKeySecretReference must be specified.
-                * `secret_url` (`str`)
-                * `source_vault` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-                  * `id` (`str`) - The ID of the resource
+        * `std_out_err_path_prefix` (`str`) - The prefix of a path where the Batch AI service will upload the stdout and stderr of the setup task.
+        * `std_out_err_path_suffix` (`str`) - Batch AI creates the setup task output directories under an unique path to avoid conflicts between different clusters. You can concatenate stdOutErrPathPrefix and stdOutErrPathSuffix to get the full path to the output directory.
+    """
+    node_state_counts: pulumi.Output[dict]
+    """
+    Counts of various compute node states on the cluster.
+      * `idle_node_count` (`float`)
+      * `leaving_node_count` (`float`)
+      * `preparing_node_count` (`float`)
+      * `running_node_count` (`float`)
+      * `unusable_node_count` (`float`)
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
+    """
+    provisioning_state_transition_time: pulumi.Output[str]
+    scale_settings: pulumi.Output[dict]
+    """
+    At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
+      * `auto_scale` (`dict`) - The system automatically scales the cluster up and down (within minimumNodeCount and maximumNodeCount) based on the pending and running jobs on the cluster.
+        * `initial_node_count` (`float`)
+        * `maximum_node_count` (`float`)
+        * `minimum_node_count` (`float`)
 
-            * `mount_options` (`str`)
-            * `relative_mount_path` (`str`) - Note that all cluster level blob file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level blob file systems will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-
-          * `azure_file_shares` (`list`) - References to Azure File Shares that are to be mounted to the cluster nodes.
-            * `account_name` (`str`)
-            * `azure_file_url` (`str`)
-            * `credentials` (`dict`) - Credentials to access Azure File Share.
-            * `directory_mode` (`str`) - Default value is 0777. Valid only if OS is linux.
-            * `file_mode` (`str`) - Default value is 0777. Valid only if OS is linux.
-            * `relative_mount_path` (`str`) - Note that all cluster level file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file shares will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-
-          * `file_servers` (`list`)
-            * `file_server` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-            * `mount_options` (`str`)
-            * `relative_mount_path` (`str`) - Note that all cluster level file servers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and job level file servers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-            * `source_directory` (`str`) - If this property is not specified, the entire File Server will be mounted.
-
-          * `unmanaged_file_systems` (`list`)
-            * `mount_command` (`str`)
-            * `relative_mount_path` (`str`) - Note that all cluster level unmanaged file system will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and job level unmanaged file system will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-
-        * `performance_counters_settings` (`dict`) - Performance counters reporting settings.
-          * `app_insights_reference` (`dict`) - If provided, Batch AI will upload node performance counters to the corresponding Azure Application Insights account.
-            * `component` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-            * `instrumentation_key` (`str`)
-            * `instrumentation_key_secret_reference` (`dict`) - Specifies KeyVault Store and Secret which contains Azure Application Insights instrumentation key. One of instrumentationKey or instrumentationKeySecretReference must be specified.
-
-        * `setup_task` (`dict`) - Specifies a setup task which can be used to customize the compute nodes of the cluster.
-          * `command_line` (`str`)
-          * `environment_variables` (`list`)
-            * `name` (`str`)
-            * `value` (`str`)
-
-          * `run_elevated` (`bool`) - Note. Non-elevated tasks are run under an account added into sudoer list and can perform sudo when required.
-          * `secrets` (`list`) - Server will never report values of these variables back.
-            * `name` (`str`)
-            * `value` (`str`)
-            * `value_secret_reference` (`dict`) - Specifies KeyVault Store and Secret which contains the value for the environment variable. One of value or valueSecretReference must be provided.
-
-          * `std_out_err_path_prefix` (`str`) - The prefix of a path where the Batch AI service will upload the stdout and stderr of the setup task.
-          * `std_out_err_path_suffix` (`str`) - Batch AI creates the setup task output directories under an unique path to avoid conflicts between different clusters. You can concatenate stdOutErrPathPrefix and stdOutErrPathSuffix to get the full path to the output directory.
-
-      * `node_state_counts` (`dict`) - Counts of various compute node states on the cluster.
-        * `idle_node_count` (`float`)
-        * `leaving_node_count` (`float`)
-        * `preparing_node_count` (`float`)
-        * `running_node_count` (`float`)
-        * `unusable_node_count` (`float`)
-
-      * `provisioning_state` (`str`) - Possible value are: creating - Specifies that the cluster is being created. succeeded - Specifies that the cluster has been created successfully. failed - Specifies that the cluster creation has failed. deleting - Specifies that the cluster is being deleted.
-      * `provisioning_state_transition_time` (`str`)
-      * `scale_settings` (`dict`) - At least one of manual or autoScale settings must be specified. Only one of manual or autoScale settings can be specified. If autoScale settings are specified, the system automatically scales the cluster up and down (within the supplied limits) based on the pending jobs on the cluster.
-        * `auto_scale` (`dict`) - The system automatically scales the cluster up and down (within minimumNodeCount and maximumNodeCount) based on the pending and running jobs on the cluster.
-          * `initial_node_count` (`float`)
-          * `maximum_node_count` (`float`)
-          * `minimum_node_count` (`float`)
-
-        * `manual` (`dict`) - Manual scale settings for the cluster.
-          * `node_deallocation_option` (`str`) - The default value is requeue.
-          * `target_node_count` (`float`) - Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
-
-      * `subnet` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-      * `user_account_settings` (`dict`) - Settings for user account that gets created on each on the nodes of a cluster.
-        * `admin_user_name` (`str`)
-        * `admin_user_password` (`str`)
-        * `admin_user_ssh_public_key` (`str`)
-
-      * `virtual_machine_configuration` (`dict`) - Settings for OS image.
-        * `image_reference` (`dict`) - The image reference.
-          * `offer` (`str`)
-          * `publisher` (`str`)
-          * `sku` (`str`)
-          * `version` (`str`)
-          * `virtual_machine_image_id` (`str`) - The virtual machine image must be in the same region and subscription as the cluster. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration. Note, you need to provide publisher, offer and sku of the base OS image of which the custom image has been derived from.
-
-      * `vm_priority` (`str`) - The default value is dedicated. The node can get preempted while the task is running if lowpriority is chosen. This is best suited if the workload is checkpointing and can be restarted.
-      * `vm_size` (`str`) - All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
+      * `manual` (`dict`) - Manual scale settings for the cluster.
+        * `node_deallocation_option` (`str`) - The default value is requeue.
+        * `target_node_count` (`float`) - Default is 0. If autoScaleSettings are not specified, then the Cluster starts with this target.
+    """
+    subnet: pulumi.Output[dict]
+    """
+    Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+      * `id` (`str`) - The ID of the resource
     """
     tags: pulumi.Output[dict]
     """
@@ -130,6 +129,31 @@ class Cluster(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource
+    """
+    user_account_settings: pulumi.Output[dict]
+    """
+    Settings for user account that gets created on each on the nodes of a cluster.
+      * `admin_user_name` (`str`)
+      * `admin_user_password` (`str`)
+      * `admin_user_ssh_public_key` (`str`)
+    """
+    virtual_machine_configuration: pulumi.Output[dict]
+    """
+    Settings for OS image.
+      * `image_reference` (`dict`) - The image reference.
+        * `offer` (`str`)
+        * `publisher` (`str`)
+        * `sku` (`str`)
+        * `version` (`str`)
+        * `virtual_machine_image_id` (`str`) - The virtual machine image must be in the same region and subscription as the cluster. For information about the firewall settings for the Batch node agent to communicate with the Batch service see https://docs.microsoft.com/en-us/azure/batch/batch-api-basics#virtual-network-vnet-and-firewall-configuration. Note, you need to provide publisher, offer and sku of the base OS image of which the custom image has been derived from.
+    """
+    vm_priority: pulumi.Output[str]
+    """
+    The default value is dedicated. The node can get preempted while the task is running if lowpriority is chosen. This is best suited if the workload is checkpointing and can be restarted.
+    """
+    vm_size: pulumi.Output[str]
+    """
+    All virtual machines in a cluster are the same size. For information about available VM sizes for clusters using images from the Virtual Machines Marketplace (see Sizes for Virtual Machines (Linux) or Sizes for Virtual Machines (Windows). Batch AI service supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, node_setup=None, resource_group_name=None, scale_settings=None, subnet=None, tags=None, user_account_settings=None, virtual_machine_configuration=None, vm_priority=None, vm_size=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -267,7 +291,14 @@ class Cluster(pulumi.CustomResource):
             if vm_size is None:
                 raise TypeError("Missing required property 'vm_size'")
             __props__['vm_size'] = vm_size
-            __props__['properties'] = None
+            __props__['allocation_state'] = None
+            __props__['allocation_state_transition_time'] = None
+            __props__['creation_time'] = None
+            __props__['current_node_count'] = None
+            __props__['errors'] = None
+            __props__['node_state_counts'] = None
+            __props__['provisioning_state'] = None
+            __props__['provisioning_state_transition_time'] = None
             __props__['type'] = None
         super(Cluster, __self__).__init__(
             'azurerm:batchai/v20180301:Cluster',

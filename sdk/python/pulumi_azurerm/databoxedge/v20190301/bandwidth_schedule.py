@@ -10,17 +10,25 @@ from ... import _utilities, _tables
 
 
 class BandwidthSchedule(pulumi.CustomResource):
+    days: pulumi.Output[list]
+    """
+    The days of the week when this schedule is applicable.
+    """
     name: pulumi.Output[str]
     """
     The object name.
     """
-    properties: pulumi.Output[dict]
+    rate_in_mbps: pulumi.Output[float]
     """
-    The properties of the bandwidth schedule.
-      * `days` (`list`) - The days of the week when this schedule is applicable.
-      * `rate_in_mbps` (`float`) - The bandwidth rate in Mbps.
-      * `start` (`str`) - The start time of the schedule in UTC.
-      * `stop` (`str`) - The stop time of the schedule in UTC.
+    The bandwidth rate in Mbps.
+    """
+    start: pulumi.Output[str]
+    """
+    The start time of the schedule in UTC.
+    """
+    stop: pulumi.Output[str]
+    """
+    The stop time of the schedule in UTC.
     """
     type: pulumi.Output[str]
     """
@@ -78,7 +86,6 @@ class BandwidthSchedule(pulumi.CustomResource):
             if stop is None:
                 raise TypeError("Missing required property 'stop'")
             __props__['stop'] = stop
-            __props__['properties'] = None
             __props__['type'] = None
         super(BandwidthSchedule, __self__).__init__(
             'azurerm:databoxedge/v20190301:BandwidthSchedule',

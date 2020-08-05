@@ -13,12 +13,24 @@ class GetCertificateResult:
     """
     Contains information about a certificate.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, delete_certificate_error=None, etag=None, format=None, name=None, previous_provisioning_state=None, previous_provisioning_state_transition_time=None, provisioning_state=None, provisioning_state_transition_time=None, public_data=None, thumbprint=None, thumbprint_algorithm=None, type=None):
+        if delete_certificate_error and not isinstance(delete_certificate_error, dict):
+            raise TypeError("Expected argument 'delete_certificate_error' to be a dict")
+        __self__.delete_certificate_error = delete_certificate_error
+        """
+        This is only returned when the certificate provisioningState is 'Failed'.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         The ETag of the resource, used for concurrency statements.
+        """
+        if format and not isinstance(format, str):
+            raise TypeError("Expected argument 'format' to be a str")
+        __self__.format = format
+        """
+        The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +38,38 @@ class GetCertificateResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if previous_provisioning_state and not isinstance(previous_provisioning_state, str):
+            raise TypeError("Expected argument 'previous_provisioning_state' to be a str")
+        __self__.previous_provisioning_state = previous_provisioning_state
         """
-        The properties associated with the certificate.
+        The previous provisioned state of the resource
+        """
+        if previous_provisioning_state_transition_time and not isinstance(previous_provisioning_state_transition_time, str):
+            raise TypeError("Expected argument 'previous_provisioning_state_transition_time' to be a str")
+        __self__.previous_provisioning_state_transition_time = previous_provisioning_state_transition_time
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        if provisioning_state_transition_time and not isinstance(provisioning_state_transition_time, str):
+            raise TypeError("Expected argument 'provisioning_state_transition_time' to be a str")
+        __self__.provisioning_state_transition_time = provisioning_state_transition_time
+        if public_data and not isinstance(public_data, str):
+            raise TypeError("Expected argument 'public_data' to be a str")
+        __self__.public_data = public_data
+        """
+        The public key of the certificate.
+        """
+        if thumbprint and not isinstance(thumbprint, str):
+            raise TypeError("Expected argument 'thumbprint' to be a str")
+        __self__.thumbprint = thumbprint
+        """
+        This must match the thumbprint from the name.
+        """
+        if thumbprint_algorithm and not isinstance(thumbprint_algorithm, str):
+            raise TypeError("Expected argument 'thumbprint_algorithm' to be a str")
+        __self__.thumbprint_algorithm = thumbprint_algorithm
+        """
+        This must match the first portion of the certificate name. Currently required to be 'SHA1'.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +85,17 @@ class AwaitableGetCertificateResult(GetCertificateResult):
         if False:
             yield self
         return GetCertificateResult(
+            delete_certificate_error=self.delete_certificate_error,
             etag=self.etag,
+            format=self.format,
             name=self.name,
-            properties=self.properties,
+            previous_provisioning_state=self.previous_provisioning_state,
+            previous_provisioning_state_transition_time=self.previous_provisioning_state_transition_time,
+            provisioning_state=self.provisioning_state,
+            provisioning_state_transition_time=self.provisioning_state_transition_time,
+            public_data=self.public_data,
+            thumbprint=self.thumbprint,
+            thumbprint_algorithm=self.thumbprint_algorithm,
             type=self.type)
 
 
@@ -71,7 +118,15 @@ def get_certificate(account_name=None, name=None, resource_group_name=None, opts
     __ret__ = pulumi.runtime.invoke('azurerm:batch/v20200301:getCertificate', __args__, opts=opts).value
 
     return AwaitableGetCertificateResult(
+        delete_certificate_error=__ret__.get('deleteCertificateError'),
         etag=__ret__.get('etag'),
+        format=__ret__.get('format'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        previous_provisioning_state=__ret__.get('previousProvisioningState'),
+        previous_provisioning_state_transition_time=__ret__.get('previousProvisioningStateTransitionTime'),
+        provisioning_state=__ret__.get('provisioningState'),
+        provisioning_state_transition_time=__ret__.get('provisioningStateTransitionTime'),
+        public_data=__ret__.get('publicData'),
+        thumbprint=__ret__.get('thumbprint'),
+        thumbprint_algorithm=__ret__.get('thumbprintAlgorithm'),
         type=__ret__.get('type'))

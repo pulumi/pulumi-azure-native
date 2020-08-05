@@ -10,31 +10,69 @@ from ... import _utilities, _tables
 
 
 class ShareSubscription(pulumi.CustomResource):
+    created_at: pulumi.Output[str]
+    """
+    Time at which the share subscription was created.
+    """
+    invitation_id: pulumi.Output[str]
+    """
+    The invitation id.
+    """
     name: pulumi.Output[str]
     """
     Name of the azure resource
     """
-    properties: pulumi.Output[dict]
+    provider_email: pulumi.Output[str]
     """
-    Properties on the share subscription
-      * `created_at` (`str`) - Time at which the share subscription was created.
-      * `invitation_id` (`str`) - The invitation id.
-      * `provider_email` (`str`) - Email of the provider who created the resource
-      * `provider_name` (`str`) - Name of the provider who created the resource
-      * `provider_tenant_name` (`str`) - Tenant name of the provider who created the resource
-      * `provisioning_state` (`str`) - Provisioning state of the share subscription
-      * `share_description` (`str`) - Description of share
-      * `share_kind` (`str`) - Kind of share
-      * `share_name` (`str`) - Name of the share
-      * `share_subscription_status` (`str`) - Gets the current status of share subscription.
-      * `share_terms` (`str`) - Terms of a share
-      * `source_share_location` (`str`) - Source share location.
-      * `user_email` (`str`) - Email of the user who created the resource
-      * `user_name` (`str`) - Name of the user who created the resource
+    Email of the provider who created the resource
+    """
+    provider_name: pulumi.Output[str]
+    """
+    Name of the provider who created the resource
+    """
+    provider_tenant_name: pulumi.Output[str]
+    """
+    Tenant name of the provider who created the resource
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the share subscription
+    """
+    share_description: pulumi.Output[str]
+    """
+    Description of share
+    """
+    share_kind: pulumi.Output[str]
+    """
+    Kind of share
+    """
+    share_name: pulumi.Output[str]
+    """
+    Name of the share
+    """
+    share_subscription_status: pulumi.Output[str]
+    """
+    Gets the current status of share subscription.
+    """
+    share_terms: pulumi.Output[str]
+    """
+    Terms of a share
+    """
+    source_share_location: pulumi.Output[str]
+    """
+    Source share location.
     """
     type: pulumi.Output[str]
     """
     Type of the azure resource
+    """
+    user_email: pulumi.Output[str]
+    """
+    Email of the user who created the resource
+    """
+    user_name: pulumi.Output[str]
+    """
+    Name of the user who created the resource
     """
     def __init__(__self__, resource_name, opts=None, account_name=None, invitation_id=None, name=None, resource_group_name=None, source_share_location=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -80,8 +118,19 @@ class ShareSubscription(pulumi.CustomResource):
             if source_share_location is None:
                 raise TypeError("Missing required property 'source_share_location'")
             __props__['source_share_location'] = source_share_location
-            __props__['properties'] = None
+            __props__['created_at'] = None
+            __props__['provider_email'] = None
+            __props__['provider_name'] = None
+            __props__['provider_tenant_name'] = None
+            __props__['provisioning_state'] = None
+            __props__['share_description'] = None
+            __props__['share_kind'] = None
+            __props__['share_name'] = None
+            __props__['share_subscription_status'] = None
+            __props__['share_terms'] = None
             __props__['type'] = None
+            __props__['user_email'] = None
+            __props__['user_name'] = None
         super(ShareSubscription, __self__).__init__(
             'azurerm:datashare/v20191101:ShareSubscription',
             resource_name,

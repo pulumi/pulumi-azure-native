@@ -13,12 +13,72 @@ class GetDeviceResult:
     """
     The Data Box Edge/Gateway device.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, configured_role_types=None, culture=None, data_box_edge_device_status=None, description=None, device_hcs_version=None, device_local_capacity=None, device_model=None, device_software_version=None, device_type=None, etag=None, friendly_name=None, location=None, model_description=None, name=None, node_count=None, serial_number=None, sku=None, tags=None, time_zone=None, type=None):
+        if configured_role_types and not isinstance(configured_role_types, list):
+            raise TypeError("Expected argument 'configured_role_types' to be a list")
+        __self__.configured_role_types = configured_role_types
+        """
+        Type of compute roles configured.
+        """
+        if culture and not isinstance(culture, str):
+            raise TypeError("Expected argument 'culture' to be a str")
+        __self__.culture = culture
+        """
+        The Data Box Edge/Gateway device culture.
+        """
+        if data_box_edge_device_status and not isinstance(data_box_edge_device_status, str):
+            raise TypeError("Expected argument 'data_box_edge_device_status' to be a str")
+        __self__.data_box_edge_device_status = data_box_edge_device_status
+        """
+        The status of the Data Box Edge/Gateway device.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The Description of the Data Box Edge/Gateway device.
+        """
+        if device_hcs_version and not isinstance(device_hcs_version, str):
+            raise TypeError("Expected argument 'device_hcs_version' to be a str")
+        __self__.device_hcs_version = device_hcs_version
+        """
+        The device software version number of the device (eg: 1.2.18105.6).
+        """
+        if device_local_capacity and not isinstance(device_local_capacity, float):
+            raise TypeError("Expected argument 'device_local_capacity' to be a float")
+        __self__.device_local_capacity = device_local_capacity
+        """
+        The Data Box Edge/Gateway device local capacity in MB.
+        """
+        if device_model and not isinstance(device_model, str):
+            raise TypeError("Expected argument 'device_model' to be a str")
+        __self__.device_model = device_model
+        """
+        The Data Box Edge/Gateway device model.
+        """
+        if device_software_version and not isinstance(device_software_version, str):
+            raise TypeError("Expected argument 'device_software_version' to be a str")
+        __self__.device_software_version = device_software_version
+        """
+        The Data Box Edge/Gateway device software version.
+        """
+        if device_type and not isinstance(device_type, str):
+            raise TypeError("Expected argument 'device_type' to be a str")
+        __self__.device_type = device_type
+        """
+        The type of the Data Box Edge/Gateway device.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         The etag for the devices.
+        """
+        if friendly_name and not isinstance(friendly_name, str):
+            raise TypeError("Expected argument 'friendly_name' to be a str")
+        __self__.friendly_name = friendly_name
+        """
+        The Data Box Edge/Gateway device name.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -26,17 +86,29 @@ class GetDeviceResult:
         """
         The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
         """
+        if model_description and not isinstance(model_description, str):
+            raise TypeError("Expected argument 'model_description' to be a str")
+        __self__.model_description = model_description
+        """
+        The description of the Data Box Edge/Gateway device model.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The object name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if node_count and not isinstance(node_count, float):
+            raise TypeError("Expected argument 'node_count' to be a float")
+        __self__.node_count = node_count
         """
-        The properties of the Data Box Edge/Gateway device.
+        The number of nodes in the cluster.
+        """
+        if serial_number and not isinstance(serial_number, str):
+            raise TypeError("Expected argument 'serial_number' to be a str")
+        __self__.serial_number = serial_number
+        """
+        The Serial Number of Data Box Edge/Gateway device.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -49,6 +121,12 @@ class GetDeviceResult:
         __self__.tags = tags
         """
         The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
+        """
+        if time_zone and not isinstance(time_zone, str):
+            raise TypeError("Expected argument 'time_zone' to be a str")
+        __self__.time_zone = time_zone
+        """
+        The Data Box Edge/Gateway device timezone.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -64,12 +142,25 @@ class AwaitableGetDeviceResult(GetDeviceResult):
         if False:
             yield self
         return GetDeviceResult(
+            configured_role_types=self.configured_role_types,
+            culture=self.culture,
+            data_box_edge_device_status=self.data_box_edge_device_status,
+            description=self.description,
+            device_hcs_version=self.device_hcs_version,
+            device_local_capacity=self.device_local_capacity,
+            device_model=self.device_model,
+            device_software_version=self.device_software_version,
+            device_type=self.device_type,
             etag=self.etag,
+            friendly_name=self.friendly_name,
             location=self.location,
+            model_description=self.model_description,
             name=self.name,
-            properties=self.properties,
+            node_count=self.node_count,
+            serial_number=self.serial_number,
             sku=self.sku,
             tags=self.tags,
+            time_zone=self.time_zone,
             type=self.type)
 
 
@@ -90,10 +181,23 @@ def get_device(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:databoxedge/v20190701:getDevice', __args__, opts=opts).value
 
     return AwaitableGetDeviceResult(
+        configured_role_types=__ret__.get('configuredRoleTypes'),
+        culture=__ret__.get('culture'),
+        data_box_edge_device_status=__ret__.get('dataBoxEdgeDeviceStatus'),
+        description=__ret__.get('description'),
+        device_hcs_version=__ret__.get('deviceHcsVersion'),
+        device_local_capacity=__ret__.get('deviceLocalCapacity'),
+        device_model=__ret__.get('deviceModel'),
+        device_software_version=__ret__.get('deviceSoftwareVersion'),
+        device_type=__ret__.get('deviceType'),
         etag=__ret__.get('etag'),
+        friendly_name=__ret__.get('friendlyName'),
         location=__ret__.get('location'),
+        model_description=__ret__.get('modelDescription'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        node_count=__ret__.get('nodeCount'),
+        serial_number=__ret__.get('serialNumber'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
+        time_zone=__ret__.get('timeZone'),
         type=__ret__.get('type'))

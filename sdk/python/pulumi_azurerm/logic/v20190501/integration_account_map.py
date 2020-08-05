@@ -10,35 +10,54 @@ from ... import _utilities, _tables
 
 
 class IntegrationAccountMap(pulumi.CustomResource):
+    changed_time: pulumi.Output[str]
+    """
+    The changed time.
+    """
+    content: pulumi.Output[str]
+    """
+    The content.
+    """
+    content_link: pulumi.Output[dict]
+    """
+    The content link.
+      * `content_hash` (`dict`) - The content hash.
+        * `algorithm` (`str`) - The algorithm of the content hash.
+        * `value` (`str`) - The value of the content hash.
+
+      * `content_size` (`float`) - The content size.
+      * `content_version` (`str`) - The content version.
+      * `metadata` (`dict`) - The metadata.
+      * `uri` (`str`) - The content link URI.
+    """
+    content_type: pulumi.Output[str]
+    """
+    The content type.
+    """
+    created_time: pulumi.Output[str]
+    """
+    The created time.
+    """
     location: pulumi.Output[str]
     """
     The resource location.
+    """
+    map_type: pulumi.Output[str]
+    """
+    The map type.
+    """
+    metadata: pulumi.Output[dict]
+    """
+    The metadata.
     """
     name: pulumi.Output[str]
     """
     Gets the resource name.
     """
-    properties: pulumi.Output[dict]
+    parameters_schema: pulumi.Output[dict]
     """
-    The integration account map properties.
-      * `changed_time` (`str`) - The changed time.
-      * `content` (`str`) - The content.
-      * `content_link` (`dict`) - The content link.
-        * `content_hash` (`dict`) - The content hash.
-          * `algorithm` (`str`) - The algorithm of the content hash.
-          * `value` (`str`) - The value of the content hash.
-
-        * `content_size` (`float`) - The content size.
-        * `content_version` (`str`) - The content version.
-        * `metadata` (`dict`) - The metadata.
-        * `uri` (`str`) - The content link URI.
-
-      * `content_type` (`str`) - The content type.
-      * `created_time` (`str`) - The created time.
-      * `map_type` (`str`) - The map type.
-      * `metadata` (`dict`) - The metadata.
-      * `parameters_schema` (`dict`) - The parameters schema of integration account map.
-        * `ref` (`str`) - The reference name.
+    The parameters schema of integration account map.
+      * `ref` (`str`) - The reference name.
     """
     tags: pulumi.Output[dict]
     """
@@ -104,7 +123,9 @@ class IntegrationAccountMap(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['changed_time'] = None
+            __props__['content_link'] = None
+            __props__['created_time'] = None
             __props__['type'] = None
         super(IntegrationAccountMap, __self__).__init__(
             'azurerm:logic/v20190501:IntegrationAccountMap',

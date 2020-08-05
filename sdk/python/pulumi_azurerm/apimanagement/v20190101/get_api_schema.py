@@ -13,18 +13,24 @@ class GetApiSchemaResult:
     """
     Schema Contract details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, content_type=None, document=None, name=None, type=None):
+        if content_type and not isinstance(content_type, str):
+            raise TypeError("Expected argument 'content_type' to be a str")
+        __self__.content_type = content_type
+        """
+        Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`. 
+        """
+        if document and not isinstance(document, dict):
+            raise TypeError("Expected argument 'document' to be a dict")
+        __self__.document = document
+        """
+        Properties of the Schema Document.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Properties of the Schema.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +46,9 @@ class AwaitableGetApiSchemaResult(GetApiSchemaResult):
         if False:
             yield self
         return GetApiSchemaResult(
+            content_type=self.content_type,
+            document=self.document,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -66,6 +73,7 @@ def get_api_schema(api_id=None, name=None, resource_group_name=None, service_nam
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getApiSchema', __args__, opts=opts).value
 
     return AwaitableGetApiSchemaResult(
+        content_type=__ret__.get('contentType'),
+        document=__ret__.get('document'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         type=__ret__.get('type'))

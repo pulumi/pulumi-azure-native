@@ -13,18 +13,42 @@ class GetMigrationConfigResult:
     """
     Single item in List or Get Migration Config operation
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, migration_state=None, name=None, pending_replication_operations_count=None, post_migration_name=None, provisioning_state=None, target_namespace=None, type=None):
+        if migration_state and not isinstance(migration_state, str):
+            raise TypeError("Expected argument 'migration_state' to be a str")
+        __self__.migration_state = migration_state
+        """
+        State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if pending_replication_operations_count and not isinstance(pending_replication_operations_count, float):
+            raise TypeError("Expected argument 'pending_replication_operations_count' to be a float")
+        __self__.pending_replication_operations_count = pending_replication_operations_count
         """
-        Properties required to the Create Migration Configuration
+        Number of entities pending to be replicated.
+        """
+        if post_migration_name and not isinstance(post_migration_name, str):
+            raise TypeError("Expected argument 'post_migration_name' to be a str")
+        __self__.post_migration_name = post_migration_name
+        """
+        Name to access Standard Namespace after migration
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state of Migration Configuration 
+        """
+        if target_namespace and not isinstance(target_namespace, str):
+            raise TypeError("Expected argument 'target_namespace' to be a str")
+        __self__.target_namespace = target_namespace
+        """
+        Existing premium Namespace ARM Id name which has no entities, will be used for migration
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +64,12 @@ class AwaitableGetMigrationConfigResult(GetMigrationConfigResult):
         if False:
             yield self
         return GetMigrationConfigResult(
+            migration_state=self.migration_state,
             name=self.name,
-            properties=self.properties,
+            pending_replication_operations_count=self.pending_replication_operations_count,
+            post_migration_name=self.post_migration_name,
+            provisioning_state=self.provisioning_state,
+            target_namespace=self.target_namespace,
             type=self.type)
 
 
@@ -64,6 +92,10 @@ def get_migration_config(name=None, namespace_name=None, resource_group_name=Non
     __ret__ = pulumi.runtime.invoke('azurerm:servicebus/v20170401:getMigrationConfig', __args__, opts=opts).value
 
     return AwaitableGetMigrationConfigResult(
+        migration_state=__ret__.get('migrationState'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        pending_replication_operations_count=__ret__.get('pendingReplicationOperationsCount'),
+        post_migration_name=__ret__.get('postMigrationName'),
+        provisioning_state=__ret__.get('provisioningState'),
+        target_namespace=__ret__.get('targetNamespace'),
         type=__ret__.get('type'))

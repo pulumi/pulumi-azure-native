@@ -10,21 +10,31 @@ from ... import _utilities, _tables
 
 
 class ContentKeyPolicy(pulumi.CustomResource):
+    created: pulumi.Output[str]
+    """
+    The creation date of the Policy
+    """
+    description: pulumi.Output[str]
+    """
+    A description for the Policy.
+    """
+    last_modified: pulumi.Output[str]
+    """
+    The last modified date of the Policy
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    options: pulumi.Output[list]
     """
-    The properties of the Content Key Policy.
-      * `created` (`str`) - The creation date of the Policy
-      * `description` (`str`) - A description for the Policy.
-      * `last_modified` (`str`) - The last modified date of the Policy
-      * `options` (`list`) - The Key Policy options.
-        * `name` (`str`) - The Policy Option description.
-        * `policy_option_id` (`str`) - The legacy Policy Option ID.
-
-      * `policy_id` (`str`) - The legacy Policy ID.
+    The Key Policy options.
+      * `name` (`str`) - The Policy Option description.
+      * `policy_option_id` (`str`) - The legacy Policy Option ID.
+    """
+    policy_id: pulumi.Output[str]
+    """
+    The legacy Policy ID.
     """
     type: pulumi.Output[str]
     """
@@ -76,7 +86,9 @@ class ContentKeyPolicy(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['created'] = None
+            __props__['last_modified'] = None
+            __props__['policy_id'] = None
             __props__['type'] = None
         super(ContentKeyPolicy, __self__).__init__(
             'azurerm:media/v20200501:ContentKeyPolicy',

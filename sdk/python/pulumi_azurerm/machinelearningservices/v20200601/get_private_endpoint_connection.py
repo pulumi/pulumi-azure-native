@@ -13,7 +13,7 @@ class GetPrivateEndpointConnectionResult:
     """
     The Private Endpoint Connection resource.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, identity=None, location=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, sku=None, tags=None, type=None):
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
@@ -32,11 +32,23 @@ class GetPrivateEndpointConnectionResult:
         """
         Specifies the name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if private_endpoint and not isinstance(private_endpoint, dict):
+            raise TypeError("Expected argument 'private_endpoint' to be a dict")
+        __self__.private_endpoint = private_endpoint
         """
-        Resource properties.
+        The resource of private end point.
+        """
+        if private_link_service_connection_state and not isinstance(private_link_service_connection_state, dict):
+            raise TypeError("Expected argument 'private_link_service_connection_state' to be a dict")
+        __self__.private_link_service_connection_state = private_link_service_connection_state
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the private endpoint connection resource.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -67,7 +79,9 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
             identity=self.identity,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            private_endpoint=self.private_endpoint,
+            private_link_service_connection_state=self.private_link_service_connection_state,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
             tags=self.tags,
             type=self.type)
@@ -95,7 +109,9 @@ def get_private_endpoint_connection(name=None, resource_group_name=None, workspa
         identity=__ret__.get('identity'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        private_endpoint=__ret__.get('privateEndpoint'),
+        private_link_service_connection_state=__ret__.get('privateLinkServiceConnectionState'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

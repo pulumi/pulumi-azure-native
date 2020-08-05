@@ -10,6 +10,28 @@ from ... import _utilities, _tables
 
 
 class ActivityLogAlert(pulumi.CustomResource):
+    actions: pulumi.Output[dict]
+    """
+    The actions that will activate when the condition is met.
+      * `action_groups` (`list`) - The list of activity log alerts.
+        * `action_group_id` (`str`) - The resourceId of the action group. This cannot be null or empty.
+        * `webhook_properties` (`dict`) - the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
+    """
+    condition: pulumi.Output[dict]
+    """
+    The condition that will cause this alert to activate.
+      * `all_of` (`list`) - The list of activity log alert conditions.
+        * `equals` (`str`) - The field value will be compared to this value (case-insensitive) to determine if the condition is met.
+        * `field` (`str`) - The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
+    """
+    description: pulumi.Output[str]
+    """
+    A description of this activity log alert.
+    """
+    enabled: pulumi.Output[bool]
+    """
+    Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,22 +40,9 @@ class ActivityLogAlert(pulumi.CustomResource):
     """
     Azure resource name
     """
-    properties: pulumi.Output[dict]
+    scopes: pulumi.Output[list]
     """
-    The activity log alert properties of the resource.
-      * `actions` (`dict`) - The actions that will activate when the condition is met.
-        * `action_groups` (`list`) - The list of activity log alerts.
-          * `action_group_id` (`str`) - The resourceId of the action group. This cannot be null or empty.
-          * `webhook_properties` (`dict`) - the dictionary of custom properties to include with the post operation. These data are appended to the webhook payload.
-
-      * `condition` (`dict`) - The condition that will cause this alert to activate.
-        * `all_of` (`list`) - The list of activity log alert conditions.
-          * `equals` (`str`) - The field value will be compared to this value (case-insensitive) to determine if the condition is met.
-          * `field` (`str`) - The name of the field that this condition will examine. The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties.'.
-
-      * `description` (`str`) - A description of this activity log alert.
-      * `enabled` (`bool`) - Indicates whether this activity log alert is enabled. If an activity log alert is not enabled, then none of its actions will be activated.
-      * `scopes` (`list`) - A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
+    A list of resourceIds that will be used as prefixes. The alert will only apply to activityLogs with resourceIds that fall under one of these prefixes. This list must include at least one item.
     """
     tags: pulumi.Output[dict]
     """
@@ -109,7 +118,6 @@ class ActivityLogAlert(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scopes'")
             __props__['scopes'] = scopes
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(ActivityLogAlert, __self__).__init__(
             'azurerm:insights/v20170401:ActivityLogAlert',

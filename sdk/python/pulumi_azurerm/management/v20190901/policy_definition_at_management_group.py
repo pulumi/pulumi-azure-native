@@ -10,20 +10,37 @@ from ... import _utilities, _tables
 
 
 class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    The policy definition description.
+    """
+    display_name: pulumi.Output[str]
+    """
+    The display name of the policy definition.
+    """
+    metadata: pulumi.Output[dict]
+    """
+    The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+    """
+    mode: pulumi.Output[str]
+    """
+    The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+    """
     name: pulumi.Output[str]
     """
     The name of the policy definition.
     """
-    properties: pulumi.Output[dict]
+    parameters: pulumi.Output[dict]
     """
-    The policy definition properties.
-      * `description` (`str`) - The policy definition description.
-      * `display_name` (`str`) - The display name of the policy definition.
-      * `metadata` (`dict`) - The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
-      * `mode` (`str`) - The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
-      * `parameters` (`dict`) - The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
-      * `policy_rule` (`dict`) - The policy rule.
-      * `policy_type` (`str`) - The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+    The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
+    """
+    policy_rule: pulumi.Output[dict]
+    """
+    The policy rule.
+    """
+    policy_type: pulumi.Output[str]
+    """
+    The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
     """
     type: pulumi.Output[str]
     """
@@ -75,7 +92,6 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
             __props__['parameters'] = parameters
             __props__['policy_rule'] = policy_rule
             __props__['policy_type'] = policy_type
-            __props__['properties'] = None
             __props__['type'] = None
         super(PolicyDefinitionAtManagementGroup, __self__).__init__(
             'azurerm:management/v20190901:PolicyDefinitionAtManagementGroup',

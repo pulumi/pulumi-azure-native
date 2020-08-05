@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class CertificateOrderCertificate(pulumi.CustomResource):
+    key_vault_id: pulumi.Output[str]
+    """
+    Key Vault Csm resource Id
+    """
+    key_vault_secret_name: pulumi.Output[str]
+    """
+    Key Vault secret name
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource
@@ -22,7 +30,10 @@ class CertificateOrderCertificate(pulumi.CustomResource):
     """
     Resource Name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
+    """
+    Status of the Key Vault secret
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -85,7 +96,6 @@ class CertificateOrderCertificate(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = type
-            __props__['properties'] = None
         super(CertificateOrderCertificate, __self__).__init__(
             'azurerm:certificateregistration/v20150801:CertificateOrderCertificate',
             resource_name,

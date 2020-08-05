@@ -10,17 +10,25 @@ from ... import _utilities, _tables
 
 
 class Cluster(pulumi.CustomResource):
+    cluster_id: pulumi.Output[float]
+    """
+    The identity
+    """
+    cluster_size: pulumi.Output[float]
+    """
+    The cluster size
+    """
+    hosts: pulumi.Output[list]
+    """
+    The hosts
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of a cluster resource
-      * `cluster_id` (`float`) - The identity
-      * `cluster_size` (`float`) - The cluster size
-      * `hosts` (`list`) - The hosts
-      * `provisioning_state` (`str`) - The state of the cluster provisioning
+    The state of the cluster provisioning
     """
     sku: pulumi.Output[dict]
     """
@@ -79,7 +87,9 @@ class Cluster(pulumi.CustomResource):
             if sku is None:
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
-            __props__['properties'] = None
+            __props__['cluster_id'] = None
+            __props__['hosts'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Cluster, __self__).__init__(
             'azurerm:avs/v20200320:Cluster',

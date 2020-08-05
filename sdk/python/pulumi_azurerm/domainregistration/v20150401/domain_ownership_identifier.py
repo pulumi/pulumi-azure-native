@@ -18,10 +18,9 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    ownership_id: pulumi.Output[str]
     """
-    DomainOwnershipIdentifier resource specific properties
-      * `ownership_id` (`str`) - Ownership Id.
+    Ownership Id.
     """
     type: pulumi.Output[str]
     """
@@ -67,7 +66,6 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(DomainOwnershipIdentifier, __self__).__init__(
             'azurerm:domainregistration/v20150401:DomainOwnershipIdentifier',

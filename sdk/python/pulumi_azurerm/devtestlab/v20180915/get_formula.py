@@ -13,7 +13,31 @@ class GetFormulaResult:
     """
     A formula for creating a VM, specifying an image base and other parameters
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, author=None, creation_date=None, description=None, formula_content=None, location=None, name=None, os_type=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, vm=None):
+        if author and not isinstance(author, str):
+            raise TypeError("Expected argument 'author' to be a str")
+        __self__.author = author
+        """
+        The author of the formula.
+        """
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError("Expected argument 'creation_date' to be a str")
+        __self__.creation_date = creation_date
+        """
+        The creation date of the formula.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of the formula.
+        """
+        if formula_content and not isinstance(formula_content, dict):
+            raise TypeError("Expected argument 'formula_content' to be a dict")
+        __self__.formula_content = formula_content
+        """
+        The content of the formula.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +50,17 @@ class GetFormulaResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if os_type and not isinstance(os_type, str):
+            raise TypeError("Expected argument 'os_type' to be a str")
+        __self__.os_type = os_type
         """
-        The properties of the resource.
+        The OS type of the formula.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning status of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +74,18 @@ class GetFormulaResult:
         """
         The type of the resource.
         """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        if vm and not isinstance(vm, dict):
+            raise TypeError("Expected argument 'vm' to be a dict")
+        __self__.vm = vm
+        """
+        Information about a VM from which a formula is to be created.
+        """
 
 
 class AwaitableGetFormulaResult(GetFormulaResult):
@@ -52,11 +94,18 @@ class AwaitableGetFormulaResult(GetFormulaResult):
         if False:
             yield self
         return GetFormulaResult(
+            author=self.author,
+            creation_date=self.creation_date,
+            description=self.description,
+            formula_content=self.formula_content,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            os_type=self.os_type,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unique_identifier=self.unique_identifier,
+            vm=self.vm)
 
 
 def get_formula(lab_name=None, name=None, resource_group_name=None, opts=None):
@@ -78,8 +127,15 @@ def get_formula(lab_name=None, name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20180915:getFormula', __args__, opts=opts).value
 
     return AwaitableGetFormulaResult(
+        author=__ret__.get('author'),
+        creation_date=__ret__.get('creationDate'),
+        description=__ret__.get('description'),
+        formula_content=__ret__.get('formulaContent'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        os_type=__ret__.get('osType'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'),
+        vm=__ret__.get('vm'))

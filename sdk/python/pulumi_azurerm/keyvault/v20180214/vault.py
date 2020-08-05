@@ -48,16 +48,15 @@ class Vault(pulumi.CustomResource):
           * `id` (`str`) - Full resource id of a vnet subnet, such as '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.
 
       * `private_endpoint_connections` (`list`) - List of private endpoint connections associated with the key vault.
-        * `properties` (`dict`) - Private endpoint connection properties.
-          * `private_endpoint` (`dict`) - Properties of the private endpoint object.
-            * `id` (`str`) - Full identifier of the private endpoint resource.
+        * `private_endpoint` (`dict`) - Properties of the private endpoint object.
+          * `id` (`str`) - Full identifier of the private endpoint resource.
 
-          * `private_link_service_connection_state` (`dict`) - Approval state of the private link connection.
-            * `action_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
-            * `description` (`str`) - The reason for approval or rejection.
-            * `status` (`str`) - Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+        * `private_link_service_connection_state` (`dict`) - Approval state of the private link connection.
+          * `action_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
+          * `description` (`str`) - The reason for approval or rejection.
+          * `status` (`str`) - Indicates whether the connection has been approved, rejected or removed by the key vault owner.
 
-          * `provisioning_state` (`str`) - Provisioning state of the private endpoint connection.
+        * `provisioning_state` (`str`) - Provisioning state of the private endpoint connection.
 
       * `sku` (`dict`) - SKU details
         * `family` (`str`) - SKU family name

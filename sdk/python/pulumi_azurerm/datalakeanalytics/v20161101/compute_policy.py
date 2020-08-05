@@ -10,17 +10,25 @@ from ... import _utilities, _tables
 
 
 class ComputePolicy(pulumi.CustomResource):
+    max_degree_of_parallelism_per_job: pulumi.Output[float]
+    """
+    The maximum degree of parallelism per job this user can use to submit jobs.
+    """
+    min_priority_per_job: pulumi.Output[float]
+    """
+    The minimum priority per job this user can use to submit jobs.
+    """
     name: pulumi.Output[str]
     """
     The resource name.
     """
-    properties: pulumi.Output[dict]
+    object_id: pulumi.Output[str]
     """
-    The compute policy properties.
-      * `max_degree_of_parallelism_per_job` (`float`) - The maximum degree of parallelism per job this user can use to submit jobs.
-      * `min_priority_per_job` (`float`) - The minimum priority per job this user can use to submit jobs.
-      * `object_id` (`str`) - The AAD object identifier for the entity to create a policy for.
-      * `object_type` (`str`) - The type of AAD object the object identifier refers to.
+    The AAD object identifier for the entity to create a policy for.
+    """
+    object_type: pulumi.Output[str]
+    """
+    The type of AAD object the object identifier refers to.
     """
     type: pulumi.Output[str]
     """
@@ -74,7 +82,6 @@ class ComputePolicy(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(ComputePolicy, __self__).__init__(
             'azurerm:datalakeanalytics/v20161101:ComputePolicy',

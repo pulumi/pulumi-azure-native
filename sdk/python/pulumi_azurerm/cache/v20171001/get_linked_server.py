@@ -13,18 +13,36 @@ class GetLinkedServerResult:
     """
     Response to put/get linked server (with properties) for Redis cache.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, linked_redis_cache_id=None, linked_redis_cache_location=None, name=None, provisioning_state=None, server_role=None, type=None):
+        if linked_redis_cache_id and not isinstance(linked_redis_cache_id, str):
+            raise TypeError("Expected argument 'linked_redis_cache_id' to be a str")
+        __self__.linked_redis_cache_id = linked_redis_cache_id
+        """
+        Fully qualified resourceId of the linked redis cache.
+        """
+        if linked_redis_cache_location and not isinstance(linked_redis_cache_location, str):
+            raise TypeError("Expected argument 'linked_redis_cache_location' to be a str")
+        __self__.linked_redis_cache_location = linked_redis_cache_location
+        """
+        Location of the linked redis cache.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the linked server.
+        Terminal state of the link between primary and secondary redis cache.
+        """
+        if server_role and not isinstance(server_role, str):
+            raise TypeError("Expected argument 'server_role' to be a str")
+        __self__.server_role = server_role
+        """
+        Role of the linked server.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +58,11 @@ class AwaitableGetLinkedServerResult(GetLinkedServerResult):
         if False:
             yield self
         return GetLinkedServerResult(
+            linked_redis_cache_id=self.linked_redis_cache_id,
+            linked_redis_cache_location=self.linked_redis_cache_location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            server_role=self.server_role,
             type=self.type)
 
 
@@ -62,6 +83,9 @@ def get_linked_server(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:cache/v20171001:getLinkedServer', __args__, opts=opts).value
 
     return AwaitableGetLinkedServerResult(
+        linked_redis_cache_id=__ret__.get('linkedRedisCacheId'),
+        linked_redis_cache_location=__ret__.get('linkedRedisCacheLocation'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        server_role=__ret__.get('serverRole'),
         type=__ret__.get('type'))

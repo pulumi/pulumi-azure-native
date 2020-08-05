@@ -10,35 +10,62 @@ from ... import _utilities, _tables
 
 
 class Endpoint(pulumi.CustomResource):
+    custom_headers: pulumi.Output[list]
+    """
+    List of custom headers.
+      * `name` (`str`) - Header name.
+      * `value` (`str`) - Header value.
+    """
+    endpoint_location: pulumi.Output[str]
+    """
+    Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
+    """
+    endpoint_monitor_status: pulumi.Output[str]
+    """
+    The monitoring status of the endpoint.
+    """
+    endpoint_status: pulumi.Output[str]
+    """
+    The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+    """
+    geo_mapping: pulumi.Output[list]
+    """
+    The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+    """
+    min_child_endpoints: pulumi.Output[float]
+    """
+    The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    priority: pulumi.Output[float]
     """
-    The properties of the Traffic Manager endpoint.
-      * `custom_headers` (`list`) - List of custom headers.
-        * `name` (`str`) - Header name.
-        * `value` (`str`) - Header value.
-
-      * `endpoint_location` (`str`) - Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
-      * `endpoint_monitor_status` (`str`) - The monitoring status of the endpoint.
-      * `endpoint_status` (`str`) - The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
-      * `geo_mapping` (`list`) - The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
-      * `min_child_endpoints` (`float`) - The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-      * `priority` (`float`) - The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-      * `subnets` (`list`) - The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
-        * `first` (`str`) - First address in the subnet.
-        * `last` (`str`) - Last address in the subnet.
-        * `scope` (`float`) - Block size (number of leading bits in the subnet mask).
-
-      * `target` (`str`) - The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-      * `target_resource_id` (`str`) - The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
-      * `weight` (`float`) - The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+    The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+    """
+    subnets: pulumi.Output[list]
+    """
+    The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+      * `first` (`str`) - First address in the subnet.
+      * `last` (`str`) - Last address in the subnet.
+      * `scope` (`float`) - Block size (number of leading bits in the subnet mask).
+    """
+    target: pulumi.Output[str]
+    """
+    The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+    """
+    target_resource_id: pulumi.Output[str]
+    """
+    The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
     """
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+    """
+    weight: pulumi.Output[float]
+    """
+    The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
     """
     def __init__(__self__, resource_name, opts=None, custom_headers=None, endpoint_location=None, endpoint_monitor_status=None, endpoint_status=None, endpoint_type=None, geo_mapping=None, id=None, min_child_endpoints=None, name=None, priority=None, profile_name=None, resource_group_name=None, subnets=None, target=None, target_resource_id=None, type=None, weight=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -117,7 +144,6 @@ class Endpoint(pulumi.CustomResource):
             __props__['target_resource_id'] = target_resource_id
             __props__['type'] = type
             __props__['weight'] = weight
-            __props__['properties'] = None
         super(Endpoint, __self__).__init__(
             'azurerm:network/v20180401:Endpoint',
             resource_name,

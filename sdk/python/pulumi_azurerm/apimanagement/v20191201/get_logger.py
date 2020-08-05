@@ -13,18 +13,43 @@ class GetLoggerResult:
     """
     Logger details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, credentials=None, description=None, is_buffered=None, logger_type=None, name=None, resource_id=None, type=None):
+        if credentials and not isinstance(credentials, dict):
+            raise TypeError("Expected argument 'credentials' to be a dict")
+        __self__.credentials = credentials
+        """
+        The name and SendRule connection string of the event hub for azureEventHub logger.
+        Instrumentation key for applicationInsights logger.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Logger description.
+        """
+        if is_buffered and not isinstance(is_buffered, bool):
+            raise TypeError("Expected argument 'is_buffered' to be a bool")
+        __self__.is_buffered = is_buffered
+        """
+        Whether records are buffered in the logger before publishing. Default is assumed to be true.
+        """
+        if logger_type and not isinstance(logger_type, str):
+            raise TypeError("Expected argument 'logger_type' to be a str")
+        __self__.logger_type = logger_type
+        """
+        Logger type.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if resource_id and not isinstance(resource_id, str):
+            raise TypeError("Expected argument 'resource_id' to be a str")
+        __self__.resource_id = resource_id
         """
-        Logger entity contract properties.
+        Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +65,12 @@ class AwaitableGetLoggerResult(GetLoggerResult):
         if False:
             yield self
         return GetLoggerResult(
+            credentials=self.credentials,
+            description=self.description,
+            is_buffered=self.is_buffered,
+            logger_type=self.logger_type,
             name=self.name,
-            properties=self.properties,
+            resource_id=self.resource_id,
             type=self.type)
 
 
@@ -64,6 +93,10 @@ def get_logger(name=None, resource_group_name=None, service_name=None, opts=None
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getLogger', __args__, opts=opts).value
 
     return AwaitableGetLoggerResult(
+        credentials=__ret__.get('credentials'),
+        description=__ret__.get('description'),
+        is_buffered=__ret__.get('isBuffered'),
+        logger_type=__ret__.get('loggerType'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        resource_id=__ret__.get('resourceId'),
         type=__ret__.get('type'))

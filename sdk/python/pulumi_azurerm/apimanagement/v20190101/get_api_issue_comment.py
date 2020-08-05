@@ -13,24 +13,36 @@ class GetApiIssueCommentResult:
     """
     Issue Comment Contract details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, created_date=None, name=None, text=None, type=None, user_id=None):
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        Date and time when the comment was created.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if text and not isinstance(text, str):
+            raise TypeError("Expected argument 'text' to be a str")
+        __self__.text = text
         """
-        Properties of the Issue Comment.
+        Comment text.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type for API Management resource.
+        """
+        if user_id and not isinstance(user_id, str):
+            raise TypeError("Expected argument 'user_id' to be a str")
+        __self__.user_id = user_id
+        """
+        A resource identifier for the user who left the comment.
         """
 
 
@@ -40,9 +52,11 @@ class AwaitableGetApiIssueCommentResult(GetApiIssueCommentResult):
         if False:
             yield self
         return GetApiIssueCommentResult(
+            created_date=self.created_date,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            text=self.text,
+            type=self.type,
+            user_id=self.user_id)
 
 
 def get_api_issue_comment(api_id=None, issue_id=None, name=None, resource_group_name=None, service_name=None, opts=None):
@@ -68,6 +82,8 @@ def get_api_issue_comment(api_id=None, issue_id=None, name=None, resource_group_
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getApiIssueComment', __args__, opts=opts).value
 
     return AwaitableGetApiIssueCommentResult(
+        created_date=__ret__.get('createdDate'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        text=__ret__.get('text'),
+        type=__ret__.get('type'),
+        user_id=__ret__.get('userId'))

@@ -13,7 +13,13 @@ class GetP2sVpnGatewayResult:
     """
     P2SVpnGateway Resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, custom_routes=None, etag=None, location=None, name=None, p2_s_vpn_server_configuration=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_client_address_pool=None, vpn_client_connection_health=None, vpn_gateway_scale_unit=None):
+        if custom_routes and not isinstance(custom_routes, dict):
+            raise TypeError("Expected argument 'custom_routes' to be a dict")
+        __self__.custom_routes = custom_routes
+        """
+        The reference of the address space resource which represents the custom routes specified by the customer for P2SVpnGateway and P2S VpnClient.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +38,17 @@ class GetP2sVpnGatewayResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if p2_s_vpn_server_configuration and not isinstance(p2_s_vpn_server_configuration, dict):
+            raise TypeError("Expected argument 'p2_s_vpn_server_configuration' to be a dict")
+        __self__.p2_s_vpn_server_configuration = p2_s_vpn_server_configuration
         """
-        Properties of the P2SVpnGateway.
+        The P2SVpnServerConfiguration to which the p2sVpnGateway is attached to.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the P2S VPN gateway resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +62,30 @@ class GetP2sVpnGatewayResult:
         """
         Resource type.
         """
+        if virtual_hub and not isinstance(virtual_hub, dict):
+            raise TypeError("Expected argument 'virtual_hub' to be a dict")
+        __self__.virtual_hub = virtual_hub
+        """
+        The VirtualHub to which the gateway belongs.
+        """
+        if vpn_client_address_pool and not isinstance(vpn_client_address_pool, dict):
+            raise TypeError("Expected argument 'vpn_client_address_pool' to be a dict")
+        __self__.vpn_client_address_pool = vpn_client_address_pool
+        """
+        The reference of the address space resource which represents Address space for P2S VpnClient.
+        """
+        if vpn_client_connection_health and not isinstance(vpn_client_connection_health, dict):
+            raise TypeError("Expected argument 'vpn_client_connection_health' to be a dict")
+        __self__.vpn_client_connection_health = vpn_client_connection_health
+        """
+        All P2S VPN clients' connection health status.
+        """
+        if vpn_gateway_scale_unit and not isinstance(vpn_gateway_scale_unit, float):
+            raise TypeError("Expected argument 'vpn_gateway_scale_unit' to be a float")
+        __self__.vpn_gateway_scale_unit = vpn_gateway_scale_unit
+        """
+        The scale unit for this p2s vpn gateway.
+        """
 
 
 class AwaitableGetP2sVpnGatewayResult(GetP2sVpnGatewayResult):
@@ -58,12 +94,18 @@ class AwaitableGetP2sVpnGatewayResult(GetP2sVpnGatewayResult):
         if False:
             yield self
         return GetP2sVpnGatewayResult(
+            custom_routes=self.custom_routes,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            p2_s_vpn_server_configuration=self.p2_s_vpn_server_configuration,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_hub=self.virtual_hub,
+            vpn_client_address_pool=self.vpn_client_address_pool,
+            vpn_client_connection_health=self.vpn_client_connection_health,
+            vpn_gateway_scale_unit=self.vpn_gateway_scale_unit)
 
 
 def get_p2s_vpn_gateway(name=None, resource_group_name=None, opts=None):
@@ -83,9 +125,15 @@ def get_p2s_vpn_gateway(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20190701:getP2sVpnGateway', __args__, opts=opts).value
 
     return AwaitableGetP2sVpnGatewayResult(
+        custom_routes=__ret__.get('customRoutes'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        p2_s_vpn_server_configuration=__ret__.get('p2SVpnServerConfiguration'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_hub=__ret__.get('virtualHub'),
+        vpn_client_address_pool=__ret__.get('vpnClientAddressPool'),
+        vpn_client_connection_health=__ret__.get('vpnClientConnectionHealth'),
+        vpn_gateway_scale_unit=__ret__.get('vpnGatewayScaleUnit'))

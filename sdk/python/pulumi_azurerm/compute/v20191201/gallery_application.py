@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class GalleryApplication(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    The description of this gallery Application Definition resource. This property is updatable.
+    """
+    end_of_life_date: pulumi.Output[str]
+    """
+    The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
+    """
+    eula: pulumi.Output[str]
+    """
+    The Eula agreement for the gallery Application Definition.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,15 +30,17 @@ class GalleryApplication(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    privacy_statement_uri: pulumi.Output[str]
     """
-    Describes the properties of a gallery Application Definition.
-      * `description` (`str`) - The description of this gallery Application Definition resource. This property is updatable.
-      * `end_of_life_date` (`str`) - The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
-      * `eula` (`str`) - The Eula agreement for the gallery Application Definition.
-      * `privacy_statement_uri` (`str`) - The privacy statement uri.
-      * `release_note_uri` (`str`) - The release note uri.
-      * `supported_os_type` (`str`) - This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+    The privacy statement uri.
+    """
+    release_note_uri: pulumi.Output[str]
+    """
+    The release note uri.
+    """
+    supported_os_type: pulumi.Output[str]
+    """
+    This property allows you to specify the supported type of the OS that application is built for. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
     """
     tags: pulumi.Output[dict]
     """
@@ -92,7 +106,6 @@ class GalleryApplication(pulumi.CustomResource):
                 raise TypeError("Missing required property 'supported_os_type'")
             __props__['supported_os_type'] = supported_os_type
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(GalleryApplication, __self__).__init__(
             'azurerm:compute/v20191201:GalleryApplication',

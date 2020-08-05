@@ -10,24 +10,41 @@ from ... import _utilities, _tables
 
 
 class Share(pulumi.CustomResource):
+    created_at: pulumi.Output[str]
+    """
+    Time at which the share was created.
+    """
+    description: pulumi.Output[str]
+    """
+    Share description.
+    """
     name: pulumi.Output[str]
     """
     Name of the azure resource
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties on the share
-      * `created_at` (`str`) - Time at which the share was created.
-      * `description` (`str`) - Share description.
-      * `provisioning_state` (`str`) - Gets or sets the provisioning state
-      * `share_kind` (`str`) - Share kind.
-      * `terms` (`str`) - Share terms.
-      * `user_email` (`str`) - Email of the user who created the resource
-      * `user_name` (`str`) - Name of the user who created the resource
+    Gets or sets the provisioning state
+    """
+    share_kind: pulumi.Output[str]
+    """
+    Share kind.
+    """
+    terms: pulumi.Output[str]
+    """
+    Share terms.
     """
     type: pulumi.Output[str]
     """
     Type of the azure resource
+    """
+    user_email: pulumi.Output[str]
+    """
+    Email of the user who created the resource
+    """
+    user_name: pulumi.Output[str]
+    """
+    Name of the user who created the resource
     """
     def __init__(__self__, resource_name, opts=None, account_name=None, description=None, name=None, resource_group_name=None, share_kind=None, terms=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -71,8 +88,11 @@ class Share(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['share_kind'] = share_kind
             __props__['terms'] = terms
-            __props__['properties'] = None
+            __props__['created_at'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['user_email'] = None
+            __props__['user_name'] = None
         super(Share, __self__).__init__(
             'azurerm:datashare/v20191101:Share',
             resource_name,

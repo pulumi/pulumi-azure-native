@@ -13,24 +13,144 @@ class GetQueueResult:
     """
     Description of queue Resource.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, forward_dead_lettered_messages_to=None, forward_to=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, message_count=None, name=None, requires_duplicate_detection=None, requires_session=None, size_in_bytes=None, status=None, type=None, updated_at=None):
+        if accessed_at and not isinstance(accessed_at, str):
+            raise TypeError("Expected argument 'accessed_at' to be a str")
+        __self__.accessed_at = accessed_at
+        """
+        Last time a message was sent, or the last time there was a receive request to this queue.
+        """
+        if auto_delete_on_idle and not isinstance(auto_delete_on_idle, str):
+            raise TypeError("Expected argument 'auto_delete_on_idle' to be a str")
+        __self__.auto_delete_on_idle = auto_delete_on_idle
+        """
+        ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
+        """
+        if count_details and not isinstance(count_details, dict):
+            raise TypeError("Expected argument 'count_details' to be a dict")
+        __self__.count_details = count_details
+        """
+        Message Count Details.
+        """
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        __self__.created_at = created_at
+        """
+        The exact time the message was created.
+        """
+        if dead_lettering_on_message_expiration and not isinstance(dead_lettering_on_message_expiration, bool):
+            raise TypeError("Expected argument 'dead_lettering_on_message_expiration' to be a bool")
+        __self__.dead_lettering_on_message_expiration = dead_lettering_on_message_expiration
+        """
+        A value that indicates whether this queue has dead letter support when a message expires.
+        """
+        if default_message_time_to_live and not isinstance(default_message_time_to_live, str):
+            raise TypeError("Expected argument 'default_message_time_to_live' to be a str")
+        __self__.default_message_time_to_live = default_message_time_to_live
+        """
+        ISO 8601 default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        """
+        if duplicate_detection_history_time_window and not isinstance(duplicate_detection_history_time_window, str):
+            raise TypeError("Expected argument 'duplicate_detection_history_time_window' to be a str")
+        __self__.duplicate_detection_history_time_window = duplicate_detection_history_time_window
+        """
+        ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+        """
+        if enable_batched_operations and not isinstance(enable_batched_operations, bool):
+            raise TypeError("Expected argument 'enable_batched_operations' to be a bool")
+        __self__.enable_batched_operations = enable_batched_operations
+        """
+        Value that indicates whether server-side batched operations are enabled.
+        """
+        if enable_express and not isinstance(enable_express, bool):
+            raise TypeError("Expected argument 'enable_express' to be a bool")
+        __self__.enable_express = enable_express
+        """
+        A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
+        """
+        if enable_partitioning and not isinstance(enable_partitioning, bool):
+            raise TypeError("Expected argument 'enable_partitioning' to be a bool")
+        __self__.enable_partitioning = enable_partitioning
+        """
+        A value that indicates whether the queue is to be partitioned across multiple message brokers.
+        """
+        if forward_dead_lettered_messages_to and not isinstance(forward_dead_lettered_messages_to, str):
+            raise TypeError("Expected argument 'forward_dead_lettered_messages_to' to be a str")
+        __self__.forward_dead_lettered_messages_to = forward_dead_lettered_messages_to
+        """
+        Queue/Topic name to forward the Dead Letter message
+        """
+        if forward_to and not isinstance(forward_to, str):
+            raise TypeError("Expected argument 'forward_to' to be a str")
+        __self__.forward_to = forward_to
+        """
+        Queue/Topic name to forward the messages
+        """
+        if lock_duration and not isinstance(lock_duration, str):
+            raise TypeError("Expected argument 'lock_duration' to be a str")
+        __self__.lock_duration = lock_duration
+        """
+        ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
+        """
+        if max_delivery_count and not isinstance(max_delivery_count, float):
+            raise TypeError("Expected argument 'max_delivery_count' to be a float")
+        __self__.max_delivery_count = max_delivery_count
+        """
+        The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
+        """
+        if max_size_in_megabytes and not isinstance(max_size_in_megabytes, float):
+            raise TypeError("Expected argument 'max_size_in_megabytes' to be a float")
+        __self__.max_size_in_megabytes = max_size_in_megabytes
+        """
+        The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
+        """
+        if message_count and not isinstance(message_count, float):
+            raise TypeError("Expected argument 'message_count' to be a float")
+        __self__.message_count = message_count
+        """
+        The number of messages in the queue.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if requires_duplicate_detection and not isinstance(requires_duplicate_detection, bool):
+            raise TypeError("Expected argument 'requires_duplicate_detection' to be a bool")
+        __self__.requires_duplicate_detection = requires_duplicate_detection
         """
-        Queue Properties
+        A value indicating if this queue requires duplicate detection.
+        """
+        if requires_session and not isinstance(requires_session, bool):
+            raise TypeError("Expected argument 'requires_session' to be a bool")
+        __self__.requires_session = requires_session
+        """
+        A value that indicates whether the queue supports the concept of sessions.
+        """
+        if size_in_bytes and not isinstance(size_in_bytes, float):
+            raise TypeError("Expected argument 'size_in_bytes' to be a float")
+        __self__.size_in_bytes = size_in_bytes
+        """
+        The size of the queue, in bytes.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Enumerates the possible values for the status of a messaging entity.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type
+        """
+        if updated_at and not isinstance(updated_at, str):
+            raise TypeError("Expected argument 'updated_at' to be a str")
+        __self__.updated_at = updated_at
+        """
+        The exact time the message was updated.
         """
 
 
@@ -40,9 +160,29 @@ class AwaitableGetQueueResult(GetQueueResult):
         if False:
             yield self
         return GetQueueResult(
+            accessed_at=self.accessed_at,
+            auto_delete_on_idle=self.auto_delete_on_idle,
+            count_details=self.count_details,
+            created_at=self.created_at,
+            dead_lettering_on_message_expiration=self.dead_lettering_on_message_expiration,
+            default_message_time_to_live=self.default_message_time_to_live,
+            duplicate_detection_history_time_window=self.duplicate_detection_history_time_window,
+            enable_batched_operations=self.enable_batched_operations,
+            enable_express=self.enable_express,
+            enable_partitioning=self.enable_partitioning,
+            forward_dead_lettered_messages_to=self.forward_dead_lettered_messages_to,
+            forward_to=self.forward_to,
+            lock_duration=self.lock_duration,
+            max_delivery_count=self.max_delivery_count,
+            max_size_in_megabytes=self.max_size_in_megabytes,
+            message_count=self.message_count,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            requires_duplicate_detection=self.requires_duplicate_detection,
+            requires_session=self.requires_session,
+            size_in_bytes=self.size_in_bytes,
+            status=self.status,
+            type=self.type,
+            updated_at=self.updated_at)
 
 
 def get_queue(name=None, namespace_name=None, resource_group_name=None, opts=None):
@@ -64,6 +204,26 @@ def get_queue(name=None, namespace_name=None, resource_group_name=None, opts=Non
     __ret__ = pulumi.runtime.invoke('azurerm:servicebus/v20170401:getQueue', __args__, opts=opts).value
 
     return AwaitableGetQueueResult(
+        accessed_at=__ret__.get('accessedAt'),
+        auto_delete_on_idle=__ret__.get('autoDeleteOnIdle'),
+        count_details=__ret__.get('countDetails'),
+        created_at=__ret__.get('createdAt'),
+        dead_lettering_on_message_expiration=__ret__.get('deadLetteringOnMessageExpiration'),
+        default_message_time_to_live=__ret__.get('defaultMessageTimeToLive'),
+        duplicate_detection_history_time_window=__ret__.get('duplicateDetectionHistoryTimeWindow'),
+        enable_batched_operations=__ret__.get('enableBatchedOperations'),
+        enable_express=__ret__.get('enableExpress'),
+        enable_partitioning=__ret__.get('enablePartitioning'),
+        forward_dead_lettered_messages_to=__ret__.get('forwardDeadLetteredMessagesTo'),
+        forward_to=__ret__.get('forwardTo'),
+        lock_duration=__ret__.get('lockDuration'),
+        max_delivery_count=__ret__.get('maxDeliveryCount'),
+        max_size_in_megabytes=__ret__.get('maxSizeInMegabytes'),
+        message_count=__ret__.get('messageCount'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        requires_duplicate_detection=__ret__.get('requiresDuplicateDetection'),
+        requires_session=__ret__.get('requiresSession'),
+        size_in_bytes=__ret__.get('sizeInBytes'),
+        status=__ret__.get('status'),
+        type=__ret__.get('type'),
+        updated_at=__ret__.get('updatedAt'))

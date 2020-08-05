@@ -13,12 +13,54 @@ class GetApplicationGatewayResult:
     """
     Application gateway resource
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, authentication_certificates=None, backend_address_pools=None, backend_http_settings_collection=None, etag=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, location=None, name=None, operational_state=None, probes=None, provisioning_state=None, request_routing_rules=None, resource_guid=None, sku=None, ssl_certificates=None, ssl_policy=None, tags=None, type=None, url_path_maps=None, web_application_firewall_configuration=None):
+        if authentication_certificates and not isinstance(authentication_certificates, list):
+            raise TypeError("Expected argument 'authentication_certificates' to be a list")
+        __self__.authentication_certificates = authentication_certificates
+        """
+        Authentication certificates of the application gateway resource.
+        """
+        if backend_address_pools and not isinstance(backend_address_pools, list):
+            raise TypeError("Expected argument 'backend_address_pools' to be a list")
+        __self__.backend_address_pools = backend_address_pools
+        """
+        Backend address pool of the application gateway resource.
+        """
+        if backend_http_settings_collection and not isinstance(backend_http_settings_collection, list):
+            raise TypeError("Expected argument 'backend_http_settings_collection' to be a list")
+        __self__.backend_http_settings_collection = backend_http_settings_collection
+        """
+        Backend http settings of the application gateway resource.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if frontend_ip_configurations and not isinstance(frontend_ip_configurations, list):
+            raise TypeError("Expected argument 'frontend_ip_configurations' to be a list")
+        __self__.frontend_ip_configurations = frontend_ip_configurations
+        """
+        Frontend IP addresses of the application gateway resource.
+        """
+        if frontend_ports and not isinstance(frontend_ports, list):
+            raise TypeError("Expected argument 'frontend_ports' to be a list")
+        __self__.frontend_ports = frontend_ports
+        """
+        Frontend ports of the application gateway resource.
+        """
+        if gateway_ip_configurations and not isinstance(gateway_ip_configurations, list):
+            raise TypeError("Expected argument 'gateway_ip_configurations' to be a list")
+        __self__.gateway_ip_configurations = gateway_ip_configurations
+        """
+        Subnets of application the gateway resource.
+        """
+        if http_listeners and not isinstance(http_listeners, list):
+            raise TypeError("Expected argument 'http_listeners' to be a list")
+        __self__.http_listeners = http_listeners
+        """
+        Http listeners of the application gateway resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +74,53 @@ class GetApplicationGatewayResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if operational_state and not isinstance(operational_state, str):
+            raise TypeError("Expected argument 'operational_state' to be a str")
+        __self__.operational_state = operational_state
         """
-        Properties of the application gateway.
+        Operational state of the application gateway resource.
+        """
+        if probes and not isinstance(probes, list):
+            raise TypeError("Expected argument 'probes' to be a list")
+        __self__.probes = probes
+        """
+        Probes of the application gateway resource.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        if request_routing_rules and not isinstance(request_routing_rules, list):
+            raise TypeError("Expected argument 'request_routing_rules' to be a list")
+        __self__.request_routing_rules = request_routing_rules
+        """
+        Request routing rules of the application gateway resource.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        Resource GUID property of the application gateway resource.
+        """
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        __self__.sku = sku
+        """
+        SKU of the application gateway resource.
+        """
+        if ssl_certificates and not isinstance(ssl_certificates, list):
+            raise TypeError("Expected argument 'ssl_certificates' to be a list")
+        __self__.ssl_certificates = ssl_certificates
+        """
+        SSL certificates of the application gateway resource.
+        """
+        if ssl_policy and not isinstance(ssl_policy, dict):
+            raise TypeError("Expected argument 'ssl_policy' to be a dict")
+        __self__.ssl_policy = ssl_policy
+        """
+        SSL policy of the application gateway resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +134,18 @@ class GetApplicationGatewayResult:
         """
         Resource type.
         """
+        if url_path_maps and not isinstance(url_path_maps, list):
+            raise TypeError("Expected argument 'url_path_maps' to be a list")
+        __self__.url_path_maps = url_path_maps
+        """
+        URL path map of the application gateway resource.
+        """
+        if web_application_firewall_configuration and not isinstance(web_application_firewall_configuration, dict):
+            raise TypeError("Expected argument 'web_application_firewall_configuration' to be a dict")
+        __self__.web_application_firewall_configuration = web_application_firewall_configuration
+        """
+        Web application firewall configuration.
+        """
 
 
 class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
@@ -58,12 +154,28 @@ class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
         if False:
             yield self
         return GetApplicationGatewayResult(
+            authentication_certificates=self.authentication_certificates,
+            backend_address_pools=self.backend_address_pools,
+            backend_http_settings_collection=self.backend_http_settings_collection,
             etag=self.etag,
+            frontend_ip_configurations=self.frontend_ip_configurations,
+            frontend_ports=self.frontend_ports,
+            gateway_ip_configurations=self.gateway_ip_configurations,
+            http_listeners=self.http_listeners,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            operational_state=self.operational_state,
+            probes=self.probes,
+            provisioning_state=self.provisioning_state,
+            request_routing_rules=self.request_routing_rules,
+            resource_guid=self.resource_guid,
+            sku=self.sku,
+            ssl_certificates=self.ssl_certificates,
+            ssl_policy=self.ssl_policy,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            url_path_maps=self.url_path_maps,
+            web_application_firewall_configuration=self.web_application_firewall_configuration)
 
 
 def get_application_gateway(name=None, resource_group_name=None, opts=None):
@@ -83,9 +195,25 @@ def get_application_gateway(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20170301:getApplicationGateway', __args__, opts=opts).value
 
     return AwaitableGetApplicationGatewayResult(
+        authentication_certificates=__ret__.get('authenticationCertificates'),
+        backend_address_pools=__ret__.get('backendAddressPools'),
+        backend_http_settings_collection=__ret__.get('backendHttpSettingsCollection'),
         etag=__ret__.get('etag'),
+        frontend_ip_configurations=__ret__.get('frontendIPConfigurations'),
+        frontend_ports=__ret__.get('frontendPorts'),
+        gateway_ip_configurations=__ret__.get('gatewayIPConfigurations'),
+        http_listeners=__ret__.get('httpListeners'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        operational_state=__ret__.get('operationalState'),
+        probes=__ret__.get('probes'),
+        provisioning_state=__ret__.get('provisioningState'),
+        request_routing_rules=__ret__.get('requestRoutingRules'),
+        resource_guid=__ret__.get('resourceGuid'),
+        sku=__ret__.get('sku'),
+        ssl_certificates=__ret__.get('sslCertificates'),
+        ssl_policy=__ret__.get('sslPolicy'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        url_path_maps=__ret__.get('urlPathMaps'),
+        web_application_firewall_configuration=__ret__.get('webApplicationFirewallConfiguration'))

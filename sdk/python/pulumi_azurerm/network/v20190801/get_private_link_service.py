@@ -13,12 +13,42 @@ class GetPrivateLinkServiceResult:
     """
     Private link service resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, alias=None, auto_approval=None, etag=None, fqdns=None, ip_configurations=None, load_balancer_frontend_ip_configurations=None, location=None, name=None, network_interfaces=None, private_endpoint_connections=None, provisioning_state=None, tags=None, type=None, visibility=None):
+        if alias and not isinstance(alias, str):
+            raise TypeError("Expected argument 'alias' to be a str")
+        __self__.alias = alias
+        """
+        The alias of the private link service.
+        """
+        if auto_approval and not isinstance(auto_approval, dict):
+            raise TypeError("Expected argument 'auto_approval' to be a dict")
+        __self__.auto_approval = auto_approval
+        """
+        The auto-approval list of the private link service.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if fqdns and not isinstance(fqdns, list):
+            raise TypeError("Expected argument 'fqdns' to be a list")
+        __self__.fqdns = fqdns
+        """
+        The list of Fqdn.
+        """
+        if ip_configurations and not isinstance(ip_configurations, list):
+            raise TypeError("Expected argument 'ip_configurations' to be a list")
+        __self__.ip_configurations = ip_configurations
+        """
+        An array of private link service IP configurations.
+        """
+        if load_balancer_frontend_ip_configurations and not isinstance(load_balancer_frontend_ip_configurations, list):
+            raise TypeError("Expected argument 'load_balancer_frontend_ip_configurations' to be a list")
+        __self__.load_balancer_frontend_ip_configurations = load_balancer_frontend_ip_configurations
+        """
+        An array of references to the load balancer IP configurations.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +62,23 @@ class GetPrivateLinkServiceResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_interfaces and not isinstance(network_interfaces, list):
+            raise TypeError("Expected argument 'network_interfaces' to be a list")
+        __self__.network_interfaces = network_interfaces
         """
-        Properties of the private link service.
+        An array of references to the network interfaces created for this private link service.
+        """
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        __self__.private_endpoint_connections = private_endpoint_connections
+        """
+        An array of list about connections to the private endpoint.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the private link service resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +92,12 @@ class GetPrivateLinkServiceResult:
         """
         Resource type.
         """
+        if visibility and not isinstance(visibility, dict):
+            raise TypeError("Expected argument 'visibility' to be a dict")
+        __self__.visibility = visibility
+        """
+        The visibility list of the private link service.
+        """
 
 
 class AwaitableGetPrivateLinkServiceResult(GetPrivateLinkServiceResult):
@@ -58,12 +106,20 @@ class AwaitableGetPrivateLinkServiceResult(GetPrivateLinkServiceResult):
         if False:
             yield self
         return GetPrivateLinkServiceResult(
+            alias=self.alias,
+            auto_approval=self.auto_approval,
             etag=self.etag,
+            fqdns=self.fqdns,
+            ip_configurations=self.ip_configurations,
+            load_balancer_frontend_ip_configurations=self.load_balancer_frontend_ip_configurations,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            network_interfaces=self.network_interfaces,
+            private_endpoint_connections=self.private_endpoint_connections,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            visibility=self.visibility)
 
 
 def get_private_link_service(name=None, resource_group_name=None, opts=None):
@@ -83,9 +139,17 @@ def get_private_link_service(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20190801:getPrivateLinkService', __args__, opts=opts).value
 
     return AwaitableGetPrivateLinkServiceResult(
+        alias=__ret__.get('alias'),
+        auto_approval=__ret__.get('autoApproval'),
         etag=__ret__.get('etag'),
+        fqdns=__ret__.get('fqdns'),
+        ip_configurations=__ret__.get('ipConfigurations'),
+        load_balancer_frontend_ip_configurations=__ret__.get('loadBalancerFrontendIpConfigurations'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_interfaces=__ret__.get('networkInterfaces'),
+        private_endpoint_connections=__ret__.get('privateEndpointConnections'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        visibility=__ret__.get('visibility'))

@@ -14,16 +14,21 @@ class FileShare(pulumi.CustomResource):
     """
     Resource Etag.
     """
+    last_modified_time: pulumi.Output[str]
+    """
+    Returns the date and time the share was last modified.
+    """
+    metadata: pulumi.Output[dict]
+    """
+    A name-value pair to associate with the share as metadata.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    share_quota: pulumi.Output[float]
     """
-    Properties of the file share.
-      * `last_modified_time` (`str`) - Returns the date and time the share was last modified.
-      * `metadata` (`dict`) - A name-value pair to associate with the share as metadata.
-      * `share_quota` (`float`) - The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
+    The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120).
     """
     type: pulumi.Output[str]
     """
@@ -70,7 +75,7 @@ class FileShare(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['share_quota'] = share_quota
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['last_modified_time'] = None
             __props__['type'] = None
         super(FileShare, __self__).__init__(
             'azurerm:storage/v20190401:FileShare',

@@ -13,24 +13,60 @@ class GetShareResult:
     """
     A share data transfer object.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, created_at=None, description=None, name=None, provisioning_state=None, share_kind=None, terms=None, type=None, user_email=None, user_name=None):
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        __self__.created_at = created_at
+        """
+        Time at which the share was created.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Share description.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Name of the azure resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties on the share
+        Gets or sets the provisioning state
+        """
+        if share_kind and not isinstance(share_kind, str):
+            raise TypeError("Expected argument 'share_kind' to be a str")
+        __self__.share_kind = share_kind
+        """
+        Share kind.
+        """
+        if terms and not isinstance(terms, str):
+            raise TypeError("Expected argument 'terms' to be a str")
+        __self__.terms = terms
+        """
+        Share terms.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Type of the azure resource
+        """
+        if user_email and not isinstance(user_email, str):
+            raise TypeError("Expected argument 'user_email' to be a str")
+        __self__.user_email = user_email
+        """
+        Email of the user who created the resource
+        """
+        if user_name and not isinstance(user_name, str):
+            raise TypeError("Expected argument 'user_name' to be a str")
+        __self__.user_name = user_name
+        """
+        Name of the user who created the resource
         """
 
 
@@ -40,9 +76,15 @@ class AwaitableGetShareResult(GetShareResult):
         if False:
             yield self
         return GetShareResult(
+            created_at=self.created_at,
+            description=self.description,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            provisioning_state=self.provisioning_state,
+            share_kind=self.share_kind,
+            terms=self.terms,
+            type=self.type,
+            user_email=self.user_email,
+            user_name=self.user_name)
 
 
 def get_share(account_name=None, name=None, resource_group_name=None, opts=None):
@@ -64,6 +106,12 @@ def get_share(account_name=None, name=None, resource_group_name=None, opts=None)
     __ret__ = pulumi.runtime.invoke('azurerm:datashare/v20191101:getShare', __args__, opts=opts).value
 
     return AwaitableGetShareResult(
+        created_at=__ret__.get('createdAt'),
+        description=__ret__.get('description'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        provisioning_state=__ret__.get('provisioningState'),
+        share_kind=__ret__.get('shareKind'),
+        terms=__ret__.get('terms'),
+        type=__ret__.get('type'),
+        user_email=__ret__.get('userEmail'),
+        user_name=__ret__.get('userName'))

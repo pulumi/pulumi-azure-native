@@ -13,7 +13,7 @@ class GetCustomerSubscriptionResult:
     """
     Customer subscription.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, name=None, tenant_id=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,11 +26,11 @@ class GetCustomerSubscriptionResult:
         """
         Name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
         """
-        Customer subscription properties.
+        Tenant Id.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -48,7 +48,7 @@ class AwaitableGetCustomerSubscriptionResult(GetCustomerSubscriptionResult):
         return GetCustomerSubscriptionResult(
             etag=self.etag,
             name=self.name,
-            properties=self.properties,
+            tenant_id=self.tenant_id,
             type=self.type)
 
 
@@ -73,5 +73,5 @@ def get_customer_subscription(name=None, registration_name=None, resource_group=
     return AwaitableGetCustomerSubscriptionResult(
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        tenant_id=__ret__.get('tenantId'),
         type=__ret__.get('type'))

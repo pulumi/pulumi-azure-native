@@ -10,18 +10,24 @@ from ... import _utilities, _tables
 
 
 class GetQueueResult:
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, approximate_message_count=None, metadata=None, name=None, type=None):
+        if approximate_message_count and not isinstance(approximate_message_count, float):
+            raise TypeError("Expected argument 'approximate_message_count' to be a float")
+        __self__.approximate_message_count = approximate_message_count
+        """
+        Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
+        """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        A name-value pair that represents queue metadata.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Queue resource properties.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -37,8 +43,9 @@ class AwaitableGetQueueResult(GetQueueResult):
         if False:
             yield self
         return GetQueueResult(
+            approximate_message_count=self.approximate_message_count,
+            metadata=self.metadata,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -61,6 +68,7 @@ def get_queue(account_name=None, name=None, resource_group_name=None, opts=None)
     __ret__ = pulumi.runtime.invoke('azurerm:storage/v20190601:getQueue', __args__, opts=opts).value
 
     return AwaitableGetQueueResult(
+        approximate_message_count=__ret__.get('approximateMessageCount'),
+        metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         type=__ret__.get('type'))

@@ -10,27 +10,41 @@ from ... import _utilities, _tables
 
 
 class ManagerExtendedInfo(pulumi.CustomResource):
+    algorithm: pulumi.Output[str]
+    """
+    Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
+    """
+    encryption_key: pulumi.Output[str]
+    """
+    Represents the CEK of the resource
+    """
+    encryption_key_thumbprint: pulumi.Output[str]
+    """
+    Represents the Cert thumbprint that was used to encrypt the CEK
+    """
     etag: pulumi.Output[str]
     """
     ETag of the Resource
+    """
+    integrity_key: pulumi.Output[str]
+    """
+    Represents the CIK of the resource
     """
     name: pulumi.Output[str]
     """
     The name.
     """
-    properties: pulumi.Output[dict]
+    portal_certificate_thumbprint: pulumi.Output[str]
     """
-    The extended info properties.
-      * `algorithm` (`str`) - Represents the encryption algorithm used to encrypt the other keys. None - if EncryptionKey is saved in plain text format. AlgorithmName - if encryption is used
-      * `encryption_key` (`str`) - Represents the CEK of the resource
-      * `encryption_key_thumbprint` (`str`) - Represents the Cert thumbprint that was used to encrypt the CEK
-      * `integrity_key` (`str`) - Represents the CIK of the resource
-      * `portal_certificate_thumbprint` (`str`) - Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
-      * `version` (`str`) - Represents the version of the ExtendedInfo object being persisted
+    Represents the portal thumbprint which can be used optionally to encrypt the entire data before storing it.
     """
     type: pulumi.Output[str]
     """
     The type.
+    """
+    version: pulumi.Output[str]
+    """
+    Represents the version of the ExtendedInfo object being persisted
     """
     def __init__(__self__, resource_name, opts=None, algorithm=None, encryption_key=None, encryption_key_thumbprint=None, etag=None, integrity_key=None, name=None, portal_certificate_thumbprint=None, resource_group_name=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -82,7 +96,6 @@ class ManagerExtendedInfo(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['version'] = version
-            __props__['properties'] = None
             __props__['type'] = None
         super(ManagerExtendedInfo, __self__).__init__(
             'azurerm:storsimple/v20161001:ManagerExtendedInfo',

@@ -13,7 +13,7 @@ class GetFirewallPolicyRuleCollectionGroupResult:
     """
     Rule Collection Group resource.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, name=None, priority=None, provisioning_state=None, rule_collections=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,11 +26,23 @@ class GetFirewallPolicyRuleCollectionGroupResult:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if priority and not isinstance(priority, float):
+            raise TypeError("Expected argument 'priority' to be a float")
+        __self__.priority = priority
         """
-        The properties of the firewall policy rule collection group.
+        Priority of the Firewall Policy Rule Collection Group resource.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the firewall policy rule collection group resource.
+        """
+        if rule_collections and not isinstance(rule_collections, list):
+            raise TypeError("Expected argument 'rule_collections' to be a list")
+        __self__.rule_collections = rule_collections
+        """
+        Group of Firewall Policy rule collections.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -48,7 +60,9 @@ class AwaitableGetFirewallPolicyRuleCollectionGroupResult(GetFirewallPolicyRuleC
         return GetFirewallPolicyRuleCollectionGroupResult(
             etag=self.etag,
             name=self.name,
-            properties=self.properties,
+            priority=self.priority,
+            provisioning_state=self.provisioning_state,
+            rule_collections=self.rule_collections,
             type=self.type)
 
 
@@ -73,5 +87,7 @@ def get_firewall_policy_rule_collection_group(firewall_policy_name=None, name=No
     return AwaitableGetFirewallPolicyRuleCollectionGroupResult(
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        priority=__ret__.get('priority'),
+        provisioning_state=__ret__.get('provisioningState'),
+        rule_collections=__ret__.get('ruleCollections'),
         type=__ret__.get('type'))

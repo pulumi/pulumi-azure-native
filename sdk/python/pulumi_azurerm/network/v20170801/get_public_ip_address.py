@@ -13,12 +13,36 @@ class GetPublicIPAddressResult:
     """
     Public IP address resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, dns_settings=None, etag=None, idle_timeout_in_minutes=None, ip_address=None, ip_configuration=None, location=None, name=None, provisioning_state=None, public_ip_address_version=None, public_ip_allocation_method=None, resource_guid=None, sku=None, tags=None, type=None, zones=None):
+        if dns_settings and not isinstance(dns_settings, dict):
+            raise TypeError("Expected argument 'dns_settings' to be a dict")
+        __self__.dns_settings = dns_settings
+        """
+        The FQDN of the DNS record associated with the public IP address.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, float):
+            raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a float")
+        __self__.idle_timeout_in_minutes = idle_timeout_in_minutes
+        """
+        The idle timeout of the public IP address.
+        """
+        if ip_address and not isinstance(ip_address, str):
+            raise TypeError("Expected argument 'ip_address' to be a str")
+        __self__.ip_address = ip_address
+        """
+        The IP address associated with the public IP address resource.
+        """
+        if ip_configuration and not isinstance(ip_configuration, dict):
+            raise TypeError("Expected argument 'ip_configuration' to be a dict")
+        __self__.ip_configuration = ip_configuration
+        """
+        The IP configuration associated with the public IP address.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +56,29 @@ class GetPublicIPAddressResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Public IP address properties.
+        The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        if public_ip_address_version and not isinstance(public_ip_address_version, str):
+            raise TypeError("Expected argument 'public_ip_address_version' to be a str")
+        __self__.public_ip_address_version = public_ip_address_version
+        """
+        The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+        """
+        if public_ip_allocation_method and not isinstance(public_ip_allocation_method, str):
+            raise TypeError("Expected argument 'public_ip_allocation_method' to be a str")
+        __self__.public_ip_allocation_method = public_ip_allocation_method
+        """
+        The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resource GUID property of the public IP resource.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -70,10 +112,17 @@ class AwaitableGetPublicIPAddressResult(GetPublicIPAddressResult):
         if False:
             yield self
         return GetPublicIPAddressResult(
+            dns_settings=self.dns_settings,
             etag=self.etag,
+            idle_timeout_in_minutes=self.idle_timeout_in_minutes,
+            ip_address=self.ip_address,
+            ip_configuration=self.ip_configuration,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            public_ip_address_version=self.public_ip_address_version,
+            public_ip_allocation_method=self.public_ip_allocation_method,
+            resource_guid=self.resource_guid,
             sku=self.sku,
             tags=self.tags,
             type=self.type,
@@ -97,10 +146,17 @@ def get_public_ip_address(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20170801:getPublicIPAddress', __args__, opts=opts).value
 
     return AwaitableGetPublicIPAddressResult(
+        dns_settings=__ret__.get('dnsSettings'),
         etag=__ret__.get('etag'),
+        idle_timeout_in_minutes=__ret__.get('idleTimeoutInMinutes'),
+        ip_address=__ret__.get('ipAddress'),
+        ip_configuration=__ret__.get('ipConfiguration'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        public_ip_address_version=__ret__.get('publicIPAddressVersion'),
+        public_ip_allocation_method=__ret__.get('publicIPAllocationMethod'),
+        resource_guid=__ret__.get('resourceGuid'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'),

@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class Snapshot(pulumi.CustomResource):
+    created: pulumi.Output[str]
+    """
+    The creation date of the snapshot
+    """
+    file_system_id: pulumi.Output[str]
+    """
+    UUID v4 used to identify the FileSystem
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,17 +26,13 @@ class Snapshot(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Snapshot Properties
-      * `created` (`str`) - The creation date of the snapshot
-      * `file_system_id` (`str`) - UUID v4 used to identify the FileSystem
-      * `provisioning_state` (`str`) - Azure lifecycle management
-      * `snapshot_id` (`str`) - UUID v4 used to identify the Snapshot
+    Azure lifecycle management
     """
-    tags: pulumi.Output[dict]
+    snapshot_id: pulumi.Output[str]
     """
-    Resource tags
+    UUID v4 used to identify the Snapshot
     """
     type: pulumi.Output[str]
     """
@@ -84,8 +88,9 @@ class Snapshot(pulumi.CustomResource):
             if volume_name is None:
                 raise TypeError("Missing required property 'volume_name'")
             __props__['volume_name'] = volume_name
-            __props__['properties'] = None
-            __props__['tags'] = None
+            __props__['created'] = None
+            __props__['provisioning_state'] = None
+            __props__['snapshot_id'] = None
             __props__['type'] = None
         super(Snapshot, __self__).__init__(
             'azurerm:netapp/v20191001:Snapshot',

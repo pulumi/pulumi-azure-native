@@ -13,18 +13,54 @@ class GetPrefixResult:
     """
     The peering service prefix class.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, error_message=None, events=None, learned_type=None, name=None, peering_service_prefix_key=None, prefix=None, prefix_validation_state=None, provisioning_state=None, type=None):
+        if error_message and not isinstance(error_message, str):
+            raise TypeError("Expected argument 'error_message' to be a str")
+        __self__.error_message = error_message
+        """
+        The error message for validation state
+        """
+        if events and not isinstance(events, list):
+            raise TypeError("Expected argument 'events' to be a list")
+        __self__.events = events
+        """
+        The list of events for peering service prefix
+        """
+        if learned_type and not isinstance(learned_type, str):
+            raise TypeError("Expected argument 'learned_type' to be a str")
+        __self__.learned_type = learned_type
+        """
+        The prefix learned type
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peering_service_prefix_key and not isinstance(peering_service_prefix_key, str):
+            raise TypeError("Expected argument 'peering_service_prefix_key' to be a str")
+        __self__.peering_service_prefix_key = peering_service_prefix_key
         """
-        Gets or sets the peering prefix properties.
+        The peering service prefix key
+        """
+        if prefix and not isinstance(prefix, str):
+            raise TypeError("Expected argument 'prefix' to be a str")
+        __self__.prefix = prefix
+        """
+        The prefix from which your traffic originates.
+        """
+        if prefix_validation_state and not isinstance(prefix_validation_state, str):
+            raise TypeError("Expected argument 'prefix_validation_state' to be a str")
+        __self__.prefix_validation_state = prefix_validation_state
+        """
+        The prefix validation state
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +76,14 @@ class AwaitableGetPrefixResult(GetPrefixResult):
         if False:
             yield self
         return GetPrefixResult(
+            error_message=self.error_message,
+            events=self.events,
+            learned_type=self.learned_type,
             name=self.name,
-            properties=self.properties,
+            peering_service_prefix_key=self.peering_service_prefix_key,
+            prefix=self.prefix,
+            prefix_validation_state=self.prefix_validation_state,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -64,6 +106,12 @@ def get_prefix(name=None, peering_service_name=None, resource_group_name=None, o
     __ret__ = pulumi.runtime.invoke('azurerm:peering/v20200401:getPrefix', __args__, opts=opts).value
 
     return AwaitableGetPrefixResult(
+        error_message=__ret__.get('errorMessage'),
+        events=__ret__.get('events'),
+        learned_type=__ret__.get('learnedType'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        peering_service_prefix_key=__ret__.get('peeringServicePrefixKey'),
+        prefix=__ret__.get('prefix'),
+        prefix_validation_state=__ret__.get('prefixValidationState'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

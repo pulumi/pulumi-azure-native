@@ -13,24 +13,60 @@ class GetStorageTargetResult:
     """
     Type of the Storage Target.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, clfs=None, junctions=None, name=None, nfs3=None, provisioning_state=None, target_base_type=None, target_type=None, type=None, unknown=None):
+        if clfs and not isinstance(clfs, dict):
+            raise TypeError("Expected argument 'clfs' to be a dict")
+        __self__.clfs = clfs
+        """
+        Properties when targetType is clfs.
+        """
+        if junctions and not isinstance(junctions, list):
+            raise TypeError("Expected argument 'junctions' to be a list")
+        __self__.junctions = junctions
+        """
+        List of Cache namespace junctions to target for namespace associations.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Name of the Storage Target.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if nfs3 and not isinstance(nfs3, dict):
+            raise TypeError("Expected argument 'nfs3' to be a dict")
+        __self__.nfs3 = nfs3
         """
-        StorageTarget properties
+        Properties when targetType is nfs3.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+        """
+        if target_base_type and not isinstance(target_base_type, str):
+            raise TypeError("Expected argument 'target_base_type' to be a str")
+        __self__.target_base_type = target_base_type
+        """
+        Type of the Storage Target.
+        """
+        if target_type and not isinstance(target_type, str):
+            raise TypeError("Expected argument 'target_type' to be a str")
+        __self__.target_type = target_type
+        """
+        Type of the Storage Target.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
+        """
+        if unknown and not isinstance(unknown, dict):
+            raise TypeError("Expected argument 'unknown' to be a dict")
+        __self__.unknown = unknown
+        """
+        Properties when targetType is unknown.
         """
 
 
@@ -40,9 +76,15 @@ class AwaitableGetStorageTargetResult(GetStorageTargetResult):
         if False:
             yield self
         return GetStorageTargetResult(
+            clfs=self.clfs,
+            junctions=self.junctions,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            nfs3=self.nfs3,
+            provisioning_state=self.provisioning_state,
+            target_base_type=self.target_base_type,
+            target_type=self.target_type,
+            type=self.type,
+            unknown=self.unknown)
 
 
 def get_storage_target(cache_name=None, name=None, resource_group_name=None, opts=None):
@@ -64,6 +106,12 @@ def get_storage_target(cache_name=None, name=None, resource_group_name=None, opt
     __ret__ = pulumi.runtime.invoke('azurerm:storagecache/v20200301:getStorageTarget', __args__, opts=opts).value
 
     return AwaitableGetStorageTargetResult(
+        clfs=__ret__.get('clfs'),
+        junctions=__ret__.get('junctions'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        nfs3=__ret__.get('nfs3'),
+        provisioning_state=__ret__.get('provisioningState'),
+        target_base_type=__ret__.get('targetBaseType'),
+        target_type=__ret__.get('targetType'),
+        type=__ret__.get('type'),
+        unknown=__ret__.get('unknown'))

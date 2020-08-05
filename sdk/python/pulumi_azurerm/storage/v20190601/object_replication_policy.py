@@ -10,26 +10,36 @@ from ... import _utilities, _tables
 
 
 class ObjectReplicationPolicy(pulumi.CustomResource):
+    destination_account: pulumi.Output[str]
+    """
+    Required. Destination account name.
+    """
+    enabled_time: pulumi.Output[str]
+    """
+    Indicates when the policy is enabled on the source account.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    policy_id: pulumi.Output[str]
     """
-    Returns the Storage Account Object Replication Policy.
-      * `destination_account` (`str`) - Required. Destination account name.
-      * `enabled_time` (`str`) - Indicates when the policy is enabled on the source account.
-      * `policy_id` (`str`) - A unique id for object replication policy.
-      * `rules` (`list`) - The storage account object replication rules.
-        * `destination_container` (`str`) - Required. Destination container name.
-        * `filters` (`dict`) - Optional. An object that defines the filter set.
-          * `min_creation_time` (`str`) - Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
-          * `prefix_match` (`list`) - Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
+    A unique id for object replication policy.
+    """
+    rules: pulumi.Output[list]
+    """
+    The storage account object replication rules.
+      * `destination_container` (`str`) - Required. Destination container name.
+      * `filters` (`dict`) - Optional. An object that defines the filter set.
+        * `min_creation_time` (`str`) - Blobs created after the time will be replicated to the destination. It must be in datetime format 'yyyy-MM-ddTHH:mm:ssZ'. Example: 2020-02-19T16:05:00Z
+        * `prefix_match` (`list`) - Optional. Filters the results to replicate only blobs whose names begin with the specified prefix.
 
-        * `rule_id` (`str`) - Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
-        * `source_container` (`str`) - Required. Source container name.
-
-      * `source_account` (`str`) - Required. Source account name.
+      * `rule_id` (`str`) - Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.
+      * `source_container` (`str`) - Required. Source container name.
+    """
+    source_account: pulumi.Output[str]
+    """
+    Required. Source account name.
     """
     type: pulumi.Output[str]
     """
@@ -91,7 +101,8 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
             if source_account is None:
                 raise TypeError("Missing required property 'source_account'")
             __props__['source_account'] = source_account
-            __props__['properties'] = None
+            __props__['enabled_time'] = None
+            __props__['policy_id'] = None
             __props__['type'] = None
         super(ObjectReplicationPolicy, __self__).__init__(
             'azurerm:storage/v20190601:ObjectReplicationPolicy',

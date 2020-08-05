@@ -10,25 +10,31 @@ from ... import _utilities, _tables
 
 
 class Output(pulumi.CustomResource):
+    datasource: pulumi.Output[dict]
+    """
+    Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+      * `type` (`str`) - Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+    """
+    diagnostics: pulumi.Output[dict]
+    """
+    Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+      * `conditions` (`list`) - A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
+        * `code` (`str`) - The opaque diagnostic code.
+        * `message` (`str`) - The human-readable message describing the condition in detail. Localized in the Accept-Language of the client request.
+        * `since` (`str`) - The UTC timestamp of when the condition started. Customers should be able to find a corresponding event in the ops log around this time.
+    """
+    etag: pulumi.Output[str]
+    """
+    The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+    """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    serialization: pulumi.Output[dict]
     """
-    The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
-      * `datasource` (`dict`) - Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
-        * `type` (`str`) - Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
-
-      * `diagnostics` (`dict`) - Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-        * `conditions` (`list`) - A collection of zero or more conditions applicable to the resource, or to the job overall, that warrant customer attention.
-          * `code` (`str`) - The opaque diagnostic code.
-          * `message` (`str`) - The human-readable message describing the condition in detail. Localized in the Accept-Language of the client request.
-          * `since` (`str`) - The UTC timestamp of when the condition started. Customers should be able to find a corresponding event in the ops log around this time.
-
-      * `etag` (`str`) - The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
-      * `serialization` (`dict`) - Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
-        * `type` (`str`) - Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
+    Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
+      * `type` (`str`) - Indicates the type of serialization that the input or output uses. Required on PUT (CreateOrReplace) requests.
     """
     type: pulumi.Output[str]
     """
@@ -82,7 +88,8 @@ class Output(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['serialization'] = serialization
-            __props__['properties'] = None
+            __props__['diagnostics'] = None
+            __props__['etag'] = None
             __props__['type'] = None
         super(Output, __self__).__init__(
             'azurerm:streamanalytics/v20160301:Output',

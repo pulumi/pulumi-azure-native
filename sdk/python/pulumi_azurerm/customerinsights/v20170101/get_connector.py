@@ -13,18 +13,78 @@ class GetConnectorResult:
     """
     The connector resource format.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, connector_id=None, connector_name=None, connector_properties=None, connector_type=None, created=None, description=None, display_name=None, is_internal=None, last_modified=None, name=None, state=None, tenant_id=None, type=None):
+        if connector_id and not isinstance(connector_id, float):
+            raise TypeError("Expected argument 'connector_id' to be a float")
+        __self__.connector_id = connector_id
+        """
+        ID of the connector.
+        """
+        if connector_name and not isinstance(connector_name, str):
+            raise TypeError("Expected argument 'connector_name' to be a str")
+        __self__.connector_name = connector_name
+        """
+        Name of the connector.
+        """
+        if connector_properties and not isinstance(connector_properties, dict):
+            raise TypeError("Expected argument 'connector_properties' to be a dict")
+        __self__.connector_properties = connector_properties
+        """
+        The connector properties.
+        """
+        if connector_type and not isinstance(connector_type, str):
+            raise TypeError("Expected argument 'connector_type' to be a str")
+        __self__.connector_type = connector_type
+        """
+        Type of connector.
+        """
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        __self__.created = created
+        """
+        The created time.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Description of the connector.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        Display name of the connector.
+        """
+        if is_internal and not isinstance(is_internal, bool):
+            raise TypeError("Expected argument 'is_internal' to be a bool")
+        __self__.is_internal = is_internal
+        """
+        If this is an internal connector.
+        """
+        if last_modified and not isinstance(last_modified, str):
+            raise TypeError("Expected argument 'last_modified' to be a str")
+        __self__.last_modified = last_modified
+        """
+        The last modified time.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
         """
-        Properties of connector.
+        State of connector.
+        """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        The hub name.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +100,18 @@ class AwaitableGetConnectorResult(GetConnectorResult):
         if False:
             yield self
         return GetConnectorResult(
+            connector_id=self.connector_id,
+            connector_name=self.connector_name,
+            connector_properties=self.connector_properties,
+            connector_type=self.connector_type,
+            created=self.created,
+            description=self.description,
+            display_name=self.display_name,
+            is_internal=self.is_internal,
+            last_modified=self.last_modified,
             name=self.name,
-            properties=self.properties,
+            state=self.state,
+            tenant_id=self.tenant_id,
             type=self.type)
 
 
@@ -64,6 +134,16 @@ def get_connector(hub_name=None, name=None, resource_group_name=None, opts=None)
     __ret__ = pulumi.runtime.invoke('azurerm:customerinsights/v20170101:getConnector', __args__, opts=opts).value
 
     return AwaitableGetConnectorResult(
+        connector_id=__ret__.get('connectorId'),
+        connector_name=__ret__.get('connectorName'),
+        connector_properties=__ret__.get('connectorProperties'),
+        connector_type=__ret__.get('connectorType'),
+        created=__ret__.get('created'),
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        is_internal=__ret__.get('isInternal'),
+        last_modified=__ret__.get('lastModified'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        state=__ret__.get('state'),
+        tenant_id=__ret__.get('tenantId'),
         type=__ret__.get('type'))

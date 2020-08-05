@@ -13,24 +13,78 @@ class GetvNetPeeringResult:
     """
     Peerings in a VirtualNetwork resource
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, allow_forwarded_traffic=None, allow_gateway_transit=None, allow_virtual_network_access=None, databricks_address_space=None, databricks_virtual_network=None, name=None, peering_state=None, provisioning_state=None, remote_address_space=None, remote_virtual_network=None, type=None, use_remote_gateways=None):
+        if allow_forwarded_traffic and not isinstance(allow_forwarded_traffic, bool):
+            raise TypeError("Expected argument 'allow_forwarded_traffic' to be a bool")
+        __self__.allow_forwarded_traffic = allow_forwarded_traffic
+        """
+        Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
+        """
+        if allow_gateway_transit and not isinstance(allow_gateway_transit, bool):
+            raise TypeError("Expected argument 'allow_gateway_transit' to be a bool")
+        __self__.allow_gateway_transit = allow_gateway_transit
+        """
+        If gateway links can be used in remote virtual networking to link to this virtual network.
+        """
+        if allow_virtual_network_access and not isinstance(allow_virtual_network_access, bool):
+            raise TypeError("Expected argument 'allow_virtual_network_access' to be a bool")
+        __self__.allow_virtual_network_access = allow_virtual_network_access
+        """
+        Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+        """
+        if databricks_address_space and not isinstance(databricks_address_space, dict):
+            raise TypeError("Expected argument 'databricks_address_space' to be a dict")
+        __self__.databricks_address_space = databricks_address_space
+        """
+        The reference to the databricks virtual network address space.
+        """
+        if databricks_virtual_network and not isinstance(databricks_virtual_network, dict):
+            raise TypeError("Expected argument 'databricks_virtual_network' to be a dict")
+        __self__.databricks_virtual_network = databricks_virtual_network
+        """
+         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Name of the virtual network peering resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peering_state and not isinstance(peering_state, str):
+            raise TypeError("Expected argument 'peering_state' to be a str")
+        __self__.peering_state = peering_state
         """
-        List of properties for vNet Peering
+        The status of the virtual network peering.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the virtual network peering resource.
+        """
+        if remote_address_space and not isinstance(remote_address_space, dict):
+            raise TypeError("Expected argument 'remote_address_space' to be a dict")
+        __self__.remote_address_space = remote_address_space
+        """
+        The reference to the remote virtual network address space.
+        """
+        if remote_virtual_network and not isinstance(remote_virtual_network, dict):
+            raise TypeError("Expected argument 'remote_virtual_network' to be a dict")
+        __self__.remote_virtual_network = remote_virtual_network
+        """
+         The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         type of the virtual network peering resource
+        """
+        if use_remote_gateways and not isinstance(use_remote_gateways, bool):
+            raise TypeError("Expected argument 'use_remote_gateways' to be a bool")
+        __self__.use_remote_gateways = use_remote_gateways
+        """
+        If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         """
 
 
@@ -40,9 +94,18 @@ class AwaitableGetvNetPeeringResult(GetvNetPeeringResult):
         if False:
             yield self
         return GetvNetPeeringResult(
+            allow_forwarded_traffic=self.allow_forwarded_traffic,
+            allow_gateway_transit=self.allow_gateway_transit,
+            allow_virtual_network_access=self.allow_virtual_network_access,
+            databricks_address_space=self.databricks_address_space,
+            databricks_virtual_network=self.databricks_virtual_network,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            peering_state=self.peering_state,
+            provisioning_state=self.provisioning_state,
+            remote_address_space=self.remote_address_space,
+            remote_virtual_network=self.remote_virtual_network,
+            type=self.type,
+            use_remote_gateways=self.use_remote_gateways)
 
 
 def getv_net_peering(name=None, resource_group_name=None, workspace_name=None, opts=None):
@@ -64,6 +127,15 @@ def getv_net_peering(name=None, resource_group_name=None, workspace_name=None, o
     __ret__ = pulumi.runtime.invoke('azurerm:databricks/v20180401:getvNetPeering', __args__, opts=opts).value
 
     return AwaitableGetvNetPeeringResult(
+        allow_forwarded_traffic=__ret__.get('allowForwardedTraffic'),
+        allow_gateway_transit=__ret__.get('allowGatewayTransit'),
+        allow_virtual_network_access=__ret__.get('allowVirtualNetworkAccess'),
+        databricks_address_space=__ret__.get('databricksAddressSpace'),
+        databricks_virtual_network=__ret__.get('databricksVirtualNetwork'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        peering_state=__ret__.get('peeringState'),
+        provisioning_state=__ret__.get('provisioningState'),
+        remote_address_space=__ret__.get('remoteAddressSpace'),
+        remote_virtual_network=__ret__.get('remoteVirtualNetwork'),
+        type=__ret__.get('type'),
+        use_remote_gateways=__ret__.get('useRemoteGateways'))

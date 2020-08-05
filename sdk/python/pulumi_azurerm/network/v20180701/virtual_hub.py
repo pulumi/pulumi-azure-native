@@ -10,9 +10,29 @@ from ... import _utilities, _tables
 
 
 class VirtualHub(pulumi.CustomResource):
+    address_prefix: pulumi.Output[str]
+    """
+    Address-prefix for this VirtualHub.
+    """
     etag: pulumi.Output[str]
     """
     Gets a unique read-only string that changes whenever the resource is updated.
+    """
+    hub_virtual_network_connections: pulumi.Output[list]
+    """
+    list of all vnet connections with this VirtualHub.
+      * `allow_hub_to_remote_vnet_transit` (`bool`) - VirtualHub to RemoteVnet transit to enabled or not.
+      * `allow_remote_vnet_to_use_hub_vnet_gateways` (`bool`) - Allow RemoteVnet to use Virtual Hub's gateways.
+      * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `location` (`str`) - Resource location.
+      * `name` (`str`) - Resource name.
+      * `provisioning_state` (`str`) - The provisioning state of the resource.
+      * `remote_virtual_network` (`dict`) - Reference to the remote virtual network.
+        * `id` (`str`) - Resource ID.
+
+      * `tags` (`dict`) - Resource tags.
+      * `type` (`str`) - Resource type.
     """
     location: pulumi.Output[str]
     """
@@ -22,27 +42,9 @@ class VirtualHub(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Parameters for VirtualHub
-      * `address_prefix` (`str`) - Address-prefix for this VirtualHub.
-      * `hub_virtual_network_connections` (`list`) - list of all vnet connections with this VirtualHub.
-        * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `location` (`str`) - Resource location.
-        * `name` (`str`) - Resource name.
-        * `properties` (`dict`) - Parameters for HubVirtualNetworkConnection
-          * `allow_hub_to_remote_vnet_transit` (`bool`) - VirtualHub to RemoteVnet transit to enabled or not.
-          * `allow_remote_vnet_to_use_hub_vnet_gateways` (`bool`) - Allow RemoteVnet to use Virtual Hub's gateways.
-          * `provisioning_state` (`str`) - The provisioning state of the resource.
-          * `remote_virtual_network` (`dict`) - Reference to the remote virtual network.
-            * `id` (`str`) - Resource ID.
-
-        * `tags` (`dict`) - Resource tags.
-        * `type` (`str`) - Resource type.
-
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
-      * `virtual_wan` (`dict`) - The VirtualWAN to which the VirtualHub belongs
+    The provisioning state of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -51,6 +53,11 @@ class VirtualHub(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    virtual_wan: pulumi.Output[dict]
+    """
+    The VirtualWAN to which the VirtualHub belongs
+      * `id` (`str`) - Resource ID.
     """
     def __init__(__self__, resource_name, opts=None, address_prefix=None, hub_virtual_network_connections=None, id=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, virtual_wan=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -113,7 +120,6 @@ class VirtualHub(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['virtual_wan'] = virtual_wan
             __props__['etag'] = None
-            __props__['properties'] = None
             __props__['type'] = None
         super(VirtualHub, __self__).__init__(
             'azurerm:network/v20180701:VirtualHub',

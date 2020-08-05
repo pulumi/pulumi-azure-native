@@ -13,24 +13,120 @@ class GetSubscriptionResult:
     """
     Description of subscription resource.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, dead_lettering_on_filter_evaluation_exceptions=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, lock_duration=None, max_delivery_count=None, message_count=None, name=None, requires_session=None, status=None, type=None, updated_at=None):
+        if accessed_at and not isinstance(accessed_at, str):
+            raise TypeError("Expected argument 'accessed_at' to be a str")
+        __self__.accessed_at = accessed_at
+        """
+        Last time there was a receive request to this subscription.
+        """
+        if auto_delete_on_idle and not isinstance(auto_delete_on_idle, str):
+            raise TypeError("Expected argument 'auto_delete_on_idle' to be a str")
+        __self__.auto_delete_on_idle = auto_delete_on_idle
+        """
+        ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+        """
+        if count_details and not isinstance(count_details, dict):
+            raise TypeError("Expected argument 'count_details' to be a dict")
+        __self__.count_details = count_details
+        """
+        Message count details
+        """
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        __self__.created_at = created_at
+        """
+        Exact time the message was created.
+        """
+        if dead_lettering_on_filter_evaluation_exceptions and not isinstance(dead_lettering_on_filter_evaluation_exceptions, bool):
+            raise TypeError("Expected argument 'dead_lettering_on_filter_evaluation_exceptions' to be a bool")
+        __self__.dead_lettering_on_filter_evaluation_exceptions = dead_lettering_on_filter_evaluation_exceptions
+        """
+        Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+        """
+        if dead_lettering_on_message_expiration and not isinstance(dead_lettering_on_message_expiration, bool):
+            raise TypeError("Expected argument 'dead_lettering_on_message_expiration' to be a bool")
+        __self__.dead_lettering_on_message_expiration = dead_lettering_on_message_expiration
+        """
+        Value that indicates whether a subscription has dead letter support when a message expires.
+        """
+        if default_message_time_to_live and not isinstance(default_message_time_to_live, str):
+            raise TypeError("Expected argument 'default_message_time_to_live' to be a str")
+        __self__.default_message_time_to_live = default_message_time_to_live
+        """
+        ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        """
+        if duplicate_detection_history_time_window and not isinstance(duplicate_detection_history_time_window, str):
+            raise TypeError("Expected argument 'duplicate_detection_history_time_window' to be a str")
+        __self__.duplicate_detection_history_time_window = duplicate_detection_history_time_window
+        """
+        ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+        """
+        if enable_batched_operations and not isinstance(enable_batched_operations, bool):
+            raise TypeError("Expected argument 'enable_batched_operations' to be a bool")
+        __self__.enable_batched_operations = enable_batched_operations
+        """
+        Value that indicates whether server-side batched operations are enabled.
+        """
+        if forward_dead_lettered_messages_to and not isinstance(forward_dead_lettered_messages_to, str):
+            raise TypeError("Expected argument 'forward_dead_lettered_messages_to' to be a str")
+        __self__.forward_dead_lettered_messages_to = forward_dead_lettered_messages_to
+        """
+        Queue/Topic name to forward the Dead Letter message
+        """
+        if forward_to and not isinstance(forward_to, str):
+            raise TypeError("Expected argument 'forward_to' to be a str")
+        __self__.forward_to = forward_to
+        """
+        Queue/Topic name to forward the messages
+        """
+        if lock_duration and not isinstance(lock_duration, str):
+            raise TypeError("Expected argument 'lock_duration' to be a str")
+        __self__.lock_duration = lock_duration
+        """
+        ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
+        """
+        if max_delivery_count and not isinstance(max_delivery_count, float):
+            raise TypeError("Expected argument 'max_delivery_count' to be a float")
+        __self__.max_delivery_count = max_delivery_count
+        """
+        Number of maximum deliveries.
+        """
+        if message_count and not isinstance(message_count, float):
+            raise TypeError("Expected argument 'message_count' to be a float")
+        __self__.message_count = message_count
+        """
+        Number of messages.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if requires_session and not isinstance(requires_session, bool):
+            raise TypeError("Expected argument 'requires_session' to be a bool")
+        __self__.requires_session = requires_session
         """
-        Properties of subscriptions resource.
+        Value indicating if a subscription supports the concept of sessions.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Enumerates the possible values for the status of a messaging entity.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type
+        """
+        if updated_at and not isinstance(updated_at, str):
+            raise TypeError("Expected argument 'updated_at' to be a str")
+        __self__.updated_at = updated_at
+        """
+        The exact time the message was updated.
         """
 
 
@@ -40,9 +136,25 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
         if False:
             yield self
         return GetSubscriptionResult(
+            accessed_at=self.accessed_at,
+            auto_delete_on_idle=self.auto_delete_on_idle,
+            count_details=self.count_details,
+            created_at=self.created_at,
+            dead_lettering_on_filter_evaluation_exceptions=self.dead_lettering_on_filter_evaluation_exceptions,
+            dead_lettering_on_message_expiration=self.dead_lettering_on_message_expiration,
+            default_message_time_to_live=self.default_message_time_to_live,
+            duplicate_detection_history_time_window=self.duplicate_detection_history_time_window,
+            enable_batched_operations=self.enable_batched_operations,
+            forward_dead_lettered_messages_to=self.forward_dead_lettered_messages_to,
+            forward_to=self.forward_to,
+            lock_duration=self.lock_duration,
+            max_delivery_count=self.max_delivery_count,
+            message_count=self.message_count,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            requires_session=self.requires_session,
+            status=self.status,
+            type=self.type,
+            updated_at=self.updated_at)
 
 
 def get_subscription(name=None, namespace_name=None, resource_group_name=None, topic_name=None, opts=None):
@@ -66,6 +178,22 @@ def get_subscription(name=None, namespace_name=None, resource_group_name=None, t
     __ret__ = pulumi.runtime.invoke('azurerm:servicebus/v20170401:getSubscription', __args__, opts=opts).value
 
     return AwaitableGetSubscriptionResult(
+        accessed_at=__ret__.get('accessedAt'),
+        auto_delete_on_idle=__ret__.get('autoDeleteOnIdle'),
+        count_details=__ret__.get('countDetails'),
+        created_at=__ret__.get('createdAt'),
+        dead_lettering_on_filter_evaluation_exceptions=__ret__.get('deadLetteringOnFilterEvaluationExceptions'),
+        dead_lettering_on_message_expiration=__ret__.get('deadLetteringOnMessageExpiration'),
+        default_message_time_to_live=__ret__.get('defaultMessageTimeToLive'),
+        duplicate_detection_history_time_window=__ret__.get('duplicateDetectionHistoryTimeWindow'),
+        enable_batched_operations=__ret__.get('enableBatchedOperations'),
+        forward_dead_lettered_messages_to=__ret__.get('forwardDeadLetteredMessagesTo'),
+        forward_to=__ret__.get('forwardTo'),
+        lock_duration=__ret__.get('lockDuration'),
+        max_delivery_count=__ret__.get('maxDeliveryCount'),
+        message_count=__ret__.get('messageCount'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        requires_session=__ret__.get('requiresSession'),
+        status=__ret__.get('status'),
+        type=__ret__.get('type'),
+        updated_at=__ret__.get('updatedAt'))

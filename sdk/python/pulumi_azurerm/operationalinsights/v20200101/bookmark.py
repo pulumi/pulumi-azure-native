@@ -10,40 +10,67 @@ from ... import _utilities, _tables
 
 
 class Bookmark(pulumi.CustomResource):
+    created: pulumi.Output[str]
+    """
+    The time the bookmark was created
+    """
+    created_by: pulumi.Output[dict]
+    """
+    Describes a user that created the bookmark
+      * `email` (`str`) - The email of the user.
+      * `name` (`str`) - The name of the user.
+      * `object_id` (`str`) - The object id of the user.
+    """
+    display_name: pulumi.Output[str]
+    """
+    The display name of the bookmark
+    """
     etag: pulumi.Output[str]
     """
     Etag of the azure resource
+    """
+    incident_info: pulumi.Output[dict]
+    """
+    Describes an incident that relates to bookmark
+      * `incident_id` (`str`) - Incident Id
+      * `relation_name` (`str`) - Relation Name
+      * `severity` (`str`) - The severity of the incident
+      * `title` (`str`) - The title of the incident
+    """
+    labels: pulumi.Output[list]
+    """
+    List of labels relevant to this bookmark
     """
     name: pulumi.Output[str]
     """
     Azure resource name
     """
-    properties: pulumi.Output[dict]
+    notes: pulumi.Output[str]
     """
-    Bookmark properties
-      * `created` (`str`) - The time the bookmark was created
-      * `created_by` (`dict`) - Describes a user that created the bookmark
-        * `email` (`str`) - The email of the user.
-        * `name` (`str`) - The name of the user.
-        * `object_id` (`str`) - The object id of the user.
-
-      * `display_name` (`str`) - The display name of the bookmark
-      * `incident_info` (`dict`) - Describes an incident that relates to bookmark
-        * `incident_id` (`str`) - Incident Id
-        * `relation_name` (`str`) - Relation Name
-        * `severity` (`str`) - The severity of the incident
-        * `title` (`str`) - The title of the incident
-
-      * `labels` (`list`) - List of labels relevant to this bookmark
-      * `notes` (`str`) - The notes of the bookmark
-      * `query` (`str`) - The query of the bookmark.
-      * `query_result` (`str`) - The query result of the bookmark.
-      * `updated` (`str`) - The last time the bookmark was updated
-      * `updated_by` (`dict`) - Describes a user that updated the bookmark
+    The notes of the bookmark
+    """
+    query: pulumi.Output[str]
+    """
+    The query of the bookmark.
+    """
+    query_result: pulumi.Output[str]
+    """
+    The query result of the bookmark.
     """
     type: pulumi.Output[str]
     """
     Azure resource type
+    """
+    updated: pulumi.Output[str]
+    """
+    The last time the bookmark was updated
+    """
+    updated_by: pulumi.Output[dict]
+    """
+    Describes a user that updated the bookmark
+      * `email` (`str`) - The email of the user.
+      * `name` (`str`) - The name of the user.
+      * `object_id` (`str`) - The object id of the user.
     """
     def __init__(__self__, resource_name, opts=None, created=None, created_by=None, display_name=None, etag=None, incident_info=None, labels=None, name=None, notes=None, query=None, query_result=None, resource_group_name=None, updated=None, updated_by=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -118,7 +145,6 @@ class Bookmark(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(Bookmark, __self__).__init__(
             'azurerm:operationalinsights/v20200101:Bookmark',

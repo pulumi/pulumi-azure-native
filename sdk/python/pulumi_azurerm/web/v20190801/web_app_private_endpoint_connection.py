@@ -18,19 +18,19 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    private_endpoint: pulumi.Output[dict]
     """
-    Core resource properties
-      * `private_endpoint` (`dict`) - PrivateEndpoint of a remote private endpoint connection
-        * `id` (`str`)
-
-      * `private_link_service_connection_state` (`dict`) - The state of a private link connection
-        * `actions_required` (`str`) - ActionsRequired for a private link connection
-        * `description` (`str`) - Description of a private link connection
-        * `status` (`str`) - Status of a private link connection
-
-      * `provisioning_state` (`str`)
+    PrivateEndpoint of a remote private endpoint connection
+      * `id` (`str`)
     """
+    private_link_service_connection_state: pulumi.Output[dict]
+    """
+    The state of a private link connection
+      * `actions_required` (`str`) - ActionsRequired for a private link connection
+      * `description` (`str`) - Description of a private link connection
+      * `status` (`str`) - Status of a private link connection
+    """
+    provisioning_state: pulumi.Output[str]
     type: pulumi.Output[str]
     """
     Resource type.
@@ -76,7 +76,8 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['private_endpoint'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(WebAppPrivateEndpointConnection, __self__).__init__(
             'azurerm:web/v20190801:WebAppPrivateEndpointConnection',

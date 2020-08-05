@@ -13,7 +13,19 @@ class GetWorkspaceResult:
     """
     An object that represents a machine learning workspace.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, key_vault_identifier_id=None, location=None, name=None, owner_email=None, studio_endpoint=None, tags=None, type=None, user_storage_account_id=None, workspace_id=None, workspace_state=None, workspace_type=None):
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        The creation time for this workspace resource.
+        """
+        if key_vault_identifier_id and not isinstance(key_vault_identifier_id, str):
+            raise TypeError("Expected argument 'key_vault_identifier_id' to be a str")
+        __self__.key_vault_identifier_id = key_vault_identifier_id
+        """
+        The key vault identifier used for encrypted workspaces.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +38,17 @@ class GetWorkspaceResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if owner_email and not isinstance(owner_email, str):
+            raise TypeError("Expected argument 'owner_email' to be a str")
+        __self__.owner_email = owner_email
         """
-        The properties of the machine learning workspace.
+        The email id of the owner for this workspace.
+        """
+        if studio_endpoint and not isinstance(studio_endpoint, str):
+            raise TypeError("Expected argument 'studio_endpoint' to be a str")
+        __self__.studio_endpoint = studio_endpoint
+        """
+        The regional endpoint for the machine learning studio service which hosts this workspace.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +62,30 @@ class GetWorkspaceResult:
         """
         The type of the resource.
         """
+        if user_storage_account_id and not isinstance(user_storage_account_id, str):
+            raise TypeError("Expected argument 'user_storage_account_id' to be a str")
+        __self__.user_storage_account_id = user_storage_account_id
+        """
+        The fully qualified arm id of the storage account associated with this workspace.
+        """
+        if workspace_id and not isinstance(workspace_id, str):
+            raise TypeError("Expected argument 'workspace_id' to be a str")
+        __self__.workspace_id = workspace_id
+        """
+        The immutable id associated with this workspace.
+        """
+        if workspace_state and not isinstance(workspace_state, str):
+            raise TypeError("Expected argument 'workspace_state' to be a str")
+        __self__.workspace_state = workspace_state
+        """
+        The current state of workspace resource.
+        """
+        if workspace_type and not isinstance(workspace_type, str):
+            raise TypeError("Expected argument 'workspace_type' to be a str")
+        __self__.workspace_type = workspace_type
+        """
+        The type of this workspace.
+        """
 
 
 class AwaitableGetWorkspaceResult(GetWorkspaceResult):
@@ -52,11 +94,18 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         if False:
             yield self
         return GetWorkspaceResult(
+            creation_time=self.creation_time,
+            key_vault_identifier_id=self.key_vault_identifier_id,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            owner_email=self.owner_email,
+            studio_endpoint=self.studio_endpoint,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            user_storage_account_id=self.user_storage_account_id,
+            workspace_id=self.workspace_id,
+            workspace_state=self.workspace_state,
+            workspace_type=self.workspace_type)
 
 
 def get_workspace(name=None, resource_group_name=None, opts=None):
@@ -76,8 +125,15 @@ def get_workspace(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:machinelearning/v20160401:getWorkspace', __args__, opts=opts).value
 
     return AwaitableGetWorkspaceResult(
+        creation_time=__ret__.get('creationTime'),
+        key_vault_identifier_id=__ret__.get('keyVaultIdentifierId'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        owner_email=__ret__.get('ownerEmail'),
+        studio_endpoint=__ret__.get('studioEndpoint'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        user_storage_account_id=__ret__.get('userStorageAccountId'),
+        workspace_id=__ret__.get('workspaceId'),
+        workspace_state=__ret__.get('workspaceState'),
+        workspace_type=__ret__.get('workspaceType'))

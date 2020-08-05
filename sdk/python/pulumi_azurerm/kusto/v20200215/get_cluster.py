@@ -13,12 +13,48 @@ class GetClusterResult:
     """
     Class representing a Kusto cluster.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, data_ingestion_uri=None, enable_disk_encryption=None, enable_purge=None, enable_streaming_ingest=None, identity=None, key_vault_properties=None, language_extensions=None, location=None, name=None, optimized_autoscale=None, provisioning_state=None, sku=None, state=None, state_reason=None, tags=None, trusted_external_tenants=None, type=None, uri=None, virtual_network_configuration=None, zones=None):
+        if data_ingestion_uri and not isinstance(data_ingestion_uri, str):
+            raise TypeError("Expected argument 'data_ingestion_uri' to be a str")
+        __self__.data_ingestion_uri = data_ingestion_uri
+        """
+        The cluster data ingestion URI.
+        """
+        if enable_disk_encryption and not isinstance(enable_disk_encryption, bool):
+            raise TypeError("Expected argument 'enable_disk_encryption' to be a bool")
+        __self__.enable_disk_encryption = enable_disk_encryption
+        """
+        A boolean value that indicates if the cluster's disks are encrypted.
+        """
+        if enable_purge and not isinstance(enable_purge, bool):
+            raise TypeError("Expected argument 'enable_purge' to be a bool")
+        __self__.enable_purge = enable_purge
+        """
+        A boolean value that indicates if the purge operations are enabled.
+        """
+        if enable_streaming_ingest and not isinstance(enable_streaming_ingest, bool):
+            raise TypeError("Expected argument 'enable_streaming_ingest' to be a bool")
+        __self__.enable_streaming_ingest = enable_streaming_ingest
+        """
+        A boolean value that indicates if the streaming ingest is enabled.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
         """
         The identity of the cluster, if configured.
+        """
+        if key_vault_properties and not isinstance(key_vault_properties, dict):
+            raise TypeError("Expected argument 'key_vault_properties' to be a dict")
+        __self__.key_vault_properties = key_vault_properties
+        """
+        KeyVault properties for the cluster encryption.
+        """
+        if language_extensions and not isinstance(language_extensions, dict):
+            raise TypeError("Expected argument 'language_extensions' to be a dict")
+        __self__.language_extensions = language_extensions
+        """
+        List of the cluster's language extensions.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +68,17 @@ class GetClusterResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if optimized_autoscale and not isinstance(optimized_autoscale, dict):
+            raise TypeError("Expected argument 'optimized_autoscale' to be a dict")
+        __self__.optimized_autoscale = optimized_autoscale
         """
-        The cluster properties.
+        Optimized auto scale definition.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioned state of the resource.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -44,17 +86,47 @@ class GetClusterResult:
         """
         The SKU of the cluster.
         """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        The state of the resource.
+        """
+        if state_reason and not isinstance(state_reason, str):
+            raise TypeError("Expected argument 'state_reason' to be a str")
+        __self__.state_reason = state_reason
+        """
+        The reason for the cluster's current state.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Resource tags.
         """
+        if trusted_external_tenants and not isinstance(trusted_external_tenants, list):
+            raise TypeError("Expected argument 'trusted_external_tenants' to be a list")
+        __self__.trusted_external_tenants = trusted_external_tenants
+        """
+        The cluster's external tenants.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        if uri and not isinstance(uri, str):
+            raise TypeError("Expected argument 'uri' to be a str")
+        __self__.uri = uri
+        """
+        The cluster URI.
+        """
+        if virtual_network_configuration and not isinstance(virtual_network_configuration, dict):
+            raise TypeError("Expected argument 'virtual_network_configuration' to be a dict")
+        __self__.virtual_network_configuration = virtual_network_configuration
+        """
+        Virtual network definition.
         """
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
@@ -70,13 +142,25 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            data_ingestion_uri=self.data_ingestion_uri,
+            enable_disk_encryption=self.enable_disk_encryption,
+            enable_purge=self.enable_purge,
+            enable_streaming_ingest=self.enable_streaming_ingest,
             identity=self.identity,
+            key_vault_properties=self.key_vault_properties,
+            language_extensions=self.language_extensions,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            optimized_autoscale=self.optimized_autoscale,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
+            state=self.state,
+            state_reason=self.state_reason,
             tags=self.tags,
+            trusted_external_tenants=self.trusted_external_tenants,
             type=self.type,
+            uri=self.uri,
+            virtual_network_configuration=self.virtual_network_configuration,
             zones=self.zones)
 
 
@@ -97,11 +181,23 @@ def get_cluster(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20200215:getCluster', __args__, opts=opts).value
 
     return AwaitableGetClusterResult(
+        data_ingestion_uri=__ret__.get('dataIngestionUri'),
+        enable_disk_encryption=__ret__.get('enableDiskEncryption'),
+        enable_purge=__ret__.get('enablePurge'),
+        enable_streaming_ingest=__ret__.get('enableStreamingIngest'),
         identity=__ret__.get('identity'),
+        key_vault_properties=__ret__.get('keyVaultProperties'),
+        language_extensions=__ret__.get('languageExtensions'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        optimized_autoscale=__ret__.get('optimizedAutoscale'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
+        state=__ret__.get('state'),
+        state_reason=__ret__.get('stateReason'),
         tags=__ret__.get('tags'),
+        trusted_external_tenants=__ret__.get('trustedExternalTenants'),
         type=__ret__.get('type'),
+        uri=__ret__.get('uri'),
+        virtual_network_configuration=__ret__.get('virtualNetworkConfiguration'),
         zones=__ret__.get('zones'))

@@ -10,6 +10,16 @@ from ... import _utilities, _tables
 
 
 class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
+    indexes: pulumi.Output[list]
+    """
+    List of index keys
+      * `key` (`dict`) - Cosmos DB MongoDB collection index keys
+        * `keys` (`list`) - List of keys for each MongoDB collection in the Azure Cosmos DB service
+
+      * `options` (`dict`) - Cosmos DB MongoDB collection index key options
+        * `expire_after_seconds` (`float`) - Expire after seconds
+        * `unique` (`bool`) - Is unique or not
+    """
     location: pulumi.Output[str]
     """
     The location of the resource group to which the resource belongs.
@@ -18,19 +28,9 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
     """
     The name of the database account.
     """
-    properties: pulumi.Output[dict]
+    shard_key: pulumi.Output[dict]
     """
-    The properties of an Azure Cosmos DB MongoDB collection
-      * `id` (`str`) - Name of the Cosmos DB MongoDB collection
-      * `indexes` (`list`) - List of index keys
-        * `key` (`dict`) - Cosmos DB MongoDB collection index keys
-          * `keys` (`list`) - List of keys for each MongoDB collection in the Azure Cosmos DB service
-
-        * `options` (`dict`) - Cosmos DB MongoDB collection index key options
-          * `expire_after_seconds` (`float`) - Expire after seconds
-          * `unique` (`bool`) - Is unique or not
-
-      * `shard_key` (`dict`) - A key-value pair of shard keys to be applied for the request.
+    A key-value pair of shard keys to be applied for the request.
     """
     tags: pulumi.Output[dict]
     """
@@ -101,8 +101,9 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['indexes'] = None
             __props__['location'] = None
-            __props__['properties'] = None
+            __props__['shard_key'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(DatabaseAccountMongoDBCollection, __self__).__init__(

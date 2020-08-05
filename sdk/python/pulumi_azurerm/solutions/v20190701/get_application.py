@@ -13,12 +13,54 @@ class GetApplicationResult:
     """
     Information about managed application.
     """
-    def __init__(__self__, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, application_definition_id=None, artifacts=None, authorizations=None, billing_details=None, created_by=None, customer_support=None, identity=None, jit_access_policy=None, kind=None, location=None, managed_by=None, managed_resource_group_id=None, management_mode=None, name=None, outputs=None, parameters=None, plan=None, provisioning_state=None, publisher_tenant_id=None, sku=None, support_urls=None, tags=None, type=None, updated_by=None):
+        if application_definition_id and not isinstance(application_definition_id, str):
+            raise TypeError("Expected argument 'application_definition_id' to be a str")
+        __self__.application_definition_id = application_definition_id
+        """
+        The fully qualified path of managed application definition Id.
+        """
+        if artifacts and not isinstance(artifacts, list):
+            raise TypeError("Expected argument 'artifacts' to be a list")
+        __self__.artifacts = artifacts
+        """
+        The collection of managed application artifacts.
+        """
+        if authorizations and not isinstance(authorizations, list):
+            raise TypeError("Expected argument 'authorizations' to be a list")
+        __self__.authorizations = authorizations
+        """
+        The  read-only authorizations property that is retrieved from the application package.
+        """
+        if billing_details and not isinstance(billing_details, dict):
+            raise TypeError("Expected argument 'billing_details' to be a dict")
+        __self__.billing_details = billing_details
+        """
+        The managed application billing details.
+        """
+        if created_by and not isinstance(created_by, dict):
+            raise TypeError("Expected argument 'created_by' to be a dict")
+        __self__.created_by = created_by
+        """
+        The client entity that created the JIT request.
+        """
+        if customer_support and not isinstance(customer_support, dict):
+            raise TypeError("Expected argument 'customer_support' to be a dict")
+        __self__.customer_support = customer_support
+        """
+        The read-only customer support property that is retrieved from the application package.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
         """
         The identity of the resource.
+        """
+        if jit_access_policy and not isinstance(jit_access_policy, dict):
+            raise TypeError("Expected argument 'jit_access_policy' to be a dict")
+        __self__.jit_access_policy = jit_access_policy
+        """
+        The managed application Jit access policy.
         """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
@@ -38,11 +80,35 @@ class GetApplicationResult:
         """
         ID of the resource that manages this resource.
         """
+        if managed_resource_group_id and not isinstance(managed_resource_group_id, str):
+            raise TypeError("Expected argument 'managed_resource_group_id' to be a str")
+        __self__.managed_resource_group_id = managed_resource_group_id
+        """
+        The managed resource group Id.
+        """
+        if management_mode and not isinstance(management_mode, str):
+            raise TypeError("Expected argument 'management_mode' to be a str")
+        __self__.management_mode = management_mode
+        """
+        The managed application management mode.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
+        """
+        if outputs and not isinstance(outputs, dict):
+            raise TypeError("Expected argument 'outputs' to be a dict")
+        __self__.outputs = outputs
+        """
+        Name and value pairs that define the managed application outputs.
+        """
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        __self__.parameters = parameters
+        """
+        Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
         """
         if plan and not isinstance(plan, dict):
             raise TypeError("Expected argument 'plan' to be a dict")
@@ -50,17 +116,29 @@ class GetApplicationResult:
         """
         The plan information.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The managed application properties.
+        The managed application provisioning state.
+        """
+        if publisher_tenant_id and not isinstance(publisher_tenant_id, str):
+            raise TypeError("Expected argument 'publisher_tenant_id' to be a str")
+        __self__.publisher_tenant_id = publisher_tenant_id
+        """
+        The publisher tenant Id.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         The SKU of the resource.
+        """
+        if support_urls and not isinstance(support_urls, dict):
+            raise TypeError("Expected argument 'support_urls' to be a dict")
+        __self__.support_urls = support_urls
+        """
+        The read-only support URLs property that is retrieved from the application package.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -74,6 +152,12 @@ class GetApplicationResult:
         """
         Resource type
         """
+        if updated_by and not isinstance(updated_by, dict):
+            raise TypeError("Expected argument 'updated_by' to be a dict")
+        __self__.updated_by = updated_by
+        """
+        The client entity that last updated the JIT request.
+        """
 
 
 class AwaitableGetApplicationResult(GetApplicationResult):
@@ -82,16 +166,30 @@ class AwaitableGetApplicationResult(GetApplicationResult):
         if False:
             yield self
         return GetApplicationResult(
+            application_definition_id=self.application_definition_id,
+            artifacts=self.artifacts,
+            authorizations=self.authorizations,
+            billing_details=self.billing_details,
+            created_by=self.created_by,
+            customer_support=self.customer_support,
             identity=self.identity,
+            jit_access_policy=self.jit_access_policy,
             kind=self.kind,
             location=self.location,
             managed_by=self.managed_by,
+            managed_resource_group_id=self.managed_resource_group_id,
+            management_mode=self.management_mode,
             name=self.name,
+            outputs=self.outputs,
+            parameters=self.parameters,
             plan=self.plan,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            publisher_tenant_id=self.publisher_tenant_id,
             sku=self.sku,
+            support_urls=self.support_urls,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            updated_by=self.updated_by)
 
 
 def get_application(name=None, resource_group_name=None, opts=None):
@@ -111,13 +209,27 @@ def get_application(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:solutions/v20190701:getApplication', __args__, opts=opts).value
 
     return AwaitableGetApplicationResult(
+        application_definition_id=__ret__.get('applicationDefinitionId'),
+        artifacts=__ret__.get('artifacts'),
+        authorizations=__ret__.get('authorizations'),
+        billing_details=__ret__.get('billingDetails'),
+        created_by=__ret__.get('createdBy'),
+        customer_support=__ret__.get('customerSupport'),
         identity=__ret__.get('identity'),
+        jit_access_policy=__ret__.get('jitAccessPolicy'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         managed_by=__ret__.get('managedBy'),
+        managed_resource_group_id=__ret__.get('managedResourceGroupId'),
+        management_mode=__ret__.get('managementMode'),
         name=__ret__.get('name'),
+        outputs=__ret__.get('outputs'),
+        parameters=__ret__.get('parameters'),
         plan=__ret__.get('plan'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        publisher_tenant_id=__ret__.get('publisherTenantId'),
         sku=__ret__.get('sku'),
+        support_urls=__ret__.get('supportUrls'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        updated_by=__ret__.get('updatedBy'))

@@ -10,9 +10,243 @@ from ... import _utilities, _tables
 
 
 class ApplicationGateway(pulumi.CustomResource):
+    authentication_certificates: pulumi.Output[list]
+    """
+    Authentication certificates of the application gateway resource.
+      * `data` (`str`) - Certificate public data.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `provisioning_state` (`str`) - Provisioning state of the authentication certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+    """
+    backend_address_pools: pulumi.Output[list]
+    """
+    Backend address pool of the application gateway resource.
+      * `backend_addresses` (`list`) - Backend addresses
+        * `fqdn` (`str`) - Fully qualified domain name (FQDN).
+        * `ip_address` (`str`) - IP address
+
+      * `backend_ip_configurations` (`list`) - Collection of references to IPs defined in network interfaces.
+        * `application_gateway_backend_address_pools` (`list`) - The reference of ApplicationGatewayBackendAddressPool resource.
+        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+        * `id` (`str`) - Resource ID.
+        * `load_balancer_backend_address_pools` (`list`) - The reference of LoadBalancerBackendAddressPool resource.
+          * `backend_ip_configurations` (`list`) - Gets collection of references to IP addresses defined in network interfaces.
+          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+          * `id` (`str`) - Resource ID.
+          * `load_balancing_rules` (`list`) - Gets load balancing rules that use this backend address pool.
+            * `id` (`str`) - Resource ID.
+
+          * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+          * `outbound_nat_rule` (`dict`) - Gets outbound rules that use this backend address pool.
+          * `provisioning_state` (`str`) - Get provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+
+        * `load_balancer_inbound_nat_rules` (`list`) - A list of references of LoadBalancerInboundNatRules.
+          * `backend_ip_configuration` (`dict`) - A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backed IP.
+          * `backend_port` (`float`) - The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+          * `enable_floating_ip` (`bool`) - Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+          * `frontend_ip_configuration` (`dict`) - A reference to frontend IP addresses.
+          * `frontend_port` (`float`) - The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+          * `id` (`str`) - Resource ID.
+          * `idle_timeout_in_minutes` (`float`) - The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+          * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+          * `protocol` (`str`) - The transport protocol for the endpoint. Possible values are: 'Udp' or 'Tcp'
+          * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+
+        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        * `primary` (`bool`) - Gets whether this is a primary customer address on the network interface.
+        * `private_ip_address` (`str`)
+        * `private_ip_address_version` (`str`) - Available from Api-Version 2016-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
+        * `private_ip_allocation_method` (`str`) - Defines how a private IP address is assigned. Possible values are: 'Static' and 'Dynamic'.
+        * `provisioning_state` (`str`)
+        * `public_ip_address` (`dict`) - Public IP address resource.
+          * `dns_settings` (`dict`) - The FQDN of the DNS record associated with the public IP address.
+            * `domain_name_label` (`str`) - Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+            * `fqdn` (`str`) - Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
+            * `reverse_fqdn` (`str`) - Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
+
+          * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+          * `id` (`str`) - Resource ID.
+          * `idle_timeout_in_minutes` (`float`) - The idle timeout of the public IP address.
+          * `ip_address` (`str`)
+          * `ip_configuration` (`dict`) - IPConfiguration
+            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+            * `id` (`str`) - Resource ID.
+            * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+            * `private_ip_address` (`str`) - The private IP address of the IP configuration.
+            * `private_ip_allocation_method` (`str`) - The private IP allocation method. Possible values are 'Static' and 'Dynamic'.
+            * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+            * `public_ip_address` (`dict`) - The reference of the public IP resource.
+            * `subnet` (`dict`) - The reference of the subnet resource.
+              * `address_prefix` (`str`) - The address prefix for the subnet.
+              * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+              * `id` (`str`) - Resource ID.
+              * `ip_configurations` (`list`) - Gets an array of references to the network interface IP configurations using subnet.
+              * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+              * `network_security_group` (`dict`) - The reference of the NetworkSecurityGroup resource.
+                * `default_security_rules` (`list`) - The default security rules of network security group.
+                  * `access` (`str`) - The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
+                  * `description` (`str`) - A description for this rule. Restricted to 140 chars.
+                  * `destination_address_prefix` (`str`) - The destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+                  * `destination_port_range` (`str`) - The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+                  * `direction` (`str`) - The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
+                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                  * `id` (`str`) - Resource ID.
+                  * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+                  * `priority` (`float`) - The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+                  * `protocol` (`str`) - Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
+                  * `provisioning_state` (`str`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+                  * `source_address_prefix` (`str`) - The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
+                  * `source_port_range` (`str`) - The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+
+                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                * `id` (`str`) - Resource ID.
+                * `location` (`str`) - Resource location.
+                * `name` (`str`) - Resource name.
+                * `network_interfaces` (`list`) - A collection of references to network interfaces.
+                  * `dns_settings` (`dict`) - The DNS settings in network interface.
+                    * `applied_dns_servers` (`list`) - If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set. This property is what is configured on each of those VMs.
+                    * `dns_servers` (`list`) - List of DNS servers IP addresses. Use 'AzureProvidedDNS' to switch to azure provided DNS resolution. 'AzureProvidedDNS' value cannot be combined with other IPs, it must be the only value in dnsServers collection.
+                    * `internal_dns_name_label` (`str`) - Relative DNS name for this NIC used for internal communications between VMs in the same virtual network.
+                    * `internal_domain_name_suffix` (`str`) - Even if internalDnsNameLabel is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of internalDomainNameSuffix.
+                    * `internal_fqdn` (`str`) - Fully qualified DNS name supporting internal communications between VMs in the same virtual network.
+
+                  * `enable_accelerated_networking` (`bool`) - If the network interface is accelerated networking enabled.
+                  * `enable_ip_forwarding` (`bool`) - Indicates whether IP forwarding is enabled on this network interface.
+                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                  * `id` (`str`) - Resource ID.
+                  * `ip_configurations` (`list`) - A list of IPConfigurations of the network interface.
+                  * `location` (`str`) - Resource location.
+                  * `mac_address` (`str`) - The MAC address of the network interface.
+                  * `name` (`str`) - Resource name.
+                  * `network_security_group` (`dict`) - The reference of the NetworkSecurityGroup resource.
+                  * `primary` (`bool`) - Gets whether this is a primary network interface on a virtual machine.
+                  * `provisioning_state` (`str`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+                  * `resource_guid` (`str`) - The resource GUID property of the network interface resource.
+                  * `tags` (`dict`) - Resource tags.
+                  * `type` (`str`) - Resource type.
+                  * `virtual_machine` (`dict`) - The reference of a virtual machine.
+
+                * `provisioning_state` (`str`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+                * `resource_guid` (`str`) - The resource GUID property of the network security group resource.
+                * `security_rules` (`list`) - A collection of security rules of the network security group.
+                * `subnets` (`list`) - A collection of references to subnets.
+                * `tags` (`dict`) - Resource tags.
+                * `type` (`str`) - Resource type.
+
+              * `provisioning_state` (`str`) - The provisioning state of the resource.
+              * `resource_navigation_links` (`list`) - Gets an array of references to the external resources using subnet.
+                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                * `id` (`str`) - Resource ID.
+                * `link` (`str`) - Link to the external resource
+                * `linked_resource_type` (`str`) - Resource type of the linked resource.
+                * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+                * `provisioning_state` (`str`) - Provisioning state of the ResourceNavigationLink resource.
+
+              * `route_table` (`dict`) - The reference of the RouteTable resource.
+                * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
+                * `id` (`str`) - Resource ID.
+                * `location` (`str`) - Resource location.
+                * `name` (`str`) - Resource name.
+                * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+                * `routes` (`list`) - Collection of routes contained within a route table.
+                  * `address_prefix` (`str`) - The destination CIDR to which the route applies.
+                  * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+                  * `id` (`str`) - Resource ID.
+                  * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+                  * `next_hop_ip_address` (`str`) - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+                  * `next_hop_type` (`str`) - The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
+                  * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+
+                * `subnets` (`list`) - A collection of references to subnets.
+                * `tags` (`dict`) - Resource tags.
+                * `type` (`str`) - Resource type.
+
+          * `location` (`str`) - Resource location.
+          * `name` (`str`) - Resource name.
+          * `provisioning_state` (`str`) - The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+          * `public_ip_address_version` (`str`) - The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+          * `public_ip_allocation_method` (`str`) - The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
+          * `resource_guid` (`str`) - The resource GUID property of the public IP resource.
+          * `tags` (`dict`) - Resource tags.
+          * `type` (`str`) - Resource type.
+
+        * `subnet` (`dict`) - Subnet in a virtual network resource.
+
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Resource that is unique within a resource group. This name can be used to access the resource.
+      * `provisioning_state` (`str`) - Provisioning state of the backend address pool resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+    """
+    backend_http_settings_collection: pulumi.Output[list]
+    """
+    Backend http settings of the application gateway resource.
+      * `authentication_certificates` (`list`) - Array of references to application gateway authentication certificates.
+        * `id` (`str`) - Resource ID.
+
+      * `cookie_based_affinity` (`str`) - Cookie based affinity. Possible values are: 'Enabled' and 'Disabled'.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `port` (`float`) - Port
+      * `probe` (`dict`) - Probe resource of an application gateway.
+      * `protocol` (`str`) - Protocol. Possible values are: 'Http' and 'Https'.
+      * `provisioning_state` (`str`) - Provisioning state of the backend http settings resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+      * `request_timeout` (`float`) - Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    frontend_ip_configurations: pulumi.Output[list]
+    """
+    Frontend IP addresses of the application gateway resource.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `private_ip_address` (`str`) - PrivateIPAddress of the network interface IP Configuration.
+      * `private_ip_allocation_method` (`str`) - PrivateIP allocation method. Possible values are: 'Static' and 'Dynamic'.
+      * `provisioning_state` (`str`) - Provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+      * `public_ip_address` (`dict`) - Reference of the PublicIP resource.
+        * `id` (`str`) - Resource ID.
+
+      * `subnet` (`dict`) - Reference of the subnet resource.
+    """
+    frontend_ports: pulumi.Output[list]
+    """
+    Frontend ports of the application gateway resource.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `port` (`float`) - Frontend port
+      * `provisioning_state` (`str`) - Provisioning state of the frontend port resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+    """
+    gateway_ip_configurations: pulumi.Output[list]
+    """
+    Subnets of application the gateway resource.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `provisioning_state` (`str`) - Provisioning state of the application gateway subnet resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+      * `subnet` (`dict`) - Reference of the subnet resource. A subnet from where application gateway gets its private address.
+        * `id` (`str`) - Resource ID.
+    """
+    http_listeners: pulumi.Output[list]
+    """
+    Http listeners of the application gateway resource.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `frontend_ip_configuration` (`dict`) - Frontend IP configuration resource of an application gateway.
+        * `id` (`str`) - Resource ID.
+
+      * `frontend_port` (`dict`) - Frontend port resource of an application gateway.
+      * `host_name` (`str`) - Host name of HTTP listener.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `protocol` (`str`) - Protocol. Possible values are: 'Http' and 'Https'.
+      * `provisioning_state` (`str`) - Provisioning state of the HTTP listener resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+      * `require_server_name_indication` (`bool`) - Applicable only if protocol is https. Enables SNI for multi-hosting.
+      * `ssl_certificate` (`dict`) - SSL certificate resource of an application gateway.
     """
     location: pulumi.Output[str]
     """
@@ -22,313 +256,69 @@ class ApplicationGateway(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    operational_state: pulumi.Output[str]
     """
-    Properties of the application gateway.
-      * `authentication_certificates` (`list`) - Authentication certificates of the application gateway resource.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+    Operational state of the application gateway resource. Possible values are: 'Stopped', 'Started', 'Running', and 'Stopping'.
+    """
+    probes: pulumi.Output[list]
+    """
+    Probes of the application gateway resource.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `host` (`str`) - Host name to send the probe to.
+      * `id` (`str`) - Resource ID.
+      * `interval` (`float`) - The probing interval in seconds. This is the time interval between two consecutive probes. Acceptable values are from 1 second to 86400 seconds.
+      * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `path` (`str`) - Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>
+      * `protocol` (`str`) - Protocol. Possible values are: 'Http' and 'Https'.
+      * `provisioning_state` (`str`) - Provisioning state of the backend http settings resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+      * `timeout` (`float`) - the probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
+      * `unhealthy_threshold` (`float`) - The probe retry count. Backend server is marked down after consecutive probe failure count reaches UnhealthyThreshold. Acceptable values are from 1 second to 20.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+    """
+    request_routing_rules: pulumi.Output[list]
+    """
+    Request routing rules of the application gateway resource.
+      * `backend_address_pool` (`dict`) - Backend address pool resource of the application gateway. 
         * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Authentication certificates properties of an application gateway.
-          * `data` (`str`) - Certificate public data.
-          * `provisioning_state` (`str`) - Provisioning state of the authentication certificate resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 
-      * `backend_address_pools` (`list`) - Backend address pool of the application gateway resource.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of Backend Address Pool of an application gateway.
-          * `backend_addresses` (`list`) - Backend addresses
-            * `fqdn` (`str`) - Fully qualified domain name (FQDN).
-            * `ip_address` (`str`) - IP address
-
-          * `backend_ip_configurations` (`list`) - Collection of references to IPs defined in network interfaces.
-            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`str`) - Resource ID.
-            * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`dict`) - Properties of IP configuration.
-              * `application_gateway_backend_address_pools` (`list`) - The reference of ApplicationGatewayBackendAddressPool resource.
-              * `load_balancer_backend_address_pools` (`list`) - The reference of LoadBalancerBackendAddressPool resource.
-                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`str`) - Resource ID.
-                * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `properties` (`dict`) - Properties of the backend address pool.
-                  * `backend_ip_configurations` (`list`) - Gets collection of references to IP addresses defined in network interfaces.
-                  * `load_balancing_rules` (`list`) - Gets load balancing rules that use this backend address pool.
-                    * `id` (`str`) - Resource ID.
-
-                  * `outbound_nat_rule` (`dict`) - Gets outbound rules that use this backend address pool.
-                  * `provisioning_state` (`str`) - Get provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-              * `load_balancer_inbound_nat_rules` (`list`) - A list of references of LoadBalancerInboundNatRules.
-                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`str`) - Resource ID.
-                * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `properties` (`dict`) - Properties of the inbound NAT rule.
-                  * `backend_ip_configuration` (`dict`) - A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backed IP.
-                  * `backend_port` (`float`) - The port used for the internal endpoint. Acceptable values range from 1 to 65535.
-                  * `enable_floating_ip` (`bool`) - Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
-                  * `frontend_ip_configuration` (`dict`) - A reference to frontend IP addresses.
-                  * `frontend_port` (`float`) - The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
-                  * `idle_timeout_in_minutes` (`float`) - The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
-                  * `protocol` (`str`) - The transport protocol for the endpoint. Possible values are: 'Udp' or 'Tcp'
-                  * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-              * `primary` (`bool`) - Gets whether this is a primary customer address on the network interface.
-              * `private_ip_address` (`str`)
-              * `private_ip_address_version` (`str`) - Available from Api-Version 2016-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
-              * `private_ip_allocation_method` (`str`) - Defines how a private IP address is assigned. Possible values are: 'Static' and 'Dynamic'.
-              * `provisioning_state` (`str`)
-              * `public_ip_address` (`dict`) - Public IP address resource.
-                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`str`) - Resource ID.
-                * `location` (`str`) - Resource location.
-                * `name` (`str`) - Resource name.
-                * `properties` (`dict`) - Public IP address properties.
-                  * `dns_settings` (`dict`) - The FQDN of the DNS record associated with the public IP address.
-                    * `domain_name_label` (`str`) - Gets or sets the Domain name label.The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
-                    * `fqdn` (`str`) - Gets the FQDN, Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
-                    * `reverse_fqdn` (`str`) - Gets or Sets the Reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN. 
-
-                  * `idle_timeout_in_minutes` (`float`) - The idle timeout of the public IP address.
-                  * `ip_address` (`str`)
-                  * `ip_configuration` (`dict`) - IPConfiguration
-                    * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                    * `id` (`str`) - Resource ID.
-                    * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                    * `properties` (`dict`) - Properties of IP configuration.
-                      * `private_ip_address` (`str`) - The private IP address of the IP configuration.
-                      * `private_ip_allocation_method` (`str`) - The private IP allocation method. Possible values are 'Static' and 'Dynamic'.
-                      * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                      * `public_ip_address` (`dict`) - The reference of the public IP resource.
-                      * `subnet` (`dict`) - The reference of the subnet resource.
-                        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                        * `id` (`str`) - Resource ID.
-                        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                        * `properties` (`dict`)
-                          * `address_prefix` (`str`) - The address prefix for the subnet.
-                          * `ip_configurations` (`list`) - Gets an array of references to the network interface IP configurations using subnet.
-                          * `network_security_group` (`dict`) - The reference of the NetworkSecurityGroup resource.
-                            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                            * `id` (`str`) - Resource ID.
-                            * `location` (`str`) - Resource location.
-                            * `name` (`str`) - Resource name.
-                            * `properties` (`dict`) - Network Security Group resource.
-                              * `default_security_rules` (`list`) - The default security rules of network security group.
-                                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                                * `id` (`str`) - Resource ID.
-                                * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                                * `properties` (`dict`)
-                                  * `access` (`str`) - The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
-                                  * `description` (`str`) - A description for this rule. Restricted to 140 chars.
-                                  * `destination_address_prefix` (`str`) - The destination address prefix. CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
-                                  * `destination_port_range` (`str`) - The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-                                  * `direction` (`str`) - The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
-                                  * `priority` (`float`) - The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
-                                  * `protocol` (`str`) - Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
-                                  * `provisioning_state` (`str`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                                  * `source_address_prefix` (`str`) - The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from. 
-                                  * `source_port_range` (`str`) - The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
-
-                              * `network_interfaces` (`list`) - A collection of references to network interfaces.
-                                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                                * `id` (`str`) - Resource ID.
-                                * `location` (`str`) - Resource location.
-                                * `name` (`str`) - Resource name.
-                                * `properties` (`dict`) - NetworkInterface properties. 
-                                  * `dns_settings` (`dict`) - The DNS settings in network interface.
-                                    * `applied_dns_servers` (`list`) - If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set. This property is what is configured on each of those VMs.
-                                    * `dns_servers` (`list`) - List of DNS servers IP addresses. Use 'AzureProvidedDNS' to switch to azure provided DNS resolution. 'AzureProvidedDNS' value cannot be combined with other IPs, it must be the only value in dnsServers collection.
-                                    * `internal_dns_name_label` (`str`) - Relative DNS name for this NIC used for internal communications between VMs in the same virtual network.
-                                    * `internal_domain_name_suffix` (`str`) - Even if internalDnsNameLabel is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of internalDomainNameSuffix.
-                                    * `internal_fqdn` (`str`) - Fully qualified DNS name supporting internal communications between VMs in the same virtual network.
-
-                                  * `enable_accelerated_networking` (`bool`) - If the network interface is accelerated networking enabled.
-                                  * `enable_ip_forwarding` (`bool`) - Indicates whether IP forwarding is enabled on this network interface.
-                                  * `ip_configurations` (`list`) - A list of IPConfigurations of the network interface.
-                                  * `mac_address` (`str`) - The MAC address of the network interface.
-                                  * `network_security_group` (`dict`) - The reference of the NetworkSecurityGroup resource.
-                                  * `primary` (`bool`) - Gets whether this is a primary network interface on a virtual machine.
-                                  * `provisioning_state` (`str`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                                  * `resource_guid` (`str`) - The resource GUID property of the network interface resource.
-                                  * `virtual_machine` (`dict`) - The reference of a virtual machine.
-
-                                * `tags` (`dict`) - Resource tags.
-                                * `type` (`str`) - Resource type.
-
-                              * `provisioning_state` (`str`) - The provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                              * `resource_guid` (`str`) - The resource GUID property of the network security group resource.
-                              * `security_rules` (`list`) - A collection of security rules of the network security group.
-                              * `subnets` (`list`) - A collection of references to subnets.
-
-                            * `tags` (`dict`) - Resource tags.
-                            * `type` (`str`) - Resource type.
-
-                          * `provisioning_state` (`str`) - The provisioning state of the resource.
-                          * `resource_navigation_links` (`list`) - Gets an array of references to the external resources using subnet.
-                            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                            * `id` (`str`) - Resource ID.
-                            * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-                            * `properties` (`dict`) - Properties of ResourceNavigationLink.
-                              * `link` (`str`) - Link to the external resource
-                              * `linked_resource_type` (`str`) - Resource type of the linked resource.
-                              * `provisioning_state` (`str`) - Provisioning state of the ResourceNavigationLink resource.
-
-                          * `route_table` (`dict`) - The reference of the RouteTable resource.
-                            * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
-                            * `id` (`str`) - Resource ID.
-                            * `location` (`str`) - Resource location.
-                            * `name` (`str`) - Resource name.
-                            * `properties` (`dict`) - Route Table resource
-                              * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                              * `routes` (`list`) - Collection of routes contained within a route table.
-                                * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-                                * `id` (`str`) - Resource ID.
-                                * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                                * `properties` (`dict`) - Route resource
-                                  * `address_prefix` (`str`) - The destination CIDR to which the route applies.
-                                  * `next_hop_ip_address` (`str`) - The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-                                  * `next_hop_type` (`str`) - The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
-                                  * `provisioning_state` (`str`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-                              * `subnets` (`list`) - A collection of references to subnets.
-
-                            * `tags` (`dict`) - Resource tags.
-                            * `type` (`str`) - Resource type.
-
-                  * `provisioning_state` (`str`) - The provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-                  * `public_ip_address_version` (`str`) - The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
-                  * `public_ip_allocation_method` (`str`) - The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
-                  * `resource_guid` (`str`) - The resource GUID property of the public IP resource.
-
-                * `tags` (`dict`) - Resource tags.
-                * `type` (`str`) - Resource type.
-
-              * `subnet` (`dict`) - Subnet in a virtual network resource.
-
-          * `provisioning_state` (`str`) - Provisioning state of the backend address pool resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-      * `backend_http_settings_collection` (`list`) - Backend http settings of the application gateway resource.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of Backend address pool settings of an application gateway.
-          * `authentication_certificates` (`list`) - Array of references to application gateway authentication certificates.
-          * `cookie_based_affinity` (`str`) - Cookie based affinity. Possible values are: 'Enabled' and 'Disabled'.
-          * `port` (`float`) - Port
-          * `probe` (`dict`) - Probe resource of an application gateway.
-          * `protocol` (`str`) - Protocol. Possible values are: 'Http' and 'Https'.
-          * `provisioning_state` (`str`) - Provisioning state of the backend http settings resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `request_timeout` (`float`) - Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
-
-      * `frontend_ip_configurations` (`list`) - Frontend IP addresses of the application gateway resource.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of Frontend IP configuration of an application gateway.
-          * `private_ip_address` (`str`) - PrivateIPAddress of the network interface IP Configuration.
-          * `private_ip_allocation_method` (`str`) - PrivateIP allocation method. Possible values are: 'Static' and 'Dynamic'.
-          * `provisioning_state` (`str`) - Provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `public_ip_address` (`dict`) - Reference of the PublicIP resource.
-          * `subnet` (`dict`) - Reference of the subnet resource.
-
-      * `frontend_ports` (`list`) - Frontend ports of the application gateway resource.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of Frontend port of an application gateway.
-          * `port` (`float`) - Frontend port
-          * `provisioning_state` (`str`) - Provisioning state of the frontend port resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-      * `gateway_ip_configurations` (`list`) - Subnets of application the gateway resource.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of IP configuration of an application gateway.
-          * `provisioning_state` (`str`) - Provisioning state of the application gateway subnet resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `subnet` (`dict`) - Reference of the subnet resource. A subnet from where application gateway gets its private address.
-
-      * `http_listeners` (`list`) - Http listeners of the application gateway resource.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of HTTP listener of an application gateway.
-          * `frontend_ip_configuration` (`dict`) - Frontend IP configuration resource of an application gateway.
-          * `frontend_port` (`dict`) - Frontend port resource of an application gateway.
-          * `host_name` (`str`) - Host name of HTTP listener.
-          * `protocol` (`str`) - Protocol. Possible values are: 'Http' and 'Https'.
-          * `provisioning_state` (`str`) - Provisioning state of the HTTP listener resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `require_server_name_indication` (`bool`) - Applicable only if protocol is https. Enables SNI for multi-hosting.
-          * `ssl_certificate` (`dict`) - SSL certificate resource of an application gateway.
-
-      * `operational_state` (`str`) - Operational state of the application gateway resource. Possible values are: 'Stopped', 'Started', 'Running', and 'Stopping'.
-      * `probes` (`list`) - Probes of the application gateway resource.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of probe of an application gateway.
-          * `host` (`str`) - Host name to send the probe to.
-          * `interval` (`float`) - The probing interval in seconds. This is the time interval between two consecutive probes. Acceptable values are from 1 second to 86400 seconds.
-          * `path` (`str`) - Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>
-          * `protocol` (`str`) - Protocol. Possible values are: 'Http' and 'Https'.
-          * `provisioning_state` (`str`) - Provisioning state of the backend http settings resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `timeout` (`float`) - the probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
-          * `unhealthy_threshold` (`float`) - The probe retry count. Backend server is marked down after consecutive probe failure count reaches UnhealthyThreshold. Acceptable values are from 1 second to 20.
-
-      * `provisioning_state` (`str`) - Provisioning state of the application gateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-      * `request_routing_rules` (`list`) - Request routing rules of the application gateway resource.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of request routing rule of the application gateway.
-          * `backend_address_pool` (`dict`) - Backend address pool resource of the application gateway. 
-          * `backend_http_settings` (`dict`) - Frontend port resource of the application gateway.
-          * `http_listener` (`dict`) - Http listener resource of the application gateway. 
-          * `provisioning_state` (`str`) - Provisioning state of the request routing rule resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `rule_type` (`str`) - Rule type. Possible values are: 'Basic' and 'PathBasedRouting'.
-          * `url_path_map` (`dict`) - URL path map resource of the application gateway.
-
-      * `resource_guid` (`str`) - Resource GUID property of the application gateway resource.
-      * `sku` (`dict`) - SKU of the application gateway resource.
-        * `capacity` (`float`) - Capacity (instance count) of an application gateway.
-        * `name` (`str`) - Name of an application gateway SKU. Possible values are: 'Standard_Small', 'Standard_Medium', 'Standard_Large', 'WAF_Medium', and 'WAF_Large'.
-        * `tier` (`str`) - Tier of an application gateway. Possible values are: 'Standard' and 'WAF'.
-
-      * `ssl_certificates` (`list`) - SSL certificates of the application gateway resource.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of SSL certificates of an application gateway.
-          * `data` (`str`) - Base-64 encoded pfx certificate. Only applicable in PUT Request.
-          * `password` (`str`) - Password for the pfx file specified in data. Only applicable in PUT request.
-          * `provisioning_state` (`str`) - Provisioning state of the SSL certificate resource Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `public_cert_data` (`str`) - Base-64 encoded Public cert data corresponding to pfx specified in data. Only applicable in GET request.
-
-      * `ssl_policy` (`dict`) - SSL policy of the application gateway resource.
-        * `disabled_ssl_protocols` (`list`) - SSL protocols to be disabled on application gateway. Possible values are: 'TLSv1_0', 'TLSv1_1', and 'TLSv1_2'.
-
-      * `url_path_maps` (`list`) - URL path map of the application gateway resource.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of UrlPathMap of the application gateway.
-          * `default_backend_address_pool` (`dict`) - Default backend address pool resource of URL path map.
-          * `default_backend_http_settings` (`dict`) - Default backend http settings resource of URL path map.
-          * `path_rules` (`list`) - Path rule of URL path map resource.
-            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`str`) - Resource ID.
-            * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`dict`) - Properties of probe of an application gateway.
-              * `backend_address_pool` (`dict`) - Backend address pool resource of URL path map.
-              * `backend_http_settings` (`dict`) - Backend http settings resource of URL path map.
-              * `paths` (`list`) - Path rules of URL path map.
-              * `provisioning_state` (`str`) - Path rule of URL path map resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-          * `provisioning_state` (`str`) - Provisioning state of the backend http settings resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-
-      * `web_application_firewall_configuration` (`dict`) - Web application firewall configuration.
-        * `enabled` (`bool`) - Whether the web application firewall is enabled.
-        * `firewall_mode` (`str`) - Web application firewall mode. Possible values are: 'Detection' and 'Prevention'.
+      * `backend_http_settings` (`dict`) - Frontend port resource of the application gateway.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `http_listener` (`dict`) - Http listener resource of the application gateway. 
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `provisioning_state` (`str`) - Provisioning state of the request routing rule resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+      * `rule_type` (`str`) - Rule type. Possible values are: 'Basic' and 'PathBasedRouting'.
+      * `url_path_map` (`dict`) - URL path map resource of the application gateway.
+    """
+    resource_guid: pulumi.Output[str]
+    """
+    Resource GUID property of the application gateway resource.
+    """
+    sku: pulumi.Output[dict]
+    """
+    SKU of the application gateway resource.
+      * `capacity` (`float`) - Capacity (instance count) of an application gateway.
+      * `name` (`str`) - Name of an application gateway SKU. Possible values are: 'Standard_Small', 'Standard_Medium', 'Standard_Large', 'WAF_Medium', and 'WAF_Large'.
+      * `tier` (`str`) - Tier of an application gateway. Possible values are: 'Standard' and 'WAF'.
+    """
+    ssl_certificates: pulumi.Output[list]
+    """
+    SSL certificates of the application gateway resource.
+      * `data` (`str`) - Base-64 encoded pfx certificate. Only applicable in PUT Request.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `password` (`str`) - Password for the pfx file specified in data. Only applicable in PUT request.
+      * `provisioning_state` (`str`) - Provisioning state of the SSL certificate resource Possible values are: 'Updating', 'Deleting', and 'Failed'.
+      * `public_cert_data` (`str`) - Base-64 encoded Public cert data corresponding to pfx specified in data. Only applicable in GET request.
+    """
+    ssl_policy: pulumi.Output[dict]
+    """
+    SSL policy of the application gateway resource.
+      * `disabled_ssl_protocols` (`list`) - SSL protocols to be disabled on application gateway. Possible values are: 'TLSv1_0', 'TLSv1_1', and 'TLSv1_2'.
     """
     tags: pulumi.Output[dict]
     """
@@ -337,6 +327,33 @@ class ApplicationGateway(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    url_path_maps: pulumi.Output[list]
+    """
+    URL path map of the application gateway resource.
+      * `default_backend_address_pool` (`dict`) - Default backend address pool resource of URL path map.
+        * `id` (`str`) - Resource ID.
+
+      * `default_backend_http_settings` (`dict`) - Default backend http settings resource of URL path map.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `path_rules` (`list`) - Path rule of URL path map resource.
+        * `backend_address_pool` (`dict`) - Backend address pool resource of URL path map.
+        * `backend_http_settings` (`dict`) - Backend http settings resource of URL path map.
+        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+        * `id` (`str`) - Resource ID.
+        * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        * `paths` (`list`) - Path rules of URL path map.
+        * `provisioning_state` (`str`) - Path rule of URL path map resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+
+      * `provisioning_state` (`str`) - Provisioning state of the backend http settings resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+    """
+    web_application_firewall_configuration: pulumi.Output[dict]
+    """
+    Web application firewall configuration.
+      * `enabled` (`bool`) - Whether the web application firewall is enabled.
+      * `firewall_mode` (`str`) - Web application firewall mode. Possible values are: 'Detection' and 'Prevention'.
     """
     def __init__(__self__, resource_name, opts=None, authentication_certificates=None, backend_address_pools=None, backend_http_settings_collection=None, etag=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, id=None, location=None, name=None, probes=None, provisioning_state=None, request_routing_rules=None, resource_group_name=None, resource_guid=None, sku=None, ssl_certificates=None, ssl_policy=None, tags=None, url_path_maps=None, web_application_firewall_configuration=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -649,7 +666,7 @@ class ApplicationGateway(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['url_path_maps'] = url_path_maps
             __props__['web_application_firewall_configuration'] = web_application_firewall_configuration
-            __props__['properties'] = None
+            __props__['operational_state'] = None
             __props__['type'] = None
         super(ApplicationGateway, __self__).__init__(
             'azurerm:network/v20160901:ApplicationGateway',

@@ -10,40 +10,86 @@ from ... import _utilities, _tables
 
 
 class Subscription(pulumi.CustomResource):
+    accessed_at: pulumi.Output[str]
+    """
+    Last time there was a receive request to this subscription.
+    """
+    auto_delete_on_idle: pulumi.Output[str]
+    """
+    ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+    """
+    count_details: pulumi.Output[dict]
+    """
+    Message count details
+      * `active_message_count` (`float`) - Number of active messages in the queue, topic, or subscription.
+      * `dead_letter_message_count` (`float`) - Number of messages that are dead lettered.
+      * `scheduled_message_count` (`float`) - Number of scheduled messages.
+      * `transfer_dead_letter_message_count` (`float`) - Number of messages transferred into dead letters.
+      * `transfer_message_count` (`float`) - Number of messages transferred to another queue, topic, or subscription.
+    """
+    created_at: pulumi.Output[str]
+    """
+    Exact time the message was created.
+    """
+    dead_lettering_on_filter_evaluation_exceptions: pulumi.Output[bool]
+    """
+    Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
+    """
+    dead_lettering_on_message_expiration: pulumi.Output[bool]
+    """
+    Value that indicates whether a subscription has dead letter support when a message expires.
+    """
+    default_message_time_to_live: pulumi.Output[str]
+    """
+    ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+    """
+    duplicate_detection_history_time_window: pulumi.Output[str]
+    """
+    ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+    """
+    enable_batched_operations: pulumi.Output[bool]
+    """
+    Value that indicates whether server-side batched operations are enabled.
+    """
+    forward_dead_lettered_messages_to: pulumi.Output[str]
+    """
+    Queue/Topic name to forward the Dead Letter message
+    """
+    forward_to: pulumi.Output[str]
+    """
+    Queue/Topic name to forward the messages
+    """
+    lock_duration: pulumi.Output[str]
+    """
+    ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
+    """
+    max_delivery_count: pulumi.Output[float]
+    """
+    Number of maximum deliveries.
+    """
+    message_count: pulumi.Output[float]
+    """
+    Number of messages.
+    """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    requires_session: pulumi.Output[bool]
     """
-    Properties of subscriptions resource.
-      * `accessed_at` (`str`) - Last time there was a receive request to this subscription.
-      * `auto_delete_on_idle` (`str`) - ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
-      * `count_details` (`dict`) - Message count details
-        * `active_message_count` (`float`) - Number of active messages in the queue, topic, or subscription.
-        * `dead_letter_message_count` (`float`) - Number of messages that are dead lettered.
-        * `scheduled_message_count` (`float`) - Number of scheduled messages.
-        * `transfer_dead_letter_message_count` (`float`) - Number of messages transferred into dead letters.
-        * `transfer_message_count` (`float`) - Number of messages transferred to another queue, topic, or subscription.
-
-      * `created_at` (`str`) - Exact time the message was created.
-      * `dead_lettering_on_filter_evaluation_exceptions` (`bool`) - Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
-      * `dead_lettering_on_message_expiration` (`bool`) - Value that indicates whether a subscription has dead letter support when a message expires.
-      * `default_message_time_to_live` (`str`) - ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-      * `duplicate_detection_history_time_window` (`str`) - ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
-      * `enable_batched_operations` (`bool`) - Value that indicates whether server-side batched operations are enabled.
-      * `forward_dead_lettered_messages_to` (`str`) - Queue/Topic name to forward the Dead Letter message
-      * `forward_to` (`str`) - Queue/Topic name to forward the messages
-      * `lock_duration` (`str`) - ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
-      * `max_delivery_count` (`float`) - Number of maximum deliveries.
-      * `message_count` (`float`) - Number of messages.
-      * `requires_session` (`bool`) - Value indicating if a subscription supports the concept of sessions.
-      * `status` (`str`) - Enumerates the possible values for the status of a messaging entity.
-      * `updated_at` (`str`) - The exact time the message was updated.
+    Value indicating if a subscription supports the concept of sessions.
+    """
+    status: pulumi.Output[str]
+    """
+    Enumerates the possible values for the status of a messaging entity.
     """
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    updated_at: pulumi.Output[str]
+    """
+    The exact time the message was updated.
     """
     def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_filter_evaluation_exceptions=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, status=None, topic_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -109,8 +155,12 @@ class Subscription(pulumi.CustomResource):
             if topic_name is None:
                 raise TypeError("Missing required property 'topic_name'")
             __props__['topic_name'] = topic_name
-            __props__['properties'] = None
+            __props__['accessed_at'] = None
+            __props__['count_details'] = None
+            __props__['created_at'] = None
+            __props__['message_count'] = None
             __props__['type'] = None
+            __props__['updated_at'] = None
         super(Subscription, __self__).__init__(
             'azurerm:servicebus/v20170401:Subscription',
             resource_name,

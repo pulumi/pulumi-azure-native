@@ -13,12 +13,36 @@ class ListProductDetailsResult:
     """
     Extended description about the product required for installing it into Azure Stack.
     """
-    def __init__(__self__, gallery_package_blob_sas_uri=None, product_kind=None, properties=None):
+    def __init__(__self__, compute_role=None, data_disk_images=None, gallery_package_blob_sas_uri=None, is_system_extension=None, os_disk_image=None, product_kind=None, support_multiple_extensions=None, uri=None, version=None, vm_os_type=None, vm_scale_set_enabled=None):
+        if compute_role and not isinstance(compute_role, str):
+            raise TypeError("Expected argument 'compute_role' to be a str")
+        __self__.compute_role = compute_role
+        """
+        Specifies kind of compute role included in the package.
+        """
+        if data_disk_images and not isinstance(data_disk_images, list):
+            raise TypeError("Expected argument 'data_disk_images' to be a list")
+        __self__.data_disk_images = data_disk_images
+        """
+        List of attached data disks.
+        """
         if gallery_package_blob_sas_uri and not isinstance(gallery_package_blob_sas_uri, str):
             raise TypeError("Expected argument 'gallery_package_blob_sas_uri' to be a str")
         __self__.gallery_package_blob_sas_uri = gallery_package_blob_sas_uri
         """
         The URI to the .azpkg file that provides information required for showing product in the gallery.
+        """
+        if is_system_extension and not isinstance(is_system_extension, bool):
+            raise TypeError("Expected argument 'is_system_extension' to be a bool")
+        __self__.is_system_extension = is_system_extension
+        """
+        Specifies if product is a Virtual Machine Extension.
+        """
+        if os_disk_image and not isinstance(os_disk_image, dict):
+            raise TypeError("Expected argument 'os_disk_image' to be a dict")
+        __self__.os_disk_image = os_disk_image
+        """
+        OS disk image used by product.
         """
         if product_kind and not isinstance(product_kind, str):
             raise TypeError("Expected argument 'product_kind' to be a str")
@@ -26,11 +50,35 @@ class ListProductDetailsResult:
         """
         Specifies the kind of the product (virtualMachine or virtualMachineExtension).
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if support_multiple_extensions and not isinstance(support_multiple_extensions, bool):
+            raise TypeError("Expected argument 'support_multiple_extensions' to be a bool")
+        __self__.support_multiple_extensions = support_multiple_extensions
         """
-        Specifies additional properties describing the product.
+        Indicates if specified product supports multiple extensions.
+        """
+        if uri and not isinstance(uri, str):
+            raise TypeError("Expected argument 'uri' to be a str")
+        __self__.uri = uri
+        """
+        The URI.
+        """
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        __self__.version = version
+        """
+        Specifies product version.
+        """
+        if vm_os_type and not isinstance(vm_os_type, str):
+            raise TypeError("Expected argument 'vm_os_type' to be a str")
+        __self__.vm_os_type = vm_os_type
+        """
+        Specifies operating system used by the product.
+        """
+        if vm_scale_set_enabled and not isinstance(vm_scale_set_enabled, bool):
+            raise TypeError("Expected argument 'vm_scale_set_enabled' to be a bool")
+        __self__.vm_scale_set_enabled = vm_scale_set_enabled
+        """
+        Indicates if virtual machine Scale Set is enabled in the specified product.
         """
 
 
@@ -40,9 +88,17 @@ class AwaitableListProductDetailsResult(ListProductDetailsResult):
         if False:
             yield self
         return ListProductDetailsResult(
+            compute_role=self.compute_role,
+            data_disk_images=self.data_disk_images,
             gallery_package_blob_sas_uri=self.gallery_package_blob_sas_uri,
+            is_system_extension=self.is_system_extension,
+            os_disk_image=self.os_disk_image,
             product_kind=self.product_kind,
-            properties=self.properties)
+            support_multiple_extensions=self.support_multiple_extensions,
+            uri=self.uri,
+            version=self.version,
+            vm_os_type=self.vm_os_type,
+            vm_scale_set_enabled=self.vm_scale_set_enabled)
 
 
 def list_product_details(product_name=None, registration_name=None, resource_group=None, opts=None):
@@ -64,6 +120,14 @@ def list_product_details(product_name=None, registration_name=None, resource_gro
     __ret__ = pulumi.runtime.invoke('azurerm:azurestack/v20170601:listProductDetails', __args__, opts=opts).value
 
     return AwaitableListProductDetailsResult(
+        compute_role=__ret__.get('computeRole'),
+        data_disk_images=__ret__.get('dataDiskImages'),
         gallery_package_blob_sas_uri=__ret__.get('galleryPackageBlobSasUri'),
+        is_system_extension=__ret__.get('isSystemExtension'),
+        os_disk_image=__ret__.get('osDiskImage'),
         product_kind=__ret__.get('productKind'),
-        properties=__ret__.get('properties'))
+        support_multiple_extensions=__ret__.get('supportMultipleExtensions'),
+        uri=__ret__.get('uri'),
+        version=__ret__.get('version'),
+        vm_os_type=__ret__.get('vmOsType'),
+        vm_scale_set_enabled=__ret__.get('vmScaleSetEnabled'))

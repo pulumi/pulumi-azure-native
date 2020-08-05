@@ -10,9 +10,87 @@ from ... import _utilities, _tables
 
 
 class ApiManagementService(pulumi.CustomResource):
+    additional_locations: pulumi.Output[list]
+    """
+    Additional datacenter locations of the API Management service.
+      * `disable_gateway` (`bool`) - Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+      * `gateway_regional_url` (`str`) - Gateway URL of the API Management service in the Region.
+      * `location` (`str`) - The location name of the additional region among Azure Data center regions.
+      * `private_ip_addresses` (`list`) - Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard and Premium SKU.
+      * `public_ip_addresses` (`list`) - Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
+      * `sku` (`dict`) - SKU properties of the API Management service.
+        * `capacity` (`float`) - Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
+        * `name` (`str`) - Name of the Sku.
+
+      * `virtual_network_configuration` (`dict`) - Virtual network configuration for the location.
+        * `subnet_resource_id` (`str`) - The full resource ID of a subnet in a virtual network to deploy the API Management service in.
+        * `subnetname` (`str`) - The name of the subnet.
+        * `vnetid` (`str`) - The virtual network ID. This is typically a GUID. Expect a null GUID by default.
+    """
+    api_version_constraint: pulumi.Output[dict]
+    """
+    Control Plane Apis version constraint for the API Management service.
+      * `min_api_version` (`str`) - Limit control plane API calls to API Management service with version equal to or newer than this value.
+    """
+    certificates: pulumi.Output[list]
+    """
+    List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
+      * `certificate` (`dict`) - Certificate information.
+        * `expiry` (`str`) - Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        * `subject` (`str`) - Subject of the certificate.
+        * `thumbprint` (`str`) - Thumbprint of the certificate.
+
+      * `certificate_password` (`str`) - Certificate Password.
+      * `encoded_certificate` (`str`) - Base64 Encoded certificate.
+      * `store_name` (`str`) - The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
+    """
+    created_at_utc: pulumi.Output[str]
+    """
+    Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+    """
+    custom_properties: pulumi.Output[dict]
+    """
+    Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.  Note: next ciphers can't be disabled since they are required by Azure CloudService internal components: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384
+    """
+    developer_portal_url: pulumi.Output[str]
+    """
+    DEveloper Portal endpoint URL of the API Management service.
+    """
+    disable_gateway: pulumi.Output[bool]
+    """
+    Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
+    """
+    enable_client_certificate: pulumi.Output[bool]
+    """
+    Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
+    """
     etag: pulumi.Output[str]
     """
     ETag of the resource.
+    """
+    gateway_regional_url: pulumi.Output[str]
+    """
+    Gateway URL of the API Management service in the Default Region.
+    """
+    gateway_url: pulumi.Output[str]
+    """
+    Gateway URL of the API Management service.
+    """
+    hostname_configurations: pulumi.Output[list]
+    """
+    Custom hostname configuration of the API Management service.
+      * `certificate` (`dict`) - Certificate information.
+        * `expiry` (`str`) - Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        * `subject` (`str`) - Subject of the certificate.
+        * `thumbprint` (`str`) - Thumbprint of the certificate.
+
+      * `certificate_password` (`str`) - Certificate Password.
+      * `default_ssl_binding` (`bool`) - Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
+      * `encoded_certificate` (`str`) - Base64 Encoded certificate.
+      * `host_name` (`str`) - Hostname to configure on the Api Management service.
+      * `key_vault_id` (`str`) - Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
+      * `negotiate_client_certificate` (`bool`) - Specify true to always negotiate client certificate on the hostname. Default Value is false.
+      * `type` (`str`) - Hostname type.
     """
     identity: pulumi.Output[dict]
     """
@@ -29,70 +107,45 @@ class ApiManagementService(pulumi.CustomResource):
     """
     Resource location.
     """
+    management_api_url: pulumi.Output[str]
+    """
+    Management API endpoint URL of the API Management service.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    notification_sender_email: pulumi.Output[str]
     """
-    Properties of the API Management service.
-      * `additional_locations` (`list`) - Additional datacenter locations of the API Management service.
-        * `disable_gateway` (`bool`) - Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
-        * `gateway_regional_url` (`str`) - Gateway URL of the API Management service in the Region.
-        * `location` (`str`) - The location name of the additional region among Azure Data center regions.
-        * `private_ip_addresses` (`list`) - Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard and Premium SKU.
-        * `public_ip_addresses` (`list`) - Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-        * `sku` (`dict`) - SKU properties of the API Management service.
-          * `capacity` (`float`) - Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
-          * `name` (`str`) - Name of the Sku.
-
-        * `virtual_network_configuration` (`dict`) - Virtual network configuration for the location.
-          * `subnet_resource_id` (`str`) - The full resource ID of a subnet in a virtual network to deploy the API Management service in.
-          * `subnetname` (`str`) - The name of the subnet.
-          * `vnetid` (`str`) - The virtual network ID. This is typically a GUID. Expect a null GUID by default.
-
-      * `api_version_constraint` (`dict`) - Control Plane Apis version constraint for the API Management service.
-        * `min_api_version` (`str`) - Limit control plane API calls to API Management service with version equal to or newer than this value.
-
-      * `certificates` (`list`) - List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
-        * `certificate` (`dict`) - Certificate information.
-          * `expiry` (`str`) - Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-          * `subject` (`str`) - Subject of the certificate.
-          * `thumbprint` (`str`) - Thumbprint of the certificate.
-
-        * `certificate_password` (`str`) - Certificate Password.
-        * `encoded_certificate` (`str`) - Base64 Encoded certificate.
-        * `store_name` (`str`) - The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
-
-      * `created_at_utc` (`str`) - Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
-      * `custom_properties` (`dict`) - Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1st 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of next ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.  Note: next ciphers can't be disabled since they are required by Azure CloudService internal components: TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_RSA_WITH_AES_256_GCM_SHA384
-      * `developer_portal_url` (`str`) - DEveloper Portal endpoint URL of the API Management service.
-      * `disable_gateway` (`bool`) - Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
-      * `enable_client_certificate` (`bool`) - Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
-      * `gateway_regional_url` (`str`) - Gateway URL of the API Management service in the Default Region.
-      * `gateway_url` (`str`) - Gateway URL of the API Management service.
-      * `hostname_configurations` (`list`) - Custom hostname configuration of the API Management service.
-        * `certificate` (`dict`) - Certificate information.
-        * `certificate_password` (`str`) - Certificate Password.
-        * `default_ssl_binding` (`bool`) - Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
-        * `encoded_certificate` (`str`) - Base64 Encoded certificate.
-        * `host_name` (`str`) - Hostname to configure on the Api Management service.
-        * `key_vault_id` (`str`) - Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with MSI. The secret should be of type *application/x-pkcs12*
-        * `negotiate_client_certificate` (`bool`) - Specify true to always negotiate client certificate on the hostname. Default Value is false.
-        * `type` (`str`) - Hostname type.
-
-      * `management_api_url` (`str`) - Management API endpoint URL of the API Management service.
-      * `notification_sender_email` (`str`) - Email address from which the notification will be sent.
-      * `portal_url` (`str`) - Publisher portal endpoint Url of the API Management service.
-      * `private_ip_addresses` (`list`) - Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard and Premium SKU.
-      * `provisioning_state` (`str`) - The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
-      * `public_ip_addresses` (`list`) - Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard and Premium SKU.
-      * `publisher_email` (`str`) - Publisher email.
-      * `publisher_name` (`str`) - Publisher name.
-      * `scm_url` (`str`) - SCM endpoint URL of the API Management service.
-      * `target_provisioning_state` (`str`) - The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
-      * `virtual_network_configuration` (`dict`) - Virtual network configuration of the API Management service.
-      * `virtual_network_type` (`str`) - The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+    Email address from which the notification will be sent.
+    """
+    portal_url: pulumi.Output[str]
+    """
+    Publisher portal endpoint Url of the API Management service.
+    """
+    private_ip_addresses: pulumi.Output[list]
+    """
+    Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard and Premium SKU.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
+    """
+    public_ip_addresses: pulumi.Output[list]
+    """
+    Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard and Premium SKU.
+    """
+    publisher_email: pulumi.Output[str]
+    """
+    Publisher email.
+    """
+    publisher_name: pulumi.Output[str]
+    """
+    Publisher name.
+    """
+    scm_url: pulumi.Output[str]
+    """
+    SCM endpoint URL of the API Management service.
     """
     sku: pulumi.Output[dict]
     """
@@ -104,9 +157,24 @@ class ApiManagementService(pulumi.CustomResource):
     """
     Resource tags.
     """
+    target_provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
+    """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource is set to Microsoft.ApiManagement.
+    """
+    virtual_network_configuration: pulumi.Output[dict]
+    """
+    Virtual network configuration of the API Management service.
+      * `subnet_resource_id` (`str`) - The full resource ID of a subnet in a virtual network to deploy the API Management service in.
+      * `subnetname` (`str`) - The name of the subnet.
+      * `vnetid` (`str`) - The virtual network ID. This is typically a GUID. Expect a null GUID by default.
+    """
+    virtual_network_type: pulumi.Output[str]
+    """
+    The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
     """
     def __init__(__self__, resource_name, opts=None, additional_locations=None, api_version_constraint=None, certificates=None, custom_properties=None, disable_gateway=None, enable_client_certificate=None, hostname_configurations=None, identity=None, location=None, name=None, notification_sender_email=None, publisher_email=None, publisher_name=None, resource_group_name=None, sku=None, tags=None, virtual_network_configuration=None, virtual_network_type=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -225,8 +293,18 @@ class ApiManagementService(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['virtual_network_configuration'] = virtual_network_configuration
             __props__['virtual_network_type'] = virtual_network_type
+            __props__['created_at_utc'] = None
+            __props__['developer_portal_url'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['gateway_regional_url'] = None
+            __props__['gateway_url'] = None
+            __props__['management_api_url'] = None
+            __props__['portal_url'] = None
+            __props__['private_ip_addresses'] = None
+            __props__['provisioning_state'] = None
+            __props__['public_ip_addresses'] = None
+            __props__['scm_url'] = None
+            __props__['target_provisioning_state'] = None
             __props__['type'] = None
         super(ApiManagementService, __self__).__init__(
             'azurerm:apimanagement/v20191201:ApiManagementService',

@@ -10,14 +10,13 @@ from ... import _utilities, _tables
 
 
 class TrustedIdProvider(pulumi.CustomResource):
+    id_provider: pulumi.Output[str]
+    """
+    The URL of this trusted identity provider.
+    """
     name: pulumi.Output[str]
     """
     The resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    The trusted identity provider properties.
-      * `id_provider` (`str`) - The URL of this trusted identity provider.
     """
     type: pulumi.Output[str]
     """
@@ -63,7 +62,6 @@ class TrustedIdProvider(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(TrustedIdProvider, __self__).__init__(
             'azurerm:datalakestore/v20161101:TrustedIdProvider',

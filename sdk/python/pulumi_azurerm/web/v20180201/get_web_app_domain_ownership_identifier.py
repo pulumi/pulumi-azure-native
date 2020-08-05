@@ -13,7 +13,7 @@ class GetWebAppDomainOwnershipIdentifierResult:
     """
     A domain specific resource identifier.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, kind=None, name=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -25,12 +25,6 @@ class GetWebAppDomainOwnershipIdentifierResult:
         __self__.name = name
         """
         Resource Name.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Identifier resource specific properties
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -48,7 +42,6 @@ class AwaitableGetWebAppDomainOwnershipIdentifierResult(GetWebAppDomainOwnership
         return GetWebAppDomainOwnershipIdentifierResult(
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -71,5 +64,4 @@ def get_web_app_domain_ownership_identifier(name=None, resource_group_name=None,
     return AwaitableGetWebAppDomainOwnershipIdentifierResult(
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         type=__ret__.get('type'))

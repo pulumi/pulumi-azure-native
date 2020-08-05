@@ -10,16 +10,21 @@ from ... import _utilities, _tables
 
 
 class GatewayHostnameConfiguration(pulumi.CustomResource):
+    certificate_id: pulumi.Output[str]
+    """
+    Identifier of Certificate entity that will be used for TLS connection establishment
+    """
+    hostname: pulumi.Output[str]
+    """
+    Hostname value. Supports valid domain name, partial or full wildcard
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    negotiate_client_certificate: pulumi.Output[bool]
     """
-    Gateway hostname configuration details.
-      * `certificate_id` (`str`) - Identifier of Certificate entity that will be used for TLS connection establishment
-      * `hostname` (`str`) - Hostname value. Supports valid domain name, partial or full wildcard
-      * `negotiate_client_certificate` (`bool`) - Determines whether gateway requests client certificate
+    Determines whether gateway requests client certificate
     """
     type: pulumi.Output[str]
     """
@@ -71,7 +76,6 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(GatewayHostnameConfiguration, __self__).__init__(
             'azurerm:apimanagement/v20191201:GatewayHostnameConfiguration',

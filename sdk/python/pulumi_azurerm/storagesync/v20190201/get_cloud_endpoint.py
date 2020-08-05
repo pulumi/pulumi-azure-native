@@ -13,18 +13,66 @@ class GetCloudEndpointResult:
     """
     Cloud Endpoint object.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, azure_file_share_name=None, backup_enabled=None, friendly_name=None, last_operation_name=None, last_workflow_id=None, name=None, partnership_id=None, provisioning_state=None, storage_account_resource_id=None, storage_account_tenant_id=None, type=None):
+        if azure_file_share_name and not isinstance(azure_file_share_name, str):
+            raise TypeError("Expected argument 'azure_file_share_name' to be a str")
+        __self__.azure_file_share_name = azure_file_share_name
+        """
+        Azure file share name
+        """
+        if backup_enabled and not isinstance(backup_enabled, str):
+            raise TypeError("Expected argument 'backup_enabled' to be a str")
+        __self__.backup_enabled = backup_enabled
+        """
+        Backup Enabled
+        """
+        if friendly_name and not isinstance(friendly_name, str):
+            raise TypeError("Expected argument 'friendly_name' to be a str")
+        __self__.friendly_name = friendly_name
+        """
+        Friendly Name
+        """
+        if last_operation_name and not isinstance(last_operation_name, str):
+            raise TypeError("Expected argument 'last_operation_name' to be a str")
+        __self__.last_operation_name = last_operation_name
+        """
+        Resource Last Operation Name
+        """
+        if last_workflow_id and not isinstance(last_workflow_id, str):
+            raise TypeError("Expected argument 'last_workflow_id' to be a str")
+        __self__.last_workflow_id = last_workflow_id
+        """
+        CloudEndpoint lastWorkflowId
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if partnership_id and not isinstance(partnership_id, str):
+            raise TypeError("Expected argument 'partnership_id' to be a str")
+        __self__.partnership_id = partnership_id
         """
-        Cloud Endpoint properties.
+        Partnership Id
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        CloudEndpoint Provisioning State
+        """
+        if storage_account_resource_id and not isinstance(storage_account_resource_id, str):
+            raise TypeError("Expected argument 'storage_account_resource_id' to be a str")
+        __self__.storage_account_resource_id = storage_account_resource_id
+        """
+        Storage Account Resource Id
+        """
+        if storage_account_tenant_id and not isinstance(storage_account_tenant_id, str):
+            raise TypeError("Expected argument 'storage_account_tenant_id' to be a str")
+        __self__.storage_account_tenant_id = storage_account_tenant_id
+        """
+        Storage Account Tenant Id
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +88,16 @@ class AwaitableGetCloudEndpointResult(GetCloudEndpointResult):
         if False:
             yield self
         return GetCloudEndpointResult(
+            azure_file_share_name=self.azure_file_share_name,
+            backup_enabled=self.backup_enabled,
+            friendly_name=self.friendly_name,
+            last_operation_name=self.last_operation_name,
+            last_workflow_id=self.last_workflow_id,
             name=self.name,
-            properties=self.properties,
+            partnership_id=self.partnership_id,
+            provisioning_state=self.provisioning_state,
+            storage_account_resource_id=self.storage_account_resource_id,
+            storage_account_tenant_id=self.storage_account_tenant_id,
             type=self.type)
 
 
@@ -66,6 +122,14 @@ def get_cloud_endpoint(name=None, resource_group_name=None, storage_sync_service
     __ret__ = pulumi.runtime.invoke('azurerm:storagesync/v20190201:getCloudEndpoint', __args__, opts=opts).value
 
     return AwaitableGetCloudEndpointResult(
+        azure_file_share_name=__ret__.get('azureFileShareName'),
+        backup_enabled=__ret__.get('backupEnabled'),
+        friendly_name=__ret__.get('friendlyName'),
+        last_operation_name=__ret__.get('lastOperationName'),
+        last_workflow_id=__ret__.get('lastWorkflowId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        partnership_id=__ret__.get('partnershipId'),
+        provisioning_state=__ret__.get('provisioningState'),
+        storage_account_resource_id=__ret__.get('storageAccountResourceId'),
+        storage_account_tenant_id=__ret__.get('storageAccountTenantId'),
         type=__ret__.get('type'))

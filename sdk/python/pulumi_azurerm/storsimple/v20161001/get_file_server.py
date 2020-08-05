@@ -13,18 +13,36 @@ class GetFileServerResult:
     """
     The file server.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, backup_schedule_group_id=None, description=None, domain_name=None, name=None, storage_domain_id=None, type=None):
+        if backup_schedule_group_id and not isinstance(backup_schedule_group_id, str):
+            raise TypeError("Expected argument 'backup_schedule_group_id' to be a str")
+        __self__.backup_schedule_group_id = backup_schedule_group_id
+        """
+        The backup policy id.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of the file server
+        """
+        if domain_name and not isinstance(domain_name, str):
+            raise TypeError("Expected argument 'domain_name' to be a str")
+        __self__.domain_name = domain_name
+        """
+        Domain of the file server
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if storage_domain_id and not isinstance(storage_domain_id, str):
+            raise TypeError("Expected argument 'storage_domain_id' to be a str")
+        __self__.storage_domain_id = storage_domain_id
         """
-        The properties.
+        The storage domain id.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +58,11 @@ class AwaitableGetFileServerResult(GetFileServerResult):
         if False:
             yield self
         return GetFileServerResult(
+            backup_schedule_group_id=self.backup_schedule_group_id,
+            description=self.description,
+            domain_name=self.domain_name,
             name=self.name,
-            properties=self.properties,
+            storage_domain_id=self.storage_domain_id,
             type=self.type)
 
 
@@ -66,6 +87,9 @@ def get_file_server(device_name=None, manager_name=None, name=None, resource_gro
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getFileServer', __args__, opts=opts).value
 
     return AwaitableGetFileServerResult(
+        backup_schedule_group_id=__ret__.get('backupScheduleGroupId'),
+        description=__ret__.get('description'),
+        domain_name=__ret__.get('domainName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        storage_domain_id=__ret__.get('storageDomainId'),
         type=__ret__.get('type'))

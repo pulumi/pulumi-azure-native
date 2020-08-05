@@ -10,6 +10,16 @@ from ... import _utilities, _tables
 
 
 class VirtualMachineScaleSet(pulumi.CustomResource):
+    automatic_repairs_policy: pulumi.Output[dict]
+    """
+    Policy for automatic repairs.
+      * `enabled` (`bool`) - Specifies whether automatic repairs should be enabled on the virtual machine scale set. The default value is false.
+      * `grace_period` (`str`) - The amount of time for which automatic repairs are suspended due to a state change on VM. The grace time starts after the state change has completed. This helps avoid premature or accidental repairs. The time duration should be specified in ISO 8601 format. The minimum allowed grace period is 30 minutes (PT30M), which is also the default value. The maximum allowed grace period is 90 minutes (PT90M).
+    """
+    do_not_run_extensions_on_overprovisioned_v_ms: pulumi.Output[bool]
+    """
+    When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
+    """
     identity: pulumi.Output[dict]
     """
     The identity of the virtual machine scale set, if configured.
@@ -26,6 +36,10 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
     """
     Resource name
     """
+    overprovision: pulumi.Output[bool]
+    """
+    Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+    """
     plan: pulumi.Output[dict]
     """
     Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
@@ -34,172 +48,22 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
       * `promotion_code` (`str`) - The promotion code.
       * `publisher` (`str`) - The publisher ID.
     """
-    properties: pulumi.Output[dict]
+    platform_fault_domain_count: pulumi.Output[float]
     """
-    Describes the properties of a Virtual Machine Scale Set.
-      * `automatic_repairs_policy` (`dict`) - Policy for automatic repairs.
-        * `enabled` (`bool`) - Specifies whether automatic repairs should be enabled on the virtual machine scale set. The default value is false.
-        * `grace_period` (`str`) - The amount of time for which automatic repairs are suspended due to a state change on VM. The grace time starts after the state change has completed. This helps avoid premature or accidental repairs. The time duration should be specified in ISO 8601 format. The minimum allowed grace period is 30 minutes (PT30M), which is also the default value. The maximum allowed grace period is 90 minutes (PT90M).
-
-      * `do_not_run_extensions_on_overprovisioned_v_ms` (`bool`) - When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
-      * `overprovision` (`bool`) - Specifies whether the Virtual Machine Scale Set should be overprovisioned.
-      * `platform_fault_domain_count` (`float`) - Fault Domain count for each placement group.
-      * `provisioning_state` (`str`) - The provisioning state, which only appears in the response.
-      * `proximity_placement_group` (`dict`) - Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-        * `id` (`str`) - Resource Id
-
-      * `single_placement_group` (`bool`) - When true this limits the scale set to a single placement group, of max size 100 virtual machines.
-      * `unique_id` (`str`) - Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
-      * `upgrade_policy` (`dict`) - The upgrade policy.
-        * `automatic_os_upgrade_policy` (`dict`) - Configuration parameters used for performing automatic OS Upgrade.
-          * `disable_automatic_rollback` (`bool`) - Whether OS image rollback feature should be disabled. Default value is false.
-          * `enable_automatic_os_upgrade` (`bool`) - Indicates whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the OS image becomes available. Default value is false. If this is set to true for Windows based scale sets, recommendation is to set [enableAutomaticUpdates](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.windowsconfiguration.enableautomaticupdates?view=azure-dotnet) to false.
-
-        * `mode` (`str`) - Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
-        * `rolling_upgrade_policy` (`dict`) - The configuration parameters used while performing a rolling upgrade.
-          * `max_batch_instance_percent` (`float`) - The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
-          * `max_unhealthy_instance_percent` (`float`) - The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The default value for this parameter is 20%.
-          * `max_unhealthy_upgraded_instance_percent` (`float`) - The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. The default value for this parameter is 20%.
-          * `pause_time_between_batches` (`str`) - The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. The default value is 0 seconds (PT0S).
-
-      * `virtual_machine_profile` (`dict`) - The virtual machine profile.
-        * `additional_capabilities` (`dict`) - Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
-          * `ultra_ssd_enabled` (`bool`) - The flag that enables or disables a capability to have one or more managed data disks with UltraSSD_LRS storage account type on the VM or VMSS. Managed disks with storage account type UltraSSD_LRS can be added to a virtual machine or virtual machine scale set only if this property is enabled.
-
-        * `diagnostics_profile` (`dict`) - Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
-          * `boot_diagnostics` (`dict`) - Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
-            * `enabled` (`bool`) - Whether boot diagnostics should be enabled on the Virtual Machine.
-            * `storage_uri` (`str`) - Uri of the storage account to use for placing the console output and screenshot.
-
-        * `eviction_policy` (`str`) - Specifies the eviction policy for virtual machines in a low priority scale set. <br><br>Minimum api-version: 2017-10-30-preview
-        * `extension_profile` (`dict`) - Specifies a collection of settings for extensions installed on virtual machines in the scale set.
-          * `extensions` (`list`) - The virtual machine scale set child extension resources.
-            * `id` (`str`) - Resource Id
-            * `name` (`str`) - The name of the extension.
-            * `properties` (`dict`) - Describes the properties of a Virtual Machine Scale Set Extension.
-              * `auto_upgrade_minor_version` (`bool`) - Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-              * `force_update_tag` (`str`) - If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-              * `protected_settings` (`dict`) - The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-              * `provision_after_extensions` (`list`) - Collection of extension names after which this extension needs to be provisioned.
-              * `provisioning_state` (`str`) - The provisioning state, which only appears in the response.
-              * `publisher` (`str`) - The name of the extension handler publisher.
-              * `settings` (`dict`) - Json formatted public settings for the extension.
-              * `type` (`str`) - Specifies the type of the extension; an example is "CustomScriptExtension".
-              * `type_handler_version` (`str`) - Specifies the version of the script handler.
-
-        * `license_type` (`str`) - Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
-        * `network_profile` (`dict`) - Specifies properties of the network interfaces of the virtual machines in the scale set.
-          * `health_probe` (`dict`) - A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
-            * `id` (`str`) - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
-
-          * `network_interface_configurations` (`list`) - The list of network configurations.
-            * `id` (`str`) - Resource Id
-            * `name` (`str`) - The network configuration name.
-            * `properties` (`dict`) - Describes a virtual machine scale set network profile's IP configuration.
-              * `dns_settings` (`dict`) - The dns settings to be applied on the network interfaces.
-                * `dns_servers` (`list`) - List of DNS servers IP addresses
-
-              * `enable_accelerated_networking` (`bool`) - Specifies whether the network interface is accelerated networking-enabled.
-              * `enable_ip_forwarding` (`bool`) - Whether IP forwarding enabled on this NIC.
-              * `ip_configurations` (`list`) - Specifies the IP configurations of the network interface.
-                * `id` (`str`) - Resource Id
-                * `name` (`str`) - The IP configuration name.
-                * `properties` (`dict`) - Describes a virtual machine scale set network profile's IP configuration properties.
-                  * `application_gateway_backend_address_pools` (`list`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
-                  * `application_security_groups` (`list`) - Specifies an array of references to application security group.
-                  * `load_balancer_backend_address_pools` (`list`) - Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
-                  * `load_balancer_inbound_nat_pools` (`list`) - Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer
-                  * `primary` (`bool`) - Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-                  * `private_ip_address_version` (`str`) - Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
-                  * `public_ip_address_configuration` (`dict`) - The publicIPAddressConfiguration.
-                    * `name` (`str`) - The publicIP address configuration name.
-                    * `properties` (`dict`) - Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration
-                      * `dns_settings` (`dict`) - The dns settings to be applied on the publicIP addresses .
-                        * `domain_name_label` (`str`) - The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
-
-                      * `idle_timeout_in_minutes` (`float`) - The idle timeout of the public IP address.
-                      * `ip_tags` (`list`) - The list of IP tags associated with the public IP address.
-                        * `ip_tag_type` (`str`) - IP tag type. Example: FirstPartyUsage.
-                        * `tag` (`str`) - IP tag associated with the public IP. Example: SQL, Storage etc.
-
-                      * `public_ip_prefix` (`dict`) - The PublicIPPrefix from which to allocate publicIP addresses.
-
-                  * `subnet` (`dict`) - Specifies the identifier of the subnet.
-
-              * `network_security_group` (`dict`) - The network security group.
-              * `primary` (`bool`) - Specifies the primary network interface in case the virtual machine has more than 1 network interface.
-
-        * `os_profile` (`dict`) - Specifies the operating system settings for the virtual machines in the scale set.
-          * `admin_password` (`str`) - Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-reset-rdp?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#reset-root-password)
-          * `admin_username` (`str`) - Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-          * `computer_name_prefix` (`str`) - Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 15 characters long.
-          * `custom_data` (`str`) - Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-          * `linux_configuration` (`dict`) - Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-            * `disable_password_authentication` (`bool`) - Specifies whether password authentication should be disabled.
-            * `provision_vm_agent` (`bool`) - Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
-            * `ssh` (`dict`) - Specifies the ssh key configuration for a Linux OS.
-              * `public_keys` (`list`) - The list of SSH public keys used to authenticate with linux based VMs.
-                * `key_data` (`str`) - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-                * `path` (`str`) - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
-
-          * `secrets` (`list`) - Specifies set of certificates that should be installed onto the virtual machines in the scale set.
-            * `source_vault` (`dict`) - The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
-            * `vault_certificates` (`list`) - The list of key vault references in SourceVault which contain certificates.
-              * `certificate_store` (`str`) - For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for private key. Both of these files are .pem formatted.
-              * `certificate_url` (`str`) - This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
-
-          * `windows_configuration` (`dict`) - Specifies Windows operating system settings on the virtual machine.
-            * `additional_unattend_content` (`list`) - Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
-              * `component_name` (`str`) - The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
-              * `content` (`str`) - Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
-              * `pass_name` (`str`) - The pass name. Currently, the only allowable value is OobeSystem.
-              * `setting_name` (`str`) - Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
-
-            * `enable_automatic_updates` (`bool`) - Indicates whether virtual machine is enabled for automatic Windows updates. Default value is true. <br><br> For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
-            * `provision_vm_agent` (`bool`) - Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
-            * `time_zone` (`str`) - Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time"
-            * `win_rm` (`dict`) - Specifies the Windows Remote Management listeners. This enables remote Windows PowerShell.
-              * `listeners` (`list`) - The list of Windows Remote Management listeners
-                * `certificate_url` (`str`) - This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
-                * `protocol` (`str`) - Specifies the protocol of listener. <br><br> Possible values are: <br>**http** <br><br> **https**
-
-        * `priority` (`str`) - Specifies the priority for the virtual machines in the scale set. <br><br>Minimum api-version: 2017-10-30-preview
-        * `storage_profile` (`dict`) - Specifies the storage settings for the virtual machine disks.
-          * `data_disks` (`list`) - Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-            * `caching` (`str`) - Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-            * `create_option` (`str`) - The create option.
-            * `disk_size_gb` (`float`) - Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
-            * `lun` (`float`) - Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
-            * `managed_disk` (`dict`) - The managed disk parameters.
-              * `storage_account_type` (`str`) - Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
-
-            * `name` (`str`) - The disk name.
-            * `write_accelerator_enabled` (`bool`) - Specifies whether writeAccelerator should be enabled or disabled on the disk.
-
-          * `image_reference` (`dict`) - Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
-            * `id` (`str`) - Resource Id
-            * `offer` (`str`) - Specifies the offer of the platform image or marketplace image used to create the virtual machine.
-            * `publisher` (`str`) - The image publisher.
-            * `sku` (`str`) - The image SKU.
-            * `version` (`str`) - Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
-
-          * `os_disk` (`dict`) - Specifies information about the operating system disk used by the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-            * `caching` (`str`) - Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
-            * `create_option` (`str`) - Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
-            * `diff_disk_settings` (`dict`) - Specifies the ephemeral disk Settings for the operating system disk used by the virtual machine scale set.
-              * `option` (`str`) - Specifies the ephemeral disk settings for operating system disk.
-
-            * `disk_size_gb` (`float`) - Specifies the size of the operating system disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
-            * `image` (`dict`) - Specifies information about the unmanaged user image to base the scale set on.
-              * `uri` (`str`) - Specifies the virtual hard disk's uri.
-
-            * `managed_disk` (`dict`) - The managed disk parameters.
-            * `name` (`str`) - The disk name.
-            * `os_type` (`str`) - This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
-            * `vhd_containers` (`list`) - Specifies the container urls that are used to store operating system disks for the scale set.
-            * `write_accelerator_enabled` (`bool`) - Specifies whether writeAccelerator should be enabled or disabled on the disk.
-
-      * `zone_balance` (`bool`) - Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+    Fault Domain count for each placement group.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state, which only appears in the response.
+    """
+    proximity_placement_group: pulumi.Output[dict]
+    """
+    Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+      * `id` (`str`) - Resource Id
+    """
+    single_placement_group: pulumi.Output[bool]
+    """
+    When true this limits the scale set to a single placement group, of max size 100 virtual machines.
     """
     sku: pulumi.Output[dict]
     """
@@ -215,6 +79,165 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    unique_id: pulumi.Output[str]
+    """
+    Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
+    """
+    upgrade_policy: pulumi.Output[dict]
+    """
+    The upgrade policy.
+      * `automatic_os_upgrade_policy` (`dict`) - Configuration parameters used for performing automatic OS Upgrade.
+        * `disable_automatic_rollback` (`bool`) - Whether OS image rollback feature should be disabled. Default value is false.
+        * `enable_automatic_os_upgrade` (`bool`) - Indicates whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the OS image becomes available. Default value is false. If this is set to true for Windows based scale sets, recommendation is to set [enableAutomaticUpdates](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.windowsconfiguration.enableautomaticupdates?view=azure-dotnet) to false.
+
+      * `mode` (`str`) - Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
+      * `rolling_upgrade_policy` (`dict`) - The configuration parameters used while performing a rolling upgrade.
+        * `max_batch_instance_percent` (`float`) - The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. The default value for this parameter is 20%.
+        * `max_unhealthy_instance_percent` (`float`) - The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. The default value for this parameter is 20%.
+        * `max_unhealthy_upgraded_instance_percent` (`float`) - The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. The default value for this parameter is 20%.
+        * `pause_time_between_batches` (`str`) - The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format. The default value is 0 seconds (PT0S).
+    """
+    virtual_machine_profile: pulumi.Output[dict]
+    """
+    The virtual machine profile.
+      * `additional_capabilities` (`dict`) - Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
+        * `ultra_ssd_enabled` (`bool`) - The flag that enables or disables a capability to have one or more managed data disks with UltraSSD_LRS storage account type on the VM or VMSS. Managed disks with storage account type UltraSSD_LRS can be added to a virtual machine or virtual machine scale set only if this property is enabled.
+
+      * `diagnostics_profile` (`dict`) - Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+        * `boot_diagnostics` (`dict`) - Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
+          * `enabled` (`bool`) - Whether boot diagnostics should be enabled on the Virtual Machine.
+          * `storage_uri` (`str`) - Uri of the storage account to use for placing the console output and screenshot.
+
+      * `eviction_policy` (`str`) - Specifies the eviction policy for virtual machines in a low priority scale set. <br><br>Minimum api-version: 2017-10-30-preview
+      * `extension_profile` (`dict`) - Specifies a collection of settings for extensions installed on virtual machines in the scale set.
+        * `extensions` (`list`) - The virtual machine scale set child extension resources.
+          * `auto_upgrade_minor_version` (`bool`) - Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+          * `force_update_tag` (`str`) - If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+          * `id` (`str`) - Resource Id
+          * `name` (`str`) - The name of the extension.
+          * `protected_settings` (`dict`) - The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+          * `provision_after_extensions` (`list`) - Collection of extension names after which this extension needs to be provisioned.
+          * `provisioning_state` (`str`) - The provisioning state, which only appears in the response.
+          * `publisher` (`str`) - The name of the extension handler publisher.
+          * `settings` (`dict`) - Json formatted public settings for the extension.
+          * `type` (`str`) - Specifies the type of the extension; an example is "CustomScriptExtension".
+          * `type_handler_version` (`str`) - Specifies the version of the script handler.
+
+      * `license_type` (`str`) - Specifies that the image or disk that is being used was licensed on-premises. This element is only used for images that contain the Windows Server operating system. <br><br> Possible values are: <br><br> Windows_Client <br><br> Windows_Server <br><br> If this element is included in a request for an update, the value must match the initial value. This value cannot be updated. <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-hybrid-use-benefit-licensing?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Minimum api-version: 2015-06-15
+      * `network_profile` (`dict`) - Specifies properties of the network interfaces of the virtual machines in the scale set.
+        * `health_probe` (`dict`) - A reference to a load balancer probe used to determine the health of an instance in the virtual machine scale set. The reference will be in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.
+          * `id` (`str`) - The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+
+        * `network_interface_configurations` (`list`) - The list of network configurations.
+          * `dns_settings` (`dict`) - The dns settings to be applied on the network interfaces.
+            * `dns_servers` (`list`) - List of DNS servers IP addresses
+
+          * `enable_accelerated_networking` (`bool`) - Specifies whether the network interface is accelerated networking-enabled.
+          * `enable_ip_forwarding` (`bool`) - Whether IP forwarding enabled on this NIC.
+          * `id` (`str`) - Resource Id
+          * `ip_configurations` (`list`) - Specifies the IP configurations of the network interface.
+            * `application_gateway_backend_address_pools` (`list`) - Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.
+              * `id` (`str`) - Resource Id
+
+            * `application_security_groups` (`list`) - Specifies an array of references to application security group.
+            * `id` (`str`) - Resource Id
+            * `load_balancer_backend_address_pools` (`list`) - Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
+            * `load_balancer_inbound_nat_pools` (`list`) - Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer
+            * `name` (`str`) - The IP configuration name.
+            * `primary` (`bool`) - Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+            * `private_ip_address_version` (`str`) - Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.
+            * `public_ip_address_configuration` (`dict`) - The publicIPAddressConfiguration.
+              * `dns_settings` (`dict`) - The dns settings to be applied on the publicIP addresses .
+                * `domain_name_label` (`str`) - The Domain name label.The concatenation of the domain name label and vm index will be the domain name labels of the PublicIPAddress resources that will be created
+
+              * `idle_timeout_in_minutes` (`float`) - The idle timeout of the public IP address.
+              * `ip_tags` (`list`) - The list of IP tags associated with the public IP address.
+                * `ip_tag_type` (`str`) - IP tag type. Example: FirstPartyUsage.
+                * `tag` (`str`) - IP tag associated with the public IP. Example: SQL, Storage etc.
+
+              * `name` (`str`) - The publicIP address configuration name.
+              * `public_ip_prefix` (`dict`) - The PublicIPPrefix from which to allocate publicIP addresses.
+
+            * `subnet` (`dict`) - Specifies the identifier of the subnet.
+
+          * `name` (`str`) - The network configuration name.
+          * `network_security_group` (`dict`) - The network security group.
+          * `primary` (`bool`) - Specifies the primary network interface in case the virtual machine has more than 1 network interface.
+
+      * `os_profile` (`dict`) - Specifies the operating system settings for the virtual machines in the scale set.
+        * `admin_password` (`str`) - Specifies the password of the administrator account. <br><br> **Minimum-length (Windows):** 8 characters <br><br> **Minimum-length (Linux):** 6 characters <br><br> **Max-length (Windows):** 123 characters <br><br> **Max-length (Linux):** 72 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!" <br><br> For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-reset-rdp?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#reset-root-password)
+        * `admin_username` (`str`) - Specifies the name of the administrator account. <br><br> **Windows-only restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length (Linux):** 1  character <br><br> **Max-length (Linux):** 64 characters <br><br> **Max-length (Windows):** 20 characters  <br><br><li> For root access to the Linux VM, see [Using root privileges on Linux virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-use-root-privileges?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)<br><li> For a list of built-in system users on Linux that should not be used in this field, see [Selecting User Names for Linux on Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-usernames?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        * `computer_name_prefix` (`str`) - Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 15 characters long.
+        * `custom_data` (`str`) - Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. <br><br> For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+        * `linux_configuration` (`dict`) - Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-endorsed-distros?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) <br><br> For running non-endorsed distributions, see [Information for Non-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+          * `disable_password_authentication` (`bool`) - Specifies whether password authentication should be disabled.
+          * `provision_vm_agent` (`bool`) - Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
+          * `ssh` (`dict`) - Specifies the ssh key configuration for a Linux OS.
+            * `public_keys` (`list`) - The list of SSH public keys used to authenticate with linux based VMs.
+              * `key_data` (`str`) - SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+              * `path` (`str`) - Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+
+        * `secrets` (`list`) - Specifies set of certificates that should be installed onto the virtual machines in the scale set.
+          * `source_vault` (`dict`) - The relative URL of the Key Vault containing all of the certificates in VaultCertificates.
+          * `vault_certificates` (`list`) - The list of key vault references in SourceVault which contain certificates.
+            * `certificate_store` (`str`) - For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. <br><br>For Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for private key. Both of these files are .pem formatted.
+            * `certificate_url` (`str`) - This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+
+        * `windows_configuration` (`dict`) - Specifies Windows operating system settings on the virtual machine.
+          * `additional_unattend_content` (`list`) - Specifies additional base-64 encoded XML formatted information that can be included in the Unattend.xml file, which is used by Windows Setup.
+            * `component_name` (`str`) - The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
+            * `content` (`str`) - Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted.
+            * `pass_name` (`str`) - The pass name. Currently, the only allowable value is OobeSystem.
+            * `setting_name` (`str`) - Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
+
+          * `enable_automatic_updates` (`bool`) - Indicates whether virtual machine is enabled for automatic Windows updates. Default value is true. <br><br> For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
+          * `provision_vm_agent` (`bool`) - Indicates whether virtual machine agent should be provisioned on the virtual machine. <br><br> When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
+          * `time_zone` (`str`) - Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time"
+          * `win_rm` (`dict`) - Specifies the Windows Remote Management listeners. This enables remote Windows PowerShell.
+            * `listeners` (`list`) - The list of Windows Remote Management listeners
+              * `certificate_url` (`str`) - This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: <br><br> {<br>  "data":"<Base64-encoded-certificate>",<br>  "dataType":"pfx",<br>  "password":"<pfx-file-password>"<br>}
+              * `protocol` (`str`) - Specifies the protocol of listener. <br><br> Possible values are: <br>**http** <br><br> **https**
+
+      * `priority` (`str`) - Specifies the priority for the virtual machines in the scale set. <br><br>Minimum api-version: 2017-10-30-preview
+      * `storage_profile` (`dict`) - Specifies the storage settings for the virtual machine disks.
+        * `data_disks` (`list`) - Specifies the parameters that are used to add data disks to the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+          * `caching` (`str`) - Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+          * `create_option` (`str`) - The create option.
+          * `disk_size_gb` (`float`) - Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+          * `lun` (`float`) - Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+          * `managed_disk` (`dict`) - The managed disk parameters.
+            * `storage_account_type` (`str`) - Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+
+          * `name` (`str`) - The disk name.
+          * `write_accelerator_enabled` (`bool`) - Specifies whether writeAccelerator should be enabled or disabled on the disk.
+
+        * `image_reference` (`dict`) - Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
+          * `id` (`str`) - Resource Id
+          * `offer` (`str`) - Specifies the offer of the platform image or marketplace image used to create the virtual machine.
+          * `publisher` (`str`) - The image publisher.
+          * `sku` (`str`) - The image SKU.
+          * `version` (`str`) - Specifies the version of the platform image or marketplace image used to create the virtual machine. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor, and Build are decimal numbers. Specify 'latest' to use the latest version of an image available at deploy time. Even if you use 'latest', the VM image will not automatically update after deploy time even if a new version becomes available.
+
+        * `os_disk` (`dict`) - Specifies information about the operating system disk used by the virtual machines in the scale set. <br><br> For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about-disks-vhds?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+          * `caching` (`str`) - Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+          * `create_option` (`str`) - Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
+          * `diff_disk_settings` (`dict`) - Specifies the ephemeral disk Settings for the operating system disk used by the virtual machine scale set.
+            * `option` (`str`) - Specifies the ephemeral disk settings for operating system disk.
+
+          * `disk_size_gb` (`float`) - Specifies the size of the operating system disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. <br><br> This value cannot be larger than 1023 GB
+          * `image` (`dict`) - Specifies information about the unmanaged user image to base the scale set on.
+            * `uri` (`str`) - Specifies the virtual hard disk's uri.
+
+          * `managed_disk` (`dict`) - The managed disk parameters.
+          * `name` (`str`) - The disk name.
+          * `os_type` (`str`) - This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+          * `vhd_containers` (`list`) - Specifies the container urls that are used to store operating system disks for the scale set.
+          * `write_accelerator_enabled` (`bool`) - Specifies whether writeAccelerator should be enabled or disabled on the disk.
+    """
+    zone_balance: pulumi.Output[bool]
+    """
+    Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
     """
     zones: pulumi.Output[list]
     """
@@ -455,8 +478,9 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
             __props__['virtual_machine_profile'] = virtual_machine_profile
             __props__['zone_balance'] = zone_balance
             __props__['zones'] = zones
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['unique_id'] = None
         super(VirtualMachineScaleSet, __self__).__init__(
             'azurerm:compute/v20181001:VirtualMachineScaleSet',
             resource_name,

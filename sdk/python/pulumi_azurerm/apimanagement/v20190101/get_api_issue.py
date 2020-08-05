@@ -13,24 +13,54 @@ class GetApiIssueResult:
     """
     Issue Contract details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, api_id=None, created_date=None, description=None, name=None, state=None, title=None, type=None, user_id=None):
+        if api_id and not isinstance(api_id, str):
+            raise TypeError("Expected argument 'api_id' to be a str")
+        __self__.api_id = api_id
+        """
+        A resource identifier for the API the issue was created for.
+        """
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        Date and time when the issue was created.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Text describing the issue.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
         """
-        Properties of the Issue.
+        Status of the issue.
+        """
+        if title and not isinstance(title, str):
+            raise TypeError("Expected argument 'title' to be a str")
+        __self__.title = title
+        """
+        The issue title.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type for API Management resource.
+        """
+        if user_id and not isinstance(user_id, str):
+            raise TypeError("Expected argument 'user_id' to be a str")
+        __self__.user_id = user_id
+        """
+        A resource identifier for the user created the issue.
         """
 
 
@@ -40,9 +70,14 @@ class AwaitableGetApiIssueResult(GetApiIssueResult):
         if False:
             yield self
         return GetApiIssueResult(
+            api_id=self.api_id,
+            created_date=self.created_date,
+            description=self.description,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            state=self.state,
+            title=self.title,
+            type=self.type,
+            user_id=self.user_id)
 
 
 def get_api_issue(api_id=None, expand_comments_attachments=None, name=None, resource_group_name=None, service_name=None, opts=None):
@@ -68,6 +103,11 @@ def get_api_issue(api_id=None, expand_comments_attachments=None, name=None, reso
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getApiIssue', __args__, opts=opts).value
 
     return AwaitableGetApiIssueResult(
+        api_id=__ret__.get('apiId'),
+        created_date=__ret__.get('createdDate'),
+        description=__ret__.get('description'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        state=__ret__.get('state'),
+        title=__ret__.get('title'),
+        type=__ret__.get('type'),
+        user_id=__ret__.get('userId'))

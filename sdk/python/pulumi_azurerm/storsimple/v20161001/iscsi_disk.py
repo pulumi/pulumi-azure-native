@@ -10,25 +10,45 @@ from ... import _utilities, _tables
 
 
 class IscsiDisk(pulumi.CustomResource):
+    access_control_records: pulumi.Output[list]
+    """
+    The access control records.
+    """
+    data_policy: pulumi.Output[str]
+    """
+    The data policy.
+    """
+    description: pulumi.Output[str]
+    """
+    The description.
+    """
+    disk_status: pulumi.Output[str]
+    """
+    The disk status.
+    """
+    local_used_capacity_in_bytes: pulumi.Output[float]
+    """
+    The local used capacity in bytes.
+    """
+    monitoring_status: pulumi.Output[str]
+    """
+    The monitoring.
+    """
     name: pulumi.Output[str]
     """
     The name.
     """
-    properties: pulumi.Output[dict]
+    provisioned_capacity_in_bytes: pulumi.Output[float]
     """
-    The properties.
-      * `access_control_records` (`list`) - The access control records.
-      * `data_policy` (`str`) - The data policy.
-      * `description` (`str`) - The description.
-      * `disk_status` (`str`) - The disk status.
-      * `local_used_capacity_in_bytes` (`float`) - The local used capacity in bytes.
-      * `monitoring_status` (`str`) - The monitoring.
-      * `provisioned_capacity_in_bytes` (`float`) - The provisioned capacity in bytes.
-      * `used_capacity_in_bytes` (`float`) - The used capacity in bytes.
+    The provisioned capacity in bytes.
     """
     type: pulumi.Output[str]
     """
     The type.
+    """
+    used_capacity_in_bytes: pulumi.Output[float]
+    """
+    The used capacity in bytes.
     """
     def __init__(__self__, resource_name, opts=None, access_control_records=None, data_policy=None, description=None, device_name=None, disk_status=None, iscsi_server_name=None, manager_name=None, monitoring_status=None, name=None, provisioned_capacity_in_bytes=None, resource_group_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -96,8 +116,9 @@ class IscsiDisk(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['local_used_capacity_in_bytes'] = None
             __props__['type'] = None
+            __props__['used_capacity_in_bytes'] = None
         super(IscsiDisk, __self__).__init__(
             'azurerm:storsimple/v20161001:IscsiDisk',
             resource_name,

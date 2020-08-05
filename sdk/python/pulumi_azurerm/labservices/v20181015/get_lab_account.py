@@ -13,7 +13,19 @@ class GetLabAccountResult:
     """
     Represents a lab account.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, enabled_region_selection=None, latest_operation_result=None, location=None, name=None, provisioning_state=None, size_configuration=None, tags=None, type=None, unique_identifier=None):
+        if enabled_region_selection and not isinstance(enabled_region_selection, bool):
+            raise TypeError("Expected argument 'enabled_region_selection' to be a bool")
+        __self__.enabled_region_selection = enabled_region_selection
+        """
+        Represents if region selection is enabled
+        """
+        if latest_operation_result and not isinstance(latest_operation_result, dict):
+            raise TypeError("Expected argument 'latest_operation_result' to be a dict")
+        __self__.latest_operation_result = latest_operation_result
+        """
+        The details of the latest operation. ex: status, error
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +38,17 @@ class GetLabAccountResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the resource.
+        The provisioning status of the resource.
+        """
+        if size_configuration and not isinstance(size_configuration, dict):
+            raise TypeError("Expected argument 'size_configuration' to be a dict")
+        __self__.size_configuration = size_configuration
+        """
+        Represents the size configuration under the lab account
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +62,12 @@ class GetLabAccountResult:
         """
         The type of the resource.
         """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
 
 
 class AwaitableGetLabAccountResult(GetLabAccountResult):
@@ -52,11 +76,15 @@ class AwaitableGetLabAccountResult(GetLabAccountResult):
         if False:
             yield self
         return GetLabAccountResult(
+            enabled_region_selection=self.enabled_region_selection,
+            latest_operation_result=self.latest_operation_result,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            size_configuration=self.size_configuration,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unique_identifier=self.unique_identifier)
 
 
 def get_lab_account(name=None, resource_group_name=None, opts=None):
@@ -76,8 +104,12 @@ def get_lab_account(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:labservices/v20181015:getLabAccount', __args__, opts=opts).value
 
     return AwaitableGetLabAccountResult(
+        enabled_region_selection=__ret__.get('enabledRegionSelection'),
+        latest_operation_result=__ret__.get('latestOperationResult'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        size_configuration=__ret__.get('sizeConfiguration'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'))

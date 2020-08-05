@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class Cluster(pulumi.CustomResource):
+    data_ingestion_uri: pulumi.Output[str]
+    """
+    The cluster data ingestion URI.
+    """
     location: pulumi.Output[str]
     """
     The geo-location where the resource lives
@@ -18,16 +22,9 @@ class Cluster(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The cluster properties.
-      * `data_ingestion_uri` (`str`) - The cluster data ingestion URI.
-      * `provisioning_state` (`str`) - The provisioned state of the resource.
-      * `state` (`str`) - The state of the resource.
-      * `trusted_external_tenants` (`list`) - The cluster's external tenants.
-        * `value` (`str`) - GUID representing an external tenant.
-
-      * `uri` (`str`) - The cluster URI.
+    The provisioned state of the resource.
     """
     sku: pulumi.Output[dict]
     """
@@ -36,13 +33,26 @@ class Cluster(pulumi.CustomResource):
       * `name` (`str`) - SKU name.
       * `tier` (`str`) - SKU tier.
     """
+    state: pulumi.Output[str]
+    """
+    The state of the resource.
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags.
     """
+    trusted_external_tenants: pulumi.Output[list]
+    """
+    The cluster's external tenants.
+      * `value` (`str`) - GUID representing an external tenant.
+    """
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    uri: pulumi.Output[str]
+    """
+    The cluster URI.
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, sku=None, tags=None, trusted_external_tenants=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -98,8 +108,11 @@ class Cluster(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['trusted_external_tenants'] = trusted_external_tenants
-            __props__['properties'] = None
+            __props__['data_ingestion_uri'] = None
+            __props__['provisioning_state'] = None
+            __props__['state'] = None
             __props__['type'] = None
+            __props__['uri'] = None
         super(Cluster, __self__).__init__(
             'azurerm:kusto/v20190121:Cluster',
             resource_name,

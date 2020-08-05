@@ -10,21 +10,31 @@ from ... import _utilities, _tables
 
 
 class RoleDefinition(pulumi.CustomResource):
+    assignable_scopes: pulumi.Output[list]
+    """
+    Role definition assignable scopes.
+    """
+    description: pulumi.Output[str]
+    """
+    The role definition description.
+    """
     name: pulumi.Output[str]
     """
     The role definition name.
     """
-    properties: pulumi.Output[dict]
+    permissions: pulumi.Output[list]
     """
-    Role definition properties.
-      * `assignable_scopes` (`list`) - Role definition assignable scopes.
-      * `description` (`str`) - The role definition description.
-      * `permissions` (`list`) - Role definition permissions.
-        * `actions` (`list`) - Allowed actions.
-        * `not_actions` (`list`) - Denied actions.
-
-      * `role_name` (`str`) - The role name.
-      * `type` (`str`) - The role type.
+    Role definition permissions.
+      * `actions` (`list`) - Allowed actions.
+      * `not_actions` (`list`) - Denied actions.
+    """
+    role_name: pulumi.Output[str]
+    """
+    The role name.
+    """
+    role_type: pulumi.Output[str]
+    """
+    The role type.
     """
     type: pulumi.Output[str]
     """
@@ -77,7 +87,6 @@ class RoleDefinition(pulumi.CustomResource):
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
-            __props__['properties'] = None
             __props__['type'] = None
         super(RoleDefinition, __self__).__init__(
             'azurerm:authorization/v20150701:RoleDefinition',

@@ -10,19 +10,131 @@ from ... import _utilities, _tables
 
 
 class HostingEnvironment(pulumi.CustomResource):
+    allowed_multi_sizes: pulumi.Output[str]
+    """
+    List of comma separated strings describing which VM sizes are allowed for front-ends
+    """
+    allowed_worker_sizes: pulumi.Output[str]
+    """
+    List of comma separated strings describing which VM sizes are allowed for workers
+    """
+    api_management_account_id: pulumi.Output[str]
+    """
+    Api Management Account associated with this Hosting Environment
+    """
+    cluster_settings: pulumi.Output[list]
+    """
+    Custom settings for changing the behavior of the hosting environment
+      * `name` (`str`) - Pair name
+      * `value` (`str`) - Pair value
+    """
+    database_edition: pulumi.Output[str]
+    """
+    Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
+    """
+    database_service_objective: pulumi.Output[str]
+    """
+    Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
+    """
+    dns_suffix: pulumi.Output[str]
+    """
+    DNS suffix of the hostingEnvironment (App Service Environment)
+    """
+    environment_capacities: pulumi.Output[list]
+    """
+    Current total, used, and available worker capacities
+      * `available_capacity` (`float`) - Available capacity (# of machines, bytes of storage etc...)
+      * `compute_mode` (`str`) - Shared/Dedicated workers
+      * `exclude_from_capacity_allocation` (`bool`) - If true it includes basic sites
+                    Basic sites are not used for capacity allocation.
+      * `is_applicable_for_all_compute_modes` (`bool`) - Is capacity applicable for all sites?
+      * `name` (`str`) - Name of the stamp
+      * `site_mode` (`str`) - Shared or Dedicated
+      * `total_capacity` (`float`) - Total capacity (# of machines, bytes of storage etc...)
+      * `unit` (`str`) - Name of the unit
+      * `worker_size` (`str`) - Size of the machines
+      * `worker_size_id` (`float`) - Size Id of machines: 
+                    0 - Small
+                    1 - Medium
+                    2 - Large
+    """
+    environment_is_healthy: pulumi.Output[bool]
+    """
+    True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
+    """
+    environment_status: pulumi.Output[str]
+    """
+    Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
+    """
+    internal_load_balancing_mode: pulumi.Output[str]
+    """
+    Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
+    """
+    ipssl_address_count: pulumi.Output[float]
+    """
+    Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource
+    """
+    last_action: pulumi.Output[str]
+    """
+    Last deployment action on this hostingEnvironment (App Service Environment)
+    """
+    last_action_result: pulumi.Output[str]
+    """
+    Result of the last deployment action on this hostingEnvironment (App Service Environment)
     """
     location: pulumi.Output[str]
     """
     Resource Location
     """
+    maximum_number_of_machines: pulumi.Output[float]
+    """
+    Maximum number of VMs in this hostingEnvironment (App Service Environment)
+    """
+    multi_role_count: pulumi.Output[float]
+    """
+    Number of front-end instances
+    """
+    multi_size: pulumi.Output[str]
+    """
+    Front-end VM size, e.g. "Medium", "Large"
+    """
     name: pulumi.Output[str]
     """
     Resource Name
     """
-    properties: pulumi.Output[dict]
+    network_access_control_list: pulumi.Output[list]
+    """
+    Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
+      * `action` (`str`)
+      * `description` (`str`)
+      * `order` (`float`)
+      * `remote_subnet` (`str`)
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the hostingEnvironment (App Service Environment)
+    """
+    resource_group: pulumi.Output[str]
+    """
+    Resource group of the hostingEnvironment (App Service Environment)
+    """
+    status: pulumi.Output[str]
+    """
+    Current status of the hostingEnvironment (App Service Environment)
+    """
+    subscription_id: pulumi.Output[str]
+    """
+    Subscription of the hostingEnvironment (App Service Environment)
+    """
+    suspended: pulumi.Output[bool]
+    """
+    True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+                (most likely because NSG blocked the incoming traffic)
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -30,6 +142,60 @@ class HostingEnvironment(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    upgrade_domains: pulumi.Output[float]
+    """
+    Number of upgrade domains of this hostingEnvironment (App Service Environment)
+    """
+    vip_mappings: pulumi.Output[list]
+    """
+    Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
+      * `in_use` (`bool`) - Is VIP mapping in use
+      * `internal_http_port` (`float`) - Internal HTTP port
+      * `internal_https_port` (`float`) - Internal HTTPS port
+      * `virtual_ip` (`str`) - Virtual IP address
+    """
+    virtual_network: pulumi.Output[dict]
+    """
+    Description of the hostingEnvironment's (App Service Environment) virtual network
+      * `id` (`str`) - Resource id of the virtual network
+      * `name` (`str`) - Name of the virtual network (read-only)
+      * `subnet` (`str`) - Subnet within the virtual network
+      * `type` (`str`) - Resource type of the virtual network (read-only)
+    """
+    vnet_name: pulumi.Output[str]
+    """
+    Name of the hostingEnvironment's (App Service Environment) virtual network
+    """
+    vnet_resource_group_name: pulumi.Output[str]
+    """
+    Resource group of the hostingEnvironment's (App Service Environment) virtual network
+    """
+    vnet_subnet_name: pulumi.Output[str]
+    """
+    Subnet of the hostingEnvironment's (App Service Environment) virtual network
+    """
+    worker_pools: pulumi.Output[list]
+    """
+    Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
+      * `compute_mode` (`str`) - Shared or dedicated web app hosting
+      * `id` (`str`) - Resource Id
+      * `instance_names` (`list`) - Names of all instances in the worker pool (read only)
+      * `kind` (`str`) - Kind of resource
+      * `location` (`str`) - Resource Location
+      * `name` (`str`) - Resource Name
+      * `sku` (`dict`) - Describes a sku for a scalable resource
+        * `capacity` (`float`) - Current number of instances assigned to the resource
+        * `family` (`str`) - Family code of the resource sku
+        * `name` (`str`) - Name of the resource sku
+        * `size` (`str`) - Size specifier of the resource sku
+        * `tier` (`str`) - Service Tier of the resource sku
+
+      * `tags` (`dict`) - Resource tags
+      * `type` (`str`) - Resource type
+      * `worker_count` (`float`) - Number of instances in the worker pool
+      * `worker_size` (`str`) - VM size of the worker pool instances
+      * `worker_size_id` (`float`) - Worker size id for referencing this worker pool
     """
     def __init__(__self__, resource_name, opts=None, allowed_multi_sizes=None, allowed_worker_sizes=None, api_management_account_id=None, cluster_settings=None, database_edition=None, database_service_objective=None, dns_suffix=None, environment_capacities=None, environment_is_healthy=None, environment_status=None, id=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, last_action=None, last_action_result=None, location=None, maximum_number_of_machines=None, multi_role_count=None, multi_size=None, name=None, network_access_control_list=None, provisioning_state=None, resource_group=None, resource_group_name=None, status=None, subscription_id=None, suspended=None, tags=None, type=None, upgrade_domains=None, vip_mappings=None, virtual_network=None, vnet_name=None, vnet_resource_group_name=None, vnet_subnet_name=None, worker_pools=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -202,7 +368,6 @@ class HostingEnvironment(pulumi.CustomResource):
             __props__['vnet_resource_group_name'] = vnet_resource_group_name
             __props__['vnet_subnet_name'] = vnet_subnet_name
             __props__['worker_pools'] = worker_pools
-            __props__['properties'] = None
         super(HostingEnvironment, __self__).__init__(
             'azurerm:web/v20150801:HostingEnvironment',
             resource_name,

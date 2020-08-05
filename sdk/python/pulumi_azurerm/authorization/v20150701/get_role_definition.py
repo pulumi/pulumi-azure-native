@@ -13,18 +13,42 @@ class GetRoleDefinitionResult:
     """
     Role definition.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, assignable_scopes=None, description=None, name=None, permissions=None, role_name=None, role_type=None, type=None):
+        if assignable_scopes and not isinstance(assignable_scopes, list):
+            raise TypeError("Expected argument 'assignable_scopes' to be a list")
+        __self__.assignable_scopes = assignable_scopes
+        """
+        Role definition assignable scopes.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The role definition description.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The role definition name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if permissions and not isinstance(permissions, list):
+            raise TypeError("Expected argument 'permissions' to be a list")
+        __self__.permissions = permissions
         """
-        Role definition properties.
+        Role definition permissions.
+        """
+        if role_name and not isinstance(role_name, str):
+            raise TypeError("Expected argument 'role_name' to be a str")
+        __self__.role_name = role_name
+        """
+        The role name.
+        """
+        if role_type and not isinstance(role_type, str):
+            raise TypeError("Expected argument 'role_type' to be a str")
+        __self__.role_type = role_type
+        """
+        The role type.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +64,12 @@ class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
         if False:
             yield self
         return GetRoleDefinitionResult(
+            assignable_scopes=self.assignable_scopes,
+            description=self.description,
             name=self.name,
-            properties=self.properties,
+            permissions=self.permissions,
+            role_name=self.role_name,
+            role_type=self.role_type,
             type=self.type)
 
 
@@ -62,6 +90,10 @@ def get_role_definition(name=None, scope=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20150701:getRoleDefinition', __args__, opts=opts).value
 
     return AwaitableGetRoleDefinitionResult(
+        assignable_scopes=__ret__.get('assignableScopes'),
+        description=__ret__.get('description'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        permissions=__ret__.get('permissions'),
+        role_name=__ret__.get('roleName'),
+        role_type=__ret__.get('roleType'),
         type=__ret__.get('type'))

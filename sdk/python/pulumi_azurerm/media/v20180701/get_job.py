@@ -13,18 +13,66 @@ class GetJobResult:
     """
     A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, correlation_data=None, created=None, description=None, end_time=None, last_modified=None, name=None, outputs=None, priority=None, start_time=None, state=None, type=None):
+        if correlation_data and not isinstance(correlation_data, dict):
+            raise TypeError("Expected argument 'correlation_data' to be a dict")
+        __self__.correlation_data = correlation_data
+        """
+        Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+        """
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        __self__.created = created
+        """
+        The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Optional customer supplied description of the Job.
+        """
+        if end_time and not isinstance(end_time, str):
+            raise TypeError("Expected argument 'end_time' to be a str")
+        __self__.end_time = end_time
+        """
+        The UTC date and time at which this Job finished processing.
+        """
+        if last_modified and not isinstance(last_modified, str):
+            raise TypeError("Expected argument 'last_modified' to be a str")
+        __self__.last_modified = last_modified
+        """
+        The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if outputs and not isinstance(outputs, list):
+            raise TypeError("Expected argument 'outputs' to be a list")
+        __self__.outputs = outputs
         """
-        The resource properties.
+        The outputs for the Job.
+        """
+        if priority and not isinstance(priority, str):
+            raise TypeError("Expected argument 'priority' to be a str")
+        __self__.priority = priority
+        """
+        Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+        """
+        if start_time and not isinstance(start_time, str):
+            raise TypeError("Expected argument 'start_time' to be a str")
+        __self__.start_time = start_time
+        """
+        The UTC date and time at which this Job began processing.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        The current state of the job.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +88,16 @@ class AwaitableGetJobResult(GetJobResult):
         if False:
             yield self
         return GetJobResult(
+            correlation_data=self.correlation_data,
+            created=self.created,
+            description=self.description,
+            end_time=self.end_time,
+            last_modified=self.last_modified,
             name=self.name,
-            properties=self.properties,
+            outputs=self.outputs,
+            priority=self.priority,
+            start_time=self.start_time,
+            state=self.state,
             type=self.type)
 
 
@@ -66,6 +122,14 @@ def get_job(account_name=None, name=None, resource_group_name=None, transform_na
     __ret__ = pulumi.runtime.invoke('azurerm:media/v20180701:getJob', __args__, opts=opts).value
 
     return AwaitableGetJobResult(
+        correlation_data=__ret__.get('correlationData'),
+        created=__ret__.get('created'),
+        description=__ret__.get('description'),
+        end_time=__ret__.get('endTime'),
+        last_modified=__ret__.get('lastModified'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        outputs=__ret__.get('outputs'),
+        priority=__ret__.get('priority'),
+        start_time=__ret__.get('startTime'),
+        state=__ret__.get('state'),
         type=__ret__.get('type'))

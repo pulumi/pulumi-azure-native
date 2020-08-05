@@ -13,7 +13,7 @@ class GetPeeringServiceResult:
     """
     Peering Service
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, peering_service_location=None, peering_service_provider=None, provisioning_state=None, sku=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +26,23 @@ class GetPeeringServiceResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peering_service_location and not isinstance(peering_service_location, str):
+            raise TypeError("Expected argument 'peering_service_location' to be a str")
+        __self__.peering_service_location = peering_service_location
         """
-        The properties that define a peering service.
+        The PeeringServiceLocation of the Customer.
+        """
+        if peering_service_provider and not isinstance(peering_service_provider, str):
+            raise TypeError("Expected argument 'peering_service_provider' to be a str")
+        __self__.peering_service_provider = peering_service_provider
+        """
+        The MAPS Provider Name.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the resource.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -60,7 +72,9 @@ class AwaitableGetPeeringServiceResult(GetPeeringServiceResult):
         return GetPeeringServiceResult(
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            peering_service_location=self.peering_service_location,
+            peering_service_provider=self.peering_service_provider,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
             tags=self.tags,
             type=self.type)
@@ -85,7 +99,9 @@ def get_peering_service(name=None, resource_group_name=None, opts=None):
     return AwaitableGetPeeringServiceResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        peering_service_location=__ret__.get('peeringServiceLocation'),
+        peering_service_provider=__ret__.get('peeringServiceProvider'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

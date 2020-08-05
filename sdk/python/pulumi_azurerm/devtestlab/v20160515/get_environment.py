@@ -13,7 +13,25 @@ class GetEnvironmentResult:
     """
     An environment, which is essentially an ARM template deployment.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, arm_template_display_name=None, created_by_user=None, deployment_properties=None, location=None, name=None, provisioning_state=None, resource_group_id=None, tags=None, type=None, unique_identifier=None):
+        if arm_template_display_name and not isinstance(arm_template_display_name, str):
+            raise TypeError("Expected argument 'arm_template_display_name' to be a str")
+        __self__.arm_template_display_name = arm_template_display_name
+        """
+        The display name of the Azure Resource Manager template that produced the environment.
+        """
+        if created_by_user and not isinstance(created_by_user, str):
+            raise TypeError("Expected argument 'created_by_user' to be a str")
+        __self__.created_by_user = created_by_user
+        """
+        The creator of the environment.
+        """
+        if deployment_properties and not isinstance(deployment_properties, dict):
+            raise TypeError("Expected argument 'deployment_properties' to be a dict")
+        __self__.deployment_properties = deployment_properties
+        """
+        The deployment properties of the environment.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +44,17 @@ class GetEnvironmentResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the resource.
+        The provisioning status of the resource.
+        """
+        if resource_group_id and not isinstance(resource_group_id, str):
+            raise TypeError("Expected argument 'resource_group_id' to be a str")
+        __self__.resource_group_id = resource_group_id
+        """
+        The identifier of the resource group containing the environment's resources.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +68,12 @@ class GetEnvironmentResult:
         """
         The type of the resource.
         """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
 
 
 class AwaitableGetEnvironmentResult(GetEnvironmentResult):
@@ -52,11 +82,16 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
         if False:
             yield self
         return GetEnvironmentResult(
+            arm_template_display_name=self.arm_template_display_name,
+            created_by_user=self.created_by_user,
+            deployment_properties=self.deployment_properties,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            resource_group_id=self.resource_group_id,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unique_identifier=self.unique_identifier)
 
 
 def get_environment(lab_name=None, name=None, resource_group_name=None, user_name=None, opts=None):
@@ -80,8 +115,13 @@ def get_environment(lab_name=None, name=None, resource_group_name=None, user_nam
     __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20160515:getEnvironment', __args__, opts=opts).value
 
     return AwaitableGetEnvironmentResult(
+        arm_template_display_name=__ret__.get('armTemplateDisplayName'),
+        created_by_user=__ret__.get('createdByUser'),
+        deployment_properties=__ret__.get('deploymentProperties'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_group_id=__ret__.get('resourceGroupId'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'))

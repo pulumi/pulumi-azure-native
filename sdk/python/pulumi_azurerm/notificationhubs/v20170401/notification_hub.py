@@ -10,69 +10,69 @@ from ... import _utilities, _tables
 
 
 class NotificationHub(pulumi.CustomResource):
+    adm_credential: pulumi.Output[dict]
+    """
+    The AdmCredential of the created NotificationHub
+      * `auth_token_url` (`str`) - The URL of the authorization token.
+      * `client_id` (`str`) - The client identifier.
+      * `client_secret` (`str`) - The credential secret access key.
+    """
+    apns_credential: pulumi.Output[dict]
+    """
+    The ApnsCredential of the created NotificationHub
+      * `apns_certificate` (`str`) - The APNS certificate. Specify if using Certificate Authentication Mode.
+      * `app_id` (`str`) - The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
+      * `app_name` (`str`) - The name of the application or BundleId. Specify if using Token Authentication Mode.
+      * `certificate_key` (`str`) - The APNS certificate password if it exists.
+      * `endpoint` (`str`) - The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
+      * `key_id` (`str`) - A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
+      * `thumbprint` (`str`) - The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
+      * `token` (`str`) - Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
+    """
+    authorization_rules: pulumi.Output[list]
+    """
+    The AuthorizationRules of the created NotificationHub
+      * `claim_type` (`str`) - A string that describes the claim type
+      * `claim_value` (`str`) - A string that describes the claim value
+      * `created_time` (`str`) - The created time for this rule
+      * `key_name` (`str`) - A string that describes the authorization rule.
+      * `modified_time` (`str`) - The last modified time for this rule
+      * `primary_key` (`str`) - A base64-encoded 256-bit primary key for signing and validating the SAS token.
+      * `revision` (`float`) - The revision number for the rule
+      * `rights` (`list`) - The rights associated with the rule.
+      * `secondary_key` (`str`) - A base64-encoded 256-bit primary key for signing and validating the SAS token.
+    """
+    baidu_credential: pulumi.Output[dict]
+    """
+    The BaiduCredential of the created NotificationHub
+      * `baidu_api_key` (`str`) - Baidu Api Key.
+      * `baidu_end_point` (`str`) - Baidu Endpoint.
+      * `baidu_secret_key` (`str`) - Baidu Secret Key
+    """
+    gcm_credential: pulumi.Output[dict]
+    """
+    The GcmCredential of the created NotificationHub
+      * `gcm_endpoint` (`str`) - The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
+      * `google_api_key` (`str`) - The Google API key.
+    """
     location: pulumi.Output[str]
     """
     Resource location
+    """
+    mpns_credential: pulumi.Output[dict]
+    """
+    The MpnsCredential of the created NotificationHub
+      * `certificate_key` (`str`) - The certificate key for this credential.
+      * `mpns_certificate` (`str`) - The MPNS certificate.
+      * `thumbprint` (`str`) - The MPNS certificate Thumbprint
     """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    registration_ttl: pulumi.Output[str]
     """
-    Properties of the NotificationHub.
-      * `adm_credential` (`dict`) - The AdmCredential of the created NotificationHub
-        * `properties` (`dict`) - Properties of NotificationHub AdmCredential.
-          * `auth_token_url` (`str`) - The URL of the authorization token.
-          * `client_id` (`str`) - The client identifier.
-          * `client_secret` (`str`) - The credential secret access key.
-
-      * `apns_credential` (`dict`) - The ApnsCredential of the created NotificationHub
-        * `properties` (`dict`) - Properties of NotificationHub ApnsCredential.
-          * `apns_certificate` (`str`) - The APNS certificate. Specify if using Certificate Authentication Mode.
-          * `app_id` (`str`) - The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
-          * `app_name` (`str`) - The name of the application or BundleId. Specify if using Token Authentication Mode.
-          * `certificate_key` (`str`) - The APNS certificate password if it exists.
-          * `endpoint` (`str`) - The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
-          * `key_id` (`str`) - A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
-          * `thumbprint` (`str`) - The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
-          * `token` (`str`) - Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
-
-      * `authorization_rules` (`list`) - The AuthorizationRules of the created NotificationHub
-        * `claim_type` (`str`) - A string that describes the claim type
-        * `claim_value` (`str`) - A string that describes the claim value
-        * `created_time` (`str`) - The created time for this rule
-        * `key_name` (`str`) - A string that describes the authorization rule.
-        * `modified_time` (`str`) - The last modified time for this rule
-        * `primary_key` (`str`) - A base64-encoded 256-bit primary key for signing and validating the SAS token.
-        * `revision` (`float`) - The revision number for the rule
-        * `rights` (`list`) - The rights associated with the rule.
-        * `secondary_key` (`str`) - A base64-encoded 256-bit primary key for signing and validating the SAS token.
-
-      * `baidu_credential` (`dict`) - The BaiduCredential of the created NotificationHub
-        * `properties` (`dict`) - Properties of NotificationHub BaiduCredential.
-          * `baidu_api_key` (`str`) - Baidu Api Key.
-          * `baidu_end_point` (`str`) - Baidu Endpoint.
-          * `baidu_secret_key` (`str`) - Baidu Secret Key
-
-      * `gcm_credential` (`dict`) - The GcmCredential of the created NotificationHub
-        * `properties` (`dict`) - Properties of NotificationHub GcmCredential.
-          * `gcm_endpoint` (`str`) - The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
-          * `google_api_key` (`str`) - The Google API key.
-
-      * `mpns_credential` (`dict`) - The MpnsCredential of the created NotificationHub
-        * `properties` (`dict`) - Properties of NotificationHub MpnsCredential.
-          * `certificate_key` (`str`) - The certificate key for this credential.
-          * `mpns_certificate` (`str`) - The MPNS certificate.
-          * `thumbprint` (`str`) - The MPNS certificate Thumbprint
-
-      * `name` (`str`) - The NotificationHub name.
-      * `registration_ttl` (`str`) - The RegistrationTtl of the created NotificationHub
-      * `wns_credential` (`dict`) - The WnsCredential of the created NotificationHub
-        * `properties` (`dict`) - Properties of NotificationHub WnsCredential.
-          * `package_sid` (`str`) - The package ID for this credential.
-          * `secret_key` (`str`) - The secret key.
-          * `windows_live_endpoint` (`str`) - The Windows Live endpoint.
+    The RegistrationTtl of the created NotificationHub
     """
     sku: pulumi.Output[dict]
     """
@@ -90,6 +90,13 @@ class NotificationHub(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    wns_credential: pulumi.Output[dict]
+    """
+    The WnsCredential of the created NotificationHub
+      * `package_sid` (`str`) - The package ID for this credential.
+      * `secret_key` (`str`) - The secret key.
+      * `windows_live_endpoint` (`str`) - The Windows Live endpoint.
     """
     def __init__(__self__, resource_name, opts=None, adm_credential=None, apns_credential=None, authorization_rules=None, baidu_credential=None, gcm_credential=None, location=None, mpns_credential=None, name=None, namespace_name=None, registration_ttl=None, resource_group_name=None, sku=None, tags=None, wns_credential=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -201,7 +208,6 @@ class NotificationHub(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['wns_credential'] = wns_credential
-            __props__['properties'] = None
             __props__['type'] = None
         super(NotificationHub, __self__).__init__(
             'azurerm:notificationhubs/v20170401:NotificationHub',

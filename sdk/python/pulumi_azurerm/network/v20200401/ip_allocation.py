@@ -10,9 +10,17 @@ from ... import _utilities, _tables
 
 
 class IpAllocation(pulumi.CustomResource):
+    allocation_tags: pulumi.Output[dict]
+    """
+    IpAllocation tags.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    ipam_allocation_id: pulumi.Output[str]
+    """
+    The IPAM allocation ID.
     """
     location: pulumi.Output[str]
     """
@@ -22,19 +30,22 @@ class IpAllocation(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    prefix: pulumi.Output[str]
     """
-    Properties of the IpAllocation.
-      * `allocation_tags` (`dict`) - IpAllocation tags.
-      * `ipam_allocation_id` (`str`) - The IPAM allocation ID.
-      * `prefix` (`str`) - The address prefix for the IpAllocation.
-      * `prefix_length` (`float`) - The address prefix length for the IpAllocation.
-      * `prefix_type` (`str`) - The address prefix Type for the IpAllocation.
-      * `subnet` (`dict`) - The Subnet that using the prefix of this IpAllocation resource.
-        * `id` (`str`) - Resource ID.
-
-      * `type` (`str`) - The type for the IpAllocation.
-      * `virtual_network` (`dict`) - The VirtualNetwork that using the prefix of this IpAllocation resource.
+    The address prefix for the IpAllocation.
+    """
+    prefix_length: pulumi.Output[float]
+    """
+    The address prefix length for the IpAllocation.
+    """
+    prefix_type: pulumi.Output[str]
+    """
+    The address prefix Type for the IpAllocation.
+    """
+    subnet: pulumi.Output[dict]
+    """
+    The Subnet that using the prefix of this IpAllocation resource.
+      * `id` (`str`) - Resource ID.
     """
     tags: pulumi.Output[dict]
     """
@@ -43,6 +54,11 @@ class IpAllocation(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    virtual_network: pulumi.Output[dict]
+    """
+    The VirtualNetwork that using the prefix of this IpAllocation resource.
+      * `id` (`str`) - Resource ID.
     """
     def __init__(__self__, resource_name, opts=None, allocation_tags=None, id=None, ipam_allocation_id=None, location=None, name=None, prefix=None, prefix_length=None, prefix_type=None, resource_group_name=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -95,7 +111,8 @@ class IpAllocation(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['subnet'] = None
+            __props__['virtual_network'] = None
         super(IpAllocation, __self__).__init__(
             'azurerm:network/v20200401:IpAllocation',
             resource_name,

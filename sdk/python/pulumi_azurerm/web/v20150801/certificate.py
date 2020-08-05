@@ -10,6 +10,37 @@ from ... import _utilities, _tables
 
 
 class Certificate(pulumi.CustomResource):
+    cer_blob: pulumi.Output[str]
+    """
+    Raw bytes of .cer file
+    """
+    expiration_date: pulumi.Output[str]
+    """
+    Certificate expiration date
+    """
+    friendly_name: pulumi.Output[str]
+    """
+    Friendly name of the certificate
+    """
+    host_names: pulumi.Output[list]
+    """
+    Host names the certificate applies to
+    """
+    hosting_environment_profile: pulumi.Output[dict]
+    """
+    Specification for the hosting environment (App Service Environment) to use for the certificate
+      * `id` (`str`) - Resource id of the hostingEnvironment (App Service Environment)
+      * `name` (`str`) - Name of the hostingEnvironment (App Service Environment) (read only)
+      * `type` (`str`) - Resource type of the hostingEnvironment (App Service Environment) (read only)
+    """
+    issue_date: pulumi.Output[str]
+    """
+    Certificate issue Date
+    """
+    issuer: pulumi.Output[str]
+    """
+    Certificate issuer
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource
@@ -22,14 +53,45 @@ class Certificate(pulumi.CustomResource):
     """
     Resource Name
     """
-    properties: pulumi.Output[dict]
+    password: pulumi.Output[str]
+    """
+    Certificate password
+    """
+    pfx_blob: pulumi.Output[str]
+    """
+    Pfx blob
+    """
+    public_key_hash: pulumi.Output[str]
+    """
+    Public key hash
+    """
+    self_link: pulumi.Output[str]
+    """
+    Self link
+    """
+    site_name: pulumi.Output[str]
+    """
+    App name
+    """
+    subject_name: pulumi.Output[str]
+    """
+    Subject name of the certificate
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
     """
+    thumbprint: pulumi.Output[str]
+    """
+    Certificate thumbprint
+    """
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    valid: pulumi.Output[bool]
+    """
+    Is the certificate valid?
     """
     def __init__(__self__, resource_name, opts=None, cer_blob=None, expiration_date=None, friendly_name=None, host_names=None, hosting_environment_profile=None, id=None, issue_date=None, issuer=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, resource_group_name=None, self_link=None, site_name=None, subject_name=None, tags=None, thumbprint=None, type=None, valid=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -111,7 +173,6 @@ class Certificate(pulumi.CustomResource):
             __props__['thumbprint'] = thumbprint
             __props__['type'] = type
             __props__['valid'] = valid
-            __props__['properties'] = None
         super(Certificate, __self__).__init__(
             'azurerm:web/v20150801:Certificate',
             resource_name,

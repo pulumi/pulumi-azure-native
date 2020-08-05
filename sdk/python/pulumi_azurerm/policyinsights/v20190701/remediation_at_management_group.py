@@ -10,27 +10,45 @@ from ... import _utilities, _tables
 
 
 class RemediationAtManagementGroup(pulumi.CustomResource):
+    created_on: pulumi.Output[str]
+    """
+    The time at which the remediation was created.
+    """
+    deployment_status: pulumi.Output[dict]
+    """
+    The deployment status summary for all deployments created by the remediation.
+      * `failed_deployments` (`float`) - The number of deployments required by the remediation that have failed.
+      * `successful_deployments` (`float`) - The number of deployments required by the remediation that have succeeded.
+      * `total_deployments` (`float`) - The number of deployments required by the remediation.
+    """
+    filters: pulumi.Output[dict]
+    """
+    The filters that will be applied to determine which resources to remediate.
+      * `locations` (`list`) - The resource locations that will be remediated.
+    """
+    last_updated_on: pulumi.Output[str]
+    """
+    The time at which the remediation was last updated.
+    """
     name: pulumi.Output[str]
     """
     The name of the remediation.
     """
-    properties: pulumi.Output[dict]
+    policy_assignment_id: pulumi.Output[str]
     """
-    Properties for the remediation.
-      * `created_on` (`str`) - The time at which the remediation was created.
-      * `deployment_status` (`dict`) - The deployment status summary for all deployments created by the remediation.
-        * `failed_deployments` (`float`) - The number of deployments required by the remediation that have failed.
-        * `successful_deployments` (`float`) - The number of deployments required by the remediation that have succeeded.
-        * `total_deployments` (`float`) - The number of deployments required by the remediation.
-
-      * `filters` (`dict`) - The filters that will be applied to determine which resources to remediate.
-        * `locations` (`list`) - The resource locations that will be remediated.
-
-      * `last_updated_on` (`str`) - The time at which the remediation was last updated.
-      * `policy_assignment_id` (`str`) - The resource ID of the policy assignment that should be remediated.
-      * `policy_definition_reference_id` (`str`) - The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
-      * `provisioning_state` (`str`) - The status of the remediation.
-      * `resource_discovery_mode` (`str`) - The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
+    The resource ID of the policy assignment that should be remediated.
+    """
+    policy_definition_reference_id: pulumi.Output[str]
+    """
+    The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The status of the remediation.
+    """
+    resource_discovery_mode: pulumi.Output[str]
+    """
+    The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
     """
     type: pulumi.Output[str]
     """
@@ -84,7 +102,10 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
             __props__['policy_assignment_id'] = policy_assignment_id
             __props__['policy_definition_reference_id'] = policy_definition_reference_id
             __props__['resource_discovery_mode'] = resource_discovery_mode
-            __props__['properties'] = None
+            __props__['created_on'] = None
+            __props__['deployment_status'] = None
+            __props__['last_updated_on'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(RemediationAtManagementGroup, __self__).__init__(
             'azurerm:policyinsights/v20190701:RemediationAtManagementGroup',

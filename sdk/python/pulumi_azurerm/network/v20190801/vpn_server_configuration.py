@@ -10,9 +10,16 @@ from ... import _utilities, _tables
 
 
 class VpnServerConfiguration(pulumi.CustomResource):
+    aad_authentication_parameters: pulumi.Output[dict]
+    """
+    The set of aad vpn authentication parameters.
+      * `aad_audience` (`str`) - AAD Vpn authentication parameter AAD audience.
+      * `aad_issuer` (`str`) - AAD Vpn authentication parameter AAD issuer.
+      * `aad_tenant` (`str`) - AAD Vpn authentication parameter AAD tenant.
+    """
     etag: pulumi.Output[str]
     """
-    Gets a unique read-only string that changes whenever the resource is updated.
+    A unique read-only string that changes whenever the resource is updated.
     """
     location: pulumi.Output[str]
     """
@@ -22,78 +29,59 @@ class VpnServerConfiguration(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    p2_s_vpn_gateways: pulumi.Output[list]
     """
-    Properties of the P2SVpnServer configuration.
-      * `aad_authentication_parameters` (`dict`) - The set of aad vpn authentication parameters.
-        * `aad_audience` (`str`) - AAD Vpn authentication parameter AAD audience.
-        * `aad_issuer` (`str`) - AAD Vpn authentication parameter AAD issuer.
-        * `aad_tenant` (`str`) - AAD Vpn authentication parameter AAD tenant.
-
+    List of references to P2SVpnGateways.
       * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-      * `name` (`str`) - The name of the VpnServerConfiguration that is unique within a resource group.
-      * `p2_s_vpn_gateways` (`list`) - List of references to P2SVpnGateways.
+      * `id` (`str`) - Resource ID.
+      * `location` (`str`) - Resource location.
+      * `name` (`str`) - Resource name.
+      * `p2_s_connection_configurations` (`list`) - List of all p2s connection configurations of the gateway.
         * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
         * `id` (`str`) - Resource ID.
-        * `location` (`str`) - Resource location.
-        * `name` (`str`) - Resource name.
-        * `properties` (`dict`) - Properties of the P2SVpnGateway.
-          * `p2_s_connection_configurations` (`list`) - List of all p2s connection configurations of the gateway.
-            * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-            * `id` (`str`) - Resource ID.
-            * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-            * `properties` (`dict`) - Properties of the P2S connection configuration.
-              * `provisioning_state` (`str`) - The provisioning state of the P2SConnectionConfiguration resource.
-              * `vpn_client_address_pool` (`dict`) - The reference of the address space resource which represents Address space for P2S VpnClient.
-                * `address_prefixes` (`list`) - A list of address blocks reserved for this virtual network in CIDR notation.
+        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        * `provisioning_state` (`str`) - The provisioning state of the P2SConnectionConfiguration resource.
+        * `vpn_client_address_pool` (`dict`) - The reference of the address space resource which represents Address space for P2S VpnClient.
+          * `address_prefixes` (`list`) - A list of address blocks reserved for this virtual network in CIDR notation.
 
-          * `provisioning_state` (`str`) - The provisioning state of the P2S VPN gateway resource.
-          * `virtual_hub` (`dict`) - The VirtualHub to which the gateway belongs.
-            * `id` (`str`) - Resource ID.
+      * `provisioning_state` (`str`) - The provisioning state of the P2S VPN gateway resource.
+      * `tags` (`dict`) - Resource tags.
+      * `type` (`str`) - Resource type.
+      * `virtual_hub` (`dict`) - The VirtualHub to which the gateway belongs.
+        * `id` (`str`) - Resource ID.
 
-          * `vpn_client_connection_health` (`dict`) - All P2S VPN clients' connection health status.
-            * `allocated_ip_addresses` (`list`) - List of allocated ip addresses to the connected p2s vpn clients.
-            * `total_egress_bytes_transferred` (`float`) - Total of the Egress Bytes Transferred in this connection.
-            * `total_ingress_bytes_transferred` (`float`) - Total of the Ingress Bytes Transferred in this P2S Vpn connection.
-            * `vpn_client_connections_count` (`float`) - The total of p2s vpn clients connected at this time to this P2SVpnGateway.
+      * `vpn_client_connection_health` (`dict`) - All P2S VPN clients' connection health status.
+        * `allocated_ip_addresses` (`list`) - List of allocated ip addresses to the connected p2s vpn clients.
+        * `total_egress_bytes_transferred` (`float`) - Total of the Egress Bytes Transferred in this connection.
+        * `total_ingress_bytes_transferred` (`float`) - Total of the Ingress Bytes Transferred in this P2S Vpn connection.
+        * `vpn_client_connections_count` (`float`) - The total of p2s vpn clients connected at this time to this P2SVpnGateway.
 
-          * `vpn_gateway_scale_unit` (`float`) - The scale unit for this p2s vpn gateway.
-          * `vpn_server_configuration` (`dict`) - The VpnServerConfiguration to which the p2sVpnGateway is attached to.
-
-        * `tags` (`dict`) - Resource tags.
-        * `type` (`str`) - Resource type.
-
-      * `provisioning_state` (`str`) - The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-      * `radius_client_root_certificates` (`list`) - Radius client root certificate of VpnServerConfiguration.
-        * `name` (`str`) - The certificate name.
-        * `thumbprint` (`str`) - The Radius client root certificate thumbprint.
-
-      * `radius_server_address` (`str`) - The radius server address property of the VpnServerConfiguration resource for point to site client connection.
-      * `radius_server_root_certificates` (`list`) - Radius Server root certificate of VpnServerConfiguration.
-        * `name` (`str`) - The certificate name.
-        * `public_cert_data` (`str`) - The certificate public data.
-
-      * `radius_server_secret` (`str`) - The radius secret property of the VpnServerConfiguration resource for point to site client connection.
-      * `vpn_authentication_types` (`list`) - VPN authentication types for the VpnServerConfiguration.
-      * `vpn_client_ipsec_policies` (`list`) - VpnClientIpsecPolicies for VpnServerConfiguration.
-        * `dh_group` (`str`) - The DH Group used in IKE Phase 1 for initial SA.
-        * `ike_encryption` (`str`) - The IKE encryption algorithm (IKE phase 2).
-        * `ike_integrity` (`str`) - The IKE integrity algorithm (IKE phase 2).
-        * `ipsec_encryption` (`str`) - The IPSec encryption algorithm (IKE phase 1).
-        * `ipsec_integrity` (`str`) - The IPSec integrity algorithm (IKE phase 1).
-        * `pfs_group` (`str`) - The Pfs Group used in IKE Phase 2 for new child SA.
-        * `sa_data_size_kilobytes` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
-        * `sa_life_time_seconds` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
-
-      * `vpn_client_revoked_certificates` (`list`) - VPN client revoked certificate of VpnServerConfiguration.
-        * `name` (`str`) - The certificate name.
-        * `thumbprint` (`str`) - The revoked VPN client certificate thumbprint.
-
-      * `vpn_client_root_certificates` (`list`) - VPN client root certificate of VpnServerConfiguration.
-        * `name` (`str`) - The certificate name.
-        * `public_cert_data` (`str`) - The certificate public data.
-
-      * `vpn_protocols` (`list`) - VPN protocols for the VpnServerConfiguration.
+      * `vpn_gateway_scale_unit` (`float`) - The scale unit for this p2s vpn gateway.
+      * `vpn_server_configuration` (`dict`) - The VpnServerConfiguration to which the p2sVpnGateway is attached to.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+    """
+    radius_client_root_certificates: pulumi.Output[list]
+    """
+    Radius client root certificate of VpnServerConfiguration.
+      * `name` (`str`) - The certificate name.
+      * `thumbprint` (`str`) - The Radius client root certificate thumbprint.
+    """
+    radius_server_address: pulumi.Output[str]
+    """
+    The radius server address property of the VpnServerConfiguration resource for point to site client connection.
+    """
+    radius_server_root_certificates: pulumi.Output[list]
+    """
+    Radius Server root certificate of VpnServerConfiguration.
+      * `name` (`str`) - The certificate name.
+      * `public_cert_data` (`str`) - The certificate public data.
+    """
+    radius_server_secret: pulumi.Output[str]
+    """
+    The radius secret property of the VpnServerConfiguration resource for point to site client connection.
     """
     tags: pulumi.Output[dict]
     """
@@ -102,6 +90,38 @@ class VpnServerConfiguration(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    vpn_authentication_types: pulumi.Output[list]
+    """
+    VPN authentication types for the VpnServerConfiguration.
+    """
+    vpn_client_ipsec_policies: pulumi.Output[list]
+    """
+    VpnClientIpsecPolicies for VpnServerConfiguration.
+      * `dh_group` (`str`) - The DH Group used in IKE Phase 1 for initial SA.
+      * `ike_encryption` (`str`) - The IKE encryption algorithm (IKE phase 2).
+      * `ike_integrity` (`str`) - The IKE integrity algorithm (IKE phase 2).
+      * `ipsec_encryption` (`str`) - The IPSec encryption algorithm (IKE phase 1).
+      * `ipsec_integrity` (`str`) - The IPSec integrity algorithm (IKE phase 1).
+      * `pfs_group` (`str`) - The Pfs Group used in IKE Phase 2 for new child SA.
+      * `sa_data_size_kilobytes` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
+      * `sa_life_time_seconds` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
+    """
+    vpn_client_revoked_certificates: pulumi.Output[list]
+    """
+    VPN client revoked certificate of VpnServerConfiguration.
+      * `name` (`str`) - The certificate name.
+      * `thumbprint` (`str`) - The revoked VPN client certificate thumbprint.
+    """
+    vpn_client_root_certificates: pulumi.Output[list]
+    """
+    VPN client root certificate of VpnServerConfiguration.
+      * `name` (`str`) - The certificate name.
+      * `public_cert_data` (`str`) - The certificate public data.
+    """
+    vpn_protocols: pulumi.Output[list]
+    """
+    VPN protocols for the VpnServerConfiguration.
     """
     def __init__(__self__, resource_name, opts=None, aad_authentication_parameters=None, etag=None, id=None, location=None, name=None, radius_client_root_certificates=None, radius_server_address=None, radius_server_root_certificates=None, radius_server_secret=None, resource_group_name=None, tags=None, vpn_authentication_types=None, vpn_client_ipsec_policies=None, vpn_client_revoked_certificates=None, vpn_client_root_certificates=None, vpn_protocols=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -200,7 +220,8 @@ class VpnServerConfiguration(pulumi.CustomResource):
             __props__['vpn_client_revoked_certificates'] = vpn_client_revoked_certificates
             __props__['vpn_client_root_certificates'] = vpn_client_root_certificates
             __props__['vpn_protocols'] = vpn_protocols
-            __props__['properties'] = None
+            __props__['p2_s_vpn_gateways'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(VpnServerConfiguration, __self__).__init__(
             'azurerm:network/v20190801:VpnServerConfiguration',

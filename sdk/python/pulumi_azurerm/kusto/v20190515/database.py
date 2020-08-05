@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class Database(pulumi.CustomResource):
+    hot_cache_period: pulumi.Output[str]
+    """
+    The time the data should be kept in cache for fast queries in TimeSpan.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
@@ -18,14 +22,18 @@ class Database(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The database properties.
-      * `hot_cache_period` (`str`) - The time the data should be kept in cache for fast queries in TimeSpan.
-      * `provisioning_state` (`str`) - The provisioned state of the resource.
-      * `soft_delete_period` (`str`) - The time the data should be kept before it stops being accessible to queries in TimeSpan.
-      * `statistics` (`dict`) - The statistics of the database.
-        * `size` (`float`) - The database size - the total size of compressed data and index in bytes.
+    The provisioned state of the resource.
+    """
+    soft_delete_period: pulumi.Output[str]
+    """
+    The time the data should be kept before it stops being accessible to queries in TimeSpan.
+    """
+    statistics: pulumi.Output[dict]
+    """
+    The statistics of the database.
+      * `size` (`float`) - The database size - the total size of compressed data and index in bytes.
     """
     type: pulumi.Output[str]
     """
@@ -79,7 +87,7 @@ class Database(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['soft_delete_period'] = soft_delete_period
             __props__['statistics'] = statistics
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Database, __self__).__init__(
             'azurerm:kusto/v20190515:Database',

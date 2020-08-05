@@ -13,12 +13,36 @@ class GetIntegrationAccountCertificateResult:
     """
     The integration account certificate.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, changed_time=None, created_time=None, key=None, location=None, metadata=None, name=None, public_certificate=None, tags=None, type=None):
+        if changed_time and not isinstance(changed_time, str):
+            raise TypeError("Expected argument 'changed_time' to be a str")
+        __self__.changed_time = changed_time
+        """
+        The changed time.
+        """
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        __self__.created_time = created_time
+        """
+        The created time.
+        """
+        if key and not isinstance(key, dict):
+            raise TypeError("Expected argument 'key' to be a dict")
+        __self__.key = key
+        """
+        The key details in the key vault.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The resource location.
+        """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        The metadata.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +50,11 @@ class GetIntegrationAccountCertificateResult:
         """
         Gets the resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if public_certificate and not isinstance(public_certificate, str):
+            raise TypeError("Expected argument 'public_certificate' to be a str")
+        __self__.public_certificate = public_certificate
         """
-        The integration account certificate properties.
+        The public certificate.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +76,13 @@ class AwaitableGetIntegrationAccountCertificateResult(GetIntegrationAccountCerti
         if False:
             yield self
         return GetIntegrationAccountCertificateResult(
+            changed_time=self.changed_time,
+            created_time=self.created_time,
+            key=self.key,
             location=self.location,
+            metadata=self.metadata,
             name=self.name,
-            properties=self.properties,
+            public_certificate=self.public_certificate,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +106,12 @@ def get_integration_account_certificate(integration_account_name=None, name=None
     __ret__ = pulumi.runtime.invoke('azurerm:logic/v20190501:getIntegrationAccountCertificate', __args__, opts=opts).value
 
     return AwaitableGetIntegrationAccountCertificateResult(
+        changed_time=__ret__.get('changedTime'),
+        created_time=__ret__.get('createdTime'),
+        key=__ret__.get('key'),
         location=__ret__.get('location'),
+        metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        public_certificate=__ret__.get('publicCertificate'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

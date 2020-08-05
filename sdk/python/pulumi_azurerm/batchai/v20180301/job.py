@@ -10,156 +10,211 @@ from ... import _utilities, _tables
 
 
 class Job(pulumi.CustomResource):
+    caffe_settings: pulumi.Output[dict]
+    """
+    Specifies the settings for Caffe job.
+      * `command_line_args` (`str`)
+      * `config_file_path` (`str`) - This property cannot be specified if pythonScriptFilePath is specified.
+      * `process_count` (`float`) - The default value for this property is equal to nodeCount property
+      * `python_interpreter_path` (`str`) - This property can be specified only if the pythonScriptFilePath is specified.
+      * `python_script_file_path` (`str`) - This property cannot be specified if configFilePath is specified.
+    """
+    chainer_settings: pulumi.Output[dict]
+    """
+    Specifies the settings for Chainer job.
+      * `command_line_args` (`str`)
+      * `process_count` (`float`) - The default value for this property is equal to nodeCount property
+      * `python_interpreter_path` (`str`)
+      * `python_script_file_path` (`str`)
+    """
+    cluster: pulumi.Output[dict]
+    """
+    Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+      * `id` (`str`) - The ID of the resource
+    """
+    cntk_settings: pulumi.Output[dict]
+    """
+    Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
+      * `command_line_args` (`str`)
+      * `config_file_path` (`str`) - This property can be specified only if the languageType is 'BrainScript'.
+      * `language_type` (`str`) - Valid values are 'BrainScript' or 'Python'.
+      * `process_count` (`float`) - The default value for this property is equal to nodeCount property
+      * `python_interpreter_path` (`str`) - This property can be specified only if the languageType is 'Python'.
+      * `python_script_file_path` (`str`) - This property can be specified only if the languageType is 'Python'.
+    """
+    constraints: pulumi.Output[dict]
+    """
+    Constraints associated with the Job.
+      * `max_wall_clock_time` (`str`) - Default Value = 1 week.
+    """
+    container_settings: pulumi.Output[dict]
+    """
+    If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
+      * `image_source_registry` (`dict`) - Details of the container image such as name, URL and credentials.
+        * `credentials` (`dict`) - Credentials to access a container image in a private repository.
+          * `password` (`str`) - One of password or passwordSecretReference must be specified.
+          * `password_secret_reference` (`dict`) - Users can store their secrets in Azure KeyVault and pass it to the Batch AI Service to integrate with KeyVault. One of password or passwordSecretReference must be specified.
+            * `secret_url` (`str`)
+            * `source_vault` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+              * `id` (`str`) - The ID of the resource
+
+          * `username` (`str`)
+
+        * `image` (`str`)
+        * `server_url` (`str`)
+    """
+    creation_time: pulumi.Output[str]
+    """
+    The creation time of the job.
+    """
+    custom_toolkit_settings: pulumi.Output[dict]
+    """
+    Specifies the settings for a custom tool kit job.
+      * `command_line` (`str`)
+    """
+    environment_variables: pulumi.Output[list]
+    """
+    Batch AI will setup these additional environment variables for the job.
+      * `name` (`str`)
+      * `value` (`str`)
+    """
+    execution_info: pulumi.Output[dict]
+    """
+    Contains information about the execution of a job in the Azure Batch service.
+      * `end_time` (`str`) - This property is only returned if the job is in completed state.
+      * `errors` (`list`)
+        * `code` (`str`) - An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
+        * `details` (`list`) - A list of additional details about the error.
+          * `name` (`str`)
+          * `value` (`str`)
+
+        * `message` (`str`) - A message describing the error, intended to be suitable for display in a user interface.
+
+      * `exit_code` (`float`) - This property is only returned if the job is in completed state.
+      * `start_time` (`str`) - 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
+    """
+    execution_state: pulumi.Output[str]
+    """
+    The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
+    """
+    execution_state_transition_time: pulumi.Output[str]
+    """
+    The time at which the job entered its current execution state.
+    """
+    experiment_name: pulumi.Output[str]
+    """
+    Describe the experiment information of the job
+    """
+    input_directories: pulumi.Output[list]
+    job_output_directory_path_segment: pulumi.Output[str]
+    """
+    Batch AI creates job's output directories under an unique path to avoid conflicts between jobs. This value contains a path segment generated by Batch AI to make the path unique and can be used to find the output directory on the node or mounted filesystem.
+    """
+    job_preparation: pulumi.Output[dict]
+    """
+    The specified actions will run on all the nodes that are part of the job
+      * `command_line` (`str`) - If containerSettings is specified on the job, this commandLine will be executed in the same container as job. Otherwise it will be executed on the node.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource
+    """
+    mount_volumes: pulumi.Output[dict]
+    """
+    These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
+      * `azure_blob_file_systems` (`list`) - References to Azure Blob FUSE that are to be mounted to the cluster nodes.
+        * `account_name` (`str`)
+        * `container_name` (`str`)
+        * `credentials` (`dict`) - Credentials to access Azure File Share.
+          * `account_key` (`str`) - One of accountKey or accountKeySecretReference must be specified.
+          * `account_key_secret_reference` (`dict`) - Users can store their secrets in Azure KeyVault and pass it to the Batch AI Service to integrate with KeyVault. One of accountKey or accountKeySecretReference must be specified.
+            * `secret_url` (`str`)
+            * `source_vault` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+              * `id` (`str`) - The ID of the resource
+
+        * `mount_options` (`str`)
+        * `relative_mount_path` (`str`) - Note that all cluster level blob file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level blob file systems will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+
+      * `azure_file_shares` (`list`) - References to Azure File Shares that are to be mounted to the cluster nodes.
+        * `account_name` (`str`)
+        * `azure_file_url` (`str`)
+        * `credentials` (`dict`) - Credentials to access Azure File Share.
+        * `directory_mode` (`str`) - Default value is 0777. Valid only if OS is linux.
+        * `file_mode` (`str`) - Default value is 0777. Valid only if OS is linux.
+        * `relative_mount_path` (`str`) - Note that all cluster level file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file shares will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+
+      * `file_servers` (`list`)
+        * `file_server` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+        * `mount_options` (`str`)
+        * `relative_mount_path` (`str`) - Note that all cluster level file servers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and job level file servers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
+        * `source_directory` (`str`) - If this property is not specified, the entire File Server will be mounted.
+
+      * `unmanaged_file_systems` (`list`)
+        * `mount_command` (`str`)
+        * `relative_mount_path` (`str`) - Note that all cluster level unmanaged file system will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and job level unmanaged file system will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
     """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    node_count: pulumi.Output[float]
     """
-    The properties associated with the job.
-      * `caffe_settings` (`dict`) - Specifies the settings for Caffe job.
-        * `command_line_args` (`str`)
-        * `config_file_path` (`str`) - This property cannot be specified if pythonScriptFilePath is specified.
-        * `process_count` (`float`) - The default value for this property is equal to nodeCount property
-        * `python_interpreter_path` (`str`) - This property can be specified only if the pythonScriptFilePath is specified.
-        * `python_script_file_path` (`str`) - This property cannot be specified if configFilePath is specified.
-
-      * `chainer_settings` (`dict`) - Specifies the settings for Chainer job.
-        * `command_line_args` (`str`)
-        * `process_count` (`float`) - The default value for this property is equal to nodeCount property
-        * `python_interpreter_path` (`str`)
-        * `python_script_file_path` (`str`)
-
-      * `cluster` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-        * `id` (`str`) - The ID of the resource
-
-      * `cntk_settings` (`dict`) - Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
-        * `command_line_args` (`str`)
-        * `config_file_path` (`str`) - This property can be specified only if the languageType is 'BrainScript'.
-        * `language_type` (`str`) - Valid values are 'BrainScript' or 'Python'.
-        * `process_count` (`float`) - The default value for this property is equal to nodeCount property
-        * `python_interpreter_path` (`str`) - This property can be specified only if the languageType is 'Python'.
-        * `python_script_file_path` (`str`) - This property can be specified only if the languageType is 'Python'.
-
-      * `constraints` (`dict`) - Constraints associated with the Job.
-        * `max_wall_clock_time` (`str`) - Default Value = 1 week.
-
-      * `container_settings` (`dict`) - If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
-        * `image_source_registry` (`dict`) - Details of the container image such as name, URL and credentials.
-          * `credentials` (`dict`) - Credentials to access a container image in a private repository.
-            * `password` (`str`) - One of password or passwordSecretReference must be specified.
-            * `password_secret_reference` (`dict`) - Users can store their secrets in Azure KeyVault and pass it to the Batch AI Service to integrate with KeyVault. One of password or passwordSecretReference must be specified.
-              * `secret_url` (`str`)
-              * `source_vault` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-
-            * `username` (`str`)
-
-          * `image` (`str`)
-          * `server_url` (`str`)
-
-      * `creation_time` (`str`) - The creation time of the job.
-      * `custom_toolkit_settings` (`dict`) - Specifies the settings for a custom tool kit job.
-        * `command_line` (`str`)
-
-      * `environment_variables` (`list`) - Batch AI will setup these additional environment variables for the job.
-        * `name` (`str`)
-        * `value` (`str`)
-
-      * `execution_info` (`dict`) - Contains information about the execution of a job in the Azure Batch service.
-        * `end_time` (`str`) - This property is only returned if the job is in completed state.
-        * `errors` (`list`)
-          * `code` (`str`) - An identifier for the error. Codes are invariant and are intended to be consumed programmatically.
-          * `details` (`list`) - A list of additional details about the error.
-            * `name` (`str`)
-            * `value` (`str`)
-
-          * `message` (`str`) - A message describing the error, intended to be suitable for display in a user interface.
-
-        * `exit_code` (`float`) - This property is only returned if the job is in completed state.
-        * `start_time` (`str`) - 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
-
-      * `execution_state` (`str`) - The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
-      * `execution_state_transition_time` (`str`) - The time at which the job entered its current execution state.
-      * `experiment_name` (`str`) - Describe the experiment information of the job
-      * `input_directories` (`list`)
-        * `id` (`str`) - The path of the input directory will be available as a value of an environment variable with AZ_BATCHAI_INPUT_<id> name, where <id> is the value of id attribute.
-        * `path` (`str`)
-
-      * `job_output_directory_path_segment` (`str`) - Batch AI creates job's output directories under an unique path to avoid conflicts between jobs. This value contains a path segment generated by Batch AI to make the path unique and can be used to find the output directory on the node or mounted filesystem.
-      * `job_preparation` (`dict`) - The specified actions will run on all the nodes that are part of the job
-        * `command_line` (`str`) - If containerSettings is specified on the job, this commandLine will be executed in the same container as job. Otherwise it will be executed on the node.
-
-      * `mount_volumes` (`dict`) - These volumes will be mounted before the job execution and will be unmounted after the job completion. The volumes will be mounted at location specified by $AZ_BATCHAI_JOB_MOUNT_ROOT environment variable.
-        * `azure_blob_file_systems` (`list`) - References to Azure Blob FUSE that are to be mounted to the cluster nodes.
-          * `account_name` (`str`)
-          * `container_name` (`str`)
-          * `credentials` (`dict`) - Credentials to access Azure File Share.
-            * `account_key` (`str`) - One of accountKey or accountKeySecretReference must be specified.
-            * `account_key_secret_reference` (`dict`) - Users can store their secrets in Azure KeyVault and pass it to the Batch AI Service to integrate with KeyVault. One of accountKey or accountKeySecretReference must be specified.
-
-          * `mount_options` (`str`)
-          * `relative_mount_path` (`str`) - Note that all cluster level blob file systems will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level blob file systems will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-
-        * `azure_file_shares` (`list`) - References to Azure File Shares that are to be mounted to the cluster nodes.
-          * `account_name` (`str`)
-          * `azure_file_url` (`str`)
-          * `credentials` (`dict`) - Credentials to access Azure File Share.
-          * `directory_mode` (`str`) - Default value is 0777. Valid only if OS is linux.
-          * `file_mode` (`str`) - Default value is 0777. Valid only if OS is linux.
-          * `relative_mount_path` (`str`) - Note that all cluster level file shares will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and all job level file shares will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-
-        * `file_servers` (`list`)
-          * `file_server` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
-          * `mount_options` (`str`)
-          * `relative_mount_path` (`str`) - Note that all cluster level file servers will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and job level file servers will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-          * `source_directory` (`str`) - If this property is not specified, the entire File Server will be mounted.
-
-        * `unmanaged_file_systems` (`list`)
-          * `mount_command` (`str`)
-          * `relative_mount_path` (`str`) - Note that all cluster level unmanaged file system will be mounted under $AZ_BATCHAI_MOUNT_ROOT location and job level unmanaged file system will be mounted under $AZ_BATCHAI_JOB_MOUNT_ROOT.
-
-      * `node_count` (`float`) - The job will be gang scheduled on that many compute nodes
-      * `output_directories` (`list`)
-        * `create_new` (`bool`) - Default is true. If false, then the directory is not created and can be any directory path that the user specifies.
-        * `id` (`str`) - The path of the output directory will be available as a value of an environment variable with AZ_BATCHAI_OUTPUT_<id> name, where <id> is the value of id attribute.
-        * `path_prefix` (`str`) - NOTE: This is an absolute path to prefix. E.g. $AZ_BATCHAI_MOUNT_ROOT/MyNFS/MyLogs. You can find the full path to the output directory by combining pathPrefix, jobOutputDirectoryPathSegment (reported by get job) and pathSuffix.
-        * `path_suffix` (`str`) - The suffix path where the output directory will be created. E.g. models. You can find the full path to the output directory by combining pathPrefix, jobOutputDirectoryPathSegment (reported by get job) and pathSuffix.
-        * `type` (`str`) - Default value is Custom. The possible values are Model, Logs, Summary, and Custom. Users can use multiple enums for a single directory. Eg. outPutType='Model,Logs, Summary'
-
-      * `priority` (`float`) - Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
-      * `provisioning_state` (`str`) - The provisioned state of the Batch AI job
-      * `provisioning_state_transition_time` (`str`) - The time at which the job entered its current provisioning state.
-      * `py_torch_settings` (`dict`) - Specifies the settings for pyTorch job.
-        * `command_line_args` (`str`)
-        * `communication_backend` (`str`) - Valid values are 'TCP', 'Gloo' or 'MPI'. Not required for non-distributed jobs.
-        * `process_count` (`float`) - The default value for this property is equal to nodeCount property.
-        * `python_interpreter_path` (`str`)
-        * `python_script_file_path` (`str`)
-
-      * `secrets` (`list`) - Batch AI will setup these additional environment variables for the job. Server will never report values of these variables back.
-        * `name` (`str`)
-        * `value` (`str`)
-        * `value_secret_reference` (`dict`) - Specifies KeyVault Store and Secret which contains the value for the environment variable. One of value or valueSecretReference must be provided.
-
-      * `std_out_err_path_prefix` (`str`) - The path where the Batch AI service will upload stdout and stderror of the job.
-      * `tensor_flow_settings` (`dict`) - Specifies the settings for TensorFlow job.
-        * `master_command_line_args` (`str`)
-        * `parameter_server_command_line_args` (`str`) - This property is optional for single machine training.
-        * `parameter_server_count` (`float`) - If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training (This property is not applicable for single machine training). This property can be specified only for distributed TensorFlow training.
-        * `python_interpreter_path` (`str`)
-        * `python_script_file_path` (`str`)
-        * `worker_command_line_args` (`str`) - This property is optional for single machine training.
-        * `worker_count` (`float`) - If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training
-
-      * `tool_type` (`str`) - Possible values are: cntk, tensorflow, caffe, caffe2, chainer, pytorch, custom.
+    The job will be gang scheduled on that many compute nodes
+    """
+    output_directories: pulumi.Output[list]
+    priority: pulumi.Output[float]
+    """
+    Priority associated with the job. Priority values can range from -1000 to 1000, with -1000 being the lowest priority and 1000 being the highest priority. The default value is 0.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioned state of the Batch AI job
+    """
+    provisioning_state_transition_time: pulumi.Output[str]
+    """
+    The time at which the job entered its current provisioning state.
+    """
+    py_torch_settings: pulumi.Output[dict]
+    """
+    Specifies the settings for pyTorch job.
+      * `command_line_args` (`str`)
+      * `communication_backend` (`str`) - Valid values are 'TCP', 'Gloo' or 'MPI'. Not required for non-distributed jobs.
+      * `process_count` (`float`) - The default value for this property is equal to nodeCount property.
+      * `python_interpreter_path` (`str`)
+      * `python_script_file_path` (`str`)
+    """
+    secrets: pulumi.Output[list]
+    """
+    Batch AI will setup these additional environment variables for the job. Server will never report values of these variables back.
+      * `name` (`str`)
+      * `value` (`str`)
+      * `value_secret_reference` (`dict`) - Specifies KeyVault Store and Secret which contains the value for the environment variable. One of value or valueSecretReference must be provided.
+        * `secret_url` (`str`)
+        * `source_vault` (`dict`) - Represents a resource ID. For example, for a subnet, it is the resource URL for the subnet.
+          * `id` (`str`) - The ID of the resource
+    """
+    std_out_err_path_prefix: pulumi.Output[str]
+    """
+    The path where the Batch AI service will upload stdout and stderror of the job.
     """
     tags: pulumi.Output[dict]
     """
     The tags of the resource
+    """
+    tensor_flow_settings: pulumi.Output[dict]
+    """
+    Specifies the settings for TensorFlow job.
+      * `master_command_line_args` (`str`)
+      * `parameter_server_command_line_args` (`str`) - This property is optional for single machine training.
+      * `parameter_server_count` (`float`) - If specified, the value must be less than or equal to nodeCount. If not specified, the default value is equal to 1 for distributed TensorFlow training (This property is not applicable for single machine training). This property can be specified only for distributed TensorFlow training.
+      * `python_interpreter_path` (`str`)
+      * `python_script_file_path` (`str`)
+      * `worker_command_line_args` (`str`) - This property is optional for single machine training.
+      * `worker_count` (`float`) - If specified, the value must be less than or equal to (nodeCount * numberOfGPUs per VM). If not specified, the default value is equal to nodeCount. This property can be specified only for distributed TensorFlow training
+    """
+    tool_type: pulumi.Output[str]
+    """
+    Possible values are: cntk, tensorflow, caffe, caffe2, chainer, pytorch, custom.
     """
     type: pulumi.Output[str]
     """
@@ -379,7 +434,14 @@ class Job(pulumi.CustomResource):
             __props__['std_out_err_path_prefix'] = std_out_err_path_prefix
             __props__['tags'] = tags
             __props__['tensor_flow_settings'] = tensor_flow_settings
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['execution_info'] = None
+            __props__['execution_state'] = None
+            __props__['execution_state_transition_time'] = None
+            __props__['job_output_directory_path_segment'] = None
+            __props__['provisioning_state'] = None
+            __props__['provisioning_state_transition_time'] = None
+            __props__['tool_type'] = None
             __props__['type'] = None
         super(Job, __self__).__init__(
             'azurerm:batchai/v20180301:Job',

@@ -13,12 +13,96 @@ class GetHostingEnvironmentResult:
     """
     Description of an hostingEnvironment (App Service Environment)
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, allowed_multi_sizes=None, allowed_worker_sizes=None, api_management_account_id=None, cluster_settings=None, database_edition=None, database_service_objective=None, dns_suffix=None, environment_capacities=None, environment_is_healthy=None, environment_status=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, last_action=None, last_action_result=None, location=None, maximum_number_of_machines=None, multi_role_count=None, multi_size=None, name=None, network_access_control_list=None, provisioning_state=None, resource_group=None, status=None, subscription_id=None, suspended=None, tags=None, type=None, upgrade_domains=None, vip_mappings=None, virtual_network=None, vnet_name=None, vnet_resource_group_name=None, vnet_subnet_name=None, worker_pools=None):
+        if allowed_multi_sizes and not isinstance(allowed_multi_sizes, str):
+            raise TypeError("Expected argument 'allowed_multi_sizes' to be a str")
+        __self__.allowed_multi_sizes = allowed_multi_sizes
+        """
+        List of comma separated strings describing which VM sizes are allowed for front-ends
+        """
+        if allowed_worker_sizes and not isinstance(allowed_worker_sizes, str):
+            raise TypeError("Expected argument 'allowed_worker_sizes' to be a str")
+        __self__.allowed_worker_sizes = allowed_worker_sizes
+        """
+        List of comma separated strings describing which VM sizes are allowed for workers
+        """
+        if api_management_account_id and not isinstance(api_management_account_id, str):
+            raise TypeError("Expected argument 'api_management_account_id' to be a str")
+        __self__.api_management_account_id = api_management_account_id
+        """
+        Api Management Account associated with this Hosting Environment
+        """
+        if cluster_settings and not isinstance(cluster_settings, list):
+            raise TypeError("Expected argument 'cluster_settings' to be a list")
+        __self__.cluster_settings = cluster_settings
+        """
+        Custom settings for changing the behavior of the hosting environment
+        """
+        if database_edition and not isinstance(database_edition, str):
+            raise TypeError("Expected argument 'database_edition' to be a str")
+        __self__.database_edition = database_edition
+        """
+        Edition of the metadata database for the hostingEnvironment (App Service Environment) e.g. "Standard"
+        """
+        if database_service_objective and not isinstance(database_service_objective, str):
+            raise TypeError("Expected argument 'database_service_objective' to be a str")
+        __self__.database_service_objective = database_service_objective
+        """
+        Service objective of the metadata database for the hostingEnvironment (App Service Environment) e.g. "S0"
+        """
+        if dns_suffix and not isinstance(dns_suffix, str):
+            raise TypeError("Expected argument 'dns_suffix' to be a str")
+        __self__.dns_suffix = dns_suffix
+        """
+        DNS suffix of the hostingEnvironment (App Service Environment)
+        """
+        if environment_capacities and not isinstance(environment_capacities, list):
+            raise TypeError("Expected argument 'environment_capacities' to be a list")
+        __self__.environment_capacities = environment_capacities
+        """
+        Current total, used, and available worker capacities
+        """
+        if environment_is_healthy and not isinstance(environment_is_healthy, bool):
+            raise TypeError("Expected argument 'environment_is_healthy' to be a bool")
+        __self__.environment_is_healthy = environment_is_healthy
+        """
+        True/false indicating whether the hostingEnvironment (App Service Environment) is healthy
+        """
+        if environment_status and not isinstance(environment_status, str):
+            raise TypeError("Expected argument 'environment_status' to be a str")
+        __self__.environment_status = environment_status
+        """
+        Detailed message about with results of the last check of the hostingEnvironment (App Service Environment)
+        """
+        if internal_load_balancing_mode and not isinstance(internal_load_balancing_mode, str):
+            raise TypeError("Expected argument 'internal_load_balancing_mode' to be a str")
+        __self__.internal_load_balancing_mode = internal_load_balancing_mode
+        """
+        Specifies which endpoints to serve internally in the hostingEnvironment's (App Service Environment) VNET
+        """
+        if ipssl_address_count and not isinstance(ipssl_address_count, float):
+            raise TypeError("Expected argument 'ipssl_address_count' to be a float")
+        __self__.ipssl_address_count = ipssl_address_count
+        """
+        Number of IP SSL addresses reserved for this hostingEnvironment (App Service Environment)
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
         """
         Kind of resource
+        """
+        if last_action and not isinstance(last_action, str):
+            raise TypeError("Expected argument 'last_action' to be a str")
+        __self__.last_action = last_action
+        """
+        Last deployment action on this hostingEnvironment (App Service Environment)
+        """
+        if last_action_result and not isinstance(last_action_result, str):
+            raise TypeError("Expected argument 'last_action_result' to be a str")
+        __self__.last_action_result = last_action_result
+        """
+        Result of the last deployment action on this hostingEnvironment (App Service Environment)
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -26,15 +110,67 @@ class GetHostingEnvironmentResult:
         """
         Resource Location
         """
+        if maximum_number_of_machines and not isinstance(maximum_number_of_machines, float):
+            raise TypeError("Expected argument 'maximum_number_of_machines' to be a float")
+        __self__.maximum_number_of_machines = maximum_number_of_machines
+        """
+        Maximum number of VMs in this hostingEnvironment (App Service Environment)
+        """
+        if multi_role_count and not isinstance(multi_role_count, float):
+            raise TypeError("Expected argument 'multi_role_count' to be a float")
+        __self__.multi_role_count = multi_role_count
+        """
+        Number of front-end instances
+        """
+        if multi_size and not isinstance(multi_size, str):
+            raise TypeError("Expected argument 'multi_size' to be a str")
+        __self__.multi_size = multi_size
+        """
+        Front-end VM size, e.g. "Medium", "Large"
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource Name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_access_control_list and not isinstance(network_access_control_list, list):
+            raise TypeError("Expected argument 'network_access_control_list' to be a list")
+        __self__.network_access_control_list = network_access_control_list
+        """
+        Access control list for controlling traffic to the hostingEnvironment (App Service Environment)
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state of the hostingEnvironment (App Service Environment)
+        """
+        if resource_group and not isinstance(resource_group, str):
+            raise TypeError("Expected argument 'resource_group' to be a str")
+        __self__.resource_group = resource_group
+        """
+        Resource group of the hostingEnvironment (App Service Environment)
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Current status of the hostingEnvironment (App Service Environment)
+        """
+        if subscription_id and not isinstance(subscription_id, str):
+            raise TypeError("Expected argument 'subscription_id' to be a str")
+        __self__.subscription_id = subscription_id
+        """
+        Subscription of the hostingEnvironment (App Service Environment)
+        """
+        if suspended and not isinstance(suspended, bool):
+            raise TypeError("Expected argument 'suspended' to be a bool")
+        __self__.suspended = suspended
+        """
+        True/false indicating whether the hostingEnvironment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+                    (most likely because NSG blocked the incoming traffic)
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -47,6 +183,48 @@ class GetHostingEnvironmentResult:
         """
         Resource type
         """
+        if upgrade_domains and not isinstance(upgrade_domains, float):
+            raise TypeError("Expected argument 'upgrade_domains' to be a float")
+        __self__.upgrade_domains = upgrade_domains
+        """
+        Number of upgrade domains of this hostingEnvironment (App Service Environment)
+        """
+        if vip_mappings and not isinstance(vip_mappings, list):
+            raise TypeError("Expected argument 'vip_mappings' to be a list")
+        __self__.vip_mappings = vip_mappings
+        """
+        Description of IP SSL mapping for this hostingEnvironment (App Service Environment)
+        """
+        if virtual_network and not isinstance(virtual_network, dict):
+            raise TypeError("Expected argument 'virtual_network' to be a dict")
+        __self__.virtual_network = virtual_network
+        """
+        Description of the hostingEnvironment's (App Service Environment) virtual network
+        """
+        if vnet_name and not isinstance(vnet_name, str):
+            raise TypeError("Expected argument 'vnet_name' to be a str")
+        __self__.vnet_name = vnet_name
+        """
+        Name of the hostingEnvironment's (App Service Environment) virtual network
+        """
+        if vnet_resource_group_name and not isinstance(vnet_resource_group_name, str):
+            raise TypeError("Expected argument 'vnet_resource_group_name' to be a str")
+        __self__.vnet_resource_group_name = vnet_resource_group_name
+        """
+        Resource group of the hostingEnvironment's (App Service Environment) virtual network
+        """
+        if vnet_subnet_name and not isinstance(vnet_subnet_name, str):
+            raise TypeError("Expected argument 'vnet_subnet_name' to be a str")
+        __self__.vnet_subnet_name = vnet_subnet_name
+        """
+        Subnet of the hostingEnvironment's (App Service Environment) virtual network
+        """
+        if worker_pools and not isinstance(worker_pools, list):
+            raise TypeError("Expected argument 'worker_pools' to be a list")
+        __self__.worker_pools = worker_pools
+        """
+        Description of worker pools with worker size ids, VM sizes, and number of workers in each pool
+        """
 
 
 class AwaitableGetHostingEnvironmentResult(GetHostingEnvironmentResult):
@@ -55,12 +233,41 @@ class AwaitableGetHostingEnvironmentResult(GetHostingEnvironmentResult):
         if False:
             yield self
         return GetHostingEnvironmentResult(
+            allowed_multi_sizes=self.allowed_multi_sizes,
+            allowed_worker_sizes=self.allowed_worker_sizes,
+            api_management_account_id=self.api_management_account_id,
+            cluster_settings=self.cluster_settings,
+            database_edition=self.database_edition,
+            database_service_objective=self.database_service_objective,
+            dns_suffix=self.dns_suffix,
+            environment_capacities=self.environment_capacities,
+            environment_is_healthy=self.environment_is_healthy,
+            environment_status=self.environment_status,
+            internal_load_balancing_mode=self.internal_load_balancing_mode,
+            ipssl_address_count=self.ipssl_address_count,
             kind=self.kind,
+            last_action=self.last_action,
+            last_action_result=self.last_action_result,
             location=self.location,
+            maximum_number_of_machines=self.maximum_number_of_machines,
+            multi_role_count=self.multi_role_count,
+            multi_size=self.multi_size,
             name=self.name,
-            properties=self.properties,
+            network_access_control_list=self.network_access_control_list,
+            provisioning_state=self.provisioning_state,
+            resource_group=self.resource_group,
+            status=self.status,
+            subscription_id=self.subscription_id,
+            suspended=self.suspended,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            upgrade_domains=self.upgrade_domains,
+            vip_mappings=self.vip_mappings,
+            virtual_network=self.virtual_network,
+            vnet_name=self.vnet_name,
+            vnet_resource_group_name=self.vnet_resource_group_name,
+            vnet_subnet_name=self.vnet_subnet_name,
+            worker_pools=self.worker_pools)
 
 
 def get_hosting_environment(name=None, resource_group_name=None, opts=None):
@@ -80,9 +287,38 @@ def get_hosting_environment(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:getHostingEnvironment', __args__, opts=opts).value
 
     return AwaitableGetHostingEnvironmentResult(
+        allowed_multi_sizes=__ret__.get('allowedMultiSizes'),
+        allowed_worker_sizes=__ret__.get('allowedWorkerSizes'),
+        api_management_account_id=__ret__.get('apiManagementAccountId'),
+        cluster_settings=__ret__.get('clusterSettings'),
+        database_edition=__ret__.get('databaseEdition'),
+        database_service_objective=__ret__.get('databaseServiceObjective'),
+        dns_suffix=__ret__.get('dnsSuffix'),
+        environment_capacities=__ret__.get('environmentCapacities'),
+        environment_is_healthy=__ret__.get('environmentIsHealthy'),
+        environment_status=__ret__.get('environmentStatus'),
+        internal_load_balancing_mode=__ret__.get('internalLoadBalancingMode'),
+        ipssl_address_count=__ret__.get('ipsslAddressCount'),
         kind=__ret__.get('kind'),
+        last_action=__ret__.get('lastAction'),
+        last_action_result=__ret__.get('lastActionResult'),
         location=__ret__.get('location'),
+        maximum_number_of_machines=__ret__.get('maximumNumberOfMachines'),
+        multi_role_count=__ret__.get('multiRoleCount'),
+        multi_size=__ret__.get('multiSize'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_access_control_list=__ret__.get('networkAccessControlList'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_group=__ret__.get('resourceGroup'),
+        status=__ret__.get('status'),
+        subscription_id=__ret__.get('subscriptionId'),
+        suspended=__ret__.get('suspended'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        upgrade_domains=__ret__.get('upgradeDomains'),
+        vip_mappings=__ret__.get('vipMappings'),
+        virtual_network=__ret__.get('virtualNetwork'),
+        vnet_name=__ret__.get('vnetName'),
+        vnet_resource_group_name=__ret__.get('vnetResourceGroupName'),
+        vnet_subnet_name=__ret__.get('vnetSubnetName'),
+        worker_pools=__ret__.get('workerPools'))

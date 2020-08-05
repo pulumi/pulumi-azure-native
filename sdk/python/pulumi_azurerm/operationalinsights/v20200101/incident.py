@@ -10,48 +10,92 @@ from ... import _utilities, _tables
 
 
 class Incident(pulumi.CustomResource):
+    additional_data: pulumi.Output[dict]
+    """
+    Additional data on the incident
+      * `alert_product_names` (`list`) - List of product names of alerts in the incident
+      * `alerts_count` (`float`) - The number of alerts in the incident
+      * `bookmarks_count` (`float`) - The number of bookmarks in the incident
+      * `comments_count` (`float`) - The number of comments in the incident
+      * `tactics` (`list`) - The tactics associated with incident
+    """
+    classification: pulumi.Output[str]
+    """
+    The reason the incident was closed
+    """
+    classification_comment: pulumi.Output[str]
+    """
+    Describes the reason the incident was closed
+    """
+    classification_reason: pulumi.Output[str]
+    """
+    The classification reason the incident was closed with
+    """
+    created_time_utc: pulumi.Output[str]
+    """
+    The time the incident was created
+    """
+    description: pulumi.Output[str]
+    """
+    The description of the incident
+    """
     etag: pulumi.Output[str]
     """
     Etag of the azure resource
+    """
+    first_activity_time_utc: pulumi.Output[str]
+    """
+    The time of the first activity in the incident
+    """
+    incident_number: pulumi.Output[float]
+    """
+    A sequential number
+    """
+    incident_url: pulumi.Output[str]
+    """
+    The deep-link url to the incident in Azure portal
+    """
+    labels: pulumi.Output[list]
+    """
+    List of labels relevant to this incident
+      * `label_name` (`str`) - The name of the label
+      * `label_type` (`str`) - The type of the label
+    """
+    last_activity_time_utc: pulumi.Output[str]
+    """
+    The time of the last activity in the incident
+    """
+    last_modified_time_utc: pulumi.Output[str]
+    """
+    The last time the incident was updated
     """
     name: pulumi.Output[str]
     """
     Azure resource name
     """
-    properties: pulumi.Output[dict]
+    owner: pulumi.Output[dict]
     """
-    Incident properties
-      * `additional_data` (`dict`) - Additional data on the incident
-        * `alert_product_names` (`list`) - List of product names of alerts in the incident
-        * `alerts_count` (`float`) - The number of alerts in the incident
-        * `bookmarks_count` (`float`) - The number of bookmarks in the incident
-        * `comments_count` (`float`) - The number of comments in the incident
-        * `tactics` (`list`) - The tactics associated with incident
-
-      * `classification` (`str`) - The reason the incident was closed
-      * `classification_comment` (`str`) - Describes the reason the incident was closed
-      * `classification_reason` (`str`) - The classification reason the incident was closed with
-      * `created_time_utc` (`str`) - The time the incident was created
-      * `description` (`str`) - The description of the incident
-      * `first_activity_time_utc` (`str`) - The time of the first activity in the incident
-      * `incident_number` (`float`) - A sequential number
-      * `incident_url` (`str`) - The deep-link url to the incident in Azure portal
-      * `labels` (`list`) - List of labels relevant to this incident
-        * `label_name` (`str`) - The name of the label
-        * `label_type` (`str`) - The type of the label
-
-      * `last_activity_time_utc` (`str`) - The time of the last activity in the incident
-      * `last_modified_time_utc` (`str`) - The last time the incident was updated
-      * `owner` (`dict`) - Describes a user that the incident is assigned to
-        * `assigned_to` (`str`) - The name of the user the incident is assigned to.
-        * `email` (`str`) - The email of the user the incident is assigned to.
-        * `object_id` (`str`) - The object id of the user the incident is assigned to.
-        * `user_principal_name` (`str`) - The user principal name of the user the incident is assigned to.
-
-      * `related_analytic_rule_ids` (`list`) - List of resource ids of Analytic rules related to the incident
-      * `severity` (`str`) - The severity of the incident
-      * `status` (`str`) - The status of the incident
-      * `title` (`str`) - The title of the incident
+    Describes a user that the incident is assigned to
+      * `assigned_to` (`str`) - The name of the user the incident is assigned to.
+      * `email` (`str`) - The email of the user the incident is assigned to.
+      * `object_id` (`str`) - The object id of the user the incident is assigned to.
+      * `user_principal_name` (`str`) - The user principal name of the user the incident is assigned to.
+    """
+    related_analytic_rule_ids: pulumi.Output[list]
+    """
+    List of resource ids of Analytic rules related to the incident
+    """
+    severity: pulumi.Output[str]
+    """
+    The severity of the incident
+    """
+    status: pulumi.Output[str]
+    """
+    The status of the incident
+    """
+    title: pulumi.Output[str]
+    """
+    The title of the incident
     """
     type: pulumi.Output[str]
     """
@@ -134,7 +178,12 @@ class Incident(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
-            __props__['properties'] = None
+            __props__['additional_data'] = None
+            __props__['created_time_utc'] = None
+            __props__['incident_number'] = None
+            __props__['incident_url'] = None
+            __props__['last_modified_time_utc'] = None
+            __props__['related_analytic_rule_ids'] = None
             __props__['type'] = None
         super(Incident, __self__).__init__(
             'azurerm:operationalinsights/v20200101:Incident',

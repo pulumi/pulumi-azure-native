@@ -43,7 +43,7 @@ class Cluster(pulumi.CustomResource):
       * `cluster_version` (`str`) - The version of the cluster.
       * `compute_profile` (`dict`) - The compute profile.
         * `roles` (`list`) - The list of roles in the cluster.
-          * `autoscale` (`dict`) - The autoscale configurations.
+          * `autoscale_configuration` (`dict`) - The autoscale configurations.
             * `capacity` (`dict`) - Parameters for load-based autoscale
               * `max_instance_count` (`float`) - The maximum instance count of the cluster
               * `min_instance_count` (`float`) - The minimum instance count of the cluster

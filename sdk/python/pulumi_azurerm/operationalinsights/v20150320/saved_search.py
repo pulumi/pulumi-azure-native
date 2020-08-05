@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class SavedSearch(pulumi.CustomResource):
+    category: pulumi.Output[str]
+    """
+    The category of the saved search. This helps the user to find a saved search faster. 
+    """
+    display_name: pulumi.Output[str]
+    """
+    Saved search display name.
+    """
     e_tag: pulumi.Output[str]
     """
     The ETag of the saved search.
@@ -18,21 +26,23 @@ class SavedSearch(pulumi.CustomResource):
     """
     The name of the saved search.
     """
-    properties: pulumi.Output[dict]
+    query: pulumi.Output[str]
     """
-    The properties of the saved search.
-      * `category` (`str`) - The category of the saved search. This helps the user to find a saved search faster. 
-      * `display_name` (`str`) - Saved search display name.
-      * `query` (`str`) - The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
-      * `tags` (`list`) - The tags attached to the saved search.
-        * `name` (`str`) - The tag name.
-        * `value` (`str`) - The tag value.
-
-      * `version` (`float`) - The version number of the query language. The current version is 2 and is the default.
+    The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+    """
+    tags: pulumi.Output[list]
+    """
+    The tags attached to the saved search.
+      * `name` (`str`) - The tag name.
+      * `value` (`str`) - The tag value.
     """
     type: pulumi.Output[str]
     """
     The type of the saved search.
+    """
+    version: pulumi.Output[float]
+    """
+    The version number of the query language. The current version is 2 and is the default.
     """
     def __init__(__self__, resource_name, opts=None, category=None, display_name=None, e_tag=None, name=None, query=None, resource_group_name=None, tags=None, version=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -93,7 +103,6 @@ class SavedSearch(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(SavedSearch, __self__).__init__(
             'azurerm:operationalinsights/v20150320:SavedSearch',

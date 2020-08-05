@@ -13,7 +13,7 @@ class GetRouteFilterResult:
     """
     Route Filter Resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, location=None, name=None, peerings=None, provisioning_state=None, rules=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +32,23 @@ class GetRouteFilterResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peerings and not isinstance(peerings, list):
+            raise TypeError("Expected argument 'peerings' to be a list")
+        __self__.peerings = peerings
         """
-        Properties of the route filter.
+        A collection of references to express route circuit peerings.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+        """
+        if rules and not isinstance(rules, list):
+            raise TypeError("Expected argument 'rules' to be a list")
+        __self__.rules = rules
+        """
+        Collection of RouteFilterRules contained within a route filter.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -61,7 +73,9 @@ class AwaitableGetRouteFilterResult(GetRouteFilterResult):
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            peerings=self.peerings,
+            provisioning_state=self.provisioning_state,
+            rules=self.rules,
             tags=self.tags,
             type=self.type)
 
@@ -86,6 +100,8 @@ def get_route_filter(name=None, resource_group_name=None, opts=None):
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        peerings=__ret__.get('peerings'),
+        provisioning_state=__ret__.get('provisioningState'),
+        rules=__ret__.get('rules'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

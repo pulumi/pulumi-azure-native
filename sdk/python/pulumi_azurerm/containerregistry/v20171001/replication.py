@@ -18,14 +18,16 @@ class Replication(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the replication.
-      * `provisioning_state` (`str`) - The provisioning state of the replication at the time the operation was called.
-      * `status` (`dict`) - The status of the replication at the time the operation was called.
-        * `display_status` (`str`) - The short label for the status.
-        * `message` (`str`) - The detailed message for the status, including alerts and error messages.
-        * `timestamp` (`str`) - The timestamp when the status was changed to the current value.
+    The provisioning state of the replication at the time the operation was called.
+    """
+    status: pulumi.Output[dict]
+    """
+    The status of the replication at the time the operation was called.
+      * `display_status` (`str`) - The short label for the status.
+      * `message` (`str`) - The detailed message for the status, including alerts and error messages.
+      * `timestamp` (`str`) - The timestamp when the status was changed to the current value.
     """
     tags: pulumi.Output[dict]
     """
@@ -77,7 +79,8 @@ class Replication(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['status'] = None
             __props__['type'] = None
         super(Replication, __self__).__init__(
             'azurerm:containerregistry/v20171001:Replication',

@@ -10,23 +10,36 @@ from ... import _utilities, _tables
 
 
 class EmailTemplate(pulumi.CustomResource):
+    body: pulumi.Output[str]
+    """
+    Email Template Body. This should be a valid XDocument
+    """
+    description: pulumi.Output[str]
+    """
+    Description of the Email Template.
+    """
+    is_default: pulumi.Output[bool]
+    """
+    Whether the template is the default template provided by Api Management or has been edited.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    parameters: pulumi.Output[list]
     """
-    Email Template entity contract properties.
-      * `body` (`str`) - Email Template Body. This should be a valid XDocument
-      * `description` (`str`) - Description of the Email Template.
-      * `is_default` (`bool`) - Whether the template is the default template provided by Api Management or has been edited.
-      * `parameters` (`list`) - Email Template Parameter values.
-        * `description` (`str`) - Template parameter description.
-        * `name` (`str`) - Template parameter name.
-        * `title` (`str`) - Template parameter title.
-
-      * `subject` (`str`) - Subject of the Template.
-      * `title` (`str`) - Title of the Template.
+    Email Template Parameter values.
+      * `description` (`str`) - Template parameter description.
+      * `name` (`str`) - Template parameter name.
+      * `title` (`str`) - Template parameter title.
+    """
+    subject: pulumi.Output[str]
+    """
+    Subject of the Template.
+    """
+    title: pulumi.Output[str]
+    """
+    Title of the Template.
     """
     type: pulumi.Output[str]
     """
@@ -84,7 +97,7 @@ class EmailTemplate(pulumi.CustomResource):
             __props__['service_name'] = service_name
             __props__['subject'] = subject
             __props__['title'] = title
-            __props__['properties'] = None
+            __props__['is_default'] = None
             __props__['type'] = None
         super(EmailTemplate, __self__).__init__(
             'azurerm:apimanagement/v20190101:EmailTemplate',

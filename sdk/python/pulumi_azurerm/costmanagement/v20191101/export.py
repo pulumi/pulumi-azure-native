@@ -10,56 +10,62 @@ from ... import _utilities, _tables
 
 
 class Export(pulumi.CustomResource):
+    definition: pulumi.Output[dict]
+    """
+    Has definition for the export.
+      * `dataset` (`dict`) - Has definition for data in this query.
+        * `aggregation` (`dict`) - Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
+        * `configuration` (`dict`) - Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
+          * `columns` (`list`) - Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
+
+        * `filter` (`dict`) - Has filter expression to use in the query.
+          * `and` (`list`) - The logical "AND" expression. Must have at least 2 items.
+          * `dimension` (`dict`) - Has comparison expression for a dimension
+            * `name` (`str`) - The name of the column to use in comparison.
+            * `operator` (`str`) - The operator to use for comparison.
+            * `values` (`list`) - Array of values to use for comparison
+
+          * `not` (`dict`) - The logical "NOT" expression.
+          * `or` (`list`) - The logical "OR" expression. Must have at least 2 items.
+          * `tag` (`dict`) - Has comparison expression for a tag
+
+        * `granularity` (`str`) - The granularity of rows in the query.
+        * `grouping` (`list`) - Array of group by expression to use in the query. Query can have up to 2 group by clauses.
+          * `name` (`str`) - The name of the column to group.
+          * `type` (`str`) - Has type of the column to group.
+
+      * `time_period` (`dict`) - Has time period for pulling data for the query.
+        * `from` (`str`) - The start date to pull data from.
+        * `to` (`str`) - The end date to pull data to.
+
+      * `timeframe` (`str`) - The time frame for pulling data for the query. If custom, then a specific time period must be provided.
+      * `type` (`str`) - The type of the query.
+    """
+    delivery_info: pulumi.Output[dict]
+    """
+    Has delivery information for the export.
+      * `destination` (`dict`) - Has destination for the export being delivered.
+        * `container` (`str`) - The name of the container where exports will be uploaded.
+        * `resource_id` (`str`) - The resource id of the storage account where exports will be delivered.
+        * `root_folder_path` (`str`) - The name of the directory where exports will be uploaded.
+    """
+    format: pulumi.Output[str]
+    """
+    The format of the export being delivered.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    schedule: pulumi.Output[dict]
     """
-    The properties of the export.
-      * `definition` (`dict`) - Has definition for the export.
-        * `dataset` (`dict`) - Has definition for data in this query.
-          * `aggregation` (`dict`) - Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.
-          * `configuration` (`dict`) - Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.
-            * `columns` (`list`) - Array of column names to be included in the query. Any valid query column name is allowed. If not provided, then query includes all columns.
+    Has schedule information for the export.
+      * `recurrence` (`str`) - The schedule recurrence.
+      * `recurrence_period` (`dict`) - Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        * `from` (`str`) - The start date of recurrence.
+        * `to` (`str`) - The end date of recurrence.
 
-          * `filter` (`dict`) - Has filter expression to use in the query.
-            * `and` (`list`) - The logical "AND" expression. Must have at least 2 items.
-            * `dimension` (`dict`) - Has comparison expression for a dimension
-              * `name` (`str`) - The name of the column to use in comparison.
-              * `operator` (`str`) - The operator to use for comparison.
-              * `values` (`list`) - Array of values to use for comparison
-
-            * `not` (`dict`) - The logical "NOT" expression.
-            * `or` (`list`) - The logical "OR" expression. Must have at least 2 items.
-            * `tag` (`dict`) - Has comparison expression for a tag
-
-          * `granularity` (`str`) - The granularity of rows in the query.
-          * `grouping` (`list`) - Array of group by expression to use in the query. Query can have up to 2 group by clauses.
-            * `name` (`str`) - The name of the column to group.
-            * `type` (`str`) - Has type of the column to group.
-
-        * `time_period` (`dict`) - Has time period for pulling data for the query.
-          * `from` (`str`) - The start date to pull data from.
-          * `to` (`str`) - The end date to pull data to.
-
-        * `timeframe` (`str`) - The time frame for pulling data for the query. If custom, then a specific time period must be provided.
-        * `type` (`str`) - The type of the query.
-
-      * `delivery_info` (`dict`) - Has delivery information for the export.
-        * `destination` (`dict`) - Has destination for the export being delivered.
-          * `container` (`str`) - The name of the container where exports will be uploaded.
-          * `resource_id` (`str`) - The resource id of the storage account where exports will be delivered.
-          * `root_folder_path` (`str`) - The name of the directory where exports will be uploaded.
-
-      * `format` (`str`) - The format of the export being delivered.
-      * `schedule` (`dict`) - Has schedule information for the export.
-        * `recurrence` (`str`) - The schedule recurrence.
-        * `recurrence_period` (`dict`) - Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
-          * `from` (`str`) - The start date of recurrence.
-          * `to` (`str`) - The end date of recurrence.
-
-        * `status` (`str`) - The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
+      * `status` (`str`) - The status of the schedule. Whether active or not. If inactive, the export's scheduled execution is paused.
     """
     tags: pulumi.Output[dict]
     """
@@ -159,7 +165,6 @@ class Export(pulumi.CustomResource):
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
-            __props__['properties'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(Export, __self__).__init__(

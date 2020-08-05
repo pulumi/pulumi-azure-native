@@ -13,7 +13,7 @@ class GetNotificationHubAuthorizationRuleResult:
     """
     Description of a Namespace AuthorizationRules.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, rights=None, sku=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +26,11 @@ class GetNotificationHubAuthorizationRuleResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if rights and not isinstance(rights, list):
+            raise TypeError("Expected argument 'rights' to be a list")
+        __self__.rights = rights
         """
-        Properties of the Namespace AuthorizationRule.
+        The rights associated with the rule.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -60,7 +60,7 @@ class AwaitableGetNotificationHubAuthorizationRuleResult(GetNotificationHubAutho
         return GetNotificationHubAuthorizationRuleResult(
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            rights=self.rights,
             sku=self.sku,
             tags=self.tags,
             type=self.type)
@@ -89,7 +89,7 @@ def get_notification_hub_authorization_rule(name=None, namespace_name=None, noti
     return AwaitableGetNotificationHubAuthorizationRuleResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        rights=__ret__.get('rights'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class Route(pulumi.CustomResource):
+    address_prefix: pulumi.Output[str]
+    """
+    Gets or sets the destination CIDR to which the route applies.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated
@@ -18,13 +22,17 @@ class Route(pulumi.CustomResource):
     """
     Gets name of the resource that is unique within a resource group. This name can be used to access the resource
     """
-    properties: pulumi.Output[dict]
+    next_hop_ip_address: pulumi.Output[str]
     """
-    Route resource
-      * `address_prefix` (`str`) - Gets or sets the destination CIDR to which the route applies.
-      * `next_hop_ip_address` (`str`) - Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
-      * `next_hop_type` (`str`) - Gets or sets the type of Azure hop the packet should be sent to.
-      * `provisioning_state` (`str`) - Gets or sets Provisioning state of the resource Updating/Deleting/Failed
+    Gets or sets the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+    """
+    next_hop_type: pulumi.Output[str]
+    """
+    Gets or sets the type of Azure hop the packet should be sent to.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Gets or sets Provisioning state of the resource Updating/Deleting/Failed
     """
     def __init__(__self__, resource_name, opts=None, address_prefix=None, etag=None, id=None, name=None, next_hop_ip_address=None, next_hop_type=None, provisioning_state=None, resource_group_name=None, route_table_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -76,7 +84,6 @@ class Route(pulumi.CustomResource):
             if route_table_name is None:
                 raise TypeError("Missing required property 'route_table_name'")
             __props__['route_table_name'] = route_table_name
-            __props__['properties'] = None
         super(Route, __self__).__init__(
             'azurerm:network/v20160330:Route',
             resource_name,

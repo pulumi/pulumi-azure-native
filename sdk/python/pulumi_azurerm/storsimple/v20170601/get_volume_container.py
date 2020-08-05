@@ -13,7 +13,31 @@ class GetVolumeContainerResult:
     """
     The volume container.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, band_width_rate_in_mbps=None, bandwidth_setting_id=None, encryption_key=None, encryption_status=None, kind=None, name=None, owner_ship_status=None, storage_account_credential_id=None, total_cloud_storage_usage_in_bytes=None, type=None, volume_count=None):
+        if band_width_rate_in_mbps and not isinstance(band_width_rate_in_mbps, float):
+            raise TypeError("Expected argument 'band_width_rate_in_mbps' to be a float")
+        __self__.band_width_rate_in_mbps = band_width_rate_in_mbps
+        """
+        The bandwidth-rate set on the volume container.
+        """
+        if bandwidth_setting_id and not isinstance(bandwidth_setting_id, str):
+            raise TypeError("Expected argument 'bandwidth_setting_id' to be a str")
+        __self__.bandwidth_setting_id = bandwidth_setting_id
+        """
+        The ID of the bandwidth setting associated with the volume container.
+        """
+        if encryption_key and not isinstance(encryption_key, dict):
+            raise TypeError("Expected argument 'encryption_key' to be a dict")
+        __self__.encryption_key = encryption_key
+        """
+        The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
+        """
+        if encryption_status and not isinstance(encryption_status, str):
+            raise TypeError("Expected argument 'encryption_status' to be a str")
+        __self__.encryption_status = encryption_status
+        """
+        The flag to denote whether encryption is enabled or not.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,17 +50,35 @@ class GetVolumeContainerResult:
         """
         The name of the object.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if owner_ship_status and not isinstance(owner_ship_status, str):
+            raise TypeError("Expected argument 'owner_ship_status' to be a str")
+        __self__.owner_ship_status = owner_ship_status
         """
-        The volume container properties.
+        The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
+        """
+        if storage_account_credential_id and not isinstance(storage_account_credential_id, str):
+            raise TypeError("Expected argument 'storage_account_credential_id' to be a str")
+        __self__.storage_account_credential_id = storage_account_credential_id
+        """
+        The path ID of storage account associated with the volume container.
+        """
+        if total_cloud_storage_usage_in_bytes and not isinstance(total_cloud_storage_usage_in_bytes, float):
+            raise TypeError("Expected argument 'total_cloud_storage_usage_in_bytes' to be a float")
+        __self__.total_cloud_storage_usage_in_bytes = total_cloud_storage_usage_in_bytes
+        """
+        The total cloud storage for the volume container.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The hierarchical type of the object.
+        """
+        if volume_count and not isinstance(volume_count, float):
+            raise TypeError("Expected argument 'volume_count' to be a float")
+        __self__.volume_count = volume_count
+        """
+        The number of volumes in the volume Container.
         """
 
 
@@ -46,10 +88,17 @@ class AwaitableGetVolumeContainerResult(GetVolumeContainerResult):
         if False:
             yield self
         return GetVolumeContainerResult(
+            band_width_rate_in_mbps=self.band_width_rate_in_mbps,
+            bandwidth_setting_id=self.bandwidth_setting_id,
+            encryption_key=self.encryption_key,
+            encryption_status=self.encryption_status,
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            owner_ship_status=self.owner_ship_status,
+            storage_account_credential_id=self.storage_account_credential_id,
+            total_cloud_storage_usage_in_bytes=self.total_cloud_storage_usage_in_bytes,
+            type=self.type,
+            volume_count=self.volume_count)
 
 
 def get_volume_container(device_name=None, manager_name=None, name=None, resource_group_name=None, opts=None):
@@ -73,7 +122,14 @@ def get_volume_container(device_name=None, manager_name=None, name=None, resourc
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20170601:getVolumeContainer', __args__, opts=opts).value
 
     return AwaitableGetVolumeContainerResult(
+        band_width_rate_in_mbps=__ret__.get('bandWidthRateInMbps'),
+        bandwidth_setting_id=__ret__.get('bandwidthSettingId'),
+        encryption_key=__ret__.get('encryptionKey'),
+        encryption_status=__ret__.get('encryptionStatus'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        owner_ship_status=__ret__.get('ownerShipStatus'),
+        storage_account_credential_id=__ret__.get('storageAccountCredentialId'),
+        total_cloud_storage_usage_in_bytes=__ret__.get('totalCloudStorageUsageInBytes'),
+        type=__ret__.get('type'),
+        volume_count=__ret__.get('volumeCount'))

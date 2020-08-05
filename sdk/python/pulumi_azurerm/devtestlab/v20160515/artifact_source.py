@@ -10,6 +10,26 @@ from ... import _utilities, _tables
 
 
 class ArtifactSource(pulumi.CustomResource):
+    arm_template_folder_path: pulumi.Output[str]
+    """
+    The folder containing Azure Resource Manager templates.
+    """
+    branch_ref: pulumi.Output[str]
+    """
+    The artifact source's branch reference.
+    """
+    created_date: pulumi.Output[str]
+    """
+    The artifact source's creation date.
+    """
+    display_name: pulumi.Output[str]
+    """
+    The artifact source's display name.
+    """
+    folder_path: pulumi.Output[str]
+    """
+    The folder containing artifacts.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
@@ -18,20 +38,21 @@ class ArtifactSource(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the resource.
-      * `arm_template_folder_path` (`str`) - The folder containing Azure Resource Manager templates.
-      * `branch_ref` (`str`) - The artifact source's branch reference.
-      * `created_date` (`str`) - The artifact source's creation date.
-      * `display_name` (`str`) - The artifact source's display name.
-      * `folder_path` (`str`) - The folder containing artifacts.
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `security_token` (`str`) - The security token to authenticate to the artifact source.
-      * `source_type` (`str`) - The artifact source's type.
-      * `status` (`str`) - Indicates if the artifact source is enabled (values: Enabled, Disabled).
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
-      * `uri` (`str`) - The artifact source's URI.
+    The provisioning status of the resource.
+    """
+    security_token: pulumi.Output[str]
+    """
+    The security token to authenticate to the artifact source.
+    """
+    source_type: pulumi.Output[str]
+    """
+    The artifact source's type.
+    """
+    status: pulumi.Output[str]
+    """
+    Indicates if the artifact source is enabled (values: Enabled, Disabled).
     """
     tags: pulumi.Output[dict]
     """
@@ -40,6 +61,14 @@ class ArtifactSource(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
+    """
+    uri: pulumi.Output[str]
+    """
+    The artifact source's URI.
     """
     def __init__(__self__, resource_name, opts=None, arm_template_folder_path=None, branch_ref=None, display_name=None, folder_path=None, lab_name=None, location=None, name=None, provisioning_state=None, resource_group_name=None, security_token=None, source_type=None, status=None, tags=None, unique_identifier=None, uri=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -101,7 +130,7 @@ class ArtifactSource(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['unique_identifier'] = unique_identifier
             __props__['uri'] = uri
-            __props__['properties'] = None
+            __props__['created_date'] = None
             __props__['type'] = None
         super(ArtifactSource, __self__).__init__(
             'azurerm:devtestlab/v20160515:ArtifactSource',

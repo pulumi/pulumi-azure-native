@@ -13,7 +13,7 @@ class GetAvailabilitySetResult:
     """
     Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, proximity_placement_group=None, sku=None, statuses=None, tags=None, type=None, virtual_machines=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,17 +26,35 @@ class GetAvailabilitySetResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if platform_fault_domain_count and not isinstance(platform_fault_domain_count, float):
+            raise TypeError("Expected argument 'platform_fault_domain_count' to be a float")
+        __self__.platform_fault_domain_count = platform_fault_domain_count
         """
-        The instance view of a resource.
+        Fault Domain count.
+        """
+        if platform_update_domain_count and not isinstance(platform_update_domain_count, float):
+            raise TypeError("Expected argument 'platform_update_domain_count' to be a float")
+        __self__.platform_update_domain_count = platform_update_domain_count
+        """
+        Update Domain count.
+        """
+        if proximity_placement_group and not isinstance(proximity_placement_group, dict):
+            raise TypeError("Expected argument 'proximity_placement_group' to be a dict")
+        __self__.proximity_placement_group = proximity_placement_group
+        """
+        Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         Sku of the availability set
+        """
+        if statuses and not isinstance(statuses, list):
+            raise TypeError("Expected argument 'statuses' to be a list")
+        __self__.statuses = statuses
+        """
+        The resource status information.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +68,12 @@ class GetAvailabilitySetResult:
         """
         Resource type
         """
+        if virtual_machines and not isinstance(virtual_machines, list):
+            raise TypeError("Expected argument 'virtual_machines' to be a list")
+        __self__.virtual_machines = virtual_machines
+        """
+        A list of references to all virtual machines in the availability set.
+        """
 
 
 class AwaitableGetAvailabilitySetResult(GetAvailabilitySetResult):
@@ -60,10 +84,14 @@ class AwaitableGetAvailabilitySetResult(GetAvailabilitySetResult):
         return GetAvailabilitySetResult(
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            platform_fault_domain_count=self.platform_fault_domain_count,
+            platform_update_domain_count=self.platform_update_domain_count,
+            proximity_placement_group=self.proximity_placement_group,
             sku=self.sku,
+            statuses=self.statuses,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_machines=self.virtual_machines)
 
 
 def get_availability_set(name=None, resource_group_name=None, opts=None):
@@ -85,7 +113,11 @@ def get_availability_set(name=None, resource_group_name=None, opts=None):
     return AwaitableGetAvailabilitySetResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        platform_fault_domain_count=__ret__.get('platformFaultDomainCount'),
+        platform_update_domain_count=__ret__.get('platformUpdateDomainCount'),
+        proximity_placement_group=__ret__.get('proximityPlacementGroup'),
         sku=__ret__.get('sku'),
+        statuses=__ret__.get('statuses'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_machines=__ret__.get('virtualMachines'))

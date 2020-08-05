@@ -13,7 +13,37 @@ class GetSiteHostNameBindingSlotResult:
     """
     A host name binding object
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, azure_resource_name=None, azure_resource_type=None, custom_host_name_dns_record_type=None, domain_id=None, host_name_type=None, kind=None, location=None, name=None, site_name=None, tags=None, type=None):
+        if azure_resource_name and not isinstance(azure_resource_name, str):
+            raise TypeError("Expected argument 'azure_resource_name' to be a str")
+        __self__.azure_resource_name = azure_resource_name
+        """
+        Azure resource name
+        """
+        if azure_resource_type and not isinstance(azure_resource_type, str):
+            raise TypeError("Expected argument 'azure_resource_type' to be a str")
+        __self__.azure_resource_type = azure_resource_type
+        """
+        Azure resource type
+        """
+        if custom_host_name_dns_record_type and not isinstance(custom_host_name_dns_record_type, str):
+            raise TypeError("Expected argument 'custom_host_name_dns_record_type' to be a str")
+        __self__.custom_host_name_dns_record_type = custom_host_name_dns_record_type
+        """
+        Custom DNS record type
+        """
+        if domain_id and not isinstance(domain_id, str):
+            raise TypeError("Expected argument 'domain_id' to be a str")
+        __self__.domain_id = domain_id
+        """
+        Fully qualified ARM domain resource URI
+        """
+        if host_name_type and not isinstance(host_name_type, str):
+            raise TypeError("Expected argument 'host_name_type' to be a str")
+        __self__.host_name_type = host_name_type
+        """
+        Host name type
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -32,9 +62,12 @@ class GetSiteHostNameBindingSlotResult:
         """
         Resource Name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if site_name and not isinstance(site_name, str):
+            raise TypeError("Expected argument 'site_name' to be a str")
+        __self__.site_name = site_name
+        """
+        Web app name
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -55,10 +88,15 @@ class AwaitableGetSiteHostNameBindingSlotResult(GetSiteHostNameBindingSlotResult
         if False:
             yield self
         return GetSiteHostNameBindingSlotResult(
+            azure_resource_name=self.azure_resource_name,
+            azure_resource_type=self.azure_resource_type,
+            custom_host_name_dns_record_type=self.custom_host_name_dns_record_type,
+            domain_id=self.domain_id,
+            host_name_type=self.host_name_type,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            site_name=self.site_name,
             tags=self.tags,
             type=self.type)
 
@@ -82,9 +120,14 @@ def get_site_host_name_binding_slot(name=None, resource_group_name=None, slot=No
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:getSiteHostNameBindingSlot', __args__, opts=opts).value
 
     return AwaitableGetSiteHostNameBindingSlotResult(
+        azure_resource_name=__ret__.get('azureResourceName'),
+        azure_resource_type=__ret__.get('azureResourceType'),
+        custom_host_name_dns_record_type=__ret__.get('customHostNameDnsRecordType'),
+        domain_id=__ret__.get('domainId'),
+        host_name_type=__ret__.get('hostNameType'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        site_name=__ret__.get('siteName'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

@@ -13,7 +13,79 @@ class GetStreamingJobResult:
     """
     A streaming job object, containing all information associated with the named streaming job.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, compatibility_level=None, created_date=None, data_locale=None, etag=None, events_late_arrival_max_delay_in_seconds=None, events_out_of_order_max_delay_in_seconds=None, events_out_of_order_policy=None, functions=None, inputs=None, job_id=None, job_state=None, last_output_event_time=None, location=None, name=None, output_error_policy=None, output_start_mode=None, output_start_time=None, outputs=None, provisioning_state=None, sku=None, tags=None, transformation=None, type=None):
+        if compatibility_level and not isinstance(compatibility_level, str):
+            raise TypeError("Expected argument 'compatibility_level' to be a str")
+        __self__.compatibility_level = compatibility_level
+        """
+        Controls certain runtime behaviors of the streaming job.
+        """
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
+        """
+        if data_locale and not isinstance(data_locale, str):
+            raise TypeError("Expected argument 'data_locale' to be a str")
+        __self__.data_locale = data_locale
+        """
+        The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
+        """
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        __self__.etag = etag
+        """
+        The current entity tag for the streaming job. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+        """
+        if events_late_arrival_max_delay_in_seconds and not isinstance(events_late_arrival_max_delay_in_seconds, float):
+            raise TypeError("Expected argument 'events_late_arrival_max_delay_in_seconds' to be a float")
+        __self__.events_late_arrival_max_delay_in_seconds = events_late_arrival_max_delay_in_seconds
+        """
+        The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
+        """
+        if events_out_of_order_max_delay_in_seconds and not isinstance(events_out_of_order_max_delay_in_seconds, float):
+            raise TypeError("Expected argument 'events_out_of_order_max_delay_in_seconds' to be a float")
+        __self__.events_out_of_order_max_delay_in_seconds = events_out_of_order_max_delay_in_seconds
+        """
+        The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
+        """
+        if events_out_of_order_policy and not isinstance(events_out_of_order_policy, str):
+            raise TypeError("Expected argument 'events_out_of_order_policy' to be a str")
+        __self__.events_out_of_order_policy = events_out_of_order_policy
+        """
+        Indicates the policy to apply to events that arrive out of order in the input event stream.
+        """
+        if functions and not isinstance(functions, list):
+            raise TypeError("Expected argument 'functions' to be a list")
+        __self__.functions = functions
+        """
+        A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
+        """
+        if inputs and not isinstance(inputs, list):
+            raise TypeError("Expected argument 'inputs' to be a list")
+        __self__.inputs = inputs
+        """
+        A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
+        """
+        if job_id and not isinstance(job_id, str):
+            raise TypeError("Expected argument 'job_id' to be a str")
+        __self__.job_id = job_id
+        """
+        A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
+        """
+        if job_state and not isinstance(job_state, str):
+            raise TypeError("Expected argument 'job_state' to be a str")
+        __self__.job_state = job_state
+        """
+        Describes the state of the streaming job.
+        """
+        if last_output_event_time and not isinstance(last_output_event_time, str):
+            raise TypeError("Expected argument 'last_output_event_time' to be a str")
+        __self__.last_output_event_time = last_output_event_time
+        """
+        Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,17 +98,53 @@ class GetStreamingJobResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if output_error_policy and not isinstance(output_error_policy, str):
+            raise TypeError("Expected argument 'output_error_policy' to be a str")
+        __self__.output_error_policy = output_error_policy
         """
-        The properties that are associated with a streaming job.  Required on PUT (CreateOrReplace) requests.
+        Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
+        """
+        if output_start_mode and not isinstance(output_start_mode, str):
+            raise TypeError("Expected argument 'output_start_mode' to be a str")
+        __self__.output_start_mode = output_start_mode
+        """
+        This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
+        """
+        if output_start_time and not isinstance(output_start_time, str):
+            raise TypeError("Expected argument 'output_start_time' to be a str")
+        __self__.output_start_time = output_start_time
+        """
+        Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
+        """
+        if outputs and not isinstance(outputs, list):
+            raise TypeError("Expected argument 'outputs' to be a list")
+        __self__.outputs = outputs
+        """
+        A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Describes the provisioning status of the streaming job.
+        """
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        __self__.sku = sku
+        """
+        Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Resource tags
+        """
+        if transformation and not isinstance(transformation, dict):
+            raise TypeError("Expected argument 'transformation' to be a dict")
+        __self__.transformation = transformation
+        """
+        Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -52,10 +160,28 @@ class AwaitableGetStreamingJobResult(GetStreamingJobResult):
         if False:
             yield self
         return GetStreamingJobResult(
+            compatibility_level=self.compatibility_level,
+            created_date=self.created_date,
+            data_locale=self.data_locale,
+            etag=self.etag,
+            events_late_arrival_max_delay_in_seconds=self.events_late_arrival_max_delay_in_seconds,
+            events_out_of_order_max_delay_in_seconds=self.events_out_of_order_max_delay_in_seconds,
+            events_out_of_order_policy=self.events_out_of_order_policy,
+            functions=self.functions,
+            inputs=self.inputs,
+            job_id=self.job_id,
+            job_state=self.job_state,
+            last_output_event_time=self.last_output_event_time,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            output_error_policy=self.output_error_policy,
+            output_start_mode=self.output_start_mode,
+            output_start_time=self.output_start_time,
+            outputs=self.outputs,
+            provisioning_state=self.provisioning_state,
+            sku=self.sku,
             tags=self.tags,
+            transformation=self.transformation,
             type=self.type)
 
 
@@ -76,8 +202,26 @@ def get_streaming_job(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:streamanalytics/v20160301:getStreamingJob', __args__, opts=opts).value
 
     return AwaitableGetStreamingJobResult(
+        compatibility_level=__ret__.get('compatibilityLevel'),
+        created_date=__ret__.get('createdDate'),
+        data_locale=__ret__.get('dataLocale'),
+        etag=__ret__.get('etag'),
+        events_late_arrival_max_delay_in_seconds=__ret__.get('eventsLateArrivalMaxDelayInSeconds'),
+        events_out_of_order_max_delay_in_seconds=__ret__.get('eventsOutOfOrderMaxDelayInSeconds'),
+        events_out_of_order_policy=__ret__.get('eventsOutOfOrderPolicy'),
+        functions=__ret__.get('functions'),
+        inputs=__ret__.get('inputs'),
+        job_id=__ret__.get('jobId'),
+        job_state=__ret__.get('jobState'),
+        last_output_event_time=__ret__.get('lastOutputEventTime'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        output_error_policy=__ret__.get('outputErrorPolicy'),
+        output_start_mode=__ret__.get('outputStartMode'),
+        output_start_time=__ret__.get('outputStartTime'),
+        outputs=__ret__.get('outputs'),
+        provisioning_state=__ret__.get('provisioningState'),
+        sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
+        transformation=__ret__.get('transformation'),
         type=__ret__.get('type'))

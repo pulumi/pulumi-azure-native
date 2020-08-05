@@ -10,9 +10,42 @@ from ... import _utilities, _tables
 
 
 class VpnSite(pulumi.CustomResource):
+    address_space: pulumi.Output[dict]
+    """
+    The AddressSpace that contains an array of IP address ranges.
+      * `address_prefixes` (`list`) - A list of address blocks reserved for this virtual network in CIDR notation.
+    """
+    bgp_properties: pulumi.Output[dict]
+    """
+    The set of bgp properties.
+      * `asn` (`float`) - The BGP speaker's ASN.
+      * `bgp_peering_address` (`str`) - The BGP peering address and BGP identifier of this BGP speaker.
+      * `bgp_peering_addresses` (`list`) - BGP peering address with IP configuration ID for virtual network gateway.
+        * `custom_bgp_ip_addresses` (`list`) - The list of custom BGP peering addresses which belong to IP configuration.
+        * `default_bgp_ip_addresses` (`list`) - The list of default BGP peering addresses which belong to IP configuration.
+        * `ipconfiguration_id` (`str`) - The ID of IP configuration which belongs to gateway.
+        * `tunnel_ip_addresses` (`list`) - The list of tunnel public IP addresses which belong to IP configuration.
+
+      * `peer_weight` (`float`) - The weight added to routes learned from this BGP speaker.
+    """
+    device_properties: pulumi.Output[dict]
+    """
+    The device properties.
+      * `device_model` (`str`) - Model of the device.
+      * `device_vendor` (`str`) - Name of the device Vendor.
+      * `link_speed_in_mbps` (`float`) - Link speed.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    ip_address: pulumi.Output[str]
+    """
+    The ip-address for the vpn-site.
+    """
+    is_security_site: pulumi.Output[bool]
+    """
+    IsSecuritySite flag.
     """
     location: pulumi.Output[str]
     """
@@ -22,53 +55,13 @@ class VpnSite(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the VPN site.
-      * `address_space` (`dict`) - The AddressSpace that contains an array of IP address ranges.
-        * `address_prefixes` (`list`) - A list of address blocks reserved for this virtual network in CIDR notation.
-
-      * `bgp_properties` (`dict`) - The set of bgp properties.
-        * `asn` (`float`) - The BGP speaker's ASN.
-        * `bgp_peering_address` (`str`) - The BGP peering address and BGP identifier of this BGP speaker.
-        * `bgp_peering_addresses` (`list`) - BGP peering address with IP configuration ID for virtual network gateway.
-          * `custom_bgp_ip_addresses` (`list`) - The list of custom BGP peering addresses which belong to IP configuration.
-          * `default_bgp_ip_addresses` (`list`) - The list of default BGP peering addresses which belong to IP configuration.
-          * `ipconfiguration_id` (`str`) - The ID of IP configuration which belongs to gateway.
-          * `tunnel_ip_addresses` (`list`) - The list of tunnel public IP addresses which belong to IP configuration.
-
-        * `peer_weight` (`float`) - The weight added to routes learned from this BGP speaker.
-
-      * `device_properties` (`dict`) - The device properties.
-        * `device_model` (`str`) - Model of the device.
-        * `device_vendor` (`str`) - Name of the device Vendor.
-        * `link_speed_in_mbps` (`float`) - Link speed.
-
-      * `ip_address` (`str`) - The ip-address for the vpn-site.
-      * `is_security_site` (`bool`) - IsSecuritySite flag.
-      * `provisioning_state` (`str`) - The provisioning state of the VPN site resource.
-      * `site_key` (`str`) - The key for vpn-site that can be used for connections.
-      * `virtual_wan` (`dict`) - The VirtualWAN to which the vpnSite belongs.
-        * `id` (`str`) - Resource ID.
-
-      * `vpn_site_links` (`list`) - List of all vpn site links.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of the VPN site link.
-          * `bgp_properties` (`dict`) - The set of bgp properties.
-            * `asn` (`float`) - The BGP speaker's ASN.
-            * `bgp_peering_address` (`str`) - The BGP peering address and BGP identifier of this BGP speaker.
-
-          * `fqdn` (`str`) - FQDN of vpn-site-link.
-          * `ip_address` (`str`) - The ip-address for the vpn-site-link.
-          * `link_properties` (`dict`) - The link provider properties.
-            * `link_provider_name` (`str`) - Name of the link provider.
-            * `link_speed_in_mbps` (`float`) - Link speed.
-
-          * `provisioning_state` (`str`) - The provisioning state of the VPN site link resource.
-
-        * `type` (`str`) - Resource type.
+    The provisioning state of the VPN site resource.
+    """
+    site_key: pulumi.Output[str]
+    """
+    The key for vpn-site that can be used for connections.
     """
     tags: pulumi.Output[dict]
     """
@@ -77,6 +70,30 @@ class VpnSite(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    virtual_wan: pulumi.Output[dict]
+    """
+    The VirtualWAN to which the vpnSite belongs.
+      * `id` (`str`) - Resource ID.
+    """
+    vpn_site_links: pulumi.Output[list]
+    """
+    List of all vpn site links.
+      * `bgp_properties` (`dict`) - The set of bgp properties.
+        * `asn` (`float`) - The BGP speaker's ASN.
+        * `bgp_peering_address` (`str`) - The BGP peering address and BGP identifier of this BGP speaker.
+
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `fqdn` (`str`) - FQDN of vpn-site-link.
+      * `id` (`str`) - Resource ID.
+      * `ip_address` (`str`) - The ip-address for the vpn-site-link.
+      * `link_properties` (`dict`) - The link provider properties.
+        * `link_provider_name` (`str`) - Name of the link provider.
+        * `link_speed_in_mbps` (`float`) - Link speed.
+
+      * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `provisioning_state` (`str`) - The provisioning state of the VPN site link resource.
+      * `type` (`str`) - Resource type.
     """
     def __init__(__self__, resource_name, opts=None, address_space=None, bgp_properties=None, device_properties=None, id=None, ip_address=None, is_security_site=None, location=None, name=None, resource_group_name=None, site_key=None, tags=None, virtual_wan=None, vpn_site_links=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -174,7 +191,7 @@ class VpnSite(pulumi.CustomResource):
             __props__['virtual_wan'] = virtual_wan
             __props__['vpn_site_links'] = vpn_site_links
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(VpnSite, __self__).__init__(
             'azurerm:network/v20200501:VpnSite',

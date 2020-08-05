@@ -10,30 +10,65 @@ from ... import _utilities, _tables
 
 
 class WebAppFunction(pulumi.CustomResource):
+    config: pulumi.Output[dict]
+    """
+    Config information.
+    """
+    config_href: pulumi.Output[str]
+    """
+    Config URI.
+    """
+    files: pulumi.Output[dict]
+    """
+    File list.
+    """
+    function_app_id: pulumi.Output[str]
+    """
+    Function App ID.
+    """
+    href: pulumi.Output[str]
+    """
+    Function URI.
+    """
+    invoke_url_template: pulumi.Output[str]
+    """
+    The invocation URL
+    """
+    is_disabled: pulumi.Output[bool]
+    """
+    Gets or sets a value indicating whether the function is disabled
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
+    """
+    language: pulumi.Output[str]
+    """
+    The function language
     """
     name: pulumi.Output[str]
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    script_href: pulumi.Output[str]
     """
-    FunctionEnvelope resource specific properties
-      * `config` (`dict`) - Config information.
-      * `config_href` (`str`) - Config URI.
-      * `files` (`dict`) - File list.
-      * `function_app_id` (`str`) - Function App ID.
-      * `href` (`str`) - Function URI.
-      * `invoke_url_template` (`str`) - The invocation URL
-      * `is_disabled` (`bool`) - Gets or sets a value indicating whether the function is disabled
-      * `language` (`str`) - The function language
-      * `script_href` (`str`) - Script URI.
-      * `script_root_path_href` (`str`) - Script root path URI.
-      * `secrets_file_href` (`str`) - Secrets file URI.
-      * `test_data` (`str`) - Test data used when testing via the Azure Portal.
-      * `test_data_href` (`str`) - Test data URI.
+    Script URI.
+    """
+    script_root_path_href: pulumi.Output[str]
+    """
+    Script root path URI.
+    """
+    secrets_file_href: pulumi.Output[str]
+    """
+    Secrets file URI.
+    """
+    test_data: pulumi.Output[str]
+    """
+    Test data used when testing via the Azure Portal.
+    """
+    test_data_href: pulumi.Output[str]
+    """
+    Test data URI.
     """
     type: pulumi.Output[str]
     """
@@ -99,7 +134,6 @@ class WebAppFunction(pulumi.CustomResource):
             __props__['secrets_file_href'] = secrets_file_href
             __props__['test_data'] = test_data
             __props__['test_data_href'] = test_data_href
-            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppFunction, __self__).__init__(
             'azurerm:web/v20190801:WebAppFunction',

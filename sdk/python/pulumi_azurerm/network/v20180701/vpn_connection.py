@@ -10,38 +10,62 @@ from ... import _utilities, _tables
 
 
 class VpnConnection(pulumi.CustomResource):
+    connection_bandwidth_in_mbps: pulumi.Output[float]
+    """
+    Expected bandwidth in MBPS.
+    """
+    connection_status: pulumi.Output[str]
+    """
+    The connection status.
+    """
+    egress_bytes_transferred: pulumi.Output[float]
+    """
+    Egress bytes transferred.
+    """
+    enable_bgp: pulumi.Output[bool]
+    """
+    EnableBgp flag
+    """
     etag: pulumi.Output[str]
     """
     Gets a unique read-only string that changes whenever the resource is updated.
+    """
+    ingress_bytes_transferred: pulumi.Output[float]
+    """
+    Ingress bytes transferred.
+    """
+    ipsec_policies: pulumi.Output[list]
+    """
+    The IPSec Policies to be considered by this connection.
+      * `dh_group` (`str`) - The DH Groups used in IKE Phase 1 for initial SA.
+      * `ike_encryption` (`str`) - The IKE encryption algorithm (IKE phase 2).
+      * `ike_integrity` (`str`) - The IKE integrity algorithm (IKE phase 2).
+      * `ipsec_encryption` (`str`) - The IPSec encryption algorithm (IKE phase 1).
+      * `ipsec_integrity` (`str`) - The IPSec integrity algorithm (IKE phase 1).
+      * `pfs_group` (`str`) - The Pfs Groups used in IKE Phase 2 for new child SA.
+      * `sa_data_size_kilobytes` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
+      * `sa_life_time_seconds` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
     """
     name: pulumi.Output[str]
     """
     The name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Parameters for VpnConnection
-      * `connection_bandwidth_in_mbps` (`float`) - Expected bandwidth in MBPS.
-      * `connection_status` (`str`) - The connection status.
-      * `egress_bytes_transferred` (`float`) - Egress bytes transferred.
-      * `enable_bgp` (`bool`) - EnableBgp flag
-      * `ingress_bytes_transferred` (`float`) - Ingress bytes transferred.
-      * `ipsec_policies` (`list`) - The IPSec Policies to be considered by this connection.
-        * `dh_group` (`str`) - The DH Groups used in IKE Phase 1 for initial SA.
-        * `ike_encryption` (`str`) - The IKE encryption algorithm (IKE phase 2).
-        * `ike_integrity` (`str`) - The IKE integrity algorithm (IKE phase 2).
-        * `ipsec_encryption` (`str`) - The IPSec encryption algorithm (IKE phase 1).
-        * `ipsec_integrity` (`str`) - The IPSec integrity algorithm (IKE phase 1).
-        * `pfs_group` (`str`) - The Pfs Groups used in IKE Phase 2 for new child SA.
-        * `sa_data_size_kilobytes` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
-        * `sa_life_time_seconds` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
-
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
-      * `remote_vpn_site` (`dict`) - Id of the connected vpn site.
-        * `id` (`str`) - Resource ID.
-
-      * `routing_weight` (`float`) - routing weight for vpn connection.
-      * `shared_key` (`str`) - SharedKey for the vpn connection.
+    The provisioning state of the resource.
+    """
+    remote_vpn_site: pulumi.Output[dict]
+    """
+    Id of the connected vpn site.
+      * `id` (`str`) - Resource ID.
+    """
+    routing_weight: pulumi.Output[float]
+    """
+    routing weight for vpn connection.
+    """
+    shared_key: pulumi.Output[str]
+    """
+    SharedKey for the vpn connection.
     """
     def __init__(__self__, resource_name, opts=None, connection_status=None, enable_bgp=None, gateway_name=None, id=None, ipsec_policies=None, name=None, provisioning_state=None, remote_vpn_site=None, resource_group_name=None, routing_weight=None, shared_key=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -110,8 +134,10 @@ class VpnConnection(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['routing_weight'] = routing_weight
             __props__['shared_key'] = shared_key
+            __props__['connection_bandwidth_in_mbps'] = None
+            __props__['egress_bytes_transferred'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['ingress_bytes_transferred'] = None
         super(VpnConnection, __self__).__init__(
             'azurerm:network/v20180701:VpnConnection',
             resource_name,

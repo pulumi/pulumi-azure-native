@@ -13,12 +13,60 @@ class GetContainerGroupResult:
     """
     A container group.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, containers=None, diagnostics=None, dns_config=None, encryption_properties=None, identity=None, image_registry_credentials=None, init_containers=None, instance_view=None, ip_address=None, location=None, name=None, network_profile=None, os_type=None, provisioning_state=None, restart_policy=None, sku=None, tags=None, type=None, volumes=None):
+        if containers and not isinstance(containers, list):
+            raise TypeError("Expected argument 'containers' to be a list")
+        __self__.containers = containers
+        """
+        The containers within the container group.
+        """
+        if diagnostics and not isinstance(diagnostics, dict):
+            raise TypeError("Expected argument 'diagnostics' to be a dict")
+        __self__.diagnostics = diagnostics
+        """
+        The diagnostic information for a container group.
+        """
+        if dns_config and not isinstance(dns_config, dict):
+            raise TypeError("Expected argument 'dns_config' to be a dict")
+        __self__.dns_config = dns_config
+        """
+        The DNS config information for a container group.
+        """
+        if encryption_properties and not isinstance(encryption_properties, dict):
+            raise TypeError("Expected argument 'encryption_properties' to be a dict")
+        __self__.encryption_properties = encryption_properties
+        """
+        The encryption properties for a container group.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
         """
         The identity of the container group, if configured.
+        """
+        if image_registry_credentials and not isinstance(image_registry_credentials, list):
+            raise TypeError("Expected argument 'image_registry_credentials' to be a list")
+        __self__.image_registry_credentials = image_registry_credentials
+        """
+        The image registry credentials by which the container group is created from.
+        """
+        if init_containers and not isinstance(init_containers, list):
+            raise TypeError("Expected argument 'init_containers' to be a list")
+        __self__.init_containers = init_containers
+        """
+        The init containers for a container group.
+        """
+        if instance_view and not isinstance(instance_view, dict):
+            raise TypeError("Expected argument 'instance_view' to be a dict")
+        __self__.instance_view = instance_view
+        """
+        The instance view of the container group. Only valid in response.
+        """
+        if ip_address and not isinstance(ip_address, dict):
+            raise TypeError("Expected argument 'ip_address' to be a dict")
+        __self__.ip_address = ip_address
+        """
+        The IP address type of the container group.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +80,38 @@ class GetContainerGroupResult:
         """
         The resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_profile and not isinstance(network_profile, dict):
+            raise TypeError("Expected argument 'network_profile' to be a dict")
+        __self__.network_profile = network_profile
         """
-        The container group properties
+        The network profile information for a container group.
+        """
+        if os_type and not isinstance(os_type, str):
+            raise TypeError("Expected argument 'os_type' to be a str")
+        __self__.os_type = os_type
+        """
+        The operating system type required by the containers in the container group.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the container group. This only appears in the response.
+        """
+        if restart_policy and not isinstance(restart_policy, str):
+            raise TypeError("Expected argument 'restart_policy' to be a str")
+        __self__.restart_policy = restart_policy
+        """
+        Restart policy for all containers within the container group. 
+        - `Always` Always restart
+        - `OnFailure` Restart on failure
+        - `Never` Never restart
+        """
+        if sku and not isinstance(sku, str):
+            raise TypeError("Expected argument 'sku' to be a str")
+        __self__.sku = sku
+        """
+        The SKU for a container group.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +125,12 @@ class GetContainerGroupResult:
         """
         The resource type.
         """
+        if volumes and not isinstance(volumes, list):
+            raise TypeError("Expected argument 'volumes' to be a list")
+        __self__.volumes = volumes
+        """
+        The list of volumes that can be mounted by containers in this container group.
+        """
 
 
 class AwaitableGetContainerGroupResult(GetContainerGroupResult):
@@ -58,12 +139,25 @@ class AwaitableGetContainerGroupResult(GetContainerGroupResult):
         if False:
             yield self
         return GetContainerGroupResult(
+            containers=self.containers,
+            diagnostics=self.diagnostics,
+            dns_config=self.dns_config,
+            encryption_properties=self.encryption_properties,
             identity=self.identity,
+            image_registry_credentials=self.image_registry_credentials,
+            init_containers=self.init_containers,
+            instance_view=self.instance_view,
+            ip_address=self.ip_address,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            network_profile=self.network_profile,
+            os_type=self.os_type,
+            provisioning_state=self.provisioning_state,
+            restart_policy=self.restart_policy,
+            sku=self.sku,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            volumes=self.volumes)
 
 
 def get_container_group(name=None, resource_group_name=None, opts=None):
@@ -83,9 +177,22 @@ def get_container_group(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:containerinstance/v20191201:getContainerGroup', __args__, opts=opts).value
 
     return AwaitableGetContainerGroupResult(
+        containers=__ret__.get('containers'),
+        diagnostics=__ret__.get('diagnostics'),
+        dns_config=__ret__.get('dnsConfig'),
+        encryption_properties=__ret__.get('encryptionProperties'),
         identity=__ret__.get('identity'),
+        image_registry_credentials=__ret__.get('imageRegistryCredentials'),
+        init_containers=__ret__.get('initContainers'),
+        instance_view=__ret__.get('instanceView'),
+        ip_address=__ret__.get('ipAddress'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_profile=__ret__.get('networkProfile'),
+        os_type=__ret__.get('osType'),
+        provisioning_state=__ret__.get('provisioningState'),
+        restart_policy=__ret__.get('restartPolicy'),
+        sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        volumes=__ret__.get('volumes'))

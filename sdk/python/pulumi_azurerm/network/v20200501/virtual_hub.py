@@ -10,9 +10,33 @@ from ... import _utilities, _tables
 
 
 class VirtualHub(pulumi.CustomResource):
+    address_prefix: pulumi.Output[str]
+    """
+    Address-prefix for this VirtualHub.
+    """
+    azure_firewall: pulumi.Output[dict]
+    """
+    The azureFirewall associated with this VirtualHub.
+      * `id` (`str`) - Resource ID.
+    """
+    bgp_connections: pulumi.Output[list]
+    """
+    List of references to Bgp Connections.
+      * `id` (`str`) - Resource ID.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    express_route_gateway: pulumi.Output[dict]
+    """
+    The expressRouteGateway associated with this VirtualHub.
+      * `id` (`str`) - Resource ID.
+    """
+    ip_configurations: pulumi.Output[list]
+    """
+    List of references to IpConfigurations.
+      * `id` (`str`) - Resource ID.
     """
     location: pulumi.Output[str]
     """
@@ -22,44 +46,38 @@ class VirtualHub(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    p2_s_vpn_gateway: pulumi.Output[dict]
     """
-    Properties of the virtual hub.
-      * `address_prefix` (`str`) - Address-prefix for this VirtualHub.
-      * `azure_firewall` (`dict`) - The azureFirewall associated with this VirtualHub.
-        * `id` (`str`) - Resource ID.
-
-      * `bgp_connections` (`list`) - List of references to Bgp Connections.
-      * `express_route_gateway` (`dict`) - The expressRouteGateway associated with this VirtualHub.
-      * `ip_configurations` (`list`) - List of references to IpConfigurations.
-      * `p2_s_vpn_gateway` (`dict`) - The P2SVpnGateway associated with this VirtualHub.
-      * `provisioning_state` (`str`) - The provisioning state of the virtual hub resource.
-      * `route_table` (`dict`) - The routeTable associated with this virtual hub.
-        * `routes` (`list`) - List of all routes.
-          * `address_prefixes` (`list`) - List of all addressPrefixes.
-          * `next_hop_ip_address` (`str`) - NextHop ip address.
-
-      * `routing_state` (`str`) - The routing state.
-      * `security_partner_provider` (`dict`) - The securityPartnerProvider associated with this VirtualHub.
-      * `security_provider_name` (`str`) - The Security Provider name.
-      * `sku` (`str`) - The sku of this VirtualHub.
-      * `virtual_hub_route_table_v2s` (`list`) - List of all virtual hub route table v2s associated with this VirtualHub.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of the virtual hub route table v2.
-          * `attached_connections` (`list`) - List of all connections attached to this route table v2.
-          * `provisioning_state` (`str`) - The provisioning state of the virtual hub route table v2 resource.
-          * `routes` (`list`) - List of all routes.
-            * `destination_type` (`str`) - The type of destinations.
-            * `destinations` (`list`) - List of all destinations.
-            * `next_hop_type` (`str`) - The type of next hops.
-            * `next_hops` (`list`) - NextHops ip address.
-
-      * `virtual_router_asn` (`float`) - VirtualRouter ASN.
-      * `virtual_router_ips` (`list`) - VirtualRouter IPs.
-      * `virtual_wan` (`dict`) - The VirtualWAN to which the VirtualHub belongs.
-      * `vpn_gateway` (`dict`) - The VpnGateway associated with this VirtualHub.
+    The P2SVpnGateway associated with this VirtualHub.
+      * `id` (`str`) - Resource ID.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the virtual hub resource.
+    """
+    route_table: pulumi.Output[dict]
+    """
+    The routeTable associated with this virtual hub.
+      * `routes` (`list`) - List of all routes.
+        * `address_prefixes` (`list`) - List of all addressPrefixes.
+        * `next_hop_ip_address` (`str`) - NextHop ip address.
+    """
+    routing_state: pulumi.Output[str]
+    """
+    The routing state.
+    """
+    security_partner_provider: pulumi.Output[dict]
+    """
+    The securityPartnerProvider associated with this VirtualHub.
+      * `id` (`str`) - Resource ID.
+    """
+    security_provider_name: pulumi.Output[str]
+    """
+    The Security Provider name.
+    """
+    sku: pulumi.Output[str]
+    """
+    The sku of this VirtualHub.
     """
     tags: pulumi.Output[dict]
     """
@@ -68,6 +86,38 @@ class VirtualHub(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    virtual_hub_route_table_v2s: pulumi.Output[list]
+    """
+    List of all virtual hub route table v2s associated with this VirtualHub.
+      * `attached_connections` (`list`) - List of all connections attached to this route table v2.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `provisioning_state` (`str`) - The provisioning state of the virtual hub route table v2 resource.
+      * `routes` (`list`) - List of all routes.
+        * `destination_type` (`str`) - The type of destinations.
+        * `destinations` (`list`) - List of all destinations.
+        * `next_hop_type` (`str`) - The type of next hops.
+        * `next_hops` (`list`) - NextHops ip address.
+    """
+    virtual_router_asn: pulumi.Output[float]
+    """
+    VirtualRouter ASN.
+    """
+    virtual_router_ips: pulumi.Output[list]
+    """
+    VirtualRouter IPs.
+    """
+    virtual_wan: pulumi.Output[dict]
+    """
+    The VirtualWAN to which the VirtualHub belongs.
+      * `id` (`str`) - Resource ID.
+    """
+    vpn_gateway: pulumi.Output[dict]
+    """
+    The VpnGateway associated with this VirtualHub.
+      * `id` (`str`) - Resource ID.
     """
     def __init__(__self__, resource_name, opts=None, address_prefix=None, azure_firewall=None, express_route_gateway=None, id=None, location=None, name=None, p2_s_vpn_gateway=None, resource_group_name=None, route_table=None, routing_state=None, security_partner_provider=None, security_provider_name=None, sku=None, tags=None, virtual_hub_route_table_v2s=None, virtual_router_asn=None, virtual_router_ips=None, virtual_wan=None, vpn_gateway=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -158,8 +208,10 @@ class VirtualHub(pulumi.CustomResource):
             __props__['virtual_router_ips'] = virtual_router_ips
             __props__['virtual_wan'] = virtual_wan
             __props__['vpn_gateway'] = vpn_gateway
+            __props__['bgp_connections'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['ip_configurations'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(VirtualHub, __self__).__init__(
             'azurerm:network/v20200501:VirtualHub',

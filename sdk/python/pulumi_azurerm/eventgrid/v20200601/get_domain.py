@@ -13,12 +13,42 @@ class GetDomainResult:
     """
     EventGrid Domain.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, endpoint=None, inbound_ip_rules=None, input_schema=None, input_schema_mapping=None, location=None, metric_resource_id=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError("Expected argument 'endpoint' to be a str")
+        __self__.endpoint = endpoint
+        """
+        Endpoint for the domain.
+        """
+        if inbound_ip_rules and not isinstance(inbound_ip_rules, list):
+            raise TypeError("Expected argument 'inbound_ip_rules' to be a list")
+        __self__.inbound_ip_rules = inbound_ip_rules
+        """
+        This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
+        """
+        if input_schema and not isinstance(input_schema, str):
+            raise TypeError("Expected argument 'input_schema' to be a str")
+        __self__.input_schema = input_schema
+        """
+        This determines the format that Event Grid should expect for incoming events published to the domain.
+        """
+        if input_schema_mapping and not isinstance(input_schema_mapping, dict):
+            raise TypeError("Expected argument 'input_schema_mapping' to be a dict")
+        __self__.input_schema_mapping = input_schema_mapping
+        """
+        Information about the InputSchemaMapping which specified the info about mapping event payload.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Location of the resource.
+        """
+        if metric_resource_id and not isinstance(metric_resource_id, str):
+            raise TypeError("Expected argument 'metric_resource_id' to be a str")
+        __self__.metric_resource_id = metric_resource_id
+        """
+        Metric resource id for the domain.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +56,24 @@ class GetDomainResult:
         """
         Name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        __self__.private_endpoint_connections = private_endpoint_connections
         """
-        Properties of the domain.
+        List of private endpoint connections.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state of the domain.
+        """
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        __self__.public_network_access = public_network_access
+        """
+        This determines if traffic is allowed over public network. By default it is enabled. 
+        You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +95,16 @@ class AwaitableGetDomainResult(GetDomainResult):
         if False:
             yield self
         return GetDomainResult(
+            endpoint=self.endpoint,
+            inbound_ip_rules=self.inbound_ip_rules,
+            input_schema=self.input_schema,
+            input_schema_mapping=self.input_schema_mapping,
             location=self.location,
+            metric_resource_id=self.metric_resource_id,
             name=self.name,
-            properties=self.properties,
+            private_endpoint_connections=self.private_endpoint_connections,
+            provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +126,15 @@ def get_domain(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:eventgrid/v20200601:getDomain', __args__, opts=opts).value
 
     return AwaitableGetDomainResult(
+        endpoint=__ret__.get('endpoint'),
+        inbound_ip_rules=__ret__.get('inboundIpRules'),
+        input_schema=__ret__.get('inputSchema'),
+        input_schema_mapping=__ret__.get('inputSchemaMapping'),
         location=__ret__.get('location'),
+        metric_resource_id=__ret__.get('metricResourceId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        private_endpoint_connections=__ret__.get('privateEndpointConnections'),
+        provisioning_state=__ret__.get('provisioningState'),
+        public_network_access=__ret__.get('publicNetworkAccess'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

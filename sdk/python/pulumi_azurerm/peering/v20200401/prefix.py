@@ -10,26 +10,42 @@ from ... import _utilities, _tables
 
 
 class Prefix(pulumi.CustomResource):
+    error_message: pulumi.Output[str]
+    """
+    The error message for validation state
+    """
+    events: pulumi.Output[list]
+    """
+    The list of events for peering service prefix
+      * `event_description` (`str`) - The description of the event associated with a prefix.
+      * `event_level` (`str`) - The level of the event associated with a prefix.
+      * `event_summary` (`str`) - The summary of the event associated with a prefix.
+      * `event_timestamp` (`str`) - The timestamp of the event associated with a prefix.
+      * `event_type` (`str`) - The type of the event associated with a prefix.
+    """
+    learned_type: pulumi.Output[str]
+    """
+    The prefix learned type
+    """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    peering_service_prefix_key: pulumi.Output[str]
     """
-    Gets or sets the peering prefix properties.
-      * `error_message` (`str`) - The error message for validation state
-      * `events` (`list`) - The list of events for peering service prefix
-        * `event_description` (`str`) - The description of the event associated with a prefix.
-        * `event_level` (`str`) - The level of the event associated with a prefix.
-        * `event_summary` (`str`) - The summary of the event associated with a prefix.
-        * `event_timestamp` (`str`) - The timestamp of the event associated with a prefix.
-        * `event_type` (`str`) - The type of the event associated with a prefix.
-
-      * `learned_type` (`str`) - The prefix learned type
-      * `peering_service_prefix_key` (`str`) - The peering service prefix key
-      * `prefix` (`str`) - The prefix from which your traffic originates.
-      * `prefix_validation_state` (`str`) - The prefix validation state
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
+    The peering service prefix key
+    """
+    prefix: pulumi.Output[str]
+    """
+    The prefix from which your traffic originates.
+    """
+    prefix_validation_state: pulumi.Output[str]
+    """
+    The prefix validation state
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the resource.
     """
     type: pulumi.Output[str]
     """
@@ -75,7 +91,11 @@ class Prefix(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['error_message'] = None
+            __props__['events'] = None
+            __props__['learned_type'] = None
+            __props__['prefix_validation_state'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Prefix, __self__).__init__(
             'azurerm:peering/v20200401:Prefix',

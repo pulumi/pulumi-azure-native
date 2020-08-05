@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class SiteRelayServiceConnection(pulumi.CustomResource):
+    biztalk_uri: pulumi.Output[str]
+    entity_connection_string: pulumi.Output[str]
+    entity_name: pulumi.Output[str]
+    hostname: pulumi.Output[str]
     kind: pulumi.Output[str]
     """
     Kind of resource
@@ -22,7 +26,9 @@ class SiteRelayServiceConnection(pulumi.CustomResource):
     """
     Resource Name
     """
-    properties: pulumi.Output[dict]
+    port: pulumi.Output[float]
+    resource_connection_string: pulumi.Output[str]
+    resource_type: pulumi.Output[str]
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -80,7 +86,7 @@ class SiteRelayServiceConnection(pulumi.CustomResource):
             __props__['resource_type'] = resource_type
             __props__['tags'] = tags
             __props__['type'] = type
-            __props__['properties'] = None
+            __props__['entity_name'] = None
         super(SiteRelayServiceConnection, __self__).__init__(
             'azurerm:web/v20150801:SiteRelayServiceConnection',
             resource_name,

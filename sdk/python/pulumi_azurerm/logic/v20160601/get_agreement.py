@@ -13,24 +13,72 @@ class GetAgreementResult:
     """
     The integration account agreement.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, agreement_type=None, changed_time=None, content=None, created_time=None, guest_identity=None, guest_partner=None, host_identity=None, host_partner=None, location=None, metadata=None, name=None, tags=None, type=None):
+        if agreement_type and not isinstance(agreement_type, str):
+            raise TypeError("Expected argument 'agreement_type' to be a str")
+        __self__.agreement_type = agreement_type
+        """
+        The agreement type.
+        """
+        if changed_time and not isinstance(changed_time, str):
+            raise TypeError("Expected argument 'changed_time' to be a str")
+        __self__.changed_time = changed_time
+        """
+        The changed time.
+        """
+        if content and not isinstance(content, dict):
+            raise TypeError("Expected argument 'content' to be a dict")
+        __self__.content = content
+        """
+        The agreement content.
+        """
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        __self__.created_time = created_time
+        """
+        The created time.
+        """
+        if guest_identity and not isinstance(guest_identity, dict):
+            raise TypeError("Expected argument 'guest_identity' to be a dict")
+        __self__.guest_identity = guest_identity
+        """
+        The business identity of the guest partner.
+        """
+        if guest_partner and not isinstance(guest_partner, str):
+            raise TypeError("Expected argument 'guest_partner' to be a str")
+        __self__.guest_partner = guest_partner
+        """
+        The integration account partner that is set as guest partner for this agreement.
+        """
+        if host_identity and not isinstance(host_identity, dict):
+            raise TypeError("Expected argument 'host_identity' to be a dict")
+        __self__.host_identity = host_identity
+        """
+        The business identity of the host partner.
+        """
+        if host_partner and not isinstance(host_partner, str):
+            raise TypeError("Expected argument 'host_partner' to be a str")
+        __self__.host_partner = host_partner
+        """
+        The integration account partner that is set as host partner for this agreement.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The resource location.
         """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        The metadata.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Gets the resource name.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        The integration account agreement properties.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +100,17 @@ class AwaitableGetAgreementResult(GetAgreementResult):
         if False:
             yield self
         return GetAgreementResult(
+            agreement_type=self.agreement_type,
+            changed_time=self.changed_time,
+            content=self.content,
+            created_time=self.created_time,
+            guest_identity=self.guest_identity,
+            guest_partner=self.guest_partner,
+            host_identity=self.host_identity,
+            host_partner=self.host_partner,
             location=self.location,
+            metadata=self.metadata,
             name=self.name,
-            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +134,16 @@ def get_agreement(integration_account_name=None, name=None, resource_group_name=
     __ret__ = pulumi.runtime.invoke('azurerm:logic/v20160601:getAgreement', __args__, opts=opts).value
 
     return AwaitableGetAgreementResult(
+        agreement_type=__ret__.get('agreementType'),
+        changed_time=__ret__.get('changedTime'),
+        content=__ret__.get('content'),
+        created_time=__ret__.get('createdTime'),
+        guest_identity=__ret__.get('guestIdentity'),
+        guest_partner=__ret__.get('guestPartner'),
+        host_identity=__ret__.get('hostIdentity'),
+        host_partner=__ret__.get('hostPartner'),
         location=__ret__.get('location'),
+        metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

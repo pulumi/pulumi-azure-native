@@ -10,15 +10,17 @@ from ... import _utilities, _tables
 
 
 class Database(pulumi.CustomResource):
+    charset: pulumi.Output[str]
+    """
+    The charset of the database.
+    """
+    collation: pulumi.Output[str]
+    """
+    The collation of the database.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
-    """
-    properties: pulumi.Output[dict]
-    """
-    The properties of a database.
-      * `charset` (`str`) - The charset of the database.
-      * `collation` (`str`) - The collation of the database.
     """
     type: pulumi.Output[str]
     """
@@ -64,7 +66,6 @@ class Database(pulumi.CustomResource):
             if server_name is None:
                 raise TypeError("Missing required property 'server_name'")
             __props__['server_name'] = server_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(Database, __self__).__init__(
             'azurerm:dbformariadb/v20180601:Database',

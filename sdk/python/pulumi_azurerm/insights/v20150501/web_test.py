@@ -10,6 +10,40 @@ from ... import _utilities, _tables
 
 
 class WebTest(pulumi.CustomResource):
+    configuration: pulumi.Output[dict]
+    """
+    An XML configuration specification for a WebTest.
+      * `web_test` (`str`) - The XML specification of a WebTest to run against an application.
+    """
+    description: pulumi.Output[str]
+    """
+    Purpose/user defined descriptive test for this WebTest.
+    """
+    enabled: pulumi.Output[bool]
+    """
+    Is the test actively being monitored.
+    """
+    frequency: pulumi.Output[float]
+    """
+    Interval in seconds between test runs for this WebTest. Default value is 300.
+    """
+    locations: pulumi.Output[list]
+    """
+    A list of where to physically run the tests from to give global coverage for accessibility of your application.
+      * `location` (`str`) - Location ID for the webtest to run from.
+    """
+    retry_enabled: pulumi.Output[bool]
+    """
+    Allow for retries should this WebTest fail.
+    """
+    synthetic_monitor_id: pulumi.Output[str]
+    """
+    Unique ID of this WebTest. This is typically the same value as the Name field.
+    """
+    timeout: pulumi.Output[float]
+    """
+    Seconds until this WebTest will timeout and fail. Default value is 30.
+    """
     kind: pulumi.Output[str]
     """
     The kind of web test that this web test watches. Choices are ping and multistep.
@@ -22,24 +56,9 @@ class WebTest(pulumi.CustomResource):
     """
     Azure resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Metadata describing a web test for an Azure resource.
-      * `configuration` (`dict`) - An XML configuration specification for a WebTest.
-        * `web_test` (`str`) - The XML specification of a WebTest to run against an application.
-
-      * `description` (`str`) - Purpose/user defined descriptive test for this WebTest.
-      * `enabled` (`bool`) - Is the test actively being monitored.
-      * `frequency` (`float`) - Interval in seconds between test runs for this WebTest. Default value is 300.
-      * `kind` (`str`) - The kind of web test this is, valid choices are ping and multistep.
-      * `locations` (`list`) - A list of where to physically run the tests from to give global coverage for accessibility of your application.
-        * `id` (`str`) - Location ID for the webtest to run from.
-
-      * `name` (`str`) - User defined name if this WebTest.
-      * `retry_enabled` (`bool`) - Allow for retries should this WebTest fail.
-      * `synthetic_monitor_id` (`str`) - Unique ID of this WebTest. This is typically the same value as the Name field.
-      * `timeout` (`float`) - Seconds until this WebTest will timeout and fail. Default value is 30.
-      * `provisioning_state` (`str`) - Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
+    Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
     """
     tags: pulumi.Output[dict]
     """
@@ -48,6 +67,14 @@ class WebTest(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Azure resource type
+    """
+    web_test_kind: pulumi.Output[str]
+    """
+    The kind of web test this is, valid choices are ping and multistep.
+    """
+    web_test_name: pulumi.Output[str]
+    """
+    User defined name if this WebTest.
     """
     def __init__(__self__, resource_name, opts=None, configuration=None, description=None, enabled=None, frequency=None, locations=None, retry_enabled=None, synthetic_monitor_id=None, timeout=None, kind=None, location=None, name=None, resource_group_name=None, tags=None, web_test_kind=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -121,8 +148,9 @@ class WebTest(pulumi.CustomResource):
             if web_test_kind is None:
                 raise TypeError("Missing required property 'web_test_kind'")
             __props__['web_test_kind'] = web_test_kind
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['web_test_name'] = None
         super(WebTest, __self__).__init__(
             'azurerm:insights/v20150501:WebTest',
             resource_name,

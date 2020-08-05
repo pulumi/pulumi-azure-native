@@ -13,12 +13,24 @@ class GetVirtualRouterResult:
     """
     VirtualRouter Resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, hosted_gateway=None, hosted_subnet=None, location=None, name=None, peerings=None, provisioning_state=None, tags=None, type=None, virtual_router_asn=None, virtual_router_ips=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if hosted_gateway and not isinstance(hosted_gateway, dict):
+            raise TypeError("Expected argument 'hosted_gateway' to be a dict")
+        __self__.hosted_gateway = hosted_gateway
+        """
+        The Gateway on which VirtualRouter is hosted.
+        """
+        if hosted_subnet and not isinstance(hosted_subnet, dict):
+            raise TypeError("Expected argument 'hosted_subnet' to be a dict")
+        __self__.hosted_subnet = hosted_subnet
+        """
+        The Subnet on which VirtualRouter is hosted.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +44,17 @@ class GetVirtualRouterResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peerings and not isinstance(peerings, list):
+            raise TypeError("Expected argument 'peerings' to be a list")
+        __self__.peerings = peerings
         """
-        Properties of the Virtual Router.
+        List of references to VirtualRouterPeerings.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +68,18 @@ class GetVirtualRouterResult:
         """
         Resource type.
         """
+        if virtual_router_asn and not isinstance(virtual_router_asn, float):
+            raise TypeError("Expected argument 'virtual_router_asn' to be a float")
+        __self__.virtual_router_asn = virtual_router_asn
+        """
+        VirtualRouter ASN.
+        """
+        if virtual_router_ips and not isinstance(virtual_router_ips, list):
+            raise TypeError("Expected argument 'virtual_router_ips' to be a list")
+        __self__.virtual_router_ips = virtual_router_ips
+        """
+        VirtualRouter IPs.
+        """
 
 
 class AwaitableGetVirtualRouterResult(GetVirtualRouterResult):
@@ -59,11 +89,16 @@ class AwaitableGetVirtualRouterResult(GetVirtualRouterResult):
             yield self
         return GetVirtualRouterResult(
             etag=self.etag,
+            hosted_gateway=self.hosted_gateway,
+            hosted_subnet=self.hosted_subnet,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            peerings=self.peerings,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_router_asn=self.virtual_router_asn,
+            virtual_router_ips=self.virtual_router_ips)
 
 
 def get_virtual_router(name=None, resource_group_name=None, opts=None):
@@ -84,8 +119,13 @@ def get_virtual_router(name=None, resource_group_name=None, opts=None):
 
     return AwaitableGetVirtualRouterResult(
         etag=__ret__.get('etag'),
+        hosted_gateway=__ret__.get('hostedGateway'),
+        hosted_subnet=__ret__.get('hostedSubnet'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        peerings=__ret__.get('peerings'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_router_asn=__ret__.get('virtualRouterAsn'),
+        virtual_router_ips=__ret__.get('virtualRouterIps'))

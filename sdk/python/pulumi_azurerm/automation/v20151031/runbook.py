@@ -10,50 +10,96 @@ from ... import _utilities, _tables
 
 
 class Runbook(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    """
+    Gets or sets the creation time.
+    """
+    description: pulumi.Output[str]
+    """
+    Gets or sets the description.
+    """
+    draft: pulumi.Output[dict]
+    """
+    Gets or sets the draft runbook properties.
+      * `creation_time` (`str`) - Gets or sets the creation time of the runbook draft.
+      * `draft_content_link` (`dict`) - Gets or sets the draft runbook content link.
+        * `content_hash` (`dict`) - Gets or sets the hash.
+          * `algorithm` (`str`) - Gets or sets the content hash algorithm used to hash the content.
+          * `value` (`str`) - Gets or sets expected hash value of the content.
+
+        * `uri` (`str`) - Gets or sets the uri of the runbook content.
+        * `version` (`str`) - Gets or sets the version of the content.
+
+      * `in_edit` (`bool`) - Gets or sets whether runbook is in edit mode.
+      * `last_modified_time` (`str`) - Gets or sets the last modified time of the runbook draft.
+      * `output_types` (`list`) - Gets or sets the runbook output types.
+      * `parameters` (`dict`) - Gets or sets the runbook draft parameters.
+    """
     etag: pulumi.Output[str]
     """
     Gets or sets the etag of the resource.
+    """
+    job_count: pulumi.Output[float]
+    """
+    Gets or sets the job count of the runbook.
+    """
+    last_modified_by: pulumi.Output[str]
+    """
+    Gets or sets the last modified by.
+    """
+    last_modified_time: pulumi.Output[str]
+    """
+    Gets or sets the last modified time.
     """
     location: pulumi.Output[str]
     """
     The Azure Region where the resource lives
     """
+    log_activity_trace: pulumi.Output[float]
+    """
+    Gets or sets the option to log activity trace of the runbook.
+    """
+    log_progress: pulumi.Output[bool]
+    """
+    Gets or sets progress log option.
+    """
+    log_verbose: pulumi.Output[bool]
+    """
+    Gets or sets verbose log option.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    output_types: pulumi.Output[list]
     """
-    Gets or sets the runbook properties.
-      * `creation_time` (`str`) - Gets or sets the creation time.
-      * `description` (`str`) - Gets or sets the description.
-      * `draft` (`dict`) - Gets or sets the draft runbook properties.
-        * `creation_time` (`str`) - Gets or sets the creation time of the runbook draft.
-        * `draft_content_link` (`dict`) - Gets or sets the draft runbook content link.
-          * `content_hash` (`dict`) - Gets or sets the hash.
-            * `algorithm` (`str`) - Gets or sets the content hash algorithm used to hash the content.
-            * `value` (`str`) - Gets or sets expected hash value of the content.
+    Gets or sets the runbook output types.
+    """
+    parameters: pulumi.Output[dict]
+    """
+    Gets or sets the runbook parameters.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Gets or sets the provisioning state of the runbook.
+    """
+    publish_content_link: pulumi.Output[dict]
+    """
+    Gets or sets the published runbook content link.
+      * `content_hash` (`dict`) - Gets or sets the hash.
+        * `algorithm` (`str`) - Gets or sets the content hash algorithm used to hash the content.
+        * `value` (`str`) - Gets or sets expected hash value of the content.
 
-          * `uri` (`str`) - Gets or sets the uri of the runbook content.
-          * `version` (`str`) - Gets or sets the version of the content.
-
-        * `in_edit` (`bool`) - Gets or sets whether runbook is in edit mode.
-        * `last_modified_time` (`str`) - Gets or sets the last modified time of the runbook draft.
-        * `output_types` (`list`) - Gets or sets the runbook output types.
-        * `parameters` (`dict`) - Gets or sets the runbook draft parameters.
-
-      * `job_count` (`float`) - Gets or sets the job count of the runbook.
-      * `last_modified_by` (`str`) - Gets or sets the last modified by.
-      * `last_modified_time` (`str`) - Gets or sets the last modified time.
-      * `log_activity_trace` (`float`) - Gets or sets the option to log activity trace of the runbook.
-      * `log_progress` (`bool`) - Gets or sets progress log option.
-      * `log_verbose` (`bool`) - Gets or sets verbose log option.
-      * `output_types` (`list`) - Gets or sets the runbook output types.
-      * `parameters` (`dict`) - Gets or sets the runbook parameters.
-      * `provisioning_state` (`str`) - Gets or sets the provisioning state of the runbook.
-      * `publish_content_link` (`dict`) - Gets or sets the published runbook content link.
-      * `runbook_type` (`str`) - Gets or sets the type of the runbook.
-      * `state` (`str`) - Gets or sets the state of the runbook.
+      * `uri` (`str`) - Gets or sets the uri of the runbook content.
+      * `version` (`str`) - Gets or sets the version of the content.
+    """
+    runbook_type: pulumi.Output[str]
+    """
+    Gets or sets the type of the runbook.
+    """
+    state: pulumi.Output[str]
+    """
+    Gets or sets the state of the runbook.
     """
     tags: pulumi.Output[dict]
     """
@@ -135,8 +181,15 @@ class Runbook(pulumi.CustomResource):
                 raise TypeError("Missing required property 'runbook_type'")
             __props__['runbook_type'] = runbook_type
             __props__['tags'] = tags
+            __props__['creation_time'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['job_count'] = None
+            __props__['last_modified_by'] = None
+            __props__['last_modified_time'] = None
+            __props__['output_types'] = None
+            __props__['parameters'] = None
+            __props__['provisioning_state'] = None
+            __props__['state'] = None
             __props__['type'] = None
         super(Runbook, __self__).__init__(
             'azurerm:automation/v20151031:Runbook',

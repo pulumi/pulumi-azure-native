@@ -13,18 +13,30 @@ class GetAuthorizationResult:
     """
     ExpressRoute Circuit Authorization
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, express_route_authorization_id=None, express_route_authorization_key=None, name=None, provisioning_state=None, type=None):
+        if express_route_authorization_id and not isinstance(express_route_authorization_id, str):
+            raise TypeError("Expected argument 'express_route_authorization_id' to be a str")
+        __self__.express_route_authorization_id = express_route_authorization_id
+        """
+        The ID of the ExpressRoute Circuit Authorization
+        """
+        if express_route_authorization_key and not isinstance(express_route_authorization_key, str):
+            raise TypeError("Expected argument 'express_route_authorization_key' to be a str")
+        __self__.express_route_authorization_key = express_route_authorization_key
+        """
+        The key of the ExpressRoute Circuit Authorization
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of an ExpressRoute Circuit Authorization resource
+        The state of the  ExpressRoute Circuit Authorization provisioning
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +52,10 @@ class AwaitableGetAuthorizationResult(GetAuthorizationResult):
         if False:
             yield self
         return GetAuthorizationResult(
+            express_route_authorization_id=self.express_route_authorization_id,
+            express_route_authorization_key=self.express_route_authorization_key,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -64,6 +78,8 @@ def get_authorization(name=None, private_cloud_name=None, resource_group_name=No
     __ret__ = pulumi.runtime.invoke('azurerm:avs/v20200320:getAuthorization', __args__, opts=opts).value
 
     return AwaitableGetAuthorizationResult(
+        express_route_authorization_id=__ret__.get('expressRouteAuthorizationId'),
+        express_route_authorization_key=__ret__.get('expressRouteAuthorizationKey'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

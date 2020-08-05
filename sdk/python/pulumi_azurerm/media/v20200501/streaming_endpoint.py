@@ -10,48 +10,90 @@ from ... import _utilities, _tables
 
 
 class StreamingEndpoint(pulumi.CustomResource):
+    access_control: pulumi.Output[dict]
+    """
+    The access control definition of the StreamingEndpoint.
+      * `akamai` (`dict`) - The access control of Akamai
+        * `akamai_signature_header_authentication_key_list` (`list`) - authentication key list
+          * `base64_key` (`str`) - authentication key
+          * `expiration` (`str`) - The expiration time of the authentication key.
+          * `identifier` (`str`) - identifier of the key
+
+      * `ip` (`dict`) - The IP access control of the StreamingEndpoint.
+        * `allow` (`list`) - The IP allow list.
+          * `address` (`str`) - The IP address.
+          * `name` (`str`) - The friendly name for the IP address range.
+          * `subnet_prefix_length` (`float`) - The subnet mask prefix length (see CIDR notation).
+    """
+    availability_set_name: pulumi.Output[str]
+    """
+    The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
+    """
+    cdn_enabled: pulumi.Output[bool]
+    """
+    The CDN enabled flag.
+    """
+    cdn_profile: pulumi.Output[str]
+    """
+    The CDN profile name.
+    """
+    cdn_provider: pulumi.Output[str]
+    """
+    The CDN provider name.
+    """
+    created: pulumi.Output[str]
+    """
+    The exact time the StreamingEndpoint was created.
+    """
+    cross_site_access_policies: pulumi.Output[dict]
+    """
+    The StreamingEndpoint access policies.
+      * `client_access_policy` (`str`) - The content of clientaccesspolicy.xml used by Silverlight.
+      * `cross_domain_policy` (`str`) - The content of crossdomain.xml used by Silverlight.
+    """
+    custom_host_names: pulumi.Output[list]
+    """
+    The custom host names of the StreamingEndpoint
+    """
+    description: pulumi.Output[str]
+    """
+    The StreamingEndpoint description.
+    """
+    free_trial_end_time: pulumi.Output[str]
+    """
+    The free trial expiration time.
+    """
+    host_name: pulumi.Output[str]
+    """
+    The StreamingEndpoint host name.
+    """
+    last_modified: pulumi.Output[str]
+    """
+    The exact time the StreamingEndpoint was last modified.
+    """
     location: pulumi.Output[str]
     """
     The geo-location where the resource lives
+    """
+    max_cache_age: pulumi.Output[float]
+    """
+    Max cache age
     """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The StreamingEndpoint properties.
-      * `access_control` (`dict`) - The access control definition of the StreamingEndpoint.
-        * `akamai` (`dict`) - The access control of Akamai
-          * `akamai_signature_header_authentication_key_list` (`list`) - authentication key list
-            * `base64_key` (`str`) - authentication key
-            * `expiration` (`str`) - The expiration time of the authentication key.
-            * `identifier` (`str`) - identifier of the key
-
-        * `ip` (`dict`) - The IP access control of the StreamingEndpoint.
-          * `allow` (`list`) - The IP allow list.
-            * `address` (`str`) - The IP address.
-            * `name` (`str`) - The friendly name for the IP address range.
-            * `subnet_prefix_length` (`float`) - The subnet mask prefix length (see CIDR notation).
-
-      * `availability_set_name` (`str`) - The name of the AvailabilitySet used with this StreamingEndpoint for high availability streaming.  This value can only be set at creation time.
-      * `cdn_enabled` (`bool`) - The CDN enabled flag.
-      * `cdn_profile` (`str`) - The CDN profile name.
-      * `cdn_provider` (`str`) - The CDN provider name.
-      * `created` (`str`) - The exact time the StreamingEndpoint was created.
-      * `cross_site_access_policies` (`dict`) - The StreamingEndpoint access policies.
-        * `client_access_policy` (`str`) - The content of clientaccesspolicy.xml used by Silverlight.
-        * `cross_domain_policy` (`str`) - The content of crossdomain.xml used by Silverlight.
-
-      * `custom_host_names` (`list`) - The custom host names of the StreamingEndpoint
-      * `description` (`str`) - The StreamingEndpoint description.
-      * `free_trial_end_time` (`str`) - The free trial expiration time.
-      * `host_name` (`str`) - The StreamingEndpoint host name.
-      * `last_modified` (`str`) - The exact time the StreamingEndpoint was last modified.
-      * `max_cache_age` (`float`) - Max cache age
-      * `provisioning_state` (`str`) - The provisioning state of the StreamingEndpoint.
-      * `resource_state` (`str`) - The resource state of the StreamingEndpoint.
-      * `scale_units` (`float`) - The number of scale units.  Use the Scale operation to adjust this value.
+    The provisioning state of the StreamingEndpoint.
+    """
+    resource_state: pulumi.Output[str]
+    """
+    The resource state of the StreamingEndpoint.
+    """
+    scale_units: pulumi.Output[float]
+    """
+    The number of scale units.  Use the Scale operation to adjust this value.
     """
     tags: pulumi.Output[dict]
     """
@@ -146,7 +188,12 @@ class StreamingEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scale_units'")
             __props__['scale_units'] = scale_units
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['created'] = None
+            __props__['free_trial_end_time'] = None
+            __props__['host_name'] = None
+            __props__['last_modified'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_state'] = None
             __props__['type'] = None
         super(StreamingEndpoint, __self__).__init__(
             'azurerm:media/v20200501:StreamingEndpoint',

@@ -13,7 +13,43 @@ class GetAppServicePlanResult:
     """
     App Service plan.
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, free_offer_expiration_time=None, geo_region=None, hosting_environment_profile=None, hyper_v=None, is_spot=None, is_xenon=None, kind=None, location=None, maximum_elastic_worker_count=None, maximum_number_of_workers=None, name=None, number_of_sites=None, per_site_scaling=None, provisioning_state=None, reserved=None, resource_group=None, sku=None, spot_expiration_time=None, status=None, subscription=None, tags=None, target_worker_count=None, target_worker_size_id=None, type=None, worker_tier_name=None):
+        if free_offer_expiration_time and not isinstance(free_offer_expiration_time, str):
+            raise TypeError("Expected argument 'free_offer_expiration_time' to be a str")
+        __self__.free_offer_expiration_time = free_offer_expiration_time
+        """
+        The time when the server farm free offer expires.
+        """
+        if geo_region and not isinstance(geo_region, str):
+            raise TypeError("Expected argument 'geo_region' to be a str")
+        __self__.geo_region = geo_region
+        """
+        Geographical location for the App Service plan.
+        """
+        if hosting_environment_profile and not isinstance(hosting_environment_profile, dict):
+            raise TypeError("Expected argument 'hosting_environment_profile' to be a dict")
+        __self__.hosting_environment_profile = hosting_environment_profile
+        """
+        Specification for the App Service Environment to use for the App Service plan.
+        """
+        if hyper_v and not isinstance(hyper_v, bool):
+            raise TypeError("Expected argument 'hyper_v' to be a bool")
+        __self__.hyper_v = hyper_v
+        """
+        If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
+        """
+        if is_spot and not isinstance(is_spot, bool):
+            raise TypeError("Expected argument 'is_spot' to be a bool")
+        __self__.is_spot = is_spot
+        """
+        If <code>true</code>, this App Service Plan owns spot instances.
+        """
+        if is_xenon and not isinstance(is_xenon, bool):
+            raise TypeError("Expected argument 'is_xenon' to be a bool")
+        __self__.is_xenon = is_xenon
+        """
+        Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,17 +62,54 @@ class GetAppServicePlanResult:
         """
         Resource Location.
         """
+        if maximum_elastic_worker_count and not isinstance(maximum_elastic_worker_count, float):
+            raise TypeError("Expected argument 'maximum_elastic_worker_count' to be a float")
+        __self__.maximum_elastic_worker_count = maximum_elastic_worker_count
+        """
+        Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
+        """
+        if maximum_number_of_workers and not isinstance(maximum_number_of_workers, float):
+            raise TypeError("Expected argument 'maximum_number_of_workers' to be a float")
+        __self__.maximum_number_of_workers = maximum_number_of_workers
+        """
+        Maximum number of instances that can be assigned to this App Service plan.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if number_of_sites and not isinstance(number_of_sites, float):
+            raise TypeError("Expected argument 'number_of_sites' to be a float")
+        __self__.number_of_sites = number_of_sites
         """
-        AppServicePlan resource specific properties
+        Number of apps assigned to this App Service plan.
+        """
+        if per_site_scaling and not isinstance(per_site_scaling, bool):
+            raise TypeError("Expected argument 'per_site_scaling' to be a bool")
+        __self__.per_site_scaling = per_site_scaling
+        """
+        If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
+        If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state of the App Service Environment.
+        """
+        if reserved and not isinstance(reserved, bool):
+            raise TypeError("Expected argument 'reserved' to be a bool")
+        __self__.reserved = reserved
+        """
+        If Linux app service plan <code>true</code>, <code>false</code> otherwise.
+        """
+        if resource_group and not isinstance(resource_group, str):
+            raise TypeError("Expected argument 'resource_group' to be a str")
+        __self__.resource_group = resource_group
+        """
+        Resource group of the App Service plan.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -44,17 +117,53 @@ class GetAppServicePlanResult:
         """
         Description of a SKU for a scalable resource.
         """
+        if spot_expiration_time and not isinstance(spot_expiration_time, str):
+            raise TypeError("Expected argument 'spot_expiration_time' to be a str")
+        __self__.spot_expiration_time = spot_expiration_time
+        """
+        The time when the server farm expires. Valid only if it is a spot server farm.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        App Service plan status.
+        """
+        if subscription and not isinstance(subscription, str):
+            raise TypeError("Expected argument 'subscription' to be a str")
+        __self__.subscription = subscription
+        """
+        App Service plan subscription.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Resource tags.
         """
+        if target_worker_count and not isinstance(target_worker_count, float):
+            raise TypeError("Expected argument 'target_worker_count' to be a float")
+        __self__.target_worker_count = target_worker_count
+        """
+        Scaling worker count.
+        """
+        if target_worker_size_id and not isinstance(target_worker_size_id, float):
+            raise TypeError("Expected argument 'target_worker_size_id' to be a float")
+        __self__.target_worker_size_id = target_worker_size_id
+        """
+        Scaling worker size ID.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if worker_tier_name and not isinstance(worker_tier_name, str):
+            raise TypeError("Expected argument 'worker_tier_name' to be a str")
+        __self__.worker_tier_name = worker_tier_name
+        """
+        Target worker tier assigned to the App Service plan.
         """
 
 
@@ -64,13 +173,31 @@ class AwaitableGetAppServicePlanResult(GetAppServicePlanResult):
         if False:
             yield self
         return GetAppServicePlanResult(
+            free_offer_expiration_time=self.free_offer_expiration_time,
+            geo_region=self.geo_region,
+            hosting_environment_profile=self.hosting_environment_profile,
+            hyper_v=self.hyper_v,
+            is_spot=self.is_spot,
+            is_xenon=self.is_xenon,
             kind=self.kind,
             location=self.location,
+            maximum_elastic_worker_count=self.maximum_elastic_worker_count,
+            maximum_number_of_workers=self.maximum_number_of_workers,
             name=self.name,
-            properties=self.properties,
+            number_of_sites=self.number_of_sites,
+            per_site_scaling=self.per_site_scaling,
+            provisioning_state=self.provisioning_state,
+            reserved=self.reserved,
+            resource_group=self.resource_group,
             sku=self.sku,
+            spot_expiration_time=self.spot_expiration_time,
+            status=self.status,
+            subscription=self.subscription,
             tags=self.tags,
-            type=self.type)
+            target_worker_count=self.target_worker_count,
+            target_worker_size_id=self.target_worker_size_id,
+            type=self.type,
+            worker_tier_name=self.worker_tier_name)
 
 
 def get_app_service_plan(name=None, resource_group_name=None, opts=None):
@@ -90,10 +217,28 @@ def get_app_service_plan(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20190801:getAppServicePlan', __args__, opts=opts).value
 
     return AwaitableGetAppServicePlanResult(
+        free_offer_expiration_time=__ret__.get('freeOfferExpirationTime'),
+        geo_region=__ret__.get('geoRegion'),
+        hosting_environment_profile=__ret__.get('hostingEnvironmentProfile'),
+        hyper_v=__ret__.get('hyperV'),
+        is_spot=__ret__.get('isSpot'),
+        is_xenon=__ret__.get('isXenon'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
+        maximum_elastic_worker_count=__ret__.get('maximumElasticWorkerCount'),
+        maximum_number_of_workers=__ret__.get('maximumNumberOfWorkers'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        number_of_sites=__ret__.get('numberOfSites'),
+        per_site_scaling=__ret__.get('perSiteScaling'),
+        provisioning_state=__ret__.get('provisioningState'),
+        reserved=__ret__.get('reserved'),
+        resource_group=__ret__.get('resourceGroup'),
         sku=__ret__.get('sku'),
+        spot_expiration_time=__ret__.get('spotExpirationTime'),
+        status=__ret__.get('status'),
+        subscription=__ret__.get('subscription'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        target_worker_count=__ret__.get('targetWorkerCount'),
+        target_worker_size_id=__ret__.get('targetWorkerSizeId'),
+        type=__ret__.get('type'),
+        worker_tier_name=__ret__.get('workerTierName'))

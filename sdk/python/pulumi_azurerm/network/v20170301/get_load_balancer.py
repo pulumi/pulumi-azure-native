@@ -13,12 +13,42 @@ class GetLoadBalancerResult:
     """
     LoadBalancer resource
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, backend_address_pools=None, etag=None, frontend_ip_configurations=None, inbound_nat_pools=None, inbound_nat_rules=None, load_balancing_rules=None, location=None, name=None, outbound_nat_rules=None, probes=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+        if backend_address_pools and not isinstance(backend_address_pools, list):
+            raise TypeError("Expected argument 'backend_address_pools' to be a list")
+        __self__.backend_address_pools = backend_address_pools
+        """
+        Collection of backend address pools used by a load balancer
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if frontend_ip_configurations and not isinstance(frontend_ip_configurations, list):
+            raise TypeError("Expected argument 'frontend_ip_configurations' to be a list")
+        __self__.frontend_ip_configurations = frontend_ip_configurations
+        """
+        Object representing the frontend IPs to be used for the load balancer
+        """
+        if inbound_nat_pools and not isinstance(inbound_nat_pools, list):
+            raise TypeError("Expected argument 'inbound_nat_pools' to be a list")
+        __self__.inbound_nat_pools = inbound_nat_pools
+        """
+        Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound Nat rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
+        """
+        if inbound_nat_rules and not isinstance(inbound_nat_rules, list):
+            raise TypeError("Expected argument 'inbound_nat_rules' to be a list")
+        __self__.inbound_nat_rules = inbound_nat_rules
+        """
+        Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
+        """
+        if load_balancing_rules and not isinstance(load_balancing_rules, list):
+            raise TypeError("Expected argument 'load_balancing_rules' to be a list")
+        __self__.load_balancing_rules = load_balancing_rules
+        """
+        Object collection representing the load balancing rules Gets the provisioning 
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +62,29 @@ class GetLoadBalancerResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if outbound_nat_rules and not isinstance(outbound_nat_rules, list):
+            raise TypeError("Expected argument 'outbound_nat_rules' to be a list")
+        __self__.outbound_nat_rules = outbound_nat_rules
         """
-        Properties of the load balancer.
+        The outbound NAT rules.
+        """
+        if probes and not isinstance(probes, list):
+            raise TypeError("Expected argument 'probes' to be a list")
+        __self__.probes = probes
+        """
+        Collection of probe objects used in the load balancer
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Gets the provisioning state of the PublicIP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resource GUID property of the load balancer resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +106,18 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
         if False:
             yield self
         return GetLoadBalancerResult(
+            backend_address_pools=self.backend_address_pools,
             etag=self.etag,
+            frontend_ip_configurations=self.frontend_ip_configurations,
+            inbound_nat_pools=self.inbound_nat_pools,
+            inbound_nat_rules=self.inbound_nat_rules,
+            load_balancing_rules=self.load_balancing_rules,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            outbound_nat_rules=self.outbound_nat_rules,
+            probes=self.probes,
+            provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +139,17 @@ def get_load_balancer(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20170301:getLoadBalancer', __args__, opts=opts).value
 
     return AwaitableGetLoadBalancerResult(
+        backend_address_pools=__ret__.get('backendAddressPools'),
         etag=__ret__.get('etag'),
+        frontend_ip_configurations=__ret__.get('frontendIPConfigurations'),
+        inbound_nat_pools=__ret__.get('inboundNatPools'),
+        inbound_nat_rules=__ret__.get('inboundNatRules'),
+        load_balancing_rules=__ret__.get('loadBalancingRules'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        outbound_nat_rules=__ret__.get('outboundNatRules'),
+        probes=__ret__.get('probes'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_guid=__ret__.get('resourceGuid'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

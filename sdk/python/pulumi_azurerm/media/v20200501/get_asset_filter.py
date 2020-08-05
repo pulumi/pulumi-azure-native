@@ -13,18 +13,30 @@ class GetAssetFilterResult:
     """
     An Asset Filter.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, first_quality=None, name=None, presentation_time_range=None, tracks=None, type=None):
+        if first_quality and not isinstance(first_quality, dict):
+            raise TypeError("Expected argument 'first_quality' to be a dict")
+        __self__.first_quality = first_quality
+        """
+        The first quality.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if presentation_time_range and not isinstance(presentation_time_range, dict):
+            raise TypeError("Expected argument 'presentation_time_range' to be a dict")
+        __self__.presentation_time_range = presentation_time_range
         """
-        The Media Filter properties.
+        The presentation time range.
+        """
+        if tracks and not isinstance(tracks, list):
+            raise TypeError("Expected argument 'tracks' to be a list")
+        __self__.tracks = tracks
+        """
+        The tracks selection conditions.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +52,10 @@ class AwaitableGetAssetFilterResult(GetAssetFilterResult):
         if False:
             yield self
         return GetAssetFilterResult(
+            first_quality=self.first_quality,
             name=self.name,
-            properties=self.properties,
+            presentation_time_range=self.presentation_time_range,
+            tracks=self.tracks,
             type=self.type)
 
 
@@ -66,6 +80,8 @@ def get_asset_filter(account_name=None, asset_name=None, name=None, resource_gro
     __ret__ = pulumi.runtime.invoke('azurerm:media/v20200501:getAssetFilter', __args__, opts=opts).value
 
     return AwaitableGetAssetFilterResult(
+        first_quality=__ret__.get('firstQuality'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        presentation_time_range=__ret__.get('presentationTimeRange'),
+        tracks=__ret__.get('tracks'),
         type=__ret__.get('type'))

@@ -13,7 +13,19 @@ class GetStorageAccountCredentialResult:
     """
     The storage account credential.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, access_key=None, end_point=None, kind=None, name=None, ssl_status=None, type=None, volumes_count=None):
+        if access_key and not isinstance(access_key, dict):
+            raise TypeError("Expected argument 'access_key' to be a dict")
+        __self__.access_key = access_key
+        """
+        The details of the storage account password.
+        """
+        if end_point and not isinstance(end_point, str):
+            raise TypeError("Expected argument 'end_point' to be a str")
+        __self__.end_point = end_point
+        """
+        The storage endpoint
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,17 +38,23 @@ class GetStorageAccountCredentialResult:
         """
         The name of the object.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if ssl_status and not isinstance(ssl_status, str):
+            raise TypeError("Expected argument 'ssl_status' to be a str")
+        __self__.ssl_status = ssl_status
         """
-        The storage account credential properties.
+        Signifies whether SSL needs to be enabled or not.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The hierarchical type of the object.
+        """
+        if volumes_count and not isinstance(volumes_count, float):
+            raise TypeError("Expected argument 'volumes_count' to be a float")
+        __self__.volumes_count = volumes_count
+        """
+        The count of volumes using this storage account credential.
         """
 
 
@@ -46,10 +64,13 @@ class AwaitableGetStorageAccountCredentialResult(GetStorageAccountCredentialResu
         if False:
             yield self
         return GetStorageAccountCredentialResult(
+            access_key=self.access_key,
+            end_point=self.end_point,
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            ssl_status=self.ssl_status,
+            type=self.type,
+            volumes_count=self.volumes_count)
 
 
 def get_storage_account_credential(manager_name=None, name=None, resource_group_name=None, opts=None):
@@ -71,7 +92,10 @@ def get_storage_account_credential(manager_name=None, name=None, resource_group_
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20170601:getStorageAccountCredential', __args__, opts=opts).value
 
     return AwaitableGetStorageAccountCredentialResult(
+        access_key=__ret__.get('accessKey'),
+        end_point=__ret__.get('endPoint'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        ssl_status=__ret__.get('sslStatus'),
+        type=__ret__.get('type'),
+        volumes_count=__ret__.get('volumesCount'))

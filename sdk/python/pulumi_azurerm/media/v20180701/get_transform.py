@@ -13,18 +13,36 @@ class GetTransformResult:
     """
     A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, created=None, description=None, last_modified=None, name=None, outputs=None, type=None):
+        if created and not isinstance(created, str):
+            raise TypeError("Expected argument 'created' to be a str")
+        __self__.created = created
+        """
+        The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        An optional verbose description of the Transform.
+        """
+        if last_modified and not isinstance(last_modified, str):
+            raise TypeError("Expected argument 'last_modified' to be a str")
+        __self__.last_modified = last_modified
+        """
+        The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if outputs and not isinstance(outputs, list):
+            raise TypeError("Expected argument 'outputs' to be a list")
+        __self__.outputs = outputs
         """
-        The resource properties.
+        An array of one or more TransformOutputs that the Transform should generate.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +58,11 @@ class AwaitableGetTransformResult(GetTransformResult):
         if False:
             yield self
         return GetTransformResult(
+            created=self.created,
+            description=self.description,
+            last_modified=self.last_modified,
             name=self.name,
-            properties=self.properties,
+            outputs=self.outputs,
             type=self.type)
 
 
@@ -64,6 +85,9 @@ def get_transform(account_name=None, name=None, resource_group_name=None, opts=N
     __ret__ = pulumi.runtime.invoke('azurerm:media/v20180701:getTransform', __args__, opts=opts).value
 
     return AwaitableGetTransformResult(
+        created=__ret__.get('created'),
+        description=__ret__.get('description'),
+        last_modified=__ret__.get('lastModified'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        outputs=__ret__.get('outputs'),
         type=__ret__.get('type'))

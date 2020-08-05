@@ -10,25 +10,50 @@ from ... import _utilities, _tables
 
 
 class LiveOutput(pulumi.CustomResource):
+    archive_window_length: pulumi.Output[str]
+    """
+    ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
+    """
+    asset_name: pulumi.Output[str]
+    """
+    The asset name.
+    """
+    created: pulumi.Output[str]
+    """
+    The exact time the Live Output was created.
+    """
+    description: pulumi.Output[str]
+    """
+    The description of the Live Output.
+    """
+    hls: pulumi.Output[dict]
+    """
+    The HLS configuration.
+      * `fragments_per_ts_segment` (`float`) - The amount of fragments per HTTP Live Streaming (HLS) segment.
+    """
+    last_modified: pulumi.Output[str]
+    """
+    The exact time the Live Output was last modified.
+    """
+    manifest_name: pulumi.Output[str]
+    """
+    The manifest file name.  If not provided, the service will generate one automatically.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    output_snap_time: pulumi.Output[float]
     """
-    The Live Output properties.
-      * `archive_window_length` (`str`) - ISO 8601 timespan duration of the archive window length. This is duration that customer want to retain the recorded content.
-      * `asset_name` (`str`) - The asset name.
-      * `created` (`str`) - The exact time the Live Output was created.
-      * `description` (`str`) - The description of the Live Output.
-      * `hls` (`dict`) - The HLS configuration.
-        * `fragments_per_ts_segment` (`float`) - The amount of fragments per HTTP Live Streaming (HLS) segment.
-
-      * `last_modified` (`str`) - The exact time the Live Output was last modified.
-      * `manifest_name` (`str`) - The manifest file name.  If not provided, the service will generate one automatically.
-      * `output_snap_time` (`float`) - The output snapshot time.
-      * `provisioning_state` (`str`) - The provisioning state of the Live Output.
-      * `resource_state` (`str`) - The resource state of the Live Output.
+    The output snapshot time.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the Live Output.
+    """
+    resource_state: pulumi.Output[str]
+    """
+    The resource state of the Live Output.
     """
     type: pulumi.Output[str]
     """
@@ -94,7 +119,10 @@ class LiveOutput(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['created'] = None
+            __props__['last_modified'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_state'] = None
             __props__['type'] = None
         super(LiveOutput, __self__).__init__(
             'azurerm:media/v20200501:LiveOutput',

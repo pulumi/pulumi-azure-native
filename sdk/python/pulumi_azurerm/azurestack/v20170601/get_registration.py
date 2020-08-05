@@ -13,7 +13,19 @@ class GetRegistrationResult:
     """
     Registration information.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, billing_model=None, cloud_id=None, etag=None, location=None, name=None, object_id=None, tags=None, type=None):
+        if billing_model and not isinstance(billing_model, str):
+            raise TypeError("Expected argument 'billing_model' to be a str")
+        __self__.billing_model = billing_model
+        """
+        Specifies the billing mode for the Azure Stack registration.
+        """
+        if cloud_id and not isinstance(cloud_id, str):
+            raise TypeError("Expected argument 'cloud_id' to be a str")
+        __self__.cloud_id = cloud_id
+        """
+        The identifier of the registered Azure Stack.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +44,11 @@ class GetRegistrationResult:
         """
         Name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if object_id and not isinstance(object_id, str):
+            raise TypeError("Expected argument 'object_id' to be a str")
+        __self__.object_id = object_id
         """
-        Registration resource.
+        The object identifier associated with the Azure Stack connecting to Azure.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +70,12 @@ class AwaitableGetRegistrationResult(GetRegistrationResult):
         if False:
             yield self
         return GetRegistrationResult(
+            billing_model=self.billing_model,
+            cloud_id=self.cloud_id,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            object_id=self.object_id,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +97,11 @@ def get_registration(name=None, resource_group=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:azurestack/v20170601:getRegistration', __args__, opts=opts).value
 
     return AwaitableGetRegistrationResult(
+        billing_model=__ret__.get('billingModel'),
+        cloud_id=__ret__.get('cloudId'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        object_id=__ret__.get('objectId'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

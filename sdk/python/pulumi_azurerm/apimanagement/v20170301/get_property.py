@@ -13,24 +13,42 @@ class GetPropertyResult:
     """
     Property details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, display_name=None, name=None, secret=None, tags=None, type=None, value=None):
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if secret and not isinstance(secret, bool):
+            raise TypeError("Expected argument 'secret' to be a bool")
+        __self__.secret = secret
         """
-        Property entity contract properties.
+        Determines whether the value is a secret and should be encrypted or not. Default value is false.
+        """
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        __self__.tags = tags
+        """
+        Optional tags that when provided can be used to filter the property list.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type for API Management resource.
+        """
+        if value and not isinstance(value, str):
+            raise TypeError("Expected argument 'value' to be a str")
+        __self__.value = value
+        """
+        Value of the property. Can contain policy expressions. It may not be empty or consist only of whitespace.
         """
 
 
@@ -40,9 +58,12 @@ class AwaitableGetPropertyResult(GetPropertyResult):
         if False:
             yield self
         return GetPropertyResult(
+            display_name=self.display_name,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            secret=self.secret,
+            tags=self.tags,
+            type=self.type,
+            value=self.value)
 
 
 def get_property(name=None, resource_group_name=None, service_name=None, opts=None):
@@ -64,6 +85,9 @@ def get_property(name=None, resource_group_name=None, service_name=None, opts=No
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20170301:getProperty', __args__, opts=opts).value
 
     return AwaitableGetPropertyResult(
+        display_name=__ret__.get('displayName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        secret=__ret__.get('secret'),
+        tags=__ret__.get('tags'),
+        type=__ret__.get('type'),
+        value=__ret__.get('value'))

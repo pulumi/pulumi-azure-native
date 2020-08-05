@@ -13,12 +13,24 @@ class GetExpressRouteGatewayResult:
     """
     ExpressRoute gateway resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, auto_scale_configuration=None, etag=None, express_route_connections=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_hub=None):
+        if auto_scale_configuration and not isinstance(auto_scale_configuration, dict):
+            raise TypeError("Expected argument 'auto_scale_configuration' to be a dict")
+        __self__.auto_scale_configuration = auto_scale_configuration
+        """
+        Configuration for auto scaling.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if express_route_connections and not isinstance(express_route_connections, list):
+            raise TypeError("Expected argument 'express_route_connections' to be a list")
+        __self__.express_route_connections = express_route_connections
+        """
+        List of ExpressRoute connections to the ExpressRoute gateway.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +44,11 @@ class GetExpressRouteGatewayResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the express route gateway.
+        The provisioning state of the express route gateway resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +62,12 @@ class GetExpressRouteGatewayResult:
         """
         Resource type.
         """
+        if virtual_hub and not isinstance(virtual_hub, dict):
+            raise TypeError("Expected argument 'virtual_hub' to be a dict")
+        __self__.virtual_hub = virtual_hub
+        """
+        The Virtual Hub where the ExpressRoute gateway is or will be deployed.
+        """
 
 
 class AwaitableGetExpressRouteGatewayResult(GetExpressRouteGatewayResult):
@@ -58,12 +76,15 @@ class AwaitableGetExpressRouteGatewayResult(GetExpressRouteGatewayResult):
         if False:
             yield self
         return GetExpressRouteGatewayResult(
+            auto_scale_configuration=self.auto_scale_configuration,
             etag=self.etag,
+            express_route_connections=self.express_route_connections,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_hub=self.virtual_hub)
 
 
 def get_express_route_gateway(name=None, resource_group_name=None, opts=None):
@@ -83,9 +104,12 @@ def get_express_route_gateway(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200401:getExpressRouteGateway', __args__, opts=opts).value
 
     return AwaitableGetExpressRouteGatewayResult(
+        auto_scale_configuration=__ret__.get('autoScaleConfiguration'),
         etag=__ret__.get('etag'),
+        express_route_connections=__ret__.get('expressRouteConnections'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_hub=__ret__.get('virtualHub'))

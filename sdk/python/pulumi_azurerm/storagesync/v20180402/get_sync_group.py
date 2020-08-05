@@ -13,24 +13,30 @@ class GetSyncGroupResult:
     """
     Sync Group object.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, name=None, sync_group_status=None, type=None, unique_id=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if sync_group_status and not isinstance(sync_group_status, str):
+            raise TypeError("Expected argument 'sync_group_status' to be a str")
+        __self__.sync_group_status = sync_group_status
         """
-        SyncGroup properties.
+        Sync group status
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        if unique_id and not isinstance(unique_id, str):
+            raise TypeError("Expected argument 'unique_id' to be a str")
+        __self__.unique_id = unique_id
+        """
+        Unique Id
         """
 
 
@@ -41,8 +47,9 @@ class AwaitableGetSyncGroupResult(GetSyncGroupResult):
             yield self
         return GetSyncGroupResult(
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            sync_group_status=self.sync_group_status,
+            type=self.type,
+            unique_id=self.unique_id)
 
 
 def get_sync_group(name=None, resource_group_name=None, storage_sync_service_name=None, opts=None):
@@ -65,5 +72,6 @@ def get_sync_group(name=None, resource_group_name=None, storage_sync_service_nam
 
     return AwaitableGetSyncGroupResult(
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        sync_group_status=__ret__.get('syncGroupStatus'),
+        type=__ret__.get('type'),
+        unique_id=__ret__.get('uniqueId'))

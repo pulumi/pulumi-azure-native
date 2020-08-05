@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class NetworkVirtualAppliance(pulumi.CustomResource):
+    boot_strap_configuration_blobs: pulumi.Output[list]
+    """
+    BootStrapConfigurationBlobs storage URLs.
+    """
+    cloud_init_configuration: pulumi.Output[str]
+    """
+    CloudInitConfiguration string in plain text.
+    """
+    cloud_init_configuration_blobs: pulumi.Output[list]
+    """
+    CloudInitConfigurationBlob storage URLs.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
@@ -30,28 +42,16 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    nva_sku: pulumi.Output[dict]
     """
-    Properties of the Network Virtual Appliance.
-      * `boot_strap_configuration_blobs` (`list`) - BootStrapConfigurationBlobs storage URLs.
-      * `cloud_init_configuration` (`str`) - CloudInitConfiguration string in plain text.
-      * `cloud_init_configuration_blobs` (`list`) - CloudInitConfigurationBlob storage URLs.
-      * `nva_sku` (`dict`) - Network Virtual Appliance SKU.
-        * `bundled_scale_unit` (`str`) - Virtual Appliance Scale Unit.
-        * `market_place_version` (`str`) - Virtual Appliance Version.
-        * `vendor` (`str`) - Virtual Appliance Vendor.
-
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
-      * `virtual_appliance_asn` (`float`) - VirtualAppliance ASN.
-      * `virtual_appliance_nics` (`list`) - List of Virtual Appliance Network Interfaces.
-        * `name` (`str`) - NIC name.
-        * `private_ip_address` (`str`) - Private IP address.
-        * `public_ip_address` (`str`) - Public IP address.
-
-      * `virtual_appliance_sites` (`list`) - List of references to VirtualApplianceSite.
-        * `id` (`str`) - Resource ID.
-
-      * `virtual_hub` (`dict`) - The Virtual Hub where Network Virtual Appliance is being deployed.
+    Network Virtual Appliance SKU.
+      * `bundled_scale_unit` (`str`) - Virtual Appliance Scale Unit.
+      * `market_place_version` (`str`) - Virtual Appliance Version.
+      * `vendor` (`str`) - Virtual Appliance Vendor.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -60,6 +60,27 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    virtual_appliance_asn: pulumi.Output[float]
+    """
+    VirtualAppliance ASN.
+    """
+    virtual_appliance_nics: pulumi.Output[list]
+    """
+    List of Virtual Appliance Network Interfaces.
+      * `name` (`str`) - NIC name.
+      * `private_ip_address` (`str`) - Private IP address.
+      * `public_ip_address` (`str`) - Public IP address.
+    """
+    virtual_appliance_sites: pulumi.Output[list]
+    """
+    List of references to VirtualApplianceSite.
+      * `id` (`str`) - Resource ID.
+    """
+    virtual_hub: pulumi.Output[dict]
+    """
+    The Virtual Hub where Network Virtual Appliance is being deployed.
+      * `id` (`str`) - Resource ID.
     """
     def __init__(__self__, resource_name, opts=None, boot_strap_configuration_blobs=None, cloud_init_configuration=None, cloud_init_configuration_blobs=None, id=None, identity=None, location=None, name=None, nva_sku=None, resource_group_name=None, tags=None, virtual_appliance_asn=None, virtual_hub=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -128,8 +149,10 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__['virtual_appliance_asn'] = virtual_appliance_asn
             __props__['virtual_hub'] = virtual_hub
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['virtual_appliance_nics'] = None
+            __props__['virtual_appliance_sites'] = None
         super(NetworkVirtualAppliance, __self__).__init__(
             'azurerm:network/v20200501:NetworkVirtualAppliance',
             resource_name,

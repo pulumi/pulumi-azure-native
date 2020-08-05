@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class RouteFilterRule(pulumi.CustomResource):
+    access: pulumi.Output[str]
+    """
+    The access type of the rule.
+    """
+    communities: pulumi.Output[list]
+    """
+    The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
@@ -22,13 +30,13 @@ class RouteFilterRule(pulumi.CustomResource):
     """
     The name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the route filter rule.
-      * `access` (`str`) - The access type of the rule.
-      * `communities` (`list`) - The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
-      * `provisioning_state` (`str`) - The provisioning state of the route filter rule resource.
-      * `route_filter_rule_type` (`str`) - The rule type of the rule.
+    The provisioning state of the route filter rule resource.
+    """
+    route_filter_rule_type: pulumi.Output[str]
+    """
+    The rule type of the rule.
     """
     def __init__(__self__, resource_name, opts=None, access=None, communities=None, id=None, location=None, name=None, resource_group_name=None, route_filter_name=None, route_filter_rule_type=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -83,7 +91,7 @@ class RouteFilterRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'route_filter_rule_type'")
             __props__['route_filter_rule_type'] = route_filter_rule_type
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
         super(RouteFilterRule, __self__).__init__(
             'azurerm:network/v20190901:RouteFilterRule',
             resource_name,

@@ -10,52 +10,100 @@ from ... import _utilities, _tables
 
 
 class Kpi(pulumi.CustomResource):
+    aliases: pulumi.Output[list]
+    """
+    The aliases.
+      * `alias_name` (`str`) - KPI alias name.
+      * `expression` (`str`) - The expression.
+    """
+    calculation_window: pulumi.Output[str]
+    """
+    The calculation window.
+    """
+    calculation_window_field_name: pulumi.Output[str]
+    """
+    Name of calculation window field.
+    """
+    description: pulumi.Output[dict]
+    """
+    Localized description for the KPI.
+    """
+    display_name: pulumi.Output[dict]
+    """
+    Localized display name for the KPI.
+    """
+    entity_type: pulumi.Output[str]
+    """
+    The mapping entity type.
+    """
+    entity_type_name: pulumi.Output[str]
+    """
+    The mapping entity name.
+    """
+    expression: pulumi.Output[str]
+    """
+    The computation expression for the KPI.
+    """
+    extracts: pulumi.Output[list]
+    """
+    The KPI extracts.
+      * `expression` (`str`) - The expression.
+      * `extract_name` (`str`) - KPI extract name.
+    """
+    filter: pulumi.Output[str]
+    """
+    The filter expression for the KPI.
+    """
+    function: pulumi.Output[str]
+    """
+    The computation function for the KPI.
+    """
+    group_by: pulumi.Output[list]
+    """
+    the group by properties for the KPI.
+    """
+    group_by_metadata: pulumi.Output[list]
+    """
+    The KPI GroupByMetadata.
+      * `display_name` (`dict`) - The display name.
+      * `field_name` (`str`) - The name of the field.
+      * `field_type` (`str`) - The type of the field.
+    """
+    kpi_name: pulumi.Output[str]
+    """
+    The KPI name.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    participant_profiles_metadata: pulumi.Output[list]
     """
-    Defines the KPI Threshold limits.
-      * `aliases` (`list`) - The aliases.
-        * `alias_name` (`str`) - KPI alias name.
-        * `expression` (`str`) - The expression.
-
-      * `calculation_window` (`str`) - The calculation window.
-      * `calculation_window_field_name` (`str`) - Name of calculation window field.
-      * `description` (`dict`) - Localized description for the KPI.
-      * `display_name` (`dict`) - Localized display name for the KPI.
-      * `entity_type` (`str`) - The mapping entity type.
-      * `entity_type_name` (`str`) - The mapping entity name.
-      * `expression` (`str`) - The computation expression for the KPI.
-      * `extracts` (`list`) - The KPI extracts.
-        * `expression` (`str`) - The expression.
-        * `extract_name` (`str`) - KPI extract name.
-
-      * `filter` (`str`) - The filter expression for the KPI.
-      * `function` (`str`) - The computation function for the KPI.
-      * `group_by` (`list`) - the group by properties for the KPI.
-      * `group_by_metadata` (`list`) - The KPI GroupByMetadata.
-        * `display_name` (`dict`) - The display name.
-        * `field_name` (`str`) - The name of the field.
-        * `field_type` (`str`) - The type of the field.
-
-      * `kpi_name` (`str`) - The KPI name.
-      * `participant_profiles_metadata` (`list`) - The participant profiles.
-        * `type_name` (`str`) - Name of the type.
-
-      * `provisioning_state` (`str`) - Provisioning state.
-      * `tenant_id` (`str`) - The hub name.
-      * `thres_holds` (`dict`) - The KPI thresholds.
-        * `increasing_kpi` (`bool`) - Whether or not the KPI is an increasing KPI.
-        * `lower_limit` (`float`) - The lower threshold limit.
-        * `upper_limit` (`float`) - The upper threshold limit.
-
-      * `unit` (`str`) - The unit of measurement for the KPI.
+    The participant profiles.
+      * `type_name` (`str`) - Name of the type.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state.
+    """
+    tenant_id: pulumi.Output[str]
+    """
+    The hub name.
+    """
+    thres_holds: pulumi.Output[dict]
+    """
+    The KPI thresholds.
+      * `increasing_kpi` (`bool`) - Whether or not the KPI is an increasing KPI.
+      * `lower_limit` (`float`) - The lower threshold limit.
+      * `upper_limit` (`float`) - The upper threshold limit.
     """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    unit: pulumi.Output[str]
+    """
+    The unit of measurement for the KPI.
     """
     def __init__(__self__, resource_name, opts=None, aliases=None, calculation_window=None, calculation_window_field_name=None, description=None, display_name=None, entity_type=None, entity_type_name=None, expression=None, extracts=None, filter=None, function=None, group_by=None, hub_name=None, name=None, resource_group_name=None, thres_holds=None, unit=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -147,7 +195,11 @@ class Kpi(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['thres_holds'] = thres_holds
             __props__['unit'] = unit
-            __props__['properties'] = None
+            __props__['group_by_metadata'] = None
+            __props__['kpi_name'] = None
+            __props__['participant_profiles_metadata'] = None
+            __props__['provisioning_state'] = None
+            __props__['tenant_id'] = None
             __props__['type'] = None
         super(Kpi, __self__).__init__(
             'azurerm:customerinsights/v20170426:Kpi',

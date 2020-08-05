@@ -10,38 +10,49 @@ from ... import _utilities, _tables
 
 
 class ManagementGroup(pulumi.CustomResource):
+    children: pulumi.Output[list]
+    """
+    The list of children.
+      * `children` (`list`) - The list of children.
+      * `display_name` (`str`) - The friendly name of the child resource.
+      * `id` (`str`) - The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+      * `name` (`str`) - The name of the child entity.
+      * `roles` (`list`) - The roles definitions associated with the management group.
+      * `type` (`str`) - The fully qualified resource type which includes provider namespace (e.g. Microsoft.Management/managementGroups)
+    """
+    details: pulumi.Output[dict]
+    """
+    The details of a management group.
+      * `parent` (`dict`) - (Optional) The ID of the parent management group.
+        * `display_name` (`str`) - The friendly name of the parent management group.
+        * `id` (`str`) - The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+        * `name` (`str`) - The name of the parent management group
+
+      * `updated_by` (`str`) - The identity of the principal or process that updated the object.
+      * `updated_time` (`str`) - The date and time when this object was last updated.
+      * `version` (`float`) - The version number of the object.
+    """
+    display_name: pulumi.Output[str]
+    """
+    The friendly name of the management group.
+    """
     name: pulumi.Output[str]
     """
     The name of the management group. For example, 00000000-0000-0000-0000-000000000000
     """
-    properties: pulumi.Output[dict]
+    path: pulumi.Output[list]
     """
-    The generic properties of a management group.
-      * `children` (`list`) - The list of children.
-        * `children` (`list`) - The list of children.
-        * `display_name` (`str`) - The friendly name of the child resource.
-        * `id` (`str`) - The fully qualified ID for the child resource (management group or subscription).  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-        * `name` (`str`) - The name of the child entity.
-        * `roles` (`list`) - The roles definitions associated with the management group.
-        * `type` (`str`) - The fully qualified resource type which includes provider namespace (e.g. Microsoft.Management/managementGroups)
-
-      * `details` (`dict`) - The details of a management group.
-        * `parent` (`dict`) - (Optional) The ID of the parent management group.
-          * `display_name` (`str`) - The friendly name of the parent management group.
-          * `id` (`str`) - The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-          * `name` (`str`) - The name of the parent management group
-
-        * `updated_by` (`str`) - The identity of the principal or process that updated the object.
-        * `updated_time` (`str`) - The date and time when this object was last updated.
-        * `version` (`float`) - The version number of the object.
-
-      * `display_name` (`str`) - The friendly name of the management group.
-      * `path` (`list`) - The hierarchial path from the root group to the current group.
-        * `display_name` (`str`) - The friendly name of the group.
-        * `name` (`str`) - The name of the group.
-
-      * `roles` (`list`) - The role definitions associated with the management group.
-      * `tenant_id` (`str`) - The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
+    The hierarchial path from the root group to the current group.
+      * `display_name` (`str`) - The friendly name of the group.
+      * `name` (`str`) - The name of the group.
+    """
+    roles: pulumi.Output[list]
+    """
+    The role definitions associated with the management group.
+    """
+    tenant_id: pulumi.Output[str]
+    """
+    The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
     """
     type: pulumi.Output[str]
     """
@@ -84,7 +95,10 @@ class ManagementGroup(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = None
+            __props__['children'] = None
+            __props__['path'] = None
+            __props__['roles'] = None
+            __props__['tenant_id'] = None
             __props__['type'] = None
         super(ManagementGroup, __self__).__init__(
             'azurerm:management/v20191101:ManagementGroup',

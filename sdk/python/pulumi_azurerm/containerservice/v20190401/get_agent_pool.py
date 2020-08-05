@@ -13,24 +13,90 @@ class GetAgentPoolResult:
     """
     Agent Pool.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, availability_zones=None, count=None, enable_auto_scaling=None, max_count=None, max_pods=None, min_count=None, name=None, orchestrator_version=None, os_disk_size_gb=None, os_type=None, provisioning_state=None, type=None, vm_size=None, vnet_subnet_id=None):
+        if availability_zones and not isinstance(availability_zones, list):
+            raise TypeError("Expected argument 'availability_zones' to be a list")
+        __self__.availability_zones = availability_zones
+        """
+        (PREVIEW) Availability zones for nodes. Must use VirtualMachineScaleSets AgentPoolType.
+        """
+        if count and not isinstance(count, float):
+            raise TypeError("Expected argument 'count' to be a float")
+        __self__.count = count
+        """
+        Number of agents (VMs) to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1. 
+        """
+        if enable_auto_scaling and not isinstance(enable_auto_scaling, bool):
+            raise TypeError("Expected argument 'enable_auto_scaling' to be a bool")
+        __self__.enable_auto_scaling = enable_auto_scaling
+        """
+        Whether to enable auto-scaler
+        """
+        if max_count and not isinstance(max_count, float):
+            raise TypeError("Expected argument 'max_count' to be a float")
+        __self__.max_count = max_count
+        """
+        Maximum number of nodes for auto-scaling
+        """
+        if max_pods and not isinstance(max_pods, float):
+            raise TypeError("Expected argument 'max_pods' to be a float")
+        __self__.max_pods = max_pods
+        """
+        Maximum number of pods that can run on a node.
+        """
+        if min_count and not isinstance(min_count, float):
+            raise TypeError("Expected argument 'min_count' to be a float")
+        __self__.min_count = min_count
+        """
+        Minimum number of nodes for auto-scaling
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if orchestrator_version and not isinstance(orchestrator_version, str):
+            raise TypeError("Expected argument 'orchestrator_version' to be a str")
+        __self__.orchestrator_version = orchestrator_version
         """
-        Properties of an agent pool.
+        Version of orchestrator specified when creating the managed cluster.
+        """
+        if os_disk_size_gb and not isinstance(os_disk_size_gb, float):
+            raise TypeError("Expected argument 'os_disk_size_gb' to be a float")
+        __self__.os_disk_size_gb = os_disk_size_gb
+        """
+        OS Disk Size in GB to be used to specify the disk size for every machine in this master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
+        """
+        if os_type and not isinstance(os_type, str):
+            raise TypeError("Expected argument 'os_type' to be a str")
+        __self__.os_type = os_type
+        """
+        OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The current deployment or provisioning state, which only appears in the response.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
-        Resource type
+        AgentPoolType represents types of an agent pool
+        """
+        if vm_size and not isinstance(vm_size, str):
+            raise TypeError("Expected argument 'vm_size' to be a str")
+        __self__.vm_size = vm_size
+        """
+        Size of agent VMs.
+        """
+        if vnet_subnet_id and not isinstance(vnet_subnet_id, str):
+            raise TypeError("Expected argument 'vnet_subnet_id' to be a str")
+        __self__.vnet_subnet_id = vnet_subnet_id
+        """
+        VNet SubnetID specifies the VNet's subnet identifier.
         """
 
 
@@ -40,9 +106,20 @@ class AwaitableGetAgentPoolResult(GetAgentPoolResult):
         if False:
             yield self
         return GetAgentPoolResult(
+            availability_zones=self.availability_zones,
+            count=self.count,
+            enable_auto_scaling=self.enable_auto_scaling,
+            max_count=self.max_count,
+            max_pods=self.max_pods,
+            min_count=self.min_count,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            orchestrator_version=self.orchestrator_version,
+            os_disk_size_gb=self.os_disk_size_gb,
+            os_type=self.os_type,
+            provisioning_state=self.provisioning_state,
+            type=self.type,
+            vm_size=self.vm_size,
+            vnet_subnet_id=self.vnet_subnet_id)
 
 
 def get_agent_pool(name=None, resource_group_name=None, resource_name=None, opts=None):
@@ -64,6 +141,17 @@ def get_agent_pool(name=None, resource_group_name=None, resource_name=None, opts
     __ret__ = pulumi.runtime.invoke('azurerm:containerservice/v20190401:getAgentPool', __args__, opts=opts).value
 
     return AwaitableGetAgentPoolResult(
+        availability_zones=__ret__.get('availabilityZones'),
+        count=__ret__.get('count'),
+        enable_auto_scaling=__ret__.get('enableAutoScaling'),
+        max_count=__ret__.get('maxCount'),
+        max_pods=__ret__.get('maxPods'),
+        min_count=__ret__.get('minCount'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        orchestrator_version=__ret__.get('orchestratorVersion'),
+        os_disk_size_gb=__ret__.get('osDiskSizeGB'),
+        os_type=__ret__.get('osType'),
+        provisioning_state=__ret__.get('provisioningState'),
+        type=__ret__.get('type'),
+        vm_size=__ret__.get('vmSize'),
+        vnet_subnet_id=__ret__.get('vnetSubnetID'))

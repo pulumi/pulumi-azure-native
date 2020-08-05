@@ -13,7 +13,19 @@ class ListWebAppSitePushSettingsResult:
     """
     Push settings for the App.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, dynamic_tags_json=None, is_push_enabled=None, kind=None, name=None, tag_whitelist_json=None, tags_requiring_auth=None, type=None):
+        if dynamic_tags_json and not isinstance(dynamic_tags_json, str):
+            raise TypeError("Expected argument 'dynamic_tags_json' to be a str")
+        __self__.dynamic_tags_json = dynamic_tags_json
+        """
+        Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
+        """
+        if is_push_enabled and not isinstance(is_push_enabled, bool):
+            raise TypeError("Expected argument 'is_push_enabled' to be a bool")
+        __self__.is_push_enabled = is_push_enabled
+        """
+        Gets or sets a flag indicating whether the Push endpoint is enabled.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,11 +38,20 @@ class ListWebAppSitePushSettingsResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if tag_whitelist_json and not isinstance(tag_whitelist_json, str):
+            raise TypeError("Expected argument 'tag_whitelist_json' to be a str")
+        __self__.tag_whitelist_json = tag_whitelist_json
         """
-        PushSettings resource specific properties
+        Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
+        """
+        if tags_requiring_auth and not isinstance(tags_requiring_auth, str):
+            raise TypeError("Expected argument 'tags_requiring_auth' to be a str")
+        __self__.tags_requiring_auth = tags_requiring_auth
+        """
+        Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
+        Tags can consist of alphanumeric characters and the following:
+        '_', '@', '#', '.', ':', '-'. 
+        Validation should be performed at the PushRequestHandler.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +67,12 @@ class AwaitableListWebAppSitePushSettingsResult(ListWebAppSitePushSettingsResult
         if False:
             yield self
         return ListWebAppSitePushSettingsResult(
+            dynamic_tags_json=self.dynamic_tags_json,
+            is_push_enabled=self.is_push_enabled,
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
+            tag_whitelist_json=self.tag_whitelist_json,
+            tags_requiring_auth=self.tags_requiring_auth,
             type=self.type)
 
 
@@ -69,7 +93,10 @@ def list_web_app_site_push_settings(name=None, resource_group_name=None, opts=No
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20160801:listWebAppSitePushSettings', __args__, opts=opts).value
 
     return AwaitableListWebAppSitePushSettingsResult(
+        dynamic_tags_json=__ret__.get('dynamicTagsJson'),
+        is_push_enabled=__ret__.get('isPushEnabled'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        tag_whitelist_json=__ret__.get('tagWhitelistJson'),
+        tags_requiring_auth=__ret__.get('tagsRequiringAuth'),
         type=__ret__.get('type'))

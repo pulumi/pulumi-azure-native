@@ -10,16 +10,21 @@ from ... import _utilities, _tables
 
 
 class Experiment(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    """
+    Time when the Experiment was created.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties associated with the experiment.
-      * `creation_time` (`str`) - Time when the Experiment was created.
-      * `provisioning_state` (`str`) - The provisioned state of the experiment
-      * `provisioning_state_transition_time` (`str`) - The time at which the experiment entered its current provisioning state.
+    The provisioned state of the experiment
+    """
+    provisioning_state_transition_time: pulumi.Output[str]
+    """
+    The time at which the experiment entered its current provisioning state.
     """
     type: pulumi.Output[str]
     """
@@ -61,7 +66,9 @@ class Experiment(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['provisioning_state'] = None
+            __props__['provisioning_state_transition_time'] = None
             __props__['type'] = None
         super(Experiment, __self__).__init__(
             'azurerm:batchai/v20180501:Experiment',

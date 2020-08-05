@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class VirtualWan(pulumi.CustomResource):
+    allow_branch_to_branch_traffic: pulumi.Output[bool]
+    """
+    True if branch to branch traffic is allowed.
+    """
+    allow_vnet_to_vnet_traffic: pulumi.Output[bool]
+    """
+    True if Vnet to Vnet traffic is allowed.
+    """
+    disable_vpn_encryption: pulumi.Output[bool]
+    """
+    Vpn encryption to be disabled or not.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
@@ -22,19 +34,13 @@ class VirtualWan(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    office365_local_breakout_category: pulumi.Output[str]
     """
-    Properties of the virtual WAN.
-      * `allow_branch_to_branch_traffic` (`bool`) - True if branch to branch traffic is allowed.
-      * `allow_vnet_to_vnet_traffic` (`bool`) - True if Vnet to Vnet traffic is allowed.
-      * `disable_vpn_encryption` (`bool`) - Vpn encryption to be disabled or not.
-      * `office365_local_breakout_category` (`str`) - The office local breakout category.
-      * `provisioning_state` (`str`) - The provisioning state of the virtual WAN resource.
-      * `type` (`str`) - The type of the VirtualWAN.
-      * `virtual_hubs` (`list`) - List of VirtualHubs in the VirtualWAN.
-        * `id` (`str`) - Resource ID.
-
-      * `vpn_sites` (`list`) - List of VpnSites in the VirtualWAN.
+    The office local breakout category.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the virtual WAN resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -43,6 +49,16 @@ class VirtualWan(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    virtual_hubs: pulumi.Output[list]
+    """
+    List of VirtualHubs in the VirtualWAN.
+      * `id` (`str`) - Resource ID.
+    """
+    vpn_sites: pulumi.Output[list]
+    """
+    List of VpnSites in the VirtualWAN.
+      * `id` (`str`) - Resource ID.
     """
     def __init__(__self__, resource_name, opts=None, allow_branch_to_branch_traffic=None, allow_vnet_to_vnet_traffic=None, disable_vpn_encryption=None, id=None, location=None, name=None, office365_local_breakout_category=None, resource_group_name=None, tags=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -95,7 +111,9 @@ class VirtualWan(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['virtual_hubs'] = None
+            __props__['vpn_sites'] = None
         super(VirtualWan, __self__).__init__(
             'azurerm:network/v20190901:VirtualWan',
             resource_name,

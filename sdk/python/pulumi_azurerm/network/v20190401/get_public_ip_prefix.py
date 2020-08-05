@@ -13,12 +13,30 @@ class GetPublicIPPrefixResult:
     """
     Public IP prefix resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, etag=None, ip_prefix=None, ip_tags=None, load_balancer_frontend_ip_configuration=None, location=None, name=None, prefix_length=None, provisioning_state=None, public_ip_address_version=None, public_ip_addresses=None, resource_guid=None, sku=None, tags=None, type=None, zones=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if ip_prefix and not isinstance(ip_prefix, str):
+            raise TypeError("Expected argument 'ip_prefix' to be a str")
+        __self__.ip_prefix = ip_prefix
+        """
+        The allocated Prefix.
+        """
+        if ip_tags and not isinstance(ip_tags, list):
+            raise TypeError("Expected argument 'ip_tags' to be a list")
+        __self__.ip_tags = ip_tags
+        """
+        The list of tags associated with the public IP prefix.
+        """
+        if load_balancer_frontend_ip_configuration and not isinstance(load_balancer_frontend_ip_configuration, dict):
+            raise TypeError("Expected argument 'load_balancer_frontend_ip_configuration' to be a dict")
+        __self__.load_balancer_frontend_ip_configuration = load_balancer_frontend_ip_configuration
+        """
+        The reference to load balancer frontend IP configuration associated with the public IP prefix.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +50,35 @@ class GetPublicIPPrefixResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if prefix_length and not isinstance(prefix_length, float):
+            raise TypeError("Expected argument 'prefix_length' to be a float")
+        __self__.prefix_length = prefix_length
         """
-        Public IP prefix properties.
+        The Length of the Public IP Prefix.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the Public IP prefix resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        if public_ip_address_version and not isinstance(public_ip_address_version, str):
+            raise TypeError("Expected argument 'public_ip_address_version' to be a str")
+        __self__.public_ip_address_version = public_ip_address_version
+        """
+        The public IP address version.
+        """
+        if public_ip_addresses and not isinstance(public_ip_addresses, list):
+            raise TypeError("Expected argument 'public_ip_addresses' to be a list")
+        __self__.public_ip_addresses = public_ip_addresses
+        """
+        The list of all referenced PublicIPAddresses.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resource GUID property of the public IP prefix resource.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -71,9 +113,16 @@ class AwaitableGetPublicIPPrefixResult(GetPublicIPPrefixResult):
             yield self
         return GetPublicIPPrefixResult(
             etag=self.etag,
+            ip_prefix=self.ip_prefix,
+            ip_tags=self.ip_tags,
+            load_balancer_frontend_ip_configuration=self.load_balancer_frontend_ip_configuration,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            prefix_length=self.prefix_length,
+            provisioning_state=self.provisioning_state,
+            public_ip_address_version=self.public_ip_address_version,
+            public_ip_addresses=self.public_ip_addresses,
+            resource_guid=self.resource_guid,
             sku=self.sku,
             tags=self.tags,
             type=self.type,
@@ -98,9 +147,16 @@ def get_public_ip_prefix(name=None, resource_group_name=None, opts=None):
 
     return AwaitableGetPublicIPPrefixResult(
         etag=__ret__.get('etag'),
+        ip_prefix=__ret__.get('ipPrefix'),
+        ip_tags=__ret__.get('ipTags'),
+        load_balancer_frontend_ip_configuration=__ret__.get('loadBalancerFrontendIpConfiguration'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        prefix_length=__ret__.get('prefixLength'),
+        provisioning_state=__ret__.get('provisioningState'),
+        public_ip_address_version=__ret__.get('publicIPAddressVersion'),
+        public_ip_addresses=__ret__.get('publicIPAddresses'),
+        resource_guid=__ret__.get('resourceGuid'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'),

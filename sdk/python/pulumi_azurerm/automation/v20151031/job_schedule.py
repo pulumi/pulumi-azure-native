@@ -10,21 +10,31 @@ from ... import _utilities, _tables
 
 
 class JobSchedule(pulumi.CustomResource):
+    job_schedule_id: pulumi.Output[str]
+    """
+    Gets or sets the id of job schedule.
+    """
     name: pulumi.Output[str]
     """
     Gets the name of the variable.
     """
-    properties: pulumi.Output[dict]
+    parameters: pulumi.Output[dict]
     """
-    Gets or sets the properties of the job schedule.
-      * `job_schedule_id` (`str`) - Gets or sets the id of job schedule.
-      * `parameters` (`dict`) - Gets or sets the parameters of the job schedule.
-      * `run_on` (`str`) - Gets or sets the hybrid worker group that the scheduled job should run on.
-      * `runbook` (`dict`) - Gets or sets the runbook.
-        * `name` (`str`) - Gets or sets the name of the runbook.
-
-      * `schedule` (`dict`) - Gets or sets the schedule.
-        * `name` (`str`) - Gets or sets the name of the Schedule.
+    Gets or sets the parameters of the job schedule.
+    """
+    run_on: pulumi.Output[str]
+    """
+    Gets or sets the hybrid worker group that the scheduled job should run on.
+    """
+    runbook: pulumi.Output[dict]
+    """
+    Gets or sets the runbook.
+      * `name` (`str`) - Gets or sets the name of the runbook.
+    """
+    schedule: pulumi.Output[dict]
+    """
+    Gets or sets the schedule.
+      * `name` (`str`) - Gets or sets the name of the Schedule.
     """
     type: pulumi.Output[str]
     """
@@ -86,7 +96,7 @@ class JobSchedule(pulumi.CustomResource):
             if schedule is None:
                 raise TypeError("Missing required property 'schedule'")
             __props__['schedule'] = schedule
-            __props__['properties'] = None
+            __props__['job_schedule_id'] = None
             __props__['type'] = None
         super(JobSchedule, __self__).__init__(
             'azurerm:automation/v20151031:JobSchedule',

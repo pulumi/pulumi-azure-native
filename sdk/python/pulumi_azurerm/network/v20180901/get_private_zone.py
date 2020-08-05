@@ -13,7 +13,7 @@ class GetPrivateZoneResult:
     """
     Describes a Private DNS zone.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, location=None, max_number_of_record_sets=None, max_number_of_virtual_network_links=None, max_number_of_virtual_network_links_with_registration=None, name=None, number_of_record_sets=None, number_of_virtual_network_links=None, number_of_virtual_network_links_with_registration=None, provisioning_state=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,17 +26,53 @@ class GetPrivateZoneResult:
         """
         The Azure Region where the resource lives
         """
+        if max_number_of_record_sets and not isinstance(max_number_of_record_sets, float):
+            raise TypeError("Expected argument 'max_number_of_record_sets' to be a float")
+        __self__.max_number_of_record_sets = max_number_of_record_sets
+        """
+        The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+        """
+        if max_number_of_virtual_network_links and not isinstance(max_number_of_virtual_network_links, float):
+            raise TypeError("Expected argument 'max_number_of_virtual_network_links' to be a float")
+        __self__.max_number_of_virtual_network_links = max_number_of_virtual_network_links
+        """
+        The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+        """
+        if max_number_of_virtual_network_links_with_registration and not isinstance(max_number_of_virtual_network_links_with_registration, float):
+            raise TypeError("Expected argument 'max_number_of_virtual_network_links_with_registration' to be a float")
+        __self__.max_number_of_virtual_network_links_with_registration = max_number_of_virtual_network_links_with_registration
+        """
+        The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if number_of_record_sets and not isinstance(number_of_record_sets, float):
+            raise TypeError("Expected argument 'number_of_record_sets' to be a float")
+        __self__.number_of_record_sets = number_of_record_sets
         """
-        Properties of the Private DNS zone.
+        The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+        """
+        if number_of_virtual_network_links and not isinstance(number_of_virtual_network_links, float):
+            raise TypeError("Expected argument 'number_of_virtual_network_links' to be a float")
+        __self__.number_of_virtual_network_links = number_of_virtual_network_links
+        """
+        The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+        """
+        if number_of_virtual_network_links_with_registration and not isinstance(number_of_virtual_network_links_with_registration, float):
+            raise TypeError("Expected argument 'number_of_virtual_network_links_with_registration' to be a float")
+        __self__.number_of_virtual_network_links_with_registration = number_of_virtual_network_links_with_registration
+        """
+        The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -60,8 +96,14 @@ class AwaitableGetPrivateZoneResult(GetPrivateZoneResult):
         return GetPrivateZoneResult(
             etag=self.etag,
             location=self.location,
+            max_number_of_record_sets=self.max_number_of_record_sets,
+            max_number_of_virtual_network_links=self.max_number_of_virtual_network_links,
+            max_number_of_virtual_network_links_with_registration=self.max_number_of_virtual_network_links_with_registration,
             name=self.name,
-            properties=self.properties,
+            number_of_record_sets=self.number_of_record_sets,
+            number_of_virtual_network_links=self.number_of_virtual_network_links,
+            number_of_virtual_network_links_with_registration=self.number_of_virtual_network_links_with_registration,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type)
 
@@ -85,7 +127,13 @@ def get_private_zone(name=None, resource_group_name=None, opts=None):
     return AwaitableGetPrivateZoneResult(
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
+        max_number_of_record_sets=__ret__.get('maxNumberOfRecordSets'),
+        max_number_of_virtual_network_links=__ret__.get('maxNumberOfVirtualNetworkLinks'),
+        max_number_of_virtual_network_links_with_registration=__ret__.get('maxNumberOfVirtualNetworkLinksWithRegistration'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        number_of_record_sets=__ret__.get('numberOfRecordSets'),
+        number_of_virtual_network_links=__ret__.get('numberOfVirtualNetworkLinks'),
+        number_of_virtual_network_links_with_registration=__ret__.get('numberOfVirtualNetworkLinksWithRegistration'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

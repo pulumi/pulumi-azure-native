@@ -13,18 +13,60 @@ class GetUserResult:
     """
     User details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, email=None, first_name=None, groups=None, identities=None, last_name=None, name=None, note=None, registration_date=None, state=None, type=None):
+        if email and not isinstance(email, str):
+            raise TypeError("Expected argument 'email' to be a str")
+        __self__.email = email
+        """
+        Email address.
+        """
+        if first_name and not isinstance(first_name, str):
+            raise TypeError("Expected argument 'first_name' to be a str")
+        __self__.first_name = first_name
+        """
+        First name.
+        """
+        if groups and not isinstance(groups, list):
+            raise TypeError("Expected argument 'groups' to be a list")
+        __self__.groups = groups
+        """
+        Collection of groups user is part of.
+        """
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        __self__.identities = identities
+        """
+        Collection of user identities.
+        """
+        if last_name and not isinstance(last_name, str):
+            raise TypeError("Expected argument 'last_name' to be a str")
+        __self__.last_name = last_name
+        """
+        Last name.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if note and not isinstance(note, str):
+            raise TypeError("Expected argument 'note' to be a str")
+        __self__.note = note
         """
-        User entity contract properties.
+        Optional note about a user set by the administrator.
+        """
+        if registration_date and not isinstance(registration_date, str):
+            raise TypeError("Expected argument 'registration_date' to be a str")
+        __self__.registration_date = registration_date
+        """
+        Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +82,15 @@ class AwaitableGetUserResult(GetUserResult):
         if False:
             yield self
         return GetUserResult(
+            email=self.email,
+            first_name=self.first_name,
+            groups=self.groups,
+            identities=self.identities,
+            last_name=self.last_name,
             name=self.name,
-            properties=self.properties,
+            note=self.note,
+            registration_date=self.registration_date,
+            state=self.state,
             type=self.type)
 
 
@@ -64,6 +113,13 @@ def get_user(name=None, resource_group_name=None, service_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20170301:getUser', __args__, opts=opts).value
 
     return AwaitableGetUserResult(
+        email=__ret__.get('email'),
+        first_name=__ret__.get('firstName'),
+        groups=__ret__.get('groups'),
+        identities=__ret__.get('identities'),
+        last_name=__ret__.get('lastName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        note=__ret__.get('note'),
+        registration_date=__ret__.get('registrationDate'),
+        state=__ret__.get('state'),
         type=__ret__.get('type'))

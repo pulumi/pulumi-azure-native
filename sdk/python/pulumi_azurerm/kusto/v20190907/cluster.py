@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class Cluster(pulumi.CustomResource):
+    data_ingestion_uri: pulumi.Output[str]
+    """
+    The cluster data ingestion URI.
+    """
+    enable_disk_encryption: pulumi.Output[bool]
+    """
+    A boolean value that indicates if the cluster's disks are encrypted.
+    """
+    enable_streaming_ingest: pulumi.Output[bool]
+    """
+    A boolean value that indicates if the streaming ingest is enabled.
+    """
     identity: pulumi.Output[dict]
     """
     The identity of the cluster, if configured.
@@ -17,6 +29,13 @@ class Cluster(pulumi.CustomResource):
       * `tenant_id` (`str`) - The tenant ID of resource.
       * `type` (`str`) - The identity type.
       * `user_assigned_identities` (`dict`) - The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
+    key_vault_properties: pulumi.Output[dict]
+    """
+    KeyVault properties for the cluster encryption.
+      * `key_name` (`str`) - The name of the key vault key.
+      * `key_vault_uri` (`str`) - The Uri of the key vault.
+      * `key_version` (`str`) - The version of the key vault key.
     """
     location: pulumi.Output[str]
     """
@@ -26,33 +45,17 @@ class Cluster(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    optimized_autoscale: pulumi.Output[dict]
     """
-    The cluster properties.
-      * `data_ingestion_uri` (`str`) - The cluster data ingestion URI.
-      * `enable_disk_encryption` (`bool`) - A boolean value that indicates if the cluster's disks are encrypted.
-      * `enable_streaming_ingest` (`bool`) - A boolean value that indicates if the streaming ingest is enabled.
-      * `key_vault_properties` (`dict`) - KeyVault properties for the cluster encryption.
-        * `key_name` (`str`) - The name of the key vault key.
-        * `key_vault_uri` (`str`) - The Uri of the key vault.
-        * `key_version` (`str`) - The version of the key vault key.
-
-      * `optimized_autoscale` (`dict`) - Optimized auto scale definition.
-        * `is_enabled` (`bool`) - A boolean value that indicate if the optimized autoscale feature is enabled or not.
-        * `maximum` (`float`) - Maximum allowed instances count.
-        * `minimum` (`float`) - Minimum allowed instances count.
-        * `version` (`float`) - The version of the template defined, for instance 1.
-
-      * `provisioning_state` (`str`) - The provisioned state of the resource.
-      * `state` (`str`) - The state of the resource.
-      * `trusted_external_tenants` (`list`) - The cluster's external tenants.
-        * `value` (`str`) - GUID representing an external tenant.
-
-      * `uri` (`str`) - The cluster URI.
-      * `virtual_network_configuration` (`dict`) - Virtual network definition.
-        * `data_management_public_ip_id` (`str`) - Data management's service public IP address resource id.
-        * `engine_public_ip_id` (`str`) - Engine service's public IP address resource id.
-        * `subnet_id` (`str`) - The subnet resource id.
+    Optimized auto scale definition.
+      * `is_enabled` (`bool`) - A boolean value that indicate if the optimized autoscale feature is enabled or not.
+      * `maximum` (`float`) - Maximum allowed instances count.
+      * `minimum` (`float`) - Minimum allowed instances count.
+      * `version` (`float`) - The version of the template defined, for instance 1.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioned state of the resource.
     """
     sku: pulumi.Output[dict]
     """
@@ -61,13 +64,33 @@ class Cluster(pulumi.CustomResource):
       * `name` (`str`) - SKU name.
       * `tier` (`str`) - SKU tier.
     """
+    state: pulumi.Output[str]
+    """
+    The state of the resource.
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags.
     """
+    trusted_external_tenants: pulumi.Output[list]
+    """
+    The cluster's external tenants.
+      * `value` (`str`) - GUID representing an external tenant.
+    """
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    uri: pulumi.Output[str]
+    """
+    The cluster URI.
+    """
+    virtual_network_configuration: pulumi.Output[dict]
+    """
+    Virtual network definition.
+      * `data_management_public_ip_id` (`str`) - Data management's service public IP address resource id.
+      * `engine_public_ip_id` (`str`) - Engine service's public IP address resource id.
+      * `subnet_id` (`str`) - The subnet resource id.
     """
     zones: pulumi.Output[list]
     """
@@ -164,8 +187,11 @@ class Cluster(pulumi.CustomResource):
             __props__['trusted_external_tenants'] = trusted_external_tenants
             __props__['virtual_network_configuration'] = virtual_network_configuration
             __props__['zones'] = zones
-            __props__['properties'] = None
+            __props__['data_ingestion_uri'] = None
+            __props__['provisioning_state'] = None
+            __props__['state'] = None
             __props__['type'] = None
+            __props__['uri'] = None
         super(Cluster, __self__).__init__(
             'azurerm:kusto/v20190907:Cluster',
             resource_name,

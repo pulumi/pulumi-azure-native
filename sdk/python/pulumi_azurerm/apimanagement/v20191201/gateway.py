@@ -10,19 +10,21 @@ from ... import _utilities, _tables
 
 
 class Gateway(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    Gateway description
+    """
+    location_data: pulumi.Output[dict]
+    """
+    Gateway location.
+      * `city` (`str`) - The city or locality where the resource is located.
+      * `country_or_region` (`str`) - The country or region where the resource is located.
+      * `district` (`str`) - The district, state, or province where the resource is located.
+      * `name` (`str`) - A canonical name for the geographic or physical location.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Gateway details.
-      * `description` (`str`) - Gateway description
-      * `location_data` (`dict`) - Gateway location.
-        * `city` (`str`) - The city or locality where the resource is located.
-        * `country_or_region` (`str`) - The country or region where the resource is located.
-        * `district` (`str`) - The district, state, or province where the resource is located.
-        * `name` (`str`) - A canonical name for the geographic or physical location.
     """
     type: pulumi.Output[str]
     """
@@ -75,7 +77,6 @@ class Gateway(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(Gateway, __self__).__init__(
             'azurerm:apimanagement/v20191201:Gateway',

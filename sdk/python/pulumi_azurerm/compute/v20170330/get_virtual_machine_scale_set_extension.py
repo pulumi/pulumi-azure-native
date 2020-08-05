@@ -13,18 +13,60 @@ class GetVirtualMachineScaleSetExtensionResult:
     """
     Describes a Virtual Machine Scale Set Extension.
     """
-    def __init__(__self__, name=None, properties=None):
+    def __init__(__self__, auto_upgrade_minor_version=None, force_update_tag=None, name=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, type=None, type_handler_version=None):
+        if auto_upgrade_minor_version and not isinstance(auto_upgrade_minor_version, bool):
+            raise TypeError("Expected argument 'auto_upgrade_minor_version' to be a bool")
+        __self__.auto_upgrade_minor_version = auto_upgrade_minor_version
+        """
+        Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        """
+        if force_update_tag and not isinstance(force_update_tag, str):
+            raise TypeError("Expected argument 'force_update_tag' to be a str")
+        __self__.force_update_tag = force_update_tag
+        """
+        If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the extension.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if protected_settings and not isinstance(protected_settings, dict):
+            raise TypeError("Expected argument 'protected_settings' to be a dict")
+        __self__.protected_settings = protected_settings
         """
-        Describes the properties of a Virtual Machine Scale Set Extension.
+        The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state, which only appears in the response.
+        """
+        if publisher and not isinstance(publisher, str):
+            raise TypeError("Expected argument 'publisher' to be a str")
+        __self__.publisher = publisher
+        """
+        The name of the extension handler publisher.
+        """
+        if settings and not isinstance(settings, dict):
+            raise TypeError("Expected argument 'settings' to be a dict")
+        __self__.settings = settings
+        """
+        Json formatted public settings for the extension.
+        """
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        __self__.type = type
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        if type_handler_version and not isinstance(type_handler_version, str):
+            raise TypeError("Expected argument 'type_handler_version' to be a str")
+        __self__.type_handler_version = type_handler_version
+        """
+        Specifies the version of the script handler.
         """
 
 
@@ -34,8 +76,15 @@ class AwaitableGetVirtualMachineScaleSetExtensionResult(GetVirtualMachineScaleSe
         if False:
             yield self
         return GetVirtualMachineScaleSetExtensionResult(
+            auto_upgrade_minor_version=self.auto_upgrade_minor_version,
+            force_update_tag=self.force_update_tag,
             name=self.name,
-            properties=self.properties)
+            protected_settings=self.protected_settings,
+            provisioning_state=self.provisioning_state,
+            publisher=self.publisher,
+            settings=self.settings,
+            type=self.type,
+            type_handler_version=self.type_handler_version)
 
 
 def get_virtual_machine_scale_set_extension(name=None, resource_group_name=None, vm_scale_set_name=None, opts=None):
@@ -57,5 +106,12 @@ def get_virtual_machine_scale_set_extension(name=None, resource_group_name=None,
     __ret__ = pulumi.runtime.invoke('azurerm:compute/v20170330:getVirtualMachineScaleSetExtension', __args__, opts=opts).value
 
     return AwaitableGetVirtualMachineScaleSetExtensionResult(
+        auto_upgrade_minor_version=__ret__.get('autoUpgradeMinorVersion'),
+        force_update_tag=__ret__.get('forceUpdateTag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        protected_settings=__ret__.get('protectedSettings'),
+        provisioning_state=__ret__.get('provisioningState'),
+        publisher=__ret__.get('publisher'),
+        settings=__ret__.get('settings'),
+        type=__ret__.get('type'),
+        type_handler_version=__ret__.get('typeHandlerVersion'))

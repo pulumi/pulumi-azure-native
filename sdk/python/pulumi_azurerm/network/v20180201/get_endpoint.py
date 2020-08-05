@@ -13,24 +13,72 @@ class GetEndpointResult:
     """
     Class representing a Traffic Manager endpoint.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, endpoint_location=None, endpoint_monitor_status=None, endpoint_status=None, geo_mapping=None, min_child_endpoints=None, name=None, priority=None, target=None, target_resource_id=None, type=None, weight=None):
+        if endpoint_location and not isinstance(endpoint_location, str):
+            raise TypeError("Expected argument 'endpoint_location' to be a str")
+        __self__.endpoint_location = endpoint_location
+        """
+        Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+        """
+        if endpoint_monitor_status and not isinstance(endpoint_monitor_status, str):
+            raise TypeError("Expected argument 'endpoint_monitor_status' to be a str")
+        __self__.endpoint_monitor_status = endpoint_monitor_status
+        """
+        The monitoring status of the endpoint.
+        """
+        if endpoint_status and not isinstance(endpoint_status, str):
+            raise TypeError("Expected argument 'endpoint_status' to be a str")
+        __self__.endpoint_status = endpoint_status
+        """
+        The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+        """
+        if geo_mapping and not isinstance(geo_mapping, list):
+            raise TypeError("Expected argument 'geo_mapping' to be a list")
+        __self__.geo_mapping = geo_mapping
+        """
+        The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+        """
+        if min_child_endpoints and not isinstance(min_child_endpoints, float):
+            raise TypeError("Expected argument 'min_child_endpoints' to be a float")
+        __self__.min_child_endpoints = min_child_endpoints
+        """
+        The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if priority and not isinstance(priority, float):
+            raise TypeError("Expected argument 'priority' to be a float")
+        __self__.priority = priority
         """
-        The properties of the Traffic Manager endpoint.
+        The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+        """
+        if target and not isinstance(target, str):
+            raise TypeError("Expected argument 'target' to be a str")
+        __self__.target = target
+        """
+        The fully-qualified DNS name of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+        """
+        if target_resource_id and not isinstance(target_resource_id, str):
+            raise TypeError("Expected argument 'target_resource_id' to be a str")
+        __self__.target_resource_id = target_resource_id
+        """
+        The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+        """
+        if weight and not isinstance(weight, float):
+            raise TypeError("Expected argument 'weight' to be a float")
+        __self__.weight = weight
+        """
+        The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
         """
 
 
@@ -40,9 +88,17 @@ class AwaitableGetEndpointResult(GetEndpointResult):
         if False:
             yield self
         return GetEndpointResult(
+            endpoint_location=self.endpoint_location,
+            endpoint_monitor_status=self.endpoint_monitor_status,
+            endpoint_status=self.endpoint_status,
+            geo_mapping=self.geo_mapping,
+            min_child_endpoints=self.min_child_endpoints,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            priority=self.priority,
+            target=self.target,
+            target_resource_id=self.target_resource_id,
+            type=self.type,
+            weight=self.weight)
 
 
 def get_endpoint(endpoint_type=None, name=None, profile_name=None, resource_group_name=None, opts=None):
@@ -66,6 +122,14 @@ def get_endpoint(endpoint_type=None, name=None, profile_name=None, resource_grou
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20180201:getEndpoint', __args__, opts=opts).value
 
     return AwaitableGetEndpointResult(
+        endpoint_location=__ret__.get('endpointLocation'),
+        endpoint_monitor_status=__ret__.get('endpointMonitorStatus'),
+        endpoint_status=__ret__.get('endpointStatus'),
+        geo_mapping=__ret__.get('geoMapping'),
+        min_child_endpoints=__ret__.get('minChildEndpoints'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        priority=__ret__.get('priority'),
+        target=__ret__.get('target'),
+        target_resource_id=__ret__.get('targetResourceId'),
+        type=__ret__.get('type'),
+        weight=__ret__.get('weight'))

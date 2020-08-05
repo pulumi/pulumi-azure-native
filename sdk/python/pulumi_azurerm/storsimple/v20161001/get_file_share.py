@@ -13,24 +13,66 @@ class GetFileShareResult:
     """
     The File Share.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, admin_user=None, data_policy=None, description=None, local_used_capacity_in_bytes=None, monitoring_status=None, name=None, provisioned_capacity_in_bytes=None, share_status=None, type=None, used_capacity_in_bytes=None):
+        if admin_user and not isinstance(admin_user, str):
+            raise TypeError("Expected argument 'admin_user' to be a str")
+        __self__.admin_user = admin_user
+        """
+        The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
+        """
+        if data_policy and not isinstance(data_policy, str):
+            raise TypeError("Expected argument 'data_policy' to be a str")
+        __self__.data_policy = data_policy
+        """
+        The data policy
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Description for file share
+        """
+        if local_used_capacity_in_bytes and not isinstance(local_used_capacity_in_bytes, float):
+            raise TypeError("Expected argument 'local_used_capacity_in_bytes' to be a float")
+        __self__.local_used_capacity_in_bytes = local_used_capacity_in_bytes
+        """
+        The local used capacity in Bytes.
+        """
+        if monitoring_status and not isinstance(monitoring_status, str):
+            raise TypeError("Expected argument 'monitoring_status' to be a str")
+        __self__.monitoring_status = monitoring_status
+        """
+        The monitoring status
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioned_capacity_in_bytes and not isinstance(provisioned_capacity_in_bytes, float):
+            raise TypeError("Expected argument 'provisioned_capacity_in_bytes' to be a float")
+        __self__.provisioned_capacity_in_bytes = provisioned_capacity_in_bytes
         """
-        The properties.
+        The total provisioned capacity in Bytes
+        """
+        if share_status and not isinstance(share_status, str):
+            raise TypeError("Expected argument 'share_status' to be a str")
+        __self__.share_status = share_status
+        """
+        The Share Status
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type.
+        """
+        if used_capacity_in_bytes and not isinstance(used_capacity_in_bytes, float):
+            raise TypeError("Expected argument 'used_capacity_in_bytes' to be a float")
+        __self__.used_capacity_in_bytes = used_capacity_in_bytes
+        """
+        The used capacity in Bytes.
         """
 
 
@@ -40,9 +82,16 @@ class AwaitableGetFileShareResult(GetFileShareResult):
         if False:
             yield self
         return GetFileShareResult(
+            admin_user=self.admin_user,
+            data_policy=self.data_policy,
+            description=self.description,
+            local_used_capacity_in_bytes=self.local_used_capacity_in_bytes,
+            monitoring_status=self.monitoring_status,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            provisioned_capacity_in_bytes=self.provisioned_capacity_in_bytes,
+            share_status=self.share_status,
+            type=self.type,
+            used_capacity_in_bytes=self.used_capacity_in_bytes)
 
 
 def get_file_share(device_name=None, file_server_name=None, manager_name=None, name=None, resource_group_name=None, opts=None):
@@ -68,6 +117,13 @@ def get_file_share(device_name=None, file_server_name=None, manager_name=None, n
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20161001:getFileShare', __args__, opts=opts).value
 
     return AwaitableGetFileShareResult(
+        admin_user=__ret__.get('adminUser'),
+        data_policy=__ret__.get('dataPolicy'),
+        description=__ret__.get('description'),
+        local_used_capacity_in_bytes=__ret__.get('localUsedCapacityInBytes'),
+        monitoring_status=__ret__.get('monitoringStatus'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        provisioned_capacity_in_bytes=__ret__.get('provisionedCapacityInBytes'),
+        share_status=__ret__.get('shareStatus'),
+        type=__ret__.get('type'),
+        used_capacity_in_bytes=__ret__.get('usedCapacityInBytes'))

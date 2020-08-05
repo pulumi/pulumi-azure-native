@@ -13,7 +13,7 @@ class GetPrivateDnsZoneGroupResult:
     """
     Private dns zone group resource.
     """
-    def __init__(__self__, etag=None, name=None, properties=None):
+    def __init__(__self__, etag=None, name=None, private_dns_zone_configs=None, provisioning_state=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,11 +26,17 @@ class GetPrivateDnsZoneGroupResult:
         """
         Name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if private_dns_zone_configs and not isinstance(private_dns_zone_configs, list):
+            raise TypeError("Expected argument 'private_dns_zone_configs' to be a list")
+        __self__.private_dns_zone_configs = private_dns_zone_configs
         """
-        Properties of the private dns zone group.
+        A collection of private dns zone configurations of the private dns zone group.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the private dns zone group resource.
         """
 
 
@@ -42,7 +48,8 @@ class AwaitableGetPrivateDnsZoneGroupResult(GetPrivateDnsZoneGroupResult):
         return GetPrivateDnsZoneGroupResult(
             etag=self.etag,
             name=self.name,
-            properties=self.properties)
+            private_dns_zone_configs=self.private_dns_zone_configs,
+            provisioning_state=self.provisioning_state)
 
 
 def get_private_dns_zone_group(name=None, private_endpoint_name=None, resource_group_name=None, opts=None):
@@ -66,4 +73,5 @@ def get_private_dns_zone_group(name=None, private_endpoint_name=None, resource_g
     return AwaitableGetPrivateDnsZoneGroupResult(
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        private_dns_zone_configs=__ret__.get('privateDnsZoneConfigs'),
+        provisioning_state=__ret__.get('provisioningState'))

@@ -18,9 +18,6 @@ class Deployment(pulumi.CustomResource):
     """
     Deployment properties.
       * `correlation_id` (`str`) - The correlation ID of the deployment.
-      * `debug_setting` (`dict`) - The debug setting of the deployment.
-        * `detail_level` (`str`) - The debug detail level.
-
       * `dependencies` (`list`) - The list of deployment dependencies.
         * `depends_on` (`list`) - The list of dependencies.
           * `id` (`str`) - The ID of the dependency.

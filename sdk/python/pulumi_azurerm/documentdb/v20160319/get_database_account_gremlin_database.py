@@ -13,7 +13,25 @@ class GetDatabaseAccountGremlinDatabaseResult:
     """
     An Azure Cosmos DB Gremlin database.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, _etag=None, _rid=None, _ts=None, location=None, name=None, tags=None, type=None):
+        if _etag and not isinstance(_etag, str):
+            raise TypeError("Expected argument '_etag' to be a str")
+        __self__._etag = _etag
+        """
+        A system generated property representing the resource etag required for optimistic concurrency control.
+        """
+        if _rid and not isinstance(_rid, str):
+            raise TypeError("Expected argument '_rid' to be a str")
+        __self__._rid = _rid
+        """
+        A system generated property. A unique identifier.
+        """
+        if _ts and not isinstance(_ts, dict):
+            raise TypeError("Expected argument '_ts' to be a dict")
+        __self__._ts = _ts
+        """
+        A system generated property that denotes the last updated timestamp of the resource.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -25,12 +43,6 @@ class GetDatabaseAccountGremlinDatabaseResult:
         __self__.name = name
         """
         The name of the database account.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        The properties of an Azure Cosmos DB SQL database
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +64,11 @@ class AwaitableGetDatabaseAccountGremlinDatabaseResult(GetDatabaseAccountGremlin
         if False:
             yield self
         return GetDatabaseAccountGremlinDatabaseResult(
+            _etag=self._etag,
+            _rid=self._rid,
+            _ts=self._ts,
             location=self.location,
             name=self.name,
-            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -78,8 +92,10 @@ def get_database_account_gremlin_database(account_name=None, name=None, resource
     __ret__ = pulumi.runtime.invoke('azurerm:documentdb/v20160319:getDatabaseAccountGremlinDatabase', __args__, opts=opts).value
 
     return AwaitableGetDatabaseAccountGremlinDatabaseResult(
+        _etag=__ret__.get('_etag'),
+        _rid=__ret__.get('_rid'),
+        _ts=__ret__.get('_ts'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

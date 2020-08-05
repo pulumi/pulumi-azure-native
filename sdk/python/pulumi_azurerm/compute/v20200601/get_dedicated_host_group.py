@@ -13,7 +13,19 @@ class GetDedicatedHostGroupResult:
     """
     Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None, zones=None):
+    def __init__(__self__, hosts=None, instance_view=None, location=None, name=None, platform_fault_domain_count=None, support_automatic_placement=None, tags=None, type=None, zones=None):
+        if hosts and not isinstance(hosts, list):
+            raise TypeError("Expected argument 'hosts' to be a list")
+        __self__.hosts = hosts
+        """
+        A list of references to all dedicated hosts in the dedicated host group.
+        """
+        if instance_view and not isinstance(instance_view, dict):
+            raise TypeError("Expected argument 'instance_view' to be a dict")
+        __self__.instance_view = instance_view
+        """
+        The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +38,17 @@ class GetDedicatedHostGroupResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if platform_fault_domain_count and not isinstance(platform_fault_domain_count, float):
+            raise TypeError("Expected argument 'platform_fault_domain_count' to be a float")
+        __self__.platform_fault_domain_count = platform_fault_domain_count
         """
-        Dedicated Host Group Properties.
+        Number of fault domains that the host group can span.
+        """
+        if support_automatic_placement and not isinstance(support_automatic_placement, bool):
+            raise TypeError("Expected argument 'support_automatic_placement' to be a bool")
+        __self__.support_automatic_placement = support_automatic_placement
+        """
+        Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. <br><br>Minimum api-version: 2020-06-01.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,9 +76,12 @@ class AwaitableGetDedicatedHostGroupResult(GetDedicatedHostGroupResult):
         if False:
             yield self
         return GetDedicatedHostGroupResult(
+            hosts=self.hosts,
+            instance_view=self.instance_view,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            platform_fault_domain_count=self.platform_fault_domain_count,
+            support_automatic_placement=self.support_automatic_placement,
             tags=self.tags,
             type=self.type,
             zones=self.zones)
@@ -83,9 +104,12 @@ def get_dedicated_host_group(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:compute/v20200601:getDedicatedHostGroup', __args__, opts=opts).value
 
     return AwaitableGetDedicatedHostGroupResult(
+        hosts=__ret__.get('hosts'),
+        instance_view=__ret__.get('instanceView'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        platform_fault_domain_count=__ret__.get('platformFaultDomainCount'),
+        support_automatic_placement=__ret__.get('supportAutomaticPlacement'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'),
         zones=__ret__.get('zones'))

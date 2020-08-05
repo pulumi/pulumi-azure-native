@@ -10,26 +10,49 @@ from ... import _utilities, _tables
 
 
 class Endpoint(pulumi.CustomResource):
+    endpoint_location: pulumi.Output[str]
+    """
+    Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
+    """
+    endpoint_monitor_status: pulumi.Output[str]
+    """
+    The monitoring status of the endpoint.
+    """
+    endpoint_status: pulumi.Output[str]
+    """
+    The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+    """
+    geo_mapping: pulumi.Output[list]
+    """
+    The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+    """
+    min_child_endpoints: pulumi.Output[float]
+    """
+    The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    priority: pulumi.Output[float]
     """
-    The properties of the Traffic Manager endpoint.
-      * `endpoint_location` (`str`) - Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
-      * `endpoint_monitor_status` (`str`) - The monitoring status of the endpoint.
-      * `endpoint_status` (`str`) - The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
-      * `geo_mapping` (`list`) - The list of countries/regions mapped to this endpoint when using the ‘Geographic’ traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
-      * `min_child_endpoints` (`float`) - The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-      * `priority` (`float`) - The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-      * `target` (`str`) - The fully-qualified DNS name of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-      * `target_resource_id` (`str`) - The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
-      * `weight` (`float`) - The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
+    The priority of this endpoint when using the ‘Priority’ traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+    """
+    target: pulumi.Output[str]
+    """
+    The fully-qualified DNS name of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+    """
+    target_resource_id: pulumi.Output[str]
+    """
+    The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
     """
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+    """
+    weight: pulumi.Output[float]
+    """
+    The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
     """
     def __init__(__self__, resource_name, opts=None, endpoint_location=None, endpoint_monitor_status=None, endpoint_status=None, endpoint_type=None, geo_mapping=None, min_child_endpoints=None, name=None, priority=None, profile_name=None, resource_group_name=None, target=None, target_resource_id=None, weight=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -89,7 +112,6 @@ class Endpoint(pulumi.CustomResource):
             __props__['target'] = target
             __props__['target_resource_id'] = target_resource_id
             __props__['weight'] = weight
-            __props__['properties'] = None
             __props__['type'] = None
         super(Endpoint, __self__).__init__(
             'azurerm:network/v20170501:Endpoint',

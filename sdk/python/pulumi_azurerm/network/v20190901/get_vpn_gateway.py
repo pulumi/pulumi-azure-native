@@ -13,7 +13,19 @@ class GetVpnGatewayResult:
     """
     VpnGateway Resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, bgp_settings=None, connections=None, etag=None, location=None, name=None, provisioning_state=None, tags=None, type=None, virtual_hub=None, vpn_gateway_scale_unit=None):
+        if bgp_settings and not isinstance(bgp_settings, dict):
+            raise TypeError("Expected argument 'bgp_settings' to be a dict")
+        __self__.bgp_settings = bgp_settings
+        """
+        Local network gateway's BGP speaker settings.
+        """
+        if connections and not isinstance(connections, list):
+            raise TypeError("Expected argument 'connections' to be a list")
+        __self__.connections = connections
+        """
+        List of all vpn connections to the gateway.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +44,11 @@ class GetVpnGatewayResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the VPN gateway.
+        The provisioning state of the VPN gateway resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +62,18 @@ class GetVpnGatewayResult:
         """
         Resource type.
         """
+        if virtual_hub and not isinstance(virtual_hub, dict):
+            raise TypeError("Expected argument 'virtual_hub' to be a dict")
+        __self__.virtual_hub = virtual_hub
+        """
+        The VirtualHub to which the gateway belongs.
+        """
+        if vpn_gateway_scale_unit and not isinstance(vpn_gateway_scale_unit, float):
+            raise TypeError("Expected argument 'vpn_gateway_scale_unit' to be a float")
+        __self__.vpn_gateway_scale_unit = vpn_gateway_scale_unit
+        """
+        The scale unit for this vpn gateway.
+        """
 
 
 class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
@@ -58,12 +82,16 @@ class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
         if False:
             yield self
         return GetVpnGatewayResult(
+            bgp_settings=self.bgp_settings,
+            connections=self.connections,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_hub=self.virtual_hub,
+            vpn_gateway_scale_unit=self.vpn_gateway_scale_unit)
 
 
 def get_vpn_gateway(name=None, resource_group_name=None, opts=None):
@@ -83,9 +111,13 @@ def get_vpn_gateway(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20190901:getVpnGateway', __args__, opts=opts).value
 
     return AwaitableGetVpnGatewayResult(
+        bgp_settings=__ret__.get('bgpSettings'),
+        connections=__ret__.get('connections'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_hub=__ret__.get('virtualHub'),
+        vpn_gateway_scale_unit=__ret__.get('vpnGatewayScaleUnit'))

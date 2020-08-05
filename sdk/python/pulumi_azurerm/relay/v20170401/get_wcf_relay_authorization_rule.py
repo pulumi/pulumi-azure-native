@@ -13,18 +13,18 @@ class GetWCFRelayAuthorizationRuleResult:
     """
     Description of a namespace authorization rule.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, name=None, rights=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if rights and not isinstance(rights, list):
+            raise TypeError("Expected argument 'rights' to be a list")
+        __self__.rights = rights
         """
-        Authorization rule properties.
+        The rights associated with the rule.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -41,7 +41,7 @@ class AwaitableGetWCFRelayAuthorizationRuleResult(GetWCFRelayAuthorizationRuleRe
             yield self
         return GetWCFRelayAuthorizationRuleResult(
             name=self.name,
-            properties=self.properties,
+            rights=self.rights,
             type=self.type)
 
 
@@ -67,5 +67,5 @@ def get_wcf_relay_authorization_rule(name=None, namespace_name=None, relay_name=
 
     return AwaitableGetWCFRelayAuthorizationRuleResult(
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        rights=__ret__.get('rights'),
         type=__ret__.get('type'))

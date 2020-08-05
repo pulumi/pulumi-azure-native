@@ -13,12 +13,24 @@ class GetInterfaceEndpointResult:
     """
     Interface endpoint resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, endpoint_service=None, etag=None, fqdn=None, location=None, name=None, network_interfaces=None, owner=None, provisioning_state=None, subnet=None, tags=None, type=None):
+        if endpoint_service and not isinstance(endpoint_service, dict):
+            raise TypeError("Expected argument 'endpoint_service' to be a dict")
+        __self__.endpoint_service = endpoint_service
+        """
+        A reference to the service being brought into the virtual network.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        if fqdn and not isinstance(fqdn, str):
+            raise TypeError("Expected argument 'fqdn' to be a str")
+        __self__.fqdn = fqdn
+        """
+        A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +44,29 @@ class GetInterfaceEndpointResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_interfaces and not isinstance(network_interfaces, list):
+            raise TypeError("Expected argument 'network_interfaces' to be a list")
+        __self__.network_interfaces = network_interfaces
         """
-        Properties of the interface endpoint.
+        Gets an array of references to the network interfaces created for this interface endpoint.
+        """
+        if owner and not isinstance(owner, str):
+            raise TypeError("Expected argument 'owner' to be a str")
+        __self__.owner = owner
+        """
+        A read-only property that identifies who created this interface endpoint.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the interface endpoint. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        if subnet and not isinstance(subnet, dict):
+            raise TypeError("Expected argument 'subnet' to be a dict")
+        __self__.subnet = subnet
+        """
+        The ID of the subnet from which the private IP will be allocated.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +88,15 @@ class AwaitableGetInterfaceEndpointResult(GetInterfaceEndpointResult):
         if False:
             yield self
         return GetInterfaceEndpointResult(
+            endpoint_service=self.endpoint_service,
             etag=self.etag,
+            fqdn=self.fqdn,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            network_interfaces=self.network_interfaces,
+            owner=self.owner,
+            provisioning_state=self.provisioning_state,
+            subnet=self.subnet,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +118,14 @@ def get_interface_endpoint(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20181001:getInterfaceEndpoint', __args__, opts=opts).value
 
     return AwaitableGetInterfaceEndpointResult(
+        endpoint_service=__ret__.get('endpointService'),
         etag=__ret__.get('etag'),
+        fqdn=__ret__.get('fqdn'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_interfaces=__ret__.get('networkInterfaces'),
+        owner=__ret__.get('owner'),
+        provisioning_state=__ret__.get('provisioningState'),
+        subnet=__ret__.get('subnet'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

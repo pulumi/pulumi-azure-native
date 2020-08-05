@@ -13,7 +13,7 @@ class GetDdosCustomPolicyResult:
     """
     A DDoS custom policy in a resource group.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, location=None, name=None, protocol_custom_settings=None, provisioning_state=None, public_ip_addresses=None, resource_guid=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +32,29 @@ class GetDdosCustomPolicyResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if protocol_custom_settings and not isinstance(protocol_custom_settings, list):
+            raise TypeError("Expected argument 'protocol_custom_settings' to be a list")
+        __self__.protocol_custom_settings = protocol_custom_settings
         """
-        Properties of the DDoS custom policy.
+        The protocol-specific DDoS policy customization parameters.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the DDoS custom policy resource.
+        """
+        if public_ip_addresses and not isinstance(public_ip_addresses, list):
+            raise TypeError("Expected argument 'public_ip_addresses' to be a list")
+        __self__.public_ip_addresses = public_ip_addresses
+        """
+        The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -61,7 +79,10 @@ class AwaitableGetDdosCustomPolicyResult(GetDdosCustomPolicyResult):
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            protocol_custom_settings=self.protocol_custom_settings,
+            provisioning_state=self.provisioning_state,
+            public_ip_addresses=self.public_ip_addresses,
+            resource_guid=self.resource_guid,
             tags=self.tags,
             type=self.type)
 
@@ -86,6 +107,9 @@ def get_ddos_custom_policy(name=None, resource_group_name=None, opts=None):
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        protocol_custom_settings=__ret__.get('protocolCustomSettings'),
+        provisioning_state=__ret__.get('provisioningState'),
+        public_ip_addresses=__ret__.get('publicIPAddresses'),
+        resource_guid=__ret__.get('resourceGuid'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

@@ -13,7 +13,31 @@ class GetOriginResult:
     """
     CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, enabled=None, host_name=None, http_port=None, https_port=None, location=None, name=None, origin_host_header=None, priority=None, provisioning_state=None, resource_state=None, tags=None, type=None, weight=None):
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        __self__.enabled = enabled
+        """
+        Origin is enabled for load balancing or not
+        """
+        if host_name and not isinstance(host_name, str):
+            raise TypeError("Expected argument 'host_name' to be a str")
+        __self__.host_name = host_name
+        """
+        The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
+        """
+        if http_port and not isinstance(http_port, float):
+            raise TypeError("Expected argument 'http_port' to be a float")
+        __self__.http_port = http_port
+        """
+        The value of the HTTP port. Must be between 1 and 65535.
+        """
+        if https_port and not isinstance(https_port, float):
+            raise TypeError("Expected argument 'https_port' to be a float")
+        __self__.https_port = https_port
+        """
+        The value of the HTTPS port. Must be between 1 and 65535.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +50,29 @@ class GetOriginResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if origin_host_header and not isinstance(origin_host_header, str):
+            raise TypeError("Expected argument 'origin_host_header' to be a str")
+        __self__.origin_host_header = origin_host_header
         """
-        The JSON object that contains the properties of the origin.
+        The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
+        """
+        if priority and not isinstance(priority, float):
+            raise TypeError("Expected argument 'priority' to be a float")
+        __self__.priority = priority
+        """
+        Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning status of the origin.
+        """
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
+        """
+        Resource status of the origin.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +86,12 @@ class GetOriginResult:
         """
         Resource type.
         """
+        if weight and not isinstance(weight, float):
+            raise TypeError("Expected argument 'weight' to be a float")
+        __self__.weight = weight
+        """
+        Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+        """
 
 
 class AwaitableGetOriginResult(GetOriginResult):
@@ -52,11 +100,19 @@ class AwaitableGetOriginResult(GetOriginResult):
         if False:
             yield self
         return GetOriginResult(
+            enabled=self.enabled,
+            host_name=self.host_name,
+            http_port=self.http_port,
+            https_port=self.https_port,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            origin_host_header=self.origin_host_header,
+            priority=self.priority,
+            provisioning_state=self.provisioning_state,
+            resource_state=self.resource_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            weight=self.weight)
 
 
 def get_origin(endpoint_name=None, name=None, profile_name=None, resource_group_name=None, opts=None):
@@ -80,8 +136,16 @@ def get_origin(endpoint_name=None, name=None, profile_name=None, resource_group_
     __ret__ = pulumi.runtime.invoke('azurerm:cdn/v20191231:getOrigin', __args__, opts=opts).value
 
     return AwaitableGetOriginResult(
+        enabled=__ret__.get('enabled'),
+        host_name=__ret__.get('hostName'),
+        http_port=__ret__.get('httpPort'),
+        https_port=__ret__.get('httpsPort'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        origin_host_header=__ret__.get('originHostHeader'),
+        priority=__ret__.get('priority'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_state=__ret__.get('resourceState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        weight=__ret__.get('weight'))

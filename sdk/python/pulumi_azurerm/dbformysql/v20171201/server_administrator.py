@@ -10,17 +10,25 @@ from ... import _utilities, _tables
 
 
 class ServerAdministrator(pulumi.CustomResource):
+    administrator_type: pulumi.Output[str]
+    """
+    The type of administrator.
+    """
+    login: pulumi.Output[str]
+    """
+    The server administrator login account name.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    sid: pulumi.Output[str]
     """
-    Properties of the server AAD administrator.
-      * `administrator_type` (`str`) - The type of administrator.
-      * `login` (`str`) - The server administrator login account name.
-      * `sid` (`str`) - The server administrator Sid (Secure ID).
-      * `tenant_id` (`str`) - The server Active Directory Administrator tenant id.
+    The server administrator Sid (Secure ID).
+    """
+    tenant_id: pulumi.Output[str]
+    """
+    The server Active Directory Administrator tenant id.
     """
     type: pulumi.Output[str]
     """
@@ -74,7 +82,6 @@ class ServerAdministrator(pulumi.CustomResource):
             if tenant_id is None:
                 raise TypeError("Missing required property 'tenant_id'")
             __props__['tenant_id'] = tenant_id
-            __props__['properties'] = None
             __props__['type'] = None
         super(ServerAdministrator, __self__).__init__(
             'azurerm:dbformysql/v20171201:ServerAdministrator',

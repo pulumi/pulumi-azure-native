@@ -13,12 +13,54 @@ class GetVirtualNetworkGatewayConnectionResult:
     """
     A common class for general resource information
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, authorization_key=None, connection_status=None, connection_type=None, egress_bytes_transferred=None, enable_bgp=None, etag=None, ingress_bytes_transferred=None, local_network_gateway2=None, location=None, name=None, peer=None, provisioning_state=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, type=None, virtual_network_gateway1=None, virtual_network_gateway2=None):
+        if authorization_key and not isinstance(authorization_key, str):
+            raise TypeError("Expected argument 'authorization_key' to be a str")
+        __self__.authorization_key = authorization_key
+        """
+        The authorizationKey.
+        """
+        if connection_status and not isinstance(connection_status, str):
+            raise TypeError("Expected argument 'connection_status' to be a str")
+        __self__.connection_status = connection_status
+        """
+        Virtual network Gateway connection status
+        """
+        if connection_type and not isinstance(connection_type, str):
+            raise TypeError("Expected argument 'connection_type' to be a str")
+        __self__.connection_type = connection_type
+        """
+        Gateway connection type IPsec/Dedicated/VpnClient/Vnet2Vnet
+        """
+        if egress_bytes_transferred and not isinstance(egress_bytes_transferred, float):
+            raise TypeError("Expected argument 'egress_bytes_transferred' to be a float")
+        __self__.egress_bytes_transferred = egress_bytes_transferred
+        """
+        The Egress Bytes Transferred in this connection
+        """
+        if enable_bgp and not isinstance(enable_bgp, bool):
+            raise TypeError("Expected argument 'enable_bgp' to be a bool")
+        __self__.enable_bgp = enable_bgp
+        """
+        EnableBgp Flag
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Gets a unique read-only string that changes whenever the resource is updated
+        """
+        if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, float):
+            raise TypeError("Expected argument 'ingress_bytes_transferred' to be a float")
+        __self__.ingress_bytes_transferred = ingress_bytes_transferred
+        """
+        The Ingress Bytes Transferred in this connection
+        """
+        if local_network_gateway2 and not isinstance(local_network_gateway2, dict):
+            raise TypeError("Expected argument 'local_network_gateway2' to be a dict")
+        __self__.local_network_gateway2 = local_network_gateway2
+        """
+        A common class for general resource information
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +74,35 @@ class GetVirtualNetworkGatewayConnectionResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peer and not isinstance(peer, dict):
+            raise TypeError("Expected argument 'peer' to be a dict")
+        __self__.peer = peer
         """
-        VirtualNetworkGatewayConnection properties
+        The reference to peerings resource.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Gets or sets Provisioning state of the VirtualNetworkGatewayConnection resource Updating/Deleting/Failed
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        Gets or sets resource GUID property of the VirtualNetworkGatewayConnection resource
+        """
+        if routing_weight and not isinstance(routing_weight, float):
+            raise TypeError("Expected argument 'routing_weight' to be a float")
+        __self__.routing_weight = routing_weight
+        """
+        The Routing weight.
+        """
+        if shared_key and not isinstance(shared_key, str):
+            raise TypeError("Expected argument 'shared_key' to be a str")
+        __self__.shared_key = shared_key
+        """
+        The IPsec share key.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +116,18 @@ class GetVirtualNetworkGatewayConnectionResult:
         """
         Resource type
         """
+        if virtual_network_gateway1 and not isinstance(virtual_network_gateway1, dict):
+            raise TypeError("Expected argument 'virtual_network_gateway1' to be a dict")
+        __self__.virtual_network_gateway1 = virtual_network_gateway1
+        """
+        A common class for general resource information
+        """
+        if virtual_network_gateway2 and not isinstance(virtual_network_gateway2, dict):
+            raise TypeError("Expected argument 'virtual_network_gateway2' to be a dict")
+        __self__.virtual_network_gateway2 = virtual_network_gateway2
+        """
+        A common class for general resource information
+        """
 
 
 class AwaitableGetVirtualNetworkGatewayConnectionResult(GetVirtualNetworkGatewayConnectionResult):
@@ -58,12 +136,25 @@ class AwaitableGetVirtualNetworkGatewayConnectionResult(GetVirtualNetworkGateway
         if False:
             yield self
         return GetVirtualNetworkGatewayConnectionResult(
+            authorization_key=self.authorization_key,
+            connection_status=self.connection_status,
+            connection_type=self.connection_type,
+            egress_bytes_transferred=self.egress_bytes_transferred,
+            enable_bgp=self.enable_bgp,
             etag=self.etag,
+            ingress_bytes_transferred=self.ingress_bytes_transferred,
+            local_network_gateway2=self.local_network_gateway2,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            peer=self.peer,
+            provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
+            routing_weight=self.routing_weight,
+            shared_key=self.shared_key,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_network_gateway1=self.virtual_network_gateway1,
+            virtual_network_gateway2=self.virtual_network_gateway2)
 
 
 def get_virtual_network_gateway_connection(name=None, resource_group_name=None, opts=None):
@@ -83,9 +174,22 @@ def get_virtual_network_gateway_connection(name=None, resource_group_name=None, 
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20160330:getVirtualNetworkGatewayConnection', __args__, opts=opts).value
 
     return AwaitableGetVirtualNetworkGatewayConnectionResult(
+        authorization_key=__ret__.get('authorizationKey'),
+        connection_status=__ret__.get('connectionStatus'),
+        connection_type=__ret__.get('connectionType'),
+        egress_bytes_transferred=__ret__.get('egressBytesTransferred'),
+        enable_bgp=__ret__.get('enableBgp'),
         etag=__ret__.get('etag'),
+        ingress_bytes_transferred=__ret__.get('ingressBytesTransferred'),
+        local_network_gateway2=__ret__.get('localNetworkGateway2'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        peer=__ret__.get('peer'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_guid=__ret__.get('resourceGuid'),
+        routing_weight=__ret__.get('routingWeight'),
+        shared_key=__ret__.get('sharedKey'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_network_gateway1=__ret__.get('virtualNetworkGateway1'),
+        virtual_network_gateway2=__ret__.get('virtualNetworkGateway2'))

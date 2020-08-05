@@ -14,16 +14,33 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    principal_id: pulumi.Output[str]
     """
-    The database principal.
-      * `principal_id` (`str`) - The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
-      * `principal_name` (`str`) - The principal name
-      * `principal_type` (`str`) - Principal type.
-      * `provisioning_state` (`str`) - The provisioned state of the resource.
-      * `role` (`str`) - Database principal role.
-      * `tenant_id` (`str`) - The tenant id of the principal
-      * `tenant_name` (`str`) - The tenant name of the principal
+    The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
+    """
+    principal_name: pulumi.Output[str]
+    """
+    The principal name
+    """
+    principal_type: pulumi.Output[str]
+    """
+    Principal type.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioned state of the resource.
+    """
+    role: pulumi.Output[str]
+    """
+    Database principal role.
+    """
+    tenant_id: pulumi.Output[str]
+    """
+    The tenant id of the principal
+    """
+    tenant_name: pulumi.Output[str]
+    """
+    The tenant name of the principal
     """
     type: pulumi.Output[str]
     """
@@ -83,7 +100,9 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role'")
             __props__['role'] = role
             __props__['tenant_id'] = tenant_id
-            __props__['properties'] = None
+            __props__['principal_name'] = None
+            __props__['provisioning_state'] = None
+            __props__['tenant_name'] = None
             __props__['type'] = None
         super(DatabasePrincipalAssignment, __self__).__init__(
             'azurerm:kusto/v20200614:DatabasePrincipalAssignment',

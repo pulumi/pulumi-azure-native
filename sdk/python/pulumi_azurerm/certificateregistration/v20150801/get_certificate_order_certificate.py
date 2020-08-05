@@ -13,7 +13,19 @@ class GetCertificateOrderCertificateResult:
     """
     Class representing the Key Vault container for certificate purchased through Azure
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, key_vault_id=None, key_vault_secret_name=None, kind=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+        if key_vault_id and not isinstance(key_vault_id, str):
+            raise TypeError("Expected argument 'key_vault_id' to be a str")
+        __self__.key_vault_id = key_vault_id
+        """
+        Key Vault Csm resource Id
+        """
+        if key_vault_secret_name and not isinstance(key_vault_secret_name, str):
+            raise TypeError("Expected argument 'key_vault_secret_name' to be a str")
+        __self__.key_vault_secret_name = key_vault_secret_name
+        """
+        Key Vault secret name
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -32,9 +44,12 @@ class GetCertificateOrderCertificateResult:
         """
         Resource Name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Status of the Key Vault secret
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -55,10 +70,12 @@ class AwaitableGetCertificateOrderCertificateResult(GetCertificateOrderCertifica
         if False:
             yield self
         return GetCertificateOrderCertificateResult(
+            key_vault_id=self.key_vault_id,
+            key_vault_secret_name=self.key_vault_secret_name,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type)
 
@@ -82,9 +99,11 @@ def get_certificate_order_certificate(certificate_order_name=None, name=None, re
     __ret__ = pulumi.runtime.invoke('azurerm:certificateregistration/v20150801:getCertificateOrderCertificate', __args__, opts=opts).value
 
     return AwaitableGetCertificateOrderCertificateResult(
+        key_vault_id=__ret__.get('keyVaultId'),
+        key_vault_secret_name=__ret__.get('keyVaultSecretName'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

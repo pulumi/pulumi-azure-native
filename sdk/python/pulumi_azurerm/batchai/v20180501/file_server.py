@@ -10,42 +10,58 @@ from ... import _utilities, _tables
 
 
 class FileServer(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    """
+    Time when the FileServer was created.
+    """
+    data_disks: pulumi.Output[dict]
+    """
+    Information about disks attached to File Server VM.
+      * `caching_type` (`str`) - Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
+      * `disk_count` (`float`) - Number of data disks attached to the File Server. If multiple disks attached, they will be configured in RAID level 0.
+      * `disk_size_in_gb` (`float`) - Disk size in GB for the blank data disks.
+      * `storage_account_type` (`str`) - Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
+    """
+    mount_settings: pulumi.Output[dict]
+    """
+    File Server mount settings.
+      * `file_server_internal_ip` (`str`) - Internal IP address of the File Server which can be used to access the File Server from within the subnet.
+      * `file_server_public_ip` (`str`) - Public IP address of the File Server which can be used to SSH to the node from outside of the subnet.
+      * `mount_point` (`str`) - Path where the data disks are mounted on the File Server.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    File Server properties.
-      * `creation_time` (`str`) - Time when the FileServer was created.
-      * `data_disks` (`dict`) - Information about disks attached to File Server VM.
-        * `caching_type` (`str`) - Caching type for the disks. Available values are none (default), readonly, readwrite. Caching type can be set only for VM sizes supporting premium storage.
-        * `disk_count` (`float`) - Number of data disks attached to the File Server. If multiple disks attached, they will be configured in RAID level 0.
-        * `disk_size_in_gb` (`float`) - Disk size in GB for the blank data disks.
-        * `storage_account_type` (`str`) - Type of storage account to be used on the disk. Possible values are: Standard_LRS or Premium_LRS. Premium storage account type can only be used with VM sizes supporting premium storage.
-
-      * `mount_settings` (`dict`) - File Server mount settings.
-        * `file_server_internal_ip` (`str`) - Internal IP address of the File Server which can be used to access the File Server from within the subnet.
-        * `file_server_public_ip` (`str`) - Public IP address of the File Server which can be used to SSH to the node from outside of the subnet.
-        * `mount_point` (`str`) - Path where the data disks are mounted on the File Server.
-
-      * `provisioning_state` (`str`) - Provisioning state of the File Server. Possible values: creating - The File Server is getting created; updating - The File Server creation has been accepted and it is getting updated; deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted; failed - The File Server creation has failed with the specified error code. Details about the error code are specified in the message field; succeeded - The File Server creation has succeeded.
-      * `provisioning_state_transition_time` (`str`) - Time when the provisioning state was changed.
-      * `ssh_configuration` (`dict`) - SSH configuration for accessing the File Server node.
-        * `public_i_ps_to_allow` (`list`) - List of source IP ranges to allow SSH connection from. The default value is '*' (all source IPs are allowed). Maximum number of IP ranges that can be specified is 400.
-        * `user_account_settings` (`dict`) - Settings for administrator user account to be created on a node. The account can be used to establish SSH connection to the node.
-          * `admin_user_name` (`str`) - Name of the administrator user account which can be used to SSH to nodes.
-          * `admin_user_password` (`str`) - Password of the administrator user account.
-          * `admin_user_ssh_public_key` (`str`) - SSH public key of the administrator user account.
-
-      * `subnet` (`dict`) - File Server virtual network subnet resource ID.
-        * `id` (`str`) - The ID of the resource
-
-      * `vm_size` (`str`) - VM size of the File Server.
+    Provisioning state of the File Server. Possible values: creating - The File Server is getting created; updating - The File Server creation has been accepted and it is getting updated; deleting - The user has requested that the File Server be deleted, and it is in the process of being deleted; failed - The File Server creation has failed with the specified error code. Details about the error code are specified in the message field; succeeded - The File Server creation has succeeded.
+    """
+    provisioning_state_transition_time: pulumi.Output[str]
+    """
+    Time when the provisioning state was changed.
+    """
+    ssh_configuration: pulumi.Output[dict]
+    """
+    SSH configuration for accessing the File Server node.
+      * `public_i_ps_to_allow` (`list`) - List of source IP ranges to allow SSH connection from. The default value is '*' (all source IPs are allowed). Maximum number of IP ranges that can be specified is 400.
+      * `user_account_settings` (`dict`) - Settings for administrator user account to be created on a node. The account can be used to establish SSH connection to the node.
+        * `admin_user_name` (`str`) - Name of the administrator user account which can be used to SSH to nodes.
+        * `admin_user_password` (`str`) - Password of the administrator user account.
+        * `admin_user_ssh_public_key` (`str`) - SSH public key of the administrator user account.
+    """
+    subnet: pulumi.Output[dict]
+    """
+    File Server virtual network subnet resource ID.
+      * `id` (`str`) - The ID of the resource
     """
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    vm_size: pulumi.Output[str]
+    """
+    VM size of the File Server.
     """
     def __init__(__self__, resource_name, opts=None, data_disks=None, name=None, resource_group_name=None, ssh_configuration=None, subnet=None, vm_size=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -116,7 +132,10 @@ class FileServer(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['mount_settings'] = None
+            __props__['provisioning_state'] = None
+            __props__['provisioning_state_transition_time'] = None
             __props__['type'] = None
         super(FileServer, __self__).__init__(
             'azurerm:batchai/v20180501:FileServer',

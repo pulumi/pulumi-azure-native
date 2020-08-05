@@ -13,12 +13,48 @@ class GetNotificationHubResult:
     """
     Description of a NotificationHub Resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, adm_credential=None, apns_credential=None, authorization_rules=None, baidu_credential=None, gcm_credential=None, location=None, mpns_credential=None, name=None, registration_ttl=None, sku=None, tags=None, type=None, wns_credential=None):
+        if adm_credential and not isinstance(adm_credential, dict):
+            raise TypeError("Expected argument 'adm_credential' to be a dict")
+        __self__.adm_credential = adm_credential
+        """
+        The AdmCredential of the created NotificationHub
+        """
+        if apns_credential and not isinstance(apns_credential, dict):
+            raise TypeError("Expected argument 'apns_credential' to be a dict")
+        __self__.apns_credential = apns_credential
+        """
+        The ApnsCredential of the created NotificationHub
+        """
+        if authorization_rules and not isinstance(authorization_rules, list):
+            raise TypeError("Expected argument 'authorization_rules' to be a list")
+        __self__.authorization_rules = authorization_rules
+        """
+        The AuthorizationRules of the created NotificationHub
+        """
+        if baidu_credential and not isinstance(baidu_credential, dict):
+            raise TypeError("Expected argument 'baidu_credential' to be a dict")
+        __self__.baidu_credential = baidu_credential
+        """
+        The BaiduCredential of the created NotificationHub
+        """
+        if gcm_credential and not isinstance(gcm_credential, dict):
+            raise TypeError("Expected argument 'gcm_credential' to be a dict")
+        __self__.gcm_credential = gcm_credential
+        """
+        The GcmCredential of the created NotificationHub
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource location
+        """
+        if mpns_credential and not isinstance(mpns_credential, dict):
+            raise TypeError("Expected argument 'mpns_credential' to be a dict")
+        __self__.mpns_credential = mpns_credential
+        """
+        The MpnsCredential of the created NotificationHub
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +62,11 @@ class GetNotificationHubResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if registration_ttl and not isinstance(registration_ttl, str):
+            raise TypeError("Expected argument 'registration_ttl' to be a str")
+        __self__.registration_ttl = registration_ttl
         """
-        Properties of the NotificationHub.
+        The RegistrationTtl of the created NotificationHub
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -50,6 +86,12 @@ class GetNotificationHubResult:
         """
         Resource type
         """
+        if wns_credential and not isinstance(wns_credential, dict):
+            raise TypeError("Expected argument 'wns_credential' to be a dict")
+        __self__.wns_credential = wns_credential
+        """
+        The WnsCredential of the created NotificationHub
+        """
 
 
 class AwaitableGetNotificationHubResult(GetNotificationHubResult):
@@ -58,12 +100,19 @@ class AwaitableGetNotificationHubResult(GetNotificationHubResult):
         if False:
             yield self
         return GetNotificationHubResult(
+            adm_credential=self.adm_credential,
+            apns_credential=self.apns_credential,
+            authorization_rules=self.authorization_rules,
+            baidu_credential=self.baidu_credential,
+            gcm_credential=self.gcm_credential,
             location=self.location,
+            mpns_credential=self.mpns_credential,
             name=self.name,
-            properties=self.properties,
+            registration_ttl=self.registration_ttl,
             sku=self.sku,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            wns_credential=self.wns_credential)
 
 
 def get_notification_hub(name=None, namespace_name=None, resource_group_name=None, opts=None):
@@ -85,9 +134,16 @@ def get_notification_hub(name=None, namespace_name=None, resource_group_name=Non
     __ret__ = pulumi.runtime.invoke('azurerm:notificationhubs/v20160301:getNotificationHub', __args__, opts=opts).value
 
     return AwaitableGetNotificationHubResult(
+        adm_credential=__ret__.get('admCredential'),
+        apns_credential=__ret__.get('apnsCredential'),
+        authorization_rules=__ret__.get('authorizationRules'),
+        baidu_credential=__ret__.get('baiduCredential'),
+        gcm_credential=__ret__.get('gcmCredential'),
         location=__ret__.get('location'),
+        mpns_credential=__ret__.get('mpnsCredential'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        registration_ttl=__ret__.get('registrationTtl'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        wns_credential=__ret__.get('wnsCredential'))

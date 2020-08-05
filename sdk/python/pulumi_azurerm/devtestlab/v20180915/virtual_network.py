@@ -10,6 +10,31 @@ from ... import _utilities, _tables
 
 
 class VirtualNetwork(pulumi.CustomResource):
+    allowed_subnets: pulumi.Output[list]
+    """
+    The allowed subnets of the virtual network.
+      * `allow_public_ip` (`str`) - The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
+      * `lab_subnet_name` (`str`) - The name of the subnet as seen in the lab.
+      * `resource_id` (`str`) - The resource ID of the subnet.
+    """
+    created_date: pulumi.Output[str]
+    """
+    The creation date of the virtual network.
+    """
+    description: pulumi.Output[str]
+    """
+    The description of the virtual network.
+    """
+    external_provider_resource_id: pulumi.Output[str]
+    """
+    The Microsoft.Network resource identifier of the virtual network.
+    """
+    external_subnets: pulumi.Output[list]
+    """
+    The external subnet properties.
+      * `id` (`str`) - Gets or sets the identifier.
+      * `name` (`str`) - Gets or sets the name.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
@@ -18,35 +43,23 @@ class VirtualNetwork(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the resource.
-      * `allowed_subnets` (`list`) - The allowed subnets of the virtual network.
-        * `allow_public_ip` (`str`) - The permission policy of the subnet for allowing public IP addresses (i.e. Allow, Deny)).
-        * `lab_subnet_name` (`str`) - The name of the subnet as seen in the lab.
-        * `resource_id` (`str`) - The resource ID of the subnet.
+    The provisioning status of the resource.
+    """
+    subnet_overrides: pulumi.Output[list]
+    """
+    The subnet overrides of the virtual network.
+      * `lab_subnet_name` (`str`) - The name given to the subnet within the lab.
+      * `resource_id` (`str`) - The resource ID of the subnet.
+      * `shared_public_ip_address_configuration` (`dict`) - Properties that virtual machines on this subnet will share.
+        * `allowed_ports` (`list`) - Backend ports that virtual machines on this subnet are allowed to expose
+          * `backend_port` (`float`) - Backend port of the target virtual machine.
+          * `transport_protocol` (`str`) - Protocol type of the port.
 
-      * `created_date` (`str`) - The creation date of the virtual network.
-      * `description` (`str`) - The description of the virtual network.
-      * `external_provider_resource_id` (`str`) - The Microsoft.Network resource identifier of the virtual network.
-      * `external_subnets` (`list`) - The external subnet properties.
-        * `id` (`str`) - Gets or sets the identifier.
-        * `name` (`str`) - Gets or sets the name.
-
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `subnet_overrides` (`list`) - The subnet overrides of the virtual network.
-        * `lab_subnet_name` (`str`) - The name given to the subnet within the lab.
-        * `resource_id` (`str`) - The resource ID of the subnet.
-        * `shared_public_ip_address_configuration` (`dict`) - Properties that virtual machines on this subnet will share.
-          * `allowed_ports` (`list`) - Backend ports that virtual machines on this subnet are allowed to expose
-            * `backend_port` (`float`) - Backend port of the target virtual machine.
-            * `transport_protocol` (`str`) - Protocol type of the port.
-
-        * `use_in_vm_creation_permission` (`str`) - Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
-        * `use_public_ip_address_permission` (`str`) - Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
-        * `virtual_network_pool_name` (`str`) - The virtual network pool associated with this subnet.
-
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
+      * `use_in_vm_creation_permission` (`str`) - Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny).
+      * `use_public_ip_address_permission` (`str`) - Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
+      * `virtual_network_pool_name` (`str`) - The virtual network pool associated with this subnet.
     """
     tags: pulumi.Output[dict]
     """
@@ -55,6 +68,10 @@ class VirtualNetwork(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
     """
     def __init__(__self__, resource_name, opts=None, allowed_subnets=None, description=None, external_provider_resource_id=None, lab_name=None, location=None, name=None, resource_group_name=None, subnet_overrides=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -123,8 +140,11 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['subnet_overrides'] = subnet_overrides
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['created_date'] = None
+            __props__['external_subnets'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['unique_identifier'] = None
         super(VirtualNetwork, __self__).__init__(
             'azurerm:devtestlab/v20180915:VirtualNetwork',
             resource_name,

@@ -10,6 +10,98 @@ from ... import _utilities, _tables
 
 
 class ContainerGroup(pulumi.CustomResource):
+    containers: pulumi.Output[list]
+    """
+    The containers within the container group.
+      * `command` (`list`) - The commands to execute within the container instance in exec form.
+      * `environment_variables` (`list`) - The environment variables to set in the container instance.
+        * `name` (`str`) - The name of the environment variable.
+        * `secure_value` (`str`) - The value of the secure environment variable.
+        * `value` (`str`) - The value of the environment variable.
+
+      * `image` (`str`) - The name of the image used to create the container instance.
+      * `instance_view` (`dict`) - The instance view of the container instance. Only valid in response.
+        * `current_state` (`dict`) - Current container instance state.
+          * `detail_status` (`str`) - The human-readable status of the container instance state.
+          * `exit_code` (`float`) - The container instance exit codes correspond to those from the `docker run` command.
+          * `finish_time` (`str`) - The date-time when the container instance state finished.
+          * `start_time` (`str`) - The date-time when the container instance state started.
+          * `state` (`str`) - The state of the container instance.
+
+        * `events` (`list`) - The events of the container instance.
+          * `count` (`float`) - The count of the event.
+          * `first_timestamp` (`str`) - The date-time of the earliest logged event.
+          * `last_timestamp` (`str`) - The date-time of the latest logged event.
+          * `message` (`str`) - The event message.
+          * `name` (`str`) - The event name.
+          * `type` (`str`) - The event type.
+
+        * `previous_state` (`dict`) - Previous container instance state.
+        * `restart_count` (`float`) - The number of times that the container instance has been restarted.
+
+      * `liveness_probe` (`dict`) - The liveness probe.
+        * `exec` (`dict`) - The execution command to probe
+          * `command` (`list`) - The commands to execute within the container.
+
+        * `failure_threshold` (`float`) - The failure threshold.
+        * `http_get` (`dict`) - The Http Get settings to probe
+          * `path` (`str`) - The path to probe.
+          * `port` (`float`) - The port number to probe.
+          * `scheme` (`str`) - The scheme.
+
+        * `initial_delay_seconds` (`float`) - The initial delay seconds.
+        * `period_seconds` (`float`) - The period seconds.
+        * `success_threshold` (`float`) - The success threshold.
+        * `timeout_seconds` (`float`) - The timeout seconds.
+
+      * `name` (`str`) - The user-provided name of the container instance.
+      * `ports` (`list`) - The exposed ports on the container instance.
+        * `port` (`float`) - The port number exposed within the container group.
+        * `protocol` (`str`) - The protocol associated with the port.
+
+      * `readiness_probe` (`dict`) - The readiness probe.
+      * `resources` (`dict`) - The resource requirements of the container instance.
+        * `limits` (`dict`) - The resource limits of this container instance.
+          * `cpu` (`float`) - The CPU limit of this container instance.
+          * `gpu` (`dict`) - The GPU limit of this container instance.
+            * `count` (`float`) - The count of the GPU resource.
+            * `sku` (`str`) - The SKU of the GPU resource.
+
+          * `memory_in_gb` (`float`) - The memory limit in GB of this container instance.
+
+        * `requests` (`dict`) - The resource requests of this container instance.
+          * `cpu` (`float`) - The CPU request of this container instance.
+          * `gpu` (`dict`) - The GPU request of this container instance.
+          * `memory_in_gb` (`float`) - The memory request in GB of this container instance.
+
+      * `volume_mounts` (`list`) - The volume mounts available to the container instance.
+        * `mount_path` (`str`) - The path within the container where the volume should be mounted. Must not contain colon (:).
+        * `name` (`str`) - The name of the volume mount.
+        * `read_only` (`bool`) - The flag indicating whether the volume mount is read-only.
+    """
+    diagnostics: pulumi.Output[dict]
+    """
+    The diagnostic information for a container group.
+      * `log_analytics` (`dict`) - Container group log analytics information.
+        * `log_type` (`str`) - The log type to be used.
+        * `metadata` (`dict`) - Metadata for log analytics.
+        * `workspace_id` (`str`) - The workspace id for log analytics
+        * `workspace_key` (`str`) - The workspace key for log analytics
+    """
+    dns_config: pulumi.Output[dict]
+    """
+    The DNS config information for a container group.
+      * `name_servers` (`list`) - The DNS servers for the container group.
+      * `options` (`str`) - The DNS options for the container group.
+      * `search_domains` (`str`) - The DNS search domains for hostname lookup in the container group.
+    """
+    encryption_properties: pulumi.Output[dict]
+    """
+    The encryption properties for a container group.
+      * `key_name` (`str`) - The encryption key name.
+      * `key_version` (`str`) - The encryption key version.
+      * `vault_base_url` (`str`) - The keyvault base url.
+    """
     identity: pulumi.Output[dict]
     """
     The identity of the container group, if configured.
@@ -17,6 +109,73 @@ class ContainerGroup(pulumi.CustomResource):
       * `tenant_id` (`str`) - The tenant id associated with the container group. This property will only be provided for a system assigned identity.
       * `type` (`str`) - The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
       * `user_assigned_identities` (`dict`) - The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
+    image_registry_credentials: pulumi.Output[list]
+    """
+    The image registry credentials by which the container group is created from.
+      * `password` (`str`) - The password for the private registry.
+      * `server` (`str`) - The Docker image registry server without a protocol such as "http" and "https".
+      * `username` (`str`) - The username for the private registry.
+    """
+    init_containers: pulumi.Output[list]
+    """
+    The init containers for a container group.
+      * `command` (`list`) - The command to execute within the init container in exec form.
+      * `environment_variables` (`list`) - The environment variables to set in the init container.
+        * `name` (`str`) - The name of the environment variable.
+        * `secure_value` (`str`) - The value of the secure environment variable.
+        * `value` (`str`) - The value of the environment variable.
+
+      * `image` (`str`) - The image of the init container.
+      * `instance_view` (`dict`) - The instance view of the init container. Only valid in response.
+        * `current_state` (`dict`) - The current state of the init container.
+          * `detail_status` (`str`) - The human-readable status of the container instance state.
+          * `exit_code` (`float`) - The container instance exit codes correspond to those from the `docker run` command.
+          * `finish_time` (`str`) - The date-time when the container instance state finished.
+          * `start_time` (`str`) - The date-time when the container instance state started.
+          * `state` (`str`) - The state of the container instance.
+
+        * `events` (`list`) - The events of the init container.
+          * `count` (`float`) - The count of the event.
+          * `first_timestamp` (`str`) - The date-time of the earliest logged event.
+          * `last_timestamp` (`str`) - The date-time of the latest logged event.
+          * `message` (`str`) - The event message.
+          * `name` (`str`) - The event name.
+          * `type` (`str`) - The event type.
+
+        * `previous_state` (`dict`) - The previous state of the init container.
+        * `restart_count` (`float`) - The number of times that the init container has been restarted.
+
+      * `name` (`str`) - The name for the init container.
+      * `volume_mounts` (`list`) - The volume mounts available to the init container.
+        * `mount_path` (`str`) - The path within the container where the volume should be mounted. Must not contain colon (:).
+        * `name` (`str`) - The name of the volume mount.
+        * `read_only` (`bool`) - The flag indicating whether the volume mount is read-only.
+    """
+    instance_view: pulumi.Output[dict]
+    """
+    The instance view of the container group. Only valid in response.
+      * `events` (`list`) - The events of this container group.
+        * `count` (`float`) - The count of the event.
+        * `first_timestamp` (`str`) - The date-time of the earliest logged event.
+        * `last_timestamp` (`str`) - The date-time of the latest logged event.
+        * `message` (`str`) - The event message.
+        * `name` (`str`) - The event name.
+        * `type` (`str`) - The event type.
+
+      * `state` (`str`) - The state of the container group. Only valid in response.
+    """
+    ip_address: pulumi.Output[dict]
+    """
+    The IP address type of the container group.
+      * `dns_name_label` (`str`) - The Dns name label for the IP.
+      * `fqdn` (`str`) - The FQDN for the IP.
+      * `ip` (`str`) - The IP exposed to the public internet.
+      * `ports` (`list`) - The list of ports exposed on the container group.
+        * `port` (`float`) - The port number.
+        * `protocol` (`str`) - The protocol associated with the port.
+
+      * `type` (`str`) - Specifies if the IP is exposed to the public internet or private VNET.
     """
     location: pulumi.Output[str]
     """
@@ -26,152 +185,29 @@ class ContainerGroup(pulumi.CustomResource):
     """
     The resource name.
     """
-    properties: pulumi.Output[dict]
+    network_profile: pulumi.Output[dict]
     """
-    The container group properties
-      * `containers` (`list`) - The containers within the container group.
-        * `name` (`str`) - The user-provided name of the container instance.
-        * `properties` (`dict`) - The properties of the container instance.
-          * `command` (`list`) - The commands to execute within the container instance in exec form.
-          * `environment_variables` (`list`) - The environment variables to set in the container instance.
-            * `name` (`str`) - The name of the environment variable.
-            * `secure_value` (`str`) - The value of the secure environment variable.
-            * `value` (`str`) - The value of the environment variable.
-
-          * `image` (`str`) - The name of the image used to create the container instance.
-          * `instance_view` (`dict`) - The instance view of the container instance. Only valid in response.
-            * `current_state` (`dict`) - Current container instance state.
-              * `detail_status` (`str`) - The human-readable status of the container instance state.
-              * `exit_code` (`float`) - The container instance exit codes correspond to those from the `docker run` command.
-              * `finish_time` (`str`) - The date-time when the container instance state finished.
-              * `start_time` (`str`) - The date-time when the container instance state started.
-              * `state` (`str`) - The state of the container instance.
-
-            * `events` (`list`) - The events of the container instance.
-              * `count` (`float`) - The count of the event.
-              * `first_timestamp` (`str`) - The date-time of the earliest logged event.
-              * `last_timestamp` (`str`) - The date-time of the latest logged event.
-              * `message` (`str`) - The event message.
-              * `name` (`str`) - The event name.
-              * `type` (`str`) - The event type.
-
-            * `previous_state` (`dict`) - Previous container instance state.
-            * `restart_count` (`float`) - The number of times that the container instance has been restarted.
-
-          * `liveness_probe` (`dict`) - The liveness probe.
-            * `exec` (`dict`) - The execution command to probe
-              * `command` (`list`) - The commands to execute within the container.
-
-            * `failure_threshold` (`float`) - The failure threshold.
-            * `http_get` (`dict`) - The Http Get settings to probe
-              * `path` (`str`) - The path to probe.
-              * `port` (`float`) - The port number to probe.
-              * `scheme` (`str`) - The scheme.
-
-            * `initial_delay_seconds` (`float`) - The initial delay seconds.
-            * `period_seconds` (`float`) - The period seconds.
-            * `success_threshold` (`float`) - The success threshold.
-            * `timeout_seconds` (`float`) - The timeout seconds.
-
-          * `ports` (`list`) - The exposed ports on the container instance.
-            * `port` (`float`) - The port number exposed within the container group.
-            * `protocol` (`str`) - The protocol associated with the port.
-
-          * `readiness_probe` (`dict`) - The readiness probe.
-          * `resources` (`dict`) - The resource requirements of the container instance.
-            * `limits` (`dict`) - The resource limits of this container instance.
-              * `cpu` (`float`) - The CPU limit of this container instance.
-              * `gpu` (`dict`) - The GPU limit of this container instance.
-                * `count` (`float`) - The count of the GPU resource.
-                * `sku` (`str`) - The SKU of the GPU resource.
-
-              * `memory_in_gb` (`float`) - The memory limit in GB of this container instance.
-
-            * `requests` (`dict`) - The resource requests of this container instance.
-              * `cpu` (`float`) - The CPU request of this container instance.
-              * `gpu` (`dict`) - The GPU request of this container instance.
-              * `memory_in_gb` (`float`) - The memory request in GB of this container instance.
-
-          * `volume_mounts` (`list`) - The volume mounts available to the container instance.
-            * `mount_path` (`str`) - The path within the container where the volume should be mounted. Must not contain colon (:).
-            * `name` (`str`) - The name of the volume mount.
-            * `read_only` (`bool`) - The flag indicating whether the volume mount is read-only.
-
-      * `diagnostics` (`dict`) - The diagnostic information for a container group.
-        * `log_analytics` (`dict`) - Container group log analytics information.
-          * `log_type` (`str`) - The log type to be used.
-          * `metadata` (`dict`) - Metadata for log analytics.
-          * `workspace_id` (`str`) - The workspace id for log analytics
-          * `workspace_key` (`str`) - The workspace key for log analytics
-
-      * `dns_config` (`dict`) - The DNS config information for a container group.
-        * `name_servers` (`list`) - The DNS servers for the container group.
-        * `options` (`str`) - The DNS options for the container group.
-        * `search_domains` (`str`) - The DNS search domains for hostname lookup in the container group.
-
-      * `encryption_properties` (`dict`) - The encryption properties for a container group.
-        * `key_name` (`str`) - The encryption key name.
-        * `key_version` (`str`) - The encryption key version.
-        * `vault_base_url` (`str`) - The keyvault base url.
-
-      * `image_registry_credentials` (`list`) - The image registry credentials by which the container group is created from.
-        * `password` (`str`) - The password for the private registry.
-        * `server` (`str`) - The Docker image registry server without a protocol such as "http" and "https".
-        * `username` (`str`) - The username for the private registry.
-
-      * `init_containers` (`list`) - The init containers for a container group.
-        * `name` (`str`) - The name for the init container.
-        * `properties` (`dict`) - The properties for the init container.
-          * `command` (`list`) - The command to execute within the init container in exec form.
-          * `environment_variables` (`list`) - The environment variables to set in the init container.
-          * `image` (`str`) - The image of the init container.
-          * `instance_view` (`dict`) - The instance view of the init container. Only valid in response.
-            * `current_state` (`dict`) - The current state of the init container.
-            * `events` (`list`) - The events of the init container.
-            * `previous_state` (`dict`) - The previous state of the init container.
-            * `restart_count` (`float`) - The number of times that the init container has been restarted.
-
-          * `volume_mounts` (`list`) - The volume mounts available to the init container.
-
-      * `instance_view` (`dict`) - The instance view of the container group. Only valid in response.
-        * `events` (`list`) - The events of this container group.
-        * `state` (`str`) - The state of the container group. Only valid in response.
-
-      * `ip_address` (`dict`) - The IP address type of the container group.
-        * `dns_name_label` (`str`) - The Dns name label for the IP.
-        * `fqdn` (`str`) - The FQDN for the IP.
-        * `ip` (`str`) - The IP exposed to the public internet.
-        * `ports` (`list`) - The list of ports exposed on the container group.
-          * `port` (`float`) - The port number.
-          * `protocol` (`str`) - The protocol associated with the port.
-
-        * `type` (`str`) - Specifies if the IP is exposed to the public internet or private VNET.
-
-      * `network_profile` (`dict`) - The network profile information for a container group.
-        * `id` (`str`) - The identifier for a network profile.
-
-      * `os_type` (`str`) - The operating system type required by the containers in the container group.
-      * `provisioning_state` (`str`) - The provisioning state of the container group. This only appears in the response.
-      * `restart_policy` (`str`) - Restart policy for all containers within the container group. 
-        - `Always` Always restart
-        - `OnFailure` Restart on failure
-        - `Never` Never restart
-      * `sku` (`str`) - The SKU for a container group.
-      * `volumes` (`list`) - The list of volumes that can be mounted by containers in this container group.
-        * `azure_file` (`dict`) - The Azure File volume.
-          * `read_only` (`bool`) - The flag indicating whether the Azure File shared mounted as a volume is read-only.
-          * `share_name` (`str`) - The name of the Azure File share to be mounted as a volume.
-          * `storage_account_key` (`str`) - The storage account access key used to access the Azure File share.
-          * `storage_account_name` (`str`) - The name of the storage account that contains the Azure File share.
-
-        * `empty_dir` (`dict`) - The empty directory volume.
-        * `git_repo` (`dict`) - The git repo volume.
-          * `directory` (`str`) - Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
-          * `repository` (`str`) - Repository URL
-          * `revision` (`str`) - Commit hash for the specified revision.
-
-        * `name` (`str`) - The name of the volume.
-        * `secret` (`dict`) - The secret volume.
+    The network profile information for a container group.
+      * `id` (`str`) - The identifier for a network profile.
+    """
+    os_type: pulumi.Output[str]
+    """
+    The operating system type required by the containers in the container group.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the container group. This only appears in the response.
+    """
+    restart_policy: pulumi.Output[str]
+    """
+    Restart policy for all containers within the container group. 
+    - `Always` Always restart
+    - `OnFailure` Restart on failure
+    - `Never` Never restart
+    """
+    sku: pulumi.Output[str]
+    """
+    The SKU for a container group.
     """
     tags: pulumi.Output[dict]
     """
@@ -180,6 +216,24 @@ class ContainerGroup(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The resource type.
+    """
+    volumes: pulumi.Output[list]
+    """
+    The list of volumes that can be mounted by containers in this container group.
+      * `azure_file` (`dict`) - The Azure File volume.
+        * `read_only` (`bool`) - The flag indicating whether the Azure File shared mounted as a volume is read-only.
+        * `share_name` (`str`) - The name of the Azure File share to be mounted as a volume.
+        * `storage_account_key` (`str`) - The storage account access key used to access the Azure File share.
+        * `storage_account_name` (`str`) - The name of the storage account that contains the Azure File share.
+
+      * `empty_dir` (`dict`) - The empty directory volume.
+      * `git_repo` (`dict`) - The git repo volume.
+        * `directory` (`str`) - Target directory name. Must not contain or start with '..'.  If '.' is supplied, the volume directory will be the git repository.  Otherwise, if specified, the volume will contain the git repository in the subdirectory with the given name.
+        * `repository` (`str`) - Repository URL
+        * `revision` (`str`) - Commit hash for the specified revision.
+
+      * `name` (`str`) - The name of the volume.
+      * `secret` (`dict`) - The secret volume.
     """
     def __init__(__self__, resource_name, opts=None, containers=None, diagnostics=None, dns_config=None, encryption_properties=None, identity=None, image_registry_credentials=None, init_containers=None, ip_address=None, location=None, name=None, network_profile=None, os_type=None, resource_group_name=None, restart_policy=None, sku=None, tags=None, volumes=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -368,7 +422,8 @@ class ContainerGroup(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['volumes'] = volumes
-            __props__['properties'] = None
+            __props__['instance_view'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(ContainerGroup, __self__).__init__(
             'azurerm:containerinstance/v20191201:ContainerGroup',

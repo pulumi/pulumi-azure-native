@@ -10,9 +10,25 @@ from ... import _utilities, _tables
 
 
 class LocalNetworkGateway(pulumi.CustomResource):
+    bgp_settings: pulumi.Output[dict]
+    """
+    Local network gateway's BGP speaker settings
+      * `asn` (`float`) - Gets or sets this BGP speaker's ASN
+      * `bgp_peering_address` (`str`) - Gets or sets the BGP peering address and BGP identifier of this BGP speaker
+      * `peer_weight` (`float`) - Gets or sets the weight added to routes learned from this BGP speaker
+    """
     etag: pulumi.Output[str]
     """
     Gets a unique read-only string that changes whenever the resource is updated
+    """
+    gateway_ip_address: pulumi.Output[str]
+    """
+    IP address of local network gateway.
+    """
+    local_network_address_space: pulumi.Output[dict]
+    """
+    Local network site Address space
+      * `address_prefixes` (`list`) - Gets or sets list of address blocks reserved for this virtual network in CIDR notation
     """
     location: pulumi.Output[str]
     """
@@ -22,20 +38,13 @@ class LocalNetworkGateway(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    LocalNetworkGateway properties
-      * `bgp_settings` (`dict`) - Local network gateway's BGP speaker settings
-        * `asn` (`float`) - Gets or sets this BGP speaker's ASN
-        * `bgp_peering_address` (`str`) - Gets or sets the BGP peering address and BGP identifier of this BGP speaker
-        * `peer_weight` (`float`) - Gets or sets the weight added to routes learned from this BGP speaker
-
-      * `gateway_ip_address` (`str`) - IP address of local network gateway.
-      * `local_network_address_space` (`dict`) - Local network site Address space
-        * `address_prefixes` (`list`) - Gets or sets list of address blocks reserved for this virtual network in CIDR notation
-
-      * `provisioning_state` (`str`) - Gets provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
-      * `resource_guid` (`str`) - Gets or sets resource guid property of the LocalNetworkGateway resource
+    Gets provisioning state of the LocalNetworkGateway resource Updating/Deleting/Failed
+    """
+    resource_guid: pulumi.Output[str]
+    """
+    Gets or sets resource guid property of the LocalNetworkGateway resource
     """
     tags: pulumi.Output[dict]
     """
@@ -105,7 +114,6 @@ class LocalNetworkGateway(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_guid'] = resource_guid
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(LocalNetworkGateway, __self__).__init__(
             'azurerm:network/v20160601:LocalNetworkGateway',

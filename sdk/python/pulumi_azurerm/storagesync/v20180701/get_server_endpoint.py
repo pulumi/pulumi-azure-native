@@ -13,24 +13,78 @@ class GetServerEndpointResult:
     """
     Server Endpoint object.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, cloud_tiering=None, friendly_name=None, last_operation_name=None, last_workflow_id=None, name=None, provisioning_state=None, server_local_path=None, server_resource_id=None, sync_status=None, tier_files_older_than_days=None, type=None, volume_free_space_percent=None):
+        if cloud_tiering and not isinstance(cloud_tiering, str):
+            raise TypeError("Expected argument 'cloud_tiering' to be a str")
+        __self__.cloud_tiering = cloud_tiering
+        """
+        Cloud Tiering.
+        """
+        if friendly_name and not isinstance(friendly_name, str):
+            raise TypeError("Expected argument 'friendly_name' to be a str")
+        __self__.friendly_name = friendly_name
+        """
+        Friendly Name
+        """
+        if last_operation_name and not isinstance(last_operation_name, str):
+            raise TypeError("Expected argument 'last_operation_name' to be a str")
+        __self__.last_operation_name = last_operation_name
+        """
+        Resource Last Operation Name
+        """
+        if last_workflow_id and not isinstance(last_workflow_id, str):
+            raise TypeError("Expected argument 'last_workflow_id' to be a str")
+        __self__.last_workflow_id = last_workflow_id
+        """
+        ServerEndpoint lastWorkflowId
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Server Endpoint properties.
+        ServerEndpoint Provisioning State
+        """
+        if server_local_path and not isinstance(server_local_path, str):
+            raise TypeError("Expected argument 'server_local_path' to be a str")
+        __self__.server_local_path = server_local_path
+        """
+        Server Local path.
+        """
+        if server_resource_id and not isinstance(server_resource_id, str):
+            raise TypeError("Expected argument 'server_resource_id' to be a str")
+        __self__.server_resource_id = server_resource_id
+        """
+        Server Resource Id.
+        """
+        if sync_status and not isinstance(sync_status, dict):
+            raise TypeError("Expected argument 'sync_status' to be a dict")
+        __self__.sync_status = sync_status
+        """
+        Sync Health Status
+        """
+        if tier_files_older_than_days and not isinstance(tier_files_older_than_days, float):
+            raise TypeError("Expected argument 'tier_files_older_than_days' to be a float")
+        __self__.tier_files_older_than_days = tier_files_older_than_days
+        """
+        Tier files older than days.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        if volume_free_space_percent and not isinstance(volume_free_space_percent, float):
+            raise TypeError("Expected argument 'volume_free_space_percent' to be a float")
+        __self__.volume_free_space_percent = volume_free_space_percent
+        """
+        Level of free space to be maintained by Cloud Tiering if it is enabled.
         """
 
 
@@ -40,9 +94,18 @@ class AwaitableGetServerEndpointResult(GetServerEndpointResult):
         if False:
             yield self
         return GetServerEndpointResult(
+            cloud_tiering=self.cloud_tiering,
+            friendly_name=self.friendly_name,
+            last_operation_name=self.last_operation_name,
+            last_workflow_id=self.last_workflow_id,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            provisioning_state=self.provisioning_state,
+            server_local_path=self.server_local_path,
+            server_resource_id=self.server_resource_id,
+            sync_status=self.sync_status,
+            tier_files_older_than_days=self.tier_files_older_than_days,
+            type=self.type,
+            volume_free_space_percent=self.volume_free_space_percent)
 
 
 def get_server_endpoint(name=None, resource_group_name=None, storage_sync_service_name=None, sync_group_name=None, opts=None):
@@ -66,6 +129,15 @@ def get_server_endpoint(name=None, resource_group_name=None, storage_sync_servic
     __ret__ = pulumi.runtime.invoke('azurerm:storagesync/v20180701:getServerEndpoint', __args__, opts=opts).value
 
     return AwaitableGetServerEndpointResult(
+        cloud_tiering=__ret__.get('cloudTiering'),
+        friendly_name=__ret__.get('friendlyName'),
+        last_operation_name=__ret__.get('lastOperationName'),
+        last_workflow_id=__ret__.get('lastWorkflowId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        provisioning_state=__ret__.get('provisioningState'),
+        server_local_path=__ret__.get('serverLocalPath'),
+        server_resource_id=__ret__.get('serverResourceId'),
+        sync_status=__ret__.get('syncStatus'),
+        tier_files_older_than_days=__ret__.get('tierFilesOlderThanDays'),
+        type=__ret__.get('type'),
+        volume_free_space_percent=__ret__.get('volumeFreeSpacePercent'))

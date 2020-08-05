@@ -13,18 +13,54 @@ class GetPolicyDefinitionResult:
     """
     The policy definition.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, description=None, display_name=None, metadata=None, mode=None, name=None, parameters=None, policy_rule=None, policy_type=None, type=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The policy definition description.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        The display name of the policy definition.
+        """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        The policy definition metadata.
+        """
+        if mode and not isinstance(mode, str):
+            raise TypeError("Expected argument 'mode' to be a str")
+        __self__.mode = mode
+        """
+        The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the policy definition.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        __self__.parameters = parameters
         """
-        The policy definition properties.
+        Required if a parameter is used in policy rule.
+        """
+        if policy_rule and not isinstance(policy_rule, dict):
+            raise TypeError("Expected argument 'policy_rule' to be a dict")
+        __self__.policy_rule = policy_rule
+        """
+        The policy rule.
+        """
+        if policy_type and not isinstance(policy_type, str):
+            raise TypeError("Expected argument 'policy_type' to be a str")
+        __self__.policy_type = policy_type
+        """
+        The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +76,14 @@ class AwaitableGetPolicyDefinitionResult(GetPolicyDefinitionResult):
         if False:
             yield self
         return GetPolicyDefinitionResult(
+            description=self.description,
+            display_name=self.display_name,
+            metadata=self.metadata,
+            mode=self.mode,
             name=self.name,
-            properties=self.properties,
+            parameters=self.parameters,
+            policy_rule=self.policy_rule,
+            policy_type=self.policy_type,
             type=self.type)
 
 
@@ -60,6 +102,12 @@ def get_policy_definition(name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20190601:getPolicyDefinition', __args__, opts=opts).value
 
     return AwaitableGetPolicyDefinitionResult(
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        metadata=__ret__.get('metadata'),
+        mode=__ret__.get('mode'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        parameters=__ret__.get('parameters'),
+        policy_rule=__ret__.get('policyRule'),
+        policy_type=__ret__.get('policyType'),
         type=__ret__.get('type'))

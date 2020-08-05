@@ -10,24 +10,97 @@ from ... import _utilities, _tables
 
 
 class VpnConnection(pulumi.CustomResource):
+    connection_bandwidth: pulumi.Output[float]
+    """
+    Expected bandwidth in MBPS.
+    """
+    connection_status: pulumi.Output[str]
+    """
+    The connection status.
+    """
+    dpd_timeout_seconds: pulumi.Output[float]
+    """
+    The dead peer detection timeout for a vpn connection in seconds.
+    """
+    egress_bytes_transferred: pulumi.Output[float]
+    """
+    Egress bytes transferred.
+    """
+    enable_bgp: pulumi.Output[bool]
+    """
+    EnableBgp flag.
+    """
+    enable_internet_security: pulumi.Output[bool]
+    """
+    Enable internet security.
+    """
+    enable_rate_limiting: pulumi.Output[bool]
+    """
+    EnableBgp flag.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    ingress_bytes_transferred: pulumi.Output[float]
+    """
+    Ingress bytes transferred.
+    """
+    ipsec_policies: pulumi.Output[list]
+    """
+    The IPSec Policies to be considered by this connection.
+      * `dh_group` (`str`) - The DH Group used in IKE Phase 1 for initial SA.
+      * `ike_encryption` (`str`) - The IKE encryption algorithm (IKE phase 2).
+      * `ike_integrity` (`str`) - The IKE integrity algorithm (IKE phase 2).
+      * `ipsec_encryption` (`str`) - The IPSec encryption algorithm (IKE phase 1).
+      * `ipsec_integrity` (`str`) - The IPSec integrity algorithm (IKE phase 1).
+      * `pfs_group` (`str`) - The Pfs Group used in IKE Phase 2 for new child SA.
+      * `sa_data_size_kilobytes` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
+      * `sa_life_time_seconds` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
     """
     name: pulumi.Output[str]
     """
     The name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the VPN connection.
+    The provisioning state of the VPN connection resource.
+    """
+    remote_vpn_site: pulumi.Output[dict]
+    """
+    Id of the connected vpn site.
+      * `id` (`str`) - Resource ID.
+    """
+    routing_weight: pulumi.Output[float]
+    """
+    Routing weight for vpn connection.
+    """
+    shared_key: pulumi.Output[str]
+    """
+    SharedKey for the vpn connection.
+    """
+    use_local_azure_ip_address: pulumi.Output[bool]
+    """
+    Use local azure ip to initiate connection.
+    """
+    use_policy_based_traffic_selectors: pulumi.Output[bool]
+    """
+    Enable policy-based traffic selectors.
+    """
+    vpn_connection_protocol_type: pulumi.Output[str]
+    """
+    Connection protocol used for this connection.
+    """
+    vpn_link_connections: pulumi.Output[list]
+    """
+    List of all vpn site link connections to the gateway.
       * `connection_bandwidth` (`float`) - Expected bandwidth in MBPS.
       * `connection_status` (`str`) - The connection status.
-      * `dpd_timeout_seconds` (`float`) - The dead peer detection timeout for a vpn connection in seconds.
       * `egress_bytes_transferred` (`float`) - Egress bytes transferred.
       * `enable_bgp` (`bool`) - EnableBgp flag.
-      * `enable_internet_security` (`bool`) - Enable internet security.
       * `enable_rate_limiting` (`bool`) - EnableBgp flag.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
       * `ingress_bytes_transferred` (`float`) - Ingress bytes transferred.
       * `ipsec_policies` (`list`) - The IPSec Policies to be considered by this connection.
         * `dh_group` (`str`) - The DH Group used in IKE Phase 1 for initial SA.
@@ -39,36 +112,16 @@ class VpnConnection(pulumi.CustomResource):
         * `sa_data_size_kilobytes` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
         * `sa_life_time_seconds` (`float`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
 
-      * `provisioning_state` (`str`) - The provisioning state of the VPN connection resource.
-      * `remote_vpn_site` (`dict`) - Id of the connected vpn site.
-        * `id` (`str`) - Resource ID.
-
+      * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `provisioning_state` (`str`) - The provisioning state of the VPN site link connection resource.
       * `routing_weight` (`float`) - Routing weight for vpn connection.
       * `shared_key` (`str`) - SharedKey for the vpn connection.
+      * `type` (`str`) - Resource type.
       * `use_local_azure_ip_address` (`bool`) - Use local azure ip to initiate connection.
       * `use_policy_based_traffic_selectors` (`bool`) - Enable policy-based traffic selectors.
       * `vpn_connection_protocol_type` (`str`) - Connection protocol used for this connection.
-      * `vpn_link_connections` (`list`) - List of all vpn site link connections to the gateway.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `vpn_site_link` (`dict`) - Id of the connected vpn site link.
         * `id` (`str`) - Resource ID.
-        * `name` (`str`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of the VPN site link connection.
-          * `connection_bandwidth` (`float`) - Expected bandwidth in MBPS.
-          * `connection_status` (`str`) - The connection status.
-          * `egress_bytes_transferred` (`float`) - Egress bytes transferred.
-          * `enable_bgp` (`bool`) - EnableBgp flag.
-          * `enable_rate_limiting` (`bool`) - EnableBgp flag.
-          * `ingress_bytes_transferred` (`float`) - Ingress bytes transferred.
-          * `ipsec_policies` (`list`) - The IPSec Policies to be considered by this connection.
-          * `provisioning_state` (`str`) - The provisioning state of the VPN site link connection resource.
-          * `routing_weight` (`float`) - Routing weight for vpn connection.
-          * `shared_key` (`str`) - SharedKey for the vpn connection.
-          * `use_local_azure_ip_address` (`bool`) - Use local azure ip to initiate connection.
-          * `use_policy_based_traffic_selectors` (`bool`) - Enable policy-based traffic selectors.
-          * `vpn_connection_protocol_type` (`str`) - Connection protocol used for this connection.
-          * `vpn_site_link` (`dict`) - Id of the connected vpn site link.
-
-        * `type` (`str`) - Resource type.
     """
     def __init__(__self__, resource_name, opts=None, connection_bandwidth=None, connection_status=None, dpd_timeout_seconds=None, enable_bgp=None, enable_internet_security=None, enable_rate_limiting=None, gateway_name=None, id=None, ipsec_policies=None, name=None, remote_vpn_site=None, resource_group_name=None, routing_weight=None, shared_key=None, use_local_azure_ip_address=None, use_policy_based_traffic_selectors=None, vpn_connection_protocol_type=None, vpn_link_connections=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -167,8 +220,10 @@ class VpnConnection(pulumi.CustomResource):
             __props__['use_policy_based_traffic_selectors'] = use_policy_based_traffic_selectors
             __props__['vpn_connection_protocol_type'] = vpn_connection_protocol_type
             __props__['vpn_link_connections'] = vpn_link_connections
+            __props__['egress_bytes_transferred'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['ingress_bytes_transferred'] = None
+            __props__['provisioning_state'] = None
         super(VpnConnection, __self__).__init__(
             'azurerm:network/v20200301:VpnConnection',
             resource_name,

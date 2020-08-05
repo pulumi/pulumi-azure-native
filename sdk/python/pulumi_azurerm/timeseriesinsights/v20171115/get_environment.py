@@ -13,7 +13,31 @@ class GetEnvironmentResult:
     """
     An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, data_access_fqdn=None, data_access_id=None, data_retention_time=None, location=None, name=None, partition_key_properties=None, provisioning_state=None, sku=None, status=None, storage_limit_exceeded_behavior=None, tags=None, type=None):
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        The time the resource was created.
+        """
+        if data_access_fqdn and not isinstance(data_access_fqdn, str):
+            raise TypeError("Expected argument 'data_access_fqdn' to be a str")
+        __self__.data_access_fqdn = data_access_fqdn
+        """
+        The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+        """
+        if data_access_id and not isinstance(data_access_id, str):
+            raise TypeError("Expected argument 'data_access_id' to be a str")
+        __self__.data_access_id = data_access_id
+        """
+        An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
+        """
+        if data_retention_time and not isinstance(data_retention_time, str):
+            raise TypeError("Expected argument 'data_retention_time' to be a str")
+        __self__.data_retention_time = data_retention_time
+        """
+        ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,17 +50,35 @@ class GetEnvironmentResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if partition_key_properties and not isinstance(partition_key_properties, list):
+            raise TypeError("Expected argument 'partition_key_properties' to be a list")
+        __self__.partition_key_properties = partition_key_properties
         """
-        Properties of the environment.
+        The list of partition keys according to which the data in the environment will be ordered.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state of the resource.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         The sku determines the capacity of the environment, the SLA (in queries-per-minute and total capacity), and the billing rate.
+        """
+        if status and not isinstance(status, dict):
+            raise TypeError("Expected argument 'status' to be a dict")
+        __self__.status = status
+        """
+        An object that represents the status of the environment, and its internal state in the Time Series Insights service.
+        """
+        if storage_limit_exceeded_behavior and not isinstance(storage_limit_exceeded_behavior, str):
+            raise TypeError("Expected argument 'storage_limit_exceeded_behavior' to be a str")
+        __self__.storage_limit_exceeded_behavior = storage_limit_exceeded_behavior
+        """
+        The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +100,17 @@ class AwaitableGetEnvironmentResult(GetEnvironmentResult):
         if False:
             yield self
         return GetEnvironmentResult(
+            creation_time=self.creation_time,
+            data_access_fqdn=self.data_access_fqdn,
+            data_access_id=self.data_access_id,
+            data_retention_time=self.data_retention_time,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            partition_key_properties=self.partition_key_properties,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
+            status=self.status,
+            storage_limit_exceeded_behavior=self.storage_limit_exceeded_behavior,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +132,16 @@ def get_environment(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:timeseriesinsights/v20171115:getEnvironment', __args__, opts=opts).value
 
     return AwaitableGetEnvironmentResult(
+        creation_time=__ret__.get('creationTime'),
+        data_access_fqdn=__ret__.get('dataAccessFqdn'),
+        data_access_id=__ret__.get('dataAccessId'),
+        data_retention_time=__ret__.get('dataRetentionTime'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        partition_key_properties=__ret__.get('partitionKeyProperties'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
+        status=__ret__.get('status'),
+        storage_limit_exceeded_behavior=__ret__.get('storageLimitExceededBehavior'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

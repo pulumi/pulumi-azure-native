@@ -13,7 +13,7 @@ class GetDomainOwnershipIdentifierResult:
     """
     Domain ownership Identifier.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, kind=None, name=None, ownership_id=None, type=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,11 +26,11 @@ class GetDomainOwnershipIdentifierResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if ownership_id and not isinstance(ownership_id, str):
+            raise TypeError("Expected argument 'ownership_id' to be a str")
+        __self__.ownership_id = ownership_id
         """
-        DomainOwnershipIdentifier resource specific properties
+        Ownership Id.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -48,7 +48,7 @@ class AwaitableGetDomainOwnershipIdentifierResult(GetDomainOwnershipIdentifierRe
         return GetDomainOwnershipIdentifierResult(
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
+            ownership_id=self.ownership_id,
             type=self.type)
 
 
@@ -73,5 +73,5 @@ def get_domain_ownership_identifier(domain_name=None, name=None, resource_group_
     return AwaitableGetDomainOwnershipIdentifierResult(
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        ownership_id=__ret__.get('ownershipId'),
         type=__ret__.get('type'))

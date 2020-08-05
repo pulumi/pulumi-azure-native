@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class ScheduledQueryRule(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    The description of the Log Search rule.
+    """
+    enabled: pulumi.Output[str]
+    """
+    The flag which indicates whether the Log Search rule is enabled. Value should be true or false
+    """
+    last_updated_time: pulumi.Output[str]
+    """
+    Last time the rule was updated in IS08601 format.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,22 +30,23 @@ class ScheduledQueryRule(pulumi.CustomResource):
     """
     Azure resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The rule properties of the resource.
-      * `description` (`str`) - The description of the Log Search rule.
-      * `enabled` (`str`) - The flag which indicates whether the Log Search rule is enabled. Value should be true or false
-      * `last_updated_time` (`str`) - Last time the rule was updated in IS08601 format.
-      * `provisioning_state` (`str`) - Provisioning state of the scheduled query rule
-      * `schedule` (`dict`) - Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
-        * `frequency_in_minutes` (`float`) - frequency (in minutes) at which rule condition should be evaluated.
-        * `time_window_in_minutes` (`float`) - Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
-
-      * `source` (`dict`) - Data Source against which rule will Query Data
-        * `authorized_resources` (`list`) - List of  Resource referred into query
-        * `data_source_id` (`str`) - The resource uri over which log search query is to be run.
-        * `query` (`str`) - Log search query. Required for action type - AlertingAction
-        * `query_type` (`str`) - Set value to 'ResultCount' .
+    Provisioning state of the scheduled query rule
+    """
+    schedule: pulumi.Output[dict]
+    """
+    Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction
+      * `frequency_in_minutes` (`float`) - frequency (in minutes) at which rule condition should be evaluated.
+      * `time_window_in_minutes` (`float`) - Time window for which data needs to be fetched for query (should be greater than or equal to frequencyInMinutes).
+    """
+    source: pulumi.Output[dict]
+    """
+    Data Source against which rule will Query Data
+      * `authorized_resources` (`list`) - List of  Resource referred into query
+      * `data_source_id` (`str`) - The resource uri over which log search query is to be run.
+      * `query` (`str`) - Log search query. Required for action type - AlertingAction
+      * `query_type` (`str`) - Set value to 'ResultCount' .
     """
     tags: pulumi.Output[dict]
     """
@@ -103,7 +116,8 @@ class ScheduledQueryRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'source'")
             __props__['source'] = source
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['last_updated_time'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(ScheduledQueryRule, __self__).__init__(
             'azurerm:insights/v20180416:ScheduledQueryRule',

@@ -10,6 +10,34 @@ from ... import _utilities, _tables
 
 
 class DedicatedHost(pulumi.CustomResource):
+    auto_replace_on_failure: pulumi.Output[bool]
+    """
+    Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
+    """
+    host_id: pulumi.Output[str]
+    """
+    A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
+    """
+    instance_view: pulumi.Output[dict]
+    """
+    The dedicated host instance view.
+      * `asset_id` (`str`) - Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
+      * `available_capacity` (`dict`) - Unutilized capacity of the dedicated host.
+        * `allocatable_v_ms` (`list`) - The unutilized capacity of the dedicated host represented in terms of each VM size that is allowed to be deployed to the dedicated host.
+          * `count` (`float`) - Maximum number of VMs of size vmSize that can fit in the dedicated host's remaining capacity.
+          * `vm_size` (`str`) - VM size in terms of which the unutilized capacity is represented.
+
+      * `statuses` (`list`) - The resource status information.
+        * `code` (`str`) - The status code.
+        * `display_status` (`str`) - The short localizable label for the status.
+        * `level` (`str`) - The level code.
+        * `message` (`str`) - The detailed status message, including for alerts and error messages.
+        * `time` (`str`) - The time of the status.
+    """
+    license_type: pulumi.Output[str]
+    """
+    Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,31 +46,17 @@ class DedicatedHost(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    platform_fault_domain: pulumi.Output[float]
     """
-    Properties of the dedicated host.
-      * `auto_replace_on_failure` (`bool`) - Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
-      * `host_id` (`str`) - A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
-      * `instance_view` (`dict`) - The dedicated host instance view.
-        * `asset_id` (`str`) - Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
-        * `available_capacity` (`dict`) - Unutilized capacity of the dedicated host.
-          * `allocatable_v_ms` (`list`) - The unutilized capacity of the dedicated host represented in terms of each VM size that is allowed to be deployed to the dedicated host.
-            * `count` (`float`) - Maximum number of VMs of size vmSize that can fit in the dedicated host's remaining capacity.
-            * `vm_size` (`str`) - VM size in terms of which the unutilized capacity is represented.
-
-        * `statuses` (`list`) - The resource status information.
-          * `code` (`str`) - The status code.
-          * `display_status` (`str`) - The short localizable label for the status.
-          * `level` (`str`) - The level code.
-          * `message` (`str`) - The detailed status message, including for alerts and error messages.
-          * `time` (`str`) - The time of the status.
-
-      * `license_type` (`str`) - Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
-      * `platform_fault_domain` (`float`) - Fault domain of the dedicated host within a dedicated host group.
-      * `provisioning_state` (`str`) - The provisioning state, which only appears in the response.
-      * `provisioning_time` (`str`) - The date when the host was first provisioned.
-      * `virtual_machines` (`list`) - A list of references to all virtual machines in the Dedicated Host.
-        * `id` (`str`) - Resource Id
+    Fault domain of the dedicated host within a dedicated host group.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state, which only appears in the response.
+    """
+    provisioning_time: pulumi.Output[str]
+    """
+    The date when the host was first provisioned.
     """
     sku: pulumi.Output[dict]
     """
@@ -58,6 +72,11 @@ class DedicatedHost(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    virtual_machines: pulumi.Output[list]
+    """
+    A list of references to all virtual machines in the Dedicated Host.
+      * `id` (`str`) - Resource Id
     """
     def __init__(__self__, resource_name, opts=None, auto_replace_on_failure=None, host_group_name=None, license_type=None, location=None, name=None, platform_fault_domain=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -117,8 +136,12 @@ class DedicatedHost(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['host_id'] = None
+            __props__['instance_view'] = None
+            __props__['provisioning_state'] = None
+            __props__['provisioning_time'] = None
             __props__['type'] = None
+            __props__['virtual_machines'] = None
         super(DedicatedHost, __self__).__init__(
             'azurerm:compute/v20200601:DedicatedHost',
             resource_name,

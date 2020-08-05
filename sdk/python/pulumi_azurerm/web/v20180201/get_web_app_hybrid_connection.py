@@ -13,7 +13,13 @@ class GetWebAppHybridConnectionResult:
     """
     Hybrid Connection contract. This is used to configure a Hybrid Connection.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, hostname=None, kind=None, name=None, port=None, relay_arm_uri=None, relay_name=None, send_key_name=None, send_key_value=None, service_bus_namespace=None, service_bus_suffix=None, type=None):
+        if hostname and not isinstance(hostname, str):
+            raise TypeError("Expected argument 'hostname' to be a str")
+        __self__.hostname = hostname
+        """
+        The hostname of the endpoint.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,11 +32,48 @@ class GetWebAppHybridConnectionResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if port and not isinstance(port, float):
+            raise TypeError("Expected argument 'port' to be a float")
+        __self__.port = port
         """
-        HybridConnection resource specific properties
+        The port of the endpoint.
+        """
+        if relay_arm_uri and not isinstance(relay_arm_uri, str):
+            raise TypeError("Expected argument 'relay_arm_uri' to be a str")
+        __self__.relay_arm_uri = relay_arm_uri
+        """
+        The ARM URI to the Service Bus relay.
+        """
+        if relay_name and not isinstance(relay_name, str):
+            raise TypeError("Expected argument 'relay_name' to be a str")
+        __self__.relay_name = relay_name
+        """
+        The name of the Service Bus relay.
+        """
+        if send_key_name and not isinstance(send_key_name, str):
+            raise TypeError("Expected argument 'send_key_name' to be a str")
+        __self__.send_key_name = send_key_name
+        """
+        The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
+        """
+        if send_key_value and not isinstance(send_key_value, str):
+            raise TypeError("Expected argument 'send_key_value' to be a str")
+        __self__.send_key_value = send_key_value
+        """
+        The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
+        normally, use the POST /listKeys API instead.
+        """
+        if service_bus_namespace and not isinstance(service_bus_namespace, str):
+            raise TypeError("Expected argument 'service_bus_namespace' to be a str")
+        __self__.service_bus_namespace = service_bus_namespace
+        """
+        The name of the Service Bus namespace.
+        """
+        if service_bus_suffix and not isinstance(service_bus_suffix, str):
+            raise TypeError("Expected argument 'service_bus_suffix' to be a str")
+        __self__.service_bus_suffix = service_bus_suffix
+        """
+        The suffix for the service bus endpoint. By default this is .servicebus.windows.net
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +89,16 @@ class AwaitableGetWebAppHybridConnectionResult(GetWebAppHybridConnectionResult):
         if False:
             yield self
         return GetWebAppHybridConnectionResult(
+            hostname=self.hostname,
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
+            port=self.port,
+            relay_arm_uri=self.relay_arm_uri,
+            relay_name=self.relay_name,
+            send_key_name=self.send_key_name,
+            send_key_value=self.send_key_value,
+            service_bus_namespace=self.service_bus_namespace,
+            service_bus_suffix=self.service_bus_suffix,
             type=self.type)
 
 
@@ -71,7 +121,14 @@ def get_web_app_hybrid_connection(name=None, namespace_name=None, resource_group
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20180201:getWebAppHybridConnection', __args__, opts=opts).value
 
     return AwaitableGetWebAppHybridConnectionResult(
+        hostname=__ret__.get('hostname'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        port=__ret__.get('port'),
+        relay_arm_uri=__ret__.get('relayArmUri'),
+        relay_name=__ret__.get('relayName'),
+        send_key_name=__ret__.get('sendKeyName'),
+        send_key_value=__ret__.get('sendKeyValue'),
+        service_bus_namespace=__ret__.get('serviceBusNamespace'),
+        service_bus_suffix=__ret__.get('serviceBusSuffix'),
         type=__ret__.get('type'))

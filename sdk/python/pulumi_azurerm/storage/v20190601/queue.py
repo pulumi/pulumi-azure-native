@@ -10,15 +10,17 @@ from ... import _utilities, _tables
 
 
 class Queue(pulumi.CustomResource):
+    approximate_message_count: pulumi.Output[float]
+    """
+    Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
+    """
+    metadata: pulumi.Output[dict]
+    """
+    A name-value pair that represents queue metadata.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
-    """
-    properties: pulumi.Output[dict]
-    """
-    Queue resource properties.
-      * `approximate_message_count` (`float`) - Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher.
-      * `metadata` (`dict`) - A name-value pair that represents queue metadata.
     """
     type: pulumi.Output[str]
     """
@@ -61,7 +63,7 @@ class Queue(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['approximate_message_count'] = None
             __props__['type'] = None
         super(Queue, __self__).__init__(
             'azurerm:storage/v20190601:Queue',

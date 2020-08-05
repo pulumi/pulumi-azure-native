@@ -10,6 +10,26 @@ from ... import _utilities, _tables
 
 
 class WebAppHostNameBinding(pulumi.CustomResource):
+    azure_resource_name: pulumi.Output[str]
+    """
+    Azure resource name.
+    """
+    azure_resource_type: pulumi.Output[str]
+    """
+    Azure resource type.
+    """
+    custom_host_name_dns_record_type: pulumi.Output[str]
+    """
+    Custom DNS record type.
+    """
+    domain_id: pulumi.Output[str]
+    """
+    Fully qualified ARM domain resource URI.
+    """
+    host_name_type: pulumi.Output[str]
+    """
+    Hostname type.
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
@@ -18,22 +38,25 @@ class WebAppHostNameBinding(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    site_name: pulumi.Output[str]
     """
-    HostNameBinding resource specific properties
-      * `azure_resource_name` (`str`) - Azure resource name.
-      * `azure_resource_type` (`str`) - Azure resource type.
-      * `custom_host_name_dns_record_type` (`str`) - Custom DNS record type.
-      * `domain_id` (`str`) - Fully qualified ARM domain resource URI.
-      * `host_name_type` (`str`) - Hostname type.
-      * `site_name` (`str`) - App Service app name.
-      * `ssl_state` (`str`) - SSL type
-      * `thumbprint` (`str`) - SSL certificate thumbprint
-      * `virtual_ip` (`str`) - Virtual IP address assigned to the hostname if IP based SSL is enabled.
+    App Service app name.
+    """
+    ssl_state: pulumi.Output[str]
+    """
+    SSL type
+    """
+    thumbprint: pulumi.Output[str]
+    """
+    SSL certificate thumbprint
     """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    virtual_ip: pulumi.Output[str]
+    """
+    Virtual IP address assigned to the hostname if IP based SSL is enabled.
     """
     def __init__(__self__, resource_name, opts=None, azure_resource_name=None, azure_resource_type=None, custom_host_name_dns_record_type=None, domain_id=None, host_name_type=None, kind=None, name=None, resource_group_name=None, site_name=None, ssl_state=None, thumbprint=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -85,8 +108,8 @@ class WebAppHostNameBinding(pulumi.CustomResource):
             __props__['site_name'] = site_name
             __props__['ssl_state'] = ssl_state
             __props__['thumbprint'] = thumbprint
-            __props__['properties'] = None
             __props__['type'] = None
+            __props__['virtual_ip'] = None
         super(WebAppHostNameBinding, __self__).__init__(
             'azurerm:web/v20190801:WebAppHostNameBinding',
             resource_name,

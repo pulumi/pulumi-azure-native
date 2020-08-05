@@ -10,29 +10,32 @@ from ... import _utilities, _tables
 
 
 class AssetFilter(pulumi.CustomResource):
+    first_quality: pulumi.Output[dict]
+    """
+    The first quality.
+      * `bitrate` (`float`) - The first quality bitrate.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    presentation_time_range: pulumi.Output[dict]
     """
-    The Media Filter properties.
-      * `first_quality` (`dict`) - The first quality.
-        * `bitrate` (`float`) - The first quality bitrate.
-
-      * `presentation_time_range` (`dict`) - The presentation time range.
-        * `end_timestamp` (`float`) - The absolute end time boundary.
-        * `force_end_timestamp` (`bool`) - The indicator of forcing existing of end time stamp.
-        * `live_backoff_duration` (`float`) - The relative to end right edge.
-        * `presentation_window_duration` (`float`) - The relative to end sliding window.
-        * `start_timestamp` (`float`) - The absolute start time boundary.
-        * `timescale` (`float`) - The time scale of time stamps.
-
-      * `tracks` (`list`) - The tracks selection conditions.
-        * `track_selections` (`list`) - The track selections.
-          * `operation` (`str`) - The track property condition operation.
-          * `property` (`str`) - The track property type.
-          * `value` (`str`) - The track property value.
+    The presentation time range.
+      * `end_timestamp` (`float`) - The absolute end time boundary.
+      * `force_end_timestamp` (`bool`) - The indicator of forcing existing of end time stamp.
+      * `live_backoff_duration` (`float`) - The relative to end right edge.
+      * `presentation_window_duration` (`float`) - The relative to end sliding window.
+      * `start_timestamp` (`float`) - The absolute start time boundary.
+      * `timescale` (`float`) - The time scale of time stamps.
+    """
+    tracks: pulumi.Output[list]
+    """
+    The tracks selection conditions.
+      * `track_selections` (`list`) - The track selections.
+        * `operation` (`str`) - The track property condition operation.
+        * `property` (`str`) - The track property type.
+        * `value` (`str`) - The track property value.
     """
     type: pulumi.Output[str]
     """
@@ -104,7 +107,6 @@ class AssetFilter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tracks'] = tracks
-            __props__['properties'] = None
             __props__['type'] = None
         super(AssetFilter, __self__).__init__(
             'azurerm:media/v20200501:AssetFilter',

@@ -13,12 +13,42 @@ class GetExpressRouteCircuitPeeringResult:
     """
     Peering in an ExpressRouteCircuit resource.
     """
-    def __init__(__self__, etag=None, name=None, properties=None):
+    def __init__(__self__, azure_asn=None, etag=None, gateway_manager_etag=None, ipv6_peering_config=None, last_modified_by=None, microsoft_peering_config=None, name=None, peer_asn=None, peering_type=None, primary_azure_port=None, primary_peer_address_prefix=None, provisioning_state=None, route_filter=None, secondary_azure_port=None, secondary_peer_address_prefix=None, shared_key=None, state=None, stats=None, vlan_id=None):
+        if azure_asn and not isinstance(azure_asn, float):
+            raise TypeError("Expected argument 'azure_asn' to be a float")
+        __self__.azure_asn = azure_asn
+        """
+        The Azure ASN.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if gateway_manager_etag and not isinstance(gateway_manager_etag, str):
+            raise TypeError("Expected argument 'gateway_manager_etag' to be a str")
+        __self__.gateway_manager_etag = gateway_manager_etag
+        """
+        The GatewayManager Etag.
+        """
+        if ipv6_peering_config and not isinstance(ipv6_peering_config, dict):
+            raise TypeError("Expected argument 'ipv6_peering_config' to be a dict")
+        __self__.ipv6_peering_config = ipv6_peering_config
+        """
+        The IPv6 peering configuration.
+        """
+        if last_modified_by and not isinstance(last_modified_by, str):
+            raise TypeError("Expected argument 'last_modified_by' to be a str")
+        __self__.last_modified_by = last_modified_by
+        """
+        Gets whether the provider or the customer last modified the peering.
+        """
+        if microsoft_peering_config and not isinstance(microsoft_peering_config, dict):
+            raise TypeError("Expected argument 'microsoft_peering_config' to be a dict")
+        __self__.microsoft_peering_config = microsoft_peering_config
+        """
+        The Microsoft peering configuration.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,9 +56,78 @@ class GetExpressRouteCircuitPeeringResult:
         """
         Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peer_asn and not isinstance(peer_asn, float):
+            raise TypeError("Expected argument 'peer_asn' to be a float")
+        __self__.peer_asn = peer_asn
+        """
+        The peer ASN.
+        """
+        if peering_type and not isinstance(peering_type, str):
+            raise TypeError("Expected argument 'peering_type' to be a str")
+        __self__.peering_type = peering_type
+        """
+        The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
+        """
+        if primary_azure_port and not isinstance(primary_azure_port, str):
+            raise TypeError("Expected argument 'primary_azure_port' to be a str")
+        __self__.primary_azure_port = primary_azure_port
+        """
+        The primary port.
+        """
+        if primary_peer_address_prefix and not isinstance(primary_peer_address_prefix, str):
+            raise TypeError("Expected argument 'primary_peer_address_prefix' to be a str")
+        __self__.primary_peer_address_prefix = primary_peer_address_prefix
+        """
+        The primary address prefix.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        if route_filter and not isinstance(route_filter, dict):
+            raise TypeError("Expected argument 'route_filter' to be a dict")
+        __self__.route_filter = route_filter
+        """
+        The reference of the RouteFilter resource.
+        """
+        if secondary_azure_port and not isinstance(secondary_azure_port, str):
+            raise TypeError("Expected argument 'secondary_azure_port' to be a str")
+        __self__.secondary_azure_port = secondary_azure_port
+        """
+        The secondary port.
+        """
+        if secondary_peer_address_prefix and not isinstance(secondary_peer_address_prefix, str):
+            raise TypeError("Expected argument 'secondary_peer_address_prefix' to be a str")
+        __self__.secondary_peer_address_prefix = secondary_peer_address_prefix
+        """
+        The secondary address prefix.
+        """
+        if shared_key and not isinstance(shared_key, str):
+            raise TypeError("Expected argument 'shared_key' to be a str")
+        __self__.shared_key = shared_key
+        """
+        The shared key.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        The state of peering. Possible values are: 'Disabled' and 'Enabled'
+        """
+        if stats and not isinstance(stats, dict):
+            raise TypeError("Expected argument 'stats' to be a dict")
+        __self__.stats = stats
+        """
+        Gets peering stats.
+        """
+        if vlan_id and not isinstance(vlan_id, float):
+            raise TypeError("Expected argument 'vlan_id' to be a float")
+        __self__.vlan_id = vlan_id
+        """
+        The VLAN ID.
+        """
 
 
 class AwaitableGetExpressRouteCircuitPeeringResult(GetExpressRouteCircuitPeeringResult):
@@ -37,9 +136,25 @@ class AwaitableGetExpressRouteCircuitPeeringResult(GetExpressRouteCircuitPeering
         if False:
             yield self
         return GetExpressRouteCircuitPeeringResult(
+            azure_asn=self.azure_asn,
             etag=self.etag,
+            gateway_manager_etag=self.gateway_manager_etag,
+            ipv6_peering_config=self.ipv6_peering_config,
+            last_modified_by=self.last_modified_by,
+            microsoft_peering_config=self.microsoft_peering_config,
             name=self.name,
-            properties=self.properties)
+            peer_asn=self.peer_asn,
+            peering_type=self.peering_type,
+            primary_azure_port=self.primary_azure_port,
+            primary_peer_address_prefix=self.primary_peer_address_prefix,
+            provisioning_state=self.provisioning_state,
+            route_filter=self.route_filter,
+            secondary_azure_port=self.secondary_azure_port,
+            secondary_peer_address_prefix=self.secondary_peer_address_prefix,
+            shared_key=self.shared_key,
+            state=self.state,
+            stats=self.stats,
+            vlan_id=self.vlan_id)
 
 
 def get_express_route_circuit_peering(circuit_name=None, name=None, resource_group_name=None, opts=None):
@@ -61,6 +176,22 @@ def get_express_route_circuit_peering(circuit_name=None, name=None, resource_gro
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20170601:getExpressRouteCircuitPeering', __args__, opts=opts).value
 
     return AwaitableGetExpressRouteCircuitPeeringResult(
+        azure_asn=__ret__.get('azureASN'),
         etag=__ret__.get('etag'),
+        gateway_manager_etag=__ret__.get('gatewayManagerEtag'),
+        ipv6_peering_config=__ret__.get('ipv6PeeringConfig'),
+        last_modified_by=__ret__.get('lastModifiedBy'),
+        microsoft_peering_config=__ret__.get('microsoftPeeringConfig'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        peer_asn=__ret__.get('peerASN'),
+        peering_type=__ret__.get('peeringType'),
+        primary_azure_port=__ret__.get('primaryAzurePort'),
+        primary_peer_address_prefix=__ret__.get('primaryPeerAddressPrefix'),
+        provisioning_state=__ret__.get('provisioningState'),
+        route_filter=__ret__.get('routeFilter'),
+        secondary_azure_port=__ret__.get('secondaryAzurePort'),
+        secondary_peer_address_prefix=__ret__.get('secondaryPeerAddressPrefix'),
+        shared_key=__ret__.get('sharedKey'),
+        state=__ret__.get('state'),
+        stats=__ret__.get('stats'),
+        vlan_id=__ret__.get('vlanId'))

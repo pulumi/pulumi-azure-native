@@ -13,12 +13,24 @@ class GetHybridUseBenefitResult:
     """
     Response on GET of a hybrid use benefit
     """
-    def __init__(__self__, etag=None, name=None, properties=None, sku=None, type=None):
+    def __init__(__self__, created_date=None, etag=None, last_updated_date=None, name=None, provisioning_state=None, sku=None, type=None):
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        Created date
+        """
         if etag and not isinstance(etag, float):
             raise TypeError("Expected argument 'etag' to be a float")
         __self__.etag = etag
         """
         Indicates the revision of the hybrid use benefit
+        """
+        if last_updated_date and not isinstance(last_updated_date, str):
+            raise TypeError("Expected argument 'last_updated_date' to be a str")
+        __self__.last_updated_date = last_updated_date
+        """
+        Last updated date
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +38,11 @@ class GetHybridUseBenefitResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Property bag for a hybrid use benefit response
+        Provisioning state
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -52,9 +64,11 @@ class AwaitableGetHybridUseBenefitResult(GetHybridUseBenefitResult):
         if False:
             yield self
         return GetHybridUseBenefitResult(
+            created_date=self.created_date,
             etag=self.etag,
+            last_updated_date=self.last_updated_date,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
             type=self.type)
 
@@ -76,8 +90,10 @@ def get_hybrid_use_benefit(name=None, scope=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:softwareplan/v20191201:getHybridUseBenefit', __args__, opts=opts).value
 
     return AwaitableGetHybridUseBenefitResult(
+        created_date=__ret__.get('createdDate'),
         etag=__ret__.get('etag'),
+        last_updated_date=__ret__.get('lastUpdatedDate'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
         type=__ret__.get('type'))

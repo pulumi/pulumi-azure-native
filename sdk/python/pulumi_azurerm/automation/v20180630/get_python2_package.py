@@ -13,12 +13,60 @@ class GetPython2PackageResult:
     """
     Definition of the module type.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, activity_count=None, content_link=None, creation_time=None, description=None, error=None, etag=None, is_composite=None, is_global=None, last_modified_time=None, location=None, name=None, provisioning_state=None, size_in_bytes=None, tags=None, type=None, version=None):
+        if activity_count and not isinstance(activity_count, float):
+            raise TypeError("Expected argument 'activity_count' to be a float")
+        __self__.activity_count = activity_count
+        """
+        Gets or sets the activity count of the module.
+        """
+        if content_link and not isinstance(content_link, dict):
+            raise TypeError("Expected argument 'content_link' to be a dict")
+        __self__.content_link = content_link
+        """
+        Gets or sets the contentLink of the module.
+        """
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        Gets or sets the creation time.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Gets or sets the description.
+        """
+        if error and not isinstance(error, dict):
+            raise TypeError("Expected argument 'error' to be a dict")
+        __self__.error = error
+        """
+        Gets or sets the error info of the module.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Gets or sets the etag of the resource.
+        """
+        if is_composite and not isinstance(is_composite, bool):
+            raise TypeError("Expected argument 'is_composite' to be a bool")
+        __self__.is_composite = is_composite
+        """
+        Gets or sets type of module, if its composite or not.
+        """
+        if is_global and not isinstance(is_global, bool):
+            raise TypeError("Expected argument 'is_global' to be a bool")
+        __self__.is_global = is_global
+        """
+        Gets or sets the isGlobal flag of the module.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Gets or sets the last modified time.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +80,17 @@ class GetPython2PackageResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Gets or sets the module properties.
+        Gets or sets the provisioning state of the module.
+        """
+        if size_in_bytes and not isinstance(size_in_bytes, float):
+            raise TypeError("Expected argument 'size_in_bytes' to be a float")
+        __self__.size_in_bytes = size_in_bytes
+        """
+        Gets or sets the size in bytes of the module.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +104,12 @@ class GetPython2PackageResult:
         """
         The type of the resource.
         """
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        __self__.version = version
+        """
+        Gets or sets the version of the module.
+        """
 
 
 class AwaitableGetPython2PackageResult(GetPython2PackageResult):
@@ -58,12 +118,22 @@ class AwaitableGetPython2PackageResult(GetPython2PackageResult):
         if False:
             yield self
         return GetPython2PackageResult(
+            activity_count=self.activity_count,
+            content_link=self.content_link,
+            creation_time=self.creation_time,
+            description=self.description,
+            error=self.error,
             etag=self.etag,
+            is_composite=self.is_composite,
+            is_global=self.is_global,
+            last_modified_time=self.last_modified_time,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            size_in_bytes=self.size_in_bytes,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            version=self.version)
 
 
 def get_python2_package(automation_account_name=None, name=None, resource_group_name=None, opts=None):
@@ -85,9 +155,19 @@ def get_python2_package(automation_account_name=None, name=None, resource_group_
     __ret__ = pulumi.runtime.invoke('azurerm:automation/v20180630:getPython2Package', __args__, opts=opts).value
 
     return AwaitableGetPython2PackageResult(
+        activity_count=__ret__.get('activityCount'),
+        content_link=__ret__.get('contentLink'),
+        creation_time=__ret__.get('creationTime'),
+        description=__ret__.get('description'),
+        error=__ret__.get('error'),
         etag=__ret__.get('etag'),
+        is_composite=__ret__.get('isComposite'),
+        is_global=__ret__.get('isGlobal'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        size_in_bytes=__ret__.get('sizeInBytes'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        version=__ret__.get('version'))

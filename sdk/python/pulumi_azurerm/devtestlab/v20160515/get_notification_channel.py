@@ -13,7 +13,25 @@ class GetNotificationChannelResult:
     """
     A notification.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, created_date=None, description=None, events=None, location=None, name=None, provisioning_state=None, tags=None, type=None, unique_identifier=None, web_hook_url=None):
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        The creation date of the notification channel.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Description of notification.
+        """
+        if events and not isinstance(events, list):
+            raise TypeError("Expected argument 'events' to be a list")
+        __self__.events = events
+        """
+        The list of event for which this notification is enabled.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +44,11 @@ class GetNotificationChannelResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the resource.
+        The provisioning status of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +62,18 @@ class GetNotificationChannelResult:
         """
         The type of the resource.
         """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        if web_hook_url and not isinstance(web_hook_url, str):
+            raise TypeError("Expected argument 'web_hook_url' to be a str")
+        __self__.web_hook_url = web_hook_url
+        """
+        The webhook URL to send notifications to.
+        """
 
 
 class AwaitableGetNotificationChannelResult(GetNotificationChannelResult):
@@ -52,11 +82,16 @@ class AwaitableGetNotificationChannelResult(GetNotificationChannelResult):
         if False:
             yield self
         return GetNotificationChannelResult(
+            created_date=self.created_date,
+            description=self.description,
+            events=self.events,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unique_identifier=self.unique_identifier,
+            web_hook_url=self.web_hook_url)
 
 
 def get_notification_channel(lab_name=None, name=None, resource_group_name=None, opts=None):
@@ -78,8 +113,13 @@ def get_notification_channel(lab_name=None, name=None, resource_group_name=None,
     __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20160515:getNotificationChannel', __args__, opts=opts).value
 
     return AwaitableGetNotificationChannelResult(
+        created_date=__ret__.get('createdDate'),
+        description=__ret__.get('description'),
+        events=__ret__.get('events'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'),
+        web_hook_url=__ret__.get('webHookUrl'))

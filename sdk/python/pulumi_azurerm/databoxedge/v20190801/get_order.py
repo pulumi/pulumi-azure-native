@@ -13,18 +13,54 @@ class GetOrderResult:
     """
     The order details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, contact_information=None, current_status=None, delivery_tracking_info=None, name=None, order_history=None, return_tracking_info=None, serial_number=None, shipping_address=None, type=None):
+        if contact_information and not isinstance(contact_information, dict):
+            raise TypeError("Expected argument 'contact_information' to be a dict")
+        __self__.contact_information = contact_information
+        """
+        The contact details.
+        """
+        if current_status and not isinstance(current_status, dict):
+            raise TypeError("Expected argument 'current_status' to be a dict")
+        __self__.current_status = current_status
+        """
+        Current status of the order.
+        """
+        if delivery_tracking_info and not isinstance(delivery_tracking_info, list):
+            raise TypeError("Expected argument 'delivery_tracking_info' to be a list")
+        __self__.delivery_tracking_info = delivery_tracking_info
+        """
+        Tracking information for the package delivered to the customer whether it has an original or a replacement device.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The object name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if order_history and not isinstance(order_history, list):
+            raise TypeError("Expected argument 'order_history' to be a list")
+        __self__.order_history = order_history
         """
-        The order properties.
+        List of status changes in the order.
+        """
+        if return_tracking_info and not isinstance(return_tracking_info, list):
+            raise TypeError("Expected argument 'return_tracking_info' to be a list")
+        __self__.return_tracking_info = return_tracking_info
+        """
+        Tracking information for the package returned from the customer whether it has an original or a replacement device.
+        """
+        if serial_number and not isinstance(serial_number, str):
+            raise TypeError("Expected argument 'serial_number' to be a str")
+        __self__.serial_number = serial_number
+        """
+        Serial number of the device.
+        """
+        if shipping_address and not isinstance(shipping_address, dict):
+            raise TypeError("Expected argument 'shipping_address' to be a dict")
+        __self__.shipping_address = shipping_address
+        """
+        The shipping address.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +76,14 @@ class AwaitableGetOrderResult(GetOrderResult):
         if False:
             yield self
         return GetOrderResult(
+            contact_information=self.contact_information,
+            current_status=self.current_status,
+            delivery_tracking_info=self.delivery_tracking_info,
             name=self.name,
-            properties=self.properties,
+            order_history=self.order_history,
+            return_tracking_info=self.return_tracking_info,
+            serial_number=self.serial_number,
+            shipping_address=self.shipping_address,
             type=self.type)
 
 
@@ -62,6 +104,12 @@ def get_order(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:databoxedge/v20190801:getOrder', __args__, opts=opts).value
 
     return AwaitableGetOrderResult(
+        contact_information=__ret__.get('contactInformation'),
+        current_status=__ret__.get('currentStatus'),
+        delivery_tracking_info=__ret__.get('deliveryTrackingInfo'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        order_history=__ret__.get('orderHistory'),
+        return_tracking_info=__ret__.get('returnTrackingInfo'),
+        serial_number=__ret__.get('serialNumber'),
+        shipping_address=__ret__.get('shippingAddress'),
         type=__ret__.get('type'))

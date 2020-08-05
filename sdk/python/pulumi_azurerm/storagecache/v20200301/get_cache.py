@@ -13,7 +13,25 @@ class GetCacheResult:
     """
     A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, cache_size_gb=None, encryption_settings=None, health=None, identity=None, location=None, mount_addresses=None, name=None, network_settings=None, provisioning_state=None, security_settings=None, sku=None, subnet=None, tags=None, type=None, upgrade_status=None):
+        if cache_size_gb and not isinstance(cache_size_gb, float):
+            raise TypeError("Expected argument 'cache_size_gb' to be a float")
+        __self__.cache_size_gb = cache_size_gb
+        """
+        The size of this Cache, in GB.
+        """
+        if encryption_settings and not isinstance(encryption_settings, dict):
+            raise TypeError("Expected argument 'encryption_settings' to be a dict")
+        __self__.encryption_settings = encryption_settings
+        """
+        Specifies encryption settings of the cache.
+        """
+        if health and not isinstance(health, dict):
+            raise TypeError("Expected argument 'health' to be a dict")
+        __self__.health = health
+        """
+        Health of the Cache.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
@@ -26,23 +44,47 @@ class GetCacheResult:
         """
         Region name string.
         """
+        if mount_addresses and not isinstance(mount_addresses, list):
+            raise TypeError("Expected argument 'mount_addresses' to be a list")
+        __self__.mount_addresses = mount_addresses
+        """
+        Array of IP addresses that can be used by clients mounting this Cache.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Name of Cache.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_settings and not isinstance(network_settings, dict):
+            raise TypeError("Expected argument 'network_settings' to be a dict")
+        __self__.network_settings = network_settings
         """
-        Properties of the Cache.
+        Specifies network settings of the cache.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+        """
+        if security_settings and not isinstance(security_settings, dict):
+            raise TypeError("Expected argument 'security_settings' to be a dict")
+        __self__.security_settings = security_settings
+        """
+        Specifies security settings of the cache.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         SKU for the Cache.
+        """
+        if subnet and not isinstance(subnet, str):
+            raise TypeError("Expected argument 'subnet' to be a str")
+        __self__.subnet = subnet
+        """
+        Subnet used for the Cache.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -56,6 +98,12 @@ class GetCacheResult:
         """
         Type of the Cache; Microsoft.StorageCache/Cache
         """
+        if upgrade_status and not isinstance(upgrade_status, dict):
+            raise TypeError("Expected argument 'upgrade_status' to be a dict")
+        __self__.upgrade_status = upgrade_status
+        """
+        Upgrade status of the Cache.
+        """
 
 
 class AwaitableGetCacheResult(GetCacheResult):
@@ -64,13 +112,21 @@ class AwaitableGetCacheResult(GetCacheResult):
         if False:
             yield self
         return GetCacheResult(
+            cache_size_gb=self.cache_size_gb,
+            encryption_settings=self.encryption_settings,
+            health=self.health,
             identity=self.identity,
             location=self.location,
+            mount_addresses=self.mount_addresses,
             name=self.name,
-            properties=self.properties,
+            network_settings=self.network_settings,
+            provisioning_state=self.provisioning_state,
+            security_settings=self.security_settings,
             sku=self.sku,
+            subnet=self.subnet,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            upgrade_status=self.upgrade_status)
 
 
 def get_cache(name=None, resource_group_name=None, opts=None):
@@ -90,10 +146,18 @@ def get_cache(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:storagecache/v20200301:getCache', __args__, opts=opts).value
 
     return AwaitableGetCacheResult(
+        cache_size_gb=__ret__.get('cacheSizeGB'),
+        encryption_settings=__ret__.get('encryptionSettings'),
+        health=__ret__.get('health'),
         identity=__ret__.get('identity'),
         location=__ret__.get('location'),
+        mount_addresses=__ret__.get('mountAddresses'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_settings=__ret__.get('networkSettings'),
+        provisioning_state=__ret__.get('provisioningState'),
+        security_settings=__ret__.get('securitySettings'),
         sku=__ret__.get('sku'),
+        subnet=__ret__.get('subnet'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        upgrade_status=__ret__.get('upgradeStatus'))

@@ -10,6 +10,22 @@ from ... import _utilities, _tables
 
 
 class Origin(pulumi.CustomResource):
+    enabled: pulumi.Output[bool]
+    """
+    Origin is enabled for load balancing or not
+    """
+    host_name: pulumi.Output[str]
+    """
+    The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
+    """
+    http_port: pulumi.Output[float]
+    """
+    The value of the HTTP port. Must be between 1 and 65535.
+    """
+    https_port: pulumi.Output[float]
+    """
+    The value of the HTTPS port. Must be between 1 and 65535.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
@@ -18,18 +34,21 @@ class Origin(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    origin_host_header: pulumi.Output[str]
     """
-    The JSON object that contains the properties of the origin.
-      * `enabled` (`bool`) - Origin is enabled for load balancing or not
-      * `host_name` (`str`) - The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
-      * `http_port` (`float`) - The value of the HTTP port. Must be between 1 and 65535.
-      * `https_port` (`float`) - The value of the HTTPS port. Must be between 1 and 65535.
-      * `origin_host_header` (`str`) - The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
-      * `priority` (`float`) - Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
-      * `provisioning_state` (`str`) - Provisioning status of the origin.
-      * `resource_state` (`str`) - Resource status of the origin.
-      * `weight` (`float`) - Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
+    The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. If endpoint uses multiple origins for load balancing, then the host header at endpoint is ignored and this one is considered.
+    """
+    priority: pulumi.Output[float]
+    """
+    Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning status of the origin.
+    """
+    resource_state: pulumi.Output[str]
+    """
+    Resource status of the origin.
     """
     tags: pulumi.Output[dict]
     """
@@ -38,6 +57,10 @@ class Origin(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    weight: pulumi.Output[float]
+    """
+    Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
     """
     def __init__(__self__, resource_name, opts=None, enabled=None, endpoint_name=None, host_name=None, http_port=None, https_port=None, location=None, name=None, origin_host_header=None, priority=None, profile_name=None, resource_group_name=None, tags=None, weight=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -101,7 +124,8 @@ class Origin(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['weight'] = weight
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_state'] = None
             __props__['type'] = None
         super(Origin, __self__).__init__(
             'azurerm:cdn/v20191231:Origin',

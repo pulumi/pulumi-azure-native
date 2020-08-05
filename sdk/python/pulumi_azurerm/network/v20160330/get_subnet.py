@@ -13,12 +13,24 @@ class GetSubnetResult:
     """
     Subnet in a VirtualNetwork resource
     """
-    def __init__(__self__, etag=None, name=None, properties=None):
+    def __init__(__self__, address_prefix=None, etag=None, ip_configurations=None, name=None, network_security_group=None, provisioning_state=None, route_table=None):
+        if address_prefix and not isinstance(address_prefix, str):
+            raise TypeError("Expected argument 'address_prefix' to be a str")
+        __self__.address_prefix = address_prefix
+        """
+        Gets or sets Address prefix for the subnet.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated
+        """
+        if ip_configurations and not isinstance(ip_configurations, list):
+            raise TypeError("Expected argument 'ip_configurations' to be a list")
+        __self__.ip_configurations = ip_configurations
+        """
+        Gets array of references to the network interface IP configurations using subnet
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,9 +38,24 @@ class GetSubnetResult:
         """
         Gets name of the resource that is unique within a resource group. This name can be used to access the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_security_group and not isinstance(network_security_group, dict):
+            raise TypeError("Expected argument 'network_security_group' to be a dict")
+        __self__.network_security_group = network_security_group
+        """
+        Gets or sets the reference of the NetworkSecurityGroup resource
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Gets or sets Provisioning state of the PublicIP resource Updating/Deleting/Failed
+        """
+        if route_table and not isinstance(route_table, dict):
+            raise TypeError("Expected argument 'route_table' to be a dict")
+        __self__.route_table = route_table
+        """
+        Gets or sets the reference of the RouteTable resource
+        """
 
 
 class AwaitableGetSubnetResult(GetSubnetResult):
@@ -37,9 +64,13 @@ class AwaitableGetSubnetResult(GetSubnetResult):
         if False:
             yield self
         return GetSubnetResult(
+            address_prefix=self.address_prefix,
             etag=self.etag,
+            ip_configurations=self.ip_configurations,
             name=self.name,
-            properties=self.properties)
+            network_security_group=self.network_security_group,
+            provisioning_state=self.provisioning_state,
+            route_table=self.route_table)
 
 
 def get_subnet(name=None, resource_group_name=None, virtual_network_name=None, opts=None):
@@ -61,6 +92,10 @@ def get_subnet(name=None, resource_group_name=None, virtual_network_name=None, o
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20160330:getSubnet', __args__, opts=opts).value
 
     return AwaitableGetSubnetResult(
+        address_prefix=__ret__.get('addressPrefix'),
         etag=__ret__.get('etag'),
+        ip_configurations=__ret__.get('ipConfigurations'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        network_security_group=__ret__.get('networkSecurityGroup'),
+        provisioning_state=__ret__.get('provisioningState'),
+        route_table=__ret__.get('routeTable'))

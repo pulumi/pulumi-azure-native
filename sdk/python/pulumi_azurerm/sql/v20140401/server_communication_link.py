@@ -22,11 +22,13 @@ class ServerCommunicationLink(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    partner_server: pulumi.Output[str]
     """
-    The properties of resource.
-      * `partner_server` (`str`) - The name of the partner server.
-      * `state` (`str`) - The state.
+    The name of the partner server.
+    """
+    state: pulumi.Output[str]
+    """
+    The state.
     """
     type: pulumi.Output[str]
     """
@@ -74,7 +76,7 @@ class ServerCommunicationLink(pulumi.CustomResource):
             __props__['server_name'] = server_name
             __props__['kind'] = None
             __props__['location'] = None
-            __props__['properties'] = None
+            __props__['state'] = None
             __props__['type'] = None
         super(ServerCommunicationLink, __self__).__init__(
             'azurerm:sql/v20140401:ServerCommunicationLink',

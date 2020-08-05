@@ -13,12 +13,24 @@ class GetBackupPolicyResult:
     """
     The backup policy.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, backup_policy_creation_type=None, kind=None, last_backup_time=None, name=None, next_backup_time=None, scheduled_backup_status=None, schedules_count=None, ssm_host_name=None, type=None, volume_ids=None):
+        if backup_policy_creation_type and not isinstance(backup_policy_creation_type, str):
+            raise TypeError("Expected argument 'backup_policy_creation_type' to be a str")
+        __self__.backup_policy_creation_type = backup_policy_creation_type
+        """
+        The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
         """
         The Kind of the object. Currently only Series8000 is supported
+        """
+        if last_backup_time and not isinstance(last_backup_time, str):
+            raise TypeError("Expected argument 'last_backup_time' to be a str")
+        __self__.last_backup_time = last_backup_time
+        """
+        The time of the last backup for the backup policy.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +38,41 @@ class GetBackupPolicyResult:
         """
         The name of the object.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if next_backup_time and not isinstance(next_backup_time, str):
+            raise TypeError("Expected argument 'next_backup_time' to be a str")
+        __self__.next_backup_time = next_backup_time
         """
-        The properties of the backup policy.
+        The time of the next backup for the backup policy.
+        """
+        if scheduled_backup_status and not isinstance(scheduled_backup_status, str):
+            raise TypeError("Expected argument 'scheduled_backup_status' to be a str")
+        __self__.scheduled_backup_status = scheduled_backup_status
+        """
+        Indicates whether at least one of the schedules in the backup policy is active or not.
+        """
+        if schedules_count and not isinstance(schedules_count, float):
+            raise TypeError("Expected argument 'schedules_count' to be a float")
+        __self__.schedules_count = schedules_count
+        """
+        The count of schedules the backup policy contains.
+        """
+        if ssm_host_name and not isinstance(ssm_host_name, str):
+            raise TypeError("Expected argument 'ssm_host_name' to be a str")
+        __self__.ssm_host_name = ssm_host_name
+        """
+        If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The hierarchical type of the object.
+        """
+        if volume_ids and not isinstance(volume_ids, list):
+            raise TypeError("Expected argument 'volume_ids' to be a list")
+        __self__.volume_ids = volume_ids
+        """
+        The path IDs of the volumes which are part of the backup policy.
         """
 
 
@@ -46,10 +82,16 @@ class AwaitableGetBackupPolicyResult(GetBackupPolicyResult):
         if False:
             yield self
         return GetBackupPolicyResult(
+            backup_policy_creation_type=self.backup_policy_creation_type,
             kind=self.kind,
+            last_backup_time=self.last_backup_time,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            next_backup_time=self.next_backup_time,
+            scheduled_backup_status=self.scheduled_backup_status,
+            schedules_count=self.schedules_count,
+            ssm_host_name=self.ssm_host_name,
+            type=self.type,
+            volume_ids=self.volume_ids)
 
 
 def get_backup_policy(device_name=None, manager_name=None, name=None, resource_group_name=None, opts=None):
@@ -73,7 +115,13 @@ def get_backup_policy(device_name=None, manager_name=None, name=None, resource_g
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20170601:getBackupPolicy', __args__, opts=opts).value
 
     return AwaitableGetBackupPolicyResult(
+        backup_policy_creation_type=__ret__.get('backupPolicyCreationType'),
         kind=__ret__.get('kind'),
+        last_backup_time=__ret__.get('lastBackupTime'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        next_backup_time=__ret__.get('nextBackupTime'),
+        scheduled_backup_status=__ret__.get('scheduledBackupStatus'),
+        schedules_count=__ret__.get('schedulesCount'),
+        ssm_host_name=__ret__.get('ssmHostName'),
+        type=__ret__.get('type'),
+        volume_ids=__ret__.get('volumeIds'))

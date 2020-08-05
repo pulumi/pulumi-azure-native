@@ -13,12 +13,60 @@ class GetVpnConnectionResult:
     """
     VpnConnection Resource.
     """
-    def __init__(__self__, etag=None, name=None, properties=None):
+    def __init__(__self__, connection_bandwidth=None, connection_status=None, egress_bytes_transferred=None, enable_bgp=None, enable_internet_security=None, enable_rate_limiting=None, etag=None, ingress_bytes_transferred=None, ipsec_policies=None, name=None, provisioning_state=None, remote_vpn_site=None, routing_weight=None, shared_key=None, use_local_azure_ip_address=None, use_policy_based_traffic_selectors=None, vpn_connection_protocol_type=None, vpn_link_connections=None):
+        if connection_bandwidth and not isinstance(connection_bandwidth, float):
+            raise TypeError("Expected argument 'connection_bandwidth' to be a float")
+        __self__.connection_bandwidth = connection_bandwidth
+        """
+        Expected bandwidth in MBPS.
+        """
+        if connection_status and not isinstance(connection_status, str):
+            raise TypeError("Expected argument 'connection_status' to be a str")
+        __self__.connection_status = connection_status
+        """
+        The connection status.
+        """
+        if egress_bytes_transferred and not isinstance(egress_bytes_transferred, float):
+            raise TypeError("Expected argument 'egress_bytes_transferred' to be a float")
+        __self__.egress_bytes_transferred = egress_bytes_transferred
+        """
+        Egress bytes transferred.
+        """
+        if enable_bgp and not isinstance(enable_bgp, bool):
+            raise TypeError("Expected argument 'enable_bgp' to be a bool")
+        __self__.enable_bgp = enable_bgp
+        """
+        EnableBgp flag.
+        """
+        if enable_internet_security and not isinstance(enable_internet_security, bool):
+            raise TypeError("Expected argument 'enable_internet_security' to be a bool")
+        __self__.enable_internet_security = enable_internet_security
+        """
+        Enable internet security.
+        """
+        if enable_rate_limiting and not isinstance(enable_rate_limiting, bool):
+            raise TypeError("Expected argument 'enable_rate_limiting' to be a bool")
+        __self__.enable_rate_limiting = enable_rate_limiting
+        """
+        EnableBgp flag.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if ingress_bytes_transferred and not isinstance(ingress_bytes_transferred, float):
+            raise TypeError("Expected argument 'ingress_bytes_transferred' to be a float")
+        __self__.ingress_bytes_transferred = ingress_bytes_transferred
+        """
+        Ingress bytes transferred.
+        """
+        if ipsec_policies and not isinstance(ipsec_policies, list):
+            raise TypeError("Expected argument 'ipsec_policies' to be a list")
+        __self__.ipsec_policies = ipsec_policies
+        """
+        The IPSec Policies to be considered by this connection.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +74,53 @@ class GetVpnConnectionResult:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the VPN connection.
+        The provisioning state of the VPN connection resource.
+        """
+        if remote_vpn_site and not isinstance(remote_vpn_site, dict):
+            raise TypeError("Expected argument 'remote_vpn_site' to be a dict")
+        __self__.remote_vpn_site = remote_vpn_site
+        """
+        Id of the connected vpn site.
+        """
+        if routing_weight and not isinstance(routing_weight, float):
+            raise TypeError("Expected argument 'routing_weight' to be a float")
+        __self__.routing_weight = routing_weight
+        """
+        Routing weight for vpn connection.
+        """
+        if shared_key and not isinstance(shared_key, str):
+            raise TypeError("Expected argument 'shared_key' to be a str")
+        __self__.shared_key = shared_key
+        """
+        SharedKey for the vpn connection.
+        """
+        if use_local_azure_ip_address and not isinstance(use_local_azure_ip_address, bool):
+            raise TypeError("Expected argument 'use_local_azure_ip_address' to be a bool")
+        __self__.use_local_azure_ip_address = use_local_azure_ip_address
+        """
+        Use local azure ip to initiate connection.
+        """
+        if use_policy_based_traffic_selectors and not isinstance(use_policy_based_traffic_selectors, bool):
+            raise TypeError("Expected argument 'use_policy_based_traffic_selectors' to be a bool")
+        __self__.use_policy_based_traffic_selectors = use_policy_based_traffic_selectors
+        """
+        Enable policy-based traffic selectors.
+        """
+        if vpn_connection_protocol_type and not isinstance(vpn_connection_protocol_type, str):
+            raise TypeError("Expected argument 'vpn_connection_protocol_type' to be a str")
+        __self__.vpn_connection_protocol_type = vpn_connection_protocol_type
+        """
+        Connection protocol used for this connection.
+        """
+        if vpn_link_connections and not isinstance(vpn_link_connections, list):
+            raise TypeError("Expected argument 'vpn_link_connections' to be a list")
+        __self__.vpn_link_connections = vpn_link_connections
+        """
+        List of all vpn site link connections to the gateway.
         """
 
 
@@ -40,9 +130,24 @@ class AwaitableGetVpnConnectionResult(GetVpnConnectionResult):
         if False:
             yield self
         return GetVpnConnectionResult(
+            connection_bandwidth=self.connection_bandwidth,
+            connection_status=self.connection_status,
+            egress_bytes_transferred=self.egress_bytes_transferred,
+            enable_bgp=self.enable_bgp,
+            enable_internet_security=self.enable_internet_security,
+            enable_rate_limiting=self.enable_rate_limiting,
             etag=self.etag,
+            ingress_bytes_transferred=self.ingress_bytes_transferred,
+            ipsec_policies=self.ipsec_policies,
             name=self.name,
-            properties=self.properties)
+            provisioning_state=self.provisioning_state,
+            remote_vpn_site=self.remote_vpn_site,
+            routing_weight=self.routing_weight,
+            shared_key=self.shared_key,
+            use_local_azure_ip_address=self.use_local_azure_ip_address,
+            use_policy_based_traffic_selectors=self.use_policy_based_traffic_selectors,
+            vpn_connection_protocol_type=self.vpn_connection_protocol_type,
+            vpn_link_connections=self.vpn_link_connections)
 
 
 def get_vpn_connection(gateway_name=None, name=None, resource_group_name=None, opts=None):
@@ -64,6 +169,21 @@ def get_vpn_connection(gateway_name=None, name=None, resource_group_name=None, o
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20190801:getVpnConnection', __args__, opts=opts).value
 
     return AwaitableGetVpnConnectionResult(
+        connection_bandwidth=__ret__.get('connectionBandwidth'),
+        connection_status=__ret__.get('connectionStatus'),
+        egress_bytes_transferred=__ret__.get('egressBytesTransferred'),
+        enable_bgp=__ret__.get('enableBgp'),
+        enable_internet_security=__ret__.get('enableInternetSecurity'),
+        enable_rate_limiting=__ret__.get('enableRateLimiting'),
         etag=__ret__.get('etag'),
+        ingress_bytes_transferred=__ret__.get('ingressBytesTransferred'),
+        ipsec_policies=__ret__.get('ipsecPolicies'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'))
+        provisioning_state=__ret__.get('provisioningState'),
+        remote_vpn_site=__ret__.get('remoteVpnSite'),
+        routing_weight=__ret__.get('routingWeight'),
+        shared_key=__ret__.get('sharedKey'),
+        use_local_azure_ip_address=__ret__.get('useLocalAzureIpAddress'),
+        use_policy_based_traffic_selectors=__ret__.get('usePolicyBasedTrafficSelectors'),
+        vpn_connection_protocol_type=__ret__.get('vpnConnectionProtocolType'),
+        vpn_link_connections=__ret__.get('vpnLinkConnections'))

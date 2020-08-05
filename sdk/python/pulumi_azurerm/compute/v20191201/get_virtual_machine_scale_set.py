@@ -13,7 +13,25 @@ class GetVirtualMachineScaleSetResult:
     """
     Describes a Virtual Machine Scale Set.
     """
-    def __init__(__self__, identity=None, location=None, name=None, plan=None, properties=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, additional_capabilities=None, automatic_repairs_policy=None, do_not_run_extensions_on_overprovisioned_v_ms=None, identity=None, location=None, name=None, overprovision=None, plan=None, platform_fault_domain_count=None, provisioning_state=None, proximity_placement_group=None, scale_in_policy=None, single_placement_group=None, sku=None, tags=None, type=None, unique_id=None, upgrade_policy=None, virtual_machine_profile=None, zone_balance=None, zones=None):
+        if additional_capabilities and not isinstance(additional_capabilities, dict):
+            raise TypeError("Expected argument 'additional_capabilities' to be a dict")
+        __self__.additional_capabilities = additional_capabilities
+        """
+        Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
+        """
+        if automatic_repairs_policy and not isinstance(automatic_repairs_policy, dict):
+            raise TypeError("Expected argument 'automatic_repairs_policy' to be a dict")
+        __self__.automatic_repairs_policy = automatic_repairs_policy
+        """
+        Policy for automatic repairs.
+        """
+        if do_not_run_extensions_on_overprovisioned_v_ms and not isinstance(do_not_run_extensions_on_overprovisioned_v_ms, bool):
+            raise TypeError("Expected argument 'do_not_run_extensions_on_overprovisioned_v_ms' to be a bool")
+        __self__.do_not_run_extensions_on_overprovisioned_v_ms = do_not_run_extensions_on_overprovisioned_v_ms
+        """
+        When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
@@ -32,17 +50,47 @@ class GetVirtualMachineScaleSetResult:
         """
         Resource name
         """
+        if overprovision and not isinstance(overprovision, bool):
+            raise TypeError("Expected argument 'overprovision' to be a bool")
+        __self__.overprovision = overprovision
+        """
+        Specifies whether the Virtual Machine Scale Set should be overprovisioned.
+        """
         if plan and not isinstance(plan, dict):
             raise TypeError("Expected argument 'plan' to be a dict")
         __self__.plan = plan
         """
         Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if platform_fault_domain_count and not isinstance(platform_fault_domain_count, float):
+            raise TypeError("Expected argument 'platform_fault_domain_count' to be a float")
+        __self__.platform_fault_domain_count = platform_fault_domain_count
         """
-        Describes the properties of a Virtual Machine Scale Set.
+        Fault Domain count for each placement group.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state, which only appears in the response.
+        """
+        if proximity_placement_group and not isinstance(proximity_placement_group, dict):
+            raise TypeError("Expected argument 'proximity_placement_group' to be a dict")
+        __self__.proximity_placement_group = proximity_placement_group
+        """
+        Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+        """
+        if scale_in_policy and not isinstance(scale_in_policy, dict):
+            raise TypeError("Expected argument 'scale_in_policy' to be a dict")
+        __self__.scale_in_policy = scale_in_policy
+        """
+        Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
+        """
+        if single_placement_group and not isinstance(single_placement_group, bool):
+            raise TypeError("Expected argument 'single_placement_group' to be a bool")
+        __self__.single_placement_group = single_placement_group
+        """
+        When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -62,6 +110,30 @@ class GetVirtualMachineScaleSetResult:
         """
         Resource type
         """
+        if unique_id and not isinstance(unique_id, str):
+            raise TypeError("Expected argument 'unique_id' to be a str")
+        __self__.unique_id = unique_id
+        """
+        Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
+        """
+        if upgrade_policy and not isinstance(upgrade_policy, dict):
+            raise TypeError("Expected argument 'upgrade_policy' to be a dict")
+        __self__.upgrade_policy = upgrade_policy
+        """
+        The upgrade policy.
+        """
+        if virtual_machine_profile and not isinstance(virtual_machine_profile, dict):
+            raise TypeError("Expected argument 'virtual_machine_profile' to be a dict")
+        __self__.virtual_machine_profile = virtual_machine_profile
+        """
+        The virtual machine profile.
+        """
+        if zone_balance and not isinstance(zone_balance, bool):
+            raise TypeError("Expected argument 'zone_balance' to be a bool")
+        __self__.zone_balance = zone_balance
+        """
+        Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+        """
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
         __self__.zones = zones
@@ -76,14 +148,26 @@ class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
         if False:
             yield self
         return GetVirtualMachineScaleSetResult(
+            additional_capabilities=self.additional_capabilities,
+            automatic_repairs_policy=self.automatic_repairs_policy,
+            do_not_run_extensions_on_overprovisioned_v_ms=self.do_not_run_extensions_on_overprovisioned_v_ms,
             identity=self.identity,
             location=self.location,
             name=self.name,
+            overprovision=self.overprovision,
             plan=self.plan,
-            properties=self.properties,
+            platform_fault_domain_count=self.platform_fault_domain_count,
+            provisioning_state=self.provisioning_state,
+            proximity_placement_group=self.proximity_placement_group,
+            scale_in_policy=self.scale_in_policy,
+            single_placement_group=self.single_placement_group,
             sku=self.sku,
             tags=self.tags,
             type=self.type,
+            unique_id=self.unique_id,
+            upgrade_policy=self.upgrade_policy,
+            virtual_machine_profile=self.virtual_machine_profile,
+            zone_balance=self.zone_balance,
             zones=self.zones)
 
 
@@ -104,12 +188,24 @@ def get_virtual_machine_scale_set(name=None, resource_group_name=None, opts=None
     __ret__ = pulumi.runtime.invoke('azurerm:compute/v20191201:getVirtualMachineScaleSet', __args__, opts=opts).value
 
     return AwaitableGetVirtualMachineScaleSetResult(
+        additional_capabilities=__ret__.get('additionalCapabilities'),
+        automatic_repairs_policy=__ret__.get('automaticRepairsPolicy'),
+        do_not_run_extensions_on_overprovisioned_v_ms=__ret__.get('doNotRunExtensionsOnOverprovisionedVMs'),
         identity=__ret__.get('identity'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
+        overprovision=__ret__.get('overprovision'),
         plan=__ret__.get('plan'),
-        properties=__ret__.get('properties'),
+        platform_fault_domain_count=__ret__.get('platformFaultDomainCount'),
+        provisioning_state=__ret__.get('provisioningState'),
+        proximity_placement_group=__ret__.get('proximityPlacementGroup'),
+        scale_in_policy=__ret__.get('scaleInPolicy'),
+        single_placement_group=__ret__.get('singlePlacementGroup'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'),
+        unique_id=__ret__.get('uniqueId'),
+        upgrade_policy=__ret__.get('upgradePolicy'),
+        virtual_machine_profile=__ret__.get('virtualMachineProfile'),
+        zone_balance=__ret__.get('zoneBalance'),
         zones=__ret__.get('zones'))

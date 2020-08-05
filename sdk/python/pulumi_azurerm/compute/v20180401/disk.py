@@ -10,6 +10,35 @@ from ... import _utilities, _tables
 
 
 class Disk(pulumi.CustomResource):
+    creation_data: pulumi.Output[dict]
+    """
+    Disk source information. CreationData information cannot be changed after the disk has been created.
+      * `create_option` (`str`) - This enumerates the possible sources of a disk's creation.
+      * `image_reference` (`dict`) - Disk source information.
+        * `id` (`str`) - A relative uri containing either a Platform Image Repository or user image reference.
+        * `lun` (`float`) - If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+
+      * `source_resource_id` (`str`) - If createOption is Copy, this is the ARM id of the source snapshot or disk.
+      * `source_uri` (`str`) - If createOption is Import, this is the URI of a blob to be imported into a managed disk.
+      * `storage_account_id` (`str`) - If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
+    """
+    disk_size_gb: pulumi.Output[float]
+    """
+    If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+    """
+    encryption_settings: pulumi.Output[dict]
+    """
+    Encryption settings for disk or snapshot
+      * `disk_encryption_key` (`dict`) - Key Vault Secret Url and vault id of the disk encryption key
+        * `secret_url` (`str`) - Url pointing to a key or secret in KeyVault
+        * `source_vault` (`dict`) - Resource id of the KeyVault containing the key or secret
+          * `id` (`str`) - Resource Id
+
+      * `enabled` (`bool`) - Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
+      * `key_encryption_key` (`dict`) - Key Vault Key Url and vault id of the key encryption key
+        * `key_url` (`str`) - Url pointing to a key or secret in KeyVault
+        * `source_vault` (`dict`) - Resource id of the KeyVault containing the key or secret
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -22,34 +51,13 @@ class Disk(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    os_type: pulumi.Output[str]
     """
-    Disk resource properties.
-      * `creation_data` (`dict`) - Disk source information. CreationData information cannot be changed after the disk has been created.
-        * `create_option` (`str`) - This enumerates the possible sources of a disk's creation.
-        * `image_reference` (`dict`) - Disk source information.
-          * `id` (`str`) - A relative uri containing either a Platform Image Repository or user image reference.
-          * `lun` (`float`) - If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
-
-        * `source_resource_id` (`str`) - If createOption is Copy, this is the ARM id of the source snapshot or disk.
-        * `source_uri` (`str`) - If createOption is Import, this is the URI of a blob to be imported into a managed disk.
-        * `storage_account_id` (`str`) - If createOption is Import, the Azure Resource Manager identifier of the storage account containing the blob to import as a disk. Required only if the blob is in a different subscription
-
-      * `disk_size_gb` (`float`) - If creationData.createOption is Empty, this field is mandatory and it indicates the size of the VHD to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
-      * `encryption_settings` (`dict`) - Encryption settings for disk or snapshot
-        * `disk_encryption_key` (`dict`) - Key Vault Secret Url and vault id of the disk encryption key
-          * `secret_url` (`str`) - Url pointing to a key or secret in KeyVault
-          * `source_vault` (`dict`) - Resource id of the KeyVault containing the key or secret
-            * `id` (`str`) - Resource Id
-
-        * `enabled` (`bool`) - Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
-        * `key_encryption_key` (`dict`) - Key Vault Key Url and vault id of the key encryption key
-          * `key_url` (`str`) - Url pointing to a key or secret in KeyVault
-          * `source_vault` (`dict`) - Resource id of the KeyVault containing the key or secret
-
-      * `os_type` (`str`) - The Operating System type.
-      * `provisioning_state` (`str`) - The disk provisioning state.
-      * `time_created` (`str`) - The time when the disk was created.
+    The Operating System type.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The disk provisioning state.
     """
     sku: pulumi.Output[dict]
     """
@@ -60,6 +68,10 @@ class Disk(pulumi.CustomResource):
     tags: pulumi.Output[dict]
     """
     Resource tags
+    """
+    time_created: pulumi.Output[str]
+    """
+    The time when the disk was created.
     """
     type: pulumi.Output[str]
     """
@@ -149,7 +161,8 @@ class Disk(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['zones'] = zones
             __props__['managed_by'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['time_created'] = None
             __props__['type'] = None
         super(Disk, __self__).__init__(
             'azurerm:compute/v20180401:Disk',

@@ -13,12 +13,24 @@ class GetEventHubResult:
     """
     Single item in List or Get Event Hub operation
     """
-    def __init__(__self__, location=None, name=None, properties=None, type=None):
+    def __init__(__self__, created_at=None, location=None, message_retention_in_days=None, name=None, partition_count=None, partition_ids=None, status=None, type=None, updated_at=None):
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        __self__.created_at = created_at
+        """
+        Exact time the Event Hub was created.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource location
+        """
+        if message_retention_in_days and not isinstance(message_retention_in_days, float):
+            raise TypeError("Expected argument 'message_retention_in_days' to be a float")
+        __self__.message_retention_in_days = message_retention_in_days
+        """
+        Number of days to retain the events for this Event Hub.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +38,35 @@ class GetEventHubResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if partition_count and not isinstance(partition_count, float):
+            raise TypeError("Expected argument 'partition_count' to be a float")
+        __self__.partition_count = partition_count
         """
-        Properties supplied to the Create Or Update Event Hub operation.
+        Number of partitions created for the Event Hub.
+        """
+        if partition_ids and not isinstance(partition_ids, list):
+            raise TypeError("Expected argument 'partition_ids' to be a list")
+        __self__.partition_ids = partition_ids
+        """
+        Current number of shards on the Event Hub.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Enumerates the possible values for the status of the Event Hub.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type
+        """
+        if updated_at and not isinstance(updated_at, str):
+            raise TypeError("Expected argument 'updated_at' to be a str")
+        __self__.updated_at = updated_at
+        """
+        The exact time the message was updated.
         """
 
 
@@ -46,10 +76,15 @@ class AwaitableGetEventHubResult(GetEventHubResult):
         if False:
             yield self
         return GetEventHubResult(
+            created_at=self.created_at,
             location=self.location,
+            message_retention_in_days=self.message_retention_in_days,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            partition_count=self.partition_count,
+            partition_ids=self.partition_ids,
+            status=self.status,
+            type=self.type,
+            updated_at=self.updated_at)
 
 
 def get_event_hub(name=None, namespace_name=None, resource_group_name=None, opts=None):
@@ -71,7 +106,12 @@ def get_event_hub(name=None, namespace_name=None, resource_group_name=None, opts
     __ret__ = pulumi.runtime.invoke('azurerm:eventhub/v20140901:getEventHub', __args__, opts=opts).value
 
     return AwaitableGetEventHubResult(
+        created_at=__ret__.get('createdAt'),
         location=__ret__.get('location'),
+        message_retention_in_days=__ret__.get('messageRetentionInDays'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        partition_count=__ret__.get('partitionCount'),
+        partition_ids=__ret__.get('partitionIds'),
+        status=__ret__.get('status'),
+        type=__ret__.get('type'),
+        updated_at=__ret__.get('updatedAt'))

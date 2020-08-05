@@ -10,25 +10,35 @@ from ... import _utilities, _tables
 
 
 class LogProfile(pulumi.CustomResource):
+    categories: pulumi.Output[list]
+    """
+    the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+    """
     location: pulumi.Output[str]
     """
     Resource location
+    """
+    locations: pulumi.Output[list]
+    """
+    List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
     """
     name: pulumi.Output[str]
     """
     Azure resource name
     """
-    properties: pulumi.Output[dict]
+    retention_policy: pulumi.Output[dict]
     """
-    The log profile properties of the resource.
-      * `categories` (`list`) - the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
-      * `locations` (`list`) - List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
-      * `retention_policy` (`dict`) - the retention policy for the events in the log.
-        * `days` (`float`) - the number of days for the retention in days. A value of 0 will retain the events indefinitely.
-        * `enabled` (`bool`) - a value indicating whether the retention policy is enabled.
-
-      * `service_bus_rule_id` (`str`) - The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
-      * `storage_account_id` (`str`) - the resource id of the storage account to which you would like to send the Activity Log.
+    the retention policy for the events in the log.
+      * `days` (`float`) - the number of days for the retention in days. A value of 0 will retain the events indefinitely.
+      * `enabled` (`bool`) - a value indicating whether the retention policy is enabled.
+    """
+    service_bus_rule_id: pulumi.Output[str]
+    """
+    The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+    """
+    storage_account_id: pulumi.Output[str]
+    """
+    the resource id of the storage account to which you would like to send the Activity Log.
     """
     tags: pulumi.Output[dict]
     """
@@ -93,7 +103,6 @@ class LogProfile(pulumi.CustomResource):
             __props__['service_bus_rule_id'] = service_bus_rule_id
             __props__['storage_account_id'] = storage_account_id
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(LogProfile, __self__).__init__(
             'azurerm:insights/v20160301:LogProfile',

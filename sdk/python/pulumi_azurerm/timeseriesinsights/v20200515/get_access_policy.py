@@ -13,16 +13,31 @@ class GetAccessPolicyResult:
     """
     An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, description=None, name=None, principal_object_id=None, roles=None, type=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        An description of the access policy.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if principal_object_id and not isinstance(principal_object_id, str):
+            raise TypeError("Expected argument 'principal_object_id' to be a str")
+        __self__.principal_object_id = principal_object_id
+        """
+        The objectId of the principal in Azure Active Directory.
+        """
+        if roles and not isinstance(roles, list):
+            raise TypeError("Expected argument 'roles' to be a list")
+        __self__.roles = roles
+        """
+        The list of roles the principal is assigned on the environment.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
@@ -37,8 +52,10 @@ class AwaitableGetAccessPolicyResult(GetAccessPolicyResult):
         if False:
             yield self
         return GetAccessPolicyResult(
+            description=self.description,
             name=self.name,
-            properties=self.properties,
+            principal_object_id=self.principal_object_id,
+            roles=self.roles,
             type=self.type)
 
 
@@ -61,6 +78,8 @@ def get_access_policy(environment_name=None, name=None, resource_group_name=None
     __ret__ = pulumi.runtime.invoke('azurerm:timeseriesinsights/v20200515:getAccessPolicy', __args__, opts=opts).value
 
     return AwaitableGetAccessPolicyResult(
+        description=__ret__.get('description'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        principal_object_id=__ret__.get('principalObjectId'),
+        roles=__ret__.get('roles'),
         type=__ret__.get('type'))

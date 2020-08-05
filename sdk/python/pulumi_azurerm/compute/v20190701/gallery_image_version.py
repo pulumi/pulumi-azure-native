@@ -18,43 +18,49 @@ class GalleryImageVersion(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Describes the properties of a gallery Image Version.
-      * `provisioning_state` (`str`) - The provisioning state, which only appears in the response.
-      * `publishing_profile` (`dict`) - The publishing profile of a gallery Image Version.
-        * `end_of_life_date` (`str`) - The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
-        * `exclude_from_latest` (`bool`) - If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-        * `published_date` (`str`) - The timestamp for when the gallery Image Version is published.
-        * `replica_count` (`float`) - The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+    The provisioning state, which only appears in the response.
+    """
+    publishing_profile: pulumi.Output[dict]
+    """
+    The publishing profile of a gallery Image Version.
+      * `end_of_life_date` (`str`) - The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+      * `exclude_from_latest` (`bool`) - If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+      * `published_date` (`str`) - The timestamp for when the gallery Image Version is published.
+      * `replica_count` (`float`) - The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+      * `storage_account_type` (`str`) - Specifies the storage account type to be used to store the image. This property is not updatable.
+      * `target_regions` (`list`) - The target regions where the Image Version is going to be replicated to. This property is updatable.
+        * `name` (`str`) - The name of the region.
+        * `regional_replica_count` (`float`) - The number of replicas of the Image Version to be created per region. This property is updatable.
         * `storage_account_type` (`str`) - Specifies the storage account type to be used to store the image. This property is not updatable.
-        * `target_regions` (`list`) - The target regions where the Image Version is going to be replicated to. This property is updatable.
-          * `name` (`str`) - The name of the region.
-          * `regional_replica_count` (`float`) - The number of replicas of the Image Version to be created per region. This property is updatable.
-          * `storage_account_type` (`str`) - Specifies the storage account type to be used to store the image. This property is not updatable.
-
-      * `replication_status` (`dict`) - This is the replication status of the gallery Image Version.
-        * `aggregated_state` (`str`) - This is the aggregated replication status based on all the regional replication status flags.
-        * `summary` (`list`) - This is a summary of replication status for each region.
-          * `details` (`str`) - The details of the replication status.
-          * `progress` (`float`) - It indicates progress of the replication job.
-          * `region` (`str`) - The region to which the gallery Image Version is being replicated to.
-          * `state` (`str`) - This is the regional replication state.
-
-      * `storage_profile` (`dict`) - This is the storage profile of a Gallery Image Version.
-        * `data_disk_images` (`list`) - A list of data disk images.
-          * `host_caching` (`str`) - The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-          * `lun` (`float`) - This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
-          * `size_in_gb` (`float`) - This property indicates the size of the VHD to be created.
-          * `source` (`dict`) - The gallery artifact version source.
-            * `id` (`str`) - The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
-
-        * `os_disk_image` (`dict`) - This is the OS disk image.
-          * `host_caching` (`str`) - The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
-          * `size_in_gb` (`float`) - This property indicates the size of the VHD to be created.
-          * `source` (`dict`) - The gallery artifact version source.
-
+    """
+    replication_status: pulumi.Output[dict]
+    """
+    This is the replication status of the gallery Image Version.
+      * `aggregated_state` (`str`) - This is the aggregated replication status based on all the regional replication status flags.
+      * `summary` (`list`) - This is a summary of replication status for each region.
+        * `details` (`str`) - The details of the replication status.
+        * `progress` (`float`) - It indicates progress of the replication job.
+        * `region` (`str`) - The region to which the gallery Image Version is being replicated to.
+        * `state` (`str`) - This is the regional replication state.
+    """
+    storage_profile: pulumi.Output[dict]
+    """
+    This is the storage profile of a Gallery Image Version.
+      * `data_disk_images` (`list`) - A list of data disk images.
+        * `host_caching` (`str`) - The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+        * `lun` (`float`) - This property specifies the logical unit number of the data disk. This value is used to identify data disks within the Virtual Machine and therefore must be unique for each data disk attached to the Virtual Machine.
+        * `size_in_gb` (`float`) - This property indicates the size of the VHD to be created.
         * `source` (`dict`) - The gallery artifact version source.
+          * `id` (`str`) - The id of the gallery artifact version source. Can specify a disk uri, snapshot uri, or user image.
+
+      * `os_disk_image` (`dict`) - This is the OS disk image.
+        * `host_caching` (`str`) - The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+        * `size_in_gb` (`float`) - This property indicates the size of the VHD to be created.
+        * `source` (`dict`) - The gallery artifact version source.
+
+      * `source` (`dict`) - The gallery artifact version source.
     """
     tags: pulumi.Output[dict]
     """
@@ -141,7 +147,8 @@ class GalleryImageVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'storage_profile'")
             __props__['storage_profile'] = storage_profile
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['replication_status'] = None
             __props__['type'] = None
         super(GalleryImageVersion, __self__).__init__(
             'azurerm:compute/v20190701:GalleryImageVersion',

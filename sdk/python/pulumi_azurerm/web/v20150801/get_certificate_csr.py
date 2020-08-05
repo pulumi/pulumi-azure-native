@@ -13,7 +13,25 @@ class GetCertificateCsrResult:
     """
     Certificate signing request object
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, csr_string=None, distinguished_name=None, hosting_environment=None, kind=None, location=None, name=None, password=None, pfx_blob=None, public_key_hash=None, tags=None, type=None):
+        if csr_string and not isinstance(csr_string, str):
+            raise TypeError("Expected argument 'csr_string' to be a str")
+        __self__.csr_string = csr_string
+        """
+        Actual CSR string created
+        """
+        if distinguished_name and not isinstance(distinguished_name, str):
+            raise TypeError("Expected argument 'distinguished_name' to be a str")
+        __self__.distinguished_name = distinguished_name
+        """
+        Distinguished name of certificate to be created
+        """
+        if hosting_environment and not isinstance(hosting_environment, str):
+            raise TypeError("Expected argument 'hosting_environment' to be a str")
+        __self__.hosting_environment = hosting_environment
+        """
+        Hosting environment
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -32,9 +50,24 @@ class GetCertificateCsrResult:
         """
         Resource Name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if password and not isinstance(password, str):
+            raise TypeError("Expected argument 'password' to be a str")
+        __self__.password = password
+        """
+        PFX password
+        """
+        if pfx_blob and not isinstance(pfx_blob, str):
+            raise TypeError("Expected argument 'pfx_blob' to be a str")
+        __self__.pfx_blob = pfx_blob
+        """
+        PFX certificate of created certificate
+        """
+        if public_key_hash and not isinstance(public_key_hash, str):
+            raise TypeError("Expected argument 'public_key_hash' to be a str")
+        __self__.public_key_hash = public_key_hash
+        """
+        Hash of the certificates public key
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -55,10 +88,15 @@ class AwaitableGetCertificateCsrResult(GetCertificateCsrResult):
         if False:
             yield self
         return GetCertificateCsrResult(
+            csr_string=self.csr_string,
+            distinguished_name=self.distinguished_name,
+            hosting_environment=self.hosting_environment,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            password=self.password,
+            pfx_blob=self.pfx_blob,
+            public_key_hash=self.public_key_hash,
             tags=self.tags,
             type=self.type)
 
@@ -80,9 +118,14 @@ def get_certificate_csr(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:getCertificateCsr', __args__, opts=opts).value
 
     return AwaitableGetCertificateCsrResult(
+        csr_string=__ret__.get('csrString'),
+        distinguished_name=__ret__.get('distinguishedName'),
+        hosting_environment=__ret__.get('hostingEnvironment'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        password=__ret__.get('password'),
+        pfx_blob=__ret__.get('pfxBlob'),
+        public_key_hash=__ret__.get('publicKeyHash'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

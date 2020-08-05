@@ -13,7 +13,37 @@ class GetManagedHostingEnvironmentResult:
     """
     Description of a managed hosting environment
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, api_management_account=None, dns_suffix=None, environment_is_healthy=None, environment_status=None, ipssl_address_count=None, kind=None, location=None, name=None, resource_group=None, status=None, subscription_id=None, suspended=None, tags=None, type=None, virtual_network=None):
+        if api_management_account and not isinstance(api_management_account, str):
+            raise TypeError("Expected argument 'api_management_account' to be a str")
+        __self__.api_management_account = api_management_account
+        """
+        Resource id of the api management account associated with this managed hosting environment (read only)
+        """
+        if dns_suffix and not isinstance(dns_suffix, str):
+            raise TypeError("Expected argument 'dns_suffix' to be a str")
+        __self__.dns_suffix = dns_suffix
+        """
+        DNS suffix of the managed hosting environment
+        """
+        if environment_is_healthy and not isinstance(environment_is_healthy, bool):
+            raise TypeError("Expected argument 'environment_is_healthy' to be a bool")
+        __self__.environment_is_healthy = environment_is_healthy
+        """
+        True/false indicating whether the managed hosting environment is healthy
+        """
+        if environment_status and not isinstance(environment_status, str):
+            raise TypeError("Expected argument 'environment_status' to be a str")
+        __self__.environment_status = environment_status
+        """
+        Detailed message about with results of the last check of the managed hosting environment
+        """
+        if ipssl_address_count and not isinstance(ipssl_address_count, float):
+            raise TypeError("Expected argument 'ipssl_address_count' to be a float")
+        __self__.ipssl_address_count = ipssl_address_count
+        """
+        Number of ip ssl addresses reserved for the managed hosting environment
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -32,9 +62,31 @@ class GetManagedHostingEnvironmentResult:
         """
         Resource Name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if resource_group and not isinstance(resource_group, str):
+            raise TypeError("Expected argument 'resource_group' to be a str")
+        __self__.resource_group = resource_group
+        """
+        Resource group of the managed hosting environment (read only)
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Current status of the managed hosting environment
+        """
+        if subscription_id and not isinstance(subscription_id, str):
+            raise TypeError("Expected argument 'subscription_id' to be a str")
+        __self__.subscription_id = subscription_id
+        """
+        Subscription of the managed hosting environment (read only)
+        """
+        if suspended and not isinstance(suspended, bool):
+            raise TypeError("Expected argument 'suspended' to be a bool")
+        __self__.suspended = suspended
+        """
+        True/false indicating whether the managed hosting environment is suspended. The environment can be suspended e.g. when the management endpoint is no longer available
+                    (most likely because NSG blocked the incoming traffic)
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -47,6 +99,12 @@ class GetManagedHostingEnvironmentResult:
         """
         Resource type
         """
+        if virtual_network and not isinstance(virtual_network, dict):
+            raise TypeError("Expected argument 'virtual_network' to be a dict")
+        __self__.virtual_network = virtual_network
+        """
+        Description of the managed hosting environment's virtual network
+        """
 
 
 class AwaitableGetManagedHostingEnvironmentResult(GetManagedHostingEnvironmentResult):
@@ -55,12 +113,21 @@ class AwaitableGetManagedHostingEnvironmentResult(GetManagedHostingEnvironmentRe
         if False:
             yield self
         return GetManagedHostingEnvironmentResult(
+            api_management_account=self.api_management_account,
+            dns_suffix=self.dns_suffix,
+            environment_is_healthy=self.environment_is_healthy,
+            environment_status=self.environment_status,
+            ipssl_address_count=self.ipssl_address_count,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            resource_group=self.resource_group,
+            status=self.status,
+            subscription_id=self.subscription_id,
+            suspended=self.suspended,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_network=self.virtual_network)
 
 
 def get_managed_hosting_environment(name=None, resource_group_name=None, opts=None):
@@ -80,9 +147,18 @@ def get_managed_hosting_environment(name=None, resource_group_name=None, opts=No
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:getManagedHostingEnvironment', __args__, opts=opts).value
 
     return AwaitableGetManagedHostingEnvironmentResult(
+        api_management_account=__ret__.get('apiManagementAccount'),
+        dns_suffix=__ret__.get('dnsSuffix'),
+        environment_is_healthy=__ret__.get('environmentIsHealthy'),
+        environment_status=__ret__.get('environmentStatus'),
+        ipssl_address_count=__ret__.get('ipsslAddressCount'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        resource_group=__ret__.get('resourceGroup'),
+        status=__ret__.get('status'),
+        subscription_id=__ret__.get('subscriptionId'),
+        suspended=__ret__.get('suspended'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_network=__ret__.get('virtualNetwork'))

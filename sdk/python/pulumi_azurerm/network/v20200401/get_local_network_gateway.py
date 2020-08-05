@@ -13,12 +13,36 @@ class GetLocalNetworkGatewayResult:
     """
     A common class for general resource information.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, bgp_settings=None, etag=None, fqdn=None, gateway_ip_address=None, local_network_address_space=None, location=None, name=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+        if bgp_settings and not isinstance(bgp_settings, dict):
+            raise TypeError("Expected argument 'bgp_settings' to be a dict")
+        __self__.bgp_settings = bgp_settings
+        """
+        Local network gateway's BGP speaker settings.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if fqdn and not isinstance(fqdn, str):
+            raise TypeError("Expected argument 'fqdn' to be a str")
+        __self__.fqdn = fqdn
+        """
+        FQDN of local network gateway.
+        """
+        if gateway_ip_address and not isinstance(gateway_ip_address, str):
+            raise TypeError("Expected argument 'gateway_ip_address' to be a str")
+        __self__.gateway_ip_address = gateway_ip_address
+        """
+        IP address of local network gateway.
+        """
+        if local_network_address_space and not isinstance(local_network_address_space, dict):
+            raise TypeError("Expected argument 'local_network_address_space' to be a dict")
+        __self__.local_network_address_space = local_network_address_space
+        """
+        Local network site address space.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +56,17 @@ class GetLocalNetworkGatewayResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the local network gateway.
+        The provisioning state of the local network gateway resource.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resource GUID property of the local network gateway resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +88,15 @@ class AwaitableGetLocalNetworkGatewayResult(GetLocalNetworkGatewayResult):
         if False:
             yield self
         return GetLocalNetworkGatewayResult(
+            bgp_settings=self.bgp_settings,
             etag=self.etag,
+            fqdn=self.fqdn,
+            gateway_ip_address=self.gateway_ip_address,
+            local_network_address_space=self.local_network_address_space,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +118,14 @@ def get_local_network_gateway(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200401:getLocalNetworkGateway', __args__, opts=opts).value
 
     return AwaitableGetLocalNetworkGatewayResult(
+        bgp_settings=__ret__.get('bgpSettings'),
         etag=__ret__.get('etag'),
+        fqdn=__ret__.get('fqdn'),
+        gateway_ip_address=__ret__.get('gatewayIpAddress'),
+        local_network_address_space=__ret__.get('localNetworkAddressSpace'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_guid=__ret__.get('resourceGuid'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

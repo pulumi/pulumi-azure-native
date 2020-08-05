@@ -10,6 +10,38 @@ from ... import _utilities, _tables
 
 
 class SignalR(pulumi.CustomResource):
+    cors: pulumi.Output[dict]
+    """
+    Cross-Origin Resource Sharing (CORS) settings.
+      * `allowed_origins` (`list`) - Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
+    """
+    external_ip: pulumi.Output[str]
+    """
+    The publicly accessible IP of the SignalR service.
+    """
+    features: pulumi.Output[list]
+    """
+    List of SignalR featureFlags. e.g. ServiceMode.
+    
+    FeatureFlags that are not included in the parameters for the update operation will not be modified.
+    And the response will only include featureFlags that are explicitly set. 
+    When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
+    But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+      * `flag` (`str`) - FeatureFlags is the supported features of Azure SignalR service.
+        - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
+        - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
+      * `properties` (`dict`) - Optional properties related to this feature.
+      * `value` (`str`) - Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+    """
+    host_name: pulumi.Output[str]
+    """
+    FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+    """
+    host_name_prefix: pulumi.Output[str]
+    """
+    Prefix for the hostName of the SignalR service. Retained for future use.
+    The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+    """
     kind: pulumi.Output[str]
     """
     The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
@@ -22,79 +54,46 @@ class SignalR(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    network_ac_ls: pulumi.Output[dict]
     """
-    Settings used to provision or configure the resource
-      * `cors` (`dict`) - Cross-Origin Resource Sharing (CORS) settings.
-        * `allowed_origins` (`list`) - Gets or sets the list of origins that should be allowed to make cross-origin calls (for example: http://example.com:12345). Use "*" to allow all. If omitted, allow all by default.
+    Network ACLs
+      * `default_action` (`str`) - Default action when no other rule matches
+      * `private_endpoints` (`list`) - ACLs for requests from private endpoints
+        * `allow` (`list`) - Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        * `deny` (`list`) - Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        * `name` (`str`) - Name of the private endpoint connection
 
-      * `external_ip` (`str`) - The publicly accessible IP of the SignalR service.
-      * `features` (`list`) - List of SignalR featureFlags. e.g. ServiceMode.
-        
-        FeatureFlags that are not included in the parameters for the update operation will not be modified.
-        And the response will only include featureFlags that are explicitly set. 
-        When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
-        But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-        * `flag` (`str`) - FeatureFlags is the supported features of Azure SignalR service.
-          - ServiceMode: Flag for backend server for SignalR service. Values allowed: "Default": have your own backend server; "Serverless": your application doesn't have a backend server; "Classic": for backward compatibility. Support both Default and Serverless mode but not recommended; "PredefinedOnly": for future use.
-          - EnableConnectivityLogs: "true"/"false", to enable/disable the connectivity log category respectively.
-        * `properties` (`dict`) - Optional properties related to this feature.
-        * `value` (`str`) - Value of the feature flag. See Azure SignalR service document https://docs.microsoft.com/azure/azure-signalr/ for allowed values.
+      * `public_network` (`dict`) - ACL for requests from public network
+        * `allow` (`list`) - Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+        * `deny` (`list`) - Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
+    """
+    private_endpoint_connections: pulumi.Output[list]
+    """
+    Private endpoint connections to the SignalR resource.
+      * `id` (`str`) - Fully qualified resource Id for the resource.
+      * `name` (`str`) - The name of the resource.
+      * `private_endpoint` (`dict`) - Private endpoint associated with the private endpoint connection
+        * `id` (`str`) - Full qualified Id of the private endpoint
 
-      * `host_name` (`str`) - FQDN of the SignalR service instance. Format: xxx.service.signalr.net
-      * `host_name_prefix` (`str`) - Prefix for the hostName of the SignalR service. Retained for future use.
-        The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
-      * `network_ac_ls` (`dict`) - Network ACLs
-        * `default_action` (`str`) - Default action when no other rule matches
-        * `private_endpoints` (`list`) - ACLs for requests from private endpoints
-          * `allow` (`list`) - Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-          * `deny` (`list`) - Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-          * `name` (`str`) - Name of the private endpoint connection
+      * `private_link_service_connection_state` (`dict`) - Connection state
+        * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
+        * `description` (`str`) - The reason for approval/rejection of the connection.
+        * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
 
-        * `public_network` (`dict`) - ACL for requests from public network
-          * `allow` (`list`) - Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-          * `deny` (`list`) - Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.
-
-      * `private_endpoint_connections` (`list`) - Private endpoint connections to the SignalR resource.
-        * `id` (`str`) - Fully qualified resource Id for the resource.
-        * `name` (`str`) - The name of the resource.
-        * `properties` (`dict`) - Properties of the private endpoint connection
-          * `private_endpoint` (`dict`) - Private endpoint associated with the private endpoint connection
-            * `id` (`str`) - Full qualified Id of the private endpoint
-
-          * `private_link_service_connection_state` (`dict`) - Connection state
-            * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
-            * `description` (`str`) - The reason for approval/rejection of the connection.
-            * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-
-          * `provisioning_state` (`str`) - Provisioning state of the private endpoint connection
-
-        * `type` (`str`) - The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
-
-      * `provisioning_state` (`str`) - Provisioning state of the resource.
-      * `public_port` (`float`) - The publicly accessible port of the SignalR service which is designed for browser/client side usage.
-      * `server_port` (`float`) - The publicly accessible port of the SignalR service which is designed for customer server side usage.
-      * `upstream` (`dict`) - Upstream settings when the Azure SignalR is in server-less mode.
-        * `templates` (`list`) - Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
-          * `category_pattern` (`str`) - Gets or sets the matching pattern for category names. If not set, it matches any category.
-            There are 3 kind of patterns supported:
-                1. "*", it to matches any category name
-                2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
-                3. The single category name, for example, "connections", it matches the category "connections"
-          * `event_pattern` (`str`) - Gets or sets the matching pattern for event names. If not set, it matches any event.
-            There are 3 kind of patterns supported:
-                1. "*", it to matches any event name
-                2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
-                3. The single event name, for example, "connect", it matches "connect"
-          * `hub_pattern` (`str`) - Gets or sets the matching pattern for hub names. If not set, it matches any hub.
-            There are 3 kind of patterns supported:
-                1. "*", it to matches any hub name
-                2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
-                3. The single hub name, for example, "hub1", it matches "hub1"
-          * `url_template` (`str`) - Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
-            For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
-
-      * `version` (`str`) - Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+      * `provisioning_state` (`str`) - Provisioning state of the private endpoint connection
+      * `type` (`str`) - The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the resource.
+    """
+    public_port: pulumi.Output[float]
+    """
+    The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+    """
+    server_port: pulumi.Output[float]
+    """
+    The publicly accessible port of the SignalR service which is designed for customer server side usage.
     """
     sku: pulumi.Output[dict]
     """
@@ -120,6 +119,32 @@ class SignalR(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
+    """
+    upstream: pulumi.Output[dict]
+    """
+    Upstream settings when the Azure SignalR is in server-less mode.
+      * `templates` (`list`) - Gets or sets the list of Upstream URL templates. Order matters, and the first matching template takes effects.
+        * `category_pattern` (`str`) - Gets or sets the matching pattern for category names. If not set, it matches any category.
+          There are 3 kind of patterns supported:
+              1. "*", it to matches any category name
+              2. Combine multiple categories with ",", for example "connections,messages", it matches category "connections" and "messages"
+              3. The single category name, for example, "connections", it matches the category "connections"
+        * `event_pattern` (`str`) - Gets or sets the matching pattern for event names. If not set, it matches any event.
+          There are 3 kind of patterns supported:
+              1. "*", it to matches any event name
+              2. Combine multiple events with ",", for example "connect,disconnect", it matches event "connect" and "disconnect"
+              3. The single event name, for example, "connect", it matches "connect"
+        * `hub_pattern` (`str`) - Gets or sets the matching pattern for hub names. If not set, it matches any hub.
+          There are 3 kind of patterns supported:
+              1. "*", it to matches any hub name
+              2. Combine multiple hubs with ",", for example "hub1,hub2", it matches "hub1" and "hub2"
+              3. The single hub name, for example, "hub1", it matches "hub1"
+        * `url_template` (`str`) - Gets or sets the Upstream URL template. You can use 3 predefined parameters {hub}, {category} {event} inside the template, the value of the Upstream URL is dynamically calculated when the client request comes in.
+          For example, if the urlTemplate is `http://example.com/{hub}/api/{event}`, with a client request from hub `chat` connects, it will first POST to this URL: `http://example.com/chat/api/connect`.
+    """
+    version: pulumi.Output[str]
+    """
+    Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
     """
     def __init__(__self__, resource_name, opts=None, cors=None, features=None, host_name_prefix=None, kind=None, location=None, name=None, network_ac_ls=None, resource_group_name=None, sku=None, tags=None, upstream=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -238,8 +263,14 @@ class SignalR(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['upstream'] = upstream
-            __props__['properties'] = None
+            __props__['external_ip'] = None
+            __props__['host_name'] = None
+            __props__['private_endpoint_connections'] = None
+            __props__['provisioning_state'] = None
+            __props__['public_port'] = None
+            __props__['server_port'] = None
             __props__['type'] = None
+            __props__['version'] = None
         super(SignalR, __self__).__init__(
             'azurerm:signalrservice/v20200501:SignalR',
             resource_name,

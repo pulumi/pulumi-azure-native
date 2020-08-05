@@ -10,11 +10,22 @@ from ... import _utilities, _tables
 
 
 class CustomDomain(pulumi.CustomResource):
+    host_name: pulumi.Output[str]
+    """
+    The host name of the custom domain. Must be a domain name.
+    """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning status of the custom domain.
+    """
+    resource_state: pulumi.Output[str]
+    """
+    Resource status of the custom domain.
+    """
     type: pulumi.Output[str]
     """
     Resource type
@@ -63,7 +74,8 @@ class CustomDomain(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_state'] = None
             __props__['type'] = None
         super(CustomDomain, __self__).__init__(
             'azurerm:cdn/v20150601:CustomDomain',

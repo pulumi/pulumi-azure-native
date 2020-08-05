@@ -10,22 +10,25 @@ from ... import _utilities, _tables
 
 
 class ContentType(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    Content type description.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    schema: pulumi.Output[dict]
     """
-    Properties of the content type.
-      * `description` (`str`) - Content type description.
-      * `id` (`str`) - Content type identifier
-      * `name` (`str`) - Content type name. Must be 1 to 250 characters long.
-      * `schema` (`dict`) - Content type schema.
-      * `version` (`str`) - Content type version.
+    Content type schema.
     """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource.
+    """
+    version: pulumi.Output[str]
+    """
+    Content type version.
     """
     def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, service_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -63,8 +66,10 @@ class ContentType(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['properties'] = None
+            __props__['description'] = None
+            __props__['schema'] = None
             __props__['type'] = None
+            __props__['version'] = None
         super(ContentType, __self__).__init__(
             'azurerm:apimanagement/v20191201:ContentType',
             resource_name,

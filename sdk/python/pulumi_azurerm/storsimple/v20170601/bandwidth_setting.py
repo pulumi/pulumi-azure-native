@@ -18,24 +18,25 @@ class BandwidthSetting(pulumi.CustomResource):
     """
     The name of the object.
     """
-    properties: pulumi.Output[dict]
+    schedules: pulumi.Output[list]
     """
-    The properties of the bandwidth setting.
-      * `schedules` (`list`) - The schedules.
-        * `days` (`list`) - The days of the week when this schedule is applicable.
-        * `rate_in_mbps` (`float`) - The rate in Mbps.
-        * `start` (`dict`) - The start time of the schedule.
-          * `hours` (`float`) - The hour.
-          * `minutes` (`float`) - The minute.
-          * `seconds` (`float`) - The second.
+    The schedules.
+      * `days` (`list`) - The days of the week when this schedule is applicable.
+      * `rate_in_mbps` (`float`) - The rate in Mbps.
+      * `start` (`dict`) - The start time of the schedule.
+        * `hours` (`float`) - The hour.
+        * `minutes` (`float`) - The minute.
+        * `seconds` (`float`) - The second.
 
-        * `stop` (`dict`) - The stop time of the schedule.
-
-      * `volume_count` (`float`) - The number of volumes that uses the bandwidth setting.
+      * `stop` (`dict`) - The stop time of the schedule.
     """
     type: pulumi.Output[str]
     """
     The hierarchical type of the object.
+    """
+    volume_count: pulumi.Output[float]
+    """
+    The number of volumes that uses the bandwidth setting.
     """
     def __init__(__self__, resource_name, opts=None, kind=None, manager_name=None, name=None, resource_group_name=None, schedules=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -90,8 +91,8 @@ class BandwidthSetting(pulumi.CustomResource):
             if schedules is None:
                 raise TypeError("Missing required property 'schedules'")
             __props__['schedules'] = schedules
-            __props__['properties'] = None
             __props__['type'] = None
+            __props__['volume_count'] = None
         super(BandwidthSetting, __self__).__init__(
             'azurerm:storsimple/v20170601:BandwidthSetting',
             resource_name,

@@ -10,25 +10,45 @@ from ... import _utilities, _tables
 
 
 class QueueAuthorizationRule(pulumi.CustomResource):
+    claim_type: pulumi.Output[str]
+    """
+    A string that describes Claim Type for authorization rule.
+    """
+    claim_value: pulumi.Output[str]
+    """
+    A string that describes Claim Value of authorization rule.
+    """
+    created_time: pulumi.Output[str]
+    """
+    The time the namespace was created.
+    """
+    key_name: pulumi.Output[str]
+    """
+    A string that describes the Key Name of authorization rule.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
+    """
+    modified_time: pulumi.Output[str]
+    """
+    The time the namespace was updated.
     """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    primary_key: pulumi.Output[str]
     """
-    AuthorizationRule properties.
-      * `claim_type` (`str`) - A string that describes Claim Type for authorization rule.
-      * `claim_value` (`str`) - A string that describes Claim Value of authorization rule.
-      * `created_time` (`str`) - The time the namespace was created.
-      * `key_name` (`str`) - A string that describes the Key Name of authorization rule.
-      * `modified_time` (`str`) - The time the namespace was updated.
-      * `primary_key` (`str`) - A base64-encoded 256-bit primary key for signing and validating the SAS token.
-      * `rights` (`list`) - The rights associated with the rule.
-      * `secondary_key` (`str`) - A base64-encoded 256-bit primary key for signing and validating the SAS token.
+    A base64-encoded 256-bit primary key for signing and validating the SAS token.
+    """
+    rights: pulumi.Output[list]
+    """
+    The rights associated with the rule.
+    """
+    secondary_key: pulumi.Output[str]
+    """
+    A base64-encoded 256-bit primary key for signing and validating the SAS token.
     """
     type: pulumi.Output[str]
     """
@@ -90,7 +110,8 @@ class QueueAuthorizationRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'rights'")
             __props__['rights'] = rights
             __props__['secondary_key'] = secondary_key
-            __props__['properties'] = None
+            __props__['created_time'] = None
+            __props__['modified_time'] = None
             __props__['type'] = None
         super(QueueAuthorizationRule, __self__).__init__(
             'azurerm:servicebus/v20140901:QueueAuthorizationRule',

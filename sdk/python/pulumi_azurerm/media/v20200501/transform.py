@@ -10,19 +10,27 @@ from ... import _utilities, _tables
 
 
 class Transform(pulumi.CustomResource):
+    created: pulumi.Output[str]
+    """
+    The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+    """
+    description: pulumi.Output[str]
+    """
+    An optional verbose description of the Transform.
+    """
+    last_modified: pulumi.Output[str]
+    """
+    The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    outputs: pulumi.Output[list]
     """
-    The resource properties.
-      * `created` (`str`) - The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
-      * `description` (`str`) - An optional verbose description of the Transform.
-      * `last_modified` (`str`) - The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
-      * `outputs` (`list`) - An array of one or more TransformOutputs that the Transform should generate.
-        * `on_error` (`str`) - A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
-        * `relative_priority` (`str`) - Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
+    An array of one or more TransformOutputs that the Transform should generate.
+      * `on_error` (`str`) - A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
+      * `relative_priority` (`str`) - Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
     """
     type: pulumi.Output[str]
     """
@@ -75,7 +83,8 @@ class Transform(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['created'] = None
+            __props__['last_modified'] = None
             __props__['type'] = None
         super(Transform, __self__).__init__(
             'azurerm:media/v20200501:Transform',

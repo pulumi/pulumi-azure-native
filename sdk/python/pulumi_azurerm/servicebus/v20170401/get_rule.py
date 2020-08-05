@@ -13,18 +13,36 @@ class GetRuleResult:
     """
     Description of Rule Resource.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, action=None, correlation_filter=None, filter_type=None, name=None, sql_filter=None, type=None):
+        if action and not isinstance(action, dict):
+            raise TypeError("Expected argument 'action' to be a dict")
+        __self__.action = action
+        """
+        Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
+        """
+        if correlation_filter and not isinstance(correlation_filter, dict):
+            raise TypeError("Expected argument 'correlation_filter' to be a dict")
+        __self__.correlation_filter = correlation_filter
+        """
+        Properties of correlationFilter
+        """
+        if filter_type and not isinstance(filter_type, str):
+            raise TypeError("Expected argument 'filter_type' to be a str")
+        __self__.filter_type = filter_type
+        """
+        Filter type that is evaluated against a BrokeredMessage.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if sql_filter and not isinstance(sql_filter, dict):
+            raise TypeError("Expected argument 'sql_filter' to be a dict")
+        __self__.sql_filter = sql_filter
         """
-        Properties of Rule resource
+        Properties of sqlFilter
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +58,11 @@ class AwaitableGetRuleResult(GetRuleResult):
         if False:
             yield self
         return GetRuleResult(
+            action=self.action,
+            correlation_filter=self.correlation_filter,
+            filter_type=self.filter_type,
             name=self.name,
-            properties=self.properties,
+            sql_filter=self.sql_filter,
             type=self.type)
 
 
@@ -68,6 +89,9 @@ def get_rule(name=None, namespace_name=None, resource_group_name=None, subscript
     __ret__ = pulumi.runtime.invoke('azurerm:servicebus/v20170401:getRule', __args__, opts=opts).value
 
     return AwaitableGetRuleResult(
+        action=__ret__.get('action'),
+        correlation_filter=__ret__.get('correlationFilter'),
+        filter_type=__ret__.get('filterType'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        sql_filter=__ret__.get('sqlFilter'),
         type=__ret__.get('type'))

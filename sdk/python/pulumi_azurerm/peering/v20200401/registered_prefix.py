@@ -10,18 +10,29 @@ from ... import _utilities, _tables
 
 
 class RegisteredPrefix(pulumi.CustomResource):
+    error_message: pulumi.Output[str]
+    """
+    The error message associated with the validation state, if any.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    peering_service_prefix_key: pulumi.Output[str]
     """
-    The properties that define a registered prefix.
-      * `error_message` (`str`) - The error message associated with the validation state, if any.
-      * `peering_service_prefix_key` (`str`) - The peering service prefix key that is to be shared with the customer.
-      * `prefix` (`str`) - The customer's prefix from which traffic originates.
-      * `prefix_validation_state` (`str`) - The prefix validation state.
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
+    The peering service prefix key that is to be shared with the customer.
+    """
+    prefix: pulumi.Output[str]
+    """
+    The customer's prefix from which traffic originates.
+    """
+    prefix_validation_state: pulumi.Output[str]
+    """
+    The prefix validation state.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the resource.
     """
     type: pulumi.Output[str]
     """
@@ -65,7 +76,10 @@ class RegisteredPrefix(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['error_message'] = None
+            __props__['peering_service_prefix_key'] = None
+            __props__['prefix_validation_state'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(RegisteredPrefix, __self__).__init__(
             'azurerm:peering/v20200401:RegisteredPrefix',

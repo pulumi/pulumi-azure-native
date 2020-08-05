@@ -10,14 +10,13 @@ from ... import _utilities, _tables
 
 
 class AccessControlRecord(pulumi.CustomResource):
+    initiator_name: pulumi.Output[str]
+    """
+    The Iscsi initiator name (IQN)
+    """
     name: pulumi.Output[str]
     """
     The name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Properties of AccessControlRecord
-      * `initiator_name` (`str`) - The Iscsi initiator name (IQN)
     """
     type: pulumi.Output[str]
     """
@@ -63,7 +62,6 @@ class AccessControlRecord(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(AccessControlRecord, __self__).__init__(
             'azurerm:storsimple/v20161001:AccessControlRecord',

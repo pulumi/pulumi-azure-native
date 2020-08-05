@@ -13,12 +13,48 @@ class GetExpressRoutePortResult:
     """
     ExpressRoutePort resource definition.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, allocation_date=None, bandwidth_in_gbps=None, circuits=None, encapsulation=None, etag=None, ether_type=None, links=None, location=None, mtu=None, name=None, peering_location=None, provisioned_bandwidth_in_gbps=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+        if allocation_date and not isinstance(allocation_date, str):
+            raise TypeError("Expected argument 'allocation_date' to be a str")
+        __self__.allocation_date = allocation_date
+        """
+        Date of the physical port allocation to be used in Letter of Authorization.
+        """
+        if bandwidth_in_gbps and not isinstance(bandwidth_in_gbps, float):
+            raise TypeError("Expected argument 'bandwidth_in_gbps' to be a float")
+        __self__.bandwidth_in_gbps = bandwidth_in_gbps
+        """
+        Bandwidth of procured ports in Gbps
+        """
+        if circuits and not isinstance(circuits, list):
+            raise TypeError("Expected argument 'circuits' to be a list")
+        __self__.circuits = circuits
+        """
+        Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
+        """
+        if encapsulation and not isinstance(encapsulation, str):
+            raise TypeError("Expected argument 'encapsulation' to be a str")
+        __self__.encapsulation = encapsulation
+        """
+        Encapsulation method on physical ports.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if ether_type and not isinstance(ether_type, str):
+            raise TypeError("Expected argument 'ether_type' to be a str")
+        __self__.ether_type = ether_type
+        """
+        Ether type of the physical port.
+        """
+        if links and not isinstance(links, list):
+            raise TypeError("Expected argument 'links' to be a list")
+        __self__.links = links
+        """
+        The set of physical links of the ExpressRoutePort resource
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -26,17 +62,41 @@ class GetExpressRoutePortResult:
         """
         Resource location.
         """
+        if mtu and not isinstance(mtu, str):
+            raise TypeError("Expected argument 'mtu' to be a str")
+        __self__.mtu = mtu
+        """
+        Maximum transmission unit of the physical port pair(s)
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peering_location and not isinstance(peering_location, str):
+            raise TypeError("Expected argument 'peering_location' to be a str")
+        __self__.peering_location = peering_location
         """
-        ExpressRoutePort properties
+        The name of the peering location that the ExpressRoutePort is mapped to physically.
+        """
+        if provisioned_bandwidth_in_gbps and not isinstance(provisioned_bandwidth_in_gbps, float):
+            raise TypeError("Expected argument 'provisioned_bandwidth_in_gbps' to be a float")
+        __self__.provisioned_bandwidth_in_gbps = provisioned_bandwidth_in_gbps
+        """
+        Aggregate Gbps of associated circuit bandwidths.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the ExpressRoutePort resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resource GUID property of the ExpressRoutePort resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +118,20 @@ class AwaitableGetExpressRoutePortResult(GetExpressRoutePortResult):
         if False:
             yield self
         return GetExpressRoutePortResult(
+            allocation_date=self.allocation_date,
+            bandwidth_in_gbps=self.bandwidth_in_gbps,
+            circuits=self.circuits,
+            encapsulation=self.encapsulation,
             etag=self.etag,
+            ether_type=self.ether_type,
+            links=self.links,
             location=self.location,
+            mtu=self.mtu,
             name=self.name,
-            properties=self.properties,
+            peering_location=self.peering_location,
+            provisioned_bandwidth_in_gbps=self.provisioned_bandwidth_in_gbps,
+            provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +153,19 @@ def get_express_route_port(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20181101:getExpressRoutePort', __args__, opts=opts).value
 
     return AwaitableGetExpressRoutePortResult(
+        allocation_date=__ret__.get('allocationDate'),
+        bandwidth_in_gbps=__ret__.get('bandwidthInGbps'),
+        circuits=__ret__.get('circuits'),
+        encapsulation=__ret__.get('encapsulation'),
         etag=__ret__.get('etag'),
+        ether_type=__ret__.get('etherType'),
+        links=__ret__.get('links'),
         location=__ret__.get('location'),
+        mtu=__ret__.get('mtu'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        peering_location=__ret__.get('peeringLocation'),
+        provisioned_bandwidth_in_gbps=__ret__.get('provisionedBandwidthInGbps'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_guid=__ret__.get('resourceGuid'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

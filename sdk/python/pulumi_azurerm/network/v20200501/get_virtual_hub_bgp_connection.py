@@ -13,7 +13,13 @@ class GetVirtualHubBgpConnectionResult:
     """
     Virtual Appliance Site resource.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, connection_state=None, etag=None, name=None, peer_asn=None, peer_ip=None, provisioning_state=None, type=None):
+        if connection_state and not isinstance(connection_state, str):
+            raise TypeError("Expected argument 'connection_state' to be a str")
+        __self__.connection_state = connection_state
+        """
+        The current state of the VirtualHub to Peer.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,11 +32,23 @@ class GetVirtualHubBgpConnectionResult:
         """
         Name of the connection.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peer_asn and not isinstance(peer_asn, float):
+            raise TypeError("Expected argument 'peer_asn' to be a float")
+        __self__.peer_asn = peer_asn
         """
-        The properties of the Bgp connections.
+        Peer ASN.
+        """
+        if peer_ip and not isinstance(peer_ip, str):
+            raise TypeError("Expected argument 'peer_ip' to be a str")
+        __self__.peer_ip = peer_ip
+        """
+        Peer IP.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +64,12 @@ class AwaitableGetVirtualHubBgpConnectionResult(GetVirtualHubBgpConnectionResult
         if False:
             yield self
         return GetVirtualHubBgpConnectionResult(
+            connection_state=self.connection_state,
             etag=self.etag,
             name=self.name,
-            properties=self.properties,
+            peer_asn=self.peer_asn,
+            peer_ip=self.peer_ip,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -71,7 +92,10 @@ def get_virtual_hub_bgp_connection(name=None, resource_group_name=None, virtual_
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getVirtualHubBgpConnection', __args__, opts=opts).value
 
     return AwaitableGetVirtualHubBgpConnectionResult(
+        connection_state=__ret__.get('connectionState'),
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        peer_asn=__ret__.get('peerAsn'),
+        peer_ip=__ret__.get('peerIp'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

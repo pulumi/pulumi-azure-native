@@ -13,7 +13,31 @@ class GetUserResult:
     """
     The User registered to a lab
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, email=None, family_name=None, given_name=None, latest_operation_result=None, location=None, name=None, provisioning_state=None, tags=None, tenant_id=None, total_usage=None, type=None, unique_identifier=None):
+        if email and not isinstance(email, str):
+            raise TypeError("Expected argument 'email' to be a str")
+        __self__.email = email
+        """
+        The user email address, as it was specified during registration.
+        """
+        if family_name and not isinstance(family_name, str):
+            raise TypeError("Expected argument 'family_name' to be a str")
+        __self__.family_name = family_name
+        """
+        The user family name, as it was specified during registration.
+        """
+        if given_name and not isinstance(given_name, str):
+            raise TypeError("Expected argument 'given_name' to be a str")
+        __self__.given_name = given_name
+        """
+        The user given name, as it was specified during registration.
+        """
+        if latest_operation_result and not isinstance(latest_operation_result, dict):
+            raise TypeError("Expected argument 'latest_operation_result' to be a dict")
+        __self__.latest_operation_result = latest_operation_result
+        """
+        The details of the latest operation. ex: status, error
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +50,11 @@ class GetUserResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        These are the properties for the user registered under a lab.
+        The provisioning status of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -38,11 +62,29 @@ class GetUserResult:
         """
         The tags of the resource.
         """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        The user tenant ID, as it was specified during registration.
+        """
+        if total_usage and not isinstance(total_usage, str):
+            raise TypeError("Expected argument 'total_usage' to be a str")
+        __self__.total_usage = total_usage
+        """
+        How long the user has used his VMs in this lab
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource.
+        """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
         """
 
 
@@ -52,11 +94,18 @@ class AwaitableGetUserResult(GetUserResult):
         if False:
             yield self
         return GetUserResult(
+            email=self.email,
+            family_name=self.family_name,
+            given_name=self.given_name,
+            latest_operation_result=self.latest_operation_result,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            tenant_id=self.tenant_id,
+            total_usage=self.total_usage,
+            type=self.type,
+            unique_identifier=self.unique_identifier)
 
 
 def get_user(lab_account_name=None, lab_name=None, name=None, resource_group_name=None, opts=None):
@@ -80,8 +129,15 @@ def get_user(lab_account_name=None, lab_name=None, name=None, resource_group_nam
     __ret__ = pulumi.runtime.invoke('azurerm:labservices/v20181015:getUser', __args__, opts=opts).value
 
     return AwaitableGetUserResult(
+        email=__ret__.get('email'),
+        family_name=__ret__.get('familyName'),
+        given_name=__ret__.get('givenName'),
+        latest_operation_result=__ret__.get('latestOperationResult'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        tenant_id=__ret__.get('tenantId'),
+        total_usage=__ret__.get('totalUsage'),
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'))

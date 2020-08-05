@@ -13,12 +13,24 @@ class GetLogProfileResult:
     """
     The log profile resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, categories=None, location=None, locations=None, name=None, retention_policy=None, service_bus_rule_id=None, storage_account_id=None, tags=None, type=None):
+        if categories and not isinstance(categories, list):
+            raise TypeError("Expected argument 'categories' to be a list")
+        __self__.categories = categories
+        """
+        the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource location
+        """
+        if locations and not isinstance(locations, list):
+            raise TypeError("Expected argument 'locations' to be a list")
+        __self__.locations = locations
+        """
+        List of regions for which Activity Log events should be stored or streamed. It is a comma separated list of valid ARM locations including the 'global' location.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +38,23 @@ class GetLogProfileResult:
         """
         Azure resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if retention_policy and not isinstance(retention_policy, dict):
+            raise TypeError("Expected argument 'retention_policy' to be a dict")
+        __self__.retention_policy = retention_policy
         """
-        The log profile properties of the resource.
+        the retention policy for the events in the log.
+        """
+        if service_bus_rule_id and not isinstance(service_bus_rule_id, str):
+            raise TypeError("Expected argument 'service_bus_rule_id' to be a str")
+        __self__.service_bus_rule_id = service_bus_rule_id
+        """
+        The service bus rule ID of the service bus namespace in which you would like to have Event Hubs created for streaming the Activity Log. The rule ID is of the format: '{service bus resource ID}/authorizationrules/{key name}'.
+        """
+        if storage_account_id and not isinstance(storage_account_id, str):
+            raise TypeError("Expected argument 'storage_account_id' to be a str")
+        __self__.storage_account_id = storage_account_id
+        """
+        the resource id of the storage account to which you would like to send the Activity Log.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +76,13 @@ class AwaitableGetLogProfileResult(GetLogProfileResult):
         if False:
             yield self
         return GetLogProfileResult(
+            categories=self.categories,
             location=self.location,
+            locations=self.locations,
             name=self.name,
-            properties=self.properties,
+            retention_policy=self.retention_policy,
+            service_bus_rule_id=self.service_bus_rule_id,
+            storage_account_id=self.storage_account_id,
             tags=self.tags,
             type=self.type)
 
@@ -74,8 +102,12 @@ def get_log_profile(name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:insights/v20160301:getLogProfile', __args__, opts=opts).value
 
     return AwaitableGetLogProfileResult(
+        categories=__ret__.get('categories'),
         location=__ret__.get('location'),
+        locations=__ret__.get('locations'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        retention_policy=__ret__.get('retentionPolicy'),
+        service_bus_rule_id=__ret__.get('serviceBusRuleId'),
+        storage_account_id=__ret__.get('storageAccountId'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

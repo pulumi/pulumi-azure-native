@@ -10,6 +10,11 @@ from ... import _utilities, _tables
 
 
 class Manager(pulumi.CustomResource):
+    cis_intrinsic_settings: pulumi.Output[dict]
+    """
+    Represents the type of StorSimple Manager.
+      * `type` (`str`) - The type of StorSimple Manager.
+    """
     etag: pulumi.Output[str]
     """
     The etag of the manager.
@@ -22,15 +27,14 @@ class Manager(pulumi.CustomResource):
     """
     The resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the StorSimple Manager.
-      * `cis_intrinsic_settings` (`dict`) - Represents the type of StorSimple Manager.
-        * `type` (`str`) - The type of StorSimple Manager.
-
-      * `provisioning_state` (`str`) - Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
-      * `sku` (`dict`) - Specifies the Sku.
-        * `name` (`str`) - Refers to the sku name which should be "Standard"
+    Specifies the state of the resource as it is getting provisioned. Value of "Succeeded" means the Manager was successfully created.
+    """
+    sku: pulumi.Output[dict]
+    """
+    Specifies the Sku.
+      * `name` (`str`) - Refers to the sku name which should be "Standard"
     """
     tags: pulumi.Output[dict]
     """
@@ -94,7 +98,6 @@ class Manager(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(Manager, __self__).__init__(
             'azurerm:storsimple/v20170601:Manager',

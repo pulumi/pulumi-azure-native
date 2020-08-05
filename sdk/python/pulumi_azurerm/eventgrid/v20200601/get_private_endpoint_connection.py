@@ -10,18 +10,36 @@ from ... import _utilities, _tables
 
 
 class GetPrivateEndpointConnectionResult:
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, group_ids=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+        if group_ids and not isinstance(group_ids, list):
+            raise TypeError("Expected argument 'group_ids' to be a list")
+        __self__.group_ids = group_ids
+        """
+        GroupIds from the private link service resource.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if private_endpoint and not isinstance(private_endpoint, dict):
+            raise TypeError("Expected argument 'private_endpoint' to be a dict")
+        __self__.private_endpoint = private_endpoint
         """
-        Properties of the PrivateEndpointConnection.
+        The Private Endpoint resource for this Connection.
+        """
+        if private_link_service_connection_state and not isinstance(private_link_service_connection_state, dict):
+            raise TypeError("Expected argument 'private_link_service_connection_state' to be a dict")
+        __self__.private_link_service_connection_state = private_link_service_connection_state
+        """
+        Details about the state of the connection.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state of the Private Endpoint Connection.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -37,8 +55,11 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
         if False:
             yield self
         return GetPrivateEndpointConnectionResult(
+            group_ids=self.group_ids,
             name=self.name,
-            properties=self.properties,
+            private_endpoint=self.private_endpoint,
+            private_link_service_connection_state=self.private_link_service_connection_state,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -63,6 +84,9 @@ def get_private_endpoint_connection(name=None, parent_name=None, parent_type=Non
     __ret__ = pulumi.runtime.invoke('azurerm:eventgrid/v20200601:getPrivateEndpointConnection', __args__, opts=opts).value
 
     return AwaitableGetPrivateEndpointConnectionResult(
+        group_ids=__ret__.get('groupIds'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        private_endpoint=__ret__.get('privateEndpoint'),
+        private_link_service_connection_state=__ret__.get('privateLinkServiceConnectionState'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

@@ -10,38 +10,60 @@ from ... import _utilities, _tables
 
 
 class Job(pulumi.CustomResource):
+    correlation_data: pulumi.Output[dict]
+    """
+    Customer provided key, value pairs that will be returned in Job and JobOutput state events.
+    """
+    created: pulumi.Output[str]
+    """
+    The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
+    """
+    description: pulumi.Output[str]
+    """
+    Optional customer supplied description of the Job.
+    """
+    end_time: pulumi.Output[str]
+    """
+    The UTC date and time at which this Job finished processing.
+    """
+    last_modified: pulumi.Output[str]
+    """
+    The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    outputs: pulumi.Output[list]
     """
-    The resource properties.
-      * `correlation_data` (`dict`) - Customer provided key, value pairs that will be returned in Job and JobOutput state events.
-      * `created` (`str`) - The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
-      * `description` (`str`) - Optional customer supplied description of the Job.
-      * `end_time` (`str`) - The UTC date and time at which this Job finished processing.
-      * `last_modified` (`str`) - The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
-      * `outputs` (`list`) - The outputs for the Job.
-        * `end_time` (`str`) - The UTC date and time at which this Job Output finished processing.
-        * `error` (`dict`) - If the JobOutput is in the Error state, it contains the details of the error.
-          * `category` (`str`) - Helps with categorization of errors.
-          * `code` (`str`) - Error code describing the error.
-          * `details` (`list`) - An array of details about specific errors that led to this reported error.
-            * `code` (`str`) - Code describing the error detail.
-            * `message` (`str`) - A human-readable representation of the error.
+    The outputs for the Job.
+      * `end_time` (`str`) - The UTC date and time at which this Job Output finished processing.
+      * `error` (`dict`) - If the JobOutput is in the Error state, it contains the details of the error.
+        * `category` (`str`) - Helps with categorization of errors.
+        * `code` (`str`) - Error code describing the error.
+        * `details` (`list`) - An array of details about specific errors that led to this reported error.
+          * `code` (`str`) - Code describing the error detail.
+          * `message` (`str`) - A human-readable representation of the error.
 
-          * `message` (`str`) - A human-readable language-dependent representation of the error.
-          * `retry` (`str`) - Indicates that it may be possible to retry the Job. If retry is unsuccessful, please contact Azure support via Azure Portal.
+        * `message` (`str`) - A human-readable language-dependent representation of the error.
+        * `retry` (`str`) - Indicates that it may be possible to retry the Job. If retry is unsuccessful, please contact Azure support via Azure Portal.
 
-        * `label` (`str`) - A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
-        * `progress` (`float`) - If the JobOutput is in a Processing state, this contains the Job completion percentage. The value is an estimate and not intended to be used to predict Job completion times. To determine if the JobOutput is complete, use the State property.
-        * `start_time` (`str`) - The UTC date and time at which this Job Output began processing.
-        * `state` (`str`) - Describes the state of the JobOutput.
-
-      * `priority` (`str`) - Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
-      * `start_time` (`str`) - The UTC date and time at which this Job began processing.
-      * `state` (`str`) - The current state of the job.
+      * `label` (`str`) - A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of '{presetName}_{outputIndex}' will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
+      * `progress` (`float`) - If the JobOutput is in a Processing state, this contains the Job completion percentage. The value is an estimate and not intended to be used to predict Job completion times. To determine if the JobOutput is complete, use the State property.
+      * `start_time` (`str`) - The UTC date and time at which this Job Output began processing.
+      * `state` (`str`) - Describes the state of the JobOutput.
+    """
+    priority: pulumi.Output[str]
+    """
+    Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
+    """
+    start_time: pulumi.Output[str]
+    """
+    The UTC date and time at which this Job began processing.
+    """
+    state: pulumi.Output[str]
+    """
+    The current state of the job.
     """
     type: pulumi.Output[str]
     """
@@ -101,7 +123,11 @@ class Job(pulumi.CustomResource):
             if transform_name is None:
                 raise TypeError("Missing required property 'transform_name'")
             __props__['transform_name'] = transform_name
-            __props__['properties'] = None
+            __props__['created'] = None
+            __props__['end_time'] = None
+            __props__['last_modified'] = None
+            __props__['start_time'] = None
+            __props__['state'] = None
             __props__['type'] = None
         super(Job, __self__).__init__(
             'azurerm:media/v20200501:Job',

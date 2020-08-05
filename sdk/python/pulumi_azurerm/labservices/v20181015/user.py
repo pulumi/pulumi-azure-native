@@ -10,6 +10,28 @@ from ... import _utilities, _tables
 
 
 class User(pulumi.CustomResource):
+    email: pulumi.Output[str]
+    """
+    The user email address, as it was specified during registration.
+    """
+    family_name: pulumi.Output[str]
+    """
+    The user family name, as it was specified during registration.
+    """
+    given_name: pulumi.Output[str]
+    """
+    The user given name, as it was specified during registration.
+    """
+    latest_operation_result: pulumi.Output[dict]
+    """
+    The details of the latest operation. ex: status, error
+      * `error_code` (`str`) - Error code on failure.
+      * `error_message` (`str`) - The error message.
+      * `http_method` (`str`) - The HttpMethod - PUT/POST/DELETE for the operation.
+      * `operation_url` (`str`) - The URL to use to check long-running operation status
+      * `request_uri` (`str`) - Request URI of the operation.
+      * `status` (`str`) - The current status of the operation.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
@@ -18,32 +40,29 @@ class User(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    These are the properties for the user registered under a lab.
-      * `email` (`str`) - The user email address, as it was specified during registration.
-      * `family_name` (`str`) - The user family name, as it was specified during registration.
-      * `given_name` (`str`) - The user given name, as it was specified during registration.
-      * `latest_operation_result` (`dict`) - The details of the latest operation. ex: status, error
-        * `error_code` (`str`) - Error code on failure.
-        * `error_message` (`str`) - The error message.
-        * `http_method` (`str`) - The HttpMethod - PUT/POST/DELETE for the operation.
-        * `operation_url` (`str`) - The URL to use to check long-running operation status
-        * `request_uri` (`str`) - Request URI of the operation.
-        * `status` (`str`) - The current status of the operation.
-
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `tenant_id` (`str`) - The user tenant ID, as it was specified during registration.
-      * `total_usage` (`str`) - How long the user has used his VMs in this lab
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
+    The provisioning status of the resource.
     """
     tags: pulumi.Output[dict]
     """
     The tags of the resource.
     """
+    tenant_id: pulumi.Output[str]
+    """
+    The user tenant ID, as it was specified during registration.
+    """
+    total_usage: pulumi.Output[str]
+    """
+    How long the user has used his VMs in this lab
+    """
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
     """
     def __init__(__self__, resource_name, opts=None, lab_account_name=None, lab_name=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -93,7 +112,12 @@ class User(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['unique_identifier'] = unique_identifier
-            __props__['properties'] = None
+            __props__['email'] = None
+            __props__['family_name'] = None
+            __props__['given_name'] = None
+            __props__['latest_operation_result'] = None
+            __props__['tenant_id'] = None
+            __props__['total_usage'] = None
             __props__['type'] = None
         super(User, __self__).__init__(
             'azurerm:labservices/v20181015:User',

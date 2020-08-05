@@ -10,66 +10,91 @@ from ... import _utilities, _tables
 
 
 class View(pulumi.CustomResource):
+    accumulated: pulumi.Output[str]
+    """
+    Show costs accumulated over time.
+    """
+    chart: pulumi.Output[str]
+    """
+    Chart type of the main view in Cost Analysis. Required.
+    """
+    created_on: pulumi.Output[str]
+    """
+    Date the user created this view.
+    """
+    dataset: pulumi.Output[dict]
+    """
+    Has definition for data in this report config.
+      * `aggregation` (`dict`) - Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+      * `configuration` (`dict`) - Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+        * `columns` (`list`) - Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+
+      * `filter` (`dict`) - Has filter expression to use in the report.
+        * `and` (`list`) - The logical "AND" expression. Must have at least 2 items.
+        * `dimension` (`dict`) - Has comparison expression for a dimension
+          * `name` (`str`) - The name of the column to use in comparison.
+          * `operator` (`str`) - The operator to use for comparison.
+          * `values` (`list`) - Array of values to use for comparison
+
+        * `not` (`dict`) - The logical "NOT" expression.
+        * `or` (`list`) - The logical "OR" expression. Must have at least 2 items.
+        * `tag` (`dict`) - Has comparison expression for a tag
+
+      * `granularity` (`str`) - The granularity of rows in the report.
+      * `grouping` (`list`) - Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+        * `name` (`str`) - The name of the column to group. This version supports subscription lowest possible grain.
+        * `type` (`str`) - Has type of the column to group.
+
+      * `sorting` (`list`) - Array of order by expression to use in the report.
+        * `direction` (`str`) - Direction of sort.
+        * `name` (`str`) - The name of the column to sort.
+    """
+    display_name: pulumi.Output[str]
+    """
+    User input name of the view. Required.
+    """
     e_tag: pulumi.Output[str]
     """
     eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+    """
+    kpis: pulumi.Output[list]
+    """
+    List of KPIs to show in Cost Analysis UI.
+      * `enabled` (`bool`) - show the KPI in the UI?
+      * `id` (`str`) - ID of resource related to metric (budget).
+      * `type` (`str`) - KPI type (Forecast, Budget).
+    """
+    metric: pulumi.Output[str]
+    """
+    Metric to use when displaying costs.
+    """
+    modified_on: pulumi.Output[str]
+    """
+    Date when the user last modified this view.
     """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    pivots: pulumi.Output[list]
     """
-    The properties of the view.
-      * `accumulated` (`str`) - Show costs accumulated over time.
-      * `chart` (`str`) - Chart type of the main view in Cost Analysis. Required.
-      * `created_on` (`str`) - Date the user created this view.
-      * `display_name` (`str`) - User input name of the view. Required.
-      * `kpis` (`list`) - List of KPIs to show in Cost Analysis UI.
-        * `enabled` (`bool`) - show the KPI in the UI?
-        * `id` (`str`) - ID of resource related to metric (budget).
-        * `type` (`str`) - KPI type (Forecast, Budget).
-
-      * `metric` (`str`) - Metric to use when displaying costs.
-      * `modified_on` (`str`) - Date when the user last modified this view.
-      * `pivots` (`list`) - Configuration of 3 sub-views in the Cost Analysis UI.
-        * `name` (`str`) - Data field to show in view.
-        * `type` (`str`) - Data type to show in view.
-
-      * `query` (`dict`) - Query body configuration. Required.
-        * `dataset` (`dict`) - Has definition for data in this report config.
-          * `aggregation` (`dict`) - Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-          * `configuration` (`dict`) - Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
-            * `columns` (`list`) - Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
-
-          * `filter` (`dict`) - Has filter expression to use in the report.
-            * `and` (`list`) - The logical "AND" expression. Must have at least 2 items.
-            * `dimension` (`dict`) - Has comparison expression for a dimension
-              * `name` (`str`) - The name of the column to use in comparison.
-              * `operator` (`str`) - The operator to use for comparison.
-              * `values` (`list`) - Array of values to use for comparison
-
-            * `not` (`dict`) - The logical "NOT" expression.
-            * `or` (`list`) - The logical "OR" expression. Must have at least 2 items.
-            * `tag` (`dict`) - Has comparison expression for a tag
-
-          * `granularity` (`str`) - The granularity of rows in the report.
-          * `grouping` (`list`) - Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-            * `name` (`str`) - The name of the column to group. This version supports subscription lowest possible grain.
-            * `type` (`str`) - Has type of the column to group.
-
-          * `sorting` (`list`) - Array of order by expression to use in the report.
-            * `direction` (`str`) - Direction of sort.
-            * `name` (`str`) - The name of the column to sort.
-
-        * `time_period` (`dict`) - Has time period for pulling data for the report.
-          * `from` (`str`) - The start date to pull data from.
-          * `to` (`str`) - The end date to pull data to.
-
-        * `timeframe` (`str`) - The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-        * `type` (`str`) - The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
-
-      * `scope` (`str`) - Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+    Configuration of 3 sub-views in the Cost Analysis UI.
+      * `name` (`str`) - Data field to show in view.
+      * `type` (`str`) - Data type to show in view.
+    """
+    scope: pulumi.Output[str]
+    """
+    Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+    """
+    time_period: pulumi.Output[dict]
+    """
+    Has time period for pulling data for the report.
+      * `from` (`str`) - The start date to pull data from.
+      * `to` (`str`) - The end date to pull data to.
+    """
+    timeframe: pulumi.Output[str]
+    """
+    The time frame for pulling data for the report. If custom, then a specific time period must be provided.
     """
     type: pulumi.Output[str]
     """
@@ -173,7 +198,8 @@ class View(pulumi.CustomResource):
             if type is None:
                 raise TypeError("Missing required property 'type'")
             __props__['type'] = type
-            __props__['properties'] = None
+            __props__['created_on'] = None
+            __props__['modified_on'] = None
         super(View, __self__).__init__(
             'azurerm:costmanagement/v20200601:View',
             resource_name,

@@ -13,24 +13,48 @@ class GetPeerAsnResult:
     """
     The essential information related to the peer's ASN.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, error_message=None, name=None, peer_asn=None, peer_contact_detail=None, peer_name=None, type=None, validation_state=None):
+        if error_message and not isinstance(error_message, str):
+            raise TypeError("Expected argument 'error_message' to be a str")
+        __self__.error_message = error_message
+        """
+        The error message for the validation state
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peer_asn and not isinstance(peer_asn, float):
+            raise TypeError("Expected argument 'peer_asn' to be a float")
+        __self__.peer_asn = peer_asn
         """
-        The properties that define a peer's ASN.
+        The Autonomous System Number (ASN) of the peer.
+        """
+        if peer_contact_detail and not isinstance(peer_contact_detail, list):
+            raise TypeError("Expected argument 'peer_contact_detail' to be a list")
+        __self__.peer_contact_detail = peer_contact_detail
+        """
+        The contact details of the peer.
+        """
+        if peer_name and not isinstance(peer_name, str):
+            raise TypeError("Expected argument 'peer_name' to be a str")
+        __self__.peer_name = peer_name
+        """
+        The name of the peer.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource.
+        """
+        if validation_state and not isinstance(validation_state, str):
+            raise TypeError("Expected argument 'validation_state' to be a str")
+        __self__.validation_state = validation_state
+        """
+        The validation state of the ASN associated with the peer.
         """
 
 
@@ -40,9 +64,13 @@ class AwaitableGetPeerAsnResult(GetPeerAsnResult):
         if False:
             yield self
         return GetPeerAsnResult(
+            error_message=self.error_message,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            peer_asn=self.peer_asn,
+            peer_contact_detail=self.peer_contact_detail,
+            peer_name=self.peer_name,
+            type=self.type,
+            validation_state=self.validation_state)
 
 
 def get_peer_asn(name=None, opts=None):
@@ -60,6 +88,10 @@ def get_peer_asn(name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:peering/v20200401:getPeerAsn', __args__, opts=opts).value
 
     return AwaitableGetPeerAsnResult(
+        error_message=__ret__.get('errorMessage'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        peer_asn=__ret__.get('peerAsn'),
+        peer_contact_detail=__ret__.get('peerContactDetail'),
+        peer_name=__ret__.get('peerName'),
+        type=__ret__.get('type'),
+        validation_state=__ret__.get('validationState'))

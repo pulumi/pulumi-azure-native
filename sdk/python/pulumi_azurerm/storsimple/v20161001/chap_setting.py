@@ -14,13 +14,12 @@ class ChapSetting(pulumi.CustomResource):
     """
     The name.
     """
-    properties: pulumi.Output[dict]
+    password: pulumi.Output[dict]
     """
-    Chap properties
-      * `password` (`dict`) - The chap password.
-        * `encryption_algorithm` (`str`) - Algorithm used to encrypt "Value"
-        * `encryption_certificate_thumbprint` (`str`) - Thumbprint certificate that was used to encrypt "Value"
-        * `value` (`str`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
+    The chap password.
+      * `encryption_algorithm` (`str`) - Algorithm used to encrypt "Value"
+      * `encryption_certificate_thumbprint` (`str`) - Thumbprint certificate that was used to encrypt "Value"
+      * `value` (`str`) - The value of the secret itself. If the secret is in plaintext then EncryptionAlgorithm will be none and EncryptionCertThumbprint will be null.
     """
     type: pulumi.Output[str]
     """
@@ -76,7 +75,6 @@ class ChapSetting(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(ChapSetting, __self__).__init__(
             'azurerm:storsimple/v20161001:ChapSetting',

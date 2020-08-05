@@ -10,26 +10,49 @@ from ... import _utilities, _tables
 
 
 class NotificationHubAuthorizationRule(pulumi.CustomResource):
+    claim_type: pulumi.Output[str]
+    """
+    A string that describes the claim type
+    """
+    claim_value: pulumi.Output[str]
+    """
+    A string that describes the claim value
+    """
+    created_time: pulumi.Output[str]
+    """
+    The created time for this rule
+    """
+    key_name: pulumi.Output[str]
+    """
+    A string that describes the authorization rule.
+    """
     location: pulumi.Output[str]
     """
     Resource location
+    """
+    modified_time: pulumi.Output[str]
+    """
+    The last modified time for this rule
     """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    primary_key: pulumi.Output[str]
     """
-    Properties of the Namespace AuthorizationRule.
-      * `claim_type` (`str`) - A string that describes the claim type
-      * `claim_value` (`str`) - A string that describes the claim value
-      * `created_time` (`str`) - The created time for this rule
-      * `key_name` (`str`) - A string that describes the authorization rule.
-      * `modified_time` (`str`) - The last modified time for this rule
-      * `primary_key` (`str`) - A base64-encoded 256-bit primary key for signing and validating the SAS token.
-      * `revision` (`float`) - The revision number for the rule
-      * `rights` (`list`) - The rights associated with the rule.
-      * `secondary_key` (`str`) - A base64-encoded 256-bit primary key for signing and validating the SAS token.
+    A base64-encoded 256-bit primary key for signing and validating the SAS token.
+    """
+    revision: pulumi.Output[float]
+    """
+    The revision number for the rule
+    """
+    rights: pulumi.Output[list]
+    """
+    The rights associated with the rule.
+    """
+    secondary_key: pulumi.Output[str]
+    """
+    A base64-encoded 256-bit primary key for signing and validating the SAS token.
     """
     sku: pulumi.Output[dict]
     """
@@ -96,7 +119,16 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
+            __props__['claim_type'] = None
+            __props__['claim_value'] = None
+            __props__['created_time'] = None
+            __props__['key_name'] = None
             __props__['location'] = None
+            __props__['modified_time'] = None
+            __props__['primary_key'] = None
+            __props__['revision'] = None
+            __props__['rights'] = None
+            __props__['secondary_key'] = None
             __props__['sku'] = None
             __props__['tags'] = None
             __props__['type'] = None

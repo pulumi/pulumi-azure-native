@@ -13,18 +13,18 @@ class GetDomainTopicResult:
     """
     Domain Topic.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, name=None, provisioning_state=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the Domain Topic.
+        Provisioning state of the domain topic.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -41,7 +41,7 @@ class AwaitableGetDomainTopicResult(GetDomainTopicResult):
             yield self
         return GetDomainTopicResult(
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -65,5 +65,5 @@ def get_domain_topic(domain_name=None, name=None, resource_group_name=None, opts
 
     return AwaitableGetDomainTopicResult(
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

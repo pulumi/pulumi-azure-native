@@ -10,64 +10,71 @@ from ... import _utilities, _tables
 
 
 class Policy(pulumi.CustomResource):
+    custom_rules: pulumi.Output[dict]
+    """
+    Describes custom rules inside the policy.
+      * `rules` (`list`) - List of rules
+        * `action` (`str`) - Describes what action to be applied when rule matches.
+        * `enabled_state` (`str`) - Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        * `match_conditions` (`list`) - List of match conditions.
+          * `match_value` (`list`) - List of possible match values.
+          * `match_variable` (`str`) - Request variable to compare with.
+          * `negate_condition` (`bool`) - Describes if the result of this condition should be negated.
+          * `operator` (`str`) - Comparison type to use for matching with the variable value.
+          * `selector` (`str`) - Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
+          * `transforms` (`list`) - List of transforms.
+
+        * `name` (`str`) - Describes the name of the rule.
+        * `priority` (`float`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+        * `rate_limit_duration_in_minutes` (`float`) - Time window for resetting the rate limit count. Default is 1 minute.
+        * `rate_limit_threshold` (`float`) - Number of allowed requests per client within the time window.
+        * `rule_type` (`str`) - Describes type of rule.
+    """
     etag: pulumi.Output[str]
     """
     Gets a unique read-only string that changes whenever the resource is updated.
+    """
+    frontend_endpoint_links: pulumi.Output[list]
+    """
+    Describes Frontend Endpoints associated with this Web Application Firewall policy.
+      * `id` (`str`) - Resource ID.
     """
     location: pulumi.Output[str]
     """
     Resource location.
     """
+    managed_rules: pulumi.Output[dict]
+    """
+    Describes managed rules inside the policy.
+      * `managed_rule_sets` (`list`) - List of rule sets.
+        * `rule_group_overrides` (`list`) - Defines the rule group overrides to apply to the rule set.
+          * `rule_group_name` (`str`) - Describes the managed rule group to override.
+          * `rules` (`list`) - List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+            * `action` (`str`) - Describes the override action to be applied when rule matches.
+            * `enabled_state` (`str`) - Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+            * `rule_id` (`str`) - Identifier for the managed rule.
+
+        * `rule_set_type` (`str`) - Defines the rule set type to use.
+        * `rule_set_version` (`str`) - Defines the version of the rule set to use.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    policy_settings: pulumi.Output[dict]
     """
-    Properties of the web application firewall policy.
-      * `custom_rules` (`dict`) - Describes custom rules inside the policy.
-        * `rules` (`list`) - List of rules
-          * `action` (`str`) - Describes what action to be applied when rule matches.
-          * `enabled_state` (`str`) - Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
-          * `match_conditions` (`list`) - List of match conditions.
-            * `match_value` (`list`) - List of possible match values.
-            * `match_variable` (`str`) - Request variable to compare with.
-            * `negate_condition` (`bool`) - Describes if the result of this condition should be negated.
-            * `operator` (`str`) - Comparison type to use for matching with the variable value.
-            * `selector` (`str`) - Match against a specific key from the QueryString, PostArgs, RequestHeader or Cookies variables. Default is null.
-            * `transforms` (`list`) - List of transforms.
-
-          * `name` (`str`) - Describes the name of the rule.
-          * `priority` (`float`) - Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
-          * `rate_limit_duration_in_minutes` (`float`) - Time window for resetting the rate limit count. Default is 1 minute.
-          * `rate_limit_threshold` (`float`) - Number of allowed requests per client within the time window.
-          * `rule_type` (`str`) - Describes type of rule.
-
-      * `frontend_endpoint_links` (`list`) - Describes Frontend Endpoints associated with this Web Application Firewall policy.
-        * `id` (`str`) - Resource ID.
-
-      * `managed_rules` (`dict`) - Describes managed rules inside the policy.
-        * `managed_rule_sets` (`list`) - List of rule sets.
-          * `rule_group_overrides` (`list`) - Defines the rule group overrides to apply to the rule set.
-            * `rule_group_name` (`str`) - Describes the managed rule group to override.
-            * `rules` (`list`) - List of rules that will be disabled. If none specified, all rules in the group will be disabled.
-              * `action` (`str`) - Describes the override action to be applied when rule matches.
-              * `enabled_state` (`str`) - Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
-              * `rule_id` (`str`) - Identifier for the managed rule.
-
-          * `rule_set_type` (`str`) - Defines the rule set type to use.
-          * `rule_set_version` (`str`) - Defines the version of the rule set to use.
-
-      * `policy_settings` (`dict`) - Describes settings for the policy.
-        * `custom_block_response_body` (`str`) - If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
-        * `custom_block_response_status_code` (`float`) - If the action type is block, customer can override the response status code.
-        * `enabled_state` (`str`) - Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
-        * `mode` (`str`) - Describes if it is in detection mode or prevention mode at policy level.
-        * `redirect_url` (`str`) - If action type is redirect, this field represents redirect URL for the client.
-
-      * `provisioning_state` (`str`) - Provisioning state of the policy.
-      * `resource_state` (`str`)
+    Describes settings for the policy.
+      * `custom_block_response_body` (`str`) - If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+      * `custom_block_response_status_code` (`float`) - If the action type is block, customer can override the response status code.
+      * `enabled_state` (`str`) - Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
+      * `mode` (`str`) - Describes if it is in detection mode or prevention mode at policy level.
+      * `redirect_url` (`str`) - If action type is redirect, this field represents redirect URL for the client.
     """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the policy.
+    """
+    resource_state: pulumi.Output[str]
     tags: pulumi.Output[dict]
     """
     Resource tags.
@@ -160,7 +167,9 @@ class Policy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['frontend_endpoint_links'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_state'] = None
             __props__['type'] = None
         super(Policy, __self__).__init__(
             'azurerm:network/v20190301:Policy',

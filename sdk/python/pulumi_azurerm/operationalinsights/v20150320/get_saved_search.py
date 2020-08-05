@@ -13,7 +13,19 @@ class GetSavedSearchResult:
     """
     Value object for saved search results.
     """
-    def __init__(__self__, e_tag=None, name=None, properties=None, type=None):
+    def __init__(__self__, category=None, display_name=None, e_tag=None, name=None, query=None, tags=None, type=None, version=None):
+        if category and not isinstance(category, str):
+            raise TypeError("Expected argument 'category' to be a str")
+        __self__.category = category
+        """
+        The category of the saved search. This helps the user to find a saved search faster. 
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        Saved search display name.
+        """
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         __self__.e_tag = e_tag
@@ -26,17 +38,29 @@ class GetSavedSearchResult:
         """
         The name of the saved search.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if query and not isinstance(query, str):
+            raise TypeError("Expected argument 'query' to be a str")
+        __self__.query = query
         """
-        The properties of the saved search.
+        The query expression for the saved search. Please see https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-search-reference for reference.
+        """
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        __self__.tags = tags
+        """
+        The tags attached to the saved search.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the saved search.
+        """
+        if version and not isinstance(version, float):
+            raise TypeError("Expected argument 'version' to be a float")
+        __self__.version = version
+        """
+        The version number of the query language. The current version is 2 and is the default.
         """
 
 
@@ -46,10 +70,14 @@ class AwaitableGetSavedSearchResult(GetSavedSearchResult):
         if False:
             yield self
         return GetSavedSearchResult(
+            category=self.category,
+            display_name=self.display_name,
             e_tag=self.e_tag,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            query=self.query,
+            tags=self.tags,
+            type=self.type,
+            version=self.version)
 
 
 def get_saved_search(name=None, resource_group_name=None, workspace_name=None, opts=None):
@@ -71,7 +99,11 @@ def get_saved_search(name=None, resource_group_name=None, workspace_name=None, o
     __ret__ = pulumi.runtime.invoke('azurerm:operationalinsights/v20150320:getSavedSearch', __args__, opts=opts).value
 
     return AwaitableGetSavedSearchResult(
+        category=__ret__.get('category'),
+        display_name=__ret__.get('displayName'),
         e_tag=__ret__.get('eTag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        query=__ret__.get('query'),
+        tags=__ret__.get('tags'),
+        type=__ret__.get('type'),
+        version=__ret__.get('version'))

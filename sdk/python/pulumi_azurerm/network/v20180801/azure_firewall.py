@@ -10,9 +10,44 @@ from ... import _utilities, _tables
 
 
 class AzureFirewall(pulumi.CustomResource):
+    application_rule_collections: pulumi.Output[list]
+    """
+    Collection of application rule collections used by Azure Firewall.
+      * `action` (`dict`) - The action type of a rule collection
+        * `type` (`str`) - The type of action.
+
+      * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `priority` (`float`) - Priority of the application rule collection resource.
+      * `provisioning_state` (`str`) - The provisioning state of the resource.
+      * `rules` (`list`) - Collection of rules used by a application rule collection.
+        * `description` (`str`) - Description of the rule.
+        * `fqdn_tags` (`list`) - List of FQDN Tags for this rule.
+        * `name` (`str`) - Name of the application rule.
+        * `protocols` (`list`) - Array of ApplicationRuleProtocols.
+          * `port` (`float`) - Port number for the protocol, cannot be greater than 64000. This field is optional.
+          * `protocol_type` (`str`) - Protocol type
+
+        * `source_addresses` (`list`) - List of source IP addresses for this rule.
+        * `target_fqdns` (`list`) - List of FQDNs for this rule.
+    """
     etag: pulumi.Output[str]
     """
     Gets a unique read-only string that changes whenever the resource is updated.
+    """
+    ip_configurations: pulumi.Output[list]
+    """
+    IP configuration of the Azure Firewall resource.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `private_ip_address` (`str`) - The Firewall Internal Load Balancer IP to be used as the next hop in User Defined Routes.
+      * `provisioning_state` (`str`) - The provisioning state of the resource.
+      * `public_ip_address` (`dict`) - Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
+        * `id` (`str`) - Resource ID.
+
+      * `subnet` (`dict`) - Reference of the subnet resource. This resource must be named 'AzureFirewallSubnet'.
     """
     location: pulumi.Output[str]
     """
@@ -22,79 +57,49 @@ class AzureFirewall(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    nat_rule_collections: pulumi.Output[list]
     """
-    Properties of the Azure Firewall.
-      * `application_rule_collections` (`list`) - Collection of application rule collections used by Azure Firewall.
-        * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of the application rule collection.
-          * `action` (`dict`) - The action type of a rule collection
-            * `type` (`str`) - The type of action.
+    Collection of NAT rule collections used by Azure Firewall.
+      * `action` (`dict`) - The action type of a NAT rule collection
+        * `type` (`str`) - The type of action.
 
-          * `priority` (`float`) - Priority of the application rule collection resource.
-          * `provisioning_state` (`str`) - The provisioning state of the resource.
-          * `rules` (`list`) - Collection of rules used by a application rule collection.
-            * `description` (`str`) - Description of the rule.
-            * `fqdn_tags` (`list`) - List of FQDN Tags for this rule.
-            * `name` (`str`) - Name of the application rule.
-            * `protocols` (`list`) - Array of ApplicationRuleProtocols.
-              * `port` (`float`) - Port number for the protocol, cannot be greater than 64000. This field is optional.
-              * `protocol_type` (`str`) - Protocol type
-
-            * `source_addresses` (`list`) - List of source IP addresses for this rule.
-            * `target_fqdns` (`list`) - List of FQDNs for this rule.
-
-      * `ip_configurations` (`list`) - IP configuration of the Azure Firewall resource.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of IP configuration of an Azure Firewall.
-          * `private_ip_address` (`str`) - The Firewall Internal Load Balancer IP to be used as the next hop in User Defined Routes.
-          * `provisioning_state` (`str`) - The provisioning state of the resource.
-          * `public_ip_address` (`dict`) - Reference of the PublicIP resource. This field is a mandatory input if subnet is not null.
-            * `id` (`str`) - Resource ID.
-
-          * `subnet` (`dict`) - Reference of the subnet resource. This resource must be named 'AzureFirewallSubnet'.
-
-      * `nat_rule_collections` (`list`) - Collection of NAT rule collections used by Azure Firewall.
-        * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of the NAT rule collection.
-          * `action` (`dict`) - The action type of a NAT rule collection
-            * `type` (`str`) - The type of action.
-
-          * `priority` (`float`) - Priority of the NAT rule collection resource.
-          * `provisioning_state` (`str`) - The provisioning state of the resource.
-          * `rules` (`list`) - Collection of rules used by a NAT rule collection.
-            * `description` (`str`) - Description of the rule.
-            * `destination_addresses` (`list`) - List of destination IP addresses for this rule.
-            * `destination_ports` (`list`) - List of destination ports.
-            * `name` (`str`) - Name of the NAT rule.
-            * `protocols` (`list`) - Array of AzureFirewallNetworkRuleProtocols applicable to this NAT rule.
-            * `source_addresses` (`list`) - List of source IP addresses for this rule.
-            * `translated_address` (`str`) - The translated address for this NAT rule.
-            * `translated_port` (`str`) - The translated port for this NAT rule.
-
-      * `network_rule_collections` (`list`) - Collection of network rule collections used by Azure Firewall.
-        * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`) - Properties of the network rule collection.
-          * `action` (`dict`) - The action type of a rule collection
-          * `priority` (`float`) - Priority of the network rule collection resource.
-          * `provisioning_state` (`str`) - The provisioning state of the resource.
-          * `rules` (`list`) - Collection of rules used by a network rule collection.
-            * `description` (`str`) - Description of the rule.
-            * `destination_addresses` (`list`) - List of destination IP addresses.
-            * `destination_ports` (`list`) - List of destination ports.
-            * `name` (`str`) - Name of the network rule.
-            * `protocols` (`list`) - Array of AzureFirewallNetworkRuleProtocols.
-            * `source_addresses` (`list`) - List of source IP addresses for this rule.
-
+      * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `priority` (`float`) - Priority of the NAT rule collection resource.
       * `provisioning_state` (`str`) - The provisioning state of the resource.
+      * `rules` (`list`) - Collection of rules used by a NAT rule collection.
+        * `description` (`str`) - Description of the rule.
+        * `destination_addresses` (`list`) - List of destination IP addresses for this rule.
+        * `destination_ports` (`list`) - List of destination ports.
+        * `name` (`str`) - Name of the NAT rule.
+        * `protocols` (`list`) - Array of AzureFirewallNetworkRuleProtocols applicable to this NAT rule.
+        * `source_addresses` (`list`) - List of source IP addresses for this rule.
+        * `translated_address` (`str`) - The translated address for this NAT rule.
+        * `translated_port` (`str`) - The translated port for this NAT rule.
+    """
+    network_rule_collections: pulumi.Output[list]
+    """
+    Collection of network rule collections used by Azure Firewall.
+      * `action` (`dict`) - The action type of a rule collection
+        * `type` (`str`) - The type of action.
+
+      * `etag` (`str`) - Gets a unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `priority` (`float`) - Priority of the network rule collection resource.
+      * `provisioning_state` (`str`) - The provisioning state of the resource.
+      * `rules` (`list`) - Collection of rules used by a network rule collection.
+        * `description` (`str`) - Description of the rule.
+        * `destination_addresses` (`list`) - List of destination IP addresses.
+        * `destination_ports` (`list`) - List of destination ports.
+        * `name` (`str`) - Name of the network rule.
+        * `protocols` (`list`) - Array of AzureFirewallNetworkRuleProtocols.
+        * `source_addresses` (`list`) - List of source IP addresses for this rule.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -218,7 +223,6 @@ class AzureFirewall(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
-            __props__['properties'] = None
             __props__['type'] = None
         super(AzureFirewall, __self__).__init__(
             'azurerm:network/v20180801:AzureFirewall',

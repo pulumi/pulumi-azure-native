@@ -10,49 +10,110 @@ from ... import _utilities, _tables
 
 
 class Queue(pulumi.CustomResource):
+    accessed_at: pulumi.Output[str]
+    """
+    Last time a message was sent, or the last time there was a receive request to this queue.
+    """
+    auto_delete_on_idle: pulumi.Output[str]
+    """
+    the TimeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
+    """
+    count_details: pulumi.Output[dict]
+    """
+    Message Count Details.
+      * `active_message_count` (`float`) - Number of active messages in the queue, topic, or subscription.
+      * `dead_letter_message_count` (`float`) - Number of messages that are dead lettered.
+      * `scheduled_message_count` (`float`) - Number of scheduled messages.
+      * `transfer_dead_letter_message_count` (`float`) - Number of messages transferred into dead letters.
+      * `transfer_message_count` (`float`) - Number of messages transferred to another queue, topic, or subscription.
+    """
+    created_at: pulumi.Output[str]
+    """
+    The exact time the message was created.
+    """
+    dead_lettering_on_message_expiration: pulumi.Output[bool]
+    """
+    A value that indicates whether this queue has dead letter support when a message expires.
+    """
+    default_message_time_to_live: pulumi.Output[str]
+    """
+    The default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+    """
+    duplicate_detection_history_time_window: pulumi.Output[str]
+    """
+    TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+    """
+    enable_batched_operations: pulumi.Output[bool]
+    """
+    A value that indicates whether server-side batched operations are enabled.
+    """
+    enable_express: pulumi.Output[bool]
+    """
+    A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
+    """
+    enable_partitioning: pulumi.Output[bool]
+    """
+    A value that indicates whether the queue is to be partitioned across multiple message brokers.
+    """
+    entity_availability_status: pulumi.Output[str]
+    """
+    Entity availability status for the queue.
+    """
+    is_anonymous_accessible: pulumi.Output[bool]
+    """
+    A value that indicates whether the message is accessible anonymously.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
+    """
+    lock_duration: pulumi.Output[str]
+    """
+    The duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
+    """
+    max_delivery_count: pulumi.Output[float]
+    """
+    The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
+    """
+    max_size_in_megabytes: pulumi.Output[float]
+    """
+    The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
+    """
+    message_count: pulumi.Output[float]
+    """
+    The number of messages in the queue.
     """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    requires_duplicate_detection: pulumi.Output[bool]
     """
-    The Queue Properties definition.
-      * `accessed_at` (`str`) - Last time a message was sent, or the last time there was a receive request to this queue.
-      * `auto_delete_on_idle` (`str`) - the TimeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
-      * `count_details` (`dict`) - Message Count Details.
-        * `active_message_count` (`float`) - Number of active messages in the queue, topic, or subscription.
-        * `dead_letter_message_count` (`float`) - Number of messages that are dead lettered.
-        * `scheduled_message_count` (`float`) - Number of scheduled messages.
-        * `transfer_dead_letter_message_count` (`float`) - Number of messages transferred into dead letters.
-        * `transfer_message_count` (`float`) - Number of messages transferred to another queue, topic, or subscription.
-
-      * `created_at` (`str`) - The exact time the message was created.
-      * `dead_lettering_on_message_expiration` (`bool`) - A value that indicates whether this queue has dead letter support when a message expires.
-      * `default_message_time_to_live` (`str`) - The default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
-      * `duplicate_detection_history_time_window` (`str`) - TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
-      * `enable_batched_operations` (`bool`) - A value that indicates whether server-side batched operations are enabled.
-      * `enable_express` (`bool`) - A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
-      * `enable_partitioning` (`bool`) - A value that indicates whether the queue is to be partitioned across multiple message brokers.
-      * `entity_availability_status` (`str`) - Entity availability status for the queue.
-      * `is_anonymous_accessible` (`bool`) - A value that indicates whether the message is accessible anonymously.
-      * `lock_duration` (`str`) - The duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
-      * `max_delivery_count` (`float`) - The maximum delivery count. A message is automatically deadlettered after this number of deliveries.
-      * `max_size_in_megabytes` (`float`) - The maximum size of the queue in megabytes, which is the size of memory allocated for the queue.
-      * `message_count` (`float`) - The number of messages in the queue.
-      * `requires_duplicate_detection` (`bool`) - A value indicating if this queue requires duplicate detection.
-      * `requires_session` (`bool`) - A value that indicates whether the queue supports the concept of sessions.
-      * `size_in_bytes` (`float`) - The size of the queue, in bytes.
-      * `status` (`str`) - Enumerates the possible values for the status of a messaging entity.
-      * `support_ordering` (`bool`) - A value that indicates whether the queue supports ordering.
-      * `updated_at` (`str`) - The exact time the message was updated.
+    A value indicating if this queue requires duplicate detection.
+    """
+    requires_session: pulumi.Output[bool]
+    """
+    A value that indicates whether the queue supports the concept of sessions.
+    """
+    size_in_bytes: pulumi.Output[float]
+    """
+    The size of the queue, in bytes.
+    """
+    status: pulumi.Output[str]
+    """
+    Enumerates the possible values for the status of a messaging entity.
+    """
+    support_ordering: pulumi.Output[bool]
+    """
+    A value that indicates whether the queue supports ordering.
     """
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    updated_at: pulumi.Output[str]
+    """
+    The exact time the message was updated.
     """
     def __init__(__self__, resource_name, opts=None, auto_delete_on_idle=None, dead_lettering_on_message_expiration=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, entity_availability_status=None, is_anonymous_accessible=None, location=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, name=None, namespace_name=None, requires_duplicate_detection=None, requires_session=None, resource_group_name=None, status=None, support_ordering=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -126,8 +187,13 @@ class Queue(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['status'] = status
             __props__['support_ordering'] = support_ordering
-            __props__['properties'] = None
+            __props__['accessed_at'] = None
+            __props__['count_details'] = None
+            __props__['created_at'] = None
+            __props__['message_count'] = None
+            __props__['size_in_bytes'] = None
             __props__['type'] = None
+            __props__['updated_at'] = None
         super(Queue, __self__).__init__(
             'azurerm:servicebus/v20140901:Queue',
             resource_name,

@@ -22,13 +22,13 @@ class DdosProtectionPlan(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the DDoS protection plan.
-      * `provisioning_state` (`str`) - The provisioning state of the DDoS protection plan resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
-      * `resource_guid` (`str`) - The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
-      * `virtual_networks` (`list`) - The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
-        * `id` (`str`) - Resource ID.
+    The provisioning state of the DDoS protection plan resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+    """
+    resource_guid: pulumi.Output[str]
+    """
+    The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
     """
     tags: pulumi.Output[dict]
     """
@@ -37,6 +37,11 @@ class DdosProtectionPlan(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    virtual_networks: pulumi.Output[list]
+    """
+    The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
+      * `id` (`str`) - Resource ID.
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -75,8 +80,10 @@ class DdosProtectionPlan(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_guid'] = None
             __props__['type'] = None
+            __props__['virtual_networks'] = None
         super(DdosProtectionPlan, __self__).__init__(
             'azurerm:network/v20180401:DdosProtectionPlan',
             resource_name,

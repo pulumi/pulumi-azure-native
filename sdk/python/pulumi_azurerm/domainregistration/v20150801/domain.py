@@ -10,19 +10,155 @@ from ... import _utilities, _tables
 
 
 class Domain(pulumi.CustomResource):
+    auto_renew: pulumi.Output[bool]
+    """
+    If true then domain will renewed automatically
+    """
+    consent: pulumi.Output[dict]
+    """
+    Legal agreement consent
+      * `agreed_at` (`str`) - Timestamp when the agreements were accepted
+      * `agreed_by` (`str`) - Client IP address
+      * `agreement_keys` (`list`) - List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements Api under TopLevelDomain resource
+    """
+    contact_admin: pulumi.Output[dict]
+    """
+    Admin contact information
+      * `address_mailing` (`dict`) - Mailing address
+        * `address1` (`str`) - Address 1
+        * `address2` (`str`) - Address 2
+        * `city` (`str`) - City
+        * `country` (`str`) - Country
+        * `postal_code` (`str`) - Postal code
+        * `state` (`str`) - State
+
+      * `email` (`str`) - Email address
+      * `fax` (`str`) - Fax number
+      * `job_title` (`str`) - Job title
+      * `name_first` (`str`) - First name
+      * `name_last` (`str`) - Last name
+      * `name_middle` (`str`) - Middle name
+      * `organization` (`str`) - Organization
+      * `phone` (`str`) - Phone number
+    """
+    contact_billing: pulumi.Output[dict]
+    """
+    Billing contact information
+      * `address_mailing` (`dict`) - Mailing address
+        * `address1` (`str`) - Address 1
+        * `address2` (`str`) - Address 2
+        * `city` (`str`) - City
+        * `country` (`str`) - Country
+        * `postal_code` (`str`) - Postal code
+        * `state` (`str`) - State
+
+      * `email` (`str`) - Email address
+      * `fax` (`str`) - Fax number
+      * `job_title` (`str`) - Job title
+      * `name_first` (`str`) - First name
+      * `name_last` (`str`) - Last name
+      * `name_middle` (`str`) - Middle name
+      * `organization` (`str`) - Organization
+      * `phone` (`str`) - Phone number
+    """
+    contact_registrant: pulumi.Output[dict]
+    """
+    Registrant contact information
+      * `address_mailing` (`dict`) - Mailing address
+        * `address1` (`str`) - Address 1
+        * `address2` (`str`) - Address 2
+        * `city` (`str`) - City
+        * `country` (`str`) - Country
+        * `postal_code` (`str`) - Postal code
+        * `state` (`str`) - State
+
+      * `email` (`str`) - Email address
+      * `fax` (`str`) - Fax number
+      * `job_title` (`str`) - Job title
+      * `name_first` (`str`) - First name
+      * `name_last` (`str`) - Last name
+      * `name_middle` (`str`) - Middle name
+      * `organization` (`str`) - Organization
+      * `phone` (`str`) - Phone number
+    """
+    contact_tech: pulumi.Output[dict]
+    """
+    Technical contact information
+      * `address_mailing` (`dict`) - Mailing address
+        * `address1` (`str`) - Address 1
+        * `address2` (`str`) - Address 2
+        * `city` (`str`) - City
+        * `country` (`str`) - Country
+        * `postal_code` (`str`) - Postal code
+        * `state` (`str`) - State
+
+      * `email` (`str`) - Email address
+      * `fax` (`str`) - Fax number
+      * `job_title` (`str`) - Job title
+      * `name_first` (`str`) - First name
+      * `name_last` (`str`) - Last name
+      * `name_middle` (`str`) - Middle name
+      * `organization` (`str`) - Organization
+      * `phone` (`str`) - Phone number
+    """
+    created_time: pulumi.Output[str]
+    """
+    Domain creation timestamp
+    """
+    domain_not_renewable_reasons: pulumi.Output[list]
+    """
+    Reasons why domain is not renewable
+    """
+    expiration_time: pulumi.Output[str]
+    """
+    Domain expiration timestamp
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource
+    """
+    last_renewed_time: pulumi.Output[str]
+    """
+    Timestamp when the domain was renewed last time
     """
     location: pulumi.Output[str]
     """
     Resource Location
     """
+    managed_host_names: pulumi.Output[list]
+    """
+    All hostnames derived from the domain and assigned to Azure resources
+      * `azure_resource_name` (`str`) - Name of the Azure resource the hostname is assigned to. If it is assigned to a traffic manager then it will be the traffic manager name otherwise it will be the website name
+      * `azure_resource_type` (`str`) - Type of the Azure resource the hostname is assigned to
+      * `custom_host_name_dns_record_type` (`str`) - Type of the Dns record
+      * `host_name_type` (`str`) - Type of the hostname
+      * `name` (`str`) - Name of the hostname
+      * `site_names` (`list`) - List of sites the hostname is assigned to. This list will have more than one site only if the hostname is pointing to a Traffic Manager
+    """
     name: pulumi.Output[str]
     """
     Resource Name
     """
-    properties: pulumi.Output[dict]
+    name_servers: pulumi.Output[list]
+    """
+    Name servers
+    """
+    privacy: pulumi.Output[bool]
+    """
+    If true then domain privacy is enabled for this domain
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Domain provisioning state
+    """
+    ready_for_dns_record_management: pulumi.Output[bool]
+    """
+    If true then Azure can assign this domain to Web Apps. This value will be true if domain registration status is active and it is hosted on name servers Azure has programmatic access to
+    """
+    registration_status: pulumi.Output[str]
+    """
+    Domain registration status
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -141,7 +277,6 @@ class Domain(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['type'] = type
-            __props__['properties'] = None
         super(Domain, __self__).__init__(
             'azurerm:domainregistration/v20150801:Domain',
             resource_name,

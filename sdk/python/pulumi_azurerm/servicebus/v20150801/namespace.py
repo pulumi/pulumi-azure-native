@@ -10,6 +10,18 @@ from ... import _utilities, _tables
 
 
 class Namespace(pulumi.CustomResource):
+    create_acs_namespace: pulumi.Output[bool]
+    """
+    Indicates whether to create an ACS namespace.
+    """
+    created_at: pulumi.Output[str]
+    """
+    The time the namespace was created.
+    """
+    enabled: pulumi.Output[bool]
+    """
+    Specifies whether this instance is enabled.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
@@ -18,16 +30,13 @@ class Namespace(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the namespace.
-      * `create_acs_namespace` (`bool`) - Indicates whether to create an ACS namespace.
-      * `created_at` (`str`) - The time the namespace was created.
-      * `enabled` (`bool`) - Specifies whether this instance is enabled.
-      * `provisioning_state` (`str`) - Provisioning state of the namespace.
-      * `service_bus_endpoint` (`str`) - Endpoint you can use to perform Service Bus operations.
-      * `status` (`str`) - State of the namespace.
-      * `updated_at` (`str`) - The time the namespace was updated.
+    Provisioning state of the namespace.
+    """
+    service_bus_endpoint: pulumi.Output[str]
+    """
+    Endpoint you can use to perform Service Bus operations.
     """
     sku: pulumi.Output[dict]
     """
@@ -36,6 +45,10 @@ class Namespace(pulumi.CustomResource):
       * `name` (`str`) - Name of this SKU.
       * `tier` (`str`) - The billing tier of this particular SKU.
     """
+    status: pulumi.Output[str]
+    """
+    State of the namespace.
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -43,6 +56,10 @@ class Namespace(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    updated_at: pulumi.Output[str]
+    """
+    The time the namespace was updated.
     """
     def __init__(__self__, resource_name, opts=None, create_acs_namespace=None, enabled=None, location=None, name=None, resource_group_name=None, sku=None, status=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -96,8 +113,11 @@ class Namespace(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['status'] = status
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['created_at'] = None
+            __props__['provisioning_state'] = None
+            __props__['service_bus_endpoint'] = None
             __props__['type'] = None
+            __props__['updated_at'] = None
         super(Namespace, __self__).__init__(
             'azurerm:servicebus/v20150801:Namespace',
             resource_name,

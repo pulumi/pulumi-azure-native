@@ -13,7 +13,32 @@ class GetWebAppVnetConnectionResult:
     """
     Virtual Network information contract.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, cert_blob=None, cert_thumbprint=None, dns_servers=None, is_swift=None, kind=None, name=None, resync_required=None, routes=None, type=None, vnet_resource_id=None):
+        if cert_blob and not isinstance(cert_blob, str):
+            raise TypeError("Expected argument 'cert_blob' to be a str")
+        __self__.cert_blob = cert_blob
+        """
+        A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+        Point-To-Site VPN connection.
+        """
+        if cert_thumbprint and not isinstance(cert_thumbprint, str):
+            raise TypeError("Expected argument 'cert_thumbprint' to be a str")
+        __self__.cert_thumbprint = cert_thumbprint
+        """
+        The client certificate thumbprint.
+        """
+        if dns_servers and not isinstance(dns_servers, str):
+            raise TypeError("Expected argument 'dns_servers' to be a str")
+        __self__.dns_servers = dns_servers
+        """
+        DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
+        """
+        if is_swift and not isinstance(is_swift, bool):
+            raise TypeError("Expected argument 'is_swift' to be a bool")
+        __self__.is_swift = is_swift
+        """
+        Flag that is used to denote if this is VNET injection
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,17 +51,29 @@ class GetWebAppVnetConnectionResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if resync_required and not isinstance(resync_required, bool):
+            raise TypeError("Expected argument 'resync_required' to be a bool")
+        __self__.resync_required = resync_required
         """
-        VnetInfo resource specific properties
+        <code>true</code> if a resync is required; otherwise, <code>false</code>.
+        """
+        if routes and not isinstance(routes, list):
+            raise TypeError("Expected argument 'routes' to be a list")
+        __self__.routes = routes
+        """
+        The routes that this Virtual Network connection uses.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if vnet_resource_id and not isinstance(vnet_resource_id, str):
+            raise TypeError("Expected argument 'vnet_resource_id' to be a str")
+        __self__.vnet_resource_id = vnet_resource_id
+        """
+        The Virtual Network's resource ID.
         """
 
 
@@ -46,10 +83,16 @@ class AwaitableGetWebAppVnetConnectionResult(GetWebAppVnetConnectionResult):
         if False:
             yield self
         return GetWebAppVnetConnectionResult(
+            cert_blob=self.cert_blob,
+            cert_thumbprint=self.cert_thumbprint,
+            dns_servers=self.dns_servers,
+            is_swift=self.is_swift,
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            resync_required=self.resync_required,
+            routes=self.routes,
+            type=self.type,
+            vnet_resource_id=self.vnet_resource_id)
 
 
 def get_web_app_vnet_connection(name=None, resource_group_name=None, opts=None):
@@ -69,7 +112,13 @@ def get_web_app_vnet_connection(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20190801:getWebAppVnetConnection', __args__, opts=opts).value
 
     return AwaitableGetWebAppVnetConnectionResult(
+        cert_blob=__ret__.get('certBlob'),
+        cert_thumbprint=__ret__.get('certThumbprint'),
+        dns_servers=__ret__.get('dnsServers'),
+        is_swift=__ret__.get('isSwift'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        resync_required=__ret__.get('resyncRequired'),
+        routes=__ret__.get('routes'),
+        type=__ret__.get('type'),
+        vnet_resource_id=__ret__.get('vnetResourceId'))

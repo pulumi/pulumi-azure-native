@@ -10,6 +10,26 @@ from ... import _utilities, _tables
 
 
 class Experiment(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    The description of the details or intents of the Experiment
+    """
+    enabled_state: pulumi.Output[str]
+    """
+    The state of the Experiment
+    """
+    endpoint_a: pulumi.Output[dict]
+    """
+    The endpoint A of an experiment
+      * `endpoint` (`str`) - The endpoint URL
+      * `name` (`str`) - The name of the endpoint
+    """
+    endpoint_b: pulumi.Output[dict]
+    """
+    The endpoint B of an experiment
+      * `endpoint` (`str`) - The endpoint URL
+      * `name` (`str`) - The name of the endpoint
+    """
     location: pulumi.Output[str]
     """
     Resource location.
@@ -18,19 +38,17 @@ class Experiment(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    resource_state: pulumi.Output[str]
     """
-    The properties of an Experiment
-      * `description` (`str`) - The description of the details or intents of the Experiment
-      * `enabled_state` (`str`) - The state of the Experiment
-      * `endpoint_a` (`dict`) - The endpoint A of an experiment
-        * `endpoint` (`str`) - The endpoint URL
-        * `name` (`str`) - The name of the endpoint
-
-      * `endpoint_b` (`dict`) - The endpoint B of an experiment
-      * `resource_state` (`str`) - Resource status.
-      * `script_file_uri` (`str`) - The uri to the Script used in the Experiment
-      * `status` (`str`) - The description of Experiment status from the server side
+    Resource status.
+    """
+    script_file_uri: pulumi.Output[str]
+    """
+    The uri to the Script used in the Experiment
+    """
+    status: pulumi.Output[str]
+    """
+    The description of Experiment status from the server side
     """
     tags: pulumi.Output[dict]
     """
@@ -95,7 +113,8 @@ class Experiment(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['resource_state'] = resource_state
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['script_file_uri'] = None
+            __props__['status'] = None
             __props__['type'] = None
         super(Experiment, __self__).__init__(
             'azurerm:network/v20191101:Experiment',

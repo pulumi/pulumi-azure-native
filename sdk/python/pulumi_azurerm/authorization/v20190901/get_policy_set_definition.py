@@ -13,18 +13,54 @@ class GetPolicySetDefinitionResult:
     """
     The policy set definition.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, description=None, display_name=None, metadata=None, name=None, parameters=None, policy_definition_groups=None, policy_definitions=None, policy_type=None, type=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The policy set definition description.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        The display name of the policy set definition.
+        """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the policy set definition.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        __self__.parameters = parameters
         """
-        The policy definition properties.
+        The policy set definition parameters that can be used in policy definition references.
+        """
+        if policy_definition_groups and not isinstance(policy_definition_groups, list):
+            raise TypeError("Expected argument 'policy_definition_groups' to be a list")
+        __self__.policy_definition_groups = policy_definition_groups
+        """
+        The metadata describing groups of policy definition references within the policy set definition.
+        """
+        if policy_definitions and not isinstance(policy_definitions, list):
+            raise TypeError("Expected argument 'policy_definitions' to be a list")
+        __self__.policy_definitions = policy_definitions
+        """
+        An array of policy definition references.
+        """
+        if policy_type and not isinstance(policy_type, str):
+            raise TypeError("Expected argument 'policy_type' to be a str")
+        __self__.policy_type = policy_type
+        """
+        The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +76,14 @@ class AwaitableGetPolicySetDefinitionResult(GetPolicySetDefinitionResult):
         if False:
             yield self
         return GetPolicySetDefinitionResult(
+            description=self.description,
+            display_name=self.display_name,
+            metadata=self.metadata,
             name=self.name,
-            properties=self.properties,
+            parameters=self.parameters,
+            policy_definition_groups=self.policy_definition_groups,
+            policy_definitions=self.policy_definitions,
+            policy_type=self.policy_type,
             type=self.type)
 
 
@@ -60,6 +102,12 @@ def get_policy_set_definition(name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20190901:getPolicySetDefinition', __args__, opts=opts).value
 
     return AwaitableGetPolicySetDefinitionResult(
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        parameters=__ret__.get('parameters'),
+        policy_definition_groups=__ret__.get('policyDefinitionGroups'),
+        policy_definitions=__ret__.get('policyDefinitions'),
+        policy_type=__ret__.get('policyType'),
         type=__ret__.get('type'))

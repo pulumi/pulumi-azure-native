@@ -13,7 +13,37 @@ class GetJitRequestResult:
     """
     Information about JIT request definition.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, application_resource_id=None, created_by=None, jit_authorization_policies=None, jit_request_state=None, jit_scheduling_policy=None, location=None, name=None, provisioning_state=None, publisher_tenant_id=None, tags=None, type=None, updated_by=None):
+        if application_resource_id and not isinstance(application_resource_id, str):
+            raise TypeError("Expected argument 'application_resource_id' to be a str")
+        __self__.application_resource_id = application_resource_id
+        """
+        The parent application id.
+        """
+        if created_by and not isinstance(created_by, dict):
+            raise TypeError("Expected argument 'created_by' to be a dict")
+        __self__.created_by = created_by
+        """
+        The client entity that created the JIT request.
+        """
+        if jit_authorization_policies and not isinstance(jit_authorization_policies, list):
+            raise TypeError("Expected argument 'jit_authorization_policies' to be a list")
+        __self__.jit_authorization_policies = jit_authorization_policies
+        """
+        The JIT authorization policies.
+        """
+        if jit_request_state and not isinstance(jit_request_state, str):
+            raise TypeError("Expected argument 'jit_request_state' to be a str")
+        __self__.jit_request_state = jit_request_state
+        """
+        The JIT request state.
+        """
+        if jit_scheduling_policy and not isinstance(jit_scheduling_policy, dict):
+            raise TypeError("Expected argument 'jit_scheduling_policy' to be a dict")
+        __self__.jit_scheduling_policy = jit_scheduling_policy
+        """
+        The JIT request properties.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +56,17 @@ class GetJitRequestResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The JIT request properties.
+        The JIT request provisioning state.
+        """
+        if publisher_tenant_id and not isinstance(publisher_tenant_id, str):
+            raise TypeError("Expected argument 'publisher_tenant_id' to be a str")
+        __self__.publisher_tenant_id = publisher_tenant_id
+        """
+        The publisher tenant id.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +80,12 @@ class GetJitRequestResult:
         """
         Resource type
         """
+        if updated_by and not isinstance(updated_by, dict):
+            raise TypeError("Expected argument 'updated_by' to be a dict")
+        __self__.updated_by = updated_by
+        """
+        The client entity that last updated the JIT request.
+        """
 
 
 class AwaitableGetJitRequestResult(GetJitRequestResult):
@@ -52,11 +94,18 @@ class AwaitableGetJitRequestResult(GetJitRequestResult):
         if False:
             yield self
         return GetJitRequestResult(
+            application_resource_id=self.application_resource_id,
+            created_by=self.created_by,
+            jit_authorization_policies=self.jit_authorization_policies,
+            jit_request_state=self.jit_request_state,
+            jit_scheduling_policy=self.jit_scheduling_policy,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            publisher_tenant_id=self.publisher_tenant_id,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            updated_by=self.updated_by)
 
 
 def get_jit_request(name=None, resource_group_name=None, opts=None):
@@ -76,8 +125,15 @@ def get_jit_request(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:solutions/v20190701:getJitRequest', __args__, opts=opts).value
 
     return AwaitableGetJitRequestResult(
+        application_resource_id=__ret__.get('applicationResourceId'),
+        created_by=__ret__.get('createdBy'),
+        jit_authorization_policies=__ret__.get('jitAuthorizationPolicies'),
+        jit_request_state=__ret__.get('jitRequestState'),
+        jit_scheduling_policy=__ret__.get('jitSchedulingPolicy'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        publisher_tenant_id=__ret__.get('publisherTenantId'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        updated_by=__ret__.get('updatedBy'))

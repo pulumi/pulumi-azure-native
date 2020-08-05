@@ -13,7 +13,19 @@ class GetDedicatedCloudServiceResult:
     """
     Dedicated cloud service model
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, gateway_subnet=None, is_account_onboarded=None, location=None, name=None, nodes=None, service_url=None, tags=None, type=None):
+        if gateway_subnet and not isinstance(gateway_subnet, str):
+            raise TypeError("Expected argument 'gateway_subnet' to be a str")
+        __self__.gateway_subnet = gateway_subnet
+        """
+        gateway Subnet for the account. It will collect the subnet address and always treat it as /28
+        """
+        if is_account_onboarded and not isinstance(is_account_onboarded, str):
+            raise TypeError("Expected argument 'is_account_onboarded' to be a str")
+        __self__.is_account_onboarded = is_account_onboarded
+        """
+        indicates whether account onboarded or not in a given region
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +38,17 @@ class GetDedicatedCloudServiceResult:
         """
         {dedicatedCloudServiceName}
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if nodes and not isinstance(nodes, float):
+            raise TypeError("Expected argument 'nodes' to be a float")
+        __self__.nodes = nodes
         """
-        The properties of Dedicated Node Service
+        total nodes purchased
+        """
+        if service_url and not isinstance(service_url, str):
+            raise TypeError("Expected argument 'service_url' to be a str")
+        __self__.service_url = service_url
+        """
+        link to a service management web portal
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +70,12 @@ class AwaitableGetDedicatedCloudServiceResult(GetDedicatedCloudServiceResult):
         if False:
             yield self
         return GetDedicatedCloudServiceResult(
+            gateway_subnet=self.gateway_subnet,
+            is_account_onboarded=self.is_account_onboarded,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            nodes=self.nodes,
+            service_url=self.service_url,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +97,11 @@ def get_dedicated_cloud_service(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:vmwarecloudsimple/v20190401:getDedicatedCloudService', __args__, opts=opts).value
 
     return AwaitableGetDedicatedCloudServiceResult(
+        gateway_subnet=__ret__.get('gatewaySubnet'),
+        is_account_onboarded=__ret__.get('isAccountOnboarded'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        nodes=__ret__.get('nodes'),
+        service_url=__ret__.get('serviceURL'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

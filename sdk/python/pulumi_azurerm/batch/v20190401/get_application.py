@@ -13,7 +13,25 @@ class GetApplicationResult:
     """
     Contains information about an application in a Batch account.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, allow_updates=None, default_version=None, display_name=None, etag=None, name=None, type=None):
+        if allow_updates and not isinstance(allow_updates, bool):
+            raise TypeError("Expected argument 'allow_updates' to be a bool")
+        __self__.allow_updates = allow_updates
+        """
+        A value indicating whether packages within the application may be overwritten using the same version string.
+        """
+        if default_version and not isinstance(default_version, str):
+            raise TypeError("Expected argument 'default_version' to be a str")
+        __self__.default_version = default_version
+        """
+        The package to use if a client requests the application but does not specify a version. This property can only be set to the name of an existing package.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        The display name for the application.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -25,12 +43,6 @@ class GetApplicationResult:
         __self__.name = name
         """
         The name of the resource.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        The properties associated with the Application.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +58,11 @@ class AwaitableGetApplicationResult(GetApplicationResult):
         if False:
             yield self
         return GetApplicationResult(
+            allow_updates=self.allow_updates,
+            default_version=self.default_version,
+            display_name=self.display_name,
             etag=self.etag,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -71,7 +85,9 @@ def get_application(account_name=None, name=None, resource_group_name=None, opts
     __ret__ = pulumi.runtime.invoke('azurerm:batch/v20190401:getApplication', __args__, opts=opts).value
 
     return AwaitableGetApplicationResult(
+        allow_updates=__ret__.get('allowUpdates'),
+        default_version=__ret__.get('defaultVersion'),
+        display_name=__ret__.get('displayName'),
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         type=__ret__.get('type'))

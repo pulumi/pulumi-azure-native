@@ -13,12 +13,48 @@ class GetRunbookResult:
     """
     Definition of the runbook type.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, creation_time=None, description=None, draft=None, etag=None, job_count=None, last_modified_by=None, last_modified_time=None, location=None, log_activity_trace=None, log_progress=None, log_verbose=None, name=None, output_types=None, parameters=None, provisioning_state=None, publish_content_link=None, runbook_type=None, state=None, tags=None, type=None):
+        if creation_time and not isinstance(creation_time, str):
+            raise TypeError("Expected argument 'creation_time' to be a str")
+        __self__.creation_time = creation_time
+        """
+        Gets or sets the creation time.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Gets or sets the description.
+        """
+        if draft and not isinstance(draft, dict):
+            raise TypeError("Expected argument 'draft' to be a dict")
+        __self__.draft = draft
+        """
+        Gets or sets the draft runbook properties.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Gets or sets the etag of the resource.
+        """
+        if job_count and not isinstance(job_count, float):
+            raise TypeError("Expected argument 'job_count' to be a float")
+        __self__.job_count = job_count
+        """
+        Gets or sets the job count of the runbook.
+        """
+        if last_modified_by and not isinstance(last_modified_by, str):
+            raise TypeError("Expected argument 'last_modified_by' to be a str")
+        __self__.last_modified_by = last_modified_by
+        """
+        Gets or sets the last modified by.
+        """
+        if last_modified_time and not isinstance(last_modified_time, str):
+            raise TypeError("Expected argument 'last_modified_time' to be a str")
+        __self__.last_modified_time = last_modified_time
+        """
+        Gets or sets the last modified time.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -26,17 +62,65 @@ class GetRunbookResult:
         """
         The Azure Region where the resource lives
         """
+        if log_activity_trace and not isinstance(log_activity_trace, float):
+            raise TypeError("Expected argument 'log_activity_trace' to be a float")
+        __self__.log_activity_trace = log_activity_trace
+        """
+        Gets or sets the option to log activity trace of the runbook.
+        """
+        if log_progress and not isinstance(log_progress, bool):
+            raise TypeError("Expected argument 'log_progress' to be a bool")
+        __self__.log_progress = log_progress
+        """
+        Gets or sets progress log option.
+        """
+        if log_verbose and not isinstance(log_verbose, bool):
+            raise TypeError("Expected argument 'log_verbose' to be a bool")
+        __self__.log_verbose = log_verbose
+        """
+        Gets or sets verbose log option.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if output_types and not isinstance(output_types, list):
+            raise TypeError("Expected argument 'output_types' to be a list")
+        __self__.output_types = output_types
         """
-        Gets or sets the runbook properties.
+        Gets or sets the runbook output types.
+        """
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        __self__.parameters = parameters
+        """
+        Gets or sets the runbook parameters.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Gets or sets the provisioning state of the runbook.
+        """
+        if publish_content_link and not isinstance(publish_content_link, dict):
+            raise TypeError("Expected argument 'publish_content_link' to be a dict")
+        __self__.publish_content_link = publish_content_link
+        """
+        Gets or sets the published runbook content link.
+        """
+        if runbook_type and not isinstance(runbook_type, str):
+            raise TypeError("Expected argument 'runbook_type' to be a str")
+        __self__.runbook_type = runbook_type
+        """
+        Gets or sets the type of the runbook.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        Gets or sets the state of the runbook.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +142,24 @@ class AwaitableGetRunbookResult(GetRunbookResult):
         if False:
             yield self
         return GetRunbookResult(
+            creation_time=self.creation_time,
+            description=self.description,
+            draft=self.draft,
             etag=self.etag,
+            job_count=self.job_count,
+            last_modified_by=self.last_modified_by,
+            last_modified_time=self.last_modified_time,
             location=self.location,
+            log_activity_trace=self.log_activity_trace,
+            log_progress=self.log_progress,
+            log_verbose=self.log_verbose,
             name=self.name,
-            properties=self.properties,
+            output_types=self.output_types,
+            parameters=self.parameters,
+            provisioning_state=self.provisioning_state,
+            publish_content_link=self.publish_content_link,
+            runbook_type=self.runbook_type,
+            state=self.state,
             tags=self.tags,
             type=self.type)
 
@@ -85,9 +183,23 @@ def get_runbook(automation_account_name=None, name=None, resource_group_name=Non
     __ret__ = pulumi.runtime.invoke('azurerm:automation/v20151031:getRunbook', __args__, opts=opts).value
 
     return AwaitableGetRunbookResult(
+        creation_time=__ret__.get('creationTime'),
+        description=__ret__.get('description'),
+        draft=__ret__.get('draft'),
         etag=__ret__.get('etag'),
+        job_count=__ret__.get('jobCount'),
+        last_modified_by=__ret__.get('lastModifiedBy'),
+        last_modified_time=__ret__.get('lastModifiedTime'),
         location=__ret__.get('location'),
+        log_activity_trace=__ret__.get('logActivityTrace'),
+        log_progress=__ret__.get('logProgress'),
+        log_verbose=__ret__.get('logVerbose'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        output_types=__ret__.get('outputTypes'),
+        parameters=__ret__.get('parameters'),
+        provisioning_state=__ret__.get('provisioningState'),
+        publish_content_link=__ret__.get('publishContentLink'),
+        runbook_type=__ret__.get('runbookType'),
+        state=__ret__.get('state'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

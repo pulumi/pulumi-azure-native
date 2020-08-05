@@ -14,6 +14,15 @@ class IpGroup(pulumi.CustomResource):
     """
     A unique read-only string that changes whenever the resource is updated.
     """
+    firewalls: pulumi.Output[list]
+    """
+    List of references to Azure resources that this IpGroups is associated with.
+      * `id` (`str`) - Resource ID.
+    """
+    ip_addresses: pulumi.Output[list]
+    """
+    IpAddresses/IpAddressPrefixes in the IpGroups resource.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
@@ -22,14 +31,9 @@ class IpGroup(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the IpGroups.
-      * `firewalls` (`list`) - List of references to Azure resources that this IpGroups is associated with.
-        * `id` (`str`) - Resource ID.
-
-      * `ip_addresses` (`list`) - IpAddresses/IpAddressPrefixes in the IpGroups resource.
-      * `provisioning_state` (`str`) - The provisioning state of the IpGroups resource.
+    The provisioning state of the IpGroups resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -80,7 +84,8 @@ class IpGroup(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['firewalls'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(IpGroup, __self__).__init__(
             'azurerm:network/v20200301:IpGroup',

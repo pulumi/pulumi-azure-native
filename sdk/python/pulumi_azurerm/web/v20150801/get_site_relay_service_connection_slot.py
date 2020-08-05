@@ -13,7 +13,19 @@ class GetSiteRelayServiceConnectionSlotResult:
     """
     Class that represents a BizTalk Hybrid Connection
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, biztalk_uri=None, entity_connection_string=None, entity_name=None, hostname=None, kind=None, location=None, name=None, port=None, resource_connection_string=None, resource_type=None, tags=None, type=None):
+        if biztalk_uri and not isinstance(biztalk_uri, str):
+            raise TypeError("Expected argument 'biztalk_uri' to be a str")
+        __self__.biztalk_uri = biztalk_uri
+        if entity_connection_string and not isinstance(entity_connection_string, str):
+            raise TypeError("Expected argument 'entity_connection_string' to be a str")
+        __self__.entity_connection_string = entity_connection_string
+        if entity_name and not isinstance(entity_name, str):
+            raise TypeError("Expected argument 'entity_name' to be a str")
+        __self__.entity_name = entity_name
+        if hostname and not isinstance(hostname, str):
+            raise TypeError("Expected argument 'hostname' to be a str")
+        __self__.hostname = hostname
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -32,9 +44,15 @@ class GetSiteRelayServiceConnectionSlotResult:
         """
         Resource Name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if port and not isinstance(port, float):
+            raise TypeError("Expected argument 'port' to be a float")
+        __self__.port = port
+        if resource_connection_string and not isinstance(resource_connection_string, str):
+            raise TypeError("Expected argument 'resource_connection_string' to be a str")
+        __self__.resource_connection_string = resource_connection_string
+        if resource_type and not isinstance(resource_type, str):
+            raise TypeError("Expected argument 'resource_type' to be a str")
+        __self__.resource_type = resource_type
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -55,10 +73,16 @@ class AwaitableGetSiteRelayServiceConnectionSlotResult(GetSiteRelayServiceConnec
         if False:
             yield self
         return GetSiteRelayServiceConnectionSlotResult(
+            biztalk_uri=self.biztalk_uri,
+            entity_connection_string=self.entity_connection_string,
+            entity_name=self.entity_name,
+            hostname=self.hostname,
             kind=self.kind,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            port=self.port,
+            resource_connection_string=self.resource_connection_string,
+            resource_type=self.resource_type,
             tags=self.tags,
             type=self.type)
 
@@ -82,9 +106,15 @@ def get_site_relay_service_connection_slot(name=None, resource_group_name=None, 
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20150801:getSiteRelayServiceConnectionSlot', __args__, opts=opts).value
 
     return AwaitableGetSiteRelayServiceConnectionSlotResult(
+        biztalk_uri=__ret__.get('biztalkUri'),
+        entity_connection_string=__ret__.get('entityConnectionString'),
+        entity_name=__ret__.get('entityName'),
+        hostname=__ret__.get('hostname'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        port=__ret__.get('port'),
+        resource_connection_string=__ret__.get('resourceConnectionString'),
+        resource_type=__ret__.get('resourceType'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

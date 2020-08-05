@@ -13,7 +13,37 @@ class GetEnvironmentSettingResult:
     """
     Represents settings of an environment, from which environment instances would be created
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, configuration_state=None, description=None, last_changed=None, last_published=None, latest_operation_result=None, location=None, name=None, provisioning_state=None, publishing_state=None, resource_settings=None, tags=None, title=None, type=None, unique_identifier=None):
+        if configuration_state and not isinstance(configuration_state, str):
+            raise TypeError("Expected argument 'configuration_state' to be a str")
+        __self__.configuration_state = configuration_state
+        """
+        Describes the user's progress in configuring their environment setting
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Describes the environment and its resource settings
+        """
+        if last_changed and not isinstance(last_changed, str):
+            raise TypeError("Expected argument 'last_changed' to be a str")
+        __self__.last_changed = last_changed
+        """
+        Time when the template VM was last changed.
+        """
+        if last_published and not isinstance(last_published, str):
+            raise TypeError("Expected argument 'last_published' to be a str")
+        __self__.last_published = last_published
+        """
+        Time when the template VM was last sent for publishing.
+        """
+        if latest_operation_result and not isinstance(latest_operation_result, dict):
+            raise TypeError("Expected argument 'latest_operation_result' to be a dict")
+        __self__.latest_operation_result = latest_operation_result
+        """
+        The details of the latest operation. ex: status, error
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +56,23 @@ class GetEnvironmentSettingResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the Environment Setting resource
+        The provisioning status of the resource.
+        """
+        if publishing_state and not isinstance(publishing_state, str):
+            raise TypeError("Expected argument 'publishing_state' to be a str")
+        __self__.publishing_state = publishing_state
+        """
+        Describes the readiness of this environment setting
+        """
+        if resource_settings and not isinstance(resource_settings, dict):
+            raise TypeError("Expected argument 'resource_settings' to be a dict")
+        __self__.resource_settings = resource_settings
+        """
+        The resource specific settings
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -38,11 +80,23 @@ class GetEnvironmentSettingResult:
         """
         The tags of the resource.
         """
+        if title and not isinstance(title, str):
+            raise TypeError("Expected argument 'title' to be a str")
+        __self__.title = title
+        """
+        Brief title describing the environment and its resource settings
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource.
+        """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
         """
 
 
@@ -52,11 +106,20 @@ class AwaitableGetEnvironmentSettingResult(GetEnvironmentSettingResult):
         if False:
             yield self
         return GetEnvironmentSettingResult(
+            configuration_state=self.configuration_state,
+            description=self.description,
+            last_changed=self.last_changed,
+            last_published=self.last_published,
+            latest_operation_result=self.latest_operation_result,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            publishing_state=self.publishing_state,
+            resource_settings=self.resource_settings,
             tags=self.tags,
-            type=self.type)
+            title=self.title,
+            type=self.type,
+            unique_identifier=self.unique_identifier)
 
 
 def get_environment_setting(lab_account_name=None, lab_name=None, name=None, resource_group_name=None, opts=None):
@@ -80,8 +143,17 @@ def get_environment_setting(lab_account_name=None, lab_name=None, name=None, res
     __ret__ = pulumi.runtime.invoke('azurerm:labservices/v20181015:getEnvironmentSetting', __args__, opts=opts).value
 
     return AwaitableGetEnvironmentSettingResult(
+        configuration_state=__ret__.get('configurationState'),
+        description=__ret__.get('description'),
+        last_changed=__ret__.get('lastChanged'),
+        last_published=__ret__.get('lastPublished'),
+        latest_operation_result=__ret__.get('latestOperationResult'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        publishing_state=__ret__.get('publishingState'),
+        resource_settings=__ret__.get('resourceSettings'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        title=__ret__.get('title'),
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'))

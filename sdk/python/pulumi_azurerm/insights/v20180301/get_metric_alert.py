@@ -13,7 +13,43 @@ class GetMetricAlertResult:
     """
     The metric alert resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, actions=None, auto_mitigate=None, description=None, enabled=None, evaluation_frequency=None, last_updated_time=None, location=None, name=None, scopes=None, severity=None, tags=None, target_resource_region=None, target_resource_type=None, type=None, window_size=None):
+        if actions and not isinstance(actions, list):
+            raise TypeError("Expected argument 'actions' to be a list")
+        __self__.actions = actions
+        """
+        the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        if auto_mitigate and not isinstance(auto_mitigate, bool):
+            raise TypeError("Expected argument 'auto_mitigate' to be a bool")
+        __self__.auto_mitigate = auto_mitigate
+        """
+        the flag that indicates whether the alert should be auto resolved or not. The default is true.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        the description of the metric alert that will be included in the alert email.
+        """
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        __self__.enabled = enabled
+        """
+        the flag that indicates whether the metric alert is enabled.
+        """
+        if evaluation_frequency and not isinstance(evaluation_frequency, str):
+            raise TypeError("Expected argument 'evaluation_frequency' to be a str")
+        __self__.evaluation_frequency = evaluation_frequency
+        """
+        how often the metric alert is evaluated represented in ISO 8601 duration format.
+        """
+        if last_updated_time and not isinstance(last_updated_time, str):
+            raise TypeError("Expected argument 'last_updated_time' to be a str")
+        __self__.last_updated_time = last_updated_time
+        """
+        Last time the rule was updated in ISO8601 format.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +62,17 @@ class GetMetricAlertResult:
         """
         Azure resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if scopes and not isinstance(scopes, list):
+            raise TypeError("Expected argument 'scopes' to be a list")
+        __self__.scopes = scopes
         """
-        The alert rule properties of the resource.
+        the list of resource id's that this metric alert is scoped to.
+        """
+        if severity and not isinstance(severity, float):
+            raise TypeError("Expected argument 'severity' to be a float")
+        __self__.severity = severity
+        """
+        Alert severity {0, 1, 2, 3, 4}
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -38,11 +80,29 @@ class GetMetricAlertResult:
         """
         Resource tags
         """
+        if target_resource_region and not isinstance(target_resource_region, str):
+            raise TypeError("Expected argument 'target_resource_region' to be a str")
+        __self__.target_resource_region = target_resource_region
+        """
+        the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        """
+        if target_resource_type and not isinstance(target_resource_type, str):
+            raise TypeError("Expected argument 'target_resource_type' to be a str")
+        __self__.target_resource_type = target_resource_type
+        """
+        the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Azure resource type
+        """
+        if window_size and not isinstance(window_size, str):
+            raise TypeError("Expected argument 'window_size' to be a str")
+        __self__.window_size = window_size
+        """
+        the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.
         """
 
 
@@ -52,11 +112,21 @@ class AwaitableGetMetricAlertResult(GetMetricAlertResult):
         if False:
             yield self
         return GetMetricAlertResult(
+            actions=self.actions,
+            auto_mitigate=self.auto_mitigate,
+            description=self.description,
+            enabled=self.enabled,
+            evaluation_frequency=self.evaluation_frequency,
+            last_updated_time=self.last_updated_time,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            scopes=self.scopes,
+            severity=self.severity,
             tags=self.tags,
-            type=self.type)
+            target_resource_region=self.target_resource_region,
+            target_resource_type=self.target_resource_type,
+            type=self.type,
+            window_size=self.window_size)
 
 
 def get_metric_alert(name=None, resource_group_name=None, opts=None):
@@ -76,8 +146,18 @@ def get_metric_alert(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:insights/v20180301:getMetricAlert', __args__, opts=opts).value
 
     return AwaitableGetMetricAlertResult(
+        actions=__ret__.get('actions'),
+        auto_mitigate=__ret__.get('autoMitigate'),
+        description=__ret__.get('description'),
+        enabled=__ret__.get('enabled'),
+        evaluation_frequency=__ret__.get('evaluationFrequency'),
+        last_updated_time=__ret__.get('lastUpdatedTime'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        scopes=__ret__.get('scopes'),
+        severity=__ret__.get('severity'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        target_resource_region=__ret__.get('targetResourceRegion'),
+        target_resource_type=__ret__.get('targetResourceType'),
+        type=__ret__.get('type'),
+        window_size=__ret__.get('windowSize'))

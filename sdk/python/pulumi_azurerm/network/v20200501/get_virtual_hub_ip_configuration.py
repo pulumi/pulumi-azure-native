@@ -13,7 +13,7 @@ class GetVirtualHubIpConfigurationResult:
     """
     IpConfigurations.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, name=None, private_ip_address=None, private_ip_allocation_method=None, provisioning_state=None, public_ip_address=None, subnet=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,11 +26,35 @@ class GetVirtualHubIpConfigurationResult:
         """
         Name of the Ip Configuration.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if private_ip_address and not isinstance(private_ip_address, str):
+            raise TypeError("Expected argument 'private_ip_address' to be a str")
+        __self__.private_ip_address = private_ip_address
         """
-        The properties of the Virtual Hub IPConfigurations.
+        The private IP address of the IP configuration.
+        """
+        if private_ip_allocation_method and not isinstance(private_ip_allocation_method, str):
+            raise TypeError("Expected argument 'private_ip_allocation_method' to be a str")
+        __self__.private_ip_allocation_method = private_ip_allocation_method
+        """
+        The private IP address allocation method.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the IP configuration resource.
+        """
+        if public_ip_address and not isinstance(public_ip_address, dict):
+            raise TypeError("Expected argument 'public_ip_address' to be a dict")
+        __self__.public_ip_address = public_ip_address
+        """
+        The reference to the public IP resource.
+        """
+        if subnet and not isinstance(subnet, dict):
+            raise TypeError("Expected argument 'subnet' to be a dict")
+        __self__.subnet = subnet
+        """
+        The reference to the subnet resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -48,7 +72,11 @@ class AwaitableGetVirtualHubIpConfigurationResult(GetVirtualHubIpConfigurationRe
         return GetVirtualHubIpConfigurationResult(
             etag=self.etag,
             name=self.name,
-            properties=self.properties,
+            private_ip_address=self.private_ip_address,
+            private_ip_allocation_method=self.private_ip_allocation_method,
+            provisioning_state=self.provisioning_state,
+            public_ip_address=self.public_ip_address,
+            subnet=self.subnet,
             type=self.type)
 
 
@@ -73,5 +101,9 @@ def get_virtual_hub_ip_configuration(name=None, resource_group_name=None, virtua
     return AwaitableGetVirtualHubIpConfigurationResult(
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        private_ip_address=__ret__.get('privateIPAddress'),
+        private_ip_allocation_method=__ret__.get('privateIPAllocationMethod'),
+        provisioning_state=__ret__.get('provisioningState'),
+        public_ip_address=__ret__.get('publicIPAddress'),
+        subnet=__ret__.get('subnet'),
         type=__ret__.get('type'))

@@ -10,60 +10,79 @@ from ... import _utilities, _tables
 
 
 class BatchAccount(pulumi.CustomResource):
+    account_endpoint: pulumi.Output[str]
+    """
+    The account endpoint used to interact with the Batch service.
+    """
+    active_job_and_job_schedule_quota: pulumi.Output[float]
+    auto_storage: pulumi.Output[dict]
+    """
+    Contains information about the auto-storage account associated with a Batch account.
+      * `last_key_sync` (`str`) - The UTC time at which storage keys were last synchronized with the Batch account.
+      * `storage_account_id` (`str`) - The resource ID of the storage account to be used for auto-storage account.
+    """
+    dedicated_core_quota: pulumi.Output[float]
+    """
+    For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+    """
+    dedicated_core_quota_per_vm_family: pulumi.Output[list]
+    """
+    A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
+      * `core_quota` (`float`) - The core quota for the VM family for the Batch account.
+      * `name` (`str`) - The Virtual Machine family name.
+    """
+    dedicated_core_quota_per_vm_family_enforced: pulumi.Output[bool]
+    """
+    Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
+    """
+    encryption: pulumi.Output[dict]
+    key_vault_reference: pulumi.Output[dict]
+    """
+    Identifies the Azure key vault associated with a Batch account.
+      * `id` (`str`) - The resource ID of the Azure key vault associated with the Batch account.
+      * `url` (`str`) - The URL of the Azure key vault associated with the Batch account.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
+    """
+    low_priority_core_quota: pulumi.Output[float]
+    """
+    For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
     """
     name: pulumi.Output[str]
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    pool_allocation_mode: pulumi.Output[str]
     """
-    The properties associated with the account.
-      * `account_endpoint` (`str`) - The account endpoint used to interact with the Batch service.
-      * `active_job_and_job_schedule_quota` (`float`)
-      * `auto_storage` (`dict`) - Contains information about the auto-storage account associated with a Batch account.
-        * `last_key_sync` (`str`) - The UTC time at which storage keys were last synchronized with the Batch account.
-        * `storage_account_id` (`str`) - The resource ID of the storage account to be used for auto-storage account.
+    The allocation mode for creating pools in the Batch account.
+    """
+    pool_quota: pulumi.Output[float]
+    private_endpoint_connections: pulumi.Output[list]
+    """
+    List of private endpoint connections associated with the Batch account
+      * `etag` (`str`) - The ETag of the resource, used for concurrency statements.
+      * `id` (`str`) - The ID of the resource.
+      * `name` (`str`) - The name of the resource.
+      * `private_endpoint` (`dict`) - The private endpoint of the private endpoint connection.
+        * `id` (`str`)
 
-      * `dedicated_core_quota` (`float`) - For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
-      * `dedicated_core_quota_per_vm_family` (`list`) - A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
-        * `core_quota` (`float`) - The core quota for the VM family for the Batch account.
-        * `name` (`str`) - The Virtual Machine family name.
+      * `private_link_service_connection_state` (`dict`) - The private link service connection state of the private endpoint connection
+        * `action_required` (`str`)
+        * `description` (`str`)
+        * `status` (`str`)
 
-      * `dedicated_core_quota_per_vm_family_enforced` (`bool`) - Batch is transitioning its core quota system for dedicated cores to be enforced per Virtual Machine family. During this transitional phase, the dedicated core quota per Virtual Machine family may not yet be enforced. If this flag is false, dedicated core quota is enforced via the old dedicatedCoreQuota property on the account and does not consider Virtual Machine family. If this flag is true, dedicated core quota is enforced via the dedicatedCoreQuotaPerVMFamily property on the account, and the old dedicatedCoreQuota does not apply.
-      * `encryption` (`dict`)
-        * `key_source` (`str`) - Type of the key source.
-        * `key_vault_properties` (`dict`) - Additional details when using Microsoft.KeyVault
-          * `key_identifier` (`str`) - Full path to the versioned secret. Example https://mykeyvault.vault.azure.net/keys/testkey/6e34a81fef704045975661e297a4c053
-
-      * `key_vault_reference` (`dict`) - Identifies the Azure key vault associated with a Batch account.
-        * `id` (`str`) - The resource ID of the Azure key vault associated with the Batch account.
-        * `url` (`str`) - The URL of the Azure key vault associated with the Batch account.
-
-      * `low_priority_core_quota` (`float`) - For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
-      * `pool_allocation_mode` (`str`) - The allocation mode for creating pools in the Batch account.
-      * `pool_quota` (`float`)
-      * `private_endpoint_connections` (`list`) - List of private endpoint connections associated with the Batch account
-        * `etag` (`str`) - The ETag of the resource, used for concurrency statements.
-        * `id` (`str`) - The ID of the resource.
-        * `name` (`str`) - The name of the resource.
-        * `properties` (`dict`) - The properties associated with the private endpoint connection.
-          * `private_endpoint` (`dict`) - The private endpoint of the private endpoint connection.
-            * `id` (`str`)
-
-          * `private_link_service_connection_state` (`dict`) - The private link service connection state of the private endpoint connection
-            * `action_required` (`str`)
-            * `description` (`str`)
-            * `status` (`str`)
-
-          * `provisioning_state` (`str`)
-
-        * `type` (`str`) - The type of the resource.
-
-      * `provisioning_state` (`str`) - The provisioned state of the resource
-      * `public_network_access` (`str`) - If not specified, the default value is 'enabled'.
+      * `provisioning_state` (`str`)
+      * `type` (`str`) - The type of the resource.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioned state of the resource
+    """
+    public_network_access: pulumi.Output[str]
+    """
+    If not specified, the default value is 'enabled'.
     """
     tags: pulumi.Output[dict]
     """
@@ -135,7 +154,15 @@ class BatchAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['account_endpoint'] = None
+            __props__['active_job_and_job_schedule_quota'] = None
+            __props__['dedicated_core_quota'] = None
+            __props__['dedicated_core_quota_per_vm_family'] = None
+            __props__['dedicated_core_quota_per_vm_family_enforced'] = None
+            __props__['low_priority_core_quota'] = None
+            __props__['pool_quota'] = None
+            __props__['private_endpoint_connections'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(BatchAccount, __self__).__init__(
             'azurerm:batch/v20200301:BatchAccount',

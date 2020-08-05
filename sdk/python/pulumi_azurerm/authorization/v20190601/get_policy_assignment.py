@@ -13,7 +13,25 @@ class GetPolicyAssignmentResult:
     """
     The policy assignment.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, sku=None, type=None):
+    def __init__(__self__, description=None, display_name=None, enforcement_mode=None, identity=None, location=None, metadata=None, name=None, not_scopes=None, parameters=None, policy_definition_id=None, scope=None, sku=None, type=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        This message will be part of response in case of policy violation.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        The display name of the policy assignment.
+        """
+        if enforcement_mode and not isinstance(enforcement_mode, str):
+            raise TypeError("Expected argument 'enforcement_mode' to be a str")
+        __self__.enforcement_mode = enforcement_mode
+        """
+        The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
@@ -26,17 +44,41 @@ class GetPolicyAssignmentResult:
         """
         The location of the policy assignment. Only required when utilizing managed identity.
         """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        The policy assignment metadata.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the policy assignment.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if not_scopes and not isinstance(not_scopes, list):
+            raise TypeError("Expected argument 'not_scopes' to be a list")
+        __self__.not_scopes = not_scopes
         """
-        Properties for the policy assignment.
+        The policy's excluded scopes.
+        """
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        __self__.parameters = parameters
+        """
+        Required if a parameter is used in policy rule.
+        """
+        if policy_definition_id and not isinstance(policy_definition_id, str):
+            raise TypeError("Expected argument 'policy_definition_id' to be a str")
+        __self__.policy_definition_id = policy_definition_id
+        """
+        The ID of the policy definition or policy set definition being assigned.
+        """
+        if scope and not isinstance(scope, str):
+            raise TypeError("Expected argument 'scope' to be a str")
+        __self__.scope = scope
+        """
+        The scope for the policy assignment.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -58,10 +100,17 @@ class AwaitableGetPolicyAssignmentResult(GetPolicyAssignmentResult):
         if False:
             yield self
         return GetPolicyAssignmentResult(
+            description=self.description,
+            display_name=self.display_name,
+            enforcement_mode=self.enforcement_mode,
             identity=self.identity,
             location=self.location,
+            metadata=self.metadata,
             name=self.name,
-            properties=self.properties,
+            not_scopes=self.not_scopes,
+            parameters=self.parameters,
+            policy_definition_id=self.policy_definition_id,
+            scope=self.scope,
             sku=self.sku,
             type=self.type)
 
@@ -83,9 +132,16 @@ def get_policy_assignment(name=None, scope=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:authorization/v20190601:getPolicyAssignment', __args__, opts=opts).value
 
     return AwaitableGetPolicyAssignmentResult(
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        enforcement_mode=__ret__.get('enforcementMode'),
         identity=__ret__.get('identity'),
         location=__ret__.get('location'),
+        metadata=__ret__.get('metadata'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        not_scopes=__ret__.get('notScopes'),
+        parameters=__ret__.get('parameters'),
+        policy_definition_id=__ret__.get('policyDefinitionId'),
+        scope=__ret__.get('scope'),
         sku=__ret__.get('sku'),
         type=__ret__.get('type'))

@@ -13,24 +13,126 @@ class GetProfileResult:
     """
     The profile resource format.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, api_entity_set_name=None, attributes=None, description=None, display_name=None, entity_type=None, fields=None, instances_count=None, large_image=None, last_changed_utc=None, localized_attributes=None, medium_image=None, name=None, provisioning_state=None, schema_item_type_link=None, small_image=None, strong_ids=None, tenant_id=None, timestamp_field_name=None, type=None, type_name=None):
+        if api_entity_set_name and not isinstance(api_entity_set_name, str):
+            raise TypeError("Expected argument 'api_entity_set_name' to be a str")
+        __self__.api_entity_set_name = api_entity_set_name
+        """
+        The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
+        """
+        if attributes and not isinstance(attributes, dict):
+            raise TypeError("Expected argument 'attributes' to be a dict")
+        __self__.attributes = attributes
+        """
+        The attributes for the Type.
+        """
+        if description and not isinstance(description, dict):
+            raise TypeError("Expected argument 'description' to be a dict")
+        __self__.description = description
+        """
+        Localized descriptions for the property.
+        """
+        if display_name and not isinstance(display_name, dict):
+            raise TypeError("Expected argument 'display_name' to be a dict")
+        __self__.display_name = display_name
+        """
+        Localized display names for the property.
+        """
+        if entity_type and not isinstance(entity_type, str):
+            raise TypeError("Expected argument 'entity_type' to be a str")
+        __self__.entity_type = entity_type
+        """
+        Type of entity.
+        """
+        if fields and not isinstance(fields, list):
+            raise TypeError("Expected argument 'fields' to be a list")
+        __self__.fields = fields
+        """
+        The properties of the Profile.
+        """
+        if instances_count and not isinstance(instances_count, float):
+            raise TypeError("Expected argument 'instances_count' to be a float")
+        __self__.instances_count = instances_count
+        """
+        The instance count.
+        """
+        if large_image and not isinstance(large_image, str):
+            raise TypeError("Expected argument 'large_image' to be a str")
+        __self__.large_image = large_image
+        """
+        Large Image associated with the Property or EntityType.
+        """
+        if last_changed_utc and not isinstance(last_changed_utc, str):
+            raise TypeError("Expected argument 'last_changed_utc' to be a str")
+        __self__.last_changed_utc = last_changed_utc
+        """
+        The last changed time for the type definition.
+        """
+        if localized_attributes and not isinstance(localized_attributes, dict):
+            raise TypeError("Expected argument 'localized_attributes' to be a dict")
+        __self__.localized_attributes = localized_attributes
+        """
+        Any custom localized attributes for the Type.
+        """
+        if medium_image and not isinstance(medium_image, str):
+            raise TypeError("Expected argument 'medium_image' to be a str")
+        __self__.medium_image = medium_image
+        """
+        Medium Image associated with the Property or EntityType.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The profile type definition.
+        Provisioning state.
+        """
+        if schema_item_type_link and not isinstance(schema_item_type_link, str):
+            raise TypeError("Expected argument 'schema_item_type_link' to be a str")
+        __self__.schema_item_type_link = schema_item_type_link
+        """
+        The schema org link. This helps ACI identify and suggest semantic models.
+        """
+        if small_image and not isinstance(small_image, str):
+            raise TypeError("Expected argument 'small_image' to be a str")
+        __self__.small_image = small_image
+        """
+        Small Image associated with the Property or EntityType.
+        """
+        if strong_ids and not isinstance(strong_ids, list):
+            raise TypeError("Expected argument 'strong_ids' to be a list")
+        __self__.strong_ids = strong_ids
+        """
+        The strong IDs.
+        """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        The hub name.
+        """
+        if timestamp_field_name and not isinstance(timestamp_field_name, str):
+            raise TypeError("Expected argument 'timestamp_field_name' to be a str")
+        __self__.timestamp_field_name = timestamp_field_name
+        """
+        The timestamp property name. Represents the time when the interaction or profile update happened.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if type_name and not isinstance(type_name, str):
+            raise TypeError("Expected argument 'type_name' to be a str")
+        __self__.type_name = type_name
+        """
+        The name of the entity.
         """
 
 
@@ -40,9 +142,26 @@ class AwaitableGetProfileResult(GetProfileResult):
         if False:
             yield self
         return GetProfileResult(
+            api_entity_set_name=self.api_entity_set_name,
+            attributes=self.attributes,
+            description=self.description,
+            display_name=self.display_name,
+            entity_type=self.entity_type,
+            fields=self.fields,
+            instances_count=self.instances_count,
+            large_image=self.large_image,
+            last_changed_utc=self.last_changed_utc,
+            localized_attributes=self.localized_attributes,
+            medium_image=self.medium_image,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            provisioning_state=self.provisioning_state,
+            schema_item_type_link=self.schema_item_type_link,
+            small_image=self.small_image,
+            strong_ids=self.strong_ids,
+            tenant_id=self.tenant_id,
+            timestamp_field_name=self.timestamp_field_name,
+            type=self.type,
+            type_name=self.type_name)
 
 
 def get_profile(hub_name=None, name=None, resource_group_name=None, opts=None):
@@ -64,6 +183,23 @@ def get_profile(hub_name=None, name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:customerinsights/v20170426:getProfile', __args__, opts=opts).value
 
     return AwaitableGetProfileResult(
+        api_entity_set_name=__ret__.get('apiEntitySetName'),
+        attributes=__ret__.get('attributes'),
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        entity_type=__ret__.get('entityType'),
+        fields=__ret__.get('fields'),
+        instances_count=__ret__.get('instancesCount'),
+        large_image=__ret__.get('largeImage'),
+        last_changed_utc=__ret__.get('lastChangedUtc'),
+        localized_attributes=__ret__.get('localizedAttributes'),
+        medium_image=__ret__.get('mediumImage'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        provisioning_state=__ret__.get('provisioningState'),
+        schema_item_type_link=__ret__.get('schemaItemTypeLink'),
+        small_image=__ret__.get('smallImage'),
+        strong_ids=__ret__.get('strongIds'),
+        tenant_id=__ret__.get('tenantId'),
+        timestamp_field_name=__ret__.get('timestampFieldName'),
+        type=__ret__.get('type'),
+        type_name=__ret__.get('typeName'))

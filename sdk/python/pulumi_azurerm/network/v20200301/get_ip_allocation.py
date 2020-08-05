@@ -13,12 +13,24 @@ class GetIpAllocationResult:
     """
     IpAllocation resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, allocation_tags=None, etag=None, ipam_allocation_id=None, location=None, name=None, prefix=None, prefix_length=None, prefix_type=None, subnet=None, tags=None, type=None, virtual_network=None):
+        if allocation_tags and not isinstance(allocation_tags, dict):
+            raise TypeError("Expected argument 'allocation_tags' to be a dict")
+        __self__.allocation_tags = allocation_tags
+        """
+        IpAllocation tags.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if ipam_allocation_id and not isinstance(ipam_allocation_id, str):
+            raise TypeError("Expected argument 'ipam_allocation_id' to be a str")
+        __self__.ipam_allocation_id = ipam_allocation_id
+        """
+        The IPAM allocation ID.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +44,29 @@ class GetIpAllocationResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if prefix and not isinstance(prefix, str):
+            raise TypeError("Expected argument 'prefix' to be a str")
+        __self__.prefix = prefix
         """
-        Properties of the IpAllocation.
+        The address prefix for the IpAllocation.
+        """
+        if prefix_length and not isinstance(prefix_length, float):
+            raise TypeError("Expected argument 'prefix_length' to be a float")
+        __self__.prefix_length = prefix_length
+        """
+        The address prefix length for the IpAllocation.
+        """
+        if prefix_type and not isinstance(prefix_type, str):
+            raise TypeError("Expected argument 'prefix_type' to be a str")
+        __self__.prefix_type = prefix_type
+        """
+        The address prefix Type for the IpAllocation.
+        """
+        if subnet and not isinstance(subnet, dict):
+            raise TypeError("Expected argument 'subnet' to be a dict")
+        __self__.subnet = subnet
+        """
+        The Subnet that using the prefix of this IpAllocation resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +80,12 @@ class GetIpAllocationResult:
         """
         Resource type.
         """
+        if virtual_network and not isinstance(virtual_network, dict):
+            raise TypeError("Expected argument 'virtual_network' to be a dict")
+        __self__.virtual_network = virtual_network
+        """
+        The VirtualNetwork that using the prefix of this IpAllocation resource.
+        """
 
 
 class AwaitableGetIpAllocationResult(GetIpAllocationResult):
@@ -58,12 +94,18 @@ class AwaitableGetIpAllocationResult(GetIpAllocationResult):
         if False:
             yield self
         return GetIpAllocationResult(
+            allocation_tags=self.allocation_tags,
             etag=self.etag,
+            ipam_allocation_id=self.ipam_allocation_id,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            prefix=self.prefix,
+            prefix_length=self.prefix_length,
+            prefix_type=self.prefix_type,
+            subnet=self.subnet,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_network=self.virtual_network)
 
 
 def get_ip_allocation(name=None, resource_group_name=None, opts=None):
@@ -83,9 +125,15 @@ def get_ip_allocation(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200301:getIpAllocation', __args__, opts=opts).value
 
     return AwaitableGetIpAllocationResult(
+        allocation_tags=__ret__.get('allocationTags'),
         etag=__ret__.get('etag'),
+        ipam_allocation_id=__ret__.get('ipamAllocationId'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        prefix=__ret__.get('prefix'),
+        prefix_length=__ret__.get('prefixLength'),
+        prefix_type=__ret__.get('prefixType'),
+        subnet=__ret__.get('subnet'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_network=__ret__.get('virtualNetwork'))

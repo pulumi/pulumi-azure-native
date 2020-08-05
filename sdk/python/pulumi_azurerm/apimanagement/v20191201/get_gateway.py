@@ -13,18 +13,24 @@ class GetGatewayResult:
     """
     Gateway details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, description=None, location_data=None, name=None, type=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Gateway description
+        """
+        if location_data and not isinstance(location_data, dict):
+            raise TypeError("Expected argument 'location_data' to be a dict")
+        __self__.location_data = location_data
+        """
+        Gateway location.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        Gateway details.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +46,9 @@ class AwaitableGetGatewayResult(GetGatewayResult):
         if False:
             yield self
         return GetGatewayResult(
+            description=self.description,
+            location_data=self.location_data,
             name=self.name,
-            properties=self.properties,
             type=self.type)
 
 
@@ -64,6 +71,7 @@ def get_gateway(name=None, resource_group_name=None, service_name=None, opts=Non
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getGateway', __args__, opts=opts).value
 
     return AwaitableGetGatewayResult(
+        description=__ret__.get('description'),
+        location_data=__ret__.get('locationData'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         type=__ret__.get('type'))

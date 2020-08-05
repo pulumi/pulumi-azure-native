@@ -13,12 +13,30 @@ class GetVirtualHubResult:
     """
     VirtualHub Resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, address_prefix=None, azure_firewall=None, etag=None, express_route_gateway=None, location=None, name=None, p2_s_vpn_gateway=None, provisioning_state=None, route_table=None, security_provider_name=None, sku=None, tags=None, type=None, virtual_hub_route_table_v2s=None, virtual_network_connections=None, virtual_wan=None, vpn_gateway=None):
+        if address_prefix and not isinstance(address_prefix, str):
+            raise TypeError("Expected argument 'address_prefix' to be a str")
+        __self__.address_prefix = address_prefix
+        """
+        Address-prefix for this VirtualHub.
+        """
+        if azure_firewall and not isinstance(azure_firewall, dict):
+            raise TypeError("Expected argument 'azure_firewall' to be a dict")
+        __self__.azure_firewall = azure_firewall
+        """
+        The azureFirewall associated with this VirtualHub.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if express_route_gateway and not isinstance(express_route_gateway, dict):
+            raise TypeError("Expected argument 'express_route_gateway' to be a dict")
+        __self__.express_route_gateway = express_route_gateway
+        """
+        The expressRouteGateway associated with this VirtualHub.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +50,35 @@ class GetVirtualHubResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if p2_s_vpn_gateway and not isinstance(p2_s_vpn_gateway, dict):
+            raise TypeError("Expected argument 'p2_s_vpn_gateway' to be a dict")
+        __self__.p2_s_vpn_gateway = p2_s_vpn_gateway
         """
-        Properties of the virtual hub.
+        The P2SVpnGateway associated with this VirtualHub.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the virtual hub resource.
+        """
+        if route_table and not isinstance(route_table, dict):
+            raise TypeError("Expected argument 'route_table' to be a dict")
+        __self__.route_table = route_table
+        """
+        The routeTable associated with this virtual hub.
+        """
+        if security_provider_name and not isinstance(security_provider_name, str):
+            raise TypeError("Expected argument 'security_provider_name' to be a str")
+        __self__.security_provider_name = security_provider_name
+        """
+        The Security Provider name.
+        """
+        if sku and not isinstance(sku, str):
+            raise TypeError("Expected argument 'sku' to be a str")
+        __self__.sku = sku
+        """
+        The sku of this VirtualHub.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +92,30 @@ class GetVirtualHubResult:
         """
         Resource type.
         """
+        if virtual_hub_route_table_v2s and not isinstance(virtual_hub_route_table_v2s, list):
+            raise TypeError("Expected argument 'virtual_hub_route_table_v2s' to be a list")
+        __self__.virtual_hub_route_table_v2s = virtual_hub_route_table_v2s
+        """
+        List of all virtual hub route table v2s associated with this VirtualHub.
+        """
+        if virtual_network_connections and not isinstance(virtual_network_connections, list):
+            raise TypeError("Expected argument 'virtual_network_connections' to be a list")
+        __self__.virtual_network_connections = virtual_network_connections
+        """
+        List of all vnet connections with this VirtualHub.
+        """
+        if virtual_wan and not isinstance(virtual_wan, dict):
+            raise TypeError("Expected argument 'virtual_wan' to be a dict")
+        __self__.virtual_wan = virtual_wan
+        """
+        The VirtualWAN to which the VirtualHub belongs.
+        """
+        if vpn_gateway and not isinstance(vpn_gateway, dict):
+            raise TypeError("Expected argument 'vpn_gateway' to be a dict")
+        __self__.vpn_gateway = vpn_gateway
+        """
+        The VpnGateway associated with this VirtualHub.
+        """
 
 
 class AwaitableGetVirtualHubResult(GetVirtualHubResult):
@@ -58,12 +124,23 @@ class AwaitableGetVirtualHubResult(GetVirtualHubResult):
         if False:
             yield self
         return GetVirtualHubResult(
+            address_prefix=self.address_prefix,
+            azure_firewall=self.azure_firewall,
             etag=self.etag,
+            express_route_gateway=self.express_route_gateway,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            p2_s_vpn_gateway=self.p2_s_vpn_gateway,
+            provisioning_state=self.provisioning_state,
+            route_table=self.route_table,
+            security_provider_name=self.security_provider_name,
+            sku=self.sku,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_hub_route_table_v2s=self.virtual_hub_route_table_v2s,
+            virtual_network_connections=self.virtual_network_connections,
+            virtual_wan=self.virtual_wan,
+            vpn_gateway=self.vpn_gateway)
 
 
 def get_virtual_hub(name=None, resource_group_name=None, opts=None):
@@ -83,9 +160,20 @@ def get_virtual_hub(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20191101:getVirtualHub', __args__, opts=opts).value
 
     return AwaitableGetVirtualHubResult(
+        address_prefix=__ret__.get('addressPrefix'),
+        azure_firewall=__ret__.get('azureFirewall'),
         etag=__ret__.get('etag'),
+        express_route_gateway=__ret__.get('expressRouteGateway'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        p2_s_vpn_gateway=__ret__.get('p2SVpnGateway'),
+        provisioning_state=__ret__.get('provisioningState'),
+        route_table=__ret__.get('routeTable'),
+        security_provider_name=__ret__.get('securityProviderName'),
+        sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_hub_route_table_v2s=__ret__.get('virtualHubRouteTableV2s'),
+        virtual_network_connections=__ret__.get('virtualNetworkConnections'),
+        virtual_wan=__ret__.get('virtualWan'),
+        vpn_gateway=__ret__.get('vpnGateway'))

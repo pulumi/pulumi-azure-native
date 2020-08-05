@@ -13,18 +13,78 @@ class GetRelationshipLinkResult:
     """
     The relationship link resource format.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, description=None, display_name=None, interaction_type=None, link_name=None, mappings=None, name=None, profile_property_references=None, provisioning_state=None, related_profile_property_references=None, relationship_guid_id=None, relationship_name=None, tenant_id=None, type=None):
+        if description and not isinstance(description, dict):
+            raise TypeError("Expected argument 'description' to be a dict")
+        __self__.description = description
+        """
+        Localized descriptions for the Relationship Link.
+        """
+        if display_name and not isinstance(display_name, dict):
+            raise TypeError("Expected argument 'display_name' to be a dict")
+        __self__.display_name = display_name
+        """
+        Localized display name for the Relationship Link.
+        """
+        if interaction_type and not isinstance(interaction_type, str):
+            raise TypeError("Expected argument 'interaction_type' to be a str")
+        __self__.interaction_type = interaction_type
+        """
+        The InteractionType associated with the Relationship Link.
+        """
+        if link_name and not isinstance(link_name, str):
+            raise TypeError("Expected argument 'link_name' to be a str")
+        __self__.link_name = link_name
+        """
+        The name of the Relationship Link.
+        """
+        if mappings and not isinstance(mappings, list):
+            raise TypeError("Expected argument 'mappings' to be a list")
+        __self__.mappings = mappings
+        """
+        The mappings between Interaction and Relationship fields.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if profile_property_references and not isinstance(profile_property_references, list):
+            raise TypeError("Expected argument 'profile_property_references' to be a list")
+        __self__.profile_property_references = profile_property_references
         """
-        The definition of relationship link.
+        The property references for the Profile of the Relationship.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state.
+        """
+        if related_profile_property_references and not isinstance(related_profile_property_references, list):
+            raise TypeError("Expected argument 'related_profile_property_references' to be a list")
+        __self__.related_profile_property_references = related_profile_property_references
+        """
+        The property references for the Related Profile of the Relationship.
+        """
+        if relationship_guid_id and not isinstance(relationship_guid_id, str):
+            raise TypeError("Expected argument 'relationship_guid_id' to be a str")
+        __self__.relationship_guid_id = relationship_guid_id
+        """
+        The relationship guid id.
+        """
+        if relationship_name and not isinstance(relationship_name, str):
+            raise TypeError("Expected argument 'relationship_name' to be a str")
+        __self__.relationship_name = relationship_name
+        """
+        The Relationship associated with the Link.
+        """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        The hub name.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +100,18 @@ class AwaitableGetRelationshipLinkResult(GetRelationshipLinkResult):
         if False:
             yield self
         return GetRelationshipLinkResult(
+            description=self.description,
+            display_name=self.display_name,
+            interaction_type=self.interaction_type,
+            link_name=self.link_name,
+            mappings=self.mappings,
             name=self.name,
-            properties=self.properties,
+            profile_property_references=self.profile_property_references,
+            provisioning_state=self.provisioning_state,
+            related_profile_property_references=self.related_profile_property_references,
+            relationship_guid_id=self.relationship_guid_id,
+            relationship_name=self.relationship_name,
+            tenant_id=self.tenant_id,
             type=self.type)
 
 
@@ -64,6 +134,16 @@ def get_relationship_link(hub_name=None, name=None, resource_group_name=None, op
     __ret__ = pulumi.runtime.invoke('azurerm:customerinsights/v20170426:getRelationshipLink', __args__, opts=opts).value
 
     return AwaitableGetRelationshipLinkResult(
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        interaction_type=__ret__.get('interactionType'),
+        link_name=__ret__.get('linkName'),
+        mappings=__ret__.get('mappings'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        profile_property_references=__ret__.get('profilePropertyReferences'),
+        provisioning_state=__ret__.get('provisioningState'),
+        related_profile_property_references=__ret__.get('relatedProfilePropertyReferences'),
+        relationship_guid_id=__ret__.get('relationshipGuidId'),
+        relationship_name=__ret__.get('relationshipName'),
+        tenant_id=__ret__.get('tenantId'),
         type=__ret__.get('type'))

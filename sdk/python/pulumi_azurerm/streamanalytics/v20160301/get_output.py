@@ -13,18 +13,36 @@ class GetOutputResult:
     """
     An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, datasource=None, diagnostics=None, etag=None, name=None, serialization=None, type=None):
+        if datasource and not isinstance(datasource, dict):
+            raise TypeError("Expected argument 'datasource' to be a dict")
+        __self__.datasource = datasource
+        """
+        Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
+        """
+        if diagnostics and not isinstance(diagnostics, dict):
+            raise TypeError("Expected argument 'diagnostics' to be a dict")
+        __self__.diagnostics = diagnostics
+        """
+        Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
+        """
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        __self__.etag = etag
+        """
+        The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if serialization and not isinstance(serialization, dict):
+            raise TypeError("Expected argument 'serialization' to be a dict")
+        __self__.serialization = serialization
         """
-        The properties that are associated with an output. Required on PUT (CreateOrReplace) requests.
+        Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +58,11 @@ class AwaitableGetOutputResult(GetOutputResult):
         if False:
             yield self
         return GetOutputResult(
+            datasource=self.datasource,
+            diagnostics=self.diagnostics,
+            etag=self.etag,
             name=self.name,
-            properties=self.properties,
+            serialization=self.serialization,
             type=self.type)
 
 
@@ -64,6 +85,9 @@ def get_output(job_name=None, name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:streamanalytics/v20160301:getOutput', __args__, opts=opts).value
 
     return AwaitableGetOutputResult(
+        datasource=__ret__.get('datasource'),
+        diagnostics=__ret__.get('diagnostics'),
+        etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        serialization=__ret__.get('serialization'),
         type=__ret__.get('type'))

@@ -13,12 +13,18 @@ class GetApplicationGatewayPrivateEndpointConnectionResult:
     """
     Private Endpoint connection on an application gateway.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, link_identifier=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if link_identifier and not isinstance(link_identifier, str):
+            raise TypeError("Expected argument 'link_identifier' to be a str")
+        __self__.link_identifier = link_identifier
+        """
+        The consumer link id.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +32,23 @@ class GetApplicationGatewayPrivateEndpointConnectionResult:
         """
         Name of the private endpoint connection on an application gateway.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if private_endpoint and not isinstance(private_endpoint, dict):
+            raise TypeError("Expected argument 'private_endpoint' to be a dict")
+        __self__.private_endpoint = private_endpoint
         """
-        Properties of the application gateway private endpoint connection.
+        The resource of private end point.
+        """
+        if private_link_service_connection_state and not isinstance(private_link_service_connection_state, dict):
+            raise TypeError("Expected argument 'private_link_service_connection_state' to be a dict")
+        __self__.private_link_service_connection_state = private_link_service_connection_state
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the application gateway private endpoint connection resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -47,8 +65,11 @@ class AwaitableGetApplicationGatewayPrivateEndpointConnectionResult(GetApplicati
             yield self
         return GetApplicationGatewayPrivateEndpointConnectionResult(
             etag=self.etag,
+            link_identifier=self.link_identifier,
             name=self.name,
-            properties=self.properties,
+            private_endpoint=self.private_endpoint,
+            private_link_service_connection_state=self.private_link_service_connection_state,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -72,6 +93,9 @@ def get_application_gateway_private_endpoint_connection(application_gateway_name
 
     return AwaitableGetApplicationGatewayPrivateEndpointConnectionResult(
         etag=__ret__.get('etag'),
+        link_identifier=__ret__.get('linkIdentifier'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        private_endpoint=__ret__.get('privateEndpoint'),
+        private_link_service_connection_state=__ret__.get('privateLinkServiceConnectionState'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

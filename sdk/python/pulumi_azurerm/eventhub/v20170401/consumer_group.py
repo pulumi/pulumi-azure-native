@@ -10,20 +10,25 @@ from ... import _utilities, _tables
 
 
 class ConsumerGroup(pulumi.CustomResource):
+    created_at: pulumi.Output[str]
+    """
+    Exact time the message was created.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
-    """
-    Single item in List or Get Consumer group operation
-      * `created_at` (`str`) - Exact time the message was created.
-      * `updated_at` (`str`) - The exact time the message was updated.
-      * `user_metadata` (`str`) - User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
-    """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    updated_at: pulumi.Output[str]
+    """
+    The exact time the message was updated.
+    """
+    user_metadata: pulumi.Output[str]
+    """
+    User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
     """
     def __init__(__self__, resource_name, opts=None, event_hub_name=None, name=None, namespace_name=None, resource_group_name=None, user_metadata=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -67,8 +72,9 @@ class ConsumerGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['user_metadata'] = user_metadata
-            __props__['properties'] = None
+            __props__['created_at'] = None
             __props__['type'] = None
+            __props__['updated_at'] = None
         super(ConsumerGroup, __self__).__init__(
             'azurerm:eventhub/v20170401:ConsumerGroup',
             resource_name,

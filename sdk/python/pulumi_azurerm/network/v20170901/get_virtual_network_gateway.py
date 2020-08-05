@@ -13,12 +13,48 @@ class GetVirtualNetworkGatewayResult:
     """
     A common class for general resource information
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, active_active=None, bgp_settings=None, enable_bgp=None, etag=None, gateway_default_site=None, gateway_type=None, ip_configurations=None, location=None, name=None, provisioning_state=None, resource_guid=None, sku=None, tags=None, type=None, vpn_client_configuration=None, vpn_type=None):
+        if active_active and not isinstance(active_active, bool):
+            raise TypeError("Expected argument 'active_active' to be a bool")
+        __self__.active_active = active_active
+        """
+        ActiveActive flag
+        """
+        if bgp_settings and not isinstance(bgp_settings, dict):
+            raise TypeError("Expected argument 'bgp_settings' to be a dict")
+        __self__.bgp_settings = bgp_settings
+        """
+        Virtual network gateway's BGP speaker settings.
+        """
+        if enable_bgp and not isinstance(enable_bgp, bool):
+            raise TypeError("Expected argument 'enable_bgp' to be a bool")
+        __self__.enable_bgp = enable_bgp
+        """
+        Whether BGP is enabled for this virtual network gateway or not.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Gets a unique read-only string that changes whenever the resource is updated.
+        """
+        if gateway_default_site and not isinstance(gateway_default_site, dict):
+            raise TypeError("Expected argument 'gateway_default_site' to be a dict")
+        __self__.gateway_default_site = gateway_default_site
+        """
+        The reference of the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+        """
+        if gateway_type and not isinstance(gateway_type, str):
+            raise TypeError("Expected argument 'gateway_type' to be a str")
+        __self__.gateway_type = gateway_type
+        """
+        The type of this virtual network gateway. Possible values are: 'Vpn' and 'ExpressRoute'.
+        """
+        if ip_configurations and not isinstance(ip_configurations, list):
+            raise TypeError("Expected argument 'ip_configurations' to be a list")
+        __self__.ip_configurations = ip_configurations
+        """
+        IP configurations for virtual network gateway.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +68,23 @@ class GetVirtualNetworkGatewayResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the virtual network gateway.
+        The provisioning state of the VirtualNetworkGateway resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resource GUID property of the VirtualNetworkGateway resource.
+        """
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        __self__.sku = sku
+        """
+        The reference of the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +98,18 @@ class GetVirtualNetworkGatewayResult:
         """
         Resource type.
         """
+        if vpn_client_configuration and not isinstance(vpn_client_configuration, dict):
+            raise TypeError("Expected argument 'vpn_client_configuration' to be a dict")
+        __self__.vpn_client_configuration = vpn_client_configuration
+        """
+        The reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+        """
+        if vpn_type and not isinstance(vpn_type, str):
+            raise TypeError("Expected argument 'vpn_type' to be a str")
+        __self__.vpn_type = vpn_type
+        """
+        The type of this virtual network gateway. Possible values are: 'PolicyBased' and 'RouteBased'.
+        """
 
 
 class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
@@ -58,12 +118,22 @@ class AwaitableGetVirtualNetworkGatewayResult(GetVirtualNetworkGatewayResult):
         if False:
             yield self
         return GetVirtualNetworkGatewayResult(
+            active_active=self.active_active,
+            bgp_settings=self.bgp_settings,
+            enable_bgp=self.enable_bgp,
             etag=self.etag,
+            gateway_default_site=self.gateway_default_site,
+            gateway_type=self.gateway_type,
+            ip_configurations=self.ip_configurations,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
+            sku=self.sku,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            vpn_client_configuration=self.vpn_client_configuration,
+            vpn_type=self.vpn_type)
 
 
 def get_virtual_network_gateway(name=None, resource_group_name=None, opts=None):
@@ -83,9 +153,19 @@ def get_virtual_network_gateway(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20170901:getVirtualNetworkGateway', __args__, opts=opts).value
 
     return AwaitableGetVirtualNetworkGatewayResult(
+        active_active=__ret__.get('activeActive'),
+        bgp_settings=__ret__.get('bgpSettings'),
+        enable_bgp=__ret__.get('enableBgp'),
         etag=__ret__.get('etag'),
+        gateway_default_site=__ret__.get('gatewayDefaultSite'),
+        gateway_type=__ret__.get('gatewayType'),
+        ip_configurations=__ret__.get('ipConfigurations'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_guid=__ret__.get('resourceGuid'),
+        sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        vpn_client_configuration=__ret__.get('vpnClientConfiguration'),
+        vpn_type=__ret__.get('vpnType'))

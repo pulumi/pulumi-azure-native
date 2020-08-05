@@ -13,7 +13,99 @@ class GetDatabaseResult:
     """
     Represents a database.
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, collation=None, containment_state=None, create_mode=None, creation_date=None, current_service_objective_id=None, database_id=None, default_secondary_location=None, earliest_restore_date=None, edition=None, elastic_pool_name=None, failover_group_id=None, kind=None, location=None, max_size_bytes=None, name=None, read_scale=None, recommended_index=None, recovery_services_recovery_point_resource_id=None, requested_service_objective_id=None, requested_service_objective_name=None, restore_point_in_time=None, sample_name=None, service_level_objective=None, service_tier_advisors=None, source_database_deletion_date=None, source_database_id=None, status=None, tags=None, transparent_data_encryption=None, type=None, zone_redundant=None):
+        if collation and not isinstance(collation, str):
+            raise TypeError("Expected argument 'collation' to be a str")
+        __self__.collation = collation
+        """
+        The collation of the database. If createMode is not Default, this value is ignored.
+        """
+        if containment_state and not isinstance(containment_state, float):
+            raise TypeError("Expected argument 'containment_state' to be a float")
+        __self__.containment_state = containment_state
+        """
+        The containment state of the database.
+        """
+        if create_mode and not isinstance(create_mode, str):
+            raise TypeError("Expected argument 'create_mode' to be a str")
+        __self__.create_mode = create_mode
+        """
+        Specifies the mode of database creation.
+
+        Default: regular database creation.
+
+        Copy: creates a database as a copy of an existing database. sourceDatabaseId must be specified as the resource ID of the source database.
+
+        OnlineSecondary/NonReadableSecondary: creates a database as a (readable or nonreadable) secondary replica of an existing database. sourceDatabaseId must be specified as the resource ID of the existing primary database.
+
+        PointInTimeRestore: Creates a database by restoring a point in time backup of an existing database. sourceDatabaseId must be specified as the resource ID of the existing database, and restorePointInTime must be specified.
+
+        Recovery: Creates a database by restoring a geo-replicated backup. sourceDatabaseId must be specified as the recoverable database resource ID to restore.
+
+        Restore: Creates a database by restoring a backup of a deleted database. sourceDatabaseId must be specified. If sourceDatabaseId is the database's original resource ID, then sourceDatabaseDeletionDate must be specified. Otherwise sourceDatabaseId must be the restorable dropped database resource ID and sourceDatabaseDeletionDate is ignored. restorePointInTime may also be specified to restore from an earlier point in time.
+
+        RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
+
+        Copy, NonReadableSecondary, OnlineSecondary and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+        """
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError("Expected argument 'creation_date' to be a str")
+        __self__.creation_date = creation_date
+        """
+        The creation date of the database (ISO8601 format).
+        """
+        if current_service_objective_id and not isinstance(current_service_objective_id, str):
+            raise TypeError("Expected argument 'current_service_objective_id' to be a str")
+        __self__.current_service_objective_id = current_service_objective_id
+        """
+        The current service level objective ID of the database. This is the ID of the service level objective that is currently active.
+        """
+        if database_id and not isinstance(database_id, str):
+            raise TypeError("Expected argument 'database_id' to be a str")
+        __self__.database_id = database_id
+        """
+        The ID of the database.
+        """
+        if default_secondary_location and not isinstance(default_secondary_location, str):
+            raise TypeError("Expected argument 'default_secondary_location' to be a str")
+        __self__.default_secondary_location = default_secondary_location
+        """
+        The default secondary region for this database.
+        """
+        if earliest_restore_date and not isinstance(earliest_restore_date, str):
+            raise TypeError("Expected argument 'earliest_restore_date' to be a str")
+        __self__.earliest_restore_date = earliest_restore_date
+        """
+        This records the earliest start date and time that restore is available for this database (ISO8601 format).
+        """
+        if edition and not isinstance(edition, str):
+            raise TypeError("Expected argument 'edition' to be a str")
+        __self__.edition = edition
+        """
+        The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
+        
+        The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
+        
+        ```azurecli
+        az sql db list-editions -l <location> -o table
+        ````
+        
+        ```powershell
+        Get-AzSqlServerServiceObjective -Location <location>
+        ````
+        """
+        if elastic_pool_name and not isinstance(elastic_pool_name, str):
+            raise TypeError("Expected argument 'elastic_pool_name' to be a str")
+        __self__.elastic_pool_name = elastic_pool_name
+        """
+        The name of the elastic pool the database is in. If elasticPoolName and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveName is ignored. Not supported for DataWarehouse edition.
+        """
+        if failover_group_id and not isinstance(failover_group_id, str):
+            raise TypeError("Expected argument 'failover_group_id' to be a str")
+        __self__.failover_group_id = failover_group_id
+        """
+        The resource identifier of the failover group containing this database.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,17 +118,101 @@ class GetDatabaseResult:
         """
         Resource location.
         """
+        if max_size_bytes and not isinstance(max_size_bytes, str):
+            raise TypeError("Expected argument 'max_size_bytes' to be a str")
+        __self__.max_size_bytes = max_size_bytes
+        """
+        The max size of the database expressed in bytes. If createMode is not Default, this value is ignored. To see possible values, query the capabilities API (/subscriptions/{subscriptionId}/providers/Microsoft.Sql/locations/{locationID}/capabilities) referred to by operationId: "Capabilities_ListByLocation."
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if read_scale and not isinstance(read_scale, str):
+            raise TypeError("Expected argument 'read_scale' to be a str")
+        __self__.read_scale = read_scale
         """
-        The properties representing the resource.
+        Conditional. If the database is a geo-secondary, readScale indicates whether read-only connections are allowed to this database or not. Not supported for DataWarehouse edition.
+        """
+        if recommended_index and not isinstance(recommended_index, list):
+            raise TypeError("Expected argument 'recommended_index' to be a list")
+        __self__.recommended_index = recommended_index
+        """
+        The recommended indices for this database.
+        """
+        if recovery_services_recovery_point_resource_id and not isinstance(recovery_services_recovery_point_resource_id, str):
+            raise TypeError("Expected argument 'recovery_services_recovery_point_resource_id' to be a str")
+        __self__.recovery_services_recovery_point_resource_id = recovery_services_recovery_point_resource_id
+        """
+        Conditional. If createMode is RestoreLongTermRetentionBackup, then this value is required. Specifies the resource ID of the recovery point to restore from.
+        """
+        if requested_service_objective_id and not isinstance(requested_service_objective_id, str):
+            raise TypeError("Expected argument 'requested_service_objective_id' to be a str")
+        __self__.requested_service_objective_id = requested_service_objective_id
+        """
+        The configured service level objective ID of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of currentServiceObjectiveId property. If requestedServiceObjectiveId and requestedServiceObjectiveName are both updated, the value of requestedServiceObjectiveId overrides the value of requestedServiceObjectiveName.
+        
+        The list of SKUs may vary by region and support offer. To determine the service objective ids that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API.
+        """
+        if requested_service_objective_name and not isinstance(requested_service_objective_name, str):
+            raise TypeError("Expected argument 'requested_service_objective_name' to be a str")
+        __self__.requested_service_objective_name = requested_service_objective_name
+        """
+        The name of the configured service level objective of the database. This is the service level objective that is in the process of being applied to the database. Once successfully updated, it will match the value of serviceLevelObjective property. 
+        
+        The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
+        
+        ```azurecli
+        az sql db list-editions -l <location> -o table
+        ````
+        
+        ```powershell
+        Get-AzSqlServerServiceObjective -Location <location>
+        ````
+        """
+        if restore_point_in_time and not isinstance(restore_point_in_time, str):
+            raise TypeError("Expected argument 'restore_point_in_time' to be a str")
+        __self__.restore_point_in_time = restore_point_in_time
+        """
+        Conditional. If createMode is PointInTimeRestore, this value is required. If createMode is Restore, this value is optional. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database. Must be greater than or equal to the source database's earliestRestoreDate value.
+        """
+        if sample_name and not isinstance(sample_name, str):
+            raise TypeError("Expected argument 'sample_name' to be a str")
+        __self__.sample_name = sample_name
+        """
+        Indicates the name of the sample schema to apply when creating this database. If createMode is not Default, this value is ignored. Not supported for DataWarehouse edition.
+        """
+        if service_level_objective and not isinstance(service_level_objective, str):
+            raise TypeError("Expected argument 'service_level_objective' to be a str")
+        __self__.service_level_objective = service_level_objective
+        """
+        The current service level objective of the database.
+        """
+        if service_tier_advisors and not isinstance(service_tier_advisors, list):
+            raise TypeError("Expected argument 'service_tier_advisors' to be a list")
+        __self__.service_tier_advisors = service_tier_advisors
+        """
+        The list of service tier advisors for this database. Expanded property
+        """
+        if source_database_deletion_date and not isinstance(source_database_deletion_date, str):
+            raise TypeError("Expected argument 'source_database_deletion_date' to be a str")
+        __self__.source_database_deletion_date = source_database_deletion_date
+        """
+        Conditional. If createMode is Restore and sourceDatabaseId is the deleted database's original resource id when it existed (as opposed to its current restorable dropped database id), then this value is required. Specifies the time that the database was deleted.
+        """
+        if source_database_id and not isinstance(source_database_id, str):
+            raise TypeError("Expected argument 'source_database_id' to be a str")
+        __self__.source_database_id = source_database_id
+        """
+        Conditional. If createMode is Copy, NonReadableSecondary, OnlineSecondary, PointInTimeRestore, Recovery, or Restore, then this value is required. Specifies the resource ID of the source database. If createMode is NonReadableSecondary or OnlineSecondary, the name of the source database must be the same as the new database being created.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        The status of the database.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,11 +220,23 @@ class GetDatabaseResult:
         """
         Resource tags.
         """
+        if transparent_data_encryption and not isinstance(transparent_data_encryption, list):
+            raise TypeError("Expected argument 'transparent_data_encryption' to be a list")
+        __self__.transparent_data_encryption = transparent_data_encryption
+        """
+        The transparent data encryption info for this database.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type.
+        """
+        if zone_redundant and not isinstance(zone_redundant, bool):
+            raise TypeError("Expected argument 'zone_redundant' to be a bool")
+        __self__.zone_redundant = zone_redundant
+        """
+        Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
 
 
@@ -58,12 +246,37 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
         if False:
             yield self
         return GetDatabaseResult(
+            collation=self.collation,
+            containment_state=self.containment_state,
+            create_mode=self.create_mode,
+            creation_date=self.creation_date,
+            current_service_objective_id=self.current_service_objective_id,
+            database_id=self.database_id,
+            default_secondary_location=self.default_secondary_location,
+            earliest_restore_date=self.earliest_restore_date,
+            edition=self.edition,
+            elastic_pool_name=self.elastic_pool_name,
+            failover_group_id=self.failover_group_id,
             kind=self.kind,
             location=self.location,
+            max_size_bytes=self.max_size_bytes,
             name=self.name,
-            properties=self.properties,
+            read_scale=self.read_scale,
+            recommended_index=self.recommended_index,
+            recovery_services_recovery_point_resource_id=self.recovery_services_recovery_point_resource_id,
+            requested_service_objective_id=self.requested_service_objective_id,
+            requested_service_objective_name=self.requested_service_objective_name,
+            restore_point_in_time=self.restore_point_in_time,
+            sample_name=self.sample_name,
+            service_level_objective=self.service_level_objective,
+            service_tier_advisors=self.service_tier_advisors,
+            source_database_deletion_date=self.source_database_deletion_date,
+            source_database_id=self.source_database_id,
+            status=self.status,
             tags=self.tags,
-            type=self.type)
+            transparent_data_encryption=self.transparent_data_encryption,
+            type=self.type,
+            zone_redundant=self.zone_redundant)
 
 
 def get_database(name=None, resource_group_name=None, server_name=None, opts=None):
@@ -85,9 +298,34 @@ def get_database(name=None, resource_group_name=None, server_name=None, opts=Non
     __ret__ = pulumi.runtime.invoke('azurerm:sql/v20140401:getDatabase', __args__, opts=opts).value
 
     return AwaitableGetDatabaseResult(
+        collation=__ret__.get('collation'),
+        containment_state=__ret__.get('containmentState'),
+        create_mode=__ret__.get('createMode'),
+        creation_date=__ret__.get('creationDate'),
+        current_service_objective_id=__ret__.get('currentServiceObjectiveId'),
+        database_id=__ret__.get('databaseId'),
+        default_secondary_location=__ret__.get('defaultSecondaryLocation'),
+        earliest_restore_date=__ret__.get('earliestRestoreDate'),
+        edition=__ret__.get('edition'),
+        elastic_pool_name=__ret__.get('elasticPoolName'),
+        failover_group_id=__ret__.get('failoverGroupId'),
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
+        max_size_bytes=__ret__.get('maxSizeBytes'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        read_scale=__ret__.get('readScale'),
+        recommended_index=__ret__.get('recommendedIndex'),
+        recovery_services_recovery_point_resource_id=__ret__.get('recoveryServicesRecoveryPointResourceId'),
+        requested_service_objective_id=__ret__.get('requestedServiceObjectiveId'),
+        requested_service_objective_name=__ret__.get('requestedServiceObjectiveName'),
+        restore_point_in_time=__ret__.get('restorePointInTime'),
+        sample_name=__ret__.get('sampleName'),
+        service_level_objective=__ret__.get('serviceLevelObjective'),
+        service_tier_advisors=__ret__.get('serviceTierAdvisors'),
+        source_database_deletion_date=__ret__.get('sourceDatabaseDeletionDate'),
+        source_database_id=__ret__.get('sourceDatabaseId'),
+        status=__ret__.get('status'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        transparent_data_encryption=__ret__.get('transparentDataEncryption'),
+        type=__ret__.get('type'),
+        zone_redundant=__ret__.get('zoneRedundant'))

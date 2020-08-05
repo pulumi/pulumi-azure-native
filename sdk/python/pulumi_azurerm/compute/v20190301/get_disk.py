@@ -13,7 +13,55 @@ class GetDiskResult:
     """
     Disk resource.
     """
-    def __init__(__self__, location=None, managed_by=None, name=None, properties=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, creation_data=None, disk_iops_read_write=None, disk_m_bps_read_write=None, disk_size_bytes=None, disk_size_gb=None, disk_state=None, encryption_settings_collection=None, hyper_v_generation=None, location=None, managed_by=None, name=None, os_type=None, provisioning_state=None, sku=None, tags=None, time_created=None, type=None, unique_id=None, zones=None):
+        if creation_data and not isinstance(creation_data, dict):
+            raise TypeError("Expected argument 'creation_data' to be a dict")
+        __self__.creation_data = creation_data
+        """
+        Disk source information. CreationData information cannot be changed after the disk has been created.
+        """
+        if disk_iops_read_write and not isinstance(disk_iops_read_write, float):
+            raise TypeError("Expected argument 'disk_iops_read_write' to be a float")
+        __self__.disk_iops_read_write = disk_iops_read_write
+        """
+        The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+        """
+        if disk_m_bps_read_write and not isinstance(disk_m_bps_read_write, float):
+            raise TypeError("Expected argument 'disk_m_bps_read_write' to be a float")
+        __self__.disk_m_bps_read_write = disk_m_bps_read_write
+        """
+        The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+        """
+        if disk_size_bytes and not isinstance(disk_size_bytes, float):
+            raise TypeError("Expected argument 'disk_size_bytes' to be a float")
+        __self__.disk_size_bytes = disk_size_bytes
+        """
+        The size of the disk in bytes. This field is read only.
+        """
+        if disk_size_gb and not isinstance(disk_size_gb, float):
+            raise TypeError("Expected argument 'disk_size_gb' to be a float")
+        __self__.disk_size_gb = disk_size_gb
+        """
+        If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+        """
+        if disk_state and not isinstance(disk_state, str):
+            raise TypeError("Expected argument 'disk_state' to be a str")
+        __self__.disk_state = disk_state
+        """
+        The state of the disk.
+        """
+        if encryption_settings_collection and not isinstance(encryption_settings_collection, dict):
+            raise TypeError("Expected argument 'encryption_settings_collection' to be a dict")
+        __self__.encryption_settings_collection = encryption_settings_collection
+        """
+        Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+        """
+        if hyper_v_generation and not isinstance(hyper_v_generation, str):
+            raise TypeError("Expected argument 'hyper_v_generation' to be a str")
+        __self__.hyper_v_generation = hyper_v_generation
+        """
+        The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -32,11 +80,17 @@ class GetDiskResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if os_type and not isinstance(os_type, str):
+            raise TypeError("Expected argument 'os_type' to be a str")
+        __self__.os_type = os_type
         """
-        Disk resource properties.
+        The Operating System type.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The disk provisioning state.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -50,11 +104,23 @@ class GetDiskResult:
         """
         Resource tags
         """
+        if time_created and not isinstance(time_created, str):
+            raise TypeError("Expected argument 'time_created' to be a str")
+        __self__.time_created = time_created
+        """
+        The time when the disk was created.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type
+        """
+        if unique_id and not isinstance(unique_id, str):
+            raise TypeError("Expected argument 'unique_id' to be a str")
+        __self__.unique_id = unique_id
+        """
+        Unique Guid identifying the resource.
         """
         if zones and not isinstance(zones, list):
             raise TypeError("Expected argument 'zones' to be a list")
@@ -70,13 +136,24 @@ class AwaitableGetDiskResult(GetDiskResult):
         if False:
             yield self
         return GetDiskResult(
+            creation_data=self.creation_data,
+            disk_iops_read_write=self.disk_iops_read_write,
+            disk_m_bps_read_write=self.disk_m_bps_read_write,
+            disk_size_bytes=self.disk_size_bytes,
+            disk_size_gb=self.disk_size_gb,
+            disk_state=self.disk_state,
+            encryption_settings_collection=self.encryption_settings_collection,
+            hyper_v_generation=self.hyper_v_generation,
             location=self.location,
             managed_by=self.managed_by,
             name=self.name,
-            properties=self.properties,
+            os_type=self.os_type,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
             tags=self.tags,
+            time_created=self.time_created,
             type=self.type,
+            unique_id=self.unique_id,
             zones=self.zones)
 
 
@@ -97,11 +174,22 @@ def get_disk(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:compute/v20190301:getDisk', __args__, opts=opts).value
 
     return AwaitableGetDiskResult(
+        creation_data=__ret__.get('creationData'),
+        disk_iops_read_write=__ret__.get('diskIOPSReadWrite'),
+        disk_m_bps_read_write=__ret__.get('diskMBpsReadWrite'),
+        disk_size_bytes=__ret__.get('diskSizeBytes'),
+        disk_size_gb=__ret__.get('diskSizeGB'),
+        disk_state=__ret__.get('diskState'),
+        encryption_settings_collection=__ret__.get('encryptionSettingsCollection'),
+        hyper_v_generation=__ret__.get('hyperVGeneration'),
         location=__ret__.get('location'),
         managed_by=__ret__.get('managedBy'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        os_type=__ret__.get('osType'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
+        time_created=__ret__.get('timeCreated'),
         type=__ret__.get('type'),
+        unique_id=__ret__.get('uniqueId'),
         zones=__ret__.get('zones'))

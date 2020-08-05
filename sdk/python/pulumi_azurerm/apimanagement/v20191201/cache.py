@@ -10,16 +10,21 @@ from ... import _utilities, _tables
 
 
 class Cache(pulumi.CustomResource):
+    connection_string: pulumi.Output[str]
+    """
+    Runtime connection string to cache
+    """
+    description: pulumi.Output[str]
+    """
+    Cache description
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    resource_id: pulumi.Output[str]
     """
-    Cache properties details.
-      * `connection_string` (`str`) - Runtime connection string to cache
-      * `description` (`str`) - Cache description
-      * `resource_id` (`str`) - Original uri of entity in external system cache points to
+    Original uri of entity in external system cache points to
     """
     type: pulumi.Output[str]
     """
@@ -69,7 +74,6 @@ class Cache(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(Cache, __self__).__init__(
             'azurerm:apimanagement/v20191201:Cache',

@@ -13,12 +13,42 @@ class GetVpnSiteResult:
     """
     VpnSite Resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, address_space=None, bgp_properties=None, device_properties=None, etag=None, ip_address=None, is_security_site=None, location=None, name=None, provisioning_state=None, site_key=None, tags=None, type=None, virtual_wan=None, vpn_site_links=None):
+        if address_space and not isinstance(address_space, dict):
+            raise TypeError("Expected argument 'address_space' to be a dict")
+        __self__.address_space = address_space
+        """
+        The AddressSpace that contains an array of IP address ranges.
+        """
+        if bgp_properties and not isinstance(bgp_properties, dict):
+            raise TypeError("Expected argument 'bgp_properties' to be a dict")
+        __self__.bgp_properties = bgp_properties
+        """
+        The set of bgp properties.
+        """
+        if device_properties and not isinstance(device_properties, dict):
+            raise TypeError("Expected argument 'device_properties' to be a dict")
+        __self__.device_properties = device_properties
+        """
+        The device properties.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if ip_address and not isinstance(ip_address, str):
+            raise TypeError("Expected argument 'ip_address' to be a str")
+        __self__.ip_address = ip_address
+        """
+        The ip-address for the vpn-site.
+        """
+        if is_security_site and not isinstance(is_security_site, bool):
+            raise TypeError("Expected argument 'is_security_site' to be a bool")
+        __self__.is_security_site = is_security_site
+        """
+        IsSecuritySite flag.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +62,17 @@ class GetVpnSiteResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the VPN site.
+        The provisioning state of the VPN site resource.
+        """
+        if site_key and not isinstance(site_key, str):
+            raise TypeError("Expected argument 'site_key' to be a str")
+        __self__.site_key = site_key
+        """
+        The key for vpn-site that can be used for connections.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +86,18 @@ class GetVpnSiteResult:
         """
         Resource type.
         """
+        if virtual_wan and not isinstance(virtual_wan, dict):
+            raise TypeError("Expected argument 'virtual_wan' to be a dict")
+        __self__.virtual_wan = virtual_wan
+        """
+        The VirtualWAN to which the vpnSite belongs.
+        """
+        if vpn_site_links and not isinstance(vpn_site_links, list):
+            raise TypeError("Expected argument 'vpn_site_links' to be a list")
+        __self__.vpn_site_links = vpn_site_links
+        """
+        List of all vpn site links.
+        """
 
 
 class AwaitableGetVpnSiteResult(GetVpnSiteResult):
@@ -58,12 +106,20 @@ class AwaitableGetVpnSiteResult(GetVpnSiteResult):
         if False:
             yield self
         return GetVpnSiteResult(
+            address_space=self.address_space,
+            bgp_properties=self.bgp_properties,
+            device_properties=self.device_properties,
             etag=self.etag,
+            ip_address=self.ip_address,
+            is_security_site=self.is_security_site,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            site_key=self.site_key,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_wan=self.virtual_wan,
+            vpn_site_links=self.vpn_site_links)
 
 
 def get_vpn_site(name=None, resource_group_name=None, opts=None):
@@ -83,9 +139,17 @@ def get_vpn_site(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20190701:getVpnSite', __args__, opts=opts).value
 
     return AwaitableGetVpnSiteResult(
+        address_space=__ret__.get('addressSpace'),
+        bgp_properties=__ret__.get('bgpProperties'),
+        device_properties=__ret__.get('deviceProperties'),
         etag=__ret__.get('etag'),
+        ip_address=__ret__.get('ipAddress'),
+        is_security_site=__ret__.get('isSecuritySite'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        site_key=__ret__.get('siteKey'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_wan=__ret__.get('virtualWan'),
+        vpn_site_links=__ret__.get('vpnSiteLinks'))

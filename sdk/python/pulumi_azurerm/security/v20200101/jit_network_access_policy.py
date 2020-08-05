@@ -22,10 +22,27 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
+    """
+    Gets the provisioning state of the Just-in-Time policy.
+    """
+    requests: pulumi.Output[list]
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    virtual_machines: pulumi.Output[list]
+    """
+    Configurations for Microsoft.Compute/virtualMachines resource type.
+      * `id` (`str`) - Resource ID of the virtual machine that is linked to this policy
+      * `ports` (`list`) - Port configurations for the virtual machine
+        * `allowed_source_address_prefix` (`str`) - Mutually exclusive with the "allowedSourceAddressPrefixes" parameter. Should be an IP address or CIDR, for example "192.168.0.3" or "192.168.0.0/16".
+        * `allowed_source_address_prefixes` (`list`) - Mutually exclusive with the "allowedSourceAddressPrefix" parameter.
+        * `max_request_access_duration` (`str`) - Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day
+        * `number` (`float`)
+        * `protocol` (`str`)
+
+      * `public_ip_address` (`str`) - Public IP address of the Azure Firewall that is linked to this policy, if applicable
     """
     def __init__(__self__, resource_name, opts=None, asc_location=None, kind=None, name=None, requests=None, resource_group_name=None, virtual_machines=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -98,7 +115,7 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_machines'")
             __props__['virtual_machines'] = virtual_machines
             __props__['location'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(JitNetworkAccessPolicy, __self__).__init__(
             'azurerm:security/v20200101:JitNetworkAccessPolicy',

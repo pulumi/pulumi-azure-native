@@ -10,58 +10,86 @@ from ... import _utilities, _tables
 
 
 class Relationship(pulumi.CustomResource):
+    cardinality: pulumi.Output[str]
+    """
+    The Relationship Cardinality.
+    """
+    description: pulumi.Output[dict]
+    """
+    Localized descriptions for the Relationship.
+    """
+    display_name: pulumi.Output[dict]
+    """
+    Localized display name for the Relationship.
+    """
+    expiry_date_time_utc: pulumi.Output[str]
+    """
+    The expiry date time in UTC.
+    """
+    fields: pulumi.Output[list]
+    """
+    The properties of the Relationship.
+      * `array_value_separator` (`str`) - Array value separator for properties with isArray set.
+      * `data_source_precedence_rules` (`list`) - This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
+        * `data_source_reference_id` (`str`) - The data source reference id.
+        * `data_source_type` (`str`) - The data source type.
+        * `id` (`float`) - The data source ID.
+        * `name` (`str`) - The data source name
+        * `precedence` (`float`) - the precedence value.
+        * `status` (`str`) - The data source status.
+
+      * `enum_valid_values` (`list`) - Describes valid values for an enum property.
+        * `localized_value_names` (`dict`) - Localized names of the enum member.
+        * `value` (`float`) - The integer value of the enum member.
+
+      * `field_name` (`str`) - Name of the property.
+      * `field_type` (`str`) - Type of the property.
+      * `is_array` (`bool`) - Indicates if the property is actually an array of the fieldType above on the data api.
+      * `is_available_in_graph` (`bool`) - Whether property is available in graph or not.
+      * `is_enum` (`bool`) - Indicates if the property is an enum.
+      * `is_flag_enum` (`bool`) - Indicates if the property is an flag enum.
+      * `is_image` (`bool`) - Whether the property is an Image.
+      * `is_localized_string` (`bool`) - Whether the property is a localized string.
+      * `is_name` (`bool`) - Whether the property is a name or a part of name.
+      * `is_required` (`bool`) - Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
+      * `max_length` (`float`) - Max length of string. Used only if type is string.
+      * `property_id` (`str`) - The ID associated with the property.
+      * `schema_item_prop_link` (`str`) - URL encoded schema.org item prop link for the property.
+    """
+    lookup_mappings: pulumi.Output[list]
+    """
+    Optional property to be used to map fields in profile to their strong ids in related profile.
+      * `field_mappings` (`list`) - Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
+        * `profile_field_name` (`str`) - Specifies the fieldName in profile.
+        * `related_profile_key_property` (`str`) - Specifies the KeyProperty (from StrongId) of the related profile.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    profile_type: pulumi.Output[str]
     """
-    The definition of Relationship.
-      * `cardinality` (`str`) - The Relationship Cardinality.
-      * `description` (`dict`) - Localized descriptions for the Relationship.
-      * `display_name` (`dict`) - Localized display name for the Relationship.
-      * `expiry_date_time_utc` (`str`) - The expiry date time in UTC.
-      * `fields` (`list`) - The properties of the Relationship.
-        * `array_value_separator` (`str`) - Array value separator for properties with isArray set.
-        * `data_source_precedence_rules` (`list`) - This is specific to interactions modeled as activities. Data sources are used to determine where data is stored and also in precedence rules.
-          * `data_source` (`dict`) - Data Source is a way for us to know the source of instances. A single type can have data coming in from multiple places. In activities we use this to determine precedence rules.
-            * `data_source_reference_id` (`str`) - The data source reference id.
-            * `data_source_type` (`str`) - The data source type.
-            * `id` (`float`) - The data source ID.
-            * `name` (`str`) - The data source name
-            * `status` (`str`) - The data source status.
-
-          * `precedence` (`float`) - the precedence value.
-
-        * `enum_valid_values` (`list`) - Describes valid values for an enum property.
-          * `localized_value_names` (`dict`) - Localized names of the enum member.
-          * `value` (`float`) - The integer value of the enum member.
-
-        * `field_name` (`str`) - Name of the property.
-        * `field_type` (`str`) - Type of the property.
-        * `is_array` (`bool`) - Indicates if the property is actually an array of the fieldType above on the data api.
-        * `is_available_in_graph` (`bool`) - Whether property is available in graph or not.
-        * `is_enum` (`bool`) - Indicates if the property is an enum.
-        * `is_flag_enum` (`bool`) - Indicates if the property is an flag enum.
-        * `is_image` (`bool`) - Whether the property is an Image.
-        * `is_localized_string` (`bool`) - Whether the property is a localized string.
-        * `is_name` (`bool`) - Whether the property is a name or a part of name.
-        * `is_required` (`bool`) - Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
-        * `max_length` (`float`) - Max length of string. Used only if type is string.
-        * `property_id` (`str`) - The ID associated with the property.
-        * `schema_item_prop_link` (`str`) - URL encoded schema.org item prop link for the property.
-
-      * `lookup_mappings` (`list`) - Optional property to be used to map fields in profile to their strong ids in related profile.
-        * `field_mappings` (`list`) - Maps a profile property with the StrongId of related profile. This is an array to support StrongIds that are composite key as well.
-          * `profile_field_name` (`str`) - Specifies the fieldName in profile.
-          * `related_profile_key_property` (`str`) - Specifies the KeyProperty (from StrongId) of the related profile.
-
-      * `profile_type` (`str`) - Profile type.
-      * `provisioning_state` (`str`) - Provisioning state.
-      * `related_profile_type` (`str`) - Related profile being referenced.
-      * `relationship_guid_id` (`str`) - The relationship guid id.
-      * `relationship_name` (`str`) - The Relationship name.
-      * `tenant_id` (`str`) - The hub name.
+    Profile type.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state.
+    """
+    related_profile_type: pulumi.Output[str]
+    """
+    Related profile being referenced.
+    """
+    relationship_guid_id: pulumi.Output[str]
+    """
+    The relationship guid id.
+    """
+    relationship_name: pulumi.Output[str]
+    """
+    The Relationship name.
+    """
+    tenant_id: pulumi.Output[str]
+    """
+    The hub name.
     """
     type: pulumi.Output[str]
     """
@@ -150,7 +178,10 @@ class Relationship(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['relationship_guid_id'] = None
+            __props__['relationship_name'] = None
+            __props__['tenant_id'] = None
             __props__['type'] = None
         super(Relationship, __self__).__init__(
             'azurerm:customerinsights/v20170426:Relationship',

@@ -13,18 +13,60 @@ class GetSmartDetectorAlertRuleResult:
     """
     The alert rule information
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, action_groups=None, description=None, detector=None, frequency=None, name=None, scope=None, severity=None, state=None, throttling=None, type=None):
+        if action_groups and not isinstance(action_groups, dict):
+            raise TypeError("Expected argument 'action_groups' to be a dict")
+        __self__.action_groups = action_groups
+        """
+        The alert rule actions.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The alert rule description.
+        """
+        if detector and not isinstance(detector, dict):
+            raise TypeError("Expected argument 'detector' to be a dict")
+        __self__.detector = detector
+        """
+        The alert rule's detector.
+        """
+        if frequency and not isinstance(frequency, str):
+            raise TypeError("Expected argument 'frequency' to be a str")
+        __self__.frequency = frequency
+        """
+        The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if scope and not isinstance(scope, list):
+            raise TypeError("Expected argument 'scope' to be a list")
+        __self__.scope = scope
         """
-        The properties of the alert rule.
+        The alert rule resources scope.
+        """
+        if severity and not isinstance(severity, str):
+            raise TypeError("Expected argument 'severity' to be a str")
+        __self__.severity = severity
+        """
+        The alert rule severity.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        The alert rule state.
+        """
+        if throttling and not isinstance(throttling, dict):
+            raise TypeError("Expected argument 'throttling' to be a dict")
+        __self__.throttling = throttling
+        """
+        The alert rule throttling information.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +82,15 @@ class AwaitableGetSmartDetectorAlertRuleResult(GetSmartDetectorAlertRuleResult):
         if False:
             yield self
         return GetSmartDetectorAlertRuleResult(
+            action_groups=self.action_groups,
+            description=self.description,
+            detector=self.detector,
+            frequency=self.frequency,
             name=self.name,
-            properties=self.properties,
+            scope=self.scope,
+            severity=self.severity,
+            state=self.state,
+            throttling=self.throttling,
             type=self.type)
 
 
@@ -64,6 +113,13 @@ def get_smart_detector_alert_rule(expand_detector=None, name=None, resource_grou
     __ret__ = pulumi.runtime.invoke('azurerm:alertsmanagement/v20190301:getSmartDetectorAlertRule', __args__, opts=opts).value
 
     return AwaitableGetSmartDetectorAlertRuleResult(
+        action_groups=__ret__.get('actionGroups'),
+        description=__ret__.get('description'),
+        detector=__ret__.get('detector'),
+        frequency=__ret__.get('frequency'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        scope=__ret__.get('scope'),
+        severity=__ret__.get('severity'),
+        state=__ret__.get('state'),
+        throttling=__ret__.get('throttling'),
         type=__ret__.get('type'))

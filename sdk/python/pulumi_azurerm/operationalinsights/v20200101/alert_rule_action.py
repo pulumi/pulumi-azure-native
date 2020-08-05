@@ -14,19 +14,21 @@ class AlertRuleAction(pulumi.CustomResource):
     """
     Etag of the action.
     """
+    logic_app_resource_id: pulumi.Output[str]
+    """
+    Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+    """
     name: pulumi.Output[str]
     """
     Azure resource name
     """
-    properties: pulumi.Output[dict]
-    """
-    Action properties for get request
-      * `logic_app_resource_id` (`str`) - Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
-      * `workflow_id` (`str`) - The name of the logic app's workflow.
-    """
     type: pulumi.Output[str]
     """
     Azure resource type
+    """
+    workflow_id: pulumi.Output[str]
+    """
+    The name of the logic app's workflow.
     """
     def __init__(__self__, resource_name, opts=None, etag=None, logic_app_resource_id=None, name=None, resource_group_name=None, rule_id=None, trigger_uri=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -76,8 +78,8 @@ class AlertRuleAction(pulumi.CustomResource):
             if workspace_name is None:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__['workspace_name'] = workspace_name
-            __props__['properties'] = None
             __props__['type'] = None
+            __props__['workflow_id'] = None
         super(AlertRuleAction, __self__).__init__(
             'azurerm:operationalinsights/v20200101:AlertRuleAction',
             resource_name,

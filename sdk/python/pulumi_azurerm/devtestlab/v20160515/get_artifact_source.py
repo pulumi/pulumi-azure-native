@@ -13,7 +13,37 @@ class GetArtifactSourceResult:
     """
     Properties of an artifact source.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, arm_template_folder_path=None, branch_ref=None, created_date=None, display_name=None, folder_path=None, location=None, name=None, provisioning_state=None, security_token=None, source_type=None, status=None, tags=None, type=None, unique_identifier=None, uri=None):
+        if arm_template_folder_path and not isinstance(arm_template_folder_path, str):
+            raise TypeError("Expected argument 'arm_template_folder_path' to be a str")
+        __self__.arm_template_folder_path = arm_template_folder_path
+        """
+        The folder containing Azure Resource Manager templates.
+        """
+        if branch_ref and not isinstance(branch_ref, str):
+            raise TypeError("Expected argument 'branch_ref' to be a str")
+        __self__.branch_ref = branch_ref
+        """
+        The artifact source's branch reference.
+        """
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        The artifact source's creation date.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        The artifact source's display name.
+        """
+        if folder_path and not isinstance(folder_path, str):
+            raise TypeError("Expected argument 'folder_path' to be a str")
+        __self__.folder_path = folder_path
+        """
+        The folder containing artifacts.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +56,29 @@ class GetArtifactSourceResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the resource.
+        The provisioning status of the resource.
+        """
+        if security_token and not isinstance(security_token, str):
+            raise TypeError("Expected argument 'security_token' to be a str")
+        __self__.security_token = security_token
+        """
+        The security token to authenticate to the artifact source.
+        """
+        if source_type and not isinstance(source_type, str):
+            raise TypeError("Expected argument 'source_type' to be a str")
+        __self__.source_type = source_type
+        """
+        The artifact source's type.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Indicates if the artifact source is enabled (values: Enabled, Disabled).
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +92,18 @@ class GetArtifactSourceResult:
         """
         The type of the resource.
         """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        if uri and not isinstance(uri, str):
+            raise TypeError("Expected argument 'uri' to be a str")
+        __self__.uri = uri
+        """
+        The artifact source's URI.
+        """
 
 
 class AwaitableGetArtifactSourceResult(GetArtifactSourceResult):
@@ -52,11 +112,21 @@ class AwaitableGetArtifactSourceResult(GetArtifactSourceResult):
         if False:
             yield self
         return GetArtifactSourceResult(
+            arm_template_folder_path=self.arm_template_folder_path,
+            branch_ref=self.branch_ref,
+            created_date=self.created_date,
+            display_name=self.display_name,
+            folder_path=self.folder_path,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            security_token=self.security_token,
+            source_type=self.source_type,
+            status=self.status,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unique_identifier=self.unique_identifier,
+            uri=self.uri)
 
 
 def get_artifact_source(lab_name=None, name=None, resource_group_name=None, opts=None):
@@ -78,8 +148,18 @@ def get_artifact_source(lab_name=None, name=None, resource_group_name=None, opts
     __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20160515:getArtifactSource', __args__, opts=opts).value
 
     return AwaitableGetArtifactSourceResult(
+        arm_template_folder_path=__ret__.get('armTemplateFolderPath'),
+        branch_ref=__ret__.get('branchRef'),
+        created_date=__ret__.get('createdDate'),
+        display_name=__ret__.get('displayName'),
+        folder_path=__ret__.get('folderPath'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        security_token=__ret__.get('securityToken'),
+        source_type=__ret__.get('sourceType'),
+        status=__ret__.get('status'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'),
+        uri=__ret__.get('uri'))

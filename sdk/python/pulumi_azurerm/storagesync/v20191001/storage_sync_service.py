@@ -18,11 +18,13 @@ class StorageSyncService(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    storage_sync_service_status: pulumi.Output[float]
     """
-    Storage Sync Service properties.
-      * `storage_sync_service_status` (`float`) - Storage Sync service status.
-      * `storage_sync_service_uid` (`str`) - Storage Sync service Uid
+    Storage Sync service status.
+    """
+    storage_sync_service_uid: pulumi.Output[str]
+    """
+    Storage Sync service Uid
     """
     tags: pulumi.Output[dict]
     """
@@ -71,6 +73,8 @@ class StorageSyncService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
+            __props__['storage_sync_service_status'] = None
+            __props__['storage_sync_service_uid'] = None
             __props__['type'] = None
         super(StorageSyncService, __self__).__init__(
             'azurerm:storagesync/v20191001:StorageSyncService',

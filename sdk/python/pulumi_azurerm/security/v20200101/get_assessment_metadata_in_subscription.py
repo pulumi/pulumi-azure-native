@@ -13,24 +13,84 @@ class GetAssessmentMetadataInSubscriptionResult:
     """
     Security assessment metadata
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, assessment_type=None, category=None, description=None, display_name=None, implementation_effort=None, name=None, partner_data=None, policy_definition_id=None, preview=None, remediation_description=None, severity=None, threats=None, type=None, user_impact=None):
+        if assessment_type and not isinstance(assessment_type, str):
+            raise TypeError("Expected argument 'assessment_type' to be a str")
+        __self__.assessment_type = assessment_type
+        """
+        BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
+        """
+        if category and not isinstance(category, list):
+            raise TypeError("Expected argument 'category' to be a list")
+        __self__.category = category
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Human readable description of the assessment
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        User friendly display name of the assessment
+        """
+        if implementation_effort and not isinstance(implementation_effort, str):
+            raise TypeError("Expected argument 'implementation_effort' to be a str")
+        __self__.implementation_effort = implementation_effort
+        """
+        The implementation effort required to remediate this assessment
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if partner_data and not isinstance(partner_data, dict):
+            raise TypeError("Expected argument 'partner_data' to be a dict")
+        __self__.partner_data = partner_data
         """
-        Describes properties of an assessment metadata.
+        Describes the partner that created the assessment
         """
+        if policy_definition_id and not isinstance(policy_definition_id, str):
+            raise TypeError("Expected argument 'policy_definition_id' to be a str")
+        __self__.policy_definition_id = policy_definition_id
+        """
+        Azure resource ID of the policy definition that turns this assessment calculation on
+        """
+        if preview and not isinstance(preview, bool):
+            raise TypeError("Expected argument 'preview' to be a bool")
+        __self__.preview = preview
+        """
+        True if this assessment is in preview release status
+        """
+        if remediation_description and not isinstance(remediation_description, str):
+            raise TypeError("Expected argument 'remediation_description' to be a str")
+        __self__.remediation_description = remediation_description
+        """
+        Human readable description of what you should do to mitigate this security issue
+        """
+        if severity and not isinstance(severity, str):
+            raise TypeError("Expected argument 'severity' to be a str")
+        __self__.severity = severity
+        """
+        The severity level of the assessment
+        """
+        if threats and not isinstance(threats, list):
+            raise TypeError("Expected argument 'threats' to be a list")
+        __self__.threats = threats
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type
+        """
+        if user_impact and not isinstance(user_impact, str):
+            raise TypeError("Expected argument 'user_impact' to be a str")
+        __self__.user_impact = user_impact
+        """
+        The user impact of the assessment
         """
 
 
@@ -40,9 +100,20 @@ class AwaitableGetAssessmentMetadataInSubscriptionResult(GetAssessmentMetadataIn
         if False:
             yield self
         return GetAssessmentMetadataInSubscriptionResult(
+            assessment_type=self.assessment_type,
+            category=self.category,
+            description=self.description,
+            display_name=self.display_name,
+            implementation_effort=self.implementation_effort,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            partner_data=self.partner_data,
+            policy_definition_id=self.policy_definition_id,
+            preview=self.preview,
+            remediation_description=self.remediation_description,
+            severity=self.severity,
+            threats=self.threats,
+            type=self.type,
+            user_impact=self.user_impact)
 
 
 def get_assessment_metadata_in_subscription(name=None, opts=None):
@@ -60,6 +131,17 @@ def get_assessment_metadata_in_subscription(name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:security/v20200101:getAssessmentMetadataInSubscription', __args__, opts=opts).value
 
     return AwaitableGetAssessmentMetadataInSubscriptionResult(
+        assessment_type=__ret__.get('assessmentType'),
+        category=__ret__.get('category'),
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        implementation_effort=__ret__.get('implementationEffort'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        partner_data=__ret__.get('partnerData'),
+        policy_definition_id=__ret__.get('policyDefinitionId'),
+        preview=__ret__.get('preview'),
+        remediation_description=__ret__.get('remediationDescription'),
+        severity=__ret__.get('severity'),
+        threats=__ret__.get('threats'),
+        type=__ret__.get('type'),
+        user_impact=__ret__.get('userImpact'))

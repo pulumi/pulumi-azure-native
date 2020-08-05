@@ -13,7 +13,19 @@ class GetGalleryResult:
     """
     Specifies information about the Shared Image Gallery that you want to create or update.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, description=None, identifier=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of this Shared Image Gallery resource. This property is updatable.
+        """
+        if identifier and not isinstance(identifier, dict):
+            raise TypeError("Expected argument 'identifier' to be a dict")
+        __self__.identifier = identifier
+        """
+        Describes the gallery unique name.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +38,11 @@ class GetGalleryResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Describes the properties of a Shared Image Gallery.
+        The provisioning state, which only appears in the response.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +64,11 @@ class AwaitableGetGalleryResult(GetGalleryResult):
         if False:
             yield self
         return GetGalleryResult(
+            description=self.description,
+            identifier=self.identifier,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +90,10 @@ def get_gallery(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:compute/v20190701:getGallery', __args__, opts=opts).value
 
     return AwaitableGetGalleryResult(
+        description=__ret__.get('description'),
+        identifier=__ret__.get('identifier'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

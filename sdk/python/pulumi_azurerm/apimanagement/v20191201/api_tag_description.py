@@ -10,18 +10,29 @@ from ... import _utilities, _tables
 
 
 class ApiTagDescription(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    Description of the Tag.
+    """
+    display_name: pulumi.Output[str]
+    """
+    Tag name.
+    """
+    external_docs_description: pulumi.Output[str]
+    """
+    Description of the external resources describing the tag.
+    """
+    external_docs_url: pulumi.Output[str]
+    """
+    Absolute URL of external resources describing the tag.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    tag_id: pulumi.Output[str]
     """
-    TagDescription entity contract properties.
-      * `description` (`str`) - Description of the Tag.
-      * `display_name` (`str`) - Tag name.
-      * `external_docs_description` (`str`) - Description of the external resources describing the tag.
-      * `external_docs_url` (`str`) - Absolute URL of external resources describing the tag.
-      * `tag_id` (`str`) - Identifier of the tag in the form of /tags/{tagId}
+    Identifier of the tag in the form of /tags/{tagId}
     """
     type: pulumi.Output[str]
     """
@@ -73,7 +84,8 @@ class ApiTagDescription(pulumi.CustomResource):
             if service_name is None:
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
-            __props__['properties'] = None
+            __props__['display_name'] = None
+            __props__['tag_id'] = None
             __props__['type'] = None
         super(ApiTagDescription, __self__).__init__(
             'azurerm:apimanagement/v20191201:ApiTagDescription',

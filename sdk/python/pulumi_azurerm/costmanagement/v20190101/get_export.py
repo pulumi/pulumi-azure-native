@@ -13,18 +13,36 @@ class GetExportResult:
     """
     A export resource.
     """
-    def __init__(__self__, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, definition=None, delivery_info=None, format=None, name=None, schedule=None, tags=None, type=None):
+        if definition and not isinstance(definition, dict):
+            raise TypeError("Expected argument 'definition' to be a dict")
+        __self__.definition = definition
+        """
+        Has definition for the export.
+        """
+        if delivery_info and not isinstance(delivery_info, dict):
+            raise TypeError("Expected argument 'delivery_info' to be a dict")
+        __self__.delivery_info = delivery_info
+        """
+        Has delivery information for the export.
+        """
+        if format and not isinstance(format, str):
+            raise TypeError("Expected argument 'format' to be a str")
+        __self__.format = format
+        """
+        The format of the export being delivered.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if schedule and not isinstance(schedule, dict):
+            raise TypeError("Expected argument 'schedule' to be a dict")
+        __self__.schedule = schedule
         """
-        The properties of the export.
+        Has schedule information for the export.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -46,8 +64,11 @@ class AwaitableGetExportResult(GetExportResult):
         if False:
             yield self
         return GetExportResult(
+            definition=self.definition,
+            delivery_info=self.delivery_info,
+            format=self.format,
             name=self.name,
-            properties=self.properties,
+            schedule=self.schedule,
             tags=self.tags,
             type=self.type)
 
@@ -69,7 +90,10 @@ def get_export(name=None, scope=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:costmanagement/v20190101:getExport', __args__, opts=opts).value
 
     return AwaitableGetExportResult(
+        definition=__ret__.get('definition'),
+        delivery_info=__ret__.get('deliveryInfo'),
+        format=__ret__.get('format'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        schedule=__ret__.get('schedule'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

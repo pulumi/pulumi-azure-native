@@ -13,7 +13,7 @@ class GetWebAppPremierAddOnSlotResult:
     """
     Premier add-on.
     """
-    def __init__(__self__, kind=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, kind=None, location=None, marketplace_offer=None, marketplace_publisher=None, name=None, premier_add_on_name=None, product=None, sku=None, tags=None, type=None, vendor=None):
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,17 +26,41 @@ class GetWebAppPremierAddOnSlotResult:
         """
         Resource Location.
         """
+        if marketplace_offer and not isinstance(marketplace_offer, str):
+            raise TypeError("Expected argument 'marketplace_offer' to be a str")
+        __self__.marketplace_offer = marketplace_offer
+        """
+        Premier add on Marketplace offer.
+        """
+        if marketplace_publisher and not isinstance(marketplace_publisher, str):
+            raise TypeError("Expected argument 'marketplace_publisher' to be a str")
+        __self__.marketplace_publisher = marketplace_publisher
+        """
+        Premier add on Marketplace publisher.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if premier_add_on_name and not isinstance(premier_add_on_name, str):
+            raise TypeError("Expected argument 'premier_add_on_name' to be a str")
+        __self__.premier_add_on_name = premier_add_on_name
         """
-        PremierAddOn resource specific properties
+        Premier add on Name.
+        """
+        if product and not isinstance(product, str):
+            raise TypeError("Expected argument 'product' to be a str")
+        __self__.product = product
+        """
+        Premier add on Product.
+        """
+        if sku and not isinstance(sku, str):
+            raise TypeError("Expected argument 'sku' to be a str")
+        __self__.sku = sku
+        """
+        Premier add on SKU.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +74,12 @@ class GetWebAppPremierAddOnSlotResult:
         """
         Resource type.
         """
+        if vendor and not isinstance(vendor, str):
+            raise TypeError("Expected argument 'vendor' to be a str")
+        __self__.vendor = vendor
+        """
+        Premier add on Vendor.
+        """
 
 
 class AwaitableGetWebAppPremierAddOnSlotResult(GetWebAppPremierAddOnSlotResult):
@@ -60,10 +90,15 @@ class AwaitableGetWebAppPremierAddOnSlotResult(GetWebAppPremierAddOnSlotResult):
         return GetWebAppPremierAddOnSlotResult(
             kind=self.kind,
             location=self.location,
+            marketplace_offer=self.marketplace_offer,
+            marketplace_publisher=self.marketplace_publisher,
             name=self.name,
-            properties=self.properties,
+            premier_add_on_name=self.premier_add_on_name,
+            product=self.product,
+            sku=self.sku,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            vendor=self.vendor)
 
 
 def get_web_app_premier_add_on_slot(name=None, resource_group_name=None, slot=None, opts=None):
@@ -87,7 +122,12 @@ def get_web_app_premier_add_on_slot(name=None, resource_group_name=None, slot=No
     return AwaitableGetWebAppPremierAddOnSlotResult(
         kind=__ret__.get('kind'),
         location=__ret__.get('location'),
+        marketplace_offer=__ret__.get('marketplaceOffer'),
+        marketplace_publisher=__ret__.get('marketplacePublisher'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        premier_add_on_name=__ret__.get('premierAddOnName'),
+        product=__ret__.get('product'),
+        sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        vendor=__ret__.get('vendor'))

@@ -13,24 +13,36 @@ class GetVirtualNetworkRuleResult:
     """
     A virtual network rule.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, ignore_missing_vnet_service_endpoint=None, name=None, state=None, type=None, virtual_network_subnet_id=None):
+        if ignore_missing_vnet_service_endpoint and not isinstance(ignore_missing_vnet_service_endpoint, bool):
+            raise TypeError("Expected argument 'ignore_missing_vnet_service_endpoint' to be a bool")
+        __self__.ignore_missing_vnet_service_endpoint = ignore_missing_vnet_service_endpoint
+        """
+        Create firewall rule before the virtual network has vnet service endpoint enabled.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
         """
-        Resource properties.
+        Virtual Network Rule State
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
+            raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
+        __self__.virtual_network_subnet_id = virtual_network_subnet_id
+        """
+        The ARM resource id of the virtual network subnet.
         """
 
 
@@ -40,9 +52,11 @@ class AwaitableGetVirtualNetworkRuleResult(GetVirtualNetworkRuleResult):
         if False:
             yield self
         return GetVirtualNetworkRuleResult(
+            ignore_missing_vnet_service_endpoint=self.ignore_missing_vnet_service_endpoint,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            state=self.state,
+            type=self.type,
+            virtual_network_subnet_id=self.virtual_network_subnet_id)
 
 
 def get_virtual_network_rule(name=None, resource_group_name=None, server_name=None, opts=None):
@@ -64,6 +78,8 @@ def get_virtual_network_rule(name=None, resource_group_name=None, server_name=No
     __ret__ = pulumi.runtime.invoke('azurerm:dbformariadb/v20180601:getVirtualNetworkRule', __args__, opts=opts).value
 
     return AwaitableGetVirtualNetworkRuleResult(
+        ignore_missing_vnet_service_endpoint=__ret__.get('ignoreMissingVnetServiceEndpoint'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        state=__ret__.get('state'),
+        type=__ret__.get('type'),
+        virtual_network_subnet_id=__ret__.get('virtualNetworkSubnetId'))

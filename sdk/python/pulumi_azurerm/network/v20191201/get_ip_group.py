@@ -13,12 +13,24 @@ class GetIpGroupResult:
     """
     The IpGroups resource information.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, firewalls=None, ip_addresses=None, location=None, name=None, provisioning_state=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if firewalls and not isinstance(firewalls, list):
+            raise TypeError("Expected argument 'firewalls' to be a list")
+        __self__.firewalls = firewalls
+        """
+        List of references to Azure resources that this IpGroups is associated with.
+        """
+        if ip_addresses and not isinstance(ip_addresses, list):
+            raise TypeError("Expected argument 'ip_addresses' to be a list")
+        __self__.ip_addresses = ip_addresses
+        """
+        IpAddresses/IpAddressPrefixes in the IpGroups resource.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +44,11 @@ class GetIpGroupResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the IpGroups.
+        The provisioning state of the IpGroups resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -59,9 +71,11 @@ class AwaitableGetIpGroupResult(GetIpGroupResult):
             yield self
         return GetIpGroupResult(
             etag=self.etag,
+            firewalls=self.firewalls,
+            ip_addresses=self.ip_addresses,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
             type=self.type)
 
@@ -84,8 +98,10 @@ def get_ip_group(name=None, resource_group_name=None, opts=None):
 
     return AwaitableGetIpGroupResult(
         etag=__ret__.get('etag'),
+        firewalls=__ret__.get('firewalls'),
+        ip_addresses=__ret__.get('ipAddresses'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

@@ -10,21 +10,29 @@ from ... import _utilities, _tables
 
 
 class NamedValue(pulumi.CustomResource):
+    display_name: pulumi.Output[str]
+    """
+    Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    secret: pulumi.Output[bool]
     """
-    NamedValue entity contract properties.
-      * `display_name` (`str`) - Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
-      * `secret` (`bool`) - Determines whether the value is a secret and should be encrypted or not. Default value is false.
-      * `tags` (`list`) - Optional tags that when provided can be used to filter the NamedValue list.
-      * `value` (`str`) - Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
+    Determines whether the value is a secret and should be encrypted or not. Default value is false.
+    """
+    tags: pulumi.Output[list]
+    """
+    Optional tags that when provided can be used to filter the NamedValue list.
     """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource.
+    """
+    value: pulumi.Output[str]
+    """
+    Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
     """
     def __init__(__self__, resource_name, opts=None, display_name=None, name=None, resource_group_name=None, secret=None, service_name=None, tags=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -74,7 +82,6 @@ class NamedValue(pulumi.CustomResource):
             if value is None:
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
-            __props__['properties'] = None
             __props__['type'] = None
         super(NamedValue, __self__).__init__(
             'azurerm:apimanagement/v20191201:NamedValue',

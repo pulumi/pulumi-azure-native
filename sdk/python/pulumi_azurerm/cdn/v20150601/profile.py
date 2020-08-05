@@ -18,7 +18,19 @@ class Profile(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning status of the profile.
+    """
+    resource_state: pulumi.Output[str]
+    """
+    Resource status of the profile.
+    """
+    sku: pulumi.Output[dict]
+    """
+    The SKU (pricing tier) of the CDN profile.
+      * `name` (`str`) - Name of the pricing tier
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -73,7 +85,8 @@ class Profile(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_state'] = None
             __props__['type'] = None
         super(Profile, __self__).__init__(
             'azurerm:cdn/v20150601:Profile',

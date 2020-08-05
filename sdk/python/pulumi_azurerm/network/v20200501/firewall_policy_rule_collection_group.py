@@ -18,15 +18,20 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
     """
     The name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    priority: pulumi.Output[float]
     """
-    The properties of the firewall policy rule collection group.
-      * `priority` (`float`) - Priority of the Firewall Policy Rule Collection Group resource.
-      * `provisioning_state` (`str`) - The provisioning state of the firewall policy rule collection group resource.
-      * `rule_collections` (`list`) - Group of Firewall Policy rule collections.
-        * `name` (`str`) - The name of the rule collection.
-        * `priority` (`float`) - Priority of the Firewall Policy Rule Collection resource.
-        * `rule_collection_type` (`str`) - The type of the rule collection.
+    Priority of the Firewall Policy Rule Collection Group resource.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the firewall policy rule collection group resource.
+    """
+    rule_collections: pulumi.Output[list]
+    """
+    Group of Firewall Policy rule collections.
+      * `name` (`str`) - The name of the rule collection.
+      * `priority` (`float`) - Priority of the Firewall Policy Rule Collection resource.
+      * `rule_collection_type` (`str`) - The type of the rule collection.
     """
     type: pulumi.Output[str]
     """
@@ -81,7 +86,7 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['rule_collections'] = rule_collections
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(FirewallPolicyRuleCollectionGroup, __self__).__init__(
             'azurerm:network/v20200501:FirewallPolicyRuleCollectionGroup',

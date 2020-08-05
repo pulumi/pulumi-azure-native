@@ -10,6 +10,22 @@ from ... import _utilities, _tables
 
 
 class ServerDetails(pulumi.CustomResource):
+    as_administrators: pulumi.Output[dict]
+    """
+    A collection of AS server administrators
+      * `members` (`list`) - An array of administrator user identities.
+    """
+    backup_blob_container_uri: pulumi.Output[str]
+    """
+    The SAS container URI to the backup container.
+    """
+    gateway_details: pulumi.Output[dict]
+    """
+    The gateway details configured for the AS server.
+      * `dmts_cluster_uri` (`str`) - Uri of the DMTS cluster.
+      * `gateway_object_id` (`str`) - Gateway object id from in the DMTS cluster for the gateway resource.
+      * `gateway_resource_id` (`str`) - Gateway resource to be associated with the server.
+    """
     location: pulumi.Output[str]
     """
     Location of the Analysis Services resource.
@@ -18,27 +34,23 @@ class ServerDetails(pulumi.CustomResource):
     """
     The name of the Analysis Services resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the provision operation request.
-      * `as_administrators` (`dict`) - A collection of AS server administrators
-        * `members` (`list`) - An array of administrator user identities.
-
-      * `backup_blob_container_uri` (`str`) - The SAS container URI to the backup container.
-      * `gateway_details` (`dict`) - The gateway details configured for the AS server.
-        * `dmts_cluster_uri` (`str`) - Uri of the DMTS cluster.
-        * `gateway_object_id` (`str`) - Gateway object id from in the DMTS cluster for the gateway resource.
-        * `gateway_resource_id` (`str`) - Gateway resource to be associated with the server.
-
-      * `provisioning_state` (`str`) - The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
-      * `server_full_name` (`str`) - The full name of the Analysis Services resource.
-      * `state` (`str`) - The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
+    The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
+    """
+    server_full_name: pulumi.Output[str]
+    """
+    The full name of the Analysis Services resource.
     """
     sku: pulumi.Output[dict]
     """
     The SKU of the Analysis Services resource.
       * `name` (`str`) - Name of the SKU level.
       * `tier` (`str`) - The name of the Azure pricing tier to which the SKU applies.
+    """
+    state: pulumi.Output[str]
+    """
+    The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
     """
     tags: pulumi.Output[dict]
     """
@@ -109,7 +121,9 @@ class ServerDetails(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['server_full_name'] = None
+            __props__['state'] = None
             __props__['type'] = None
         super(ServerDetails, __self__).__init__(
             'azurerm:analysisservices/v20170714:ServerDetails',

@@ -10,6 +10,127 @@ from ... import _utilities, _tables
 
 
 class Formula(pulumi.CustomResource):
+    author: pulumi.Output[str]
+    """
+    The author of the formula.
+    """
+    creation_date: pulumi.Output[str]
+    """
+    The creation date of the formula.
+    """
+    description: pulumi.Output[str]
+    """
+    The description of the formula.
+    """
+    formula_content: pulumi.Output[dict]
+    """
+    The content of the formula.
+      * `allow_claim` (`bool`) - Indicates whether another user can take ownership of the virtual machine
+      * `artifact_deployment_status` (`dict`) - The artifact deployment status for the virtual machine.
+        * `artifacts_applied` (`float`) - The total count of the artifacts that were successfully applied.
+        * `deployment_status` (`str`) - The deployment status of the artifact.
+        * `total_artifacts` (`float`) - The total count of the artifacts that were tentatively applied.
+
+      * `artifacts` (`list`) - The artifacts to be installed on the virtual machine.
+        * `artifact_id` (`str`) - The artifact's identifier.
+        * `artifact_title` (`str`) - The artifact's title.
+        * `deployment_status_message` (`str`) - The status message from the deployment.
+        * `install_time` (`str`) - The time that the artifact starts to install on the virtual machine.
+        * `parameters` (`list`) - The parameters of the artifact.
+          * `name` (`str`) - The name of the artifact parameter.
+          * `value` (`str`) - The value of the artifact parameter.
+
+        * `status` (`str`) - The status of the artifact.
+        * `vm_extension_status_message` (`str`) - The status message from the virtual machine extension.
+
+      * `bulk_creation_parameters` (`dict`) - The number of virtual machine instances to create.
+        * `instance_count` (`float`) - The number of virtual machine instances to create.
+
+      * `compute_id` (`str`) - The resource identifier (Microsoft.Compute) of the virtual machine.
+      * `created_by_user` (`str`) - The email address of creator of the virtual machine.
+      * `created_by_user_id` (`str`) - The object identifier of the creator of the virtual machine.
+      * `created_date` (`str`) - The creation date of the virtual machine.
+      * `custom_image_id` (`str`) - The custom image identifier of the virtual machine.
+      * `data_disk_parameters` (`list`) - New or existing data disks to attach to the virtual machine after creation
+        * `attach_new_data_disk_options` (`dict`) - Specifies options to attach a new disk to the virtual machine.
+          * `disk_name` (`str`) - The name of the disk to be attached.
+          * `disk_size_gi_b` (`float`) - Size of the disk to be attached in GibiBytes.
+          * `disk_type` (`str`) - The storage type for the disk (i.e. Standard, Premium).
+
+        * `existing_lab_disk_id` (`str`) - Specifies the existing lab disk id to attach to virtual machine.
+        * `host_caching` (`str`) - Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
+
+      * `disallow_public_ip_address` (`bool`) - Indicates whether the virtual machine is to be created without a public IP address.
+      * `environment_id` (`str`) - The resource ID of the environment that contains this virtual machine, if any.
+      * `expiration_date` (`str`) - The expiration date for VM.
+      * `fqdn` (`str`) - The fully-qualified domain name of the virtual machine.
+      * `gallery_image_reference` (`dict`) - The Microsoft Azure Marketplace image reference of the virtual machine.
+        * `offer` (`str`) - The offer of the gallery image.
+        * `os_type` (`str`) - The OS type of the gallery image.
+        * `publisher` (`str`) - The publisher of the gallery image.
+        * `sku` (`str`) - The SKU of the gallery image.
+        * `version` (`str`) - The version of the gallery image.
+
+      * `is_authentication_with_ssh_key` (`bool`) - Indicates whether this virtual machine uses an SSH key for authentication.
+      * `lab_subnet_name` (`str`) - The lab subnet name of the virtual machine.
+      * `lab_virtual_network_id` (`str`) - The lab virtual network identifier of the virtual machine.
+      * `last_known_power_state` (`str`) - Last known compute power state captured in DTL
+      * `location` (`str`) - The location of the new virtual machine or environment
+      * `name` (`str`) - The name of the virtual machine or environment
+      * `network_interface` (`dict`) - The network interface properties.
+        * `dns_name` (`str`) - The DNS name.
+        * `private_ip_address` (`str`) - The private IP address.
+        * `public_ip_address` (`str`) - The public IP address.
+        * `public_ip_address_id` (`str`) - The resource ID of the public IP address.
+        * `rdp_authority` (`str`) - The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
+        * `shared_public_ip_address_configuration` (`dict`) - The configuration for sharing a public IP address across multiple virtual machines.
+          * `inbound_nat_rules` (`list`) - The incoming NAT rules
+            * `backend_port` (`float`) - The port to which the external traffic will be redirected.
+            * `frontend_port` (`float`) - The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
+            * `transport_protocol` (`str`) - The transport protocol for the endpoint.
+
+        * `ssh_authority` (`str`) - The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
+        * `subnet_id` (`str`) - The resource ID of the sub net.
+        * `virtual_network_id` (`str`) - The resource ID of the virtual network.
+
+      * `notes` (`str`) - The notes of the virtual machine.
+      * `os_type` (`str`) - The OS type of the virtual machine.
+      * `owner_object_id` (`str`) - The object identifier of the owner of the virtual machine.
+      * `owner_user_principal_name` (`str`) - The user principal name of the virtual machine owner.
+      * `password` (`str`) - The password of the virtual machine administrator.
+      * `plan_id` (`str`) - The id of the plan associated with the virtual machine image
+      * `schedule_parameters` (`list`) - Virtual Machine schedules to be created
+        * `daily_recurrence` (`dict`) - If the schedule will occur once each day of the week, specify the daily recurrence.
+          * `time` (`str`) - The time of day the schedule will occur.
+
+        * `hourly_recurrence` (`dict`) - If the schedule will occur multiple times a day, specify the hourly recurrence.
+          * `minute` (`float`) - Minutes of the hour the schedule will run.
+
+        * `location` (`str`) - The location of the new virtual machine or environment
+        * `name` (`str`) - The name of the virtual machine or environment
+        * `notification_settings` (`dict`) - Notification settings.
+          * `email_recipient` (`str`) - The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
+          * `notification_locale` (`str`) - The locale to use when sending a notification (fallback for unsupported languages is EN).
+          * `status` (`str`) - If notifications are enabled for this schedule (i.e. Enabled, Disabled).
+          * `time_in_minutes` (`float`) - Time in minutes before event at which notification will be sent.
+          * `webhook_url` (`str`) - The webhook URL to which the notification will be sent.
+
+        * `status` (`str`) - The status of the schedule (i.e. Enabled, Disabled)
+        * `tags` (`dict`) - The tags of the resource.
+        * `target_resource_id` (`str`) - The resource ID to which the schedule belongs
+        * `task_type` (`str`) - The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+        * `time_zone_id` (`str`) - The time zone ID (e.g. Pacific Standard time).
+        * `weekly_recurrence` (`dict`) - If the schedule will occur only some days of the week, specify the weekly recurrence.
+          * `time` (`str`) - The time of the day the schedule will occur.
+          * `weekdays` (`list`) - The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
+
+      * `size` (`str`) - The size of the virtual machine.
+      * `ssh_key` (`str`) - The SSH key of the virtual machine administrator.
+      * `storage_type` (`str`) - Storage type to use for virtual machine (i.e. Standard, Premium).
+      * `tags` (`dict`) - The tags of the resource.
+      * `user_name` (`str`) - The user name of the virtual machine.
+      * `virtual_machine_creation_source` (`str`) - Tells source of creation of lab virtual machine. Output property only.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
@@ -18,128 +139,13 @@ class Formula(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    os_type: pulumi.Output[str]
     """
-    The properties of the resource.
-      * `author` (`str`) - The author of the formula.
-      * `creation_date` (`str`) - The creation date of the formula.
-      * `description` (`str`) - The description of the formula.
-      * `formula_content` (`dict`) - The content of the formula.
-        * `location` (`str`) - The location of the new virtual machine or environment
-        * `name` (`str`) - The name of the virtual machine or environment
-        * `properties` (`dict`) - The properties of the resource.
-          * `allow_claim` (`bool`) - Indicates whether another user can take ownership of the virtual machine
-          * `artifact_deployment_status` (`dict`) - The artifact deployment status for the virtual machine.
-            * `artifacts_applied` (`float`) - The total count of the artifacts that were successfully applied.
-            * `deployment_status` (`str`) - The deployment status of the artifact.
-            * `total_artifacts` (`float`) - The total count of the artifacts that were tentatively applied.
-
-          * `artifacts` (`list`) - The artifacts to be installed on the virtual machine.
-            * `artifact_id` (`str`) - The artifact's identifier.
-            * `artifact_title` (`str`) - The artifact's title.
-            * `deployment_status_message` (`str`) - The status message from the deployment.
-            * `install_time` (`str`) - The time that the artifact starts to install on the virtual machine.
-            * `parameters` (`list`) - The parameters of the artifact.
-              * `name` (`str`) - The name of the artifact parameter.
-              * `value` (`str`) - The value of the artifact parameter.
-
-            * `status` (`str`) - The status of the artifact.
-            * `vm_extension_status_message` (`str`) - The status message from the virtual machine extension.
-
-          * `bulk_creation_parameters` (`dict`) - The number of virtual machine instances to create.
-            * `instance_count` (`float`) - The number of virtual machine instances to create.
-
-          * `compute_id` (`str`) - The resource identifier (Microsoft.Compute) of the virtual machine.
-          * `created_by_user` (`str`) - The email address of creator of the virtual machine.
-          * `created_by_user_id` (`str`) - The object identifier of the creator of the virtual machine.
-          * `created_date` (`str`) - The creation date of the virtual machine.
-          * `custom_image_id` (`str`) - The custom image identifier of the virtual machine.
-          * `data_disk_parameters` (`list`) - New or existing data disks to attach to the virtual machine after creation
-            * `attach_new_data_disk_options` (`dict`) - Specifies options to attach a new disk to the virtual machine.
-              * `disk_name` (`str`) - The name of the disk to be attached.
-              * `disk_size_gi_b` (`float`) - Size of the disk to be attached in GibiBytes.
-              * `disk_type` (`str`) - The storage type for the disk (i.e. Standard, Premium).
-
-            * `existing_lab_disk_id` (`str`) - Specifies the existing lab disk id to attach to virtual machine.
-            * `host_caching` (`str`) - Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
-
-          * `disallow_public_ip_address` (`bool`) - Indicates whether the virtual machine is to be created without a public IP address.
-          * `environment_id` (`str`) - The resource ID of the environment that contains this virtual machine, if any.
-          * `expiration_date` (`str`) - The expiration date for VM.
-          * `fqdn` (`str`) - The fully-qualified domain name of the virtual machine.
-          * `gallery_image_reference` (`dict`) - The Microsoft Azure Marketplace image reference of the virtual machine.
-            * `offer` (`str`) - The offer of the gallery image.
-            * `os_type` (`str`) - The OS type of the gallery image.
-            * `publisher` (`str`) - The publisher of the gallery image.
-            * `sku` (`str`) - The SKU of the gallery image.
-            * `version` (`str`) - The version of the gallery image.
-
-          * `is_authentication_with_ssh_key` (`bool`) - Indicates whether this virtual machine uses an SSH key for authentication.
-          * `lab_subnet_name` (`str`) - The lab subnet name of the virtual machine.
-          * `lab_virtual_network_id` (`str`) - The lab virtual network identifier of the virtual machine.
-          * `last_known_power_state` (`str`) - Last known compute power state captured in DTL
-          * `network_interface` (`dict`) - The network interface properties.
-            * `dns_name` (`str`) - The DNS name.
-            * `private_ip_address` (`str`) - The private IP address.
-            * `public_ip_address` (`str`) - The public IP address.
-            * `public_ip_address_id` (`str`) - The resource ID of the public IP address.
-            * `rdp_authority` (`str`) - The RdpAuthority property is a server DNS host name or IP address followed by the service port number for RDP (Remote Desktop Protocol).
-            * `shared_public_ip_address_configuration` (`dict`) - The configuration for sharing a public IP address across multiple virtual machines.
-              * `inbound_nat_rules` (`list`) - The incoming NAT rules
-                * `backend_port` (`float`) - The port to which the external traffic will be redirected.
-                * `frontend_port` (`float`) - The external endpoint port of the inbound connection. Possible values range between 1 and 65535, inclusive. If unspecified, a value will be allocated automatically.
-                * `transport_protocol` (`str`) - The transport protocol for the endpoint.
-
-            * `ssh_authority` (`str`) - The SshAuthority property is a server DNS host name or IP address followed by the service port number for SSH.
-            * `subnet_id` (`str`) - The resource ID of the sub net.
-            * `virtual_network_id` (`str`) - The resource ID of the virtual network.
-
-          * `notes` (`str`) - The notes of the virtual machine.
-          * `os_type` (`str`) - The OS type of the virtual machine.
-          * `owner_object_id` (`str`) - The object identifier of the owner of the virtual machine.
-          * `owner_user_principal_name` (`str`) - The user principal name of the virtual machine owner.
-          * `password` (`str`) - The password of the virtual machine administrator.
-          * `plan_id` (`str`) - The id of the plan associated with the virtual machine image
-          * `schedule_parameters` (`list`) - Virtual Machine schedules to be created
-            * `location` (`str`) - The location of the new virtual machine or environment
-            * `name` (`str`) - The name of the virtual machine or environment
-            * `properties` (`dict`) - The properties of the schedule.
-              * `daily_recurrence` (`dict`) - If the schedule will occur once each day of the week, specify the daily recurrence.
-                * `time` (`str`) - The time of day the schedule will occur.
-
-              * `hourly_recurrence` (`dict`) - If the schedule will occur multiple times a day, specify the hourly recurrence.
-                * `minute` (`float`) - Minutes of the hour the schedule will run.
-
-              * `notification_settings` (`dict`) - Notification settings.
-                * `email_recipient` (`str`) - The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
-                * `notification_locale` (`str`) - The locale to use when sending a notification (fallback for unsupported languages is EN).
-                * `status` (`str`) - If notifications are enabled for this schedule (i.e. Enabled, Disabled).
-                * `time_in_minutes` (`float`) - Time in minutes before event at which notification will be sent.
-                * `webhook_url` (`str`) - The webhook URL to which the notification will be sent.
-
-              * `status` (`str`) - The status of the schedule (i.e. Enabled, Disabled)
-              * `target_resource_id` (`str`) - The resource ID to which the schedule belongs
-              * `task_type` (`str`) - The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
-              * `time_zone_id` (`str`) - The time zone ID (e.g. Pacific Standard time).
-              * `weekly_recurrence` (`dict`) - If the schedule will occur only some days of the week, specify the weekly recurrence.
-                * `time` (`str`) - The time of the day the schedule will occur.
-                * `weekdays` (`list`) - The days of the week for which the schedule is set (e.g. Sunday, Monday, Tuesday, etc.).
-
-            * `tags` (`dict`) - The tags of the resource.
-
-          * `size` (`str`) - The size of the virtual machine.
-          * `ssh_key` (`str`) - The SSH key of the virtual machine administrator.
-          * `storage_type` (`str`) - Storage type to use for virtual machine (i.e. Standard, Premium).
-          * `user_name` (`str`) - The user name of the virtual machine.
-          * `virtual_machine_creation_source` (`str`) - Tells source of creation of lab virtual machine. Output property only.
-
-        * `tags` (`dict`) - The tags of the resource.
-
-      * `os_type` (`str`) - The OS type of the formula.
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
-      * `vm` (`dict`) - Information about a VM from which a formula is to be created.
-        * `lab_vm_id` (`str`) - The identifier of the VM from which a formula is to be created.
+    The OS type of the formula.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning status of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -148,6 +154,15 @@ class Formula(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
+    """
+    vm: pulumi.Output[dict]
+    """
+    Information about a VM from which a formula is to be created.
+      * `lab_vm_id` (`str`) - The identifier of the VM from which a formula is to be created.
     """
     def __init__(__self__, resource_name, opts=None, author=None, description=None, formula_content=None, lab_name=None, location=None, name=None, os_type=None, resource_group_name=None, tags=None, vm=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -311,8 +326,10 @@ class Formula(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['vm'] = vm
-            __props__['properties'] = None
+            __props__['creation_date'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['unique_identifier'] = None
         super(Formula, __self__).__init__(
             'azurerm:devtestlab/v20180915:Formula',
             resource_name,

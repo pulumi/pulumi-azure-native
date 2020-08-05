@@ -13,7 +13,7 @@ class GetDdosProtectionPlanResult:
     """
     A DDoS protection plan in a resource group.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, location=None, name=None, provisioning_state=None, resource_guid=None, tags=None, type=None, virtual_networks=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +32,17 @@ class GetDdosProtectionPlanResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the DDoS protection plan.
+        The provisioning state of the DDoS protection plan resource. Possible values are: 'Succeeded', 'Updating', 'Deleting', and 'Failed'.
+        """
+        if resource_guid and not isinstance(resource_guid, str):
+            raise TypeError("Expected argument 'resource_guid' to be a str")
+        __self__.resource_guid = resource_guid
+        """
+        The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +56,12 @@ class GetDdosProtectionPlanResult:
         """
         Resource type.
         """
+        if virtual_networks and not isinstance(virtual_networks, list):
+            raise TypeError("Expected argument 'virtual_networks' to be a list")
+        __self__.virtual_networks = virtual_networks
+        """
+        The list of virtual networks associated with the DDoS protection plan resource. This list is read-only.
+        """
 
 
 class AwaitableGetDdosProtectionPlanResult(GetDdosProtectionPlanResult):
@@ -61,9 +73,11 @@ class AwaitableGetDdosProtectionPlanResult(GetDdosProtectionPlanResult):
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            resource_guid=self.resource_guid,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            virtual_networks=self.virtual_networks)
 
 
 def get_ddos_protection_plan(name=None, resource_group_name=None, opts=None):
@@ -86,6 +100,8 @@ def get_ddos_protection_plan(name=None, resource_group_name=None, opts=None):
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_guid=__ret__.get('resourceGuid'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        virtual_networks=__ret__.get('virtualNetworks'))

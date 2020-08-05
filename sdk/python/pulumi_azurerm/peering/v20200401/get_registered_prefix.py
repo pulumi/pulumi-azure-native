@@ -13,18 +13,42 @@ class GetRegisteredPrefixResult:
     """
     The customer's prefix that is registered by the peering service provider.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, error_message=None, name=None, peering_service_prefix_key=None, prefix=None, prefix_validation_state=None, provisioning_state=None, type=None):
+        if error_message and not isinstance(error_message, str):
+            raise TypeError("Expected argument 'error_message' to be a str")
+        __self__.error_message = error_message
+        """
+        The error message associated with the validation state, if any.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peering_service_prefix_key and not isinstance(peering_service_prefix_key, str):
+            raise TypeError("Expected argument 'peering_service_prefix_key' to be a str")
+        __self__.peering_service_prefix_key = peering_service_prefix_key
         """
-        The properties that define a registered prefix.
+        The peering service prefix key that is to be shared with the customer.
+        """
+        if prefix and not isinstance(prefix, str):
+            raise TypeError("Expected argument 'prefix' to be a str")
+        __self__.prefix = prefix
+        """
+        The customer's prefix from which traffic originates.
+        """
+        if prefix_validation_state and not isinstance(prefix_validation_state, str):
+            raise TypeError("Expected argument 'prefix_validation_state' to be a str")
+        __self__.prefix_validation_state = prefix_validation_state
+        """
+        The prefix validation state.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +64,12 @@ class AwaitableGetRegisteredPrefixResult(GetRegisteredPrefixResult):
         if False:
             yield self
         return GetRegisteredPrefixResult(
+            error_message=self.error_message,
             name=self.name,
-            properties=self.properties,
+            peering_service_prefix_key=self.peering_service_prefix_key,
+            prefix=self.prefix,
+            prefix_validation_state=self.prefix_validation_state,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -64,6 +92,10 @@ def get_registered_prefix(name=None, peering_name=None, resource_group_name=None
     __ret__ = pulumi.runtime.invoke('azurerm:peering/v20200401:getRegisteredPrefix', __args__, opts=opts).value
 
     return AwaitableGetRegisteredPrefixResult(
+        error_message=__ret__.get('errorMessage'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        peering_service_prefix_key=__ret__.get('peeringServicePrefixKey'),
+        prefix=__ret__.get('prefix'),
+        prefix_validation_state=__ret__.get('prefixValidationState'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

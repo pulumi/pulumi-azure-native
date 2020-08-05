@@ -10,6 +10,29 @@ from ... import _utilities, _tables
 
 
 class DedicatedHostGroup(pulumi.CustomResource):
+    hosts: pulumi.Output[list]
+    """
+    A list of references to all dedicated hosts in the dedicated host group.
+      * `id` (`str`) - Resource Id
+    """
+    instance_view: pulumi.Output[dict]
+    """
+    The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
+      * `hosts` (`list`) - List of instance view of the dedicated hosts under the dedicated host group.
+        * `asset_id` (`str`) - Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
+        * `available_capacity` (`dict`) - Unutilized capacity of the dedicated host.
+          * `allocatable_v_ms` (`list`) - The unutilized capacity of the dedicated host represented in terms of each VM size that is allowed to be deployed to the dedicated host.
+            * `count` (`float`) - Maximum number of VMs of size vmSize that can fit in the dedicated host's remaining capacity.
+            * `vm_size` (`str`) - VM size in terms of which the unutilized capacity is represented.
+
+        * `name` (`str`) - The name of the dedicated host.
+        * `statuses` (`list`) - The resource status information.
+          * `code` (`str`) - The status code.
+          * `display_status` (`str`) - The short localizable label for the status.
+          * `level` (`str`) - The level code.
+          * `message` (`str`) - The detailed status message, including for alerts and error messages.
+          * `time` (`str`) - The time of the status.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,30 +41,13 @@ class DedicatedHostGroup(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    platform_fault_domain_count: pulumi.Output[float]
     """
-    Dedicated Host Group Properties.
-      * `hosts` (`list`) - A list of references to all dedicated hosts in the dedicated host group.
-        * `id` (`str`) - Resource Id
-
-      * `instance_view` (`dict`) - The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
-        * `hosts` (`list`) - List of instance view of the dedicated hosts under the dedicated host group.
-          * `asset_id` (`str`) - Specifies the unique id of the dedicated physical machine on which the dedicated host resides.
-          * `available_capacity` (`dict`) - Unutilized capacity of the dedicated host.
-            * `allocatable_v_ms` (`list`) - The unutilized capacity of the dedicated host represented in terms of each VM size that is allowed to be deployed to the dedicated host.
-              * `count` (`float`) - Maximum number of VMs of size vmSize that can fit in the dedicated host's remaining capacity.
-              * `vm_size` (`str`) - VM size in terms of which the unutilized capacity is represented.
-
-          * `name` (`str`) - The name of the dedicated host.
-          * `statuses` (`list`) - The resource status information.
-            * `code` (`str`) - The status code.
-            * `display_status` (`str`) - The short localizable label for the status.
-            * `level` (`str`) - The level code.
-            * `message` (`str`) - The detailed status message, including for alerts and error messages.
-            * `time` (`str`) - The time of the status.
-
-      * `platform_fault_domain_count` (`float`) - Number of fault domains that the host group can span.
-      * `support_automatic_placement` (`bool`) - Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. <br><br>Minimum api-version: 2020-06-01.
+    Number of fault domains that the host group can span.
+    """
+    support_automatic_placement: pulumi.Output[bool]
+    """
+    Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'true' when not provided. <br><br>Minimum api-version: 2020-06-01.
     """
     tags: pulumi.Output[dict]
     """
@@ -101,7 +107,8 @@ class DedicatedHostGroup(pulumi.CustomResource):
             __props__['support_automatic_placement'] = support_automatic_placement
             __props__['tags'] = tags
             __props__['zones'] = zones
-            __props__['properties'] = None
+            __props__['hosts'] = None
+            __props__['instance_view'] = None
             __props__['type'] = None
         super(DedicatedHostGroup, __self__).__init__(
             'azurerm:compute/v20200601:DedicatedHostGroup',

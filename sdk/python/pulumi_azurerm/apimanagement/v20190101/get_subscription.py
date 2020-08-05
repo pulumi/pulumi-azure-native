@@ -13,18 +13,90 @@ class GetSubscriptionResult:
     """
     Subscription details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, allow_tracing=None, created_date=None, display_name=None, end_date=None, expiration_date=None, name=None, notification_date=None, owner_id=None, primary_key=None, scope=None, secondary_key=None, start_date=None, state=None, state_comment=None, type=None):
+        if allow_tracing and not isinstance(allow_tracing, bool):
+            raise TypeError("Expected argument 'allow_tracing' to be a bool")
+        __self__.allow_tracing = allow_tracing
+        """
+        Determines whether tracing is enabled
+        """
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        The name of the subscription, or null if the subscription has no name.
+        """
+        if end_date and not isinstance(end_date, str):
+            raise TypeError("Expected argument 'end_date' to be a str")
+        __self__.end_date = end_date
+        """
+        Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
+        if expiration_date and not isinstance(expiration_date, str):
+            raise TypeError("Expected argument 'expiration_date' to be a str")
+        __self__.expiration_date = expiration_date
+        """
+        Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if notification_date and not isinstance(notification_date, str):
+            raise TypeError("Expected argument 'notification_date' to be a str")
+        __self__.notification_date = notification_date
         """
-        Subscription contract properties.
+        Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
+        if owner_id and not isinstance(owner_id, str):
+            raise TypeError("Expected argument 'owner_id' to be a str")
+        __self__.owner_id = owner_id
+        """
+        The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.
+        """
+        if primary_key and not isinstance(primary_key, str):
+            raise TypeError("Expected argument 'primary_key' to be a str")
+        __self__.primary_key = primary_key
+        """
+        Subscription primary key.
+        """
+        if scope and not isinstance(scope, str):
+            raise TypeError("Expected argument 'scope' to be a str")
+        __self__.scope = scope
+        """
+        Scope like /products/{productId} or /apis or /apis/{apiId}.
+        """
+        if secondary_key and not isinstance(secondary_key, str):
+            raise TypeError("Expected argument 'secondary_key' to be a str")
+        __self__.secondary_key = secondary_key
+        """
+        Subscription secondary key.
+        """
+        if start_date and not isinstance(start_date, str):
+            raise TypeError("Expected argument 'start_date' to be a str")
+        __self__.start_date = start_date
+        """
+        Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
+        """
+        if state_comment and not isinstance(state_comment, str):
+            raise TypeError("Expected argument 'state_comment' to be a str")
+        __self__.state_comment = state_comment
+        """
+        Optional subscription comment added by an administrator.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +112,20 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
         if False:
             yield self
         return GetSubscriptionResult(
+            allow_tracing=self.allow_tracing,
+            created_date=self.created_date,
+            display_name=self.display_name,
+            end_date=self.end_date,
+            expiration_date=self.expiration_date,
             name=self.name,
-            properties=self.properties,
+            notification_date=self.notification_date,
+            owner_id=self.owner_id,
+            primary_key=self.primary_key,
+            scope=self.scope,
+            secondary_key=self.secondary_key,
+            start_date=self.start_date,
+            state=self.state,
+            state_comment=self.state_comment,
             type=self.type)
 
 
@@ -64,6 +148,18 @@ def get_subscription(name=None, resource_group_name=None, service_name=None, opt
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getSubscription', __args__, opts=opts).value
 
     return AwaitableGetSubscriptionResult(
+        allow_tracing=__ret__.get('allowTracing'),
+        created_date=__ret__.get('createdDate'),
+        display_name=__ret__.get('displayName'),
+        end_date=__ret__.get('endDate'),
+        expiration_date=__ret__.get('expirationDate'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        notification_date=__ret__.get('notificationDate'),
+        owner_id=__ret__.get('ownerId'),
+        primary_key=__ret__.get('primaryKey'),
+        scope=__ret__.get('scope'),
+        secondary_key=__ret__.get('secondaryKey'),
+        start_date=__ret__.get('startDate'),
+        state=__ret__.get('state'),
+        state_comment=__ret__.get('stateComment'),
         type=__ret__.get('type'))

@@ -10,30 +10,40 @@ from ... import _utilities, _tables
 
 
 class Certificate(pulumi.CustomResource):
+    changed_time: pulumi.Output[str]
+    """
+    The changed time.
+    """
+    created_time: pulumi.Output[str]
+    """
+    The created time.
+    """
+    key: pulumi.Output[dict]
+    """
+    The key details in the key vault.
+      * `key_name` (`str`) - The private key name in key vault.
+      * `key_vault` (`dict`) - The key vault reference.
+        * `id` (`str`) - The resource id.
+        * `name` (`str`) - The resource name.
+        * `type` (`str`) - The resource type.
+
+      * `key_version` (`str`) - The private key version in key vault.
+    """
     location: pulumi.Output[str]
     """
     The resource location.
+    """
+    metadata: pulumi.Output[dict]
+    """
+    The metadata.
     """
     name: pulumi.Output[str]
     """
     Gets the resource name.
     """
-    properties: pulumi.Output[dict]
+    public_certificate: pulumi.Output[str]
     """
-    The integration account certificate properties.
-      * `changed_time` (`str`) - The changed time.
-      * `created_time` (`str`) - The created time.
-      * `key` (`dict`) - The key details in the key vault.
-        * `key_name` (`str`) - The private key name in key vault.
-        * `key_vault` (`dict`) - The key vault reference.
-          * `id` (`str`) - The resource id.
-          * `name` (`str`) - The resource name.
-          * `type` (`str`) - The resource type.
-
-        * `key_version` (`str`) - The private key version in key vault.
-
-      * `metadata` (`dict`) - The metadata.
-      * `public_certificate` (`str`) - The public certificate.
+    The public certificate.
     """
     tags: pulumi.Output[dict]
     """
@@ -97,7 +107,8 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['changed_time'] = None
+            __props__['created_time'] = None
             __props__['type'] = None
         super(Certificate, __self__).__init__(
             'azurerm:logic/v20160601:Certificate',

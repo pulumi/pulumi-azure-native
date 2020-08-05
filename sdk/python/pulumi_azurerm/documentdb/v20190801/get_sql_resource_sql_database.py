@@ -13,7 +13,7 @@ class GetSqlResourceSqlDatabaseResult:
     """
     An Azure Cosmos DB SQL database.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, resource=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,12 +26,9 @@ class GetSqlResourceSqlDatabaseResult:
         """
         The name of the ARM resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        The properties of an Azure Cosmos DB SQL database
-        """
+        if resource and not isinstance(resource, dict):
+            raise TypeError("Expected argument 'resource' to be a dict")
+        __self__.resource = resource
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
@@ -54,7 +51,7 @@ class AwaitableGetSqlResourceSqlDatabaseResult(GetSqlResourceSqlDatabaseResult):
         return GetSqlResourceSqlDatabaseResult(
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            resource=self.resource,
             tags=self.tags,
             type=self.type)
 
@@ -80,6 +77,6 @@ def get_sql_resource_sql_database(account_name=None, name=None, resource_group_n
     return AwaitableGetSqlResourceSqlDatabaseResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        resource=__ret__.get('resource'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

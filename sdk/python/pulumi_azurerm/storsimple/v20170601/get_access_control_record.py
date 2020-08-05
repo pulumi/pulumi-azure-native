@@ -13,7 +13,13 @@ class GetAccessControlRecordResult:
     """
     The access control record.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, initiator_name=None, kind=None, name=None, type=None, volume_count=None):
+        if initiator_name and not isinstance(initiator_name, str):
+            raise TypeError("Expected argument 'initiator_name' to be a str")
+        __self__.initiator_name = initiator_name
+        """
+        The iSCSI initiator name (IQN).
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,17 +32,17 @@ class GetAccessControlRecordResult:
         """
         The name of the object.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        The properties of access control record.
-        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The hierarchical type of the object.
+        """
+        if volume_count and not isinstance(volume_count, float):
+            raise TypeError("Expected argument 'volume_count' to be a float")
+        __self__.volume_count = volume_count
+        """
+        The number of volumes using the access control record.
         """
 
 
@@ -46,10 +52,11 @@ class AwaitableGetAccessControlRecordResult(GetAccessControlRecordResult):
         if False:
             yield self
         return GetAccessControlRecordResult(
+            initiator_name=self.initiator_name,
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            type=self.type,
+            volume_count=self.volume_count)
 
 
 def get_access_control_record(manager_name=None, name=None, resource_group_name=None, opts=None):
@@ -71,7 +78,8 @@ def get_access_control_record(manager_name=None, name=None, resource_group_name=
     __ret__ = pulumi.runtime.invoke('azurerm:storsimple/v20170601:getAccessControlRecord', __args__, opts=opts).value
 
     return AwaitableGetAccessControlRecordResult(
+        initiator_name=__ret__.get('initiatorName'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        volume_count=__ret__.get('volumeCount'))

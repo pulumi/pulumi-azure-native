@@ -13,12 +13,24 @@ class GetApplicationPackageResult:
     """
     An application package which represents a particular version of an application.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, etag=None, format=None, last_activation_time=None, name=None, state=None, storage_url=None, storage_url_expiry=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         The ETag of the resource, used for concurrency statements.
+        """
+        if format and not isinstance(format, str):
+            raise TypeError("Expected argument 'format' to be a str")
+        __self__.format = format
+        """
+        The format of the application package, if the package is active.
+        """
+        if last_activation_time and not isinstance(last_activation_time, str):
+            raise TypeError("Expected argument 'last_activation_time' to be a str")
+        __self__.last_activation_time = last_activation_time
+        """
+        The time at which the package was last activated, if the package is active.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +38,23 @@ class GetApplicationPackageResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
         """
-        The properties associated with the Application Package.
+        The current state of the application package.
+        """
+        if storage_url and not isinstance(storage_url, str):
+            raise TypeError("Expected argument 'storage_url' to be a str")
+        __self__.storage_url = storage_url
+        """
+        The URL for the application package in Azure Storage.
+        """
+        if storage_url_expiry and not isinstance(storage_url_expiry, str):
+            raise TypeError("Expected argument 'storage_url_expiry' to be a str")
+        __self__.storage_url_expiry = storage_url_expiry
+        """
+        The UTC time at which the Azure Storage URL will expire.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -47,8 +71,12 @@ class AwaitableGetApplicationPackageResult(GetApplicationPackageResult):
             yield self
         return GetApplicationPackageResult(
             etag=self.etag,
+            format=self.format,
+            last_activation_time=self.last_activation_time,
             name=self.name,
-            properties=self.properties,
+            state=self.state,
+            storage_url=self.storage_url,
+            storage_url_expiry=self.storage_url_expiry,
             type=self.type)
 
 
@@ -74,6 +102,10 @@ def get_application_package(account_name=None, application_name=None, name=None,
 
     return AwaitableGetApplicationPackageResult(
         etag=__ret__.get('etag'),
+        format=__ret__.get('format'),
+        last_activation_time=__ret__.get('lastActivationTime'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        state=__ret__.get('state'),
+        storage_url=__ret__.get('storageUrl'),
+        storage_url_expiry=__ret__.get('storageUrlExpiry'),
         type=__ret__.get('type'))

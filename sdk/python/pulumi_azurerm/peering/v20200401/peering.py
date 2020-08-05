@@ -10,6 +10,63 @@ from ... import _utilities, _tables
 
 
 class Peering(pulumi.CustomResource):
+    direct: pulumi.Output[dict]
+    """
+    The properties that define a direct peering.
+      * `connections` (`list`) - The set of connections that constitute a direct peering.
+        * `bandwidth_in_mbps` (`float`) - The bandwidth of the connection.
+        * `bgp_session` (`dict`) - The BGP session associated with the connection.
+          * `max_prefixes_advertised_v4` (`float`) - The maximum number of prefixes advertised over the IPv4 session.
+          * `max_prefixes_advertised_v6` (`float`) - The maximum number of prefixes advertised over the IPv6 session.
+          * `md5_authentication_key` (`str`) - The MD5 authentication key of the session.
+          * `microsoft_session_i_pv4_address` (`str`) - The IPv4 session address on Microsoft's end.
+          * `microsoft_session_i_pv6_address` (`str`) - The IPv6 session address on Microsoft's end.
+          * `peer_session_i_pv4_address` (`str`) - The IPv4 session address on peer's end.
+          * `peer_session_i_pv6_address` (`str`) - The IPv6 session address on peer's end.
+          * `session_prefix_v4` (`str`) - The IPv4 prefix that contains both ends' IPv4 addresses.
+          * `session_prefix_v6` (`str`) - The IPv6 prefix that contains both ends' IPv6 addresses.
+          * `session_state_v4` (`str`) - The state of the IPv4 session.
+          * `session_state_v6` (`str`) - The state of the IPv6 session.
+
+        * `connection_identifier` (`str`) - The unique identifier (GUID) for the connection.
+        * `connection_state` (`str`) - The state of the connection.
+        * `error_message` (`str`) - The error message related to the connection state, if any.
+        * `peering_db_facility_id` (`float`) - The PeeringDB.com ID of the facility at which the connection has to be set up.
+        * `provisioned_bandwidth_in_mbps` (`float`) - The bandwidth that is actually provisioned.
+        * `session_address_provider` (`str`) - The field indicating if Microsoft provides session ip addresses.
+        * `use_for_peering_service` (`bool`) - The flag that indicates whether or not the connection is used for peering service.
+
+      * `direct_peering_type` (`str`) - The type of direct peering.
+      * `peer_asn` (`dict`) - The reference of the peer ASN.
+        * `id` (`str`) - The identifier of the referenced resource.
+
+      * `use_for_peering_service` (`bool`) - The flag that indicates whether or not the peering is used for peering service.
+    """
+    exchange: pulumi.Output[dict]
+    """
+    The properties that define an exchange peering.
+      * `connections` (`list`) - The set of connections that constitute an exchange peering.
+        * `bgp_session` (`dict`) - The BGP session associated with the connection.
+          * `max_prefixes_advertised_v4` (`float`) - The maximum number of prefixes advertised over the IPv4 session.
+          * `max_prefixes_advertised_v6` (`float`) - The maximum number of prefixes advertised over the IPv6 session.
+          * `md5_authentication_key` (`str`) - The MD5 authentication key of the session.
+          * `microsoft_session_i_pv4_address` (`str`) - The IPv4 session address on Microsoft's end.
+          * `microsoft_session_i_pv6_address` (`str`) - The IPv6 session address on Microsoft's end.
+          * `peer_session_i_pv4_address` (`str`) - The IPv4 session address on peer's end.
+          * `peer_session_i_pv6_address` (`str`) - The IPv6 session address on peer's end.
+          * `session_prefix_v4` (`str`) - The IPv4 prefix that contains both ends' IPv4 addresses.
+          * `session_prefix_v6` (`str`) - The IPv6 prefix that contains both ends' IPv6 addresses.
+          * `session_state_v4` (`str`) - The state of the IPv4 session.
+          * `session_state_v6` (`str`) - The state of the IPv6 session.
+
+        * `connection_identifier` (`str`) - The unique identifier (GUID) for the connection.
+        * `connection_state` (`str`) - The state of the connection.
+        * `error_message` (`str`) - The error message related to the connection state, if any.
+        * `peering_db_facility_id` (`float`) - The PeeringDB.com ID of the facility at which the connection has to be set up.
+
+      * `peer_asn` (`dict`) - The reference of the peer ASN.
+        * `id` (`str`) - The identifier of the referenced resource.
+    """
     kind: pulumi.Output[str]
     """
     The kind of the peering.
@@ -22,51 +79,13 @@ class Peering(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    peering_location: pulumi.Output[str]
     """
-    The properties that define a peering.
-      * `direct` (`dict`) - The properties that define a direct peering.
-        * `connections` (`list`) - The set of connections that constitute a direct peering.
-          * `bandwidth_in_mbps` (`float`) - The bandwidth of the connection.
-          * `bgp_session` (`dict`) - The BGP session associated with the connection.
-            * `max_prefixes_advertised_v4` (`float`) - The maximum number of prefixes advertised over the IPv4 session.
-            * `max_prefixes_advertised_v6` (`float`) - The maximum number of prefixes advertised over the IPv6 session.
-            * `md5_authentication_key` (`str`) - The MD5 authentication key of the session.
-            * `microsoft_session_i_pv4_address` (`str`) - The IPv4 session address on Microsoft's end.
-            * `microsoft_session_i_pv6_address` (`str`) - The IPv6 session address on Microsoft's end.
-            * `peer_session_i_pv4_address` (`str`) - The IPv4 session address on peer's end.
-            * `peer_session_i_pv6_address` (`str`) - The IPv6 session address on peer's end.
-            * `session_prefix_v4` (`str`) - The IPv4 prefix that contains both ends' IPv4 addresses.
-            * `session_prefix_v6` (`str`) - The IPv6 prefix that contains both ends' IPv6 addresses.
-            * `session_state_v4` (`str`) - The state of the IPv4 session.
-            * `session_state_v6` (`str`) - The state of the IPv6 session.
-
-          * `connection_identifier` (`str`) - The unique identifier (GUID) for the connection.
-          * `connection_state` (`str`) - The state of the connection.
-          * `error_message` (`str`) - The error message related to the connection state, if any.
-          * `peering_db_facility_id` (`float`) - The PeeringDB.com ID of the facility at which the connection has to be set up.
-          * `provisioned_bandwidth_in_mbps` (`float`) - The bandwidth that is actually provisioned.
-          * `session_address_provider` (`str`) - The field indicating if Microsoft provides session ip addresses.
-          * `use_for_peering_service` (`bool`) - The flag that indicates whether or not the connection is used for peering service.
-
-        * `direct_peering_type` (`str`) - The type of direct peering.
-        * `peer_asn` (`dict`) - The reference of the peer ASN.
-          * `id` (`str`) - The identifier of the referenced resource.
-
-        * `use_for_peering_service` (`bool`) - The flag that indicates whether or not the peering is used for peering service.
-
-      * `exchange` (`dict`) - The properties that define an exchange peering.
-        * `connections` (`list`) - The set of connections that constitute an exchange peering.
-          * `bgp_session` (`dict`) - The BGP session associated with the connection.
-          * `connection_identifier` (`str`) - The unique identifier (GUID) for the connection.
-          * `connection_state` (`str`) - The state of the connection.
-          * `error_message` (`str`) - The error message related to the connection state, if any.
-          * `peering_db_facility_id` (`float`) - The PeeringDB.com ID of the facility at which the connection has to be set up.
-
-        * `peer_asn` (`dict`) - The reference of the peer ASN.
-
-      * `peering_location` (`str`) - The location of the peering.
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
+    The location of the peering.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the resource.
     """
     sku: pulumi.Output[dict]
     """
@@ -176,7 +195,7 @@ class Peering(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Peering, __self__).__init__(
             'azurerm:peering/v20200401:Peering',

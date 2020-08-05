@@ -13,7 +13,61 @@ class GetGalleryImageResult:
     """
     Represents an image from the Azure Marketplace
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, author=None, created_date=None, description=None, icon=None, image_reference=None, is_enabled=None, is_override=None, is_plan_authorized=None, latest_operation_result=None, location=None, name=None, plan_id=None, provisioning_state=None, tags=None, type=None, unique_identifier=None):
+        if author and not isinstance(author, str):
+            raise TypeError("Expected argument 'author' to be a str")
+        __self__.author = author
+        """
+        The author of the gallery image.
+        """
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        The creation date of the gallery image.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The description of the gallery image.
+        """
+        if icon and not isinstance(icon, str):
+            raise TypeError("Expected argument 'icon' to be a str")
+        __self__.icon = icon
+        """
+        The icon of the gallery image.
+        """
+        if image_reference and not isinstance(image_reference, dict):
+            raise TypeError("Expected argument 'image_reference' to be a dict")
+        __self__.image_reference = image_reference
+        """
+        The image reference of the gallery image.
+        """
+        if is_enabled and not isinstance(is_enabled, bool):
+            raise TypeError("Expected argument 'is_enabled' to be a bool")
+        __self__.is_enabled = is_enabled
+        """
+        Indicates whether this gallery image is enabled.
+        """
+        if is_override and not isinstance(is_override, bool):
+            raise TypeError("Expected argument 'is_override' to be a bool")
+        __self__.is_override = is_override
+        """
+        Indicates whether this gallery has been overridden for this lab account
+        """
+        if is_plan_authorized and not isinstance(is_plan_authorized, bool):
+            raise TypeError("Expected argument 'is_plan_authorized' to be a bool")
+        __self__.is_plan_authorized = is_plan_authorized
+        """
+        Indicates if the plan has been authorized for programmatic deployment.
+        """
+        if latest_operation_result and not isinstance(latest_operation_result, dict):
+            raise TypeError("Expected argument 'latest_operation_result' to be a dict")
+        __self__.latest_operation_result = latest_operation_result
+        """
+        The details of the latest operation. ex: status, error
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +80,17 @@ class GetGalleryImageResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if plan_id and not isinstance(plan_id, str):
+            raise TypeError("Expected argument 'plan_id' to be a str")
+        __self__.plan_id = plan_id
         """
-        The gallery image properties
+        The third party plan that applies to this image
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning status of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +104,12 @@ class GetGalleryImageResult:
         """
         The type of the resource.
         """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
 
 
 class AwaitableGetGalleryImageResult(GetGalleryImageResult):
@@ -52,11 +118,22 @@ class AwaitableGetGalleryImageResult(GetGalleryImageResult):
         if False:
             yield self
         return GetGalleryImageResult(
+            author=self.author,
+            created_date=self.created_date,
+            description=self.description,
+            icon=self.icon,
+            image_reference=self.image_reference,
+            is_enabled=self.is_enabled,
+            is_override=self.is_override,
+            is_plan_authorized=self.is_plan_authorized,
+            latest_operation_result=self.latest_operation_result,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            plan_id=self.plan_id,
+            provisioning_state=self.provisioning_state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            unique_identifier=self.unique_identifier)
 
 
 def get_gallery_image(lab_account_name=None, name=None, resource_group_name=None, opts=None):
@@ -78,8 +155,19 @@ def get_gallery_image(lab_account_name=None, name=None, resource_group_name=None
     __ret__ = pulumi.runtime.invoke('azurerm:labservices/v20181015:getGalleryImage', __args__, opts=opts).value
 
     return AwaitableGetGalleryImageResult(
+        author=__ret__.get('author'),
+        created_date=__ret__.get('createdDate'),
+        description=__ret__.get('description'),
+        icon=__ret__.get('icon'),
+        image_reference=__ret__.get('imageReference'),
+        is_enabled=__ret__.get('isEnabled'),
+        is_override=__ret__.get('isOverride'),
+        is_plan_authorized=__ret__.get('isPlanAuthorized'),
+        latest_operation_result=__ret__.get('latestOperationResult'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        plan_id=__ret__.get('planId'),
+        provisioning_state=__ret__.get('provisioningState'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'))

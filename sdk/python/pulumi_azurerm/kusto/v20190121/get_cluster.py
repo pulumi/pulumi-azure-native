@@ -13,7 +13,13 @@ class GetClusterResult:
     """
     Class representing a Kusto cluster.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, data_ingestion_uri=None, location=None, name=None, provisioning_state=None, sku=None, state=None, tags=None, trusted_external_tenants=None, type=None, uri=None):
+        if data_ingestion_uri and not isinstance(data_ingestion_uri, str):
+            raise TypeError("Expected argument 'data_ingestion_uri' to be a str")
+        __self__.data_ingestion_uri = data_ingestion_uri
+        """
+        The cluster data ingestion URI.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +32,11 @@ class GetClusterResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The cluster properties.
+        The provisioned state of the resource.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -38,17 +44,35 @@ class GetClusterResult:
         """
         The SKU of the cluster.
         """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        The state of the resource.
+        """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         __self__.tags = tags
         """
         Resource tags.
         """
+        if trusted_external_tenants and not isinstance(trusted_external_tenants, list):
+            raise TypeError("Expected argument 'trusted_external_tenants' to be a list")
+        __self__.trusted_external_tenants = trusted_external_tenants
+        """
+        The cluster's external tenants.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        if uri and not isinstance(uri, str):
+            raise TypeError("Expected argument 'uri' to be a str")
+        __self__.uri = uri
+        """
+        The cluster URI.
         """
 
 
@@ -58,12 +82,16 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            data_ingestion_uri=self.data_ingestion_uri,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
+            state=self.state,
             tags=self.tags,
-            type=self.type)
+            trusted_external_tenants=self.trusted_external_tenants,
+            type=self.type,
+            uri=self.uri)
 
 
 def get_cluster(name=None, resource_group_name=None, opts=None):
@@ -83,9 +111,13 @@ def get_cluster(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:kusto/v20190121:getCluster', __args__, opts=opts).value
 
     return AwaitableGetClusterResult(
+        data_ingestion_uri=__ret__.get('dataIngestionUri'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
+        state=__ret__.get('state'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        trusted_external_tenants=__ret__.get('trustedExternalTenants'),
+        type=__ret__.get('type'),
+        uri=__ret__.get('uri'))

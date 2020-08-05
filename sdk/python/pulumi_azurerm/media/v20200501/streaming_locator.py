@@ -10,35 +10,60 @@ from ... import _utilities, _tables
 
 
 class StreamingLocator(pulumi.CustomResource):
+    alternative_media_id: pulumi.Output[str]
+    """
+    Alternative Media ID of this Streaming Locator
+    """
+    asset_name: pulumi.Output[str]
+    """
+    Asset Name
+    """
+    content_keys: pulumi.Output[list]
+    """
+    The ContentKeys used by this Streaming Locator.
+      * `id` (`str`) - ID of Content Key
+      * `label_reference_in_streaming_policy` (`str`) - Label of Content Key as specified in the Streaming Policy
+      * `policy_name` (`str`) - ContentKeyPolicy used by Content Key
+      * `tracks` (`list`) - Tracks which use this Content Key
+        * `track_selections` (`list`) - TrackSelections is a track property condition list which can specify track(s)
+          * `operation` (`str`) - Track property condition operation
+          * `property` (`str`) - Track property type
+          * `value` (`str`) - Track property value
+
+      * `type` (`str`) - Encryption type of Content Key
+      * `value` (`str`) - Value of Content Key
+    """
+    created: pulumi.Output[str]
+    """
+    The creation time of the Streaming Locator.
+    """
+    default_content_key_policy_name: pulumi.Output[str]
+    """
+    Name of the default ContentKeyPolicy used by this Streaming Locator.
+    """
+    end_time: pulumi.Output[str]
+    """
+    The end time of the Streaming Locator.
+    """
+    filters: pulumi.Output[list]
+    """
+    A list of asset or account filters which apply to this streaming locator
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    start_time: pulumi.Output[str]
     """
-    Properties of the Streaming Locator.
-      * `alternative_media_id` (`str`) - Alternative Media ID of this Streaming Locator
-      * `asset_name` (`str`) - Asset Name
-      * `content_keys` (`list`) - The ContentKeys used by this Streaming Locator.
-        * `id` (`str`) - ID of Content Key
-        * `label_reference_in_streaming_policy` (`str`) - Label of Content Key as specified in the Streaming Policy
-        * `policy_name` (`str`) - ContentKeyPolicy used by Content Key
-        * `tracks` (`list`) - Tracks which use this Content Key
-          * `track_selections` (`list`) - TrackSelections is a track property condition list which can specify track(s)
-            * `operation` (`str`) - Track property condition operation
-            * `property` (`str`) - Track property type
-            * `value` (`str`) - Track property value
-
-        * `type` (`str`) - Encryption type of Content Key
-        * `value` (`str`) - Value of Content Key
-
-      * `created` (`str`) - The creation time of the Streaming Locator.
-      * `default_content_key_policy_name` (`str`) - Name of the default ContentKeyPolicy used by this Streaming Locator.
-      * `end_time` (`str`) - The end time of the Streaming Locator.
-      * `filters` (`list`) - A list of asset or account filters which apply to this streaming locator
-      * `start_time` (`str`) - The start time of the Streaming Locator.
-      * `streaming_locator_id` (`str`) - The StreamingLocatorId of the Streaming Locator.
-      * `streaming_policy_name` (`str`) - Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
+    The start time of the Streaming Locator.
+    """
+    streaming_locator_id: pulumi.Output[str]
+    """
+    The StreamingLocatorId of the Streaming Locator.
+    """
+    streaming_policy_name: pulumi.Output[str]
+    """
+    Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'
     """
     type: pulumi.Output[str]
     """
@@ -108,7 +133,7 @@ class StreamingLocator(pulumi.CustomResource):
             if streaming_policy_name is None:
                 raise TypeError("Missing required property 'streaming_policy_name'")
             __props__['streaming_policy_name'] = streaming_policy_name
-            __props__['properties'] = None
+            __props__['created'] = None
             __props__['type'] = None
         super(StreamingLocator, __self__).__init__(
             'azurerm:media/v20200501:StreamingLocator',

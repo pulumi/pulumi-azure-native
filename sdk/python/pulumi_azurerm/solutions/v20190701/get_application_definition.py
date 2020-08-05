@@ -13,12 +13,72 @@ class GetApplicationDefinitionResult:
     """
     Information about managed application definition.
     """
-    def __init__(__self__, location=None, managed_by=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, artifacts=None, authorizations=None, create_ui_definition=None, deployment_policy=None, description=None, display_name=None, is_enabled=None, location=None, lock_level=None, locking_policy=None, main_template=None, managed_by=None, management_policy=None, name=None, notification_policy=None, package_file_uri=None, policies=None, sku=None, tags=None, type=None):
+        if artifacts and not isinstance(artifacts, list):
+            raise TypeError("Expected argument 'artifacts' to be a list")
+        __self__.artifacts = artifacts
+        """
+        The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
+        """
+        if authorizations and not isinstance(authorizations, list):
+            raise TypeError("Expected argument 'authorizations' to be a list")
+        __self__.authorizations = authorizations
+        """
+        The managed application provider authorizations.
+        """
+        if create_ui_definition and not isinstance(create_ui_definition, dict):
+            raise TypeError("Expected argument 'create_ui_definition' to be a dict")
+        __self__.create_ui_definition = create_ui_definition
+        """
+        The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
+        """
+        if deployment_policy and not isinstance(deployment_policy, dict):
+            raise TypeError("Expected argument 'deployment_policy' to be a dict")
+        __self__.deployment_policy = deployment_policy
+        """
+        The managed application deployment policy.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        The managed application definition description.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        The managed application definition display name.
+        """
+        if is_enabled and not isinstance(is_enabled, bool):
+            raise TypeError("Expected argument 'is_enabled' to be a bool")
+        __self__.is_enabled = is_enabled
+        """
+        A value indicating whether the package is enabled or not.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource location
+        """
+        if lock_level and not isinstance(lock_level, str):
+            raise TypeError("Expected argument 'lock_level' to be a str")
+        __self__.lock_level = lock_level
+        """
+        The managed application lock level.
+        """
+        if locking_policy and not isinstance(locking_policy, dict):
+            raise TypeError("Expected argument 'locking_policy' to be a dict")
+        __self__.locking_policy = locking_policy
+        """
+        The managed application locking policy.
+        """
+        if main_template and not isinstance(main_template, dict):
+            raise TypeError("Expected argument 'main_template' to be a dict")
+        __self__.main_template = main_template
+        """
+        The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
         """
         if managed_by and not isinstance(managed_by, str):
             raise TypeError("Expected argument 'managed_by' to be a str")
@@ -26,17 +86,35 @@ class GetApplicationDefinitionResult:
         """
         ID of the resource that manages this resource.
         """
+        if management_policy and not isinstance(management_policy, dict):
+            raise TypeError("Expected argument 'management_policy' to be a dict")
+        __self__.management_policy = management_policy
+        """
+        The managed application management policy that determines publisher's access to the managed resource group.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if notification_policy and not isinstance(notification_policy, dict):
+            raise TypeError("Expected argument 'notification_policy' to be a dict")
+        __self__.notification_policy = notification_policy
         """
-        The managed application definition properties.
+        The managed application notification policy.
+        """
+        if package_file_uri and not isinstance(package_file_uri, str):
+            raise TypeError("Expected argument 'package_file_uri' to be a str")
+        __self__.package_file_uri = package_file_uri
+        """
+        The managed application definition package file Uri. Use this element
+        """
+        if policies and not isinstance(policies, list):
+            raise TypeError("Expected argument 'policies' to be a list")
+        __self__.policies = policies
+        """
+        The managed application provider policies.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -64,10 +142,23 @@ class AwaitableGetApplicationDefinitionResult(GetApplicationDefinitionResult):
         if False:
             yield self
         return GetApplicationDefinitionResult(
+            artifacts=self.artifacts,
+            authorizations=self.authorizations,
+            create_ui_definition=self.create_ui_definition,
+            deployment_policy=self.deployment_policy,
+            description=self.description,
+            display_name=self.display_name,
+            is_enabled=self.is_enabled,
             location=self.location,
+            lock_level=self.lock_level,
+            locking_policy=self.locking_policy,
+            main_template=self.main_template,
             managed_by=self.managed_by,
+            management_policy=self.management_policy,
             name=self.name,
-            properties=self.properties,
+            notification_policy=self.notification_policy,
+            package_file_uri=self.package_file_uri,
+            policies=self.policies,
             sku=self.sku,
             tags=self.tags,
             type=self.type)
@@ -90,10 +181,23 @@ def get_application_definition(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:solutions/v20190701:getApplicationDefinition', __args__, opts=opts).value
 
     return AwaitableGetApplicationDefinitionResult(
+        artifacts=__ret__.get('artifacts'),
+        authorizations=__ret__.get('authorizations'),
+        create_ui_definition=__ret__.get('createUiDefinition'),
+        deployment_policy=__ret__.get('deploymentPolicy'),
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        is_enabled=__ret__.get('isEnabled'),
         location=__ret__.get('location'),
+        lock_level=__ret__.get('lockLevel'),
+        locking_policy=__ret__.get('lockingPolicy'),
+        main_template=__ret__.get('mainTemplate'),
         managed_by=__ret__.get('managedBy'),
+        management_policy=__ret__.get('managementPolicy'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        notification_policy=__ret__.get('notificationPolicy'),
+        package_file_uri=__ret__.get('packageFileUri'),
+        policies=__ret__.get('policies'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

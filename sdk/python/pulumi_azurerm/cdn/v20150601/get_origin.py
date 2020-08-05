@@ -13,16 +13,43 @@ class GetOriginResult:
     """
     CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, host_name=None, http_port=None, https_port=None, name=None, provisioning_state=None, resource_state=None, type=None):
+        if host_name and not isinstance(host_name, str):
+            raise TypeError("Expected argument 'host_name' to be a str")
+        __self__.host_name = host_name
+        """
+        The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.
+        """
+        if http_port and not isinstance(http_port, float):
+            raise TypeError("Expected argument 'http_port' to be a float")
+        __self__.http_port = http_port
+        """
+        The value of the HTTP port. Must be between 1 and 65535.
+        """
+        if https_port and not isinstance(https_port, float):
+            raise TypeError("Expected argument 'https_port' to be a float")
+        __self__.https_port = https_port
+        """
+        The value of the https port. Must be between 1 and 65535.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning status of the origin.
+        """
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
+        """
+        Resource status of the origin.
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
@@ -37,8 +64,12 @@ class AwaitableGetOriginResult(GetOriginResult):
         if False:
             yield self
         return GetOriginResult(
+            host_name=self.host_name,
+            http_port=self.http_port,
+            https_port=self.https_port,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            resource_state=self.resource_state,
             type=self.type)
 
 
@@ -63,6 +94,10 @@ def get_origin(endpoint_name=None, name=None, profile_name=None, resource_group_
     __ret__ = pulumi.runtime.invoke('azurerm:cdn/v20150601:getOrigin', __args__, opts=opts).value
 
     return AwaitableGetOriginResult(
+        host_name=__ret__.get('hostName'),
+        http_port=__ret__.get('httpPort'),
+        https_port=__ret__.get('httpsPort'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_state=__ret__.get('resourceState'),
         type=__ret__.get('type'))

@@ -13,12 +13,24 @@ class GetMaintenanceConfigurationResult:
     """
     Maintenance configuration record type
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, extension_properties=None, location=None, maintenance_scope=None, name=None, namespace=None, tags=None, type=None):
+        if extension_properties and not isinstance(extension_properties, dict):
+            raise TypeError("Expected argument 'extension_properties' to be a dict")
+        __self__.extension_properties = extension_properties
+        """
+        Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Gets or sets location of the resource
+        """
+        if maintenance_scope and not isinstance(maintenance_scope, str):
+            raise TypeError("Expected argument 'maintenance_scope' to be a str")
+        __self__.maintenance_scope = maintenance_scope
+        """
+        Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +38,11 @@ class GetMaintenanceConfigurationResult:
         """
         Name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if namespace and not isinstance(namespace, str):
+            raise TypeError("Expected argument 'namespace' to be a str")
+        __self__.namespace = namespace
         """
-        Gets or sets properties of the resource
+        Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +64,11 @@ class AwaitableGetMaintenanceConfigurationResult(GetMaintenanceConfigurationResu
         if False:
             yield self
         return GetMaintenanceConfigurationResult(
+            extension_properties=self.extension_properties,
             location=self.location,
+            maintenance_scope=self.maintenance_scope,
             name=self.name,
-            properties=self.properties,
+            namespace=self.namespace,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +90,10 @@ def get_maintenance_configuration(name=None, resource_group_name=None, opts=None
     __ret__ = pulumi.runtime.invoke('azurerm:maintenance/v20200401:getMaintenanceConfiguration', __args__, opts=opts).value
 
     return AwaitableGetMaintenanceConfigurationResult(
+        extension_properties=__ret__.get('extensionProperties'),
         location=__ret__.get('location'),
+        maintenance_scope=__ret__.get('maintenanceScope'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        namespace=__ret__.get('namespace'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

@@ -10,25 +10,41 @@ from ... import _utilities, _tables
 
 
 class Namespace(pulumi.CustomResource):
+    created_at: pulumi.Output[str]
+    """
+    The time the Namespace was created.
+    """
+    is_auto_inflate_enabled: pulumi.Output[bool]
+    """
+    Value that indicates whether AutoInflate is enabled for eventhub namespace.
+    """
+    kafka_enabled: pulumi.Output[bool]
+    """
+    Value that indicates whether Kafka is enabled for eventhub namespace.
+    """
     location: pulumi.Output[str]
     """
     Resource location.
+    """
+    maximum_throughput_units: pulumi.Output[float]
+    """
+    Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+    """
+    metric_id: pulumi.Output[str]
+    """
+    Identifier for Azure Insights metrics.
     """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Namespace properties supplied for create namespace operation.
-      * `created_at` (`str`) - The time the Namespace was created.
-      * `is_auto_inflate_enabled` (`bool`) - Value that indicates whether AutoInflate is enabled for eventhub namespace.
-      * `kafka_enabled` (`bool`) - Value that indicates whether Kafka is enabled for eventhub namespace.
-      * `maximum_throughput_units` (`float`) - Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
-      * `metric_id` (`str`) - Identifier for Azure Insights metrics.
-      * `provisioning_state` (`str`) - Provisioning state of the Namespace.
-      * `service_bus_endpoint` (`str`) - Endpoint you can use to perform Service Bus operations.
-      * `updated_at` (`str`) - The time the Namespace was updated.
+    Provisioning state of the Namespace.
+    """
+    service_bus_endpoint: pulumi.Output[str]
+    """
+    Endpoint you can use to perform Service Bus operations.
     """
     sku: pulumi.Output[dict]
     """
@@ -44,6 +60,10 @@ class Namespace(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    updated_at: pulumi.Output[str]
+    """
+    The time the Namespace was updated.
     """
     def __init__(__self__, resource_name, opts=None, is_auto_inflate_enabled=None, kafka_enabled=None, location=None, maximum_throughput_units=None, name=None, resource_group_name=None, sku=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -95,8 +115,12 @@ class Namespace(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['created_at'] = None
+            __props__['metric_id'] = None
+            __props__['provisioning_state'] = None
+            __props__['service_bus_endpoint'] = None
             __props__['type'] = None
+            __props__['updated_at'] = None
         super(Namespace, __self__).__init__(
             'azurerm:eventhub/v20170401:Namespace',
             resource_name,

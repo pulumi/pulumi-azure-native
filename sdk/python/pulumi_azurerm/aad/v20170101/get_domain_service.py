@@ -13,12 +13,60 @@ class GetDomainServiceResult:
     """
     Domain service.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, domain_controller_ip_address=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, health_alerts=None, health_last_evaluated=None, health_monitors=None, ldaps_settings=None, location=None, name=None, notification_settings=None, provisioning_state=None, service_status=None, subnet_id=None, tags=None, tenant_id=None, type=None, vnet_site_id=None):
+        if domain_controller_ip_address and not isinstance(domain_controller_ip_address, list):
+            raise TypeError("Expected argument 'domain_controller_ip_address' to be a list")
+        __self__.domain_controller_ip_address = domain_controller_ip_address
+        """
+        List of Domain Controller IP Address
+        """
+        if domain_name and not isinstance(domain_name, str):
+            raise TypeError("Expected argument 'domain_name' to be a str")
+        __self__.domain_name = domain_name
+        """
+        The name of the Azure domain that the user would like to deploy Domain Services to.
+        """
+        if domain_security_settings and not isinstance(domain_security_settings, dict):
+            raise TypeError("Expected argument 'domain_security_settings' to be a dict")
+        __self__.domain_security_settings = domain_security_settings
+        """
+        DomainSecurity Settings
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Resource etag
+        """
+        if filtered_sync and not isinstance(filtered_sync, str):
+            raise TypeError("Expected argument 'filtered_sync' to be a str")
+        __self__.filtered_sync = filtered_sync
+        """
+        Enabled or Disabled flag to turn on Group-based filtered sync
+        """
+        if health_alerts and not isinstance(health_alerts, list):
+            raise TypeError("Expected argument 'health_alerts' to be a list")
+        __self__.health_alerts = health_alerts
+        """
+        List of Domain Health Alerts
+        """
+        if health_last_evaluated and not isinstance(health_last_evaluated, str):
+            raise TypeError("Expected argument 'health_last_evaluated' to be a str")
+        __self__.health_last_evaluated = health_last_evaluated
+        """
+        Last domain evaluation run DateTime
+        """
+        if health_monitors and not isinstance(health_monitors, list):
+            raise TypeError("Expected argument 'health_monitors' to be a list")
+        __self__.health_monitors = health_monitors
+        """
+        List of Domain Health Monitors
+        """
+        if ldaps_settings and not isinstance(ldaps_settings, dict):
+            raise TypeError("Expected argument 'ldaps_settings' to be a dict")
+        __self__.ldaps_settings = ldaps_settings
+        """
+        Secure LDAP Settings
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,11 +80,29 @@ class GetDomainServiceResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if notification_settings and not isinstance(notification_settings, dict):
+            raise TypeError("Expected argument 'notification_settings' to be a dict")
+        __self__.notification_settings = notification_settings
         """
-        Domain service properties
+        Notification Settings
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        the current deployment or provisioning state, which only appears in the response.
+        """
+        if service_status and not isinstance(service_status, str):
+            raise TypeError("Expected argument 'service_status' to be a str")
+        __self__.service_status = service_status
+        """
+        Status of Domain Service instance
+        """
+        if subnet_id and not isinstance(subnet_id, str):
+            raise TypeError("Expected argument 'subnet_id' to be a str")
+        __self__.subnet_id = subnet_id
+        """
+        The name of the virtual network that Domain Services will be deployed on. The id of the subnet that Domain Services will be deployed on. /virtualNetwork/vnetName/subnets/subnetName.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,11 +110,23 @@ class GetDomainServiceResult:
         """
         Resource tags
         """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        Azure Active Directory tenant id
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type
+        """
+        if vnet_site_id and not isinstance(vnet_site_id, str):
+            raise TypeError("Expected argument 'vnet_site_id' to be a str")
+        __self__.vnet_site_id = vnet_site_id
+        """
+        Virtual network site id
         """
 
 
@@ -58,12 +136,25 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
         if False:
             yield self
         return GetDomainServiceResult(
+            domain_controller_ip_address=self.domain_controller_ip_address,
+            domain_name=self.domain_name,
+            domain_security_settings=self.domain_security_settings,
             etag=self.etag,
+            filtered_sync=self.filtered_sync,
+            health_alerts=self.health_alerts,
+            health_last_evaluated=self.health_last_evaluated,
+            health_monitors=self.health_monitors,
+            ldaps_settings=self.ldaps_settings,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            notification_settings=self.notification_settings,
+            provisioning_state=self.provisioning_state,
+            service_status=self.service_status,
+            subnet_id=self.subnet_id,
             tags=self.tags,
-            type=self.type)
+            tenant_id=self.tenant_id,
+            type=self.type,
+            vnet_site_id=self.vnet_site_id)
 
 
 def get_domain_service(name=None, resource_group_name=None, opts=None):
@@ -83,9 +174,22 @@ def get_domain_service(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:aad/v20170101:getDomainService', __args__, opts=opts).value
 
     return AwaitableGetDomainServiceResult(
+        domain_controller_ip_address=__ret__.get('domainControllerIpAddress'),
+        domain_name=__ret__.get('domainName'),
+        domain_security_settings=__ret__.get('domainSecuritySettings'),
         etag=__ret__.get('etag'),
+        filtered_sync=__ret__.get('filteredSync'),
+        health_alerts=__ret__.get('healthAlerts'),
+        health_last_evaluated=__ret__.get('healthLastEvaluated'),
+        health_monitors=__ret__.get('healthMonitors'),
+        ldaps_settings=__ret__.get('ldapsSettings'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        notification_settings=__ret__.get('notificationSettings'),
+        provisioning_state=__ret__.get('provisioningState'),
+        service_status=__ret__.get('serviceStatus'),
+        subnet_id=__ret__.get('subnetId'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        tenant_id=__ret__.get('tenantId'),
+        type=__ret__.get('type'),
+        vnet_site_id=__ret__.get('vnetSiteId'))

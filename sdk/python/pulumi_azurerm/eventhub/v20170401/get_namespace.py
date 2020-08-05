@@ -13,12 +13,42 @@ class GetNamespaceResult:
     """
     Single Namespace item in List or Get Operation
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, created_at=None, is_auto_inflate_enabled=None, kafka_enabled=None, location=None, maximum_throughput_units=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, type=None, updated_at=None):
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        __self__.created_at = created_at
+        """
+        The time the Namespace was created.
+        """
+        if is_auto_inflate_enabled and not isinstance(is_auto_inflate_enabled, bool):
+            raise TypeError("Expected argument 'is_auto_inflate_enabled' to be a bool")
+        __self__.is_auto_inflate_enabled = is_auto_inflate_enabled
+        """
+        Value that indicates whether AutoInflate is enabled for eventhub namespace.
+        """
+        if kafka_enabled and not isinstance(kafka_enabled, bool):
+            raise TypeError("Expected argument 'kafka_enabled' to be a bool")
+        __self__.kafka_enabled = kafka_enabled
+        """
+        Value that indicates whether Kafka is enabled for eventhub namespace.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource location.
+        """
+        if maximum_throughput_units and not isinstance(maximum_throughput_units, float):
+            raise TypeError("Expected argument 'maximum_throughput_units' to be a float")
+        __self__.maximum_throughput_units = maximum_throughput_units
+        """
+        Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
+        """
+        if metric_id and not isinstance(metric_id, str):
+            raise TypeError("Expected argument 'metric_id' to be a str")
+        __self__.metric_id = metric_id
+        """
+        Identifier for Azure Insights metrics.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +56,17 @@ class GetNamespaceResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Namespace properties supplied for create namespace operation.
+        Provisioning state of the Namespace.
+        """
+        if service_bus_endpoint and not isinstance(service_bus_endpoint, str):
+            raise TypeError("Expected argument 'service_bus_endpoint' to be a str")
+        __self__.service_bus_endpoint = service_bus_endpoint
+        """
+        Endpoint you can use to perform Service Bus operations.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
@@ -50,6 +86,12 @@ class GetNamespaceResult:
         """
         Resource type.
         """
+        if updated_at and not isinstance(updated_at, str):
+            raise TypeError("Expected argument 'updated_at' to be a str")
+        __self__.updated_at = updated_at
+        """
+        The time the Namespace was updated.
+        """
 
 
 class AwaitableGetNamespaceResult(GetNamespaceResult):
@@ -58,12 +100,19 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
         if False:
             yield self
         return GetNamespaceResult(
+            created_at=self.created_at,
+            is_auto_inflate_enabled=self.is_auto_inflate_enabled,
+            kafka_enabled=self.kafka_enabled,
             location=self.location,
+            maximum_throughput_units=self.maximum_throughput_units,
+            metric_id=self.metric_id,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            service_bus_endpoint=self.service_bus_endpoint,
             sku=self.sku,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            updated_at=self.updated_at)
 
 
 def get_namespace(name=None, resource_group_name=None, opts=None):
@@ -83,9 +132,16 @@ def get_namespace(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:eventhub/v20170401:getNamespace', __args__, opts=opts).value
 
     return AwaitableGetNamespaceResult(
+        created_at=__ret__.get('createdAt'),
+        is_auto_inflate_enabled=__ret__.get('isAutoInflateEnabled'),
+        kafka_enabled=__ret__.get('kafkaEnabled'),
         location=__ret__.get('location'),
+        maximum_throughput_units=__ret__.get('maximumThroughputUnits'),
+        metric_id=__ret__.get('metricId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        service_bus_endpoint=__ret__.get('serviceBusEndpoint'),
         sku=__ret__.get('sku'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        updated_at=__ret__.get('updatedAt'))

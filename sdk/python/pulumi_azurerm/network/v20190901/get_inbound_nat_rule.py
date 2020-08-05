@@ -13,12 +13,54 @@ class GetInboundNatRuleResult:
     """
     Inbound NAT rule of the load balancer.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, backend_ip_configuration=None, backend_port=None, enable_floating_ip=None, enable_tcp_reset=None, etag=None, frontend_ip_configuration=None, frontend_port=None, idle_timeout_in_minutes=None, name=None, protocol=None, provisioning_state=None, type=None):
+        if backend_ip_configuration and not isinstance(backend_ip_configuration, dict):
+            raise TypeError("Expected argument 'backend_ip_configuration' to be a dict")
+        __self__.backend_ip_configuration = backend_ip_configuration
+        """
+        A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
+        """
+        if backend_port and not isinstance(backend_port, float):
+            raise TypeError("Expected argument 'backend_port' to be a float")
+        __self__.backend_port = backend_port
+        """
+        The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+        """
+        if enable_floating_ip and not isinstance(enable_floating_ip, bool):
+            raise TypeError("Expected argument 'enable_floating_ip' to be a bool")
+        __self__.enable_floating_ip = enable_floating_ip
+        """
+        Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+        """
+        if enable_tcp_reset and not isinstance(enable_tcp_reset, bool):
+            raise TypeError("Expected argument 'enable_tcp_reset' to be a bool")
+        __self__.enable_tcp_reset = enable_tcp_reset
+        """
+        Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if frontend_ip_configuration and not isinstance(frontend_ip_configuration, dict):
+            raise TypeError("Expected argument 'frontend_ip_configuration' to be a dict")
+        __self__.frontend_ip_configuration = frontend_ip_configuration
+        """
+        A reference to frontend IP addresses.
+        """
+        if frontend_port and not isinstance(frontend_port, float):
+            raise TypeError("Expected argument 'frontend_port' to be a float")
+        __self__.frontend_port = frontend_port
+        """
+        The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+        """
+        if idle_timeout_in_minutes and not isinstance(idle_timeout_in_minutes, float):
+            raise TypeError("Expected argument 'idle_timeout_in_minutes' to be a float")
+        __self__.idle_timeout_in_minutes = idle_timeout_in_minutes
+        """
+        The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +68,17 @@ class GetInboundNatRuleResult:
         """
         The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if protocol and not isinstance(protocol, str):
+            raise TypeError("Expected argument 'protocol' to be a str")
+        __self__.protocol = protocol
         """
-        Properties of load balancer inbound nat rule.
+        The reference to the transport protocol used by the load balancing rule.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the inbound NAT rule resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +94,17 @@ class AwaitableGetInboundNatRuleResult(GetInboundNatRuleResult):
         if False:
             yield self
         return GetInboundNatRuleResult(
+            backend_ip_configuration=self.backend_ip_configuration,
+            backend_port=self.backend_port,
+            enable_floating_ip=self.enable_floating_ip,
+            enable_tcp_reset=self.enable_tcp_reset,
             etag=self.etag,
+            frontend_ip_configuration=self.frontend_ip_configuration,
+            frontend_port=self.frontend_port,
+            idle_timeout_in_minutes=self.idle_timeout_in_minutes,
             name=self.name,
-            properties=self.properties,
+            protocol=self.protocol,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -71,7 +127,15 @@ def get_inbound_nat_rule(load_balancer_name=None, name=None, resource_group_name
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20190901:getInboundNatRule', __args__, opts=opts).value
 
     return AwaitableGetInboundNatRuleResult(
+        backend_ip_configuration=__ret__.get('backendIPConfiguration'),
+        backend_port=__ret__.get('backendPort'),
+        enable_floating_ip=__ret__.get('enableFloatingIP'),
+        enable_tcp_reset=__ret__.get('enableTcpReset'),
         etag=__ret__.get('etag'),
+        frontend_ip_configuration=__ret__.get('frontendIPConfiguration'),
+        frontend_port=__ret__.get('frontendPort'),
+        idle_timeout_in_minutes=__ret__.get('idleTimeoutInMinutes'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        protocol=__ret__.get('protocol'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

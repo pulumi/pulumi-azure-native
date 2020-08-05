@@ -13,7 +13,7 @@ class GetDatabaseAccountCassandraKeyspaceResult:
     """
     An Azure Cosmos DB Cassandra keyspace.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -25,12 +25,6 @@ class GetDatabaseAccountCassandraKeyspaceResult:
         __self__.name = name
         """
         The name of the database account.
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        The properties of an Azure Cosmos DB Cassandra keyspace
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -54,7 +48,6 @@ class AwaitableGetDatabaseAccountCassandraKeyspaceResult(GetDatabaseAccountCassa
         return GetDatabaseAccountCassandraKeyspaceResult(
             location=self.location,
             name=self.name,
-            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -80,6 +73,5 @@ def get_database_account_cassandra_keyspace(account_name=None, name=None, resour
     return AwaitableGetDatabaseAccountCassandraKeyspaceResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

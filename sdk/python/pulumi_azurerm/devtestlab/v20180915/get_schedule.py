@@ -13,7 +13,25 @@ class GetScheduleResult:
     """
     A schedule.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, created_date=None, daily_recurrence=None, hourly_recurrence=None, location=None, name=None, notification_settings=None, provisioning_state=None, status=None, tags=None, target_resource_id=None, task_type=None, time_zone_id=None, type=None, unique_identifier=None, weekly_recurrence=None):
+        if created_date and not isinstance(created_date, str):
+            raise TypeError("Expected argument 'created_date' to be a str")
+        __self__.created_date = created_date
+        """
+        The creation date of the schedule.
+        """
+        if daily_recurrence and not isinstance(daily_recurrence, dict):
+            raise TypeError("Expected argument 'daily_recurrence' to be a dict")
+        __self__.daily_recurrence = daily_recurrence
+        """
+        If the schedule will occur once each day of the week, specify the daily recurrence.
+        """
+        if hourly_recurrence and not isinstance(hourly_recurrence, dict):
+            raise TypeError("Expected argument 'hourly_recurrence' to be a dict")
+        __self__.hourly_recurrence = hourly_recurrence
+        """
+        If the schedule will occur multiple times a day, specify the hourly recurrence.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +44,23 @@ class GetScheduleResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if notification_settings and not isinstance(notification_settings, dict):
+            raise TypeError("Expected argument 'notification_settings' to be a dict")
+        __self__.notification_settings = notification_settings
         """
-        The properties of the resource.
+        Notification settings.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning status of the resource.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        The status of the schedule (i.e. Enabled, Disabled)
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -38,11 +68,41 @@ class GetScheduleResult:
         """
         The tags of the resource.
         """
+        if target_resource_id and not isinstance(target_resource_id, str):
+            raise TypeError("Expected argument 'target_resource_id' to be a str")
+        __self__.target_resource_id = target_resource_id
+        """
+        The resource ID to which the schedule belongs
+        """
+        if task_type and not isinstance(task_type, str):
+            raise TypeError("Expected argument 'task_type' to be a str")
+        __self__.task_type = task_type
+        """
+        The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
+        """
+        if time_zone_id and not isinstance(time_zone_id, str):
+            raise TypeError("Expected argument 'time_zone_id' to be a str")
+        __self__.time_zone_id = time_zone_id
+        """
+        The time zone ID (e.g. Pacific Standard time).
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource.
+        """
+        if unique_identifier and not isinstance(unique_identifier, str):
+            raise TypeError("Expected argument 'unique_identifier' to be a str")
+        __self__.unique_identifier = unique_identifier
+        """
+        The unique immutable identifier of a resource (Guid).
+        """
+        if weekly_recurrence and not isinstance(weekly_recurrence, dict):
+            raise TypeError("Expected argument 'weekly_recurrence' to be a dict")
+        __self__.weekly_recurrence = weekly_recurrence
+        """
+        If the schedule will occur only some days of the week, specify the weekly recurrence.
         """
 
 
@@ -52,11 +112,21 @@ class AwaitableGetScheduleResult(GetScheduleResult):
         if False:
             yield self
         return GetScheduleResult(
+            created_date=self.created_date,
+            daily_recurrence=self.daily_recurrence,
+            hourly_recurrence=self.hourly_recurrence,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            notification_settings=self.notification_settings,
+            provisioning_state=self.provisioning_state,
+            status=self.status,
             tags=self.tags,
-            type=self.type)
+            target_resource_id=self.target_resource_id,
+            task_type=self.task_type,
+            time_zone_id=self.time_zone_id,
+            type=self.type,
+            unique_identifier=self.unique_identifier,
+            weekly_recurrence=self.weekly_recurrence)
 
 
 def get_schedule(lab_name=None, name=None, resource_group_name=None, opts=None):
@@ -78,8 +148,18 @@ def get_schedule(lab_name=None, name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:devtestlab/v20180915:getSchedule', __args__, opts=opts).value
 
     return AwaitableGetScheduleResult(
+        created_date=__ret__.get('createdDate'),
+        daily_recurrence=__ret__.get('dailyRecurrence'),
+        hourly_recurrence=__ret__.get('hourlyRecurrence'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        notification_settings=__ret__.get('notificationSettings'),
+        provisioning_state=__ret__.get('provisioningState'),
+        status=__ret__.get('status'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        target_resource_id=__ret__.get('targetResourceId'),
+        task_type=__ret__.get('taskType'),
+        time_zone_id=__ret__.get('timeZoneId'),
+        type=__ret__.get('type'),
+        unique_identifier=__ret__.get('uniqueIdentifier'),
+        weekly_recurrence=__ret__.get('weeklyRecurrence'))

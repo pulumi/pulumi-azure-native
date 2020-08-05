@@ -13,24 +13,66 @@ class GetApiOperationResult:
     """
     Api Operation details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, description=None, display_name=None, method=None, name=None, policies=None, request=None, responses=None, template_parameters=None, type=None, url_template=None):
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Description of the operation. May include HTML formatting tags.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        Operation Name.
+        """
+        if method and not isinstance(method, str):
+            raise TypeError("Expected argument 'method' to be a str")
+        __self__.method = method
+        """
+        A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if policies and not isinstance(policies, str):
+            raise TypeError("Expected argument 'policies' to be a str")
+        __self__.policies = policies
         """
-        Properties of the Operation Contract.
+        Operation Policies
+        """
+        if request and not isinstance(request, dict):
+            raise TypeError("Expected argument 'request' to be a dict")
+        __self__.request = request
+        """
+        An entity containing request details.
+        """
+        if responses and not isinstance(responses, list):
+            raise TypeError("Expected argument 'responses' to be a list")
+        __self__.responses = responses
+        """
+        Array of Operation responses.
+        """
+        if template_parameters and not isinstance(template_parameters, list):
+            raise TypeError("Expected argument 'template_parameters' to be a list")
+        __self__.template_parameters = template_parameters
+        """
+        Collection of URL template parameters.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type for API Management resource.
+        """
+        if url_template and not isinstance(url_template, str):
+            raise TypeError("Expected argument 'url_template' to be a str")
+        __self__.url_template = url_template
+        """
+        Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
         """
 
 
@@ -40,9 +82,16 @@ class AwaitableGetApiOperationResult(GetApiOperationResult):
         if False:
             yield self
         return GetApiOperationResult(
+            description=self.description,
+            display_name=self.display_name,
+            method=self.method,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            policies=self.policies,
+            request=self.request,
+            responses=self.responses,
+            template_parameters=self.template_parameters,
+            type=self.type,
+            url_template=self.url_template)
 
 
 def get_api_operation(api_id=None, name=None, resource_group_name=None, service_name=None, opts=None):
@@ -66,6 +115,13 @@ def get_api_operation(api_id=None, name=None, resource_group_name=None, service_
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getApiOperation', __args__, opts=opts).value
 
     return AwaitableGetApiOperationResult(
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
+        method=__ret__.get('method'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        policies=__ret__.get('policies'),
+        request=__ret__.get('request'),
+        responses=__ret__.get('responses'),
+        template_parameters=__ret__.get('templateParameters'),
+        type=__ret__.get('type'),
+        url_template=__ret__.get('urlTemplate'))

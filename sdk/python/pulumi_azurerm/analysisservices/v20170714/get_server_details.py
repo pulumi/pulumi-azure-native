@@ -13,7 +13,25 @@ class GetServerDetailsResult:
     """
     Represents an instance of an Analysis Services resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, as_administrators=None, backup_blob_container_uri=None, gateway_details=None, location=None, name=None, provisioning_state=None, server_full_name=None, sku=None, state=None, tags=None, type=None):
+        if as_administrators and not isinstance(as_administrators, dict):
+            raise TypeError("Expected argument 'as_administrators' to be a dict")
+        __self__.as_administrators = as_administrators
+        """
+        A collection of AS server administrators
+        """
+        if backup_blob_container_uri and not isinstance(backup_blob_container_uri, str):
+            raise TypeError("Expected argument 'backup_blob_container_uri' to be a str")
+        __self__.backup_blob_container_uri = backup_blob_container_uri
+        """
+        The SAS container URI to the backup container.
+        """
+        if gateway_details and not isinstance(gateway_details, dict):
+            raise TypeError("Expected argument 'gateway_details' to be a dict")
+        __self__.gateway_details = gateway_details
+        """
+        The gateway details configured for the AS server.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,17 +44,29 @@ class GetServerDetailsResult:
         """
         The name of the Analysis Services resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the provision operation request.
+        The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
+        """
+        if server_full_name and not isinstance(server_full_name, str):
+            raise TypeError("Expected argument 'server_full_name' to be a str")
+        __self__.server_full_name = server_full_name
+        """
+        The full name of the Analysis Services resource.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         The SKU of the Analysis Services resource.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +88,15 @@ class AwaitableGetServerDetailsResult(GetServerDetailsResult):
         if False:
             yield self
         return GetServerDetailsResult(
+            as_administrators=self.as_administrators,
+            backup_blob_container_uri=self.backup_blob_container_uri,
+            gateway_details=self.gateway_details,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            server_full_name=self.server_full_name,
             sku=self.sku,
+            state=self.state,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +118,14 @@ def get_server_details(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:analysisservices/v20170714:getServerDetails', __args__, opts=opts).value
 
     return AwaitableGetServerDetailsResult(
+        as_administrators=__ret__.get('asAdministrators'),
+        backup_blob_container_uri=__ret__.get('backupBlobContainerUri'),
+        gateway_details=__ret__.get('gatewayDetails'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        server_full_name=__ret__.get('serverFullName'),
         sku=__ret__.get('sku'),
+        state=__ret__.get('state'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

@@ -18,22 +18,18 @@ class AvailabilitySet(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    platform_fault_domain_count: pulumi.Output[float]
     """
-    The instance view of a resource.
-      * `platform_fault_domain_count` (`float`) - Fault Domain count.
-      * `platform_update_domain_count` (`float`) - Update Domain count.
-      * `proximity_placement_group` (`dict`) - Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
-        * `id` (`str`) - Resource Id
-
-      * `statuses` (`list`) - The resource status information.
-        * `code` (`str`) - The status code.
-        * `display_status` (`str`) - The short localizable label for the status.
-        * `level` (`str`) - The level code.
-        * `message` (`str`) - The detailed status message, including for alerts and error messages.
-        * `time` (`str`) - The time of the status.
-
-      * `virtual_machines` (`list`) - A list of references to all virtual machines in the availability set.
+    Fault Domain count.
+    """
+    platform_update_domain_count: pulumi.Output[float]
+    """
+    Update Domain count.
+    """
+    proximity_placement_group: pulumi.Output[dict]
+    """
+    Specifies information about the proximity placement group that the availability set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+      * `id` (`str`) - Resource Id
     """
     sku: pulumi.Output[dict]
     """
@@ -42,6 +38,15 @@ class AvailabilitySet(pulumi.CustomResource):
       * `name` (`str`) - The sku name.
       * `tier` (`str`) - Specifies the tier of virtual machines in a scale set.<br /><br /> Possible Values:<br /><br /> **Standard**<br /><br /> **Basic**
     """
+    statuses: pulumi.Output[list]
+    """
+    The resource status information.
+      * `code` (`str`) - The status code.
+      * `display_status` (`str`) - The short localizable label for the status.
+      * `level` (`str`) - The level code.
+      * `message` (`str`) - The detailed status message, including for alerts and error messages.
+      * `time` (`str`) - The time of the status.
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -49,6 +54,11 @@ class AvailabilitySet(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    virtual_machines: pulumi.Output[list]
+    """
+    A list of references to all virtual machines in the availability set.
+      * `id` (`str`) - Resource Id
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, proximity_placement_group=None, resource_group_name=None, sku=None, tags=None, virtual_machines=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -108,7 +118,7 @@ class AvailabilitySet(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['virtual_machines'] = virtual_machines
-            __props__['properties'] = None
+            __props__['statuses'] = None
             __props__['type'] = None
         super(AvailabilitySet, __self__).__init__(
             'azurerm:compute/v20180401:AvailabilitySet',

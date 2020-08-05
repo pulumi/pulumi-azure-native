@@ -10,32 +10,47 @@ from ... import _utilities, _tables
 
 
 class ConnectionMonitor(pulumi.CustomResource):
+    auto_start: pulumi.Output[bool]
+    """
+    Determines if the connection monitor will start automatically once created.
+    """
+    destination: pulumi.Output[dict]
+    """
+    Describes the destination of connection monitor.
+      * `address` (`str`) - Address of the connection monitor destination (IP or domain name).
+      * `port` (`float`) - The destination port used by connection monitor.
+      * `resource_id` (`str`) - The ID of the resource used as the destination by connection monitor.
+    """
     etag: pulumi.Output[str]
     location: pulumi.Output[str]
     """
     Connection monitor location.
     """
+    monitoring_interval_in_seconds: pulumi.Output[float]
+    """
+    Monitoring interval in seconds.
+    """
+    monitoring_status: pulumi.Output[str]
+    """
+    The monitoring status of the connection monitor.
+    """
     name: pulumi.Output[str]
     """
     Name of the connection monitor.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Describes the properties of a connection monitor.
-      * `auto_start` (`bool`) - Determines if the connection monitor will start automatically once created.
-      * `destination` (`dict`) - Describes the destination of connection monitor.
-        * `address` (`str`) - Address of the connection monitor destination (IP or domain name).
-        * `port` (`float`) - The destination port used by connection monitor.
-        * `resource_id` (`str`) - The ID of the resource used as the destination by connection monitor.
-
-      * `monitoring_interval_in_seconds` (`float`) - Monitoring interval in seconds.
-      * `monitoring_status` (`str`) - The monitoring status of the connection monitor.
-      * `provisioning_state` (`str`) - The provisioning state of the connection monitor.
-      * `source` (`dict`) - Describes the source of connection monitor.
-        * `port` (`float`) - The source port used by connection monitor.
-        * `resource_id` (`str`) - The ID of the resource used as the source by connection monitor.
-
-      * `start_time` (`str`) - The date and time when the connection monitor was started.
+    The provisioning state of the connection monitor.
+    """
+    source: pulumi.Output[dict]
+    """
+    Describes the source of connection monitor.
+      * `port` (`float`) - The source port used by connection monitor.
+      * `resource_id` (`str`) - The ID of the resource used as the source by connection monitor.
+    """
+    start_time: pulumi.Output[str]
+    """
+    The date and time when the connection monitor was started.
     """
     tags: pulumi.Output[dict]
     """
@@ -109,7 +124,9 @@ class ConnectionMonitor(pulumi.CustomResource):
             __props__['source'] = source
             __props__['tags'] = tags
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['monitoring_status'] = None
+            __props__['provisioning_state'] = None
+            __props__['start_time'] = None
             __props__['type'] = None
         super(ConnectionMonitor, __self__).__init__(
             'azurerm:network/v20180701:ConnectionMonitor',

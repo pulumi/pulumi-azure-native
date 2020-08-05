@@ -10,12 +10,40 @@ from ... import _utilities, _tables
 
 
 class Workspace(pulumi.CustomResource):
+    application_insights: pulumi.Output[str]
+    """
+    ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
+    """
+    container_registry: pulumi.Output[str]
+    """
+    ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
+    """
+    creation_time: pulumi.Output[str]
+    """
+    The creation time of the machine learning workspace in ISO8601 format.
+    """
+    description: pulumi.Output[str]
+    """
+    The description of this workspace.
+    """
+    discovery_url: pulumi.Output[str]
+    """
+    Url for the discovery service to identify regional endpoints for machine learning experimentation services
+    """
+    friendly_name: pulumi.Output[str]
+    """
+    The friendly name for this workspace. This name in mutable
+    """
     identity: pulumi.Output[dict]
     """
     The identity of the resource.
       * `principal_id` (`str`) - The principal ID of resource identity.
       * `tenant_id` (`str`) - The tenant ID of resource.
       * `type` (`str`) - The identity type.
+    """
+    key_vault: pulumi.Output[str]
+    """
+    ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
     """
     location: pulumi.Output[str]
     """
@@ -25,19 +53,13 @@ class Workspace(pulumi.CustomResource):
     """
     Specifies the name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the machine learning workspace.
-      * `application_insights` (`str`) - ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
-      * `container_registry` (`str`) - ARM id of the container registry associated with this workspace. This cannot be changed once the workspace has been created
-      * `creation_time` (`str`) - The creation time of the machine learning workspace in ISO8601 format.
-      * `description` (`str`) - The description of this workspace.
-      * `discovery_url` (`str`) - Url for the discovery service to identify regional endpoints for machine learning experimentation services
-      * `friendly_name` (`str`) - The friendly name for this workspace. This name in mutable
-      * `key_vault` (`str`) - ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
-      * `provisioning_state` (`str`) - The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
-      * `storage_account` (`str`) - ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
-      * `workspace_id` (`str`) - The immutable id associated with this workspace.
+    The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
+    """
+    storage_account: pulumi.Output[str]
+    """
+    ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
     """
     tags: pulumi.Output[dict]
     """
@@ -46,6 +68,10 @@ class Workspace(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Specifies the type of the resource.
+    """
+    workspace_id: pulumi.Output[str]
+    """
+    The immutable id associated with this workspace.
     """
     def __init__(__self__, resource_name, opts=None, application_insights=None, container_registry=None, description=None, discovery_url=None, friendly_name=None, identity=None, key_vault=None, location=None, name=None, resource_group_name=None, storage_account=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -103,8 +129,10 @@ class Workspace(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['storage_account'] = storage_account
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['workspace_id'] = None
         super(Workspace, __self__).__init__(
             'azurerm:machinelearningservices/v20190601:Workspace',
             resource_name,

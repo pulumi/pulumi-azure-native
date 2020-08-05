@@ -10,55 +10,77 @@ from ... import _utilities, _tables
 
 
 class PrivateCloud(pulumi.CustomResource):
+    circuit: pulumi.Output[dict]
+    """
+    An ExpressRoute Circuit
+      * `express_route_id` (`str`) - Identifier of the ExpressRoute Circuit (Microsoft Colo only)
+      * `express_route_private_peering_id` (`str`) - ExpressRoute Circuit private peering identifier
+      * `primary_subnet` (`str`) - CIDR of primary subnet
+      * `secondary_subnet` (`str`) - CIDR of secondary subnet
+    """
+    endpoints: pulumi.Output[dict]
+    """
+    The endpoints
+      * `hcx_cloud_manager` (`str`) - Endpoint for the HCX Cloud Manager
+      * `nsxt_manager` (`str`) - Endpoint for the NSX-T Data Center manager
+      * `vcsa` (`str`) - Endpoint for Virtual Center Server Appliance
+    """
+    identity_sources: pulumi.Output[list]
+    """
+    vCenter Single Sign On Identity Sources
+      * `alias` (`str`) - The domain's NetBIOS name
+      * `base_group_dn` (`str`) - The base distinguished name for groups
+      * `base_user_dn` (`str`) - The base distinguished name for users
+      * `domain` (`str`) - The domain's dns name
+      * `name` (`str`) - The name of the identity source
+      * `password` (`str`) - The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
+      * `primary_server` (`str`) - Primary server URL
+      * `secondary_server` (`str`) - Secondary server URL
+      * `ssl` (`str`) - Protect LDAP communication using SSL certificate (LDAPS)
+      * `username` (`str`) - The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
+    """
+    internet: pulumi.Output[str]
+    """
+    Connectivity to internet is enabled or disabled
+    """
     location: pulumi.Output[str]
     """
     Resource location
+    """
+    management_cluster: pulumi.Output[dict]
+    """
+    The default cluster used for management
+      * `cluster_id` (`float`) - The identity
+      * `cluster_size` (`float`) - The cluster size
+      * `hosts` (`list`) - The hosts
+    """
+    management_network: pulumi.Output[str]
+    """
+    Network used to access vCenter Server and NSX-T Manager
     """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    network_block: pulumi.Output[str]
     """
-    The properties of a private cloud resource
-      * `circuit` (`dict`) - An ExpressRoute Circuit
-        * `express_route_id` (`str`) - Identifier of the ExpressRoute Circuit (Microsoft Colo only)
-        * `express_route_private_peering_id` (`str`) - ExpressRoute Circuit private peering identifier
-        * `primary_subnet` (`str`) - CIDR of primary subnet
-        * `secondary_subnet` (`str`) - CIDR of secondary subnet
-
-      * `endpoints` (`dict`) - The endpoints
-        * `hcx_cloud_manager` (`str`) - Endpoint for the HCX Cloud Manager
-        * `nsxt_manager` (`str`) - Endpoint for the NSX-T Data Center manager
-        * `vcsa` (`str`) - Endpoint for Virtual Center Server Appliance
-
-      * `identity_sources` (`list`) - vCenter Single Sign On Identity Sources
-        * `alias` (`str`) - The domain's NetBIOS name
-        * `base_group_dn` (`str`) - The base distinguished name for groups
-        * `base_user_dn` (`str`) - The base distinguished name for users
-        * `domain` (`str`) - The domain's dns name
-        * `name` (`str`) - The name of the identity source
-        * `password` (`str`) - The password of the Active Directory user with a minimum of read-only access to Base DN for users and groups.
-        * `primary_server` (`str`) - Primary server URL
-        * `secondary_server` (`str`) - Secondary server URL
-        * `ssl` (`str`) - Protect LDAP communication using SSL certificate (LDAPS)
-        * `username` (`str`) - The ID of an Active Directory user with a minimum of read-only access to Base DN for users and group
-
-      * `internet` (`str`) - Connectivity to internet is enabled or disabled
-      * `management_cluster` (`dict`) - The default cluster used for management
-        * `cluster_id` (`float`) - The identity
-        * `cluster_size` (`float`) - The cluster size
-        * `hosts` (`list`) - The hosts
-
-      * `management_network` (`str`) - Network used to access vCenter Server and NSX-T Manager
-      * `network_block` (`str`) - The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
-      * `nsxt_certificate_thumbprint` (`str`) - Thumbprint of the NSX-T Manager SSL certificate
-      * `nsxt_password` (`str`) - Optionally, set the NSX-T Manager password when the private cloud is created
-      * `provisioning_network` (`str`) - Used for virtual machine cold migration, cloning, and snapshot migration
-      * `provisioning_state` (`str`) - The provisioning state
-      * `vcenter_certificate_thumbprint` (`str`) - Thumbprint of the vCenter Server SSL certificate
-      * `vcenter_password` (`str`) - Optionally, set the vCenter admin password when the private cloud is created
-      * `vmotion_network` (`str`) - Used for live migration of virtual machines
+    The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
+    """
+    nsxt_certificate_thumbprint: pulumi.Output[str]
+    """
+    Thumbprint of the NSX-T Manager SSL certificate
+    """
+    nsxt_password: pulumi.Output[str]
+    """
+    Optionally, set the NSX-T Manager password when the private cloud is created
+    """
+    provisioning_network: pulumi.Output[str]
+    """
+    Used for virtual machine cold migration, cloning, and snapshot migration
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state
     """
     sku: pulumi.Output[dict]
     """
@@ -72,6 +94,18 @@ class PrivateCloud(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    vcenter_certificate_thumbprint: pulumi.Output[str]
+    """
+    Thumbprint of the vCenter Server SSL certificate
+    """
+    vcenter_password: pulumi.Output[str]
+    """
+    Optionally, set the vCenter admin password when the private cloud is created
+    """
+    vmotion_network: pulumi.Output[str]
+    """
+    Used for live migration of virtual machines
     """
     def __init__(__self__, resource_name, opts=None, identity_sources=None, internet=None, location=None, management_cluster=None, name=None, network_block=None, nsxt_password=None, resource_group_name=None, sku=None, tags=None, vcenter_password=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -152,8 +186,15 @@ class PrivateCloud(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['vcenter_password'] = vcenter_password
-            __props__['properties'] = None
+            __props__['circuit'] = None
+            __props__['endpoints'] = None
+            __props__['management_network'] = None
+            __props__['nsxt_certificate_thumbprint'] = None
+            __props__['provisioning_network'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['vcenter_certificate_thumbprint'] = None
+            __props__['vmotion_network'] = None
         super(PrivateCloud, __self__).__init__(
             'azurerm:avs/v20200320:PrivateCloud',
             resource_name,

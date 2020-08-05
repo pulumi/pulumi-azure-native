@@ -13,18 +13,54 @@ class GetProductResult:
     """
     Product details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, approval_required=None, description=None, display_name=None, name=None, state=None, subscription_required=None, subscriptions_limit=None, terms=None, type=None):
+        if approval_required and not isinstance(approval_required, bool):
+            raise TypeError("Expected argument 'approval_required' to be a bool")
+        __self__.approval_required = approval_required
+        """
+        whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Product description. May include HTML formatting tags.
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        Product name.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
         """
-        Product entity contract properties.
+        whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
+        """
+        if subscription_required and not isinstance(subscription_required, bool):
+            raise TypeError("Expected argument 'subscription_required' to be a bool")
+        __self__.subscription_required = subscription_required
+        """
+        Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
+        """
+        if subscriptions_limit and not isinstance(subscriptions_limit, float):
+            raise TypeError("Expected argument 'subscriptions_limit' to be a float")
+        __self__.subscriptions_limit = subscriptions_limit
+        """
+        Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
+        """
+        if terms and not isinstance(terms, str):
+            raise TypeError("Expected argument 'terms' to be a str")
+        __self__.terms = terms
+        """
+        Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +76,14 @@ class AwaitableGetProductResult(GetProductResult):
         if False:
             yield self
         return GetProductResult(
+            approval_required=self.approval_required,
+            description=self.description,
+            display_name=self.display_name,
             name=self.name,
-            properties=self.properties,
+            state=self.state,
+            subscription_required=self.subscription_required,
+            subscriptions_limit=self.subscriptions_limit,
+            terms=self.terms,
             type=self.type)
 
 
@@ -64,6 +106,12 @@ def get_product(name=None, resource_group_name=None, service_name=None, opts=Non
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20191201:getProduct', __args__, opts=opts).value
 
     return AwaitableGetProductResult(
+        approval_required=__ret__.get('approvalRequired'),
+        description=__ret__.get('description'),
+        display_name=__ret__.get('displayName'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        state=__ret__.get('state'),
+        subscription_required=__ret__.get('subscriptionRequired'),
+        subscriptions_limit=__ret__.get('subscriptionsLimit'),
+        terms=__ret__.get('terms'),
         type=__ret__.get('type'))

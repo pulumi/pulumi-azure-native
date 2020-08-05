@@ -10,7 +10,22 @@ from ... import _utilities, _tables
 
 
 class GetAdaptiveApplicationControlResult:
-    def __init__(__self__, location=None, name=None, properties=None, type=None):
+    def __init__(__self__, configuration_status=None, enforcement_mode=None, issues=None, location=None, name=None, path_recommendations=None, protection_mode=None, recommendation_status=None, source_system=None, type=None, vm_recommendations=None):
+        if configuration_status and not isinstance(configuration_status, str):
+            raise TypeError("Expected argument 'configuration_status' to be a str")
+        __self__.configuration_status = configuration_status
+        """
+        The configuration status of the VM/server group or machine or rule on the machine
+        """
+        if enforcement_mode and not isinstance(enforcement_mode, str):
+            raise TypeError("Expected argument 'enforcement_mode' to be a str")
+        __self__.enforcement_mode = enforcement_mode
+        """
+        The application control policy enforcement/protection mode of the VM/server group
+        """
+        if issues and not isinstance(issues, list):
+            raise TypeError("Expected argument 'issues' to be a list")
+        __self__.issues = issues
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -23,11 +38,26 @@ class GetAdaptiveApplicationControlResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if path_recommendations and not isinstance(path_recommendations, list):
+            raise TypeError("Expected argument 'path_recommendations' to be a list")
+        __self__.path_recommendations = path_recommendations
+        if protection_mode and not isinstance(protection_mode, dict):
+            raise TypeError("Expected argument 'protection_mode' to be a dict")
+        __self__.protection_mode = protection_mode
         """
-        Represents a VM/server group and set of rules to be allowed running on a machine
+        The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
+        """
+        if recommendation_status and not isinstance(recommendation_status, str):
+            raise TypeError("Expected argument 'recommendation_status' to be a str")
+        __self__.recommendation_status = recommendation_status
+        """
+        The recommendation status of the VM/server group or VM/server
+        """
+        if source_system and not isinstance(source_system, str):
+            raise TypeError("Expected argument 'source_system' to be a str")
+        __self__.source_system = source_system
+        """
+        The source type of the VM/server group
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -35,6 +65,9 @@ class GetAdaptiveApplicationControlResult:
         """
         Resource type
         """
+        if vm_recommendations and not isinstance(vm_recommendations, list):
+            raise TypeError("Expected argument 'vm_recommendations' to be a list")
+        __self__.vm_recommendations = vm_recommendations
 
 
 class AwaitableGetAdaptiveApplicationControlResult(GetAdaptiveApplicationControlResult):
@@ -43,10 +76,17 @@ class AwaitableGetAdaptiveApplicationControlResult(GetAdaptiveApplicationControl
         if False:
             yield self
         return GetAdaptiveApplicationControlResult(
+            configuration_status=self.configuration_status,
+            enforcement_mode=self.enforcement_mode,
+            issues=self.issues,
             location=self.location,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            path_recommendations=self.path_recommendations,
+            protection_mode=self.protection_mode,
+            recommendation_status=self.recommendation_status,
+            source_system=self.source_system,
+            type=self.type,
+            vm_recommendations=self.vm_recommendations)
 
 
 def get_adaptive_application_control(asc_location=None, name=None, opts=None):
@@ -66,7 +106,14 @@ def get_adaptive_application_control(asc_location=None, name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:security/v20200101:getAdaptiveApplicationControl', __args__, opts=opts).value
 
     return AwaitableGetAdaptiveApplicationControlResult(
+        configuration_status=__ret__.get('configurationStatus'),
+        enforcement_mode=__ret__.get('enforcementMode'),
+        issues=__ret__.get('issues'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        path_recommendations=__ret__.get('pathRecommendations'),
+        protection_mode=__ret__.get('protectionMode'),
+        recommendation_status=__ret__.get('recommendationStatus'),
+        source_system=__ret__.get('sourceSystem'),
+        type=__ret__.get('type'),
+        vm_recommendations=__ret__.get('vmRecommendations'))

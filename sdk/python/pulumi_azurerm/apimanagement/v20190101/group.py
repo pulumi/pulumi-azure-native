@@ -10,18 +10,25 @@ from ... import _utilities, _tables
 
 
 class Group(pulumi.CustomResource):
+    built_in: pulumi.Output[bool]
+    """
+    true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
+    """
+    description: pulumi.Output[str]
+    """
+    Group description. Can contain HTML formatting tags.
+    """
+    display_name: pulumi.Output[str]
+    """
+    Group name.
+    """
+    external_id: pulumi.Output[str]
+    """
+    For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    Group entity contract properties.
-      * `built_in` (`bool`) - true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
-      * `description` (`str`) - Group description. Can contain HTML formatting tags.
-      * `display_name` (`str`) - Group name.
-      * `external_id` (`str`) - For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
-      * `type` (`str`) - Group type.
     """
     type: pulumi.Output[str]
     """
@@ -73,7 +80,7 @@ class Group(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['type'] = type
-            __props__['properties'] = None
+            __props__['built_in'] = None
         super(Group, __self__).__init__(
             'azurerm:apimanagement/v20190101:Group',
             resource_name,

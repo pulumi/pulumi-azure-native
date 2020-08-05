@@ -25,7 +25,7 @@ class Application(pulumi.CustomResource):
       * `application_type` (`str`) - The application type.
       * `compute_profile` (`dict`) - The list of roles in the cluster.
         * `roles` (`list`) - The list of roles in the cluster.
-          * `autoscale` (`dict`) - The autoscale configurations.
+          * `autoscale_configuration` (`dict`) - The autoscale configurations.
             * `capacity` (`dict`) - Parameters for load-based autoscale
               * `max_instance_count` (`float`) - The maximum instance count of the cluster
               * `min_instance_count` (`float`) - The minimum instance count of the cluster

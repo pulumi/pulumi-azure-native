@@ -10,30 +10,53 @@ from ... import _utilities, _tables
 
 
 class Volume(pulumi.CustomResource):
+    access_control_record_ids: pulumi.Output[list]
+    """
+    The IDs of the access control records, associated with the volume.
+    """
+    backup_policy_ids: pulumi.Output[list]
+    """
+    The IDs of the backup policies, in which this volume is part of.
+    """
+    backup_status: pulumi.Output[str]
+    """
+    The backup status of the volume.
+    """
     kind: pulumi.Output[str]
     """
     The Kind of the object. Currently only Series8000 is supported
+    """
+    monitoring_status: pulumi.Output[str]
+    """
+    The monitoring status of the volume.
     """
     name: pulumi.Output[str]
     """
     The name of the object.
     """
-    properties: pulumi.Output[dict]
+    operation_status: pulumi.Output[str]
     """
-    The properties of the volume.
-      * `access_control_record_ids` (`list`) - The IDs of the access control records, associated with the volume.
-      * `backup_policy_ids` (`list`) - The IDs of the backup policies, in which this volume is part of.
-      * `backup_status` (`str`) - The backup status of the volume.
-      * `monitoring_status` (`str`) - The monitoring status of the volume.
-      * `operation_status` (`str`) - The operation status on the volume.
-      * `size_in_bytes` (`float`) - The size of the volume in bytes.
-      * `volume_container_id` (`str`) - The ID of the volume container, in which this volume is created.
-      * `volume_status` (`str`) - The volume status.
-      * `volume_type` (`str`) - The type of the volume.
+    The operation status on the volume.
+    """
+    size_in_bytes: pulumi.Output[float]
+    """
+    The size of the volume in bytes.
     """
     type: pulumi.Output[str]
     """
     The hierarchical type of the object.
+    """
+    volume_container_id: pulumi.Output[str]
+    """
+    The ID of the volume container, in which this volume is created.
+    """
+    volume_status: pulumi.Output[str]
+    """
+    The volume status.
+    """
+    volume_type: pulumi.Output[str]
+    """
+    The type of the volume.
     """
     def __init__(__self__, resource_name, opts=None, access_control_record_ids=None, device_name=None, kind=None, manager_name=None, monitoring_status=None, name=None, resource_group_name=None, size_in_bytes=None, volume_container_name=None, volume_status=None, volume_type=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -101,8 +124,11 @@ class Volume(pulumi.CustomResource):
             if volume_type is None:
                 raise TypeError("Missing required property 'volume_type'")
             __props__['volume_type'] = volume_type
-            __props__['properties'] = None
+            __props__['backup_policy_ids'] = None
+            __props__['backup_status'] = None
+            __props__['operation_status'] = None
             __props__['type'] = None
+            __props__['volume_container_id'] = None
         super(Volume, __self__).__init__(
             'azurerm:storsimple/v20170601:Volume',
             resource_name,

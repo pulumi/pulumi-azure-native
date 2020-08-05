@@ -10,65 +10,74 @@ from ... import _utilities, _tables
 
 
 class Workspace(pulumi.CustomResource):
+    authorizations: pulumi.Output[list]
+    """
+    The workspace provider authorizations.
+      * `principal_id` (`str`) - The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the workspace resources.
+      * `role_definition_id` (`str`) - The provider's role definition identifier. This role will define all the permissions that the provider must have on the workspace's container resource group. This role definition cannot have permission to delete the resource group.
+    """
+    created_by: pulumi.Output[dict]
+    """
+    Indicates the Object ID, PUID and Application ID of entity that created the workspace.
+      * `application_id` (`str`) - The application ID of the application that initiated the creation of the workspace. For example, Azure Portal.
+      * `oid` (`str`) - The Object ID that created the workspace.
+      * `puid` (`str`) - The Personal Object ID corresponding to the object ID above
+    """
+    created_date_time: pulumi.Output[str]
+    """
+    Specifies the date and time when the workspace is created.
+    """
     location: pulumi.Output[str]
     """
     The geo-location where the resource lives
+    """
+    managed_resource_group_id: pulumi.Output[str]
+    """
+    The managed resource group Id.
     """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    parameters: pulumi.Output[dict]
     """
-    The workspace properties.
-      * `authorizations` (`list`) - The workspace provider authorizations.
-        * `principal_id` (`str`) - The provider's principal identifier. This is the identity that the provider will use to call ARM to manage the workspace resources.
-        * `role_definition_id` (`str`) - The provider's role definition identifier. This role will define all the permissions that the provider must have on the workspace's container resource group. This role definition cannot have permission to delete the resource group.
+    The workspace's custom parameters.
+      * `custom_private_subnet_name` (`dict`) - The name of the Private Subnet within the Virtual Network
+        * `type` (`str`) - The type of variable that this is
+        * `value` (`str`) - The value which should be used for this field.
 
-      * `created_by` (`dict`) - Indicates the Object ID, PUID and Application ID of entity that created the workspace.
-        * `application_id` (`str`) - The application ID of the application that initiated the creation of the workspace. For example, Azure Portal.
-        * `oid` (`str`) - The Object ID that created the workspace.
-        * `puid` (`str`) - The Personal Object ID corresponding to the object ID above
+      * `custom_public_subnet_name` (`dict`) - The name of a Public Subnet within the Virtual Network
+      * `custom_virtual_network_id` (`dict`) - The ID of a Virtual Network where this Databricks Cluster should be created
+      * `enable_no_public_ip` (`dict`) - Should the Public IP be Disabled?
+        * `type` (`str`) - The type of variable that this is
+        * `value` (`bool`) - The value which should be used for this field.
 
-      * `created_date_time` (`str`) - Specifies the date and time when the workspace is created.
-      * `managed_resource_group_id` (`str`) - The managed resource group Id.
-      * `parameters` (`dict`) - The workspace's custom parameters.
-        * `custom_private_subnet_name` (`dict`) - The name of the Private Subnet within the Virtual Network
-          * `type` (`str`) - The type of variable that this is
-          * `value` (`str`) - The value which should be used for this field.
+      * `encryption` (`dict`) - Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
+        * `type` (`str`) - The type of variable that this is
+        * `value` (`dict`) - The value which should be used for this field.
+          * `key_name` (`str`) - The name of KeyVault key.
+          * `key_source` (`str`) - The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
+          * `key_vault_uri` (`str`) - The Uri of KeyVault.
+          * `key_version` (`str`) - The version of KeyVault key.
 
-        * `custom_public_subnet_name` (`dict`) - The name of a Public Subnet within the Virtual Network
-        * `custom_virtual_network_id` (`dict`) - The ID of a Virtual Network where this Databricks Cluster should be created
-        * `enable_no_public_ip` (`dict`) - Should the Public IP be Disabled?
-          * `type` (`str`) - The type of variable that this is
-          * `value` (`bool`) - The value which should be used for this field.
-
-        * `encryption` (`dict`) - Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
-          * `type` (`str`) - The type of variable that this is
-          * `value` (`dict`) - The value which should be used for this field.
-            * `key_name` (`str`) - The name of KeyVault key.
-            * `key_source` (`str`) - The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
-            * `keyvaulturi` (`str`) - The Uri of KeyVault.
-            * `keyversion` (`str`) - The version of KeyVault key.
-
-        * `prepare_encryption` (`dict`) - Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
-
-      * `provisioning_state` (`str`) - The workspace provisioning state.
-      * `storage_account_identity` (`dict`) - The details of Managed Identity of Storage Account
-        * `principal_id` (`str`) - The objectId of the Managed Identity that is linked to the Managed Storage account.
-        * `tenant_id` (`str`) - The tenant Id where the Managed Identity is created.
-        * `type` (`str`) - The type of Identity created. It can be either SystemAssigned or UserAssigned.
-
-      * `ui_definition_uri` (`str`) - The blob URI where the UI definition file is located.
-      * `updated_by` (`dict`) - Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
-      * `workspace_id` (`str`) - The unique identifier of the databricks workspace in databricks control plane.
-      * `workspace_url` (`str`) - The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+      * `prepare_encryption` (`dict`) - Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The workspace provisioning state.
     """
     sku: pulumi.Output[dict]
     """
     The SKU of the resource.
       * `name` (`str`) - The SKU name.
       * `tier` (`str`) - The SKU tier.
+    """
+    storage_account_identity: pulumi.Output[dict]
+    """
+    The details of Managed Identity of Storage Account
+      * `principal_id` (`str`) - The objectId of the Managed Identity that is linked to the Managed Storage account.
+      * `tenant_id` (`str`) - The tenant Id where the Managed Identity is created.
+      * `type` (`str`) - The type of Identity created. It can be either SystemAssigned or UserAssigned.
     """
     tags: pulumi.Output[dict]
     """
@@ -77,6 +86,25 @@ class Workspace(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    ui_definition_uri: pulumi.Output[str]
+    """
+    The blob URI where the UI definition file is located.
+    """
+    updated_by: pulumi.Output[dict]
+    """
+    Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
+      * `application_id` (`str`) - The application ID of the application that initiated the creation of the workspace. For example, Azure Portal.
+      * `oid` (`str`) - The Object ID that created the workspace.
+      * `puid` (`str`) - The Personal Object ID corresponding to the object ID above
+    """
+    workspace_id: pulumi.Output[str]
+    """
+    The unique identifier of the databricks workspace in databricks control plane.
+    """
+    workspace_url: pulumi.Output[str]
+    """
+    The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
     """
     def __init__(__self__, resource_name, opts=None, authorizations=None, created_date_time=None, location=None, managed_resource_group_id=None, name=None, parameters=None, resource_group_name=None, sku=None, tags=None, ui_definition_uri=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -162,8 +190,13 @@ class Workspace(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['ui_definition_uri'] = ui_definition_uri
-            __props__['properties'] = None
+            __props__['created_by'] = None
+            __props__['provisioning_state'] = None
+            __props__['storage_account_identity'] = None
             __props__['type'] = None
+            __props__['updated_by'] = None
+            __props__['workspace_id'] = None
+            __props__['workspace_url'] = None
         super(Workspace, __self__).__init__(
             'azurerm:databricks/v20180401:Workspace',
             resource_name,

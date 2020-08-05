@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class VirtualHubBgpConnection(pulumi.CustomResource):
+    connection_state: pulumi.Output[str]
+    """
+    The current state of the VirtualHub to Peer.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
@@ -18,13 +22,17 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
     """
     Name of the connection.
     """
-    properties: pulumi.Output[dict]
+    peer_asn: pulumi.Output[float]
     """
-    The properties of the Bgp connections.
-      * `connection_state` (`str`) - The current state of the VirtualHub to Peer.
-      * `peer_asn` (`float`) - Peer ASN.
-      * `peer_ip` (`str`) - Peer IP.
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
+    Peer ASN.
+    """
+    peer_ip: pulumi.Output[str]
+    """
+    Peer IP.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the resource.
     """
     type: pulumi.Output[str]
     """
@@ -72,8 +80,9 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
             if virtual_hub_name is None:
                 raise TypeError("Missing required property 'virtual_hub_name'")
             __props__['virtual_hub_name'] = virtual_hub_name
+            __props__['connection_state'] = None
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(VirtualHubBgpConnection, __self__).__init__(
             'azurerm:network/v20200501:VirtualHubBgpConnection',

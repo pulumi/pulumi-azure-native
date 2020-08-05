@@ -10,6 +10,28 @@ from ... import _utilities, _tables
 
 
 class Policy(pulumi.CustomResource):
+    custom_rules: pulumi.Output[dict]
+    """
+    Describes custom rules inside the policy.
+      * `rules` (`list`) - List of rules
+        * `action` (`str`) - Describes what action to be applied when rule matches
+        * `enabled_state` (`str`) - Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        * `match_conditions` (`list`) - List of match conditions.
+          * `match_value` (`list`) - List of possible match values.
+          * `match_variable` (`str`) - Match variable to compare against.
+          * `negate_condition` (`bool`) - Describes if the result of this condition should be negated.
+          * `operator` (`str`) - Describes operator to be matched
+          * `selector` (`str`) - Selector can used to match a specific key for QueryString, Cookies, RequestHeader or PostArgs.
+          * `transforms` (`list`) - List of transforms.
+
+        * `name` (`str`) - Defines the name of the custom rule
+        * `priority` (`float`) - Defines in what order this rule be evaluated in the overall list of custom rules
+    """
+    endpoint_links: pulumi.Output[list]
+    """
+    Describes Azure CDN endpoints associated with this Web Application Firewall policy.
+      * `id` (`str`) - ARM Resource ID string.
+    """
     etag: pulumi.Output[str]
     """
     Gets a unique read-only string that changes whenever the resource is updated.
@@ -18,64 +40,58 @@ class Policy(pulumi.CustomResource):
     """
     Resource location.
     """
+    managed_rules: pulumi.Output[dict]
+    """
+    Describes managed rules inside the policy.
+      * `managed_rule_sets` (`list`) - List of rule sets.
+        * `anomaly_score` (`float`) - Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
+        * `rule_group_overrides` (`list`) - Defines the rule overrides to apply to the rule set.
+          * `rule_group_name` (`str`) - Describes the managed rule group within the rule set to override
+          * `rules` (`list`) - List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+            * `action` (`str`) - Describes the override action to be applied when rule matches.
+            * `enabled_state` (`str`) - Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+            * `rule_id` (`str`) - Identifier for the managed rule.
+
+        * `rule_set_type` (`str`) - Defines the rule set type to use.
+        * `rule_set_version` (`str`) - Defines the version of the rule set to use.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    policy_settings: pulumi.Output[dict]
     """
-    Properties of the web application firewall policy.
-      * `custom_rules` (`dict`) - Describes custom rules inside the policy.
-        * `rules` (`list`) - List of rules
-          * `action` (`str`) - Describes what action to be applied when rule matches
-          * `enabled_state` (`str`) - Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
-          * `match_conditions` (`list`) - List of match conditions.
-            * `match_value` (`list`) - List of possible match values.
-            * `match_variable` (`str`) - Match variable to compare against.
-            * `negate_condition` (`bool`) - Describes if the result of this condition should be negated.
-            * `operator` (`str`) - Describes operator to be matched
-            * `selector` (`str`) - Selector can used to match a specific key for QueryString, Cookies, RequestHeader or PostArgs.
-            * `transforms` (`list`) - List of transforms.
-
-          * `name` (`str`) - Defines the name of the custom rule
-          * `priority` (`float`) - Defines in what order this rule be evaluated in the overall list of custom rules
-
-      * `endpoint_links` (`list`) - Describes Azure CDN endpoints associated with this Web Application Firewall policy.
-        * `id` (`str`) - ARM Resource ID string.
-
-      * `managed_rules` (`dict`) - Describes managed rules inside the policy.
-        * `managed_rule_sets` (`list`) - List of rule sets.
-          * `anomaly_score` (`float`) - Verizon only : If the rule set supports anomaly detection mode, this describes the threshold for blocking requests.
-          * `rule_group_overrides` (`list`) - Defines the rule overrides to apply to the rule set.
-            * `rule_group_name` (`str`) - Describes the managed rule group within the rule set to override
-            * `rules` (`list`) - List of rules that will be disabled. If none specified, all rules in the group will be disabled.
-              * `action` (`str`) - Describes the override action to be applied when rule matches.
-              * `enabled_state` (`str`) - Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
-              * `rule_id` (`str`) - Identifier for the managed rule.
-
-          * `rule_set_type` (`str`) - Defines the rule set type to use.
-          * `rule_set_version` (`str`) - Defines the version of the rule set to use.
-
-      * `policy_settings` (`dict`) - Describes  policySettings for policy
-        * `default_custom_block_response_body` (`str`) - If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
-        * `default_custom_block_response_status_code` (`float`) - If the action type is block, this field defines the default customer overridable http response status code.
-        * `default_redirect_url` (`str`) - If action type is redirect, this field represents the default redirect URL for the client.
-        * `enabled_state` (`str`) - describes if the policy is in enabled state or disabled state
-        * `mode` (`str`) - Describes if it is in detection mode or prevention mode at policy level.
-
-      * `provisioning_state` (`str`) - Provisioning state of the WebApplicationFirewallPolicy.
-      * `rate_limit_rules` (`dict`) - Describes rate limit rules inside the policy.
-        * `rules` (`list`) - List of rules
-          * `action` (`str`) - Describes what action to be applied when rule matches
-          * `enabled_state` (`str`) - Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
-          * `match_conditions` (`list`) - List of match conditions.
-          * `name` (`str`) - Defines the name of the custom rule
-          * `priority` (`float`) - Defines in what order this rule be evaluated in the overall list of custom rules
-          * `rate_limit_duration_in_minutes` (`float`) - Defines rate limit duration. Default is 1 minute.
-          * `rate_limit_threshold` (`float`) - Defines rate limit threshold.
-
-      * `resource_state` (`str`)
+    Describes  policySettings for policy
+      * `default_custom_block_response_body` (`str`) - If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+      * `default_custom_block_response_status_code` (`float`) - If the action type is block, this field defines the default customer overridable http response status code.
+      * `default_redirect_url` (`str`) - If action type is redirect, this field represents the default redirect URL for the client.
+      * `enabled_state` (`str`) - describes if the policy is in enabled state or disabled state
+      * `mode` (`str`) - Describes if it is in detection mode or prevention mode at policy level.
     """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the WebApplicationFirewallPolicy.
+    """
+    rate_limit_rules: pulumi.Output[dict]
+    """
+    Describes rate limit rules inside the policy.
+      * `rules` (`list`) - List of rules
+        * `action` (`str`) - Describes what action to be applied when rule matches
+        * `enabled_state` (`str`) - Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+        * `match_conditions` (`list`) - List of match conditions.
+          * `match_value` (`list`) - List of possible match values.
+          * `match_variable` (`str`) - Match variable to compare against.
+          * `negate_condition` (`bool`) - Describes if the result of this condition should be negated.
+          * `operator` (`str`) - Describes operator to be matched
+          * `selector` (`str`) - Selector can used to match a specific key for QueryString, Cookies, RequestHeader or PostArgs.
+          * `transforms` (`list`) - List of transforms.
+
+        * `name` (`str`) - Defines the name of the custom rule
+        * `priority` (`float`) - Defines in what order this rule be evaluated in the overall list of custom rules
+        * `rate_limit_duration_in_minutes` (`float`) - Defines rate limit duration. Default is 1 minute.
+        * `rate_limit_threshold` (`float`) - Defines rate limit threshold.
+    """
+    resource_state: pulumi.Output[str]
     sku: pulumi.Output[dict]
     """
     The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
@@ -194,7 +210,9 @@ class Policy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['endpoint_links'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_state'] = None
             __props__['type'] = None
         super(Policy, __self__).__init__(
             'azurerm:cdn/v20190615:Policy',

@@ -10,6 +10,16 @@ from ... import _utilities, _tables
 
 
 class ADCCatalog(pulumi.CustomResource):
+    admins: pulumi.Output[list]
+    """
+    Azure data catalog admin list.
+      * `object_id` (`str`) - Object Id for the user
+      * `upn` (`str`) - UPN of the user.
+    """
+    enable_automatic_unit_adjustment: pulumi.Output[bool]
+    """
+    Automatic unit adjustment enabled or not.
+    """
     etag: pulumi.Output[str]
     """
     Resource etag
@@ -22,18 +32,13 @@ class ADCCatalog(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    sku: pulumi.Output[str]
     """
-    Azure Data Catalog properties.
-      * `admins` (`list`) - Azure data catalog admin list.
-        * `object_id` (`str`) - Object Id for the user
-        * `upn` (`str`) - UPN of the user.
-
-      * `enable_automatic_unit_adjustment` (`bool`) - Automatic unit adjustment enabled or not.
-      * `sku` (`str`) - Azure data catalog SKU.
-      * `successfully_provisioned` (`bool`) - Azure data catalog provision status.
-      * `units` (`float`) - Azure data catalog units.
-      * `users` (`list`) - Azure data catalog user list.
+    Azure data catalog SKU.
+    """
+    successfully_provisioned: pulumi.Output[bool]
+    """
+    Azure data catalog provision status.
     """
     tags: pulumi.Output[dict]
     """
@@ -42,6 +47,16 @@ class ADCCatalog(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    units: pulumi.Output[float]
+    """
+    Azure data catalog units.
+    """
+    users: pulumi.Output[list]
+    """
+    Azure data catalog user list.
+      * `object_id` (`str`) - Object Id for the user
+      * `upn` (`str`) - UPN of the user.
     """
     def __init__(__self__, resource_name, opts=None, admins=None, enable_automatic_unit_adjustment=None, etag=None, location=None, name=None, resource_group_name=None, sku=None, successfully_provisioned=None, tags=None, units=None, users=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -98,7 +113,6 @@ class ADCCatalog(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['units'] = units
             __props__['users'] = users
-            __props__['properties'] = None
             __props__['type'] = None
         super(ADCCatalog, __self__).__init__(
             'azurerm:datacatalog/v20160330:ADCCatalog',

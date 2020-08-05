@@ -18,20 +18,22 @@ class AvailabilitySet(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    platform_fault_domain_count: pulumi.Output[float]
     """
-    The instance view of a resource.
-      * `platform_fault_domain_count` (`float`) - Fault Domain count.
-      * `platform_update_domain_count` (`float`) - Update Domain count.
-      * `statuses` (`list`) - The resource status information.
-        * `code` (`str`) - The status code.
-        * `display_status` (`str`) - The short localizable label for the status.
-        * `level` (`str`) - The level code.
-        * `message` (`str`) - The detailed status message, including for alerts and error messages.
-        * `time` (`str`) - The time of the status.
-
-      * `virtual_machines` (`list`) - A list of references to all virtual machines in the availability set.
-        * `id` (`str`) - Resource Id
+    Fault Domain count.
+    """
+    platform_update_domain_count: pulumi.Output[float]
+    """
+    Update Domain count.
+    """
+    statuses: pulumi.Output[list]
+    """
+    The resource status information.
+      * `code` (`str`) - The status code.
+      * `display_status` (`str`) - The short localizable label for the status.
+      * `level` (`str`) - The level code.
+      * `message` (`str`) - The detailed status message, including for alerts and error messages.
+      * `time` (`str`) - The time of the status.
     """
     tags: pulumi.Output[dict]
     """
@@ -40,6 +42,11 @@ class AvailabilitySet(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    virtual_machines: pulumi.Output[list]
+    """
+    A list of references to all virtual machines in the availability set.
+      * `id` (`str`) - Resource Id
     """
     def __init__(__self__, resource_name, opts=None, location=None, name=None, platform_fault_domain_count=None, platform_update_domain_count=None, resource_group_name=None, tags=None, virtual_machines=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -89,7 +96,7 @@ class AvailabilitySet(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['virtual_machines'] = virtual_machines
-            __props__['properties'] = None
+            __props__['statuses'] = None
             __props__['type'] = None
         super(AvailabilitySet, __self__).__init__(
             'azurerm:compute/v20150615:AvailabilitySet',

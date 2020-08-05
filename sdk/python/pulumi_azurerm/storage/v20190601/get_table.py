@@ -13,18 +13,18 @@ class GetTableResult:
     """
     Properties of the table, including Id, resource name, resource type.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, name=None, table_name=None, type=None):
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if table_name and not isinstance(table_name, str):
+            raise TypeError("Expected argument 'table_name' to be a str")
+        __self__.table_name = table_name
         """
-        Table resource properties.
+        Table name under the specified account
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -41,7 +41,7 @@ class AwaitableGetTableResult(GetTableResult):
             yield self
         return GetTableResult(
             name=self.name,
-            properties=self.properties,
+            table_name=self.table_name,
             type=self.type)
 
 
@@ -65,5 +65,5 @@ def get_table(account_name=None, name=None, resource_group_name=None, opts=None)
 
     return AwaitableGetTableResult(
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        table_name=__ret__.get('tableName'),
         type=__ret__.get('type'))

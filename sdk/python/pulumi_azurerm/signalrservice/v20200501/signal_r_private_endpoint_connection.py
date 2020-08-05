@@ -14,18 +14,21 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    private_endpoint: pulumi.Output[dict]
     """
-    Properties of the private endpoint connection
-      * `private_endpoint` (`dict`) - Private endpoint associated with the private endpoint connection
-        * `id` (`str`) - Full qualified Id of the private endpoint
-
-      * `private_link_service_connection_state` (`dict`) - Connection state
-        * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
-        * `description` (`str`) - The reason for approval/rejection of the connection.
-        * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-
-      * `provisioning_state` (`str`) - Provisioning state of the private endpoint connection
+    Private endpoint associated with the private endpoint connection
+      * `id` (`str`) - Full qualified Id of the private endpoint
+    """
+    private_link_service_connection_state: pulumi.Output[dict]
+    """
+    Connection state
+      * `actions_required` (`str`) - A message indicating if changes on the service provider require any updates on the consumer.
+      * `description` (`str`) - The reason for approval/rejection of the connection.
+      * `status` (`str`) - Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the private endpoint connection
     """
     type: pulumi.Output[str]
     """
@@ -81,7 +84,7 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
             if resource_name_ is None:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(SignalRPrivateEndpointConnection, __self__).__init__(
             'azurerm:signalrservice/v20200501:SignalRPrivateEndpointConnection',

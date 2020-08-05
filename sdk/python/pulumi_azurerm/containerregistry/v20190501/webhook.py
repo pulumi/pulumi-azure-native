@@ -10,6 +10,10 @@ from ... import _utilities, _tables
 
 
 class Webhook(pulumi.CustomResource):
+    actions: pulumi.Output[list]
+    """
+    The list of actions that trigger the webhook to post notifications.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource. This cannot be changed after the resource is created.
@@ -18,13 +22,17 @@ class Webhook(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    The properties of the webhook.
-      * `actions` (`list`) - The list of actions that trigger the webhook to post notifications.
-      * `provisioning_state` (`str`) - The provisioning state of the webhook at the time the operation was called.
-      * `scope` (`str`) - The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
-      * `status` (`str`) - The status of the webhook at the time the operation was called.
+    The provisioning state of the webhook at the time the operation was called.
+    """
+    scope: pulumi.Output[str]
+    """
+    The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
+    """
+    status: pulumi.Output[str]
+    """
+    The status of the webhook at the time the operation was called.
     """
     tags: pulumi.Output[dict]
     """
@@ -90,7 +98,7 @@ class Webhook(pulumi.CustomResource):
             __props__['service_uri'] = service_uri
             __props__['status'] = status
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Webhook, __self__).__init__(
             'azurerm:containerregistry/v20190501:Webhook',

@@ -10,6 +10,20 @@ from ... import _utilities, _tables
 
 
 class ExpressRouteCircuit(pulumi.CustomResource):
+    authorizations: pulumi.Output[list]
+    """
+    The list of authorizations.
+      * `authorization_key` (`str`) - The authorization key.
+      * `authorization_use_status` (`str`) - AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource Identifier.
+      * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+    """
+    circuit_provisioning_state: pulumi.Output[str]
+    """
+    The CircuitProvisioningState state of the resource.
+    """
     etag: pulumi.Output[str]
     """
     Gets a unique read-only string that changes whenever the resource is updated.
@@ -22,55 +36,56 @@ class ExpressRouteCircuit(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    peerings: pulumi.Output[list]
     """
-    Properties of ExpressRouteCircuit.
-      * `authorizations` (`list`) - The list of authorizations.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource Identifier.
-        * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`)
-          * `authorization_key` (`str`) - The authorization key.
-          * `authorization_use_status` (`str`) - AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
-          * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+    The list of peerings.
+      * `azure_asn` (`float`) - The Azure ASN.
+      * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
+      * `id` (`str`) - Resource Identifier.
+      * `microsoft_peering_config` (`dict`) - The Microsoft peering configuration.
+        * `advertised_public_prefixes` (`list`) - The reference of AdvertisedPublicPrefixes.
+        * `advertised_public_prefixes_state` (`str`) - AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
+        * `customer_asn` (`float`) - The CustomerASN of the peering.
+        * `routing_registry_name` (`str`) - The RoutingRegistryName of the configuration.
 
-      * `circuit_provisioning_state` (`str`) - The CircuitProvisioningState state of the resource.
-      * `peerings` (`list`) - The list of peerings.
-        * `etag` (`str`) - A unique read-only string that changes whenever the resource is updated.
-        * `id` (`str`) - Resource Identifier.
-        * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-        * `properties` (`dict`)
-          * `azure_asn` (`float`) - The Azure ASN.
-          * `microsoft_peering_config` (`dict`) - The Microsoft peering configuration.
-            * `advertised_public_prefixes` (`list`) - The reference of AdvertisedPublicPrefixes.
-            * `advertised_public_prefixes_state` (`str`) - AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
-            * `customer_asn` (`float`) - The CustomerASN of the peering.
-            * `routing_registry_name` (`str`) - The RoutingRegistryName of the configuration.
-
-          * `peer_asn` (`float`) - The peer ASN.
-          * `peering_type` (`str`) - The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
-          * `primary_azure_port` (`str`) - The primary port.
-          * `primary_peer_address_prefix` (`str`) - The primary address prefix.
-          * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-          * `secondary_azure_port` (`str`) - The secondary port.
-          * `secondary_peer_address_prefix` (`str`) - The secondary address prefix.
-          * `shared_key` (`str`) - The shared key.
-          * `state` (`str`) - The state of peering. Possible values are: 'Disabled' and 'Enabled'
-          * `stats` (`dict`) - Gets peering stats.
-            * `bytes_in` (`float`) - Gets BytesIn of the peering.
-            * `bytes_out` (`float`) - Gets BytesOut of the peering.
-
-          * `vlan_id` (`float`) - The VLAN ID.
-
+      * `name` (`str`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
+      * `peer_asn` (`float`) - The peer ASN.
+      * `peering_type` (`str`) - The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
+      * `primary_azure_port` (`str`) - The primary port.
+      * `primary_peer_address_prefix` (`str`) - The primary address prefix.
       * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-      * `service_key` (`str`) - The ServiceKey.
-      * `service_provider_notes` (`str`) - The ServiceProviderNotes.
-      * `service_provider_properties` (`dict`) - The ServiceProviderProperties.
-        * `bandwidth_in_mbps` (`float`) - The BandwidthInMbps.
-        * `peering_location` (`str`) - The peering location.
-        * `service_provider_name` (`str`) - The serviceProviderName.
+      * `secondary_azure_port` (`str`) - The secondary port.
+      * `secondary_peer_address_prefix` (`str`) - The secondary address prefix.
+      * `shared_key` (`str`) - The shared key.
+      * `state` (`str`) - The state of peering. Possible values are: 'Disabled' and 'Enabled'
+      * `stats` (`dict`) - Gets peering stats.
+        * `bytes_in` (`float`) - Gets BytesIn of the peering.
+        * `bytes_out` (`float`) - Gets BytesOut of the peering.
 
-      * `service_provider_provisioning_state` (`str`) - The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
+      * `vlan_id` (`float`) - The VLAN ID.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+    """
+    service_key: pulumi.Output[str]
+    """
+    The ServiceKey.
+    """
+    service_provider_notes: pulumi.Output[str]
+    """
+    The ServiceProviderNotes.
+    """
+    service_provider_properties: pulumi.Output[dict]
+    """
+    The ServiceProviderProperties.
+      * `bandwidth_in_mbps` (`float`) - The BandwidthInMbps.
+      * `peering_location` (`str`) - The peering location.
+      * `service_provider_name` (`str`) - The serviceProviderName.
+    """
+    service_provider_provisioning_state: pulumi.Output[str]
+    """
+    The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
     """
     sku: pulumi.Output[dict]
     """
@@ -193,7 +208,6 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__['service_provider_provisioning_state'] = service_provider_provisioning_state
             __props__['sku'] = sku
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(ExpressRouteCircuit, __self__).__init__(
             'azurerm:network/v20150615:ExpressRouteCircuit',

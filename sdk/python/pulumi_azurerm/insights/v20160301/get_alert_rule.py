@@ -13,7 +13,31 @@ class GetAlertRuleResult:
     """
     The alert rule resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, condition=None, description=None, is_enabled=None, last_updated_time=None, location=None, name=None, tags=None, type=None):
+        if condition and not isinstance(condition, dict):
+            raise TypeError("Expected argument 'condition' to be a dict")
+        __self__.condition = condition
+        """
+        the condition that results in the alert rule being activated.
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        the description of the alert rule that will be included in the alert email.
+        """
+        if is_enabled and not isinstance(is_enabled, bool):
+            raise TypeError("Expected argument 'is_enabled' to be a bool")
+        __self__.is_enabled = is_enabled
+        """
+        the flag that indicates whether the alert rule is enabled.
+        """
+        if last_updated_time and not isinstance(last_updated_time, str):
+            raise TypeError("Expected argument 'last_updated_time' to be a str")
+        __self__.last_updated_time = last_updated_time
+        """
+        Last time the rule was updated in ISO8601 format.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -25,12 +49,6 @@ class GetAlertRuleResult:
         __self__.name = name
         """
         Azure resource name
-        """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
-        """
-        The alert rule properties of the resource.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,9 +70,12 @@ class AwaitableGetAlertRuleResult(GetAlertRuleResult):
         if False:
             yield self
         return GetAlertRuleResult(
+            condition=self.condition,
+            description=self.description,
+            is_enabled=self.is_enabled,
+            last_updated_time=self.last_updated_time,
             location=self.location,
             name=self.name,
-            properties=self.properties,
             tags=self.tags,
             type=self.type)
 
@@ -76,8 +97,11 @@ def get_alert_rule(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:insights/v20160301:getAlertRule', __args__, opts=opts).value
 
     return AwaitableGetAlertRuleResult(
+        condition=__ret__.get('condition'),
+        description=__ret__.get('description'),
+        is_enabled=__ret__.get('isEnabled'),
+        last_updated_time=__ret__.get('lastUpdatedTime'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

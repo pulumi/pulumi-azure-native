@@ -13,12 +13,60 @@ class GetRecordSetResult:
     """
     Describes a DNS record set (a collection of DNS records with the same name and type).
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, a_records=None, ttl=None, aaaa_records=None, caa_records=None, cname_record=None, etag=None, fqdn=None, metadata=None, mx_records=None, name=None, ns_records=None, ptr_records=None, soa_record=None, srv_records=None, txt_records=None, type=None):
+        if a_records and not isinstance(a_records, list):
+            raise TypeError("Expected argument 'a_records' to be a list")
+        __self__.a_records = a_records
+        """
+        The list of A records in the record set.
+        """
+        if ttl and not isinstance(ttl, float):
+            raise TypeError("Expected argument 'ttl' to be a float")
+        __self__.ttl = ttl
+        """
+        The TTL (time-to-live) of the records in the record set.
+        """
+        if aaaa_records and not isinstance(aaaa_records, list):
+            raise TypeError("Expected argument 'aaaa_records' to be a list")
+        __self__.aaaa_records = aaaa_records
+        """
+        The list of AAAA records in the record set.
+        """
+        if caa_records and not isinstance(caa_records, list):
+            raise TypeError("Expected argument 'caa_records' to be a list")
+        __self__.caa_records = caa_records
+        """
+        The list of CAA records in the record set.
+        """
+        if cname_record and not isinstance(cname_record, dict):
+            raise TypeError("Expected argument 'cname_record' to be a dict")
+        __self__.cname_record = cname_record
+        """
+        The CNAME record in the  record set.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         The etag of the record set.
+        """
+        if fqdn and not isinstance(fqdn, str):
+            raise TypeError("Expected argument 'fqdn' to be a str")
+        __self__.fqdn = fqdn
+        """
+        Fully qualified domain name of the record set.
+        """
+        if metadata and not isinstance(metadata, dict):
+            raise TypeError("Expected argument 'metadata' to be a dict")
+        __self__.metadata = metadata
+        """
+        The metadata attached to the record set.
+        """
+        if mx_records and not isinstance(mx_records, list):
+            raise TypeError("Expected argument 'mx_records' to be a list")
+        __self__.mx_records = mx_records
+        """
+        The list of MX records in the record set.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +74,35 @@ class GetRecordSetResult:
         """
         The name of the record set.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if ns_records and not isinstance(ns_records, list):
+            raise TypeError("Expected argument 'ns_records' to be a list")
+        __self__.ns_records = ns_records
         """
-        The properties of the record set.
+        The list of NS records in the record set.
+        """
+        if ptr_records and not isinstance(ptr_records, list):
+            raise TypeError("Expected argument 'ptr_records' to be a list")
+        __self__.ptr_records = ptr_records
+        """
+        The list of PTR records in the record set.
+        """
+        if soa_record and not isinstance(soa_record, dict):
+            raise TypeError("Expected argument 'soa_record' to be a dict")
+        __self__.soa_record = soa_record
+        """
+        The SOA record in the record set.
+        """
+        if srv_records and not isinstance(srv_records, list):
+            raise TypeError("Expected argument 'srv_records' to be a list")
+        __self__.srv_records = srv_records
+        """
+        The list of SRV records in the record set.
+        """
+        if txt_records and not isinstance(txt_records, list):
+            raise TypeError("Expected argument 'txt_records' to be a list")
+        __self__.txt_records = txt_records
+        """
+        The list of TXT records in the record set.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +118,21 @@ class AwaitableGetRecordSetResult(GetRecordSetResult):
         if False:
             yield self
         return GetRecordSetResult(
+            a_records=self.a_records,
+            ttl=self.ttl,
+            aaaa_records=self.aaaa_records,
+            caa_records=self.caa_records,
+            cname_record=self.cname_record,
             etag=self.etag,
+            fqdn=self.fqdn,
+            metadata=self.metadata,
+            mx_records=self.mx_records,
             name=self.name,
-            properties=self.properties,
+            ns_records=self.ns_records,
+            ptr_records=self.ptr_records,
+            soa_record=self.soa_record,
+            srv_records=self.srv_records,
+            txt_records=self.txt_records,
             type=self.type)
 
 
@@ -73,7 +157,19 @@ def get_record_set(name=None, record_type=None, resource_group_name=None, zone_n
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20171001:getRecordSet', __args__, opts=opts).value
 
     return AwaitableGetRecordSetResult(
+        a_records=__ret__.get('ARecords'),
+        ttl=__ret__.get('TTL'),
+        aaaa_records=__ret__.get('aaaaRecords'),
+        caa_records=__ret__.get('caaRecords'),
+        cname_record=__ret__.get('cnameRecord'),
         etag=__ret__.get('etag'),
+        fqdn=__ret__.get('fqdn'),
+        metadata=__ret__.get('metadata'),
+        mx_records=__ret__.get('mxRecords'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        ns_records=__ret__.get('nsRecords'),
+        ptr_records=__ret__.get('ptrRecords'),
+        soa_record=__ret__.get('soaRecord'),
+        srv_records=__ret__.get('srvRecords'),
+        txt_records=__ret__.get('txtRecords'),
         type=__ret__.get('type'))

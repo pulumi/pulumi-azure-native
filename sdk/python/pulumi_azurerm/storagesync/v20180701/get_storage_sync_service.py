@@ -13,7 +13,7 @@ class GetStorageSyncServiceResult:
     """
     Storage Sync Service object.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, location=None, name=None, storage_sync_service_status=None, storage_sync_service_uid=None, tags=None, type=None):
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +26,17 @@ class GetStorageSyncServiceResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if storage_sync_service_status and not isinstance(storage_sync_service_status, float):
+            raise TypeError("Expected argument 'storage_sync_service_status' to be a float")
+        __self__.storage_sync_service_status = storage_sync_service_status
         """
-        Storage Sync Service properties.
+        Storage Sync service status.
+        """
+        if storage_sync_service_uid and not isinstance(storage_sync_service_uid, str):
+            raise TypeError("Expected argument 'storage_sync_service_uid' to be a str")
+        __self__.storage_sync_service_uid = storage_sync_service_uid
+        """
+        Storage Sync service Uid
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -54,7 +60,8 @@ class AwaitableGetStorageSyncServiceResult(GetStorageSyncServiceResult):
         return GetStorageSyncServiceResult(
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            storage_sync_service_status=self.storage_sync_service_status,
+            storage_sync_service_uid=self.storage_sync_service_uid,
             tags=self.tags,
             type=self.type)
 
@@ -78,6 +85,7 @@ def get_storage_sync_service(name=None, resource_group_name=None, opts=None):
     return AwaitableGetStorageSyncServiceResult(
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        storage_sync_service_status=__ret__.get('storageSyncServiceStatus'),
+        storage_sync_service_uid=__ret__.get('storageSyncServiceUid'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

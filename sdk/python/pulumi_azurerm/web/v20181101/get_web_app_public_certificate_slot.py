@@ -13,7 +13,13 @@ class GetWebAppPublicCertificateSlotResult:
     """
     Public certificate object
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, blob=None, kind=None, name=None, public_certificate_location=None, thumbprint=None, type=None):
+        if blob and not isinstance(blob, str):
+            raise TypeError("Expected argument 'blob' to be a str")
+        __self__.blob = blob
+        """
+        Public Certificate byte array
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,11 +32,17 @@ class GetWebAppPublicCertificateSlotResult:
         """
         Resource Name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if public_certificate_location and not isinstance(public_certificate_location, str):
+            raise TypeError("Expected argument 'public_certificate_location' to be a str")
+        __self__.public_certificate_location = public_certificate_location
         """
-        PublicCertificate resource specific properties
+        Public Certificate Location
+        """
+        if thumbprint and not isinstance(thumbprint, str):
+            raise TypeError("Expected argument 'thumbprint' to be a str")
+        __self__.thumbprint = thumbprint
+        """
+        Certificate Thumbprint
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +58,11 @@ class AwaitableGetWebAppPublicCertificateSlotResult(GetWebAppPublicCertificateSl
         if False:
             yield self
         return GetWebAppPublicCertificateSlotResult(
+            blob=self.blob,
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
+            public_certificate_location=self.public_certificate_location,
+            thumbprint=self.thumbprint,
             type=self.type)
 
 
@@ -71,7 +85,9 @@ def get_web_app_public_certificate_slot(name=None, resource_group_name=None, slo
     __ret__ = pulumi.runtime.invoke('azurerm:web/v20181101:getWebAppPublicCertificateSlot', __args__, opts=opts).value
 
     return AwaitableGetWebAppPublicCertificateSlotResult(
+        blob=__ret__.get('blob'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        public_certificate_location=__ret__.get('publicCertificateLocation'),
+        thumbprint=__ret__.get('thumbprint'),
         type=__ret__.get('type'))

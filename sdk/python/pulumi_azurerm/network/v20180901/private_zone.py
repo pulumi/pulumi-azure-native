@@ -18,20 +18,37 @@ class PrivateZone(pulumi.CustomResource):
     """
     The Azure Region where the resource lives
     """
+    max_number_of_record_sets: pulumi.Output[float]
+    """
+    The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+    """
+    max_number_of_virtual_network_links: pulumi.Output[float]
+    """
+    The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+    """
+    max_number_of_virtual_network_links_with_registration: pulumi.Output[float]
+    """
+    The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    number_of_record_sets: pulumi.Output[float]
     """
-    Properties of the Private DNS zone.
-      * `max_number_of_record_sets` (`float`) - The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-      * `max_number_of_virtual_network_links` (`float`) - The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-      * `max_number_of_virtual_network_links_with_registration` (`float`) - The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-      * `number_of_record_sets` (`float`) - The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-      * `number_of_virtual_network_links` (`float`) - The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
-      * `number_of_virtual_network_links_with_registration` (`float`) - The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
-      * `provisioning_state` (`str`) - The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
+    The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+    """
+    number_of_virtual_network_links: pulumi.Output[float]
+    """
+    The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
+    """
+    number_of_virtual_network_links_with_registration: pulumi.Output[float]
+    """
+    The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
     """
     tags: pulumi.Output[dict]
     """
@@ -79,7 +96,13 @@ class PrivateZone(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['max_number_of_record_sets'] = None
+            __props__['max_number_of_virtual_network_links'] = None
+            __props__['max_number_of_virtual_network_links_with_registration'] = None
+            __props__['number_of_record_sets'] = None
+            __props__['number_of_virtual_network_links'] = None
+            __props__['number_of_virtual_network_links_with_registration'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(PrivateZone, __self__).__init__(
             'azurerm:network/v20180901:PrivateZone',

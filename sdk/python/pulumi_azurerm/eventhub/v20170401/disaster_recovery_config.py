@@ -10,18 +10,29 @@ from ... import _utilities, _tables
 
 
 class DisasterRecoveryConfig(pulumi.CustomResource):
+    alternate_name: pulumi.Output[str]
+    """
+    Alternate name specified when alias and namespace names are same.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    partner_namespace: pulumi.Output[str]
     """
-    Properties required to the Create Or Update Alias(Disaster Recovery configurations)
-      * `alternate_name` (`str`) - Alternate name specified when alias and namespace names are same.
-      * `partner_namespace` (`str`) - ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
-      * `pending_replication_operations_count` (`float`) - Number of entities pending to be replicated.
-      * `provisioning_state` (`str`) - Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
-      * `role` (`str`) - role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
+    ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
+    """
+    pending_replication_operations_count: pulumi.Output[float]
+    """
+    Number of entities pending to be replicated.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state of the Alias(Disaster Recovery configuration) - possible values 'Accepted' or 'Succeeded' or 'Failed'
+    """
+    role: pulumi.Output[str]
+    """
+    role of namespace in GEO DR - possible values 'Primary' or 'PrimaryNotReplicating' or 'Secondary'
     """
     type: pulumi.Output[str]
     """
@@ -67,7 +78,9 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['pending_replication_operations_count'] = None
+            __props__['provisioning_state'] = None
+            __props__['role'] = None
             __props__['type'] = None
         super(DisasterRecoveryConfig, __self__).__init__(
             'azurerm:eventhub/v20170401:DisasterRecoveryConfig',

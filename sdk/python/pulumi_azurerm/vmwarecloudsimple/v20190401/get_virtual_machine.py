@@ -13,7 +13,61 @@ class GetVirtualMachineResult:
     """
     Virtual machine model
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, amount_of_ram=None, controllers=None, customization=None, disks=None, dnsname=None, expose_to_guest_vm=None, folder=None, guest_os=None, guest_os_type=None, location=None, name=None, nics=None, number_of_cores=None, password=None, private_cloud_id=None, provisioning_state=None, public_ip=None, resource_pool=None, status=None, tags=None, template_id=None, type=None, username=None, v_sphere_networks=None, vm_id=None, vmwaretools=None):
+        if amount_of_ram and not isinstance(amount_of_ram, float):
+            raise TypeError("Expected argument 'amount_of_ram' to be a float")
+        __self__.amount_of_ram = amount_of_ram
+        """
+        The amount of memory
+        """
+        if controllers and not isinstance(controllers, list):
+            raise TypeError("Expected argument 'controllers' to be a list")
+        __self__.controllers = controllers
+        """
+        The list of Virtual Disks' Controllers
+        """
+        if customization and not isinstance(customization, dict):
+            raise TypeError("Expected argument 'customization' to be a dict")
+        __self__.customization = customization
+        """
+        Virtual machine properties
+        """
+        if disks and not isinstance(disks, list):
+            raise TypeError("Expected argument 'disks' to be a list")
+        __self__.disks = disks
+        """
+        The list of Virtual Disks
+        """
+        if dnsname and not isinstance(dnsname, str):
+            raise TypeError("Expected argument 'dnsname' to be a str")
+        __self__.dnsname = dnsname
+        """
+        The DNS name of Virtual Machine in VCenter
+        """
+        if expose_to_guest_vm and not isinstance(expose_to_guest_vm, bool):
+            raise TypeError("Expected argument 'expose_to_guest_vm' to be a bool")
+        __self__.expose_to_guest_vm = expose_to_guest_vm
+        """
+        Expose Guest OS or not
+        """
+        if folder and not isinstance(folder, str):
+            raise TypeError("Expected argument 'folder' to be a str")
+        __self__.folder = folder
+        """
+        The path to virtual machine folder in VCenter
+        """
+        if guest_os and not isinstance(guest_os, str):
+            raise TypeError("Expected argument 'guest_os' to be a str")
+        __self__.guest_os = guest_os
+        """
+        The name of Guest OS
+        """
+        if guest_os_type and not isinstance(guest_os_type, str):
+            raise TypeError("Expected argument 'guest_os_type' to be a str")
+        __self__.guest_os_type = guest_os_type
+        """
+        The Guest OS type
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +80,53 @@ class GetVirtualMachineResult:
         """
         {virtualMachineName}
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if nics and not isinstance(nics, list):
+            raise TypeError("Expected argument 'nics' to be a list")
+        __self__.nics = nics
         """
-        Virtual machine properties
+        The list of Virtual NICs
+        """
+        if number_of_cores and not isinstance(number_of_cores, float):
+            raise TypeError("Expected argument 'number_of_cores' to be a float")
+        __self__.number_of_cores = number_of_cores
+        """
+        The number of CPU cores
+        """
+        if password and not isinstance(password, str):
+            raise TypeError("Expected argument 'password' to be a str")
+        __self__.password = password
+        """
+        Password for login. Deprecated - use customization property
+        """
+        if private_cloud_id and not isinstance(private_cloud_id, str):
+            raise TypeError("Expected argument 'private_cloud_id' to be a str")
+        __self__.private_cloud_id = private_cloud_id
+        """
+        Private Cloud Id
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning status of the resource
+        """
+        if public_ip and not isinstance(public_ip, str):
+            raise TypeError("Expected argument 'public_ip' to be a str")
+        __self__.public_ip = public_ip
+        """
+        The public ip of Virtual Machine
+        """
+        if resource_pool and not isinstance(resource_pool, dict):
+            raise TypeError("Expected argument 'resource_pool' to be a dict")
+        __self__.resource_pool = resource_pool
+        """
+        Virtual Machines Resource Pool
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        The status of Virtual machine
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -38,11 +134,41 @@ class GetVirtualMachineResult:
         """
         The list of tags
         """
+        if template_id and not isinstance(template_id, str):
+            raise TypeError("Expected argument 'template_id' to be a str")
+        __self__.template_id = template_id
+        """
+        Virtual Machine Template Id
+        """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         {resourceProviderNamespace}/{resourceType}
+        """
+        if username and not isinstance(username, str):
+            raise TypeError("Expected argument 'username' to be a str")
+        __self__.username = username
+        """
+        Username for login. Deprecated - use customization property
+        """
+        if v_sphere_networks and not isinstance(v_sphere_networks, list):
+            raise TypeError("Expected argument 'v_sphere_networks' to be a list")
+        __self__.v_sphere_networks = v_sphere_networks
+        """
+        The list of Virtual VSphere Networks
+        """
+        if vm_id and not isinstance(vm_id, str):
+            raise TypeError("Expected argument 'vm_id' to be a str")
+        __self__.vm_id = vm_id
+        """
+        The internal id of Virtual Machine in VCenter
+        """
+        if vmwaretools and not isinstance(vmwaretools, str):
+            raise TypeError("Expected argument 'vmwaretools' to be a str")
+        __self__.vmwaretools = vmwaretools
+        """
+        VMware tools version
         """
 
 
@@ -52,11 +178,32 @@ class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
         if False:
             yield self
         return GetVirtualMachineResult(
+            amount_of_ram=self.amount_of_ram,
+            controllers=self.controllers,
+            customization=self.customization,
+            disks=self.disks,
+            dnsname=self.dnsname,
+            expose_to_guest_vm=self.expose_to_guest_vm,
+            folder=self.folder,
+            guest_os=self.guest_os,
+            guest_os_type=self.guest_os_type,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            nics=self.nics,
+            number_of_cores=self.number_of_cores,
+            password=self.password,
+            private_cloud_id=self.private_cloud_id,
+            provisioning_state=self.provisioning_state,
+            public_ip=self.public_ip,
+            resource_pool=self.resource_pool,
+            status=self.status,
             tags=self.tags,
-            type=self.type)
+            template_id=self.template_id,
+            type=self.type,
+            username=self.username,
+            v_sphere_networks=self.v_sphere_networks,
+            vm_id=self.vm_id,
+            vmwaretools=self.vmwaretools)
 
 
 def get_virtual_machine(name=None, resource_group_name=None, opts=None):
@@ -76,8 +223,29 @@ def get_virtual_machine(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:vmwarecloudsimple/v20190401:getVirtualMachine', __args__, opts=opts).value
 
     return AwaitableGetVirtualMachineResult(
+        amount_of_ram=__ret__.get('amountOfRam'),
+        controllers=__ret__.get('controllers'),
+        customization=__ret__.get('customization'),
+        disks=__ret__.get('disks'),
+        dnsname=__ret__.get('dnsname'),
+        expose_to_guest_vm=__ret__.get('exposeToGuestVM'),
+        folder=__ret__.get('folder'),
+        guest_os=__ret__.get('guestOS'),
+        guest_os_type=__ret__.get('guestOSType'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        nics=__ret__.get('nics'),
+        number_of_cores=__ret__.get('numberOfCores'),
+        password=__ret__.get('password'),
+        private_cloud_id=__ret__.get('privateCloudId'),
+        provisioning_state=__ret__.get('provisioningState'),
+        public_ip=__ret__.get('publicIP'),
+        resource_pool=__ret__.get('resourcePool'),
+        status=__ret__.get('status'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        template_id=__ret__.get('templateId'),
+        type=__ret__.get('type'),
+        username=__ret__.get('username'),
+        v_sphere_networks=__ret__.get('vSphereNetworks'),
+        vm_id=__ret__.get('vmId'),
+        vmwaretools=__ret__.get('vmwaretools'))

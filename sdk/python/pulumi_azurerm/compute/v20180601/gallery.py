@@ -10,6 +10,15 @@ from ... import _utilities, _tables
 
 
 class Gallery(pulumi.CustomResource):
+    description: pulumi.Output[str]
+    """
+    The description of this Shared Image Gallery resource. This property is updatable.
+    """
+    identifier: pulumi.Output[dict]
+    """
+    Describes the gallery unique name.
+      * `unique_name` (`str`) - The unique name of the Shared Image Gallery. This name is generated automatically by Azure.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,14 +27,9 @@ class Gallery(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Describes the properties of a Shared Image Gallery.
-      * `description` (`str`) - The description of this Shared Image Gallery resource. This property is updatable.
-      * `identifier` (`dict`) - Describes the gallery unique name.
-        * `unique_name` (`str`) - The unique name of the Shared Image Gallery. This name is generated automatically by Azure.
-
-      * `provisioning_state` (`str`) - The provisioning state, which only appears in the response.
+    The provisioning state, which only appears in the response.
     """
     tags: pulumi.Output[dict]
     """
@@ -75,7 +79,8 @@ class Gallery(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['identifier'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(Gallery, __self__).__init__(
             'azurerm:compute/v20180601:Gallery',

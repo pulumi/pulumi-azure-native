@@ -13,7 +13,7 @@ class GetApplicationResult:
     """
     The application resource.
     """
-    def __init__(__self__, etag=None, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, etag=None, identity=None, location=None, managed_identities=None, maximum_nodes=None, metrics=None, minimum_nodes=None, name=None, parameters=None, provisioning_state=None, remove_application_capacity=None, tags=None, type=None, type_name=None, type_version=None, upgrade_policy=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,17 +32,53 @@ class GetApplicationResult:
         """
         It will be deprecated in New API, resource location depends on the parent resource.
         """
+        if managed_identities and not isinstance(managed_identities, list):
+            raise TypeError("Expected argument 'managed_identities' to be a list")
+        __self__.managed_identities = managed_identities
+        """
+        List of user assigned identities for the application, each mapped to a friendly name.
+        """
+        if maximum_nodes and not isinstance(maximum_nodes, float):
+            raise TypeError("Expected argument 'maximum_nodes' to be a float")
+        __self__.maximum_nodes = maximum_nodes
+        """
+        The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
+        """
+        if metrics and not isinstance(metrics, list):
+            raise TypeError("Expected argument 'metrics' to be a list")
+        __self__.metrics = metrics
+        """
+        List of application capacity metric description.
+        """
+        if minimum_nodes and not isinstance(minimum_nodes, float):
+            raise TypeError("Expected argument 'minimum_nodes' to be a float")
+        __self__.minimum_nodes = minimum_nodes
+        """
+        The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Azure resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        __self__.parameters = parameters
         """
-        The application resource properties.
+        List of application parameters with overridden values from their default values specified in the application manifest.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The current deployment or provisioning state, which only appears in the response
+        """
+        if remove_application_capacity and not isinstance(remove_application_capacity, bool):
+            raise TypeError("Expected argument 'remove_application_capacity' to be a bool")
+        __self__.remove_application_capacity = remove_application_capacity
+        """
+        Remove the current application capacity settings.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -56,6 +92,24 @@ class GetApplicationResult:
         """
         Azure resource type.
         """
+        if type_name and not isinstance(type_name, str):
+            raise TypeError("Expected argument 'type_name' to be a str")
+        __self__.type_name = type_name
+        """
+        The application type name as defined in the application manifest.
+        """
+        if type_version and not isinstance(type_version, str):
+            raise TypeError("Expected argument 'type_version' to be a str")
+        __self__.type_version = type_version
+        """
+        The version of the application type as defined in the application manifest.
+        """
+        if upgrade_policy and not isinstance(upgrade_policy, dict):
+            raise TypeError("Expected argument 'upgrade_policy' to be a dict")
+        __self__.upgrade_policy = upgrade_policy
+        """
+        Describes the policy for a monitored application upgrade.
+        """
 
 
 class AwaitableGetApplicationResult(GetApplicationResult):
@@ -67,10 +121,19 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             etag=self.etag,
             identity=self.identity,
             location=self.location,
+            managed_identities=self.managed_identities,
+            maximum_nodes=self.maximum_nodes,
+            metrics=self.metrics,
+            minimum_nodes=self.minimum_nodes,
             name=self.name,
-            properties=self.properties,
+            parameters=self.parameters,
+            provisioning_state=self.provisioning_state,
+            remove_application_capacity=self.remove_application_capacity,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            type_name=self.type_name,
+            type_version=self.type_version,
+            upgrade_policy=self.upgrade_policy)
 
 
 def get_application(cluster_name=None, name=None, resource_group_name=None, opts=None):
@@ -95,7 +158,16 @@ def get_application(cluster_name=None, name=None, resource_group_name=None, opts
         etag=__ret__.get('etag'),
         identity=__ret__.get('identity'),
         location=__ret__.get('location'),
+        managed_identities=__ret__.get('managedIdentities'),
+        maximum_nodes=__ret__.get('maximumNodes'),
+        metrics=__ret__.get('metrics'),
+        minimum_nodes=__ret__.get('minimumNodes'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        parameters=__ret__.get('parameters'),
+        provisioning_state=__ret__.get('provisioningState'),
+        remove_application_capacity=__ret__.get('removeApplicationCapacity'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        type_name=__ret__.get('typeName'),
+        type_version=__ret__.get('typeVersion'),
+        upgrade_policy=__ret__.get('upgradePolicy'))

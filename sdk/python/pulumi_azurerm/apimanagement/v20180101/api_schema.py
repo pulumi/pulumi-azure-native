@@ -10,20 +10,21 @@ from ... import _utilities, _tables
 
 
 class ApiSchema(pulumi.CustomResource):
+    content_type: pulumi.Output[str]
+    """
+    Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
-    """
-    Properties of the Schema.
-      * `content_type` (`str`) - Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml).
-      * `document` (`dict`) - Properties of the Schema Document.
-        * `value` (`str`) - Json escaped string defining the document representing the Schema.
-    """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource.
+    """
+    value: pulumi.Output[str]
+    """
+    Json escaped string defining the document representing the Schema.
     """
     def __init__(__self__, resource_name, opts=None, api_id=None, content_type=None, name=None, resource_group_name=None, service_name=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -71,7 +72,6 @@ class ApiSchema(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__['service_name'] = service_name
             __props__['value'] = value
-            __props__['properties'] = None
             __props__['type'] = None
         super(ApiSchema, __self__).__init__(
             'azurerm:apimanagement/v20180101:ApiSchema',

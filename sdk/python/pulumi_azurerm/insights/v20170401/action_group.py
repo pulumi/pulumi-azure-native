@@ -10,6 +10,46 @@ from ... import _utilities, _tables
 
 
 class ActionGroup(pulumi.CustomResource):
+    automation_runbook_receivers: pulumi.Output[list]
+    """
+    The list of AutomationRunbook receivers that are part of this action group.
+      * `automation_account_id` (`str`) - The Azure automation account Id which holds this runbook and authenticate to Azure resource.
+      * `is_global_runbook` (`bool`) - Indicates whether this instance is global runbook.
+      * `name` (`str`) - Indicates name of the webhook.
+      * `runbook_name` (`str`) - The name for this runbook.
+      * `service_uri` (`str`) - The URI where webhooks should be sent.
+      * `webhook_resource_id` (`str`) - The resource id for webhook linked to this runbook.
+    """
+    azure_app_push_receivers: pulumi.Output[list]
+    """
+    The list of AzureAppPush receivers that are part of this action group.
+      * `email_address` (`str`) - The email address registered for the Azure mobile app.
+      * `name` (`str`) - The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
+    """
+    email_receivers: pulumi.Output[list]
+    """
+    The list of email receivers that are part of this action group.
+      * `email_address` (`str`) - The email address of this receiver.
+      * `name` (`str`) - The name of the email receiver. Names must be unique across all receivers within an action group.
+      * `status` (`str`) - The receiver status of the e-mail.
+    """
+    enabled: pulumi.Output[bool]
+    """
+    Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
+    """
+    group_short_name: pulumi.Output[str]
+    """
+    The short name of the action group. This will be used in SMS messages.
+    """
+    itsm_receivers: pulumi.Output[list]
+    """
+    The list of ITSM receivers that are part of this action group.
+      * `connection_id` (`str`) - Unique identification of ITSM connection among multiple defined in above workspace.
+      * `name` (`str`) - The name of the Itsm receiver. Names must be unique across all receivers within an action group.
+      * `region` (`str`) - Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
+      * `ticket_configuration` (`str`) - JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
+      * `workspace_id` (`str`) - OMS LA instance identifier.
+    """
     location: pulumi.Output[str]
     """
     Resource location
@@ -18,44 +58,13 @@ class ActionGroup(pulumi.CustomResource):
     """
     Azure resource name
     """
-    properties: pulumi.Output[dict]
+    sms_receivers: pulumi.Output[list]
     """
-    The action groups properties of the resource.
-      * `automation_runbook_receivers` (`list`) - The list of AutomationRunbook receivers that are part of this action group.
-        * `automation_account_id` (`str`) - The Azure automation account Id which holds this runbook and authenticate to Azure resource.
-        * `is_global_runbook` (`bool`) - Indicates whether this instance is global runbook.
-        * `name` (`str`) - Indicates name of the webhook.
-        * `runbook_name` (`str`) - The name for this runbook.
-        * `service_uri` (`str`) - The URI where webhooks should be sent.
-        * `webhook_resource_id` (`str`) - The resource id for webhook linked to this runbook.
-
-      * `azure_app_push_receivers` (`list`) - The list of AzureAppPush receivers that are part of this action group.
-        * `email_address` (`str`) - The email address registered for the Azure mobile app.
-        * `name` (`str`) - The name of the Azure mobile app push receiver. Names must be unique across all receivers within an action group.
-
-      * `email_receivers` (`list`) - The list of email receivers that are part of this action group.
-        * `email_address` (`str`) - The email address of this receiver.
-        * `name` (`str`) - The name of the email receiver. Names must be unique across all receivers within an action group.
-        * `status` (`str`) - The receiver status of the e-mail.
-
-      * `enabled` (`bool`) - Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
-      * `group_short_name` (`str`) - The short name of the action group. This will be used in SMS messages.
-      * `itsm_receivers` (`list`) - The list of ITSM receivers that are part of this action group.
-        * `connection_id` (`str`) - Unique identification of ITSM connection among multiple defined in above workspace.
-        * `name` (`str`) - The name of the Itsm receiver. Names must be unique across all receivers within an action group.
-        * `region` (`str`) - Region in which workspace resides. Supported values:'centralindia','japaneast','southeastasia','australiasoutheast','uksouth','westcentralus','canadacentral','eastus','westeurope'
-        * `ticket_configuration` (`str`) - JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well.
-        * `workspace_id` (`str`) - OMS LA instance identifier.
-
-      * `sms_receivers` (`list`) - The list of SMS receivers that are part of this action group.
-        * `country_code` (`str`) - The country code of the SMS receiver.
-        * `name` (`str`) - The name of the SMS receiver. Names must be unique across all receivers within an action group.
-        * `phone_number` (`str`) - The phone number of the SMS receiver.
-        * `status` (`str`) - The status of the receiver.
-
-      * `webhook_receivers` (`list`) - The list of webhook receivers that are part of this action group.
-        * `name` (`str`) - The name of the webhook receiver. Names must be unique across all receivers within an action group.
-        * `service_uri` (`str`) - The URI where webhooks should be sent.
+    The list of SMS receivers that are part of this action group.
+      * `country_code` (`str`) - The country code of the SMS receiver.
+      * `name` (`str`) - The name of the SMS receiver. Names must be unique across all receivers within an action group.
+      * `phone_number` (`str`) - The phone number of the SMS receiver.
+      * `status` (`str`) - The status of the receiver.
     """
     tags: pulumi.Output[dict]
     """
@@ -64,6 +73,12 @@ class ActionGroup(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Azure resource type
+    """
+    webhook_receivers: pulumi.Output[list]
+    """
+    The list of webhook receivers that are part of this action group.
+      * `name` (`str`) - The name of the webhook receiver. Names must be unique across all receivers within an action group.
+      * `service_uri` (`str`) - The URI where webhooks should be sent.
     """
     def __init__(__self__, resource_name, opts=None, automation_runbook_receivers=None, azure_app_push_receivers=None, email_receivers=None, enabled=None, group_short_name=None, itsm_receivers=None, location=None, name=None, resource_group_name=None, sms_receivers=None, tags=None, webhook_receivers=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -161,7 +176,6 @@ class ActionGroup(pulumi.CustomResource):
             __props__['sms_receivers'] = sms_receivers
             __props__['tags'] = tags
             __props__['webhook_receivers'] = webhook_receivers
-            __props__['properties'] = None
             __props__['type'] = None
         super(ActionGroup, __self__).__init__(
             'azurerm:insights/v20170401:ActionGroup',

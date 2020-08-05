@@ -18,10 +18,9 @@ class TopicAuthorizationRule(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    rights: pulumi.Output[list]
     """
-    SharedAccessAuthorizationRule properties.
-      * `rights` (`list`) - The rights associated with the rule.
+    The rights associated with the rule.
     """
     type: pulumi.Output[str]
     """
@@ -73,7 +72,6 @@ class TopicAuthorizationRule(pulumi.CustomResource):
             if topic_name is None:
                 raise TypeError("Missing required property 'topic_name'")
             __props__['topic_name'] = topic_name
-            __props__['properties'] = None
             __props__['type'] = None
         super(TopicAuthorizationRule, __self__).__init__(
             'azurerm:servicebus/v20150801:TopicAuthorizationRule',

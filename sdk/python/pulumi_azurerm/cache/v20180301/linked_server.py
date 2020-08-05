@@ -10,17 +10,25 @@ from ... import _utilities, _tables
 
 
 class LinkedServer(pulumi.CustomResource):
+    linked_redis_cache_id: pulumi.Output[str]
+    """
+    Fully qualified resourceId of the linked redis cache.
+    """
+    linked_redis_cache_location: pulumi.Output[str]
+    """
+    Location of the linked redis cache.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the linked server.
-      * `linked_redis_cache_id` (`str`) - Fully qualified resourceId of the linked redis cache.
-      * `linked_redis_cache_location` (`str`) - Location of the linked redis cache.
-      * `provisioning_state` (`str`) - Terminal state of the link between primary and secondary redis cache.
-      * `server_role` (`str`) - Role of the linked server.
+    Terminal state of the link between primary and secondary redis cache.
+    """
+    server_role: pulumi.Output[str]
+    """
+    Role of the linked server.
     """
     type: pulumi.Output[str]
     """
@@ -70,7 +78,7 @@ class LinkedServer(pulumi.CustomResource):
             if server_role is None:
                 raise TypeError("Missing required property 'server_role'")
             __props__['server_role'] = server_role
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
         super(LinkedServer, __self__).__init__(
             'azurerm:cache/v20180301:LinkedServer',

@@ -10,6 +10,29 @@ from ... import _utilities, _tables
 
 
 class Workflow(pulumi.CustomResource):
+    access_endpoint: pulumi.Output[str]
+    """
+    Gets the access endpoint.
+    """
+    changed_time: pulumi.Output[str]
+    """
+    Gets the changed time.
+    """
+    created_time: pulumi.Output[str]
+    """
+    Gets the created time.
+    """
+    definition: pulumi.Output[dict]
+    """
+    The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
+    """
+    integration_account: pulumi.Output[dict]
+    """
+    The integration account.
+      * `id` (`str`) - The resource id.
+      * `name` (`str`) - Gets the resource name.
+      * `type` (`str`) - Gets the resource type.
+    """
     location: pulumi.Output[str]
     """
     The resource location.
@@ -18,26 +41,26 @@ class Workflow(pulumi.CustomResource):
     """
     Gets the resource name.
     """
-    properties: pulumi.Output[dict]
+    parameters: pulumi.Output[dict]
     """
-    The workflow properties.
-      * `access_endpoint` (`str`) - Gets the access endpoint.
-      * `changed_time` (`str`) - Gets the changed time.
-      * `created_time` (`str`) - Gets the created time.
-      * `definition` (`dict`) - The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
-      * `integration_account` (`dict`) - The integration account.
+    The parameters.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Gets the provisioning state.
+    """
+    sku: pulumi.Output[dict]
+    """
+    The sku.
+      * `name` (`str`) - The name.
+      * `plan` (`dict`) - The reference to plan.
         * `id` (`str`) - The resource id.
         * `name` (`str`) - Gets the resource name.
         * `type` (`str`) - Gets the resource type.
-
-      * `parameters` (`dict`) - The parameters.
-      * `provisioning_state` (`str`) - Gets the provisioning state.
-      * `sku` (`dict`) - The sku.
-        * `name` (`str`) - The name.
-        * `plan` (`dict`) - The reference to plan.
-
-      * `state` (`str`) - The state.
-      * `version` (`str`) - Gets the version.
+    """
+    state: pulumi.Output[str]
+    """
+    The state.
     """
     tags: pulumi.Output[dict]
     """
@@ -46,6 +69,10 @@ class Workflow(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Gets the resource type.
+    """
+    version: pulumi.Output[str]
+    """
+    Gets the version.
     """
     def __init__(__self__, resource_name, opts=None, definition=None, location=None, name=None, parameters=None, resource_group_name=None, sku=None, state=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -95,8 +122,13 @@ class Workflow(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['state'] = state
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['access_endpoint'] = None
+            __props__['changed_time'] = None
+            __props__['created_time'] = None
+            __props__['integration_account'] = None
+            __props__['provisioning_state'] = None
             __props__['type'] = None
+            __props__['version'] = None
         super(Workflow, __self__).__init__(
             'azurerm:logic/v20160601:Workflow',
             resource_name,

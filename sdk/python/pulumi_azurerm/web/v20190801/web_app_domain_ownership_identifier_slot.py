@@ -18,14 +18,13 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
-    """
-    Identifier resource specific properties
-      * `id` (`str`) - String representation of the identity.
-    """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    value: pulumi.Output[str]
+    """
+    String representation of the identity.
     """
     def __init__(__self__, resource_name, opts=None, kind=None, name=None, resource_group_name=None, slot=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -67,7 +66,6 @@ class WebAppDomainOwnershipIdentifierSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'slot'")
             __props__['slot'] = slot
             __props__['value'] = value
-            __props__['properties'] = None
             __props__['type'] = None
         super(WebAppDomainOwnershipIdentifierSlot, __self__).__init__(
             'azurerm:web/v20190801:WebAppDomainOwnershipIdentifierSlot',

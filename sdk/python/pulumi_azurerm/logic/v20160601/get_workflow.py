@@ -13,7 +13,37 @@ class GetWorkflowResult:
     """
     The workflow type.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, access_endpoint=None, changed_time=None, created_time=None, definition=None, integration_account=None, location=None, name=None, parameters=None, provisioning_state=None, sku=None, state=None, tags=None, type=None, version=None):
+        if access_endpoint and not isinstance(access_endpoint, str):
+            raise TypeError("Expected argument 'access_endpoint' to be a str")
+        __self__.access_endpoint = access_endpoint
+        """
+        Gets the access endpoint.
+        """
+        if changed_time and not isinstance(changed_time, str):
+            raise TypeError("Expected argument 'changed_time' to be a str")
+        __self__.changed_time = changed_time
+        """
+        Gets the changed time.
+        """
+        if created_time and not isinstance(created_time, str):
+            raise TypeError("Expected argument 'created_time' to be a str")
+        __self__.created_time = created_time
+        """
+        Gets the created time.
+        """
+        if definition and not isinstance(definition, dict):
+            raise TypeError("Expected argument 'definition' to be a dict")
+        __self__.definition = definition
+        """
+        The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
+        """
+        if integration_account and not isinstance(integration_account, dict):
+            raise TypeError("Expected argument 'integration_account' to be a dict")
+        __self__.integration_account = integration_account
+        """
+        The integration account.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
@@ -26,11 +56,29 @@ class GetWorkflowResult:
         """
         Gets the resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if parameters and not isinstance(parameters, dict):
+            raise TypeError("Expected argument 'parameters' to be a dict")
+        __self__.parameters = parameters
         """
-        The workflow properties.
+        The parameters.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Gets the provisioning state.
+        """
+        if sku and not isinstance(sku, dict):
+            raise TypeError("Expected argument 'sku' to be a dict")
+        __self__.sku = sku
+        """
+        The sku.
+        """
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        __self__.state = state
+        """
+        The state.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +92,12 @@ class GetWorkflowResult:
         """
         Gets the resource type.
         """
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        __self__.version = version
+        """
+        Gets the version.
+        """
 
 
 class AwaitableGetWorkflowResult(GetWorkflowResult):
@@ -52,11 +106,20 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
         if False:
             yield self
         return GetWorkflowResult(
+            access_endpoint=self.access_endpoint,
+            changed_time=self.changed_time,
+            created_time=self.created_time,
+            definition=self.definition,
+            integration_account=self.integration_account,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            parameters=self.parameters,
+            provisioning_state=self.provisioning_state,
+            sku=self.sku,
+            state=self.state,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            version=self.version)
 
 
 def get_workflow(name=None, resource_group_name=None, opts=None):
@@ -76,8 +139,17 @@ def get_workflow(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:logic/v20160601:getWorkflow', __args__, opts=opts).value
 
     return AwaitableGetWorkflowResult(
+        access_endpoint=__ret__.get('accessEndpoint'),
+        changed_time=__ret__.get('changedTime'),
+        created_time=__ret__.get('createdTime'),
+        definition=__ret__.get('definition'),
+        integration_account=__ret__.get('integrationAccount'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        parameters=__ret__.get('parameters'),
+        provisioning_state=__ret__.get('provisioningState'),
+        sku=__ret__.get('sku'),
+        state=__ret__.get('state'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        version=__ret__.get('version'))

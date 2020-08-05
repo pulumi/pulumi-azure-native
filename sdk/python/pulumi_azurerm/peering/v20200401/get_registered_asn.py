@@ -13,18 +13,30 @@ class GetRegisteredAsnResult:
     """
     The customer's ASN that is registered by the peering service provider.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, asn=None, name=None, peering_service_prefix_key=None, provisioning_state=None, type=None):
+        if asn and not isinstance(asn, float):
+            raise TypeError("Expected argument 'asn' to be a float")
+        __self__.asn = asn
+        """
+        The customer's ASN from which traffic originates.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peering_service_prefix_key and not isinstance(peering_service_prefix_key, str):
+            raise TypeError("Expected argument 'peering_service_prefix_key' to be a str")
+        __self__.peering_service_prefix_key = peering_service_prefix_key
         """
-        The properties that define a registered ASN.
+        The peering service prefix key that is to be shared with the customer.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +52,10 @@ class AwaitableGetRegisteredAsnResult(GetRegisteredAsnResult):
         if False:
             yield self
         return GetRegisteredAsnResult(
+            asn=self.asn,
             name=self.name,
-            properties=self.properties,
+            peering_service_prefix_key=self.peering_service_prefix_key,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -64,6 +78,8 @@ def get_registered_asn(name=None, peering_name=None, resource_group_name=None, o
     __ret__ = pulumi.runtime.invoke('azurerm:peering/v20200401:getRegisteredAsn', __args__, opts=opts).value
 
     return AwaitableGetRegisteredAsnResult(
+        asn=__ret__.get('asn'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        peering_service_prefix_key=__ret__.get('peeringServicePrefixKey'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

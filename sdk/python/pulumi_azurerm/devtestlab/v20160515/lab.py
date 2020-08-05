@@ -10,6 +10,26 @@ from ... import _utilities, _tables
 
 
 class Lab(pulumi.CustomResource):
+    artifacts_storage_account: pulumi.Output[str]
+    """
+    The lab's artifact storage account.
+    """
+    created_date: pulumi.Output[str]
+    """
+    The creation date of the lab.
+    """
+    default_premium_storage_account: pulumi.Output[str]
+    """
+    The lab's default premium storage account.
+    """
+    default_storage_account: pulumi.Output[str]
+    """
+    The lab's default storage account.
+    """
+    lab_storage_type: pulumi.Output[str]
+    """
+    Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
@@ -18,21 +38,19 @@ class Lab(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    premium_data_disk_storage_account: pulumi.Output[str]
     """
-    The properties of the resource.
-      * `artifacts_storage_account` (`str`) - The lab's artifact storage account.
-      * `created_date` (`str`) - The creation date of the lab.
-      * `default_premium_storage_account` (`str`) - The lab's default premium storage account.
-      * `default_storage_account` (`str`) - The lab's default storage account.
-      * `lab_storage_type` (`str`) - Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
-      * `premium_data_disk_storage_account` (`str`) - The lab's premium data disk storage account.
-      * `premium_data_disks` (`str`) - The setting to enable usage of premium data disks.
-        When its value is 'Enabled', creation of standard or premium data disks is allowed.
-        When its value is 'Disabled', only creation of standard data disks is allowed.
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
-      * `vault_name` (`str`) - The lab's Key vault.
+    The lab's premium data disk storage account.
+    """
+    premium_data_disks: pulumi.Output[str]
+    """
+    The setting to enable usage of premium data disks.
+    When its value is 'Enabled', creation of standard or premium data disks is allowed.
+    When its value is 'Disabled', only creation of standard data disks is allowed.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning status of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -41,6 +59,14 @@ class Lab(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
+    """
+    vault_name: pulumi.Output[str]
+    """
+    The lab's Key vault.
     """
     def __init__(__self__, resource_name, opts=None, lab_storage_type=None, location=None, name=None, premium_data_disks=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -88,8 +114,13 @@ class Lab(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['unique_identifier'] = unique_identifier
-            __props__['properties'] = None
+            __props__['artifacts_storage_account'] = None
+            __props__['created_date'] = None
+            __props__['default_premium_storage_account'] = None
+            __props__['default_storage_account'] = None
+            __props__['premium_data_disk_storage_account'] = None
             __props__['type'] = None
+            __props__['vault_name'] = None
         super(Lab, __self__).__init__(
             'azurerm:devtestlab/v20160515:Lab',
             resource_name,

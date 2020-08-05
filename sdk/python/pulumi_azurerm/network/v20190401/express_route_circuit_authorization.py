@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
+    authorization_key: pulumi.Output[str]
+    """
+    The authorization key.
+    """
+    authorization_use_status: pulumi.Output[str]
+    """
+    The authorization use status.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
@@ -18,12 +26,9 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
     """
     Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the express route circuit authorization.
-      * `authorization_key` (`str`) - The authorization key.
-      * `authorization_use_status` (`str`) - The authorization use status.
-      * `provisioning_state` (`str`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+    Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
     """
     type: pulumi.Output[str]
     """
@@ -74,7 +79,6 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
-            __props__['properties'] = None
             __props__['type'] = None
         super(ExpressRouteCircuitAuthorization, __self__).__init__(
             'azurerm:network/v20190401:ExpressRouteCircuitAuthorization',

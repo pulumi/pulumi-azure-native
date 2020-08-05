@@ -13,12 +13,42 @@ class GetNamespaceResult:
     """
     Description of a Namespace resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, created_at=None, critical=None, data_center=None, enabled=None, location=None, metric_id=None, name=None, namespace_type=None, provisioning_state=None, region=None, scale_unit=None, service_bus_endpoint=None, sku=None, status=None, subscription_id=None, tags=None, type=None, updated_at=None):
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        __self__.created_at = created_at
+        """
+        The time the namespace was created.
+        """
+        if critical and not isinstance(critical, bool):
+            raise TypeError("Expected argument 'critical' to be a bool")
+        __self__.critical = critical
+        """
+        Whether or not the namespace is set as Critical.
+        """
+        if data_center and not isinstance(data_center, str):
+            raise TypeError("Expected argument 'data_center' to be a str")
+        __self__.data_center = data_center
+        """
+        Data center for the namespace
+        """
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        __self__.enabled = enabled
+        """
+        Whether or not the namespace is currently enabled.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource location
+        """
+        if metric_id and not isinstance(metric_id, str):
+            raise TypeError("Expected argument 'metric_id' to be a str")
+        __self__.metric_id = metric_id
+        """
+        Identifier for Azure Insights metrics
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +56,53 @@ class GetNamespaceResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if namespace_type and not isinstance(namespace_type, str):
+            raise TypeError("Expected argument 'namespace_type' to be a str")
+        __self__.namespace_type = namespace_type
         """
-        Properties of the Namespace.
+        The namespace type.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        Provisioning state of the Namespace.
+        """
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        __self__.region = region
+        """
+        Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+        """
+        if scale_unit and not isinstance(scale_unit, str):
+            raise TypeError("Expected argument 'scale_unit' to be a str")
+        __self__.scale_unit = scale_unit
+        """
+        ScaleUnit where the namespace gets created
+        """
+        if service_bus_endpoint and not isinstance(service_bus_endpoint, str):
+            raise TypeError("Expected argument 'service_bus_endpoint' to be a str")
+        __self__.service_bus_endpoint = service_bus_endpoint
+        """
+        Endpoint you can use to perform NotificationHub operations.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         The sku of the created namespace
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+        """
+        if subscription_id and not isinstance(subscription_id, str):
+            raise TypeError("Expected argument 'subscription_id' to be a str")
+        __self__.subscription_id = subscription_id
+        """
+        The Id of the Azure subscription associated with the namespace.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +116,12 @@ class GetNamespaceResult:
         """
         Resource type
         """
+        if updated_at and not isinstance(updated_at, str):
+            raise TypeError("Expected argument 'updated_at' to be a str")
+        __self__.updated_at = updated_at
+        """
+        The time the namespace was updated.
+        """
 
 
 class AwaitableGetNamespaceResult(GetNamespaceResult):
@@ -58,12 +130,24 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
         if False:
             yield self
         return GetNamespaceResult(
+            created_at=self.created_at,
+            critical=self.critical,
+            data_center=self.data_center,
+            enabled=self.enabled,
             location=self.location,
+            metric_id=self.metric_id,
             name=self.name,
-            properties=self.properties,
+            namespace_type=self.namespace_type,
+            provisioning_state=self.provisioning_state,
+            region=self.region,
+            scale_unit=self.scale_unit,
+            service_bus_endpoint=self.service_bus_endpoint,
             sku=self.sku,
+            status=self.status,
+            subscription_id=self.subscription_id,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            updated_at=self.updated_at)
 
 
 def get_namespace(name=None, resource_group_name=None, opts=None):
@@ -83,9 +167,21 @@ def get_namespace(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:notificationhubs/v20170401:getNamespace', __args__, opts=opts).value
 
     return AwaitableGetNamespaceResult(
+        created_at=__ret__.get('createdAt'),
+        critical=__ret__.get('critical'),
+        data_center=__ret__.get('dataCenter'),
+        enabled=__ret__.get('enabled'),
         location=__ret__.get('location'),
+        metric_id=__ret__.get('metricId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        namespace_type=__ret__.get('namespaceType'),
+        provisioning_state=__ret__.get('provisioningState'),
+        region=__ret__.get('region'),
+        scale_unit=__ret__.get('scaleUnit'),
+        service_bus_endpoint=__ret__.get('serviceBusEndpoint'),
         sku=__ret__.get('sku'),
+        status=__ret__.get('status'),
+        subscription_id=__ret__.get('subscriptionId'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        updated_at=__ret__.get('updatedAt'))

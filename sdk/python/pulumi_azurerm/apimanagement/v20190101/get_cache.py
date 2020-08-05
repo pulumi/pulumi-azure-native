@@ -13,18 +13,30 @@ class GetCacheResult:
     """
     Cache details.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, connection_string=None, description=None, name=None, resource_id=None, type=None):
+        if connection_string and not isinstance(connection_string, str):
+            raise TypeError("Expected argument 'connection_string' to be a str")
+        __self__.connection_string = connection_string
+        """
+        Runtime connection string to cache
+        """
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        __self__.description = description
+        """
+        Cache description
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if resource_id and not isinstance(resource_id, str):
+            raise TypeError("Expected argument 'resource_id' to be a str")
+        __self__.resource_id = resource_id
         """
-        Cache properties details.
+        Original uri of entity in external system cache points to
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +52,10 @@ class AwaitableGetCacheResult(GetCacheResult):
         if False:
             yield self
         return GetCacheResult(
+            connection_string=self.connection_string,
+            description=self.description,
             name=self.name,
-            properties=self.properties,
+            resource_id=self.resource_id,
             type=self.type)
 
 
@@ -64,6 +78,8 @@ def get_cache(name=None, resource_group_name=None, service_name=None, opts=None)
     __ret__ = pulumi.runtime.invoke('azurerm:apimanagement/v20190101:getCache', __args__, opts=opts).value
 
     return AwaitableGetCacheResult(
+        connection_string=__ret__.get('connectionString'),
+        description=__ret__.get('description'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        resource_id=__ret__.get('resourceId'),
         type=__ret__.get('type'))

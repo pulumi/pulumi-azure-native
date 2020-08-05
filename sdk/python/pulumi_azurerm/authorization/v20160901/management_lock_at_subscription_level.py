@@ -10,17 +10,22 @@ from ... import _utilities, _tables
 
 
 class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
+    level: pulumi.Output[str]
+    """
+    The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+    """
     name: pulumi.Output[str]
     """
     The name of the lock.
     """
-    properties: pulumi.Output[dict]
+    notes: pulumi.Output[str]
     """
-    The properties of the lock.
-      * `level` (`str`) - The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
-      * `notes` (`str`) - Notes about the lock. Maximum of 512 characters.
-      * `owners` (`list`) - The owners of the lock.
-        * `application_id` (`str`) - The application ID of the lock owner.
+    Notes about the lock. Maximum of 512 characters.
+    """
+    owners: pulumi.Output[list]
+    """
+    The owners of the lock.
+      * `application_id` (`str`) - The application ID of the lock owner.
     """
     type: pulumi.Output[str]
     """
@@ -66,7 +71,6 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
             __props__['name'] = name
             __props__['notes'] = notes
             __props__['owners'] = owners
-            __props__['properties'] = None
             __props__['type'] = None
         super(ManagementLockAtSubscriptionLevel, __self__).__init__(
             'azurerm:authorization/v20160901:ManagementLockAtSubscriptionLevel',

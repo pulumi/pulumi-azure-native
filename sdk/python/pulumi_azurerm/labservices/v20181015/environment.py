@@ -10,6 +10,36 @@ from ... import _utilities, _tables
 
 
 class Environment(pulumi.CustomResource):
+    claimed_by_user_name: pulumi.Output[str]
+    """
+    The name or email address of the user who has claimed the environment
+    """
+    claimed_by_user_object_id: pulumi.Output[str]
+    """
+    The AAD object Id of the user who has claimed the environment
+    """
+    claimed_by_user_principal_id: pulumi.Output[str]
+    """
+    The user principal Id of the user who has claimed the environment
+    """
+    is_claimed: pulumi.Output[bool]
+    """
+    Is the environment claimed or not
+    """
+    last_known_power_state: pulumi.Output[str]
+    """
+    Last known power state of the environment
+    """
+    latest_operation_result: pulumi.Output[dict]
+    """
+    The details of the latest operation. ex: status, error
+      * `error_code` (`str`) - Error code on failure.
+      * `error_message` (`str`) - The error message.
+      * `http_method` (`str`) - The HttpMethod - PUT/POST/DELETE for the operation.
+      * `operation_url` (`str`) - The URL to use to check long-running operation status
+      * `request_uri` (`str`) - Request URI of the operation.
+      * `status` (`str`) - The current status of the operation.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
@@ -18,44 +48,43 @@ class Environment(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    network_interface: pulumi.Output[dict]
     """
-    The properties of the Environment resource
-      * `claimed_by_user_name` (`str`) - The name or email address of the user who has claimed the environment
-      * `claimed_by_user_object_id` (`str`) - The AAD object Id of the user who has claimed the environment
-      * `claimed_by_user_principal_id` (`str`) - The user principal Id of the user who has claimed the environment
-      * `is_claimed` (`bool`) - Is the environment claimed or not
-      * `last_known_power_state` (`str`) - Last known power state of the environment
-      * `latest_operation_result` (`dict`) - The details of the latest operation. ex: status, error
-        * `error_code` (`str`) - Error code on failure.
-        * `error_message` (`str`) - The error message.
-        * `http_method` (`str`) - The HttpMethod - PUT/POST/DELETE for the operation.
-        * `operation_url` (`str`) - The URL to use to check long-running operation status
-        * `request_uri` (`str`) - Request URI of the operation.
-        * `status` (`str`) - The current status of the operation.
-
-      * `network_interface` (`dict`) - Network details of the environment
-        * `private_ip_address` (`str`) - PrivateIp address of the Compute VM
-        * `rdp_authority` (`str`) - Connection information for Windows
-        * `ssh_authority` (`str`) - Connection information for Linux
-        * `username` (`str`) - Username of the VM
-
-      * `password_last_reset` (`str`) - When the password was last reset on the environment.
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `resource_sets` (`dict`) - The set of a VM and the setting id it was created for
-        * `resource_setting_id` (`str`) - resourceSettingId for the environment
-        * `vm_resource_id` (`str`) - VM resource Id for the environment
-
-      * `total_usage` (`str`) - How long the environment has been used by a lab user
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
+    Network details of the environment
+      * `private_ip_address` (`str`) - PrivateIp address of the Compute VM
+      * `rdp_authority` (`str`) - Connection information for Windows
+      * `ssh_authority` (`str`) - Connection information for Linux
+      * `username` (`str`) - Username of the VM
+    """
+    password_last_reset: pulumi.Output[str]
+    """
+    When the password was last reset on the environment.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning status of the resource.
+    """
+    resource_sets: pulumi.Output[dict]
+    """
+    The set of a VM and the setting id it was created for
+      * `resource_setting_id` (`str`) - resourceSettingId for the environment
+      * `vm_resource_id` (`str`) - VM resource Id for the environment
     """
     tags: pulumi.Output[dict]
     """
     The tags of the resource.
     """
+    total_usage: pulumi.Output[str]
+    """
+    How long the environment has been used by a lab user
+    """
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
     """
     def __init__(__self__, resource_name, opts=None, environment_setting_name=None, lab_account_name=None, lab_name=None, location=None, name=None, provisioning_state=None, resource_group_name=None, resource_sets=None, tags=None, unique_identifier=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -116,7 +145,15 @@ class Environment(pulumi.CustomResource):
             __props__['resource_sets'] = resource_sets
             __props__['tags'] = tags
             __props__['unique_identifier'] = unique_identifier
-            __props__['properties'] = None
+            __props__['claimed_by_user_name'] = None
+            __props__['claimed_by_user_object_id'] = None
+            __props__['claimed_by_user_principal_id'] = None
+            __props__['is_claimed'] = None
+            __props__['last_known_power_state'] = None
+            __props__['latest_operation_result'] = None
+            __props__['network_interface'] = None
+            __props__['password_last_reset'] = None
+            __props__['total_usage'] = None
             __props__['type'] = None
         super(Environment, __self__).__init__(
             'azurerm:labservices/v20181015:Environment',

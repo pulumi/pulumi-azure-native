@@ -10,6 +10,53 @@ from ... import _utilities, _tables
 
 
 class GalleryImage(pulumi.CustomResource):
+    author: pulumi.Output[str]
+    """
+    The author of the gallery image.
+    """
+    created_date: pulumi.Output[str]
+    """
+    The creation date of the gallery image.
+    """
+    description: pulumi.Output[str]
+    """
+    The description of the gallery image.
+    """
+    icon: pulumi.Output[str]
+    """
+    The icon of the gallery image.
+    """
+    image_reference: pulumi.Output[dict]
+    """
+    The image reference of the gallery image.
+      * `offer` (`str`) - The offer of the gallery image.
+      * `os_type` (`str`) - The OS type of the gallery image.
+      * `publisher` (`str`) - The publisher of the gallery image.
+      * `sku` (`str`) - The SKU of the gallery image.
+      * `version` (`str`) - The version of the gallery image.
+    """
+    is_enabled: pulumi.Output[bool]
+    """
+    Indicates whether this gallery image is enabled.
+    """
+    is_override: pulumi.Output[bool]
+    """
+    Indicates whether this gallery has been overridden for this lab account
+    """
+    is_plan_authorized: pulumi.Output[bool]
+    """
+    Indicates if the plan has been authorized for programmatic deployment.
+    """
+    latest_operation_result: pulumi.Output[dict]
+    """
+    The details of the latest operation. ex: status, error
+      * `error_code` (`str`) - Error code on failure.
+      * `error_message` (`str`) - The error message.
+      * `http_method` (`str`) - The HttpMethod - PUT/POST/DELETE for the operation.
+      * `operation_url` (`str`) - The URL to use to check long-running operation status
+      * `request_uri` (`str`) - Request URI of the operation.
+      * `status` (`str`) - The current status of the operation.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource.
@@ -18,34 +65,13 @@ class GalleryImage(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    plan_id: pulumi.Output[str]
     """
-    The gallery image properties
-      * `author` (`str`) - The author of the gallery image.
-      * `created_date` (`str`) - The creation date of the gallery image.
-      * `description` (`str`) - The description of the gallery image.
-      * `icon` (`str`) - The icon of the gallery image.
-      * `image_reference` (`dict`) - The image reference of the gallery image.
-        * `offer` (`str`) - The offer of the gallery image.
-        * `os_type` (`str`) - The OS type of the gallery image.
-        * `publisher` (`str`) - The publisher of the gallery image.
-        * `sku` (`str`) - The SKU of the gallery image.
-        * `version` (`str`) - The version of the gallery image.
-
-      * `is_enabled` (`bool`) - Indicates whether this gallery image is enabled.
-      * `is_override` (`bool`) - Indicates whether this gallery has been overridden for this lab account
-      * `is_plan_authorized` (`bool`) - Indicates if the plan has been authorized for programmatic deployment.
-      * `latest_operation_result` (`dict`) - The details of the latest operation. ex: status, error
-        * `error_code` (`str`) - Error code on failure.
-        * `error_message` (`str`) - The error message.
-        * `http_method` (`str`) - The HttpMethod - PUT/POST/DELETE for the operation.
-        * `operation_url` (`str`) - The URL to use to check long-running operation status
-        * `request_uri` (`str`) - Request URI of the operation.
-        * `status` (`str`) - The current status of the operation.
-
-      * `plan_id` (`str`) - The third party plan that applies to this image
-      * `provisioning_state` (`str`) - The provisioning status of the resource.
-      * `unique_identifier` (`str`) - The unique immutable identifier of a resource (Guid).
+    The third party plan that applies to this image
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning status of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -54,6 +80,10 @@ class GalleryImage(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    unique_identifier: pulumi.Output[str]
+    """
+    The unique immutable identifier of a resource (Guid).
     """
     def __init__(__self__, resource_name, opts=None, is_enabled=None, is_override=None, is_plan_authorized=None, lab_account_name=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, unique_identifier=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -105,7 +135,13 @@ class GalleryImage(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
             __props__['unique_identifier'] = unique_identifier
-            __props__['properties'] = None
+            __props__['author'] = None
+            __props__['created_date'] = None
+            __props__['description'] = None
+            __props__['icon'] = None
+            __props__['image_reference'] = None
+            __props__['latest_operation_result'] = None
+            __props__['plan_id'] = None
             __props__['type'] = None
         super(GalleryImage, __self__).__init__(
             'azurerm:labservices/v20181015:GalleryImage',

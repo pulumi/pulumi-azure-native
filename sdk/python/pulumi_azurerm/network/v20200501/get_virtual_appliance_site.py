@@ -13,7 +13,13 @@ class GetVirtualApplianceSiteResult:
     """
     Virtual Appliance Site resource.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, address_prefix=None, etag=None, name=None, o365_policy=None, provisioning_state=None, type=None):
+        if address_prefix and not isinstance(address_prefix, str):
+            raise TypeError("Expected argument 'address_prefix' to be a str")
+        __self__.address_prefix = address_prefix
+        """
+        Address Prefix.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -26,11 +32,17 @@ class GetVirtualApplianceSiteResult:
         """
         Name of the virtual appliance site.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if o365_policy and not isinstance(o365_policy, dict):
+            raise TypeError("Expected argument 'o365_policy' to be a dict")
+        __self__.o365_policy = o365_policy
         """
-        The properties of the Virtual Appliance Sites.
+        Office 365 Policy.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the resource.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +58,11 @@ class AwaitableGetVirtualApplianceSiteResult(GetVirtualApplianceSiteResult):
         if False:
             yield self
         return GetVirtualApplianceSiteResult(
+            address_prefix=self.address_prefix,
             etag=self.etag,
             name=self.name,
-            properties=self.properties,
+            o365_policy=self.o365_policy,
+            provisioning_state=self.provisioning_state,
             type=self.type)
 
 
@@ -71,7 +85,9 @@ def get_virtual_appliance_site(name=None, network_virtual_appliance_name=None, r
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getVirtualApplianceSite', __args__, opts=opts).value
 
     return AwaitableGetVirtualApplianceSiteResult(
+        address_prefix=__ret__.get('addressPrefix'),
         etag=__ret__.get('etag'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        o365_policy=__ret__.get('o365Policy'),
+        provisioning_state=__ret__.get('provisioningState'),
         type=__ret__.get('type'))

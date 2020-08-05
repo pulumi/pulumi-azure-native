@@ -10,44 +10,122 @@ from ... import _utilities, _tables
 
 
 class RoleAssignment(pulumi.CustomResource):
+    assignment_name: pulumi.Output[str]
+    """
+    The name of the metadata object.
+    """
+    conflation_policies: pulumi.Output[dict]
+    """
+    Widget types set for the assignment.
+      * `elements` (`list`) - The elements included in the set.
+      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+    """
+    connectors: pulumi.Output[dict]
+    """
+    Connectors set for the assignment.
+      * `elements` (`list`) - The elements included in the set.
+      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+    """
+    description: pulumi.Output[dict]
+    """
+    Localized description for the metadata.
+    """
+    display_name: pulumi.Output[dict]
+    """
+    Localized display names for the metadata.
+    """
+    interactions: pulumi.Output[dict]
+    """
+    Interactions set for the assignment.
+      * `elements` (`list`) - The elements included in the set.
+      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+    """
+    kpis: pulumi.Output[dict]
+    """
+    Kpis set for the assignment.
+      * `elements` (`list`) - The elements included in the set.
+      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+    """
+    links: pulumi.Output[dict]
+    """
+    Links set for the assignment.
+      * `elements` (`list`) - The elements included in the set.
+      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    principals: pulumi.Output[list]
     """
-    The Role Assignment definition.
-      * `assignment_name` (`str`) - The name of the metadata object.
-      * `conflation_policies` (`dict`) - Widget types set for the assignment.
-        * `elements` (`list`) - The elements included in the set.
-        * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
-
-      * `connectors` (`dict`) - Connectors set for the assignment.
-      * `description` (`dict`) - Localized description for the metadata.
-      * `display_name` (`dict`) - Localized display names for the metadata.
-      * `interactions` (`dict`) - Interactions set for the assignment.
-      * `kpis` (`dict`) - Kpis set for the assignment.
-      * `links` (`dict`) - Links set for the assignment.
-      * `principals` (`list`) - The principals being assigned to.
-        * `principal_id` (`str`) - The principal id being assigned to.
-        * `principal_metadata` (`dict`) - Other metadata for the principal.
-        * `principal_type` (`str`) - The Type of the principal ID.
-
-      * `profiles` (`dict`) - Profiles set for the assignment.
-      * `provisioning_state` (`str`) - Provisioning state.
-      * `relationship_links` (`dict`) - The Role assignments set for the relationship links.
-      * `relationships` (`dict`) - The Role assignments set for the relationships.
-      * `role` (`str`) - Type of roles.
-      * `role_assignments` (`dict`) - The Role assignments set for the assignment.
-      * `sas_policies` (`dict`) - Sas Policies set for the assignment.
-      * `segments` (`dict`) - The Role assignments set for the assignment.
-      * `tenant_id` (`str`) - The hub name.
-      * `views` (`dict`) - Views set for the assignment.
-      * `widget_types` (`dict`) - Widget types set for the assignment.
+    The principals being assigned to.
+      * `principal_id` (`str`) - The principal id being assigned to.
+      * `principal_metadata` (`dict`) - Other metadata for the principal.
+      * `principal_type` (`str`) - The Type of the principal ID.
+    """
+    profiles: pulumi.Output[dict]
+    """
+    Profiles set for the assignment.
+      * `elements` (`list`) - The elements included in the set.
+      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state.
+    """
+    relationship_links: pulumi.Output[dict]
+    """
+    The Role assignments set for the relationship links.
+      * `elements` (`list`) - The elements included in the set.
+      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+    """
+    relationships: pulumi.Output[dict]
+    """
+    The Role assignments set for the relationships.
+      * `elements` (`list`) - The elements included in the set.
+      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+    """
+    role: pulumi.Output[str]
+    """
+    Type of roles.
+    """
+    role_assignments: pulumi.Output[dict]
+    """
+    The Role assignments set for the assignment.
+      * `elements` (`list`) - The elements included in the set.
+      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+    """
+    sas_policies: pulumi.Output[dict]
+    """
+    Sas Policies set for the assignment.
+      * `elements` (`list`) - The elements included in the set.
+      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+    """
+    segments: pulumi.Output[dict]
+    """
+    The Role assignments set for the assignment.
+      * `elements` (`list`) - The elements included in the set.
+      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+    """
+    tenant_id: pulumi.Output[str]
+    """
+    The hub name.
     """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    views: pulumi.Output[dict]
+    """
+    Views set for the assignment.
+      * `elements` (`list`) - The elements included in the set.
+      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
+    """
+    widget_types: pulumi.Output[dict]
+    """
+    Widget types set for the assignment.
+      * `elements` (`list`) - The elements included in the set.
+      * `exceptions` (`list`) - The elements that are not included in the set, in case elements contains '*' indicating 'all'.
     """
     def __init__(__self__, resource_name, opts=None, conflation_policies=None, connectors=None, description=None, display_name=None, hub_name=None, interactions=None, kpis=None, links=None, name=None, principals=None, profiles=None, relationship_links=None, relationships=None, resource_group_name=None, role=None, role_assignments=None, sas_policies=None, segments=None, views=None, widget_types=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -134,7 +212,9 @@ class RoleAssignment(pulumi.CustomResource):
             __props__['segments'] = segments
             __props__['views'] = views
             __props__['widget_types'] = widget_types
-            __props__['properties'] = None
+            __props__['assignment_name'] = None
+            __props__['provisioning_state'] = None
+            __props__['tenant_id'] = None
             __props__['type'] = None
         super(RoleAssignment, __self__).__init__(
             'azurerm:customerinsights/v20170426:RoleAssignment',

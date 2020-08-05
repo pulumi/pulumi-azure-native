@@ -10,55 +10,62 @@ from ... import _utilities, _tables
 
 
 class OpenShiftCluster(pulumi.CustomResource):
+    apiserver_profile: pulumi.Output[dict]
+    """
+    The cluster API server profile.
+      * `ip` (`str`) - The IP of the cluster API server (immutable).
+      * `url` (`str`) - The URL to access the cluster API server (immutable).
+      * `visibility` (`str`) - API server visibility (immutable).
+    """
+    cluster_profile: pulumi.Output[dict]
+    """
+    The cluster profile.
+      * `domain` (`str`) - The domain for the cluster (immutable).
+      * `pull_secret` (`str`) - The pull secret for the cluster (immutable).
+      * `resource_group_id` (`str`) - The ID of the cluster resource group (immutable).
+      * `version` (`str`) - The version of the cluster (immutable).
+    """
+    console_profile: pulumi.Output[dict]
+    """
+    The console profile.
+      * `url` (`str`) - The URL to access the cluster console (immutable).
+    """
+    ingress_profiles: pulumi.Output[list]
+    """
+    The cluster ingress profiles.
+      * `ip` (`str`) - The IP of the ingress (immutable).
+      * `name` (`str`) - The ingress profile name.  Must be "default" (immutable).
+      * `visibility` (`str`) - Ingress visibility (immutable).
+    """
     location: pulumi.Output[str]
     """
     The geo-location where the resource lives
+    """
+    master_profile: pulumi.Output[dict]
+    """
+    The cluster master profile.
+      * `subnet_id` (`str`) - The Azure resource ID of the master subnet (immutable).
+      * `vm_size` (`str`) - The size of the master VMs (immutable).
     """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    network_profile: pulumi.Output[dict]
     """
-    The cluster properties.
-      * `apiserver_profile` (`dict`) - The cluster API server profile.
-        * `ip` (`str`) - The IP of the cluster API server (immutable).
-        * `url` (`str`) - The URL to access the cluster API server (immutable).
-        * `visibility` (`str`) - API server visibility (immutable).
-
-      * `cluster_profile` (`dict`) - The cluster profile.
-        * `domain` (`str`) - The domain for the cluster (immutable).
-        * `pull_secret` (`str`) - The pull secret for the cluster (immutable).
-        * `resource_group_id` (`str`) - The ID of the cluster resource group (immutable).
-        * `version` (`str`) - The version of the cluster (immutable).
-
-      * `console_profile` (`dict`) - The console profile.
-        * `url` (`str`) - The URL to access the cluster console (immutable).
-
-      * `ingress_profiles` (`list`) - The cluster ingress profiles.
-        * `ip` (`str`) - The IP of the ingress (immutable).
-        * `name` (`str`) - The ingress profile name.  Must be "default" (immutable).
-        * `visibility` (`str`) - Ingress visibility (immutable).
-
-      * `master_profile` (`dict`) - The cluster master profile.
-        * `subnet_id` (`str`) - The Azure resource ID of the master subnet (immutable).
-        * `vm_size` (`str`) - The size of the master VMs (immutable).
-
-      * `network_profile` (`dict`) - The cluster network profile.
-        * `pod_cidr` (`str`) - The CIDR used for OpenShift/Kubernetes Pods (immutable).
-        * `service_cidr` (`str`) - The CIDR used for OpenShift/Kubernetes Services (immutable).
-
-      * `provisioning_state` (`str`) - The cluster provisioning state (immutable).
-      * `service_principal_profile` (`dict`) - The cluster service principal profile.
-        * `client_id` (`str`) - The client ID used for the cluster (immutable).
-        * `client_secret` (`str`) - The client secret used for the cluster (immutable).
-
-      * `worker_profiles` (`list`) - The cluster worker profiles.
-        * `count` (`float`) - The number of worker VMs.  Must be between 3 and 20 (immutable).
-        * `disk_size_gb` (`float`) - The disk size of the worker VMs.  Must be 128 or greater (immutable).
-        * `name` (`str`) - The worker profile name.  Must be "worker" (immutable).
-        * `subnet_id` (`str`) - The Azure resource ID of the worker subnet (immutable).
-        * `vm_size` (`str`) - The size of the worker VMs (immutable).
+    The cluster network profile.
+      * `pod_cidr` (`str`) - The CIDR used for OpenShift/Kubernetes Pods (immutable).
+      * `service_cidr` (`str`) - The CIDR used for OpenShift/Kubernetes Services (immutable).
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The cluster provisioning state (immutable).
+    """
+    service_principal_profile: pulumi.Output[dict]
+    """
+    The cluster service principal profile.
+      * `client_id` (`str`) - The client ID used for the cluster (immutable).
+      * `client_secret` (`str`) - The client secret used for the cluster (immutable).
     """
     tags: pulumi.Output[dict]
     """
@@ -67,6 +74,15 @@ class OpenShiftCluster(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    worker_profiles: pulumi.Output[list]
+    """
+    The cluster worker profiles.
+      * `count` (`float`) - The number of worker VMs.  Must be between 3 and 20 (immutable).
+      * `disk_size_gb` (`float`) - The disk size of the worker VMs.  Must be 128 or greater (immutable).
+      * `name` (`str`) - The worker profile name.  Must be "worker" (immutable).
+      * `subnet_id` (`str`) - The Azure resource ID of the worker subnet (immutable).
+      * `vm_size` (`str`) - The size of the worker VMs (immutable).
     """
     def __init__(__self__, resource_name, opts=None, apiserver_profile=None, cluster_profile=None, console_profile=None, ingress_profiles=None, location=None, master_profile=None, name=None, network_profile=None, provisioning_state=None, resource_group_name=None, service_principal_profile=None, tags=None, worker_profiles=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -170,7 +186,6 @@ class OpenShiftCluster(pulumi.CustomResource):
             __props__['service_principal_profile'] = service_principal_profile
             __props__['tags'] = tags
             __props__['worker_profiles'] = worker_profiles
-            __props__['properties'] = None
             __props__['type'] = None
         super(OpenShiftCluster, __self__).__init__(
             'azurerm:redhatopenshift/v20200430:OpenShiftCluster',

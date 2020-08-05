@@ -14,15 +14,17 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
     """
     Resource Etag.
     """
+    immutability_period_since_creation_in_days: pulumi.Output[float]
+    """
+    The immutability period for the blobs in the container since the policy creation, in days.
+    """
     name: pulumi.Output[str]
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    state: pulumi.Output[str]
     """
-    The properties of an ImmutabilityPolicy of a blob container.
-      * `immutability_period_since_creation_in_days` (`float`) - The immutability period for the blobs in the container since the policy creation, in days.
-      * `state` (`str`) - The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
+    The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
     """
     type: pulumi.Output[str]
     """
@@ -73,7 +75,7 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['state'] = None
             __props__['type'] = None
         super(BlobContainerImmutabilityPolicy, __self__).__init__(
             'azurerm:storage/v20181101:BlobContainerImmutabilityPolicy',

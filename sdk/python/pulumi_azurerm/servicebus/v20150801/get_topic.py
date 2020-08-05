@@ -13,12 +13,93 @@ class GetTopicResult:
     """
     Description of topic resource.
     """
-    def __init__(__self__, location=None, name=None, properties=None, type=None):
+    def __init__(__self__, accessed_at=None, auto_delete_on_idle=None, count_details=None, created_at=None, default_message_time_to_live=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, entity_availability_status=None, filtering_messages_before_publishing=None, is_anonymous_accessible=None, is_express=None, location=None, max_size_in_megabytes=None, name=None, requires_duplicate_detection=None, size_in_bytes=None, status=None, subscription_count=None, support_ordering=None, type=None, updated_at=None):
+        if accessed_at and not isinstance(accessed_at, str):
+            raise TypeError("Expected argument 'accessed_at' to be a str")
+        __self__.accessed_at = accessed_at
+        """
+        Last time the message was sent, or a request was received, for this topic.
+        """
+        if auto_delete_on_idle and not isinstance(auto_delete_on_idle, str):
+            raise TypeError("Expected argument 'auto_delete_on_idle' to be a str")
+        __self__.auto_delete_on_idle = auto_delete_on_idle
+        """
+        TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
+        """
+        if count_details and not isinstance(count_details, dict):
+            raise TypeError("Expected argument 'count_details' to be a dict")
+        __self__.count_details = count_details
+        """
+        Message Count Details.
+        """
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        __self__.created_at = created_at
+        """
+        Exact time the message was created.
+        """
+        if default_message_time_to_live and not isinstance(default_message_time_to_live, str):
+            raise TypeError("Expected argument 'default_message_time_to_live' to be a str")
+        __self__.default_message_time_to_live = default_message_time_to_live
+        """
+        Default message time to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
+        """
+        if duplicate_detection_history_time_window and not isinstance(duplicate_detection_history_time_window, str):
+            raise TypeError("Expected argument 'duplicate_detection_history_time_window' to be a str")
+        __self__.duplicate_detection_history_time_window = duplicate_detection_history_time_window
+        """
+        TimeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
+        """
+        if enable_batched_operations and not isinstance(enable_batched_operations, bool):
+            raise TypeError("Expected argument 'enable_batched_operations' to be a bool")
+        __self__.enable_batched_operations = enable_batched_operations
+        """
+        Value that indicates whether server-side batched operations are enabled.
+        """
+        if enable_express and not isinstance(enable_express, bool):
+            raise TypeError("Expected argument 'enable_express' to be a bool")
+        __self__.enable_express = enable_express
+        """
+        Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
+        """
+        if enable_partitioning and not isinstance(enable_partitioning, bool):
+            raise TypeError("Expected argument 'enable_partitioning' to be a bool")
+        __self__.enable_partitioning = enable_partitioning
+        """
+        Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
+        """
+        if entity_availability_status and not isinstance(entity_availability_status, str):
+            raise TypeError("Expected argument 'entity_availability_status' to be a str")
+        __self__.entity_availability_status = entity_availability_status
+        """
+        Entity availability status for the topic.
+        """
+        if filtering_messages_before_publishing and not isinstance(filtering_messages_before_publishing, bool):
+            raise TypeError("Expected argument 'filtering_messages_before_publishing' to be a bool")
+        __self__.filtering_messages_before_publishing = filtering_messages_before_publishing
+        """
+        Whether messages should be filtered before publishing.
+        """
+        if is_anonymous_accessible and not isinstance(is_anonymous_accessible, bool):
+            raise TypeError("Expected argument 'is_anonymous_accessible' to be a bool")
+        __self__.is_anonymous_accessible = is_anonymous_accessible
+        """
+        Value that indicates whether the message is accessible anonymously.
+        """
+        if is_express and not isinstance(is_express, bool):
+            raise TypeError("Expected argument 'is_express' to be a bool")
+        __self__.is_express = is_express
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource location.
+        """
+        if max_size_in_megabytes and not isinstance(max_size_in_megabytes, float):
+            raise TypeError("Expected argument 'max_size_in_megabytes' to be a float")
+        __self__.max_size_in_megabytes = max_size_in_megabytes
+        """
+        Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +107,47 @@ class GetTopicResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if requires_duplicate_detection and not isinstance(requires_duplicate_detection, bool):
+            raise TypeError("Expected argument 'requires_duplicate_detection' to be a bool")
+        __self__.requires_duplicate_detection = requires_duplicate_detection
         """
-        The Topic Properties definition.
+        Value indicating if this topic requires duplicate detection.
+        """
+        if size_in_bytes and not isinstance(size_in_bytes, float):
+            raise TypeError("Expected argument 'size_in_bytes' to be a float")
+        __self__.size_in_bytes = size_in_bytes
+        """
+        Size of the topic, in bytes.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        Enumerates the possible values for the status of a messaging entity.
+        """
+        if subscription_count and not isinstance(subscription_count, float):
+            raise TypeError("Expected argument 'subscription_count' to be a float")
+        __self__.subscription_count = subscription_count
+        """
+        Number of subscriptions.
+        """
+        if support_ordering and not isinstance(support_ordering, bool):
+            raise TypeError("Expected argument 'support_ordering' to be a bool")
+        __self__.support_ordering = support_ordering
+        """
+        Value that indicates whether the topic supports ordering.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         Resource type
+        """
+        if updated_at and not isinstance(updated_at, str):
+            raise TypeError("Expected argument 'updated_at' to be a str")
+        __self__.updated_at = updated_at
+        """
+        The exact time the message was updated.
         """
 
 
@@ -46,10 +157,29 @@ class AwaitableGetTopicResult(GetTopicResult):
         if False:
             yield self
         return GetTopicResult(
+            accessed_at=self.accessed_at,
+            auto_delete_on_idle=self.auto_delete_on_idle,
+            count_details=self.count_details,
+            created_at=self.created_at,
+            default_message_time_to_live=self.default_message_time_to_live,
+            duplicate_detection_history_time_window=self.duplicate_detection_history_time_window,
+            enable_batched_operations=self.enable_batched_operations,
+            enable_express=self.enable_express,
+            enable_partitioning=self.enable_partitioning,
+            entity_availability_status=self.entity_availability_status,
+            filtering_messages_before_publishing=self.filtering_messages_before_publishing,
+            is_anonymous_accessible=self.is_anonymous_accessible,
+            is_express=self.is_express,
             location=self.location,
+            max_size_in_megabytes=self.max_size_in_megabytes,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            requires_duplicate_detection=self.requires_duplicate_detection,
+            size_in_bytes=self.size_in_bytes,
+            status=self.status,
+            subscription_count=self.subscription_count,
+            support_ordering=self.support_ordering,
+            type=self.type,
+            updated_at=self.updated_at)
 
 
 def get_topic(name=None, namespace_name=None, resource_group_name=None, opts=None):
@@ -71,7 +201,26 @@ def get_topic(name=None, namespace_name=None, resource_group_name=None, opts=Non
     __ret__ = pulumi.runtime.invoke('azurerm:servicebus/v20150801:getTopic', __args__, opts=opts).value
 
     return AwaitableGetTopicResult(
+        accessed_at=__ret__.get('accessedAt'),
+        auto_delete_on_idle=__ret__.get('autoDeleteOnIdle'),
+        count_details=__ret__.get('countDetails'),
+        created_at=__ret__.get('createdAt'),
+        default_message_time_to_live=__ret__.get('defaultMessageTimeToLive'),
+        duplicate_detection_history_time_window=__ret__.get('duplicateDetectionHistoryTimeWindow'),
+        enable_batched_operations=__ret__.get('enableBatchedOperations'),
+        enable_express=__ret__.get('enableExpress'),
+        enable_partitioning=__ret__.get('enablePartitioning'),
+        entity_availability_status=__ret__.get('entityAvailabilityStatus'),
+        filtering_messages_before_publishing=__ret__.get('filteringMessagesBeforePublishing'),
+        is_anonymous_accessible=__ret__.get('isAnonymousAccessible'),
+        is_express=__ret__.get('isExpress'),
         location=__ret__.get('location'),
+        max_size_in_megabytes=__ret__.get('maxSizeInMegabytes'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        requires_duplicate_detection=__ret__.get('requiresDuplicateDetection'),
+        size_in_bytes=__ret__.get('sizeInBytes'),
+        status=__ret__.get('status'),
+        subscription_count=__ret__.get('subscriptionCount'),
+        support_ordering=__ret__.get('supportOrdering'),
+        type=__ret__.get('type'),
+        updated_at=__ret__.get('updatedAt'))

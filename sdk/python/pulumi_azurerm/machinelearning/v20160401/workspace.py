@@ -10,6 +10,14 @@ from ... import _utilities, _tables
 
 
 class Workspace(pulumi.CustomResource):
+    creation_time: pulumi.Output[str]
+    """
+    The creation time for this workspace resource.
+    """
+    key_vault_identifier_id: pulumi.Output[str]
+    """
+    The key vault identifier used for encrypted workspaces.
+    """
     location: pulumi.Output[str]
     """
     The location of the resource. This cannot be changed after the resource is created.
@@ -18,17 +26,13 @@ class Workspace(pulumi.CustomResource):
     """
     The name of the resource.
     """
-    properties: pulumi.Output[dict]
+    owner_email: pulumi.Output[str]
     """
-    The properties of the machine learning workspace.
-      * `creation_time` (`str`) - The creation time for this workspace resource.
-      * `key_vault_identifier_id` (`str`) - The key vault identifier used for encrypted workspaces.
-      * `owner_email` (`str`) - The email id of the owner for this workspace.
-      * `studio_endpoint` (`str`) - The regional endpoint for the machine learning studio service which hosts this workspace.
-      * `user_storage_account_id` (`str`) - The fully qualified arm id of the storage account associated with this workspace.
-      * `workspace_id` (`str`) - The immutable id associated with this workspace.
-      * `workspace_state` (`str`) - The current state of workspace resource.
-      * `workspace_type` (`str`) - The type of this workspace.
+    The email id of the owner for this workspace.
+    """
+    studio_endpoint: pulumi.Output[str]
+    """
+    The regional endpoint for the machine learning studio service which hosts this workspace.
     """
     tags: pulumi.Output[dict]
     """
@@ -37,6 +41,22 @@ class Workspace(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource.
+    """
+    user_storage_account_id: pulumi.Output[str]
+    """
+    The fully qualified arm id of the storage account associated with this workspace.
+    """
+    workspace_id: pulumi.Output[str]
+    """
+    The immutable id associated with this workspace.
+    """
+    workspace_state: pulumi.Output[str]
+    """
+    The current state of workspace resource.
+    """
+    workspace_type: pulumi.Output[str]
+    """
+    The type of this workspace.
     """
     def __init__(__self__, resource_name, opts=None, key_vault_identifier_id=None, location=None, name=None, owner_email=None, resource_group_name=None, tags=None, user_storage_account_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -86,8 +106,12 @@ class Workspace(pulumi.CustomResource):
             if user_storage_account_id is None:
                 raise TypeError("Missing required property 'user_storage_account_id'")
             __props__['user_storage_account_id'] = user_storage_account_id
-            __props__['properties'] = None
+            __props__['creation_time'] = None
+            __props__['studio_endpoint'] = None
             __props__['type'] = None
+            __props__['workspace_id'] = None
+            __props__['workspace_state'] = None
+            __props__['workspace_type'] = None
         super(Workspace, __self__).__init__(
             'azurerm:machinelearning/v20160401:Workspace',
             resource_name,

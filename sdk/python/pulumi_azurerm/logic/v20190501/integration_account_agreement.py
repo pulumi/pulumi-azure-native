@@ -10,376 +10,402 @@ from ... import _utilities, _tables
 
 
 class IntegrationAccountAgreement(pulumi.CustomResource):
+    agreement_type: pulumi.Output[str]
+    """
+    The agreement type.
+    """
+    changed_time: pulumi.Output[str]
+    """
+    The changed time.
+    """
+    content: pulumi.Output[dict]
+    """
+    The agreement content.
+      * `a_s2` (`dict`) - The AS2 agreement content.
+        * `receive_agreement` (`dict`) - The AS2 one-way receive agreement.
+          * `protocol_settings` (`dict`) - The AS2 protocol settings.
+            * `acknowledgement_connection_settings` (`dict`) - The acknowledgement connection settings.
+              * `ignore_certificate_name_mismatch` (`bool`) - Indicates whether to ignore mismatch in certificate name.
+              * `keep_http_connection_alive` (`bool`) - Indicates whether to keep the connection alive.
+              * `support_http_status_code_continue` (`bool`) - Indicates whether to support HTTP status code 'CONTINUE'.
+              * `unfold_http_headers` (`bool`) - Indicates whether to unfold the HTTP headers.
+
+            * `envelope_settings` (`dict`) - The envelope settings.
+              * `autogenerate_file_name` (`bool`) - The value indicating whether to auto generate file name.
+              * `file_name_template` (`str`) - The template for file name.
+              * `message_content_type` (`str`) - The message content type.
+              * `suspend_message_on_file_name_generation_error` (`bool`) - The value indicating whether to suspend message on file name generation error.
+              * `transmit_file_name_in_mime_header` (`bool`) - The value indicating whether to transmit file name in mime header.
+
+            * `error_settings` (`dict`) - The error settings.
+              * `resend_if_mdn_not_received` (`bool`) - The value indicating whether to resend message If MDN is not received.
+              * `suspend_duplicate_message` (`bool`) - The value indicating whether to suspend duplicate message.
+
+            * `mdn_settings` (`dict`) - The MDN settings.
+              * `disposition_notification_to` (`str`) - The disposition notification to header value.
+              * `mdn_text` (`str`) - The MDN text.
+              * `mic_hashing_algorithm` (`str`) - The signing or hashing algorithm.
+              * `need_mdn` (`bool`) - The value indicating whether to send or request a MDN.
+              * `receipt_delivery_url` (`str`) - The receipt delivery URL.
+              * `send_inbound_mdn_to_message_box` (`bool`) - The value indicating whether to send inbound MDN to message box.
+              * `send_mdn_asynchronously` (`bool`) - The value indicating whether to send the asynchronous MDN.
+              * `sign_mdn` (`bool`) - The value indicating whether the MDN needs to be signed or not.
+              * `sign_outbound_mdn_if_optional` (`bool`) - The value indicating whether to sign the outbound MDN if optional.
+
+            * `message_connection_settings` (`dict`) - The message connection settings.
+              * `ignore_certificate_name_mismatch` (`bool`) - The value indicating whether to ignore mismatch in certificate name.
+              * `keep_http_connection_alive` (`bool`) - The value indicating whether to keep the connection alive.
+              * `support_http_status_code_continue` (`bool`) - The value indicating whether to support HTTP status code 'CONTINUE'.
+              * `unfold_http_headers` (`bool`) - The value indicating whether to unfold the HTTP headers.
+
+            * `security_settings` (`dict`) - The security settings.
+              * `enable_nrr_for_inbound_decoded_messages` (`bool`) - The value indicating whether to enable NRR for inbound decoded messages.
+              * `enable_nrr_for_inbound_encoded_messages` (`bool`) - The value indicating whether to enable NRR for inbound encoded messages.
+              * `enable_nrr_for_inbound_mdn` (`bool`) - The value indicating whether to enable NRR for inbound MDN.
+              * `enable_nrr_for_outbound_decoded_messages` (`bool`) - The value indicating whether to enable NRR for outbound decoded messages.
+              * `enable_nrr_for_outbound_encoded_messages` (`bool`) - The value indicating whether to enable NRR for outbound encoded messages.
+              * `enable_nrr_for_outbound_mdn` (`bool`) - The value indicating whether to enable NRR for outbound MDN.
+              * `encryption_certificate_name` (`str`) - The name of the encryption certificate.
+              * `override_group_signing_certificate` (`bool`) - The value indicating whether to send or request a MDN.
+              * `sha2_algorithm_format` (`str`) - The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
+              * `signing_certificate_name` (`str`) - The name of the signing certificate.
+
+            * `validation_settings` (`dict`) - The validation settings.
+              * `check_certificate_revocation_list_on_receive` (`bool`) - The value indicating whether to check for certificate revocation list on receive.
+              * `check_certificate_revocation_list_on_send` (`bool`) - The value indicating whether to check for certificate revocation list on send.
+              * `check_duplicate_message` (`bool`) - The value indicating whether to check for duplicate message.
+              * `compress_message` (`bool`) - The value indicating whether the message has to be compressed.
+              * `encrypt_message` (`bool`) - The value indicating whether the message has to be encrypted.
+              * `encryption_algorithm` (`str`) - The encryption algorithm.
+              * `interchange_duplicates_validity_days` (`float`) - The number of days to look back for duplicate interchange.
+              * `override_message_properties` (`bool`) - The value indicating whether to override incoming message properties with those in agreement.
+              * `sign_message` (`bool`) - The value indicating whether the message has to be signed.
+              * `signing_algorithm` (`str`) - The signing algorithm.
+
+          * `receiver_business_identity` (`dict`) - The receiver business identity
+            * `qualifier` (`str`) - The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
+            * `value` (`str`) - The user defined business identity value.
+
+          * `sender_business_identity` (`dict`) - The sender business identity
+
+        * `send_agreement` (`dict`) - The AS2 one-way send agreement.
+
+      * `edifact` (`dict`) - The EDIFACT agreement content.
+        * `receive_agreement` (`dict`) - The EDIFACT one-way receive agreement.
+          * `protocol_settings` (`dict`) - The EDIFACT protocol settings.
+            * `acknowledgement_settings` (`dict`) - The EDIFACT acknowledgement settings.
+              * `acknowledgement_control_number_lower_bound` (`float`) - The acknowledgement control number lower bound.
+              * `acknowledgement_control_number_prefix` (`str`) - The acknowledgement control number prefix.
+              * `acknowledgement_control_number_suffix` (`str`) - The acknowledgement control number suffix.
+              * `acknowledgement_control_number_upper_bound` (`float`) - The acknowledgement control number upper bound.
+              * `batch_functional_acknowledgements` (`bool`) - The value indicating whether to batch functional acknowledgements.
+              * `batch_technical_acknowledgements` (`bool`) - The value indicating whether to batch the technical acknowledgements.
+              * `need_functional_acknowledgement` (`bool`) - The value indicating whether functional acknowledgement is needed.
+              * `need_loop_for_valid_messages` (`bool`) - The value indicating whether a loop is needed for valid messages.
+              * `need_technical_acknowledgement` (`bool`) - The value indicating whether technical acknowledgement is needed.
+              * `rollover_acknowledgement_control_number` (`bool`) - The value indicating whether to rollover acknowledgement control number.
+              * `send_synchronous_acknowledgement` (`bool`) - The value indicating whether to send synchronous acknowledgement.
+
+            * `edifact_delimiter_overrides` (`list`) - The EDIFACT delimiter override settings.
+              * `component_separator` (`float`) - The component separator.
+              * `data_element_separator` (`float`) - The data element separator.
+              * `decimal_point_indicator` (`str`) - The decimal point indicator.
+              * `message_association_assigned_code` (`str`) - The message association assigned code.
+              * `message_id` (`str`) - The message id.
+              * `message_release` (`str`) - The message release.
+              * `message_version` (`str`) - The message version.
+              * `release_indicator` (`float`) - The release indicator.
+              * `repetition_separator` (`float`) - The repetition separator.
+              * `segment_terminator` (`float`) - The segment terminator.
+              * `segment_terminator_suffix` (`str`) - The segment terminator suffix.
+              * `target_namespace` (`str`) - The target namespace on which this delimiter settings has to be applied.
+
+            * `envelope_overrides` (`list`) - The EDIFACT envelope override settings.
+              * `application_password` (`str`) - The application password.
+              * `association_assigned_code` (`str`) - The association assigned code.
+              * `controlling_agency_code` (`str`) - The controlling agency code.
+              * `functional_group_id` (`str`) - The functional group id.
+              * `group_header_message_release` (`str`) - The group header message release.
+              * `group_header_message_version` (`str`) - The group header message version.
+              * `message_association_assigned_code` (`str`) - The message association assigned code.
+              * `message_id` (`str`) - The message id on which this envelope settings has to be applied.
+              * `message_release` (`str`) - The message release version on which this envelope settings has to be applied.
+              * `message_version` (`str`) - The message version on which this envelope settings has to be applied.
+              * `receiver_application_id` (`str`) - The receiver application id.
+              * `receiver_application_qualifier` (`str`) - The receiver application qualifier.
+              * `sender_application_id` (`str`) - The sender application id.
+              * `sender_application_qualifier` (`str`) - The sender application qualifier.
+              * `target_namespace` (`str`) - The target namespace on which this envelope settings has to be applied.
+
+            * `envelope_settings` (`dict`) - The EDIFACT envelope settings.
+              * `application_reference_id` (`str`) - The application reference id.
+              * `apply_delimiter_string_advice` (`bool`) - The value indicating whether to apply delimiter string advice.
+              * `communication_agreement_id` (`str`) - The communication agreement id.
+              * `create_grouping_segments` (`bool`) - The value indicating whether to create grouping segments.
+              * `enable_default_group_headers` (`bool`) - The value indicating whether to enable default group headers.
+              * `functional_group_id` (`str`) - The functional group id.
+              * `group_application_password` (`str`) - The group application password.
+              * `group_application_receiver_id` (`str`) - The group application receiver id.
+              * `group_application_receiver_qualifier` (`str`) - The group application receiver qualifier.
+              * `group_application_sender_id` (`str`) - The group application sender id.
+              * `group_application_sender_qualifier` (`str`) - The group application sender qualifier.
+              * `group_association_assigned_code` (`str`) - The group association assigned code.
+              * `group_control_number_lower_bound` (`float`) - The group control number lower bound.
+              * `group_control_number_prefix` (`str`) - The group control number prefix.
+              * `group_control_number_suffix` (`str`) - The group control number suffix.
+              * `group_control_number_upper_bound` (`float`) - The group control number upper bound.
+              * `group_controlling_agency_code` (`str`) - The group controlling agency code.
+              * `group_message_release` (`str`) - The group message release.
+              * `group_message_version` (`str`) - The group message version.
+              * `interchange_control_number_lower_bound` (`float`) - The interchange control number lower bound.
+              * `interchange_control_number_prefix` (`str`) - The interchange control number prefix.
+              * `interchange_control_number_suffix` (`str`) - The interchange control number suffix.
+              * `interchange_control_number_upper_bound` (`float`) - The interchange control number upper bound.
+              * `is_test_interchange` (`bool`) - The value indicating whether the message is a test interchange.
+              * `overwrite_existing_transaction_set_control_number` (`bool`) - The value indicating whether to overwrite existing transaction set control number.
+              * `processing_priority_code` (`str`) - The processing priority code.
+              * `receiver_internal_identification` (`str`) - The receiver internal identification.
+              * `receiver_internal_sub_identification` (`str`) - The receiver internal sub identification.
+              * `receiver_reverse_routing_address` (`str`) - The receiver reverse routing address.
+              * `recipient_reference_password_qualifier` (`str`) - The recipient reference password qualifier.
+              * `recipient_reference_password_value` (`str`) - The recipient reference password value.
+              * `rollover_group_control_number` (`bool`) - The value indicating whether to rollover group control number.
+              * `rollover_interchange_control_number` (`bool`) - The value indicating whether to rollover interchange control number.
+              * `rollover_transaction_set_control_number` (`bool`) - The value indicating whether to rollover transaction set control number.
+              * `sender_internal_identification` (`str`) - The sender internal identification.
+              * `sender_internal_sub_identification` (`str`) - The sender internal sub identification.
+              * `sender_reverse_routing_address` (`str`) - The sender reverse routing address.
+              * `transaction_set_control_number_lower_bound` (`float`) - The transaction set control number lower bound.
+              * `transaction_set_control_number_prefix` (`str`) - The transaction set control number prefix.
+              * `transaction_set_control_number_suffix` (`str`) - The transaction set control number suffix.
+              * `transaction_set_control_number_upper_bound` (`float`) - The transaction set control number upper bound.
+
+            * `framing_settings` (`dict`) - The EDIFACT framing settings.
+              * `character_encoding` (`str`) - The character encoding.
+              * `character_set` (`str`) - The EDIFACT frame setting characterSet.
+              * `component_separator` (`float`) - The component separator.
+              * `data_element_separator` (`float`) - The data element separator.
+              * `decimal_point_indicator` (`str`) - The EDIFACT frame setting decimal indicator.
+              * `protocol_version` (`float`) - The protocol version.
+              * `release_indicator` (`float`) - The release indicator.
+              * `repetition_separator` (`float`) - The repetition separator.
+              * `segment_terminator` (`float`) - The segment terminator.
+              * `segment_terminator_suffix` (`str`) - The EDIFACT frame setting segment terminator suffix.
+              * `service_code_list_directory_version` (`str`) - The service code list directory version.
+
+            * `message_filter` (`dict`) - The EDIFACT message filter.
+              * `message_filter_type` (`str`) - The message filter type.
+
+            * `message_filter_list` (`list`) - The EDIFACT message filter list.
+              * `message_id` (`str`) - The message id on which this envelope settings has to be applied.
+
+            * `processing_settings` (`dict`) - The EDIFACT processing Settings.
+              * `create_empty_xml_tags_for_trailing_separators` (`bool`) - The value indicating whether to create empty xml tags for trailing separators.
+              * `mask_security_info` (`bool`) - The value indicating whether to mask security information.
+              * `preserve_interchange` (`bool`) - The value indicating whether to preserve interchange.
+              * `suspend_interchange_on_error` (`bool`) - The value indicating whether to suspend interchange on error.
+              * `use_dot_as_decimal_separator` (`bool`) - The value indicating whether to use dot as decimal separator.
+
+            * `schema_references` (`list`) - The EDIFACT schema references.
+              * `association_assigned_code` (`str`) - The association assigned code.
+              * `message_id` (`str`) - The message id.
+              * `message_release` (`str`) - The message release version.
+              * `message_version` (`str`) - The message version.
+              * `schema_name` (`str`) - The schema name.
+              * `sender_application_id` (`str`) - The sender application id.
+              * `sender_application_qualifier` (`str`) - The sender application qualifier.
+
+            * `validation_overrides` (`list`) - The EDIFACT validation override settings.
+              * `allow_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to allow leading and trailing spaces and zeroes.
+              * `enforce_character_set` (`bool`) - The value indicating whether to validate character Set.
+              * `message_id` (`str`) - The message id on which the validation settings has to be applied.
+              * `trailing_separator_policy` (`str`) - The trailing separator policy.
+              * `trim_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to trim leading and trailing spaces and zeroes.
+              * `validate_edi_types` (`bool`) - The value indicating whether to validate EDI types.
+              * `validate_xsd_types` (`bool`) - The value indicating whether to validate XSD types.
+
+            * `validation_settings` (`dict`) - The EDIFACT validation settings.
+              * `allow_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to allow leading and trailing spaces and zeroes.
+              * `check_duplicate_group_control_number` (`bool`) - The value indicating whether to check for duplicate group control number.
+              * `check_duplicate_interchange_control_number` (`bool`) - The value indicating whether to check for duplicate interchange control number.
+              * `check_duplicate_transaction_set_control_number` (`bool`) - The value indicating whether to check for duplicate transaction set control number.
+              * `interchange_control_number_validity_days` (`float`) - The validity period of interchange control number.
+              * `trailing_separator_policy` (`str`) - The trailing separator policy.
+              * `trim_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to trim leading and trailing spaces and zeroes.
+              * `validate_character_set` (`bool`) - The value indicating whether to validate character set in the message.
+              * `validate_edi_types` (`bool`) - The value indicating whether to Whether to validate EDI types.
+              * `validate_xsd_types` (`bool`) - The value indicating whether to Whether to validate XSD types.
+
+          * `receiver_business_identity` (`dict`) - The receiver business identity
+          * `sender_business_identity` (`dict`) - The sender business identity
+
+        * `send_agreement` (`dict`) - The EDIFACT one-way send agreement.
+
+      * `x12` (`dict`) - The X12 agreement content.
+        * `receive_agreement` (`dict`) - The X12 one-way receive agreement.
+          * `protocol_settings` (`dict`) - The X12 protocol settings.
+            * `acknowledgement_settings` (`dict`) - The X12 acknowledgment settings.
+              * `acknowledgement_control_number_lower_bound` (`float`) - The acknowledgement control number lower bound.
+              * `acknowledgement_control_number_prefix` (`str`) - The acknowledgement control number prefix.
+              * `acknowledgement_control_number_suffix` (`str`) - The acknowledgement control number suffix.
+              * `acknowledgement_control_number_upper_bound` (`float`) - The acknowledgement control number upper bound.
+              * `batch_functional_acknowledgements` (`bool`) - The value indicating whether to batch functional acknowledgements.
+              * `batch_implementation_acknowledgements` (`bool`) - The value indicating whether to batch implementation acknowledgements.
+              * `batch_technical_acknowledgements` (`bool`) - The value indicating whether to batch the technical acknowledgements.
+              * `functional_acknowledgement_version` (`str`) - The functional acknowledgement version.
+              * `implementation_acknowledgement_version` (`str`) - The implementation acknowledgement version.
+              * `need_functional_acknowledgement` (`bool`) - The value indicating whether functional acknowledgement is needed.
+              * `need_implementation_acknowledgement` (`bool`) - The value indicating whether implementation acknowledgement is needed.
+              * `need_loop_for_valid_messages` (`bool`) - The value indicating whether a loop is needed for valid messages.
+              * `need_technical_acknowledgement` (`bool`) - The value indicating whether technical acknowledgement is needed.
+              * `rollover_acknowledgement_control_number` (`bool`) - The value indicating whether to rollover acknowledgement control number.
+              * `send_synchronous_acknowledgement` (`bool`) - The value indicating whether to send synchronous acknowledgement.
+
+            * `envelope_overrides` (`list`) - The X12 envelope override settings.
+              * `date_format` (`str`) - The date format.
+              * `functional_identifier_code` (`str`) - The functional identifier code.
+              * `header_version` (`str`) - The header version.
+              * `message_id` (`str`) - The message id on which this envelope settings has to be applied.
+              * `protocol_version` (`str`) - The protocol version on which this envelope settings has to be applied.
+              * `receiver_application_id` (`str`) - The receiver application id.
+              * `responsible_agency_code` (`str`) - The responsible agency code.
+              * `sender_application_id` (`str`) - The sender application id.
+              * `target_namespace` (`str`) - The target namespace on which this envelope settings has to be applied.
+              * `time_format` (`str`) - The time format.
+
+            * `envelope_settings` (`dict`) - The X12 envelope settings.
+              * `control_standards_id` (`float`) - The controls standards id.
+              * `control_version_number` (`str`) - The control version number.
+              * `enable_default_group_headers` (`bool`) - The value indicating whether to enable default group headers.
+              * `functional_group_id` (`str`) - The functional group id.
+              * `group_control_number_lower_bound` (`float`) - The group control number lower bound.
+              * `group_control_number_upper_bound` (`float`) - The group control number upper bound.
+              * `group_header_agency_code` (`str`) - The group header agency code.
+              * `group_header_date_format` (`str`) - The group header date format.
+              * `group_header_time_format` (`str`) - The group header time format.
+              * `group_header_version` (`str`) - The group header version.
+              * `interchange_control_number_lower_bound` (`float`) - The interchange  control number lower bound.
+              * `interchange_control_number_upper_bound` (`float`) - The interchange  control number upper bound.
+              * `overwrite_existing_transaction_set_control_number` (`bool`) - The value indicating whether to overwrite existing transaction set control number.
+              * `receiver_application_id` (`str`) - The receiver application id.
+              * `rollover_group_control_number` (`bool`) - The value indicating whether to rollover group control number.
+              * `rollover_interchange_control_number` (`bool`) - The value indicating whether to rollover interchange control number.
+              * `rollover_transaction_set_control_number` (`bool`) - The value indicating whether to rollover transaction set control number.
+              * `sender_application_id` (`str`) - The sender application id.
+              * `transaction_set_control_number_lower_bound` (`float`) - The transaction set control number lower bound.
+              * `transaction_set_control_number_prefix` (`str`) - The transaction set control number prefix.
+              * `transaction_set_control_number_suffix` (`str`) - The transaction set control number suffix.
+              * `transaction_set_control_number_upper_bound` (`float`) - The transaction set control number upper bound.
+              * `usage_indicator` (`str`) - The usage indicator.
+              * `use_control_standards_id_as_repetition_character` (`bool`) - The value indicating whether to use control standards id as repetition character.
+
+            * `framing_settings` (`dict`) - The X12 framing settings.
+              * `character_set` (`str`) - The X12 character set.
+              * `component_separator` (`float`) - The component separator.
+              * `data_element_separator` (`float`) - The data element separator.
+              * `replace_character` (`float`) - The replacement character.
+              * `replace_separators_in_payload` (`bool`) - The value indicating whether to replace separators in payload.
+              * `segment_terminator` (`float`) - The segment terminator.
+              * `segment_terminator_suffix` (`str`) - The segment terminator suffix.
+
+            * `message_filter` (`dict`) - The X12 message filter.
+              * `message_filter_type` (`str`) - The message filter type.
+
+            * `message_filter_list` (`list`) - The X12 message filter list.
+              * `message_id` (`str`) - The message id.
+
+            * `processing_settings` (`dict`) - The X12 processing settings.
+              * `convert_implied_decimal` (`bool`) - The value indicating whether to convert numerical type to implied decimal.
+              * `create_empty_xml_tags_for_trailing_separators` (`bool`) - The value indicating whether to create empty xml tags for trailing separators.
+              * `mask_security_info` (`bool`) - The value indicating whether to mask security information.
+              * `preserve_interchange` (`bool`) - The value indicating whether to preserve interchange.
+              * `suspend_interchange_on_error` (`bool`) - The value indicating whether to suspend interchange on error.
+              * `use_dot_as_decimal_separator` (`bool`) - The value indicating whether to use dot as decimal separator.
+
+            * `schema_references` (`list`) - The X12 schema references.
+              * `message_id` (`str`) - The message id.
+              * `schema_name` (`str`) - The schema name.
+              * `schema_version` (`str`) - The schema version.
+              * `sender_application_id` (`str`) - The sender application id.
+
+            * `security_settings` (`dict`) - The X12 security settings.
+              * `authorization_qualifier` (`str`) - The authorization qualifier.
+              * `authorization_value` (`str`) - The authorization value.
+              * `password_value` (`str`) - The password value.
+              * `security_qualifier` (`str`) - The security qualifier.
+
+            * `validation_overrides` (`list`) - The X12 validation override settings.
+              * `allow_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to allow leading and trailing spaces and zeroes.
+              * `message_id` (`str`) - The message id on which the validation settings has to be applied.
+              * `trailing_separator_policy` (`str`) - The trailing separator policy.
+              * `trim_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to trim leading and trailing spaces and zeroes.
+              * `validate_character_set` (`bool`) - The value indicating whether to validate character Set.
+              * `validate_edi_types` (`bool`) - The value indicating whether to validate EDI types.
+              * `validate_xsd_types` (`bool`) - The value indicating whether to validate XSD types.
+
+            * `validation_settings` (`dict`) - The X12 validation settings.
+              * `allow_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to allow leading and trailing spaces and zeroes.
+              * `check_duplicate_group_control_number` (`bool`) - The value indicating whether to check for duplicate group control number.
+              * `check_duplicate_interchange_control_number` (`bool`) - The value indicating whether to check for duplicate interchange control number.
+              * `check_duplicate_transaction_set_control_number` (`bool`) - The value indicating whether to check for duplicate transaction set control number.
+              * `interchange_control_number_validity_days` (`float`) - The validity period of interchange control number.
+              * `trailing_separator_policy` (`str`) - The trailing separator policy.
+              * `trim_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to trim leading and trailing spaces and zeroes.
+              * `validate_character_set` (`bool`) - The value indicating whether to validate character set in the message.
+              * `validate_edi_types` (`bool`) - The value indicating whether to Whether to validate EDI types.
+              * `validate_xsd_types` (`bool`) - The value indicating whether to Whether to validate XSD types.
+
+            * `x12_delimiter_overrides` (`list`) - The X12 delimiter override settings.
+              * `component_separator` (`float`) - The component separator.
+              * `data_element_separator` (`float`) - The data element separator.
+              * `message_id` (`str`) - The message id.
+              * `protocol_version` (`str`) - The protocol version.
+              * `replace_character` (`float`) - The replacement character.
+              * `replace_separators_in_payload` (`bool`) - The value indicating whether to replace separators in payload.
+              * `segment_terminator` (`float`) - The segment terminator.
+              * `segment_terminator_suffix` (`str`) - The segment terminator suffix.
+              * `target_namespace` (`str`) - The target namespace on which this delimiter settings has to be applied.
+
+          * `receiver_business_identity` (`dict`) - The receiver business identity
+          * `sender_business_identity` (`dict`) - The sender business identity
+
+        * `send_agreement` (`dict`) - The X12 one-way send agreement.
+    """
+    created_time: pulumi.Output[str]
+    """
+    The created time.
+    """
+    guest_identity: pulumi.Output[dict]
+    """
+    The business identity of the guest partner.
+      * `qualifier` (`str`) - The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
+      * `value` (`str`) - The user defined business identity value.
+    """
+    guest_partner: pulumi.Output[str]
+    """
+    The integration account partner that is set as guest partner for this agreement.
+    """
+    host_identity: pulumi.Output[dict]
+    """
+    The business identity of the host partner.
+      * `qualifier` (`str`) - The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
+      * `value` (`str`) - The user defined business identity value.
+    """
+    host_partner: pulumi.Output[str]
+    """
+    The integration account partner that is set as host partner for this agreement.
+    """
     location: pulumi.Output[str]
     """
     The resource location.
     """
+    metadata: pulumi.Output[dict]
+    """
+    The metadata.
+    """
     name: pulumi.Output[str]
     """
     Gets the resource name.
-    """
-    properties: pulumi.Output[dict]
-    """
-    The integration account agreement properties.
-      * `agreement_type` (`str`) - The agreement type.
-      * `changed_time` (`str`) - The changed time.
-      * `content` (`dict`) - The agreement content.
-        * `a_s2` (`dict`) - The AS2 agreement content.
-          * `receive_agreement` (`dict`) - The AS2 one-way receive agreement.
-            * `protocol_settings` (`dict`) - The AS2 protocol settings.
-              * `acknowledgement_connection_settings` (`dict`) - The acknowledgement connection settings.
-                * `ignore_certificate_name_mismatch` (`bool`) - Indicates whether to ignore mismatch in certificate name.
-                * `keep_http_connection_alive` (`bool`) - Indicates whether to keep the connection alive.
-                * `support_http_status_code_continue` (`bool`) - Indicates whether to support HTTP status code 'CONTINUE'.
-                * `unfold_http_headers` (`bool`) - Indicates whether to unfold the HTTP headers.
-
-              * `envelope_settings` (`dict`) - The envelope settings.
-                * `autogenerate_file_name` (`bool`) - The value indicating whether to auto generate file name.
-                * `file_name_template` (`str`) - The template for file name.
-                * `message_content_type` (`str`) - The message content type.
-                * `suspend_message_on_file_name_generation_error` (`bool`) - The value indicating whether to suspend message on file name generation error.
-                * `transmit_file_name_in_mime_header` (`bool`) - The value indicating whether to transmit file name in mime header.
-
-              * `error_settings` (`dict`) - The error settings.
-                * `resend_if_mdn_not_received` (`bool`) - The value indicating whether to resend message If MDN is not received.
-                * `suspend_duplicate_message` (`bool`) - The value indicating whether to suspend duplicate message.
-
-              * `mdn_settings` (`dict`) - The MDN settings.
-                * `disposition_notification_to` (`str`) - The disposition notification to header value.
-                * `mdn_text` (`str`) - The MDN text.
-                * `mic_hashing_algorithm` (`str`) - The signing or hashing algorithm.
-                * `need_mdn` (`bool`) - The value indicating whether to send or request a MDN.
-                * `receipt_delivery_url` (`str`) - The receipt delivery URL.
-                * `send_inbound_mdn_to_message_box` (`bool`) - The value indicating whether to send inbound MDN to message box.
-                * `send_mdn_asynchronously` (`bool`) - The value indicating whether to send the asynchronous MDN.
-                * `sign_mdn` (`bool`) - The value indicating whether the MDN needs to be signed or not.
-                * `sign_outbound_mdn_if_optional` (`bool`) - The value indicating whether to sign the outbound MDN if optional.
-
-              * `message_connection_settings` (`dict`) - The message connection settings.
-                * `ignore_certificate_name_mismatch` (`bool`) - The value indicating whether to ignore mismatch in certificate name.
-                * `keep_http_connection_alive` (`bool`) - The value indicating whether to keep the connection alive.
-                * `support_http_status_code_continue` (`bool`) - The value indicating whether to support HTTP status code 'CONTINUE'.
-                * `unfold_http_headers` (`bool`) - The value indicating whether to unfold the HTTP headers.
-
-              * `security_settings` (`dict`) - The security settings.
-                * `enable_nrr_for_inbound_decoded_messages` (`bool`) - The value indicating whether to enable NRR for inbound decoded messages.
-                * `enable_nrr_for_inbound_encoded_messages` (`bool`) - The value indicating whether to enable NRR for inbound encoded messages.
-                * `enable_nrr_for_inbound_mdn` (`bool`) - The value indicating whether to enable NRR for inbound MDN.
-                * `enable_nrr_for_outbound_decoded_messages` (`bool`) - The value indicating whether to enable NRR for outbound decoded messages.
-                * `enable_nrr_for_outbound_encoded_messages` (`bool`) - The value indicating whether to enable NRR for outbound encoded messages.
-                * `enable_nrr_for_outbound_mdn` (`bool`) - The value indicating whether to enable NRR for outbound MDN.
-                * `encryption_certificate_name` (`str`) - The name of the encryption certificate.
-                * `override_group_signing_certificate` (`bool`) - The value indicating whether to send or request a MDN.
-                * `sha2_algorithm_format` (`str`) - The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.
-                * `signing_certificate_name` (`str`) - The name of the signing certificate.
-
-              * `validation_settings` (`dict`) - The validation settings.
-                * `check_certificate_revocation_list_on_receive` (`bool`) - The value indicating whether to check for certificate revocation list on receive.
-                * `check_certificate_revocation_list_on_send` (`bool`) - The value indicating whether to check for certificate revocation list on send.
-                * `check_duplicate_message` (`bool`) - The value indicating whether to check for duplicate message.
-                * `compress_message` (`bool`) - The value indicating whether the message has to be compressed.
-                * `encrypt_message` (`bool`) - The value indicating whether the message has to be encrypted.
-                * `encryption_algorithm` (`str`) - The encryption algorithm.
-                * `interchange_duplicates_validity_days` (`float`) - The number of days to look back for duplicate interchange.
-                * `override_message_properties` (`bool`) - The value indicating whether to override incoming message properties with those in agreement.
-                * `sign_message` (`bool`) - The value indicating whether the message has to be signed.
-                * `signing_algorithm` (`str`) - The signing algorithm.
-
-            * `receiver_business_identity` (`dict`) - The receiver business identity
-              * `qualifier` (`str`) - The business identity qualifier e.g. as2identity, ZZ, ZZZ, 31, 32
-              * `value` (`str`) - The user defined business identity value.
-
-            * `sender_business_identity` (`dict`) - The sender business identity
-
-          * `send_agreement` (`dict`) - The AS2 one-way send agreement.
-
-        * `edifact` (`dict`) - The EDIFACT agreement content.
-          * `receive_agreement` (`dict`) - The EDIFACT one-way receive agreement.
-            * `protocol_settings` (`dict`) - The EDIFACT protocol settings.
-              * `acknowledgement_settings` (`dict`) - The EDIFACT acknowledgement settings.
-                * `acknowledgement_control_number_lower_bound` (`float`) - The acknowledgement control number lower bound.
-                * `acknowledgement_control_number_prefix` (`str`) - The acknowledgement control number prefix.
-                * `acknowledgement_control_number_suffix` (`str`) - The acknowledgement control number suffix.
-                * `acknowledgement_control_number_upper_bound` (`float`) - The acknowledgement control number upper bound.
-                * `batch_functional_acknowledgements` (`bool`) - The value indicating whether to batch functional acknowledgements.
-                * `batch_technical_acknowledgements` (`bool`) - The value indicating whether to batch the technical acknowledgements.
-                * `need_functional_acknowledgement` (`bool`) - The value indicating whether functional acknowledgement is needed.
-                * `need_loop_for_valid_messages` (`bool`) - The value indicating whether a loop is needed for valid messages.
-                * `need_technical_acknowledgement` (`bool`) - The value indicating whether technical acknowledgement is needed.
-                * `rollover_acknowledgement_control_number` (`bool`) - The value indicating whether to rollover acknowledgement control number.
-                * `send_synchronous_acknowledgement` (`bool`) - The value indicating whether to send synchronous acknowledgement.
-
-              * `edifact_delimiter_overrides` (`list`) - The EDIFACT delimiter override settings.
-                * `component_separator` (`float`) - The component separator.
-                * `data_element_separator` (`float`) - The data element separator.
-                * `decimal_point_indicator` (`str`) - The decimal point indicator.
-                * `message_association_assigned_code` (`str`) - The message association assigned code.
-                * `message_id` (`str`) - The message id.
-                * `message_release` (`str`) - The message release.
-                * `message_version` (`str`) - The message version.
-                * `release_indicator` (`float`) - The release indicator.
-                * `repetition_separator` (`float`) - The repetition separator.
-                * `segment_terminator` (`float`) - The segment terminator.
-                * `segment_terminator_suffix` (`str`) - The segment terminator suffix.
-                * `target_namespace` (`str`) - The target namespace on which this delimiter settings has to be applied.
-
-              * `envelope_overrides` (`list`) - The EDIFACT envelope override settings.
-                * `application_password` (`str`) - The application password.
-                * `association_assigned_code` (`str`) - The association assigned code.
-                * `controlling_agency_code` (`str`) - The controlling agency code.
-                * `functional_group_id` (`str`) - The functional group id.
-                * `group_header_message_release` (`str`) - The group header message release.
-                * `group_header_message_version` (`str`) - The group header message version.
-                * `message_association_assigned_code` (`str`) - The message association assigned code.
-                * `message_id` (`str`) - The message id on which this envelope settings has to be applied.
-                * `message_release` (`str`) - The message release version on which this envelope settings has to be applied.
-                * `message_version` (`str`) - The message version on which this envelope settings has to be applied.
-                * `receiver_application_id` (`str`) - The receiver application id.
-                * `receiver_application_qualifier` (`str`) - The receiver application qualifier.
-                * `sender_application_id` (`str`) - The sender application id.
-                * `sender_application_qualifier` (`str`) - The sender application qualifier.
-                * `target_namespace` (`str`) - The target namespace on which this envelope settings has to be applied.
-
-              * `envelope_settings` (`dict`) - The EDIFACT envelope settings.
-                * `application_reference_id` (`str`) - The application reference id.
-                * `apply_delimiter_string_advice` (`bool`) - The value indicating whether to apply delimiter string advice.
-                * `communication_agreement_id` (`str`) - The communication agreement id.
-                * `create_grouping_segments` (`bool`) - The value indicating whether to create grouping segments.
-                * `enable_default_group_headers` (`bool`) - The value indicating whether to enable default group headers.
-                * `functional_group_id` (`str`) - The functional group id.
-                * `group_application_password` (`str`) - The group application password.
-                * `group_application_receiver_id` (`str`) - The group application receiver id.
-                * `group_application_receiver_qualifier` (`str`) - The group application receiver qualifier.
-                * `group_application_sender_id` (`str`) - The group application sender id.
-                * `group_application_sender_qualifier` (`str`) - The group application sender qualifier.
-                * `group_association_assigned_code` (`str`) - The group association assigned code.
-                * `group_control_number_lower_bound` (`float`) - The group control number lower bound.
-                * `group_control_number_prefix` (`str`) - The group control number prefix.
-                * `group_control_number_suffix` (`str`) - The group control number suffix.
-                * `group_control_number_upper_bound` (`float`) - The group control number upper bound.
-                * `group_controlling_agency_code` (`str`) - The group controlling agency code.
-                * `group_message_release` (`str`) - The group message release.
-                * `group_message_version` (`str`) - The group message version.
-                * `interchange_control_number_lower_bound` (`float`) - The interchange control number lower bound.
-                * `interchange_control_number_prefix` (`str`) - The interchange control number prefix.
-                * `interchange_control_number_suffix` (`str`) - The interchange control number suffix.
-                * `interchange_control_number_upper_bound` (`float`) - The interchange control number upper bound.
-                * `is_test_interchange` (`bool`) - The value indicating whether the message is a test interchange.
-                * `overwrite_existing_transaction_set_control_number` (`bool`) - The value indicating whether to overwrite existing transaction set control number.
-                * `processing_priority_code` (`str`) - The processing priority code.
-                * `receiver_internal_identification` (`str`) - The receiver internal identification.
-                * `receiver_internal_sub_identification` (`str`) - The receiver internal sub identification.
-                * `receiver_reverse_routing_address` (`str`) - The receiver reverse routing address.
-                * `recipient_reference_password_qualifier` (`str`) - The recipient reference password qualifier.
-                * `recipient_reference_password_value` (`str`) - The recipient reference password value.
-                * `rollover_group_control_number` (`bool`) - The value indicating whether to rollover group control number.
-                * `rollover_interchange_control_number` (`bool`) - The value indicating whether to rollover interchange control number.
-                * `rollover_transaction_set_control_number` (`bool`) - The value indicating whether to rollover transaction set control number.
-                * `sender_internal_identification` (`str`) - The sender internal identification.
-                * `sender_internal_sub_identification` (`str`) - The sender internal sub identification.
-                * `sender_reverse_routing_address` (`str`) - The sender reverse routing address.
-                * `transaction_set_control_number_lower_bound` (`float`) - The transaction set control number lower bound.
-                * `transaction_set_control_number_prefix` (`str`) - The transaction set control number prefix.
-                * `transaction_set_control_number_suffix` (`str`) - The transaction set control number suffix.
-                * `transaction_set_control_number_upper_bound` (`float`) - The transaction set control number upper bound.
-
-              * `framing_settings` (`dict`) - The EDIFACT framing settings.
-                * `character_encoding` (`str`) - The character encoding.
-                * `character_set` (`str`) - The EDIFACT frame setting characterSet.
-                * `component_separator` (`float`) - The component separator.
-                * `data_element_separator` (`float`) - The data element separator.
-                * `decimal_point_indicator` (`str`) - The EDIFACT frame setting decimal indicator.
-                * `protocol_version` (`float`) - The protocol version.
-                * `release_indicator` (`float`) - The release indicator.
-                * `repetition_separator` (`float`) - The repetition separator.
-                * `segment_terminator` (`float`) - The segment terminator.
-                * `segment_terminator_suffix` (`str`) - The EDIFACT frame setting segment terminator suffix.
-                * `service_code_list_directory_version` (`str`) - The service code list directory version.
-
-              * `message_filter` (`dict`) - The EDIFACT message filter.
-                * `message_filter_type` (`str`) - The message filter type.
-
-              * `message_filter_list` (`list`) - The EDIFACT message filter list.
-                * `message_id` (`str`) - The message id on which this envelope settings has to be applied.
-
-              * `processing_settings` (`dict`) - The EDIFACT processing Settings.
-                * `create_empty_xml_tags_for_trailing_separators` (`bool`) - The value indicating whether to create empty xml tags for trailing separators.
-                * `mask_security_info` (`bool`) - The value indicating whether to mask security information.
-                * `preserve_interchange` (`bool`) - The value indicating whether to preserve interchange.
-                * `suspend_interchange_on_error` (`bool`) - The value indicating whether to suspend interchange on error.
-                * `use_dot_as_decimal_separator` (`bool`) - The value indicating whether to use dot as decimal separator.
-
-              * `schema_references` (`list`) - The EDIFACT schema references.
-                * `association_assigned_code` (`str`) - The association assigned code.
-                * `message_id` (`str`) - The message id.
-                * `message_release` (`str`) - The message release version.
-                * `message_version` (`str`) - The message version.
-                * `schema_name` (`str`) - The schema name.
-                * `sender_application_id` (`str`) - The sender application id.
-                * `sender_application_qualifier` (`str`) - The sender application qualifier.
-
-              * `validation_overrides` (`list`) - The EDIFACT validation override settings.
-                * `allow_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to allow leading and trailing spaces and zeroes.
-                * `enforce_character_set` (`bool`) - The value indicating whether to validate character Set.
-                * `message_id` (`str`) - The message id on which the validation settings has to be applied.
-                * `trailing_separator_policy` (`str`) - The trailing separator policy.
-                * `trim_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to trim leading and trailing spaces and zeroes.
-                * `validate_edi_types` (`bool`) - The value indicating whether to validate EDI types.
-                * `validate_xsd_types` (`bool`) - The value indicating whether to validate XSD types.
-
-              * `validation_settings` (`dict`) - The EDIFACT validation settings.
-                * `allow_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to allow leading and trailing spaces and zeroes.
-                * `check_duplicate_group_control_number` (`bool`) - The value indicating whether to check for duplicate group control number.
-                * `check_duplicate_interchange_control_number` (`bool`) - The value indicating whether to check for duplicate interchange control number.
-                * `check_duplicate_transaction_set_control_number` (`bool`) - The value indicating whether to check for duplicate transaction set control number.
-                * `interchange_control_number_validity_days` (`float`) - The validity period of interchange control number.
-                * `trailing_separator_policy` (`str`) - The trailing separator policy.
-                * `trim_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to trim leading and trailing spaces and zeroes.
-                * `validate_character_set` (`bool`) - The value indicating whether to validate character set in the message.
-                * `validate_edi_types` (`bool`) - The value indicating whether to Whether to validate EDI types.
-                * `validate_xsd_types` (`bool`) - The value indicating whether to Whether to validate XSD types.
-
-            * `receiver_business_identity` (`dict`) - The receiver business identity
-            * `sender_business_identity` (`dict`) - The sender business identity
-
-          * `send_agreement` (`dict`) - The EDIFACT one-way send agreement.
-
-        * `x12` (`dict`) - The X12 agreement content.
-          * `receive_agreement` (`dict`) - The X12 one-way receive agreement.
-            * `protocol_settings` (`dict`) - The X12 protocol settings.
-              * `acknowledgement_settings` (`dict`) - The X12 acknowledgment settings.
-                * `acknowledgement_control_number_lower_bound` (`float`) - The acknowledgement control number lower bound.
-                * `acknowledgement_control_number_prefix` (`str`) - The acknowledgement control number prefix.
-                * `acknowledgement_control_number_suffix` (`str`) - The acknowledgement control number suffix.
-                * `acknowledgement_control_number_upper_bound` (`float`) - The acknowledgement control number upper bound.
-                * `batch_functional_acknowledgements` (`bool`) - The value indicating whether to batch functional acknowledgements.
-                * `batch_implementation_acknowledgements` (`bool`) - The value indicating whether to batch implementation acknowledgements.
-                * `batch_technical_acknowledgements` (`bool`) - The value indicating whether to batch the technical acknowledgements.
-                * `functional_acknowledgement_version` (`str`) - The functional acknowledgement version.
-                * `implementation_acknowledgement_version` (`str`) - The implementation acknowledgement version.
-                * `need_functional_acknowledgement` (`bool`) - The value indicating whether functional acknowledgement is needed.
-                * `need_implementation_acknowledgement` (`bool`) - The value indicating whether implementation acknowledgement is needed.
-                * `need_loop_for_valid_messages` (`bool`) - The value indicating whether a loop is needed for valid messages.
-                * `need_technical_acknowledgement` (`bool`) - The value indicating whether technical acknowledgement is needed.
-                * `rollover_acknowledgement_control_number` (`bool`) - The value indicating whether to rollover acknowledgement control number.
-                * `send_synchronous_acknowledgement` (`bool`) - The value indicating whether to send synchronous acknowledgement.
-
-              * `envelope_overrides` (`list`) - The X12 envelope override settings.
-                * `date_format` (`str`) - The date format.
-                * `functional_identifier_code` (`str`) - The functional identifier code.
-                * `header_version` (`str`) - The header version.
-                * `message_id` (`str`) - The message id on which this envelope settings has to be applied.
-                * `protocol_version` (`str`) - The protocol version on which this envelope settings has to be applied.
-                * `receiver_application_id` (`str`) - The receiver application id.
-                * `responsible_agency_code` (`str`) - The responsible agency code.
-                * `sender_application_id` (`str`) - The sender application id.
-                * `target_namespace` (`str`) - The target namespace on which this envelope settings has to be applied.
-                * `time_format` (`str`) - The time format.
-
-              * `envelope_settings` (`dict`) - The X12 envelope settings.
-                * `control_standards_id` (`float`) - The controls standards id.
-                * `control_version_number` (`str`) - The control version number.
-                * `enable_default_group_headers` (`bool`) - The value indicating whether to enable default group headers.
-                * `functional_group_id` (`str`) - The functional group id.
-                * `group_control_number_lower_bound` (`float`) - The group control number lower bound.
-                * `group_control_number_upper_bound` (`float`) - The group control number upper bound.
-                * `group_header_agency_code` (`str`) - The group header agency code.
-                * `group_header_date_format` (`str`) - The group header date format.
-                * `group_header_time_format` (`str`) - The group header time format.
-                * `group_header_version` (`str`) - The group header version.
-                * `interchange_control_number_lower_bound` (`float`) - The interchange  control number lower bound.
-                * `interchange_control_number_upper_bound` (`float`) - The interchange  control number upper bound.
-                * `overwrite_existing_transaction_set_control_number` (`bool`) - The value indicating whether to overwrite existing transaction set control number.
-                * `receiver_application_id` (`str`) - The receiver application id.
-                * `rollover_group_control_number` (`bool`) - The value indicating whether to rollover group control number.
-                * `rollover_interchange_control_number` (`bool`) - The value indicating whether to rollover interchange control number.
-                * `rollover_transaction_set_control_number` (`bool`) - The value indicating whether to rollover transaction set control number.
-                * `sender_application_id` (`str`) - The sender application id.
-                * `transaction_set_control_number_lower_bound` (`float`) - The transaction set control number lower bound.
-                * `transaction_set_control_number_prefix` (`str`) - The transaction set control number prefix.
-                * `transaction_set_control_number_suffix` (`str`) - The transaction set control number suffix.
-                * `transaction_set_control_number_upper_bound` (`float`) - The transaction set control number upper bound.
-                * `usage_indicator` (`str`) - The usage indicator.
-                * `use_control_standards_id_as_repetition_character` (`bool`) - The value indicating whether to use control standards id as repetition character.
-
-              * `framing_settings` (`dict`) - The X12 framing settings.
-                * `character_set` (`str`) - The X12 character set.
-                * `component_separator` (`float`) - The component separator.
-                * `data_element_separator` (`float`) - The data element separator.
-                * `replace_character` (`float`) - The replacement character.
-                * `replace_separators_in_payload` (`bool`) - The value indicating whether to replace separators in payload.
-                * `segment_terminator` (`float`) - The segment terminator.
-                * `segment_terminator_suffix` (`str`) - The segment terminator suffix.
-
-              * `message_filter` (`dict`) - The X12 message filter.
-                * `message_filter_type` (`str`) - The message filter type.
-
-              * `message_filter_list` (`list`) - The X12 message filter list.
-                * `message_id` (`str`) - The message id.
-
-              * `processing_settings` (`dict`) - The X12 processing settings.
-                * `convert_implied_decimal` (`bool`) - The value indicating whether to convert numerical type to implied decimal.
-                * `create_empty_xml_tags_for_trailing_separators` (`bool`) - The value indicating whether to create empty xml tags for trailing separators.
-                * `mask_security_info` (`bool`) - The value indicating whether to mask security information.
-                * `preserve_interchange` (`bool`) - The value indicating whether to preserve interchange.
-                * `suspend_interchange_on_error` (`bool`) - The value indicating whether to suspend interchange on error.
-                * `use_dot_as_decimal_separator` (`bool`) - The value indicating whether to use dot as decimal separator.
-
-              * `schema_references` (`list`) - The X12 schema references.
-                * `message_id` (`str`) - The message id.
-                * `schema_name` (`str`) - The schema name.
-                * `schema_version` (`str`) - The schema version.
-                * `sender_application_id` (`str`) - The sender application id.
-
-              * `security_settings` (`dict`) - The X12 security settings.
-                * `authorization_qualifier` (`str`) - The authorization qualifier.
-                * `authorization_value` (`str`) - The authorization value.
-                * `password_value` (`str`) - The password value.
-                * `security_qualifier` (`str`) - The security qualifier.
-
-              * `validation_overrides` (`list`) - The X12 validation override settings.
-                * `allow_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to allow leading and trailing spaces and zeroes.
-                * `message_id` (`str`) - The message id on which the validation settings has to be applied.
-                * `trailing_separator_policy` (`str`) - The trailing separator policy.
-                * `trim_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to trim leading and trailing spaces and zeroes.
-                * `validate_character_set` (`bool`) - The value indicating whether to validate character Set.
-                * `validate_edi_types` (`bool`) - The value indicating whether to validate EDI types.
-                * `validate_xsd_types` (`bool`) - The value indicating whether to validate XSD types.
-
-              * `validation_settings` (`dict`) - The X12 validation settings.
-                * `allow_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to allow leading and trailing spaces and zeroes.
-                * `check_duplicate_group_control_number` (`bool`) - The value indicating whether to check for duplicate group control number.
-                * `check_duplicate_interchange_control_number` (`bool`) - The value indicating whether to check for duplicate interchange control number.
-                * `check_duplicate_transaction_set_control_number` (`bool`) - The value indicating whether to check for duplicate transaction set control number.
-                * `interchange_control_number_validity_days` (`float`) - The validity period of interchange control number.
-                * `trailing_separator_policy` (`str`) - The trailing separator policy.
-                * `trim_leading_and_trailing_spaces_and_zeroes` (`bool`) - The value indicating whether to trim leading and trailing spaces and zeroes.
-                * `validate_character_set` (`bool`) - The value indicating whether to validate character set in the message.
-                * `validate_edi_types` (`bool`) - The value indicating whether to Whether to validate EDI types.
-                * `validate_xsd_types` (`bool`) - The value indicating whether to Whether to validate XSD types.
-
-              * `x12_delimiter_overrides` (`list`) - The X12 delimiter override settings.
-                * `component_separator` (`float`) - The component separator.
-                * `data_element_separator` (`float`) - The data element separator.
-                * `message_id` (`str`) - The message id.
-                * `protocol_version` (`str`) - The protocol version.
-                * `replace_character` (`float`) - The replacement character.
-                * `replace_separators_in_payload` (`bool`) - The value indicating whether to replace separators in payload.
-                * `segment_terminator` (`float`) - The segment terminator.
-                * `segment_terminator_suffix` (`str`) - The segment terminator suffix.
-                * `target_namespace` (`str`) - The target namespace on which this delimiter settings has to be applied.
-
-            * `receiver_business_identity` (`dict`) - The receiver business identity
-            * `sender_business_identity` (`dict`) - The sender business identity
-
-          * `send_agreement` (`dict`) - The X12 one-way send agreement.
-
-      * `created_time` (`str`) - The created time.
-      * `guest_identity` (`dict`) - The business identity of the guest partner.
-      * `guest_partner` (`str`) - The integration account partner that is set as guest partner for this agreement.
-      * `host_identity` (`dict`) - The business identity of the host partner.
-      * `host_partner` (`str`) - The integration account partner that is set as host partner for this agreement.
-      * `metadata` (`dict`) - The metadata.
     """
     tags: pulumi.Output[dict]
     """
@@ -807,7 +833,8 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['changed_time'] = None
+            __props__['created_time'] = None
             __props__['type'] = None
         super(IntegrationAccountAgreement, __self__).__init__(
             'azurerm:logic/v20190501:IntegrationAccountAgreement',

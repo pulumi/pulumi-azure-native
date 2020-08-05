@@ -13,18 +13,30 @@ class GetHierarchySettingResult:
     """
     Settings defined at the Management Group scope.
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, default_management_group=None, name=None, require_authorization_for_group_creation=None, tenant_id=None, type=None):
+        if default_management_group and not isinstance(default_management_group, str):
+            raise TypeError("Expected argument 'default_management_group' to be a str")
+        __self__.default_management_group = default_management_group
+        """
+        Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         The name of the object. In this case, default.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if require_authorization_for_group_creation and not isinstance(require_authorization_for_group_creation, bool):
+            raise TypeError("Expected argument 'require_authorization_for_group_creation' to be a bool")
+        __self__.require_authorization_for_group_creation = require_authorization_for_group_creation
         """
-        The generic properties of hierarchy settings.
+        Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
+        """
+        if tenant_id and not isinstance(tenant_id, str):
+            raise TypeError("Expected argument 'tenant_id' to be a str")
+        __self__.tenant_id = tenant_id
+        """
+        The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +52,10 @@ class AwaitableGetHierarchySettingResult(GetHierarchySettingResult):
         if False:
             yield self
         return GetHierarchySettingResult(
+            default_management_group=self.default_management_group,
             name=self.name,
-            properties=self.properties,
+            require_authorization_for_group_creation=self.require_authorization_for_group_creation,
+            tenant_id=self.tenant_id,
             type=self.type)
 
 
@@ -60,6 +74,8 @@ def get_hierarchy_setting(name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:management/v20200201:getHierarchySetting', __args__, opts=opts).value
 
     return AwaitableGetHierarchySettingResult(
+        default_management_group=__ret__.get('defaultManagementGroup'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        require_authorization_for_group_creation=__ret__.get('requireAuthorizationForGroupCreation'),
+        tenant_id=__ret__.get('tenantId'),
         type=__ret__.get('type'))

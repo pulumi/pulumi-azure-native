@@ -13,15 +13,63 @@ class GetMachineResult:
     """
     Describes a hybrid machine.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, agent_version=None, client_public_key=None, display_name=None, error_details=None, extensions=None, identity=None, last_status_change=None, location=None, location_data=None, machine_fqdn=None, name=None, os_name=None, os_profile=None, os_version=None, provisioning_state=None, status=None, tags=None, type=None, vm_id=None):
+        if agent_version and not isinstance(agent_version, str):
+            raise TypeError("Expected argument 'agent_version' to be a str")
+        __self__.agent_version = agent_version
+        """
+        The hybrid machine agent full version.
+        """
+        if client_public_key and not isinstance(client_public_key, str):
+            raise TypeError("Expected argument 'client_public_key' to be a str")
+        __self__.client_public_key = client_public_key
+        """
+        Public Key that the client provides to be used during initial resource onboarding
+        """
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
+        __self__.display_name = display_name
+        """
+        Specifies the hybrid machine display name.
+        """
+        if error_details and not isinstance(error_details, list):
+            raise TypeError("Expected argument 'error_details' to be a list")
+        __self__.error_details = error_details
+        """
+        Details about the error state.
+        """
+        if extensions and not isinstance(extensions, list):
+            raise TypeError("Expected argument 'extensions' to be a list")
+        __self__.extensions = extensions
+        """
+        Machine Extensions information
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
+        if last_status_change and not isinstance(last_status_change, str):
+            raise TypeError("Expected argument 'last_status_change' to be a str")
+        __self__.last_status_change = last_status_change
+        """
+        The time of the last status change.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The geo-location where the resource lives
+        """
+        if location_data and not isinstance(location_data, dict):
+            raise TypeError("Expected argument 'location_data' to be a dict")
+        __self__.location_data = location_data
+        """
+        Metadata pertaining to the geographic location of the resource.
+        """
+        if machine_fqdn and not isinstance(machine_fqdn, str):
+            raise TypeError("Expected argument 'machine_fqdn' to be a str")
+        __self__.machine_fqdn = machine_fqdn
+        """
+        Specifies the hybrid machine FQDN.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -29,11 +77,35 @@ class GetMachineResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if os_name and not isinstance(os_name, str):
+            raise TypeError("Expected argument 'os_name' to be a str")
+        __self__.os_name = os_name
         """
-        Hybrid Compute Machine properties
+        The Operating System running on the hybrid machine.
+        """
+        if os_profile and not isinstance(os_profile, dict):
+            raise TypeError("Expected argument 'os_profile' to be a dict")
+        __self__.os_profile = os_profile
+        """
+        Specifies the operating system settings for the hybrid machine.
+        """
+        if os_version and not isinstance(os_version, str):
+            raise TypeError("Expected argument 'os_version' to be a str")
+        __self__.os_version = os_version
+        """
+        The version of Operating System running on the hybrid machine.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state, which only appears in the response.
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        The status of the hybrid machine agent.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -47,6 +119,12 @@ class GetMachineResult:
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         """
+        if vm_id and not isinstance(vm_id, str):
+            raise TypeError("Expected argument 'vm_id' to be a str")
+        __self__.vm_id = vm_id
+        """
+        Specifies the hybrid machine unique ID.
+        """
 
 
 class AwaitableGetMachineResult(GetMachineResult):
@@ -55,12 +133,25 @@ class AwaitableGetMachineResult(GetMachineResult):
         if False:
             yield self
         return GetMachineResult(
+            agent_version=self.agent_version,
+            client_public_key=self.client_public_key,
+            display_name=self.display_name,
+            error_details=self.error_details,
+            extensions=self.extensions,
             identity=self.identity,
+            last_status_change=self.last_status_change,
             location=self.location,
+            location_data=self.location_data,
+            machine_fqdn=self.machine_fqdn,
             name=self.name,
-            properties=self.properties,
+            os_name=self.os_name,
+            os_profile=self.os_profile,
+            os_version=self.os_version,
+            provisioning_state=self.provisioning_state,
+            status=self.status,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            vm_id=self.vm_id)
 
 
 def get_machine(name=None, resource_group_name=None, opts=None):
@@ -80,9 +171,22 @@ def get_machine(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:hybridcompute/v20191212:getMachine', __args__, opts=opts).value
 
     return AwaitableGetMachineResult(
+        agent_version=__ret__.get('agentVersion'),
+        client_public_key=__ret__.get('clientPublicKey'),
+        display_name=__ret__.get('displayName'),
+        error_details=__ret__.get('errorDetails'),
+        extensions=__ret__.get('extensions'),
         identity=__ret__.get('identity'),
+        last_status_change=__ret__.get('lastStatusChange'),
         location=__ret__.get('location'),
+        location_data=__ret__.get('locationData'),
+        machine_fqdn=__ret__.get('machineFqdn'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        os_name=__ret__.get('osName'),
+        os_profile=__ret__.get('osProfile'),
+        os_version=__ret__.get('osVersion'),
+        provisioning_state=__ret__.get('provisioningState'),
+        status=__ret__.get('status'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        vm_id=__ret__.get('vmId'))

@@ -10,56 +10,62 @@ from ... import _utilities, _tables
 
 
 class ReportConfigByResourceGroupName(pulumi.CustomResource):
+    definition: pulumi.Output[dict]
+    """
+    Has definition for the report config.
+      * `dataset` (`dict`) - Has definition for data in this report config.
+        * `aggregation` (`dict`) - Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
+        * `configuration` (`dict`) - Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
+          * `columns` (`list`) - Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+
+        * `filter` (`dict`) - Has filter expression to use in the report.
+          * `and` (`list`) - The logical "AND" expression. Must have at least 2 items.
+          * `dimension` (`dict`) - Has comparison expression for a dimension
+            * `name` (`str`) - The name of the column to use in comparison.
+            * `operator` (`str`) - The operator to use for comparison.
+            * `values` (`list`) - Array of values to use for comparison
+
+          * `not` (`dict`) - The logical "NOT" expression.
+          * `or` (`list`) - The logical "OR" expression. Must have at least 2 items.
+          * `tag` (`dict`) - Has comparison expression for a tag
+
+        * `granularity` (`str`) - The granularity of rows in the report.
+        * `grouping` (`list`) - Array of group by expression to use in the report. Report can have up to 2 group by clauses.
+          * `column_type` (`str`) - Has type of the column to group.
+          * `name` (`str`) - The name of the column to group.
+
+      * `time_period` (`dict`) - Has time period for pulling data for the report.
+        * `from` (`str`) - The start date to pull data from.
+        * `to` (`str`) - The end date to pull data to.
+
+      * `timeframe` (`str`) - The time frame for pulling data for the report. If custom, then a specific time period must be provided.
+      * `type` (`str`) - The type of the report.
+    """
+    delivery_info: pulumi.Output[dict]
+    """
+    Has delivery information for the report config.
+      * `destination` (`dict`) - Has destination for the report being delivered.
+        * `container` (`str`) - The name of the container where reports will be uploaded.
+        * `resource_id` (`str`) - The resource id of the storage account where reports will be delivered.
+        * `root_folder_path` (`str`) - The name of the directory where reports will be uploaded.
+    """
+    format: pulumi.Output[str]
+    """
+    The format of the report being delivered.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    schedule: pulumi.Output[dict]
     """
-    The properties of the report config.
-      * `definition` (`dict`) - Has definition for the report config.
-        * `dataset` (`dict`) - Has definition for data in this report config.
-          * `aggregation` (`dict`) - Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.
-          * `configuration` (`dict`) - Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.
-            * `columns` (`list`) - Array of column names to be included in the report. Any valid report column name is allowed. If not provided, then report includes all columns.
+    Has schedule information for the report config.
+      * `recurrence` (`str`) - The schedule recurrence.
+      * `recurrence_period` (`dict`) - Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        * `from` (`str`) - The start date of recurrence.
+        * `to` (`str`) - The end date of recurrence. If not provided, we default this to 10 years from the start date.
 
-          * `filter` (`dict`) - Has filter expression to use in the report.
-            * `and` (`list`) - The logical "AND" expression. Must have at least 2 items.
-            * `dimension` (`dict`) - Has comparison expression for a dimension
-              * `name` (`str`) - The name of the column to use in comparison.
-              * `operator` (`str`) - The operator to use for comparison.
-              * `values` (`list`) - Array of values to use for comparison
-
-            * `not` (`dict`) - The logical "NOT" expression.
-            * `or` (`list`) - The logical "OR" expression. Must have at least 2 items.
-            * `tag` (`dict`) - Has comparison expression for a tag
-
-          * `granularity` (`str`) - The granularity of rows in the report.
-          * `grouping` (`list`) - Array of group by expression to use in the report. Report can have up to 2 group by clauses.
-            * `column_type` (`str`) - Has type of the column to group.
-            * `name` (`str`) - The name of the column to group.
-
-        * `time_period` (`dict`) - Has time period for pulling data for the report.
-          * `from` (`str`) - The start date to pull data from.
-          * `to` (`str`) - The end date to pull data to.
-
-        * `timeframe` (`str`) - The time frame for pulling data for the report. If custom, then a specific time period must be provided.
-        * `type` (`str`) - The type of the report.
-
-      * `delivery_info` (`dict`) - Has delivery information for the report config.
-        * `destination` (`dict`) - Has destination for the report being delivered.
-          * `container` (`str`) - The name of the container where reports will be uploaded.
-          * `resource_id` (`str`) - The resource id of the storage account where reports will be delivered.
-          * `root_folder_path` (`str`) - The name of the directory where reports will be uploaded.
-
-      * `format` (`str`) - The format of the report being delivered.
-      * `schedule` (`dict`) - Has schedule information for the report config.
-        * `recurrence` (`str`) - The schedule recurrence.
-        * `recurrence_period` (`dict`) - Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
-          * `from` (`str`) - The start date of recurrence.
-          * `to` (`str`) - The end date of recurrence. If not provided, we default this to 10 years from the start date.
-
-        * `status` (`str`) - The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
+      * `status` (`str`) - The status of the schedule. Whether active or not. If inactive, the report's scheduled execution is paused.
     """
     tags: pulumi.Output[dict]
     """
@@ -159,7 +165,6 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['schedule'] = schedule
-            __props__['properties'] = None
             __props__['tags'] = None
             __props__['type'] = None
         super(ReportConfigByResourceGroupName, __self__).__init__(

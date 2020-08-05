@@ -13,12 +13,54 @@ class GetExpressRouteCircuitResult:
     """
     ExpressRouteCircuit resource.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, allow_classic_operations=None, authorizations=None, bandwidth_in_gbps=None, circuit_provisioning_state=None, etag=None, express_route_port=None, gateway_manager_etag=None, global_reach_enabled=None, location=None, name=None, peerings=None, provisioning_state=None, service_key=None, service_provider_notes=None, service_provider_properties=None, service_provider_provisioning_state=None, sku=None, stag=None, tags=None, type=None):
+        if allow_classic_operations and not isinstance(allow_classic_operations, bool):
+            raise TypeError("Expected argument 'allow_classic_operations' to be a bool")
+        __self__.allow_classic_operations = allow_classic_operations
+        """
+        Allow classic operations.
+        """
+        if authorizations and not isinstance(authorizations, list):
+            raise TypeError("Expected argument 'authorizations' to be a list")
+        __self__.authorizations = authorizations
+        """
+        The list of authorizations.
+        """
+        if bandwidth_in_gbps and not isinstance(bandwidth_in_gbps, float):
+            raise TypeError("Expected argument 'bandwidth_in_gbps' to be a float")
+        __self__.bandwidth_in_gbps = bandwidth_in_gbps
+        """
+        The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
+        """
+        if circuit_provisioning_state and not isinstance(circuit_provisioning_state, str):
+            raise TypeError("Expected argument 'circuit_provisioning_state' to be a str")
+        __self__.circuit_provisioning_state = circuit_provisioning_state
+        """
+        The CircuitProvisioningState state of the resource.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if express_route_port and not isinstance(express_route_port, dict):
+            raise TypeError("Expected argument 'express_route_port' to be a dict")
+        __self__.express_route_port = express_route_port
+        """
+        The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
+        """
+        if gateway_manager_etag and not isinstance(gateway_manager_etag, str):
+            raise TypeError("Expected argument 'gateway_manager_etag' to be a str")
+        __self__.gateway_manager_etag = gateway_manager_etag
+        """
+        The GatewayManager Etag.
+        """
+        if global_reach_enabled and not isinstance(global_reach_enabled, bool):
+            raise TypeError("Expected argument 'global_reach_enabled' to be a bool")
+        __self__.global_reach_enabled = global_reach_enabled
+        """
+        Flag denoting Global reach status.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -32,17 +74,53 @@ class GetExpressRouteCircuitResult:
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if peerings and not isinstance(peerings, list):
+            raise TypeError("Expected argument 'peerings' to be a list")
+        __self__.peerings = peerings
         """
-        Properties of the express route circuit.
+        The list of peerings.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the express route circuit resource.
+        """
+        if service_key and not isinstance(service_key, str):
+            raise TypeError("Expected argument 'service_key' to be a str")
+        __self__.service_key = service_key
+        """
+        The ServiceKey.
+        """
+        if service_provider_notes and not isinstance(service_provider_notes, str):
+            raise TypeError("Expected argument 'service_provider_notes' to be a str")
+        __self__.service_provider_notes = service_provider_notes
+        """
+        The ServiceProviderNotes.
+        """
+        if service_provider_properties and not isinstance(service_provider_properties, dict):
+            raise TypeError("Expected argument 'service_provider_properties' to be a dict")
+        __self__.service_provider_properties = service_provider_properties
+        """
+        The ServiceProviderProperties.
+        """
+        if service_provider_provisioning_state and not isinstance(service_provider_provisioning_state, str):
+            raise TypeError("Expected argument 'service_provider_provisioning_state' to be a str")
+        __self__.service_provider_provisioning_state = service_provider_provisioning_state
+        """
+        The ServiceProviderProvisioningState state of the resource.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         The SKU.
+        """
+        if stag and not isinstance(stag, float):
+            raise TypeError("Expected argument 'stag' to be a float")
+        __self__.stag = stag
+        """
+        The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -64,11 +142,24 @@ class AwaitableGetExpressRouteCircuitResult(GetExpressRouteCircuitResult):
         if False:
             yield self
         return GetExpressRouteCircuitResult(
+            allow_classic_operations=self.allow_classic_operations,
+            authorizations=self.authorizations,
+            bandwidth_in_gbps=self.bandwidth_in_gbps,
+            circuit_provisioning_state=self.circuit_provisioning_state,
             etag=self.etag,
+            express_route_port=self.express_route_port,
+            gateway_manager_etag=self.gateway_manager_etag,
+            global_reach_enabled=self.global_reach_enabled,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            peerings=self.peerings,
+            provisioning_state=self.provisioning_state,
+            service_key=self.service_key,
+            service_provider_notes=self.service_provider_notes,
+            service_provider_properties=self.service_provider_properties,
+            service_provider_provisioning_state=self.service_provider_provisioning_state,
             sku=self.sku,
+            stag=self.stag,
             tags=self.tags,
             type=self.type)
 
@@ -90,10 +181,23 @@ def get_express_route_circuit(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20191101:getExpressRouteCircuit', __args__, opts=opts).value
 
     return AwaitableGetExpressRouteCircuitResult(
+        allow_classic_operations=__ret__.get('allowClassicOperations'),
+        authorizations=__ret__.get('authorizations'),
+        bandwidth_in_gbps=__ret__.get('bandwidthInGbps'),
+        circuit_provisioning_state=__ret__.get('circuitProvisioningState'),
         etag=__ret__.get('etag'),
+        express_route_port=__ret__.get('expressRoutePort'),
+        gateway_manager_etag=__ret__.get('gatewayManagerEtag'),
+        global_reach_enabled=__ret__.get('globalReachEnabled'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        peerings=__ret__.get('peerings'),
+        provisioning_state=__ret__.get('provisioningState'),
+        service_key=__ret__.get('serviceKey'),
+        service_provider_notes=__ret__.get('serviceProviderNotes'),
+        service_provider_properties=__ret__.get('serviceProviderProperties'),
+        service_provider_provisioning_state=__ret__.get('serviceProviderProvisioningState'),
         sku=__ret__.get('sku'),
+        stag=__ret__.get('stag'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

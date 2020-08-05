@@ -13,18 +13,24 @@ class GetFirewallRuleResult:
     """
     A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
     """
-    def __init__(__self__, name=None, properties=None, type=None):
+    def __init__(__self__, end_ip=None, name=None, start_ip=None, type=None):
+        if end_ip and not isinstance(end_ip, str):
+            raise TypeError("Expected argument 'end_ip' to be a str")
+        __self__.end_ip = end_ip
+        """
+        highest IP address included in the range
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if start_ip and not isinstance(start_ip, str):
+            raise TypeError("Expected argument 'start_ip' to be a str")
+        __self__.start_ip = start_ip
         """
-        redis cache firewall rule properties
+        lowest IP address included in the range
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -40,8 +46,9 @@ class AwaitableGetFirewallRuleResult(GetFirewallRuleResult):
         if False:
             yield self
         return GetFirewallRuleResult(
+            end_ip=self.end_ip,
             name=self.name,
-            properties=self.properties,
+            start_ip=self.start_ip,
             type=self.type)
 
 
@@ -64,6 +71,7 @@ def get_firewall_rule(cache_name=None, name=None, resource_group_name=None, opts
     __ret__ = pulumi.runtime.invoke('azurerm:cache/v20170201:getFirewallRule', __args__, opts=opts).value
 
     return AwaitableGetFirewallRuleResult(
+        end_ip=__ret__.get('endIP'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        start_ip=__ret__.get('startIP'),
         type=__ret__.get('type'))

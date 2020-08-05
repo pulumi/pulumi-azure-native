@@ -10,57 +10,57 @@ from ... import _utilities, _tables
 
 
 class NotificationHub(pulumi.CustomResource):
+    adm_credential: pulumi.Output[dict]
+    """
+    The AdmCredential of the created NotificationHub
+      * `auth_token_url` (`str`) - The URL of the authorization token.
+      * `client_id` (`str`) - The client identifier.
+      * `client_secret` (`str`) - The credential secret access key.
+    """
+    apns_credential: pulumi.Output[dict]
+    """
+    The ApnsCredential of the created NotificationHub
+      * `apns_certificate` (`str`) - The APNS certificate.
+      * `certificate_key` (`str`) - The certificate key.
+      * `endpoint` (`str`) - The endpoint of this credential.
+      * `thumbprint` (`str`) - The APNS certificate Thumbprint
+    """
+    authorization_rules: pulumi.Output[list]
+    """
+    The AuthorizationRules of the created NotificationHub
+      * `rights` (`list`) - The rights associated with the rule.
+    """
+    baidu_credential: pulumi.Output[dict]
+    """
+    The BaiduCredential of the created NotificationHub
+      * `baidu_api_key` (`str`) - Baidu Api Key.
+      * `baidu_end_point` (`str`) - Baidu Endpoint.
+      * `baidu_secret_key` (`str`) - Baidu Secret Key
+    """
+    gcm_credential: pulumi.Output[dict]
+    """
+    The GcmCredential of the created NotificationHub
+      * `gcm_endpoint` (`str`) - The GCM endpoint.
+      * `google_api_key` (`str`) - The Google API key.
+    """
     location: pulumi.Output[str]
     """
     Resource location
+    """
+    mpns_credential: pulumi.Output[dict]
+    """
+    The MpnsCredential of the created NotificationHub
+      * `certificate_key` (`str`) - The certificate key for this credential.
+      * `mpns_certificate` (`str`) - The MPNS certificate.
+      * `thumbprint` (`str`) - The MPNS certificate Thumbprint
     """
     name: pulumi.Output[str]
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    registration_ttl: pulumi.Output[str]
     """
-    Properties of the NotificationHub.
-      * `adm_credential` (`dict`) - The AdmCredential of the created NotificationHub
-        * `properties` (`dict`) - Properties of NotificationHub AdmCredential.
-          * `auth_token_url` (`str`) - The URL of the authorization token.
-          * `client_id` (`str`) - The client identifier.
-          * `client_secret` (`str`) - The credential secret access key.
-
-      * `apns_credential` (`dict`) - The ApnsCredential of the created NotificationHub
-        * `properties` (`dict`) - Properties of NotificationHub ApnsCredential.
-          * `apns_certificate` (`str`) - The APNS certificate.
-          * `certificate_key` (`str`) - The certificate key.
-          * `endpoint` (`str`) - The endpoint of this credential.
-          * `thumbprint` (`str`) - The APNS certificate Thumbprint
-
-      * `authorization_rules` (`list`) - The AuthorizationRules of the created NotificationHub
-        * `rights` (`list`) - The rights associated with the rule.
-
-      * `baidu_credential` (`dict`) - The BaiduCredential of the created NotificationHub
-        * `properties` (`dict`) - Properties of NotificationHub BaiduCredential.
-          * `baidu_api_key` (`str`) - Baidu Api Key.
-          * `baidu_end_point` (`str`) - Baidu Endpoint.
-          * `baidu_secret_key` (`str`) - Baidu Secret Key
-
-      * `gcm_credential` (`dict`) - The GcmCredential of the created NotificationHub
-        * `properties` (`dict`) - Properties of NotificationHub GcmCredential.
-          * `gcm_endpoint` (`str`) - The GCM endpoint.
-          * `google_api_key` (`str`) - The Google API key.
-
-      * `mpns_credential` (`dict`) - The MpnsCredential of the created NotificationHub
-        * `properties` (`dict`) - Properties of NotificationHub MpnsCredential.
-          * `certificate_key` (`str`) - The certificate key for this credential.
-          * `mpns_certificate` (`str`) - The MPNS certificate.
-          * `thumbprint` (`str`) - The MPNS certificate Thumbprint
-
-      * `name` (`str`) - The NotificationHub name.
-      * `registration_ttl` (`str`) - The RegistrationTtl of the created NotificationHub
-      * `wns_credential` (`dict`) - The WnsCredential of the created NotificationHub
-        * `properties` (`dict`) - Properties of NotificationHub WnsCredential.
-          * `package_sid` (`str`) - The package ID for this credential.
-          * `secret_key` (`str`) - The secret key.
-          * `windows_live_endpoint` (`str`) - The Windows Live endpoint.
+    The RegistrationTtl of the created NotificationHub
     """
     sku: pulumi.Output[dict]
     """
@@ -78,6 +78,13 @@ class NotificationHub(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    wns_credential: pulumi.Output[dict]
+    """
+    The WnsCredential of the created NotificationHub
+      * `package_sid` (`str`) - The package ID for this credential.
+      * `secret_key` (`str`) - The secret key.
+      * `windows_live_endpoint` (`str`) - The Windows Live endpoint.
     """
     def __init__(__self__, resource_name, opts=None, adm_credential=None, apns_credential=None, authorization_rules=None, baidu_credential=None, gcm_credential=None, location=None, mpns_credential=None, name=None, namespace_name=None, registration_ttl=None, resource_group_name=None, sku=None, tags=None, wns_credential=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -187,7 +194,6 @@ class NotificationHub(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['tags'] = tags
             __props__['wns_credential'] = wns_credential
-            __props__['properties'] = None
             __props__['type'] = None
         super(NotificationHub, __self__).__init__(
             'azurerm:notificationhubs/v20160301:NotificationHub',

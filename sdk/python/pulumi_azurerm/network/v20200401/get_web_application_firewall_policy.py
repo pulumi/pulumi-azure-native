@@ -13,12 +13,30 @@ class GetWebApplicationFirewallPolicyResult:
     """
     Defines web application firewall policy.
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, application_gateways=None, custom_rules=None, etag=None, http_listeners=None, location=None, managed_rules=None, name=None, path_based_rules=None, policy_settings=None, provisioning_state=None, resource_state=None, tags=None, type=None):
+        if application_gateways and not isinstance(application_gateways, list):
+            raise TypeError("Expected argument 'application_gateways' to be a list")
+        __self__.application_gateways = application_gateways
+        """
+        A collection of references to application gateways.
+        """
+        if custom_rules and not isinstance(custom_rules, list):
+            raise TypeError("Expected argument 'custom_rules' to be a list")
+        __self__.custom_rules = custom_rules
+        """
+        The custom rules inside the policy.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if http_listeners and not isinstance(http_listeners, list):
+            raise TypeError("Expected argument 'http_listeners' to be a list")
+        __self__.http_listeners = http_listeners
+        """
+        A collection of references to application gateway http listeners.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -26,17 +44,41 @@ class GetWebApplicationFirewallPolicyResult:
         """
         Resource location.
         """
+        if managed_rules and not isinstance(managed_rules, dict):
+            raise TypeError("Expected argument 'managed_rules' to be a dict")
+        __self__.managed_rules = managed_rules
+        """
+        Describes the managedRules structure.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if path_based_rules and not isinstance(path_based_rules, list):
+            raise TypeError("Expected argument 'path_based_rules' to be a list")
+        __self__.path_based_rules = path_based_rules
         """
-        Properties of the web application firewall policy.
+        A collection of references to application gateway path rules.
+        """
+        if policy_settings and not isinstance(policy_settings, dict):
+            raise TypeError("Expected argument 'policy_settings' to be a dict")
+        __self__.policy_settings = policy_settings
+        """
+        The PolicySettings for policy.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the web application firewall policy resource.
+        """
+        if resource_state and not isinstance(resource_state, str):
+            raise TypeError("Expected argument 'resource_state' to be a str")
+        __self__.resource_state = resource_state
+        """
+        Resource status of the policy.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +100,17 @@ class AwaitableGetWebApplicationFirewallPolicyResult(GetWebApplicationFirewallPo
         if False:
             yield self
         return GetWebApplicationFirewallPolicyResult(
+            application_gateways=self.application_gateways,
+            custom_rules=self.custom_rules,
             etag=self.etag,
+            http_listeners=self.http_listeners,
             location=self.location,
+            managed_rules=self.managed_rules,
             name=self.name,
-            properties=self.properties,
+            path_based_rules=self.path_based_rules,
+            policy_settings=self.policy_settings,
+            provisioning_state=self.provisioning_state,
+            resource_state=self.resource_state,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +132,16 @@ def get_web_application_firewall_policy(name=None, resource_group_name=None, opt
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200401:getWebApplicationFirewallPolicy', __args__, opts=opts).value
 
     return AwaitableGetWebApplicationFirewallPolicyResult(
+        application_gateways=__ret__.get('applicationGateways'),
+        custom_rules=__ret__.get('customRules'),
         etag=__ret__.get('etag'),
+        http_listeners=__ret__.get('httpListeners'),
         location=__ret__.get('location'),
+        managed_rules=__ret__.get('managedRules'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        path_based_rules=__ret__.get('pathBasedRules'),
+        policy_settings=__ret__.get('policySettings'),
+        provisioning_state=__ret__.get('provisioningState'),
+        resource_state=__ret__.get('resourceState'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

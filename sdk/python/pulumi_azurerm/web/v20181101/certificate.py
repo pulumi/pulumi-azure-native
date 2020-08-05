@@ -10,6 +10,49 @@ from ... import _utilities, _tables
 
 
 class Certificate(pulumi.CustomResource):
+    cer_blob: pulumi.Output[str]
+    """
+    Raw bytes of .cer file
+    """
+    expiration_date: pulumi.Output[str]
+    """
+    Certificate expiration date.
+    """
+    friendly_name: pulumi.Output[str]
+    """
+    Friendly name of the certificate.
+    """
+    host_names: pulumi.Output[list]
+    """
+    Host names the certificate applies to.
+    """
+    hosting_environment_profile: pulumi.Output[dict]
+    """
+    Specification for the App Service Environment to use for the certificate.
+      * `id` (`str`) - Resource ID of the App Service Environment.
+      * `name` (`str`) - Name of the App Service Environment.
+      * `type` (`str`) - Resource type of the App Service Environment.
+    """
+    issue_date: pulumi.Output[str]
+    """
+    Certificate issue Date.
+    """
+    issuer: pulumi.Output[str]
+    """
+    Certificate issuer.
+    """
+    key_vault_id: pulumi.Output[str]
+    """
+    Key Vault Csm resource Id.
+    """
+    key_vault_secret_name: pulumi.Output[str]
+    """
+    Key Vault secret name.
+    """
+    key_vault_secret_status: pulumi.Output[str]
+    """
+    Status of the Key Vault secret.
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource.
@@ -22,40 +65,49 @@ class Certificate(pulumi.CustomResource):
     """
     Resource Name.
     """
-    properties: pulumi.Output[dict]
+    password: pulumi.Output[str]
     """
-    Certificate resource specific properties
-      * `cer_blob` (`str`) - Raw bytes of .cer file
-      * `expiration_date` (`str`) - Certificate expiration date.
-      * `friendly_name` (`str`) - Friendly name of the certificate.
-      * `host_names` (`list`) - Host names the certificate applies to.
-      * `hosting_environment_profile` (`dict`) - Specification for the App Service Environment to use for the certificate.
-        * `id` (`str`) - Resource ID of the App Service Environment.
-        * `name` (`str`) - Name of the App Service Environment.
-        * `type` (`str`) - Resource type of the App Service Environment.
-
-      * `issue_date` (`str`) - Certificate issue Date.
-      * `issuer` (`str`) - Certificate issuer.
-      * `key_vault_id` (`str`) - Key Vault Csm resource Id.
-      * `key_vault_secret_name` (`str`) - Key Vault secret name.
-      * `key_vault_secret_status` (`str`) - Status of the Key Vault secret.
-      * `password` (`str`) - Certificate password.
-      * `pfx_blob` (`str`) - Pfx blob.
-      * `public_key_hash` (`str`) - Public key hash.
-      * `self_link` (`str`) - Self link.
-      * `server_farm_id` (`str`) - Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
-      * `site_name` (`str`) - App name.
-      * `subject_name` (`str`) - Subject name of the certificate.
-      * `thumbprint` (`str`) - Certificate thumbprint.
-      * `valid` (`bool`) - Is the certificate valid?.
+    Certificate password.
+    """
+    pfx_blob: pulumi.Output[str]
+    """
+    Pfx blob.
+    """
+    public_key_hash: pulumi.Output[str]
+    """
+    Public key hash.
+    """
+    self_link: pulumi.Output[str]
+    """
+    Self link.
+    """
+    server_farm_id: pulumi.Output[str]
+    """
+    Resource ID of the associated App Service plan, formatted as: "/subscriptions/{subscriptionID}/resourceGroups/{groupName}/providers/Microsoft.Web/serverfarms/{appServicePlanName}".
+    """
+    site_name: pulumi.Output[str]
+    """
+    App name.
+    """
+    subject_name: pulumi.Output[str]
+    """
+    Subject name of the certificate.
     """
     tags: pulumi.Output[dict]
     """
     Resource tags.
     """
+    thumbprint: pulumi.Output[str]
+    """
+    Certificate thumbprint.
+    """
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    valid: pulumi.Output[bool]
+    """
+    Is the certificate valid?.
     """
     def __init__(__self__, resource_name, opts=None, host_names=None, key_vault_id=None, key_vault_secret_name=None, kind=None, location=None, name=None, password=None, pfx_blob=None, resource_group_name=None, server_farm_id=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -111,8 +163,20 @@ class Certificate(pulumi.CustomResource):
             __props__['resource_group_name'] = resource_group_name
             __props__['server_farm_id'] = server_farm_id
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['cer_blob'] = None
+            __props__['expiration_date'] = None
+            __props__['friendly_name'] = None
+            __props__['hosting_environment_profile'] = None
+            __props__['issue_date'] = None
+            __props__['issuer'] = None
+            __props__['key_vault_secret_status'] = None
+            __props__['public_key_hash'] = None
+            __props__['self_link'] = None
+            __props__['site_name'] = None
+            __props__['subject_name'] = None
+            __props__['thumbprint'] = None
             __props__['type'] = None
+            __props__['valid'] = None
         super(Certificate, __self__).__init__(
             'azurerm:web/v20181101:Certificate',
             resource_name,

@@ -13,12 +13,30 @@ class GetNamespaceResult:
     """
     Single Namespace item in List or Get Operation
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, created_at=None, enabled=None, location=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, status=None, tags=None, type=None, updated_at=None):
+        if created_at and not isinstance(created_at, str):
+            raise TypeError("Expected argument 'created_at' to be a str")
+        __self__.created_at = created_at
+        """
+        The time the Namespace was created.
+        """
+        if enabled and not isinstance(enabled, bool):
+            raise TypeError("Expected argument 'enabled' to be a bool")
+        __self__.enabled = enabled
+        """
+        Specifies whether this instance is enabled.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource location
+        """
+        if metric_id and not isinstance(metric_id, str):
+            raise TypeError("Expected argument 'metric_id' to be a str")
+        __self__.metric_id = metric_id
+        """
+        Identifier for Azure Insights metrics
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +44,29 @@ class GetNamespaceResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Properties of the Namespace supplied for create or update Namespace operation
+        Provisioning state of the Namespace.
+        """
+        if service_bus_endpoint and not isinstance(service_bus_endpoint, str):
+            raise TypeError("Expected argument 'service_bus_endpoint' to be a str")
+        __self__.service_bus_endpoint = service_bus_endpoint
+        """
+        Endpoint you can use to perform Service Bus operations.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         SKU parameters supplied to the create Namespace operation
+        """
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        __self__.status = status
+        """
+        State of the Namespace.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +80,12 @@ class GetNamespaceResult:
         """
         Resource type
         """
+        if updated_at and not isinstance(updated_at, str):
+            raise TypeError("Expected argument 'updated_at' to be a str")
+        __self__.updated_at = updated_at
+        """
+        The time the Namespace was updated.
+        """
 
 
 class AwaitableGetNamespaceResult(GetNamespaceResult):
@@ -58,12 +94,18 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
         if False:
             yield self
         return GetNamespaceResult(
+            created_at=self.created_at,
+            enabled=self.enabled,
             location=self.location,
+            metric_id=self.metric_id,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            service_bus_endpoint=self.service_bus_endpoint,
             sku=self.sku,
+            status=self.status,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            updated_at=self.updated_at)
 
 
 def get_namespace(name=None, resource_group_name=None, opts=None):
@@ -83,9 +125,15 @@ def get_namespace(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:eventhub/v20140901:getNamespace', __args__, opts=opts).value
 
     return AwaitableGetNamespaceResult(
+        created_at=__ret__.get('createdAt'),
+        enabled=__ret__.get('enabled'),
         location=__ret__.get('location'),
+        metric_id=__ret__.get('metricId'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        service_bus_endpoint=__ret__.get('serviceBusEndpoint'),
         sku=__ret__.get('sku'),
+        status=__ret__.get('status'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        updated_at=__ret__.get('updatedAt'))

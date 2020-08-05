@@ -13,12 +13,30 @@ class GetRegistryResult:
     """
     An object that represents a container registry.
     """
-    def __init__(__self__, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, admin_user_enabled=None, creation_date=None, location=None, login_server=None, name=None, provisioning_state=None, sku=None, storage_account=None, tags=None, type=None):
+        if admin_user_enabled and not isinstance(admin_user_enabled, bool):
+            raise TypeError("Expected argument 'admin_user_enabled' to be a bool")
+        __self__.admin_user_enabled = admin_user_enabled
+        """
+        The value that indicates whether the admin user is enabled.
+        """
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError("Expected argument 'creation_date' to be a str")
+        __self__.creation_date = creation_date
+        """
+        The creation date of the container registry in ISO8601 format.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         The location of the resource. This cannot be changed after the resource is created.
+        """
+        if login_server and not isinstance(login_server, str):
+            raise TypeError("Expected argument 'login_server' to be a str")
+        __self__.login_server = login_server
+        """
+        The URL that can be used to log into the container registry.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,17 +44,23 @@ class GetRegistryResult:
         """
         The name of the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        The properties of the container registry.
+        The provisioning state of the container registry at the time the operation was called.
         """
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         __self__.sku = sku
         """
         The SKU of the container registry.
+        """
+        if storage_account and not isinstance(storage_account, dict):
+            raise TypeError("Expected argument 'storage_account' to be a dict")
+        __self__.storage_account = storage_account
+        """
+        The properties of the storage account for the container registry.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -58,10 +82,14 @@ class AwaitableGetRegistryResult(GetRegistryResult):
         if False:
             yield self
         return GetRegistryResult(
+            admin_user_enabled=self.admin_user_enabled,
+            creation_date=self.creation_date,
             location=self.location,
+            login_server=self.login_server,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
             sku=self.sku,
+            storage_account=self.storage_account,
             tags=self.tags,
             type=self.type)
 
@@ -83,9 +111,13 @@ def get_registry(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:containerregistry/v20170301:getRegistry', __args__, opts=opts).value
 
     return AwaitableGetRegistryResult(
+        admin_user_enabled=__ret__.get('adminUserEnabled'),
+        creation_date=__ret__.get('creationDate'),
         location=__ret__.get('location'),
+        login_server=__ret__.get('loginServer'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
         sku=__ret__.get('sku'),
+        storage_account=__ret__.get('storageAccount'),
         tags=__ret__.get('tags'),
         type=__ret__.get('type'))

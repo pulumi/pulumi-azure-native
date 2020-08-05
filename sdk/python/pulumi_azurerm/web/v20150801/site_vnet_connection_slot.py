@@ -10,6 +10,19 @@ from ... import _utilities, _tables
 
 
 class SiteVNETConnectionSlot(pulumi.CustomResource):
+    cert_blob: pulumi.Output[str]
+    """
+    A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
+                Point-To-Site VPN connection.
+    """
+    cert_thumbprint: pulumi.Output[str]
+    """
+    The client certificate thumbprint
+    """
+    dns_servers: pulumi.Output[str]
+    """
+    Dns servers to be used by this VNET. This should be a comma-separated list of IP addresses.
+    """
     kind: pulumi.Output[str]
     """
     Kind of resource
@@ -22,7 +35,29 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
     """
     Resource Name
     """
-    properties: pulumi.Output[dict]
+    resync_required: pulumi.Output[bool]
+    """
+    Flag to determine if a resync is required
+    """
+    routes: pulumi.Output[list]
+    """
+    The routes that this virtual network connection uses.
+      * `end_address` (`str`) - The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
+      * `id` (`str`) - Resource Id
+      * `kind` (`str`) - Kind of resource
+      * `location` (`str`) - Resource Location
+      * `name` (`str`) - Resource Name
+      * `route_type` (`str`) - The type of route this is:
+                    DEFAULT - By default, every web app has routes to the local address ranges specified by RFC1918
+                    INHERITED - Routes inherited from the real Virtual Network routes
+                    STATIC - Static route set on the web app only
+                    
+                    These values will be used for syncing a Web App's routes with those from a Virtual Network. This operation will clear all DEFAULT and INHERITED routes and replace them
+                    with new INHERITED routes.
+      * `start_address` (`str`) - The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
+      * `tags` (`dict`) - Resource tags
+      * `type` (`str`) - Resource type
+    """
     tags: pulumi.Output[dict]
     """
     Resource tags
@@ -30,6 +65,10 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type
+    """
+    vnet_resource_id: pulumi.Output[str]
+    """
+    The vnet resource id
     """
     def __init__(__self__, resource_name, opts=None, cert_blob=None, cert_thumbprint=None, dns_servers=None, id=None, kind=None, location=None, name=None, resource_group_name=None, resync_required=None, routes=None, slot=None, tags=None, type=None, vnet_resource_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -110,7 +149,6 @@ class SiteVNETConnectionSlot(pulumi.CustomResource):
             __props__['tags'] = tags
             __props__['type'] = type
             __props__['vnet_resource_id'] = vnet_resource_id
-            __props__['properties'] = None
         super(SiteVNETConnectionSlot, __self__).__init__(
             'azurerm:web/v20150801:SiteVNETConnectionSlot',
             resource_name,

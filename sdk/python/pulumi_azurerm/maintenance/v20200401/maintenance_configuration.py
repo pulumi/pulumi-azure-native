@@ -10,20 +10,25 @@ from ... import _utilities, _tables
 
 
 class MaintenanceConfiguration(pulumi.CustomResource):
+    extension_properties: pulumi.Output[dict]
+    """
+    Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
+    """
     location: pulumi.Output[str]
     """
     Gets or sets location of the resource
+    """
+    maintenance_scope: pulumi.Output[str]
+    """
+    Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
     """
     name: pulumi.Output[str]
     """
     Name of the resource
     """
-    properties: pulumi.Output[dict]
+    namespace: pulumi.Output[str]
     """
-    Gets or sets properties of the resource
-      * `extension_properties` (`dict`) - Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
-      * `maintenance_scope` (`str`) - Gets or sets maintenanceScope of the configuration. It represent the impact area of the maintenance
-      * `namespace` (`str`) - Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
+    Gets or sets namespace of the resource e.g. Microsoft.Maintenance or Microsoft.Sql
     """
     tags: pulumi.Output[dict]
     """
@@ -75,7 +80,6 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
             __props__['type'] = None
         super(MaintenanceConfiguration, __self__).__init__(
             'azurerm:maintenance/v20200401:MaintenanceConfiguration',

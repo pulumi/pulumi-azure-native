@@ -13,12 +13,42 @@ class GetContainerServiceResult:
     """
     Container service.
     """
-    def __init__(__self__, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, agent_pool_profiles=None, custom_profile=None, diagnostics_profile=None, linux_profile=None, location=None, master_profile=None, name=None, orchestrator_profile=None, provisioning_state=None, service_principal_profile=None, tags=None, type=None, windows_profile=None):
+        if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
+            raise TypeError("Expected argument 'agent_pool_profiles' to be a list")
+        __self__.agent_pool_profiles = agent_pool_profiles
+        """
+        Properties of the agent pool.
+        """
+        if custom_profile and not isinstance(custom_profile, dict):
+            raise TypeError("Expected argument 'custom_profile' to be a dict")
+        __self__.custom_profile = custom_profile
+        """
+        Properties for custom clusters.
+        """
+        if diagnostics_profile and not isinstance(diagnostics_profile, dict):
+            raise TypeError("Expected argument 'diagnostics_profile' to be a dict")
+        __self__.diagnostics_profile = diagnostics_profile
+        """
+        Properties of the diagnostic agent.
+        """
+        if linux_profile and not isinstance(linux_profile, dict):
+            raise TypeError("Expected argument 'linux_profile' to be a dict")
+        __self__.linux_profile = linux_profile
+        """
+        Properties of Linux VMs.
+        """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         __self__.location = location
         """
         Resource location
+        """
+        if master_profile and not isinstance(master_profile, dict):
+            raise TypeError("Expected argument 'master_profile' to be a dict")
+        __self__.master_profile = master_profile
+        """
+        Properties of master agents.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +56,23 @@ class GetContainerServiceResult:
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if orchestrator_profile and not isinstance(orchestrator_profile, dict):
+            raise TypeError("Expected argument 'orchestrator_profile' to be a dict")
+        __self__.orchestrator_profile = orchestrator_profile
         """
-        Properties of the container service.
+        Properties of the orchestrator.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        the current deployment or provisioning state, which only appears in the response.
+        """
+        if service_principal_profile and not isinstance(service_principal_profile, dict):
+            raise TypeError("Expected argument 'service_principal_profile' to be a dict")
+        __self__.service_principal_profile = service_principal_profile
+        """
+        Properties for cluster service principals.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -44,6 +86,12 @@ class GetContainerServiceResult:
         """
         Resource type
         """
+        if windows_profile and not isinstance(windows_profile, dict):
+            raise TypeError("Expected argument 'windows_profile' to be a dict")
+        __self__.windows_profile = windows_profile
+        """
+        Properties of Windows VMs.
+        """
 
 
 class AwaitableGetContainerServiceResult(GetContainerServiceResult):
@@ -52,11 +100,19 @@ class AwaitableGetContainerServiceResult(GetContainerServiceResult):
         if False:
             yield self
         return GetContainerServiceResult(
+            agent_pool_profiles=self.agent_pool_profiles,
+            custom_profile=self.custom_profile,
+            diagnostics_profile=self.diagnostics_profile,
+            linux_profile=self.linux_profile,
             location=self.location,
+            master_profile=self.master_profile,
             name=self.name,
-            properties=self.properties,
+            orchestrator_profile=self.orchestrator_profile,
+            provisioning_state=self.provisioning_state,
+            service_principal_profile=self.service_principal_profile,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            windows_profile=self.windows_profile)
 
 
 def get_container_service(name=None, resource_group_name=None, opts=None):
@@ -76,8 +132,16 @@ def get_container_service(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:containerservice/v20160930:getContainerService', __args__, opts=opts).value
 
     return AwaitableGetContainerServiceResult(
+        agent_pool_profiles=__ret__.get('agentPoolProfiles'),
+        custom_profile=__ret__.get('customProfile'),
+        diagnostics_profile=__ret__.get('diagnosticsProfile'),
+        linux_profile=__ret__.get('linuxProfile'),
         location=__ret__.get('location'),
+        master_profile=__ret__.get('masterProfile'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        orchestrator_profile=__ret__.get('orchestratorProfile'),
+        provisioning_state=__ret__.get('provisioningState'),
+        service_principal_profile=__ret__.get('servicePrincipalProfile'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        windows_profile=__ret__.get('windowsProfile'))

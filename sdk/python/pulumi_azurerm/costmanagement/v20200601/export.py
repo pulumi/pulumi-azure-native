@@ -10,73 +10,100 @@ from ... import _utilities, _tables
 
 
 class Export(pulumi.CustomResource):
+    definition: pulumi.Output[dict]
+    """
+    Has the definition for the export.
+      * `data_set` (`dict`) - The definition for data in the export.
+        * `configuration` (`dict`) - The export dataset configuration.
+          * `columns` (`list`) - Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
+
+        * `granularity` (`str`) - The granularity of rows in the export. Currently only 'Daily' is supported.
+
+      * `time_period` (`dict`) - Has time period for pulling data for the export.
+        * `from` (`str`) - The start date for export data.
+        * `to` (`str`) - The end date for export data.
+
+      * `timeframe` (`str`) - The time frame for pulling data for the export. If custom, then a specific time period must be provided.
+      * `type` (`str`) - The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
+    """
+    delivery_info: pulumi.Output[dict]
+    """
+    Has delivery information for the export.
+      * `destination` (`dict`) - Has destination for the export being delivered.
+        * `container` (`str`) - The name of the container where exports will be uploaded.
+        * `resource_id` (`str`) - The resource id of the storage account where exports will be delivered.
+        * `root_folder_path` (`str`) - The name of the directory where exports will be uploaded.
+    """
     e_tag: pulumi.Output[str]
     """
     eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+    """
+    format: pulumi.Output[str]
+    """
+    The format of the export being delivered. Currently only 'Csv' is supported.
     """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    next_run_time_estimate: pulumi.Output[str]
     """
-    The properties of the export.
-      * `definition` (`dict`) - Has the definition for the export.
-        * `data_set` (`dict`) - The definition for data in the export.
-          * `configuration` (`dict`) - The export dataset configuration.
-            * `columns` (`list`) - Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
+    If the export has an active schedule, provides an estimate of the next execution time.
+    """
+    run_history: pulumi.Output[dict]
+    """
+    If requested, has the most recent execution history for the export.
+      * `value` (`list`) - A list of export executions.
+        * `error` (`dict`) - The details of any error.
+          * `code` (`str`) - Error code.
+          * `message` (`str`) - Error message indicating why the operation failed.
 
-          * `granularity` (`str`) - The granularity of rows in the export. Currently only 'Daily' is supported.
+        * `execution_type` (`str`) - The type of the export execution.
+        * `file_name` (`str`) - The name of the exported file.
+        * `id` (`str`) - Resource Id.
+        * `name` (`str`) - Resource name.
+        * `processing_end_time` (`str`) - The time when the export execution finished.
+        * `processing_start_time` (`str`) - The time when export was picked up to be executed.
+        * `run_settings` (`dict`) - The export settings that were in effect for this execution.
+          * `definition` (`dict`) - Has the definition for the export.
+            * `data_set` (`dict`) - The definition for data in the export.
+              * `configuration` (`dict`) - The export dataset configuration.
+                * `columns` (`list`) - Array of column names to be included in the export. If not provided then the export will include all available columns. The available columns can vary by customer channel (see examples).
 
-        * `time_period` (`dict`) - Has time period for pulling data for the export.
-          * `from` (`str`) - The start date for export data.
-          * `to` (`str`) - The end date for export data.
+              * `granularity` (`str`) - The granularity of rows in the export. Currently only 'Daily' is supported.
 
-        * `timeframe` (`str`) - The time frame for pulling data for the export. If custom, then a specific time period must be provided.
-        * `type` (`str`) - The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
+            * `time_period` (`dict`) - Has time period for pulling data for the export.
+              * `from` (`str`) - The start date for export data.
+              * `to` (`str`) - The end date for export data.
 
-      * `delivery_info` (`dict`) - Has delivery information for the export.
-        * `destination` (`dict`) - Has destination for the export being delivered.
-          * `container` (`str`) - The name of the container where exports will be uploaded.
-          * `resource_id` (`str`) - The resource id of the storage account where exports will be delivered.
-          * `root_folder_path` (`str`) - The name of the directory where exports will be uploaded.
+            * `timeframe` (`str`) - The time frame for pulling data for the export. If custom, then a specific time period must be provided.
+            * `type` (`str`) - The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
 
-      * `format` (`str`) - The format of the export being delivered. Currently only 'Csv' is supported.
-      * `next_run_time_estimate` (`str`) - If the export has an active schedule, provides an estimate of the next execution time.
-      * `run_history` (`dict`) - If requested, has the most recent execution history for the export.
-        * `value` (`list`) - A list of export executions.
-          * `id` (`str`) - Resource Id.
-          * `name` (`str`) - Resource name.
-          * `properties` (`dict`) - The properties of the export execution.
-            * `error` (`dict`) - The details of any error.
-              * `code` (`str`) - Error code.
-              * `message` (`str`) - Error message indicating why the operation failed.
+          * `delivery_info` (`dict`) - Has delivery information for the export.
+            * `destination` (`dict`) - Has destination for the export being delivered.
+              * `container` (`str`) - The name of the container where exports will be uploaded.
+              * `resource_id` (`str`) - The resource id of the storage account where exports will be delivered.
+              * `root_folder_path` (`str`) - The name of the directory where exports will be uploaded.
 
-            * `execution_type` (`str`) - The type of the export execution.
-            * `file_name` (`str`) - The name of the exported file.
-            * `processing_end_time` (`str`) - The time when the export execution finished.
-            * `processing_start_time` (`str`) - The time when export was picked up to be executed.
-            * `run_settings` (`dict`) - The export settings that were in effect for this execution.
-              * `definition` (`dict`) - Has the definition for the export.
-              * `delivery_info` (`dict`) - Has delivery information for the export.
-              * `format` (`str`) - The format of the export being delivered. Currently only 'Csv' is supported.
-              * `next_run_time_estimate` (`str`) - If the export has an active schedule, provides an estimate of the next execution time.
-              * `run_history` (`dict`) - If requested, has the most recent execution history for the export.
+          * `format` (`str`) - The format of the export being delivered. Currently only 'Csv' is supported.
+          * `next_run_time_estimate` (`str`) - If the export has an active schedule, provides an estimate of the next execution time.
+          * `run_history` (`dict`) - If requested, has the most recent execution history for the export.
 
-            * `status` (`str`) - The last known status of the export execution.
-            * `submitted_by` (`str`) - The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
-            * `submitted_time` (`str`) - The time when export was queued to be executed.
+        * `status` (`str`) - The last known status of the export execution.
+        * `submitted_by` (`str`) - The identifier for the entity that executed the export. For OnDemand executions it is the user email. For scheduled executions it is 'System'.
+        * `submitted_time` (`str`) - The time when export was queued to be executed.
+        * `tags` (`dict`) - Resource tags.
+        * `type` (`str`) - Resource type.
+    """
+    schedule: pulumi.Output[dict]
+    """
+    Has schedule information for the export.
+      * `recurrence` (`str`) - The schedule recurrence.
+      * `recurrence_period` (`dict`) - Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
+        * `from` (`str`) - The start date of recurrence.
+        * `to` (`str`) - The end date of recurrence.
 
-          * `tags` (`dict`) - Resource tags.
-          * `type` (`str`) - Resource type.
-
-      * `schedule` (`dict`) - Has schedule information for the export.
-        * `recurrence` (`str`) - The schedule recurrence.
-        * `recurrence_period` (`dict`) - Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date.
-          * `from` (`str`) - The start date of recurrence.
-          * `to` (`str`) - The end date of recurrence.
-
-        * `status` (`str`) - The status of the export's schedule. If 'Inactive', the export's schedule is paused.
+      * `status` (`str`) - The status of the export's schedule. If 'Inactive', the export's schedule is paused.
     """
     type: pulumi.Output[str]
     """
@@ -159,7 +186,8 @@ class Export(pulumi.CustomResource):
             if scope is None:
                 raise TypeError("Missing required property 'scope'")
             __props__['scope'] = scope
-            __props__['properties'] = None
+            __props__['next_run_time_estimate'] = None
+            __props__['run_history'] = None
             __props__['type'] = None
         super(Export, __self__).__init__(
             'azurerm:costmanagement/v20200601:Export',

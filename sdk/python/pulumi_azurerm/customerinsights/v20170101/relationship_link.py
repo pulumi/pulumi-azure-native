@@ -10,31 +10,60 @@ from ... import _utilities, _tables
 
 
 class RelationshipLink(pulumi.CustomResource):
+    description: pulumi.Output[dict]
+    """
+    Localized descriptions for the Relationship Link.
+    """
+    display_name: pulumi.Output[dict]
+    """
+    Localized display name for the Relationship Link.
+    """
+    interaction_type: pulumi.Output[str]
+    """
+    The InteractionType associated with the Relationship Link.
+    """
+    link_name: pulumi.Output[str]
+    """
+    The name of the Relationship Link.
+    """
+    mappings: pulumi.Output[list]
+    """
+    The mappings between Interaction and Relationship fields.
+      * `interaction_field_name` (`str`) - The field name on the Interaction Type.
+      * `link_type` (`str`) - Link type.
+      * `relationship_field_name` (`str`) - The field name on the Relationship metadata.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    profile_property_references: pulumi.Output[list]
     """
-    The definition of relationship link.
-      * `description` (`dict`) - Localized descriptions for the Relationship Link.
-      * `display_name` (`dict`) - Localized display name for the Relationship Link.
-      * `interaction_type` (`str`) - The InteractionType associated with the Relationship Link.
-      * `link_name` (`str`) - The name of the Relationship Link.
-      * `mappings` (`list`) - The mappings between Interaction and Relationship fields.
-        * `interaction_field_name` (`str`) - The field name on the Interaction Type.
-        * `link_type` (`str`) - Link type.
-        * `relationship_field_name` (`str`) - The field name on the Relationship metadata.
-
-      * `profile_property_references` (`list`) - The property references for the Profile of the Relationship.
-        * `interaction_property_name` (`str`) - The interaction property that maps to the profile property.
-        * `profile_property_name` (`str`) - The profile property that maps to the interaction property.
-
-      * `provisioning_state` (`str`) - Provisioning state.
-      * `related_profile_property_references` (`list`) - The property references for the Related Profile of the Relationship.
-      * `relationship_guid_id` (`str`) - The relationship guid id.
-      * `relationship_name` (`str`) - The Relationship associated with the Link.
-      * `tenant_id` (`str`) - The hub name.
+    The property references for the Profile of the Relationship.
+      * `interaction_property_name` (`str`) - The interaction property that maps to the profile property.
+      * `profile_property_name` (`str`) - The profile property that maps to the interaction property.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    Provisioning state.
+    """
+    related_profile_property_references: pulumi.Output[list]
+    """
+    The property references for the Related Profile of the Relationship.
+      * `interaction_property_name` (`str`) - The interaction property that maps to the profile property.
+      * `profile_property_name` (`str`) - The profile property that maps to the interaction property.
+    """
+    relationship_guid_id: pulumi.Output[str]
+    """
+    The relationship guid id.
+    """
+    relationship_name: pulumi.Output[str]
+    """
+    The Relationship associated with the Link.
+    """
+    tenant_id: pulumi.Output[str]
+    """
+    The hub name.
     """
     type: pulumi.Output[str]
     """
@@ -109,7 +138,10 @@ class RelationshipLink(pulumi.CustomResource):
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
-            __props__['properties'] = None
+            __props__['link_name'] = None
+            __props__['provisioning_state'] = None
+            __props__['relationship_guid_id'] = None
+            __props__['tenant_id'] = None
             __props__['type'] = None
         super(RelationshipLink, __self__).__init__(
             'azurerm:customerinsights/v20170101:RelationshipLink',

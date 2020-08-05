@@ -10,6 +10,48 @@ from ... import _utilities, _tables
 
 
 class LiveEvent(pulumi.CustomResource):
+    created: pulumi.Output[str]
+    """
+    The exact time the Live Event was created.
+    """
+    cross_site_access_policies: pulumi.Output[dict]
+    """
+    The Live Event access policies.
+      * `client_access_policy` (`str`) - The content of clientaccesspolicy.xml used by Silverlight.
+      * `cross_domain_policy` (`str`) - The content of crossdomain.xml used by Silverlight.
+    """
+    description: pulumi.Output[str]
+    """
+    The Live Event description.
+    """
+    encoding: pulumi.Output[dict]
+    """
+    The Live Event encoding.
+      * `encoding_type` (`str`) - The encoding type for Live Event. This value is specified at creation time and cannot be updated. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bit rates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. The encodingType of Basic is obsolete – if specified, the service will treat this as a Standard Live Event.
+      * `preset_name` (`str`) - The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
+    """
+    input: pulumi.Output[dict]
+    """
+    The Live Event input.
+      * `access_control` (`dict`) - The access control for LiveEvent Input.
+        * `ip` (`dict`) - The IP access control properties.
+          * `allow` (`list`) - The IP allow list.
+            * `address` (`str`) - The IP address.
+            * `name` (`str`) - The friendly name for the IP address range.
+            * `subnet_prefix_length` (`float`) - The subnet mask prefix length (see CIDR notation).
+
+      * `access_token` (`str`) - A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
+      * `endpoints` (`list`) - The input endpoints for the Live Event.
+        * `protocol` (`str`) - The endpoint protocol.
+        * `url` (`str`) - The endpoint URL.
+
+      * `key_frame_interval_duration` (`str`) - ISO 8601 timespan duration of the key frame interval duration.
+      * `streaming_protocol` (`str`) - The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+    """
+    last_modified: pulumi.Output[str]
+    """
+    The exact time the Live Event was last modified.
+    """
     location: pulumi.Output[str]
     """
     The geo-location where the resource lives
@@ -18,49 +60,35 @@ class LiveEvent(pulumi.CustomResource):
     """
     The name of the resource
     """
-    properties: pulumi.Output[dict]
+    preview: pulumi.Output[dict]
     """
-    The Live Event properties.
-      * `created` (`str`) - The exact time the Live Event was created.
-      * `cross_site_access_policies` (`dict`) - The Live Event access policies.
-        * `client_access_policy` (`str`) - The content of clientaccesspolicy.xml used by Silverlight.
-        * `cross_domain_policy` (`str`) - The content of crossdomain.xml used by Silverlight.
+    The Live Event preview.
+      * `access_control` (`dict`) - The access control for LiveEvent preview.
+        * `ip` (`dict`) - The IP access control properties.
+          * `allow` (`list`) - The IP allow list.
+            * `address` (`str`) - The IP address.
+            * `name` (`str`) - The friendly name for the IP address range.
+            * `subnet_prefix_length` (`float`) - The subnet mask prefix length (see CIDR notation).
 
-      * `description` (`str`) - The Live Event description.
-      * `encoding` (`dict`) - The Live Event encoding.
-        * `encoding_type` (`str`) - The encoding type for Live Event. This value is specified at creation time and cannot be updated. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bit rates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. The encodingType of Basic is obsolete – if specified, the service will treat this as a Standard Live Event.
-        * `preset_name` (`str`) - The optional encoding preset name, used when encodingType is not None. This value is specified at creation time and cannot be updated. If the encodingType is set to Standard, then the default preset name is ‘Default720p’. Else if the encodingType is set to Premium1080p, the default preset is ‘Default1080p’.
+      * `alternative_media_id` (`str`) - An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
+      * `endpoints` (`list`) - The endpoints for preview.
+        * `protocol` (`str`) - The endpoint protocol.
+        * `url` (`str`) - The endpoint URL.
 
-      * `input` (`dict`) - The Live Event input.
-        * `access_control` (`dict`) - The access control for LiveEvent Input.
-          * `ip` (`dict`) - The IP access control properties.
-            * `allow` (`list`) - The IP allow list.
-              * `address` (`str`) - The IP address.
-              * `name` (`str`) - The friendly name for the IP address range.
-              * `subnet_prefix_length` (`float`) - The subnet mask prefix length (see CIDR notation).
-
-        * `access_token` (`str`) - A UUID in string form to uniquely identify the stream. This can be specified at creation time but cannot be updated.  If omitted, the service will generate a unique value.
-        * `endpoints` (`list`) - The input endpoints for the Live Event.
-          * `protocol` (`str`) - The endpoint protocol.
-          * `url` (`str`) - The endpoint URL.
-
-        * `key_frame_interval_duration` (`str`) - ISO 8601 timespan duration of the key frame interval duration.
-        * `streaming_protocol` (`str`) - The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
-
-      * `last_modified` (`str`) - The exact time the Live Event was last modified.
-      * `preview` (`dict`) - The Live Event preview.
-        * `access_control` (`dict`) - The access control for LiveEvent preview.
-          * `ip` (`dict`) - The IP access control properties.
-
-        * `alternative_media_id` (`str`) - An Alternative Media Identifier associated with the StreamingLocator created for the preview.  This value is specified at creation time and cannot be updated.  The identifier can be used in the CustomLicenseAcquisitionUrlTemplate or the CustomKeyAcquisitionUrlTemplate of the StreamingPolicy specified in the StreamingPolicyName field.
-        * `endpoints` (`list`) - The endpoints for preview.
-        * `preview_locator` (`str`) - The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
-        * `streaming_policy_name` (`str`) - The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
-
-      * `provisioning_state` (`str`) - The provisioning state of the Live Event.
-      * `resource_state` (`str`) - The resource state of the Live Event.
-      * `stream_options` (`list`) - The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
-      * `use_static_hostname` (`bool`) - Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
+      * `preview_locator` (`str`) - The identifier of the preview locator in Guid format.  Specifying this at creation time allows the caller to know the preview locator url before the event is created.  If omitted, the service will generate a random identifier.  This value cannot be updated once the live event is created.
+      * `streaming_policy_name` (`str`) - The name of streaming policy used for the LiveEvent preview.  This value is specified at creation time and cannot be updated.
+    """
+    provisioning_state: pulumi.Output[str]
+    """
+    The provisioning state of the Live Event.
+    """
+    resource_state: pulumi.Output[str]
+    """
+    The resource state of the Live Event.
+    """
+    stream_options: pulumi.Output[list]
+    """
+    The options to use for the LiveEvent.  This value is specified at creation time and cannot be updated. The valid values for the array entry values are 'Default' and 'LowLatency'.
     """
     tags: pulumi.Output[dict]
     """
@@ -69,6 +97,10 @@ class LiveEvent(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+    """
+    use_static_hostname: pulumi.Output[bool]
+    """
+    Specifies whether to use a vanity url with the Live Event.  This value is specified at creation time and cannot be updated.
     """
     def __init__(__self__, resource_name, opts=None, account_name=None, auto_start=None, cross_site_access_policies=None, description=None, encoding=None, input=None, location=None, name=None, preview=None, resource_group_name=None, stream_options=None, tags=None, use_static_hostname=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -167,7 +199,10 @@ class LiveEvent(pulumi.CustomResource):
             __props__['stream_options'] = stream_options
             __props__['tags'] = tags
             __props__['use_static_hostname'] = use_static_hostname
-            __props__['properties'] = None
+            __props__['created'] = None
+            __props__['last_modified'] = None
+            __props__['provisioning_state'] = None
+            __props__['resource_state'] = None
             __props__['type'] = None
         super(LiveEvent, __self__).__init__(
             'azurerm:media/v20200501:LiveEvent',

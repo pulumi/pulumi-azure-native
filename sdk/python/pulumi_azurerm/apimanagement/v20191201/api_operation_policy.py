@@ -10,19 +10,21 @@ from ... import _utilities, _tables
 
 
 class ApiOperationPolicy(pulumi.CustomResource):
+    format: pulumi.Output[str]
+    """
+    Format of the policyContent.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
-    """
-    Properties of the Policy.
-      * `format` (`str`) - Format of the policyContent.
-      * `value` (`str`) - Contents of the Policy as defined by the format.
-    """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource.
+    """
+    value: pulumi.Output[str]
+    """
+    Contents of the Policy as defined by the format.
     """
     def __init__(__self__, resource_name, opts=None, api_id=None, format=None, name=None, operation_id=None, resource_group_name=None, service_name=None, value=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -74,7 +76,6 @@ class ApiOperationPolicy(pulumi.CustomResource):
             if value is None:
                 raise TypeError("Missing required property 'value'")
             __props__['value'] = value
-            __props__['properties'] = None
             __props__['type'] = None
         super(ApiOperationPolicy, __self__).__init__(
             'azurerm:apimanagement/v20191201:ApiOperationPolicy',

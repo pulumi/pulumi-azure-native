@@ -10,9 +10,28 @@ from ... import _utilities, _tables
 
 
 class ExpressRouteGateway(pulumi.CustomResource):
+    auto_scale_configuration: pulumi.Output[dict]
+    """
+    Configuration for auto scaling.
+      * `bounds` (`dict`) - Minimum and maximum number of scale units to deploy.
+        * `max` (`float`) - Maximum number of scale units deployed for ExpressRoute gateway.
+        * `min` (`float`) - Minimum number of scale units deployed for ExpressRoute gateway.
+    """
     etag: pulumi.Output[str]
     """
     A unique read-only string that changes whenever the resource is updated.
+    """
+    express_route_connections: pulumi.Output[list]
+    """
+    List of ExpressRoute connections to the ExpressRoute gateway.
+      * `authorization_key` (`str`) - Authorization key to establish the connection.
+      * `express_route_circuit_peering` (`dict`) - The ExpressRoute circuit peering.
+        * `id` (`str`) - The ID of the ExpressRoute circuit peering.
+
+      * `id` (`str`) - Resource ID.
+      * `name` (`str`) - The name of the resource.
+      * `provisioning_state` (`str`) - The provisioning state of the resource.
+      * `routing_weight` (`float`) - The routing weight associated to the connection.
     """
     location: pulumi.Output[str]
     """
@@ -22,28 +41,9 @@ class ExpressRouteGateway(pulumi.CustomResource):
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Properties of the express route gateway.
-      * `auto_scale_configuration` (`dict`) - Configuration for auto scaling.
-        * `bounds` (`dict`) - Minimum and maximum number of scale units to deploy.
-          * `max` (`float`) - Maximum number of scale units deployed for ExpressRoute gateway.
-          * `min` (`float`) - Minimum number of scale units deployed for ExpressRoute gateway.
-
-      * `express_route_connections` (`list`) - List of ExpressRoute connections to the ExpressRoute gateway.
-        * `id` (`str`) - Resource ID.
-        * `name` (`str`) - The name of the resource.
-        * `properties` (`dict`) - Properties of the express route connection.
-          * `authorization_key` (`str`) - Authorization key to establish the connection.
-          * `express_route_circuit_peering` (`dict`) - The ExpressRoute circuit peering.
-            * `id` (`str`) - The ID of the ExpressRoute circuit peering.
-
-          * `provisioning_state` (`str`) - The provisioning state of the resource.
-          * `routing_weight` (`float`) - The routing weight associated to the connection.
-
-      * `provisioning_state` (`str`) - The provisioning state of the resource.
-      * `virtual_hub` (`dict`) - The Virtual Hub where the ExpressRoute gateway is or will be deployed.
-        * `id` (`str`) - The resource URI for the Virtual Hub where the ExpressRoute gateway is or will be deployed. The Virtual Hub resource and the ExpressRoute gateway resource reside in the same subscription.
+    The provisioning state of the resource.
     """
     tags: pulumi.Output[dict]
     """
@@ -52,6 +52,11 @@ class ExpressRouteGateway(pulumi.CustomResource):
     type: pulumi.Output[str]
     """
     Resource type.
+    """
+    virtual_hub: pulumi.Output[dict]
+    """
+    The Virtual Hub where the ExpressRoute gateway is or will be deployed.
+      * `id` (`str`) - The resource URI for the Virtual Hub where the ExpressRoute gateway is or will be deployed. The Virtual Hub resource and the ExpressRoute gateway resource reside in the same subscription.
     """
     def __init__(__self__, resource_name, opts=None, auto_scale_configuration=None, id=None, location=None, name=None, provisioning_state=None, resource_group_name=None, tags=None, virtual_hub=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -110,7 +115,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_hub'")
             __props__['virtual_hub'] = virtual_hub
             __props__['etag'] = None
-            __props__['properties'] = None
+            __props__['express_route_connections'] = None
             __props__['type'] = None
         super(ExpressRouteGateway, __self__).__init__(
             'azurerm:network/v20190401:ExpressRouteGateway',

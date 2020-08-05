@@ -13,12 +13,72 @@ class GetManagedClusterResult:
     """
     Managed cluster.
     """
-    def __init__(__self__, identity=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_authorized_ip_ranges=None, dns_prefix=None, enable_pod_security_policy=None, enable_rbac=None, fqdn=None, identity=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, name=None, network_profile=None, node_resource_group=None, provisioning_state=None, service_principal_profile=None, tags=None, type=None, windows_profile=None):
+        if aad_profile and not isinstance(aad_profile, dict):
+            raise TypeError("Expected argument 'aad_profile' to be a dict")
+        __self__.aad_profile = aad_profile
+        """
+        Profile of Azure Active Directory configuration.
+        """
+        if addon_profiles and not isinstance(addon_profiles, dict):
+            raise TypeError("Expected argument 'addon_profiles' to be a dict")
+        __self__.addon_profiles = addon_profiles
+        """
+        Profile of managed cluster add-on.
+        """
+        if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
+            raise TypeError("Expected argument 'agent_pool_profiles' to be a list")
+        __self__.agent_pool_profiles = agent_pool_profiles
+        """
+        Properties of the agent pool.
+        """
+        if api_server_authorized_ip_ranges and not isinstance(api_server_authorized_ip_ranges, list):
+            raise TypeError("Expected argument 'api_server_authorized_ip_ranges' to be a list")
+        __self__.api_server_authorized_ip_ranges = api_server_authorized_ip_ranges
+        """
+        (PREVIEW) Authorized IP Ranges to kubernetes API server.
+        """
+        if dns_prefix and not isinstance(dns_prefix, str):
+            raise TypeError("Expected argument 'dns_prefix' to be a str")
+        __self__.dns_prefix = dns_prefix
+        """
+        DNS prefix specified when creating the managed cluster.
+        """
+        if enable_pod_security_policy and not isinstance(enable_pod_security_policy, bool):
+            raise TypeError("Expected argument 'enable_pod_security_policy' to be a bool")
+        __self__.enable_pod_security_policy = enable_pod_security_policy
+        """
+        (PREVIEW) Whether to enable Kubernetes Pod security policy.
+        """
+        if enable_rbac and not isinstance(enable_rbac, bool):
+            raise TypeError("Expected argument 'enable_rbac' to be a bool")
+        __self__.enable_rbac = enable_rbac
+        """
+        Whether to enable Kubernetes Role-Based Access Control.
+        """
+        if fqdn and not isinstance(fqdn, str):
+            raise TypeError("Expected argument 'fqdn' to be a str")
+        __self__.fqdn = fqdn
+        """
+        FQDN for the master pool.
+        """
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         __self__.identity = identity
         """
         The identity of the managed cluster, if configured.
+        """
+        if kubernetes_version and not isinstance(kubernetes_version, str):
+            raise TypeError("Expected argument 'kubernetes_version' to be a str")
+        __self__.kubernetes_version = kubernetes_version
+        """
+        Version of Kubernetes specified when creating the managed cluster.
+        """
+        if linux_profile and not isinstance(linux_profile, dict):
+            raise TypeError("Expected argument 'linux_profile' to be a dict")
+        __self__.linux_profile = linux_profile
+        """
+        Profile for Linux VMs in the container service cluster.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -26,17 +86,41 @@ class GetManagedClusterResult:
         """
         Resource location
         """
+        if max_agent_pools and not isinstance(max_agent_pools, float):
+            raise TypeError("Expected argument 'max_agent_pools' to be a float")
+        __self__.max_agent_pools = max_agent_pools
+        """
+        The max number of agent pools for the managed cluster.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Resource name
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if network_profile and not isinstance(network_profile, dict):
+            raise TypeError("Expected argument 'network_profile' to be a dict")
+        __self__.network_profile = network_profile
         """
-        Properties of a managed cluster.
+        Profile of network configuration.
+        """
+        if node_resource_group and not isinstance(node_resource_group, str):
+            raise TypeError("Expected argument 'node_resource_group' to be a str")
+        __self__.node_resource_group = node_resource_group
+        """
+        Name of the resource group containing agent pool nodes.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The current deployment or provisioning state, which only appears in the response.
+        """
+        if service_principal_profile and not isinstance(service_principal_profile, dict):
+            raise TypeError("Expected argument 'service_principal_profile' to be a dict")
+        __self__.service_principal_profile = service_principal_profile
+        """
+        Information about a service principal identity for the cluster to use for manipulating Azure APIs.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +134,12 @@ class GetManagedClusterResult:
         """
         Resource type
         """
+        if windows_profile and not isinstance(windows_profile, dict):
+            raise TypeError("Expected argument 'windows_profile' to be a dict")
+        __self__.windows_profile = windows_profile
+        """
+        Profile for Windows VMs in the container service cluster.
+        """
 
 
 class AwaitableGetManagedClusterResult(GetManagedClusterResult):
@@ -58,12 +148,27 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
         if False:
             yield self
         return GetManagedClusterResult(
+            aad_profile=self.aad_profile,
+            addon_profiles=self.addon_profiles,
+            agent_pool_profiles=self.agent_pool_profiles,
+            api_server_authorized_ip_ranges=self.api_server_authorized_ip_ranges,
+            dns_prefix=self.dns_prefix,
+            enable_pod_security_policy=self.enable_pod_security_policy,
+            enable_rbac=self.enable_rbac,
+            fqdn=self.fqdn,
             identity=self.identity,
+            kubernetes_version=self.kubernetes_version,
+            linux_profile=self.linux_profile,
             location=self.location,
+            max_agent_pools=self.max_agent_pools,
             name=self.name,
-            properties=self.properties,
+            network_profile=self.network_profile,
+            node_resource_group=self.node_resource_group,
+            provisioning_state=self.provisioning_state,
+            service_principal_profile=self.service_principal_profile,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            windows_profile=self.windows_profile)
 
 
 def get_managed_cluster(name=None, resource_group_name=None, opts=None):
@@ -83,9 +188,24 @@ def get_managed_cluster(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:containerservice/v20190601:getManagedCluster', __args__, opts=opts).value
 
     return AwaitableGetManagedClusterResult(
+        aad_profile=__ret__.get('aadProfile'),
+        addon_profiles=__ret__.get('addonProfiles'),
+        agent_pool_profiles=__ret__.get('agentPoolProfiles'),
+        api_server_authorized_ip_ranges=__ret__.get('apiServerAuthorizedIPRanges'),
+        dns_prefix=__ret__.get('dnsPrefix'),
+        enable_pod_security_policy=__ret__.get('enablePodSecurityPolicy'),
+        enable_rbac=__ret__.get('enableRBAC'),
+        fqdn=__ret__.get('fqdn'),
         identity=__ret__.get('identity'),
+        kubernetes_version=__ret__.get('kubernetesVersion'),
+        linux_profile=__ret__.get('linuxProfile'),
         location=__ret__.get('location'),
+        max_agent_pools=__ret__.get('maxAgentPools'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        network_profile=__ret__.get('networkProfile'),
+        node_resource_group=__ret__.get('nodeResourceGroup'),
+        provisioning_state=__ret__.get('provisioningState'),
+        service_principal_profile=__ret__.get('servicePrincipalProfile'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        windows_profile=__ret__.get('windowsProfile'))

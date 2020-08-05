@@ -10,6 +10,17 @@ from ... import _utilities, _tables
 
 
 class StorageAccountCredential(pulumi.CustomResource):
+    access_key: pulumi.Output[dict]
+    """
+    The details of the storage account password.
+      * `encryption_algorithm` (`str`) - The algorithm used to encrypt "Value".
+      * `encryption_cert_thumbprint` (`str`) - Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
+      * `value` (`str`) - The value of the secret.
+    """
+    end_point: pulumi.Output[str]
+    """
+    The storage endpoint
+    """
     kind: pulumi.Output[str]
     """
     The Kind of the object. Currently only Series8000 is supported
@@ -18,21 +29,17 @@ class StorageAccountCredential(pulumi.CustomResource):
     """
     The name of the object.
     """
-    properties: pulumi.Output[dict]
+    ssl_status: pulumi.Output[str]
     """
-    The storage account credential properties.
-      * `access_key` (`dict`) - The details of the storage account password.
-        * `encryption_algorithm` (`str`) - The algorithm used to encrypt "Value".
-        * `encryption_cert_thumbprint` (`str`) - Thumbprint certificate that was used to encrypt "Value". If the value in unencrypted, it will be null.
-        * `value` (`str`) - The value of the secret.
-
-      * `end_point` (`str`) - The storage endpoint
-      * `ssl_status` (`str`) - Signifies whether SSL needs to be enabled or not.
-      * `volumes_count` (`float`) - The count of volumes using this storage account credential.
+    Signifies whether SSL needs to be enabled or not.
     """
     type: pulumi.Output[str]
     """
     The hierarchical type of the object.
+    """
+    volumes_count: pulumi.Output[float]
+    """
+    The count of volumes using this storage account credential.
     """
     def __init__(__self__, resource_name, opts=None, access_key=None, end_point=None, kind=None, manager_name=None, name=None, resource_group_name=None, ssl_status=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -88,8 +95,8 @@ class StorageAccountCredential(pulumi.CustomResource):
             if ssl_status is None:
                 raise TypeError("Missing required property 'ssl_status'")
             __props__['ssl_status'] = ssl_status
-            __props__['properties'] = None
             __props__['type'] = None
+            __props__['volumes_count'] = None
         super(StorageAccountCredential, __self__).__init__(
             'azurerm:storsimple/v20170601:StorageAccountCredential',
             resource_name,

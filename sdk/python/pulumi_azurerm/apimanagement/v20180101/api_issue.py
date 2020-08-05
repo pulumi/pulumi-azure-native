@@ -10,23 +10,37 @@ from ... import _utilities, _tables
 
 
 class ApiIssue(pulumi.CustomResource):
+    api_id: pulumi.Output[str]
+    """
+    A resource identifier for the API the issue was created for.
+    """
+    created_date: pulumi.Output[str]
+    """
+    Date and time when the issue was created.
+    """
+    description: pulumi.Output[str]
+    """
+    Text describing the issue.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    state: pulumi.Output[str]
     """
-    Properties of the Issue.
-      * `api_id` (`str`) - A resource identifier for the API the issue was created for.
-      * `created_date` (`str`) - Date and time when the issue was created.
-      * `description` (`str`) - Text describing the issue.
-      * `state` (`str`) - Status of the issue.
-      * `title` (`str`) - The issue title.
-      * `user_id` (`str`) - A resource identifier for the user created the issue.
+    Status of the issue.
+    """
+    title: pulumi.Output[str]
+    """
+    The issue title.
     """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource.
+    """
+    user_id: pulumi.Output[str]
+    """
+    A resource identifier for the user created the issue.
     """
     def __init__(__self__, resource_name, opts=None, api_id=None, created_date=None, description=None, name=None, resource_group_name=None, service_name=None, state=None, title=None, user_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -84,7 +98,6 @@ class ApiIssue(pulumi.CustomResource):
             if user_id is None:
                 raise TypeError("Missing required property 'user_id'")
             __props__['user_id'] = user_id
-            __props__['properties'] = None
             __props__['type'] = None
         super(ApiIssue, __self__).__init__(
             'azurerm:apimanagement/v20180101:ApiIssue',

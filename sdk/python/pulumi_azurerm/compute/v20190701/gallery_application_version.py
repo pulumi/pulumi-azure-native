@@ -18,34 +18,38 @@ class GalleryApplicationVersion(pulumi.CustomResource):
     """
     Resource name
     """
-    properties: pulumi.Output[dict]
+    provisioning_state: pulumi.Output[str]
     """
-    Describes the properties of a gallery Image Version.
-      * `provisioning_state` (`str`) - The provisioning state, which only appears in the response.
-      * `publishing_profile` (`dict`) - The publishing profile of a gallery Image Version.
-        * `content_type` (`str`) - Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
-        * `enable_health_check` (`bool`) - Optional. Whether or not this application reports health.
-        * `end_of_life_date` (`str`) - The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
-        * `exclude_from_latest` (`bool`) - If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
-        * `published_date` (`str`) - The timestamp for when the gallery Image Version is published.
-        * `replica_count` (`float`) - The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
-        * `source` (`dict`) - The source image from which the Image Version is going to be created.
-          * `file_name` (`str`) - Required. The fileName of the artifact.
-          * `media_link` (`str`) - Required. The mediaLink of the artifact, must be a readable storage blob.
+    The provisioning state, which only appears in the response.
+    """
+    publishing_profile: pulumi.Output[dict]
+    """
+    The publishing profile of a gallery Image Version.
+      * `content_type` (`str`) - Optional. May be used to help process this file. The type of file contained in the source, e.g. zip, json, etc.
+      * `enable_health_check` (`bool`) - Optional. Whether or not this application reports health.
+      * `end_of_life_date` (`str`) - The end of life date of the gallery Image Version. This property can be used for decommissioning purposes. This property is updatable.
+      * `exclude_from_latest` (`bool`) - If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.
+      * `published_date` (`str`) - The timestamp for when the gallery Image Version is published.
+      * `replica_count` (`float`) - The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.
+      * `source` (`dict`) - The source image from which the Image Version is going to be created.
+        * `file_name` (`str`) - Required. The fileName of the artifact.
+        * `media_link` (`str`) - Required. The mediaLink of the artifact, must be a readable storage blob.
 
+      * `storage_account_type` (`str`) - Specifies the storage account type to be used to store the image. This property is not updatable.
+      * `target_regions` (`list`) - The target regions where the Image Version is going to be replicated to. This property is updatable.
+        * `name` (`str`) - The name of the region.
+        * `regional_replica_count` (`float`) - The number of replicas of the Image Version to be created per region. This property is updatable.
         * `storage_account_type` (`str`) - Specifies the storage account type to be used to store the image. This property is not updatable.
-        * `target_regions` (`list`) - The target regions where the Image Version is going to be replicated to. This property is updatable.
-          * `name` (`str`) - The name of the region.
-          * `regional_replica_count` (`float`) - The number of replicas of the Image Version to be created per region. This property is updatable.
-          * `storage_account_type` (`str`) - Specifies the storage account type to be used to store the image. This property is not updatable.
-
-      * `replication_status` (`dict`) - This is the replication status of the gallery Image Version.
-        * `aggregated_state` (`str`) - This is the aggregated replication status based on all the regional replication status flags.
-        * `summary` (`list`) - This is a summary of replication status for each region.
-          * `details` (`str`) - The details of the replication status.
-          * `progress` (`float`) - It indicates progress of the replication job.
-          * `region` (`str`) - The region to which the gallery Image Version is being replicated to.
-          * `state` (`str`) - This is the regional replication state.
+    """
+    replication_status: pulumi.Output[dict]
+    """
+    This is the replication status of the gallery Image Version.
+      * `aggregated_state` (`str`) - This is the aggregated replication status based on all the regional replication status flags.
+      * `summary` (`list`) - This is a summary of replication status for each region.
+        * `details` (`str`) - The details of the replication status.
+        * `progress` (`float`) - It indicates progress of the replication job.
+        * `region` (`str`) - The region to which the gallery Image Version is being replicated to.
+        * `state` (`str`) - This is the regional replication state.
     """
     tags: pulumi.Output[dict]
     """
@@ -122,7 +126,8 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
             __props__['tags'] = tags
-            __props__['properties'] = None
+            __props__['provisioning_state'] = None
+            __props__['replication_status'] = None
             __props__['type'] = None
         super(GalleryApplicationVersion, __self__).__init__(
             'azurerm:compute/v20190701:GalleryApplicationVersion',

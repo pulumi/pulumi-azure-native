@@ -13,7 +13,13 @@ class GetServerKeyResult:
     """
     A MySQL Server key.
     """
-    def __init__(__self__, kind=None, name=None, properties=None, type=None):
+    def __init__(__self__, creation_date=None, kind=None, name=None, server_key_type=None, type=None, uri=None):
+        if creation_date and not isinstance(creation_date, str):
+            raise TypeError("Expected argument 'creation_date' to be a str")
+        __self__.creation_date = creation_date
+        """
+        The key creation date.
+        """
         if kind and not isinstance(kind, str):
             raise TypeError("Expected argument 'kind' to be a str")
         __self__.kind = kind
@@ -26,17 +32,23 @@ class GetServerKeyResult:
         """
         The name of the resource
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if server_key_type and not isinstance(server_key_type, str):
+            raise TypeError("Expected argument 'server_key_type' to be a str")
+        __self__.server_key_type = server_key_type
         """
-        Properties of the ServerKey Resource.
+        The key type like 'AzureKeyVault'.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         __self__.type = type
         """
         The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        """
+        if uri and not isinstance(uri, str):
+            raise TypeError("Expected argument 'uri' to be a str")
+        __self__.uri = uri
+        """
+        The URI of the key.
         """
 
 
@@ -46,10 +58,12 @@ class AwaitableGetServerKeyResult(GetServerKeyResult):
         if False:
             yield self
         return GetServerKeyResult(
+            creation_date=self.creation_date,
             kind=self.kind,
             name=self.name,
-            properties=self.properties,
-            type=self.type)
+            server_key_type=self.server_key_type,
+            type=self.type,
+            uri=self.uri)
 
 
 def get_server_key(name=None, resource_group_name=None, server_name=None, opts=None):
@@ -71,7 +85,9 @@ def get_server_key(name=None, resource_group_name=None, server_name=None, opts=N
     __ret__ = pulumi.runtime.invoke('azurerm:dbformysql/v20200101:getServerKey', __args__, opts=opts).value
 
     return AwaitableGetServerKeyResult(
+        creation_date=__ret__.get('creationDate'),
         kind=__ret__.get('kind'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
-        type=__ret__.get('type'))
+        server_key_type=__ret__.get('serverKeyType'),
+        type=__ret__.get('type'),
+        uri=__ret__.get('uri'))

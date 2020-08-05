@@ -13,12 +13,113 @@ class GetClusterResult:
     """
     The cluster resource
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None, type=None):
+    def __init__(__self__, add_on_features=None, application_type_versions_cleanup_policy=None, available_cluster_versions=None, azure_active_directory=None, certificate=None, certificate_common_names=None, client_certificate_common_names=None, client_certificate_thumbprints=None, cluster_code_version=None, cluster_endpoint=None, cluster_id=None, cluster_state=None, diagnostics_storage_account_config=None, etag=None, event_store_service_enabled=None, fabric_settings=None, location=None, management_endpoint=None, name=None, node_types=None, provisioning_state=None, reliability_level=None, reverse_proxy_certificate=None, reverse_proxy_certificate_common_names=None, tags=None, type=None, upgrade_description=None, upgrade_mode=None, vm_image=None):
+        if add_on_features and not isinstance(add_on_features, list):
+            raise TypeError("Expected argument 'add_on_features' to be a list")
+        __self__.add_on_features = add_on_features
+        """
+        The list of add-on features to enable in the cluster.
+        """
+        if application_type_versions_cleanup_policy and not isinstance(application_type_versions_cleanup_policy, dict):
+            raise TypeError("Expected argument 'application_type_versions_cleanup_policy' to be a dict")
+        __self__.application_type_versions_cleanup_policy = application_type_versions_cleanup_policy
+        """
+        The policy used to clean up unused versions.
+        """
+        if available_cluster_versions and not isinstance(available_cluster_versions, list):
+            raise TypeError("Expected argument 'available_cluster_versions' to be a list")
+        __self__.available_cluster_versions = available_cluster_versions
+        """
+        The Service Fabric runtime versions available for this cluster.
+        """
+        if azure_active_directory and not isinstance(azure_active_directory, dict):
+            raise TypeError("Expected argument 'azure_active_directory' to be a dict")
+        __self__.azure_active_directory = azure_active_directory
+        """
+        The AAD authentication settings of the cluster.
+        """
+        if certificate and not isinstance(certificate, dict):
+            raise TypeError("Expected argument 'certificate' to be a dict")
+        __self__.certificate = certificate
+        """
+        The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client.
+        """
+        if certificate_common_names and not isinstance(certificate_common_names, dict):
+            raise TypeError("Expected argument 'certificate_common_names' to be a dict")
+        __self__.certificate_common_names = certificate_common_names
+        """
+        Describes a list of server certificates referenced by common name that are used to secure the cluster.
+        """
+        if client_certificate_common_names and not isinstance(client_certificate_common_names, list):
+            raise TypeError("Expected argument 'client_certificate_common_names' to be a list")
+        __self__.client_certificate_common_names = client_certificate_common_names
+        """
+        The list of client certificates referenced by common name that are allowed to manage the cluster.
+        """
+        if client_certificate_thumbprints and not isinstance(client_certificate_thumbprints, list):
+            raise TypeError("Expected argument 'client_certificate_thumbprints' to be a list")
+        __self__.client_certificate_thumbprints = client_certificate_thumbprints
+        """
+        The list of client certificates referenced by thumbprint that are allowed to manage the cluster.
+        """
+        if cluster_code_version and not isinstance(cluster_code_version, str):
+            raise TypeError("Expected argument 'cluster_code_version' to be a str")
+        __self__.cluster_code_version = cluster_code_version
+        """
+        The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
+        """
+        if cluster_endpoint and not isinstance(cluster_endpoint, str):
+            raise TypeError("Expected argument 'cluster_endpoint' to be a str")
+        __self__.cluster_endpoint = cluster_endpoint
+        """
+        The Azure Resource Provider endpoint. A system service in the cluster connects to this  endpoint.
+        """
+        if cluster_id and not isinstance(cluster_id, str):
+            raise TypeError("Expected argument 'cluster_id' to be a str")
+        __self__.cluster_id = cluster_id
+        """
+        A service generated unique identifier for the cluster resource.
+        """
+        if cluster_state and not isinstance(cluster_state, str):
+            raise TypeError("Expected argument 'cluster_state' to be a str")
+        __self__.cluster_state = cluster_state
+        """
+        The current state of the cluster.
+
+          - WaitingForNodes - Indicates that the cluster resource is created and the resource provider is waiting for Service Fabric VM extension to boot up and report to it.
+          - Deploying - Indicates that the Service Fabric runtime is being installed on the VMs. Cluster resource will be in this state until the cluster boots up and system services are up.
+          - BaselineUpgrade - Indicates that the cluster is upgrading to establishes the cluster version. This upgrade is automatically initiated when the cluster boots up for the first time.
+          - UpdatingUserConfiguration - Indicates that the cluster is being upgraded with the user provided configuration.
+          - UpdatingUserCertificate - Indicates that the cluster is being upgraded with the user provided certificate.
+          - UpdatingInfrastructure - Indicates that the cluster is being upgraded with the latest Service Fabric runtime version. This happens only when the **upgradeMode** is set to 'Automatic'.
+          - EnforcingClusterVersion - Indicates that cluster is on a different version than expected and the cluster is being upgraded to the expected version.
+          - UpgradeServiceUnreachable - Indicates that the system service in the cluster is no longer polling the Resource Provider. Clusters in this state cannot be managed by the Resource Provider.
+          - AutoScale - Indicates that the ReliabilityLevel of the cluster is being adjusted.
+          - Ready - Indicates that the cluster is in a stable state.
+        """
+        if diagnostics_storage_account_config and not isinstance(diagnostics_storage_account_config, dict):
+            raise TypeError("Expected argument 'diagnostics_storage_account_config' to be a dict")
+        __self__.diagnostics_storage_account_config = diagnostics_storage_account_config
+        """
+        The storage account information for storing Service Fabric diagnostic logs.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         Azure resource etag.
+        """
+        if event_store_service_enabled and not isinstance(event_store_service_enabled, bool):
+            raise TypeError("Expected argument 'event_store_service_enabled' to be a bool")
+        __self__.event_store_service_enabled = event_store_service_enabled
+        """
+        Indicates if the event store service is enabled.
+        """
+        if fabric_settings and not isinstance(fabric_settings, list):
+            raise TypeError("Expected argument 'fabric_settings' to be a list")
+        __self__.fabric_settings = fabric_settings
+        """
+        The list of custom fabric settings to configure the cluster.
         """
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
@@ -26,17 +127,53 @@ class GetClusterResult:
         """
         Azure resource location.
         """
+        if management_endpoint and not isinstance(management_endpoint, str):
+            raise TypeError("Expected argument 'management_endpoint' to be a str")
+        __self__.management_endpoint = management_endpoint
+        """
+        The http management endpoint of the cluster.
+        """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
         """
         Azure resource name.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if node_types and not isinstance(node_types, list):
+            raise TypeError("Expected argument 'node_types' to be a list")
+        __self__.node_types = node_types
         """
-        The cluster resource properties
+        The list of node types in the cluster.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the cluster resource.
+        """
+        if reliability_level and not isinstance(reliability_level, str):
+            raise TypeError("Expected argument 'reliability_level' to be a str")
+        __self__.reliability_level = reliability_level
+        """
+        The reliability level sets the replica set size of system services. Learn about [ReliabilityLevel](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity).
+
+          - None - Run the System services with a target replica set count of 1. This should only be used for test clusters.
+          - Bronze - Run the System services with a target replica set count of 3. This should only be used for test clusters.
+          - Silver - Run the System services with a target replica set count of 5.
+          - Gold - Run the System services with a target replica set count of 7.
+          - Platinum - Run the System services with a target replica set count of 9.
+        """
+        if reverse_proxy_certificate and not isinstance(reverse_proxy_certificate, dict):
+            raise TypeError("Expected argument 'reverse_proxy_certificate' to be a dict")
+        __self__.reverse_proxy_certificate = reverse_proxy_certificate
+        """
+        The server certificate used by reverse proxy.
+        """
+        if reverse_proxy_certificate_common_names and not isinstance(reverse_proxy_certificate_common_names, dict):
+            raise TypeError("Expected argument 'reverse_proxy_certificate_common_names' to be a dict")
+        __self__.reverse_proxy_certificate_common_names = reverse_proxy_certificate_common_names
+        """
+        Describes a list of server certificates referenced by common name that are used to secure the cluster.
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -50,6 +187,27 @@ class GetClusterResult:
         """
         Azure resource type.
         """
+        if upgrade_description and not isinstance(upgrade_description, dict):
+            raise TypeError("Expected argument 'upgrade_description' to be a dict")
+        __self__.upgrade_description = upgrade_description
+        """
+        The policy to use when upgrading the cluster.
+        """
+        if upgrade_mode and not isinstance(upgrade_mode, str):
+            raise TypeError("Expected argument 'upgrade_mode' to be a str")
+        __self__.upgrade_mode = upgrade_mode
+        """
+        The upgrade mode of the cluster when new Service Fabric runtime version is available.
+
+          - Automatic - The cluster will be automatically upgraded to the latest Service Fabric runtime version as soon as it is available.
+          - Manual - The cluster will not be automatically upgraded to the latest Service Fabric runtime version. The cluster is upgraded by setting the **clusterCodeVersion** property in the cluster resource.
+        """
+        if vm_image and not isinstance(vm_image, str):
+            raise TypeError("Expected argument 'vm_image' to be a str")
+        __self__.vm_image = vm_image
+        """
+        The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used.
+        """
 
 
 class AwaitableGetClusterResult(GetClusterResult):
@@ -58,12 +216,35 @@ class AwaitableGetClusterResult(GetClusterResult):
         if False:
             yield self
         return GetClusterResult(
+            add_on_features=self.add_on_features,
+            application_type_versions_cleanup_policy=self.application_type_versions_cleanup_policy,
+            available_cluster_versions=self.available_cluster_versions,
+            azure_active_directory=self.azure_active_directory,
+            certificate=self.certificate,
+            certificate_common_names=self.certificate_common_names,
+            client_certificate_common_names=self.client_certificate_common_names,
+            client_certificate_thumbprints=self.client_certificate_thumbprints,
+            cluster_code_version=self.cluster_code_version,
+            cluster_endpoint=self.cluster_endpoint,
+            cluster_id=self.cluster_id,
+            cluster_state=self.cluster_state,
+            diagnostics_storage_account_config=self.diagnostics_storage_account_config,
             etag=self.etag,
+            event_store_service_enabled=self.event_store_service_enabled,
+            fabric_settings=self.fabric_settings,
             location=self.location,
+            management_endpoint=self.management_endpoint,
             name=self.name,
-            properties=self.properties,
+            node_types=self.node_types,
+            provisioning_state=self.provisioning_state,
+            reliability_level=self.reliability_level,
+            reverse_proxy_certificate=self.reverse_proxy_certificate,
+            reverse_proxy_certificate_common_names=self.reverse_proxy_certificate_common_names,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            upgrade_description=self.upgrade_description,
+            upgrade_mode=self.upgrade_mode,
+            vm_image=self.vm_image)
 
 
 def get_cluster(name=None, resource_group_name=None, opts=None):
@@ -83,9 +264,32 @@ def get_cluster(name=None, resource_group_name=None, opts=None):
     __ret__ = pulumi.runtime.invoke('azurerm:servicefabric/v20200301:getCluster', __args__, opts=opts).value
 
     return AwaitableGetClusterResult(
+        add_on_features=__ret__.get('addOnFeatures'),
+        application_type_versions_cleanup_policy=__ret__.get('applicationTypeVersionsCleanupPolicy'),
+        available_cluster_versions=__ret__.get('availableClusterVersions'),
+        azure_active_directory=__ret__.get('azureActiveDirectory'),
+        certificate=__ret__.get('certificate'),
+        certificate_common_names=__ret__.get('certificateCommonNames'),
+        client_certificate_common_names=__ret__.get('clientCertificateCommonNames'),
+        client_certificate_thumbprints=__ret__.get('clientCertificateThumbprints'),
+        cluster_code_version=__ret__.get('clusterCodeVersion'),
+        cluster_endpoint=__ret__.get('clusterEndpoint'),
+        cluster_id=__ret__.get('clusterId'),
+        cluster_state=__ret__.get('clusterState'),
+        diagnostics_storage_account_config=__ret__.get('diagnosticsStorageAccountConfig'),
         etag=__ret__.get('etag'),
+        event_store_service_enabled=__ret__.get('eventStoreServiceEnabled'),
+        fabric_settings=__ret__.get('fabricSettings'),
         location=__ret__.get('location'),
+        management_endpoint=__ret__.get('managementEndpoint'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        node_types=__ret__.get('nodeTypes'),
+        provisioning_state=__ret__.get('provisioningState'),
+        reliability_level=__ret__.get('reliabilityLevel'),
+        reverse_proxy_certificate=__ret__.get('reverseProxyCertificate'),
+        reverse_proxy_certificate_common_names=__ret__.get('reverseProxyCertificateCommonNames'),
         tags=__ret__.get('tags'),
-        type=__ret__.get('type'))
+        type=__ret__.get('type'),
+        upgrade_description=__ret__.get('upgradeDescription'),
+        upgrade_mode=__ret__.get('upgradeMode'),
+        vm_image=__ret__.get('vmImage'))

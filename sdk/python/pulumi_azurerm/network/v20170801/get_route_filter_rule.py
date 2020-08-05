@@ -13,7 +13,19 @@ class GetRouteFilterRuleResult:
     """
     Route Filter Rule Resource
     """
-    def __init__(__self__, etag=None, location=None, name=None, properties=None, tags=None):
+    def __init__(__self__, access=None, communities=None, etag=None, location=None, name=None, provisioning_state=None, route_filter_rule_type=None, tags=None):
+        if access and not isinstance(access, str):
+            raise TypeError("Expected argument 'access' to be a str")
+        __self__.access = access
+        """
+        The access type of the rule. Valid values are: 'Allow', 'Deny'
+        """
+        if communities and not isinstance(communities, list):
+            raise TypeError("Expected argument 'communities' to be a list")
+        __self__.communities = communities
+        """
+        The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
@@ -32,11 +44,17 @@ class GetRouteFilterRuleResult:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
         """
-        Route Filter Rule Resource
+        The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
+        """
+        if route_filter_rule_type and not isinstance(route_filter_rule_type, str):
+            raise TypeError("Expected argument 'route_filter_rule_type' to be a str")
+        __self__.route_filter_rule_type = route_filter_rule_type
+        """
+        The rule type of the rule. Valid value is: 'Community'
         """
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
@@ -52,10 +70,13 @@ class AwaitableGetRouteFilterRuleResult(GetRouteFilterRuleResult):
         if False:
             yield self
         return GetRouteFilterRuleResult(
+            access=self.access,
+            communities=self.communities,
             etag=self.etag,
             location=self.location,
             name=self.name,
-            properties=self.properties,
+            provisioning_state=self.provisioning_state,
+            route_filter_rule_type=self.route_filter_rule_type,
             tags=self.tags)
 
 
@@ -78,8 +99,11 @@ def get_route_filter_rule(name=None, resource_group_name=None, route_filter_name
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20170801:getRouteFilterRule', __args__, opts=opts).value
 
     return AwaitableGetRouteFilterRuleResult(
+        access=__ret__.get('access'),
+        communities=__ret__.get('communities'),
         etag=__ret__.get('etag'),
         location=__ret__.get('location'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        provisioning_state=__ret__.get('provisioningState'),
+        route_filter_rule_type=__ret__.get('routeFilterRuleType'),
         tags=__ret__.get('tags'))

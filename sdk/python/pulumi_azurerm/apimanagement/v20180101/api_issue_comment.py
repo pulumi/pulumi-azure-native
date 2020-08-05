@@ -10,20 +10,25 @@ from ... import _utilities, _tables
 
 
 class ApiIssueComment(pulumi.CustomResource):
+    created_date: pulumi.Output[str]
+    """
+    Date and time when the comment was created.
+    """
     name: pulumi.Output[str]
     """
     Resource name.
     """
-    properties: pulumi.Output[dict]
+    text: pulumi.Output[str]
     """
-    Properties of the Issue Comment.
-      * `created_date` (`str`) - Date and time when the comment was created.
-      * `text` (`str`) - Comment text.
-      * `user_id` (`str`) - A resource identifier for the user who left the comment.
+    Comment text.
     """
     type: pulumi.Output[str]
     """
     Resource type for API Management resource.
+    """
+    user_id: pulumi.Output[str]
+    """
+    A resource identifier for the user who left the comment.
     """
     def __init__(__self__, resource_name, opts=None, api_id=None, created_date=None, issue_id=None, name=None, resource_group_name=None, service_name=None, text=None, user_id=None, __props__=None, __name__=None, __opts__=None):
         """
@@ -79,7 +84,6 @@ class ApiIssueComment(pulumi.CustomResource):
             if user_id is None:
                 raise TypeError("Missing required property 'user_id'")
             __props__['user_id'] = user_id
-            __props__['properties'] = None
             __props__['type'] = None
         super(ApiIssueComment, __self__).__init__(
             'azurerm:apimanagement/v20180101:ApiIssueComment',

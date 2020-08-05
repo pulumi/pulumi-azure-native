@@ -13,12 +13,24 @@ class GetHubRouteTableResult:
     """
     RouteTable resource in a virtual hub.
     """
-    def __init__(__self__, etag=None, name=None, properties=None, type=None):
+    def __init__(__self__, associated_connections=None, etag=None, labels=None, name=None, propagating_connections=None, provisioning_state=None, routes=None, type=None):
+        if associated_connections and not isinstance(associated_connections, list):
+            raise TypeError("Expected argument 'associated_connections' to be a list")
+        __self__.associated_connections = associated_connections
+        """
+        List of all connections associated with this route table.
+        """
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         __self__.etag = etag
         """
         A unique read-only string that changes whenever the resource is updated.
+        """
+        if labels and not isinstance(labels, list):
+            raise TypeError("Expected argument 'labels' to be a list")
+        __self__.labels = labels
+        """
+        List of labels associated with this route table.
         """
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
@@ -26,11 +38,23 @@ class GetHubRouteTableResult:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        __self__.properties = properties
+        if propagating_connections and not isinstance(propagating_connections, list):
+            raise TypeError("Expected argument 'propagating_connections' to be a list")
+        __self__.propagating_connections = propagating_connections
         """
-        Properties of the RouteTable resource.
+        List of all connections that advertise to this route table.
+        """
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        __self__.provisioning_state = provisioning_state
+        """
+        The provisioning state of the RouteTable resource.
+        """
+        if routes and not isinstance(routes, list):
+            raise TypeError("Expected argument 'routes' to be a list")
+        __self__.routes = routes
+        """
+        List of all routes.
         """
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
@@ -46,9 +70,13 @@ class AwaitableGetHubRouteTableResult(GetHubRouteTableResult):
         if False:
             yield self
         return GetHubRouteTableResult(
+            associated_connections=self.associated_connections,
             etag=self.etag,
+            labels=self.labels,
             name=self.name,
-            properties=self.properties,
+            propagating_connections=self.propagating_connections,
+            provisioning_state=self.provisioning_state,
+            routes=self.routes,
             type=self.type)
 
 
@@ -71,7 +99,11 @@ def get_hub_route_table(name=None, resource_group_name=None, virtual_hub_name=No
     __ret__ = pulumi.runtime.invoke('azurerm:network/v20200501:getHubRouteTable', __args__, opts=opts).value
 
     return AwaitableGetHubRouteTableResult(
+        associated_connections=__ret__.get('associatedConnections'),
         etag=__ret__.get('etag'),
+        labels=__ret__.get('labels'),
         name=__ret__.get('name'),
-        properties=__ret__.get('properties'),
+        propagating_connections=__ret__.get('propagatingConnections'),
+        provisioning_state=__ret__.get('provisioningState'),
+        routes=__ret__.get('routes'),
         type=__ret__.get('type'))
