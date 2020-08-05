@@ -48,7 +48,7 @@ namespace Pulumi.AzureRM.ContainerService.V20191101.Outputs
         /// <summary>
         /// Identities associated with the cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? IdentityProfile;
+        public readonly ImmutableDictionary<string, Outputs.ManagedClusterPropertiesResponseIdentityProfileResult>? IdentityProfile;
         /// <summary>
         /// Version of Kubernetes specified when creating the managed cluster.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureRM.ContainerService.V20191101.Outputs
 
             string fqdn,
 
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? identityProfile,
+            ImmutableDictionary<string, Outputs.ManagedClusterPropertiesResponseIdentityProfileResult>? identityProfile,
 
             string? kubernetesVersion,
 

@@ -10,106 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The IoT Central application.
-type AppType struct {
-	// The resource location.
-	Location string `pulumi:"location"`
-	// The ARM resource name.
-	Name string `pulumi:"name"`
-	// The common properties of an IoT Central application.
-	Properties AppPropertiesResponse `pulumi:"properties"`
-	// A valid instance SKU.
-	Sku AppSkuInfoResponse `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// AppTypeInput is an input type that accepts AppTypeArgs and AppTypeOutput values.
-// You can construct a concrete instance of `AppTypeInput` via:
-//
-//          AppTypeArgs{...}
-type AppTypeInput interface {
-	pulumi.Input
-
-	ToAppTypeOutput() AppTypeOutput
-	ToAppTypeOutputWithContext(context.Context) AppTypeOutput
-}
-
-// The IoT Central application.
-type AppTypeArgs struct {
-	// The resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The ARM resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The common properties of an IoT Central application.
-	Properties AppPropertiesResponseInput `pulumi:"properties"`
-	// A valid instance SKU.
-	Sku AppSkuInfoResponseInput `pulumi:"sku"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AppTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppType)(nil)).Elem()
-}
-
-func (i AppTypeArgs) ToAppTypeOutput() AppTypeOutput {
-	return i.ToAppTypeOutputWithContext(context.Background())
-}
-
-func (i AppTypeArgs) ToAppTypeOutputWithContext(ctx context.Context) AppTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppTypeOutput)
-}
-
-// The IoT Central application.
-type AppTypeOutput struct{ *pulumi.OutputState }
-
-func (AppTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppType)(nil)).Elem()
-}
-
-func (o AppTypeOutput) ToAppTypeOutput() AppTypeOutput {
-	return o
-}
-
-func (o AppTypeOutput) ToAppTypeOutputWithContext(ctx context.Context) AppTypeOutput {
-	return o
-}
-
-// The resource location.
-func (o AppTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v AppType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The ARM resource name.
-func (o AppTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AppType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The common properties of an IoT Central application.
-func (o AppTypeOutput) Properties() AppPropertiesResponseOutput {
-	return o.ApplyT(func(v AppType) AppPropertiesResponse { return v.Properties }).(AppPropertiesResponseOutput)
-}
-
-// A valid instance SKU.
-func (o AppTypeOutput) Sku() AppSkuInfoResponseOutput {
-	return o.ApplyT(func(v AppType) AppSkuInfoResponse { return v.Sku }).(AppSkuInfoResponseOutput)
-}
-
-// The resource tags.
-func (o AppTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AppType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The resource type.
-func (o AppTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AppType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of an IoT Central application.
 type AppPropertiesResponse struct {
 	// The ID of the application.
@@ -570,7 +470,6 @@ func (o AppSkuInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(AppTypeOutput{})
 	pulumi.RegisterOutputType(AppPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AppPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(AppSkuInfoOutput{})

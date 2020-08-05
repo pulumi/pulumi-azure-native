@@ -18,18 +18,6 @@ namespace Pulumi.AzureRM.AppConfiguration.V20191001.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        [Input("userAssignedIdentities")]
-        private InputMap<Inputs.UserIdentityArgs>? _userAssignedIdentities;
-
-        /// <summary>
-        /// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        /// </summary>
-        public InputMap<Inputs.UserIdentityArgs> UserAssignedIdentities
-        {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.UserIdentityArgs>());
-            set => _userAssignedIdentities = value;
-        }
-
         public ResourceIdentityArgs()
         {
         }

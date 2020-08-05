@@ -239,88 +239,6 @@ func (o CertificatePropertiesResponsePtrOutput) Updated() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The X509 Certificate.
-type DpsCertificateType struct {
-	// The entity tag.
-	Etag string `pulumi:"etag"`
-	// The name of the certificate.
-	Name string `pulumi:"name"`
-	// properties of a certificate
-	Properties CertificatePropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// DpsCertificateTypeInput is an input type that accepts DpsCertificateTypeArgs and DpsCertificateTypeOutput values.
-// You can construct a concrete instance of `DpsCertificateTypeInput` via:
-//
-//          DpsCertificateTypeArgs{...}
-type DpsCertificateTypeInput interface {
-	pulumi.Input
-
-	ToDpsCertificateTypeOutput() DpsCertificateTypeOutput
-	ToDpsCertificateTypeOutputWithContext(context.Context) DpsCertificateTypeOutput
-}
-
-// The X509 Certificate.
-type DpsCertificateTypeArgs struct {
-	// The entity tag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The name of the certificate.
-	Name pulumi.StringInput `pulumi:"name"`
-	// properties of a certificate
-	Properties CertificatePropertiesResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DpsCertificateTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DpsCertificateType)(nil)).Elem()
-}
-
-func (i DpsCertificateTypeArgs) ToDpsCertificateTypeOutput() DpsCertificateTypeOutput {
-	return i.ToDpsCertificateTypeOutputWithContext(context.Background())
-}
-
-func (i DpsCertificateTypeArgs) ToDpsCertificateTypeOutputWithContext(ctx context.Context) DpsCertificateTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DpsCertificateTypeOutput)
-}
-
-// The X509 Certificate.
-type DpsCertificateTypeOutput struct{ *pulumi.OutputState }
-
-func (DpsCertificateTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DpsCertificateType)(nil)).Elem()
-}
-
-func (o DpsCertificateTypeOutput) ToDpsCertificateTypeOutput() DpsCertificateTypeOutput {
-	return o
-}
-
-func (o DpsCertificateTypeOutput) ToDpsCertificateTypeOutputWithContext(ctx context.Context) DpsCertificateTypeOutput {
-	return o
-}
-
-// The entity tag.
-func (o DpsCertificateTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v DpsCertificateType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The name of the certificate.
-func (o DpsCertificateTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DpsCertificateType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// properties of a certificate
-func (o DpsCertificateTypeOutput) Properties() CertificatePropertiesResponseOutput {
-	return o.ApplyT(func(v DpsCertificateType) CertificatePropertiesResponse { return v.Properties }).(CertificatePropertiesResponseOutput)
-}
-
-// The resource type.
-func (o DpsCertificateTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DpsCertificateType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // the service specific properties of a provisioning service, including keys, linked iot hubs, current state, and system generated properties such as hostname and idScope
 type IotDpsPropertiesDescription struct {
 	// Allocation policy to be used by this provisioning service.
@@ -838,115 +756,6 @@ func (o IotDpsPropertiesDescriptionResponsePtrOutput) State() pulumi.StringPtrOu
 		}
 		return v.State
 	}).(pulumi.StringPtrOutput)
-}
-
-// The description of the provisioning service.
-type IotDpsResourceType struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag *string `pulumi:"etag"`
-	// The resource location.
-	Location string `pulumi:"location"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// Service specific properties for a provisioning service
-	Properties IotDpsPropertiesDescriptionResponse `pulumi:"properties"`
-	// Sku info for a provisioning Service.
-	Sku IotDpsSkuInfoResponse `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// IotDpsResourceTypeInput is an input type that accepts IotDpsResourceTypeArgs and IotDpsResourceTypeOutput values.
-// You can construct a concrete instance of `IotDpsResourceTypeInput` via:
-//
-//          IotDpsResourceTypeArgs{...}
-type IotDpsResourceTypeInput interface {
-	pulumi.Input
-
-	ToIotDpsResourceTypeOutput() IotDpsResourceTypeOutput
-	ToIotDpsResourceTypeOutputWithContext(context.Context) IotDpsResourceTypeOutput
-}
-
-// The description of the provisioning service.
-type IotDpsResourceTypeArgs struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Service specific properties for a provisioning service
-	Properties IotDpsPropertiesDescriptionResponseInput `pulumi:"properties"`
-	// Sku info for a provisioning Service.
-	Sku IotDpsSkuInfoResponseInput `pulumi:"sku"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (IotDpsResourceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotDpsResourceType)(nil)).Elem()
-}
-
-func (i IotDpsResourceTypeArgs) ToIotDpsResourceTypeOutput() IotDpsResourceTypeOutput {
-	return i.ToIotDpsResourceTypeOutputWithContext(context.Background())
-}
-
-func (i IotDpsResourceTypeArgs) ToIotDpsResourceTypeOutputWithContext(ctx context.Context) IotDpsResourceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IotDpsResourceTypeOutput)
-}
-
-// The description of the provisioning service.
-type IotDpsResourceTypeOutput struct{ *pulumi.OutputState }
-
-func (IotDpsResourceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotDpsResourceType)(nil)).Elem()
-}
-
-func (o IotDpsResourceTypeOutput) ToIotDpsResourceTypeOutput() IotDpsResourceTypeOutput {
-	return o
-}
-
-func (o IotDpsResourceTypeOutput) ToIotDpsResourceTypeOutputWithContext(ctx context.Context) IotDpsResourceTypeOutput {
-	return o
-}
-
-// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-func (o IotDpsResourceTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IotDpsResourceType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The resource location.
-func (o IotDpsResourceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v IotDpsResourceType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The resource name.
-func (o IotDpsResourceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IotDpsResourceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Service specific properties for a provisioning service
-func (o IotDpsResourceTypeOutput) Properties() IotDpsPropertiesDescriptionResponseOutput {
-	return o.ApplyT(func(v IotDpsResourceType) IotDpsPropertiesDescriptionResponse { return v.Properties }).(IotDpsPropertiesDescriptionResponseOutput)
-}
-
-// Sku info for a provisioning Service.
-func (o IotDpsResourceTypeOutput) Sku() IotDpsSkuInfoResponseOutput {
-	return o.ApplyT(func(v IotDpsResourceType) IotDpsSkuInfoResponse { return v.Sku }).(IotDpsSkuInfoResponseOutput)
-}
-
-// The resource tags.
-func (o IotDpsResourceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IotDpsResourceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The resource type.
-func (o IotDpsResourceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IotDpsResourceType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // List of possible provisioning service SKUs.
@@ -2052,12 +1861,10 @@ func (o SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionResponseArr
 func init() {
 	pulumi.RegisterOutputType(CertificatePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(DpsCertificateTypeOutput{})
 	pulumi.RegisterOutputType(IotDpsPropertiesDescriptionOutput{})
 	pulumi.RegisterOutputType(IotDpsPropertiesDescriptionPtrOutput{})
 	pulumi.RegisterOutputType(IotDpsPropertiesDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(IotDpsPropertiesDescriptionResponsePtrOutput{})
-	pulumi.RegisterOutputType(IotDpsResourceTypeOutput{})
 	pulumi.RegisterOutputType(IotDpsSkuInfoOutput{})
 	pulumi.RegisterOutputType(IotDpsSkuInfoPtrOutput{})
 	pulumi.RegisterOutputType(IotDpsSkuInfoResponseOutput{})

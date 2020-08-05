@@ -89,17 +89,17 @@ namespace Pulumi.AzureRM.Logic.V20160601
 
     public sealed class WorkflowArgs : Pulumi.ResourceArgs
     {
+        [Input("definition")]
+        private InputMap<object>? _definition;
+
         /// <summary>
         /// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
         /// </summary>
-        [Input("definition")]
-        public Input<Inputs.ObjectArgs>? Definition { get; set; }
-
-        /// <summary>
-        /// The integration account.
-        /// </summary>
-        [Input("integrationAccount")]
-        public Input<Inputs.ResourceReferenceArgs>? IntegrationAccount { get; set; }
+        public InputMap<object> Definition
+        {
+            get => _definition ?? (_definition = new InputMap<object>());
+            set => _definition = value;
+        }
 
         /// <summary>
         /// The resource location.

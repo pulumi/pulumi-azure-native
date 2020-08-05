@@ -10,79 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Represents a Database.
-type DatabaseType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of a database.
-	Properties DatabasePropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseTypeInput is an input type that accepts DatabaseTypeArgs and DatabaseTypeOutput values.
-// You can construct a concrete instance of `DatabaseTypeInput` via:
-//
-//          DatabaseTypeArgs{...}
-type DatabaseTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseTypeOutput() DatabaseTypeOutput
-	ToDatabaseTypeOutputWithContext(context.Context) DatabaseTypeOutput
-}
-
-// Represents a Database.
-type DatabaseTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of a database.
-	Properties DatabasePropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseType)(nil)).Elem()
-}
-
-func (i DatabaseTypeArgs) ToDatabaseTypeOutput() DatabaseTypeOutput {
-	return i.ToDatabaseTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseTypeArgs) ToDatabaseTypeOutputWithContext(ctx context.Context) DatabaseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTypeOutput)
-}
-
-// Represents a Database.
-type DatabaseTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseType)(nil)).Elem()
-}
-
-func (o DatabaseTypeOutput) ToDatabaseTypeOutput() DatabaseTypeOutput {
-	return o
-}
-
-func (o DatabaseTypeOutput) ToDatabaseTypeOutputWithContext(ctx context.Context) DatabaseTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o DatabaseTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of a database.
-func (o DatabaseTypeOutput) Properties() DatabasePropertiesResponseOutput {
-	return o.ApplyT(func(v DatabaseType) DatabasePropertiesResponse { return v.Properties }).(DatabasePropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o DatabaseTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of a database.
 type DatabasePropertiesResponse struct {
 	// The charset of the database.
@@ -236,79 +163,6 @@ func (o DatabasePropertiesResponsePtrOutput) Collation() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Represents a server firewall rule.
-type FirewallRuleType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of a firewall rule.
-	Properties FirewallRulePropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// FirewallRuleTypeInput is an input type that accepts FirewallRuleTypeArgs and FirewallRuleTypeOutput values.
-// You can construct a concrete instance of `FirewallRuleTypeInput` via:
-//
-//          FirewallRuleTypeArgs{...}
-type FirewallRuleTypeInput interface {
-	pulumi.Input
-
-	ToFirewallRuleTypeOutput() FirewallRuleTypeOutput
-	ToFirewallRuleTypeOutputWithContext(context.Context) FirewallRuleTypeOutput
-}
-
-// Represents a server firewall rule.
-type FirewallRuleTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of a firewall rule.
-	Properties FirewallRulePropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (FirewallRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleType)(nil)).Elem()
-}
-
-func (i FirewallRuleTypeArgs) ToFirewallRuleTypeOutput() FirewallRuleTypeOutput {
-	return i.ToFirewallRuleTypeOutputWithContext(context.Background())
-}
-
-func (i FirewallRuleTypeArgs) ToFirewallRuleTypeOutputWithContext(ctx context.Context) FirewallRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleTypeOutput)
-}
-
-// Represents a server firewall rule.
-type FirewallRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (FirewallRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleType)(nil)).Elem()
-}
-
-func (o FirewallRuleTypeOutput) ToFirewallRuleTypeOutput() FirewallRuleTypeOutput {
-	return o
-}
-
-func (o FirewallRuleTypeOutput) ToFirewallRuleTypeOutputWithContext(ctx context.Context) FirewallRuleTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o FirewallRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of a firewall rule.
-func (o FirewallRuleTypeOutput) Properties() FirewallRulePropertiesResponseOutput {
-	return o.ApplyT(func(v FirewallRuleType) FirewallRulePropertiesResponse { return v.Properties }).(FirewallRulePropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o FirewallRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallRuleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of a server firewall rule.
 type FirewallRulePropertiesResponse struct {
 	// The end IP address of the server firewall rule. Must be IPv4 format.
@@ -460,79 +314,6 @@ func (o FirewallRulePropertiesResponsePtrOutput) StartIpAddress() pulumi.StringP
 		}
 		return &v.StartIpAddress
 	}).(pulumi.StringPtrOutput)
-}
-
-// A private endpoint connection
-type PrivateEndpointConnectionType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
-// You can construct a concrete instance of `PrivateEndpointConnectionTypeInput` via:
-//
-//          PrivateEndpointConnectionTypeArgs{...}
-type PrivateEndpointConnectionTypeInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput
-	ToPrivateEndpointConnectionTypeOutputWithContext(context.Context) PrivateEndpointConnectionTypeOutput
-}
-
-// A private endpoint connection
-type PrivateEndpointConnectionTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource properties.
-	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
-	return i.ToPrivateEndpointConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointConnectionTypeArgs) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointConnectionTypeOutput)
-}
-
-// A private endpoint connection
-type PrivateEndpointConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpointConnectionType)(nil)).Elem()
-}
-
-func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutput() PrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutputWithContext(ctx context.Context) PrivateEndpointConnectionTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource properties.
-func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse { return v.Properties }).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of a private endpoint connection.
@@ -1296,106 +1077,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 		}
 		return &v.Status
 	}).(pulumi.StringPtrOutput)
-}
-
-// Represents a server.
-type ServerType struct {
-	// The location the resource resides in.
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Properties of the server.
-	Properties ServerPropertiesResponse `pulumi:"properties"`
-	// The SKU (pricing tier) of the server.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Application-specific metadata in the form of key-value pairs.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// ServerTypeInput is an input type that accepts ServerTypeArgs and ServerTypeOutput values.
-// You can construct a concrete instance of `ServerTypeInput` via:
-//
-//          ServerTypeArgs{...}
-type ServerTypeInput interface {
-	pulumi.Input
-
-	ToServerTypeOutput() ServerTypeOutput
-	ToServerTypeOutputWithContext(context.Context) ServerTypeOutput
-}
-
-// Represents a server.
-type ServerTypeArgs struct {
-	// The location the resource resides in.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the server.
-	Properties ServerPropertiesResponseInput `pulumi:"properties"`
-	// The SKU (pricing tier) of the server.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Application-specific metadata in the form of key-value pairs.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerType)(nil)).Elem()
-}
-
-func (i ServerTypeArgs) ToServerTypeOutput() ServerTypeOutput {
-	return i.ToServerTypeOutputWithContext(context.Background())
-}
-
-func (i ServerTypeArgs) ToServerTypeOutputWithContext(ctx context.Context) ServerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerTypeOutput)
-}
-
-// Represents a server.
-type ServerTypeOutput struct{ *pulumi.OutputState }
-
-func (ServerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerType)(nil)).Elem()
-}
-
-func (o ServerTypeOutput) ToServerTypeOutput() ServerTypeOutput {
-	return o
-}
-
-func (o ServerTypeOutput) ToServerTypeOutputWithContext(ctx context.Context) ServerTypeOutput {
-	return o
-}
-
-// The location the resource resides in.
-func (o ServerTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o ServerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the server.
-func (o ServerTypeOutput) Properties() ServerPropertiesResponseOutput {
-	return o.ApplyT(func(v ServerType) ServerPropertiesResponse { return v.Properties }).(ServerPropertiesResponseOutput)
-}
-
-// The SKU (pricing tier) of the server.
-func (o ServerTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v ServerType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Application-specific metadata in the form of key-value pairs.
-func (o ServerTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ServerType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o ServerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Properties of a private endpoint connection.
@@ -3114,79 +2795,6 @@ func (o StorageProfileResponsePtrOutput) StorageMB() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// A virtual network rule.
-type VirtualNetworkRuleType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties VirtualNetworkRulePropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// VirtualNetworkRuleTypeInput is an input type that accepts VirtualNetworkRuleTypeArgs and VirtualNetworkRuleTypeOutput values.
-// You can construct a concrete instance of `VirtualNetworkRuleTypeInput` via:
-//
-//          VirtualNetworkRuleTypeArgs{...}
-type VirtualNetworkRuleTypeInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkRuleTypeOutput() VirtualNetworkRuleTypeOutput
-	ToVirtualNetworkRuleTypeOutputWithContext(context.Context) VirtualNetworkRuleTypeOutput
-}
-
-// A virtual network rule.
-type VirtualNetworkRuleTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource properties.
-	Properties VirtualNetworkRulePropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VirtualNetworkRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkRuleType)(nil)).Elem()
-}
-
-func (i VirtualNetworkRuleTypeArgs) ToVirtualNetworkRuleTypeOutput() VirtualNetworkRuleTypeOutput {
-	return i.ToVirtualNetworkRuleTypeOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkRuleTypeArgs) ToVirtualNetworkRuleTypeOutputWithContext(ctx context.Context) VirtualNetworkRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleTypeOutput)
-}
-
-// A virtual network rule.
-type VirtualNetworkRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (VirtualNetworkRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkRuleType)(nil)).Elem()
-}
-
-func (o VirtualNetworkRuleTypeOutput) ToVirtualNetworkRuleTypeOutput() VirtualNetworkRuleTypeOutput {
-	return o
-}
-
-func (o VirtualNetworkRuleTypeOutput) ToVirtualNetworkRuleTypeOutputWithContext(ctx context.Context) VirtualNetworkRuleTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o VirtualNetworkRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource properties.
-func (o VirtualNetworkRuleTypeOutput) Properties() VirtualNetworkRulePropertiesResponseOutput {
-	return o.ApplyT(func(v VirtualNetworkRuleType) VirtualNetworkRulePropertiesResponse { return v.Properties }).(VirtualNetworkRulePropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o VirtualNetworkRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkRuleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of a virtual network rule.
 type VirtualNetworkRulePropertiesResponse struct {
 	// Create firewall rule before the virtual network has vnet service endpoint enabled.
@@ -3360,13 +2968,10 @@ func (o VirtualNetworkRulePropertiesResponsePtrOutput) VirtualNetworkSubnetId() 
 }
 
 func init() {
-	pulumi.RegisterOutputType(DatabaseTypeOutput{})
 	pulumi.RegisterOutputType(DatabasePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DatabasePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(FirewallRuleTypeOutput{})
 	pulumi.RegisterOutputType(FirewallRulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(FirewallRulePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointPropertyOutput{})
@@ -3377,7 +2982,6 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyPtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServerTypeOutput{})
 	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(ServerPrivateEndpointConnectionResponseArrayOutput{})
@@ -3395,7 +2999,6 @@ func init() {
 	pulumi.RegisterOutputType(StorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponseOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualNetworkRuleTypeOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRulePropertiesResponsePtrOutput{})
 }

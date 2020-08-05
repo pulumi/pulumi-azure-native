@@ -38,7 +38,7 @@ type LookupSnapshotResult struct {
 	// Snapshot Properties
 	Properties SnapshotPropertiesResponse `pulumi:"properties"`
 	// Resource tags
-	Tags *ResourceTagsResponse `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

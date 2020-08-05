@@ -34,7 +34,7 @@ type LookupDedicatedCloudNodeResult struct {
 	// Dedicated Cloud Nodes SKU
 	Sku *SkuResponse `pulumi:"sku"`
 	// Dedicated Cloud Nodes tags
-	Tags *TagsResponse `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// {resourceProviderNamespace}/{resourceType}
 	Type string `pulumi:"type"`
 }

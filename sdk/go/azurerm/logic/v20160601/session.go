@@ -94,7 +94,7 @@ func (SessionState) ElementType() reflect.Type {
 
 type sessionArgs struct {
 	// The session content.
-	Content *Object `pulumi:"content"`
+	Content map[string]interface{} `pulumi:"content"`
 	// The integration account name.
 	IntegrationAccountName string `pulumi:"integrationAccountName"`
 	// The resource location.
@@ -110,7 +110,7 @@ type sessionArgs struct {
 // The set of arguments for constructing a Session resource.
 type SessionArgs struct {
 	// The session content.
-	Content ObjectPtrInput
+	Content pulumi.MapInput
 	// The integration account name.
 	IntegrationAccountName pulumi.StringInput
 	// The resource location.

@@ -10,97 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Response on GET of a hybrid use benefit
-type HybridUseBenefitType struct {
-	// Indicates the revision of the hybrid use benefit
-	Etag int `pulumi:"etag"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Property bag for a hybrid use benefit response
-	Properties HybridUseBenefitPropertiesResponse `pulumi:"properties"`
-	// Hybrid use benefit SKU
-	Sku SkuResponse `pulumi:"sku"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// HybridUseBenefitTypeInput is an input type that accepts HybridUseBenefitTypeArgs and HybridUseBenefitTypeOutput values.
-// You can construct a concrete instance of `HybridUseBenefitTypeInput` via:
-//
-//          HybridUseBenefitTypeArgs{...}
-type HybridUseBenefitTypeInput interface {
-	pulumi.Input
-
-	ToHybridUseBenefitTypeOutput() HybridUseBenefitTypeOutput
-	ToHybridUseBenefitTypeOutputWithContext(context.Context) HybridUseBenefitTypeOutput
-}
-
-// Response on GET of a hybrid use benefit
-type HybridUseBenefitTypeArgs struct {
-	// Indicates the revision of the hybrid use benefit
-	Etag pulumi.IntInput `pulumi:"etag"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Property bag for a hybrid use benefit response
-	Properties HybridUseBenefitPropertiesResponseInput `pulumi:"properties"`
-	// Hybrid use benefit SKU
-	Sku SkuResponseInput `pulumi:"sku"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HybridUseBenefitTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridUseBenefitType)(nil)).Elem()
-}
-
-func (i HybridUseBenefitTypeArgs) ToHybridUseBenefitTypeOutput() HybridUseBenefitTypeOutput {
-	return i.ToHybridUseBenefitTypeOutputWithContext(context.Background())
-}
-
-func (i HybridUseBenefitTypeArgs) ToHybridUseBenefitTypeOutputWithContext(ctx context.Context) HybridUseBenefitTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HybridUseBenefitTypeOutput)
-}
-
-// Response on GET of a hybrid use benefit
-type HybridUseBenefitTypeOutput struct{ *pulumi.OutputState }
-
-func (HybridUseBenefitTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HybridUseBenefitType)(nil)).Elem()
-}
-
-func (o HybridUseBenefitTypeOutput) ToHybridUseBenefitTypeOutput() HybridUseBenefitTypeOutput {
-	return o
-}
-
-func (o HybridUseBenefitTypeOutput) ToHybridUseBenefitTypeOutputWithContext(ctx context.Context) HybridUseBenefitTypeOutput {
-	return o
-}
-
-// Indicates the revision of the hybrid use benefit
-func (o HybridUseBenefitTypeOutput) Etag() pulumi.IntOutput {
-	return o.ApplyT(func(v HybridUseBenefitType) int { return v.Etag }).(pulumi.IntOutput)
-}
-
-// The name of the resource
-func (o HybridUseBenefitTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HybridUseBenefitType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Property bag for a hybrid use benefit response
-func (o HybridUseBenefitTypeOutput) Properties() HybridUseBenefitPropertiesResponseOutput {
-	return o.ApplyT(func(v HybridUseBenefitType) HybridUseBenefitPropertiesResponse { return v.Properties }).(HybridUseBenefitPropertiesResponseOutput)
-}
-
-// Hybrid use benefit SKU
-func (o HybridUseBenefitTypeOutput) Sku() SkuResponseOutput {
-	return o.ApplyT(func(v HybridUseBenefitType) SkuResponse { return v.Sku }).(SkuResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o HybridUseBenefitTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HybridUseBenefitType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Hybrid use benefit properties
 type HybridUseBenefitPropertiesResponse struct {
 	// Created date
@@ -542,7 +451,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(HybridUseBenefitTypeOutput{})
 	pulumi.RegisterOutputType(HybridUseBenefitPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(HybridUseBenefitPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})

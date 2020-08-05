@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../../types/input";
-import * as outputs from "../../types/output";
 import * as utilities from "../../utilities";
 
 /**
@@ -43,7 +41,7 @@ export class ContentItem extends pulumi.CustomResource {
     /**
      * Properties of the content item.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.apimanagement.v20191201.ContentItemContractPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<{[key: string]: any}>;
     /**
      * Resource type for API Management resource.
      */

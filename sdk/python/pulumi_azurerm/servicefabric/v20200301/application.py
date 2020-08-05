@@ -39,7 +39,22 @@ class Application(pulumi.CustomResource):
         * `principal_id` (`str`) - The principal id of user assigned identity.
 
       * `maximum_nodes` (`float`) - The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-      * `metrics` (`dict`) - List of application capacity metric description.
+      * `metrics` (`list`) - List of application capacity metric description.
+        * `maximum_capacity` (`float`) - The maximum node capacity for Service Fabric application.
+          This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
+          If set to zero, capacity for this metric is unlimited on each node.
+          When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+          When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+        * `name` (`str`) - The name of the metric.
+        * `reservation_capacity` (`float`) - The node reservation capacity for Service Fabric application.
+          This is the amount of load which is reserved on nodes which have instances of this application.
+          If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
+          If set to zero, no capacity is reserved for this metric.
+          When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
+        * `total_application_capacity` (`float`) - The total metric capacity for Service Fabric application.
+          This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
+          When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
+
       * `minimum_nodes` (`float`) - The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
       * `parameters` (`dict`) - List of application parameters with overridden values from their default values specified in the application manifest.
       * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response
@@ -91,7 +106,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
         :param pulumi.Input[list] managed_identities: List of user assigned identities for the application, each mapped to a friendly name.
         :param pulumi.Input[float] maximum_nodes: The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
-        :param pulumi.Input[dict] metrics: List of application capacity metric description.
+        :param pulumi.Input[list] metrics: List of application capacity metric description.
         :param pulumi.Input[float] minimum_nodes: The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
         :param pulumi.Input[str] name: The name of the application resource.
         :param pulumi.Input[dict] parameters: List of application parameters with overridden values from their default values specified in the application manifest.
@@ -105,13 +120,28 @@ class Application(pulumi.CustomResource):
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The type of managed identity for the resource.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-            '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 
         The **managed_identities** object supports the following:
 
           * `name` (`pulumi.Input[str]`) - The friendly name of user assigned identity.
           * `principal_id` (`pulumi.Input[str]`) - The principal id of user assigned identity.
+
+        The **metrics** object supports the following:
+
+          * `maximum_capacity` (`pulumi.Input[float]`) - The maximum node capacity for Service Fabric application.
+            This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
+            If set to zero, capacity for this metric is unlimited on each node.
+            When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+            When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+          * `name` (`pulumi.Input[str]`) - The name of the metric.
+          * `reservation_capacity` (`pulumi.Input[float]`) - The node reservation capacity for Service Fabric application.
+            This is the amount of load which is reserved on nodes which have instances of this application.
+            If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
+            If set to zero, no capacity is reserved for this metric.
+            When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
+          * `total_application_capacity` (`pulumi.Input[float]`) - The total metric capacity for Service Fabric application.
+            This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
+            When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
 
         The **upgrade_policy** object supports the following:
 

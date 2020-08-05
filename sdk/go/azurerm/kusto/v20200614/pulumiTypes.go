@@ -10,90 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Class representing an attached database configuration.
-type AttachedDatabaseConfigurationType struct {
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of the attached database configuration.
-	Properties AttachedDatabaseConfigurationPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// AttachedDatabaseConfigurationTypeInput is an input type that accepts AttachedDatabaseConfigurationTypeArgs and AttachedDatabaseConfigurationTypeOutput values.
-// You can construct a concrete instance of `AttachedDatabaseConfigurationTypeInput` via:
-//
-//          AttachedDatabaseConfigurationTypeArgs{...}
-type AttachedDatabaseConfigurationTypeInput interface {
-	pulumi.Input
-
-	ToAttachedDatabaseConfigurationTypeOutput() AttachedDatabaseConfigurationTypeOutput
-	ToAttachedDatabaseConfigurationTypeOutputWithContext(context.Context) AttachedDatabaseConfigurationTypeOutput
-}
-
-// Class representing an attached database configuration.
-type AttachedDatabaseConfigurationTypeArgs struct {
-	// Resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the attached database configuration.
-	Properties AttachedDatabaseConfigurationPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AttachedDatabaseConfigurationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttachedDatabaseConfigurationType)(nil)).Elem()
-}
-
-func (i AttachedDatabaseConfigurationTypeArgs) ToAttachedDatabaseConfigurationTypeOutput() AttachedDatabaseConfigurationTypeOutput {
-	return i.ToAttachedDatabaseConfigurationTypeOutputWithContext(context.Background())
-}
-
-func (i AttachedDatabaseConfigurationTypeArgs) ToAttachedDatabaseConfigurationTypeOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AttachedDatabaseConfigurationTypeOutput)
-}
-
-// Class representing an attached database configuration.
-type AttachedDatabaseConfigurationTypeOutput struct{ *pulumi.OutputState }
-
-func (AttachedDatabaseConfigurationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AttachedDatabaseConfigurationType)(nil)).Elem()
-}
-
-func (o AttachedDatabaseConfigurationTypeOutput) ToAttachedDatabaseConfigurationTypeOutput() AttachedDatabaseConfigurationTypeOutput {
-	return o
-}
-
-func (o AttachedDatabaseConfigurationTypeOutput) ToAttachedDatabaseConfigurationTypeOutputWithContext(ctx context.Context) AttachedDatabaseConfigurationTypeOutput {
-	return o
-}
-
-// Resource location.
-func (o AttachedDatabaseConfigurationTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AttachedDatabaseConfigurationType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o AttachedDatabaseConfigurationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AttachedDatabaseConfigurationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the attached database configuration.
-func (o AttachedDatabaseConfigurationTypeOutput) Properties() AttachedDatabaseConfigurationPropertiesResponseOutput {
-	return o.ApplyT(func(v AttachedDatabaseConfigurationType) AttachedDatabaseConfigurationPropertiesResponse {
-		return v.Properties
-	}).(AttachedDatabaseConfigurationPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o AttachedDatabaseConfigurationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AttachedDatabaseConfigurationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Class representing the an attached database configuration properties of kind specific.
 type AttachedDatabaseConfigurationPropertiesResponse struct {
 	// The list of databases from the clusterResourceId which are currently attached to the cluster.
@@ -650,197 +566,6 @@ func (o AzureSkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return &v.Tier
 	}).(pulumi.StringPtrOutput)
-}
-
-// Class representing a Kusto cluster.
-type ClusterType struct {
-	// The identity of the cluster, if configured.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The cluster properties.
-	Properties ClusterPropertiesResponse `pulumi:"properties"`
-	// The SKU of the cluster.
-	Sku AzureSkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-	// The availability zones of the cluster.
-	Zones *ZonesResponse `pulumi:"zones"`
-}
-
-// ClusterTypeInput is an input type that accepts ClusterTypeArgs and ClusterTypeOutput values.
-// You can construct a concrete instance of `ClusterTypeInput` via:
-//
-//          ClusterTypeArgs{...}
-type ClusterTypeInput interface {
-	pulumi.Input
-
-	ToClusterTypeOutput() ClusterTypeOutput
-	ToClusterTypeOutputWithContext(context.Context) ClusterTypeOutput
-}
-
-// Class representing a Kusto cluster.
-type ClusterTypeArgs struct {
-	// The identity of the cluster, if configured.
-	Identity IdentityResponsePtrInput `pulumi:"identity"`
-	// The geo-location where the resource lives
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The cluster properties.
-	Properties ClusterPropertiesResponseInput `pulumi:"properties"`
-	// The SKU of the cluster.
-	Sku AzureSkuResponseInput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-	// The availability zones of the cluster.
-	Zones ZonesResponsePtrInput `pulumi:"zones"`
-}
-
-func (ClusterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterType)(nil)).Elem()
-}
-
-func (i ClusterTypeArgs) ToClusterTypeOutput() ClusterTypeOutput {
-	return i.ToClusterTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterTypeArgs) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterTypeOutput)
-}
-
-// Class representing a Kusto cluster.
-type ClusterTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterType)(nil)).Elem()
-}
-
-func (o ClusterTypeOutput) ToClusterTypeOutput() ClusterTypeOutput {
-	return o
-}
-
-func (o ClusterTypeOutput) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
-	return o
-}
-
-// The identity of the cluster, if configured.
-func (o ClusterTypeOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v ClusterType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
-}
-
-// The geo-location where the resource lives
-func (o ClusterTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o ClusterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The cluster properties.
-func (o ClusterTypeOutput) Properties() ClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v ClusterType) ClusterPropertiesResponse { return v.Properties }).(ClusterPropertiesResponseOutput)
-}
-
-// The SKU of the cluster.
-func (o ClusterTypeOutput) Sku() AzureSkuResponseOutput {
-	return o.ApplyT(func(v ClusterType) AzureSkuResponse { return v.Sku }).(AzureSkuResponseOutput)
-}
-
-// Resource tags.
-func (o ClusterTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ClusterType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o ClusterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The availability zones of the cluster.
-func (o ClusterTypeOutput) Zones() ZonesResponsePtrOutput {
-	return o.ApplyT(func(v ClusterType) *ZonesResponse { return v.Zones }).(ZonesResponsePtrOutput)
-}
-
-// Class representing a cluster principal assignment.
-type ClusterPrincipalAssignmentType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The cluster principal.
-	Properties ClusterPrincipalPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// ClusterPrincipalAssignmentTypeInput is an input type that accepts ClusterPrincipalAssignmentTypeArgs and ClusterPrincipalAssignmentTypeOutput values.
-// You can construct a concrete instance of `ClusterPrincipalAssignmentTypeInput` via:
-//
-//          ClusterPrincipalAssignmentTypeArgs{...}
-type ClusterPrincipalAssignmentTypeInput interface {
-	pulumi.Input
-
-	ToClusterPrincipalAssignmentTypeOutput() ClusterPrincipalAssignmentTypeOutput
-	ToClusterPrincipalAssignmentTypeOutputWithContext(context.Context) ClusterPrincipalAssignmentTypeOutput
-}
-
-// Class representing a cluster principal assignment.
-type ClusterPrincipalAssignmentTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The cluster principal.
-	Properties ClusterPrincipalPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterPrincipalAssignmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterPrincipalAssignmentType)(nil)).Elem()
-}
-
-func (i ClusterPrincipalAssignmentTypeArgs) ToClusterPrincipalAssignmentTypeOutput() ClusterPrincipalAssignmentTypeOutput {
-	return i.ToClusterPrincipalAssignmentTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterPrincipalAssignmentTypeArgs) ToClusterPrincipalAssignmentTypeOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterPrincipalAssignmentTypeOutput)
-}
-
-// Class representing a cluster principal assignment.
-type ClusterPrincipalAssignmentTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterPrincipalAssignmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterPrincipalAssignmentType)(nil)).Elem()
-}
-
-func (o ClusterPrincipalAssignmentTypeOutput) ToClusterPrincipalAssignmentTypeOutput() ClusterPrincipalAssignmentTypeOutput {
-	return o
-}
-
-func (o ClusterPrincipalAssignmentTypeOutput) ToClusterPrincipalAssignmentTypeOutputWithContext(ctx context.Context) ClusterPrincipalAssignmentTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o ClusterPrincipalAssignmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterPrincipalAssignmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The cluster principal.
-func (o ClusterPrincipalAssignmentTypeOutput) Properties() ClusterPrincipalPropertiesResponseOutput {
-	return o.ApplyT(func(v ClusterPrincipalAssignmentType) ClusterPrincipalPropertiesResponse { return v.Properties }).(ClusterPrincipalPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o ClusterPrincipalAssignmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterPrincipalAssignmentType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // A class representing cluster principal property.
@@ -1474,243 +1199,6 @@ func (o ClusterPropertiesResponsePtrOutput) VirtualNetworkConfiguration() Virtua
 	}).(VirtualNetworkConfigurationResponsePtrOutput)
 }
 
-// Class representing an data connection.
-type DataConnectionType struct {
-	// Kind of the endpoint for the data connection
-	Kind string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// DataConnectionTypeInput is an input type that accepts DataConnectionTypeArgs and DataConnectionTypeOutput values.
-// You can construct a concrete instance of `DataConnectionTypeInput` via:
-//
-//          DataConnectionTypeArgs{...}
-type DataConnectionTypeInput interface {
-	pulumi.Input
-
-	ToDataConnectionTypeOutput() DataConnectionTypeOutput
-	ToDataConnectionTypeOutputWithContext(context.Context) DataConnectionTypeOutput
-}
-
-// Class representing an data connection.
-type DataConnectionTypeArgs struct {
-	// Kind of the endpoint for the data connection
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DataConnectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectionType)(nil)).Elem()
-}
-
-func (i DataConnectionTypeArgs) ToDataConnectionTypeOutput() DataConnectionTypeOutput {
-	return i.ToDataConnectionTypeOutputWithContext(context.Background())
-}
-
-func (i DataConnectionTypeArgs) ToDataConnectionTypeOutputWithContext(ctx context.Context) DataConnectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataConnectionTypeOutput)
-}
-
-// Class representing an data connection.
-type DataConnectionTypeOutput struct{ *pulumi.OutputState }
-
-func (DataConnectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataConnectionType)(nil)).Elem()
-}
-
-func (o DataConnectionTypeOutput) ToDataConnectionTypeOutput() DataConnectionTypeOutput {
-	return o
-}
-
-func (o DataConnectionTypeOutput) ToDataConnectionTypeOutputWithContext(ctx context.Context) DataConnectionTypeOutput {
-	return o
-}
-
-// Kind of the endpoint for the data connection
-func (o DataConnectionTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v DataConnectionType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Resource location.
-func (o DataConnectionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DataConnectionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o DataConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DataConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o DataConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DataConnectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Class representing a Kusto database.
-type DatabaseType struct {
-	// Kind of the database
-	Kind string `pulumi:"kind"`
-	// Resource location.
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseTypeInput is an input type that accepts DatabaseTypeArgs and DatabaseTypeOutput values.
-// You can construct a concrete instance of `DatabaseTypeInput` via:
-//
-//          DatabaseTypeArgs{...}
-type DatabaseTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseTypeOutput() DatabaseTypeOutput
-	ToDatabaseTypeOutputWithContext(context.Context) DatabaseTypeOutput
-}
-
-// Class representing a Kusto database.
-type DatabaseTypeArgs struct {
-	// Kind of the database
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseType)(nil)).Elem()
-}
-
-func (i DatabaseTypeArgs) ToDatabaseTypeOutput() DatabaseTypeOutput {
-	return i.ToDatabaseTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseTypeArgs) ToDatabaseTypeOutputWithContext(ctx context.Context) DatabaseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseTypeOutput)
-}
-
-// Class representing a Kusto database.
-type DatabaseTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseType)(nil)).Elem()
-}
-
-func (o DatabaseTypeOutput) ToDatabaseTypeOutput() DatabaseTypeOutput {
-	return o
-}
-
-func (o DatabaseTypeOutput) ToDatabaseTypeOutputWithContext(ctx context.Context) DatabaseTypeOutput {
-	return o
-}
-
-// Kind of the database
-func (o DatabaseTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Resource location.
-func (o DatabaseTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o DatabaseTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o DatabaseTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Class representing a database principal assignment.
-type DatabasePrincipalAssignmentType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The database principal.
-	Properties DatabasePrincipalPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// DatabasePrincipalAssignmentTypeInput is an input type that accepts DatabasePrincipalAssignmentTypeArgs and DatabasePrincipalAssignmentTypeOutput values.
-// You can construct a concrete instance of `DatabasePrincipalAssignmentTypeInput` via:
-//
-//          DatabasePrincipalAssignmentTypeArgs{...}
-type DatabasePrincipalAssignmentTypeInput interface {
-	pulumi.Input
-
-	ToDatabasePrincipalAssignmentTypeOutput() DatabasePrincipalAssignmentTypeOutput
-	ToDatabasePrincipalAssignmentTypeOutputWithContext(context.Context) DatabasePrincipalAssignmentTypeOutput
-}
-
-// Class representing a database principal assignment.
-type DatabasePrincipalAssignmentTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The database principal.
-	Properties DatabasePrincipalPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabasePrincipalAssignmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePrincipalAssignmentType)(nil)).Elem()
-}
-
-func (i DatabasePrincipalAssignmentTypeArgs) ToDatabasePrincipalAssignmentTypeOutput() DatabasePrincipalAssignmentTypeOutput {
-	return i.ToDatabasePrincipalAssignmentTypeOutputWithContext(context.Background())
-}
-
-func (i DatabasePrincipalAssignmentTypeArgs) ToDatabasePrincipalAssignmentTypeOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabasePrincipalAssignmentTypeOutput)
-}
-
-// Class representing a database principal assignment.
-type DatabasePrincipalAssignmentTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabasePrincipalAssignmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabasePrincipalAssignmentType)(nil)).Elem()
-}
-
-func (o DatabasePrincipalAssignmentTypeOutput) ToDatabasePrincipalAssignmentTypeOutput() DatabasePrincipalAssignmentTypeOutput {
-	return o
-}
-
-func (o DatabasePrincipalAssignmentTypeOutput) ToDatabasePrincipalAssignmentTypeOutputWithContext(ctx context.Context) DatabasePrincipalAssignmentTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o DatabasePrincipalAssignmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabasePrincipalAssignmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The database principal.
-func (o DatabasePrincipalAssignmentTypeOutput) Properties() DatabasePrincipalPropertiesResponseOutput {
-	return o.ApplyT(func(v DatabasePrincipalAssignmentType) DatabasePrincipalPropertiesResponse { return v.Properties }).(DatabasePrincipalPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o DatabasePrincipalAssignmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabasePrincipalAssignmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // A class representing database principal property.
 type DatabasePrincipalPropertiesResponse struct {
 	// The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
@@ -2235,8 +1723,6 @@ func (o FollowerDatabaseDefinitionResponseArrayOutput) Index(i pulumi.IntInput) 
 type Identity struct {
 	// The identity type.
 	Type string `pulumi:"type"`
-	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]IdentityProperties `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityInput is an input type that accepts IdentityArgs and IdentityOutput values.
@@ -2254,8 +1740,6 @@ type IdentityInput interface {
 type IdentityArgs struct {
 	// The identity type.
 	Type pulumi.StringInput `pulumi:"type"`
-	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities IdentityPropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityArgs) ElementType() reflect.Type {
@@ -2341,11 +1825,6 @@ func (o IdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v Identity) string { return v.Type }).(pulumi.StringOutput)
 }
 
-// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityOutput) UserAssignedIdentities() IdentityPropertiesMapOutput {
-	return o.ApplyT(func(v Identity) map[string]IdentityProperties { return v.UserAssignedIdentities }).(IdentityPropertiesMapOutput)
-}
-
 type IdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (IdentityPtrOutput) ElementType() reflect.Type {
@@ -2374,104 +1853,6 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityPtrOutput) UserAssignedIdentities() IdentityPropertiesMapOutput {
-	return o.ApplyT(func(v *Identity) map[string]IdentityProperties {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(IdentityPropertiesMapOutput)
-}
-
-type IdentityProperties struct {
-}
-
-// IdentityPropertiesInput is an input type that accepts IdentityPropertiesArgs and IdentityPropertiesOutput values.
-// You can construct a concrete instance of `IdentityPropertiesInput` via:
-//
-//          IdentityPropertiesArgs{...}
-type IdentityPropertiesInput interface {
-	pulumi.Input
-
-	ToIdentityPropertiesOutput() IdentityPropertiesOutput
-	ToIdentityPropertiesOutputWithContext(context.Context) IdentityPropertiesOutput
-}
-
-type IdentityPropertiesArgs struct {
-}
-
-func (IdentityPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProperties)(nil)).Elem()
-}
-
-func (i IdentityPropertiesArgs) ToIdentityPropertiesOutput() IdentityPropertiesOutput {
-	return i.ToIdentityPropertiesOutputWithContext(context.Background())
-}
-
-func (i IdentityPropertiesArgs) ToIdentityPropertiesOutputWithContext(ctx context.Context) IdentityPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesOutput)
-}
-
-// IdentityPropertiesMapInput is an input type that accepts IdentityPropertiesMap and IdentityPropertiesMapOutput values.
-// You can construct a concrete instance of `IdentityPropertiesMapInput` via:
-//
-//          IdentityPropertiesMap{ "key": IdentityPropertiesArgs{...} }
-type IdentityPropertiesMapInput interface {
-	pulumi.Input
-
-	ToIdentityPropertiesMapOutput() IdentityPropertiesMapOutput
-	ToIdentityPropertiesMapOutputWithContext(context.Context) IdentityPropertiesMapOutput
-}
-
-type IdentityPropertiesMap map[string]IdentityPropertiesInput
-
-func (IdentityPropertiesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityProperties)(nil)).Elem()
-}
-
-func (i IdentityPropertiesMap) ToIdentityPropertiesMapOutput() IdentityPropertiesMapOutput {
-	return i.ToIdentityPropertiesMapOutputWithContext(context.Background())
-}
-
-func (i IdentityPropertiesMap) ToIdentityPropertiesMapOutputWithContext(ctx context.Context) IdentityPropertiesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityPropertiesMapOutput)
-}
-
-type IdentityPropertiesOutput struct{ *pulumi.OutputState }
-
-func (IdentityPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityProperties)(nil)).Elem()
-}
-
-func (o IdentityPropertiesOutput) ToIdentityPropertiesOutput() IdentityPropertiesOutput {
-	return o
-}
-
-func (o IdentityPropertiesOutput) ToIdentityPropertiesOutputWithContext(ctx context.Context) IdentityPropertiesOutput {
-	return o
-}
-
-type IdentityPropertiesMapOutput struct{ *pulumi.OutputState }
-
-func (IdentityPropertiesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityProperties)(nil)).Elem()
-}
-
-func (o IdentityPropertiesMapOutput) ToIdentityPropertiesMapOutput() IdentityPropertiesMapOutput {
-	return o
-}
-
-func (o IdentityPropertiesMapOutput) ToIdentityPropertiesMapOutputWithContext(ctx context.Context) IdentityPropertiesMapOutput {
-	return o
-}
-
-func (o IdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) IdentityPropertiesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityProperties {
-		return vs[0].(map[string]IdentityProperties)[vs[1].(string)]
-	}).(IdentityPropertiesOutput)
-}
-
 // Identity for the resource.
 type IdentityResponse struct {
 	// The principal ID of resource identity.
@@ -2481,7 +1862,7 @@ type IdentityResponse struct {
 	// The identity type.
 	Type string `pulumi:"type"`
 	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]IdentityResponseProperties `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]IdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
 // IdentityResponseInput is an input type that accepts IdentityResponseArgs and IdentityResponseOutput values.
@@ -2504,7 +1885,7 @@ type IdentityResponseArgs struct {
 	// The identity type.
 	Type pulumi.StringInput `pulumi:"type"`
 	// The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities IdentityResponsePropertiesMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities IdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (IdentityResponseArgs) ElementType() reflect.Type {
@@ -2601,8 +1982,10 @@ func (o IdentityResponseOutput) Type() pulumi.StringOutput {
 }
 
 // The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityResponseOutput) UserAssignedIdentities() IdentityResponsePropertiesMapOutput {
-	return o.ApplyT(func(v IdentityResponse) map[string]IdentityResponseProperties { return v.UserAssignedIdentities }).(IdentityResponsePropertiesMapOutput)
+func (o IdentityResponseOutput) UserAssignedIdentities() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v IdentityResponse) map[string]IdentityResponseUserAssignedIdentities {
+		return v.UserAssignedIdentities
+	}).(IdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
 type IdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -2654,119 +2037,119 @@ func (o IdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the Kusto cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o IdentityResponsePtrOutput) UserAssignedIdentities() IdentityResponsePropertiesMapOutput {
-	return o.ApplyT(func(v *IdentityResponse) map[string]IdentityResponseProperties {
+func (o IdentityResponsePtrOutput) UserAssignedIdentities() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v *IdentityResponse) map[string]IdentityResponseUserAssignedIdentities {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(IdentityResponsePropertiesMapOutput)
+	}).(IdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
-type IdentityResponseProperties struct {
+type IdentityResponseUserAssignedIdentities struct {
 	// The client id of user assigned identity.
 	ClientId string `pulumi:"clientId"`
 	// The principal id of user assigned identity.
 	PrincipalId string `pulumi:"principalId"`
 }
 
-// IdentityResponsePropertiesInput is an input type that accepts IdentityResponsePropertiesArgs and IdentityResponsePropertiesOutput values.
-// You can construct a concrete instance of `IdentityResponsePropertiesInput` via:
+// IdentityResponseUserAssignedIdentitiesInput is an input type that accepts IdentityResponseUserAssignedIdentitiesArgs and IdentityResponseUserAssignedIdentitiesOutput values.
+// You can construct a concrete instance of `IdentityResponseUserAssignedIdentitiesInput` via:
 //
-//          IdentityResponsePropertiesArgs{...}
-type IdentityResponsePropertiesInput interface {
+//          IdentityResponseUserAssignedIdentitiesArgs{...}
+type IdentityResponseUserAssignedIdentitiesInput interface {
 	pulumi.Input
 
-	ToIdentityResponsePropertiesOutput() IdentityResponsePropertiesOutput
-	ToIdentityResponsePropertiesOutputWithContext(context.Context) IdentityResponsePropertiesOutput
+	ToIdentityResponseUserAssignedIdentitiesOutput() IdentityResponseUserAssignedIdentitiesOutput
+	ToIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Context) IdentityResponseUserAssignedIdentitiesOutput
 }
 
-type IdentityResponsePropertiesArgs struct {
+type IdentityResponseUserAssignedIdentitiesArgs struct {
 	// The client id of user assigned identity.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The principal id of user assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
-func (IdentityResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityResponseProperties)(nil)).Elem()
+func (IdentityResponseUserAssignedIdentitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (i IdentityResponsePropertiesArgs) ToIdentityResponsePropertiesOutput() IdentityResponsePropertiesOutput {
-	return i.ToIdentityResponsePropertiesOutputWithContext(context.Background())
+func (i IdentityResponseUserAssignedIdentitiesArgs) ToIdentityResponseUserAssignedIdentitiesOutput() IdentityResponseUserAssignedIdentitiesOutput {
+	return i.ToIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Background())
 }
 
-func (i IdentityResponsePropertiesArgs) ToIdentityResponsePropertiesOutputWithContext(ctx context.Context) IdentityResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePropertiesOutput)
+func (i IdentityResponseUserAssignedIdentitiesArgs) ToIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponseUserAssignedIdentitiesOutput)
 }
 
-// IdentityResponsePropertiesMapInput is an input type that accepts IdentityResponsePropertiesMap and IdentityResponsePropertiesMapOutput values.
-// You can construct a concrete instance of `IdentityResponsePropertiesMapInput` via:
+// IdentityResponseUserAssignedIdentitiesMapInput is an input type that accepts IdentityResponseUserAssignedIdentitiesMap and IdentityResponseUserAssignedIdentitiesMapOutput values.
+// You can construct a concrete instance of `IdentityResponseUserAssignedIdentitiesMapInput` via:
 //
-//          IdentityResponsePropertiesMap{ "key": IdentityResponsePropertiesArgs{...} }
-type IdentityResponsePropertiesMapInput interface {
+//          IdentityResponseUserAssignedIdentitiesMap{ "key": IdentityResponseUserAssignedIdentitiesArgs{...} }
+type IdentityResponseUserAssignedIdentitiesMapInput interface {
 	pulumi.Input
 
-	ToIdentityResponsePropertiesMapOutput() IdentityResponsePropertiesMapOutput
-	ToIdentityResponsePropertiesMapOutputWithContext(context.Context) IdentityResponsePropertiesMapOutput
+	ToIdentityResponseUserAssignedIdentitiesMapOutput() IdentityResponseUserAssignedIdentitiesMapOutput
+	ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Context) IdentityResponseUserAssignedIdentitiesMapOutput
 }
 
-type IdentityResponsePropertiesMap map[string]IdentityResponsePropertiesInput
+type IdentityResponseUserAssignedIdentitiesMap map[string]IdentityResponseUserAssignedIdentitiesInput
 
-func (IdentityResponsePropertiesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityResponseProperties)(nil)).Elem()
+func (IdentityResponseUserAssignedIdentitiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (i IdentityResponsePropertiesMap) ToIdentityResponsePropertiesMapOutput() IdentityResponsePropertiesMapOutput {
-	return i.ToIdentityResponsePropertiesMapOutputWithContext(context.Background())
+func (i IdentityResponseUserAssignedIdentitiesMap) ToIdentityResponseUserAssignedIdentitiesMapOutput() IdentityResponseUserAssignedIdentitiesMapOutput {
+	return i.ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Background())
 }
 
-func (i IdentityResponsePropertiesMap) ToIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) IdentityResponsePropertiesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponsePropertiesMapOutput)
+func (i IdentityResponseUserAssignedIdentitiesMap) ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
-type IdentityResponsePropertiesOutput struct{ *pulumi.OutputState }
+type IdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
 
-func (IdentityResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IdentityResponseProperties)(nil)).Elem()
+func (IdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (o IdentityResponsePropertiesOutput) ToIdentityResponsePropertiesOutput() IdentityResponsePropertiesOutput {
+func (o IdentityResponseUserAssignedIdentitiesOutput) ToIdentityResponseUserAssignedIdentitiesOutput() IdentityResponseUserAssignedIdentitiesOutput {
 	return o
 }
 
-func (o IdentityResponsePropertiesOutput) ToIdentityResponsePropertiesOutputWithContext(ctx context.Context) IdentityResponsePropertiesOutput {
+func (o IdentityResponseUserAssignedIdentitiesOutput) ToIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesOutput {
 	return o
 }
 
 // The client id of user assigned identity.
-func (o IdentityResponsePropertiesOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityResponseProperties) string { return v.ClientId }).(pulumi.StringOutput)
+func (o IdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
 // The principal id of user assigned identity.
-func (o IdentityResponsePropertiesOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v IdentityResponseProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
+func (o IdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-type IdentityResponsePropertiesMapOutput struct{ *pulumi.OutputState }
+type IdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
 
-func (IdentityResponsePropertiesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IdentityResponseProperties)(nil)).Elem()
+func (IdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (o IdentityResponsePropertiesMapOutput) ToIdentityResponsePropertiesMapOutput() IdentityResponsePropertiesMapOutput {
+func (o IdentityResponseUserAssignedIdentitiesMapOutput) ToIdentityResponseUserAssignedIdentitiesMapOutput() IdentityResponseUserAssignedIdentitiesMapOutput {
 	return o
 }
 
-func (o IdentityResponsePropertiesMapOutput) ToIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) IdentityResponsePropertiesMapOutput {
+func (o IdentityResponseUserAssignedIdentitiesMapOutput) ToIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) IdentityResponseUserAssignedIdentitiesMapOutput {
 	return o
 }
 
-func (o IdentityResponsePropertiesMapOutput) MapIndex(k pulumi.StringInput) IdentityResponsePropertiesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityResponseProperties {
-		return vs[0].(map[string]IdentityResponseProperties)[vs[1].(string)]
-	}).(IdentityResponsePropertiesOutput)
+func (o IdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) IdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IdentityResponseUserAssignedIdentities {
+		return vs[0].(map[string]IdentityResponseUserAssignedIdentities)[vs[1].(string)]
+	}).(IdentityResponseUserAssignedIdentitiesOutput)
 }
 
 // Properties of the key vault.
@@ -3114,106 +2497,6 @@ func (o KeyVaultPropertiesResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput
 }
 
 // The language extension object.
-type LanguageExtension struct {
-	// The language extension name.
-	LanguageExtensionName *string `pulumi:"languageExtensionName"`
-}
-
-// LanguageExtensionInput is an input type that accepts LanguageExtensionArgs and LanguageExtensionOutput values.
-// You can construct a concrete instance of `LanguageExtensionInput` via:
-//
-//          LanguageExtensionArgs{...}
-type LanguageExtensionInput interface {
-	pulumi.Input
-
-	ToLanguageExtensionOutput() LanguageExtensionOutput
-	ToLanguageExtensionOutputWithContext(context.Context) LanguageExtensionOutput
-}
-
-// The language extension object.
-type LanguageExtensionArgs struct {
-	// The language extension name.
-	LanguageExtensionName pulumi.StringPtrInput `pulumi:"languageExtensionName"`
-}
-
-func (LanguageExtensionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LanguageExtension)(nil)).Elem()
-}
-
-func (i LanguageExtensionArgs) ToLanguageExtensionOutput() LanguageExtensionOutput {
-	return i.ToLanguageExtensionOutputWithContext(context.Background())
-}
-
-func (i LanguageExtensionArgs) ToLanguageExtensionOutputWithContext(ctx context.Context) LanguageExtensionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LanguageExtensionOutput)
-}
-
-// LanguageExtensionArrayInput is an input type that accepts LanguageExtensionArray and LanguageExtensionArrayOutput values.
-// You can construct a concrete instance of `LanguageExtensionArrayInput` via:
-//
-//          LanguageExtensionArray{ LanguageExtensionArgs{...} }
-type LanguageExtensionArrayInput interface {
-	pulumi.Input
-
-	ToLanguageExtensionArrayOutput() LanguageExtensionArrayOutput
-	ToLanguageExtensionArrayOutputWithContext(context.Context) LanguageExtensionArrayOutput
-}
-
-type LanguageExtensionArray []LanguageExtensionInput
-
-func (LanguageExtensionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LanguageExtension)(nil)).Elem()
-}
-
-func (i LanguageExtensionArray) ToLanguageExtensionArrayOutput() LanguageExtensionArrayOutput {
-	return i.ToLanguageExtensionArrayOutputWithContext(context.Background())
-}
-
-func (i LanguageExtensionArray) ToLanguageExtensionArrayOutputWithContext(ctx context.Context) LanguageExtensionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LanguageExtensionArrayOutput)
-}
-
-// The language extension object.
-type LanguageExtensionOutput struct{ *pulumi.OutputState }
-
-func (LanguageExtensionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LanguageExtension)(nil)).Elem()
-}
-
-func (o LanguageExtensionOutput) ToLanguageExtensionOutput() LanguageExtensionOutput {
-	return o
-}
-
-func (o LanguageExtensionOutput) ToLanguageExtensionOutputWithContext(ctx context.Context) LanguageExtensionOutput {
-	return o
-}
-
-// The language extension name.
-func (o LanguageExtensionOutput) LanguageExtensionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LanguageExtension) *string { return v.LanguageExtensionName }).(pulumi.StringPtrOutput)
-}
-
-type LanguageExtensionArrayOutput struct{ *pulumi.OutputState }
-
-func (LanguageExtensionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LanguageExtension)(nil)).Elem()
-}
-
-func (o LanguageExtensionArrayOutput) ToLanguageExtensionArrayOutput() LanguageExtensionArrayOutput {
-	return o
-}
-
-func (o LanguageExtensionArrayOutput) ToLanguageExtensionArrayOutputWithContext(ctx context.Context) LanguageExtensionArrayOutput {
-	return o
-}
-
-func (o LanguageExtensionArrayOutput) Index(i pulumi.IntInput) LanguageExtensionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LanguageExtension {
-		return vs[0].([]LanguageExtension)[vs[1].(int)]
-	}).(LanguageExtensionOutput)
-}
-
-// The language extension object.
 type LanguageExtensionResponse struct {
 	// The language extension name.
 	LanguageExtensionName *string `pulumi:"languageExtensionName"`
@@ -3311,61 +2594,6 @@ func (o LanguageExtensionResponseArrayOutput) Index(i pulumi.IntInput) LanguageE
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LanguageExtensionResponse {
 		return vs[0].([]LanguageExtensionResponse)[vs[1].(int)]
 	}).(LanguageExtensionResponseOutput)
-}
-
-// The list of language extension objects.
-type LanguageExtensionsList struct {
-	// The list of language extensions.
-	Value []LanguageExtension `pulumi:"value"`
-}
-
-// LanguageExtensionsListInput is an input type that accepts LanguageExtensionsListArgs and LanguageExtensionsListOutput values.
-// You can construct a concrete instance of `LanguageExtensionsListInput` via:
-//
-//          LanguageExtensionsListArgs{...}
-type LanguageExtensionsListInput interface {
-	pulumi.Input
-
-	ToLanguageExtensionsListOutput() LanguageExtensionsListOutput
-	ToLanguageExtensionsListOutputWithContext(context.Context) LanguageExtensionsListOutput
-}
-
-// The list of language extension objects.
-type LanguageExtensionsListArgs struct {
-	// The list of language extensions.
-	Value LanguageExtensionArrayInput `pulumi:"value"`
-}
-
-func (LanguageExtensionsListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LanguageExtensionsList)(nil)).Elem()
-}
-
-func (i LanguageExtensionsListArgs) ToLanguageExtensionsListOutput() LanguageExtensionsListOutput {
-	return i.ToLanguageExtensionsListOutputWithContext(context.Background())
-}
-
-func (i LanguageExtensionsListArgs) ToLanguageExtensionsListOutputWithContext(ctx context.Context) LanguageExtensionsListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LanguageExtensionsListOutput)
-}
-
-// The list of language extension objects.
-type LanguageExtensionsListOutput struct{ *pulumi.OutputState }
-
-func (LanguageExtensionsListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LanguageExtensionsList)(nil)).Elem()
-}
-
-func (o LanguageExtensionsListOutput) ToLanguageExtensionsListOutput() LanguageExtensionsListOutput {
-	return o
-}
-
-func (o LanguageExtensionsListOutput) ToLanguageExtensionsListOutputWithContext(ctx context.Context) LanguageExtensionsListOutput {
-	return o
-}
-
-// The list of language extensions.
-func (o LanguageExtensionsListOutput) Value() LanguageExtensionArrayOutput {
-	return o.ApplyT(func(v LanguageExtensionsList) []LanguageExtension { return v.Value }).(LanguageExtensionArrayOutput)
 }
 
 // The list of language extension objects.
@@ -4428,253 +3656,17 @@ func (o VirtualNetworkConfigurationResponsePtrOutput) SubnetId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// An array represents the availability zones of the cluster.
-type Zones struct {
-}
-
-// ZonesInput is an input type that accepts ZonesArgs and ZonesOutput values.
-// You can construct a concrete instance of `ZonesInput` via:
-//
-//          ZonesArgs{...}
-type ZonesInput interface {
-	pulumi.Input
-
-	ToZonesOutput() ZonesOutput
-	ToZonesOutputWithContext(context.Context) ZonesOutput
-}
-
-// An array represents the availability zones of the cluster.
-type ZonesArgs struct {
-}
-
-func (ZonesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Zones)(nil)).Elem()
-}
-
-func (i ZonesArgs) ToZonesOutput() ZonesOutput {
-	return i.ToZonesOutputWithContext(context.Background())
-}
-
-func (i ZonesArgs) ToZonesOutputWithContext(ctx context.Context) ZonesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZonesOutput)
-}
-
-func (i ZonesArgs) ToZonesPtrOutput() ZonesPtrOutput {
-	return i.ToZonesPtrOutputWithContext(context.Background())
-}
-
-func (i ZonesArgs) ToZonesPtrOutputWithContext(ctx context.Context) ZonesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZonesOutput).ToZonesPtrOutputWithContext(ctx)
-}
-
-// ZonesPtrInput is an input type that accepts ZonesArgs, ZonesPtr and ZonesPtrOutput values.
-// You can construct a concrete instance of `ZonesPtrInput` via:
-//
-//          ZonesArgs{...}
-//
-//  or:
-//
-//          nil
-type ZonesPtrInput interface {
-	pulumi.Input
-
-	ToZonesPtrOutput() ZonesPtrOutput
-	ToZonesPtrOutputWithContext(context.Context) ZonesPtrOutput
-}
-
-type zonesPtrType ZonesArgs
-
-func ZonesPtr(v *ZonesArgs) ZonesPtrInput {
-	return (*zonesPtrType)(v)
-}
-
-func (*zonesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Zones)(nil)).Elem()
-}
-
-func (i *zonesPtrType) ToZonesPtrOutput() ZonesPtrOutput {
-	return i.ToZonesPtrOutputWithContext(context.Background())
-}
-
-func (i *zonesPtrType) ToZonesPtrOutputWithContext(ctx context.Context) ZonesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZonesPtrOutput)
-}
-
-// An array represents the availability zones of the cluster.
-type ZonesOutput struct{ *pulumi.OutputState }
-
-func (ZonesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Zones)(nil)).Elem()
-}
-
-func (o ZonesOutput) ToZonesOutput() ZonesOutput {
-	return o
-}
-
-func (o ZonesOutput) ToZonesOutputWithContext(ctx context.Context) ZonesOutput {
-	return o
-}
-
-func (o ZonesOutput) ToZonesPtrOutput() ZonesPtrOutput {
-	return o.ToZonesPtrOutputWithContext(context.Background())
-}
-
-func (o ZonesOutput) ToZonesPtrOutputWithContext(ctx context.Context) ZonesPtrOutput {
-	return o.ApplyT(func(v Zones) *Zones {
-		return &v
-	}).(ZonesPtrOutput)
-}
-
-type ZonesPtrOutput struct{ *pulumi.OutputState }
-
-func (ZonesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Zones)(nil)).Elem()
-}
-
-func (o ZonesPtrOutput) ToZonesPtrOutput() ZonesPtrOutput {
-	return o
-}
-
-func (o ZonesPtrOutput) ToZonesPtrOutputWithContext(ctx context.Context) ZonesPtrOutput {
-	return o
-}
-
-func (o ZonesPtrOutput) Elem() ZonesOutput {
-	return o.ApplyT(func(v *Zones) Zones { return *v }).(ZonesOutput)
-}
-
-// An array represents the availability zones of the cluster.
-type ZonesResponse struct {
-}
-
-// ZonesResponseInput is an input type that accepts ZonesResponseArgs and ZonesResponseOutput values.
-// You can construct a concrete instance of `ZonesResponseInput` via:
-//
-//          ZonesResponseArgs{...}
-type ZonesResponseInput interface {
-	pulumi.Input
-
-	ToZonesResponseOutput() ZonesResponseOutput
-	ToZonesResponseOutputWithContext(context.Context) ZonesResponseOutput
-}
-
-// An array represents the availability zones of the cluster.
-type ZonesResponseArgs struct {
-}
-
-func (ZonesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZonesResponse)(nil)).Elem()
-}
-
-func (i ZonesResponseArgs) ToZonesResponseOutput() ZonesResponseOutput {
-	return i.ToZonesResponseOutputWithContext(context.Background())
-}
-
-func (i ZonesResponseArgs) ToZonesResponseOutputWithContext(ctx context.Context) ZonesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZonesResponseOutput)
-}
-
-func (i ZonesResponseArgs) ToZonesResponsePtrOutput() ZonesResponsePtrOutput {
-	return i.ToZonesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ZonesResponseArgs) ToZonesResponsePtrOutputWithContext(ctx context.Context) ZonesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZonesResponseOutput).ToZonesResponsePtrOutputWithContext(ctx)
-}
-
-// ZonesResponsePtrInput is an input type that accepts ZonesResponseArgs, ZonesResponsePtr and ZonesResponsePtrOutput values.
-// You can construct a concrete instance of `ZonesResponsePtrInput` via:
-//
-//          ZonesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ZonesResponsePtrInput interface {
-	pulumi.Input
-
-	ToZonesResponsePtrOutput() ZonesResponsePtrOutput
-	ToZonesResponsePtrOutputWithContext(context.Context) ZonesResponsePtrOutput
-}
-
-type zonesResponsePtrType ZonesResponseArgs
-
-func ZonesResponsePtr(v *ZonesResponseArgs) ZonesResponsePtrInput {
-	return (*zonesResponsePtrType)(v)
-}
-
-func (*zonesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ZonesResponse)(nil)).Elem()
-}
-
-func (i *zonesResponsePtrType) ToZonesResponsePtrOutput() ZonesResponsePtrOutput {
-	return i.ToZonesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *zonesResponsePtrType) ToZonesResponsePtrOutputWithContext(ctx context.Context) ZonesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZonesResponsePtrOutput)
-}
-
-// An array represents the availability zones of the cluster.
-type ZonesResponseOutput struct{ *pulumi.OutputState }
-
-func (ZonesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZonesResponse)(nil)).Elem()
-}
-
-func (o ZonesResponseOutput) ToZonesResponseOutput() ZonesResponseOutput {
-	return o
-}
-
-func (o ZonesResponseOutput) ToZonesResponseOutputWithContext(ctx context.Context) ZonesResponseOutput {
-	return o
-}
-
-func (o ZonesResponseOutput) ToZonesResponsePtrOutput() ZonesResponsePtrOutput {
-	return o.ToZonesResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ZonesResponseOutput) ToZonesResponsePtrOutputWithContext(ctx context.Context) ZonesResponsePtrOutput {
-	return o.ApplyT(func(v ZonesResponse) *ZonesResponse {
-		return &v
-	}).(ZonesResponsePtrOutput)
-}
-
-type ZonesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ZonesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ZonesResponse)(nil)).Elem()
-}
-
-func (o ZonesResponsePtrOutput) ToZonesResponsePtrOutput() ZonesResponsePtrOutput {
-	return o
-}
-
-func (o ZonesResponsePtrOutput) ToZonesResponsePtrOutputWithContext(ctx context.Context) ZonesResponsePtrOutput {
-	return o
-}
-
-func (o ZonesResponsePtrOutput) Elem() ZonesResponseOutput {
-	return o.ApplyT(func(v *ZonesResponse) ZonesResponse { return *v }).(ZonesResponseOutput)
-}
-
 func init() {
-	pulumi.RegisterOutputType(AttachedDatabaseConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(AzureSkuOutput{})
 	pulumi.RegisterOutputType(AzureSkuPtrOutput{})
 	pulumi.RegisterOutputType(AzureSkuResponseOutput{})
 	pulumi.RegisterOutputType(AzureSkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(ClusterTypeOutput{})
-	pulumi.RegisterOutputType(ClusterPrincipalAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(ClusterPrincipalPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ClusterPrincipalPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(DataConnectionTypeOutput{})
-	pulumi.RegisterOutputType(DatabaseTypeOutput{})
-	pulumi.RegisterOutputType(DatabasePrincipalAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(DatabasePrincipalResponseOutput{})
@@ -4683,21 +3675,16 @@ func init() {
 	pulumi.RegisterOutputType(FollowerDatabaseDefinitionResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
-	pulumi.RegisterOutputType(IdentityPropertiesOutput{})
-	pulumi.RegisterOutputType(IdentityPropertiesMapOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})
 	pulumi.RegisterOutputType(IdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(IdentityResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(IdentityResponsePropertiesMapOutput{})
+	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesOutput{})
+	pulumi.RegisterOutputType(IdentityResponseUserAssignedIdentitiesMapOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(LanguageExtensionOutput{})
-	pulumi.RegisterOutputType(LanguageExtensionArrayOutput{})
 	pulumi.RegisterOutputType(LanguageExtensionResponseOutput{})
 	pulumi.RegisterOutputType(LanguageExtensionResponseArrayOutput{})
-	pulumi.RegisterOutputType(LanguageExtensionsListOutput{})
 	pulumi.RegisterOutputType(LanguageExtensionsListResponseOutput{})
 	pulumi.RegisterOutputType(LanguageExtensionsListResponsePtrOutput{})
 	pulumi.RegisterOutputType(OptimizedAutoscaleOutput{})
@@ -4712,8 +3699,4 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigurationResponsePtrOutput{})
-	pulumi.RegisterOutputType(ZonesOutput{})
-	pulumi.RegisterOutputType(ZonesPtrOutput{})
-	pulumi.RegisterOutputType(ZonesResponseOutput{})
-	pulumi.RegisterOutputType(ZonesResponsePtrOutput{})
 }

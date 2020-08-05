@@ -77,7 +77,6 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
           * `groups` (`pulumi.Input[list]`) - The recovery plan groups.
             * `end_group_actions` (`pulumi.Input[list]`) - The end group actions.
               * `action_name` (`pulumi.Input[str]`) - The action name.
-              * `custom_details` (`pulumi.Input[dict]`) - The custom details.
               * `failover_directions` (`pulumi.Input[list]`) - The list of failover directions.
               * `failover_types` (`pulumi.Input[list]`) - The list of failover types.
 

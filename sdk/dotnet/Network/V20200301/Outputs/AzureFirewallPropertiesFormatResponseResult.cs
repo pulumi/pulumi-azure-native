@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.Network.V20200301.Outputs
         /// <summary>
         /// The additional properties used to further config this azure firewall.
         /// </summary>
-        public readonly Outputs.AzureFirewallAdditionalPropertiesResponseResult? AdditionalProperties;
+        public readonly ImmutableDictionary<string, string>? AdditionalProperties;
         /// <summary>
         /// Collection of application rule collections used by Azure Firewall.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.Network.V20200301.Outputs
         /// <summary>
         /// IpGroups associated with AzureFirewall.
         /// </summary>
-        public readonly Outputs.IpGroupsResponseResult IpGroups;
+        public readonly ImmutableArray<Outputs.AzureFirewallIpGroupsResponseResult> IpGroups;
         /// <summary>
         /// IP configuration of the Azure Firewall used for management traffic.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Network.V20200301.Outputs
 
         [OutputConstructor]
         private AzureFirewallPropertiesFormatResponseResult(
-            Outputs.AzureFirewallAdditionalPropertiesResponseResult? additionalProperties,
+            ImmutableDictionary<string, string>? additionalProperties,
 
             ImmutableArray<Outputs.AzureFirewallApplicationRuleCollectionResponseResult> applicationRuleCollections,
 
@@ -78,7 +78,7 @@ namespace Pulumi.AzureRM.Network.V20200301.Outputs
 
             ImmutableArray<Outputs.AzureFirewallIPConfigurationResponseResult> ipConfigurations,
 
-            Outputs.IpGroupsResponseResult ipGroups,
+            ImmutableArray<Outputs.AzureFirewallIpGroupsResponseResult> ipGroups,
 
             Outputs.AzureFirewallIPConfigurationResponseResult? managementIpConfiguration,
 

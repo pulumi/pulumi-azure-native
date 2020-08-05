@@ -21,7 +21,7 @@ type SqlResourceSqlContainer struct {
 	// The properties of an Azure Cosmos DB container
 	Properties SqlContainerGetPropertiesResponseOutput `pulumi:"properties"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of Azure resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -79,7 +79,7 @@ type sqlResourceSqlContainerState struct {
 	// The properties of an Azure Cosmos DB container
 	Properties *SqlContainerGetPropertiesResponse `pulumi:"properties"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// The type of Azure resource.
 	Type *string `pulumi:"type"`
 }
@@ -92,7 +92,7 @@ type SqlResourceSqlContainerState struct {
 	// The properties of an Azure Cosmos DB container
 	Properties SqlContainerGetPropertiesResponsePtrInput
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput
+	Tags pulumi.StringMapInput
 	// The type of Azure resource.
 	Type pulumi.StringPtrInput
 }
@@ -117,7 +117,7 @@ type sqlResourceSqlContainerArgs struct {
 	// Name of an Azure resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *Tags `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a SqlResourceSqlContainer resource.
@@ -137,7 +137,7 @@ type SqlResourceSqlContainerArgs struct {
 	// Name of an Azure resource group.
 	ResourceGroupName pulumi.StringInput
 	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (SqlResourceSqlContainerArgs) ElementType() reflect.Type {

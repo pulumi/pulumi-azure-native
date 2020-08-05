@@ -15,11 +15,17 @@ namespace Pulumi.AzureRM.HealthcareApis.V20190916.Inputs
     /// </summary>
     public sealed class ServicesPropertiesArgs : Pulumi.ResourceArgs
     {
+        [Input("accessPolicies")]
+        private InputList<Inputs.ServiceAccessPolicyEntryArgs>? _accessPolicies;
+
         /// <summary>
         /// The access policies of the service instance.
         /// </summary>
-        [Input("accessPolicies")]
-        public Input<Inputs.ServiceAccessPoliciesInfoArgs>? AccessPolicies { get; set; }
+        public InputList<Inputs.ServiceAccessPolicyEntryArgs> AccessPolicies
+        {
+            get => _accessPolicies ?? (_accessPolicies = new InputList<Inputs.ServiceAccessPolicyEntryArgs>());
+            set => _accessPolicies = value;
+        }
 
         /// <summary>
         /// The authentication configuration for the service instance.

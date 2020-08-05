@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// The folder that this data flow is in. If not specified, Data flow will appear at the root level.
         /// </summary>
-        public readonly Outputs.DataFlowResponsePropertiesResult? Folder;
+        public readonly Outputs.DataFlowResponseFolderResult? Folder;
         /// <summary>
         /// Type of data flow.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
 
             string? description,
 
-            Outputs.DataFlowResponsePropertiesResult? folder,
+            Outputs.DataFlowResponseFolderResult? folder,
 
             string? type)
         {

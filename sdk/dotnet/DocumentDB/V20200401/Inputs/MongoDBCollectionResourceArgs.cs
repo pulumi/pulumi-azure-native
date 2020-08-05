@@ -39,11 +39,17 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401.Inputs
             set => _indexes = value;
         }
 
+        [Input("shardKey")]
+        private InputMap<string>? _shardKey;
+
         /// <summary>
         /// A key-value pair of shard keys to be applied for the request.
         /// </summary>
-        [Input("shardKey")]
-        public Input<Inputs.ShardKeysArgs>? ShardKey { get; set; }
+        public InputMap<string> ShardKey
+        {
+            get => _shardKey ?? (_shardKey = new InputMap<string>());
+            set => _shardKey = value;
+        }
 
         public MongoDBCollectionResourceArgs()
         {

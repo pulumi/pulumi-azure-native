@@ -127,7 +127,7 @@ export interface ProtectionPolicyArgs {
     /**
      * The base class for a backup policy. Workload-specific backup policies are derived from this class.
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20160601.ProtectionPolicyDefinition>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20160601.ProtectionPolicy>;
     /**
      * The name of the resource group associated with the Recovery Services vault.
      */

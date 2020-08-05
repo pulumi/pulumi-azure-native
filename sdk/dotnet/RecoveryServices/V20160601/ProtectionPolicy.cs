@@ -123,7 +123,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160601
         /// The base class for a backup policy. Workload-specific backup policies are derived from this class.
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.ProtectionPolicyDefinitionArgs>? Properties { get; set; }
+        public Input<Inputs.ProtectionPolicyArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group associated with the Recovery Services vault.

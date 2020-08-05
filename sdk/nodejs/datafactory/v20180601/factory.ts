@@ -113,7 +113,7 @@ export interface FactoryArgs {
     /**
      * List of parameters for factory.
      */
-    readonly globalParameters?: pulumi.Input<inputs.datafactory.v20180601.GlobalParameterDefinitionSpecification>;
+    readonly globalParameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.v20180601.GlobalParameterSpecification>}>;
     /**
      * Managed service identity of the factory.
      */

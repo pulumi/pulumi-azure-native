@@ -89,18 +89,6 @@ namespace Pulumi.AzureRM.Insights.V20160301
 
     public sealed class AlertRuleArgs : Pulumi.ResourceArgs
     {
-        [Input("actions")]
-        private InputList<Inputs.RuleActionArgs>? _actions;
-
-        /// <summary>
-        /// the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-        /// </summary>
-        public InputList<Inputs.RuleActionArgs> Actions
-        {
-            get => _actions ?? (_actions = new InputList<Inputs.RuleActionArgs>());
-            set => _actions = value;
-        }
-
         /// <summary>
         /// the condition that results in the alert rule being activated.
         /// </summary>

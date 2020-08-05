@@ -108,14 +108,14 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         }
 
         [Input("grades")]
-        private InputList<Inputs.PredictionPropertiesArgs>? _grades;
+        private InputList<Inputs.PredictionGradesArgs>? _grades;
 
         /// <summary>
         /// The prediction grades.
         /// </summary>
-        public InputList<Inputs.PredictionPropertiesArgs> Grades
+        public InputList<Inputs.PredictionGradesArgs> Grades
         {
-            get => _grades ?? (_grades = new InputList<Inputs.PredictionPropertiesArgs>());
+            get => _grades ?? (_grades = new InputList<Inputs.PredictionGradesArgs>());
             set => _grades = value;
         }
 
@@ -165,7 +165,7 @@ namespace Pulumi.AzureRM.CustomerInsights.V20170426
         /// Definition of the link mapping of prediction.
         /// </summary>
         [Input("mappings", required: true)]
-        public Input<Inputs.PredictionPropertiesArgs> Mappings { get; set; } = null!;
+        public Input<Inputs.PredictionMappingsArgs> Mappings { get; set; } = null!;
 
         /// <summary>
         /// Name of the prediction.

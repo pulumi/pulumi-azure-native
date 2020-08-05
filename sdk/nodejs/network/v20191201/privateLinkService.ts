@@ -113,7 +113,7 @@ export interface PrivateLinkServiceArgs {
     /**
      * The auto-approval list of the private link service.
      */
-    readonly autoApproval?: pulumi.Input<{[key: string]: any}>;
+    readonly autoApproval?: pulumi.Input<inputs.network.v20191201.PrivateLinkServicePropertiesAutoApproval>;
     /**
      * Whether the private link service is enabled for proxy protocol or not.
      */
@@ -153,5 +153,5 @@ export interface PrivateLinkServiceArgs {
     /**
      * The visibility list of the private link service.
      */
-    readonly visibility?: pulumi.Input<{[key: string]: any}>;
+    readonly visibility?: pulumi.Input<inputs.network.v20191201.PrivateLinkServicePropertiesVisibility>;
 }

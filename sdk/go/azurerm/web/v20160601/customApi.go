@@ -23,7 +23,7 @@ type CustomApi struct {
 	// Custom API properties
 	Properties CustomApiPropertiesDefinitionResponseOutput `pulumi:"properties"`
 	// Resource tags
-	Tags TagsDictionaryResponsePtrOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -71,7 +71,7 @@ type customApiState struct {
 	// Custom API properties
 	Properties *CustomApiPropertiesDefinitionResponse `pulumi:"properties"`
 	// Resource tags
-	Tags *TagsDictionaryResponse `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -86,7 +86,7 @@ type CustomApiState struct {
 	// Custom API properties
 	Properties CustomApiPropertiesDefinitionResponsePtrInput
 	// Resource tags
-	Tags TagsDictionaryResponsePtrInput
+	Tags pulumi.StringMapInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }
@@ -107,7 +107,7 @@ type customApiArgs struct {
 	// The resource group
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
-	Tags *TagsDictionary `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CustomApi resource.
@@ -123,7 +123,7 @@ type CustomApiArgs struct {
 	// The resource group
 	ResourceGroupName pulumi.StringInput
 	// Resource tags
-	Tags TagsDictionaryPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (CustomApiArgs) ElementType() reflect.Type {

@@ -14,10 +14,6 @@ namespace Pulumi.AzureRM.Media.V20200501.Outputs
     public sealed class ContentKeyPolicyOptionResponseResult
     {
         /// <summary>
-        /// The key delivery configuration.
-        /// </summary>
-        public readonly Outputs.ContentKeyPolicyConfigurationResponseResult Configuration;
-        /// <summary>
         /// The Policy Option description.
         /// </summary>
         public readonly string? Name;
@@ -25,25 +21,15 @@ namespace Pulumi.AzureRM.Media.V20200501.Outputs
         /// The legacy Policy Option ID.
         /// </summary>
         public readonly string PolicyOptionId;
-        /// <summary>
-        /// The requirements that must be met to deliver keys with this configuration
-        /// </summary>
-        public readonly Outputs.ContentKeyPolicyRestrictionResponseResult Restriction;
 
         [OutputConstructor]
         private ContentKeyPolicyOptionResponseResult(
-            Outputs.ContentKeyPolicyConfigurationResponseResult configuration,
-
             string? name,
 
-            string policyOptionId,
-
-            Outputs.ContentKeyPolicyRestrictionResponseResult restriction)
+            string policyOptionId)
         {
-            Configuration = configuration;
             Name = name;
             PolicyOptionId = policyOptionId;
-            Restriction = restriction;
         }
     }
 }

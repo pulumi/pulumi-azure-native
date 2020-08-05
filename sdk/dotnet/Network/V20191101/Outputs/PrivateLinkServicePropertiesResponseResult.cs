@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
         /// <summary>
         /// The auto-approval list of the private link service.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AutoApproval;
+        public readonly Outputs.PrivateLinkServicePropertiesResponseAutoApprovalResult? AutoApproval;
         /// <summary>
         /// Whether the private link service is enabled for proxy protocol or not.
         /// </summary>
@@ -52,13 +52,13 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
         /// <summary>
         /// The visibility list of the private link service.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Visibility;
+        public readonly Outputs.PrivateLinkServicePropertiesResponseVisibilityResult? Visibility;
 
         [OutputConstructor]
         private PrivateLinkServicePropertiesResponseResult(
             string alias,
 
-            ImmutableDictionary<string, object>? autoApproval,
+            Outputs.PrivateLinkServicePropertiesResponseAutoApprovalResult? autoApproval,
 
             bool? enableProxyProtocol,
 
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
 
             string provisioningState,
 
-            ImmutableDictionary<string, object>? visibility)
+            Outputs.PrivateLinkServicePropertiesResponseVisibilityResult? visibility)
         {
             Alias = alias;
             AutoApproval = autoApproval;

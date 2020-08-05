@@ -113,7 +113,6 @@ class FrontDoor(pulumi.CustomResource):
           * `frontend_endpoints` (`list`) - Frontend endpoints associated with this rule
           * `patterns_to_match` (`list`) - The route patterns of the rule.
           * `resource_state` (`str`) - Resource status.
-          * `route_configuration` (`dict`) - A reference to the routing configuration.
 
         * `type` (`str`) - Resource type.
     """
@@ -209,7 +208,6 @@ class FrontDoor(pulumi.CustomResource):
           * `name` (`pulumi.Input[str]`) - Resource name.
           * `patterns_to_match` (`pulumi.Input[list]`) - The route patterns of the rule.
           * `resource_state` (`pulumi.Input[str]`) - Resource status.
-          * `route_configuration` (`pulumi.Input[dict]`) - A reference to the routing configuration.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

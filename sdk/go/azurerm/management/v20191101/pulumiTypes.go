@@ -10,52 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The child information of a management group used during creation.
-type CreateManagementGroupChildInfo struct {
-}
-
-// CreateManagementGroupChildInfoInput is an input type that accepts CreateManagementGroupChildInfoArgs and CreateManagementGroupChildInfoOutput values.
-// You can construct a concrete instance of `CreateManagementGroupChildInfoInput` via:
-//
-//          CreateManagementGroupChildInfoArgs{...}
-type CreateManagementGroupChildInfoInput interface {
-	pulumi.Input
-
-	ToCreateManagementGroupChildInfoOutput() CreateManagementGroupChildInfoOutput
-	ToCreateManagementGroupChildInfoOutputWithContext(context.Context) CreateManagementGroupChildInfoOutput
-}
-
-// The child information of a management group used during creation.
-type CreateManagementGroupChildInfoArgs struct {
-}
-
-func (CreateManagementGroupChildInfoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateManagementGroupChildInfo)(nil)).Elem()
-}
-
-func (i CreateManagementGroupChildInfoArgs) ToCreateManagementGroupChildInfoOutput() CreateManagementGroupChildInfoOutput {
-	return i.ToCreateManagementGroupChildInfoOutputWithContext(context.Background())
-}
-
-func (i CreateManagementGroupChildInfoArgs) ToCreateManagementGroupChildInfoOutputWithContext(ctx context.Context) CreateManagementGroupChildInfoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CreateManagementGroupChildInfoOutput)
-}
-
-// The child information of a management group used during creation.
-type CreateManagementGroupChildInfoOutput struct{ *pulumi.OutputState }
-
-func (CreateManagementGroupChildInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CreateManagementGroupChildInfo)(nil)).Elem()
-}
-
-func (o CreateManagementGroupChildInfoOutput) ToCreateManagementGroupChildInfoOutput() CreateManagementGroupChildInfoOutput {
-	return o
-}
-
-func (o CreateManagementGroupChildInfoOutput) ToCreateManagementGroupChildInfoOutputWithContext(ctx context.Context) CreateManagementGroupChildInfoOutput {
-	return o
-}
-
 // The details of a management group used during creation.
 type CreateManagementGroupDetails struct {
 	// (Optional) The ID of the parent management group used during creation.
@@ -322,79 +276,6 @@ func (o CreateParentGroupInfoPtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return v.Id
 	}).(pulumi.StringPtrOutput)
-}
-
-// The management group details.
-type ManagementGroupType struct {
-	// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
-	Name string `pulumi:"name"`
-	// The generic properties of a management group.
-	Properties ManagementGroupPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.  For example, Microsoft.Management/managementGroups
-	Type string `pulumi:"type"`
-}
-
-// ManagementGroupTypeInput is an input type that accepts ManagementGroupTypeArgs and ManagementGroupTypeOutput values.
-// You can construct a concrete instance of `ManagementGroupTypeInput` via:
-//
-//          ManagementGroupTypeArgs{...}
-type ManagementGroupTypeInput interface {
-	pulumi.Input
-
-	ToManagementGroupTypeOutput() ManagementGroupTypeOutput
-	ToManagementGroupTypeOutputWithContext(context.Context) ManagementGroupTypeOutput
-}
-
-// The management group details.
-type ManagementGroupTypeArgs struct {
-	// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
-	Name pulumi.StringInput `pulumi:"name"`
-	// The generic properties of a management group.
-	Properties ManagementGroupPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.  For example, Microsoft.Management/managementGroups
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagementGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupType)(nil)).Elem()
-}
-
-func (i ManagementGroupTypeArgs) ToManagementGroupTypeOutput() ManagementGroupTypeOutput {
-	return i.ToManagementGroupTypeOutputWithContext(context.Background())
-}
-
-func (i ManagementGroupTypeArgs) ToManagementGroupTypeOutputWithContext(ctx context.Context) ManagementGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagementGroupTypeOutput)
-}
-
-// The management group details.
-type ManagementGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagementGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagementGroupType)(nil)).Elem()
-}
-
-func (o ManagementGroupTypeOutput) ToManagementGroupTypeOutput() ManagementGroupTypeOutput {
-	return o
-}
-
-func (o ManagementGroupTypeOutput) ToManagementGroupTypeOutputWithContext(ctx context.Context) ManagementGroupTypeOutput {
-	return o
-}
-
-// The name of the management group. For example, 00000000-0000-0000-0000-000000000000
-func (o ManagementGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagementGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The generic properties of a management group.
-func (o ManagementGroupTypeOutput) Properties() ManagementGroupPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagementGroupType) ManagementGroupPropertiesResponse { return v.Properties }).(ManagementGroupPropertiesResponseOutput)
-}
-
-// The type of the resource.  For example, Microsoft.Management/managementGroups
-func (o ManagementGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagementGroupType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The child information of a management group.
@@ -1244,12 +1125,10 @@ func (o ParentGroupInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(CreateManagementGroupChildInfoOutput{})
 	pulumi.RegisterOutputType(CreateManagementGroupDetailsOutput{})
 	pulumi.RegisterOutputType(CreateManagementGroupDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CreateParentGroupInfoOutput{})
 	pulumi.RegisterOutputType(CreateParentGroupInfoPtrOutput{})
-	pulumi.RegisterOutputType(ManagementGroupTypeOutput{})
 	pulumi.RegisterOutputType(ManagementGroupChildInfoResponseOutput{})
 	pulumi.RegisterOutputType(ManagementGroupChildInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagementGroupDetailsResponseOutput{})

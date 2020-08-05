@@ -37,7 +37,7 @@ namespace Pulumi.AzureRM.Network.V20181001.Inputs
         /// The reference of the Virtual Network Tap resource.
         /// </summary>
         [Input("virtualNetworkTap")]
-        public Input<Inputs.VirtualNetworkTapDefinitionArgs>? VirtualNetworkTap { get; set; }
+        public Input<Inputs.VirtualNetworkTapArgs>? VirtualNetworkTap { get; set; }
 
         public NetworkInterfaceTapConfigurationArgs()
         {

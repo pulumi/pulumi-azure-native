@@ -10,88 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The X509 Certificate.
-type CertificateType struct {
-	// The entity tag.
-	Etag string `pulumi:"etag"`
-	// The name of the certificate.
-	Name string `pulumi:"name"`
-	// The description of an X509 CA Certificate.
-	Properties CertificatePropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// CertificateTypeInput is an input type that accepts CertificateTypeArgs and CertificateTypeOutput values.
-// You can construct a concrete instance of `CertificateTypeInput` via:
-//
-//          CertificateTypeArgs{...}
-type CertificateTypeInput interface {
-	pulumi.Input
-
-	ToCertificateTypeOutput() CertificateTypeOutput
-	ToCertificateTypeOutputWithContext(context.Context) CertificateTypeOutput
-}
-
-// The X509 Certificate.
-type CertificateTypeArgs struct {
-	// The entity tag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The name of the certificate.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The description of an X509 CA Certificate.
-	Properties CertificatePropertiesResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CertificateTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateType)(nil)).Elem()
-}
-
-func (i CertificateTypeArgs) ToCertificateTypeOutput() CertificateTypeOutput {
-	return i.ToCertificateTypeOutputWithContext(context.Background())
-}
-
-func (i CertificateTypeArgs) ToCertificateTypeOutputWithContext(ctx context.Context) CertificateTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateTypeOutput)
-}
-
-// The X509 Certificate.
-type CertificateTypeOutput struct{ *pulumi.OutputState }
-
-func (CertificateTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateType)(nil)).Elem()
-}
-
-func (o CertificateTypeOutput) ToCertificateTypeOutput() CertificateTypeOutput {
-	return o
-}
-
-func (o CertificateTypeOutput) ToCertificateTypeOutputWithContext(ctx context.Context) CertificateTypeOutput {
-	return o
-}
-
-// The entity tag.
-func (o CertificateTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The name of the certificate.
-func (o CertificateTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The description of an X509 CA Certificate.
-func (o CertificateTypeOutput) Properties() CertificatePropertiesResponseOutput {
-	return o.ApplyT(func(v CertificateType) CertificatePropertiesResponse { return v.Properties }).(CertificatePropertiesResponseOutput)
-}
-
-// The resource type.
-func (o CertificateTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CertificateType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The description of an X509 CA Certificate.
 type CertificatePropertiesResponse struct {
 	// The certificate content
@@ -1930,70 +1848,6 @@ func (o FeedbackPropertiesResponsePtrOutput) TtlAsIso8601() pulumi.StringPtrOutp
 }
 
 // Public representation of one of the locations where a resource is provisioned.
-type IotHubLocationDescription struct {
-	// The name of the Azure region
-	Location *string `pulumi:"location"`
-	// The role of the region, can be either primary or secondary. The primary region is where the IoT hub is currently provisioned. The secondary region is the Azure disaster recovery (DR) paired region and also the region where the IoT hub can failover to.
-	Role *string `pulumi:"role"`
-}
-
-// IotHubLocationDescriptionInput is an input type that accepts IotHubLocationDescriptionArgs and IotHubLocationDescriptionOutput values.
-// You can construct a concrete instance of `IotHubLocationDescriptionInput` via:
-//
-//          IotHubLocationDescriptionArgs{...}
-type IotHubLocationDescriptionInput interface {
-	pulumi.Input
-
-	ToIotHubLocationDescriptionOutput() IotHubLocationDescriptionOutput
-	ToIotHubLocationDescriptionOutputWithContext(context.Context) IotHubLocationDescriptionOutput
-}
-
-// Public representation of one of the locations where a resource is provisioned.
-type IotHubLocationDescriptionArgs struct {
-	// The name of the Azure region
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The role of the region, can be either primary or secondary. The primary region is where the IoT hub is currently provisioned. The secondary region is the Azure disaster recovery (DR) paired region and also the region where the IoT hub can failover to.
-	Role pulumi.StringPtrInput `pulumi:"role"`
-}
-
-func (IotHubLocationDescriptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubLocationDescription)(nil)).Elem()
-}
-
-func (i IotHubLocationDescriptionArgs) ToIotHubLocationDescriptionOutput() IotHubLocationDescriptionOutput {
-	return i.ToIotHubLocationDescriptionOutputWithContext(context.Background())
-}
-
-func (i IotHubLocationDescriptionArgs) ToIotHubLocationDescriptionOutputWithContext(ctx context.Context) IotHubLocationDescriptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IotHubLocationDescriptionOutput)
-}
-
-// Public representation of one of the locations where a resource is provisioned.
-type IotHubLocationDescriptionOutput struct{ *pulumi.OutputState }
-
-func (IotHubLocationDescriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubLocationDescription)(nil)).Elem()
-}
-
-func (o IotHubLocationDescriptionOutput) ToIotHubLocationDescriptionOutput() IotHubLocationDescriptionOutput {
-	return o
-}
-
-func (o IotHubLocationDescriptionOutput) ToIotHubLocationDescriptionOutputWithContext(ctx context.Context) IotHubLocationDescriptionOutput {
-	return o
-}
-
-// The name of the Azure region
-func (o IotHubLocationDescriptionOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IotHubLocationDescription) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The role of the region, can be either primary or secondary. The primary region is where the IoT hub is currently provisioned. The secondary region is the Azure disaster recovery (DR) paired region and also the region where the IoT hub can failover to.
-func (o IotHubLocationDescriptionOutput) Role() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IotHubLocationDescription) *string { return v.Role }).(pulumi.StringPtrOutput)
-}
-
-// Public representation of one of the locations where a resource is provisioned.
 type IotHubLocationDescriptionResponse struct {
 	// The name of the Azure region
 	Location *string `pulumi:"location"`
@@ -2910,197 +2764,6 @@ func (o IotHubPropertiesResponsePtrOutput) StorageEndpoints() StorageEndpointPro
 	}).(StorageEndpointPropertiesResponseMapOutput)
 }
 
-// The description of the IoT hub.
-type IotHubResourceType struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag *string `pulumi:"etag"`
-	// The resource location.
-	Location string `pulumi:"location"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// IotHub properties
-	Properties IotHubPropertiesResponse `pulumi:"properties"`
-	// IotHub SKU info
-	Sku IotHubSkuInfoResponse `pulumi:"sku"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// IotHubResourceTypeInput is an input type that accepts IotHubResourceTypeArgs and IotHubResourceTypeOutput values.
-// You can construct a concrete instance of `IotHubResourceTypeInput` via:
-//
-//          IotHubResourceTypeArgs{...}
-type IotHubResourceTypeInput interface {
-	pulumi.Input
-
-	ToIotHubResourceTypeOutput() IotHubResourceTypeOutput
-	ToIotHubResourceTypeOutputWithContext(context.Context) IotHubResourceTypeOutput
-}
-
-// The description of the IoT hub.
-type IotHubResourceTypeArgs struct {
-	// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// IotHub properties
-	Properties IotHubPropertiesResponseInput `pulumi:"properties"`
-	// IotHub SKU info
-	Sku IotHubSkuInfoResponseInput `pulumi:"sku"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (IotHubResourceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubResourceType)(nil)).Elem()
-}
-
-func (i IotHubResourceTypeArgs) ToIotHubResourceTypeOutput() IotHubResourceTypeOutput {
-	return i.ToIotHubResourceTypeOutputWithContext(context.Background())
-}
-
-func (i IotHubResourceTypeArgs) ToIotHubResourceTypeOutputWithContext(ctx context.Context) IotHubResourceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IotHubResourceTypeOutput)
-}
-
-// The description of the IoT hub.
-type IotHubResourceTypeOutput struct{ *pulumi.OutputState }
-
-func (IotHubResourceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubResourceType)(nil)).Elem()
-}
-
-func (o IotHubResourceTypeOutput) ToIotHubResourceTypeOutput() IotHubResourceTypeOutput {
-	return o
-}
-
-func (o IotHubResourceTypeOutput) ToIotHubResourceTypeOutputWithContext(ctx context.Context) IotHubResourceTypeOutput {
-	return o
-}
-
-// The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
-func (o IotHubResourceTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IotHubResourceType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The resource location.
-func (o IotHubResourceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v IotHubResourceType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The resource name.
-func (o IotHubResourceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IotHubResourceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// IotHub properties
-func (o IotHubResourceTypeOutput) Properties() IotHubPropertiesResponseOutput {
-	return o.ApplyT(func(v IotHubResourceType) IotHubPropertiesResponse { return v.Properties }).(IotHubPropertiesResponseOutput)
-}
-
-// IotHub SKU info
-func (o IotHubResourceTypeOutput) Sku() IotHubSkuInfoResponseOutput {
-	return o.ApplyT(func(v IotHubResourceType) IotHubSkuInfoResponse { return v.Sku }).(IotHubSkuInfoResponseOutput)
-}
-
-// The resource tags.
-func (o IotHubResourceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IotHubResourceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The resource type.
-func (o IotHubResourceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IotHubResourceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The properties of the EventHubConsumerGroupInfo object.
-type IotHubResourceEventHubConsumerGroupType struct {
-	// The etag.
-	Etag string `pulumi:"etag"`
-	// The Event Hub-compatible consumer group name.
-	Name string `pulumi:"name"`
-	// The tags.
-	Properties map[string]string `pulumi:"properties"`
-	// the resource type.
-	Type string `pulumi:"type"`
-}
-
-// IotHubResourceEventHubConsumerGroupTypeInput is an input type that accepts IotHubResourceEventHubConsumerGroupTypeArgs and IotHubResourceEventHubConsumerGroupTypeOutput values.
-// You can construct a concrete instance of `IotHubResourceEventHubConsumerGroupTypeInput` via:
-//
-//          IotHubResourceEventHubConsumerGroupTypeArgs{...}
-type IotHubResourceEventHubConsumerGroupTypeInput interface {
-	pulumi.Input
-
-	ToIotHubResourceEventHubConsumerGroupTypeOutput() IotHubResourceEventHubConsumerGroupTypeOutput
-	ToIotHubResourceEventHubConsumerGroupTypeOutputWithContext(context.Context) IotHubResourceEventHubConsumerGroupTypeOutput
-}
-
-// The properties of the EventHubConsumerGroupInfo object.
-type IotHubResourceEventHubConsumerGroupTypeArgs struct {
-	// The etag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// The Event Hub-compatible consumer group name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The tags.
-	Properties pulumi.StringMapInput `pulumi:"properties"`
-	// the resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (IotHubResourceEventHubConsumerGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubResourceEventHubConsumerGroupType)(nil)).Elem()
-}
-
-func (i IotHubResourceEventHubConsumerGroupTypeArgs) ToIotHubResourceEventHubConsumerGroupTypeOutput() IotHubResourceEventHubConsumerGroupTypeOutput {
-	return i.ToIotHubResourceEventHubConsumerGroupTypeOutputWithContext(context.Background())
-}
-
-func (i IotHubResourceEventHubConsumerGroupTypeArgs) ToIotHubResourceEventHubConsumerGroupTypeOutputWithContext(ctx context.Context) IotHubResourceEventHubConsumerGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IotHubResourceEventHubConsumerGroupTypeOutput)
-}
-
-// The properties of the EventHubConsumerGroupInfo object.
-type IotHubResourceEventHubConsumerGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (IotHubResourceEventHubConsumerGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotHubResourceEventHubConsumerGroupType)(nil)).Elem()
-}
-
-func (o IotHubResourceEventHubConsumerGroupTypeOutput) ToIotHubResourceEventHubConsumerGroupTypeOutput() IotHubResourceEventHubConsumerGroupTypeOutput {
-	return o
-}
-
-func (o IotHubResourceEventHubConsumerGroupTypeOutput) ToIotHubResourceEventHubConsumerGroupTypeOutputWithContext(ctx context.Context) IotHubResourceEventHubConsumerGroupTypeOutput {
-	return o
-}
-
-// The etag.
-func (o IotHubResourceEventHubConsumerGroupTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v IotHubResourceEventHubConsumerGroupType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// The Event Hub-compatible consumer group name.
-func (o IotHubResourceEventHubConsumerGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IotHubResourceEventHubConsumerGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The tags.
-func (o IotHubResourceEventHubConsumerGroupTypeOutput) Properties() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IotHubResourceEventHubConsumerGroupType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
-}
-
-// the resource type.
-func (o IotHubResourceEventHubConsumerGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IotHubResourceEventHubConsumerGroupType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Information about the SKU of the IoT hub.
 type IotHubSkuInfo struct {
 	// The number of provisioned IoT Hub units. See: https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-limits.
@@ -3898,129 +3561,10 @@ func (o MessagingEndpointPropertiesResponseMapOutput) MapIndex(k pulumi.StringIn
 	}).(MessagingEndpointPropertiesResponseOutput)
 }
 
-// The private endpoint property of a private endpoint connection
-type PrivateEndpoint struct {
-}
-
-// PrivateEndpointInput is an input type that accepts PrivateEndpointArgs and PrivateEndpointOutput values.
-// You can construct a concrete instance of `PrivateEndpointInput` via:
-//
-//          PrivateEndpointArgs{...}
-type PrivateEndpointInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointOutput() PrivateEndpointOutput
-	ToPrivateEndpointOutputWithContext(context.Context) PrivateEndpointOutput
-}
-
-// The private endpoint property of a private endpoint connection
-type PrivateEndpointArgs struct {
-}
-
-func (PrivateEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpoint)(nil)).Elem()
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointOutput() PrivateEndpointOutput {
-	return i.ToPrivateEndpointOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput)
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return i.ToPrivateEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i PrivateEndpointArgs) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointOutput).ToPrivateEndpointPtrOutputWithContext(ctx)
-}
-
-// PrivateEndpointPtrInput is an input type that accepts PrivateEndpointArgs, PrivateEndpointPtr and PrivateEndpointPtrOutput values.
-// You can construct a concrete instance of `PrivateEndpointPtrInput` via:
-//
-//          PrivateEndpointArgs{...}
-//
-//  or:
-//
-//          nil
-type PrivateEndpointPtrInput interface {
-	pulumi.Input
-
-	ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput
-	ToPrivateEndpointPtrOutputWithContext(context.Context) PrivateEndpointPtrOutput
-}
-
-type privateEndpointPtrType PrivateEndpointArgs
-
-func PrivateEndpointPtr(v *PrivateEndpointArgs) PrivateEndpointPtrInput {
-	return (*privateEndpointPtrType)(v)
-}
-
-func (*privateEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpoint)(nil)).Elem()
-}
-
-func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return i.ToPrivateEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *privateEndpointPtrType) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateEndpointPtrOutput)
-}
-
-// The private endpoint property of a private endpoint connection
-type PrivateEndpointOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateEndpoint)(nil)).Elem()
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointOutput() PrivateEndpointOutput {
-	return o
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointOutputWithContext(ctx context.Context) PrivateEndpointOutput {
-	return o
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return o.ToPrivateEndpointPtrOutputWithContext(context.Background())
-}
-
-func (o PrivateEndpointOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpoint) *PrivateEndpoint {
-		return &v
-	}).(PrivateEndpointPtrOutput)
-}
-
-type PrivateEndpointPtrOutput struct{ *pulumi.OutputState }
-
-func (PrivateEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PrivateEndpoint)(nil)).Elem()
-}
-
-func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutput() PrivateEndpointPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointPtrOutput) ToPrivateEndpointPtrOutputWithContext(ctx context.Context) PrivateEndpointPtrOutput {
-	return o
-}
-
-func (o PrivateEndpointPtrOutput) Elem() PrivateEndpointOutput {
-	return o.ApplyT(func(v *PrivateEndpoint) PrivateEndpoint { return *v }).(PrivateEndpointOutput)
-}
-
 // The private endpoint connection of an IotHub
 type PrivateEndpointConnectionType struct {
-	// The resource name.
-	Name string `pulumi:"name"`
 	// The properties of a private endpoint connection
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
+	Properties PrivateEndpointConnectionProperties `pulumi:"properties"`
 }
 
 // PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
@@ -4036,12 +3580,8 @@ type PrivateEndpointConnectionTypeInput interface {
 
 // The private endpoint connection of an IotHub
 type PrivateEndpointConnectionTypeArgs struct {
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
 	// The properties of a private endpoint connection
-	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+	Properties PrivateEndpointConnectionPropertiesInput `pulumi:"properties"`
 }
 
 func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
@@ -4096,19 +3636,9 @@ func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutp
 	return o
 }
 
-// The resource name.
-func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
 // The properties of a private endpoint connection
-func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse { return v.Properties }).(PrivateEndpointConnectionPropertiesResponseOutput)
-}
-
-// The resource type.
-func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
+func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionProperties { return v.Properties }).(PrivateEndpointConnectionPropertiesOutput)
 }
 
 type PrivateEndpointConnectionTypeArrayOutput struct{ *pulumi.OutputState }
@@ -4133,8 +3663,6 @@ func (o PrivateEndpointConnectionTypeArrayOutput) Index(i pulumi.IntInput) Priva
 
 // The properties of a private endpoint connection
 type PrivateEndpointConnectionProperties struct {
-	// The private endpoint property of a private endpoint connection
-	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
 	// The current state of a private endpoint connection
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 }
@@ -4152,8 +3680,6 @@ type PrivateEndpointConnectionPropertiesInput interface {
 
 // The properties of a private endpoint connection
 type PrivateEndpointConnectionPropertiesArgs struct {
-	// The private endpoint property of a private endpoint connection
-	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
 	// The current state of a private endpoint connection
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput `pulumi:"privateLinkServiceConnectionState"`
 }
@@ -4236,11 +3762,6 @@ func (o PrivateEndpointConnectionPropertiesOutput) ToPrivateEndpointConnectionPr
 	}).(PrivateEndpointConnectionPropertiesPtrOutput)
 }
 
-// The private endpoint property of a private endpoint connection
-func (o PrivateEndpointConnectionPropertiesOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionProperties) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
-}
-
 // The current state of a private endpoint connection
 func (o PrivateEndpointConnectionPropertiesOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateOutput {
 	return o.ApplyT(func(v PrivateEndpointConnectionProperties) PrivateLinkServiceConnectionState {
@@ -4264,16 +3785,6 @@ func (o PrivateEndpointConnectionPropertiesPtrOutput) ToPrivateEndpointConnectio
 
 func (o PrivateEndpointConnectionPropertiesPtrOutput) Elem() PrivateEndpointConnectionPropertiesOutput {
 	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) PrivateEndpointConnectionProperties { return *v }).(PrivateEndpointConnectionPropertiesOutput)
-}
-
-// The private endpoint property of a private endpoint connection
-func (o PrivateEndpointConnectionPropertiesPtrOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
-	return o.ApplyT(func(v *PrivateEndpointConnectionProperties) *PrivateEndpoint {
-		if v == nil {
-			return nil
-		}
-		return v.PrivateEndpoint
-	}).(PrivateEndpointPtrOutput)
 }
 
 // The current state of a private endpoint connection
@@ -7979,7 +7490,6 @@ func (o StorageEndpointPropertiesResponseMapOutput) MapIndex(k pulumi.StringInpu
 }
 
 func init() {
-	pulumi.RegisterOutputType(CertificateTypeOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CertificatePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(CloudToDevicePropertiesOutput{})
@@ -8002,15 +7512,12 @@ func init() {
 	pulumi.RegisterOutputType(FeedbackPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FeedbackPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(FeedbackPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(IotHubLocationDescriptionOutput{})
 	pulumi.RegisterOutputType(IotHubLocationDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(IotHubLocationDescriptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(IotHubPropertiesOutput{})
 	pulumi.RegisterOutputType(IotHubPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(IotHubPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IotHubPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(IotHubResourceTypeOutput{})
-	pulumi.RegisterOutputType(IotHubResourceEventHubConsumerGroupTypeOutput{})
 	pulumi.RegisterOutputType(IotHubSkuInfoOutput{})
 	pulumi.RegisterOutputType(IotHubSkuInfoPtrOutput{})
 	pulumi.RegisterOutputType(IotHubSkuInfoResponseOutput{})
@@ -8023,8 +7530,6 @@ func init() {
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesMapOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MessagingEndpointPropertiesResponseMapOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointOutput{})
-	pulumi.RegisterOutputType(PrivateEndpointPtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionTypeArrayOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})

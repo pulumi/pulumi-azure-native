@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301.Outputs
         /// <summary>
         /// List of application capacity metric description.
         /// </summary>
-        public readonly Outputs.ApplicationMetricDescriptionListResponseResult? Metrics;
+        public readonly ImmutableArray<Outputs.ApplicationMetricDescriptionResponseResult> Metrics;
         /// <summary>
         /// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301.Outputs
         /// <summary>
         /// List of application parameters with overridden values from their default values specified in the application manifest.
         /// </summary>
-        public readonly Outputs.ApplicationParameterListResponseResult? Parameters;
+        public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
         /// The current deployment or provisioning state, which only appears in the response
         /// </summary>
@@ -60,11 +60,11 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301.Outputs
 
             int? maximumNodes,
 
-            Outputs.ApplicationMetricDescriptionListResponseResult? metrics,
+            ImmutableArray<Outputs.ApplicationMetricDescriptionResponseResult> metrics,
 
             int? minimumNodes,
 
-            Outputs.ApplicationParameterListResponseResult? parameters,
+            ImmutableDictionary<string, string>? parameters,
 
             string provisioningState,
 

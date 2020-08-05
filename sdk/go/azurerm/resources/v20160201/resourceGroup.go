@@ -88,8 +88,6 @@ type resourceGroupArgs struct {
 	Location string `pulumi:"location"`
 	// The name of the resource group to be created or updated.
 	Name string `pulumi:"name"`
-	// The resource group properties.
-	Properties *ResourceGroupProperties `pulumi:"properties"`
 	// The tags attached to the resource group.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -100,8 +98,6 @@ type ResourceGroupArgs struct {
 	Location pulumi.StringInput
 	// The name of the resource group to be created or updated.
 	Name pulumi.StringInput
-	// The resource group properties.
-	Properties ResourceGroupPropertiesPtrInput
 	// The tags attached to the resource group.
 	Tags pulumi.StringMapInput
 }

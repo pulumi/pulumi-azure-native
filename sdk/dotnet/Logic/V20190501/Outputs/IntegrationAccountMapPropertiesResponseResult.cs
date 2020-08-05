@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
         /// <summary>
         /// The parameters schema of integration account map.
         /// </summary>
-        public readonly Outputs.IntegrationAccountMapPropertiesResponsePropertiesResult? ParametersSchema;
+        public readonly Outputs.IntegrationAccountMapPropertiesResponseParametersSchemaResult? ParametersSchema;
 
         [OutputConstructor]
         private IntegrationAccountMapPropertiesResponseResult(
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
 
             ImmutableDictionary<string, object>? metadata,
 
-            Outputs.IntegrationAccountMapPropertiesResponsePropertiesResult? parametersSchema)
+            Outputs.IntegrationAccountMapPropertiesResponseParametersSchemaResult? parametersSchema)
         {
             ChangedTime = changedTime;
             Content = content;

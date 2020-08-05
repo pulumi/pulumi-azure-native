@@ -108,12 +108,6 @@ namespace Pulumi.AzureRM.Insights.V20180301
         public Input<bool>? AutoMitigate { get; set; }
 
         /// <summary>
-        /// defines the specific alert criteria information.
-        /// </summary>
-        [Input("criteria", required: true)]
-        public Input<Inputs.MetricAlertCriteriaArgs> Criteria { get; set; } = null!;
-
-        /// <summary>
         /// the description of the metric alert that will be included in the alert email.
         /// </summary>
         [Input("description", required: true)]

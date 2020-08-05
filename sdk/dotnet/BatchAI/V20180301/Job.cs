@@ -123,7 +123,7 @@ namespace Pulumi.AzureRM.BatchAI.V20180301
         /// Constraints associated with the Job.
         /// </summary>
         [Input("constraints")]
-        public Input<Inputs.JobBasePropertiesPropertiesArgs>? Constraints { get; set; }
+        public Input<Inputs.JobBasePropertiesConstraintsArgs>? Constraints { get; set; }
 
         /// <summary>
         /// If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.

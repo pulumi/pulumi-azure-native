@@ -22,6 +22,43 @@ class Machine(pulumi.CustomResource):
     properties: pulumi.Output[dict]
     """
     Hybrid Compute Machine properties
+      * `agent_version` (`str`) - The hybrid machine agent full version.
+      * `client_public_key` (`str`) - Public Key that the client provides to be used during initial resource onboarding
+      * `display_name` (`str`) - Specifies the hybrid machine display name.
+      * `error_details` (`list`) - Details about the error state.
+        * `code` (`str`) - The error's code.
+        * `details` (`list`) - Additional error details.
+        * `message` (`str`) - A human readable error message.
+        * `target` (`str`) - Indicates which property in the request is responsible for the error.
+
+      * `extensions` (`list`) - Machine Extensions information
+        * `name` (`str`) - The machine extension name.
+        * `status` (`dict`) - Instance view status.
+          * `code` (`str`) - The status code.
+          * `display_status` (`str`) - The short localizable label for the status.
+          * `level` (`str`) - The level code.
+          * `message` (`str`) - The detailed status message, including for alerts and error messages.
+          * `time` (`str`) - The time of the status.
+
+        * `type` (`str`) - Specifies the type of the extension; an example is "CustomScriptExtension".
+        * `type_handler_version` (`str`) - Specifies the version of the script handler.
+
+      * `last_status_change` (`str`) - The time of the last status change.
+      * `location_data` (`dict`) - Metadata pertaining to the geographic location of the resource.
+        * `city` (`str`) - The city or locality where the resource is located.
+        * `country_or_region` (`str`) - The country or region where the resource is located
+        * `district` (`str`) - The district, state, or province where the resource is located.
+        * `name` (`str`) - A canonical name for the geographic or physical location.
+
+      * `machine_fqdn` (`str`) - Specifies the hybrid machine FQDN.
+      * `os_name` (`str`) - The Operating System running on the hybrid machine.
+      * `os_profile` (`dict`) - Specifies the operating system settings for the hybrid machine.
+        * `computer_name` (`str`) - Specifies the host OS name of the hybrid machine.
+
+      * `os_version` (`str`) - The version of Operating System running on the hybrid machine.
+      * `provisioning_state` (`str`) - The provisioning state, which only appears in the response.
+      * `status` (`str`) - The status of the hybrid machine agent.
+      * `vm_id` (`str`) - Specifies the hybrid machine unique ID.
     """
     tags: pulumi.Output[dict]
     """
@@ -31,7 +68,7 @@ class Machine(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    def __init__(__self__, resource_name, opts=None, client_public_key=None, extensions=None, identity=None, location=None, location_data=None, name=None, os_profile=None, resource_group_name=None, tags=None, vm_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, client_public_key=None, extensions=None, identity=None, location=None, location_data=None, name=None, resource_group_name=None, tags=None, vm_id=None, __props__=None, __name__=None, __opts__=None):
         """
         Describes a hybrid machine.
 
@@ -42,7 +79,6 @@ class Machine(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[dict] location_data: Metadata pertaining to the geographic location of the resource.
         :param pulumi.Input[str] name: The name of the hybrid machine.
-        :param pulumi.Input[dict] os_profile: Specifies the operating system settings for the hybrid machine.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
         :param pulumi.Input[str] vm_id: Specifies the hybrid machine unique ID.
@@ -59,6 +95,10 @@ class Machine(pulumi.CustomResource):
 
           * `type` (`pulumi.Input[str]`) - Specifies the type of the extension; an example is "CustomScriptExtension".
           * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the script handler.
+
+        The **identity** object supports the following:
+
+          * `type` (`pulumi.Input[str]`) - The identity type.
 
         The **location_data** object supports the following:
 
@@ -94,7 +134,6 @@ class Machine(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['os_profile'] = os_profile
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name

@@ -55,7 +55,7 @@ export class Cache extends pulumi.CustomResource {
     /**
      * SKU for the Cache.
      */
-    public readonly sku!: pulumi.Output<outputs.storagecache.v20200301.CacheResponseProperties | undefined>;
+    public readonly sku!: pulumi.Output<outputs.storagecache.v20200301.CacheResponseSku | undefined>;
     /**
      * ARM tags as name/value pairs.
      */
@@ -96,7 +96,6 @@ export class Cache extends pulumi.CustomResource {
             inputs["sku"] = args ? args.sku : undefined;
             inputs["subnet"] = args ? args.subnet : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["upgradeStatus"] = args ? args.upgradeStatus : undefined;
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -154,7 +153,7 @@ export interface CacheArgs {
     /**
      * SKU for the Cache.
      */
-    readonly sku?: pulumi.Input<inputs.storagecache.v20200301.CacheProperties>;
+    readonly sku?: pulumi.Input<inputs.storagecache.v20200301.CacheSku>;
     /**
      * Subnet used for the Cache.
      */
@@ -163,8 +162,4 @@ export interface CacheArgs {
      * ARM tags as name/value pairs.
      */
     readonly tags?: pulumi.Input<{[key: string]: any}>;
-    /**
-     * Upgrade status of the Cache.
-     */
-    readonly upgradeStatus?: pulumi.Input<inputs.storagecache.v20200301.CacheUpgradeStatus>;
 }

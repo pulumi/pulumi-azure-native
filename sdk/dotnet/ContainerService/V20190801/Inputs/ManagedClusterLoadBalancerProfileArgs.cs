@@ -31,19 +31,19 @@ namespace Pulumi.AzureRM.ContainerService.V20190801.Inputs
         /// Desired managed outbound IPs for the cluster load balancer.
         /// </summary>
         [Input("managedOutboundIPs")]
-        public Input<Inputs.ManagedClusterLoadBalancerProfilePropertiesArgs>? ManagedOutboundIPs { get; set; }
+        public Input<Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs>? ManagedOutboundIPs { get; set; }
 
         /// <summary>
         /// Desired outbound IP Prefix resources for the cluster load balancer.
         /// </summary>
         [Input("outboundIPPrefixes")]
-        public Input<Inputs.ManagedClusterLoadBalancerProfilePropertiesArgs>? OutboundIPPrefixes { get; set; }
+        public Input<Inputs.ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs>? OutboundIPPrefixes { get; set; }
 
         /// <summary>
         /// Desired outbound IP resources for the cluster load balancer.
         /// </summary>
         [Input("outboundIPs")]
-        public Input<Inputs.ManagedClusterLoadBalancerProfilePropertiesArgs>? OutboundIPs { get; set; }
+        public Input<Inputs.ManagedClusterLoadBalancerProfileOutboundIPsArgs>? OutboundIPs { get; set; }
 
         public ManagedClusterLoadBalancerProfileArgs()
         {

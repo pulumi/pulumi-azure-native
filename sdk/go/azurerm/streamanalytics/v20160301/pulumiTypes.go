@@ -11,52 +11,6 @@ import (
 )
 
 // Condition applicable to the resource, or to the job overall, that warrant customer attention.
-type DiagnosticCondition struct {
-}
-
-// DiagnosticConditionInput is an input type that accepts DiagnosticConditionArgs and DiagnosticConditionOutput values.
-// You can construct a concrete instance of `DiagnosticConditionInput` via:
-//
-//          DiagnosticConditionArgs{...}
-type DiagnosticConditionInput interface {
-	pulumi.Input
-
-	ToDiagnosticConditionOutput() DiagnosticConditionOutput
-	ToDiagnosticConditionOutputWithContext(context.Context) DiagnosticConditionOutput
-}
-
-// Condition applicable to the resource, or to the job overall, that warrant customer attention.
-type DiagnosticConditionArgs struct {
-}
-
-func (DiagnosticConditionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticCondition)(nil)).Elem()
-}
-
-func (i DiagnosticConditionArgs) ToDiagnosticConditionOutput() DiagnosticConditionOutput {
-	return i.ToDiagnosticConditionOutputWithContext(context.Background())
-}
-
-func (i DiagnosticConditionArgs) ToDiagnosticConditionOutputWithContext(ctx context.Context) DiagnosticConditionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticConditionOutput)
-}
-
-// Condition applicable to the resource, or to the job overall, that warrant customer attention.
-type DiagnosticConditionOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticConditionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticCondition)(nil)).Elem()
-}
-
-func (o DiagnosticConditionOutput) ToDiagnosticConditionOutput() DiagnosticConditionOutput {
-	return o
-}
-
-func (o DiagnosticConditionOutput) ToDiagnosticConditionOutputWithContext(ctx context.Context) DiagnosticConditionOutput {
-	return o
-}
-
-// Condition applicable to the resource, or to the job overall, that warrant customer attention.
 type DiagnosticConditionResponse struct {
 	// The opaque diagnostic code.
 	Code string `pulumi:"code"`
@@ -172,52 +126,6 @@ func (o DiagnosticConditionResponseArrayOutput) Index(i pulumi.IntInput) Diagnos
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiagnosticConditionResponse {
 		return vs[0].([]DiagnosticConditionResponse)[vs[1].(int)]
 	}).(DiagnosticConditionResponseOutput)
-}
-
-// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-type Diagnostics struct {
-}
-
-// DiagnosticsInput is an input type that accepts DiagnosticsArgs and DiagnosticsOutput values.
-// You can construct a concrete instance of `DiagnosticsInput` via:
-//
-//          DiagnosticsArgs{...}
-type DiagnosticsInput interface {
-	pulumi.Input
-
-	ToDiagnosticsOutput() DiagnosticsOutput
-	ToDiagnosticsOutputWithContext(context.Context) DiagnosticsOutput
-}
-
-// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-type DiagnosticsArgs struct {
-}
-
-func (DiagnosticsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Diagnostics)(nil)).Elem()
-}
-
-func (i DiagnosticsArgs) ToDiagnosticsOutput() DiagnosticsOutput {
-	return i.ToDiagnosticsOutputWithContext(context.Background())
-}
-
-func (i DiagnosticsArgs) ToDiagnosticsOutputWithContext(ctx context.Context) DiagnosticsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticsOutput)
-}
-
-// Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
-type DiagnosticsOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Diagnostics)(nil)).Elem()
-}
-
-func (o DiagnosticsOutput) ToDiagnosticsOutput() DiagnosticsOutput {
-	return o
-}
-
-func (o DiagnosticsOutput) ToDiagnosticsOutputWithContext(ctx context.Context) DiagnosticsOutput {
-	return o
 }
 
 // Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
@@ -2697,97 +2605,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A streaming job object, containing all information associated with the named streaming job.
-type StreamingJobType struct {
-	// Resource location. Required on PUT (CreateOrReplace) requests.
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The properties that are associated with a streaming job.  Required on PUT (CreateOrReplace) requests.
-	Properties StreamingJobPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// StreamingJobTypeInput is an input type that accepts StreamingJobTypeArgs and StreamingJobTypeOutput values.
-// You can construct a concrete instance of `StreamingJobTypeInput` via:
-//
-//          StreamingJobTypeArgs{...}
-type StreamingJobTypeInput interface {
-	pulumi.Input
-
-	ToStreamingJobTypeOutput() StreamingJobTypeOutput
-	ToStreamingJobTypeOutputWithContext(context.Context) StreamingJobTypeOutput
-}
-
-// A streaming job object, containing all information associated with the named streaming job.
-type StreamingJobTypeArgs struct {
-	// Resource location. Required on PUT (CreateOrReplace) requests.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties that are associated with a streaming job.  Required on PUT (CreateOrReplace) requests.
-	Properties StreamingJobPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StreamingJobTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingJobType)(nil)).Elem()
-}
-
-func (i StreamingJobTypeArgs) ToStreamingJobTypeOutput() StreamingJobTypeOutput {
-	return i.ToStreamingJobTypeOutputWithContext(context.Background())
-}
-
-func (i StreamingJobTypeArgs) ToStreamingJobTypeOutputWithContext(ctx context.Context) StreamingJobTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StreamingJobTypeOutput)
-}
-
-// A streaming job object, containing all information associated with the named streaming job.
-type StreamingJobTypeOutput struct{ *pulumi.OutputState }
-
-func (StreamingJobTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StreamingJobType)(nil)).Elem()
-}
-
-func (o StreamingJobTypeOutput) ToStreamingJobTypeOutput() StreamingJobTypeOutput {
-	return o
-}
-
-func (o StreamingJobTypeOutput) ToStreamingJobTypeOutputWithContext(ctx context.Context) StreamingJobTypeOutput {
-	return o
-}
-
-// Resource location. Required on PUT (CreateOrReplace) requests.
-func (o StreamingJobTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StreamingJobType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o StreamingJobTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingJobType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties that are associated with a streaming job.  Required on PUT (CreateOrReplace) requests.
-func (o StreamingJobTypeOutput) Properties() StreamingJobPropertiesResponseOutput {
-	return o.ApplyT(func(v StreamingJobType) StreamingJobPropertiesResponse { return v.Properties }).(StreamingJobPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o StreamingJobTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v StreamingJobType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o StreamingJobTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StreamingJobType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties that are associated with a streaming job.
 type StreamingJobPropertiesResponse struct {
 	// Controls certain runtime behaviors of the streaming job.
@@ -3800,10 +3617,8 @@ func (o TransformationResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(DiagnosticConditionOutput{})
 	pulumi.RegisterOutputType(DiagnosticConditionResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticConditionResponseArrayOutput{})
-	pulumi.RegisterOutputType(DiagnosticsOutput{})
 	pulumi.RegisterOutputType(DiagnosticsResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticsResponsePtrOutput{})
 	pulumi.RegisterOutputType(FunctionTypeOutput{})
@@ -3840,7 +3655,6 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(StreamingJobTypeOutput{})
 	pulumi.RegisterOutputType(StreamingJobPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StreamingJobPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TransformationOutput{})

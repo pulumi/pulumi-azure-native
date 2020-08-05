@@ -21,7 +21,7 @@ type Cache struct {
 	// Properties of the Cache.
 	Properties CacheResponsePropertiesOutput `pulumi:"properties"`
 	// SKU for the Cache.
-	Sku CacheResponsePropertiesPtrOutput `pulumi:"sku"`
+	Sku CacheResponseSkuPtrOutput `pulumi:"sku"`
 	// ARM tags as name/value pairs.
 	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
@@ -69,7 +69,7 @@ type cacheState struct {
 	// Properties of the Cache.
 	Properties *CacheResponseProperties `pulumi:"properties"`
 	// SKU for the Cache.
-	Sku *CacheResponseProperties `pulumi:"sku"`
+	Sku *CacheResponseSku `pulumi:"sku"`
 	// ARM tags as name/value pairs.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache
@@ -84,7 +84,7 @@ type CacheState struct {
 	// Properties of the Cache.
 	Properties CacheResponsePropertiesPtrInput
 	// SKU for the Cache.
-	Sku CacheResponsePropertiesPtrInput
+	Sku CacheResponseSkuPtrInput
 	// ARM tags as name/value pairs.
 	Tags pulumi.MapInput
 	// Type of the Cache; Microsoft.StorageCache/Cache
@@ -107,13 +107,11 @@ type cacheArgs struct {
 	// Target resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// SKU for the Cache.
-	Sku *CacheProperties `pulumi:"sku"`
+	Sku *CacheSku `pulumi:"sku"`
 	// Subnet used for the Cache.
 	Subnet *string `pulumi:"subnet"`
 	// ARM tags as name/value pairs.
 	Tags map[string]interface{} `pulumi:"tags"`
-	// Upgrade status of the Cache.
-	UpgradeStatus *CacheUpgradeStatus `pulumi:"upgradeStatus"`
 }
 
 // The set of arguments for constructing a Cache resource.
@@ -129,13 +127,11 @@ type CacheArgs struct {
 	// Target resource group.
 	ResourceGroupName pulumi.StringInput
 	// SKU for the Cache.
-	Sku CachePropertiesPtrInput
+	Sku CacheSkuPtrInput
 	// Subnet used for the Cache.
 	Subnet pulumi.StringPtrInput
 	// ARM tags as name/value pairs.
 	Tags pulumi.MapInput
-	// Upgrade status of the Cache.
-	UpgradeStatus CacheUpgradeStatusPtrInput
 }
 
 func (CacheArgs) ElementType() reflect.Type {

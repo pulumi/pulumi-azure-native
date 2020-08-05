@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
         /// <summary>
         /// The key vault reference.
         /// </summary>
-        public readonly Outputs.KeyVaultKeyReferenceResponsePropertiesResult KeyVault;
+        public readonly Outputs.KeyVaultKeyReferenceResponseKeyVaultResult KeyVault;
         /// <summary>
         /// The private key version in key vault.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
         private KeyVaultKeyReferenceResponseResult(
             string keyName,
 
-            Outputs.KeyVaultKeyReferenceResponsePropertiesResult keyVault,
+            Outputs.KeyVaultKeyReferenceResponseKeyVaultResult keyVault,
 
             string? keyVersion)
         {

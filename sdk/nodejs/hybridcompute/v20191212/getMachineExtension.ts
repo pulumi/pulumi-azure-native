@@ -46,7 +46,7 @@ export interface GetMachineExtensionResult {
     /**
      * Describes Machine Extension Properties.
      */
-    readonly properties: {[key: string]: any};
+    readonly properties: outputs.hybridcompute.v20191212.MachineExtensionResponseProperties;
     /**
      * Resource tags.
      */

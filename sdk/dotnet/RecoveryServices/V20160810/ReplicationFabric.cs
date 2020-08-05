@@ -90,12 +90,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160810
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Fabric creation input.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.FabricCreationInputPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group where the recovery services vault is present.
         /// </summary>
         [Input("resourceGroupName", required: true)]

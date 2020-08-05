@@ -95,7 +95,7 @@ type datasetArgs struct {
 	// The dataset name.
 	Name string `pulumi:"name"`
 	// Dataset properties.
-	Properties DatasetDefinition `pulumi:"properties"`
+	Properties DatasetType `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -107,7 +107,7 @@ type DatasetArgs struct {
 	// The dataset name.
 	Name pulumi.StringInput
 	// Dataset properties.
-	Properties DatasetDefinitionInput
+	Properties DatasetTypeInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 }

@@ -10,76 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
-type AccessPolicyType struct {
-	// Resource name
-	Name       string                                 `pulumi:"name"`
-	Properties AccessPolicyResourcePropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// AccessPolicyTypeInput is an input type that accepts AccessPolicyTypeArgs and AccessPolicyTypeOutput values.
-// You can construct a concrete instance of `AccessPolicyTypeInput` via:
-//
-//          AccessPolicyTypeArgs{...}
-type AccessPolicyTypeInput interface {
-	pulumi.Input
-
-	ToAccessPolicyTypeOutput() AccessPolicyTypeOutput
-	ToAccessPolicyTypeOutputWithContext(context.Context) AccessPolicyTypeOutput
-}
-
-// An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
-type AccessPolicyTypeArgs struct {
-	// Resource name
-	Name       pulumi.StringInput                          `pulumi:"name"`
-	Properties AccessPolicyResourcePropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AccessPolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPolicyType)(nil)).Elem()
-}
-
-func (i AccessPolicyTypeArgs) ToAccessPolicyTypeOutput() AccessPolicyTypeOutput {
-	return i.ToAccessPolicyTypeOutputWithContext(context.Background())
-}
-
-func (i AccessPolicyTypeArgs) ToAccessPolicyTypeOutputWithContext(ctx context.Context) AccessPolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccessPolicyTypeOutput)
-}
-
-// An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
-type AccessPolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (AccessPolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccessPolicyType)(nil)).Elem()
-}
-
-func (o AccessPolicyTypeOutput) ToAccessPolicyTypeOutput() AccessPolicyTypeOutput {
-	return o
-}
-
-func (o AccessPolicyTypeOutput) ToAccessPolicyTypeOutputWithContext(ctx context.Context) AccessPolicyTypeOutput {
-	return o
-}
-
-// Resource name
-func (o AccessPolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessPolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o AccessPolicyTypeOutput) Properties() AccessPolicyResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v AccessPolicyType) AccessPolicyResourcePropertiesResponse { return v.Properties }).(AccessPolicyResourcePropertiesResponseOutput)
-}
-
-// Resource type
-func (o AccessPolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccessPolicyType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 type AccessPolicyResourcePropertiesResponse struct {
 	// An description of the access policy.
 	Description *string `pulumi:"description"`
@@ -249,203 +179,12 @@ func (o AccessPolicyResourcePropertiesResponsePtrOutput) Roles() pulumi.StringAr
 	}).(pulumi.StringArrayOutput)
 }
 
-// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
-type EnvironmentType struct {
-	// The kind of the environment.
-	Kind string `pulumi:"kind"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-	Sku SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// EnvironmentTypeInput is an input type that accepts EnvironmentTypeArgs and EnvironmentTypeOutput values.
-// You can construct a concrete instance of `EnvironmentTypeInput` via:
-//
-//          EnvironmentTypeArgs{...}
-type EnvironmentTypeInput interface {
-	pulumi.Input
-
-	ToEnvironmentTypeOutput() EnvironmentTypeOutput
-	ToEnvironmentTypeOutputWithContext(context.Context) EnvironmentTypeOutput
-}
-
-// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
-type EnvironmentTypeArgs struct {
-	// The kind of the environment.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-	Sku SkuResponseInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (EnvironmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentType)(nil)).Elem()
-}
-
-func (i EnvironmentTypeArgs) ToEnvironmentTypeOutput() EnvironmentTypeOutput {
-	return i.ToEnvironmentTypeOutputWithContext(context.Background())
-}
-
-func (i EnvironmentTypeArgs) ToEnvironmentTypeOutputWithContext(ctx context.Context) EnvironmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentTypeOutput)
-}
-
-// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
-type EnvironmentTypeOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentType)(nil)).Elem()
-}
-
-func (o EnvironmentTypeOutput) ToEnvironmentTypeOutput() EnvironmentTypeOutput {
-	return o
-}
-
-func (o EnvironmentTypeOutput) ToEnvironmentTypeOutputWithContext(ctx context.Context) EnvironmentTypeOutput {
-	return o
-}
-
-// The kind of the environment.
-func (o EnvironmentTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Resource location
-func (o EnvironmentTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o EnvironmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
-func (o EnvironmentTypeOutput) Sku() SkuResponseOutput {
-	return o.ApplyT(func(v EnvironmentType) SkuResponse { return v.Sku }).(SkuResponseOutput)
-}
-
-// Resource tags
-func (o EnvironmentTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v EnvironmentType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o EnvironmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EnvironmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
-type EventSourceType struct {
-	// The kind of the event source.
-	Kind string `pulumi:"kind"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// EventSourceTypeInput is an input type that accepts EventSourceTypeArgs and EventSourceTypeOutput values.
-// You can construct a concrete instance of `EventSourceTypeInput` via:
-//
-//          EventSourceTypeArgs{...}
-type EventSourceTypeInput interface {
-	pulumi.Input
-
-	ToEventSourceTypeOutput() EventSourceTypeOutput
-	ToEventSourceTypeOutputWithContext(context.Context) EventSourceTypeOutput
-}
-
-// An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
-type EventSourceTypeArgs struct {
-	// The kind of the event source.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (EventSourceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSourceType)(nil)).Elem()
-}
-
-func (i EventSourceTypeArgs) ToEventSourceTypeOutput() EventSourceTypeOutput {
-	return i.ToEventSourceTypeOutputWithContext(context.Background())
-}
-
-func (i EventSourceTypeArgs) ToEventSourceTypeOutputWithContext(ctx context.Context) EventSourceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSourceTypeOutput)
-}
-
-// An environment receives data from one or more event sources. Each event source has associated connection info that allows the Time Series Insights ingress pipeline to connect to and pull data from the event source
-type EventSourceTypeOutput struct{ *pulumi.OutputState }
-
-func (EventSourceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSourceType)(nil)).Elem()
-}
-
-func (o EventSourceTypeOutput) ToEventSourceTypeOutput() EventSourceTypeOutput {
-	return o
-}
-
-func (o EventSourceTypeOutput) ToEventSourceTypeOutputWithContext(ctx context.Context) EventSourceTypeOutput {
-	return o
-}
-
-// The kind of the event source.
-func (o EventSourceTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSourceType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Resource location
-func (o EventSourceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSourceType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o EventSourceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSourceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Resource tags
-func (o EventSourceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v EventSourceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o EventSourceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSourceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
 type LocalTimestamp struct {
 	// An enum that represents the format of the local timestamp property that needs to be set.
 	Format *string `pulumi:"format"`
 	// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
-	TimeZoneOffset *LocalTimestampProperties `pulumi:"timeZoneOffset"`
+	TimeZoneOffset *LocalTimestampTimeZoneOffset `pulumi:"timeZoneOffset"`
 }
 
 // LocalTimestampInput is an input type that accepts LocalTimestampArgs and LocalTimestampOutput values.
@@ -464,7 +203,7 @@ type LocalTimestampArgs struct {
 	// An enum that represents the format of the local timestamp property that needs to be set.
 	Format pulumi.StringPtrInput `pulumi:"format"`
 	// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
-	TimeZoneOffset LocalTimestampPropertiesPtrInput `pulumi:"timeZoneOffset"`
+	TimeZoneOffset LocalTimestampTimeZoneOffsetPtrInput `pulumi:"timeZoneOffset"`
 }
 
 func (LocalTimestampArgs) ElementType() reflect.Type {
@@ -551,8 +290,8 @@ func (o LocalTimestampOutput) Format() pulumi.StringPtrOutput {
 }
 
 // An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
-func (o LocalTimestampOutput) TimeZoneOffset() LocalTimestampPropertiesPtrOutput {
-	return o.ApplyT(func(v LocalTimestamp) *LocalTimestampProperties { return v.TimeZoneOffset }).(LocalTimestampPropertiesPtrOutput)
+func (o LocalTimestampOutput) TimeZoneOffset() LocalTimestampTimeZoneOffsetPtrOutput {
+	return o.ApplyT(func(v LocalTimestamp) *LocalTimestampTimeZoneOffset { return v.TimeZoneOffset }).(LocalTimestampTimeZoneOffsetPtrOutput)
 }
 
 type LocalTimestampPtrOutput struct{ *pulumi.OutputState }
@@ -584,238 +323,147 @@ func (o LocalTimestampPtrOutput) Format() pulumi.StringPtrOutput {
 }
 
 // An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
-func (o LocalTimestampPtrOutput) TimeZoneOffset() LocalTimestampPropertiesPtrOutput {
-	return o.ApplyT(func(v *LocalTimestamp) *LocalTimestampProperties {
+func (o LocalTimestampPtrOutput) TimeZoneOffset() LocalTimestampTimeZoneOffsetPtrOutput {
+	return o.ApplyT(func(v *LocalTimestamp) *LocalTimestampTimeZoneOffset {
 		if v == nil {
 			return nil
 		}
 		return v.TimeZoneOffset
-	}).(LocalTimestampPropertiesPtrOutput)
+	}).(LocalTimestampTimeZoneOffsetPtrOutput)
 }
 
 // An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
-type LocalTimestampProperties struct {
+type LocalTimestampTimeZoneOffset struct {
 	// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
 	PropertyName *string `pulumi:"propertyName"`
 }
 
-// LocalTimestampPropertiesInput is an input type that accepts LocalTimestampPropertiesArgs and LocalTimestampPropertiesOutput values.
-// You can construct a concrete instance of `LocalTimestampPropertiesInput` via:
+// LocalTimestampTimeZoneOffsetInput is an input type that accepts LocalTimestampTimeZoneOffsetArgs and LocalTimestampTimeZoneOffsetOutput values.
+// You can construct a concrete instance of `LocalTimestampTimeZoneOffsetInput` via:
 //
-//          LocalTimestampPropertiesArgs{...}
-type LocalTimestampPropertiesInput interface {
+//          LocalTimestampTimeZoneOffsetArgs{...}
+type LocalTimestampTimeZoneOffsetInput interface {
 	pulumi.Input
 
-	ToLocalTimestampPropertiesOutput() LocalTimestampPropertiesOutput
-	ToLocalTimestampPropertiesOutputWithContext(context.Context) LocalTimestampPropertiesOutput
+	ToLocalTimestampTimeZoneOffsetOutput() LocalTimestampTimeZoneOffsetOutput
+	ToLocalTimestampTimeZoneOffsetOutputWithContext(context.Context) LocalTimestampTimeZoneOffsetOutput
 }
 
 // An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
-type LocalTimestampPropertiesArgs struct {
+type LocalTimestampTimeZoneOffsetArgs struct {
 	// The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
 	PropertyName pulumi.StringPtrInput `pulumi:"propertyName"`
 }
 
-func (LocalTimestampPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalTimestampProperties)(nil)).Elem()
+func (LocalTimestampTimeZoneOffsetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalTimestampTimeZoneOffset)(nil)).Elem()
 }
 
-func (i LocalTimestampPropertiesArgs) ToLocalTimestampPropertiesOutput() LocalTimestampPropertiesOutput {
-	return i.ToLocalTimestampPropertiesOutputWithContext(context.Background())
+func (i LocalTimestampTimeZoneOffsetArgs) ToLocalTimestampTimeZoneOffsetOutput() LocalTimestampTimeZoneOffsetOutput {
+	return i.ToLocalTimestampTimeZoneOffsetOutputWithContext(context.Background())
 }
 
-func (i LocalTimestampPropertiesArgs) ToLocalTimestampPropertiesOutputWithContext(ctx context.Context) LocalTimestampPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampPropertiesOutput)
+func (i LocalTimestampTimeZoneOffsetArgs) ToLocalTimestampTimeZoneOffsetOutputWithContext(ctx context.Context) LocalTimestampTimeZoneOffsetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampTimeZoneOffsetOutput)
 }
 
-func (i LocalTimestampPropertiesArgs) ToLocalTimestampPropertiesPtrOutput() LocalTimestampPropertiesPtrOutput {
-	return i.ToLocalTimestampPropertiesPtrOutputWithContext(context.Background())
+func (i LocalTimestampTimeZoneOffsetArgs) ToLocalTimestampTimeZoneOffsetPtrOutput() LocalTimestampTimeZoneOffsetPtrOutput {
+	return i.ToLocalTimestampTimeZoneOffsetPtrOutputWithContext(context.Background())
 }
 
-func (i LocalTimestampPropertiesArgs) ToLocalTimestampPropertiesPtrOutputWithContext(ctx context.Context) LocalTimestampPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampPropertiesOutput).ToLocalTimestampPropertiesPtrOutputWithContext(ctx)
+func (i LocalTimestampTimeZoneOffsetArgs) ToLocalTimestampTimeZoneOffsetPtrOutputWithContext(ctx context.Context) LocalTimestampTimeZoneOffsetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampTimeZoneOffsetOutput).ToLocalTimestampTimeZoneOffsetPtrOutputWithContext(ctx)
 }
 
-// LocalTimestampPropertiesPtrInput is an input type that accepts LocalTimestampPropertiesArgs, LocalTimestampPropertiesPtr and LocalTimestampPropertiesPtrOutput values.
-// You can construct a concrete instance of `LocalTimestampPropertiesPtrInput` via:
+// LocalTimestampTimeZoneOffsetPtrInput is an input type that accepts LocalTimestampTimeZoneOffsetArgs, LocalTimestampTimeZoneOffsetPtr and LocalTimestampTimeZoneOffsetPtrOutput values.
+// You can construct a concrete instance of `LocalTimestampTimeZoneOffsetPtrInput` via:
 //
-//          LocalTimestampPropertiesArgs{...}
+//          LocalTimestampTimeZoneOffsetArgs{...}
 //
 //  or:
 //
 //          nil
-type LocalTimestampPropertiesPtrInput interface {
+type LocalTimestampTimeZoneOffsetPtrInput interface {
 	pulumi.Input
 
-	ToLocalTimestampPropertiesPtrOutput() LocalTimestampPropertiesPtrOutput
-	ToLocalTimestampPropertiesPtrOutputWithContext(context.Context) LocalTimestampPropertiesPtrOutput
+	ToLocalTimestampTimeZoneOffsetPtrOutput() LocalTimestampTimeZoneOffsetPtrOutput
+	ToLocalTimestampTimeZoneOffsetPtrOutputWithContext(context.Context) LocalTimestampTimeZoneOffsetPtrOutput
 }
 
-type localTimestampPropertiesPtrType LocalTimestampPropertiesArgs
+type localTimestampTimeZoneOffsetPtrType LocalTimestampTimeZoneOffsetArgs
 
-func LocalTimestampPropertiesPtr(v *LocalTimestampPropertiesArgs) LocalTimestampPropertiesPtrInput {
-	return (*localTimestampPropertiesPtrType)(v)
+func LocalTimestampTimeZoneOffsetPtr(v *LocalTimestampTimeZoneOffsetArgs) LocalTimestampTimeZoneOffsetPtrInput {
+	return (*localTimestampTimeZoneOffsetPtrType)(v)
 }
 
-func (*localTimestampPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalTimestampProperties)(nil)).Elem()
+func (*localTimestampTimeZoneOffsetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocalTimestampTimeZoneOffset)(nil)).Elem()
 }
 
-func (i *localTimestampPropertiesPtrType) ToLocalTimestampPropertiesPtrOutput() LocalTimestampPropertiesPtrOutput {
-	return i.ToLocalTimestampPropertiesPtrOutputWithContext(context.Background())
+func (i *localTimestampTimeZoneOffsetPtrType) ToLocalTimestampTimeZoneOffsetPtrOutput() LocalTimestampTimeZoneOffsetPtrOutput {
+	return i.ToLocalTimestampTimeZoneOffsetPtrOutputWithContext(context.Background())
 }
 
-func (i *localTimestampPropertiesPtrType) ToLocalTimestampPropertiesPtrOutputWithContext(ctx context.Context) LocalTimestampPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampPropertiesPtrOutput)
+func (i *localTimestampTimeZoneOffsetPtrType) ToLocalTimestampTimeZoneOffsetPtrOutputWithContext(ctx context.Context) LocalTimestampTimeZoneOffsetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocalTimestampTimeZoneOffsetPtrOutput)
 }
 
 // An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
-type LocalTimestampPropertiesOutput struct{ *pulumi.OutputState }
+type LocalTimestampTimeZoneOffsetOutput struct{ *pulumi.OutputState }
 
-func (LocalTimestampPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LocalTimestampProperties)(nil)).Elem()
+func (LocalTimestampTimeZoneOffsetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocalTimestampTimeZoneOffset)(nil)).Elem()
 }
 
-func (o LocalTimestampPropertiesOutput) ToLocalTimestampPropertiesOutput() LocalTimestampPropertiesOutput {
+func (o LocalTimestampTimeZoneOffsetOutput) ToLocalTimestampTimeZoneOffsetOutput() LocalTimestampTimeZoneOffsetOutput {
 	return o
 }
 
-func (o LocalTimestampPropertiesOutput) ToLocalTimestampPropertiesOutputWithContext(ctx context.Context) LocalTimestampPropertiesOutput {
+func (o LocalTimestampTimeZoneOffsetOutput) ToLocalTimestampTimeZoneOffsetOutputWithContext(ctx context.Context) LocalTimestampTimeZoneOffsetOutput {
 	return o
 }
 
-func (o LocalTimestampPropertiesOutput) ToLocalTimestampPropertiesPtrOutput() LocalTimestampPropertiesPtrOutput {
-	return o.ToLocalTimestampPropertiesPtrOutputWithContext(context.Background())
+func (o LocalTimestampTimeZoneOffsetOutput) ToLocalTimestampTimeZoneOffsetPtrOutput() LocalTimestampTimeZoneOffsetPtrOutput {
+	return o.ToLocalTimestampTimeZoneOffsetPtrOutputWithContext(context.Background())
 }
 
-func (o LocalTimestampPropertiesOutput) ToLocalTimestampPropertiesPtrOutputWithContext(ctx context.Context) LocalTimestampPropertiesPtrOutput {
-	return o.ApplyT(func(v LocalTimestampProperties) *LocalTimestampProperties {
+func (o LocalTimestampTimeZoneOffsetOutput) ToLocalTimestampTimeZoneOffsetPtrOutputWithContext(ctx context.Context) LocalTimestampTimeZoneOffsetPtrOutput {
+	return o.ApplyT(func(v LocalTimestampTimeZoneOffset) *LocalTimestampTimeZoneOffset {
 		return &v
-	}).(LocalTimestampPropertiesPtrOutput)
+	}).(LocalTimestampTimeZoneOffsetPtrOutput)
 }
 
 // The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
-func (o LocalTimestampPropertiesOutput) PropertyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LocalTimestampProperties) *string { return v.PropertyName }).(pulumi.StringPtrOutput)
+func (o LocalTimestampTimeZoneOffsetOutput) PropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocalTimestampTimeZoneOffset) *string { return v.PropertyName }).(pulumi.StringPtrOutput)
 }
 
-type LocalTimestampPropertiesPtrOutput struct{ *pulumi.OutputState }
+type LocalTimestampTimeZoneOffsetPtrOutput struct{ *pulumi.OutputState }
 
-func (LocalTimestampPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LocalTimestampProperties)(nil)).Elem()
+func (LocalTimestampTimeZoneOffsetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocalTimestampTimeZoneOffset)(nil)).Elem()
 }
 
-func (o LocalTimestampPropertiesPtrOutput) ToLocalTimestampPropertiesPtrOutput() LocalTimestampPropertiesPtrOutput {
+func (o LocalTimestampTimeZoneOffsetPtrOutput) ToLocalTimestampTimeZoneOffsetPtrOutput() LocalTimestampTimeZoneOffsetPtrOutput {
 	return o
 }
 
-func (o LocalTimestampPropertiesPtrOutput) ToLocalTimestampPropertiesPtrOutputWithContext(ctx context.Context) LocalTimestampPropertiesPtrOutput {
+func (o LocalTimestampTimeZoneOffsetPtrOutput) ToLocalTimestampTimeZoneOffsetPtrOutputWithContext(ctx context.Context) LocalTimestampTimeZoneOffsetPtrOutput {
 	return o
 }
 
-func (o LocalTimestampPropertiesPtrOutput) Elem() LocalTimestampPropertiesOutput {
-	return o.ApplyT(func(v *LocalTimestampProperties) LocalTimestampProperties { return *v }).(LocalTimestampPropertiesOutput)
+func (o LocalTimestampTimeZoneOffsetPtrOutput) Elem() LocalTimestampTimeZoneOffsetOutput {
+	return o.ApplyT(func(v *LocalTimestampTimeZoneOffset) LocalTimestampTimeZoneOffset { return *v }).(LocalTimestampTimeZoneOffsetOutput)
 }
 
 // The event property that will be contain the offset information to calculate the local timestamp. When the LocalTimestampFormat is Iana, the property name will contain the name of the column which contains IANA Timezone Name (eg: Americas/Los Angeles). When LocalTimestampFormat is Timespan, it contains the name of property which contains values representing the offset (eg: P1D or 1.00:00:00)
-func (o LocalTimestampPropertiesPtrOutput) PropertyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LocalTimestampProperties) *string {
+func (o LocalTimestampTimeZoneOffsetPtrOutput) PropertyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocalTimestampTimeZoneOffset) *string {
 		if v == nil {
 			return nil
 		}
 		return v.PropertyName
 	}).(pulumi.StringPtrOutput)
-}
-
-// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
-type ReferenceDataSetType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Properties of the reference data set.
-	Properties ReferenceDataSetResourcePropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ReferenceDataSetTypeInput is an input type that accepts ReferenceDataSetTypeArgs and ReferenceDataSetTypeOutput values.
-// You can construct a concrete instance of `ReferenceDataSetTypeInput` via:
-//
-//          ReferenceDataSetTypeArgs{...}
-type ReferenceDataSetTypeInput interface {
-	pulumi.Input
-
-	ToReferenceDataSetTypeOutput() ReferenceDataSetTypeOutput
-	ToReferenceDataSetTypeOutputWithContext(context.Context) ReferenceDataSetTypeOutput
-}
-
-// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
-type ReferenceDataSetTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the reference data set.
-	Properties ReferenceDataSetResourcePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ReferenceDataSetTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReferenceDataSetType)(nil)).Elem()
-}
-
-func (i ReferenceDataSetTypeArgs) ToReferenceDataSetTypeOutput() ReferenceDataSetTypeOutput {
-	return i.ToReferenceDataSetTypeOutputWithContext(context.Background())
-}
-
-func (i ReferenceDataSetTypeArgs) ToReferenceDataSetTypeOutputWithContext(ctx context.Context) ReferenceDataSetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReferenceDataSetTypeOutput)
-}
-
-// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
-type ReferenceDataSetTypeOutput struct{ *pulumi.OutputState }
-
-func (ReferenceDataSetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReferenceDataSetType)(nil)).Elem()
-}
-
-func (o ReferenceDataSetTypeOutput) ToReferenceDataSetTypeOutput() ReferenceDataSetTypeOutput {
-	return o
-}
-
-func (o ReferenceDataSetTypeOutput) ToReferenceDataSetTypeOutputWithContext(ctx context.Context) ReferenceDataSetTypeOutput {
-	return o
-}
-
-// Resource location
-func (o ReferenceDataSetTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ReferenceDataSetType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o ReferenceDataSetTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ReferenceDataSetType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the reference data set.
-func (o ReferenceDataSetTypeOutput) Properties() ReferenceDataSetResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v ReferenceDataSetType) ReferenceDataSetResourcePropertiesResponse { return v.Properties }).(ReferenceDataSetResourcePropertiesResponseOutput)
-}
-
-// Resource tags
-func (o ReferenceDataSetTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ReferenceDataSetType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o ReferenceDataSetTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ReferenceDataSetType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // A key property for the reference data set. A reference data set can have multiple key properties.
@@ -1538,16 +1186,12 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(AccessPolicyTypeOutput{})
 	pulumi.RegisterOutputType(AccessPolicyResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AccessPolicyResourcePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(EnvironmentTypeOutput{})
-	pulumi.RegisterOutputType(EventSourceTypeOutput{})
 	pulumi.RegisterOutputType(LocalTimestampOutput{})
 	pulumi.RegisterOutputType(LocalTimestampPtrOutput{})
-	pulumi.RegisterOutputType(LocalTimestampPropertiesOutput{})
-	pulumi.RegisterOutputType(LocalTimestampPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ReferenceDataSetTypeOutput{})
+	pulumi.RegisterOutputType(LocalTimestampTimeZoneOffsetOutput{})
+	pulumi.RegisterOutputType(LocalTimestampTimeZoneOffsetPtrOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyArrayOutput{})
 	pulumi.RegisterOutputType(ReferenceDataSetKeyPropertyResponseOutput{})

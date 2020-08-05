@@ -3070,97 +3070,6 @@ func (o MpnsCredentialResponsePtrOutput) Properties() MpnsCredentialPropertiesRe
 	}).(MpnsCredentialPropertiesResponsePtrOutput)
 }
 
-// Description of a Namespace resource.
-type NamespaceType struct {
-	// Gets or sets datacenter location of the Namespace.
-	Location *string `pulumi:"location"`
-	// Gets or sets name of the Namespace.
-	Name *string `pulumi:"name"`
-	// Gets or sets properties of the Namespace.
-	Properties NamespacePropertiesResponse `pulumi:"properties"`
-	// Gets or sets tags of the Namespace.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets or sets resource type of the Namespace.
-	Type *string `pulumi:"type"`
-}
-
-// NamespaceTypeInput is an input type that accepts NamespaceTypeArgs and NamespaceTypeOutput values.
-// You can construct a concrete instance of `NamespaceTypeInput` via:
-//
-//          NamespaceTypeArgs{...}
-type NamespaceTypeInput interface {
-	pulumi.Input
-
-	ToNamespaceTypeOutput() NamespaceTypeOutput
-	ToNamespaceTypeOutputWithContext(context.Context) NamespaceTypeOutput
-}
-
-// Description of a Namespace resource.
-type NamespaceTypeArgs struct {
-	// Gets or sets datacenter location of the Namespace.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Gets or sets name of the Namespace.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets properties of the Namespace.
-	Properties NamespacePropertiesResponseInput `pulumi:"properties"`
-	// Gets or sets tags of the Namespace.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Gets or sets resource type of the Namespace.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (NamespaceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceType)(nil)).Elem()
-}
-
-func (i NamespaceTypeArgs) ToNamespaceTypeOutput() NamespaceTypeOutput {
-	return i.ToNamespaceTypeOutputWithContext(context.Background())
-}
-
-func (i NamespaceTypeArgs) ToNamespaceTypeOutputWithContext(ctx context.Context) NamespaceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NamespaceTypeOutput)
-}
-
-// Description of a Namespace resource.
-type NamespaceTypeOutput struct{ *pulumi.OutputState }
-
-func (NamespaceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NamespaceType)(nil)).Elem()
-}
-
-func (o NamespaceTypeOutput) ToNamespaceTypeOutput() NamespaceTypeOutput {
-	return o
-}
-
-func (o NamespaceTypeOutput) ToNamespaceTypeOutputWithContext(ctx context.Context) NamespaceTypeOutput {
-	return o
-}
-
-// Gets or sets datacenter location of the Namespace.
-func (o NamespaceTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespaceType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets name of the Namespace.
-func (o NamespaceTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespaceType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets properties of the Namespace.
-func (o NamespaceTypeOutput) Properties() NamespacePropertiesResponseOutput {
-	return o.ApplyT(func(v NamespaceType) NamespacePropertiesResponse { return v.Properties }).(NamespacePropertiesResponseOutput)
-}
-
-// Gets or sets tags of the Namespace.
-func (o NamespaceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v NamespaceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Gets or sets resource type of the Namespace.
-func (o NamespaceTypeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NamespaceType) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
 // Namespace properties.
 type NamespaceProperties struct {
 	// The time the namespace was created.
@@ -3807,97 +3716,6 @@ func (o NamespacePropertiesResponsePtrOutput) SubscriptionId() pulumi.StringPtrO
 		}
 		return v.SubscriptionId
 	}).(pulumi.StringPtrOutput)
-}
-
-// Description of a NotificationHub Resource.
-type NotificationHubType struct {
-	// Gets or sets datacenter location of the NotificationHub.
-	Location *string `pulumi:"location"`
-	// Gets or sets name of the NotificationHub.
-	Name *string `pulumi:"name"`
-	// Gets or sets properties of the NotificationHub.
-	Properties NotificationHubPropertiesResponse `pulumi:"properties"`
-	// Gets or sets tags of the NotificationHub.
-	Tags map[string]string `pulumi:"tags"`
-	// Gets or sets resource type of the NotificationHub.
-	Type *string `pulumi:"type"`
-}
-
-// NotificationHubTypeInput is an input type that accepts NotificationHubTypeArgs and NotificationHubTypeOutput values.
-// You can construct a concrete instance of `NotificationHubTypeInput` via:
-//
-//          NotificationHubTypeArgs{...}
-type NotificationHubTypeInput interface {
-	pulumi.Input
-
-	ToNotificationHubTypeOutput() NotificationHubTypeOutput
-	ToNotificationHubTypeOutputWithContext(context.Context) NotificationHubTypeOutput
-}
-
-// Description of a NotificationHub Resource.
-type NotificationHubTypeArgs struct {
-	// Gets or sets datacenter location of the NotificationHub.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Gets or sets name of the NotificationHub.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Gets or sets properties of the NotificationHub.
-	Properties NotificationHubPropertiesResponseInput `pulumi:"properties"`
-	// Gets or sets tags of the NotificationHub.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Gets or sets resource type of the NotificationHub.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (NotificationHubTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationHubType)(nil)).Elem()
-}
-
-func (i NotificationHubTypeArgs) ToNotificationHubTypeOutput() NotificationHubTypeOutput {
-	return i.ToNotificationHubTypeOutputWithContext(context.Background())
-}
-
-func (i NotificationHubTypeArgs) ToNotificationHubTypeOutputWithContext(ctx context.Context) NotificationHubTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationHubTypeOutput)
-}
-
-// Description of a NotificationHub Resource.
-type NotificationHubTypeOutput struct{ *pulumi.OutputState }
-
-func (NotificationHubTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationHubType)(nil)).Elem()
-}
-
-func (o NotificationHubTypeOutput) ToNotificationHubTypeOutput() NotificationHubTypeOutput {
-	return o
-}
-
-func (o NotificationHubTypeOutput) ToNotificationHubTypeOutputWithContext(ctx context.Context) NotificationHubTypeOutput {
-	return o
-}
-
-// Gets or sets datacenter location of the NotificationHub.
-func (o NotificationHubTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NotificationHubType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets name of the NotificationHub.
-func (o NotificationHubTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NotificationHubType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Gets or sets properties of the NotificationHub.
-func (o NotificationHubTypeOutput) Properties() NotificationHubPropertiesResponseOutput {
-	return o.ApplyT(func(v NotificationHubType) NotificationHubPropertiesResponse { return v.Properties }).(NotificationHubPropertiesResponseOutput)
-}
-
-// Gets or sets tags of the NotificationHub.
-func (o NotificationHubTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v NotificationHubType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Gets or sets resource type of the NotificationHub.
-func (o NotificationHubTypeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NotificationHubType) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // NotificationHub properties.
@@ -5473,12 +5291,10 @@ func init() {
 	pulumi.RegisterOutputType(MpnsCredentialPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialResponseOutput{})
 	pulumi.RegisterOutputType(MpnsCredentialResponsePtrOutput{})
-	pulumi.RegisterOutputType(NamespaceTypeOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(NamespacePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(NotificationHubTypeOutput{})
 	pulumi.RegisterOutputType(NotificationHubPropertiesOutput{})
 	pulumi.RegisterOutputType(NotificationHubPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(NotificationHubPropertiesResponseOutput{})

@@ -152,7 +152,6 @@ class RouteFilter(pulumi.CustomResource):
             * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
             * `peer_express_route_circuit_peering` (`pulumi.Input[dict]`) - Reference to Express Route Circuit Private Peering Resource of the peered circuit.
 
-          * `express_route_connection` (`pulumi.Input[dict]`) - The ExpressRoute connection.
           * `gateway_manager_etag` (`pulumi.Input[str]`) - The GatewayManager Etag.
           * `id` (`pulumi.Input[str]`) - Resource ID.
           * `ipv6_peering_config` (`pulumi.Input[dict]`) - The IPv6 peering configuration.
@@ -192,14 +191,12 @@ class RouteFilter(pulumi.CustomResource):
 
         The **rules** object supports the following:
 
-          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+          * `access` (`pulumi.Input[str]`) - The access type of the rule.
+          * `communities` (`pulumi.Input[list]`) - The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
+          * `id` (`pulumi.Input[str]`) - Resource ID.
           * `location` (`pulumi.Input[str]`) - Resource location.
           * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `properties` (`pulumi.Input[dict]`) - Properties of the route filter rule.
-            * `access` (`pulumi.Input[str]`) - The access type of the rule.
-            * `communities` (`pulumi.Input[list]`) - The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020'].
-            * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the route filter rule resource.
-            * `route_filter_rule_type` (`pulumi.Input[str]`) - The rule type of the rule.
+          * `route_filter_rule_type` (`pulumi.Input[str]`) - The rule type of the rule.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

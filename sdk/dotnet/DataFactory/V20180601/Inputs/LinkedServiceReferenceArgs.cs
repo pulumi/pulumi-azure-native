@@ -15,11 +15,17 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Inputs
     /// </summary>
     public sealed class LinkedServiceReferenceArgs : Pulumi.ResourceArgs
     {
+        [Input("parameters")]
+        private InputMap<ImmutableDictionary<string, object>>? _parameters;
+
         /// <summary>
         /// Arguments for LinkedService.
         /// </summary>
-        [Input("parameters")]
-        public Input<Inputs.ParameterValueSpecificationArgs>? Parameters { get; set; }
+        public InputMap<ImmutableDictionary<string, object>> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<ImmutableDictionary<string, object>>());
+            set => _parameters = value;
+        }
 
         /// <summary>
         /// Reference LinkedService name.

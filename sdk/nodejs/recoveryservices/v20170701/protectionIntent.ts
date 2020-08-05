@@ -130,7 +130,7 @@ export interface ProtectionIntentArgs {
     /**
      * ProtectionIntentResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20170701.ProtectionIntentDefinition>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20170701.ProtectionIntent>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

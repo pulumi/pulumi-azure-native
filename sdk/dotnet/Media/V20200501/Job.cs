@@ -102,12 +102,6 @@ namespace Pulumi.AzureRM.Media.V20200501
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The inputs for the Job.
-        /// </summary>
-        [Input("input", required: true)]
-        public Input<Inputs.JobInputArgs> Input { get; set; } = null!;
-
-        /// <summary>
         /// The Job name.
         /// </summary>
         [Input("name", required: true)]

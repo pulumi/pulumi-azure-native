@@ -10,79 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Cloud Endpoint object.
-type CloudEndpointType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Cloud Endpoint properties.
-	Properties CloudEndpointPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// CloudEndpointTypeInput is an input type that accepts CloudEndpointTypeArgs and CloudEndpointTypeOutput values.
-// You can construct a concrete instance of `CloudEndpointTypeInput` via:
-//
-//          CloudEndpointTypeArgs{...}
-type CloudEndpointTypeInput interface {
-	pulumi.Input
-
-	ToCloudEndpointTypeOutput() CloudEndpointTypeOutput
-	ToCloudEndpointTypeOutputWithContext(context.Context) CloudEndpointTypeOutput
-}
-
-// Cloud Endpoint object.
-type CloudEndpointTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Cloud Endpoint properties.
-	Properties CloudEndpointPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CloudEndpointTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudEndpointType)(nil)).Elem()
-}
-
-func (i CloudEndpointTypeArgs) ToCloudEndpointTypeOutput() CloudEndpointTypeOutput {
-	return i.ToCloudEndpointTypeOutputWithContext(context.Background())
-}
-
-func (i CloudEndpointTypeArgs) ToCloudEndpointTypeOutputWithContext(ctx context.Context) CloudEndpointTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudEndpointTypeOutput)
-}
-
-// Cloud Endpoint object.
-type CloudEndpointTypeOutput struct{ *pulumi.OutputState }
-
-func (CloudEndpointTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudEndpointType)(nil)).Elem()
-}
-
-func (o CloudEndpointTypeOutput) ToCloudEndpointTypeOutput() CloudEndpointTypeOutput {
-	return o
-}
-
-func (o CloudEndpointTypeOutput) ToCloudEndpointTypeOutputWithContext(ctx context.Context) CloudEndpointTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o CloudEndpointTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CloudEndpointType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Cloud Endpoint properties.
-func (o CloudEndpointTypeOutput) Properties() CloudEndpointPropertiesResponseOutput {
-	return o.ApplyT(func(v CloudEndpointType) CloudEndpointPropertiesResponse { return v.Properties }).(CloudEndpointPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o CloudEndpointTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CloudEndpointType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // CloudEndpoint Properties object.
 type CloudEndpointPropertiesResponse struct {
 	// Backup Enabled
@@ -367,79 +294,6 @@ func (o CloudEndpointPropertiesResponsePtrOutput) StorageAccountTenantId() pulum
 		}
 		return v.StorageAccountTenantId
 	}).(pulumi.StringPtrOutput)
-}
-
-// Registered Server resource.
-type RegisteredServerType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// RegisteredServer properties.
-	Properties RegisteredServerPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// RegisteredServerTypeInput is an input type that accepts RegisteredServerTypeArgs and RegisteredServerTypeOutput values.
-// You can construct a concrete instance of `RegisteredServerTypeInput` via:
-//
-//          RegisteredServerTypeArgs{...}
-type RegisteredServerTypeInput interface {
-	pulumi.Input
-
-	ToRegisteredServerTypeOutput() RegisteredServerTypeOutput
-	ToRegisteredServerTypeOutputWithContext(context.Context) RegisteredServerTypeOutput
-}
-
-// Registered Server resource.
-type RegisteredServerTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// RegisteredServer properties.
-	Properties RegisteredServerPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RegisteredServerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegisteredServerType)(nil)).Elem()
-}
-
-func (i RegisteredServerTypeArgs) ToRegisteredServerTypeOutput() RegisteredServerTypeOutput {
-	return i.ToRegisteredServerTypeOutputWithContext(context.Background())
-}
-
-func (i RegisteredServerTypeArgs) ToRegisteredServerTypeOutputWithContext(ctx context.Context) RegisteredServerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegisteredServerTypeOutput)
-}
-
-// Registered Server resource.
-type RegisteredServerTypeOutput struct{ *pulumi.OutputState }
-
-func (RegisteredServerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegisteredServerType)(nil)).Elem()
-}
-
-func (o RegisteredServerTypeOutput) ToRegisteredServerTypeOutput() RegisteredServerTypeOutput {
-	return o
-}
-
-func (o RegisteredServerTypeOutput) ToRegisteredServerTypeOutputWithContext(ctx context.Context) RegisteredServerTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o RegisteredServerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RegisteredServerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// RegisteredServer properties.
-func (o RegisteredServerTypeOutput) Properties() RegisteredServerPropertiesResponseOutput {
-	return o.ApplyT(func(v RegisteredServerType) RegisteredServerPropertiesResponse { return v.Properties }).(RegisteredServerPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o RegisteredServerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RegisteredServerType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // RegisteredServer Properties object.
@@ -916,79 +770,6 @@ func (o RegisteredServerPropertiesResponsePtrOutput) StorageSyncServiceUid() pul
 		}
 		return v.StorageSyncServiceUid
 	}).(pulumi.StringPtrOutput)
-}
-
-// Server Endpoint object.
-type ServerEndpointType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Server Endpoint properties.
-	Properties ServerEndpointPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// ServerEndpointTypeInput is an input type that accepts ServerEndpointTypeArgs and ServerEndpointTypeOutput values.
-// You can construct a concrete instance of `ServerEndpointTypeInput` via:
-//
-//          ServerEndpointTypeArgs{...}
-type ServerEndpointTypeInput interface {
-	pulumi.Input
-
-	ToServerEndpointTypeOutput() ServerEndpointTypeOutput
-	ToServerEndpointTypeOutputWithContext(context.Context) ServerEndpointTypeOutput
-}
-
-// Server Endpoint object.
-type ServerEndpointTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Server Endpoint properties.
-	Properties ServerEndpointPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ServerEndpointTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerEndpointType)(nil)).Elem()
-}
-
-func (i ServerEndpointTypeArgs) ToServerEndpointTypeOutput() ServerEndpointTypeOutput {
-	return i.ToServerEndpointTypeOutputWithContext(context.Background())
-}
-
-func (i ServerEndpointTypeArgs) ToServerEndpointTypeOutputWithContext(ctx context.Context) ServerEndpointTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServerEndpointTypeOutput)
-}
-
-// Server Endpoint object.
-type ServerEndpointTypeOutput struct{ *pulumi.OutputState }
-
-func (ServerEndpointTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServerEndpointType)(nil)).Elem()
-}
-
-func (o ServerEndpointTypeOutput) ToServerEndpointTypeOutput() ServerEndpointTypeOutput {
-	return o
-}
-
-func (o ServerEndpointTypeOutput) ToServerEndpointTypeOutputWithContext(ctx context.Context) ServerEndpointTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o ServerEndpointTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerEndpointType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Server Endpoint properties.
-func (o ServerEndpointTypeOutput) Properties() ServerEndpointPropertiesResponseOutput {
-	return o.ApplyT(func(v ServerEndpointType) ServerEndpointPropertiesResponse { return v.Properties }).(ServerEndpointPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o ServerEndpointTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServerEndpointType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // ServerEndpoint Health object.
@@ -1639,97 +1420,6 @@ func (o ServerEndpointPropertiesResponsePtrOutput) VolumeFreeSpacePercent() pulu
 	}).(pulumi.IntPtrOutput)
 }
 
-// Storage Sync Service object.
-type StorageSyncServiceType struct {
-	// The geo-location where the resource lives
-	Location string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// Storage Sync Service properties.
-	Properties StorageSyncServicePropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// StorageSyncServiceTypeInput is an input type that accepts StorageSyncServiceTypeArgs and StorageSyncServiceTypeOutput values.
-// You can construct a concrete instance of `StorageSyncServiceTypeInput` via:
-//
-//          StorageSyncServiceTypeArgs{...}
-type StorageSyncServiceTypeInput interface {
-	pulumi.Input
-
-	ToStorageSyncServiceTypeOutput() StorageSyncServiceTypeOutput
-	ToStorageSyncServiceTypeOutputWithContext(context.Context) StorageSyncServiceTypeOutput
-}
-
-// Storage Sync Service object.
-type StorageSyncServiceTypeArgs struct {
-	// The geo-location where the resource lives
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// Storage Sync Service properties.
-	Properties StorageSyncServicePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StorageSyncServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageSyncServiceType)(nil)).Elem()
-}
-
-func (i StorageSyncServiceTypeArgs) ToStorageSyncServiceTypeOutput() StorageSyncServiceTypeOutput {
-	return i.ToStorageSyncServiceTypeOutputWithContext(context.Background())
-}
-
-func (i StorageSyncServiceTypeArgs) ToStorageSyncServiceTypeOutputWithContext(ctx context.Context) StorageSyncServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageSyncServiceTypeOutput)
-}
-
-// Storage Sync Service object.
-type StorageSyncServiceTypeOutput struct{ *pulumi.OutputState }
-
-func (StorageSyncServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageSyncServiceType)(nil)).Elem()
-}
-
-func (o StorageSyncServiceTypeOutput) ToStorageSyncServiceTypeOutput() StorageSyncServiceTypeOutput {
-	return o
-}
-
-func (o StorageSyncServiceTypeOutput) ToStorageSyncServiceTypeOutputWithContext(ctx context.Context) StorageSyncServiceTypeOutput {
-	return o
-}
-
-// The geo-location where the resource lives
-func (o StorageSyncServiceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageSyncServiceType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource
-func (o StorageSyncServiceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageSyncServiceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Storage Sync Service properties.
-func (o StorageSyncServiceTypeOutput) Properties() StorageSyncServicePropertiesResponseOutput {
-	return o.ApplyT(func(v StorageSyncServiceType) StorageSyncServicePropertiesResponse { return v.Properties }).(StorageSyncServicePropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o StorageSyncServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v StorageSyncServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o StorageSyncServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageSyncServiceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Storage Sync Service Properties object.
 type StorageSyncServicePropertiesResponse struct {
 	// Storage Sync service status.
@@ -1881,79 +1571,6 @@ func (o StorageSyncServicePropertiesResponsePtrOutput) StorageSyncServiceUid() p
 		}
 		return &v.StorageSyncServiceUid
 	}).(pulumi.StringPtrOutput)
-}
-
-// Sync Group object.
-type SyncGroupType struct {
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// SyncGroup properties.
-	Properties SyncGroupPropertiesResponse `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type string `pulumi:"type"`
-}
-
-// SyncGroupTypeInput is an input type that accepts SyncGroupTypeArgs and SyncGroupTypeOutput values.
-// You can construct a concrete instance of `SyncGroupTypeInput` via:
-//
-//          SyncGroupTypeArgs{...}
-type SyncGroupTypeInput interface {
-	pulumi.Input
-
-	ToSyncGroupTypeOutput() SyncGroupTypeOutput
-	ToSyncGroupTypeOutputWithContext(context.Context) SyncGroupTypeOutput
-}
-
-// Sync Group object.
-type SyncGroupTypeArgs struct {
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// SyncGroup properties.
-	Properties SyncGroupPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SyncGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncGroupType)(nil)).Elem()
-}
-
-func (i SyncGroupTypeArgs) ToSyncGroupTypeOutput() SyncGroupTypeOutput {
-	return i.ToSyncGroupTypeOutputWithContext(context.Background())
-}
-
-func (i SyncGroupTypeArgs) ToSyncGroupTypeOutputWithContext(ctx context.Context) SyncGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SyncGroupTypeOutput)
-}
-
-// Sync Group object.
-type SyncGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (SyncGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SyncGroupType)(nil)).Elem()
-}
-
-func (o SyncGroupTypeOutput) ToSyncGroupTypeOutput() SyncGroupTypeOutput {
-	return o
-}
-
-func (o SyncGroupTypeOutput) ToSyncGroupTypeOutputWithContext(ctx context.Context) SyncGroupTypeOutput {
-	return o
-}
-
-// The name of the resource
-func (o SyncGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SyncGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// SyncGroup properties.
-func (o SyncGroupTypeOutput) Properties() SyncGroupPropertiesResponseOutput {
-	return o.ApplyT(func(v SyncGroupType) SyncGroupPropertiesResponse { return v.Properties }).(SyncGroupPropertiesResponseOutput)
-}
-
-// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
-func (o SyncGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SyncGroupType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // SyncGroup Properties object.
@@ -2549,21 +2166,16 @@ func (o SyncSessionStatusResponsePtrOutput) LastSyncTimestamp() pulumi.StringPtr
 }
 
 func init() {
-	pulumi.RegisterOutputType(CloudEndpointTypeOutput{})
 	pulumi.RegisterOutputType(CloudEndpointPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CloudEndpointPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(RegisteredServerTypeOutput{})
 	pulumi.RegisterOutputType(RegisteredServerPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RegisteredServerPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServerEndpointTypeOutput{})
 	pulumi.RegisterOutputType(ServerEndpointHealthResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointHealthResponsePtrOutput{})
 	pulumi.RegisterOutputType(ServerEndpointPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ServerEndpointPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(StorageSyncServiceTypeOutput{})
 	pulumi.RegisterOutputType(StorageSyncServicePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageSyncServicePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(SyncGroupTypeOutput{})
 	pulumi.RegisterOutputType(SyncGroupPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SyncGroupPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SyncProgressStatusResponseOutput{})

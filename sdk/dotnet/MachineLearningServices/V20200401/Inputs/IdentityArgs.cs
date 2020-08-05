@@ -21,18 +21,6 @@ namespace Pulumi.AzureRM.MachineLearningServices.V20200401.Inputs
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
-        [Input("userAssignedIdentities")]
-        private InputMap<Inputs.IdentityPropertiesArgs>? _userAssignedIdentities;
-
-        /// <summary>
-        /// The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        /// </summary>
-        public InputMap<Inputs.IdentityPropertiesArgs> UserAssignedIdentities
-        {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.IdentityPropertiesArgs>());
-            set => _userAssignedIdentities = value;
-        }
-
         public IdentityArgs()
         {
         }

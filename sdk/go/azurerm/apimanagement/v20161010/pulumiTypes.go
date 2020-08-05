@@ -273,115 +273,6 @@ func (o AdditionalRegionResponseArrayOutput) Index(i pulumi.IntInput) Additional
 	}).(AdditionalRegionResponseOutput)
 }
 
-// A single API Management service resource in List or Get response.
-type ApiManagementServiceType struct {
-	// ETag of the resource.
-	Etag string `pulumi:"etag"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name *string `pulumi:"name"`
-	// Properties of the API Management service.
-	Properties ApiManagementServicePropertiesResponse `pulumi:"properties"`
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type for API Management resource is set to Microsoft.ApiManagement.
-	Type string `pulumi:"type"`
-}
-
-// ApiManagementServiceTypeInput is an input type that accepts ApiManagementServiceTypeArgs and ApiManagementServiceTypeOutput values.
-// You can construct a concrete instance of `ApiManagementServiceTypeInput` via:
-//
-//          ApiManagementServiceTypeArgs{...}
-type ApiManagementServiceTypeInput interface {
-	pulumi.Input
-
-	ToApiManagementServiceTypeOutput() ApiManagementServiceTypeOutput
-	ToApiManagementServiceTypeOutputWithContext(context.Context) ApiManagementServiceTypeOutput
-}
-
-// A single API Management service resource in List or Get response.
-type ApiManagementServiceTypeArgs struct {
-	// ETag of the resource.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Properties of the API Management service.
-	Properties ApiManagementServicePropertiesResponseInput `pulumi:"properties"`
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesResponseInput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type for API Management resource is set to Microsoft.ApiManagement.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ApiManagementServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiManagementServiceType)(nil)).Elem()
-}
-
-func (i ApiManagementServiceTypeArgs) ToApiManagementServiceTypeOutput() ApiManagementServiceTypeOutput {
-	return i.ToApiManagementServiceTypeOutputWithContext(context.Background())
-}
-
-func (i ApiManagementServiceTypeArgs) ToApiManagementServiceTypeOutputWithContext(ctx context.Context) ApiManagementServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceTypeOutput)
-}
-
-// A single API Management service resource in List or Get response.
-type ApiManagementServiceTypeOutput struct{ *pulumi.OutputState }
-
-func (ApiManagementServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiManagementServiceType)(nil)).Elem()
-}
-
-func (o ApiManagementServiceTypeOutput) ToApiManagementServiceTypeOutput() ApiManagementServiceTypeOutput {
-	return o
-}
-
-func (o ApiManagementServiceTypeOutput) ToApiManagementServiceTypeOutputWithContext(ctx context.Context) ApiManagementServiceTypeOutput {
-	return o
-}
-
-// ETag of the resource.
-func (o ApiManagementServiceTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v ApiManagementServiceType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// Resource location.
-func (o ApiManagementServiceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ApiManagementServiceType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name.
-func (o ApiManagementServiceTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiManagementServiceType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Properties of the API Management service.
-func (o ApiManagementServiceTypeOutput) Properties() ApiManagementServicePropertiesResponseOutput {
-	return o.ApplyT(func(v ApiManagementServiceType) ApiManagementServicePropertiesResponse { return v.Properties }).(ApiManagementServicePropertiesResponseOutput)
-}
-
-// SKU properties of the API Management service.
-func (o ApiManagementServiceTypeOutput) Sku() ApiManagementServiceSkuPropertiesResponseOutput {
-	return o.ApplyT(func(v ApiManagementServiceType) ApiManagementServiceSkuPropertiesResponse { return v.Sku }).(ApiManagementServiceSkuPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o ApiManagementServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApiManagementServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type for API Management resource is set to Microsoft.ApiManagement.
-func (o ApiManagementServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ApiManagementServiceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of an API Management service resource description.
 type ApiManagementServicePropertiesResponse struct {
 	// Additional datacenter locations of the API Management service.
@@ -2591,7 +2482,6 @@ func init() {
 	pulumi.RegisterOutputType(AdditionalRegionArrayOutput{})
 	pulumi.RegisterOutputType(AdditionalRegionResponseOutput{})
 	pulumi.RegisterOutputType(AdditionalRegionResponseArrayOutput{})
-	pulumi.RegisterOutputType(ApiManagementServiceTypeOutput{})
 	pulumi.RegisterOutputType(ApiManagementServicePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApiManagementServicePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApiManagementServiceSkuPropertiesOutput{})

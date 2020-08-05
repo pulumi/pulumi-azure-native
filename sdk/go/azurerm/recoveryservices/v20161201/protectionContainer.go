@@ -111,7 +111,7 @@ type protectionContainerArgs struct {
 	// Name of the container to be registered.
 	Name string `pulumi:"name"`
 	// ProtectionContainerResource properties
-	Properties *ProtectionContainerDefinition `pulumi:"properties"`
+	Properties *ProtectionContainerType `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -131,7 +131,7 @@ type ProtectionContainerArgs struct {
 	// Name of the container to be registered.
 	Name pulumi.StringInput
 	// ProtectionContainerResource properties
-	Properties ProtectionContainerDefinitionPtrInput
+	Properties ProtectionContainerTypePtrInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

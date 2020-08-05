@@ -10,79 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The policy assignment.
-type PolicyAssignmentType struct {
-	// The name of the policy assignment.
-	Name *string `pulumi:"name"`
-	// Properties for the policy assignment.
-	Properties PolicyAssignmentPropertiesResponse `pulumi:"properties"`
-	// The type of the policy assignment.
-	Type *string `pulumi:"type"`
-}
-
-// PolicyAssignmentTypeInput is an input type that accepts PolicyAssignmentTypeArgs and PolicyAssignmentTypeOutput values.
-// You can construct a concrete instance of `PolicyAssignmentTypeInput` via:
-//
-//          PolicyAssignmentTypeArgs{...}
-type PolicyAssignmentTypeInput interface {
-	pulumi.Input
-
-	ToPolicyAssignmentTypeOutput() PolicyAssignmentTypeOutput
-	ToPolicyAssignmentTypeOutputWithContext(context.Context) PolicyAssignmentTypeOutput
-}
-
-// The policy assignment.
-type PolicyAssignmentTypeArgs struct {
-	// The name of the policy assignment.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Properties for the policy assignment.
-	Properties PolicyAssignmentPropertiesResponseInput `pulumi:"properties"`
-	// The type of the policy assignment.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (PolicyAssignmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyAssignmentType)(nil)).Elem()
-}
-
-func (i PolicyAssignmentTypeArgs) ToPolicyAssignmentTypeOutput() PolicyAssignmentTypeOutput {
-	return i.ToPolicyAssignmentTypeOutputWithContext(context.Background())
-}
-
-func (i PolicyAssignmentTypeArgs) ToPolicyAssignmentTypeOutputWithContext(ctx context.Context) PolicyAssignmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyAssignmentTypeOutput)
-}
-
-// The policy assignment.
-type PolicyAssignmentTypeOutput struct{ *pulumi.OutputState }
-
-func (PolicyAssignmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyAssignmentType)(nil)).Elem()
-}
-
-func (o PolicyAssignmentTypeOutput) ToPolicyAssignmentTypeOutput() PolicyAssignmentTypeOutput {
-	return o
-}
-
-func (o PolicyAssignmentTypeOutput) ToPolicyAssignmentTypeOutputWithContext(ctx context.Context) PolicyAssignmentTypeOutput {
-	return o
-}
-
-// The name of the policy assignment.
-func (o PolicyAssignmentTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyAssignmentType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Properties for the policy assignment.
-func (o PolicyAssignmentTypeOutput) Properties() PolicyAssignmentPropertiesResponseOutput {
-	return o.ApplyT(func(v PolicyAssignmentType) PolicyAssignmentPropertiesResponse { return v.Properties }).(PolicyAssignmentPropertiesResponseOutput)
-}
-
-// The type of the policy assignment.
-func (o PolicyAssignmentTypeOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PolicyAssignmentType) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
 // The policy assignment properties.
 type PolicyAssignmentPropertiesResponse struct {
 	// This message will be part of response in case of policy violation.
@@ -291,70 +218,6 @@ func (o PolicyAssignmentPropertiesResponsePtrOutput) Scope() pulumi.StringPtrOut
 		}
 		return v.Scope
 	}).(pulumi.StringPtrOutput)
-}
-
-// The policy definition.
-type PolicyDefinitionType struct {
-	// The name of the policy definition.
-	Name string `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesResponse `pulumi:"properties"`
-}
-
-// PolicyDefinitionTypeInput is an input type that accepts PolicyDefinitionTypeArgs and PolicyDefinitionTypeOutput values.
-// You can construct a concrete instance of `PolicyDefinitionTypeInput` via:
-//
-//          PolicyDefinitionTypeArgs{...}
-type PolicyDefinitionTypeInput interface {
-	pulumi.Input
-
-	ToPolicyDefinitionTypeOutput() PolicyDefinitionTypeOutput
-	ToPolicyDefinitionTypeOutputWithContext(context.Context) PolicyDefinitionTypeOutput
-}
-
-// The policy definition.
-type PolicyDefinitionTypeArgs struct {
-	// The name of the policy definition.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesResponseInput `pulumi:"properties"`
-}
-
-func (PolicyDefinitionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionType)(nil)).Elem()
-}
-
-func (i PolicyDefinitionTypeArgs) ToPolicyDefinitionTypeOutput() PolicyDefinitionTypeOutput {
-	return i.ToPolicyDefinitionTypeOutputWithContext(context.Background())
-}
-
-func (i PolicyDefinitionTypeArgs) ToPolicyDefinitionTypeOutputWithContext(ctx context.Context) PolicyDefinitionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionTypeOutput)
-}
-
-// The policy definition.
-type PolicyDefinitionTypeOutput struct{ *pulumi.OutputState }
-
-func (PolicyDefinitionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionType)(nil)).Elem()
-}
-
-func (o PolicyDefinitionTypeOutput) ToPolicyDefinitionTypeOutput() PolicyDefinitionTypeOutput {
-	return o
-}
-
-func (o PolicyDefinitionTypeOutput) ToPolicyDefinitionTypeOutputWithContext(ctx context.Context) PolicyDefinitionTypeOutput {
-	return o
-}
-
-// The name of the policy definition.
-func (o PolicyDefinitionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyDefinitionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The policy definition properties.
-func (o PolicyDefinitionTypeOutput) Properties() PolicyDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v PolicyDefinitionType) PolicyDefinitionPropertiesResponse { return v.Properties }).(PolicyDefinitionPropertiesResponseOutput)
 }
 
 // The policy definition properties.
@@ -606,10 +469,8 @@ func (o PolicyDefinitionPropertiesResponsePtrOutput) PolicyType() pulumi.StringP
 }
 
 func init() {
-	pulumi.RegisterOutputType(PolicyAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(PolicyAssignmentPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PolicyAssignmentPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(PolicyDefinitionTypeOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionPropertiesResponsePtrOutput{})
 }

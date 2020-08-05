@@ -31,7 +31,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301.Outputs
         /// <summary>
         /// The map with service type health policy per service type name. The map is empty by default.
         /// </summary>
-        public readonly Outputs.ArmServiceTypeHealthPolicyMapResponseResult? ServiceTypeHealthPolicyMap;
+        public readonly ImmutableDictionary<string, Outputs.ArmServiceTypeHealthPolicyResponseResult>? ServiceTypeHealthPolicyMap;
 
         [OutputConstructor]
         private ArmApplicationHealthPolicyResponseResult(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301.Outputs
 
             int? maxPercentUnhealthyDeployedApplications,
 
-            Outputs.ArmServiceTypeHealthPolicyMapResponseResult? serviceTypeHealthPolicyMap)
+            ImmutableDictionary<string, Outputs.ArmServiceTypeHealthPolicyResponseResult>? serviceTypeHealthPolicyMap)
         {
             ConsiderWarningAsError = considerWarningAsError;
             DefaultServiceTypeHealthPolicy = defaultServiceTypeHealthPolicy;

@@ -14,10 +14,6 @@ namespace Pulumi.AzureRM.Insights.V20180416.Outputs
     public sealed class LogSearchRuleResponseResult
     {
         /// <summary>
-        /// Action needs to be taken on rule execution.
-        /// </summary>
-        public readonly Outputs.ActionResponseResult Action;
-        /// <summary>
         /// The description of the Log Search rule.
         /// </summary>
         public readonly string? Description;
@@ -44,8 +40,6 @@ namespace Pulumi.AzureRM.Insights.V20180416.Outputs
 
         [OutputConstructor]
         private LogSearchRuleResponseResult(
-            Outputs.ActionResponseResult action,
-
             string? description,
 
             string? enabled,
@@ -58,7 +52,6 @@ namespace Pulumi.AzureRM.Insights.V20180416.Outputs
 
             Outputs.SourceResponseResult source)
         {
-            Action = action;
             Description = description;
             Enabled = enabled;
             LastUpdatedTime = lastUpdatedTime;

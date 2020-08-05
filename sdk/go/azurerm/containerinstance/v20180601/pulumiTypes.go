@@ -832,94 +832,6 @@ func (o ContainerExecResponsePtrOutput) Command() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A container group.
-type ContainerGroupType struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// The resource name.
-	Name       string                           `pulumi:"name"`
-	Properties ContainerGroupResponseProperties `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// ContainerGroupTypeInput is an input type that accepts ContainerGroupTypeArgs and ContainerGroupTypeOutput values.
-// You can construct a concrete instance of `ContainerGroupTypeInput` via:
-//
-//          ContainerGroupTypeArgs{...}
-type ContainerGroupTypeInput interface {
-	pulumi.Input
-
-	ToContainerGroupTypeOutput() ContainerGroupTypeOutput
-	ToContainerGroupTypeOutputWithContext(context.Context) ContainerGroupTypeOutput
-}
-
-// A container group.
-type ContainerGroupTypeArgs struct {
-	// The resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The resource name.
-	Name       pulumi.StringInput                    `pulumi:"name"`
-	Properties ContainerGroupResponsePropertiesInput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ContainerGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerGroupType)(nil)).Elem()
-}
-
-func (i ContainerGroupTypeArgs) ToContainerGroupTypeOutput() ContainerGroupTypeOutput {
-	return i.ToContainerGroupTypeOutputWithContext(context.Background())
-}
-
-func (i ContainerGroupTypeArgs) ToContainerGroupTypeOutputWithContext(ctx context.Context) ContainerGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupTypeOutput)
-}
-
-// A container group.
-type ContainerGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (ContainerGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerGroupType)(nil)).Elem()
-}
-
-func (o ContainerGroupTypeOutput) ToContainerGroupTypeOutput() ContainerGroupTypeOutput {
-	return o
-}
-
-func (o ContainerGroupTypeOutput) ToContainerGroupTypeOutputWithContext(ctx context.Context) ContainerGroupTypeOutput {
-	return o
-}
-
-// The resource location.
-func (o ContainerGroupTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerGroupType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The resource name.
-func (o ContainerGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o ContainerGroupTypeOutput) Properties() ContainerGroupResponsePropertiesOutput {
-	return o.ApplyT(func(v ContainerGroupType) ContainerGroupResponseProperties { return v.Properties }).(ContainerGroupResponsePropertiesOutput)
-}
-
-// The resource tags.
-func (o ContainerGroupTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ContainerGroupType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The resource type.
-func (o ContainerGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ContainerGroupType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Container group diagnostic information.
 type ContainerGroupDiagnostics struct {
 	// Container group log analytics information.
@@ -1189,49 +1101,156 @@ func (o ContainerGroupDiagnosticsResponsePtrOutput) LogAnalytics() LogAnalyticsR
 }
 
 // The instance view of the container group. Only valid in response.
-type ContainerGroupProperties struct {
+type ContainerGroupResponseInstanceView struct {
+	// The events of this container group.
+	Events []EventResponse `pulumi:"events"`
+	// The state of the container group. Only valid in response.
+	State string `pulumi:"state"`
 }
 
-// ContainerGroupPropertiesInput is an input type that accepts ContainerGroupPropertiesArgs and ContainerGroupPropertiesOutput values.
-// You can construct a concrete instance of `ContainerGroupPropertiesInput` via:
+// ContainerGroupResponseInstanceViewInput is an input type that accepts ContainerGroupResponseInstanceViewArgs and ContainerGroupResponseInstanceViewOutput values.
+// You can construct a concrete instance of `ContainerGroupResponseInstanceViewInput` via:
 //
-//          ContainerGroupPropertiesArgs{...}
-type ContainerGroupPropertiesInput interface {
+//          ContainerGroupResponseInstanceViewArgs{...}
+type ContainerGroupResponseInstanceViewInput interface {
 	pulumi.Input
 
-	ToContainerGroupPropertiesOutput() ContainerGroupPropertiesOutput
-	ToContainerGroupPropertiesOutputWithContext(context.Context) ContainerGroupPropertiesOutput
+	ToContainerGroupResponseInstanceViewOutput() ContainerGroupResponseInstanceViewOutput
+	ToContainerGroupResponseInstanceViewOutputWithContext(context.Context) ContainerGroupResponseInstanceViewOutput
 }
 
 // The instance view of the container group. Only valid in response.
-type ContainerGroupPropertiesArgs struct {
+type ContainerGroupResponseInstanceViewArgs struct {
+	// The events of this container group.
+	Events EventResponseArrayInput `pulumi:"events"`
+	// The state of the container group. Only valid in response.
+	State pulumi.StringInput `pulumi:"state"`
 }
 
-func (ContainerGroupPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerGroupProperties)(nil)).Elem()
+func (ContainerGroupResponseInstanceViewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupResponseInstanceView)(nil)).Elem()
 }
 
-func (i ContainerGroupPropertiesArgs) ToContainerGroupPropertiesOutput() ContainerGroupPropertiesOutput {
-	return i.ToContainerGroupPropertiesOutputWithContext(context.Background())
+func (i ContainerGroupResponseInstanceViewArgs) ToContainerGroupResponseInstanceViewOutput() ContainerGroupResponseInstanceViewOutput {
+	return i.ToContainerGroupResponseInstanceViewOutputWithContext(context.Background())
 }
 
-func (i ContainerGroupPropertiesArgs) ToContainerGroupPropertiesOutputWithContext(ctx context.Context) ContainerGroupPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupPropertiesOutput)
+func (i ContainerGroupResponseInstanceViewArgs) ToContainerGroupResponseInstanceViewOutputWithContext(ctx context.Context) ContainerGroupResponseInstanceViewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupResponseInstanceViewOutput)
+}
+
+func (i ContainerGroupResponseInstanceViewArgs) ToContainerGroupResponseInstanceViewPtrOutput() ContainerGroupResponseInstanceViewPtrOutput {
+	return i.ToContainerGroupResponseInstanceViewPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerGroupResponseInstanceViewArgs) ToContainerGroupResponseInstanceViewPtrOutputWithContext(ctx context.Context) ContainerGroupResponseInstanceViewPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupResponseInstanceViewOutput).ToContainerGroupResponseInstanceViewPtrOutputWithContext(ctx)
+}
+
+// ContainerGroupResponseInstanceViewPtrInput is an input type that accepts ContainerGroupResponseInstanceViewArgs, ContainerGroupResponseInstanceViewPtr and ContainerGroupResponseInstanceViewPtrOutput values.
+// You can construct a concrete instance of `ContainerGroupResponseInstanceViewPtrInput` via:
+//
+//          ContainerGroupResponseInstanceViewArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerGroupResponseInstanceViewPtrInput interface {
+	pulumi.Input
+
+	ToContainerGroupResponseInstanceViewPtrOutput() ContainerGroupResponseInstanceViewPtrOutput
+	ToContainerGroupResponseInstanceViewPtrOutputWithContext(context.Context) ContainerGroupResponseInstanceViewPtrOutput
+}
+
+type containerGroupResponseInstanceViewPtrType ContainerGroupResponseInstanceViewArgs
+
+func ContainerGroupResponseInstanceViewPtr(v *ContainerGroupResponseInstanceViewArgs) ContainerGroupResponseInstanceViewPtrInput {
+	return (*containerGroupResponseInstanceViewPtrType)(v)
+}
+
+func (*containerGroupResponseInstanceViewPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupResponseInstanceView)(nil)).Elem()
+}
+
+func (i *containerGroupResponseInstanceViewPtrType) ToContainerGroupResponseInstanceViewPtrOutput() ContainerGroupResponseInstanceViewPtrOutput {
+	return i.ToContainerGroupResponseInstanceViewPtrOutputWithContext(context.Background())
+}
+
+func (i *containerGroupResponseInstanceViewPtrType) ToContainerGroupResponseInstanceViewPtrOutputWithContext(ctx context.Context) ContainerGroupResponseInstanceViewPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerGroupResponseInstanceViewPtrOutput)
 }
 
 // The instance view of the container group. Only valid in response.
-type ContainerGroupPropertiesOutput struct{ *pulumi.OutputState }
+type ContainerGroupResponseInstanceViewOutput struct{ *pulumi.OutputState }
 
-func (ContainerGroupPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerGroupProperties)(nil)).Elem()
+func (ContainerGroupResponseInstanceViewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerGroupResponseInstanceView)(nil)).Elem()
 }
 
-func (o ContainerGroupPropertiesOutput) ToContainerGroupPropertiesOutput() ContainerGroupPropertiesOutput {
+func (o ContainerGroupResponseInstanceViewOutput) ToContainerGroupResponseInstanceViewOutput() ContainerGroupResponseInstanceViewOutput {
 	return o
 }
 
-func (o ContainerGroupPropertiesOutput) ToContainerGroupPropertiesOutputWithContext(ctx context.Context) ContainerGroupPropertiesOutput {
+func (o ContainerGroupResponseInstanceViewOutput) ToContainerGroupResponseInstanceViewOutputWithContext(ctx context.Context) ContainerGroupResponseInstanceViewOutput {
 	return o
+}
+
+func (o ContainerGroupResponseInstanceViewOutput) ToContainerGroupResponseInstanceViewPtrOutput() ContainerGroupResponseInstanceViewPtrOutput {
+	return o.ToContainerGroupResponseInstanceViewPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerGroupResponseInstanceViewOutput) ToContainerGroupResponseInstanceViewPtrOutputWithContext(ctx context.Context) ContainerGroupResponseInstanceViewPtrOutput {
+	return o.ApplyT(func(v ContainerGroupResponseInstanceView) *ContainerGroupResponseInstanceView {
+		return &v
+	}).(ContainerGroupResponseInstanceViewPtrOutput)
+}
+
+// The events of this container group.
+func (o ContainerGroupResponseInstanceViewOutput) Events() EventResponseArrayOutput {
+	return o.ApplyT(func(v ContainerGroupResponseInstanceView) []EventResponse { return v.Events }).(EventResponseArrayOutput)
+}
+
+// The state of the container group. Only valid in response.
+func (o ContainerGroupResponseInstanceViewOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerGroupResponseInstanceView) string { return v.State }).(pulumi.StringOutput)
+}
+
+type ContainerGroupResponseInstanceViewPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerGroupResponseInstanceViewPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerGroupResponseInstanceView)(nil)).Elem()
+}
+
+func (o ContainerGroupResponseInstanceViewPtrOutput) ToContainerGroupResponseInstanceViewPtrOutput() ContainerGroupResponseInstanceViewPtrOutput {
+	return o
+}
+
+func (o ContainerGroupResponseInstanceViewPtrOutput) ToContainerGroupResponseInstanceViewPtrOutputWithContext(ctx context.Context) ContainerGroupResponseInstanceViewPtrOutput {
+	return o
+}
+
+func (o ContainerGroupResponseInstanceViewPtrOutput) Elem() ContainerGroupResponseInstanceViewOutput {
+	return o.ApplyT(func(v *ContainerGroupResponseInstanceView) ContainerGroupResponseInstanceView { return *v }).(ContainerGroupResponseInstanceViewOutput)
+}
+
+// The events of this container group.
+func (o ContainerGroupResponseInstanceViewPtrOutput) Events() EventResponseArrayOutput {
+	return o.ApplyT(func(v *ContainerGroupResponseInstanceView) []EventResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Events
+	}).(EventResponseArrayOutput)
+}
+
+// The state of the container group. Only valid in response.
+func (o ContainerGroupResponseInstanceViewPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerGroupResponseInstanceView) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.State
+	}).(pulumi.StringPtrOutput)
 }
 
 type ContainerGroupResponseProperties struct {
@@ -1242,7 +1261,7 @@ type ContainerGroupResponseProperties struct {
 	// The image registry credentials by which the container group is created from.
 	ImageRegistryCredentials []ImageRegistryCredentialResponse `pulumi:"imageRegistryCredentials"`
 	// The instance view of the container group. Only valid in response.
-	InstanceView ContainerGroupResponseProperties `pulumi:"instanceView"`
+	InstanceView ContainerGroupResponseInstanceView `pulumi:"instanceView"`
 	// The IP address type of the container group.
 	IpAddress *IpAddressResponse `pulumi:"ipAddress"`
 	// The operating system type required by the containers in the container group.
@@ -1277,7 +1296,7 @@ type ContainerGroupResponsePropertiesArgs struct {
 	// The image registry credentials by which the container group is created from.
 	ImageRegistryCredentials ImageRegistryCredentialResponseArrayInput `pulumi:"imageRegistryCredentials"`
 	// The instance view of the container group. Only valid in response.
-	InstanceView ContainerGroupResponsePropertiesInput `pulumi:"instanceView"`
+	InstanceView ContainerGroupResponseInstanceViewInput `pulumi:"instanceView"`
 	// The IP address type of the container group.
 	IpAddress IpAddressResponsePtrInput `pulumi:"ipAddress"`
 	// The operating system type required by the containers in the container group.
@@ -1388,8 +1407,8 @@ func (o ContainerGroupResponsePropertiesOutput) ImageRegistryCredentials() Image
 }
 
 // The instance view of the container group. Only valid in response.
-func (o ContainerGroupResponsePropertiesOutput) InstanceView() ContainerGroupResponsePropertiesOutput {
-	return o.ApplyT(func(v ContainerGroupResponseProperties) ContainerGroupResponseProperties { return v.InstanceView }).(ContainerGroupResponsePropertiesOutput)
+func (o ContainerGroupResponsePropertiesOutput) InstanceView() ContainerGroupResponseInstanceViewOutput {
+	return o.ApplyT(func(v ContainerGroupResponseProperties) ContainerGroupResponseInstanceView { return v.InstanceView }).(ContainerGroupResponseInstanceViewOutput)
 }
 
 // The IP address type of the container group.
@@ -1469,13 +1488,13 @@ func (o ContainerGroupResponsePropertiesPtrOutput) ImageRegistryCredentials() Im
 }
 
 // The instance view of the container group. Only valid in response.
-func (o ContainerGroupResponsePropertiesPtrOutput) InstanceView() ContainerGroupResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *ContainerGroupResponseProperties) *ContainerGroupResponseProperties {
+func (o ContainerGroupResponsePropertiesPtrOutput) InstanceView() ContainerGroupResponseInstanceViewPtrOutput {
+	return o.ApplyT(func(v *ContainerGroupResponseProperties) *ContainerGroupResponseInstanceView {
 		if v == nil {
 			return nil
 		}
 		return &v.InstanceView
-	}).(ContainerGroupResponsePropertiesPtrOutput)
+	}).(ContainerGroupResponseInstanceViewPtrOutput)
 }
 
 // The IP address type of the container group.
@@ -2589,52 +2608,6 @@ func (o ContainerProbeResponsePtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The instance view of the container instance. Only valid in response.
-type ContainerPropertiesProperties struct {
-}
-
-// ContainerPropertiesPropertiesInput is an input type that accepts ContainerPropertiesPropertiesArgs and ContainerPropertiesPropertiesOutput values.
-// You can construct a concrete instance of `ContainerPropertiesPropertiesInput` via:
-//
-//          ContainerPropertiesPropertiesArgs{...}
-type ContainerPropertiesPropertiesInput interface {
-	pulumi.Input
-
-	ToContainerPropertiesPropertiesOutput() ContainerPropertiesPropertiesOutput
-	ToContainerPropertiesPropertiesOutputWithContext(context.Context) ContainerPropertiesPropertiesOutput
-}
-
-// The instance view of the container instance. Only valid in response.
-type ContainerPropertiesPropertiesArgs struct {
-}
-
-func (ContainerPropertiesPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerPropertiesProperties)(nil)).Elem()
-}
-
-func (i ContainerPropertiesPropertiesArgs) ToContainerPropertiesPropertiesOutput() ContainerPropertiesPropertiesOutput {
-	return i.ToContainerPropertiesPropertiesOutputWithContext(context.Background())
-}
-
-func (i ContainerPropertiesPropertiesArgs) ToContainerPropertiesPropertiesOutputWithContext(ctx context.Context) ContainerPropertiesPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerPropertiesPropertiesOutput)
-}
-
-// The instance view of the container instance. Only valid in response.
-type ContainerPropertiesPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ContainerPropertiesPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerPropertiesProperties)(nil)).Elem()
-}
-
-func (o ContainerPropertiesPropertiesOutput) ToContainerPropertiesPropertiesOutput() ContainerPropertiesPropertiesOutput {
-	return o
-}
-
-func (o ContainerPropertiesPropertiesOutput) ToContainerPropertiesPropertiesOutputWithContext(ctx context.Context) ContainerPropertiesPropertiesOutput {
-	return o
-}
-
 // The container instance properties.
 type ContainerPropertiesResponse struct {
 	// The commands to execute within the container instance in exec form.
@@ -2644,7 +2617,7 @@ type ContainerPropertiesResponse struct {
 	// The name of the image used to create the container instance.
 	Image string `pulumi:"image"`
 	// The instance view of the container instance. Only valid in response.
-	InstanceView ContainerPropertiesResponseProperties `pulumi:"instanceView"`
+	InstanceView ContainerPropertiesResponseInstanceView `pulumi:"instanceView"`
 	// The liveness probe.
 	LivenessProbe *ContainerProbeResponse `pulumi:"livenessProbe"`
 	// The exposed ports on the container instance.
@@ -2677,7 +2650,7 @@ type ContainerPropertiesResponseArgs struct {
 	// The name of the image used to create the container instance.
 	Image pulumi.StringInput `pulumi:"image"`
 	// The instance view of the container instance. Only valid in response.
-	InstanceView ContainerPropertiesResponsePropertiesInput `pulumi:"instanceView"`
+	InstanceView ContainerPropertiesResponseInstanceViewInput `pulumi:"instanceView"`
 	// The liveness probe.
 	LivenessProbe ContainerProbeResponsePtrInput `pulumi:"livenessProbe"`
 	// The exposed ports on the container instance.
@@ -2733,8 +2706,8 @@ func (o ContainerPropertiesResponseOutput) Image() pulumi.StringOutput {
 }
 
 // The instance view of the container instance. Only valid in response.
-func (o ContainerPropertiesResponseOutput) InstanceView() ContainerPropertiesResponsePropertiesOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponse) ContainerPropertiesResponseProperties { return v.InstanceView }).(ContainerPropertiesResponsePropertiesOutput)
+func (o ContainerPropertiesResponseOutput) InstanceView() ContainerPropertiesResponseInstanceViewOutput {
+	return o.ApplyT(func(v ContainerPropertiesResponse) ContainerPropertiesResponseInstanceView { return v.InstanceView }).(ContainerPropertiesResponseInstanceViewOutput)
 }
 
 // The liveness probe.
@@ -2763,7 +2736,7 @@ func (o ContainerPropertiesResponseOutput) VolumeMounts() VolumeMountResponseArr
 }
 
 // The instance view of the container instance. Only valid in response.
-type ContainerPropertiesResponseProperties struct {
+type ContainerPropertiesResponseInstanceView struct {
 	// Current container instance state.
 	CurrentState ContainerStateResponse `pulumi:"currentState"`
 	// The events of the container instance.
@@ -2774,19 +2747,19 @@ type ContainerPropertiesResponseProperties struct {
 	RestartCount int `pulumi:"restartCount"`
 }
 
-// ContainerPropertiesResponsePropertiesInput is an input type that accepts ContainerPropertiesResponsePropertiesArgs and ContainerPropertiesResponsePropertiesOutput values.
-// You can construct a concrete instance of `ContainerPropertiesResponsePropertiesInput` via:
+// ContainerPropertiesResponseInstanceViewInput is an input type that accepts ContainerPropertiesResponseInstanceViewArgs and ContainerPropertiesResponseInstanceViewOutput values.
+// You can construct a concrete instance of `ContainerPropertiesResponseInstanceViewInput` via:
 //
-//          ContainerPropertiesResponsePropertiesArgs{...}
-type ContainerPropertiesResponsePropertiesInput interface {
+//          ContainerPropertiesResponseInstanceViewArgs{...}
+type ContainerPropertiesResponseInstanceViewInput interface {
 	pulumi.Input
 
-	ToContainerPropertiesResponsePropertiesOutput() ContainerPropertiesResponsePropertiesOutput
-	ToContainerPropertiesResponsePropertiesOutputWithContext(context.Context) ContainerPropertiesResponsePropertiesOutput
+	ToContainerPropertiesResponseInstanceViewOutput() ContainerPropertiesResponseInstanceViewOutput
+	ToContainerPropertiesResponseInstanceViewOutputWithContext(context.Context) ContainerPropertiesResponseInstanceViewOutput
 }
 
 // The instance view of the container instance. Only valid in response.
-type ContainerPropertiesResponsePropertiesArgs struct {
+type ContainerPropertiesResponseInstanceViewArgs struct {
 	// Current container instance state.
 	CurrentState ContainerStateResponseInput `pulumi:"currentState"`
 	// The events of the container instance.
@@ -2797,51 +2770,51 @@ type ContainerPropertiesResponsePropertiesArgs struct {
 	RestartCount pulumi.IntInput `pulumi:"restartCount"`
 }
 
-func (ContainerPropertiesResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerPropertiesResponseProperties)(nil)).Elem()
+func (ContainerPropertiesResponseInstanceViewArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPropertiesResponseInstanceView)(nil)).Elem()
 }
 
-func (i ContainerPropertiesResponsePropertiesArgs) ToContainerPropertiesResponsePropertiesOutput() ContainerPropertiesResponsePropertiesOutput {
-	return i.ToContainerPropertiesResponsePropertiesOutputWithContext(context.Background())
+func (i ContainerPropertiesResponseInstanceViewArgs) ToContainerPropertiesResponseInstanceViewOutput() ContainerPropertiesResponseInstanceViewOutput {
+	return i.ToContainerPropertiesResponseInstanceViewOutputWithContext(context.Background())
 }
 
-func (i ContainerPropertiesResponsePropertiesArgs) ToContainerPropertiesResponsePropertiesOutputWithContext(ctx context.Context) ContainerPropertiesResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerPropertiesResponsePropertiesOutput)
+func (i ContainerPropertiesResponseInstanceViewArgs) ToContainerPropertiesResponseInstanceViewOutputWithContext(ctx context.Context) ContainerPropertiesResponseInstanceViewOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPropertiesResponseInstanceViewOutput)
 }
 
 // The instance view of the container instance. Only valid in response.
-type ContainerPropertiesResponsePropertiesOutput struct{ *pulumi.OutputState }
+type ContainerPropertiesResponseInstanceViewOutput struct{ *pulumi.OutputState }
 
-func (ContainerPropertiesResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerPropertiesResponseProperties)(nil)).Elem()
+func (ContainerPropertiesResponseInstanceViewOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPropertiesResponseInstanceView)(nil)).Elem()
 }
 
-func (o ContainerPropertiesResponsePropertiesOutput) ToContainerPropertiesResponsePropertiesOutput() ContainerPropertiesResponsePropertiesOutput {
+func (o ContainerPropertiesResponseInstanceViewOutput) ToContainerPropertiesResponseInstanceViewOutput() ContainerPropertiesResponseInstanceViewOutput {
 	return o
 }
 
-func (o ContainerPropertiesResponsePropertiesOutput) ToContainerPropertiesResponsePropertiesOutputWithContext(ctx context.Context) ContainerPropertiesResponsePropertiesOutput {
+func (o ContainerPropertiesResponseInstanceViewOutput) ToContainerPropertiesResponseInstanceViewOutputWithContext(ctx context.Context) ContainerPropertiesResponseInstanceViewOutput {
 	return o
 }
 
 // Current container instance state.
-func (o ContainerPropertiesResponsePropertiesOutput) CurrentState() ContainerStateResponseOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponseProperties) ContainerStateResponse { return v.CurrentState }).(ContainerStateResponseOutput)
+func (o ContainerPropertiesResponseInstanceViewOutput) CurrentState() ContainerStateResponseOutput {
+	return o.ApplyT(func(v ContainerPropertiesResponseInstanceView) ContainerStateResponse { return v.CurrentState }).(ContainerStateResponseOutput)
 }
 
 // The events of the container instance.
-func (o ContainerPropertiesResponsePropertiesOutput) Events() EventResponseArrayOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponseProperties) []EventResponse { return v.Events }).(EventResponseArrayOutput)
+func (o ContainerPropertiesResponseInstanceViewOutput) Events() EventResponseArrayOutput {
+	return o.ApplyT(func(v ContainerPropertiesResponseInstanceView) []EventResponse { return v.Events }).(EventResponseArrayOutput)
 }
 
 // Previous container instance state.
-func (o ContainerPropertiesResponsePropertiesOutput) PreviousState() ContainerStateResponseOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponseProperties) ContainerStateResponse { return v.PreviousState }).(ContainerStateResponseOutput)
+func (o ContainerPropertiesResponseInstanceViewOutput) PreviousState() ContainerStateResponseOutput {
+	return o.ApplyT(func(v ContainerPropertiesResponseInstanceView) ContainerStateResponse { return v.PreviousState }).(ContainerStateResponseOutput)
 }
 
 // The number of times that the container instance has been restarted.
-func (o ContainerPropertiesResponsePropertiesOutput) RestartCount() pulumi.IntOutput {
-	return o.ApplyT(func(v ContainerPropertiesResponseProperties) int { return v.RestartCount }).(pulumi.IntOutput)
+func (o ContainerPropertiesResponseInstanceViewOutput) RestartCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ContainerPropertiesResponseInstanceView) int { return v.RestartCount }).(pulumi.IntOutput)
 }
 
 // A container instance.
@@ -2954,97 +2927,6 @@ func (o ContainerResponseArrayOutput) Index(i pulumi.IntInput) ContainerResponse
 }
 
 // The container instance state.
-type ContainerState struct {
-	// The human-readable status of the container instance state.
-	DetailStatus *string `pulumi:"detailStatus"`
-	// The container instance exit codes correspond to those from the `docker run` command.
-	ExitCode *int `pulumi:"exitCode"`
-	// The date-time when the container instance state finished.
-	FinishTime *string `pulumi:"finishTime"`
-	// The date-time when the container instance state started.
-	StartTime *string `pulumi:"startTime"`
-	// The state of the container instance.
-	State *string `pulumi:"state"`
-}
-
-// ContainerStateInput is an input type that accepts ContainerStateArgs and ContainerStateOutput values.
-// You can construct a concrete instance of `ContainerStateInput` via:
-//
-//          ContainerStateArgs{...}
-type ContainerStateInput interface {
-	pulumi.Input
-
-	ToContainerStateOutput() ContainerStateOutput
-	ToContainerStateOutputWithContext(context.Context) ContainerStateOutput
-}
-
-// The container instance state.
-type ContainerStateArgs struct {
-	// The human-readable status of the container instance state.
-	DetailStatus pulumi.StringPtrInput `pulumi:"detailStatus"`
-	// The container instance exit codes correspond to those from the `docker run` command.
-	ExitCode pulumi.IntPtrInput `pulumi:"exitCode"`
-	// The date-time when the container instance state finished.
-	FinishTime pulumi.StringPtrInput `pulumi:"finishTime"`
-	// The date-time when the container instance state started.
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-	// The state of the container instance.
-	State pulumi.StringPtrInput `pulumi:"state"`
-}
-
-func (ContainerStateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerState)(nil)).Elem()
-}
-
-func (i ContainerStateArgs) ToContainerStateOutput() ContainerStateOutput {
-	return i.ToContainerStateOutputWithContext(context.Background())
-}
-
-func (i ContainerStateArgs) ToContainerStateOutputWithContext(ctx context.Context) ContainerStateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ContainerStateOutput)
-}
-
-// The container instance state.
-type ContainerStateOutput struct{ *pulumi.OutputState }
-
-func (ContainerStateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ContainerState)(nil)).Elem()
-}
-
-func (o ContainerStateOutput) ToContainerStateOutput() ContainerStateOutput {
-	return o
-}
-
-func (o ContainerStateOutput) ToContainerStateOutputWithContext(ctx context.Context) ContainerStateOutput {
-	return o
-}
-
-// The human-readable status of the container instance state.
-func (o ContainerStateOutput) DetailStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerState) *string { return v.DetailStatus }).(pulumi.StringPtrOutput)
-}
-
-// The container instance exit codes correspond to those from the `docker run` command.
-func (o ContainerStateOutput) ExitCode() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ContainerState) *int { return v.ExitCode }).(pulumi.IntPtrOutput)
-}
-
-// The date-time when the container instance state finished.
-func (o ContainerStateOutput) FinishTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerState) *string { return v.FinishTime }).(pulumi.StringPtrOutput)
-}
-
-// The date-time when the container instance state started.
-func (o ContainerStateOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerState) *string { return v.StartTime }).(pulumi.StringPtrOutput)
-}
-
-// The state of the container instance.
-func (o ContainerStateOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ContainerState) *string { return v.State }).(pulumi.StringPtrOutput)
-}
-
-// The container instance state.
 type ContainerStateResponse struct {
 	// The human-readable status of the container instance state.
 	DetailStatus *string `pulumi:"detailStatus"`
@@ -3133,236 +3015,6 @@ func (o ContainerStateResponseOutput) StartTime() pulumi.StringPtrOutput {
 // The state of the container instance.
 func (o ContainerStateResponseOutput) State() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContainerStateResponse) *string { return v.State }).(pulumi.StringPtrOutput)
-}
-
-// The empty directory volume.
-type EmptyDirVolume struct {
-}
-
-// EmptyDirVolumeInput is an input type that accepts EmptyDirVolumeArgs and EmptyDirVolumeOutput values.
-// You can construct a concrete instance of `EmptyDirVolumeInput` via:
-//
-//          EmptyDirVolumeArgs{...}
-type EmptyDirVolumeInput interface {
-	pulumi.Input
-
-	ToEmptyDirVolumeOutput() EmptyDirVolumeOutput
-	ToEmptyDirVolumeOutputWithContext(context.Context) EmptyDirVolumeOutput
-}
-
-// The empty directory volume.
-type EmptyDirVolumeArgs struct {
-}
-
-func (EmptyDirVolumeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmptyDirVolume)(nil)).Elem()
-}
-
-func (i EmptyDirVolumeArgs) ToEmptyDirVolumeOutput() EmptyDirVolumeOutput {
-	return i.ToEmptyDirVolumeOutputWithContext(context.Background())
-}
-
-func (i EmptyDirVolumeArgs) ToEmptyDirVolumeOutputWithContext(ctx context.Context) EmptyDirVolumeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmptyDirVolumeOutput)
-}
-
-func (i EmptyDirVolumeArgs) ToEmptyDirVolumePtrOutput() EmptyDirVolumePtrOutput {
-	return i.ToEmptyDirVolumePtrOutputWithContext(context.Background())
-}
-
-func (i EmptyDirVolumeArgs) ToEmptyDirVolumePtrOutputWithContext(ctx context.Context) EmptyDirVolumePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmptyDirVolumeOutput).ToEmptyDirVolumePtrOutputWithContext(ctx)
-}
-
-// EmptyDirVolumePtrInput is an input type that accepts EmptyDirVolumeArgs, EmptyDirVolumePtr and EmptyDirVolumePtrOutput values.
-// You can construct a concrete instance of `EmptyDirVolumePtrInput` via:
-//
-//          EmptyDirVolumeArgs{...}
-//
-//  or:
-//
-//          nil
-type EmptyDirVolumePtrInput interface {
-	pulumi.Input
-
-	ToEmptyDirVolumePtrOutput() EmptyDirVolumePtrOutput
-	ToEmptyDirVolumePtrOutputWithContext(context.Context) EmptyDirVolumePtrOutput
-}
-
-type emptyDirVolumePtrType EmptyDirVolumeArgs
-
-func EmptyDirVolumePtr(v *EmptyDirVolumeArgs) EmptyDirVolumePtrInput {
-	return (*emptyDirVolumePtrType)(v)
-}
-
-func (*emptyDirVolumePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EmptyDirVolume)(nil)).Elem()
-}
-
-func (i *emptyDirVolumePtrType) ToEmptyDirVolumePtrOutput() EmptyDirVolumePtrOutput {
-	return i.ToEmptyDirVolumePtrOutputWithContext(context.Background())
-}
-
-func (i *emptyDirVolumePtrType) ToEmptyDirVolumePtrOutputWithContext(ctx context.Context) EmptyDirVolumePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmptyDirVolumePtrOutput)
-}
-
-// The empty directory volume.
-type EmptyDirVolumeOutput struct{ *pulumi.OutputState }
-
-func (EmptyDirVolumeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmptyDirVolume)(nil)).Elem()
-}
-
-func (o EmptyDirVolumeOutput) ToEmptyDirVolumeOutput() EmptyDirVolumeOutput {
-	return o
-}
-
-func (o EmptyDirVolumeOutput) ToEmptyDirVolumeOutputWithContext(ctx context.Context) EmptyDirVolumeOutput {
-	return o
-}
-
-func (o EmptyDirVolumeOutput) ToEmptyDirVolumePtrOutput() EmptyDirVolumePtrOutput {
-	return o.ToEmptyDirVolumePtrOutputWithContext(context.Background())
-}
-
-func (o EmptyDirVolumeOutput) ToEmptyDirVolumePtrOutputWithContext(ctx context.Context) EmptyDirVolumePtrOutput {
-	return o.ApplyT(func(v EmptyDirVolume) *EmptyDirVolume {
-		return &v
-	}).(EmptyDirVolumePtrOutput)
-}
-
-type EmptyDirVolumePtrOutput struct{ *pulumi.OutputState }
-
-func (EmptyDirVolumePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EmptyDirVolume)(nil)).Elem()
-}
-
-func (o EmptyDirVolumePtrOutput) ToEmptyDirVolumePtrOutput() EmptyDirVolumePtrOutput {
-	return o
-}
-
-func (o EmptyDirVolumePtrOutput) ToEmptyDirVolumePtrOutputWithContext(ctx context.Context) EmptyDirVolumePtrOutput {
-	return o
-}
-
-func (o EmptyDirVolumePtrOutput) Elem() EmptyDirVolumeOutput {
-	return o.ApplyT(func(v *EmptyDirVolume) EmptyDirVolume { return *v }).(EmptyDirVolumeOutput)
-}
-
-// The empty directory volume.
-type EmptyDirVolumeResponse struct {
-}
-
-// EmptyDirVolumeResponseInput is an input type that accepts EmptyDirVolumeResponseArgs and EmptyDirVolumeResponseOutput values.
-// You can construct a concrete instance of `EmptyDirVolumeResponseInput` via:
-//
-//          EmptyDirVolumeResponseArgs{...}
-type EmptyDirVolumeResponseInput interface {
-	pulumi.Input
-
-	ToEmptyDirVolumeResponseOutput() EmptyDirVolumeResponseOutput
-	ToEmptyDirVolumeResponseOutputWithContext(context.Context) EmptyDirVolumeResponseOutput
-}
-
-// The empty directory volume.
-type EmptyDirVolumeResponseArgs struct {
-}
-
-func (EmptyDirVolumeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmptyDirVolumeResponse)(nil)).Elem()
-}
-
-func (i EmptyDirVolumeResponseArgs) ToEmptyDirVolumeResponseOutput() EmptyDirVolumeResponseOutput {
-	return i.ToEmptyDirVolumeResponseOutputWithContext(context.Background())
-}
-
-func (i EmptyDirVolumeResponseArgs) ToEmptyDirVolumeResponseOutputWithContext(ctx context.Context) EmptyDirVolumeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmptyDirVolumeResponseOutput)
-}
-
-func (i EmptyDirVolumeResponseArgs) ToEmptyDirVolumeResponsePtrOutput() EmptyDirVolumeResponsePtrOutput {
-	return i.ToEmptyDirVolumeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i EmptyDirVolumeResponseArgs) ToEmptyDirVolumeResponsePtrOutputWithContext(ctx context.Context) EmptyDirVolumeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmptyDirVolumeResponseOutput).ToEmptyDirVolumeResponsePtrOutputWithContext(ctx)
-}
-
-// EmptyDirVolumeResponsePtrInput is an input type that accepts EmptyDirVolumeResponseArgs, EmptyDirVolumeResponsePtr and EmptyDirVolumeResponsePtrOutput values.
-// You can construct a concrete instance of `EmptyDirVolumeResponsePtrInput` via:
-//
-//          EmptyDirVolumeResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type EmptyDirVolumeResponsePtrInput interface {
-	pulumi.Input
-
-	ToEmptyDirVolumeResponsePtrOutput() EmptyDirVolumeResponsePtrOutput
-	ToEmptyDirVolumeResponsePtrOutputWithContext(context.Context) EmptyDirVolumeResponsePtrOutput
-}
-
-type emptyDirVolumeResponsePtrType EmptyDirVolumeResponseArgs
-
-func EmptyDirVolumeResponsePtr(v *EmptyDirVolumeResponseArgs) EmptyDirVolumeResponsePtrInput {
-	return (*emptyDirVolumeResponsePtrType)(v)
-}
-
-func (*emptyDirVolumeResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EmptyDirVolumeResponse)(nil)).Elem()
-}
-
-func (i *emptyDirVolumeResponsePtrType) ToEmptyDirVolumeResponsePtrOutput() EmptyDirVolumeResponsePtrOutput {
-	return i.ToEmptyDirVolumeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *emptyDirVolumeResponsePtrType) ToEmptyDirVolumeResponsePtrOutputWithContext(ctx context.Context) EmptyDirVolumeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EmptyDirVolumeResponsePtrOutput)
-}
-
-// The empty directory volume.
-type EmptyDirVolumeResponseOutput struct{ *pulumi.OutputState }
-
-func (EmptyDirVolumeResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EmptyDirVolumeResponse)(nil)).Elem()
-}
-
-func (o EmptyDirVolumeResponseOutput) ToEmptyDirVolumeResponseOutput() EmptyDirVolumeResponseOutput {
-	return o
-}
-
-func (o EmptyDirVolumeResponseOutput) ToEmptyDirVolumeResponseOutputWithContext(ctx context.Context) EmptyDirVolumeResponseOutput {
-	return o
-}
-
-func (o EmptyDirVolumeResponseOutput) ToEmptyDirVolumeResponsePtrOutput() EmptyDirVolumeResponsePtrOutput {
-	return o.ToEmptyDirVolumeResponsePtrOutputWithContext(context.Background())
-}
-
-func (o EmptyDirVolumeResponseOutput) ToEmptyDirVolumeResponsePtrOutputWithContext(ctx context.Context) EmptyDirVolumeResponsePtrOutput {
-	return o.ApplyT(func(v EmptyDirVolumeResponse) *EmptyDirVolumeResponse {
-		return &v
-	}).(EmptyDirVolumeResponsePtrOutput)
-}
-
-type EmptyDirVolumeResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (EmptyDirVolumeResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EmptyDirVolumeResponse)(nil)).Elem()
-}
-
-func (o EmptyDirVolumeResponsePtrOutput) ToEmptyDirVolumeResponsePtrOutput() EmptyDirVolumeResponsePtrOutput {
-	return o
-}
-
-func (o EmptyDirVolumeResponsePtrOutput) ToEmptyDirVolumeResponsePtrOutputWithContext(ctx context.Context) EmptyDirVolumeResponsePtrOutput {
-	return o
-}
-
-func (o EmptyDirVolumeResponsePtrOutput) Elem() EmptyDirVolumeResponseOutput {
-	return o.ApplyT(func(v *EmptyDirVolumeResponse) EmptyDirVolumeResponse { return *v }).(EmptyDirVolumeResponseOutput)
 }
 
 // The environment variable to set within the container instance.
@@ -3599,106 +3251,6 @@ func (o EnvironmentVariableResponseArrayOutput) Index(i pulumi.IntInput) Environ
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EnvironmentVariableResponse {
 		return vs[0].([]EnvironmentVariableResponse)[vs[1].(int)]
 	}).(EnvironmentVariableResponseOutput)
-}
-
-// A container group or container instance event.
-type Event struct {
-	// The count of the event.
-	Count *int `pulumi:"count"`
-	// The date-time of the earliest logged event.
-	FirstTimestamp *string `pulumi:"firstTimestamp"`
-	// The date-time of the latest logged event.
-	LastTimestamp *string `pulumi:"lastTimestamp"`
-	// The event message.
-	Message *string `pulumi:"message"`
-	// The event name.
-	Name *string `pulumi:"name"`
-	// The event type.
-	Type *string `pulumi:"type"`
-}
-
-// EventInput is an input type that accepts EventArgs and EventOutput values.
-// You can construct a concrete instance of `EventInput` via:
-//
-//          EventArgs{...}
-type EventInput interface {
-	pulumi.Input
-
-	ToEventOutput() EventOutput
-	ToEventOutputWithContext(context.Context) EventOutput
-}
-
-// A container group or container instance event.
-type EventArgs struct {
-	// The count of the event.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The date-time of the earliest logged event.
-	FirstTimestamp pulumi.StringPtrInput `pulumi:"firstTimestamp"`
-	// The date-time of the latest logged event.
-	LastTimestamp pulumi.StringPtrInput `pulumi:"lastTimestamp"`
-	// The event message.
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// The event name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The event type.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (EventArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Event)(nil)).Elem()
-}
-
-func (i EventArgs) ToEventOutput() EventOutput {
-	return i.ToEventOutputWithContext(context.Background())
-}
-
-func (i EventArgs) ToEventOutputWithContext(ctx context.Context) EventOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventOutput)
-}
-
-// A container group or container instance event.
-type EventOutput struct{ *pulumi.OutputState }
-
-func (EventOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Event)(nil)).Elem()
-}
-
-func (o EventOutput) ToEventOutput() EventOutput {
-	return o
-}
-
-func (o EventOutput) ToEventOutputWithContext(ctx context.Context) EventOutput {
-	return o
-}
-
-// The count of the event.
-func (o EventOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v Event) *int { return v.Count }).(pulumi.IntPtrOutput)
-}
-
-// The date-time of the earliest logged event.
-func (o EventOutput) FirstTimestamp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Event) *string { return v.FirstTimestamp }).(pulumi.StringPtrOutput)
-}
-
-// The date-time of the latest logged event.
-func (o EventOutput) LastTimestamp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Event) *string { return v.LastTimestamp }).(pulumi.StringPtrOutput)
-}
-
-// The event message.
-func (o EventOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Event) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-// The event name.
-func (o EventOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Event) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The event type.
-func (o EventOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Event) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 // A container group or container instance event.
@@ -5913,248 +5465,18 @@ func (o ResourceRequirementsResponseOutput) Requests() ResourceRequestsResponseO
 	return o.ApplyT(func(v ResourceRequirementsResponse) ResourceRequestsResponse { return v.Requests }).(ResourceRequestsResponseOutput)
 }
 
-// The secret volume.
-type SecretVolume struct {
-}
-
-// SecretVolumeInput is an input type that accepts SecretVolumeArgs and SecretVolumeOutput values.
-// You can construct a concrete instance of `SecretVolumeInput` via:
-//
-//          SecretVolumeArgs{...}
-type SecretVolumeInput interface {
-	pulumi.Input
-
-	ToSecretVolumeOutput() SecretVolumeOutput
-	ToSecretVolumeOutputWithContext(context.Context) SecretVolumeOutput
-}
-
-// The secret volume.
-type SecretVolumeArgs struct {
-}
-
-func (SecretVolumeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretVolume)(nil)).Elem()
-}
-
-func (i SecretVolumeArgs) ToSecretVolumeOutput() SecretVolumeOutput {
-	return i.ToSecretVolumeOutputWithContext(context.Background())
-}
-
-func (i SecretVolumeArgs) ToSecretVolumeOutputWithContext(ctx context.Context) SecretVolumeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecretVolumeOutput)
-}
-
-func (i SecretVolumeArgs) ToSecretVolumePtrOutput() SecretVolumePtrOutput {
-	return i.ToSecretVolumePtrOutputWithContext(context.Background())
-}
-
-func (i SecretVolumeArgs) ToSecretVolumePtrOutputWithContext(ctx context.Context) SecretVolumePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecretVolumeOutput).ToSecretVolumePtrOutputWithContext(ctx)
-}
-
-// SecretVolumePtrInput is an input type that accepts SecretVolumeArgs, SecretVolumePtr and SecretVolumePtrOutput values.
-// You can construct a concrete instance of `SecretVolumePtrInput` via:
-//
-//          SecretVolumeArgs{...}
-//
-//  or:
-//
-//          nil
-type SecretVolumePtrInput interface {
-	pulumi.Input
-
-	ToSecretVolumePtrOutput() SecretVolumePtrOutput
-	ToSecretVolumePtrOutputWithContext(context.Context) SecretVolumePtrOutput
-}
-
-type secretVolumePtrType SecretVolumeArgs
-
-func SecretVolumePtr(v *SecretVolumeArgs) SecretVolumePtrInput {
-	return (*secretVolumePtrType)(v)
-}
-
-func (*secretVolumePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecretVolume)(nil)).Elem()
-}
-
-func (i *secretVolumePtrType) ToSecretVolumePtrOutput() SecretVolumePtrOutput {
-	return i.ToSecretVolumePtrOutputWithContext(context.Background())
-}
-
-func (i *secretVolumePtrType) ToSecretVolumePtrOutputWithContext(ctx context.Context) SecretVolumePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecretVolumePtrOutput)
-}
-
-// The secret volume.
-type SecretVolumeOutput struct{ *pulumi.OutputState }
-
-func (SecretVolumeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretVolume)(nil)).Elem()
-}
-
-func (o SecretVolumeOutput) ToSecretVolumeOutput() SecretVolumeOutput {
-	return o
-}
-
-func (o SecretVolumeOutput) ToSecretVolumeOutputWithContext(ctx context.Context) SecretVolumeOutput {
-	return o
-}
-
-func (o SecretVolumeOutput) ToSecretVolumePtrOutput() SecretVolumePtrOutput {
-	return o.ToSecretVolumePtrOutputWithContext(context.Background())
-}
-
-func (o SecretVolumeOutput) ToSecretVolumePtrOutputWithContext(ctx context.Context) SecretVolumePtrOutput {
-	return o.ApplyT(func(v SecretVolume) *SecretVolume {
-		return &v
-	}).(SecretVolumePtrOutput)
-}
-
-type SecretVolumePtrOutput struct{ *pulumi.OutputState }
-
-func (SecretVolumePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecretVolume)(nil)).Elem()
-}
-
-func (o SecretVolumePtrOutput) ToSecretVolumePtrOutput() SecretVolumePtrOutput {
-	return o
-}
-
-func (o SecretVolumePtrOutput) ToSecretVolumePtrOutputWithContext(ctx context.Context) SecretVolumePtrOutput {
-	return o
-}
-
-func (o SecretVolumePtrOutput) Elem() SecretVolumeOutput {
-	return o.ApplyT(func(v *SecretVolume) SecretVolume { return *v }).(SecretVolumeOutput)
-}
-
-// The secret volume.
-type SecretVolumeResponse struct {
-}
-
-// SecretVolumeResponseInput is an input type that accepts SecretVolumeResponseArgs and SecretVolumeResponseOutput values.
-// You can construct a concrete instance of `SecretVolumeResponseInput` via:
-//
-//          SecretVolumeResponseArgs{...}
-type SecretVolumeResponseInput interface {
-	pulumi.Input
-
-	ToSecretVolumeResponseOutput() SecretVolumeResponseOutput
-	ToSecretVolumeResponseOutputWithContext(context.Context) SecretVolumeResponseOutput
-}
-
-// The secret volume.
-type SecretVolumeResponseArgs struct {
-}
-
-func (SecretVolumeResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretVolumeResponse)(nil)).Elem()
-}
-
-func (i SecretVolumeResponseArgs) ToSecretVolumeResponseOutput() SecretVolumeResponseOutput {
-	return i.ToSecretVolumeResponseOutputWithContext(context.Background())
-}
-
-func (i SecretVolumeResponseArgs) ToSecretVolumeResponseOutputWithContext(ctx context.Context) SecretVolumeResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecretVolumeResponseOutput)
-}
-
-func (i SecretVolumeResponseArgs) ToSecretVolumeResponsePtrOutput() SecretVolumeResponsePtrOutput {
-	return i.ToSecretVolumeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i SecretVolumeResponseArgs) ToSecretVolumeResponsePtrOutputWithContext(ctx context.Context) SecretVolumeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecretVolumeResponseOutput).ToSecretVolumeResponsePtrOutputWithContext(ctx)
-}
-
-// SecretVolumeResponsePtrInput is an input type that accepts SecretVolumeResponseArgs, SecretVolumeResponsePtr and SecretVolumeResponsePtrOutput values.
-// You can construct a concrete instance of `SecretVolumeResponsePtrInput` via:
-//
-//          SecretVolumeResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type SecretVolumeResponsePtrInput interface {
-	pulumi.Input
-
-	ToSecretVolumeResponsePtrOutput() SecretVolumeResponsePtrOutput
-	ToSecretVolumeResponsePtrOutputWithContext(context.Context) SecretVolumeResponsePtrOutput
-}
-
-type secretVolumeResponsePtrType SecretVolumeResponseArgs
-
-func SecretVolumeResponsePtr(v *SecretVolumeResponseArgs) SecretVolumeResponsePtrInput {
-	return (*secretVolumeResponsePtrType)(v)
-}
-
-func (*secretVolumeResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecretVolumeResponse)(nil)).Elem()
-}
-
-func (i *secretVolumeResponsePtrType) ToSecretVolumeResponsePtrOutput() SecretVolumeResponsePtrOutput {
-	return i.ToSecretVolumeResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *secretVolumeResponsePtrType) ToSecretVolumeResponsePtrOutputWithContext(ctx context.Context) SecretVolumeResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecretVolumeResponsePtrOutput)
-}
-
-// The secret volume.
-type SecretVolumeResponseOutput struct{ *pulumi.OutputState }
-
-func (SecretVolumeResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecretVolumeResponse)(nil)).Elem()
-}
-
-func (o SecretVolumeResponseOutput) ToSecretVolumeResponseOutput() SecretVolumeResponseOutput {
-	return o
-}
-
-func (o SecretVolumeResponseOutput) ToSecretVolumeResponseOutputWithContext(ctx context.Context) SecretVolumeResponseOutput {
-	return o
-}
-
-func (o SecretVolumeResponseOutput) ToSecretVolumeResponsePtrOutput() SecretVolumeResponsePtrOutput {
-	return o.ToSecretVolumeResponsePtrOutputWithContext(context.Background())
-}
-
-func (o SecretVolumeResponseOutput) ToSecretVolumeResponsePtrOutputWithContext(ctx context.Context) SecretVolumeResponsePtrOutput {
-	return o.ApplyT(func(v SecretVolumeResponse) *SecretVolumeResponse {
-		return &v
-	}).(SecretVolumeResponsePtrOutput)
-}
-
-type SecretVolumeResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (SecretVolumeResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecretVolumeResponse)(nil)).Elem()
-}
-
-func (o SecretVolumeResponsePtrOutput) ToSecretVolumeResponsePtrOutput() SecretVolumeResponsePtrOutput {
-	return o
-}
-
-func (o SecretVolumeResponsePtrOutput) ToSecretVolumeResponsePtrOutputWithContext(ctx context.Context) SecretVolumeResponsePtrOutput {
-	return o
-}
-
-func (o SecretVolumeResponsePtrOutput) Elem() SecretVolumeResponseOutput {
-	return o.ApplyT(func(v *SecretVolumeResponse) SecretVolumeResponse { return *v }).(SecretVolumeResponseOutput)
-}
-
 // The properties of the volume.
 type Volume struct {
 	// The Azure File volume.
 	AzureFile *AzureFileVolume `pulumi:"azureFile"`
 	// The empty directory volume.
-	EmptyDir *EmptyDirVolume `pulumi:"emptyDir"`
+	EmptyDir map[string]interface{} `pulumi:"emptyDir"`
 	// The git repo volume.
 	GitRepo *GitRepoVolume `pulumi:"gitRepo"`
 	// The name of the volume.
 	Name string `pulumi:"name"`
 	// The secret volume.
-	Secret *SecretVolume `pulumi:"secret"`
+	Secret map[string]string `pulumi:"secret"`
 }
 
 // VolumeInput is an input type that accepts VolumeArgs and VolumeOutput values.
@@ -6173,13 +5495,13 @@ type VolumeArgs struct {
 	// The Azure File volume.
 	AzureFile AzureFileVolumePtrInput `pulumi:"azureFile"`
 	// The empty directory volume.
-	EmptyDir EmptyDirVolumePtrInput `pulumi:"emptyDir"`
+	EmptyDir pulumi.MapInput `pulumi:"emptyDir"`
 	// The git repo volume.
 	GitRepo GitRepoVolumePtrInput `pulumi:"gitRepo"`
 	// The name of the volume.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The secret volume.
-	Secret SecretVolumePtrInput `pulumi:"secret"`
+	Secret pulumi.StringMapInput `pulumi:"secret"`
 }
 
 func (VolumeArgs) ElementType() reflect.Type {
@@ -6240,8 +5562,8 @@ func (o VolumeOutput) AzureFile() AzureFileVolumePtrOutput {
 }
 
 // The empty directory volume.
-func (o VolumeOutput) EmptyDir() EmptyDirVolumePtrOutput {
-	return o.ApplyT(func(v Volume) *EmptyDirVolume { return v.EmptyDir }).(EmptyDirVolumePtrOutput)
+func (o VolumeOutput) EmptyDir() pulumi.MapOutput {
+	return o.ApplyT(func(v Volume) map[string]interface{} { return v.EmptyDir }).(pulumi.MapOutput)
 }
 
 // The git repo volume.
@@ -6255,8 +5577,8 @@ func (o VolumeOutput) Name() pulumi.StringOutput {
 }
 
 // The secret volume.
-func (o VolumeOutput) Secret() SecretVolumePtrOutput {
-	return o.ApplyT(func(v Volume) *SecretVolume { return v.Secret }).(SecretVolumePtrOutput)
+func (o VolumeOutput) Secret() pulumi.StringMapOutput {
+	return o.ApplyT(func(v Volume) map[string]string { return v.Secret }).(pulumi.StringMapOutput)
 }
 
 type VolumeArrayOutput struct{ *pulumi.OutputState }
@@ -6520,13 +5842,13 @@ type VolumeResponse struct {
 	// The Azure File volume.
 	AzureFile *AzureFileVolumeResponse `pulumi:"azureFile"`
 	// The empty directory volume.
-	EmptyDir *EmptyDirVolumeResponse `pulumi:"emptyDir"`
+	EmptyDir map[string]interface{} `pulumi:"emptyDir"`
 	// The git repo volume.
 	GitRepo *GitRepoVolumeResponse `pulumi:"gitRepo"`
 	// The name of the volume.
 	Name string `pulumi:"name"`
 	// The secret volume.
-	Secret *SecretVolumeResponse `pulumi:"secret"`
+	Secret map[string]string `pulumi:"secret"`
 }
 
 // VolumeResponseInput is an input type that accepts VolumeResponseArgs and VolumeResponseOutput values.
@@ -6545,13 +5867,13 @@ type VolumeResponseArgs struct {
 	// The Azure File volume.
 	AzureFile AzureFileVolumeResponsePtrInput `pulumi:"azureFile"`
 	// The empty directory volume.
-	EmptyDir EmptyDirVolumeResponsePtrInput `pulumi:"emptyDir"`
+	EmptyDir pulumi.MapInput `pulumi:"emptyDir"`
 	// The git repo volume.
 	GitRepo GitRepoVolumeResponsePtrInput `pulumi:"gitRepo"`
 	// The name of the volume.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The secret volume.
-	Secret SecretVolumeResponsePtrInput `pulumi:"secret"`
+	Secret pulumi.StringMapInput `pulumi:"secret"`
 }
 
 func (VolumeResponseArgs) ElementType() reflect.Type {
@@ -6612,8 +5934,8 @@ func (o VolumeResponseOutput) AzureFile() AzureFileVolumeResponsePtrOutput {
 }
 
 // The empty directory volume.
-func (o VolumeResponseOutput) EmptyDir() EmptyDirVolumeResponsePtrOutput {
-	return o.ApplyT(func(v VolumeResponse) *EmptyDirVolumeResponse { return v.EmptyDir }).(EmptyDirVolumeResponsePtrOutput)
+func (o VolumeResponseOutput) EmptyDir() pulumi.MapOutput {
+	return o.ApplyT(func(v VolumeResponse) map[string]interface{} { return v.EmptyDir }).(pulumi.MapOutput)
 }
 
 // The git repo volume.
@@ -6627,8 +5949,8 @@ func (o VolumeResponseOutput) Name() pulumi.StringOutput {
 }
 
 // The secret volume.
-func (o VolumeResponseOutput) Secret() SecretVolumeResponsePtrOutput {
-	return o.ApplyT(func(v VolumeResponse) *SecretVolumeResponse { return v.Secret }).(SecretVolumeResponsePtrOutput)
+func (o VolumeResponseOutput) Secret() pulumi.StringMapOutput {
+	return o.ApplyT(func(v VolumeResponse) map[string]string { return v.Secret }).(pulumi.StringMapOutput)
 }
 
 type VolumeResponseArrayOutput struct{ *pulumi.OutputState }
@@ -6662,12 +5984,12 @@ func init() {
 	pulumi.RegisterOutputType(ContainerExecPtrOutput{})
 	pulumi.RegisterOutputType(ContainerExecResponseOutput{})
 	pulumi.RegisterOutputType(ContainerExecResponsePtrOutput{})
-	pulumi.RegisterOutputType(ContainerGroupTypeOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDiagnosticsOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDiagnosticsPtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDiagnosticsResponseOutput{})
 	pulumi.RegisterOutputType(ContainerGroupDiagnosticsResponsePtrOutput{})
-	pulumi.RegisterOutputType(ContainerGroupPropertiesOutput{})
+	pulumi.RegisterOutputType(ContainerGroupResponseInstanceViewOutput{})
+	pulumi.RegisterOutputType(ContainerGroupResponseInstanceViewPtrOutput{})
 	pulumi.RegisterOutputType(ContainerGroupResponsePropertiesOutput{})
 	pulumi.RegisterOutputType(ContainerGroupResponsePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ContainerHttpGetOutput{})
@@ -6682,22 +6004,15 @@ func init() {
 	pulumi.RegisterOutputType(ContainerProbePtrOutput{})
 	pulumi.RegisterOutputType(ContainerProbeResponseOutput{})
 	pulumi.RegisterOutputType(ContainerProbeResponsePtrOutput{})
-	pulumi.RegisterOutputType(ContainerPropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(ContainerPropertiesResponseOutput{})
-	pulumi.RegisterOutputType(ContainerPropertiesResponsePropertiesOutput{})
+	pulumi.RegisterOutputType(ContainerPropertiesResponseInstanceViewOutput{})
 	pulumi.RegisterOutputType(ContainerResponseOutput{})
 	pulumi.RegisterOutputType(ContainerResponseArrayOutput{})
-	pulumi.RegisterOutputType(ContainerStateOutput{})
 	pulumi.RegisterOutputType(ContainerStateResponseOutput{})
-	pulumi.RegisterOutputType(EmptyDirVolumeOutput{})
-	pulumi.RegisterOutputType(EmptyDirVolumePtrOutput{})
-	pulumi.RegisterOutputType(EmptyDirVolumeResponseOutput{})
-	pulumi.RegisterOutputType(EmptyDirVolumeResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableResponseOutput{})
 	pulumi.RegisterOutputType(EnvironmentVariableResponseArrayOutput{})
-	pulumi.RegisterOutputType(EventOutput{})
 	pulumi.RegisterOutputType(EventResponseOutput{})
 	pulumi.RegisterOutputType(EventResponseArrayOutput{})
 	pulumi.RegisterOutputType(GitRepoVolumeOutput{})
@@ -6728,10 +6043,6 @@ func init() {
 	pulumi.RegisterOutputType(ResourceRequestsResponseOutput{})
 	pulumi.RegisterOutputType(ResourceRequirementsOutput{})
 	pulumi.RegisterOutputType(ResourceRequirementsResponseOutput{})
-	pulumi.RegisterOutputType(SecretVolumeOutput{})
-	pulumi.RegisterOutputType(SecretVolumePtrOutput{})
-	pulumi.RegisterOutputType(SecretVolumeResponseOutput{})
-	pulumi.RegisterOutputType(SecretVolumeResponsePtrOutput{})
 	pulumi.RegisterOutputType(VolumeOutput{})
 	pulumi.RegisterOutputType(VolumeArrayOutput{})
 	pulumi.RegisterOutputType(VolumeMountOutput{})

@@ -109,7 +109,7 @@ type iotSecuritySolutionArgs struct {
 	// The name of the IoT Security solution.
 	Name string `pulumi:"name"`
 	// List of the configuration status for each recommendation type.
-	RecommendationsConfiguration *RecommendationConfigurationList `pulumi:"recommendationsConfiguration"`
+	RecommendationsConfiguration []RecommendationConfigurationProperties `pulumi:"recommendationsConfiguration"`
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Status of the IoT Security solution.
@@ -139,7 +139,7 @@ type IotSecuritySolutionArgs struct {
 	// The name of the IoT Security solution.
 	Name pulumi.StringInput
 	// List of the configuration status for each recommendation type.
-	RecommendationsConfiguration RecommendationConfigurationListPtrInput
+	RecommendationsConfiguration RecommendationConfigurationPropertiesArrayInput
 	// The name of the resource group within the user's subscription. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Status of the IoT Security solution.

@@ -77,6 +77,18 @@ class Job(pulumi.CustomResource):
         * `value` (`str`) - The value of the environment variable.
 
       * `execution_info` (`dict`) - Information about the execution of a job.
+        * `end_time` (`str`) - The time at which the job completed. This property is only returned if the job is in completed state.
+        * `errors` (`list`) - A collection of errors encountered by the service during job execution.
+          * `code` (`str`) - An identifier of the error. Codes are invariant and are intended to be consumed programmatically.
+          * `details` (`list`) - A list of additional details about the error.
+            * `name` (`str`) - The name in the name-value pair.
+            * `value` (`str`) - The value in the name-value pair.
+
+          * `message` (`str`) - A message describing the error, intended to be suitable for display in a user interface.
+
+        * `exit_code` (`float`) - The exit code of the job. This property is only returned if the job is in completed state.
+        * `start_time` (`str`) - The time at which the job started running. 'Running' corresponds to the running state. If the job has been restarted or retried, this is the most recent time at which the job started running. This property is present only for job that are in the running or completed state.
+
       * `execution_state` (`str`) - The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
       * `execution_state_transition_time` (`str`) - The time at which the job entered its current execution state.
       * `horovod_settings` (`dict`) - Specifies the settings for Horovod job.

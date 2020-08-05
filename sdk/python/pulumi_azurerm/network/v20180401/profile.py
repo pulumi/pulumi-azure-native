@@ -41,6 +41,10 @@ class Profile(pulumi.CustomResource):
           * `min_child_endpoints` (`float`) - The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
           * `priority` (`float`) - The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
           * `subnets` (`list`) - The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+            * `first` (`str`) - First address in the subnet.
+            * `last` (`str`) - Last address in the subnet.
+            * `scope` (`float`) - Block size (number of leading bits in the subnet mask).
+
           * `target` (`str`) - The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
           * `target_resource_id` (`str`) - The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
           * `weight` (`float`) - The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
@@ -54,6 +58,9 @@ class Profile(pulumi.CustomResource):
           * `value` (`str`) - Header value.
 
         * `expected_status_code_ranges` (`list`) - List of expected status code ranges.
+          * `max` (`float`) - Max status code.
+          * `min` (`float`) - Min status code.
+
         * `interval_in_seconds` (`float`) - The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
         * `path` (`str`) - The path relative to the endpoint domain name used to probe for endpoint health.
         * `port` (`float`) - The TCP port used to probe for endpoint health.
@@ -101,24 +108,27 @@ class Profile(pulumi.CustomResource):
 
         The **endpoints** object supports the following:
 
+          * `custom_headers` (`pulumi.Input[list]`) - List of custom headers.
+            * `name` (`pulumi.Input[str]`) - Header name.
+            * `value` (`pulumi.Input[str]`) - Header value.
+
+          * `endpoint_location` (`pulumi.Input[str]`) - Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
+          * `endpoint_monitor_status` (`pulumi.Input[str]`) - The monitoring status of the endpoint.
+          * `endpoint_status` (`pulumi.Input[str]`) - The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
+          * `geo_mapping` (`pulumi.Input[list]`) - The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
+          * `id` (`pulumi.Input[str]`) - Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
+          * `min_child_endpoints` (`pulumi.Input[float]`) - The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
           * `name` (`pulumi.Input[str]`) - The name of the resource
-          * `properties` (`pulumi.Input[dict]`) - The properties of the Traffic Manager endpoint.
-            * `custom_headers` (`pulumi.Input[list]`) - List of custom headers.
-              * `name` (`pulumi.Input[str]`) - Header name.
-              * `value` (`pulumi.Input[str]`) - Header value.
+          * `priority` (`pulumi.Input[float]`) - The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
+          * `subnets` (`pulumi.Input[list]`) - The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+            * `first` (`pulumi.Input[str]`) - First address in the subnet.
+            * `last` (`pulumi.Input[str]`) - Last address in the subnet.
+            * `scope` (`pulumi.Input[float]`) - Block size (number of leading bits in the subnet mask).
 
-            * `endpoint_location` (`pulumi.Input[str]`) - Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
-            * `endpoint_monitor_status` (`pulumi.Input[str]`) - The monitoring status of the endpoint.
-            * `endpoint_status` (`pulumi.Input[str]`) - The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
-            * `geo_mapping` (`pulumi.Input[list]`) - The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
-            * `min_child_endpoints` (`pulumi.Input[float]`) - The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
-            * `priority` (`pulumi.Input[float]`) - The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-            * `subnets` (`pulumi.Input[list]`) - The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
-            * `target` (`pulumi.Input[str]`) - The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
-            * `target_resource_id` (`pulumi.Input[str]`) - The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
-            * `weight` (`pulumi.Input[float]`) - The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
-
+          * `target` (`pulumi.Input[str]`) - The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
+          * `target_resource_id` (`pulumi.Input[str]`) - The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
           * `type` (`pulumi.Input[str]`) - The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
+          * `weight` (`pulumi.Input[float]`) - The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
 
         The **monitor_config** object supports the following:
 
@@ -127,6 +137,9 @@ class Profile(pulumi.CustomResource):
             * `value` (`pulumi.Input[str]`) - Header value.
 
           * `expected_status_code_ranges` (`pulumi.Input[list]`) - List of expected status code ranges.
+            * `max` (`pulumi.Input[float]`) - Max status code.
+            * `min` (`pulumi.Input[float]`) - Min status code.
+
           * `interval_in_seconds` (`pulumi.Input[float]`) - The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile.
           * `path` (`pulumi.Input[str]`) - The path relative to the endpoint domain name used to probe for endpoint health.
           * `port` (`pulumi.Input[float]`) - The TCP port used to probe for endpoint health.

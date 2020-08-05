@@ -354,106 +354,6 @@ func (o NetworkProfileResponsePtrOutput) VnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// OpenShift Managed cluster.
-type OpenShiftManagedClusterType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Define the resource plan as required by ARM for billing purposes
-	Plan *PurchasePlanResponse `pulumi:"plan"`
-	// Properties of a OpenShift managed cluster.
-	Properties OpenShiftManagedClusterPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// OpenShiftManagedClusterTypeInput is an input type that accepts OpenShiftManagedClusterTypeArgs and OpenShiftManagedClusterTypeOutput values.
-// You can construct a concrete instance of `OpenShiftManagedClusterTypeInput` via:
-//
-//          OpenShiftManagedClusterTypeArgs{...}
-type OpenShiftManagedClusterTypeInput interface {
-	pulumi.Input
-
-	ToOpenShiftManagedClusterTypeOutput() OpenShiftManagedClusterTypeOutput
-	ToOpenShiftManagedClusterTypeOutputWithContext(context.Context) OpenShiftManagedClusterTypeOutput
-}
-
-// OpenShift Managed cluster.
-type OpenShiftManagedClusterTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Define the resource plan as required by ARM for billing purposes
-	Plan PurchasePlanResponsePtrInput `pulumi:"plan"`
-	// Properties of a OpenShift managed cluster.
-	Properties OpenShiftManagedClusterPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (OpenShiftManagedClusterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftManagedClusterType)(nil)).Elem()
-}
-
-func (i OpenShiftManagedClusterTypeArgs) ToOpenShiftManagedClusterTypeOutput() OpenShiftManagedClusterTypeOutput {
-	return i.ToOpenShiftManagedClusterTypeOutputWithContext(context.Background())
-}
-
-func (i OpenShiftManagedClusterTypeArgs) ToOpenShiftManagedClusterTypeOutputWithContext(ctx context.Context) OpenShiftManagedClusterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OpenShiftManagedClusterTypeOutput)
-}
-
-// OpenShift Managed cluster.
-type OpenShiftManagedClusterTypeOutput struct{ *pulumi.OutputState }
-
-func (OpenShiftManagedClusterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OpenShiftManagedClusterType)(nil)).Elem()
-}
-
-func (o OpenShiftManagedClusterTypeOutput) ToOpenShiftManagedClusterTypeOutput() OpenShiftManagedClusterTypeOutput {
-	return o
-}
-
-func (o OpenShiftManagedClusterTypeOutput) ToOpenShiftManagedClusterTypeOutputWithContext(ctx context.Context) OpenShiftManagedClusterTypeOutput {
-	return o
-}
-
-// Resource location
-func (o OpenShiftManagedClusterTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o OpenShiftManagedClusterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Define the resource plan as required by ARM for billing purposes
-func (o OpenShiftManagedClusterTypeOutput) Plan() PurchasePlanResponsePtrOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterType) *PurchasePlanResponse { return v.Plan }).(PurchasePlanResponsePtrOutput)
-}
-
-// Properties of a OpenShift managed cluster.
-func (o OpenShiftManagedClusterTypeOutput) Properties() OpenShiftManagedClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterType) OpenShiftManagedClusterPropertiesResponse { return v.Properties }).(OpenShiftManagedClusterPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o OpenShiftManagedClusterTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o OpenShiftManagedClusterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v OpenShiftManagedClusterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Defines the configuration of the OpenShift cluster VMs.
 type OpenShiftManagedClusterAgentPoolProfile struct {
 	// Number of agents (VMs) to host docker containers.
@@ -2854,7 +2754,6 @@ func init() {
 	pulumi.RegisterOutputType(NetworkProfilePtrOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(NetworkProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(OpenShiftManagedClusterTypeOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAgentPoolProfileOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAgentPoolProfileArrayOutput{})
 	pulumi.RegisterOutputType(OpenShiftManagedClusterAgentPoolProfileResponseOutput{})

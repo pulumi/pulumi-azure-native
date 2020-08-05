@@ -134,6 +134,9 @@ class ContainerGroup(pulumi.CustomResource):
           * `volume_mounts` (`list`) - The volume mounts available to the init container.
 
       * `instance_view` (`dict`) - The instance view of the container group. Only valid in response.
+        * `events` (`list`) - The events of this container group.
+        * `state` (`str`) - The state of the container group. Only valid in response.
+
       * `ip_address` (`dict`) - The IP address type of the container group.
         * `dns_name_label` (`str`) - The Dns name label for the IP.
         * `fqdn` (`str`) - The FQDN for the IP.
@@ -277,7 +280,6 @@ class ContainerGroup(pulumi.CustomResource):
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 
         The **image_registry_credentials** object supports the following:
 

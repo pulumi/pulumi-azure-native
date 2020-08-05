@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
         /// <summary>
         /// The auto-approval list of the private link service.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? AutoApproval;
+        public readonly Outputs.PrivateLinkServicePropertiesResponseAutoApprovalResult? AutoApproval;
         /// <summary>
         /// The list of Fqdn.
         /// </summary>
@@ -48,13 +48,13 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
         /// <summary>
         /// The visibility list of the private link service.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Visibility;
+        public readonly Outputs.PrivateLinkServicePropertiesResponseVisibilityResult? Visibility;
 
         [OutputConstructor]
         private PrivateLinkServicePropertiesResponseResult(
             string alias,
 
-            ImmutableDictionary<string, object>? autoApproval,
+            Outputs.PrivateLinkServicePropertiesResponseAutoApprovalResult? autoApproval,
 
             ImmutableArray<string> fqdns,
 
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
 
             string provisioningState,
 
-            ImmutableDictionary<string, object>? visibility)
+            Outputs.PrivateLinkServicePropertiesResponseVisibilityResult? visibility)
         {
             Alias = alias;
             AutoApproval = autoApproval;

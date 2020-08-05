@@ -128,7 +128,7 @@ export interface PipelineArgs {
     /**
      * The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
      */
-    readonly folder?: pulumi.Input<inputs.datafactory.v20180601.PipelineProperties>;
+    readonly folder?: pulumi.Input<inputs.datafactory.v20180601.PipelineFolder>;
     /**
      * The pipeline name.
      */
@@ -136,7 +136,7 @@ export interface PipelineArgs {
     /**
      * List of parameters for pipeline.
      */
-    readonly parameters?: pulumi.Input<inputs.datafactory.v20180601.ParameterDefinitionSpecification>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.v20180601.ParameterSpecification>}>;
     /**
      * The resource group name.
      */
@@ -148,5 +148,5 @@ export interface PipelineArgs {
     /**
      * List of variables for pipeline.
      */
-    readonly variables?: pulumi.Input<inputs.datafactory.v20180601.VariableDefinitionSpecification>;
+    readonly variables?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.v20180601.VariableSpecification>}>;
 }

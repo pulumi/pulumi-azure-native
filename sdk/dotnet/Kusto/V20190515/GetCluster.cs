@@ -66,7 +66,7 @@ namespace Pulumi.AzureRM.Kusto.V20190515
         /// <summary>
         /// The availability zones of the cluster.
         /// </summary>
-        public readonly Outputs.ZonesResponseResult? Zones;
+        public readonly ImmutableArray<string> Zones;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -82,7 +82,7 @@ namespace Pulumi.AzureRM.Kusto.V20190515
 
             string type,
 
-            Outputs.ZonesResponseResult? zones)
+            ImmutableArray<string> zones)
         {
             Location = location;
             Name = name;

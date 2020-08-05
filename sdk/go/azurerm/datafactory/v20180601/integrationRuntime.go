@@ -95,7 +95,7 @@ type integrationRuntimeArgs struct {
 	// The integration runtime name.
 	Name string `pulumi:"name"`
 	// Integration runtime properties.
-	Properties IntegrationRuntimeDefinition `pulumi:"properties"`
+	Properties IntegrationRuntimeType `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -107,7 +107,7 @@ type IntegrationRuntimeArgs struct {
 	// The integration runtime name.
 	Name pulumi.StringInput
 	// Integration runtime properties.
-	Properties IntegrationRuntimeDefinitionInput
+	Properties IntegrationRuntimeTypeInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 }

@@ -107,11 +107,17 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
+        [Input("correlationScheme")]
+        private InputList<Inputs.ServiceCorrelationDescriptionArgs>? _correlationScheme;
+
         /// <summary>
         /// A list that describes the correlation of the service with other services.
         /// </summary>
-        [Input("correlationScheme")]
-        public Input<Inputs.CorrelationSchemeListArgs>? CorrelationScheme { get; set; }
+        public InputList<Inputs.ServiceCorrelationDescriptionArgs> CorrelationScheme
+        {
+            get => _correlationScheme ?? (_correlationScheme = new InputList<Inputs.ServiceCorrelationDescriptionArgs>());
+            set => _correlationScheme = value;
+        }
 
         /// <summary>
         /// Specifies the move cost for the service.
@@ -161,11 +167,17 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
         [Input("serviceKind", required: true)]
         public Input<string> ServiceKind { get; set; } = null!;
 
+        [Input("serviceLoadMetrics")]
+        private InputList<Inputs.ServiceLoadMetricDescriptionArgs>? _serviceLoadMetrics;
+
         /// <summary>
         /// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
         /// </summary>
-        [Input("serviceLoadMetrics")]
-        public Input<Inputs.ServiceLoadMetricsListArgs>? ServiceLoadMetrics { get; set; }
+        public InputList<Inputs.ServiceLoadMetricDescriptionArgs> ServiceLoadMetrics
+        {
+            get => _serviceLoadMetrics ?? (_serviceLoadMetrics = new InputList<Inputs.ServiceLoadMetricDescriptionArgs>());
+            set => _serviceLoadMetrics = value;
+        }
 
         /// <summary>
         /// The activation Mode of the service package
@@ -173,11 +185,17 @@ namespace Pulumi.AzureRM.ServiceFabric.V20200301
         [Input("servicePackageActivationMode")]
         public Input<string>? ServicePackageActivationMode { get; set; }
 
+        [Input("servicePlacementPolicies")]
+        private InputList<Inputs.ServicePlacementPolicyDescriptionArgs>? _servicePlacementPolicies;
+
         /// <summary>
         /// A list that describes the correlation of the service with other services.
         /// </summary>
-        [Input("servicePlacementPolicies")]
-        public Input<Inputs.ServicePlacementPoliciesListArgs>? ServicePlacementPolicies { get; set; }
+        public InputList<Inputs.ServicePlacementPolicyDescriptionArgs> ServicePlacementPolicies
+        {
+            get => _servicePlacementPolicies ?? (_servicePlacementPolicies = new InputList<Inputs.ServicePlacementPolicyDescriptionArgs>());
+            set => _servicePlacementPolicies = value;
+        }
 
         /// <summary>
         /// The name of the service type

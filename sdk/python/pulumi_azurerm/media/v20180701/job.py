@@ -21,7 +21,6 @@ class Job(pulumi.CustomResource):
       * `created` (`str`) - The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.
       * `description` (`str`) - Optional customer supplied description of the Job.
       * `end_time` (`str`) - The UTC date and time at which this Job finished processing.
-      * `input` (`dict`) - The inputs for the Job.
       * `last_modified` (`str`) - The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
       * `outputs` (`list`) - The outputs for the Job.
         * `end_time` (`str`) - The UTC date and time at which this Job Output finished processing.
@@ -48,7 +47,7 @@ class Job(pulumi.CustomResource):
     """
     The type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, account_name=None, correlation_data=None, description=None, input=None, name=None, outputs=None, priority=None, resource_group_name=None, transform_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, account_name=None, correlation_data=None, description=None, name=None, outputs=None, priority=None, resource_group_name=None, transform_name=None, __props__=None, __name__=None, __opts__=None):
         """
         A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
 
@@ -57,7 +56,6 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The Media Services account name.
         :param pulumi.Input[dict] correlation_data: Customer provided key, value pairs that will be returned in Job and JobOutput state events.
         :param pulumi.Input[str] description: Optional customer supplied description of the Job.
-        :param pulumi.Input[dict] input: The inputs for the Job.
         :param pulumi.Input[str] name: The Job name.
         :param pulumi.Input[list] outputs: The outputs for the Job.
         :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.
@@ -90,9 +88,6 @@ class Job(pulumi.CustomResource):
             __props__['account_name'] = account_name
             __props__['correlation_data'] = correlation_data
             __props__['description'] = description
-            if input is None:
-                raise TypeError("Missing required property 'input'")
-            __props__['input'] = input
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name

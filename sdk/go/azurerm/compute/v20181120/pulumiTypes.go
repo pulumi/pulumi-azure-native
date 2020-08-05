@@ -686,90 +686,6 @@ func (o ConfigurationSettingResponsePtrOutput) RefreshFrequencyMins() pulumi.Flo
 	}).(pulumi.Float64PtrOutput)
 }
 
-// Guest configuration assignment is an association between a machine and guest configuration.
-type GuestConfigurationAssignmentType struct {
-	// Region where the VM is located.
-	Location *string `pulumi:"location"`
-	// Name of the guest configuration assignment.
-	Name *string `pulumi:"name"`
-	// Properties of the Guest configuration assignment.
-	Properties GuestConfigurationAssignmentPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// GuestConfigurationAssignmentTypeInput is an input type that accepts GuestConfigurationAssignmentTypeArgs and GuestConfigurationAssignmentTypeOutput values.
-// You can construct a concrete instance of `GuestConfigurationAssignmentTypeInput` via:
-//
-//          GuestConfigurationAssignmentTypeArgs{...}
-type GuestConfigurationAssignmentTypeInput interface {
-	pulumi.Input
-
-	ToGuestConfigurationAssignmentTypeOutput() GuestConfigurationAssignmentTypeOutput
-	ToGuestConfigurationAssignmentTypeOutputWithContext(context.Context) GuestConfigurationAssignmentTypeOutput
-}
-
-// Guest configuration assignment is an association between a machine and guest configuration.
-type GuestConfigurationAssignmentTypeArgs struct {
-	// Region where the VM is located.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Name of the guest configuration assignment.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Properties of the Guest configuration assignment.
-	Properties GuestConfigurationAssignmentPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (GuestConfigurationAssignmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestConfigurationAssignmentType)(nil)).Elem()
-}
-
-func (i GuestConfigurationAssignmentTypeArgs) ToGuestConfigurationAssignmentTypeOutput() GuestConfigurationAssignmentTypeOutput {
-	return i.ToGuestConfigurationAssignmentTypeOutputWithContext(context.Background())
-}
-
-func (i GuestConfigurationAssignmentTypeArgs) ToGuestConfigurationAssignmentTypeOutputWithContext(ctx context.Context) GuestConfigurationAssignmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GuestConfigurationAssignmentTypeOutput)
-}
-
-// Guest configuration assignment is an association between a machine and guest configuration.
-type GuestConfigurationAssignmentTypeOutput struct{ *pulumi.OutputState }
-
-func (GuestConfigurationAssignmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GuestConfigurationAssignmentType)(nil)).Elem()
-}
-
-func (o GuestConfigurationAssignmentTypeOutput) ToGuestConfigurationAssignmentTypeOutput() GuestConfigurationAssignmentTypeOutput {
-	return o
-}
-
-func (o GuestConfigurationAssignmentTypeOutput) ToGuestConfigurationAssignmentTypeOutputWithContext(ctx context.Context) GuestConfigurationAssignmentTypeOutput {
-	return o
-}
-
-// Region where the VM is located.
-func (o GuestConfigurationAssignmentTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GuestConfigurationAssignmentType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Name of the guest configuration assignment.
-func (o GuestConfigurationAssignmentTypeOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GuestConfigurationAssignmentType) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// Properties of the Guest configuration assignment.
-func (o GuestConfigurationAssignmentTypeOutput) Properties() GuestConfigurationAssignmentPropertiesResponseOutput {
-	return o.ApplyT(func(v GuestConfigurationAssignmentType) GuestConfigurationAssignmentPropertiesResponse {
-		return v.Properties
-	}).(GuestConfigurationAssignmentPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o GuestConfigurationAssignmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GuestConfigurationAssignmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Guest configuration assignment properties.
 type GuestConfigurationAssignmentProperties struct {
 	// The source which initiated the guest configuration assignment. Ex: Azure Policy
@@ -1648,7 +1564,6 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationSettingPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationSettingResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationSettingResponsePtrOutput{})
-	pulumi.RegisterOutputType(GuestConfigurationAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentPropertiesOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GuestConfigurationAssignmentPropertiesResponseOutput{})

@@ -16,28 +16,40 @@ namespace Pulumi.AzureRM.Network.V20181101.Inputs
     public sealed class VirtualNetworkTapArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The reference to the private IP address on the internal Load Balancer that will receive the tap
+        /// </summary>
+        [Input("destinationLoadBalancerFrontEndIPConfiguration")]
+        public Input<Inputs.FrontendIPConfigurationArgs>? DestinationLoadBalancerFrontEndIPConfiguration { get; set; }
+
+        /// <summary>
+        /// The reference to the private IP Address of the collector nic that will receive the tap
+        /// </summary>
+        [Input("destinationNetworkInterfaceIPConfiguration")]
+        public Input<Inputs.NetworkInterfaceIPConfigurationArgs>? DestinationNetworkInterfaceIPConfiguration { get; set; }
+
+        /// <summary>
+        /// The VXLAN destination port that will receive the tapped traffic.
+        /// </summary>
+        [Input("destinationPort")]
+        public Input<int>? DestinationPort { get; set; }
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
 
         /// <summary>
+        /// Resource ID.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
         /// Resource location.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
-        /// Virtual Network Tap Properties.
-        /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.VirtualNetworkTapPropertiesFormatResponseArgs> Properties { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -50,12 +62,6 @@ namespace Pulumi.AzureRM.Network.V20181101.Inputs
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
 
         public VirtualNetworkTapArgs()
         {

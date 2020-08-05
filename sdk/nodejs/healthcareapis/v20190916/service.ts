@@ -43,7 +43,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    public readonly identity!: pulumi.Output<outputs.healthcareapis.v20190916.ResourceResponseProperties | undefined>;
+    public readonly identity!: pulumi.Output<outputs.healthcareapis.v20190916.ResourceResponseIdentity | undefined>;
     /**
      * The kind of the service.
      */
@@ -126,7 +126,7 @@ export interface ServiceArgs {
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    readonly identity?: pulumi.Input<inputs.healthcareapis.v20190916.ResourceProperties>;
+    readonly identity?: pulumi.Input<inputs.healthcareapis.v20190916.ResourceIdentity>;
     /**
      * The kind of the service.
      */

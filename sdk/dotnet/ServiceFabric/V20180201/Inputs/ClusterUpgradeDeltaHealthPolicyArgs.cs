@@ -15,11 +15,17 @@ namespace Pulumi.AzureRM.ServiceFabric.V20180201.Inputs
     /// </summary>
     public sealed class ClusterUpgradeDeltaHealthPolicyArgs : Pulumi.ResourceArgs
     {
+        [Input("applicationDeltaHealthPolicies")]
+        private InputMap<Inputs.ApplicationDeltaHealthPolicyArgs>? _applicationDeltaHealthPolicies;
+
         /// <summary>
         /// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
         /// </summary>
-        [Input("applicationDeltaHealthPolicies")]
-        public Input<Inputs.ApplicationDeltaHealthPolicyMapArgs>? ApplicationDeltaHealthPolicies { get; set; }
+        public InputMap<Inputs.ApplicationDeltaHealthPolicyArgs> ApplicationDeltaHealthPolicies
+        {
+            get => _applicationDeltaHealthPolicies ?? (_applicationDeltaHealthPolicies = new InputMap<Inputs.ApplicationDeltaHealthPolicyArgs>());
+            set => _applicationDeltaHealthPolicies = value;
+        }
 
         /// <summary>
         /// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.

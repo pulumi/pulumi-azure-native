@@ -39,7 +39,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
     [OutputType]
     public sealed class GetMachineResult
     {
-        public readonly ImmutableDictionary<string, object>? Identity;
+        public readonly Outputs.MachineResponseIdentityResult? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
         /// <summary>
         /// Hybrid Compute Machine properties
         /// </summary>
-        public readonly ImmutableDictionary<string, object> Properties;
+        public readonly Outputs.MachineResponsePropertiesResult Properties;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -63,13 +63,13 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
 
         [OutputConstructor]
         private GetMachineResult(
-            ImmutableDictionary<string, object>? identity,
+            Outputs.MachineResponseIdentityResult? identity,
 
             string location,
 
             string name,
 
-            ImmutableDictionary<string, object> properties,
+            Outputs.MachineResponsePropertiesResult properties,
 
             ImmutableDictionary<string, string>? tags,
 

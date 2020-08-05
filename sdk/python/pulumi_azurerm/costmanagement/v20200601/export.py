@@ -82,7 +82,7 @@ class Export(pulumi.CustomResource):
     """
     Resource type.
     """
-    def __init__(__self__, resource_name, opts=None, definition=None, delivery_info=None, e_tag=None, format=None, name=None, run_history=None, schedule=None, scope=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, definition=None, delivery_info=None, e_tag=None, format=None, name=None, schedule=None, scope=None, __props__=None, __name__=None, __opts__=None):
         """
         An export resource.
 
@@ -93,7 +93,6 @@ class Export(pulumi.CustomResource):
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[str] format: The format of the export being delivered. Currently only 'Csv' is supported.
         :param pulumi.Input[str] name: Export Name.
-        :param pulumi.Input[dict] run_history: If requested, has the most recent execution history for the export.
         :param pulumi.Input[dict] schedule: Has schedule information for the export.
         :param pulumi.Input[str] scope: The scope associated with query and export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
 
@@ -156,7 +155,6 @@ class Export(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['run_history'] = run_history
             __props__['schedule'] = schedule
             if scope is None:
                 raise TypeError("Missing required property 'scope'")

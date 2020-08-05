@@ -35,14 +35,13 @@ class Gallery(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, description=None, identifier=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, location=None, name=None, resource_group_name=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         Specifies information about the Shared Image Gallery that you want to create or update.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of this Shared Image Gallery resource. This property is updatable.
-        :param pulumi.Input[dict] identifier: Describes the gallery unique name.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] name: The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -66,7 +65,6 @@ class Gallery(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['description'] = description
-            __props__['identifier'] = identifier
             if location is None:
                 raise TypeError("Missing required property 'location'")
             __props__['location'] = location

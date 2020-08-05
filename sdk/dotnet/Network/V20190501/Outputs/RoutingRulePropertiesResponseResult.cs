@@ -33,10 +33,6 @@ namespace Pulumi.AzureRM.Network.V20190501.Outputs
         /// Resource status.
         /// </summary>
         public readonly string? ResourceState;
-        /// <summary>
-        /// A reference to the routing configuration.
-        /// </summary>
-        public readonly Outputs.RouteConfigurationResponseResult? RouteConfiguration;
 
         [OutputConstructor]
         private RoutingRulePropertiesResponseResult(
@@ -48,16 +44,13 @@ namespace Pulumi.AzureRM.Network.V20190501.Outputs
 
             ImmutableArray<string> patternsToMatch,
 
-            string? resourceState,
-
-            Outputs.RouteConfigurationResponseResult? routeConfiguration)
+            string? resourceState)
         {
             AcceptedProtocols = acceptedProtocols;
             EnabledState = enabledState;
             FrontendEndpoints = frontendEndpoints;
             PatternsToMatch = patternsToMatch;
             ResourceState = resourceState;
-            RouteConfiguration = routeConfiguration;
         }
     }
 }

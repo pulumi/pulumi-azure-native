@@ -840,97 +840,6 @@ func (o DeadLetterDestinationResponsePtrOutput) EndpointType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// EventGrid Domain.
-type DomainType struct {
-	// Location of the resource.
-	Location string `pulumi:"location"`
-	// Name of the resource.
-	Name string `pulumi:"name"`
-	// Properties of the domain.
-	Properties DomainPropertiesResponse `pulumi:"properties"`
-	// Tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// DomainTypeInput is an input type that accepts DomainTypeArgs and DomainTypeOutput values.
-// You can construct a concrete instance of `DomainTypeInput` via:
-//
-//          DomainTypeArgs{...}
-type DomainTypeInput interface {
-	pulumi.Input
-
-	ToDomainTypeOutput() DomainTypeOutput
-	ToDomainTypeOutputWithContext(context.Context) DomainTypeOutput
-}
-
-// EventGrid Domain.
-type DomainTypeArgs struct {
-	// Location of the resource.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the domain.
-	Properties DomainPropertiesResponseInput `pulumi:"properties"`
-	// Tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DomainTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainType)(nil)).Elem()
-}
-
-func (i DomainTypeArgs) ToDomainTypeOutput() DomainTypeOutput {
-	return i.ToDomainTypeOutputWithContext(context.Background())
-}
-
-func (i DomainTypeArgs) ToDomainTypeOutputWithContext(ctx context.Context) DomainTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainTypeOutput)
-}
-
-// EventGrid Domain.
-type DomainTypeOutput struct{ *pulumi.OutputState }
-
-func (DomainTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainType)(nil)).Elem()
-}
-
-func (o DomainTypeOutput) ToDomainTypeOutput() DomainTypeOutput {
-	return o
-}
-
-func (o DomainTypeOutput) ToDomainTypeOutputWithContext(ctx context.Context) DomainTypeOutput {
-	return o
-}
-
-// Location of the resource.
-func (o DomainTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Name of the resource.
-func (o DomainTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the domain.
-func (o DomainTypeOutput) Properties() DomainPropertiesResponseOutput {
-	return o.ApplyT(func(v DomainType) DomainPropertiesResponse { return v.Properties }).(DomainPropertiesResponseOutput)
-}
-
-// Tags of the resource.
-func (o DomainTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DomainType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Type of the resource.
-func (o DomainTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of the Domain.
 type DomainPropertiesResponse struct {
 	// Endpoint for the domain.
@@ -1204,79 +1113,6 @@ func (o DomainPropertiesResponsePtrOutput) PublicNetworkAccess() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Domain Topic.
-type DomainTopicType struct {
-	// Name of the resource.
-	Name string `pulumi:"name"`
-	// Properties of the Domain Topic.
-	Properties DomainTopicPropertiesResponse `pulumi:"properties"`
-	// Type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// DomainTopicTypeInput is an input type that accepts DomainTopicTypeArgs and DomainTopicTypeOutput values.
-// You can construct a concrete instance of `DomainTopicTypeInput` via:
-//
-//          DomainTopicTypeArgs{...}
-type DomainTopicTypeInput interface {
-	pulumi.Input
-
-	ToDomainTopicTypeOutput() DomainTopicTypeOutput
-	ToDomainTopicTypeOutputWithContext(context.Context) DomainTopicTypeOutput
-}
-
-// Domain Topic.
-type DomainTopicTypeArgs struct {
-	// Name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the Domain Topic.
-	Properties DomainTopicPropertiesResponseInput `pulumi:"properties"`
-	// Type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DomainTopicTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainTopicType)(nil)).Elem()
-}
-
-func (i DomainTopicTypeArgs) ToDomainTopicTypeOutput() DomainTopicTypeOutput {
-	return i.ToDomainTopicTypeOutputWithContext(context.Background())
-}
-
-func (i DomainTopicTypeArgs) ToDomainTopicTypeOutputWithContext(ctx context.Context) DomainTopicTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainTopicTypeOutput)
-}
-
-// Domain Topic.
-type DomainTopicTypeOutput struct{ *pulumi.OutputState }
-
-func (DomainTopicTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DomainTopicType)(nil)).Elem()
-}
-
-func (o DomainTopicTypeOutput) ToDomainTopicTypeOutput() DomainTopicTypeOutput {
-	return o
-}
-
-func (o DomainTopicTypeOutput) ToDomainTopicTypeOutputWithContext(ctx context.Context) DomainTopicTypeOutput {
-	return o
-}
-
-// Name of the resource.
-func (o DomainTopicTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainTopicType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the Domain Topic.
-func (o DomainTopicTypeOutput) Properties() DomainTopicPropertiesResponseOutput {
-	return o.ApplyT(func(v DomainTopicType) DomainTopicPropertiesResponse { return v.Properties }).(DomainTopicPropertiesResponseOutput)
-}
-
-// Type of the resource.
-func (o DomainTopicTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DomainTopicType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of the Domain Topic.
 type DomainTopicPropertiesResponse struct {
 	// Provisioning state of the domain topic.
@@ -1409,79 +1245,6 @@ func (o DomainTopicPropertiesResponsePtrOutput) ProvisioningState() pulumi.Strin
 		}
 		return v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
-}
-
-// Event Subscription
-type EventSubscriptionType struct {
-	// Name of the resource.
-	Name string `pulumi:"name"`
-	// Properties of the event subscription.
-	Properties EventSubscriptionPropertiesResponse `pulumi:"properties"`
-	// Type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// EventSubscriptionTypeInput is an input type that accepts EventSubscriptionTypeArgs and EventSubscriptionTypeOutput values.
-// You can construct a concrete instance of `EventSubscriptionTypeInput` via:
-//
-//          EventSubscriptionTypeArgs{...}
-type EventSubscriptionTypeInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionTypeOutput() EventSubscriptionTypeOutput
-	ToEventSubscriptionTypeOutputWithContext(context.Context) EventSubscriptionTypeOutput
-}
-
-// Event Subscription
-type EventSubscriptionTypeArgs struct {
-	// Name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the event subscription.
-	Properties EventSubscriptionPropertiesResponseInput `pulumi:"properties"`
-	// Type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (EventSubscriptionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionType)(nil)).Elem()
-}
-
-func (i EventSubscriptionTypeArgs) ToEventSubscriptionTypeOutput() EventSubscriptionTypeOutput {
-	return i.ToEventSubscriptionTypeOutputWithContext(context.Background())
-}
-
-func (i EventSubscriptionTypeArgs) ToEventSubscriptionTypeOutputWithContext(ctx context.Context) EventSubscriptionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionTypeOutput)
-}
-
-// Event Subscription
-type EventSubscriptionTypeOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscriptionType)(nil)).Elem()
-}
-
-func (o EventSubscriptionTypeOutput) ToEventSubscriptionTypeOutput() EventSubscriptionTypeOutput {
-	return o
-}
-
-func (o EventSubscriptionTypeOutput) ToEventSubscriptionTypeOutputWithContext(ctx context.Context) EventSubscriptionTypeOutput {
-	return o
-}
-
-// Name of the resource.
-func (o EventSubscriptionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the event subscription.
-func (o EventSubscriptionTypeOutput) Properties() EventSubscriptionPropertiesResponseOutput {
-	return o.ApplyT(func(v EventSubscriptionType) EventSubscriptionPropertiesResponse { return v.Properties }).(EventSubscriptionPropertiesResponseOutput)
-}
-
-// Type of the resource.
-func (o EventSubscriptionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EventSubscriptionType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Information about the destination for an event subscription.
@@ -3109,12 +2872,14 @@ func (o PrivateEndpointPtrOutput) Id() pulumi.StringPtrOutput {
 }
 
 type PrivateEndpointConnectionType struct {
-	// Name of the resource.
-	Name string `pulumi:"name"`
-	// Properties of the PrivateEndpointConnection.
-	Properties PrivateEndpointConnectionPropertiesResponse `pulumi:"properties"`
-	// Type of the resource.
-	Type string `pulumi:"type"`
+	// GroupIds from the private link service resource.
+	GroupIds []string `pulumi:"groupIds"`
+	// The Private Endpoint resource for this Connection.
+	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
+	// Details about the state of the connection.
+	PrivateLinkServiceConnectionState *ConnectionState `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the Private Endpoint Connection.
+	ProvisioningState *string `pulumi:"provisioningState"`
 }
 
 // PrivateEndpointConnectionTypeInput is an input type that accepts PrivateEndpointConnectionTypeArgs and PrivateEndpointConnectionTypeOutput values.
@@ -3129,12 +2894,14 @@ type PrivateEndpointConnectionTypeInput interface {
 }
 
 type PrivateEndpointConnectionTypeArgs struct {
-	// Name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the PrivateEndpointConnection.
-	Properties PrivateEndpointConnectionPropertiesResponseInput `pulumi:"properties"`
-	// Type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
+	// GroupIds from the private link service resource.
+	GroupIds pulumi.StringArrayInput `pulumi:"groupIds"`
+	// The Private Endpoint resource for this Connection.
+	PrivateEndpoint PrivateEndpointPtrInput `pulumi:"privateEndpoint"`
+	// Details about the state of the connection.
+	PrivateLinkServiceConnectionState ConnectionStatePtrInput `pulumi:"privateLinkServiceConnectionState"`
+	// Provisioning state of the Private Endpoint Connection.
+	ProvisioningState pulumi.StringPtrInput `pulumi:"provisioningState"`
 }
 
 func (PrivateEndpointConnectionTypeArgs) ElementType() reflect.Type {
@@ -3188,19 +2955,24 @@ func (o PrivateEndpointConnectionTypeOutput) ToPrivateEndpointConnectionTypeOutp
 	return o
 }
 
-// Name of the resource.
-func (o PrivateEndpointConnectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Name }).(pulumi.StringOutput)
+// GroupIds from the private link service resource.
+func (o PrivateEndpointConnectionTypeOutput) GroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) []string { return v.GroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Properties of the PrivateEndpointConnection.
-func (o PrivateEndpointConnectionTypeOutput) Properties() PrivateEndpointConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) PrivateEndpointConnectionPropertiesResponse { return v.Properties }).(PrivateEndpointConnectionPropertiesResponseOutput)
+// The Private Endpoint resource for this Connection.
+func (o PrivateEndpointConnectionTypeOutput) PrivateEndpoint() PrivateEndpointPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) *PrivateEndpoint { return v.PrivateEndpoint }).(PrivateEndpointPtrOutput)
 }
 
-// Type of the resource.
-func (o PrivateEndpointConnectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateEndpointConnectionType) string { return v.Type }).(pulumi.StringOutput)
+// Details about the state of the connection.
+func (o PrivateEndpointConnectionTypeOutput) PrivateLinkServiceConnectionState() ConnectionStatePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) *ConnectionState { return v.PrivateLinkServiceConnectionState }).(ConnectionStatePtrOutput)
+}
+
+// Provisioning state of the Private Endpoint Connection.
+func (o PrivateEndpointConnectionTypeOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionType) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
 }
 
 type PrivateEndpointConnectionTypeArrayOutput struct{ *pulumi.OutputState }
@@ -3984,97 +3756,6 @@ func (o RetryPolicyResponsePtrOutput) MaxDeliveryAttempts() pulumi.IntPtrOutput 
 	}).(pulumi.IntPtrOutput)
 }
 
-// EventGrid Topic
-type TopicType struct {
-	// Location of the resource.
-	Location string `pulumi:"location"`
-	// Name of the resource.
-	Name string `pulumi:"name"`
-	// Properties of the topic.
-	Properties TopicPropertiesResponse `pulumi:"properties"`
-	// Tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// Type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// TopicTypeInput is an input type that accepts TopicTypeArgs and TopicTypeOutput values.
-// You can construct a concrete instance of `TopicTypeInput` via:
-//
-//          TopicTypeArgs{...}
-type TopicTypeInput interface {
-	pulumi.Input
-
-	ToTopicTypeOutput() TopicTypeOutput
-	ToTopicTypeOutputWithContext(context.Context) TopicTypeOutput
-}
-
-// EventGrid Topic
-type TopicTypeArgs struct {
-	// Location of the resource.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the topic.
-	Properties TopicPropertiesResponseInput `pulumi:"properties"`
-	// Tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (TopicTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicType)(nil)).Elem()
-}
-
-func (i TopicTypeArgs) ToTopicTypeOutput() TopicTypeOutput {
-	return i.ToTopicTypeOutputWithContext(context.Background())
-}
-
-func (i TopicTypeArgs) ToTopicTypeOutputWithContext(ctx context.Context) TopicTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TopicTypeOutput)
-}
-
-// EventGrid Topic
-type TopicTypeOutput struct{ *pulumi.OutputState }
-
-func (TopicTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TopicType)(nil)).Elem()
-}
-
-func (o TopicTypeOutput) ToTopicTypeOutput() TopicTypeOutput {
-	return o
-}
-
-func (o TopicTypeOutput) ToTopicTypeOutputWithContext(ctx context.Context) TopicTypeOutput {
-	return o
-}
-
-// Location of the resource.
-func (o TopicTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Name of the resource.
-func (o TopicTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the topic.
-func (o TopicTypeOutput) Properties() TopicPropertiesResponseOutput {
-	return o.ApplyT(func(v TopicType) TopicPropertiesResponse { return v.Properties }).(TopicPropertiesResponseOutput)
-}
-
-// Tags of the resource.
-func (o TopicTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v TopicType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Type of the resource.
-func (o TopicTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TopicType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of the Topic
 type TopicPropertiesResponse struct {
 	// Endpoint for the topic.
@@ -4357,13 +4038,10 @@ func init() {
 	pulumi.RegisterOutputType(DeadLetterDestinationPtrOutput{})
 	pulumi.RegisterOutputType(DeadLetterDestinationResponseOutput{})
 	pulumi.RegisterOutputType(DeadLetterDestinationResponsePtrOutput{})
-	pulumi.RegisterOutputType(DomainTypeOutput{})
 	pulumi.RegisterOutputType(DomainPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DomainPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(DomainTopicTypeOutput{})
 	pulumi.RegisterOutputType(DomainTopicPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DomainTopicPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(EventSubscriptionTypeOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionDestinationOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionDestinationPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionDestinationResponseOutput{})
@@ -4396,7 +4074,6 @@ func init() {
 	pulumi.RegisterOutputType(RetryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RetryPolicyResponseOutput{})
 	pulumi.RegisterOutputType(RetryPolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(TopicTypeOutput{})
 	pulumi.RegisterOutputType(TopicPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(TopicPropertiesResponsePtrOutput{})
 }

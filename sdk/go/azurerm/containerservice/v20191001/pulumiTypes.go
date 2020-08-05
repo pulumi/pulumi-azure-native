@@ -65,79 +65,6 @@ func (o AccessProfileResponseOutput) KubeConfig() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessProfileResponse) *string { return v.KubeConfig }).(pulumi.StringPtrOutput)
 }
 
-// Agent Pool.
-type AgentPoolType struct {
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name string `pulumi:"name"`
-	// Properties of an agent pool.
-	Properties ManagedClusterAgentPoolProfilePropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// AgentPoolTypeInput is an input type that accepts AgentPoolTypeArgs and AgentPoolTypeOutput values.
-// You can construct a concrete instance of `AgentPoolTypeInput` via:
-//
-//          AgentPoolTypeArgs{...}
-type AgentPoolTypeInput interface {
-	pulumi.Input
-
-	ToAgentPoolTypeOutput() AgentPoolTypeOutput
-	ToAgentPoolTypeOutputWithContext(context.Context) AgentPoolTypeOutput
-}
-
-// Agent Pool.
-type AgentPoolTypeArgs struct {
-	// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of an agent pool.
-	Properties ManagedClusterAgentPoolProfilePropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AgentPoolTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentPoolType)(nil)).Elem()
-}
-
-func (i AgentPoolTypeArgs) ToAgentPoolTypeOutput() AgentPoolTypeOutput {
-	return i.ToAgentPoolTypeOutputWithContext(context.Background())
-}
-
-func (i AgentPoolTypeArgs) ToAgentPoolTypeOutputWithContext(ctx context.Context) AgentPoolTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentPoolTypeOutput)
-}
-
-// Agent Pool.
-type AgentPoolTypeOutput struct{ *pulumi.OutputState }
-
-func (AgentPoolTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AgentPoolType)(nil)).Elem()
-}
-
-func (o AgentPoolTypeOutput) ToAgentPoolTypeOutput() AgentPoolTypeOutput {
-	return o
-}
-
-func (o AgentPoolTypeOutput) ToAgentPoolTypeOutputWithContext(ctx context.Context) AgentPoolTypeOutput {
-	return o
-}
-
-// The name of the resource that is unique within a resource group. This name can be used to access the resource.
-func (o AgentPoolTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentPoolType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of an agent pool.
-func (o AgentPoolTypeOutput) Properties() ManagedClusterAgentPoolProfilePropertiesResponseOutput {
-	return o.ApplyT(func(v AgentPoolType) ManagedClusterAgentPoolProfilePropertiesResponse { return v.Properties }).(ManagedClusterAgentPoolProfilePropertiesResponseOutput)
-}
-
-// Resource type
-func (o AgentPoolTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AgentPoolType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Profile for Linux VMs in the container service cluster.
 type ContainerServiceLinuxProfile struct {
 	// The administrator username to use for Linux VMs.
@@ -1559,106 +1486,6 @@ func (o CredentialResultResponseArrayOutput) Index(i pulumi.IntInput) Credential
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CredentialResultResponse {
 		return vs[0].([]CredentialResultResponse)[vs[1].(int)]
 	}).(CredentialResultResponseOutput)
-}
-
-// Managed cluster.
-type ManagedClusterType struct {
-	// The identity of the managed cluster, if configured.
-	Identity *ManagedClusterIdentityResponse `pulumi:"identity"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Properties of a managed cluster.
-	Properties ManagedClusterPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ManagedClusterTypeInput is an input type that accepts ManagedClusterTypeArgs and ManagedClusterTypeOutput values.
-// You can construct a concrete instance of `ManagedClusterTypeInput` via:
-//
-//          ManagedClusterTypeArgs{...}
-type ManagedClusterTypeInput interface {
-	pulumi.Input
-
-	ToManagedClusterTypeOutput() ManagedClusterTypeOutput
-	ToManagedClusterTypeOutputWithContext(context.Context) ManagedClusterTypeOutput
-}
-
-// Managed cluster.
-type ManagedClusterTypeArgs struct {
-	// The identity of the managed cluster, if configured.
-	Identity ManagedClusterIdentityResponsePtrInput `pulumi:"identity"`
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of a managed cluster.
-	Properties ManagedClusterPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ManagedClusterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterType)(nil)).Elem()
-}
-
-func (i ManagedClusterTypeArgs) ToManagedClusterTypeOutput() ManagedClusterTypeOutput {
-	return i.ToManagedClusterTypeOutputWithContext(context.Background())
-}
-
-func (i ManagedClusterTypeArgs) ToManagedClusterTypeOutputWithContext(ctx context.Context) ManagedClusterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterTypeOutput)
-}
-
-// Managed cluster.
-type ManagedClusterTypeOutput struct{ *pulumi.OutputState }
-
-func (ManagedClusterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterType)(nil)).Elem()
-}
-
-func (o ManagedClusterTypeOutput) ToManagedClusterTypeOutput() ManagedClusterTypeOutput {
-	return o
-}
-
-func (o ManagedClusterTypeOutput) ToManagedClusterTypeOutputWithContext(ctx context.Context) ManagedClusterTypeOutput {
-	return o
-}
-
-// The identity of the managed cluster, if configured.
-func (o ManagedClusterTypeOutput) Identity() ManagedClusterIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ManagedClusterType) *ManagedClusterIdentityResponse { return v.Identity }).(ManagedClusterIdentityResponsePtrOutput)
-}
-
-// Resource location
-func (o ManagedClusterTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedClusterType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o ManagedClusterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedClusterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of a managed cluster.
-func (o ManagedClusterTypeOutput) Properties() ManagedClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v ManagedClusterType) ManagedClusterPropertiesResponse { return v.Properties }).(ManagedClusterPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o ManagedClusterTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ManagedClusterType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o ManagedClusterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ManagedClusterType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // AADProfile specifies attributes for Azure Active Directory integration.
@@ -3817,11 +3644,11 @@ type ManagedClusterLoadBalancerProfile struct {
 	// The effective outbound IP resources of the cluster load balancer.
 	EffectiveOutboundIPs []ResourceReference `pulumi:"effectiveOutboundIPs"`
 	// Desired managed outbound IPs for the cluster load balancer.
-	ManagedOutboundIPs *ManagedClusterLoadBalancerProfileProperties `pulumi:"managedOutboundIPs"`
+	ManagedOutboundIPs *ManagedClusterLoadBalancerProfileManagedOutboundIPs `pulumi:"managedOutboundIPs"`
 	// Desired outbound IP Prefix resources for the cluster load balancer.
-	OutboundIPPrefixes *ManagedClusterLoadBalancerProfileProperties `pulumi:"outboundIPPrefixes"`
+	OutboundIPPrefixes *ManagedClusterLoadBalancerProfileOutboundIPPrefixes `pulumi:"outboundIPPrefixes"`
 	// Desired outbound IP resources for the cluster load balancer.
-	OutboundIPs *ManagedClusterLoadBalancerProfileProperties `pulumi:"outboundIPs"`
+	OutboundIPs *ManagedClusterLoadBalancerProfileOutboundIPs `pulumi:"outboundIPs"`
 }
 
 // ManagedClusterLoadBalancerProfileInput is an input type that accepts ManagedClusterLoadBalancerProfileArgs and ManagedClusterLoadBalancerProfileOutput values.
@@ -3840,11 +3667,11 @@ type ManagedClusterLoadBalancerProfileArgs struct {
 	// The effective outbound IP resources of the cluster load balancer.
 	EffectiveOutboundIPs ResourceReferenceArrayInput `pulumi:"effectiveOutboundIPs"`
 	// Desired managed outbound IPs for the cluster load balancer.
-	ManagedOutboundIPs ManagedClusterLoadBalancerProfilePropertiesPtrInput `pulumi:"managedOutboundIPs"`
+	ManagedOutboundIPs ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrInput `pulumi:"managedOutboundIPs"`
 	// Desired outbound IP Prefix resources for the cluster load balancer.
-	OutboundIPPrefixes ManagedClusterLoadBalancerProfilePropertiesPtrInput `pulumi:"outboundIPPrefixes"`
+	OutboundIPPrefixes ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrInput `pulumi:"outboundIPPrefixes"`
 	// Desired outbound IP resources for the cluster load balancer.
-	OutboundIPs ManagedClusterLoadBalancerProfilePropertiesPtrInput `pulumi:"outboundIPs"`
+	OutboundIPs ManagedClusterLoadBalancerProfileOutboundIPsPtrInput `pulumi:"outboundIPs"`
 }
 
 func (ManagedClusterLoadBalancerProfileArgs) ElementType() reflect.Type {
@@ -3931,24 +3758,24 @@ func (o ManagedClusterLoadBalancerProfileOutput) EffectiveOutboundIPs() Resource
 }
 
 // Desired managed outbound IPs for the cluster load balancer.
-func (o ManagedClusterLoadBalancerProfileOutput) ManagedOutboundIPs() ManagedClusterLoadBalancerProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileProperties {
+func (o ManagedClusterLoadBalancerProfileOutput) ManagedOutboundIPs() ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileManagedOutboundIPs {
 		return v.ManagedOutboundIPs
-	}).(ManagedClusterLoadBalancerProfilePropertiesPtrOutput)
+	}).(ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput)
 }
 
 // Desired outbound IP Prefix resources for the cluster load balancer.
-func (o ManagedClusterLoadBalancerProfileOutput) OutboundIPPrefixes() ManagedClusterLoadBalancerProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileProperties {
+func (o ManagedClusterLoadBalancerProfileOutput) OutboundIPPrefixes() ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileOutboundIPPrefixes {
 		return v.OutboundIPPrefixes
-	}).(ManagedClusterLoadBalancerProfilePropertiesPtrOutput)
+	}).(ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput)
 }
 
 // Desired outbound IP resources for the cluster load balancer.
-func (o ManagedClusterLoadBalancerProfileOutput) OutboundIPs() ManagedClusterLoadBalancerProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileProperties {
+func (o ManagedClusterLoadBalancerProfileOutput) OutboundIPs() ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileOutboundIPs {
 		return v.OutboundIPs
-	}).(ManagedClusterLoadBalancerProfilePropertiesPtrOutput)
+	}).(ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput)
 }
 
 type ManagedClusterLoadBalancerProfilePtrOutput struct{ *pulumi.OutputState }
@@ -3980,164 +3807,164 @@ func (o ManagedClusterLoadBalancerProfilePtrOutput) EffectiveOutboundIPs() Resou
 }
 
 // Desired managed outbound IPs for the cluster load balancer.
-func (o ManagedClusterLoadBalancerProfilePtrOutput) ManagedOutboundIPs() ManagedClusterLoadBalancerProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileProperties {
+func (o ManagedClusterLoadBalancerProfilePtrOutput) ManagedOutboundIPs() ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileManagedOutboundIPs {
 		if v == nil {
 			return nil
 		}
 		return v.ManagedOutboundIPs
-	}).(ManagedClusterLoadBalancerProfilePropertiesPtrOutput)
+	}).(ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput)
 }
 
 // Desired outbound IP Prefix resources for the cluster load balancer.
-func (o ManagedClusterLoadBalancerProfilePtrOutput) OutboundIPPrefixes() ManagedClusterLoadBalancerProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileProperties {
+func (o ManagedClusterLoadBalancerProfilePtrOutput) OutboundIPPrefixes() ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileOutboundIPPrefixes {
 		if v == nil {
 			return nil
 		}
 		return v.OutboundIPPrefixes
-	}).(ManagedClusterLoadBalancerProfilePropertiesPtrOutput)
+	}).(ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput)
 }
 
 // Desired outbound IP resources for the cluster load balancer.
-func (o ManagedClusterLoadBalancerProfilePtrOutput) OutboundIPs() ManagedClusterLoadBalancerProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileProperties {
+func (o ManagedClusterLoadBalancerProfilePtrOutput) OutboundIPs() ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfile) *ManagedClusterLoadBalancerProfileOutboundIPs {
 		if v == nil {
 			return nil
 		}
 		return v.OutboundIPs
-	}).(ManagedClusterLoadBalancerProfilePropertiesPtrOutput)
+	}).(ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput)
 }
 
 // Desired managed outbound IPs for the cluster load balancer.
-type ManagedClusterLoadBalancerProfileProperties struct {
+type ManagedClusterLoadBalancerProfileManagedOutboundIPs struct {
 	// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 	Count *int `pulumi:"count"`
 }
 
-// ManagedClusterLoadBalancerProfilePropertiesInput is an input type that accepts ManagedClusterLoadBalancerProfilePropertiesArgs and ManagedClusterLoadBalancerProfilePropertiesOutput values.
-// You can construct a concrete instance of `ManagedClusterLoadBalancerProfilePropertiesInput` via:
+// ManagedClusterLoadBalancerProfileManagedOutboundIPsInput is an input type that accepts ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs and ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileManagedOutboundIPsInput` via:
 //
-//          ManagedClusterLoadBalancerProfilePropertiesArgs{...}
-type ManagedClusterLoadBalancerProfilePropertiesInput interface {
+//          ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs{...}
+type ManagedClusterLoadBalancerProfileManagedOutboundIPsInput interface {
 	pulumi.Input
 
-	ToManagedClusterLoadBalancerProfilePropertiesOutput() ManagedClusterLoadBalancerProfilePropertiesOutput
-	ToManagedClusterLoadBalancerProfilePropertiesOutputWithContext(context.Context) ManagedClusterLoadBalancerProfilePropertiesOutput
+	ToManagedClusterLoadBalancerProfileManagedOutboundIPsOutput() ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput
+	ToManagedClusterLoadBalancerProfileManagedOutboundIPsOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput
 }
 
 // Desired managed outbound IPs for the cluster load balancer.
-type ManagedClusterLoadBalancerProfilePropertiesArgs struct {
+type ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs struct {
 	// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 }
 
-func (ManagedClusterLoadBalancerProfilePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileProperties)(nil)).Elem()
+func (ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileManagedOutboundIPs)(nil)).Elem()
 }
 
-func (i ManagedClusterLoadBalancerProfilePropertiesArgs) ToManagedClusterLoadBalancerProfilePropertiesOutput() ManagedClusterLoadBalancerProfilePropertiesOutput {
-	return i.ToManagedClusterLoadBalancerProfilePropertiesOutputWithContext(context.Background())
+func (i ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileManagedOutboundIPsOutput() ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput {
+	return i.ToManagedClusterLoadBalancerProfileManagedOutboundIPsOutputWithContext(context.Background())
 }
 
-func (i ManagedClusterLoadBalancerProfilePropertiesArgs) ToManagedClusterLoadBalancerProfilePropertiesOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfilePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfilePropertiesOutput)
+func (i ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileManagedOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput)
 }
 
-func (i ManagedClusterLoadBalancerProfilePropertiesArgs) ToManagedClusterLoadBalancerProfilePropertiesPtrOutput() ManagedClusterLoadBalancerProfilePropertiesPtrOutput {
-	return i.ToManagedClusterLoadBalancerProfilePropertiesPtrOutputWithContext(context.Background())
+func (i ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutputWithContext(context.Background())
 }
 
-func (i ManagedClusterLoadBalancerProfilePropertiesArgs) ToManagedClusterLoadBalancerProfilePropertiesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfilePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfilePropertiesOutput).ToManagedClusterLoadBalancerProfilePropertiesPtrOutputWithContext(ctx)
+func (i ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput).ToManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutputWithContext(ctx)
 }
 
-// ManagedClusterLoadBalancerProfilePropertiesPtrInput is an input type that accepts ManagedClusterLoadBalancerProfilePropertiesArgs, ManagedClusterLoadBalancerProfilePropertiesPtr and ManagedClusterLoadBalancerProfilePropertiesPtrOutput values.
-// You can construct a concrete instance of `ManagedClusterLoadBalancerProfilePropertiesPtrInput` via:
+// ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrInput is an input type that accepts ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs, ManagedClusterLoadBalancerProfileManagedOutboundIPsPtr and ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrInput` via:
 //
-//          ManagedClusterLoadBalancerProfilePropertiesArgs{...}
+//          ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs{...}
 //
 //  or:
 //
 //          nil
-type ManagedClusterLoadBalancerProfilePropertiesPtrInput interface {
+type ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrInput interface {
 	pulumi.Input
 
-	ToManagedClusterLoadBalancerProfilePropertiesPtrOutput() ManagedClusterLoadBalancerProfilePropertiesPtrOutput
-	ToManagedClusterLoadBalancerProfilePropertiesPtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfilePropertiesPtrOutput
+	ToManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput
+	ToManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput
 }
 
-type managedClusterLoadBalancerProfilePropertiesPtrType ManagedClusterLoadBalancerProfilePropertiesArgs
+type managedClusterLoadBalancerProfileManagedOutboundIPsPtrType ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
 
-func ManagedClusterLoadBalancerProfilePropertiesPtr(v *ManagedClusterLoadBalancerProfilePropertiesArgs) ManagedClusterLoadBalancerProfilePropertiesPtrInput {
-	return (*managedClusterLoadBalancerProfilePropertiesPtrType)(v)
+func ManagedClusterLoadBalancerProfileManagedOutboundIPsPtr(v *ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs) ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrInput {
+	return (*managedClusterLoadBalancerProfileManagedOutboundIPsPtrType)(v)
 }
 
-func (*managedClusterLoadBalancerProfilePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileProperties)(nil)).Elem()
+func (*managedClusterLoadBalancerProfileManagedOutboundIPsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileManagedOutboundIPs)(nil)).Elem()
 }
 
-func (i *managedClusterLoadBalancerProfilePropertiesPtrType) ToManagedClusterLoadBalancerProfilePropertiesPtrOutput() ManagedClusterLoadBalancerProfilePropertiesPtrOutput {
-	return i.ToManagedClusterLoadBalancerProfilePropertiesPtrOutputWithContext(context.Background())
+func (i *managedClusterLoadBalancerProfileManagedOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutputWithContext(context.Background())
 }
 
-func (i *managedClusterLoadBalancerProfilePropertiesPtrType) ToManagedClusterLoadBalancerProfilePropertiesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfilePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfilePropertiesPtrOutput)
+func (i *managedClusterLoadBalancerProfileManagedOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput)
 }
 
 // Desired managed outbound IPs for the cluster load balancer.
-type ManagedClusterLoadBalancerProfilePropertiesOutput struct{ *pulumi.OutputState }
+type ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput struct{ *pulumi.OutputState }
 
-func (ManagedClusterLoadBalancerProfilePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileProperties)(nil)).Elem()
+func (ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileManagedOutboundIPs)(nil)).Elem()
 }
 
-func (o ManagedClusterLoadBalancerProfilePropertiesOutput) ToManagedClusterLoadBalancerProfilePropertiesOutput() ManagedClusterLoadBalancerProfilePropertiesOutput {
+func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileManagedOutboundIPsOutput() ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput {
 	return o
 }
 
-func (o ManagedClusterLoadBalancerProfilePropertiesOutput) ToManagedClusterLoadBalancerProfilePropertiesOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfilePropertiesOutput {
+func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileManagedOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput {
 	return o
 }
 
-func (o ManagedClusterLoadBalancerProfilePropertiesOutput) ToManagedClusterLoadBalancerProfilePropertiesPtrOutput() ManagedClusterLoadBalancerProfilePropertiesPtrOutput {
-	return o.ToManagedClusterLoadBalancerProfilePropertiesPtrOutputWithContext(context.Background())
+func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput {
+	return o.ToManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutputWithContext(context.Background())
 }
 
-func (o ManagedClusterLoadBalancerProfilePropertiesOutput) ToManagedClusterLoadBalancerProfilePropertiesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfilePropertiesPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileProperties) *ManagedClusterLoadBalancerProfileProperties {
+func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileManagedOutboundIPs) *ManagedClusterLoadBalancerProfileManagedOutboundIPs {
 		return &v
-	}).(ManagedClusterLoadBalancerProfilePropertiesPtrOutput)
+	}).(ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput)
 }
 
 // Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-func (o ManagedClusterLoadBalancerProfilePropertiesOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileProperties) *int { return v.Count }).(pulumi.IntPtrOutput)
+func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileManagedOutboundIPs) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-type ManagedClusterLoadBalancerProfilePropertiesPtrOutput struct{ *pulumi.OutputState }
+type ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput struct{ *pulumi.OutputState }
 
-func (ManagedClusterLoadBalancerProfilePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileProperties)(nil)).Elem()
+func (ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileManagedOutboundIPs)(nil)).Elem()
 }
 
-func (o ManagedClusterLoadBalancerProfilePropertiesPtrOutput) ToManagedClusterLoadBalancerProfilePropertiesPtrOutput() ManagedClusterLoadBalancerProfilePropertiesPtrOutput {
+func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput) ToManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput {
 	return o
 }
 
-func (o ManagedClusterLoadBalancerProfilePropertiesPtrOutput) ToManagedClusterLoadBalancerProfilePropertiesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfilePropertiesPtrOutput {
+func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput) ToManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput {
 	return o
 }
 
-func (o ManagedClusterLoadBalancerProfilePropertiesPtrOutput) Elem() ManagedClusterLoadBalancerProfilePropertiesOutput {
-	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileProperties) ManagedClusterLoadBalancerProfileProperties {
+func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput) Elem() ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileManagedOutboundIPs) ManagedClusterLoadBalancerProfileManagedOutboundIPs {
 		return *v
-	}).(ManagedClusterLoadBalancerProfilePropertiesOutput)
+	}).(ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput)
 }
 
 // Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-func (o ManagedClusterLoadBalancerProfilePropertiesPtrOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileProperties) *int {
+func (o ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileManagedOutboundIPs) *int {
 		if v == nil {
 			return nil
 		}
@@ -4145,16 +3972,290 @@ func (o ManagedClusterLoadBalancerProfilePropertiesPtrOutput) Count() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
+// Desired outbound IP Prefix resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileOutboundIPPrefixes struct {
+	// A list of public IP prefix resources.
+	PublicIPPrefixes []ResourceReference `pulumi:"publicIPPrefixes"`
+}
+
+// ManagedClusterLoadBalancerProfileOutboundIPPrefixesInput is an input type that accepts ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs and ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileOutboundIPPrefixesInput` via:
+//
+//          ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs{...}
+type ManagedClusterLoadBalancerProfileOutboundIPPrefixesInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput() ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput
+	ToManagedClusterLoadBalancerProfileOutboundIPPrefixesOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput
+}
+
+// Desired outbound IP Prefix resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs struct {
+	// A list of public IP prefix resources.
+	PublicIPPrefixes ResourceReferenceArrayInput `pulumi:"publicIPPrefixes"`
+}
+
+func (ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileOutboundIPPrefixes)(nil)).Elem()
+}
+
+func (i ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput() ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput {
+	return i.ToManagedClusterLoadBalancerProfileOutboundIPPrefixesOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileOutboundIPPrefixesOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput)
+}
+
+func (i ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput).ToManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutputWithContext(ctx)
+}
+
+// ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrInput is an input type that accepts ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs, ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtr and ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrInput` via:
+//
+//          ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput
+	ToManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput
+}
+
+type managedClusterLoadBalancerProfileOutboundIPPrefixesPtrType ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs
+
+func ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtr(v *ManagedClusterLoadBalancerProfileOutboundIPPrefixesArgs) ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrInput {
+	return (*managedClusterLoadBalancerProfileOutboundIPPrefixesPtrType)(v)
+}
+
+func (*managedClusterLoadBalancerProfileOutboundIPPrefixesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileOutboundIPPrefixes)(nil)).Elem()
+}
+
+func (i *managedClusterLoadBalancerProfileOutboundIPPrefixesPtrType) ToManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterLoadBalancerProfileOutboundIPPrefixesPtrType) ToManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput)
+}
+
+// Desired outbound IP Prefix resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileOutboundIPPrefixes)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput() ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileOutboundIPPrefixesOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput {
+	return o.ToManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileOutboundIPPrefixes) *ManagedClusterLoadBalancerProfileOutboundIPPrefixes {
+		return &v
+	}).(ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput)
+}
+
+// A list of public IP prefix resources.
+func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput) PublicIPPrefixes() ResourceReferenceArrayOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileOutboundIPPrefixes) []ResourceReference {
+		return v.PublicIPPrefixes
+	}).(ResourceReferenceArrayOutput)
+}
+
+type ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileOutboundIPPrefixes)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput) ToManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput) ToManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput) Elem() ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileOutboundIPPrefixes) ManagedClusterLoadBalancerProfileOutboundIPPrefixes {
+		return *v
+	}).(ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput)
+}
+
+// A list of public IP prefix resources.
+func (o ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput) PublicIPPrefixes() ResourceReferenceArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileOutboundIPPrefixes) []ResourceReference {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIPPrefixes
+	}).(ResourceReferenceArrayOutput)
+}
+
+// Desired outbound IP resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileOutboundIPs struct {
+	// A list of public IP resources.
+	PublicIPs []ResourceReference `pulumi:"publicIPs"`
+}
+
+// ManagedClusterLoadBalancerProfileOutboundIPsInput is an input type that accepts ManagedClusterLoadBalancerProfileOutboundIPsArgs and ManagedClusterLoadBalancerProfileOutboundIPsOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileOutboundIPsInput` via:
+//
+//          ManagedClusterLoadBalancerProfileOutboundIPsArgs{...}
+type ManagedClusterLoadBalancerProfileOutboundIPsInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileOutboundIPsOutput() ManagedClusterLoadBalancerProfileOutboundIPsOutput
+	ToManagedClusterLoadBalancerProfileOutboundIPsOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileOutboundIPsOutput
+}
+
+// Desired outbound IP resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileOutboundIPsArgs struct {
+	// A list of public IP resources.
+	PublicIPs ResourceReferenceArrayInput `pulumi:"publicIPs"`
+}
+
+func (ManagedClusterLoadBalancerProfileOutboundIPsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileOutboundIPs)(nil)).Elem()
+}
+
+func (i ManagedClusterLoadBalancerProfileOutboundIPsArgs) ToManagedClusterLoadBalancerProfileOutboundIPsOutput() ManagedClusterLoadBalancerProfileOutboundIPsOutput {
+	return i.ToManagedClusterLoadBalancerProfileOutboundIPsOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileOutboundIPsArgs) ToManagedClusterLoadBalancerProfileOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileOutboundIPsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileOutboundIPsOutput)
+}
+
+func (i ManagedClusterLoadBalancerProfileOutboundIPsArgs) ToManagedClusterLoadBalancerProfileOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileOutboundIPsArgs) ToManagedClusterLoadBalancerProfileOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileOutboundIPsOutput).ToManagedClusterLoadBalancerProfileOutboundIPsPtrOutputWithContext(ctx)
+}
+
+// ManagedClusterLoadBalancerProfileOutboundIPsPtrInput is an input type that accepts ManagedClusterLoadBalancerProfileOutboundIPsArgs, ManagedClusterLoadBalancerProfileOutboundIPsPtr and ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileOutboundIPsPtrInput` via:
+//
+//          ManagedClusterLoadBalancerProfileOutboundIPsArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterLoadBalancerProfileOutboundIPsPtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput
+	ToManagedClusterLoadBalancerProfileOutboundIPsPtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput
+}
+
+type managedClusterLoadBalancerProfileOutboundIPsPtrType ManagedClusterLoadBalancerProfileOutboundIPsArgs
+
+func ManagedClusterLoadBalancerProfileOutboundIPsPtr(v *ManagedClusterLoadBalancerProfileOutboundIPsArgs) ManagedClusterLoadBalancerProfileOutboundIPsPtrInput {
+	return (*managedClusterLoadBalancerProfileOutboundIPsPtrType)(v)
+}
+
+func (*managedClusterLoadBalancerProfileOutboundIPsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileOutboundIPs)(nil)).Elem()
+}
+
+func (i *managedClusterLoadBalancerProfileOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterLoadBalancerProfileOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput)
+}
+
+// Desired outbound IP resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileOutboundIPsOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileOutboundIPsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileOutboundIPs)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileOutboundIPsOutput) ToManagedClusterLoadBalancerProfileOutboundIPsOutput() ManagedClusterLoadBalancerProfileOutboundIPsOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileOutboundIPsOutput) ToManagedClusterLoadBalancerProfileOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileOutboundIPsOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileOutboundIPsOutput) ToManagedClusterLoadBalancerProfileOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput {
+	return o.ToManagedClusterLoadBalancerProfileOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterLoadBalancerProfileOutboundIPsOutput) ToManagedClusterLoadBalancerProfileOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileOutboundIPs) *ManagedClusterLoadBalancerProfileOutboundIPs {
+		return &v
+	}).(ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput)
+}
+
+// A list of public IP resources.
+func (o ManagedClusterLoadBalancerProfileOutboundIPsOutput) PublicIPs() ResourceReferenceArrayOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileOutboundIPs) []ResourceReference { return v.PublicIPs }).(ResourceReferenceArrayOutput)
+}
+
+type ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileOutboundIPs)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput) ToManagedClusterLoadBalancerProfileOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput) ToManagedClusterLoadBalancerProfileOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput) Elem() ManagedClusterLoadBalancerProfileOutboundIPsOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileOutboundIPs) ManagedClusterLoadBalancerProfileOutboundIPs {
+		return *v
+	}).(ManagedClusterLoadBalancerProfileOutboundIPsOutput)
+}
+
+// A list of public IP resources.
+func (o ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput) PublicIPs() ResourceReferenceArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileOutboundIPs) []ResourceReference {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIPs
+	}).(ResourceReferenceArrayOutput)
+}
+
 // Profile of the managed cluster load balancer
 type ManagedClusterLoadBalancerProfileResponse struct {
 	// The effective outbound IP resources of the cluster load balancer.
 	EffectiveOutboundIPs []ResourceReferenceResponse `pulumi:"effectiveOutboundIPs"`
 	// Desired managed outbound IPs for the cluster load balancer.
-	ManagedOutboundIPs *ManagedClusterLoadBalancerProfileResponseProperties `pulumi:"managedOutboundIPs"`
+	ManagedOutboundIPs *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs `pulumi:"managedOutboundIPs"`
 	// Desired outbound IP Prefix resources for the cluster load balancer.
-	OutboundIPPrefixes *ManagedClusterLoadBalancerProfileResponseProperties `pulumi:"outboundIPPrefixes"`
+	OutboundIPPrefixes *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes `pulumi:"outboundIPPrefixes"`
 	// Desired outbound IP resources for the cluster load balancer.
-	OutboundIPs *ManagedClusterLoadBalancerProfileResponseProperties `pulumi:"outboundIPs"`
+	OutboundIPs *ManagedClusterLoadBalancerProfileResponseOutboundIPs `pulumi:"outboundIPs"`
 }
 
 // ManagedClusterLoadBalancerProfileResponseInput is an input type that accepts ManagedClusterLoadBalancerProfileResponseArgs and ManagedClusterLoadBalancerProfileResponseOutput values.
@@ -4173,11 +4274,11 @@ type ManagedClusterLoadBalancerProfileResponseArgs struct {
 	// The effective outbound IP resources of the cluster load balancer.
 	EffectiveOutboundIPs ResourceReferenceResponseArrayInput `pulumi:"effectiveOutboundIPs"`
 	// Desired managed outbound IPs for the cluster load balancer.
-	ManagedOutboundIPs ManagedClusterLoadBalancerProfileResponsePropertiesPtrInput `pulumi:"managedOutboundIPs"`
+	ManagedOutboundIPs ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrInput `pulumi:"managedOutboundIPs"`
 	// Desired outbound IP Prefix resources for the cluster load balancer.
-	OutboundIPPrefixes ManagedClusterLoadBalancerProfileResponsePropertiesPtrInput `pulumi:"outboundIPPrefixes"`
+	OutboundIPPrefixes ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrInput `pulumi:"outboundIPPrefixes"`
 	// Desired outbound IP resources for the cluster load balancer.
-	OutboundIPs ManagedClusterLoadBalancerProfileResponsePropertiesPtrInput `pulumi:"outboundIPs"`
+	OutboundIPs ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrInput `pulumi:"outboundIPs"`
 }
 
 func (ManagedClusterLoadBalancerProfileResponseArgs) ElementType() reflect.Type {
@@ -4266,24 +4367,24 @@ func (o ManagedClusterLoadBalancerProfileResponseOutput) EffectiveOutboundIPs() 
 }
 
 // Desired managed outbound IPs for the cluster load balancer.
-func (o ManagedClusterLoadBalancerProfileResponseOutput) ManagedOutboundIPs() ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseProperties {
+func (o ManagedClusterLoadBalancerProfileResponseOutput) ManagedOutboundIPs() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs {
 		return v.ManagedOutboundIPs
-	}).(ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput)
+	}).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput)
 }
 
 // Desired outbound IP Prefix resources for the cluster load balancer.
-func (o ManagedClusterLoadBalancerProfileResponseOutput) OutboundIPPrefixes() ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseProperties {
+func (o ManagedClusterLoadBalancerProfileResponseOutput) OutboundIPPrefixes() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes {
 		return v.OutboundIPPrefixes
-	}).(ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput)
+	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput)
 }
 
 // Desired outbound IP resources for the cluster load balancer.
-func (o ManagedClusterLoadBalancerProfileResponseOutput) OutboundIPs() ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseProperties {
+func (o ManagedClusterLoadBalancerProfileResponseOutput) OutboundIPs() ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseOutboundIPs {
 		return v.OutboundIPs
-	}).(ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput)
+	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput)
 }
 
 type ManagedClusterLoadBalancerProfileResponsePtrOutput struct{ *pulumi.OutputState }
@@ -4317,169 +4418,445 @@ func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) EffectiveOutboundIPs
 }
 
 // Desired managed outbound IPs for the cluster load balancer.
-func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) ManagedOutboundIPs() ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseProperties {
+func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) ManagedOutboundIPs() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs {
 		if v == nil {
 			return nil
 		}
 		return v.ManagedOutboundIPs
-	}).(ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput)
+	}).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput)
 }
 
 // Desired outbound IP Prefix resources for the cluster load balancer.
-func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) OutboundIPPrefixes() ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseProperties {
+func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) OutboundIPPrefixes() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes {
 		if v == nil {
 			return nil
 		}
 		return v.OutboundIPPrefixes
-	}).(ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput)
+	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput)
 }
 
 // Desired outbound IP resources for the cluster load balancer.
-func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) OutboundIPs() ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseProperties {
+func (o ManagedClusterLoadBalancerProfileResponsePtrOutput) OutboundIPs() ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponse) *ManagedClusterLoadBalancerProfileResponseOutboundIPs {
 		if v == nil {
 			return nil
 		}
 		return v.OutboundIPs
-	}).(ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput)
+	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput)
 }
 
 // Desired managed outbound IPs for the cluster load balancer.
-type ManagedClusterLoadBalancerProfileResponseProperties struct {
+type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs struct {
 	// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 	Count *int `pulumi:"count"`
 }
 
-// ManagedClusterLoadBalancerProfileResponsePropertiesInput is an input type that accepts ManagedClusterLoadBalancerProfileResponsePropertiesArgs and ManagedClusterLoadBalancerProfileResponsePropertiesOutput values.
-// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileResponsePropertiesInput` via:
+// ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsInput is an input type that accepts ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs and ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsInput` via:
 //
-//          ManagedClusterLoadBalancerProfileResponsePropertiesArgs{...}
-type ManagedClusterLoadBalancerProfileResponsePropertiesInput interface {
+//          ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs{...}
+type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsInput interface {
 	pulumi.Input
 
-	ToManagedClusterLoadBalancerProfileResponsePropertiesOutput() ManagedClusterLoadBalancerProfileResponsePropertiesOutput
-	ToManagedClusterLoadBalancerProfileResponsePropertiesOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponsePropertiesOutput
+	ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput
+	ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput
 }
 
 // Desired managed outbound IPs for the cluster load balancer.
-type ManagedClusterLoadBalancerProfileResponsePropertiesArgs struct {
+type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs struct {
 	// Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
 	Count pulumi.IntPtrInput `pulumi:"count"`
 }
 
-func (ManagedClusterLoadBalancerProfileResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileResponseProperties)(nil)).Elem()
+func (ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs)(nil)).Elem()
 }
 
-func (i ManagedClusterLoadBalancerProfileResponsePropertiesArgs) ToManagedClusterLoadBalancerProfileResponsePropertiesOutput() ManagedClusterLoadBalancerProfileResponsePropertiesOutput {
-	return i.ToManagedClusterLoadBalancerProfileResponsePropertiesOutputWithContext(context.Background())
+func (i ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput {
+	return i.ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutputWithContext(context.Background())
 }
 
-func (i ManagedClusterLoadBalancerProfileResponsePropertiesArgs) ToManagedClusterLoadBalancerProfileResponsePropertiesOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponsePropertiesOutput)
+func (i ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput)
 }
 
-func (i ManagedClusterLoadBalancerProfileResponsePropertiesArgs) ToManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput() ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput {
-	return i.ToManagedClusterLoadBalancerProfileResponsePropertiesPtrOutputWithContext(context.Background())
+func (i ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(context.Background())
 }
 
-func (i ManagedClusterLoadBalancerProfileResponsePropertiesArgs) ToManagedClusterLoadBalancerProfileResponsePropertiesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponsePropertiesOutput).ToManagedClusterLoadBalancerProfileResponsePropertiesPtrOutputWithContext(ctx)
+func (i ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput).ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(ctx)
 }
 
-// ManagedClusterLoadBalancerProfileResponsePropertiesPtrInput is an input type that accepts ManagedClusterLoadBalancerProfileResponsePropertiesArgs, ManagedClusterLoadBalancerProfileResponsePropertiesPtr and ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileResponsePropertiesPtrInput` via:
+// ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrInput is an input type that accepts ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs, ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtr and ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrInput` via:
 //
-//          ManagedClusterLoadBalancerProfileResponsePropertiesArgs{...}
+//          ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs{...}
 //
 //  or:
 //
 //          nil
-type ManagedClusterLoadBalancerProfileResponsePropertiesPtrInput interface {
+type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrInput interface {
 	pulumi.Input
 
-	ToManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput() ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput
-	ToManagedClusterLoadBalancerProfileResponsePropertiesPtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput
+	ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput
+	ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput
 }
 
-type managedClusterLoadBalancerProfileResponsePropertiesPtrType ManagedClusterLoadBalancerProfileResponsePropertiesArgs
+type managedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrType ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs
 
-func ManagedClusterLoadBalancerProfileResponsePropertiesPtr(v *ManagedClusterLoadBalancerProfileResponsePropertiesArgs) ManagedClusterLoadBalancerProfileResponsePropertiesPtrInput {
-	return (*managedClusterLoadBalancerProfileResponsePropertiesPtrType)(v)
+func ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtr(v *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsArgs) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrInput {
+	return (*managedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrType)(v)
 }
 
-func (*managedClusterLoadBalancerProfileResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileResponseProperties)(nil)).Elem()
+func (*managedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs)(nil)).Elem()
 }
 
-func (i *managedClusterLoadBalancerProfileResponsePropertiesPtrType) ToManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput() ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput {
-	return i.ToManagedClusterLoadBalancerProfileResponsePropertiesPtrOutputWithContext(context.Background())
+func (i *managedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(context.Background())
 }
 
-func (i *managedClusterLoadBalancerProfileResponsePropertiesPtrType) ToManagedClusterLoadBalancerProfileResponsePropertiesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput)
+func (i *managedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput)
 }
 
 // Desired managed outbound IPs for the cluster load balancer.
-type ManagedClusterLoadBalancerProfileResponsePropertiesOutput struct{ *pulumi.OutputState }
+type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput struct{ *pulumi.OutputState }
 
-func (ManagedClusterLoadBalancerProfileResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileResponseProperties)(nil)).Elem()
+func (ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs)(nil)).Elem()
 }
 
-func (o ManagedClusterLoadBalancerProfileResponsePropertiesOutput) ToManagedClusterLoadBalancerProfileResponsePropertiesOutput() ManagedClusterLoadBalancerProfileResponsePropertiesOutput {
+func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput {
 	return o
 }
 
-func (o ManagedClusterLoadBalancerProfileResponsePropertiesOutput) ToManagedClusterLoadBalancerProfileResponsePropertiesOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponsePropertiesOutput {
+func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput {
 	return o
 }
 
-func (o ManagedClusterLoadBalancerProfileResponsePropertiesOutput) ToManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput() ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput {
-	return o.ToManagedClusterLoadBalancerProfileResponsePropertiesPtrOutputWithContext(context.Background())
+func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
+	return o.ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(context.Background())
 }
 
-func (o ManagedClusterLoadBalancerProfileResponsePropertiesOutput) ToManagedClusterLoadBalancerProfileResponsePropertiesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponseProperties) *ManagedClusterLoadBalancerProfileResponseProperties {
+func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs) *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs {
 		return &v
-	}).(ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput)
+	}).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput)
 }
 
 // Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-func (o ManagedClusterLoadBalancerProfileResponsePropertiesOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponseProperties) *int { return v.Count }).(pulumi.IntPtrOutput)
+func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-type ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+type ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput struct{ *pulumi.OutputState }
 
-func (ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileResponseProperties)(nil)).Elem()
+func (ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs)(nil)).Elem()
 }
 
-func (o ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput) ToManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput() ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput {
+func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
 	return o
 }
 
-func (o ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput) ToManagedClusterLoadBalancerProfileResponsePropertiesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput {
+func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput) ToManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput {
 	return o
 }
 
-func (o ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput) Elem() ManagedClusterLoadBalancerProfileResponsePropertiesOutput {
-	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponseProperties) ManagedClusterLoadBalancerProfileResponseProperties {
+func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput) Elem() ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs) ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs {
 		return *v
-	}).(ManagedClusterLoadBalancerProfileResponsePropertiesOutput)
+	}).(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput)
 }
 
 // Desired number of outbound IP created/managed by Azure for the cluster load balancer. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
-func (o ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponseProperties) *int {
+func (o ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs) *int {
 		if v == nil {
 			return nil
 		}
 		return v.Count
 	}).(pulumi.IntPtrOutput)
+}
+
+// Desired outbound IP Prefix resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes struct {
+	// A list of public IP prefix resources.
+	PublicIPPrefixes []ResourceReferenceResponse `pulumi:"publicIPPrefixes"`
+}
+
+// ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesInput is an input type that accepts ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs and ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesInput` via:
+//
+//          ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs{...}
+type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput
+	ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput
+}
+
+// Desired outbound IP Prefix resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs struct {
+	// A list of public IP prefix resources.
+	PublicIPPrefixes ResourceReferenceResponseArrayInput `pulumi:"publicIPPrefixes"`
+}
+
+func (ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes)(nil)).Elem()
+}
+
+func (i ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput {
+	return i.ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput)
+}
+
+func (i ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput).ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(ctx)
+}
+
+// ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrInput is an input type that accepts ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs, ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtr and ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrInput` via:
+//
+//          ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput
+	ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput
+}
+
+type managedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrType ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs
+
+func ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtr(v *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesArgs) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrInput {
+	return (*managedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrType)(v)
+}
+
+func (*managedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes)(nil)).Elem()
+}
+
+func (i *managedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrType) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrType) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput)
+}
+
+// Desired outbound IP Prefix resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
+	return o.ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes) *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes {
+		return &v
+	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput)
+}
+
+// A list of public IP prefix resources.
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput) PublicIPPrefixes() ResourceReferenceResponseArrayOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes) []ResourceReferenceResponse {
+		return v.PublicIPPrefixes
+	}).(ResourceReferenceResponseArrayOutput)
+}
+
+type ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput) Elem() ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes) ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes {
+		return *v
+	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput)
+}
+
+// A list of public IP prefix resources.
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput) PublicIPPrefixes() ResourceReferenceResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes) []ResourceReferenceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIPPrefixes
+	}).(ResourceReferenceResponseArrayOutput)
+}
+
+// Desired outbound IP resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileResponseOutboundIPs struct {
+	// A list of public IP resources.
+	PublicIPs []ResourceReferenceResponse `pulumi:"publicIPs"`
+}
+
+// ManagedClusterLoadBalancerProfileResponseOutboundIPsInput is an input type that accepts ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs and ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileResponseOutboundIPsInput` via:
+//
+//          ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs{...}
+type ManagedClusterLoadBalancerProfileResponseOutboundIPsInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileResponseOutboundIPsOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput
+	ToManagedClusterLoadBalancerProfileResponseOutboundIPsOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput
+}
+
+// Desired outbound IP resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs struct {
+	// A list of public IP resources.
+	PublicIPs ResourceReferenceResponseArrayInput `pulumi:"publicIPs"`
+}
+
+func (ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileResponseOutboundIPs)(nil)).Elem()
+}
+
+func (i ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPsOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput {
+	return i.ToManagedClusterLoadBalancerProfileResponseOutboundIPsOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput)
+}
+
+func (i ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (i ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs) ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput).ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(ctx)
+}
+
+// ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrInput is an input type that accepts ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs, ManagedClusterLoadBalancerProfileResponseOutboundIPsPtr and ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput values.
+// You can construct a concrete instance of `ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrInput` via:
+//
+//          ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs{...}
+//
+//  or:
+//
+//          nil
+type ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrInput interface {
+	pulumi.Input
+
+	ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput
+	ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput
+}
+
+type managedClusterLoadBalancerProfileResponseOutboundIPsPtrType ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs
+
+func ManagedClusterLoadBalancerProfileResponseOutboundIPsPtr(v *ManagedClusterLoadBalancerProfileResponseOutboundIPsArgs) ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrInput {
+	return (*managedClusterLoadBalancerProfileResponseOutboundIPsPtrType)(v)
+}
+
+func (*managedClusterLoadBalancerProfileResponseOutboundIPsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileResponseOutboundIPs)(nil)).Elem()
+}
+
+func (i *managedClusterLoadBalancerProfileResponseOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
+	return i.ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (i *managedClusterLoadBalancerProfileResponseOutboundIPsPtrType) ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput)
+}
+
+// Desired outbound IP resources for the cluster load balancer.
+type ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ManagedClusterLoadBalancerProfileResponseOutboundIPs)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPsOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPsOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
+	return o.ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(context.Background())
+}
+
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponseOutboundIPs) *ManagedClusterLoadBalancerProfileResponseOutboundIPs {
+		return &v
+	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput)
+}
+
+// A list of public IP resources.
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput) PublicIPs() ResourceReferenceResponseArrayOutput {
+	return o.ApplyT(func(v ManagedClusterLoadBalancerProfileResponseOutboundIPs) []ResourceReferenceResponse {
+		return v.PublicIPs
+	}).(ResourceReferenceResponseArrayOutput)
+}
+
+type ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput struct{ *pulumi.OutputState }
+
+func (ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ManagedClusterLoadBalancerProfileResponseOutboundIPs)(nil)).Elem()
+}
+
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput() ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput) ToManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutputWithContext(ctx context.Context) ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput {
+	return o
+}
+
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput) Elem() ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponseOutboundIPs) ManagedClusterLoadBalancerProfileResponseOutboundIPs {
+		return *v
+	}).(ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput)
+}
+
+// A list of public IP resources.
+func (o ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput) PublicIPs() ResourceReferenceResponseArrayOutput {
+	return o.ApplyT(func(v *ManagedClusterLoadBalancerProfileResponseOutboundIPs) []ResourceReferenceResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PublicIPs
+	}).(ResourceReferenceResponseArrayOutput)
 }
 
 // Properties of the managed cluster.
@@ -5748,7 +6125,6 @@ func (o ResourceReferenceResponseArrayOutput) Index(i pulumi.IntInput) ResourceR
 
 func init() {
 	pulumi.RegisterOutputType(AccessProfileResponseOutput{})
-	pulumi.RegisterOutputType(AgentPoolTypeOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfileOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfilePtrOutput{})
 	pulumi.RegisterOutputType(ContainerServiceLinuxProfileResponseOutput{})
@@ -5767,7 +6143,6 @@ func init() {
 	pulumi.RegisterOutputType(ContainerServiceSshPublicKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseOutput{})
 	pulumi.RegisterOutputType(CredentialResultResponseArrayOutput{})
-	pulumi.RegisterOutputType(ManagedClusterTypeOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfilePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterAADProfileResponseOutput{})
@@ -5792,12 +6167,20 @@ func init() {
 	pulumi.RegisterOutputType(ManagedClusterIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfilePtrOutput{})
-	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfilePropertiesOutput{})
-	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfilePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileManagedOutboundIPsOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileManagedOutboundIPsPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileOutboundIPPrefixesOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileOutboundIPPrefixesPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileOutboundIPsOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileOutboundIPsPtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponseManagedOutboundIPsPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixesPtrOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponseOutboundIPsOutput{})
+	pulumi.RegisterOutputType(ManagedClusterLoadBalancerProfileResponseOutboundIPsPtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ManagedClusterPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedClusterServicePrincipalProfileOutput{})

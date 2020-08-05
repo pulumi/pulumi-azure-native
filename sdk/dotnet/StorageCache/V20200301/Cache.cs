@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         /// SKU for the Cache.
         /// </summary>
         [Output("sku")]
-        public Output<Outputs.CacheResponsePropertiesResult?> Sku { get; private set; } = null!;
+        public Output<Outputs.CacheResponseSkuResult?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// ARM tags as name/value pairs.
@@ -159,7 +159,7 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
         /// SKU for the Cache.
         /// </summary>
         [Input("sku")]
-        public Input<Inputs.CachePropertiesArgs>? Sku { get; set; }
+        public Input<Inputs.CacheSkuArgs>? Sku { get; set; }
 
         /// <summary>
         /// Subnet used for the Cache.
@@ -178,12 +178,6 @@ namespace Pulumi.AzureRM.StorageCache.V20200301
             get => _tags ?? (_tags = new InputMap<object>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Upgrade status of the Cache.
-        /// </summary>
-        [Input("upgradeStatus")]
-        public Input<Inputs.CacheUpgradeStatusArgs>? UpgradeStatus { get; set; }
 
         public CacheArgs()
         {

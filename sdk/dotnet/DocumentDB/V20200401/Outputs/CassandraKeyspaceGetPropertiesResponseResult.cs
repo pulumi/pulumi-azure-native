@@ -13,14 +13,14 @@ namespace Pulumi.AzureRM.DocumentDB.V20200401.Outputs
     [OutputType]
     public sealed class CassandraKeyspaceGetPropertiesResponseResult
     {
-        public readonly ImmutableDictionary<string, object>? Options;
-        public readonly ImmutableDictionary<string, object>? Resource;
+        public readonly Outputs.CassandraKeyspaceGetPropertiesResponseOptionsResult? Options;
+        public readonly Outputs.CassandraKeyspaceGetPropertiesResponseResourceResult? Resource;
 
         [OutputConstructor]
         private CassandraKeyspaceGetPropertiesResponseResult(
-            ImmutableDictionary<string, object>? options,
+            Outputs.CassandraKeyspaceGetPropertiesResponseOptionsResult? options,
 
-            ImmutableDictionary<string, object>? resource)
+            Outputs.CassandraKeyspaceGetPropertiesResponseResourceResult? resource)
         {
             Options = options;
             Resource = resource;

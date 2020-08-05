@@ -25,7 +25,10 @@ class Service(pulumi.CustomResource):
     properties: pulumi.Output[dict]
     """
     The service resource properties.
-      * `correlation_scheme` (`dict`) - A list that describes the correlation of the service with other services.
+      * `correlation_scheme` (`list`) - A list that describes the correlation of the service with other services.
+        * `scheme` (`str`) - The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
+        * `service_name` (`str`) - The name of the service that the correlation relationship is established with.
+
       * `default_move_cost` (`str`) - Specifies the move cost for the service.
       * `partition_description` (`dict`) - Describes how the service is partitioned.
         * `partition_scheme` (`str`) - Specifies how the service is partitioned.
@@ -34,9 +37,17 @@ class Service(pulumi.CustomResource):
       * `provisioning_state` (`str`) - The current deployment or provisioning state, which only appears in the response
       * `service_dns_name` (`str`) - Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
       * `service_kind` (`str`) - The kind of service (Stateless or Stateful).
-      * `service_load_metrics` (`dict`) - The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+      * `service_load_metrics` (`list`) - The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+        * `default_load` (`float`) - Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
+        * `name` (`str`) - The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
+        * `primary_default_load` (`float`) - Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
+        * `secondary_default_load` (`float`) - Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
+        * `weight` (`str`) - The service load metric relative weight, compared to other metrics configured for this service, as a number.
+
       * `service_package_activation_mode` (`str`) - The activation Mode of the service package
-      * `service_placement_policies` (`dict`) - A list that describes the correlation of the service with other services.
+      * `service_placement_policies` (`list`) - A list that describes the correlation of the service with other services.
+        * `type` (`str`) - The type of placement policy for a service fabric service. Following are the possible values.
+
       * `service_type_name` (`str`) - The name of the service type
     """
     tags: pulumi.Output[dict]
@@ -55,7 +66,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The name of the application resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster resource.
-        :param pulumi.Input[dict] correlation_scheme: A list that describes the correlation of the service with other services.
+        :param pulumi.Input[list] correlation_scheme: A list that describes the correlation of the service with other services.
         :param pulumi.Input[str] default_move_cost: Specifies the move cost for the service.
         :param pulumi.Input[str] location: It will be deprecated in New API, resource location depends on the parent resource.
         :param pulumi.Input[str] name: The name of the service resource in the format of {applicationName}~{serviceName}.
@@ -64,15 +75,32 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_dns_name: Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.
         :param pulumi.Input[str] service_kind: The kind of service (Stateless or Stateful).
-        :param pulumi.Input[dict] service_load_metrics: The service load metrics is given as an array of ServiceLoadMetricDescription objects.
+        :param pulumi.Input[list] service_load_metrics: The service load metrics is given as an array of ServiceLoadMetricDescription objects.
         :param pulumi.Input[str] service_package_activation_mode: The activation Mode of the service package
-        :param pulumi.Input[dict] service_placement_policies: A list that describes the correlation of the service with other services.
+        :param pulumi.Input[list] service_placement_policies: A list that describes the correlation of the service with other services.
         :param pulumi.Input[str] service_type_name: The name of the service type
         :param pulumi.Input[dict] tags: Azure resource tags.
+
+        The **correlation_scheme** object supports the following:
+
+          * `scheme` (`pulumi.Input[str]`) - The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
+          * `service_name` (`pulumi.Input[str]`) - The name of the service that the correlation relationship is established with.
 
         The **partition_description** object supports the following:
 
           * `partition_scheme` (`pulumi.Input[str]`) - Specifies how the service is partitioned.
+
+        The **service_load_metrics** object supports the following:
+
+          * `default_load` (`pulumi.Input[float]`) - Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
+          * `name` (`pulumi.Input[str]`) - The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
+          * `primary_default_load` (`pulumi.Input[float]`) - Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
+          * `secondary_default_load` (`pulumi.Input[float]`) - Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
+          * `weight` (`pulumi.Input[str]`) - The service load metric relative weight, compared to other metrics configured for this service, as a number.
+
+        The **service_placement_policies** object supports the following:
+
+          * `type` (`pulumi.Input[str]`) - The type of placement policy for a service fabric service. Following are the possible values.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

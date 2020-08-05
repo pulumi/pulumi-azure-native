@@ -33,11 +33,17 @@ namespace Pulumi.AzureRM.Logic.V20160601.Inputs
         [Input("contentVersion")]
         public Input<string>? ContentVersion { get; set; }
 
+        [Input("metadata")]
+        private InputMap<object>? _metadata;
+
         /// <summary>
         /// The metadata.
         /// </summary>
-        [Input("metadata")]
-        public Input<Inputs.ObjectArgs>? Metadata { get; set; }
+        public InputMap<object> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<object>());
+            set => _metadata = value;
+        }
 
         /// <summary>
         /// The content link URI.

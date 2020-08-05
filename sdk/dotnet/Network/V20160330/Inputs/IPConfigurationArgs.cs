@@ -61,7 +61,7 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
         /// Gets or sets the reference of the subnet resource
         /// </summary>
         [Input("subnet")]
-        public Input<Inputs.SubnetDefinitionArgs>? Subnet { get; set; }
+        public Input<Inputs.SubnetArgs>? Subnet { get; set; }
 
         public IPConfigurationArgs()
         {

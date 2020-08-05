@@ -80,7 +80,6 @@ export class Gallery extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["description"] = args ? args.description : undefined;
-            inputs["identifier"] = args ? args.identifier : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -107,10 +106,6 @@ export interface GalleryArgs {
      * The description of this Shared Image Gallery resource. This property is updatable.
      */
     readonly description?: pulumi.Input<string>;
-    /**
-     * Describes the gallery unique name.
-     */
-    readonly identifier?: pulumi.Input<inputs.compute.v20190701.GalleryIdentifier>;
     /**
      * Resource location
      */

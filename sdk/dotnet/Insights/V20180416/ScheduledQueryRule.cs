@@ -90,12 +90,6 @@ namespace Pulumi.AzureRM.Insights.V20180416
     public sealed class ScheduledQueryRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Action needs to be taken on rule execution.
-        /// </summary>
-        [Input("action", required: true)]
-        public Input<Inputs.ActionArgs> Action { get; set; } = null!;
-
-        /// <summary>
         /// The description of the Log Search rule.
         /// </summary>
         [Input("description")]

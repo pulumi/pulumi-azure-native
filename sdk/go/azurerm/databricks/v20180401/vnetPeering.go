@@ -93,13 +93,13 @@ type vnetPeeringArgs struct {
 	// The reference to the databricks virtual network address space.
 	DatabricksAddressSpace *AddressSpace `pulumi:"databricksAddressSpace"`
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-	DatabricksVirtualNetwork *VirtualNetworkPeeringPropertiesFormatProperties `pulumi:"databricksVirtualNetwork"`
+	DatabricksVirtualNetwork *VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetwork `pulumi:"databricksVirtualNetwork"`
 	// The name of the workspace vNet peering.
 	Name string `pulumi:"name"`
 	// The reference to the remote virtual network address space.
 	RemoteAddressSpace *AddressSpace `pulumi:"remoteAddressSpace"`
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-	RemoteVirtualNetwork VirtualNetworkPeeringPropertiesFormatProperties `pulumi:"remoteVirtualNetwork"`
+	RemoteVirtualNetwork VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetwork `pulumi:"remoteVirtualNetwork"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
@@ -119,13 +119,13 @@ type VNetPeeringArgs struct {
 	// The reference to the databricks virtual network address space.
 	DatabricksAddressSpace AddressSpacePtrInput
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-	DatabricksVirtualNetwork VirtualNetworkPeeringPropertiesFormatPropertiesPtrInput
+	DatabricksVirtualNetwork VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkPtrInput
 	// The name of the workspace vNet peering.
 	Name pulumi.StringInput
 	// The reference to the remote virtual network address space.
 	RemoteAddressSpace AddressSpacePtrInput
 	//  The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
-	RemoteVirtualNetwork VirtualNetworkPeeringPropertiesFormatPropertiesInput
+	RemoteVirtualNetwork VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.

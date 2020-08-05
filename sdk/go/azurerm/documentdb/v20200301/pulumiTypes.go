@@ -212,8 +212,8 @@ func (o CapabilityResponseArrayOutput) Index(i pulumi.IntInput) CapabilityRespon
 
 // The properties of an Azure Cosmos DB Cassandra keyspace
 type CassandraKeyspaceGetPropertiesResponse struct {
-	Options  map[string]interface{} `pulumi:"options"`
-	Resource map[string]interface{} `pulumi:"resource"`
+	Options  *CassandraKeyspaceGetPropertiesResponseOptions  `pulumi:"options"`
+	Resource *CassandraKeyspaceGetPropertiesResponseResource `pulumi:"resource"`
 }
 
 // CassandraKeyspaceGetPropertiesResponseInput is an input type that accepts CassandraKeyspaceGetPropertiesResponseArgs and CassandraKeyspaceGetPropertiesResponseOutput values.
@@ -229,8 +229,8 @@ type CassandraKeyspaceGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB Cassandra keyspace
 type CassandraKeyspaceGetPropertiesResponseArgs struct {
-	Options  pulumi.MapInput `pulumi:"options"`
-	Resource pulumi.MapInput `pulumi:"resource"`
+	Options  CassandraKeyspaceGetPropertiesResponseOptionsPtrInput  `pulumi:"options"`
+	Resource CassandraKeyspaceGetPropertiesResponseResourcePtrInput `pulumi:"resource"`
 }
 
 func (CassandraKeyspaceGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -310,12 +310,16 @@ func (o CassandraKeyspaceGetPropertiesResponseOutput) ToCassandraKeyspaceGetProp
 		return &v
 	}).(CassandraKeyspaceGetPropertiesResponsePtrOutput)
 }
-func (o CassandraKeyspaceGetPropertiesResponseOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponse) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o CassandraKeyspaceGetPropertiesResponseOutput) Options() CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponse) *CassandraKeyspaceGetPropertiesResponseOptions {
+		return v.Options
+	}).(CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o CassandraKeyspaceGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
+func (o CassandraKeyspaceGetPropertiesResponseOutput) Resource() CassandraKeyspaceGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponse) *CassandraKeyspaceGetPropertiesResponseResource {
+		return v.Resource
+	}).(CassandraKeyspaceGetPropertiesResponseResourcePtrOutput)
 }
 
 type CassandraKeyspaceGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -336,22 +340,345 @@ func (o CassandraKeyspaceGetPropertiesResponsePtrOutput) Elem() CassandraKeyspac
 	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponse) CassandraKeyspaceGetPropertiesResponse { return *v }).(CassandraKeyspaceGetPropertiesResponseOutput)
 }
 
-func (o CassandraKeyspaceGetPropertiesResponsePtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponse) map[string]interface{} {
+func (o CassandraKeyspaceGetPropertiesResponsePtrOutput) Options() CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponse) *CassandraKeyspaceGetPropertiesResponseOptions {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.MapOutput)
+	}).(CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o CassandraKeyspaceGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponse) map[string]interface{} {
+func (o CassandraKeyspaceGetPropertiesResponsePtrOutput) Resource() CassandraKeyspaceGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponse) *CassandraKeyspaceGetPropertiesResponseResource {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
+	}).(CassandraKeyspaceGetPropertiesResponseResourcePtrOutput)
+}
+
+type CassandraKeyspaceGetPropertiesResponseOptions struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput *int `pulumi:"throughput"`
+}
+
+// CassandraKeyspaceGetPropertiesResponseOptionsInput is an input type that accepts CassandraKeyspaceGetPropertiesResponseOptionsArgs and CassandraKeyspaceGetPropertiesResponseOptionsOutput values.
+// You can construct a concrete instance of `CassandraKeyspaceGetPropertiesResponseOptionsInput` via:
+//
+//          CassandraKeyspaceGetPropertiesResponseOptionsArgs{...}
+type CassandraKeyspaceGetPropertiesResponseOptionsInput interface {
+	pulumi.Input
+
+	ToCassandraKeyspaceGetPropertiesResponseOptionsOutput() CassandraKeyspaceGetPropertiesResponseOptionsOutput
+	ToCassandraKeyspaceGetPropertiesResponseOptionsOutputWithContext(context.Context) CassandraKeyspaceGetPropertiesResponseOptionsOutput
+}
+
+type CassandraKeyspaceGetPropertiesResponseOptionsArgs struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+}
+
+func (CassandraKeyspaceGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraKeyspaceGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i CassandraKeyspaceGetPropertiesResponseOptionsArgs) ToCassandraKeyspaceGetPropertiesResponseOptionsOutput() CassandraKeyspaceGetPropertiesResponseOptionsOutput {
+	return i.ToCassandraKeyspaceGetPropertiesResponseOptionsOutputWithContext(context.Background())
+}
+
+func (i CassandraKeyspaceGetPropertiesResponseOptionsArgs) ToCassandraKeyspaceGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) CassandraKeyspaceGetPropertiesResponseOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraKeyspaceGetPropertiesResponseOptionsOutput)
+}
+
+func (i CassandraKeyspaceGetPropertiesResponseOptionsArgs) ToCassandraKeyspaceGetPropertiesResponseOptionsPtrOutput() CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput {
+	return i.ToCassandraKeyspaceGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i CassandraKeyspaceGetPropertiesResponseOptionsArgs) ToCassandraKeyspaceGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraKeyspaceGetPropertiesResponseOptionsOutput).ToCassandraKeyspaceGetPropertiesResponseOptionsPtrOutputWithContext(ctx)
+}
+
+// CassandraKeyspaceGetPropertiesResponseOptionsPtrInput is an input type that accepts CassandraKeyspaceGetPropertiesResponseOptionsArgs, CassandraKeyspaceGetPropertiesResponseOptionsPtr and CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput values.
+// You can construct a concrete instance of `CassandraKeyspaceGetPropertiesResponseOptionsPtrInput` via:
+//
+//          CassandraKeyspaceGetPropertiesResponseOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type CassandraKeyspaceGetPropertiesResponseOptionsPtrInput interface {
+	pulumi.Input
+
+	ToCassandraKeyspaceGetPropertiesResponseOptionsPtrOutput() CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput
+	ToCassandraKeyspaceGetPropertiesResponseOptionsPtrOutputWithContext(context.Context) CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput
+}
+
+type cassandraKeyspaceGetPropertiesResponseOptionsPtrType CassandraKeyspaceGetPropertiesResponseOptionsArgs
+
+func CassandraKeyspaceGetPropertiesResponseOptionsPtr(v *CassandraKeyspaceGetPropertiesResponseOptionsArgs) CassandraKeyspaceGetPropertiesResponseOptionsPtrInput {
+	return (*cassandraKeyspaceGetPropertiesResponseOptionsPtrType)(v)
+}
+
+func (*cassandraKeyspaceGetPropertiesResponseOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraKeyspaceGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i *cassandraKeyspaceGetPropertiesResponseOptionsPtrType) ToCassandraKeyspaceGetPropertiesResponseOptionsPtrOutput() CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput {
+	return i.ToCassandraKeyspaceGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *cassandraKeyspaceGetPropertiesResponseOptionsPtrType) ToCassandraKeyspaceGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput)
+}
+
+type CassandraKeyspaceGetPropertiesResponseOptionsOutput struct{ *pulumi.OutputState }
+
+func (CassandraKeyspaceGetPropertiesResponseOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraKeyspaceGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o CassandraKeyspaceGetPropertiesResponseOptionsOutput) ToCassandraKeyspaceGetPropertiesResponseOptionsOutput() CassandraKeyspaceGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o CassandraKeyspaceGetPropertiesResponseOptionsOutput) ToCassandraKeyspaceGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) CassandraKeyspaceGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o CassandraKeyspaceGetPropertiesResponseOptionsOutput) ToCassandraKeyspaceGetPropertiesResponseOptionsPtrOutput() CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput {
+	return o.ToCassandraKeyspaceGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o CassandraKeyspaceGetPropertiesResponseOptionsOutput) ToCassandraKeyspaceGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseOptions) *CassandraKeyspaceGetPropertiesResponseOptions {
+		return &v
+	}).(CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o CassandraKeyspaceGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+type CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraKeyspaceGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput) ToCassandraKeyspaceGetPropertiesResponseOptionsPtrOutput() CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput) ToCassandraKeyspaceGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput) Elem() CassandraKeyspaceGetPropertiesResponseOptionsOutput {
+	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseOptions) CassandraKeyspaceGetPropertiesResponseOptions {
+		return *v
+	}).(CassandraKeyspaceGetPropertiesResponseOptionsOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type CassandraKeyspaceGetPropertiesResponseResource struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag string `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid string `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts map[string]interface{} `pulumi:"_ts"`
+	// Name of the Cosmos DB Cassandra keyspace
+	Id string `pulumi:"id"`
+}
+
+// CassandraKeyspaceGetPropertiesResponseResourceInput is an input type that accepts CassandraKeyspaceGetPropertiesResponseResourceArgs and CassandraKeyspaceGetPropertiesResponseResourceOutput values.
+// You can construct a concrete instance of `CassandraKeyspaceGetPropertiesResponseResourceInput` via:
+//
+//          CassandraKeyspaceGetPropertiesResponseResourceArgs{...}
+type CassandraKeyspaceGetPropertiesResponseResourceInput interface {
+	pulumi.Input
+
+	ToCassandraKeyspaceGetPropertiesResponseResourceOutput() CassandraKeyspaceGetPropertiesResponseResourceOutput
+	ToCassandraKeyspaceGetPropertiesResponseResourceOutputWithContext(context.Context) CassandraKeyspaceGetPropertiesResponseResourceOutput
+}
+
+type CassandraKeyspaceGetPropertiesResponseResourceArgs struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag pulumi.StringInput `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid pulumi.StringInput `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts pulumi.MapInput `pulumi:"_ts"`
+	// Name of the Cosmos DB Cassandra keyspace
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (CassandraKeyspaceGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraKeyspaceGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i CassandraKeyspaceGetPropertiesResponseResourceArgs) ToCassandraKeyspaceGetPropertiesResponseResourceOutput() CassandraKeyspaceGetPropertiesResponseResourceOutput {
+	return i.ToCassandraKeyspaceGetPropertiesResponseResourceOutputWithContext(context.Background())
+}
+
+func (i CassandraKeyspaceGetPropertiesResponseResourceArgs) ToCassandraKeyspaceGetPropertiesResponseResourceOutputWithContext(ctx context.Context) CassandraKeyspaceGetPropertiesResponseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraKeyspaceGetPropertiesResponseResourceOutput)
+}
+
+func (i CassandraKeyspaceGetPropertiesResponseResourceArgs) ToCassandraKeyspaceGetPropertiesResponseResourcePtrOutput() CassandraKeyspaceGetPropertiesResponseResourcePtrOutput {
+	return i.ToCassandraKeyspaceGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i CassandraKeyspaceGetPropertiesResponseResourceArgs) ToCassandraKeyspaceGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) CassandraKeyspaceGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraKeyspaceGetPropertiesResponseResourceOutput).ToCassandraKeyspaceGetPropertiesResponseResourcePtrOutputWithContext(ctx)
+}
+
+// CassandraKeyspaceGetPropertiesResponseResourcePtrInput is an input type that accepts CassandraKeyspaceGetPropertiesResponseResourceArgs, CassandraKeyspaceGetPropertiesResponseResourcePtr and CassandraKeyspaceGetPropertiesResponseResourcePtrOutput values.
+// You can construct a concrete instance of `CassandraKeyspaceGetPropertiesResponseResourcePtrInput` via:
+//
+//          CassandraKeyspaceGetPropertiesResponseResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type CassandraKeyspaceGetPropertiesResponseResourcePtrInput interface {
+	pulumi.Input
+
+	ToCassandraKeyspaceGetPropertiesResponseResourcePtrOutput() CassandraKeyspaceGetPropertiesResponseResourcePtrOutput
+	ToCassandraKeyspaceGetPropertiesResponseResourcePtrOutputWithContext(context.Context) CassandraKeyspaceGetPropertiesResponseResourcePtrOutput
+}
+
+type cassandraKeyspaceGetPropertiesResponseResourcePtrType CassandraKeyspaceGetPropertiesResponseResourceArgs
+
+func CassandraKeyspaceGetPropertiesResponseResourcePtr(v *CassandraKeyspaceGetPropertiesResponseResourceArgs) CassandraKeyspaceGetPropertiesResponseResourcePtrInput {
+	return (*cassandraKeyspaceGetPropertiesResponseResourcePtrType)(v)
+}
+
+func (*cassandraKeyspaceGetPropertiesResponseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraKeyspaceGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i *cassandraKeyspaceGetPropertiesResponseResourcePtrType) ToCassandraKeyspaceGetPropertiesResponseResourcePtrOutput() CassandraKeyspaceGetPropertiesResponseResourcePtrOutput {
+	return i.ToCassandraKeyspaceGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *cassandraKeyspaceGetPropertiesResponseResourcePtrType) ToCassandraKeyspaceGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) CassandraKeyspaceGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraKeyspaceGetPropertiesResponseResourcePtrOutput)
+}
+
+type CassandraKeyspaceGetPropertiesResponseResourceOutput struct{ *pulumi.OutputState }
+
+func (CassandraKeyspaceGetPropertiesResponseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraKeyspaceGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) ToCassandraKeyspaceGetPropertiesResponseResourceOutput() CassandraKeyspaceGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) ToCassandraKeyspaceGetPropertiesResponseResourceOutputWithContext(ctx context.Context) CassandraKeyspaceGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) ToCassandraKeyspaceGetPropertiesResponseResourcePtrOutput() CassandraKeyspaceGetPropertiesResponseResourcePtrOutput {
+	return o.ToCassandraKeyspaceGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) ToCassandraKeyspaceGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) CassandraKeyspaceGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) *CassandraKeyspaceGetPropertiesResponseResource {
+		return &v
+	}).(CassandraKeyspaceGetPropertiesResponseResourcePtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+}
+
+// Name of the Cosmos DB Cassandra keyspace
+func (o CassandraKeyspaceGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraKeyspaceGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type CassandraKeyspaceGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraKeyspaceGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) ToCassandraKeyspaceGetPropertiesResponseResourcePtrOutput() CassandraKeyspaceGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) ToCassandraKeyspaceGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) CassandraKeyspaceGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Elem() CassandraKeyspaceGetPropertiesResponseResourceOutput {
+	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) CassandraKeyspaceGetPropertiesResponseResource {
+		return *v
+	}).(CassandraKeyspaceGetPropertiesResponseResourceOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v._ts
 	}).(pulumi.MapOutput)
+}
+
+// Name of the Cosmos DB Cassandra keyspace
+func (o CassandraKeyspaceGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraKeyspaceGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // Cosmos DB Cassandra keyspace resource object
@@ -588,188 +915,104 @@ func (o CassandraPartitionKeyArrayOutput) Index(i pulumi.IntInput) CassandraPart
 	}).(CassandraPartitionKeyOutput)
 }
 
-// An Azure Cosmos DB Cassandra keyspace.
-type CassandraResourceCassandraKeyspaceType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Cassandra keyspace
-	Properties CassandraKeyspaceGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
+// Cosmos DB Cassandra table partition key
+type CassandraPartitionKeyResponse struct {
+	// Name of the Cosmos DB Cassandra table partition key
+	Name *string `pulumi:"name"`
 }
 
-// CassandraResourceCassandraKeyspaceTypeInput is an input type that accepts CassandraResourceCassandraKeyspaceTypeArgs and CassandraResourceCassandraKeyspaceTypeOutput values.
-// You can construct a concrete instance of `CassandraResourceCassandraKeyspaceTypeInput` via:
+// CassandraPartitionKeyResponseInput is an input type that accepts CassandraPartitionKeyResponseArgs and CassandraPartitionKeyResponseOutput values.
+// You can construct a concrete instance of `CassandraPartitionKeyResponseInput` via:
 //
-//          CassandraResourceCassandraKeyspaceTypeArgs{...}
-type CassandraResourceCassandraKeyspaceTypeInput interface {
+//          CassandraPartitionKeyResponseArgs{...}
+type CassandraPartitionKeyResponseInput interface {
 	pulumi.Input
 
-	ToCassandraResourceCassandraKeyspaceTypeOutput() CassandraResourceCassandraKeyspaceTypeOutput
-	ToCassandraResourceCassandraKeyspaceTypeOutputWithContext(context.Context) CassandraResourceCassandraKeyspaceTypeOutput
+	ToCassandraPartitionKeyResponseOutput() CassandraPartitionKeyResponseOutput
+	ToCassandraPartitionKeyResponseOutputWithContext(context.Context) CassandraPartitionKeyResponseOutput
 }
 
-// An Azure Cosmos DB Cassandra keyspace.
-type CassandraResourceCassandraKeyspaceTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Cassandra keyspace
-	Properties CassandraKeyspaceGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
+// Cosmos DB Cassandra table partition key
+type CassandraPartitionKeyResponseArgs struct {
+	// Name of the Cosmos DB Cassandra table partition key
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (CassandraResourceCassandraKeyspaceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraResourceCassandraKeyspaceType)(nil)).Elem()
+func (CassandraPartitionKeyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraPartitionKeyResponse)(nil)).Elem()
 }
 
-func (i CassandraResourceCassandraKeyspaceTypeArgs) ToCassandraResourceCassandraKeyspaceTypeOutput() CassandraResourceCassandraKeyspaceTypeOutput {
-	return i.ToCassandraResourceCassandraKeyspaceTypeOutputWithContext(context.Background())
+func (i CassandraPartitionKeyResponseArgs) ToCassandraPartitionKeyResponseOutput() CassandraPartitionKeyResponseOutput {
+	return i.ToCassandraPartitionKeyResponseOutputWithContext(context.Background())
 }
 
-func (i CassandraResourceCassandraKeyspaceTypeArgs) ToCassandraResourceCassandraKeyspaceTypeOutputWithContext(ctx context.Context) CassandraResourceCassandraKeyspaceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CassandraResourceCassandraKeyspaceTypeOutput)
+func (i CassandraPartitionKeyResponseArgs) ToCassandraPartitionKeyResponseOutputWithContext(ctx context.Context) CassandraPartitionKeyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraPartitionKeyResponseOutput)
 }
 
-// An Azure Cosmos DB Cassandra keyspace.
-type CassandraResourceCassandraKeyspaceTypeOutput struct{ *pulumi.OutputState }
-
-func (CassandraResourceCassandraKeyspaceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraResourceCassandraKeyspaceType)(nil)).Elem()
-}
-
-func (o CassandraResourceCassandraKeyspaceTypeOutput) ToCassandraResourceCassandraKeyspaceTypeOutput() CassandraResourceCassandraKeyspaceTypeOutput {
-	return o
-}
-
-func (o CassandraResourceCassandraKeyspaceTypeOutput) ToCassandraResourceCassandraKeyspaceTypeOutputWithContext(ctx context.Context) CassandraResourceCassandraKeyspaceTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o CassandraResourceCassandraKeyspaceTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CassandraResourceCassandraKeyspaceType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o CassandraResourceCassandraKeyspaceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CassandraResourceCassandraKeyspaceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB Cassandra keyspace
-func (o CassandraResourceCassandraKeyspaceTypeOutput) Properties() CassandraKeyspaceGetPropertiesResponseOutput {
-	return o.ApplyT(func(v CassandraResourceCassandraKeyspaceType) CassandraKeyspaceGetPropertiesResponse {
-		return v.Properties
-	}).(CassandraKeyspaceGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o CassandraResourceCassandraKeyspaceTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v CassandraResourceCassandraKeyspaceType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o CassandraResourceCassandraKeyspaceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CassandraResourceCassandraKeyspaceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB Cassandra table.
-type CassandraResourceCassandraTableType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Cassandra table
-	Properties CassandraTableGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// CassandraResourceCassandraTableTypeInput is an input type that accepts CassandraResourceCassandraTableTypeArgs and CassandraResourceCassandraTableTypeOutput values.
-// You can construct a concrete instance of `CassandraResourceCassandraTableTypeInput` via:
+// CassandraPartitionKeyResponseArrayInput is an input type that accepts CassandraPartitionKeyResponseArray and CassandraPartitionKeyResponseArrayOutput values.
+// You can construct a concrete instance of `CassandraPartitionKeyResponseArrayInput` via:
 //
-//          CassandraResourceCassandraTableTypeArgs{...}
-type CassandraResourceCassandraTableTypeInput interface {
+//          CassandraPartitionKeyResponseArray{ CassandraPartitionKeyResponseArgs{...} }
+type CassandraPartitionKeyResponseArrayInput interface {
 	pulumi.Input
 
-	ToCassandraResourceCassandraTableTypeOutput() CassandraResourceCassandraTableTypeOutput
-	ToCassandraResourceCassandraTableTypeOutputWithContext(context.Context) CassandraResourceCassandraTableTypeOutput
+	ToCassandraPartitionKeyResponseArrayOutput() CassandraPartitionKeyResponseArrayOutput
+	ToCassandraPartitionKeyResponseArrayOutputWithContext(context.Context) CassandraPartitionKeyResponseArrayOutput
 }
 
-// An Azure Cosmos DB Cassandra table.
-type CassandraResourceCassandraTableTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Cassandra table
-	Properties CassandraTableGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
+type CassandraPartitionKeyResponseArray []CassandraPartitionKeyResponseInput
+
+func (CassandraPartitionKeyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CassandraPartitionKeyResponse)(nil)).Elem()
 }
 
-func (CassandraResourceCassandraTableTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraResourceCassandraTableType)(nil)).Elem()
+func (i CassandraPartitionKeyResponseArray) ToCassandraPartitionKeyResponseArrayOutput() CassandraPartitionKeyResponseArrayOutput {
+	return i.ToCassandraPartitionKeyResponseArrayOutputWithContext(context.Background())
 }
 
-func (i CassandraResourceCassandraTableTypeArgs) ToCassandraResourceCassandraTableTypeOutput() CassandraResourceCassandraTableTypeOutput {
-	return i.ToCassandraResourceCassandraTableTypeOutputWithContext(context.Background())
+func (i CassandraPartitionKeyResponseArray) ToCassandraPartitionKeyResponseArrayOutputWithContext(ctx context.Context) CassandraPartitionKeyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraPartitionKeyResponseArrayOutput)
 }
 
-func (i CassandraResourceCassandraTableTypeArgs) ToCassandraResourceCassandraTableTypeOutputWithContext(ctx context.Context) CassandraResourceCassandraTableTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CassandraResourceCassandraTableTypeOutput)
+// Cosmos DB Cassandra table partition key
+type CassandraPartitionKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (CassandraPartitionKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraPartitionKeyResponse)(nil)).Elem()
 }
 
-// An Azure Cosmos DB Cassandra table.
-type CassandraResourceCassandraTableTypeOutput struct{ *pulumi.OutputState }
-
-func (CassandraResourceCassandraTableTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CassandraResourceCassandraTableType)(nil)).Elem()
-}
-
-func (o CassandraResourceCassandraTableTypeOutput) ToCassandraResourceCassandraTableTypeOutput() CassandraResourceCassandraTableTypeOutput {
+func (o CassandraPartitionKeyResponseOutput) ToCassandraPartitionKeyResponseOutput() CassandraPartitionKeyResponseOutput {
 	return o
 }
 
-func (o CassandraResourceCassandraTableTypeOutput) ToCassandraResourceCassandraTableTypeOutputWithContext(ctx context.Context) CassandraResourceCassandraTableTypeOutput {
+func (o CassandraPartitionKeyResponseOutput) ToCassandraPartitionKeyResponseOutputWithContext(ctx context.Context) CassandraPartitionKeyResponseOutput {
 	return o
 }
 
-// The location of the resource group to which the resource belongs.
-func (o CassandraResourceCassandraTableTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v CassandraResourceCassandraTableType) *string { return v.Location }).(pulumi.StringPtrOutput)
+// Name of the Cosmos DB Cassandra table partition key
+func (o CassandraPartitionKeyResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CassandraPartitionKeyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The name of the ARM resource.
-func (o CassandraResourceCassandraTableTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CassandraResourceCassandraTableType) string { return v.Name }).(pulumi.StringOutput)
+type CassandraPartitionKeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CassandraPartitionKeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CassandraPartitionKeyResponse)(nil)).Elem()
 }
 
-// The properties of an Azure Cosmos DB Cassandra table
-func (o CassandraResourceCassandraTableTypeOutput) Properties() CassandraTableGetPropertiesResponseOutput {
-	return o.ApplyT(func(v CassandraResourceCassandraTableType) CassandraTableGetPropertiesResponse { return v.Properties }).(CassandraTableGetPropertiesResponseOutput)
+func (o CassandraPartitionKeyResponseArrayOutput) ToCassandraPartitionKeyResponseArrayOutput() CassandraPartitionKeyResponseArrayOutput {
+	return o
 }
 
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o CassandraResourceCassandraTableTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v CassandraResourceCassandraTableType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
+func (o CassandraPartitionKeyResponseArrayOutput) ToCassandraPartitionKeyResponseArrayOutputWithContext(ctx context.Context) CassandraPartitionKeyResponseArrayOutput {
+	return o
 }
 
-// The type of Azure resource.
-func (o CassandraResourceCassandraTableTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CassandraResourceCassandraTableType) string { return v.Type }).(pulumi.StringOutput)
+func (o CassandraPartitionKeyResponseArrayOutput) Index(i pulumi.IntInput) CassandraPartitionKeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CassandraPartitionKeyResponse {
+		return vs[0].([]CassandraPartitionKeyResponse)[vs[1].(int)]
+	}).(CassandraPartitionKeyResponseOutput)
 }
 
 // Cosmos DB Cassandra table schema
@@ -944,10 +1187,182 @@ func (o CassandraSchemaPtrOutput) PartitionKeys() CassandraPartitionKeyArrayOutp
 	}).(CassandraPartitionKeyArrayOutput)
 }
 
+// Cosmos DB Cassandra table schema
+type CassandraSchemaResponse struct {
+	// List of cluster key.
+	ClusterKeys []ClusterKeyResponse `pulumi:"clusterKeys"`
+	// List of Cassandra table columns.
+	Columns []ColumnResponse `pulumi:"columns"`
+	// List of partition key.
+	PartitionKeys []CassandraPartitionKeyResponse `pulumi:"partitionKeys"`
+}
+
+// CassandraSchemaResponseInput is an input type that accepts CassandraSchemaResponseArgs and CassandraSchemaResponseOutput values.
+// You can construct a concrete instance of `CassandraSchemaResponseInput` via:
+//
+//          CassandraSchemaResponseArgs{...}
+type CassandraSchemaResponseInput interface {
+	pulumi.Input
+
+	ToCassandraSchemaResponseOutput() CassandraSchemaResponseOutput
+	ToCassandraSchemaResponseOutputWithContext(context.Context) CassandraSchemaResponseOutput
+}
+
+// Cosmos DB Cassandra table schema
+type CassandraSchemaResponseArgs struct {
+	// List of cluster key.
+	ClusterKeys ClusterKeyResponseArrayInput `pulumi:"clusterKeys"`
+	// List of Cassandra table columns.
+	Columns ColumnResponseArrayInput `pulumi:"columns"`
+	// List of partition key.
+	PartitionKeys CassandraPartitionKeyResponseArrayInput `pulumi:"partitionKeys"`
+}
+
+func (CassandraSchemaResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraSchemaResponse)(nil)).Elem()
+}
+
+func (i CassandraSchemaResponseArgs) ToCassandraSchemaResponseOutput() CassandraSchemaResponseOutput {
+	return i.ToCassandraSchemaResponseOutputWithContext(context.Background())
+}
+
+func (i CassandraSchemaResponseArgs) ToCassandraSchemaResponseOutputWithContext(ctx context.Context) CassandraSchemaResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraSchemaResponseOutput)
+}
+
+func (i CassandraSchemaResponseArgs) ToCassandraSchemaResponsePtrOutput() CassandraSchemaResponsePtrOutput {
+	return i.ToCassandraSchemaResponsePtrOutputWithContext(context.Background())
+}
+
+func (i CassandraSchemaResponseArgs) ToCassandraSchemaResponsePtrOutputWithContext(ctx context.Context) CassandraSchemaResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraSchemaResponseOutput).ToCassandraSchemaResponsePtrOutputWithContext(ctx)
+}
+
+// CassandraSchemaResponsePtrInput is an input type that accepts CassandraSchemaResponseArgs, CassandraSchemaResponsePtr and CassandraSchemaResponsePtrOutput values.
+// You can construct a concrete instance of `CassandraSchemaResponsePtrInput` via:
+//
+//          CassandraSchemaResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type CassandraSchemaResponsePtrInput interface {
+	pulumi.Input
+
+	ToCassandraSchemaResponsePtrOutput() CassandraSchemaResponsePtrOutput
+	ToCassandraSchemaResponsePtrOutputWithContext(context.Context) CassandraSchemaResponsePtrOutput
+}
+
+type cassandraSchemaResponsePtrType CassandraSchemaResponseArgs
+
+func CassandraSchemaResponsePtr(v *CassandraSchemaResponseArgs) CassandraSchemaResponsePtrInput {
+	return (*cassandraSchemaResponsePtrType)(v)
+}
+
+func (*cassandraSchemaResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraSchemaResponse)(nil)).Elem()
+}
+
+func (i *cassandraSchemaResponsePtrType) ToCassandraSchemaResponsePtrOutput() CassandraSchemaResponsePtrOutput {
+	return i.ToCassandraSchemaResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *cassandraSchemaResponsePtrType) ToCassandraSchemaResponsePtrOutputWithContext(ctx context.Context) CassandraSchemaResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraSchemaResponsePtrOutput)
+}
+
+// Cosmos DB Cassandra table schema
+type CassandraSchemaResponseOutput struct{ *pulumi.OutputState }
+
+func (CassandraSchemaResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraSchemaResponse)(nil)).Elem()
+}
+
+func (o CassandraSchemaResponseOutput) ToCassandraSchemaResponseOutput() CassandraSchemaResponseOutput {
+	return o
+}
+
+func (o CassandraSchemaResponseOutput) ToCassandraSchemaResponseOutputWithContext(ctx context.Context) CassandraSchemaResponseOutput {
+	return o
+}
+
+func (o CassandraSchemaResponseOutput) ToCassandraSchemaResponsePtrOutput() CassandraSchemaResponsePtrOutput {
+	return o.ToCassandraSchemaResponsePtrOutputWithContext(context.Background())
+}
+
+func (o CassandraSchemaResponseOutput) ToCassandraSchemaResponsePtrOutputWithContext(ctx context.Context) CassandraSchemaResponsePtrOutput {
+	return o.ApplyT(func(v CassandraSchemaResponse) *CassandraSchemaResponse {
+		return &v
+	}).(CassandraSchemaResponsePtrOutput)
+}
+
+// List of cluster key.
+func (o CassandraSchemaResponseOutput) ClusterKeys() ClusterKeyResponseArrayOutput {
+	return o.ApplyT(func(v CassandraSchemaResponse) []ClusterKeyResponse { return v.ClusterKeys }).(ClusterKeyResponseArrayOutput)
+}
+
+// List of Cassandra table columns.
+func (o CassandraSchemaResponseOutput) Columns() ColumnResponseArrayOutput {
+	return o.ApplyT(func(v CassandraSchemaResponse) []ColumnResponse { return v.Columns }).(ColumnResponseArrayOutput)
+}
+
+// List of partition key.
+func (o CassandraSchemaResponseOutput) PartitionKeys() CassandraPartitionKeyResponseArrayOutput {
+	return o.ApplyT(func(v CassandraSchemaResponse) []CassandraPartitionKeyResponse { return v.PartitionKeys }).(CassandraPartitionKeyResponseArrayOutput)
+}
+
+type CassandraSchemaResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CassandraSchemaResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraSchemaResponse)(nil)).Elem()
+}
+
+func (o CassandraSchemaResponsePtrOutput) ToCassandraSchemaResponsePtrOutput() CassandraSchemaResponsePtrOutput {
+	return o
+}
+
+func (o CassandraSchemaResponsePtrOutput) ToCassandraSchemaResponsePtrOutputWithContext(ctx context.Context) CassandraSchemaResponsePtrOutput {
+	return o
+}
+
+func (o CassandraSchemaResponsePtrOutput) Elem() CassandraSchemaResponseOutput {
+	return o.ApplyT(func(v *CassandraSchemaResponse) CassandraSchemaResponse { return *v }).(CassandraSchemaResponseOutput)
+}
+
+// List of cluster key.
+func (o CassandraSchemaResponsePtrOutput) ClusterKeys() ClusterKeyResponseArrayOutput {
+	return o.ApplyT(func(v *CassandraSchemaResponse) []ClusterKeyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterKeys
+	}).(ClusterKeyResponseArrayOutput)
+}
+
+// List of Cassandra table columns.
+func (o CassandraSchemaResponsePtrOutput) Columns() ColumnResponseArrayOutput {
+	return o.ApplyT(func(v *CassandraSchemaResponse) []ColumnResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Columns
+	}).(ColumnResponseArrayOutput)
+}
+
+// List of partition key.
+func (o CassandraSchemaResponsePtrOutput) PartitionKeys() CassandraPartitionKeyResponseArrayOutput {
+	return o.ApplyT(func(v *CassandraSchemaResponse) []CassandraPartitionKeyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionKeys
+	}).(CassandraPartitionKeyResponseArrayOutput)
+}
+
 // The properties of an Azure Cosmos DB Cassandra table
 type CassandraTableGetPropertiesResponse struct {
-	Options  map[string]interface{} `pulumi:"options"`
-	Resource map[string]interface{} `pulumi:"resource"`
+	Options  *CassandraTableGetPropertiesResponseOptions  `pulumi:"options"`
+	Resource *CassandraTableGetPropertiesResponseResource `pulumi:"resource"`
 }
 
 // CassandraTableGetPropertiesResponseInput is an input type that accepts CassandraTableGetPropertiesResponseArgs and CassandraTableGetPropertiesResponseOutput values.
@@ -963,8 +1378,8 @@ type CassandraTableGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB Cassandra table
 type CassandraTableGetPropertiesResponseArgs struct {
-	Options  pulumi.MapInput `pulumi:"options"`
-	Resource pulumi.MapInput `pulumi:"resource"`
+	Options  CassandraTableGetPropertiesResponseOptionsPtrInput  `pulumi:"options"`
+	Resource CassandraTableGetPropertiesResponseResourcePtrInput `pulumi:"resource"`
 }
 
 func (CassandraTableGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -1044,12 +1459,16 @@ func (o CassandraTableGetPropertiesResponseOutput) ToCassandraTableGetProperties
 		return &v
 	}).(CassandraTableGetPropertiesResponsePtrOutput)
 }
-func (o CassandraTableGetPropertiesResponseOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraTableGetPropertiesResponse) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o CassandraTableGetPropertiesResponseOutput) Options() CassandraTableGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponse) *CassandraTableGetPropertiesResponseOptions {
+		return v.Options
+	}).(CassandraTableGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o CassandraTableGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v CassandraTableGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
+func (o CassandraTableGetPropertiesResponseOutput) Resource() CassandraTableGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponse) *CassandraTableGetPropertiesResponseResource {
+		return v.Resource
+	}).(CassandraTableGetPropertiesResponseResourcePtrOutput)
 }
 
 type CassandraTableGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -1070,22 +1489,383 @@ func (o CassandraTableGetPropertiesResponsePtrOutput) Elem() CassandraTableGetPr
 	return o.ApplyT(func(v *CassandraTableGetPropertiesResponse) CassandraTableGetPropertiesResponse { return *v }).(CassandraTableGetPropertiesResponseOutput)
 }
 
-func (o CassandraTableGetPropertiesResponsePtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v *CassandraTableGetPropertiesResponse) map[string]interface{} {
+func (o CassandraTableGetPropertiesResponsePtrOutput) Options() CassandraTableGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponse) *CassandraTableGetPropertiesResponseOptions {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.MapOutput)
+	}).(CassandraTableGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o CassandraTableGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v *CassandraTableGetPropertiesResponse) map[string]interface{} {
+func (o CassandraTableGetPropertiesResponsePtrOutput) Resource() CassandraTableGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponse) *CassandraTableGetPropertiesResponseResource {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
+	}).(CassandraTableGetPropertiesResponseResourcePtrOutput)
+}
+
+type CassandraTableGetPropertiesResponseOptions struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput *int `pulumi:"throughput"`
+}
+
+// CassandraTableGetPropertiesResponseOptionsInput is an input type that accepts CassandraTableGetPropertiesResponseOptionsArgs and CassandraTableGetPropertiesResponseOptionsOutput values.
+// You can construct a concrete instance of `CassandraTableGetPropertiesResponseOptionsInput` via:
+//
+//          CassandraTableGetPropertiesResponseOptionsArgs{...}
+type CassandraTableGetPropertiesResponseOptionsInput interface {
+	pulumi.Input
+
+	ToCassandraTableGetPropertiesResponseOptionsOutput() CassandraTableGetPropertiesResponseOptionsOutput
+	ToCassandraTableGetPropertiesResponseOptionsOutputWithContext(context.Context) CassandraTableGetPropertiesResponseOptionsOutput
+}
+
+type CassandraTableGetPropertiesResponseOptionsArgs struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+}
+
+func (CassandraTableGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraTableGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i CassandraTableGetPropertiesResponseOptionsArgs) ToCassandraTableGetPropertiesResponseOptionsOutput() CassandraTableGetPropertiesResponseOptionsOutput {
+	return i.ToCassandraTableGetPropertiesResponseOptionsOutputWithContext(context.Background())
+}
+
+func (i CassandraTableGetPropertiesResponseOptionsArgs) ToCassandraTableGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) CassandraTableGetPropertiesResponseOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableGetPropertiesResponseOptionsOutput)
+}
+
+func (i CassandraTableGetPropertiesResponseOptionsArgs) ToCassandraTableGetPropertiesResponseOptionsPtrOutput() CassandraTableGetPropertiesResponseOptionsPtrOutput {
+	return i.ToCassandraTableGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i CassandraTableGetPropertiesResponseOptionsArgs) ToCassandraTableGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) CassandraTableGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableGetPropertiesResponseOptionsOutput).ToCassandraTableGetPropertiesResponseOptionsPtrOutputWithContext(ctx)
+}
+
+// CassandraTableGetPropertiesResponseOptionsPtrInput is an input type that accepts CassandraTableGetPropertiesResponseOptionsArgs, CassandraTableGetPropertiesResponseOptionsPtr and CassandraTableGetPropertiesResponseOptionsPtrOutput values.
+// You can construct a concrete instance of `CassandraTableGetPropertiesResponseOptionsPtrInput` via:
+//
+//          CassandraTableGetPropertiesResponseOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type CassandraTableGetPropertiesResponseOptionsPtrInput interface {
+	pulumi.Input
+
+	ToCassandraTableGetPropertiesResponseOptionsPtrOutput() CassandraTableGetPropertiesResponseOptionsPtrOutput
+	ToCassandraTableGetPropertiesResponseOptionsPtrOutputWithContext(context.Context) CassandraTableGetPropertiesResponseOptionsPtrOutput
+}
+
+type cassandraTableGetPropertiesResponseOptionsPtrType CassandraTableGetPropertiesResponseOptionsArgs
+
+func CassandraTableGetPropertiesResponseOptionsPtr(v *CassandraTableGetPropertiesResponseOptionsArgs) CassandraTableGetPropertiesResponseOptionsPtrInput {
+	return (*cassandraTableGetPropertiesResponseOptionsPtrType)(v)
+}
+
+func (*cassandraTableGetPropertiesResponseOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraTableGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i *cassandraTableGetPropertiesResponseOptionsPtrType) ToCassandraTableGetPropertiesResponseOptionsPtrOutput() CassandraTableGetPropertiesResponseOptionsPtrOutput {
+	return i.ToCassandraTableGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *cassandraTableGetPropertiesResponseOptionsPtrType) ToCassandraTableGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) CassandraTableGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableGetPropertiesResponseOptionsPtrOutput)
+}
+
+type CassandraTableGetPropertiesResponseOptionsOutput struct{ *pulumi.OutputState }
+
+func (CassandraTableGetPropertiesResponseOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraTableGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o CassandraTableGetPropertiesResponseOptionsOutput) ToCassandraTableGetPropertiesResponseOptionsOutput() CassandraTableGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o CassandraTableGetPropertiesResponseOptionsOutput) ToCassandraTableGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) CassandraTableGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o CassandraTableGetPropertiesResponseOptionsOutput) ToCassandraTableGetPropertiesResponseOptionsPtrOutput() CassandraTableGetPropertiesResponseOptionsPtrOutput {
+	return o.ToCassandraTableGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o CassandraTableGetPropertiesResponseOptionsOutput) ToCassandraTableGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) CassandraTableGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponseOptions) *CassandraTableGetPropertiesResponseOptions {
+		return &v
+	}).(CassandraTableGetPropertiesResponseOptionsPtrOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o CassandraTableGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+type CassandraTableGetPropertiesResponseOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (CassandraTableGetPropertiesResponseOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraTableGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o CassandraTableGetPropertiesResponseOptionsPtrOutput) ToCassandraTableGetPropertiesResponseOptionsPtrOutput() CassandraTableGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o CassandraTableGetPropertiesResponseOptionsPtrOutput) ToCassandraTableGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) CassandraTableGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o CassandraTableGetPropertiesResponseOptionsPtrOutput) Elem() CassandraTableGetPropertiesResponseOptionsOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseOptions) CassandraTableGetPropertiesResponseOptions {
+		return *v
+	}).(CassandraTableGetPropertiesResponseOptionsOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o CassandraTableGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type CassandraTableGetPropertiesResponseResource struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag string `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid string `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts map[string]interface{} `pulumi:"_ts"`
+	// Time to live of the Cosmos DB Cassandra table
+	DefaultTtl *int `pulumi:"defaultTtl"`
+	// Name of the Cosmos DB Cassandra table
+	Id string `pulumi:"id"`
+	// Schema of the Cosmos DB Cassandra table
+	Schema *CassandraSchemaResponse `pulumi:"schema"`
+}
+
+// CassandraTableGetPropertiesResponseResourceInput is an input type that accepts CassandraTableGetPropertiesResponseResourceArgs and CassandraTableGetPropertiesResponseResourceOutput values.
+// You can construct a concrete instance of `CassandraTableGetPropertiesResponseResourceInput` via:
+//
+//          CassandraTableGetPropertiesResponseResourceArgs{...}
+type CassandraTableGetPropertiesResponseResourceInput interface {
+	pulumi.Input
+
+	ToCassandraTableGetPropertiesResponseResourceOutput() CassandraTableGetPropertiesResponseResourceOutput
+	ToCassandraTableGetPropertiesResponseResourceOutputWithContext(context.Context) CassandraTableGetPropertiesResponseResourceOutput
+}
+
+type CassandraTableGetPropertiesResponseResourceArgs struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag pulumi.StringInput `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid pulumi.StringInput `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts pulumi.MapInput `pulumi:"_ts"`
+	// Time to live of the Cosmos DB Cassandra table
+	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
+	// Name of the Cosmos DB Cassandra table
+	Id pulumi.StringInput `pulumi:"id"`
+	// Schema of the Cosmos DB Cassandra table
+	Schema CassandraSchemaResponsePtrInput `pulumi:"schema"`
+}
+
+func (CassandraTableGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraTableGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i CassandraTableGetPropertiesResponseResourceArgs) ToCassandraTableGetPropertiesResponseResourceOutput() CassandraTableGetPropertiesResponseResourceOutput {
+	return i.ToCassandraTableGetPropertiesResponseResourceOutputWithContext(context.Background())
+}
+
+func (i CassandraTableGetPropertiesResponseResourceArgs) ToCassandraTableGetPropertiesResponseResourceOutputWithContext(ctx context.Context) CassandraTableGetPropertiesResponseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableGetPropertiesResponseResourceOutput)
+}
+
+func (i CassandraTableGetPropertiesResponseResourceArgs) ToCassandraTableGetPropertiesResponseResourcePtrOutput() CassandraTableGetPropertiesResponseResourcePtrOutput {
+	return i.ToCassandraTableGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i CassandraTableGetPropertiesResponseResourceArgs) ToCassandraTableGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) CassandraTableGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableGetPropertiesResponseResourceOutput).ToCassandraTableGetPropertiesResponseResourcePtrOutputWithContext(ctx)
+}
+
+// CassandraTableGetPropertiesResponseResourcePtrInput is an input type that accepts CassandraTableGetPropertiesResponseResourceArgs, CassandraTableGetPropertiesResponseResourcePtr and CassandraTableGetPropertiesResponseResourcePtrOutput values.
+// You can construct a concrete instance of `CassandraTableGetPropertiesResponseResourcePtrInput` via:
+//
+//          CassandraTableGetPropertiesResponseResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type CassandraTableGetPropertiesResponseResourcePtrInput interface {
+	pulumi.Input
+
+	ToCassandraTableGetPropertiesResponseResourcePtrOutput() CassandraTableGetPropertiesResponseResourcePtrOutput
+	ToCassandraTableGetPropertiesResponseResourcePtrOutputWithContext(context.Context) CassandraTableGetPropertiesResponseResourcePtrOutput
+}
+
+type cassandraTableGetPropertiesResponseResourcePtrType CassandraTableGetPropertiesResponseResourceArgs
+
+func CassandraTableGetPropertiesResponseResourcePtr(v *CassandraTableGetPropertiesResponseResourceArgs) CassandraTableGetPropertiesResponseResourcePtrInput {
+	return (*cassandraTableGetPropertiesResponseResourcePtrType)(v)
+}
+
+func (*cassandraTableGetPropertiesResponseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraTableGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i *cassandraTableGetPropertiesResponseResourcePtrType) ToCassandraTableGetPropertiesResponseResourcePtrOutput() CassandraTableGetPropertiesResponseResourcePtrOutput {
+	return i.ToCassandraTableGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *cassandraTableGetPropertiesResponseResourcePtrType) ToCassandraTableGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) CassandraTableGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableGetPropertiesResponseResourcePtrOutput)
+}
+
+type CassandraTableGetPropertiesResponseResourceOutput struct{ *pulumi.OutputState }
+
+func (CassandraTableGetPropertiesResponseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CassandraTableGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o CassandraTableGetPropertiesResponseResourceOutput) ToCassandraTableGetPropertiesResponseResourceOutput() CassandraTableGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o CassandraTableGetPropertiesResponseResourceOutput) ToCassandraTableGetPropertiesResponseResourceOutputWithContext(ctx context.Context) CassandraTableGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o CassandraTableGetPropertiesResponseResourceOutput) ToCassandraTableGetPropertiesResponseResourcePtrOutput() CassandraTableGetPropertiesResponseResourcePtrOutput {
+	return o.ToCassandraTableGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o CassandraTableGetPropertiesResponseResourceOutput) ToCassandraTableGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) CassandraTableGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) *CassandraTableGetPropertiesResponseResource {
+		return &v
+	}).(CassandraTableGetPropertiesResponseResourcePtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o CassandraTableGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o CassandraTableGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o CassandraTableGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+}
+
+// Time to live of the Cosmos DB Cassandra table
+func (o CassandraTableGetPropertiesResponseResourceOutput) DefaultTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
+}
+
+// Name of the Cosmos DB Cassandra table
+func (o CassandraTableGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Schema of the Cosmos DB Cassandra table
+func (o CassandraTableGetPropertiesResponseResourceOutput) Schema() CassandraSchemaResponsePtrOutput {
+	return o.ApplyT(func(v CassandraTableGetPropertiesResponseResource) *CassandraSchemaResponse { return v.Schema }).(CassandraSchemaResponsePtrOutput)
+}
+
+type CassandraTableGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (CassandraTableGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CassandraTableGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o CassandraTableGetPropertiesResponseResourcePtrOutput) ToCassandraTableGetPropertiesResponseResourcePtrOutput() CassandraTableGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o CassandraTableGetPropertiesResponseResourcePtrOutput) ToCassandraTableGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) CassandraTableGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Elem() CassandraTableGetPropertiesResponseResourceOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) CassandraTableGetPropertiesResponseResource {
+		return *v
+	}).(CassandraTableGetPropertiesResponseResourceOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o CassandraTableGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o CassandraTableGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o CassandraTableGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v._ts
 	}).(pulumi.MapOutput)
+}
+
+// Time to live of the Cosmos DB Cassandra table
+func (o CassandraTableGetPropertiesResponseResourcePtrOutput) DefaultTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultTtl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Name of the Cosmos DB Cassandra table
+func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Schema of the Cosmos DB Cassandra table
+func (o CassandraTableGetPropertiesResponseResourcePtrOutput) Schema() CassandraSchemaResponsePtrOutput {
+	return o.ApplyT(func(v *CassandraTableGetPropertiesResponseResource) *CassandraSchemaResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Schema
+	}).(CassandraSchemaResponsePtrOutput)
 }
 
 // Cosmos DB Cassandra table resource object
@@ -1369,6 +2149,115 @@ func (o ClusterKeyArrayOutput) Index(i pulumi.IntInput) ClusterKeyOutput {
 	}).(ClusterKeyOutput)
 }
 
+// Cosmos DB Cassandra table cluster key
+type ClusterKeyResponse struct {
+	// Name of the Cosmos DB Cassandra table cluster key
+	Name *string `pulumi:"name"`
+	// Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+	OrderBy *string `pulumi:"orderBy"`
+}
+
+// ClusterKeyResponseInput is an input type that accepts ClusterKeyResponseArgs and ClusterKeyResponseOutput values.
+// You can construct a concrete instance of `ClusterKeyResponseInput` via:
+//
+//          ClusterKeyResponseArgs{...}
+type ClusterKeyResponseInput interface {
+	pulumi.Input
+
+	ToClusterKeyResponseOutput() ClusterKeyResponseOutput
+	ToClusterKeyResponseOutputWithContext(context.Context) ClusterKeyResponseOutput
+}
+
+// Cosmos DB Cassandra table cluster key
+type ClusterKeyResponseArgs struct {
+	// Name of the Cosmos DB Cassandra table cluster key
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+	OrderBy pulumi.StringPtrInput `pulumi:"orderBy"`
+}
+
+func (ClusterKeyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKeyResponse)(nil)).Elem()
+}
+
+func (i ClusterKeyResponseArgs) ToClusterKeyResponseOutput() ClusterKeyResponseOutput {
+	return i.ToClusterKeyResponseOutputWithContext(context.Background())
+}
+
+func (i ClusterKeyResponseArgs) ToClusterKeyResponseOutputWithContext(ctx context.Context) ClusterKeyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKeyResponseOutput)
+}
+
+// ClusterKeyResponseArrayInput is an input type that accepts ClusterKeyResponseArray and ClusterKeyResponseArrayOutput values.
+// You can construct a concrete instance of `ClusterKeyResponseArrayInput` via:
+//
+//          ClusterKeyResponseArray{ ClusterKeyResponseArgs{...} }
+type ClusterKeyResponseArrayInput interface {
+	pulumi.Input
+
+	ToClusterKeyResponseArrayOutput() ClusterKeyResponseArrayOutput
+	ToClusterKeyResponseArrayOutputWithContext(context.Context) ClusterKeyResponseArrayOutput
+}
+
+type ClusterKeyResponseArray []ClusterKeyResponseInput
+
+func (ClusterKeyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterKeyResponse)(nil)).Elem()
+}
+
+func (i ClusterKeyResponseArray) ToClusterKeyResponseArrayOutput() ClusterKeyResponseArrayOutput {
+	return i.ToClusterKeyResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterKeyResponseArray) ToClusterKeyResponseArrayOutputWithContext(ctx context.Context) ClusterKeyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterKeyResponseArrayOutput)
+}
+
+// Cosmos DB Cassandra table cluster key
+type ClusterKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (ClusterKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterKeyResponse)(nil)).Elem()
+}
+
+func (o ClusterKeyResponseOutput) ToClusterKeyResponseOutput() ClusterKeyResponseOutput {
+	return o
+}
+
+func (o ClusterKeyResponseOutput) ToClusterKeyResponseOutputWithContext(ctx context.Context) ClusterKeyResponseOutput {
+	return o
+}
+
+// Name of the Cosmos DB Cassandra table cluster key
+func (o ClusterKeyResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKeyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+func (o ClusterKeyResponseOutput) OrderBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterKeyResponse) *string { return v.OrderBy }).(pulumi.StringPtrOutput)
+}
+
+type ClusterKeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterKeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterKeyResponse)(nil)).Elem()
+}
+
+func (o ClusterKeyResponseArrayOutput) ToClusterKeyResponseArrayOutput() ClusterKeyResponseArrayOutput {
+	return o
+}
+
+func (o ClusterKeyResponseArrayOutput) ToClusterKeyResponseArrayOutputWithContext(ctx context.Context) ClusterKeyResponseArrayOutput {
+	return o
+}
+
+func (o ClusterKeyResponseArrayOutput) Index(i pulumi.IntInput) ClusterKeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterKeyResponse {
+		return vs[0].([]ClusterKeyResponse)[vs[1].(int)]
+	}).(ClusterKeyResponseOutput)
+}
+
 // Cosmos DB Cassandra table column
 type Column struct {
 	// Name of the Cosmos DB Cassandra table column
@@ -1478,95 +2367,325 @@ func (o ColumnArrayOutput) Index(i pulumi.IntInput) ColumnOutput {
 	}).(ColumnOutput)
 }
 
-// List of composite path
-type CompositePathList struct {
+// Cosmos DB Cassandra table column
+type ColumnResponse struct {
+	// Name of the Cosmos DB Cassandra table column
+	Name *string `pulumi:"name"`
+	// Type of the Cosmos DB Cassandra table column
+	Type *string `pulumi:"type"`
 }
 
-// CompositePathListInput is an input type that accepts CompositePathListArgs and CompositePathListOutput values.
-// You can construct a concrete instance of `CompositePathListInput` via:
+// ColumnResponseInput is an input type that accepts ColumnResponseArgs and ColumnResponseOutput values.
+// You can construct a concrete instance of `ColumnResponseInput` via:
 //
-//          CompositePathListArgs{...}
-type CompositePathListInput interface {
+//          ColumnResponseArgs{...}
+type ColumnResponseInput interface {
 	pulumi.Input
 
-	ToCompositePathListOutput() CompositePathListOutput
-	ToCompositePathListOutputWithContext(context.Context) CompositePathListOutput
+	ToColumnResponseOutput() ColumnResponseOutput
+	ToColumnResponseOutputWithContext(context.Context) ColumnResponseOutput
 }
 
-// List of composite path
-type CompositePathListArgs struct {
+// Cosmos DB Cassandra table column
+type ColumnResponseArgs struct {
+	// Name of the Cosmos DB Cassandra table column
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Type of the Cosmos DB Cassandra table column
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
-func (CompositePathListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CompositePathList)(nil)).Elem()
+func (ColumnResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ColumnResponse)(nil)).Elem()
 }
 
-func (i CompositePathListArgs) ToCompositePathListOutput() CompositePathListOutput {
-	return i.ToCompositePathListOutputWithContext(context.Background())
+func (i ColumnResponseArgs) ToColumnResponseOutput() ColumnResponseOutput {
+	return i.ToColumnResponseOutputWithContext(context.Background())
 }
 
-func (i CompositePathListArgs) ToCompositePathListOutputWithContext(ctx context.Context) CompositePathListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CompositePathListOutput)
+func (i ColumnResponseArgs) ToColumnResponseOutputWithContext(ctx context.Context) ColumnResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ColumnResponseOutput)
 }
 
-// CompositePathListArrayInput is an input type that accepts CompositePathListArray and CompositePathListArrayOutput values.
-// You can construct a concrete instance of `CompositePathListArrayInput` via:
+// ColumnResponseArrayInput is an input type that accepts ColumnResponseArray and ColumnResponseArrayOutput values.
+// You can construct a concrete instance of `ColumnResponseArrayInput` via:
 //
-//          CompositePathListArray{ CompositePathListArgs{...} }
-type CompositePathListArrayInput interface {
+//          ColumnResponseArray{ ColumnResponseArgs{...} }
+type ColumnResponseArrayInput interface {
 	pulumi.Input
 
-	ToCompositePathListArrayOutput() CompositePathListArrayOutput
-	ToCompositePathListArrayOutputWithContext(context.Context) CompositePathListArrayOutput
+	ToColumnResponseArrayOutput() ColumnResponseArrayOutput
+	ToColumnResponseArrayOutputWithContext(context.Context) ColumnResponseArrayOutput
 }
 
-type CompositePathListArray []CompositePathListInput
+type ColumnResponseArray []ColumnResponseInput
 
-func (CompositePathListArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CompositePathList)(nil)).Elem()
+func (ColumnResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ColumnResponse)(nil)).Elem()
 }
 
-func (i CompositePathListArray) ToCompositePathListArrayOutput() CompositePathListArrayOutput {
-	return i.ToCompositePathListArrayOutputWithContext(context.Background())
+func (i ColumnResponseArray) ToColumnResponseArrayOutput() ColumnResponseArrayOutput {
+	return i.ToColumnResponseArrayOutputWithContext(context.Background())
 }
 
-func (i CompositePathListArray) ToCompositePathListArrayOutputWithContext(ctx context.Context) CompositePathListArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CompositePathListArrayOutput)
+func (i ColumnResponseArray) ToColumnResponseArrayOutputWithContext(ctx context.Context) ColumnResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ColumnResponseArrayOutput)
 }
 
-// List of composite path
-type CompositePathListOutput struct{ *pulumi.OutputState }
+// Cosmos DB Cassandra table column
+type ColumnResponseOutput struct{ *pulumi.OutputState }
 
-func (CompositePathListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CompositePathList)(nil)).Elem()
+func (ColumnResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ColumnResponse)(nil)).Elem()
 }
 
-func (o CompositePathListOutput) ToCompositePathListOutput() CompositePathListOutput {
+func (o ColumnResponseOutput) ToColumnResponseOutput() ColumnResponseOutput {
 	return o
 }
 
-func (o CompositePathListOutput) ToCompositePathListOutputWithContext(ctx context.Context) CompositePathListOutput {
+func (o ColumnResponseOutput) ToColumnResponseOutputWithContext(ctx context.Context) ColumnResponseOutput {
 	return o
 }
 
-type CompositePathListArrayOutput struct{ *pulumi.OutputState }
-
-func (CompositePathListArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CompositePathList)(nil)).Elem()
+// Name of the Cosmos DB Cassandra table column
+func (o ColumnResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ColumnResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-func (o CompositePathListArrayOutput) ToCompositePathListArrayOutput() CompositePathListArrayOutput {
+// Type of the Cosmos DB Cassandra table column
+func (o ColumnResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ColumnResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ColumnResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ColumnResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ColumnResponse)(nil)).Elem()
+}
+
+func (o ColumnResponseArrayOutput) ToColumnResponseArrayOutput() ColumnResponseArrayOutput {
 	return o
 }
 
-func (o CompositePathListArrayOutput) ToCompositePathListArrayOutputWithContext(ctx context.Context) CompositePathListArrayOutput {
+func (o ColumnResponseArrayOutput) ToColumnResponseArrayOutputWithContext(ctx context.Context) ColumnResponseArrayOutput {
 	return o
 }
 
-func (o CompositePathListArrayOutput) Index(i pulumi.IntInput) CompositePathListOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompositePathList {
-		return vs[0].([]CompositePathList)[vs[1].(int)]
-	}).(CompositePathListOutput)
+func (o ColumnResponseArrayOutput) Index(i pulumi.IntInput) ColumnResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ColumnResponse {
+		return vs[0].([]ColumnResponse)[vs[1].(int)]
+	}).(ColumnResponseOutput)
+}
+
+type CompositePath struct {
+	// Sort order for composite paths.
+	Order *string `pulumi:"order"`
+	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+	Path *string `pulumi:"path"`
+}
+
+// CompositePathInput is an input type that accepts CompositePathArgs and CompositePathOutput values.
+// You can construct a concrete instance of `CompositePathInput` via:
+//
+//          CompositePathArgs{...}
+type CompositePathInput interface {
+	pulumi.Input
+
+	ToCompositePathOutput() CompositePathOutput
+	ToCompositePathOutputWithContext(context.Context) CompositePathOutput
+}
+
+type CompositePathArgs struct {
+	// Sort order for composite paths.
+	Order pulumi.StringPtrInput `pulumi:"order"`
+	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (CompositePathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePath)(nil)).Elem()
+}
+
+func (i CompositePathArgs) ToCompositePathOutput() CompositePathOutput {
+	return i.ToCompositePathOutputWithContext(context.Background())
+}
+
+func (i CompositePathArgs) ToCompositePathOutputWithContext(ctx context.Context) CompositePathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositePathOutput)
+}
+
+// CompositePathArrayInput is an input type that accepts CompositePathArray and CompositePathArrayOutput values.
+// You can construct a concrete instance of `CompositePathArrayInput` via:
+//
+//          CompositePathArray{ CompositePathArgs{...} }
+type CompositePathArrayInput interface {
+	pulumi.Input
+
+	ToCompositePathArrayOutput() CompositePathArrayOutput
+	ToCompositePathArrayOutputWithContext(context.Context) CompositePathArrayOutput
+}
+
+type CompositePathArray []CompositePathInput
+
+func (CompositePathArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CompositePath)(nil)).Elem()
+}
+
+func (i CompositePathArray) ToCompositePathArrayOutput() CompositePathArrayOutput {
+	return i.ToCompositePathArrayOutputWithContext(context.Background())
+}
+
+func (i CompositePathArray) ToCompositePathArrayOutputWithContext(ctx context.Context) CompositePathArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositePathArrayOutput)
+}
+
+type CompositePathOutput struct{ *pulumi.OutputState }
+
+func (CompositePathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePath)(nil)).Elem()
+}
+
+func (o CompositePathOutput) ToCompositePathOutput() CompositePathOutput {
+	return o
+}
+
+func (o CompositePathOutput) ToCompositePathOutputWithContext(ctx context.Context) CompositePathOutput {
+	return o
+}
+
+// Sort order for composite paths.
+func (o CompositePathOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CompositePath) *string { return v.Order }).(pulumi.StringPtrOutput)
+}
+
+// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+func (o CompositePathOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CompositePath) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type CompositePathArrayOutput struct{ *pulumi.OutputState }
+
+func (CompositePathArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CompositePath)(nil)).Elem()
+}
+
+func (o CompositePathArrayOutput) ToCompositePathArrayOutput() CompositePathArrayOutput {
+	return o
+}
+
+func (o CompositePathArrayOutput) ToCompositePathArrayOutputWithContext(ctx context.Context) CompositePathArrayOutput {
+	return o
+}
+
+func (o CompositePathArrayOutput) Index(i pulumi.IntInput) CompositePathOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompositePath {
+		return vs[0].([]CompositePath)[vs[1].(int)]
+	}).(CompositePathOutput)
+}
+
+type CompositePathResponse struct {
+	// Sort order for composite paths.
+	Order *string `pulumi:"order"`
+	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+	Path *string `pulumi:"path"`
+}
+
+// CompositePathResponseInput is an input type that accepts CompositePathResponseArgs and CompositePathResponseOutput values.
+// You can construct a concrete instance of `CompositePathResponseInput` via:
+//
+//          CompositePathResponseArgs{...}
+type CompositePathResponseInput interface {
+	pulumi.Input
+
+	ToCompositePathResponseOutput() CompositePathResponseOutput
+	ToCompositePathResponseOutputWithContext(context.Context) CompositePathResponseOutput
+}
+
+type CompositePathResponseArgs struct {
+	// Sort order for composite paths.
+	Order pulumi.StringPtrInput `pulumi:"order"`
+	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (CompositePathResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePathResponse)(nil)).Elem()
+}
+
+func (i CompositePathResponseArgs) ToCompositePathResponseOutput() CompositePathResponseOutput {
+	return i.ToCompositePathResponseOutputWithContext(context.Background())
+}
+
+func (i CompositePathResponseArgs) ToCompositePathResponseOutputWithContext(ctx context.Context) CompositePathResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositePathResponseOutput)
+}
+
+// CompositePathResponseArrayInput is an input type that accepts CompositePathResponseArray and CompositePathResponseArrayOutput values.
+// You can construct a concrete instance of `CompositePathResponseArrayInput` via:
+//
+//          CompositePathResponseArray{ CompositePathResponseArgs{...} }
+type CompositePathResponseArrayInput interface {
+	pulumi.Input
+
+	ToCompositePathResponseArrayOutput() CompositePathResponseArrayOutput
+	ToCompositePathResponseArrayOutputWithContext(context.Context) CompositePathResponseArrayOutput
+}
+
+type CompositePathResponseArray []CompositePathResponseInput
+
+func (CompositePathResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CompositePathResponse)(nil)).Elem()
+}
+
+func (i CompositePathResponseArray) ToCompositePathResponseArrayOutput() CompositePathResponseArrayOutput {
+	return i.ToCompositePathResponseArrayOutputWithContext(context.Background())
+}
+
+func (i CompositePathResponseArray) ToCompositePathResponseArrayOutputWithContext(ctx context.Context) CompositePathResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CompositePathResponseArrayOutput)
+}
+
+type CompositePathResponseOutput struct{ *pulumi.OutputState }
+
+func (CompositePathResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CompositePathResponse)(nil)).Elem()
+}
+
+func (o CompositePathResponseOutput) ToCompositePathResponseOutput() CompositePathResponseOutput {
+	return o
+}
+
+func (o CompositePathResponseOutput) ToCompositePathResponseOutputWithContext(ctx context.Context) CompositePathResponseOutput {
+	return o
+}
+
+// Sort order for composite paths.
+func (o CompositePathResponseOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CompositePathResponse) *string { return v.Order }).(pulumi.StringPtrOutput)
+}
+
+// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+func (o CompositePathResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CompositePathResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type CompositePathResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (CompositePathResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CompositePathResponse)(nil)).Elem()
+}
+
+func (o CompositePathResponseArrayOutput) ToCompositePathResponseArrayOutput() CompositePathResponseArrayOutput {
+	return o
+}
+
+func (o CompositePathResponseArrayOutput) ToCompositePathResponseArrayOutputWithContext(ctx context.Context) CompositePathResponseArrayOutput {
+	return o
+}
+
+func (o CompositePathResponseArrayOutput) Index(i pulumi.IntInput) CompositePathResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompositePathResponse {
+		return vs[0].([]CompositePathResponse)[vs[1].(int)]
+	}).(CompositePathResponseOutput)
 }
 
 // The conflict resolution policy for the container.
@@ -1734,6 +2853,178 @@ func (o ConflictResolutionPolicyPtrOutput) ConflictResolutionProcedure() pulumi.
 // Indicates the conflict resolution mode.
 func (o ConflictResolutionPolicyPtrOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConflictResolutionPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The conflict resolution policy for the container.
+type ConflictResolutionPolicyResponse struct {
+	// The conflict resolution path in the case of LastWriterWins mode.
+	ConflictResolutionPath *string `pulumi:"conflictResolutionPath"`
+	// The procedure to resolve conflicts in the case of custom mode.
+	ConflictResolutionProcedure *string `pulumi:"conflictResolutionProcedure"`
+	// Indicates the conflict resolution mode.
+	Mode *string `pulumi:"mode"`
+}
+
+// ConflictResolutionPolicyResponseInput is an input type that accepts ConflictResolutionPolicyResponseArgs and ConflictResolutionPolicyResponseOutput values.
+// You can construct a concrete instance of `ConflictResolutionPolicyResponseInput` via:
+//
+//          ConflictResolutionPolicyResponseArgs{...}
+type ConflictResolutionPolicyResponseInput interface {
+	pulumi.Input
+
+	ToConflictResolutionPolicyResponseOutput() ConflictResolutionPolicyResponseOutput
+	ToConflictResolutionPolicyResponseOutputWithContext(context.Context) ConflictResolutionPolicyResponseOutput
+}
+
+// The conflict resolution policy for the container.
+type ConflictResolutionPolicyResponseArgs struct {
+	// The conflict resolution path in the case of LastWriterWins mode.
+	ConflictResolutionPath pulumi.StringPtrInput `pulumi:"conflictResolutionPath"`
+	// The procedure to resolve conflicts in the case of custom mode.
+	ConflictResolutionProcedure pulumi.StringPtrInput `pulumi:"conflictResolutionProcedure"`
+	// Indicates the conflict resolution mode.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (ConflictResolutionPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConflictResolutionPolicyResponse)(nil)).Elem()
+}
+
+func (i ConflictResolutionPolicyResponseArgs) ToConflictResolutionPolicyResponseOutput() ConflictResolutionPolicyResponseOutput {
+	return i.ToConflictResolutionPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i ConflictResolutionPolicyResponseArgs) ToConflictResolutionPolicyResponseOutputWithContext(ctx context.Context) ConflictResolutionPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConflictResolutionPolicyResponseOutput)
+}
+
+func (i ConflictResolutionPolicyResponseArgs) ToConflictResolutionPolicyResponsePtrOutput() ConflictResolutionPolicyResponsePtrOutput {
+	return i.ToConflictResolutionPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ConflictResolutionPolicyResponseArgs) ToConflictResolutionPolicyResponsePtrOutputWithContext(ctx context.Context) ConflictResolutionPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConflictResolutionPolicyResponseOutput).ToConflictResolutionPolicyResponsePtrOutputWithContext(ctx)
+}
+
+// ConflictResolutionPolicyResponsePtrInput is an input type that accepts ConflictResolutionPolicyResponseArgs, ConflictResolutionPolicyResponsePtr and ConflictResolutionPolicyResponsePtrOutput values.
+// You can construct a concrete instance of `ConflictResolutionPolicyResponsePtrInput` via:
+//
+//          ConflictResolutionPolicyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ConflictResolutionPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToConflictResolutionPolicyResponsePtrOutput() ConflictResolutionPolicyResponsePtrOutput
+	ToConflictResolutionPolicyResponsePtrOutputWithContext(context.Context) ConflictResolutionPolicyResponsePtrOutput
+}
+
+type conflictResolutionPolicyResponsePtrType ConflictResolutionPolicyResponseArgs
+
+func ConflictResolutionPolicyResponsePtr(v *ConflictResolutionPolicyResponseArgs) ConflictResolutionPolicyResponsePtrInput {
+	return (*conflictResolutionPolicyResponsePtrType)(v)
+}
+
+func (*conflictResolutionPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConflictResolutionPolicyResponse)(nil)).Elem()
+}
+
+func (i *conflictResolutionPolicyResponsePtrType) ToConflictResolutionPolicyResponsePtrOutput() ConflictResolutionPolicyResponsePtrOutput {
+	return i.ToConflictResolutionPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *conflictResolutionPolicyResponsePtrType) ToConflictResolutionPolicyResponsePtrOutputWithContext(ctx context.Context) ConflictResolutionPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConflictResolutionPolicyResponsePtrOutput)
+}
+
+// The conflict resolution policy for the container.
+type ConflictResolutionPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (ConflictResolutionPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConflictResolutionPolicyResponse)(nil)).Elem()
+}
+
+func (o ConflictResolutionPolicyResponseOutput) ToConflictResolutionPolicyResponseOutput() ConflictResolutionPolicyResponseOutput {
+	return o
+}
+
+func (o ConflictResolutionPolicyResponseOutput) ToConflictResolutionPolicyResponseOutputWithContext(ctx context.Context) ConflictResolutionPolicyResponseOutput {
+	return o
+}
+
+func (o ConflictResolutionPolicyResponseOutput) ToConflictResolutionPolicyResponsePtrOutput() ConflictResolutionPolicyResponsePtrOutput {
+	return o.ToConflictResolutionPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ConflictResolutionPolicyResponseOutput) ToConflictResolutionPolicyResponsePtrOutputWithContext(ctx context.Context) ConflictResolutionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v ConflictResolutionPolicyResponse) *ConflictResolutionPolicyResponse {
+		return &v
+	}).(ConflictResolutionPolicyResponsePtrOutput)
+}
+
+// The conflict resolution path in the case of LastWriterWins mode.
+func (o ConflictResolutionPolicyResponseOutput) ConflictResolutionPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConflictResolutionPolicyResponse) *string { return v.ConflictResolutionPath }).(pulumi.StringPtrOutput)
+}
+
+// The procedure to resolve conflicts in the case of custom mode.
+func (o ConflictResolutionPolicyResponseOutput) ConflictResolutionProcedure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConflictResolutionPolicyResponse) *string { return v.ConflictResolutionProcedure }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the conflict resolution mode.
+func (o ConflictResolutionPolicyResponseOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConflictResolutionPolicyResponse) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+type ConflictResolutionPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ConflictResolutionPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConflictResolutionPolicyResponse)(nil)).Elem()
+}
+
+func (o ConflictResolutionPolicyResponsePtrOutput) ToConflictResolutionPolicyResponsePtrOutput() ConflictResolutionPolicyResponsePtrOutput {
+	return o
+}
+
+func (o ConflictResolutionPolicyResponsePtrOutput) ToConflictResolutionPolicyResponsePtrOutputWithContext(ctx context.Context) ConflictResolutionPolicyResponsePtrOutput {
+	return o
+}
+
+func (o ConflictResolutionPolicyResponsePtrOutput) Elem() ConflictResolutionPolicyResponseOutput {
+	return o.ApplyT(func(v *ConflictResolutionPolicyResponse) ConflictResolutionPolicyResponse { return *v }).(ConflictResolutionPolicyResponseOutput)
+}
+
+// The conflict resolution path in the case of LastWriterWins mode.
+func (o ConflictResolutionPolicyResponsePtrOutput) ConflictResolutionPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConflictResolutionPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConflictResolutionPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The procedure to resolve conflicts in the case of custom mode.
+func (o ConflictResolutionPolicyResponsePtrOutput) ConflictResolutionProcedure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConflictResolutionPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConflictResolutionProcedure
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates the conflict resolution mode.
+func (o ConflictResolutionPolicyResponsePtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConflictResolutionPolicyResponse) *string {
 		if v == nil {
 			return nil
 		}
@@ -2257,6 +3548,178 @@ func (o ContainerPartitionKeyPtrOutput) Version() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The configuration of the partition key to be used for partitioning data into multiple partitions
+type ContainerPartitionKeyResponse struct {
+	// Indicates the kind of algorithm used for partitioning
+	Kind *string `pulumi:"kind"`
+	// List of paths using which data within the container can be partitioned
+	Paths []string `pulumi:"paths"`
+	// Indicates the version of the partition key definition
+	Version *int `pulumi:"version"`
+}
+
+// ContainerPartitionKeyResponseInput is an input type that accepts ContainerPartitionKeyResponseArgs and ContainerPartitionKeyResponseOutput values.
+// You can construct a concrete instance of `ContainerPartitionKeyResponseInput` via:
+//
+//          ContainerPartitionKeyResponseArgs{...}
+type ContainerPartitionKeyResponseInput interface {
+	pulumi.Input
+
+	ToContainerPartitionKeyResponseOutput() ContainerPartitionKeyResponseOutput
+	ToContainerPartitionKeyResponseOutputWithContext(context.Context) ContainerPartitionKeyResponseOutput
+}
+
+// The configuration of the partition key to be used for partitioning data into multiple partitions
+type ContainerPartitionKeyResponseArgs struct {
+	// Indicates the kind of algorithm used for partitioning
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// List of paths using which data within the container can be partitioned
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+	// Indicates the version of the partition key definition
+	Version pulumi.IntPtrInput `pulumi:"version"`
+}
+
+func (ContainerPartitionKeyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPartitionKeyResponse)(nil)).Elem()
+}
+
+func (i ContainerPartitionKeyResponseArgs) ToContainerPartitionKeyResponseOutput() ContainerPartitionKeyResponseOutput {
+	return i.ToContainerPartitionKeyResponseOutputWithContext(context.Background())
+}
+
+func (i ContainerPartitionKeyResponseArgs) ToContainerPartitionKeyResponseOutputWithContext(ctx context.Context) ContainerPartitionKeyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPartitionKeyResponseOutput)
+}
+
+func (i ContainerPartitionKeyResponseArgs) ToContainerPartitionKeyResponsePtrOutput() ContainerPartitionKeyResponsePtrOutput {
+	return i.ToContainerPartitionKeyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ContainerPartitionKeyResponseArgs) ToContainerPartitionKeyResponsePtrOutputWithContext(ctx context.Context) ContainerPartitionKeyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPartitionKeyResponseOutput).ToContainerPartitionKeyResponsePtrOutputWithContext(ctx)
+}
+
+// ContainerPartitionKeyResponsePtrInput is an input type that accepts ContainerPartitionKeyResponseArgs, ContainerPartitionKeyResponsePtr and ContainerPartitionKeyResponsePtrOutput values.
+// You can construct a concrete instance of `ContainerPartitionKeyResponsePtrInput` via:
+//
+//          ContainerPartitionKeyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerPartitionKeyResponsePtrInput interface {
+	pulumi.Input
+
+	ToContainerPartitionKeyResponsePtrOutput() ContainerPartitionKeyResponsePtrOutput
+	ToContainerPartitionKeyResponsePtrOutputWithContext(context.Context) ContainerPartitionKeyResponsePtrOutput
+}
+
+type containerPartitionKeyResponsePtrType ContainerPartitionKeyResponseArgs
+
+func ContainerPartitionKeyResponsePtr(v *ContainerPartitionKeyResponseArgs) ContainerPartitionKeyResponsePtrInput {
+	return (*containerPartitionKeyResponsePtrType)(v)
+}
+
+func (*containerPartitionKeyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerPartitionKeyResponse)(nil)).Elem()
+}
+
+func (i *containerPartitionKeyResponsePtrType) ToContainerPartitionKeyResponsePtrOutput() ContainerPartitionKeyResponsePtrOutput {
+	return i.ToContainerPartitionKeyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *containerPartitionKeyResponsePtrType) ToContainerPartitionKeyResponsePtrOutputWithContext(ctx context.Context) ContainerPartitionKeyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerPartitionKeyResponsePtrOutput)
+}
+
+// The configuration of the partition key to be used for partitioning data into multiple partitions
+type ContainerPartitionKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (ContainerPartitionKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerPartitionKeyResponse)(nil)).Elem()
+}
+
+func (o ContainerPartitionKeyResponseOutput) ToContainerPartitionKeyResponseOutput() ContainerPartitionKeyResponseOutput {
+	return o
+}
+
+func (o ContainerPartitionKeyResponseOutput) ToContainerPartitionKeyResponseOutputWithContext(ctx context.Context) ContainerPartitionKeyResponseOutput {
+	return o
+}
+
+func (o ContainerPartitionKeyResponseOutput) ToContainerPartitionKeyResponsePtrOutput() ContainerPartitionKeyResponsePtrOutput {
+	return o.ToContainerPartitionKeyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerPartitionKeyResponseOutput) ToContainerPartitionKeyResponsePtrOutputWithContext(ctx context.Context) ContainerPartitionKeyResponsePtrOutput {
+	return o.ApplyT(func(v ContainerPartitionKeyResponse) *ContainerPartitionKeyResponse {
+		return &v
+	}).(ContainerPartitionKeyResponsePtrOutput)
+}
+
+// Indicates the kind of algorithm used for partitioning
+func (o ContainerPartitionKeyResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerPartitionKeyResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// List of paths using which data within the container can be partitioned
+func (o ContainerPartitionKeyResponseOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContainerPartitionKeyResponse) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+// Indicates the version of the partition key definition
+func (o ContainerPartitionKeyResponseOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerPartitionKeyResponse) *int { return v.Version }).(pulumi.IntPtrOutput)
+}
+
+type ContainerPartitionKeyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerPartitionKeyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerPartitionKeyResponse)(nil)).Elem()
+}
+
+func (o ContainerPartitionKeyResponsePtrOutput) ToContainerPartitionKeyResponsePtrOutput() ContainerPartitionKeyResponsePtrOutput {
+	return o
+}
+
+func (o ContainerPartitionKeyResponsePtrOutput) ToContainerPartitionKeyResponsePtrOutputWithContext(ctx context.Context) ContainerPartitionKeyResponsePtrOutput {
+	return o
+}
+
+func (o ContainerPartitionKeyResponsePtrOutput) Elem() ContainerPartitionKeyResponseOutput {
+	return o.ApplyT(func(v *ContainerPartitionKeyResponse) ContainerPartitionKeyResponse { return *v }).(ContainerPartitionKeyResponseOutput)
+}
+
+// Indicates the kind of algorithm used for partitioning
+func (o ContainerPartitionKeyResponsePtrOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerPartitionKeyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Kind
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of paths using which data within the container can be partitioned
+func (o ContainerPartitionKeyResponsePtrOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ContainerPartitionKeyResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Paths
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicates the version of the partition key definition
+func (o ContainerPartitionKeyResponsePtrOutput) Version() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerPartitionKeyResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.IntPtrOutput)
+}
+
 // CreateUpdateOptions are a list of key-value pairs that describe the resource. Supported keys are "If-Match", "If-None-Match", "Session-Token" and "Throughput"
 type CreateUpdateOptions struct {
 	// Request Units per second. For example, "throughput": "10000".
@@ -2389,106 +3852,6 @@ func (o CreateUpdateOptionsPtrOutput) Throughput() pulumi.StringPtrOutput {
 		}
 		return v.Throughput
 	}).(pulumi.StringPtrOutput)
-}
-
-// An Azure Cosmos DB database account.
-type DatabaseAccountType struct {
-	// Indicates the type of database account. This can only be set at database account creation.
-	Kind *string `pulumi:"kind"`
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// Properties for the database account.
-	Properties DatabaseAccountGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// DatabaseAccountTypeInput is an input type that accepts DatabaseAccountTypeArgs and DatabaseAccountTypeOutput values.
-// You can construct a concrete instance of `DatabaseAccountTypeInput` via:
-//
-//          DatabaseAccountTypeArgs{...}
-type DatabaseAccountTypeInput interface {
-	pulumi.Input
-
-	ToDatabaseAccountTypeOutput() DatabaseAccountTypeOutput
-	ToDatabaseAccountTypeOutputWithContext(context.Context) DatabaseAccountTypeOutput
-}
-
-// An Azure Cosmos DB database account.
-type DatabaseAccountTypeArgs struct {
-	// Indicates the type of database account. This can only be set at database account creation.
-	Kind pulumi.StringPtrInput `pulumi:"kind"`
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties for the database account.
-	Properties DatabaseAccountGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DatabaseAccountTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountType)(nil)).Elem()
-}
-
-func (i DatabaseAccountTypeArgs) ToDatabaseAccountTypeOutput() DatabaseAccountTypeOutput {
-	return i.ToDatabaseAccountTypeOutputWithContext(context.Background())
-}
-
-func (i DatabaseAccountTypeArgs) ToDatabaseAccountTypeOutputWithContext(ctx context.Context) DatabaseAccountTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabaseAccountTypeOutput)
-}
-
-// An Azure Cosmos DB database account.
-type DatabaseAccountTypeOutput struct{ *pulumi.OutputState }
-
-func (DatabaseAccountTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DatabaseAccountType)(nil)).Elem()
-}
-
-func (o DatabaseAccountTypeOutput) ToDatabaseAccountTypeOutput() DatabaseAccountTypeOutput {
-	return o
-}
-
-func (o DatabaseAccountTypeOutput) ToDatabaseAccountTypeOutputWithContext(ctx context.Context) DatabaseAccountTypeOutput {
-	return o
-}
-
-// Indicates the type of database account. This can only be set at database account creation.
-func (o DatabaseAccountTypeOutput) Kind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseAccountType) *string { return v.Kind }).(pulumi.StringPtrOutput)
-}
-
-// The location of the resource group to which the resource belongs.
-func (o DatabaseAccountTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DatabaseAccountType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o DatabaseAccountTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties for the database account.
-func (o DatabaseAccountTypeOutput) Properties() DatabaseAccountGetPropertiesResponseOutput {
-	return o.ApplyT(func(v DatabaseAccountType) DatabaseAccountGetPropertiesResponse { return v.Properties }).(DatabaseAccountGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o DatabaseAccountTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v DatabaseAccountType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o DatabaseAccountTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DatabaseAccountType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Connection string for the Cosmos DB account
@@ -3196,6 +4559,103 @@ func (o ExcludedPathArrayOutput) Index(i pulumi.IntInput) ExcludedPathOutput {
 	}).(ExcludedPathOutput)
 }
 
+type ExcludedPathResponse struct {
+	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+	Path *string `pulumi:"path"`
+}
+
+// ExcludedPathResponseInput is an input type that accepts ExcludedPathResponseArgs and ExcludedPathResponseOutput values.
+// You can construct a concrete instance of `ExcludedPathResponseInput` via:
+//
+//          ExcludedPathResponseArgs{...}
+type ExcludedPathResponseInput interface {
+	pulumi.Input
+
+	ToExcludedPathResponseOutput() ExcludedPathResponseOutput
+	ToExcludedPathResponseOutputWithContext(context.Context) ExcludedPathResponseOutput
+}
+
+type ExcludedPathResponseArgs struct {
+	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (ExcludedPathResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExcludedPathResponse)(nil)).Elem()
+}
+
+func (i ExcludedPathResponseArgs) ToExcludedPathResponseOutput() ExcludedPathResponseOutput {
+	return i.ToExcludedPathResponseOutputWithContext(context.Background())
+}
+
+func (i ExcludedPathResponseArgs) ToExcludedPathResponseOutputWithContext(ctx context.Context) ExcludedPathResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExcludedPathResponseOutput)
+}
+
+// ExcludedPathResponseArrayInput is an input type that accepts ExcludedPathResponseArray and ExcludedPathResponseArrayOutput values.
+// You can construct a concrete instance of `ExcludedPathResponseArrayInput` via:
+//
+//          ExcludedPathResponseArray{ ExcludedPathResponseArgs{...} }
+type ExcludedPathResponseArrayInput interface {
+	pulumi.Input
+
+	ToExcludedPathResponseArrayOutput() ExcludedPathResponseArrayOutput
+	ToExcludedPathResponseArrayOutputWithContext(context.Context) ExcludedPathResponseArrayOutput
+}
+
+type ExcludedPathResponseArray []ExcludedPathResponseInput
+
+func (ExcludedPathResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExcludedPathResponse)(nil)).Elem()
+}
+
+func (i ExcludedPathResponseArray) ToExcludedPathResponseArrayOutput() ExcludedPathResponseArrayOutput {
+	return i.ToExcludedPathResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ExcludedPathResponseArray) ToExcludedPathResponseArrayOutputWithContext(ctx context.Context) ExcludedPathResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExcludedPathResponseArrayOutput)
+}
+
+type ExcludedPathResponseOutput struct{ *pulumi.OutputState }
+
+func (ExcludedPathResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExcludedPathResponse)(nil)).Elem()
+}
+
+func (o ExcludedPathResponseOutput) ToExcludedPathResponseOutput() ExcludedPathResponseOutput {
+	return o
+}
+
+func (o ExcludedPathResponseOutput) ToExcludedPathResponseOutputWithContext(ctx context.Context) ExcludedPathResponseOutput {
+	return o
+}
+
+// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+func (o ExcludedPathResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExcludedPathResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type ExcludedPathResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ExcludedPathResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExcludedPathResponse)(nil)).Elem()
+}
+
+func (o ExcludedPathResponseArrayOutput) ToExcludedPathResponseArrayOutput() ExcludedPathResponseArrayOutput {
+	return o
+}
+
+func (o ExcludedPathResponseArrayOutput) ToExcludedPathResponseArrayOutputWithContext(ctx context.Context) ExcludedPathResponseArrayOutput {
+	return o
+}
+
+func (o ExcludedPathResponseArrayOutput) Index(i pulumi.IntInput) ExcludedPathResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExcludedPathResponse {
+		return vs[0].([]ExcludedPathResponse)[vs[1].(int)]
+	}).(ExcludedPathResponseOutput)
+}
+
 // The failover policy for a given region of a database account.
 type FailoverPolicyResponse struct {
 	// The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
@@ -3316,8 +4776,8 @@ func (o FailoverPolicyResponseArrayOutput) Index(i pulumi.IntInput) FailoverPoli
 
 // The properties of an Azure Cosmos DB SQL database
 type GremlinDatabaseGetPropertiesResponse struct {
-	Options  map[string]interface{} `pulumi:"options"`
-	Resource map[string]interface{} `pulumi:"resource"`
+	Options  *GremlinDatabaseGetPropertiesResponseOptions  `pulumi:"options"`
+	Resource *GremlinDatabaseGetPropertiesResponseResource `pulumi:"resource"`
 }
 
 // GremlinDatabaseGetPropertiesResponseInput is an input type that accepts GremlinDatabaseGetPropertiesResponseArgs and GremlinDatabaseGetPropertiesResponseOutput values.
@@ -3333,8 +4793,8 @@ type GremlinDatabaseGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB SQL database
 type GremlinDatabaseGetPropertiesResponseArgs struct {
-	Options  pulumi.MapInput `pulumi:"options"`
-	Resource pulumi.MapInput `pulumi:"resource"`
+	Options  GremlinDatabaseGetPropertiesResponseOptionsPtrInput  `pulumi:"options"`
+	Resource GremlinDatabaseGetPropertiesResponseResourcePtrInput `pulumi:"resource"`
 }
 
 func (GremlinDatabaseGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -3414,12 +4874,16 @@ func (o GremlinDatabaseGetPropertiesResponseOutput) ToGremlinDatabaseGetProperti
 		return &v
 	}).(GremlinDatabaseGetPropertiesResponsePtrOutput)
 }
-func (o GremlinDatabaseGetPropertiesResponseOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponse) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o GremlinDatabaseGetPropertiesResponseOutput) Options() GremlinDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponse) *GremlinDatabaseGetPropertiesResponseOptions {
+		return v.Options
+	}).(GremlinDatabaseGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o GremlinDatabaseGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
+func (o GremlinDatabaseGetPropertiesResponseOutput) Resource() GremlinDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponse) *GremlinDatabaseGetPropertiesResponseResource {
+		return v.Resource
+	}).(GremlinDatabaseGetPropertiesResponseResourcePtrOutput)
 }
 
 type GremlinDatabaseGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -3440,22 +4904,345 @@ func (o GremlinDatabaseGetPropertiesResponsePtrOutput) Elem() GremlinDatabaseGet
 	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponse) GremlinDatabaseGetPropertiesResponse { return *v }).(GremlinDatabaseGetPropertiesResponseOutput)
 }
 
-func (o GremlinDatabaseGetPropertiesResponsePtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponse) map[string]interface{} {
+func (o GremlinDatabaseGetPropertiesResponsePtrOutput) Options() GremlinDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponse) *GremlinDatabaseGetPropertiesResponseOptions {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.MapOutput)
+	}).(GremlinDatabaseGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o GremlinDatabaseGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponse) map[string]interface{} {
+func (o GremlinDatabaseGetPropertiesResponsePtrOutput) Resource() GremlinDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponse) *GremlinDatabaseGetPropertiesResponseResource {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
+	}).(GremlinDatabaseGetPropertiesResponseResourcePtrOutput)
+}
+
+type GremlinDatabaseGetPropertiesResponseOptions struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput *int `pulumi:"throughput"`
+}
+
+// GremlinDatabaseGetPropertiesResponseOptionsInput is an input type that accepts GremlinDatabaseGetPropertiesResponseOptionsArgs and GremlinDatabaseGetPropertiesResponseOptionsOutput values.
+// You can construct a concrete instance of `GremlinDatabaseGetPropertiesResponseOptionsInput` via:
+//
+//          GremlinDatabaseGetPropertiesResponseOptionsArgs{...}
+type GremlinDatabaseGetPropertiesResponseOptionsInput interface {
+	pulumi.Input
+
+	ToGremlinDatabaseGetPropertiesResponseOptionsOutput() GremlinDatabaseGetPropertiesResponseOptionsOutput
+	ToGremlinDatabaseGetPropertiesResponseOptionsOutputWithContext(context.Context) GremlinDatabaseGetPropertiesResponseOptionsOutput
+}
+
+type GremlinDatabaseGetPropertiesResponseOptionsArgs struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+}
+
+func (GremlinDatabaseGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinDatabaseGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i GremlinDatabaseGetPropertiesResponseOptionsArgs) ToGremlinDatabaseGetPropertiesResponseOptionsOutput() GremlinDatabaseGetPropertiesResponseOptionsOutput {
+	return i.ToGremlinDatabaseGetPropertiesResponseOptionsOutputWithContext(context.Background())
+}
+
+func (i GremlinDatabaseGetPropertiesResponseOptionsArgs) ToGremlinDatabaseGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) GremlinDatabaseGetPropertiesResponseOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabaseGetPropertiesResponseOptionsOutput)
+}
+
+func (i GremlinDatabaseGetPropertiesResponseOptionsArgs) ToGremlinDatabaseGetPropertiesResponseOptionsPtrOutput() GremlinDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return i.ToGremlinDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i GremlinDatabaseGetPropertiesResponseOptionsArgs) ToGremlinDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) GremlinDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabaseGetPropertiesResponseOptionsOutput).ToGremlinDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx)
+}
+
+// GremlinDatabaseGetPropertiesResponseOptionsPtrInput is an input type that accepts GremlinDatabaseGetPropertiesResponseOptionsArgs, GremlinDatabaseGetPropertiesResponseOptionsPtr and GremlinDatabaseGetPropertiesResponseOptionsPtrOutput values.
+// You can construct a concrete instance of `GremlinDatabaseGetPropertiesResponseOptionsPtrInput` via:
+//
+//          GremlinDatabaseGetPropertiesResponseOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type GremlinDatabaseGetPropertiesResponseOptionsPtrInput interface {
+	pulumi.Input
+
+	ToGremlinDatabaseGetPropertiesResponseOptionsPtrOutput() GremlinDatabaseGetPropertiesResponseOptionsPtrOutput
+	ToGremlinDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(context.Context) GremlinDatabaseGetPropertiesResponseOptionsPtrOutput
+}
+
+type gremlinDatabaseGetPropertiesResponseOptionsPtrType GremlinDatabaseGetPropertiesResponseOptionsArgs
+
+func GremlinDatabaseGetPropertiesResponseOptionsPtr(v *GremlinDatabaseGetPropertiesResponseOptionsArgs) GremlinDatabaseGetPropertiesResponseOptionsPtrInput {
+	return (*gremlinDatabaseGetPropertiesResponseOptionsPtrType)(v)
+}
+
+func (*gremlinDatabaseGetPropertiesResponseOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinDatabaseGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i *gremlinDatabaseGetPropertiesResponseOptionsPtrType) ToGremlinDatabaseGetPropertiesResponseOptionsPtrOutput() GremlinDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return i.ToGremlinDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *gremlinDatabaseGetPropertiesResponseOptionsPtrType) ToGremlinDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) GremlinDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabaseGetPropertiesResponseOptionsPtrOutput)
+}
+
+type GremlinDatabaseGetPropertiesResponseOptionsOutput struct{ *pulumi.OutputState }
+
+func (GremlinDatabaseGetPropertiesResponseOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinDatabaseGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o GremlinDatabaseGetPropertiesResponseOptionsOutput) ToGremlinDatabaseGetPropertiesResponseOptionsOutput() GremlinDatabaseGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o GremlinDatabaseGetPropertiesResponseOptionsOutput) ToGremlinDatabaseGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) GremlinDatabaseGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o GremlinDatabaseGetPropertiesResponseOptionsOutput) ToGremlinDatabaseGetPropertiesResponseOptionsPtrOutput() GremlinDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o.ToGremlinDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o GremlinDatabaseGetPropertiesResponseOptionsOutput) ToGremlinDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) GremlinDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseOptions) *GremlinDatabaseGetPropertiesResponseOptions {
+		return &v
+	}).(GremlinDatabaseGetPropertiesResponseOptionsPtrOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o GremlinDatabaseGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+type GremlinDatabaseGetPropertiesResponseOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GremlinDatabaseGetPropertiesResponseOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinDatabaseGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o GremlinDatabaseGetPropertiesResponseOptionsPtrOutput) ToGremlinDatabaseGetPropertiesResponseOptionsPtrOutput() GremlinDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o GremlinDatabaseGetPropertiesResponseOptionsPtrOutput) ToGremlinDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) GremlinDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o GremlinDatabaseGetPropertiesResponseOptionsPtrOutput) Elem() GremlinDatabaseGetPropertiesResponseOptionsOutput {
+	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseOptions) GremlinDatabaseGetPropertiesResponseOptions {
+		return *v
+	}).(GremlinDatabaseGetPropertiesResponseOptionsOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o GremlinDatabaseGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type GremlinDatabaseGetPropertiesResponseResource struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag string `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid string `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts map[string]interface{} `pulumi:"_ts"`
+	// Name of the Cosmos DB Gremlin database
+	Id string `pulumi:"id"`
+}
+
+// GremlinDatabaseGetPropertiesResponseResourceInput is an input type that accepts GremlinDatabaseGetPropertiesResponseResourceArgs and GremlinDatabaseGetPropertiesResponseResourceOutput values.
+// You can construct a concrete instance of `GremlinDatabaseGetPropertiesResponseResourceInput` via:
+//
+//          GremlinDatabaseGetPropertiesResponseResourceArgs{...}
+type GremlinDatabaseGetPropertiesResponseResourceInput interface {
+	pulumi.Input
+
+	ToGremlinDatabaseGetPropertiesResponseResourceOutput() GremlinDatabaseGetPropertiesResponseResourceOutput
+	ToGremlinDatabaseGetPropertiesResponseResourceOutputWithContext(context.Context) GremlinDatabaseGetPropertiesResponseResourceOutput
+}
+
+type GremlinDatabaseGetPropertiesResponseResourceArgs struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag pulumi.StringInput `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid pulumi.StringInput `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts pulumi.MapInput `pulumi:"_ts"`
+	// Name of the Cosmos DB Gremlin database
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GremlinDatabaseGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinDatabaseGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i GremlinDatabaseGetPropertiesResponseResourceArgs) ToGremlinDatabaseGetPropertiesResponseResourceOutput() GremlinDatabaseGetPropertiesResponseResourceOutput {
+	return i.ToGremlinDatabaseGetPropertiesResponseResourceOutputWithContext(context.Background())
+}
+
+func (i GremlinDatabaseGetPropertiesResponseResourceArgs) ToGremlinDatabaseGetPropertiesResponseResourceOutputWithContext(ctx context.Context) GremlinDatabaseGetPropertiesResponseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabaseGetPropertiesResponseResourceOutput)
+}
+
+func (i GremlinDatabaseGetPropertiesResponseResourceArgs) ToGremlinDatabaseGetPropertiesResponseResourcePtrOutput() GremlinDatabaseGetPropertiesResponseResourcePtrOutput {
+	return i.ToGremlinDatabaseGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i GremlinDatabaseGetPropertiesResponseResourceArgs) ToGremlinDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) GremlinDatabaseGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabaseGetPropertiesResponseResourceOutput).ToGremlinDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx)
+}
+
+// GremlinDatabaseGetPropertiesResponseResourcePtrInput is an input type that accepts GremlinDatabaseGetPropertiesResponseResourceArgs, GremlinDatabaseGetPropertiesResponseResourcePtr and GremlinDatabaseGetPropertiesResponseResourcePtrOutput values.
+// You can construct a concrete instance of `GremlinDatabaseGetPropertiesResponseResourcePtrInput` via:
+//
+//          GremlinDatabaseGetPropertiesResponseResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type GremlinDatabaseGetPropertiesResponseResourcePtrInput interface {
+	pulumi.Input
+
+	ToGremlinDatabaseGetPropertiesResponseResourcePtrOutput() GremlinDatabaseGetPropertiesResponseResourcePtrOutput
+	ToGremlinDatabaseGetPropertiesResponseResourcePtrOutputWithContext(context.Context) GremlinDatabaseGetPropertiesResponseResourcePtrOutput
+}
+
+type gremlinDatabaseGetPropertiesResponseResourcePtrType GremlinDatabaseGetPropertiesResponseResourceArgs
+
+func GremlinDatabaseGetPropertiesResponseResourcePtr(v *GremlinDatabaseGetPropertiesResponseResourceArgs) GremlinDatabaseGetPropertiesResponseResourcePtrInput {
+	return (*gremlinDatabaseGetPropertiesResponseResourcePtrType)(v)
+}
+
+func (*gremlinDatabaseGetPropertiesResponseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinDatabaseGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i *gremlinDatabaseGetPropertiesResponseResourcePtrType) ToGremlinDatabaseGetPropertiesResponseResourcePtrOutput() GremlinDatabaseGetPropertiesResponseResourcePtrOutput {
+	return i.ToGremlinDatabaseGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *gremlinDatabaseGetPropertiesResponseResourcePtrType) ToGremlinDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) GremlinDatabaseGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinDatabaseGetPropertiesResponseResourcePtrOutput)
+}
+
+type GremlinDatabaseGetPropertiesResponseResourceOutput struct{ *pulumi.OutputState }
+
+func (GremlinDatabaseGetPropertiesResponseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinDatabaseGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o GremlinDatabaseGetPropertiesResponseResourceOutput) ToGremlinDatabaseGetPropertiesResponseResourceOutput() GremlinDatabaseGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o GremlinDatabaseGetPropertiesResponseResourceOutput) ToGremlinDatabaseGetPropertiesResponseResourceOutputWithContext(ctx context.Context) GremlinDatabaseGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o GremlinDatabaseGetPropertiesResponseResourceOutput) ToGremlinDatabaseGetPropertiesResponseResourcePtrOutput() GremlinDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o.ToGremlinDatabaseGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o GremlinDatabaseGetPropertiesResponseResourceOutput) ToGremlinDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) GremlinDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) *GremlinDatabaseGetPropertiesResponseResource {
+		return &v
+	}).(GremlinDatabaseGetPropertiesResponseResourcePtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o GremlinDatabaseGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o GremlinDatabaseGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o GremlinDatabaseGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+}
+
+// Name of the Cosmos DB Gremlin database
+func (o GremlinDatabaseGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinDatabaseGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GremlinDatabaseGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (GremlinDatabaseGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinDatabaseGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) ToGremlinDatabaseGetPropertiesResponseResourcePtrOutput() GremlinDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) ToGremlinDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) GremlinDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Elem() GremlinDatabaseGetPropertiesResponseResourceOutput {
+	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) GremlinDatabaseGetPropertiesResponseResource {
+		return *v
+	}).(GremlinDatabaseGetPropertiesResponseResourceOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v._ts
 	}).(pulumi.MapOutput)
+}
+
+// Name of the Cosmos DB Gremlin database
+func (o GremlinDatabaseGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GremlinDatabaseGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // Cosmos DB Gremlin database resource object
@@ -3594,8 +5381,8 @@ func (o GremlinDatabaseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 
 // The properties of an Azure Cosmos DB Gremlin graph
 type GremlinGraphGetPropertiesResponse struct {
-	Options  map[string]interface{} `pulumi:"options"`
-	Resource map[string]interface{} `pulumi:"resource"`
+	Options  *GremlinGraphGetPropertiesResponseOptions  `pulumi:"options"`
+	Resource *GremlinGraphGetPropertiesResponseResource `pulumi:"resource"`
 }
 
 // GremlinGraphGetPropertiesResponseInput is an input type that accepts GremlinGraphGetPropertiesResponseArgs and GremlinGraphGetPropertiesResponseOutput values.
@@ -3611,8 +5398,8 @@ type GremlinGraphGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB Gremlin graph
 type GremlinGraphGetPropertiesResponseArgs struct {
-	Options  pulumi.MapInput `pulumi:"options"`
-	Resource pulumi.MapInput `pulumi:"resource"`
+	Options  GremlinGraphGetPropertiesResponseOptionsPtrInput  `pulumi:"options"`
+	Resource GremlinGraphGetPropertiesResponseResourcePtrInput `pulumi:"resource"`
 }
 
 func (GremlinGraphGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -3692,12 +5479,14 @@ func (o GremlinGraphGetPropertiesResponseOutput) ToGremlinGraphGetPropertiesResp
 		return &v
 	}).(GremlinGraphGetPropertiesResponsePtrOutput)
 }
-func (o GremlinGraphGetPropertiesResponseOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v GremlinGraphGetPropertiesResponse) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o GremlinGraphGetPropertiesResponseOutput) Options() GremlinGraphGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponse) *GremlinGraphGetPropertiesResponseOptions { return v.Options }).(GremlinGraphGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o GremlinGraphGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v GremlinGraphGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
+func (o GremlinGraphGetPropertiesResponseOutput) Resource() GremlinGraphGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponse) *GremlinGraphGetPropertiesResponseResource {
+		return v.Resource
+	}).(GremlinGraphGetPropertiesResponseResourcePtrOutput)
 }
 
 type GremlinGraphGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -3718,22 +5507,442 @@ func (o GremlinGraphGetPropertiesResponsePtrOutput) Elem() GremlinGraphGetProper
 	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponse) GremlinGraphGetPropertiesResponse { return *v }).(GremlinGraphGetPropertiesResponseOutput)
 }
 
-func (o GremlinGraphGetPropertiesResponsePtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponse) map[string]interface{} {
+func (o GremlinGraphGetPropertiesResponsePtrOutput) Options() GremlinGraphGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponse) *GremlinGraphGetPropertiesResponseOptions {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.MapOutput)
+	}).(GremlinGraphGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o GremlinGraphGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponse) map[string]interface{} {
+func (o GremlinGraphGetPropertiesResponsePtrOutput) Resource() GremlinGraphGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponse) *GremlinGraphGetPropertiesResponseResource {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
+	}).(GremlinGraphGetPropertiesResponseResourcePtrOutput)
+}
+
+type GremlinGraphGetPropertiesResponseOptions struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput *int `pulumi:"throughput"`
+}
+
+// GremlinGraphGetPropertiesResponseOptionsInput is an input type that accepts GremlinGraphGetPropertiesResponseOptionsArgs and GremlinGraphGetPropertiesResponseOptionsOutput values.
+// You can construct a concrete instance of `GremlinGraphGetPropertiesResponseOptionsInput` via:
+//
+//          GremlinGraphGetPropertiesResponseOptionsArgs{...}
+type GremlinGraphGetPropertiesResponseOptionsInput interface {
+	pulumi.Input
+
+	ToGremlinGraphGetPropertiesResponseOptionsOutput() GremlinGraphGetPropertiesResponseOptionsOutput
+	ToGremlinGraphGetPropertiesResponseOptionsOutputWithContext(context.Context) GremlinGraphGetPropertiesResponseOptionsOutput
+}
+
+type GremlinGraphGetPropertiesResponseOptionsArgs struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+}
+
+func (GremlinGraphGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinGraphGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i GremlinGraphGetPropertiesResponseOptionsArgs) ToGremlinGraphGetPropertiesResponseOptionsOutput() GremlinGraphGetPropertiesResponseOptionsOutput {
+	return i.ToGremlinGraphGetPropertiesResponseOptionsOutputWithContext(context.Background())
+}
+
+func (i GremlinGraphGetPropertiesResponseOptionsArgs) ToGremlinGraphGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) GremlinGraphGetPropertiesResponseOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphGetPropertiesResponseOptionsOutput)
+}
+
+func (i GremlinGraphGetPropertiesResponseOptionsArgs) ToGremlinGraphGetPropertiesResponseOptionsPtrOutput() GremlinGraphGetPropertiesResponseOptionsPtrOutput {
+	return i.ToGremlinGraphGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i GremlinGraphGetPropertiesResponseOptionsArgs) ToGremlinGraphGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) GremlinGraphGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphGetPropertiesResponseOptionsOutput).ToGremlinGraphGetPropertiesResponseOptionsPtrOutputWithContext(ctx)
+}
+
+// GremlinGraphGetPropertiesResponseOptionsPtrInput is an input type that accepts GremlinGraphGetPropertiesResponseOptionsArgs, GremlinGraphGetPropertiesResponseOptionsPtr and GremlinGraphGetPropertiesResponseOptionsPtrOutput values.
+// You can construct a concrete instance of `GremlinGraphGetPropertiesResponseOptionsPtrInput` via:
+//
+//          GremlinGraphGetPropertiesResponseOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type GremlinGraphGetPropertiesResponseOptionsPtrInput interface {
+	pulumi.Input
+
+	ToGremlinGraphGetPropertiesResponseOptionsPtrOutput() GremlinGraphGetPropertiesResponseOptionsPtrOutput
+	ToGremlinGraphGetPropertiesResponseOptionsPtrOutputWithContext(context.Context) GremlinGraphGetPropertiesResponseOptionsPtrOutput
+}
+
+type gremlinGraphGetPropertiesResponseOptionsPtrType GremlinGraphGetPropertiesResponseOptionsArgs
+
+func GremlinGraphGetPropertiesResponseOptionsPtr(v *GremlinGraphGetPropertiesResponseOptionsArgs) GremlinGraphGetPropertiesResponseOptionsPtrInput {
+	return (*gremlinGraphGetPropertiesResponseOptionsPtrType)(v)
+}
+
+func (*gremlinGraphGetPropertiesResponseOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinGraphGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i *gremlinGraphGetPropertiesResponseOptionsPtrType) ToGremlinGraphGetPropertiesResponseOptionsPtrOutput() GremlinGraphGetPropertiesResponseOptionsPtrOutput {
+	return i.ToGremlinGraphGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *gremlinGraphGetPropertiesResponseOptionsPtrType) ToGremlinGraphGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) GremlinGraphGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphGetPropertiesResponseOptionsPtrOutput)
+}
+
+type GremlinGraphGetPropertiesResponseOptionsOutput struct{ *pulumi.OutputState }
+
+func (GremlinGraphGetPropertiesResponseOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinGraphGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o GremlinGraphGetPropertiesResponseOptionsOutput) ToGremlinGraphGetPropertiesResponseOptionsOutput() GremlinGraphGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o GremlinGraphGetPropertiesResponseOptionsOutput) ToGremlinGraphGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) GremlinGraphGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o GremlinGraphGetPropertiesResponseOptionsOutput) ToGremlinGraphGetPropertiesResponseOptionsPtrOutput() GremlinGraphGetPropertiesResponseOptionsPtrOutput {
+	return o.ToGremlinGraphGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o GremlinGraphGetPropertiesResponseOptionsOutput) ToGremlinGraphGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) GremlinGraphGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseOptions) *GremlinGraphGetPropertiesResponseOptions {
+		return &v
+	}).(GremlinGraphGetPropertiesResponseOptionsPtrOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o GremlinGraphGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+type GremlinGraphGetPropertiesResponseOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GremlinGraphGetPropertiesResponseOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinGraphGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o GremlinGraphGetPropertiesResponseOptionsPtrOutput) ToGremlinGraphGetPropertiesResponseOptionsPtrOutput() GremlinGraphGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o GremlinGraphGetPropertiesResponseOptionsPtrOutput) ToGremlinGraphGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) GremlinGraphGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o GremlinGraphGetPropertiesResponseOptionsPtrOutput) Elem() GremlinGraphGetPropertiesResponseOptionsOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseOptions) GremlinGraphGetPropertiesResponseOptions { return *v }).(GremlinGraphGetPropertiesResponseOptionsOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o GremlinGraphGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type GremlinGraphGetPropertiesResponseResource struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag string `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid string `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts map[string]interface{} `pulumi:"_ts"`
+	// The conflict resolution policy for the graph.
+	ConflictResolutionPolicy *ConflictResolutionPolicyResponse `pulumi:"conflictResolutionPolicy"`
+	// Default time to live
+	DefaultTtl *int `pulumi:"defaultTtl"`
+	// Name of the Cosmos DB Gremlin graph
+	Id string `pulumi:"id"`
+	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
+	IndexingPolicy *IndexingPolicyResponse `pulumi:"indexingPolicy"`
+	// The configuration of the partition key to be used for partitioning data into multiple partitions
+	PartitionKey *ContainerPartitionKeyResponse `pulumi:"partitionKey"`
+	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+	UniqueKeyPolicy *UniqueKeyPolicyResponse `pulumi:"uniqueKeyPolicy"`
+}
+
+// GremlinGraphGetPropertiesResponseResourceInput is an input type that accepts GremlinGraphGetPropertiesResponseResourceArgs and GremlinGraphGetPropertiesResponseResourceOutput values.
+// You can construct a concrete instance of `GremlinGraphGetPropertiesResponseResourceInput` via:
+//
+//          GremlinGraphGetPropertiesResponseResourceArgs{...}
+type GremlinGraphGetPropertiesResponseResourceInput interface {
+	pulumi.Input
+
+	ToGremlinGraphGetPropertiesResponseResourceOutput() GremlinGraphGetPropertiesResponseResourceOutput
+	ToGremlinGraphGetPropertiesResponseResourceOutputWithContext(context.Context) GremlinGraphGetPropertiesResponseResourceOutput
+}
+
+type GremlinGraphGetPropertiesResponseResourceArgs struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag pulumi.StringInput `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid pulumi.StringInput `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts pulumi.MapInput `pulumi:"_ts"`
+	// The conflict resolution policy for the graph.
+	ConflictResolutionPolicy ConflictResolutionPolicyResponsePtrInput `pulumi:"conflictResolutionPolicy"`
+	// Default time to live
+	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
+	// Name of the Cosmos DB Gremlin graph
+	Id pulumi.StringInput `pulumi:"id"`
+	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
+	IndexingPolicy IndexingPolicyResponsePtrInput `pulumi:"indexingPolicy"`
+	// The configuration of the partition key to be used for partitioning data into multiple partitions
+	PartitionKey ContainerPartitionKeyResponsePtrInput `pulumi:"partitionKey"`
+	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+	UniqueKeyPolicy UniqueKeyPolicyResponsePtrInput `pulumi:"uniqueKeyPolicy"`
+}
+
+func (GremlinGraphGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinGraphGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i GremlinGraphGetPropertiesResponseResourceArgs) ToGremlinGraphGetPropertiesResponseResourceOutput() GremlinGraphGetPropertiesResponseResourceOutput {
+	return i.ToGremlinGraphGetPropertiesResponseResourceOutputWithContext(context.Background())
+}
+
+func (i GremlinGraphGetPropertiesResponseResourceArgs) ToGremlinGraphGetPropertiesResponseResourceOutputWithContext(ctx context.Context) GremlinGraphGetPropertiesResponseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphGetPropertiesResponseResourceOutput)
+}
+
+func (i GremlinGraphGetPropertiesResponseResourceArgs) ToGremlinGraphGetPropertiesResponseResourcePtrOutput() GremlinGraphGetPropertiesResponseResourcePtrOutput {
+	return i.ToGremlinGraphGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i GremlinGraphGetPropertiesResponseResourceArgs) ToGremlinGraphGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) GremlinGraphGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphGetPropertiesResponseResourceOutput).ToGremlinGraphGetPropertiesResponseResourcePtrOutputWithContext(ctx)
+}
+
+// GremlinGraphGetPropertiesResponseResourcePtrInput is an input type that accepts GremlinGraphGetPropertiesResponseResourceArgs, GremlinGraphGetPropertiesResponseResourcePtr and GremlinGraphGetPropertiesResponseResourcePtrOutput values.
+// You can construct a concrete instance of `GremlinGraphGetPropertiesResponseResourcePtrInput` via:
+//
+//          GremlinGraphGetPropertiesResponseResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type GremlinGraphGetPropertiesResponseResourcePtrInput interface {
+	pulumi.Input
+
+	ToGremlinGraphGetPropertiesResponseResourcePtrOutput() GremlinGraphGetPropertiesResponseResourcePtrOutput
+	ToGremlinGraphGetPropertiesResponseResourcePtrOutputWithContext(context.Context) GremlinGraphGetPropertiesResponseResourcePtrOutput
+}
+
+type gremlinGraphGetPropertiesResponseResourcePtrType GremlinGraphGetPropertiesResponseResourceArgs
+
+func GremlinGraphGetPropertiesResponseResourcePtr(v *GremlinGraphGetPropertiesResponseResourceArgs) GremlinGraphGetPropertiesResponseResourcePtrInput {
+	return (*gremlinGraphGetPropertiesResponseResourcePtrType)(v)
+}
+
+func (*gremlinGraphGetPropertiesResponseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinGraphGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i *gremlinGraphGetPropertiesResponseResourcePtrType) ToGremlinGraphGetPropertiesResponseResourcePtrOutput() GremlinGraphGetPropertiesResponseResourcePtrOutput {
+	return i.ToGremlinGraphGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *gremlinGraphGetPropertiesResponseResourcePtrType) ToGremlinGraphGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) GremlinGraphGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GremlinGraphGetPropertiesResponseResourcePtrOutput)
+}
+
+type GremlinGraphGetPropertiesResponseResourceOutput struct{ *pulumi.OutputState }
+
+func (GremlinGraphGetPropertiesResponseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GremlinGraphGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o GremlinGraphGetPropertiesResponseResourceOutput) ToGremlinGraphGetPropertiesResponseResourceOutput() GremlinGraphGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o GremlinGraphGetPropertiesResponseResourceOutput) ToGremlinGraphGetPropertiesResponseResourceOutputWithContext(ctx context.Context) GremlinGraphGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o GremlinGraphGetPropertiesResponseResourceOutput) ToGremlinGraphGetPropertiesResponseResourcePtrOutput() GremlinGraphGetPropertiesResponseResourcePtrOutput {
+	return o.ToGremlinGraphGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o GremlinGraphGetPropertiesResponseResourceOutput) ToGremlinGraphGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) GremlinGraphGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *GremlinGraphGetPropertiesResponseResource {
+		return &v
+	}).(GremlinGraphGetPropertiesResponseResourcePtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o GremlinGraphGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o GremlinGraphGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o GremlinGraphGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+}
+
+// The conflict resolution policy for the graph.
+func (o GremlinGraphGetPropertiesResponseResourceOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *ConflictResolutionPolicyResponse {
+		return v.ConflictResolutionPolicy
+	}).(ConflictResolutionPolicyResponsePtrOutput)
+}
+
+// Default time to live
+func (o GremlinGraphGetPropertiesResponseResourceOutput) DefaultTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
+}
+
+// Name of the Cosmos DB Gremlin graph
+func (o GremlinGraphGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
+func (o GremlinGraphGetPropertiesResponseResourceOutput) IndexingPolicy() IndexingPolicyResponsePtrOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *IndexingPolicyResponse { return v.IndexingPolicy }).(IndexingPolicyResponsePtrOutput)
+}
+
+// The configuration of the partition key to be used for partitioning data into multiple partitions
+func (o GremlinGraphGetPropertiesResponseResourceOutput) PartitionKey() ContainerPartitionKeyResponsePtrOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *ContainerPartitionKeyResponse {
+		return v.PartitionKey
+	}).(ContainerPartitionKeyResponsePtrOutput)
+}
+
+// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+func (o GremlinGraphGetPropertiesResponseResourceOutput) UniqueKeyPolicy() UniqueKeyPolicyResponsePtrOutput {
+	return o.ApplyT(func(v GremlinGraphGetPropertiesResponseResource) *UniqueKeyPolicyResponse { return v.UniqueKeyPolicy }).(UniqueKeyPolicyResponsePtrOutput)
+}
+
+type GremlinGraphGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (GremlinGraphGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GremlinGraphGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) ToGremlinGraphGetPropertiesResponseResourcePtrOutput() GremlinGraphGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) ToGremlinGraphGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) GremlinGraphGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Elem() GremlinGraphGetPropertiesResponseResourceOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) GremlinGraphGetPropertiesResponseResource {
+		return *v
+	}).(GremlinGraphGetPropertiesResponseResourceOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v._ts
 	}).(pulumi.MapOutput)
+}
+
+// The conflict resolution policy for the graph.
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *ConflictResolutionPolicyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ConflictResolutionPolicy
+	}).(ConflictResolutionPolicyResponsePtrOutput)
+}
+
+// Default time to live
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) DefaultTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultTtl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Name of the Cosmos DB Gremlin graph
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) IndexingPolicy() IndexingPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *IndexingPolicyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.IndexingPolicy
+	}).(IndexingPolicyResponsePtrOutput)
+}
+
+// The configuration of the partition key to be used for partitioning data into multiple partitions
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) PartitionKey() ContainerPartitionKeyResponsePtrOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *ContainerPartitionKeyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionKey
+	}).(ContainerPartitionKeyResponsePtrOutput)
+}
+
+// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+func (o GremlinGraphGetPropertiesResponseResourcePtrOutput) UniqueKeyPolicy() UniqueKeyPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *GremlinGraphGetPropertiesResponseResource) *UniqueKeyPolicyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UniqueKeyPolicy
+	}).(UniqueKeyPolicyResponsePtrOutput)
 }
 
 // Cosmos DB Gremlin graph resource object
@@ -3965,188 +6174,6 @@ func (o GremlinGraphResourcePtrOutput) UniqueKeyPolicy() UniqueKeyPolicyPtrOutpu
 	}).(UniqueKeyPolicyPtrOutput)
 }
 
-// An Azure Cosmos DB Gremlin database.
-type GremlinResourceGremlinDatabaseType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB SQL database
-	Properties GremlinDatabaseGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// GremlinResourceGremlinDatabaseTypeInput is an input type that accepts GremlinResourceGremlinDatabaseTypeArgs and GremlinResourceGremlinDatabaseTypeOutput values.
-// You can construct a concrete instance of `GremlinResourceGremlinDatabaseTypeInput` via:
-//
-//          GremlinResourceGremlinDatabaseTypeArgs{...}
-type GremlinResourceGremlinDatabaseTypeInput interface {
-	pulumi.Input
-
-	ToGremlinResourceGremlinDatabaseTypeOutput() GremlinResourceGremlinDatabaseTypeOutput
-	ToGremlinResourceGremlinDatabaseTypeOutputWithContext(context.Context) GremlinResourceGremlinDatabaseTypeOutput
-}
-
-// An Azure Cosmos DB Gremlin database.
-type GremlinResourceGremlinDatabaseTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB SQL database
-	Properties GremlinDatabaseGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (GremlinResourceGremlinDatabaseTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinResourceGremlinDatabaseType)(nil)).Elem()
-}
-
-func (i GremlinResourceGremlinDatabaseTypeArgs) ToGremlinResourceGremlinDatabaseTypeOutput() GremlinResourceGremlinDatabaseTypeOutput {
-	return i.ToGremlinResourceGremlinDatabaseTypeOutputWithContext(context.Background())
-}
-
-func (i GremlinResourceGremlinDatabaseTypeArgs) ToGremlinResourceGremlinDatabaseTypeOutputWithContext(ctx context.Context) GremlinResourceGremlinDatabaseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GremlinResourceGremlinDatabaseTypeOutput)
-}
-
-// An Azure Cosmos DB Gremlin database.
-type GremlinResourceGremlinDatabaseTypeOutput struct{ *pulumi.OutputState }
-
-func (GremlinResourceGremlinDatabaseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinResourceGremlinDatabaseType)(nil)).Elem()
-}
-
-func (o GremlinResourceGremlinDatabaseTypeOutput) ToGremlinResourceGremlinDatabaseTypeOutput() GremlinResourceGremlinDatabaseTypeOutput {
-	return o
-}
-
-func (o GremlinResourceGremlinDatabaseTypeOutput) ToGremlinResourceGremlinDatabaseTypeOutputWithContext(ctx context.Context) GremlinResourceGremlinDatabaseTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o GremlinResourceGremlinDatabaseTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GremlinResourceGremlinDatabaseType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o GremlinResourceGremlinDatabaseTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GremlinResourceGremlinDatabaseType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB SQL database
-func (o GremlinResourceGremlinDatabaseTypeOutput) Properties() GremlinDatabaseGetPropertiesResponseOutput {
-	return o.ApplyT(func(v GremlinResourceGremlinDatabaseType) GremlinDatabaseGetPropertiesResponse { return v.Properties }).(GremlinDatabaseGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o GremlinResourceGremlinDatabaseTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v GremlinResourceGremlinDatabaseType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o GremlinResourceGremlinDatabaseTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GremlinResourceGremlinDatabaseType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB Gremlin graph.
-type GremlinResourceGremlinGraphType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Gremlin graph
-	Properties GremlinGraphGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// GremlinResourceGremlinGraphTypeInput is an input type that accepts GremlinResourceGremlinGraphTypeArgs and GremlinResourceGremlinGraphTypeOutput values.
-// You can construct a concrete instance of `GremlinResourceGremlinGraphTypeInput` via:
-//
-//          GremlinResourceGremlinGraphTypeArgs{...}
-type GremlinResourceGremlinGraphTypeInput interface {
-	pulumi.Input
-
-	ToGremlinResourceGremlinGraphTypeOutput() GremlinResourceGremlinGraphTypeOutput
-	ToGremlinResourceGremlinGraphTypeOutputWithContext(context.Context) GremlinResourceGremlinGraphTypeOutput
-}
-
-// An Azure Cosmos DB Gremlin graph.
-type GremlinResourceGremlinGraphTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Gremlin graph
-	Properties GremlinGraphGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (GremlinResourceGremlinGraphTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinResourceGremlinGraphType)(nil)).Elem()
-}
-
-func (i GremlinResourceGremlinGraphTypeArgs) ToGremlinResourceGremlinGraphTypeOutput() GremlinResourceGremlinGraphTypeOutput {
-	return i.ToGremlinResourceGremlinGraphTypeOutputWithContext(context.Background())
-}
-
-func (i GremlinResourceGremlinGraphTypeArgs) ToGremlinResourceGremlinGraphTypeOutputWithContext(ctx context.Context) GremlinResourceGremlinGraphTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GremlinResourceGremlinGraphTypeOutput)
-}
-
-// An Azure Cosmos DB Gremlin graph.
-type GremlinResourceGremlinGraphTypeOutput struct{ *pulumi.OutputState }
-
-func (GremlinResourceGremlinGraphTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GremlinResourceGremlinGraphType)(nil)).Elem()
-}
-
-func (o GremlinResourceGremlinGraphTypeOutput) ToGremlinResourceGremlinGraphTypeOutput() GremlinResourceGremlinGraphTypeOutput {
-	return o
-}
-
-func (o GremlinResourceGremlinGraphTypeOutput) ToGremlinResourceGremlinGraphTypeOutputWithContext(ctx context.Context) GremlinResourceGremlinGraphTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o GremlinResourceGremlinGraphTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GremlinResourceGremlinGraphType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o GremlinResourceGremlinGraphTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GremlinResourceGremlinGraphType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB Gremlin graph
-func (o GremlinResourceGremlinGraphTypeOutput) Properties() GremlinGraphGetPropertiesResponseOutput {
-	return o.ApplyT(func(v GremlinResourceGremlinGraphType) GremlinGraphGetPropertiesResponse { return v.Properties }).(GremlinGraphGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o GremlinResourceGremlinGraphTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v GremlinResourceGremlinGraphType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o GremlinResourceGremlinGraphTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v GremlinResourceGremlinGraphType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The paths that are included in indexing
 type IncludedPath struct {
 	// List of indexes for this path
@@ -4254,6 +6281,115 @@ func (o IncludedPathArrayOutput) Index(i pulumi.IntInput) IncludedPathOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IncludedPath {
 		return vs[0].([]IncludedPath)[vs[1].(int)]
 	}).(IncludedPathOutput)
+}
+
+// The paths that are included in indexing
+type IncludedPathResponse struct {
+	// List of indexes for this path
+	Indexes []IndexesResponse `pulumi:"indexes"`
+	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+	Path *string `pulumi:"path"`
+}
+
+// IncludedPathResponseInput is an input type that accepts IncludedPathResponseArgs and IncludedPathResponseOutput values.
+// You can construct a concrete instance of `IncludedPathResponseInput` via:
+//
+//          IncludedPathResponseArgs{...}
+type IncludedPathResponseInput interface {
+	pulumi.Input
+
+	ToIncludedPathResponseOutput() IncludedPathResponseOutput
+	ToIncludedPathResponseOutputWithContext(context.Context) IncludedPathResponseOutput
+}
+
+// The paths that are included in indexing
+type IncludedPathResponseArgs struct {
+	// List of indexes for this path
+	Indexes IndexesResponseArrayInput `pulumi:"indexes"`
+	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (IncludedPathResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncludedPathResponse)(nil)).Elem()
+}
+
+func (i IncludedPathResponseArgs) ToIncludedPathResponseOutput() IncludedPathResponseOutput {
+	return i.ToIncludedPathResponseOutputWithContext(context.Background())
+}
+
+func (i IncludedPathResponseArgs) ToIncludedPathResponseOutputWithContext(ctx context.Context) IncludedPathResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncludedPathResponseOutput)
+}
+
+// IncludedPathResponseArrayInput is an input type that accepts IncludedPathResponseArray and IncludedPathResponseArrayOutput values.
+// You can construct a concrete instance of `IncludedPathResponseArrayInput` via:
+//
+//          IncludedPathResponseArray{ IncludedPathResponseArgs{...} }
+type IncludedPathResponseArrayInput interface {
+	pulumi.Input
+
+	ToIncludedPathResponseArrayOutput() IncludedPathResponseArrayOutput
+	ToIncludedPathResponseArrayOutputWithContext(context.Context) IncludedPathResponseArrayOutput
+}
+
+type IncludedPathResponseArray []IncludedPathResponseInput
+
+func (IncludedPathResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncludedPathResponse)(nil)).Elem()
+}
+
+func (i IncludedPathResponseArray) ToIncludedPathResponseArrayOutput() IncludedPathResponseArrayOutput {
+	return i.ToIncludedPathResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IncludedPathResponseArray) ToIncludedPathResponseArrayOutputWithContext(ctx context.Context) IncludedPathResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IncludedPathResponseArrayOutput)
+}
+
+// The paths that are included in indexing
+type IncludedPathResponseOutput struct{ *pulumi.OutputState }
+
+func (IncludedPathResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IncludedPathResponse)(nil)).Elem()
+}
+
+func (o IncludedPathResponseOutput) ToIncludedPathResponseOutput() IncludedPathResponseOutput {
+	return o
+}
+
+func (o IncludedPathResponseOutput) ToIncludedPathResponseOutputWithContext(ctx context.Context) IncludedPathResponseOutput {
+	return o
+}
+
+// List of indexes for this path
+func (o IncludedPathResponseOutput) Indexes() IndexesResponseArrayOutput {
+	return o.ApplyT(func(v IncludedPathResponse) []IndexesResponse { return v.Indexes }).(IndexesResponseArrayOutput)
+}
+
+// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+func (o IncludedPathResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncludedPathResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type IncludedPathResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IncludedPathResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IncludedPathResponse)(nil)).Elem()
+}
+
+func (o IncludedPathResponseArrayOutput) ToIncludedPathResponseArrayOutput() IncludedPathResponseArrayOutput {
+	return o
+}
+
+func (o IncludedPathResponseArrayOutput) ToIncludedPathResponseArrayOutputWithContext(ctx context.Context) IncludedPathResponseArrayOutput {
+	return o
+}
+
+func (o IncludedPathResponseArrayOutput) Index(i pulumi.IntInput) IncludedPathResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IncludedPathResponse {
+		return vs[0].([]IncludedPathResponse)[vs[1].(int)]
+	}).(IncludedPathResponseOutput)
 }
 
 // The indexes for the path.
@@ -4374,12 +6510,130 @@ func (o IndexesArrayOutput) Index(i pulumi.IntInput) IndexesOutput {
 	}).(IndexesOutput)
 }
 
+// The indexes for the path.
+type IndexesResponse struct {
+	// The datatype for which the indexing behavior is applied to.
+	DataType *string `pulumi:"dataType"`
+	// Indicates the type of index.
+	Kind *string `pulumi:"kind"`
+	// The precision of the index. -1 is maximum precision.
+	Precision *int `pulumi:"precision"`
+}
+
+// IndexesResponseInput is an input type that accepts IndexesResponseArgs and IndexesResponseOutput values.
+// You can construct a concrete instance of `IndexesResponseInput` via:
+//
+//          IndexesResponseArgs{...}
+type IndexesResponseInput interface {
+	pulumi.Input
+
+	ToIndexesResponseOutput() IndexesResponseOutput
+	ToIndexesResponseOutputWithContext(context.Context) IndexesResponseOutput
+}
+
+// The indexes for the path.
+type IndexesResponseArgs struct {
+	// The datatype for which the indexing behavior is applied to.
+	DataType pulumi.StringPtrInput `pulumi:"dataType"`
+	// Indicates the type of index.
+	Kind pulumi.StringPtrInput `pulumi:"kind"`
+	// The precision of the index. -1 is maximum precision.
+	Precision pulumi.IntPtrInput `pulumi:"precision"`
+}
+
+func (IndexesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexesResponse)(nil)).Elem()
+}
+
+func (i IndexesResponseArgs) ToIndexesResponseOutput() IndexesResponseOutput {
+	return i.ToIndexesResponseOutputWithContext(context.Background())
+}
+
+func (i IndexesResponseArgs) ToIndexesResponseOutputWithContext(ctx context.Context) IndexesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexesResponseOutput)
+}
+
+// IndexesResponseArrayInput is an input type that accepts IndexesResponseArray and IndexesResponseArrayOutput values.
+// You can construct a concrete instance of `IndexesResponseArrayInput` via:
+//
+//          IndexesResponseArray{ IndexesResponseArgs{...} }
+type IndexesResponseArrayInput interface {
+	pulumi.Input
+
+	ToIndexesResponseArrayOutput() IndexesResponseArrayOutput
+	ToIndexesResponseArrayOutputWithContext(context.Context) IndexesResponseArrayOutput
+}
+
+type IndexesResponseArray []IndexesResponseInput
+
+func (IndexesResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IndexesResponse)(nil)).Elem()
+}
+
+func (i IndexesResponseArray) ToIndexesResponseArrayOutput() IndexesResponseArrayOutput {
+	return i.ToIndexesResponseArrayOutputWithContext(context.Background())
+}
+
+func (i IndexesResponseArray) ToIndexesResponseArrayOutputWithContext(ctx context.Context) IndexesResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexesResponseArrayOutput)
+}
+
+// The indexes for the path.
+type IndexesResponseOutput struct{ *pulumi.OutputState }
+
+func (IndexesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexesResponse)(nil)).Elem()
+}
+
+func (o IndexesResponseOutput) ToIndexesResponseOutput() IndexesResponseOutput {
+	return o
+}
+
+func (o IndexesResponseOutput) ToIndexesResponseOutputWithContext(ctx context.Context) IndexesResponseOutput {
+	return o
+}
+
+// The datatype for which the indexing behavior is applied to.
+func (o IndexesResponseOutput) DataType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexesResponse) *string { return v.DataType }).(pulumi.StringPtrOutput)
+}
+
+// Indicates the type of index.
+func (o IndexesResponseOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexesResponse) *string { return v.Kind }).(pulumi.StringPtrOutput)
+}
+
+// The precision of the index. -1 is maximum precision.
+func (o IndexesResponseOutput) Precision() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IndexesResponse) *int { return v.Precision }).(pulumi.IntPtrOutput)
+}
+
+type IndexesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (IndexesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IndexesResponse)(nil)).Elem()
+}
+
+func (o IndexesResponseArrayOutput) ToIndexesResponseArrayOutput() IndexesResponseArrayOutput {
+	return o
+}
+
+func (o IndexesResponseArrayOutput) ToIndexesResponseArrayOutputWithContext(ctx context.Context) IndexesResponseArrayOutput {
+	return o
+}
+
+func (o IndexesResponseArrayOutput) Index(i pulumi.IntInput) IndexesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IndexesResponse {
+		return vs[0].([]IndexesResponse)[vs[1].(int)]
+	}).(IndexesResponseOutput)
+}
+
 // Cosmos DB indexing policy
 type IndexingPolicy struct {
 	// Indicates if the indexing policy is automatic
 	Automatic *bool `pulumi:"automatic"`
 	// List of composite path list
-	CompositeIndexes []CompositePathList `pulumi:"compositeIndexes"`
+	CompositeIndexes [][]CompositePath `pulumi:"compositeIndexes"`
 	// List of paths to exclude from indexing
 	ExcludedPaths []ExcludedPath `pulumi:"excludedPaths"`
 	// List of paths to include in the indexing
@@ -4406,7 +6660,7 @@ type IndexingPolicyArgs struct {
 	// Indicates if the indexing policy is automatic
 	Automatic pulumi.BoolPtrInput `pulumi:"automatic"`
 	// List of composite path list
-	CompositeIndexes CompositePathListArrayInput `pulumi:"compositeIndexes"`
+	CompositeIndexes CompositePathArrayArrayInput `pulumi:"compositeIndexes"`
 	// List of paths to exclude from indexing
 	ExcludedPaths ExcludedPathArrayInput `pulumi:"excludedPaths"`
 	// List of paths to include in the indexing
@@ -4501,8 +6755,8 @@ func (o IndexingPolicyOutput) Automatic() pulumi.BoolPtrOutput {
 }
 
 // List of composite path list
-func (o IndexingPolicyOutput) CompositeIndexes() CompositePathListArrayOutput {
-	return o.ApplyT(func(v IndexingPolicy) []CompositePathList { return v.CompositeIndexes }).(CompositePathListArrayOutput)
+func (o IndexingPolicyOutput) CompositeIndexes() CompositePathArrayArrayOutput {
+	return o.ApplyT(func(v IndexingPolicy) [][]CompositePath { return v.CompositeIndexes }).(CompositePathArrayArrayOutput)
 }
 
 // List of paths to exclude from indexing
@@ -4554,13 +6808,13 @@ func (o IndexingPolicyPtrOutput) Automatic() pulumi.BoolPtrOutput {
 }
 
 // List of composite path list
-func (o IndexingPolicyPtrOutput) CompositeIndexes() CompositePathListArrayOutput {
-	return o.ApplyT(func(v *IndexingPolicy) []CompositePathList {
+func (o IndexingPolicyPtrOutput) CompositeIndexes() CompositePathArrayArrayOutput {
+	return o.ApplyT(func(v *IndexingPolicy) [][]CompositePath {
 		if v == nil {
 			return nil
 		}
 		return v.CompositeIndexes
-	}).(CompositePathListArrayOutput)
+	}).(CompositePathArrayArrayOutput)
 }
 
 // List of paths to exclude from indexing
@@ -4601,6 +6855,235 @@ func (o IndexingPolicyPtrOutput) SpatialIndexes() SpatialSpecArrayOutput {
 		}
 		return v.SpatialIndexes
 	}).(SpatialSpecArrayOutput)
+}
+
+// Cosmos DB indexing policy
+type IndexingPolicyResponse struct {
+	// Indicates if the indexing policy is automatic
+	Automatic *bool `pulumi:"automatic"`
+	// List of composite path list
+	CompositeIndexes [][]CompositePathResponse `pulumi:"compositeIndexes"`
+	// List of paths to exclude from indexing
+	ExcludedPaths []ExcludedPathResponse `pulumi:"excludedPaths"`
+	// List of paths to include in the indexing
+	IncludedPaths []IncludedPathResponse `pulumi:"includedPaths"`
+	// Indicates the indexing mode.
+	IndexingMode *string `pulumi:"indexingMode"`
+	// List of spatial specifics
+	SpatialIndexes []SpatialSpecResponse `pulumi:"spatialIndexes"`
+}
+
+// IndexingPolicyResponseInput is an input type that accepts IndexingPolicyResponseArgs and IndexingPolicyResponseOutput values.
+// You can construct a concrete instance of `IndexingPolicyResponseInput` via:
+//
+//          IndexingPolicyResponseArgs{...}
+type IndexingPolicyResponseInput interface {
+	pulumi.Input
+
+	ToIndexingPolicyResponseOutput() IndexingPolicyResponseOutput
+	ToIndexingPolicyResponseOutputWithContext(context.Context) IndexingPolicyResponseOutput
+}
+
+// Cosmos DB indexing policy
+type IndexingPolicyResponseArgs struct {
+	// Indicates if the indexing policy is automatic
+	Automatic pulumi.BoolPtrInput `pulumi:"automatic"`
+	// List of composite path list
+	CompositeIndexes CompositePathResponseArrayArrayInput `pulumi:"compositeIndexes"`
+	// List of paths to exclude from indexing
+	ExcludedPaths ExcludedPathResponseArrayInput `pulumi:"excludedPaths"`
+	// List of paths to include in the indexing
+	IncludedPaths IncludedPathResponseArrayInput `pulumi:"includedPaths"`
+	// Indicates the indexing mode.
+	IndexingMode pulumi.StringPtrInput `pulumi:"indexingMode"`
+	// List of spatial specifics
+	SpatialIndexes SpatialSpecResponseArrayInput `pulumi:"spatialIndexes"`
+}
+
+func (IndexingPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingPolicyResponse)(nil)).Elem()
+}
+
+func (i IndexingPolicyResponseArgs) ToIndexingPolicyResponseOutput() IndexingPolicyResponseOutput {
+	return i.ToIndexingPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i IndexingPolicyResponseArgs) ToIndexingPolicyResponseOutputWithContext(ctx context.Context) IndexingPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingPolicyResponseOutput)
+}
+
+func (i IndexingPolicyResponseArgs) ToIndexingPolicyResponsePtrOutput() IndexingPolicyResponsePtrOutput {
+	return i.ToIndexingPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i IndexingPolicyResponseArgs) ToIndexingPolicyResponsePtrOutputWithContext(ctx context.Context) IndexingPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingPolicyResponseOutput).ToIndexingPolicyResponsePtrOutputWithContext(ctx)
+}
+
+// IndexingPolicyResponsePtrInput is an input type that accepts IndexingPolicyResponseArgs, IndexingPolicyResponsePtr and IndexingPolicyResponsePtrOutput values.
+// You can construct a concrete instance of `IndexingPolicyResponsePtrInput` via:
+//
+//          IndexingPolicyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type IndexingPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToIndexingPolicyResponsePtrOutput() IndexingPolicyResponsePtrOutput
+	ToIndexingPolicyResponsePtrOutputWithContext(context.Context) IndexingPolicyResponsePtrOutput
+}
+
+type indexingPolicyResponsePtrType IndexingPolicyResponseArgs
+
+func IndexingPolicyResponsePtr(v *IndexingPolicyResponseArgs) IndexingPolicyResponsePtrInput {
+	return (*indexingPolicyResponsePtrType)(v)
+}
+
+func (*indexingPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexingPolicyResponse)(nil)).Elem()
+}
+
+func (i *indexingPolicyResponsePtrType) ToIndexingPolicyResponsePtrOutput() IndexingPolicyResponsePtrOutput {
+	return i.ToIndexingPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *indexingPolicyResponsePtrType) ToIndexingPolicyResponsePtrOutputWithContext(ctx context.Context) IndexingPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IndexingPolicyResponsePtrOutput)
+}
+
+// Cosmos DB indexing policy
+type IndexingPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (IndexingPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IndexingPolicyResponse)(nil)).Elem()
+}
+
+func (o IndexingPolicyResponseOutput) ToIndexingPolicyResponseOutput() IndexingPolicyResponseOutput {
+	return o
+}
+
+func (o IndexingPolicyResponseOutput) ToIndexingPolicyResponseOutputWithContext(ctx context.Context) IndexingPolicyResponseOutput {
+	return o
+}
+
+func (o IndexingPolicyResponseOutput) ToIndexingPolicyResponsePtrOutput() IndexingPolicyResponsePtrOutput {
+	return o.ToIndexingPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o IndexingPolicyResponseOutput) ToIndexingPolicyResponsePtrOutputWithContext(ctx context.Context) IndexingPolicyResponsePtrOutput {
+	return o.ApplyT(func(v IndexingPolicyResponse) *IndexingPolicyResponse {
+		return &v
+	}).(IndexingPolicyResponsePtrOutput)
+}
+
+// Indicates if the indexing policy is automatic
+func (o IndexingPolicyResponseOutput) Automatic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IndexingPolicyResponse) *bool { return v.Automatic }).(pulumi.BoolPtrOutput)
+}
+
+// List of composite path list
+func (o IndexingPolicyResponseOutput) CompositeIndexes() CompositePathResponseArrayArrayOutput {
+	return o.ApplyT(func(v IndexingPolicyResponse) [][]CompositePathResponse { return v.CompositeIndexes }).(CompositePathResponseArrayArrayOutput)
+}
+
+// List of paths to exclude from indexing
+func (o IndexingPolicyResponseOutput) ExcludedPaths() ExcludedPathResponseArrayOutput {
+	return o.ApplyT(func(v IndexingPolicyResponse) []ExcludedPathResponse { return v.ExcludedPaths }).(ExcludedPathResponseArrayOutput)
+}
+
+// List of paths to include in the indexing
+func (o IndexingPolicyResponseOutput) IncludedPaths() IncludedPathResponseArrayOutput {
+	return o.ApplyT(func(v IndexingPolicyResponse) []IncludedPathResponse { return v.IncludedPaths }).(IncludedPathResponseArrayOutput)
+}
+
+// Indicates the indexing mode.
+func (o IndexingPolicyResponseOutput) IndexingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IndexingPolicyResponse) *string { return v.IndexingMode }).(pulumi.StringPtrOutput)
+}
+
+// List of spatial specifics
+func (o IndexingPolicyResponseOutput) SpatialIndexes() SpatialSpecResponseArrayOutput {
+	return o.ApplyT(func(v IndexingPolicyResponse) []SpatialSpecResponse { return v.SpatialIndexes }).(SpatialSpecResponseArrayOutput)
+}
+
+type IndexingPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IndexingPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IndexingPolicyResponse)(nil)).Elem()
+}
+
+func (o IndexingPolicyResponsePtrOutput) ToIndexingPolicyResponsePtrOutput() IndexingPolicyResponsePtrOutput {
+	return o
+}
+
+func (o IndexingPolicyResponsePtrOutput) ToIndexingPolicyResponsePtrOutputWithContext(ctx context.Context) IndexingPolicyResponsePtrOutput {
+	return o
+}
+
+func (o IndexingPolicyResponsePtrOutput) Elem() IndexingPolicyResponseOutput {
+	return o.ApplyT(func(v *IndexingPolicyResponse) IndexingPolicyResponse { return *v }).(IndexingPolicyResponseOutput)
+}
+
+// Indicates if the indexing policy is automatic
+func (o IndexingPolicyResponsePtrOutput) Automatic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *IndexingPolicyResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Automatic
+	}).(pulumi.BoolPtrOutput)
+}
+
+// List of composite path list
+func (o IndexingPolicyResponsePtrOutput) CompositeIndexes() CompositePathResponseArrayArrayOutput {
+	return o.ApplyT(func(v *IndexingPolicyResponse) [][]CompositePathResponse {
+		if v == nil {
+			return nil
+		}
+		return v.CompositeIndexes
+	}).(CompositePathResponseArrayArrayOutput)
+}
+
+// List of paths to exclude from indexing
+func (o IndexingPolicyResponsePtrOutput) ExcludedPaths() ExcludedPathResponseArrayOutput {
+	return o.ApplyT(func(v *IndexingPolicyResponse) []ExcludedPathResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedPaths
+	}).(ExcludedPathResponseArrayOutput)
+}
+
+// List of paths to include in the indexing
+func (o IndexingPolicyResponsePtrOutput) IncludedPaths() IncludedPathResponseArrayOutput {
+	return o.ApplyT(func(v *IndexingPolicyResponse) []IncludedPathResponse {
+		if v == nil {
+			return nil
+		}
+		return v.IncludedPaths
+	}).(IncludedPathResponseArrayOutput)
+}
+
+// Indicates the indexing mode.
+func (o IndexingPolicyResponsePtrOutput) IndexingMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IndexingPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IndexingMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of spatial specifics
+func (o IndexingPolicyResponsePtrOutput) SpatialIndexes() SpatialSpecResponseArrayOutput {
+	return o.ApplyT(func(v *IndexingPolicyResponse) []SpatialSpecResponse {
+		if v == nil {
+			return nil
+		}
+		return v.SpatialIndexes
+	}).(SpatialSpecResponseArrayOutput)
 }
 
 // A region in which the Azure Cosmos DB database account is deployed.
@@ -4877,8 +7360,8 @@ func (o LocationResponseArrayOutput) Index(i pulumi.IntInput) LocationResponseOu
 
 // The properties of an Azure Cosmos DB MongoDB collection
 type MongoDBCollectionGetPropertiesResponse struct {
-	Options  map[string]interface{} `pulumi:"options"`
-	Resource map[string]interface{} `pulumi:"resource"`
+	Options  *MongoDBCollectionGetPropertiesResponseOptions  `pulumi:"options"`
+	Resource *MongoDBCollectionGetPropertiesResponseResource `pulumi:"resource"`
 }
 
 // MongoDBCollectionGetPropertiesResponseInput is an input type that accepts MongoDBCollectionGetPropertiesResponseArgs and MongoDBCollectionGetPropertiesResponseOutput values.
@@ -4894,8 +7377,8 @@ type MongoDBCollectionGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB MongoDB collection
 type MongoDBCollectionGetPropertiesResponseArgs struct {
-	Options  pulumi.MapInput `pulumi:"options"`
-	Resource pulumi.MapInput `pulumi:"resource"`
+	Options  MongoDBCollectionGetPropertiesResponseOptionsPtrInput  `pulumi:"options"`
+	Resource MongoDBCollectionGetPropertiesResponseResourcePtrInput `pulumi:"resource"`
 }
 
 func (MongoDBCollectionGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -4975,12 +7458,16 @@ func (o MongoDBCollectionGetPropertiesResponseOutput) ToMongoDBCollectionGetProp
 		return &v
 	}).(MongoDBCollectionGetPropertiesResponsePtrOutput)
 }
-func (o MongoDBCollectionGetPropertiesResponseOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponse) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o MongoDBCollectionGetPropertiesResponseOutput) Options() MongoDBCollectionGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponse) *MongoDBCollectionGetPropertiesResponseOptions {
+		return v.Options
+	}).(MongoDBCollectionGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o MongoDBCollectionGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
+func (o MongoDBCollectionGetPropertiesResponseOutput) Resource() MongoDBCollectionGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponse) *MongoDBCollectionGetPropertiesResponseResource {
+		return v.Resource
+	}).(MongoDBCollectionGetPropertiesResponseResourcePtrOutput)
 }
 
 type MongoDBCollectionGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -5001,22 +7488,383 @@ func (o MongoDBCollectionGetPropertiesResponsePtrOutput) Elem() MongoDBCollectio
 	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponse) MongoDBCollectionGetPropertiesResponse { return *v }).(MongoDBCollectionGetPropertiesResponseOutput)
 }
 
-func (o MongoDBCollectionGetPropertiesResponsePtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponse) map[string]interface{} {
+func (o MongoDBCollectionGetPropertiesResponsePtrOutput) Options() MongoDBCollectionGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponse) *MongoDBCollectionGetPropertiesResponseOptions {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.MapOutput)
+	}).(MongoDBCollectionGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o MongoDBCollectionGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponse) map[string]interface{} {
+func (o MongoDBCollectionGetPropertiesResponsePtrOutput) Resource() MongoDBCollectionGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponse) *MongoDBCollectionGetPropertiesResponseResource {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
+	}).(MongoDBCollectionGetPropertiesResponseResourcePtrOutput)
+}
+
+type MongoDBCollectionGetPropertiesResponseOptions struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput *int `pulumi:"throughput"`
+}
+
+// MongoDBCollectionGetPropertiesResponseOptionsInput is an input type that accepts MongoDBCollectionGetPropertiesResponseOptionsArgs and MongoDBCollectionGetPropertiesResponseOptionsOutput values.
+// You can construct a concrete instance of `MongoDBCollectionGetPropertiesResponseOptionsInput` via:
+//
+//          MongoDBCollectionGetPropertiesResponseOptionsArgs{...}
+type MongoDBCollectionGetPropertiesResponseOptionsInput interface {
+	pulumi.Input
+
+	ToMongoDBCollectionGetPropertiesResponseOptionsOutput() MongoDBCollectionGetPropertiesResponseOptionsOutput
+	ToMongoDBCollectionGetPropertiesResponseOptionsOutputWithContext(context.Context) MongoDBCollectionGetPropertiesResponseOptionsOutput
+}
+
+type MongoDBCollectionGetPropertiesResponseOptionsArgs struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+}
+
+func (MongoDBCollectionGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBCollectionGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i MongoDBCollectionGetPropertiesResponseOptionsArgs) ToMongoDBCollectionGetPropertiesResponseOptionsOutput() MongoDBCollectionGetPropertiesResponseOptionsOutput {
+	return i.ToMongoDBCollectionGetPropertiesResponseOptionsOutputWithContext(context.Background())
+}
+
+func (i MongoDBCollectionGetPropertiesResponseOptionsArgs) ToMongoDBCollectionGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) MongoDBCollectionGetPropertiesResponseOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBCollectionGetPropertiesResponseOptionsOutput)
+}
+
+func (i MongoDBCollectionGetPropertiesResponseOptionsArgs) ToMongoDBCollectionGetPropertiesResponseOptionsPtrOutput() MongoDBCollectionGetPropertiesResponseOptionsPtrOutput {
+	return i.ToMongoDBCollectionGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i MongoDBCollectionGetPropertiesResponseOptionsArgs) ToMongoDBCollectionGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) MongoDBCollectionGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBCollectionGetPropertiesResponseOptionsOutput).ToMongoDBCollectionGetPropertiesResponseOptionsPtrOutputWithContext(ctx)
+}
+
+// MongoDBCollectionGetPropertiesResponseOptionsPtrInput is an input type that accepts MongoDBCollectionGetPropertiesResponseOptionsArgs, MongoDBCollectionGetPropertiesResponseOptionsPtr and MongoDBCollectionGetPropertiesResponseOptionsPtrOutput values.
+// You can construct a concrete instance of `MongoDBCollectionGetPropertiesResponseOptionsPtrInput` via:
+//
+//          MongoDBCollectionGetPropertiesResponseOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type MongoDBCollectionGetPropertiesResponseOptionsPtrInput interface {
+	pulumi.Input
+
+	ToMongoDBCollectionGetPropertiesResponseOptionsPtrOutput() MongoDBCollectionGetPropertiesResponseOptionsPtrOutput
+	ToMongoDBCollectionGetPropertiesResponseOptionsPtrOutputWithContext(context.Context) MongoDBCollectionGetPropertiesResponseOptionsPtrOutput
+}
+
+type mongoDBCollectionGetPropertiesResponseOptionsPtrType MongoDBCollectionGetPropertiesResponseOptionsArgs
+
+func MongoDBCollectionGetPropertiesResponseOptionsPtr(v *MongoDBCollectionGetPropertiesResponseOptionsArgs) MongoDBCollectionGetPropertiesResponseOptionsPtrInput {
+	return (*mongoDBCollectionGetPropertiesResponseOptionsPtrType)(v)
+}
+
+func (*mongoDBCollectionGetPropertiesResponseOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoDBCollectionGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i *mongoDBCollectionGetPropertiesResponseOptionsPtrType) ToMongoDBCollectionGetPropertiesResponseOptionsPtrOutput() MongoDBCollectionGetPropertiesResponseOptionsPtrOutput {
+	return i.ToMongoDBCollectionGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *mongoDBCollectionGetPropertiesResponseOptionsPtrType) ToMongoDBCollectionGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) MongoDBCollectionGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBCollectionGetPropertiesResponseOptionsPtrOutput)
+}
+
+type MongoDBCollectionGetPropertiesResponseOptionsOutput struct{ *pulumi.OutputState }
+
+func (MongoDBCollectionGetPropertiesResponseOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBCollectionGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o MongoDBCollectionGetPropertiesResponseOptionsOutput) ToMongoDBCollectionGetPropertiesResponseOptionsOutput() MongoDBCollectionGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o MongoDBCollectionGetPropertiesResponseOptionsOutput) ToMongoDBCollectionGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) MongoDBCollectionGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o MongoDBCollectionGetPropertiesResponseOptionsOutput) ToMongoDBCollectionGetPropertiesResponseOptionsPtrOutput() MongoDBCollectionGetPropertiesResponseOptionsPtrOutput {
+	return o.ToMongoDBCollectionGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o MongoDBCollectionGetPropertiesResponseOptionsOutput) ToMongoDBCollectionGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) MongoDBCollectionGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseOptions) *MongoDBCollectionGetPropertiesResponseOptions {
+		return &v
+	}).(MongoDBCollectionGetPropertiesResponseOptionsPtrOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o MongoDBCollectionGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+type MongoDBCollectionGetPropertiesResponseOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (MongoDBCollectionGetPropertiesResponseOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoDBCollectionGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o MongoDBCollectionGetPropertiesResponseOptionsPtrOutput) ToMongoDBCollectionGetPropertiesResponseOptionsPtrOutput() MongoDBCollectionGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o MongoDBCollectionGetPropertiesResponseOptionsPtrOutput) ToMongoDBCollectionGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) MongoDBCollectionGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o MongoDBCollectionGetPropertiesResponseOptionsPtrOutput) Elem() MongoDBCollectionGetPropertiesResponseOptionsOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseOptions) MongoDBCollectionGetPropertiesResponseOptions {
+		return *v
+	}).(MongoDBCollectionGetPropertiesResponseOptionsOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o MongoDBCollectionGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type MongoDBCollectionGetPropertiesResponseResource struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag string `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid string `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts map[string]interface{} `pulumi:"_ts"`
+	// Name of the Cosmos DB MongoDB collection
+	Id string `pulumi:"id"`
+	// List of index keys
+	Indexes []MongoIndexResponse `pulumi:"indexes"`
+	// A key-value pair of shard keys to be applied for the request.
+	ShardKey map[string]string `pulumi:"shardKey"`
+}
+
+// MongoDBCollectionGetPropertiesResponseResourceInput is an input type that accepts MongoDBCollectionGetPropertiesResponseResourceArgs and MongoDBCollectionGetPropertiesResponseResourceOutput values.
+// You can construct a concrete instance of `MongoDBCollectionGetPropertiesResponseResourceInput` via:
+//
+//          MongoDBCollectionGetPropertiesResponseResourceArgs{...}
+type MongoDBCollectionGetPropertiesResponseResourceInput interface {
+	pulumi.Input
+
+	ToMongoDBCollectionGetPropertiesResponseResourceOutput() MongoDBCollectionGetPropertiesResponseResourceOutput
+	ToMongoDBCollectionGetPropertiesResponseResourceOutputWithContext(context.Context) MongoDBCollectionGetPropertiesResponseResourceOutput
+}
+
+type MongoDBCollectionGetPropertiesResponseResourceArgs struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag pulumi.StringInput `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid pulumi.StringInput `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts pulumi.MapInput `pulumi:"_ts"`
+	// Name of the Cosmos DB MongoDB collection
+	Id pulumi.StringInput `pulumi:"id"`
+	// List of index keys
+	Indexes MongoIndexResponseArrayInput `pulumi:"indexes"`
+	// A key-value pair of shard keys to be applied for the request.
+	ShardKey pulumi.StringMapInput `pulumi:"shardKey"`
+}
+
+func (MongoDBCollectionGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBCollectionGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i MongoDBCollectionGetPropertiesResponseResourceArgs) ToMongoDBCollectionGetPropertiesResponseResourceOutput() MongoDBCollectionGetPropertiesResponseResourceOutput {
+	return i.ToMongoDBCollectionGetPropertiesResponseResourceOutputWithContext(context.Background())
+}
+
+func (i MongoDBCollectionGetPropertiesResponseResourceArgs) ToMongoDBCollectionGetPropertiesResponseResourceOutputWithContext(ctx context.Context) MongoDBCollectionGetPropertiesResponseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBCollectionGetPropertiesResponseResourceOutput)
+}
+
+func (i MongoDBCollectionGetPropertiesResponseResourceArgs) ToMongoDBCollectionGetPropertiesResponseResourcePtrOutput() MongoDBCollectionGetPropertiesResponseResourcePtrOutput {
+	return i.ToMongoDBCollectionGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i MongoDBCollectionGetPropertiesResponseResourceArgs) ToMongoDBCollectionGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) MongoDBCollectionGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBCollectionGetPropertiesResponseResourceOutput).ToMongoDBCollectionGetPropertiesResponseResourcePtrOutputWithContext(ctx)
+}
+
+// MongoDBCollectionGetPropertiesResponseResourcePtrInput is an input type that accepts MongoDBCollectionGetPropertiesResponseResourceArgs, MongoDBCollectionGetPropertiesResponseResourcePtr and MongoDBCollectionGetPropertiesResponseResourcePtrOutput values.
+// You can construct a concrete instance of `MongoDBCollectionGetPropertiesResponseResourcePtrInput` via:
+//
+//          MongoDBCollectionGetPropertiesResponseResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type MongoDBCollectionGetPropertiesResponseResourcePtrInput interface {
+	pulumi.Input
+
+	ToMongoDBCollectionGetPropertiesResponseResourcePtrOutput() MongoDBCollectionGetPropertiesResponseResourcePtrOutput
+	ToMongoDBCollectionGetPropertiesResponseResourcePtrOutputWithContext(context.Context) MongoDBCollectionGetPropertiesResponseResourcePtrOutput
+}
+
+type mongoDBCollectionGetPropertiesResponseResourcePtrType MongoDBCollectionGetPropertiesResponseResourceArgs
+
+func MongoDBCollectionGetPropertiesResponseResourcePtr(v *MongoDBCollectionGetPropertiesResponseResourceArgs) MongoDBCollectionGetPropertiesResponseResourcePtrInput {
+	return (*mongoDBCollectionGetPropertiesResponseResourcePtrType)(v)
+}
+
+func (*mongoDBCollectionGetPropertiesResponseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoDBCollectionGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i *mongoDBCollectionGetPropertiesResponseResourcePtrType) ToMongoDBCollectionGetPropertiesResponseResourcePtrOutput() MongoDBCollectionGetPropertiesResponseResourcePtrOutput {
+	return i.ToMongoDBCollectionGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *mongoDBCollectionGetPropertiesResponseResourcePtrType) ToMongoDBCollectionGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) MongoDBCollectionGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBCollectionGetPropertiesResponseResourcePtrOutput)
+}
+
+type MongoDBCollectionGetPropertiesResponseResourceOutput struct{ *pulumi.OutputState }
+
+func (MongoDBCollectionGetPropertiesResponseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBCollectionGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o MongoDBCollectionGetPropertiesResponseResourceOutput) ToMongoDBCollectionGetPropertiesResponseResourceOutput() MongoDBCollectionGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o MongoDBCollectionGetPropertiesResponseResourceOutput) ToMongoDBCollectionGetPropertiesResponseResourceOutputWithContext(ctx context.Context) MongoDBCollectionGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o MongoDBCollectionGetPropertiesResponseResourceOutput) ToMongoDBCollectionGetPropertiesResponseResourcePtrOutput() MongoDBCollectionGetPropertiesResponseResourcePtrOutput {
+	return o.ToMongoDBCollectionGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o MongoDBCollectionGetPropertiesResponseResourceOutput) ToMongoDBCollectionGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) MongoDBCollectionGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) *MongoDBCollectionGetPropertiesResponseResource {
+		return &v
+	}).(MongoDBCollectionGetPropertiesResponseResourcePtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o MongoDBCollectionGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o MongoDBCollectionGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o MongoDBCollectionGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+}
+
+// Name of the Cosmos DB MongoDB collection
+func (o MongoDBCollectionGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// List of index keys
+func (o MongoDBCollectionGetPropertiesResponseResourceOutput) Indexes() MongoIndexResponseArrayOutput {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) []MongoIndexResponse { return v.Indexes }).(MongoIndexResponseArrayOutput)
+}
+
+// A key-value pair of shard keys to be applied for the request.
+func (o MongoDBCollectionGetPropertiesResponseResourceOutput) ShardKey() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MongoDBCollectionGetPropertiesResponseResource) map[string]string { return v.ShardKey }).(pulumi.StringMapOutput)
+}
+
+type MongoDBCollectionGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (MongoDBCollectionGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoDBCollectionGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) ToMongoDBCollectionGetPropertiesResponseResourcePtrOutput() MongoDBCollectionGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) ToMongoDBCollectionGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) MongoDBCollectionGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Elem() MongoDBCollectionGetPropertiesResponseResourceOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) MongoDBCollectionGetPropertiesResponseResource {
+		return *v
+	}).(MongoDBCollectionGetPropertiesResponseResourceOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v._ts
 	}).(pulumi.MapOutput)
+}
+
+// Name of the Cosmos DB MongoDB collection
+func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of index keys
+func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) Indexes() MongoIndexResponseArrayOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) []MongoIndexResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Indexes
+	}).(MongoIndexResponseArrayOutput)
+}
+
+// A key-value pair of shard keys to be applied for the request.
+func (o MongoDBCollectionGetPropertiesResponseResourcePtrOutput) ShardKey() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MongoDBCollectionGetPropertiesResponseResource) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ShardKey
+	}).(pulumi.StringMapOutput)
 }
 
 // Cosmos DB MongoDB collection resource object
@@ -5026,7 +7874,7 @@ type MongoDBCollectionResource struct {
 	// List of index keys
 	Indexes []MongoIndex `pulumi:"indexes"`
 	// A key-value pair of shard keys to be applied for the request.
-	ShardKey *ShardKeys `pulumi:"shardKey"`
+	ShardKey map[string]string `pulumi:"shardKey"`
 }
 
 // MongoDBCollectionResourceInput is an input type that accepts MongoDBCollectionResourceArgs and MongoDBCollectionResourceOutput values.
@@ -5047,7 +7895,7 @@ type MongoDBCollectionResourceArgs struct {
 	// List of index keys
 	Indexes MongoIndexArrayInput `pulumi:"indexes"`
 	// A key-value pair of shard keys to be applied for the request.
-	ShardKey ShardKeysPtrInput `pulumi:"shardKey"`
+	ShardKey pulumi.StringMapInput `pulumi:"shardKey"`
 }
 
 func (MongoDBCollectionResourceArgs) ElementType() reflect.Type {
@@ -5139,8 +7987,8 @@ func (o MongoDBCollectionResourceOutput) Indexes() MongoIndexArrayOutput {
 }
 
 // A key-value pair of shard keys to be applied for the request.
-func (o MongoDBCollectionResourceOutput) ShardKey() ShardKeysPtrOutput {
-	return o.ApplyT(func(v MongoDBCollectionResource) *ShardKeys { return v.ShardKey }).(ShardKeysPtrOutput)
+func (o MongoDBCollectionResourceOutput) ShardKey() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MongoDBCollectionResource) map[string]string { return v.ShardKey }).(pulumi.StringMapOutput)
 }
 
 type MongoDBCollectionResourcePtrOutput struct{ *pulumi.OutputState }
@@ -5182,19 +8030,19 @@ func (o MongoDBCollectionResourcePtrOutput) Indexes() MongoIndexArrayOutput {
 }
 
 // A key-value pair of shard keys to be applied for the request.
-func (o MongoDBCollectionResourcePtrOutput) ShardKey() ShardKeysPtrOutput {
-	return o.ApplyT(func(v *MongoDBCollectionResource) *ShardKeys {
+func (o MongoDBCollectionResourcePtrOutput) ShardKey() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MongoDBCollectionResource) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.ShardKey
-	}).(ShardKeysPtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The properties of an Azure Cosmos DB MongoDB database
 type MongoDBDatabaseGetPropertiesResponse struct {
-	Options  map[string]interface{} `pulumi:"options"`
-	Resource map[string]interface{} `pulumi:"resource"`
+	Options  *MongoDBDatabaseGetPropertiesResponseOptions  `pulumi:"options"`
+	Resource *MongoDBDatabaseGetPropertiesResponseResource `pulumi:"resource"`
 }
 
 // MongoDBDatabaseGetPropertiesResponseInput is an input type that accepts MongoDBDatabaseGetPropertiesResponseArgs and MongoDBDatabaseGetPropertiesResponseOutput values.
@@ -5210,8 +8058,8 @@ type MongoDBDatabaseGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB MongoDB database
 type MongoDBDatabaseGetPropertiesResponseArgs struct {
-	Options  pulumi.MapInput `pulumi:"options"`
-	Resource pulumi.MapInput `pulumi:"resource"`
+	Options  MongoDBDatabaseGetPropertiesResponseOptionsPtrInput  `pulumi:"options"`
+	Resource MongoDBDatabaseGetPropertiesResponseResourcePtrInput `pulumi:"resource"`
 }
 
 func (MongoDBDatabaseGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -5291,12 +8139,16 @@ func (o MongoDBDatabaseGetPropertiesResponseOutput) ToMongoDBDatabaseGetProperti
 		return &v
 	}).(MongoDBDatabaseGetPropertiesResponsePtrOutput)
 }
-func (o MongoDBDatabaseGetPropertiesResponseOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponse) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o MongoDBDatabaseGetPropertiesResponseOutput) Options() MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponse) *MongoDBDatabaseGetPropertiesResponseOptions {
+		return v.Options
+	}).(MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o MongoDBDatabaseGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
+func (o MongoDBDatabaseGetPropertiesResponseOutput) Resource() MongoDBDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponse) *MongoDBDatabaseGetPropertiesResponseResource {
+		return v.Resource
+	}).(MongoDBDatabaseGetPropertiesResponseResourcePtrOutput)
 }
 
 type MongoDBDatabaseGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -5317,22 +8169,345 @@ func (o MongoDBDatabaseGetPropertiesResponsePtrOutput) Elem() MongoDBDatabaseGet
 	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponse) MongoDBDatabaseGetPropertiesResponse { return *v }).(MongoDBDatabaseGetPropertiesResponseOutput)
 }
 
-func (o MongoDBDatabaseGetPropertiesResponsePtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponse) map[string]interface{} {
+func (o MongoDBDatabaseGetPropertiesResponsePtrOutput) Options() MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponse) *MongoDBDatabaseGetPropertiesResponseOptions {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.MapOutput)
+	}).(MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o MongoDBDatabaseGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponse) map[string]interface{} {
+func (o MongoDBDatabaseGetPropertiesResponsePtrOutput) Resource() MongoDBDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponse) *MongoDBDatabaseGetPropertiesResponseResource {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
+	}).(MongoDBDatabaseGetPropertiesResponseResourcePtrOutput)
+}
+
+type MongoDBDatabaseGetPropertiesResponseOptions struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput *int `pulumi:"throughput"`
+}
+
+// MongoDBDatabaseGetPropertiesResponseOptionsInput is an input type that accepts MongoDBDatabaseGetPropertiesResponseOptionsArgs and MongoDBDatabaseGetPropertiesResponseOptionsOutput values.
+// You can construct a concrete instance of `MongoDBDatabaseGetPropertiesResponseOptionsInput` via:
+//
+//          MongoDBDatabaseGetPropertiesResponseOptionsArgs{...}
+type MongoDBDatabaseGetPropertiesResponseOptionsInput interface {
+	pulumi.Input
+
+	ToMongoDBDatabaseGetPropertiesResponseOptionsOutput() MongoDBDatabaseGetPropertiesResponseOptionsOutput
+	ToMongoDBDatabaseGetPropertiesResponseOptionsOutputWithContext(context.Context) MongoDBDatabaseGetPropertiesResponseOptionsOutput
+}
+
+type MongoDBDatabaseGetPropertiesResponseOptionsArgs struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+}
+
+func (MongoDBDatabaseGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBDatabaseGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i MongoDBDatabaseGetPropertiesResponseOptionsArgs) ToMongoDBDatabaseGetPropertiesResponseOptionsOutput() MongoDBDatabaseGetPropertiesResponseOptionsOutput {
+	return i.ToMongoDBDatabaseGetPropertiesResponseOptionsOutputWithContext(context.Background())
+}
+
+func (i MongoDBDatabaseGetPropertiesResponseOptionsArgs) ToMongoDBDatabaseGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) MongoDBDatabaseGetPropertiesResponseOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBDatabaseGetPropertiesResponseOptionsOutput)
+}
+
+func (i MongoDBDatabaseGetPropertiesResponseOptionsArgs) ToMongoDBDatabaseGetPropertiesResponseOptionsPtrOutput() MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return i.ToMongoDBDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i MongoDBDatabaseGetPropertiesResponseOptionsArgs) ToMongoDBDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBDatabaseGetPropertiesResponseOptionsOutput).ToMongoDBDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx)
+}
+
+// MongoDBDatabaseGetPropertiesResponseOptionsPtrInput is an input type that accepts MongoDBDatabaseGetPropertiesResponseOptionsArgs, MongoDBDatabaseGetPropertiesResponseOptionsPtr and MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput values.
+// You can construct a concrete instance of `MongoDBDatabaseGetPropertiesResponseOptionsPtrInput` via:
+//
+//          MongoDBDatabaseGetPropertiesResponseOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type MongoDBDatabaseGetPropertiesResponseOptionsPtrInput interface {
+	pulumi.Input
+
+	ToMongoDBDatabaseGetPropertiesResponseOptionsPtrOutput() MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput
+	ToMongoDBDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(context.Context) MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput
+}
+
+type mongoDBDatabaseGetPropertiesResponseOptionsPtrType MongoDBDatabaseGetPropertiesResponseOptionsArgs
+
+func MongoDBDatabaseGetPropertiesResponseOptionsPtr(v *MongoDBDatabaseGetPropertiesResponseOptionsArgs) MongoDBDatabaseGetPropertiesResponseOptionsPtrInput {
+	return (*mongoDBDatabaseGetPropertiesResponseOptionsPtrType)(v)
+}
+
+func (*mongoDBDatabaseGetPropertiesResponseOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoDBDatabaseGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i *mongoDBDatabaseGetPropertiesResponseOptionsPtrType) ToMongoDBDatabaseGetPropertiesResponseOptionsPtrOutput() MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return i.ToMongoDBDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *mongoDBDatabaseGetPropertiesResponseOptionsPtrType) ToMongoDBDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput)
+}
+
+type MongoDBDatabaseGetPropertiesResponseOptionsOutput struct{ *pulumi.OutputState }
+
+func (MongoDBDatabaseGetPropertiesResponseOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBDatabaseGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o MongoDBDatabaseGetPropertiesResponseOptionsOutput) ToMongoDBDatabaseGetPropertiesResponseOptionsOutput() MongoDBDatabaseGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o MongoDBDatabaseGetPropertiesResponseOptionsOutput) ToMongoDBDatabaseGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) MongoDBDatabaseGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o MongoDBDatabaseGetPropertiesResponseOptionsOutput) ToMongoDBDatabaseGetPropertiesResponseOptionsPtrOutput() MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o.ToMongoDBDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o MongoDBDatabaseGetPropertiesResponseOptionsOutput) ToMongoDBDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseOptions) *MongoDBDatabaseGetPropertiesResponseOptions {
+		return &v
+	}).(MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o MongoDBDatabaseGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+type MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoDBDatabaseGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput) ToMongoDBDatabaseGetPropertiesResponseOptionsPtrOutput() MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput) ToMongoDBDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput) Elem() MongoDBDatabaseGetPropertiesResponseOptionsOutput {
+	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseOptions) MongoDBDatabaseGetPropertiesResponseOptions {
+		return *v
+	}).(MongoDBDatabaseGetPropertiesResponseOptionsOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type MongoDBDatabaseGetPropertiesResponseResource struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag string `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid string `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts map[string]interface{} `pulumi:"_ts"`
+	// Name of the Cosmos DB MongoDB database
+	Id string `pulumi:"id"`
+}
+
+// MongoDBDatabaseGetPropertiesResponseResourceInput is an input type that accepts MongoDBDatabaseGetPropertiesResponseResourceArgs and MongoDBDatabaseGetPropertiesResponseResourceOutput values.
+// You can construct a concrete instance of `MongoDBDatabaseGetPropertiesResponseResourceInput` via:
+//
+//          MongoDBDatabaseGetPropertiesResponseResourceArgs{...}
+type MongoDBDatabaseGetPropertiesResponseResourceInput interface {
+	pulumi.Input
+
+	ToMongoDBDatabaseGetPropertiesResponseResourceOutput() MongoDBDatabaseGetPropertiesResponseResourceOutput
+	ToMongoDBDatabaseGetPropertiesResponseResourceOutputWithContext(context.Context) MongoDBDatabaseGetPropertiesResponseResourceOutput
+}
+
+type MongoDBDatabaseGetPropertiesResponseResourceArgs struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag pulumi.StringInput `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid pulumi.StringInput `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts pulumi.MapInput `pulumi:"_ts"`
+	// Name of the Cosmos DB MongoDB database
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (MongoDBDatabaseGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBDatabaseGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i MongoDBDatabaseGetPropertiesResponseResourceArgs) ToMongoDBDatabaseGetPropertiesResponseResourceOutput() MongoDBDatabaseGetPropertiesResponseResourceOutput {
+	return i.ToMongoDBDatabaseGetPropertiesResponseResourceOutputWithContext(context.Background())
+}
+
+func (i MongoDBDatabaseGetPropertiesResponseResourceArgs) ToMongoDBDatabaseGetPropertiesResponseResourceOutputWithContext(ctx context.Context) MongoDBDatabaseGetPropertiesResponseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBDatabaseGetPropertiesResponseResourceOutput)
+}
+
+func (i MongoDBDatabaseGetPropertiesResponseResourceArgs) ToMongoDBDatabaseGetPropertiesResponseResourcePtrOutput() MongoDBDatabaseGetPropertiesResponseResourcePtrOutput {
+	return i.ToMongoDBDatabaseGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i MongoDBDatabaseGetPropertiesResponseResourceArgs) ToMongoDBDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) MongoDBDatabaseGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBDatabaseGetPropertiesResponseResourceOutput).ToMongoDBDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx)
+}
+
+// MongoDBDatabaseGetPropertiesResponseResourcePtrInput is an input type that accepts MongoDBDatabaseGetPropertiesResponseResourceArgs, MongoDBDatabaseGetPropertiesResponseResourcePtr and MongoDBDatabaseGetPropertiesResponseResourcePtrOutput values.
+// You can construct a concrete instance of `MongoDBDatabaseGetPropertiesResponseResourcePtrInput` via:
+//
+//          MongoDBDatabaseGetPropertiesResponseResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type MongoDBDatabaseGetPropertiesResponseResourcePtrInput interface {
+	pulumi.Input
+
+	ToMongoDBDatabaseGetPropertiesResponseResourcePtrOutput() MongoDBDatabaseGetPropertiesResponseResourcePtrOutput
+	ToMongoDBDatabaseGetPropertiesResponseResourcePtrOutputWithContext(context.Context) MongoDBDatabaseGetPropertiesResponseResourcePtrOutput
+}
+
+type mongoDBDatabaseGetPropertiesResponseResourcePtrType MongoDBDatabaseGetPropertiesResponseResourceArgs
+
+func MongoDBDatabaseGetPropertiesResponseResourcePtr(v *MongoDBDatabaseGetPropertiesResponseResourceArgs) MongoDBDatabaseGetPropertiesResponseResourcePtrInput {
+	return (*mongoDBDatabaseGetPropertiesResponseResourcePtrType)(v)
+}
+
+func (*mongoDBDatabaseGetPropertiesResponseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoDBDatabaseGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i *mongoDBDatabaseGetPropertiesResponseResourcePtrType) ToMongoDBDatabaseGetPropertiesResponseResourcePtrOutput() MongoDBDatabaseGetPropertiesResponseResourcePtrOutput {
+	return i.ToMongoDBDatabaseGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *mongoDBDatabaseGetPropertiesResponseResourcePtrType) ToMongoDBDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) MongoDBDatabaseGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoDBDatabaseGetPropertiesResponseResourcePtrOutput)
+}
+
+type MongoDBDatabaseGetPropertiesResponseResourceOutput struct{ *pulumi.OutputState }
+
+func (MongoDBDatabaseGetPropertiesResponseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoDBDatabaseGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) ToMongoDBDatabaseGetPropertiesResponseResourceOutput() MongoDBDatabaseGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) ToMongoDBDatabaseGetPropertiesResponseResourceOutputWithContext(ctx context.Context) MongoDBDatabaseGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) ToMongoDBDatabaseGetPropertiesResponseResourcePtrOutput() MongoDBDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o.ToMongoDBDatabaseGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) ToMongoDBDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) MongoDBDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) *MongoDBDatabaseGetPropertiesResponseResource {
+		return &v
+	}).(MongoDBDatabaseGetPropertiesResponseResourcePtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+}
+
+// Name of the Cosmos DB MongoDB database
+func (o MongoDBDatabaseGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v MongoDBDatabaseGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type MongoDBDatabaseGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoDBDatabaseGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) ToMongoDBDatabaseGetPropertiesResponseResourcePtrOutput() MongoDBDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) ToMongoDBDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) MongoDBDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Elem() MongoDBDatabaseGetPropertiesResponseResourceOutput {
+	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) MongoDBDatabaseGetPropertiesResponseResource {
+		return *v
+	}).(MongoDBDatabaseGetPropertiesResponseResourceOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v._ts
 	}).(pulumi.MapOutput)
+}
+
+// Name of the Cosmos DB MongoDB database
+func (o MongoDBDatabaseGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MongoDBDatabaseGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // Cosmos DB MongoDB database resource object
@@ -5467,190 +8642,6 @@ func (o MongoDBDatabaseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
-}
-
-// An Azure Cosmos DB MongoDB collection.
-type MongoDBResourceMongoDBCollectionType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB MongoDB collection
-	Properties MongoDBCollectionGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// MongoDBResourceMongoDBCollectionTypeInput is an input type that accepts MongoDBResourceMongoDBCollectionTypeArgs and MongoDBResourceMongoDBCollectionTypeOutput values.
-// You can construct a concrete instance of `MongoDBResourceMongoDBCollectionTypeInput` via:
-//
-//          MongoDBResourceMongoDBCollectionTypeArgs{...}
-type MongoDBResourceMongoDBCollectionTypeInput interface {
-	pulumi.Input
-
-	ToMongoDBResourceMongoDBCollectionTypeOutput() MongoDBResourceMongoDBCollectionTypeOutput
-	ToMongoDBResourceMongoDBCollectionTypeOutputWithContext(context.Context) MongoDBResourceMongoDBCollectionTypeOutput
-}
-
-// An Azure Cosmos DB MongoDB collection.
-type MongoDBResourceMongoDBCollectionTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB MongoDB collection
-	Properties MongoDBCollectionGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MongoDBResourceMongoDBCollectionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoDBCollectionType)(nil)).Elem()
-}
-
-func (i MongoDBResourceMongoDBCollectionTypeArgs) ToMongoDBResourceMongoDBCollectionTypeOutput() MongoDBResourceMongoDBCollectionTypeOutput {
-	return i.ToMongoDBResourceMongoDBCollectionTypeOutputWithContext(context.Background())
-}
-
-func (i MongoDBResourceMongoDBCollectionTypeArgs) ToMongoDBResourceMongoDBCollectionTypeOutputWithContext(ctx context.Context) MongoDBResourceMongoDBCollectionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MongoDBResourceMongoDBCollectionTypeOutput)
-}
-
-// An Azure Cosmos DB MongoDB collection.
-type MongoDBResourceMongoDBCollectionTypeOutput struct{ *pulumi.OutputState }
-
-func (MongoDBResourceMongoDBCollectionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoDBCollectionType)(nil)).Elem()
-}
-
-func (o MongoDBResourceMongoDBCollectionTypeOutput) ToMongoDBResourceMongoDBCollectionTypeOutput() MongoDBResourceMongoDBCollectionTypeOutput {
-	return o
-}
-
-func (o MongoDBResourceMongoDBCollectionTypeOutput) ToMongoDBResourceMongoDBCollectionTypeOutputWithContext(ctx context.Context) MongoDBResourceMongoDBCollectionTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o MongoDBResourceMongoDBCollectionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MongoDBResourceMongoDBCollectionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o MongoDBResourceMongoDBCollectionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MongoDBResourceMongoDBCollectionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB MongoDB collection
-func (o MongoDBResourceMongoDBCollectionTypeOutput) Properties() MongoDBCollectionGetPropertiesResponseOutput {
-	return o.ApplyT(func(v MongoDBResourceMongoDBCollectionType) MongoDBCollectionGetPropertiesResponse {
-		return v.Properties
-	}).(MongoDBCollectionGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o MongoDBResourceMongoDBCollectionTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v MongoDBResourceMongoDBCollectionType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o MongoDBResourceMongoDBCollectionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MongoDBResourceMongoDBCollectionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB MongoDB database.
-type MongoDBResourceMongoDBDatabaseType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB MongoDB database
-	Properties MongoDBDatabaseGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// MongoDBResourceMongoDBDatabaseTypeInput is an input type that accepts MongoDBResourceMongoDBDatabaseTypeArgs and MongoDBResourceMongoDBDatabaseTypeOutput values.
-// You can construct a concrete instance of `MongoDBResourceMongoDBDatabaseTypeInput` via:
-//
-//          MongoDBResourceMongoDBDatabaseTypeArgs{...}
-type MongoDBResourceMongoDBDatabaseTypeInput interface {
-	pulumi.Input
-
-	ToMongoDBResourceMongoDBDatabaseTypeOutput() MongoDBResourceMongoDBDatabaseTypeOutput
-	ToMongoDBResourceMongoDBDatabaseTypeOutputWithContext(context.Context) MongoDBResourceMongoDBDatabaseTypeOutput
-}
-
-// An Azure Cosmos DB MongoDB database.
-type MongoDBResourceMongoDBDatabaseTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB MongoDB database
-	Properties MongoDBDatabaseGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MongoDBResourceMongoDBDatabaseTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoDBDatabaseType)(nil)).Elem()
-}
-
-func (i MongoDBResourceMongoDBDatabaseTypeArgs) ToMongoDBResourceMongoDBDatabaseTypeOutput() MongoDBResourceMongoDBDatabaseTypeOutput {
-	return i.ToMongoDBResourceMongoDBDatabaseTypeOutputWithContext(context.Background())
-}
-
-func (i MongoDBResourceMongoDBDatabaseTypeArgs) ToMongoDBResourceMongoDBDatabaseTypeOutputWithContext(ctx context.Context) MongoDBResourceMongoDBDatabaseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MongoDBResourceMongoDBDatabaseTypeOutput)
-}
-
-// An Azure Cosmos DB MongoDB database.
-type MongoDBResourceMongoDBDatabaseTypeOutput struct{ *pulumi.OutputState }
-
-func (MongoDBResourceMongoDBDatabaseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MongoDBResourceMongoDBDatabaseType)(nil)).Elem()
-}
-
-func (o MongoDBResourceMongoDBDatabaseTypeOutput) ToMongoDBResourceMongoDBDatabaseTypeOutput() MongoDBResourceMongoDBDatabaseTypeOutput {
-	return o
-}
-
-func (o MongoDBResourceMongoDBDatabaseTypeOutput) ToMongoDBResourceMongoDBDatabaseTypeOutputWithContext(ctx context.Context) MongoDBResourceMongoDBDatabaseTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o MongoDBResourceMongoDBDatabaseTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MongoDBResourceMongoDBDatabaseType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o MongoDBResourceMongoDBDatabaseTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MongoDBResourceMongoDBDatabaseType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB MongoDB database
-func (o MongoDBResourceMongoDBDatabaseTypeOutput) Properties() MongoDBDatabaseGetPropertiesResponseOutput {
-	return o.ApplyT(func(v MongoDBResourceMongoDBDatabaseType) MongoDBDatabaseGetPropertiesResponse { return v.Properties }).(MongoDBDatabaseGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o MongoDBResourceMongoDBDatabaseTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v MongoDBResourceMongoDBDatabaseType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o MongoDBResourceMongoDBDatabaseTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MongoDBResourceMongoDBDatabaseType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Cosmos DB MongoDB collection index key
@@ -5896,6 +8887,140 @@ func (o MongoIndexKeysPtrOutput) Keys() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Cosmos DB MongoDB collection resource object
+type MongoIndexKeysResponse struct {
+	// List of keys for each MongoDB collection in the Azure Cosmos DB service
+	Keys []string `pulumi:"keys"`
+}
+
+// MongoIndexKeysResponseInput is an input type that accepts MongoIndexKeysResponseArgs and MongoIndexKeysResponseOutput values.
+// You can construct a concrete instance of `MongoIndexKeysResponseInput` via:
+//
+//          MongoIndexKeysResponseArgs{...}
+type MongoIndexKeysResponseInput interface {
+	pulumi.Input
+
+	ToMongoIndexKeysResponseOutput() MongoIndexKeysResponseOutput
+	ToMongoIndexKeysResponseOutputWithContext(context.Context) MongoIndexKeysResponseOutput
+}
+
+// Cosmos DB MongoDB collection resource object
+type MongoIndexKeysResponseArgs struct {
+	// List of keys for each MongoDB collection in the Azure Cosmos DB service
+	Keys pulumi.StringArrayInput `pulumi:"keys"`
+}
+
+func (MongoIndexKeysResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoIndexKeysResponse)(nil)).Elem()
+}
+
+func (i MongoIndexKeysResponseArgs) ToMongoIndexKeysResponseOutput() MongoIndexKeysResponseOutput {
+	return i.ToMongoIndexKeysResponseOutputWithContext(context.Background())
+}
+
+func (i MongoIndexKeysResponseArgs) ToMongoIndexKeysResponseOutputWithContext(ctx context.Context) MongoIndexKeysResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexKeysResponseOutput)
+}
+
+func (i MongoIndexKeysResponseArgs) ToMongoIndexKeysResponsePtrOutput() MongoIndexKeysResponsePtrOutput {
+	return i.ToMongoIndexKeysResponsePtrOutputWithContext(context.Background())
+}
+
+func (i MongoIndexKeysResponseArgs) ToMongoIndexKeysResponsePtrOutputWithContext(ctx context.Context) MongoIndexKeysResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexKeysResponseOutput).ToMongoIndexKeysResponsePtrOutputWithContext(ctx)
+}
+
+// MongoIndexKeysResponsePtrInput is an input type that accepts MongoIndexKeysResponseArgs, MongoIndexKeysResponsePtr and MongoIndexKeysResponsePtrOutput values.
+// You can construct a concrete instance of `MongoIndexKeysResponsePtrInput` via:
+//
+//          MongoIndexKeysResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MongoIndexKeysResponsePtrInput interface {
+	pulumi.Input
+
+	ToMongoIndexKeysResponsePtrOutput() MongoIndexKeysResponsePtrOutput
+	ToMongoIndexKeysResponsePtrOutputWithContext(context.Context) MongoIndexKeysResponsePtrOutput
+}
+
+type mongoIndexKeysResponsePtrType MongoIndexKeysResponseArgs
+
+func MongoIndexKeysResponsePtr(v *MongoIndexKeysResponseArgs) MongoIndexKeysResponsePtrInput {
+	return (*mongoIndexKeysResponsePtrType)(v)
+}
+
+func (*mongoIndexKeysResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoIndexKeysResponse)(nil)).Elem()
+}
+
+func (i *mongoIndexKeysResponsePtrType) ToMongoIndexKeysResponsePtrOutput() MongoIndexKeysResponsePtrOutput {
+	return i.ToMongoIndexKeysResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *mongoIndexKeysResponsePtrType) ToMongoIndexKeysResponsePtrOutputWithContext(ctx context.Context) MongoIndexKeysResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexKeysResponsePtrOutput)
+}
+
+// Cosmos DB MongoDB collection resource object
+type MongoIndexKeysResponseOutput struct{ *pulumi.OutputState }
+
+func (MongoIndexKeysResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoIndexKeysResponse)(nil)).Elem()
+}
+
+func (o MongoIndexKeysResponseOutput) ToMongoIndexKeysResponseOutput() MongoIndexKeysResponseOutput {
+	return o
+}
+
+func (o MongoIndexKeysResponseOutput) ToMongoIndexKeysResponseOutputWithContext(ctx context.Context) MongoIndexKeysResponseOutput {
+	return o
+}
+
+func (o MongoIndexKeysResponseOutput) ToMongoIndexKeysResponsePtrOutput() MongoIndexKeysResponsePtrOutput {
+	return o.ToMongoIndexKeysResponsePtrOutputWithContext(context.Background())
+}
+
+func (o MongoIndexKeysResponseOutput) ToMongoIndexKeysResponsePtrOutputWithContext(ctx context.Context) MongoIndexKeysResponsePtrOutput {
+	return o.ApplyT(func(v MongoIndexKeysResponse) *MongoIndexKeysResponse {
+		return &v
+	}).(MongoIndexKeysResponsePtrOutput)
+}
+
+// List of keys for each MongoDB collection in the Azure Cosmos DB service
+func (o MongoIndexKeysResponseOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MongoIndexKeysResponse) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
+type MongoIndexKeysResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MongoIndexKeysResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoIndexKeysResponse)(nil)).Elem()
+}
+
+func (o MongoIndexKeysResponsePtrOutput) ToMongoIndexKeysResponsePtrOutput() MongoIndexKeysResponsePtrOutput {
+	return o
+}
+
+func (o MongoIndexKeysResponsePtrOutput) ToMongoIndexKeysResponsePtrOutputWithContext(ctx context.Context) MongoIndexKeysResponsePtrOutput {
+	return o
+}
+
+func (o MongoIndexKeysResponsePtrOutput) Elem() MongoIndexKeysResponseOutput {
+	return o.ApplyT(func(v *MongoIndexKeysResponse) MongoIndexKeysResponse { return *v }).(MongoIndexKeysResponseOutput)
+}
+
+// List of keys for each MongoDB collection in the Azure Cosmos DB service
+func (o MongoIndexKeysResponsePtrOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MongoIndexKeysResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Keys
+	}).(pulumi.StringArrayOutput)
+}
+
 // Cosmos DB MongoDB collection index options
 type MongoIndexOptions struct {
 	// Expire after seconds
@@ -6049,77 +9174,266 @@ func (o MongoIndexOptionsPtrOutput) Unique() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A notebook workspace resource
-type NotebookWorkspaceType struct {
-	// The name of the database account.
-	Name string `pulumi:"name"`
-	// Resource properties.
-	Properties NotebookWorkspacePropertiesResponse `pulumi:"properties"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
+// Cosmos DB MongoDB collection index options
+type MongoIndexOptionsResponse struct {
+	// Expire after seconds
+	ExpireAfterSeconds *int `pulumi:"expireAfterSeconds"`
+	// Is unique or not
+	Unique *bool `pulumi:"unique"`
 }
 
-// NotebookWorkspaceTypeInput is an input type that accepts NotebookWorkspaceTypeArgs and NotebookWorkspaceTypeOutput values.
-// You can construct a concrete instance of `NotebookWorkspaceTypeInput` via:
+// MongoIndexOptionsResponseInput is an input type that accepts MongoIndexOptionsResponseArgs and MongoIndexOptionsResponseOutput values.
+// You can construct a concrete instance of `MongoIndexOptionsResponseInput` via:
 //
-//          NotebookWorkspaceTypeArgs{...}
-type NotebookWorkspaceTypeInput interface {
+//          MongoIndexOptionsResponseArgs{...}
+type MongoIndexOptionsResponseInput interface {
 	pulumi.Input
 
-	ToNotebookWorkspaceTypeOutput() NotebookWorkspaceTypeOutput
-	ToNotebookWorkspaceTypeOutputWithContext(context.Context) NotebookWorkspaceTypeOutput
+	ToMongoIndexOptionsResponseOutput() MongoIndexOptionsResponseOutput
+	ToMongoIndexOptionsResponseOutputWithContext(context.Context) MongoIndexOptionsResponseOutput
 }
 
-// A notebook workspace resource
-type NotebookWorkspaceTypeArgs struct {
-	// The name of the database account.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Resource properties.
-	Properties NotebookWorkspacePropertiesResponseInput `pulumi:"properties"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
+// Cosmos DB MongoDB collection index options
+type MongoIndexOptionsResponseArgs struct {
+	// Expire after seconds
+	ExpireAfterSeconds pulumi.IntPtrInput `pulumi:"expireAfterSeconds"`
+	// Is unique or not
+	Unique pulumi.BoolPtrInput `pulumi:"unique"`
 }
 
-func (NotebookWorkspaceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookWorkspaceType)(nil)).Elem()
+func (MongoIndexOptionsResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoIndexOptionsResponse)(nil)).Elem()
 }
 
-func (i NotebookWorkspaceTypeArgs) ToNotebookWorkspaceTypeOutput() NotebookWorkspaceTypeOutput {
-	return i.ToNotebookWorkspaceTypeOutputWithContext(context.Background())
+func (i MongoIndexOptionsResponseArgs) ToMongoIndexOptionsResponseOutput() MongoIndexOptionsResponseOutput {
+	return i.ToMongoIndexOptionsResponseOutputWithContext(context.Background())
 }
 
-func (i NotebookWorkspaceTypeArgs) ToNotebookWorkspaceTypeOutputWithContext(ctx context.Context) NotebookWorkspaceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotebookWorkspaceTypeOutput)
+func (i MongoIndexOptionsResponseArgs) ToMongoIndexOptionsResponseOutputWithContext(ctx context.Context) MongoIndexOptionsResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexOptionsResponseOutput)
 }
 
-// A notebook workspace resource
-type NotebookWorkspaceTypeOutput struct{ *pulumi.OutputState }
-
-func (NotebookWorkspaceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotebookWorkspaceType)(nil)).Elem()
+func (i MongoIndexOptionsResponseArgs) ToMongoIndexOptionsResponsePtrOutput() MongoIndexOptionsResponsePtrOutput {
+	return i.ToMongoIndexOptionsResponsePtrOutputWithContext(context.Background())
 }
 
-func (o NotebookWorkspaceTypeOutput) ToNotebookWorkspaceTypeOutput() NotebookWorkspaceTypeOutput {
+func (i MongoIndexOptionsResponseArgs) ToMongoIndexOptionsResponsePtrOutputWithContext(ctx context.Context) MongoIndexOptionsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexOptionsResponseOutput).ToMongoIndexOptionsResponsePtrOutputWithContext(ctx)
+}
+
+// MongoIndexOptionsResponsePtrInput is an input type that accepts MongoIndexOptionsResponseArgs, MongoIndexOptionsResponsePtr and MongoIndexOptionsResponsePtrOutput values.
+// You can construct a concrete instance of `MongoIndexOptionsResponsePtrInput` via:
+//
+//          MongoIndexOptionsResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type MongoIndexOptionsResponsePtrInput interface {
+	pulumi.Input
+
+	ToMongoIndexOptionsResponsePtrOutput() MongoIndexOptionsResponsePtrOutput
+	ToMongoIndexOptionsResponsePtrOutputWithContext(context.Context) MongoIndexOptionsResponsePtrOutput
+}
+
+type mongoIndexOptionsResponsePtrType MongoIndexOptionsResponseArgs
+
+func MongoIndexOptionsResponsePtr(v *MongoIndexOptionsResponseArgs) MongoIndexOptionsResponsePtrInput {
+	return (*mongoIndexOptionsResponsePtrType)(v)
+}
+
+func (*mongoIndexOptionsResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoIndexOptionsResponse)(nil)).Elem()
+}
+
+func (i *mongoIndexOptionsResponsePtrType) ToMongoIndexOptionsResponsePtrOutput() MongoIndexOptionsResponsePtrOutput {
+	return i.ToMongoIndexOptionsResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *mongoIndexOptionsResponsePtrType) ToMongoIndexOptionsResponsePtrOutputWithContext(ctx context.Context) MongoIndexOptionsResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexOptionsResponsePtrOutput)
+}
+
+// Cosmos DB MongoDB collection index options
+type MongoIndexOptionsResponseOutput struct{ *pulumi.OutputState }
+
+func (MongoIndexOptionsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoIndexOptionsResponse)(nil)).Elem()
+}
+
+func (o MongoIndexOptionsResponseOutput) ToMongoIndexOptionsResponseOutput() MongoIndexOptionsResponseOutput {
 	return o
 }
 
-func (o NotebookWorkspaceTypeOutput) ToNotebookWorkspaceTypeOutputWithContext(ctx context.Context) NotebookWorkspaceTypeOutput {
+func (o MongoIndexOptionsResponseOutput) ToMongoIndexOptionsResponseOutputWithContext(ctx context.Context) MongoIndexOptionsResponseOutput {
 	return o
 }
 
-// The name of the database account.
-func (o NotebookWorkspaceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v NotebookWorkspaceType) string { return v.Name }).(pulumi.StringOutput)
+func (o MongoIndexOptionsResponseOutput) ToMongoIndexOptionsResponsePtrOutput() MongoIndexOptionsResponsePtrOutput {
+	return o.ToMongoIndexOptionsResponsePtrOutputWithContext(context.Background())
 }
 
-// Resource properties.
-func (o NotebookWorkspaceTypeOutput) Properties() NotebookWorkspacePropertiesResponseOutput {
-	return o.ApplyT(func(v NotebookWorkspaceType) NotebookWorkspacePropertiesResponse { return v.Properties }).(NotebookWorkspacePropertiesResponseOutput)
+func (o MongoIndexOptionsResponseOutput) ToMongoIndexOptionsResponsePtrOutputWithContext(ctx context.Context) MongoIndexOptionsResponsePtrOutput {
+	return o.ApplyT(func(v MongoIndexOptionsResponse) *MongoIndexOptionsResponse {
+		return &v
+	}).(MongoIndexOptionsResponsePtrOutput)
 }
 
-// The type of Azure resource.
-func (o NotebookWorkspaceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v NotebookWorkspaceType) string { return v.Type }).(pulumi.StringOutput)
+// Expire after seconds
+func (o MongoIndexOptionsResponseOutput) ExpireAfterSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MongoIndexOptionsResponse) *int { return v.ExpireAfterSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Is unique or not
+func (o MongoIndexOptionsResponseOutput) Unique() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MongoIndexOptionsResponse) *bool { return v.Unique }).(pulumi.BoolPtrOutput)
+}
+
+type MongoIndexOptionsResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MongoIndexOptionsResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MongoIndexOptionsResponse)(nil)).Elem()
+}
+
+func (o MongoIndexOptionsResponsePtrOutput) ToMongoIndexOptionsResponsePtrOutput() MongoIndexOptionsResponsePtrOutput {
+	return o
+}
+
+func (o MongoIndexOptionsResponsePtrOutput) ToMongoIndexOptionsResponsePtrOutputWithContext(ctx context.Context) MongoIndexOptionsResponsePtrOutput {
+	return o
+}
+
+func (o MongoIndexOptionsResponsePtrOutput) Elem() MongoIndexOptionsResponseOutput {
+	return o.ApplyT(func(v *MongoIndexOptionsResponse) MongoIndexOptionsResponse { return *v }).(MongoIndexOptionsResponseOutput)
+}
+
+// Expire after seconds
+func (o MongoIndexOptionsResponsePtrOutput) ExpireAfterSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MongoIndexOptionsResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExpireAfterSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Is unique or not
+func (o MongoIndexOptionsResponsePtrOutput) Unique() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MongoIndexOptionsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Unique
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Cosmos DB MongoDB collection index key
+type MongoIndexResponse struct {
+	// Cosmos DB MongoDB collection index keys
+	Key *MongoIndexKeysResponse `pulumi:"key"`
+	// Cosmos DB MongoDB collection index key options
+	Options *MongoIndexOptionsResponse `pulumi:"options"`
+}
+
+// MongoIndexResponseInput is an input type that accepts MongoIndexResponseArgs and MongoIndexResponseOutput values.
+// You can construct a concrete instance of `MongoIndexResponseInput` via:
+//
+//          MongoIndexResponseArgs{...}
+type MongoIndexResponseInput interface {
+	pulumi.Input
+
+	ToMongoIndexResponseOutput() MongoIndexResponseOutput
+	ToMongoIndexResponseOutputWithContext(context.Context) MongoIndexResponseOutput
+}
+
+// Cosmos DB MongoDB collection index key
+type MongoIndexResponseArgs struct {
+	// Cosmos DB MongoDB collection index keys
+	Key MongoIndexKeysResponsePtrInput `pulumi:"key"`
+	// Cosmos DB MongoDB collection index key options
+	Options MongoIndexOptionsResponsePtrInput `pulumi:"options"`
+}
+
+func (MongoIndexResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoIndexResponse)(nil)).Elem()
+}
+
+func (i MongoIndexResponseArgs) ToMongoIndexResponseOutput() MongoIndexResponseOutput {
+	return i.ToMongoIndexResponseOutputWithContext(context.Background())
+}
+
+func (i MongoIndexResponseArgs) ToMongoIndexResponseOutputWithContext(ctx context.Context) MongoIndexResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexResponseOutput)
+}
+
+// MongoIndexResponseArrayInput is an input type that accepts MongoIndexResponseArray and MongoIndexResponseArrayOutput values.
+// You can construct a concrete instance of `MongoIndexResponseArrayInput` via:
+//
+//          MongoIndexResponseArray{ MongoIndexResponseArgs{...} }
+type MongoIndexResponseArrayInput interface {
+	pulumi.Input
+
+	ToMongoIndexResponseArrayOutput() MongoIndexResponseArrayOutput
+	ToMongoIndexResponseArrayOutputWithContext(context.Context) MongoIndexResponseArrayOutput
+}
+
+type MongoIndexResponseArray []MongoIndexResponseInput
+
+func (MongoIndexResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MongoIndexResponse)(nil)).Elem()
+}
+
+func (i MongoIndexResponseArray) ToMongoIndexResponseArrayOutput() MongoIndexResponseArrayOutput {
+	return i.ToMongoIndexResponseArrayOutputWithContext(context.Background())
+}
+
+func (i MongoIndexResponseArray) ToMongoIndexResponseArrayOutputWithContext(ctx context.Context) MongoIndexResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MongoIndexResponseArrayOutput)
+}
+
+// Cosmos DB MongoDB collection index key
+type MongoIndexResponseOutput struct{ *pulumi.OutputState }
+
+func (MongoIndexResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MongoIndexResponse)(nil)).Elem()
+}
+
+func (o MongoIndexResponseOutput) ToMongoIndexResponseOutput() MongoIndexResponseOutput {
+	return o
+}
+
+func (o MongoIndexResponseOutput) ToMongoIndexResponseOutputWithContext(ctx context.Context) MongoIndexResponseOutput {
+	return o
+}
+
+// Cosmos DB MongoDB collection index keys
+func (o MongoIndexResponseOutput) Key() MongoIndexKeysResponsePtrOutput {
+	return o.ApplyT(func(v MongoIndexResponse) *MongoIndexKeysResponse { return v.Key }).(MongoIndexKeysResponsePtrOutput)
+}
+
+// Cosmos DB MongoDB collection index key options
+func (o MongoIndexResponseOutput) Options() MongoIndexOptionsResponsePtrOutput {
+	return o.ApplyT(func(v MongoIndexResponse) *MongoIndexOptionsResponse { return v.Options }).(MongoIndexOptionsResponsePtrOutput)
+}
+
+type MongoIndexResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (MongoIndexResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MongoIndexResponse)(nil)).Elem()
+}
+
+func (o MongoIndexResponseArrayOutput) ToMongoIndexResponseArrayOutput() MongoIndexResponseArrayOutput {
+	return o
+}
+
+func (o MongoIndexResponseArrayOutput) ToMongoIndexResponseArrayOutputWithContext(ctx context.Context) MongoIndexResponseArrayOutput {
+	return o
+}
+
+func (o MongoIndexResponseArrayOutput) Index(i pulumi.IntInput) MongoIndexResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MongoIndexResponse {
+		return vs[0].([]MongoIndexResponse)[vs[1].(int)]
+	}).(MongoIndexResponseOutput)
 }
 
 // Properties of a notebook workspace resource.
@@ -6852,121 +10166,6 @@ func (o PrivateLinkServiceConnectionStatePropertyResponsePtrOutput) Status() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// The shard key and partition kind pair, only support "Hash" partition kind
-type ShardKeys struct {
-}
-
-// ShardKeysInput is an input type that accepts ShardKeysArgs and ShardKeysOutput values.
-// You can construct a concrete instance of `ShardKeysInput` via:
-//
-//          ShardKeysArgs{...}
-type ShardKeysInput interface {
-	pulumi.Input
-
-	ToShardKeysOutput() ShardKeysOutput
-	ToShardKeysOutputWithContext(context.Context) ShardKeysOutput
-}
-
-// The shard key and partition kind pair, only support "Hash" partition kind
-type ShardKeysArgs struct {
-}
-
-func (ShardKeysArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShardKeys)(nil)).Elem()
-}
-
-func (i ShardKeysArgs) ToShardKeysOutput() ShardKeysOutput {
-	return i.ToShardKeysOutputWithContext(context.Background())
-}
-
-func (i ShardKeysArgs) ToShardKeysOutputWithContext(ctx context.Context) ShardKeysOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ShardKeysOutput)
-}
-
-func (i ShardKeysArgs) ToShardKeysPtrOutput() ShardKeysPtrOutput {
-	return i.ToShardKeysPtrOutputWithContext(context.Background())
-}
-
-func (i ShardKeysArgs) ToShardKeysPtrOutputWithContext(ctx context.Context) ShardKeysPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ShardKeysOutput).ToShardKeysPtrOutputWithContext(ctx)
-}
-
-// ShardKeysPtrInput is an input type that accepts ShardKeysArgs, ShardKeysPtr and ShardKeysPtrOutput values.
-// You can construct a concrete instance of `ShardKeysPtrInput` via:
-//
-//          ShardKeysArgs{...}
-//
-//  or:
-//
-//          nil
-type ShardKeysPtrInput interface {
-	pulumi.Input
-
-	ToShardKeysPtrOutput() ShardKeysPtrOutput
-	ToShardKeysPtrOutputWithContext(context.Context) ShardKeysPtrOutput
-}
-
-type shardKeysPtrType ShardKeysArgs
-
-func ShardKeysPtr(v *ShardKeysArgs) ShardKeysPtrInput {
-	return (*shardKeysPtrType)(v)
-}
-
-func (*shardKeysPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ShardKeys)(nil)).Elem()
-}
-
-func (i *shardKeysPtrType) ToShardKeysPtrOutput() ShardKeysPtrOutput {
-	return i.ToShardKeysPtrOutputWithContext(context.Background())
-}
-
-func (i *shardKeysPtrType) ToShardKeysPtrOutputWithContext(ctx context.Context) ShardKeysPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ShardKeysPtrOutput)
-}
-
-// The shard key and partition kind pair, only support "Hash" partition kind
-type ShardKeysOutput struct{ *pulumi.OutputState }
-
-func (ShardKeysOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ShardKeys)(nil)).Elem()
-}
-
-func (o ShardKeysOutput) ToShardKeysOutput() ShardKeysOutput {
-	return o
-}
-
-func (o ShardKeysOutput) ToShardKeysOutputWithContext(ctx context.Context) ShardKeysOutput {
-	return o
-}
-
-func (o ShardKeysOutput) ToShardKeysPtrOutput() ShardKeysPtrOutput {
-	return o.ToShardKeysPtrOutputWithContext(context.Background())
-}
-
-func (o ShardKeysOutput) ToShardKeysPtrOutputWithContext(ctx context.Context) ShardKeysPtrOutput {
-	return o.ApplyT(func(v ShardKeys) *ShardKeys {
-		return &v
-	}).(ShardKeysPtrOutput)
-}
-
-type ShardKeysPtrOutput struct{ *pulumi.OutputState }
-
-func (ShardKeysPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ShardKeys)(nil)).Elem()
-}
-
-func (o ShardKeysPtrOutput) ToShardKeysPtrOutput() ShardKeysPtrOutput {
-	return o
-}
-
-func (o ShardKeysPtrOutput) ToShardKeysPtrOutputWithContext(ctx context.Context) ShardKeysPtrOutput {
-	return o
-}
-
-func (o ShardKeysPtrOutput) Elem() ShardKeysOutput {
-	return o.ApplyT(func(v *ShardKeys) ShardKeys { return *v }).(ShardKeysOutput)
-}
-
 type SpatialSpec struct {
 	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
 	Path *string `pulumi:"path"`
@@ -7073,10 +10272,116 @@ func (o SpatialSpecArrayOutput) Index(i pulumi.IntInput) SpatialSpecOutput {
 	}).(SpatialSpecOutput)
 }
 
+type SpatialSpecResponse struct {
+	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+	Path *string `pulumi:"path"`
+	// List of path's spatial type
+	Types []string `pulumi:"types"`
+}
+
+// SpatialSpecResponseInput is an input type that accepts SpatialSpecResponseArgs and SpatialSpecResponseOutput values.
+// You can construct a concrete instance of `SpatialSpecResponseInput` via:
+//
+//          SpatialSpecResponseArgs{...}
+type SpatialSpecResponseInput interface {
+	pulumi.Input
+
+	ToSpatialSpecResponseOutput() SpatialSpecResponseOutput
+	ToSpatialSpecResponseOutputWithContext(context.Context) SpatialSpecResponseOutput
+}
+
+type SpatialSpecResponseArgs struct {
+	// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// List of path's spatial type
+	Types pulumi.StringArrayInput `pulumi:"types"`
+}
+
+func (SpatialSpecResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpatialSpecResponse)(nil)).Elem()
+}
+
+func (i SpatialSpecResponseArgs) ToSpatialSpecResponseOutput() SpatialSpecResponseOutput {
+	return i.ToSpatialSpecResponseOutputWithContext(context.Background())
+}
+
+func (i SpatialSpecResponseArgs) ToSpatialSpecResponseOutputWithContext(ctx context.Context) SpatialSpecResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpatialSpecResponseOutput)
+}
+
+// SpatialSpecResponseArrayInput is an input type that accepts SpatialSpecResponseArray and SpatialSpecResponseArrayOutput values.
+// You can construct a concrete instance of `SpatialSpecResponseArrayInput` via:
+//
+//          SpatialSpecResponseArray{ SpatialSpecResponseArgs{...} }
+type SpatialSpecResponseArrayInput interface {
+	pulumi.Input
+
+	ToSpatialSpecResponseArrayOutput() SpatialSpecResponseArrayOutput
+	ToSpatialSpecResponseArrayOutputWithContext(context.Context) SpatialSpecResponseArrayOutput
+}
+
+type SpatialSpecResponseArray []SpatialSpecResponseInput
+
+func (SpatialSpecResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpatialSpecResponse)(nil)).Elem()
+}
+
+func (i SpatialSpecResponseArray) ToSpatialSpecResponseArrayOutput() SpatialSpecResponseArrayOutput {
+	return i.ToSpatialSpecResponseArrayOutputWithContext(context.Background())
+}
+
+func (i SpatialSpecResponseArray) ToSpatialSpecResponseArrayOutputWithContext(ctx context.Context) SpatialSpecResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpatialSpecResponseArrayOutput)
+}
+
+type SpatialSpecResponseOutput struct{ *pulumi.OutputState }
+
+func (SpatialSpecResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpatialSpecResponse)(nil)).Elem()
+}
+
+func (o SpatialSpecResponseOutput) ToSpatialSpecResponseOutput() SpatialSpecResponseOutput {
+	return o
+}
+
+func (o SpatialSpecResponseOutput) ToSpatialSpecResponseOutputWithContext(ctx context.Context) SpatialSpecResponseOutput {
+	return o
+}
+
+// The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+func (o SpatialSpecResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpatialSpecResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// List of path's spatial type
+func (o SpatialSpecResponseOutput) Types() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpatialSpecResponse) []string { return v.Types }).(pulumi.StringArrayOutput)
+}
+
+type SpatialSpecResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SpatialSpecResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpatialSpecResponse)(nil)).Elem()
+}
+
+func (o SpatialSpecResponseArrayOutput) ToSpatialSpecResponseArrayOutput() SpatialSpecResponseArrayOutput {
+	return o
+}
+
+func (o SpatialSpecResponseArrayOutput) ToSpatialSpecResponseArrayOutputWithContext(ctx context.Context) SpatialSpecResponseArrayOutput {
+	return o
+}
+
+func (o SpatialSpecResponseArrayOutput) Index(i pulumi.IntInput) SpatialSpecResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpatialSpecResponse {
+		return vs[0].([]SpatialSpecResponse)[vs[1].(int)]
+	}).(SpatialSpecResponseOutput)
+}
+
 // The properties of an Azure Cosmos DB container
 type SqlContainerGetPropertiesResponse struct {
-	Options  map[string]interface{} `pulumi:"options"`
-	Resource map[string]interface{} `pulumi:"resource"`
+	Options  *SqlContainerGetPropertiesResponseOptions  `pulumi:"options"`
+	Resource *SqlContainerGetPropertiesResponseResource `pulumi:"resource"`
 }
 
 // SqlContainerGetPropertiesResponseInput is an input type that accepts SqlContainerGetPropertiesResponseArgs and SqlContainerGetPropertiesResponseOutput values.
@@ -7092,8 +10397,8 @@ type SqlContainerGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB container
 type SqlContainerGetPropertiesResponseArgs struct {
-	Options  pulumi.MapInput `pulumi:"options"`
-	Resource pulumi.MapInput `pulumi:"resource"`
+	Options  SqlContainerGetPropertiesResponseOptionsPtrInput  `pulumi:"options"`
+	Resource SqlContainerGetPropertiesResponseResourcePtrInput `pulumi:"resource"`
 }
 
 func (SqlContainerGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -7173,12 +10478,14 @@ func (o SqlContainerGetPropertiesResponseOutput) ToSqlContainerGetPropertiesResp
 		return &v
 	}).(SqlContainerGetPropertiesResponsePtrOutput)
 }
-func (o SqlContainerGetPropertiesResponseOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlContainerGetPropertiesResponse) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o SqlContainerGetPropertiesResponseOutput) Options() SqlContainerGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponse) *SqlContainerGetPropertiesResponseOptions { return v.Options }).(SqlContainerGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o SqlContainerGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlContainerGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
+func (o SqlContainerGetPropertiesResponseOutput) Resource() SqlContainerGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponse) *SqlContainerGetPropertiesResponseResource {
+		return v.Resource
+	}).(SqlContainerGetPropertiesResponseResourcePtrOutput)
 }
 
 type SqlContainerGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -7199,22 +10506,442 @@ func (o SqlContainerGetPropertiesResponsePtrOutput) Elem() SqlContainerGetProper
 	return o.ApplyT(func(v *SqlContainerGetPropertiesResponse) SqlContainerGetPropertiesResponse { return *v }).(SqlContainerGetPropertiesResponseOutput)
 }
 
-func (o SqlContainerGetPropertiesResponsePtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlContainerGetPropertiesResponse) map[string]interface{} {
+func (o SqlContainerGetPropertiesResponsePtrOutput) Options() SqlContainerGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponse) *SqlContainerGetPropertiesResponseOptions {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.MapOutput)
+	}).(SqlContainerGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o SqlContainerGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlContainerGetPropertiesResponse) map[string]interface{} {
+func (o SqlContainerGetPropertiesResponsePtrOutput) Resource() SqlContainerGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponse) *SqlContainerGetPropertiesResponseResource {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
+	}).(SqlContainerGetPropertiesResponseResourcePtrOutput)
+}
+
+type SqlContainerGetPropertiesResponseOptions struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput *int `pulumi:"throughput"`
+}
+
+// SqlContainerGetPropertiesResponseOptionsInput is an input type that accepts SqlContainerGetPropertiesResponseOptionsArgs and SqlContainerGetPropertiesResponseOptionsOutput values.
+// You can construct a concrete instance of `SqlContainerGetPropertiesResponseOptionsInput` via:
+//
+//          SqlContainerGetPropertiesResponseOptionsArgs{...}
+type SqlContainerGetPropertiesResponseOptionsInput interface {
+	pulumi.Input
+
+	ToSqlContainerGetPropertiesResponseOptionsOutput() SqlContainerGetPropertiesResponseOptionsOutput
+	ToSqlContainerGetPropertiesResponseOptionsOutputWithContext(context.Context) SqlContainerGetPropertiesResponseOptionsOutput
+}
+
+type SqlContainerGetPropertiesResponseOptionsArgs struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+}
+
+func (SqlContainerGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i SqlContainerGetPropertiesResponseOptionsArgs) ToSqlContainerGetPropertiesResponseOptionsOutput() SqlContainerGetPropertiesResponseOptionsOutput {
+	return i.ToSqlContainerGetPropertiesResponseOptionsOutputWithContext(context.Background())
+}
+
+func (i SqlContainerGetPropertiesResponseOptionsArgs) ToSqlContainerGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) SqlContainerGetPropertiesResponseOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerGetPropertiesResponseOptionsOutput)
+}
+
+func (i SqlContainerGetPropertiesResponseOptionsArgs) ToSqlContainerGetPropertiesResponseOptionsPtrOutput() SqlContainerGetPropertiesResponseOptionsPtrOutput {
+	return i.ToSqlContainerGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SqlContainerGetPropertiesResponseOptionsArgs) ToSqlContainerGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) SqlContainerGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerGetPropertiesResponseOptionsOutput).ToSqlContainerGetPropertiesResponseOptionsPtrOutputWithContext(ctx)
+}
+
+// SqlContainerGetPropertiesResponseOptionsPtrInput is an input type that accepts SqlContainerGetPropertiesResponseOptionsArgs, SqlContainerGetPropertiesResponseOptionsPtr and SqlContainerGetPropertiesResponseOptionsPtrOutput values.
+// You can construct a concrete instance of `SqlContainerGetPropertiesResponseOptionsPtrInput` via:
+//
+//          SqlContainerGetPropertiesResponseOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlContainerGetPropertiesResponseOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSqlContainerGetPropertiesResponseOptionsPtrOutput() SqlContainerGetPropertiesResponseOptionsPtrOutput
+	ToSqlContainerGetPropertiesResponseOptionsPtrOutputWithContext(context.Context) SqlContainerGetPropertiesResponseOptionsPtrOutput
+}
+
+type sqlContainerGetPropertiesResponseOptionsPtrType SqlContainerGetPropertiesResponseOptionsArgs
+
+func SqlContainerGetPropertiesResponseOptionsPtr(v *SqlContainerGetPropertiesResponseOptionsArgs) SqlContainerGetPropertiesResponseOptionsPtrInput {
+	return (*sqlContainerGetPropertiesResponseOptionsPtrType)(v)
+}
+
+func (*sqlContainerGetPropertiesResponseOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlContainerGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i *sqlContainerGetPropertiesResponseOptionsPtrType) ToSqlContainerGetPropertiesResponseOptionsPtrOutput() SqlContainerGetPropertiesResponseOptionsPtrOutput {
+	return i.ToSqlContainerGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlContainerGetPropertiesResponseOptionsPtrType) ToSqlContainerGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) SqlContainerGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerGetPropertiesResponseOptionsPtrOutput)
+}
+
+type SqlContainerGetPropertiesResponseOptionsOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerGetPropertiesResponseOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o SqlContainerGetPropertiesResponseOptionsOutput) ToSqlContainerGetPropertiesResponseOptionsOutput() SqlContainerGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o SqlContainerGetPropertiesResponseOptionsOutput) ToSqlContainerGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) SqlContainerGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o SqlContainerGetPropertiesResponseOptionsOutput) ToSqlContainerGetPropertiesResponseOptionsPtrOutput() SqlContainerGetPropertiesResponseOptionsPtrOutput {
+	return o.ToSqlContainerGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SqlContainerGetPropertiesResponseOptionsOutput) ToSqlContainerGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) SqlContainerGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseOptions) *SqlContainerGetPropertiesResponseOptions {
+		return &v
+	}).(SqlContainerGetPropertiesResponseOptionsPtrOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o SqlContainerGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+type SqlContainerGetPropertiesResponseOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerGetPropertiesResponseOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlContainerGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o SqlContainerGetPropertiesResponseOptionsPtrOutput) ToSqlContainerGetPropertiesResponseOptionsPtrOutput() SqlContainerGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o SqlContainerGetPropertiesResponseOptionsPtrOutput) ToSqlContainerGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) SqlContainerGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o SqlContainerGetPropertiesResponseOptionsPtrOutput) Elem() SqlContainerGetPropertiesResponseOptionsOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseOptions) SqlContainerGetPropertiesResponseOptions { return *v }).(SqlContainerGetPropertiesResponseOptionsOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o SqlContainerGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type SqlContainerGetPropertiesResponseResource struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag string `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid string `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts map[string]interface{} `pulumi:"_ts"`
+	// The conflict resolution policy for the container.
+	ConflictResolutionPolicy *ConflictResolutionPolicyResponse `pulumi:"conflictResolutionPolicy"`
+	// Default time to live
+	DefaultTtl *int `pulumi:"defaultTtl"`
+	// Name of the Cosmos DB SQL container
+	Id string `pulumi:"id"`
+	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+	IndexingPolicy *IndexingPolicyResponse `pulumi:"indexingPolicy"`
+	// The configuration of the partition key to be used for partitioning data into multiple partitions
+	PartitionKey *ContainerPartitionKeyResponse `pulumi:"partitionKey"`
+	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+	UniqueKeyPolicy *UniqueKeyPolicyResponse `pulumi:"uniqueKeyPolicy"`
+}
+
+// SqlContainerGetPropertiesResponseResourceInput is an input type that accepts SqlContainerGetPropertiesResponseResourceArgs and SqlContainerGetPropertiesResponseResourceOutput values.
+// You can construct a concrete instance of `SqlContainerGetPropertiesResponseResourceInput` via:
+//
+//          SqlContainerGetPropertiesResponseResourceArgs{...}
+type SqlContainerGetPropertiesResponseResourceInput interface {
+	pulumi.Input
+
+	ToSqlContainerGetPropertiesResponseResourceOutput() SqlContainerGetPropertiesResponseResourceOutput
+	ToSqlContainerGetPropertiesResponseResourceOutputWithContext(context.Context) SqlContainerGetPropertiesResponseResourceOutput
+}
+
+type SqlContainerGetPropertiesResponseResourceArgs struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag pulumi.StringInput `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid pulumi.StringInput `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts pulumi.MapInput `pulumi:"_ts"`
+	// The conflict resolution policy for the container.
+	ConflictResolutionPolicy ConflictResolutionPolicyResponsePtrInput `pulumi:"conflictResolutionPolicy"`
+	// Default time to live
+	DefaultTtl pulumi.IntPtrInput `pulumi:"defaultTtl"`
+	// Name of the Cosmos DB SQL container
+	Id pulumi.StringInput `pulumi:"id"`
+	// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+	IndexingPolicy IndexingPolicyResponsePtrInput `pulumi:"indexingPolicy"`
+	// The configuration of the partition key to be used for partitioning data into multiple partitions
+	PartitionKey ContainerPartitionKeyResponsePtrInput `pulumi:"partitionKey"`
+	// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+	UniqueKeyPolicy UniqueKeyPolicyResponsePtrInput `pulumi:"uniqueKeyPolicy"`
+}
+
+func (SqlContainerGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i SqlContainerGetPropertiesResponseResourceArgs) ToSqlContainerGetPropertiesResponseResourceOutput() SqlContainerGetPropertiesResponseResourceOutput {
+	return i.ToSqlContainerGetPropertiesResponseResourceOutputWithContext(context.Background())
+}
+
+func (i SqlContainerGetPropertiesResponseResourceArgs) ToSqlContainerGetPropertiesResponseResourceOutputWithContext(ctx context.Context) SqlContainerGetPropertiesResponseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerGetPropertiesResponseResourceOutput)
+}
+
+func (i SqlContainerGetPropertiesResponseResourceArgs) ToSqlContainerGetPropertiesResponseResourcePtrOutput() SqlContainerGetPropertiesResponseResourcePtrOutput {
+	return i.ToSqlContainerGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i SqlContainerGetPropertiesResponseResourceArgs) ToSqlContainerGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlContainerGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerGetPropertiesResponseResourceOutput).ToSqlContainerGetPropertiesResponseResourcePtrOutputWithContext(ctx)
+}
+
+// SqlContainerGetPropertiesResponseResourcePtrInput is an input type that accepts SqlContainerGetPropertiesResponseResourceArgs, SqlContainerGetPropertiesResponseResourcePtr and SqlContainerGetPropertiesResponseResourcePtrOutput values.
+// You can construct a concrete instance of `SqlContainerGetPropertiesResponseResourcePtrInput` via:
+//
+//          SqlContainerGetPropertiesResponseResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlContainerGetPropertiesResponseResourcePtrInput interface {
+	pulumi.Input
+
+	ToSqlContainerGetPropertiesResponseResourcePtrOutput() SqlContainerGetPropertiesResponseResourcePtrOutput
+	ToSqlContainerGetPropertiesResponseResourcePtrOutputWithContext(context.Context) SqlContainerGetPropertiesResponseResourcePtrOutput
+}
+
+type sqlContainerGetPropertiesResponseResourcePtrType SqlContainerGetPropertiesResponseResourceArgs
+
+func SqlContainerGetPropertiesResponseResourcePtr(v *SqlContainerGetPropertiesResponseResourceArgs) SqlContainerGetPropertiesResponseResourcePtrInput {
+	return (*sqlContainerGetPropertiesResponseResourcePtrType)(v)
+}
+
+func (*sqlContainerGetPropertiesResponseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlContainerGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i *sqlContainerGetPropertiesResponseResourcePtrType) ToSqlContainerGetPropertiesResponseResourcePtrOutput() SqlContainerGetPropertiesResponseResourcePtrOutput {
+	return i.ToSqlContainerGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *sqlContainerGetPropertiesResponseResourcePtrType) ToSqlContainerGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlContainerGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerGetPropertiesResponseResourcePtrOutput)
+}
+
+type SqlContainerGetPropertiesResponseResourceOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerGetPropertiesResponseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlContainerGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o SqlContainerGetPropertiesResponseResourceOutput) ToSqlContainerGetPropertiesResponseResourceOutput() SqlContainerGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o SqlContainerGetPropertiesResponseResourceOutput) ToSqlContainerGetPropertiesResponseResourceOutputWithContext(ctx context.Context) SqlContainerGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o SqlContainerGetPropertiesResponseResourceOutput) ToSqlContainerGetPropertiesResponseResourcePtrOutput() SqlContainerGetPropertiesResponseResourcePtrOutput {
+	return o.ToSqlContainerGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o SqlContainerGetPropertiesResponseResourceOutput) ToSqlContainerGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlContainerGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *SqlContainerGetPropertiesResponseResource {
+		return &v
+	}).(SqlContainerGetPropertiesResponseResourcePtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlContainerGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlContainerGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlContainerGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+}
+
+// The conflict resolution policy for the container.
+func (o SqlContainerGetPropertiesResponseResourceOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *ConflictResolutionPolicyResponse {
+		return v.ConflictResolutionPolicy
+	}).(ConflictResolutionPolicyResponsePtrOutput)
+}
+
+// Default time to live
+func (o SqlContainerGetPropertiesResponseResourceOutput) DefaultTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *int { return v.DefaultTtl }).(pulumi.IntPtrOutput)
+}
+
+// Name of the Cosmos DB SQL container
+func (o SqlContainerGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+func (o SqlContainerGetPropertiesResponseResourceOutput) IndexingPolicy() IndexingPolicyResponsePtrOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *IndexingPolicyResponse { return v.IndexingPolicy }).(IndexingPolicyResponsePtrOutput)
+}
+
+// The configuration of the partition key to be used for partitioning data into multiple partitions
+func (o SqlContainerGetPropertiesResponseResourceOutput) PartitionKey() ContainerPartitionKeyResponsePtrOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *ContainerPartitionKeyResponse {
+		return v.PartitionKey
+	}).(ContainerPartitionKeyResponsePtrOutput)
+}
+
+// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+func (o SqlContainerGetPropertiesResponseResourceOutput) UniqueKeyPolicy() UniqueKeyPolicyResponsePtrOutput {
+	return o.ApplyT(func(v SqlContainerGetPropertiesResponseResource) *UniqueKeyPolicyResponse { return v.UniqueKeyPolicy }).(UniqueKeyPolicyResponsePtrOutput)
+}
+
+type SqlContainerGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (SqlContainerGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlContainerGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) ToSqlContainerGetPropertiesResponseResourcePtrOutput() SqlContainerGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) ToSqlContainerGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlContainerGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Elem() SqlContainerGetPropertiesResponseResourceOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) SqlContainerGetPropertiesResponseResource {
+		return *v
+	}).(SqlContainerGetPropertiesResponseResourceOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v._ts
 	}).(pulumi.MapOutput)
+}
+
+// The conflict resolution policy for the container.
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) ConflictResolutionPolicy() ConflictResolutionPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *ConflictResolutionPolicyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.ConflictResolutionPolicy
+	}).(ConflictResolutionPolicyResponsePtrOutput)
+}
+
+// Default time to live
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) DefaultTtl() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultTtl
+	}).(pulumi.IntPtrOutput)
+}
+
+// Name of the Cosmos DB SQL container
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) IndexingPolicy() IndexingPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *IndexingPolicyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.IndexingPolicy
+	}).(IndexingPolicyResponsePtrOutput)
+}
+
+// The configuration of the partition key to be used for partitioning data into multiple partitions
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) PartitionKey() ContainerPartitionKeyResponsePtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *ContainerPartitionKeyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionKey
+	}).(ContainerPartitionKeyResponsePtrOutput)
+}
+
+// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+func (o SqlContainerGetPropertiesResponseResourcePtrOutput) UniqueKeyPolicy() UniqueKeyPolicyResponsePtrOutput {
+	return o.ApplyT(func(v *SqlContainerGetPropertiesResponseResource) *UniqueKeyPolicyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UniqueKeyPolicy
+	}).(UniqueKeyPolicyResponsePtrOutput)
 }
 
 // Cosmos DB SQL container resource object
@@ -7448,8 +11175,8 @@ func (o SqlContainerResourcePtrOutput) UniqueKeyPolicy() UniqueKeyPolicyPtrOutpu
 
 // The properties of an Azure Cosmos DB SQL database
 type SqlDatabaseGetPropertiesResponse struct {
-	Options  map[string]interface{}                      `pulumi:"options"`
-	Resource *SqlDatabaseGetPropertiesResponseProperties `pulumi:"resource"`
+	Options  *SqlDatabaseGetPropertiesResponseOptions  `pulumi:"options"`
+	Resource *SqlDatabaseGetPropertiesResponseResource `pulumi:"resource"`
 }
 
 // SqlDatabaseGetPropertiesResponseInput is an input type that accepts SqlDatabaseGetPropertiesResponseArgs and SqlDatabaseGetPropertiesResponseOutput values.
@@ -7465,8 +11192,8 @@ type SqlDatabaseGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB SQL database
 type SqlDatabaseGetPropertiesResponseArgs struct {
-	Options  pulumi.MapInput                                    `pulumi:"options"`
-	Resource SqlDatabaseGetPropertiesResponsePropertiesPtrInput `pulumi:"resource"`
+	Options  SqlDatabaseGetPropertiesResponseOptionsPtrInput  `pulumi:"options"`
+	Resource SqlDatabaseGetPropertiesResponseResourcePtrInput `pulumi:"resource"`
 }
 
 func (SqlDatabaseGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -7546,14 +11273,12 @@ func (o SqlDatabaseGetPropertiesResponseOutput) ToSqlDatabaseGetPropertiesRespon
 		return &v
 	}).(SqlDatabaseGetPropertiesResponsePtrOutput)
 }
-func (o SqlDatabaseGetPropertiesResponseOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponse) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o SqlDatabaseGetPropertiesResponseOutput) Options() SqlDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponse) *SqlDatabaseGetPropertiesResponseOptions { return v.Options }).(SqlDatabaseGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o SqlDatabaseGetPropertiesResponseOutput) Resource() SqlDatabaseGetPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponse) *SqlDatabaseGetPropertiesResponseProperties {
-		return v.Resource
-	}).(SqlDatabaseGetPropertiesResponsePropertiesPtrOutput)
+func (o SqlDatabaseGetPropertiesResponseOutput) Resource() SqlDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponse) *SqlDatabaseGetPropertiesResponseResource { return v.Resource }).(SqlDatabaseGetPropertiesResponseResourcePtrOutput)
 }
 
 type SqlDatabaseGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -7574,25 +11299,156 @@ func (o SqlDatabaseGetPropertiesResponsePtrOutput) Elem() SqlDatabaseGetProperti
 	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponse) SqlDatabaseGetPropertiesResponse { return *v }).(SqlDatabaseGetPropertiesResponseOutput)
 }
 
-func (o SqlDatabaseGetPropertiesResponsePtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponse) map[string]interface{} {
+func (o SqlDatabaseGetPropertiesResponsePtrOutput) Options() SqlDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponse) *SqlDatabaseGetPropertiesResponseOptions {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.MapOutput)
+	}).(SqlDatabaseGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o SqlDatabaseGetPropertiesResponsePtrOutput) Resource() SqlDatabaseGetPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponse) *SqlDatabaseGetPropertiesResponseProperties {
+func (o SqlDatabaseGetPropertiesResponsePtrOutput) Resource() SqlDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponse) *SqlDatabaseGetPropertiesResponseResource {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
-	}).(SqlDatabaseGetPropertiesResponsePropertiesPtrOutput)
+	}).(SqlDatabaseGetPropertiesResponseResourcePtrOutput)
 }
 
-type SqlDatabaseGetPropertiesResponseProperties struct {
+type SqlDatabaseGetPropertiesResponseOptions struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput *int `pulumi:"throughput"`
+}
+
+// SqlDatabaseGetPropertiesResponseOptionsInput is an input type that accepts SqlDatabaseGetPropertiesResponseOptionsArgs and SqlDatabaseGetPropertiesResponseOptionsOutput values.
+// You can construct a concrete instance of `SqlDatabaseGetPropertiesResponseOptionsInput` via:
+//
+//          SqlDatabaseGetPropertiesResponseOptionsArgs{...}
+type SqlDatabaseGetPropertiesResponseOptionsInput interface {
+	pulumi.Input
+
+	ToSqlDatabaseGetPropertiesResponseOptionsOutput() SqlDatabaseGetPropertiesResponseOptionsOutput
+	ToSqlDatabaseGetPropertiesResponseOptionsOutputWithContext(context.Context) SqlDatabaseGetPropertiesResponseOptionsOutput
+}
+
+type SqlDatabaseGetPropertiesResponseOptionsArgs struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+}
+
+func (SqlDatabaseGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabaseGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i SqlDatabaseGetPropertiesResponseOptionsArgs) ToSqlDatabaseGetPropertiesResponseOptionsOutput() SqlDatabaseGetPropertiesResponseOptionsOutput {
+	return i.ToSqlDatabaseGetPropertiesResponseOptionsOutputWithContext(context.Background())
+}
+
+func (i SqlDatabaseGetPropertiesResponseOptionsArgs) ToSqlDatabaseGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponseOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseGetPropertiesResponseOptionsOutput)
+}
+
+func (i SqlDatabaseGetPropertiesResponseOptionsArgs) ToSqlDatabaseGetPropertiesResponseOptionsPtrOutput() SqlDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return i.ToSqlDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SqlDatabaseGetPropertiesResponseOptionsArgs) ToSqlDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseGetPropertiesResponseOptionsOutput).ToSqlDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx)
+}
+
+// SqlDatabaseGetPropertiesResponseOptionsPtrInput is an input type that accepts SqlDatabaseGetPropertiesResponseOptionsArgs, SqlDatabaseGetPropertiesResponseOptionsPtr and SqlDatabaseGetPropertiesResponseOptionsPtrOutput values.
+// You can construct a concrete instance of `SqlDatabaseGetPropertiesResponseOptionsPtrInput` via:
+//
+//          SqlDatabaseGetPropertiesResponseOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlDatabaseGetPropertiesResponseOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSqlDatabaseGetPropertiesResponseOptionsPtrOutput() SqlDatabaseGetPropertiesResponseOptionsPtrOutput
+	ToSqlDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(context.Context) SqlDatabaseGetPropertiesResponseOptionsPtrOutput
+}
+
+type sqlDatabaseGetPropertiesResponseOptionsPtrType SqlDatabaseGetPropertiesResponseOptionsArgs
+
+func SqlDatabaseGetPropertiesResponseOptionsPtr(v *SqlDatabaseGetPropertiesResponseOptionsArgs) SqlDatabaseGetPropertiesResponseOptionsPtrInput {
+	return (*sqlDatabaseGetPropertiesResponseOptionsPtrType)(v)
+}
+
+func (*sqlDatabaseGetPropertiesResponseOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlDatabaseGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i *sqlDatabaseGetPropertiesResponseOptionsPtrType) ToSqlDatabaseGetPropertiesResponseOptionsPtrOutput() SqlDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return i.ToSqlDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *sqlDatabaseGetPropertiesResponseOptionsPtrType) ToSqlDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseGetPropertiesResponseOptionsPtrOutput)
+}
+
+type SqlDatabaseGetPropertiesResponseOptionsOutput struct{ *pulumi.OutputState }
+
+func (SqlDatabaseGetPropertiesResponseOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabaseGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o SqlDatabaseGetPropertiesResponseOptionsOutput) ToSqlDatabaseGetPropertiesResponseOptionsOutput() SqlDatabaseGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o SqlDatabaseGetPropertiesResponseOptionsOutput) ToSqlDatabaseGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o SqlDatabaseGetPropertiesResponseOptionsOutput) ToSqlDatabaseGetPropertiesResponseOptionsPtrOutput() SqlDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o.ToSqlDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SqlDatabaseGetPropertiesResponseOptionsOutput) ToSqlDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseOptions) *SqlDatabaseGetPropertiesResponseOptions {
+		return &v
+	}).(SqlDatabaseGetPropertiesResponseOptionsPtrOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o SqlDatabaseGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+type SqlDatabaseGetPropertiesResponseOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SqlDatabaseGetPropertiesResponseOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlDatabaseGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o SqlDatabaseGetPropertiesResponseOptionsPtrOutput) ToSqlDatabaseGetPropertiesResponseOptionsPtrOutput() SqlDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o SqlDatabaseGetPropertiesResponseOptionsPtrOutput) ToSqlDatabaseGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o SqlDatabaseGetPropertiesResponseOptionsPtrOutput) Elem() SqlDatabaseGetPropertiesResponseOptionsOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseOptions) SqlDatabaseGetPropertiesResponseOptions { return *v }).(SqlDatabaseGetPropertiesResponseOptionsOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o SqlDatabaseGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type SqlDatabaseGetPropertiesResponseResource struct {
 	// A system generated property that specified the addressable path of the collections resource.
 	_colls *string `pulumi:"_colls"`
 	// A system generated property representing the resource etag required for optimistic concurrency control.
@@ -7607,18 +11463,18 @@ type SqlDatabaseGetPropertiesResponseProperties struct {
 	Id string `pulumi:"id"`
 }
 
-// SqlDatabaseGetPropertiesResponsePropertiesInput is an input type that accepts SqlDatabaseGetPropertiesResponsePropertiesArgs and SqlDatabaseGetPropertiesResponsePropertiesOutput values.
-// You can construct a concrete instance of `SqlDatabaseGetPropertiesResponsePropertiesInput` via:
+// SqlDatabaseGetPropertiesResponseResourceInput is an input type that accepts SqlDatabaseGetPropertiesResponseResourceArgs and SqlDatabaseGetPropertiesResponseResourceOutput values.
+// You can construct a concrete instance of `SqlDatabaseGetPropertiesResponseResourceInput` via:
 //
-//          SqlDatabaseGetPropertiesResponsePropertiesArgs{...}
-type SqlDatabaseGetPropertiesResponsePropertiesInput interface {
+//          SqlDatabaseGetPropertiesResponseResourceArgs{...}
+type SqlDatabaseGetPropertiesResponseResourceInput interface {
 	pulumi.Input
 
-	ToSqlDatabaseGetPropertiesResponsePropertiesOutput() SqlDatabaseGetPropertiesResponsePropertiesOutput
-	ToSqlDatabaseGetPropertiesResponsePropertiesOutputWithContext(context.Context) SqlDatabaseGetPropertiesResponsePropertiesOutput
+	ToSqlDatabaseGetPropertiesResponseResourceOutput() SqlDatabaseGetPropertiesResponseResourceOutput
+	ToSqlDatabaseGetPropertiesResponseResourceOutputWithContext(context.Context) SqlDatabaseGetPropertiesResponseResourceOutput
 }
 
-type SqlDatabaseGetPropertiesResponsePropertiesArgs struct {
+type SqlDatabaseGetPropertiesResponseResourceArgs struct {
 	// A system generated property that specified the addressable path of the collections resource.
 	_colls pulumi.StringPtrInput `pulumi:"_colls"`
 	// A system generated property representing the resource etag required for optimistic concurrency control.
@@ -7633,136 +11489,134 @@ type SqlDatabaseGetPropertiesResponsePropertiesArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 }
 
-func (SqlDatabaseGetPropertiesResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDatabaseGetPropertiesResponseProperties)(nil)).Elem()
+func (SqlDatabaseGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabaseGetPropertiesResponseResource)(nil)).Elem()
 }
 
-func (i SqlDatabaseGetPropertiesResponsePropertiesArgs) ToSqlDatabaseGetPropertiesResponsePropertiesOutput() SqlDatabaseGetPropertiesResponsePropertiesOutput {
-	return i.ToSqlDatabaseGetPropertiesResponsePropertiesOutputWithContext(context.Background())
+func (i SqlDatabaseGetPropertiesResponseResourceArgs) ToSqlDatabaseGetPropertiesResponseResourceOutput() SqlDatabaseGetPropertiesResponseResourceOutput {
+	return i.ToSqlDatabaseGetPropertiesResponseResourceOutputWithContext(context.Background())
 }
 
-func (i SqlDatabaseGetPropertiesResponsePropertiesArgs) ToSqlDatabaseGetPropertiesResponsePropertiesOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseGetPropertiesResponsePropertiesOutput)
+func (i SqlDatabaseGetPropertiesResponseResourceArgs) ToSqlDatabaseGetPropertiesResponseResourceOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseGetPropertiesResponseResourceOutput)
 }
 
-func (i SqlDatabaseGetPropertiesResponsePropertiesArgs) ToSqlDatabaseGetPropertiesResponsePropertiesPtrOutput() SqlDatabaseGetPropertiesResponsePropertiesPtrOutput {
-	return i.ToSqlDatabaseGetPropertiesResponsePropertiesPtrOutputWithContext(context.Background())
+func (i SqlDatabaseGetPropertiesResponseResourceArgs) ToSqlDatabaseGetPropertiesResponseResourcePtrOutput() SqlDatabaseGetPropertiesResponseResourcePtrOutput {
+	return i.ToSqlDatabaseGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
 }
 
-func (i SqlDatabaseGetPropertiesResponsePropertiesArgs) ToSqlDatabaseGetPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseGetPropertiesResponsePropertiesOutput).ToSqlDatabaseGetPropertiesResponsePropertiesPtrOutputWithContext(ctx)
+func (i SqlDatabaseGetPropertiesResponseResourceArgs) ToSqlDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseGetPropertiesResponseResourceOutput).ToSqlDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx)
 }
 
-// SqlDatabaseGetPropertiesResponsePropertiesPtrInput is an input type that accepts SqlDatabaseGetPropertiesResponsePropertiesArgs, SqlDatabaseGetPropertiesResponsePropertiesPtr and SqlDatabaseGetPropertiesResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `SqlDatabaseGetPropertiesResponsePropertiesPtrInput` via:
+// SqlDatabaseGetPropertiesResponseResourcePtrInput is an input type that accepts SqlDatabaseGetPropertiesResponseResourceArgs, SqlDatabaseGetPropertiesResponseResourcePtr and SqlDatabaseGetPropertiesResponseResourcePtrOutput values.
+// You can construct a concrete instance of `SqlDatabaseGetPropertiesResponseResourcePtrInput` via:
 //
-//          SqlDatabaseGetPropertiesResponsePropertiesArgs{...}
+//          SqlDatabaseGetPropertiesResponseResourceArgs{...}
 //
 //  or:
 //
 //          nil
-type SqlDatabaseGetPropertiesResponsePropertiesPtrInput interface {
+type SqlDatabaseGetPropertiesResponseResourcePtrInput interface {
 	pulumi.Input
 
-	ToSqlDatabaseGetPropertiesResponsePropertiesPtrOutput() SqlDatabaseGetPropertiesResponsePropertiesPtrOutput
-	ToSqlDatabaseGetPropertiesResponsePropertiesPtrOutputWithContext(context.Context) SqlDatabaseGetPropertiesResponsePropertiesPtrOutput
+	ToSqlDatabaseGetPropertiesResponseResourcePtrOutput() SqlDatabaseGetPropertiesResponseResourcePtrOutput
+	ToSqlDatabaseGetPropertiesResponseResourcePtrOutputWithContext(context.Context) SqlDatabaseGetPropertiesResponseResourcePtrOutput
 }
 
-type sqlDatabaseGetPropertiesResponsePropertiesPtrType SqlDatabaseGetPropertiesResponsePropertiesArgs
+type sqlDatabaseGetPropertiesResponseResourcePtrType SqlDatabaseGetPropertiesResponseResourceArgs
 
-func SqlDatabaseGetPropertiesResponsePropertiesPtr(v *SqlDatabaseGetPropertiesResponsePropertiesArgs) SqlDatabaseGetPropertiesResponsePropertiesPtrInput {
-	return (*sqlDatabaseGetPropertiesResponsePropertiesPtrType)(v)
+func SqlDatabaseGetPropertiesResponseResourcePtr(v *SqlDatabaseGetPropertiesResponseResourceArgs) SqlDatabaseGetPropertiesResponseResourcePtrInput {
+	return (*sqlDatabaseGetPropertiesResponseResourcePtrType)(v)
 }
 
-func (*sqlDatabaseGetPropertiesResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlDatabaseGetPropertiesResponseProperties)(nil)).Elem()
+func (*sqlDatabaseGetPropertiesResponseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlDatabaseGetPropertiesResponseResource)(nil)).Elem()
 }
 
-func (i *sqlDatabaseGetPropertiesResponsePropertiesPtrType) ToSqlDatabaseGetPropertiesResponsePropertiesPtrOutput() SqlDatabaseGetPropertiesResponsePropertiesPtrOutput {
-	return i.ToSqlDatabaseGetPropertiesResponsePropertiesPtrOutputWithContext(context.Background())
+func (i *sqlDatabaseGetPropertiesResponseResourcePtrType) ToSqlDatabaseGetPropertiesResponseResourcePtrOutput() SqlDatabaseGetPropertiesResponseResourcePtrOutput {
+	return i.ToSqlDatabaseGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
 }
 
-func (i *sqlDatabaseGetPropertiesResponsePropertiesPtrType) ToSqlDatabaseGetPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseGetPropertiesResponsePropertiesPtrOutput)
+func (i *sqlDatabaseGetPropertiesResponseResourcePtrType) ToSqlDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlDatabaseGetPropertiesResponseResourcePtrOutput)
 }
 
-type SqlDatabaseGetPropertiesResponsePropertiesOutput struct{ *pulumi.OutputState }
+type SqlDatabaseGetPropertiesResponseResourceOutput struct{ *pulumi.OutputState }
 
-func (SqlDatabaseGetPropertiesResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlDatabaseGetPropertiesResponseProperties)(nil)).Elem()
+func (SqlDatabaseGetPropertiesResponseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlDatabaseGetPropertiesResponseResource)(nil)).Elem()
 }
 
-func (o SqlDatabaseGetPropertiesResponsePropertiesOutput) ToSqlDatabaseGetPropertiesResponsePropertiesOutput() SqlDatabaseGetPropertiesResponsePropertiesOutput {
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) ToSqlDatabaseGetPropertiesResponseResourceOutput() SqlDatabaseGetPropertiesResponseResourceOutput {
 	return o
 }
 
-func (o SqlDatabaseGetPropertiesResponsePropertiesOutput) ToSqlDatabaseGetPropertiesResponsePropertiesOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponsePropertiesOutput {
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) ToSqlDatabaseGetPropertiesResponseResourceOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponseResourceOutput {
 	return o
 }
 
-func (o SqlDatabaseGetPropertiesResponsePropertiesOutput) ToSqlDatabaseGetPropertiesResponsePropertiesPtrOutput() SqlDatabaseGetPropertiesResponsePropertiesPtrOutput {
-	return o.ToSqlDatabaseGetPropertiesResponsePropertiesPtrOutputWithContext(context.Background())
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) ToSqlDatabaseGetPropertiesResponseResourcePtrOutput() SqlDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o.ToSqlDatabaseGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
 }
 
-func (o SqlDatabaseGetPropertiesResponsePropertiesOutput) ToSqlDatabaseGetPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseProperties) *SqlDatabaseGetPropertiesResponseProperties {
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) ToSqlDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) *SqlDatabaseGetPropertiesResponseResource {
 		return &v
-	}).(SqlDatabaseGetPropertiesResponsePropertiesPtrOutput)
+	}).(SqlDatabaseGetPropertiesResponseResourcePtrOutput)
 }
 
 // A system generated property that specified the addressable path of the collections resource.
-func (o SqlDatabaseGetPropertiesResponsePropertiesOutput) _colls() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseProperties) *string { return v._colls }).(pulumi.StringPtrOutput)
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) _colls() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) *string { return v._colls }).(pulumi.StringPtrOutput)
 }
 
 // A system generated property representing the resource etag required for optimistic concurrency control.
-func (o SqlDatabaseGetPropertiesResponsePropertiesOutput) _etag() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseProperties) string { return v._etag }).(pulumi.StringOutput)
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
 }
 
 // A system generated property. A unique identifier.
-func (o SqlDatabaseGetPropertiesResponsePropertiesOutput) _rid() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseProperties) string { return v._rid }).(pulumi.StringOutput)
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlDatabaseGetPropertiesResponsePropertiesOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseProperties) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
 }
 
 // A system generated property that specifies the addressable path of the users resource.
-func (o SqlDatabaseGetPropertiesResponsePropertiesOutput) _users() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseProperties) *string { return v._users }).(pulumi.StringPtrOutput)
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) _users() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) *string { return v._users }).(pulumi.StringPtrOutput)
 }
 
 // Name of the Cosmos DB SQL database
-func (o SqlDatabaseGetPropertiesResponsePropertiesOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseProperties) string { return v.Id }).(pulumi.StringOutput)
+func (o SqlDatabaseGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlDatabaseGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
 }
 
-type SqlDatabaseGetPropertiesResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+type SqlDatabaseGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
 
-func (SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SqlDatabaseGetPropertiesResponseProperties)(nil)).Elem()
+func (SqlDatabaseGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlDatabaseGetPropertiesResponseResource)(nil)).Elem()
 }
 
-func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) ToSqlDatabaseGetPropertiesResponsePropertiesPtrOutput() SqlDatabaseGetPropertiesResponsePropertiesPtrOutput {
+func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) ToSqlDatabaseGetPropertiesResponseResourcePtrOutput() SqlDatabaseGetPropertiesResponseResourcePtrOutput {
 	return o
 }
 
-func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) ToSqlDatabaseGetPropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponsePropertiesPtrOutput {
+func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) ToSqlDatabaseGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlDatabaseGetPropertiesResponseResourcePtrOutput {
 	return o
 }
 
-func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) Elem() SqlDatabaseGetPropertiesResponsePropertiesOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseProperties) SqlDatabaseGetPropertiesResponseProperties {
-		return *v
-	}).(SqlDatabaseGetPropertiesResponsePropertiesOutput)
+func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Elem() SqlDatabaseGetPropertiesResponseResourceOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) SqlDatabaseGetPropertiesResponseResource { return *v }).(SqlDatabaseGetPropertiesResponseResourceOutput)
 }
 
 // A system generated property that specified the addressable path of the collections resource.
-func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) _colls() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseProperties) *string {
+func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) _colls() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
 			return nil
 		}
@@ -7771,8 +11625,8 @@ func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) _colls() pulumi.Str
 }
 
 // A system generated property representing the resource etag required for optimistic concurrency control.
-func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) _etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseProperties) *string {
+func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
 			return nil
 		}
@@ -7781,8 +11635,8 @@ func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) _etag() pulumi.Stri
 }
 
 // A system generated property. A unique identifier.
-func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) _rid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseProperties) *string {
+func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
 			return nil
 		}
@@ -7791,8 +11645,8 @@ func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) _rid() pulumi.Strin
 }
 
 // A system generated property that denotes the last updated timestamp of the resource.
-func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) _ts() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseProperties) map[string]interface{} {
+func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
@@ -7801,8 +11655,8 @@ func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) _ts() pulumi.MapOut
 }
 
 // A system generated property that specifies the addressable path of the users resource.
-func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) _users() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseProperties) *string {
+func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) _users() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
 			return nil
 		}
@@ -7811,8 +11665,8 @@ func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) _users() pulumi.Str
 }
 
 // Name of the Cosmos DB SQL database
-func (o SqlDatabaseGetPropertiesResponsePropertiesPtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseProperties) *string {
+func (o SqlDatabaseGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlDatabaseGetPropertiesResponseResource) *string {
 		if v == nil {
 			return nil
 		}
@@ -7954,466 +11808,9 @@ func (o SqlDatabaseResourcePtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// An Azure Cosmos DB container.
-type SqlResourceSqlContainerType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB container
-	Properties SqlContainerGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// SqlResourceSqlContainerTypeInput is an input type that accepts SqlResourceSqlContainerTypeArgs and SqlResourceSqlContainerTypeOutput values.
-// You can construct a concrete instance of `SqlResourceSqlContainerTypeInput` via:
-//
-//          SqlResourceSqlContainerTypeArgs{...}
-type SqlResourceSqlContainerTypeInput interface {
-	pulumi.Input
-
-	ToSqlResourceSqlContainerTypeOutput() SqlResourceSqlContainerTypeOutput
-	ToSqlResourceSqlContainerTypeOutputWithContext(context.Context) SqlResourceSqlContainerTypeOutput
-}
-
-// An Azure Cosmos DB container.
-type SqlResourceSqlContainerTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB container
-	Properties SqlContainerGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SqlResourceSqlContainerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlContainerType)(nil)).Elem()
-}
-
-func (i SqlResourceSqlContainerTypeArgs) ToSqlResourceSqlContainerTypeOutput() SqlResourceSqlContainerTypeOutput {
-	return i.ToSqlResourceSqlContainerTypeOutputWithContext(context.Background())
-}
-
-func (i SqlResourceSqlContainerTypeArgs) ToSqlResourceSqlContainerTypeOutputWithContext(ctx context.Context) SqlResourceSqlContainerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlContainerTypeOutput)
-}
-
-// An Azure Cosmos DB container.
-type SqlResourceSqlContainerTypeOutput struct{ *pulumi.OutputState }
-
-func (SqlResourceSqlContainerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlContainerType)(nil)).Elem()
-}
-
-func (o SqlResourceSqlContainerTypeOutput) ToSqlResourceSqlContainerTypeOutput() SqlResourceSqlContainerTypeOutput {
-	return o
-}
-
-func (o SqlResourceSqlContainerTypeOutput) ToSqlResourceSqlContainerTypeOutputWithContext(ctx context.Context) SqlResourceSqlContainerTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o SqlResourceSqlContainerTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlResourceSqlContainerType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o SqlResourceSqlContainerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlResourceSqlContainerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB container
-func (o SqlResourceSqlContainerTypeOutput) Properties() SqlContainerGetPropertiesResponseOutput {
-	return o.ApplyT(func(v SqlResourceSqlContainerType) SqlContainerGetPropertiesResponse { return v.Properties }).(SqlContainerGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o SqlResourceSqlContainerTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v SqlResourceSqlContainerType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o SqlResourceSqlContainerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlResourceSqlContainerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB SQL database.
-type SqlResourceSqlDatabaseType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB SQL database
-	Properties SqlDatabaseGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// SqlResourceSqlDatabaseTypeInput is an input type that accepts SqlResourceSqlDatabaseTypeArgs and SqlResourceSqlDatabaseTypeOutput values.
-// You can construct a concrete instance of `SqlResourceSqlDatabaseTypeInput` via:
-//
-//          SqlResourceSqlDatabaseTypeArgs{...}
-type SqlResourceSqlDatabaseTypeInput interface {
-	pulumi.Input
-
-	ToSqlResourceSqlDatabaseTypeOutput() SqlResourceSqlDatabaseTypeOutput
-	ToSqlResourceSqlDatabaseTypeOutputWithContext(context.Context) SqlResourceSqlDatabaseTypeOutput
-}
-
-// An Azure Cosmos DB SQL database.
-type SqlResourceSqlDatabaseTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB SQL database
-	Properties SqlDatabaseGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SqlResourceSqlDatabaseTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlDatabaseType)(nil)).Elem()
-}
-
-func (i SqlResourceSqlDatabaseTypeArgs) ToSqlResourceSqlDatabaseTypeOutput() SqlResourceSqlDatabaseTypeOutput {
-	return i.ToSqlResourceSqlDatabaseTypeOutputWithContext(context.Background())
-}
-
-func (i SqlResourceSqlDatabaseTypeArgs) ToSqlResourceSqlDatabaseTypeOutputWithContext(ctx context.Context) SqlResourceSqlDatabaseTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlDatabaseTypeOutput)
-}
-
-// An Azure Cosmos DB SQL database.
-type SqlResourceSqlDatabaseTypeOutput struct{ *pulumi.OutputState }
-
-func (SqlResourceSqlDatabaseTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlDatabaseType)(nil)).Elem()
-}
-
-func (o SqlResourceSqlDatabaseTypeOutput) ToSqlResourceSqlDatabaseTypeOutput() SqlResourceSqlDatabaseTypeOutput {
-	return o
-}
-
-func (o SqlResourceSqlDatabaseTypeOutput) ToSqlResourceSqlDatabaseTypeOutputWithContext(ctx context.Context) SqlResourceSqlDatabaseTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o SqlResourceSqlDatabaseTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlResourceSqlDatabaseType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o SqlResourceSqlDatabaseTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlResourceSqlDatabaseType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB SQL database
-func (o SqlResourceSqlDatabaseTypeOutput) Properties() SqlDatabaseGetPropertiesResponseOutput {
-	return o.ApplyT(func(v SqlResourceSqlDatabaseType) SqlDatabaseGetPropertiesResponse { return v.Properties }).(SqlDatabaseGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o SqlResourceSqlDatabaseTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v SqlResourceSqlDatabaseType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o SqlResourceSqlDatabaseTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlResourceSqlDatabaseType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB storedProcedure.
-type SqlResourceSqlStoredProcedureType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB storedProcedure
-	Properties SqlStoredProcedureGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// SqlResourceSqlStoredProcedureTypeInput is an input type that accepts SqlResourceSqlStoredProcedureTypeArgs and SqlResourceSqlStoredProcedureTypeOutput values.
-// You can construct a concrete instance of `SqlResourceSqlStoredProcedureTypeInput` via:
-//
-//          SqlResourceSqlStoredProcedureTypeArgs{...}
-type SqlResourceSqlStoredProcedureTypeInput interface {
-	pulumi.Input
-
-	ToSqlResourceSqlStoredProcedureTypeOutput() SqlResourceSqlStoredProcedureTypeOutput
-	ToSqlResourceSqlStoredProcedureTypeOutputWithContext(context.Context) SqlResourceSqlStoredProcedureTypeOutput
-}
-
-// An Azure Cosmos DB storedProcedure.
-type SqlResourceSqlStoredProcedureTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB storedProcedure
-	Properties SqlStoredProcedureGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SqlResourceSqlStoredProcedureTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlStoredProcedureType)(nil)).Elem()
-}
-
-func (i SqlResourceSqlStoredProcedureTypeArgs) ToSqlResourceSqlStoredProcedureTypeOutput() SqlResourceSqlStoredProcedureTypeOutput {
-	return i.ToSqlResourceSqlStoredProcedureTypeOutputWithContext(context.Background())
-}
-
-func (i SqlResourceSqlStoredProcedureTypeArgs) ToSqlResourceSqlStoredProcedureTypeOutputWithContext(ctx context.Context) SqlResourceSqlStoredProcedureTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlStoredProcedureTypeOutput)
-}
-
-// An Azure Cosmos DB storedProcedure.
-type SqlResourceSqlStoredProcedureTypeOutput struct{ *pulumi.OutputState }
-
-func (SqlResourceSqlStoredProcedureTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlStoredProcedureType)(nil)).Elem()
-}
-
-func (o SqlResourceSqlStoredProcedureTypeOutput) ToSqlResourceSqlStoredProcedureTypeOutput() SqlResourceSqlStoredProcedureTypeOutput {
-	return o
-}
-
-func (o SqlResourceSqlStoredProcedureTypeOutput) ToSqlResourceSqlStoredProcedureTypeOutputWithContext(ctx context.Context) SqlResourceSqlStoredProcedureTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o SqlResourceSqlStoredProcedureTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlResourceSqlStoredProcedureType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o SqlResourceSqlStoredProcedureTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlResourceSqlStoredProcedureType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB storedProcedure
-func (o SqlResourceSqlStoredProcedureTypeOutput) Properties() SqlStoredProcedureGetPropertiesResponseOutput {
-	return o.ApplyT(func(v SqlResourceSqlStoredProcedureType) SqlStoredProcedureGetPropertiesResponse { return v.Properties }).(SqlStoredProcedureGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o SqlResourceSqlStoredProcedureTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v SqlResourceSqlStoredProcedureType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o SqlResourceSqlStoredProcedureTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlResourceSqlStoredProcedureType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB trigger.
-type SqlResourceSqlTriggerType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB trigger
-	Properties SqlTriggerGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// SqlResourceSqlTriggerTypeInput is an input type that accepts SqlResourceSqlTriggerTypeArgs and SqlResourceSqlTriggerTypeOutput values.
-// You can construct a concrete instance of `SqlResourceSqlTriggerTypeInput` via:
-//
-//          SqlResourceSqlTriggerTypeArgs{...}
-type SqlResourceSqlTriggerTypeInput interface {
-	pulumi.Input
-
-	ToSqlResourceSqlTriggerTypeOutput() SqlResourceSqlTriggerTypeOutput
-	ToSqlResourceSqlTriggerTypeOutputWithContext(context.Context) SqlResourceSqlTriggerTypeOutput
-}
-
-// An Azure Cosmos DB trigger.
-type SqlResourceSqlTriggerTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB trigger
-	Properties SqlTriggerGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SqlResourceSqlTriggerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlTriggerType)(nil)).Elem()
-}
-
-func (i SqlResourceSqlTriggerTypeArgs) ToSqlResourceSqlTriggerTypeOutput() SqlResourceSqlTriggerTypeOutput {
-	return i.ToSqlResourceSqlTriggerTypeOutputWithContext(context.Background())
-}
-
-func (i SqlResourceSqlTriggerTypeArgs) ToSqlResourceSqlTriggerTypeOutputWithContext(ctx context.Context) SqlResourceSqlTriggerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlTriggerTypeOutput)
-}
-
-// An Azure Cosmos DB trigger.
-type SqlResourceSqlTriggerTypeOutput struct{ *pulumi.OutputState }
-
-func (SqlResourceSqlTriggerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlTriggerType)(nil)).Elem()
-}
-
-func (o SqlResourceSqlTriggerTypeOutput) ToSqlResourceSqlTriggerTypeOutput() SqlResourceSqlTriggerTypeOutput {
-	return o
-}
-
-func (o SqlResourceSqlTriggerTypeOutput) ToSqlResourceSqlTriggerTypeOutputWithContext(ctx context.Context) SqlResourceSqlTriggerTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o SqlResourceSqlTriggerTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlResourceSqlTriggerType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o SqlResourceSqlTriggerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlResourceSqlTriggerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB trigger
-func (o SqlResourceSqlTriggerTypeOutput) Properties() SqlTriggerGetPropertiesResponseOutput {
-	return o.ApplyT(func(v SqlResourceSqlTriggerType) SqlTriggerGetPropertiesResponse { return v.Properties }).(SqlTriggerGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o SqlResourceSqlTriggerTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v SqlResourceSqlTriggerType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o SqlResourceSqlTriggerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlResourceSqlTriggerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An Azure Cosmos DB userDefinedFunction.
-type SqlResourceSqlUserDefinedFunctionType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB userDefinedFunction
-	Properties SqlUserDefinedFunctionGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// SqlResourceSqlUserDefinedFunctionTypeInput is an input type that accepts SqlResourceSqlUserDefinedFunctionTypeArgs and SqlResourceSqlUserDefinedFunctionTypeOutput values.
-// You can construct a concrete instance of `SqlResourceSqlUserDefinedFunctionTypeInput` via:
-//
-//          SqlResourceSqlUserDefinedFunctionTypeArgs{...}
-type SqlResourceSqlUserDefinedFunctionTypeInput interface {
-	pulumi.Input
-
-	ToSqlResourceSqlUserDefinedFunctionTypeOutput() SqlResourceSqlUserDefinedFunctionTypeOutput
-	ToSqlResourceSqlUserDefinedFunctionTypeOutputWithContext(context.Context) SqlResourceSqlUserDefinedFunctionTypeOutput
-}
-
-// An Azure Cosmos DB userDefinedFunction.
-type SqlResourceSqlUserDefinedFunctionTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB userDefinedFunction
-	Properties SqlUserDefinedFunctionGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SqlResourceSqlUserDefinedFunctionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlUserDefinedFunctionType)(nil)).Elem()
-}
-
-func (i SqlResourceSqlUserDefinedFunctionTypeArgs) ToSqlResourceSqlUserDefinedFunctionTypeOutput() SqlResourceSqlUserDefinedFunctionTypeOutput {
-	return i.ToSqlResourceSqlUserDefinedFunctionTypeOutputWithContext(context.Background())
-}
-
-func (i SqlResourceSqlUserDefinedFunctionTypeArgs) ToSqlResourceSqlUserDefinedFunctionTypeOutputWithContext(ctx context.Context) SqlResourceSqlUserDefinedFunctionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SqlResourceSqlUserDefinedFunctionTypeOutput)
-}
-
-// An Azure Cosmos DB userDefinedFunction.
-type SqlResourceSqlUserDefinedFunctionTypeOutput struct{ *pulumi.OutputState }
-
-func (SqlResourceSqlUserDefinedFunctionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SqlResourceSqlUserDefinedFunctionType)(nil)).Elem()
-}
-
-func (o SqlResourceSqlUserDefinedFunctionTypeOutput) ToSqlResourceSqlUserDefinedFunctionTypeOutput() SqlResourceSqlUserDefinedFunctionTypeOutput {
-	return o
-}
-
-func (o SqlResourceSqlUserDefinedFunctionTypeOutput) ToSqlResourceSqlUserDefinedFunctionTypeOutputWithContext(ctx context.Context) SqlResourceSqlUserDefinedFunctionTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o SqlResourceSqlUserDefinedFunctionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SqlResourceSqlUserDefinedFunctionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o SqlResourceSqlUserDefinedFunctionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlResourceSqlUserDefinedFunctionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB userDefinedFunction
-func (o SqlResourceSqlUserDefinedFunctionTypeOutput) Properties() SqlUserDefinedFunctionGetPropertiesResponseOutput {
-	return o.ApplyT(func(v SqlResourceSqlUserDefinedFunctionType) SqlUserDefinedFunctionGetPropertiesResponse {
-		return v.Properties
-	}).(SqlUserDefinedFunctionGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o SqlResourceSqlUserDefinedFunctionTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v SqlResourceSqlUserDefinedFunctionType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o SqlResourceSqlUserDefinedFunctionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SqlResourceSqlUserDefinedFunctionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of an Azure Cosmos DB StoredProcedure
 type SqlStoredProcedureGetPropertiesResponse struct {
-	Resource map[string]interface{} `pulumi:"resource"`
+	Resource *SqlStoredProcedureGetPropertiesResponseResource `pulumi:"resource"`
 }
 
 // SqlStoredProcedureGetPropertiesResponseInput is an input type that accepts SqlStoredProcedureGetPropertiesResponseArgs and SqlStoredProcedureGetPropertiesResponseOutput values.
@@ -8429,7 +11826,7 @@ type SqlStoredProcedureGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB StoredProcedure
 type SqlStoredProcedureGetPropertiesResponseArgs struct {
-	Resource pulumi.MapInput `pulumi:"resource"`
+	Resource SqlStoredProcedureGetPropertiesResponseResourcePtrInput `pulumi:"resource"`
 }
 
 func (SqlStoredProcedureGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -8509,8 +11906,10 @@ func (o SqlStoredProcedureGetPropertiesResponseOutput) ToSqlStoredProcedureGetPr
 		return &v
 	}).(SqlStoredProcedureGetPropertiesResponsePtrOutput)
 }
-func (o SqlStoredProcedureGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
+func (o SqlStoredProcedureGetPropertiesResponseOutput) Resource() SqlStoredProcedureGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponse) *SqlStoredProcedureGetPropertiesResponseResource {
+		return v.Resource
+	}).(SqlStoredProcedureGetPropertiesResponseResourcePtrOutput)
 }
 
 type SqlStoredProcedureGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -8531,13 +11930,222 @@ func (o SqlStoredProcedureGetPropertiesResponsePtrOutput) Elem() SqlStoredProced
 	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponse) SqlStoredProcedureGetPropertiesResponse { return *v }).(SqlStoredProcedureGetPropertiesResponseOutput)
 }
 
-func (o SqlStoredProcedureGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponse) map[string]interface{} {
+func (o SqlStoredProcedureGetPropertiesResponsePtrOutput) Resource() SqlStoredProcedureGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponse) *SqlStoredProcedureGetPropertiesResponseResource {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
+	}).(SqlStoredProcedureGetPropertiesResponseResourcePtrOutput)
+}
+
+type SqlStoredProcedureGetPropertiesResponseResource struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag string `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid string `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts map[string]interface{} `pulumi:"_ts"`
+	// Body of the Stored Procedure
+	Body *string `pulumi:"body"`
+	// Name of the Cosmos DB SQL storedProcedure
+	Id string `pulumi:"id"`
+}
+
+// SqlStoredProcedureGetPropertiesResponseResourceInput is an input type that accepts SqlStoredProcedureGetPropertiesResponseResourceArgs and SqlStoredProcedureGetPropertiesResponseResourceOutput values.
+// You can construct a concrete instance of `SqlStoredProcedureGetPropertiesResponseResourceInput` via:
+//
+//          SqlStoredProcedureGetPropertiesResponseResourceArgs{...}
+type SqlStoredProcedureGetPropertiesResponseResourceInput interface {
+	pulumi.Input
+
+	ToSqlStoredProcedureGetPropertiesResponseResourceOutput() SqlStoredProcedureGetPropertiesResponseResourceOutput
+	ToSqlStoredProcedureGetPropertiesResponseResourceOutputWithContext(context.Context) SqlStoredProcedureGetPropertiesResponseResourceOutput
+}
+
+type SqlStoredProcedureGetPropertiesResponseResourceArgs struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag pulumi.StringInput `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid pulumi.StringInput `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts pulumi.MapInput `pulumi:"_ts"`
+	// Body of the Stored Procedure
+	Body pulumi.StringPtrInput `pulumi:"body"`
+	// Name of the Cosmos DB SQL storedProcedure
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (SqlStoredProcedureGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlStoredProcedureGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i SqlStoredProcedureGetPropertiesResponseResourceArgs) ToSqlStoredProcedureGetPropertiesResponseResourceOutput() SqlStoredProcedureGetPropertiesResponseResourceOutput {
+	return i.ToSqlStoredProcedureGetPropertiesResponseResourceOutputWithContext(context.Background())
+}
+
+func (i SqlStoredProcedureGetPropertiesResponseResourceArgs) ToSqlStoredProcedureGetPropertiesResponseResourceOutputWithContext(ctx context.Context) SqlStoredProcedureGetPropertiesResponseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlStoredProcedureGetPropertiesResponseResourceOutput)
+}
+
+func (i SqlStoredProcedureGetPropertiesResponseResourceArgs) ToSqlStoredProcedureGetPropertiesResponseResourcePtrOutput() SqlStoredProcedureGetPropertiesResponseResourcePtrOutput {
+	return i.ToSqlStoredProcedureGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i SqlStoredProcedureGetPropertiesResponseResourceArgs) ToSqlStoredProcedureGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlStoredProcedureGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlStoredProcedureGetPropertiesResponseResourceOutput).ToSqlStoredProcedureGetPropertiesResponseResourcePtrOutputWithContext(ctx)
+}
+
+// SqlStoredProcedureGetPropertiesResponseResourcePtrInput is an input type that accepts SqlStoredProcedureGetPropertiesResponseResourceArgs, SqlStoredProcedureGetPropertiesResponseResourcePtr and SqlStoredProcedureGetPropertiesResponseResourcePtrOutput values.
+// You can construct a concrete instance of `SqlStoredProcedureGetPropertiesResponseResourcePtrInput` via:
+//
+//          SqlStoredProcedureGetPropertiesResponseResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlStoredProcedureGetPropertiesResponseResourcePtrInput interface {
+	pulumi.Input
+
+	ToSqlStoredProcedureGetPropertiesResponseResourcePtrOutput() SqlStoredProcedureGetPropertiesResponseResourcePtrOutput
+	ToSqlStoredProcedureGetPropertiesResponseResourcePtrOutputWithContext(context.Context) SqlStoredProcedureGetPropertiesResponseResourcePtrOutput
+}
+
+type sqlStoredProcedureGetPropertiesResponseResourcePtrType SqlStoredProcedureGetPropertiesResponseResourceArgs
+
+func SqlStoredProcedureGetPropertiesResponseResourcePtr(v *SqlStoredProcedureGetPropertiesResponseResourceArgs) SqlStoredProcedureGetPropertiesResponseResourcePtrInput {
+	return (*sqlStoredProcedureGetPropertiesResponseResourcePtrType)(v)
+}
+
+func (*sqlStoredProcedureGetPropertiesResponseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlStoredProcedureGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i *sqlStoredProcedureGetPropertiesResponseResourcePtrType) ToSqlStoredProcedureGetPropertiesResponseResourcePtrOutput() SqlStoredProcedureGetPropertiesResponseResourcePtrOutput {
+	return i.ToSqlStoredProcedureGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *sqlStoredProcedureGetPropertiesResponseResourcePtrType) ToSqlStoredProcedureGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlStoredProcedureGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlStoredProcedureGetPropertiesResponseResourcePtrOutput)
+}
+
+type SqlStoredProcedureGetPropertiesResponseResourceOutput struct{ *pulumi.OutputState }
+
+func (SqlStoredProcedureGetPropertiesResponseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlStoredProcedureGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) ToSqlStoredProcedureGetPropertiesResponseResourceOutput() SqlStoredProcedureGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) ToSqlStoredProcedureGetPropertiesResponseResourceOutputWithContext(ctx context.Context) SqlStoredProcedureGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) ToSqlStoredProcedureGetPropertiesResponseResourcePtrOutput() SqlStoredProcedureGetPropertiesResponseResourcePtrOutput {
+	return o.ToSqlStoredProcedureGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) ToSqlStoredProcedureGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlStoredProcedureGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) *SqlStoredProcedureGetPropertiesResponseResource {
+		return &v
+	}).(SqlStoredProcedureGetPropertiesResponseResourcePtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+}
+
+// Body of the Stored Procedure
+func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) *string { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Cosmos DB SQL storedProcedure
+func (o SqlStoredProcedureGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlStoredProcedureGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type SqlStoredProcedureGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlStoredProcedureGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) ToSqlStoredProcedureGetPropertiesResponseResourcePtrOutput() SqlStoredProcedureGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) ToSqlStoredProcedureGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlStoredProcedureGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Elem() SqlStoredProcedureGetPropertiesResponseResourceOutput {
+	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) SqlStoredProcedureGetPropertiesResponseResource {
+		return *v
+	}).(SqlStoredProcedureGetPropertiesResponseResourceOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v._ts
 	}).(pulumi.MapOutput)
+}
+
+// Body of the Stored Procedure
+func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the Cosmos DB SQL storedProcedure
+func (o SqlStoredProcedureGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlStoredProcedureGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // Cosmos DB SQL storedProcedure resource object
@@ -8695,7 +12303,7 @@ func (o SqlStoredProcedureResourcePtrOutput) Id() pulumi.StringPtrOutput {
 
 // The properties of an Azure Cosmos DB trigger
 type SqlTriggerGetPropertiesResponse struct {
-	Resource map[string]interface{} `pulumi:"resource"`
+	Resource *SqlTriggerGetPropertiesResponseResource `pulumi:"resource"`
 }
 
 // SqlTriggerGetPropertiesResponseInput is an input type that accepts SqlTriggerGetPropertiesResponseArgs and SqlTriggerGetPropertiesResponseOutput values.
@@ -8711,7 +12319,7 @@ type SqlTriggerGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB trigger
 type SqlTriggerGetPropertiesResponseArgs struct {
-	Resource pulumi.MapInput `pulumi:"resource"`
+	Resource SqlTriggerGetPropertiesResponseResourcePtrInput `pulumi:"resource"`
 }
 
 func (SqlTriggerGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -8791,8 +12399,8 @@ func (o SqlTriggerGetPropertiesResponseOutput) ToSqlTriggerGetPropertiesResponse
 		return &v
 	}).(SqlTriggerGetPropertiesResponsePtrOutput)
 }
-func (o SqlTriggerGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlTriggerGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
+func (o SqlTriggerGetPropertiesResponseOutput) Resource() SqlTriggerGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v SqlTriggerGetPropertiesResponse) *SqlTriggerGetPropertiesResponseResource { return v.Resource }).(SqlTriggerGetPropertiesResponseResourcePtrOutput)
 }
 
 type SqlTriggerGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -8813,13 +12421,258 @@ func (o SqlTriggerGetPropertiesResponsePtrOutput) Elem() SqlTriggerGetProperties
 	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponse) SqlTriggerGetPropertiesResponse { return *v }).(SqlTriggerGetPropertiesResponseOutput)
 }
 
-func (o SqlTriggerGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponse) map[string]interface{} {
+func (o SqlTriggerGetPropertiesResponsePtrOutput) Resource() SqlTriggerGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponse) *SqlTriggerGetPropertiesResponseResource {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
+	}).(SqlTriggerGetPropertiesResponseResourcePtrOutput)
+}
+
+type SqlTriggerGetPropertiesResponseResource struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag string `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid string `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts map[string]interface{} `pulumi:"_ts"`
+	// Body of the Trigger
+	Body *string `pulumi:"body"`
+	// Name of the Cosmos DB SQL trigger
+	Id string `pulumi:"id"`
+	// The operation the trigger is associated with
+	TriggerOperation *string `pulumi:"triggerOperation"`
+	// Type of the Trigger
+	TriggerType *string `pulumi:"triggerType"`
+}
+
+// SqlTriggerGetPropertiesResponseResourceInput is an input type that accepts SqlTriggerGetPropertiesResponseResourceArgs and SqlTriggerGetPropertiesResponseResourceOutput values.
+// You can construct a concrete instance of `SqlTriggerGetPropertiesResponseResourceInput` via:
+//
+//          SqlTriggerGetPropertiesResponseResourceArgs{...}
+type SqlTriggerGetPropertiesResponseResourceInput interface {
+	pulumi.Input
+
+	ToSqlTriggerGetPropertiesResponseResourceOutput() SqlTriggerGetPropertiesResponseResourceOutput
+	ToSqlTriggerGetPropertiesResponseResourceOutputWithContext(context.Context) SqlTriggerGetPropertiesResponseResourceOutput
+}
+
+type SqlTriggerGetPropertiesResponseResourceArgs struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag pulumi.StringInput `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid pulumi.StringInput `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts pulumi.MapInput `pulumi:"_ts"`
+	// Body of the Trigger
+	Body pulumi.StringPtrInput `pulumi:"body"`
+	// Name of the Cosmos DB SQL trigger
+	Id pulumi.StringInput `pulumi:"id"`
+	// The operation the trigger is associated with
+	TriggerOperation pulumi.StringPtrInput `pulumi:"triggerOperation"`
+	// Type of the Trigger
+	TriggerType pulumi.StringPtrInput `pulumi:"triggerType"`
+}
+
+func (SqlTriggerGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlTriggerGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i SqlTriggerGetPropertiesResponseResourceArgs) ToSqlTriggerGetPropertiesResponseResourceOutput() SqlTriggerGetPropertiesResponseResourceOutput {
+	return i.ToSqlTriggerGetPropertiesResponseResourceOutputWithContext(context.Background())
+}
+
+func (i SqlTriggerGetPropertiesResponseResourceArgs) ToSqlTriggerGetPropertiesResponseResourceOutputWithContext(ctx context.Context) SqlTriggerGetPropertiesResponseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlTriggerGetPropertiesResponseResourceOutput)
+}
+
+func (i SqlTriggerGetPropertiesResponseResourceArgs) ToSqlTriggerGetPropertiesResponseResourcePtrOutput() SqlTriggerGetPropertiesResponseResourcePtrOutput {
+	return i.ToSqlTriggerGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i SqlTriggerGetPropertiesResponseResourceArgs) ToSqlTriggerGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlTriggerGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlTriggerGetPropertiesResponseResourceOutput).ToSqlTriggerGetPropertiesResponseResourcePtrOutputWithContext(ctx)
+}
+
+// SqlTriggerGetPropertiesResponseResourcePtrInput is an input type that accepts SqlTriggerGetPropertiesResponseResourceArgs, SqlTriggerGetPropertiesResponseResourcePtr and SqlTriggerGetPropertiesResponseResourcePtrOutput values.
+// You can construct a concrete instance of `SqlTriggerGetPropertiesResponseResourcePtrInput` via:
+//
+//          SqlTriggerGetPropertiesResponseResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlTriggerGetPropertiesResponseResourcePtrInput interface {
+	pulumi.Input
+
+	ToSqlTriggerGetPropertiesResponseResourcePtrOutput() SqlTriggerGetPropertiesResponseResourcePtrOutput
+	ToSqlTriggerGetPropertiesResponseResourcePtrOutputWithContext(context.Context) SqlTriggerGetPropertiesResponseResourcePtrOutput
+}
+
+type sqlTriggerGetPropertiesResponseResourcePtrType SqlTriggerGetPropertiesResponseResourceArgs
+
+func SqlTriggerGetPropertiesResponseResourcePtr(v *SqlTriggerGetPropertiesResponseResourceArgs) SqlTriggerGetPropertiesResponseResourcePtrInput {
+	return (*sqlTriggerGetPropertiesResponseResourcePtrType)(v)
+}
+
+func (*sqlTriggerGetPropertiesResponseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlTriggerGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i *sqlTriggerGetPropertiesResponseResourcePtrType) ToSqlTriggerGetPropertiesResponseResourcePtrOutput() SqlTriggerGetPropertiesResponseResourcePtrOutput {
+	return i.ToSqlTriggerGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *sqlTriggerGetPropertiesResponseResourcePtrType) ToSqlTriggerGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlTriggerGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlTriggerGetPropertiesResponseResourcePtrOutput)
+}
+
+type SqlTriggerGetPropertiesResponseResourceOutput struct{ *pulumi.OutputState }
+
+func (SqlTriggerGetPropertiesResponseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlTriggerGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o SqlTriggerGetPropertiesResponseResourceOutput) ToSqlTriggerGetPropertiesResponseResourceOutput() SqlTriggerGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o SqlTriggerGetPropertiesResponseResourceOutput) ToSqlTriggerGetPropertiesResponseResourceOutputWithContext(ctx context.Context) SqlTriggerGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o SqlTriggerGetPropertiesResponseResourceOutput) ToSqlTriggerGetPropertiesResponseResourcePtrOutput() SqlTriggerGetPropertiesResponseResourcePtrOutput {
+	return o.ToSqlTriggerGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o SqlTriggerGetPropertiesResponseResourceOutput) ToSqlTriggerGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlTriggerGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) *SqlTriggerGetPropertiesResponseResource {
+		return &v
+	}).(SqlTriggerGetPropertiesResponseResourcePtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlTriggerGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlTriggerGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlTriggerGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+}
+
+// Body of the Trigger
+func (o SqlTriggerGetPropertiesResponseResourceOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) *string { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Cosmos DB SQL trigger
+func (o SqlTriggerGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The operation the trigger is associated with
+func (o SqlTriggerGetPropertiesResponseResourceOutput) TriggerOperation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) *string { return v.TriggerOperation }).(pulumi.StringPtrOutput)
+}
+
+// Type of the Trigger
+func (o SqlTriggerGetPropertiesResponseResourceOutput) TriggerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlTriggerGetPropertiesResponseResource) *string { return v.TriggerType }).(pulumi.StringPtrOutput)
+}
+
+type SqlTriggerGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (SqlTriggerGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlTriggerGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) ToSqlTriggerGetPropertiesResponseResourcePtrOutput() SqlTriggerGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) ToSqlTriggerGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlTriggerGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Elem() SqlTriggerGetPropertiesResponseResourceOutput {
+	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) SqlTriggerGetPropertiesResponseResource { return *v }).(SqlTriggerGetPropertiesResponseResourceOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v._ts
 	}).(pulumi.MapOutput)
+}
+
+// Body of the Trigger
+func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the Cosmos DB SQL trigger
+func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The operation the trigger is associated with
+func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) TriggerOperation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TriggerOperation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the Trigger
+func (o SqlTriggerGetPropertiesResponseResourcePtrOutput) TriggerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlTriggerGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TriggerType
+	}).(pulumi.StringPtrOutput)
 }
 
 // Cosmos DB SQL trigger resource object
@@ -9015,7 +12868,7 @@ func (o SqlTriggerResourcePtrOutput) TriggerType() pulumi.StringPtrOutput {
 
 // The properties of an Azure Cosmos DB userDefinedFunction
 type SqlUserDefinedFunctionGetPropertiesResponse struct {
-	Resource map[string]interface{} `pulumi:"resource"`
+	Resource *SqlUserDefinedFunctionGetPropertiesResponseResource `pulumi:"resource"`
 }
 
 // SqlUserDefinedFunctionGetPropertiesResponseInput is an input type that accepts SqlUserDefinedFunctionGetPropertiesResponseArgs and SqlUserDefinedFunctionGetPropertiesResponseOutput values.
@@ -9031,7 +12884,7 @@ type SqlUserDefinedFunctionGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos DB userDefinedFunction
 type SqlUserDefinedFunctionGetPropertiesResponseArgs struct {
-	Resource pulumi.MapInput `pulumi:"resource"`
+	Resource SqlUserDefinedFunctionGetPropertiesResponseResourcePtrInput `pulumi:"resource"`
 }
 
 func (SqlUserDefinedFunctionGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -9111,8 +12964,10 @@ func (o SqlUserDefinedFunctionGetPropertiesResponseOutput) ToSqlUserDefinedFunct
 		return &v
 	}).(SqlUserDefinedFunctionGetPropertiesResponsePtrOutput)
 }
-func (o SqlUserDefinedFunctionGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
+func (o SqlUserDefinedFunctionGetPropertiesResponseOutput) Resource() SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponse) *SqlUserDefinedFunctionGetPropertiesResponseResource {
+		return v.Resource
+	}).(SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput)
 }
 
 type SqlUserDefinedFunctionGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -9135,13 +12990,222 @@ func (o SqlUserDefinedFunctionGetPropertiesResponsePtrOutput) Elem() SqlUserDefi
 	}).(SqlUserDefinedFunctionGetPropertiesResponseOutput)
 }
 
-func (o SqlUserDefinedFunctionGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponse) map[string]interface{} {
+func (o SqlUserDefinedFunctionGetPropertiesResponsePtrOutput) Resource() SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponse) *SqlUserDefinedFunctionGetPropertiesResponseResource {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
+	}).(SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput)
+}
+
+type SqlUserDefinedFunctionGetPropertiesResponseResource struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag string `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid string `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts map[string]interface{} `pulumi:"_ts"`
+	// Body of the User Defined Function
+	Body *string `pulumi:"body"`
+	// Name of the Cosmos DB SQL userDefinedFunction
+	Id string `pulumi:"id"`
+}
+
+// SqlUserDefinedFunctionGetPropertiesResponseResourceInput is an input type that accepts SqlUserDefinedFunctionGetPropertiesResponseResourceArgs and SqlUserDefinedFunctionGetPropertiesResponseResourceOutput values.
+// You can construct a concrete instance of `SqlUserDefinedFunctionGetPropertiesResponseResourceInput` via:
+//
+//          SqlUserDefinedFunctionGetPropertiesResponseResourceArgs{...}
+type SqlUserDefinedFunctionGetPropertiesResponseResourceInput interface {
+	pulumi.Input
+
+	ToSqlUserDefinedFunctionGetPropertiesResponseResourceOutput() SqlUserDefinedFunctionGetPropertiesResponseResourceOutput
+	ToSqlUserDefinedFunctionGetPropertiesResponseResourceOutputWithContext(context.Context) SqlUserDefinedFunctionGetPropertiesResponseResourceOutput
+}
+
+type SqlUserDefinedFunctionGetPropertiesResponseResourceArgs struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag pulumi.StringInput `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid pulumi.StringInput `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts pulumi.MapInput `pulumi:"_ts"`
+	// Body of the User Defined Function
+	Body pulumi.StringPtrInput `pulumi:"body"`
+	// Name of the Cosmos DB SQL userDefinedFunction
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (SqlUserDefinedFunctionGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlUserDefinedFunctionGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i SqlUserDefinedFunctionGetPropertiesResponseResourceArgs) ToSqlUserDefinedFunctionGetPropertiesResponseResourceOutput() SqlUserDefinedFunctionGetPropertiesResponseResourceOutput {
+	return i.ToSqlUserDefinedFunctionGetPropertiesResponseResourceOutputWithContext(context.Background())
+}
+
+func (i SqlUserDefinedFunctionGetPropertiesResponseResourceArgs) ToSqlUserDefinedFunctionGetPropertiesResponseResourceOutputWithContext(ctx context.Context) SqlUserDefinedFunctionGetPropertiesResponseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlUserDefinedFunctionGetPropertiesResponseResourceOutput)
+}
+
+func (i SqlUserDefinedFunctionGetPropertiesResponseResourceArgs) ToSqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput() SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput {
+	return i.ToSqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i SqlUserDefinedFunctionGetPropertiesResponseResourceArgs) ToSqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlUserDefinedFunctionGetPropertiesResponseResourceOutput).ToSqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutputWithContext(ctx)
+}
+
+// SqlUserDefinedFunctionGetPropertiesResponseResourcePtrInput is an input type that accepts SqlUserDefinedFunctionGetPropertiesResponseResourceArgs, SqlUserDefinedFunctionGetPropertiesResponseResourcePtr and SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput values.
+// You can construct a concrete instance of `SqlUserDefinedFunctionGetPropertiesResponseResourcePtrInput` via:
+//
+//          SqlUserDefinedFunctionGetPropertiesResponseResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type SqlUserDefinedFunctionGetPropertiesResponseResourcePtrInput interface {
+	pulumi.Input
+
+	ToSqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput() SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput
+	ToSqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutputWithContext(context.Context) SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput
+}
+
+type sqlUserDefinedFunctionGetPropertiesResponseResourcePtrType SqlUserDefinedFunctionGetPropertiesResponseResourceArgs
+
+func SqlUserDefinedFunctionGetPropertiesResponseResourcePtr(v *SqlUserDefinedFunctionGetPropertiesResponseResourceArgs) SqlUserDefinedFunctionGetPropertiesResponseResourcePtrInput {
+	return (*sqlUserDefinedFunctionGetPropertiesResponseResourcePtrType)(v)
+}
+
+func (*sqlUserDefinedFunctionGetPropertiesResponseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlUserDefinedFunctionGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i *sqlUserDefinedFunctionGetPropertiesResponseResourcePtrType) ToSqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput() SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput {
+	return i.ToSqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *sqlUserDefinedFunctionGetPropertiesResponseResourcePtrType) ToSqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput)
+}
+
+type SqlUserDefinedFunctionGetPropertiesResponseResourceOutput struct{ *pulumi.OutputState }
+
+func (SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SqlUserDefinedFunctionGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) ToSqlUserDefinedFunctionGetPropertiesResponseResourceOutput() SqlUserDefinedFunctionGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) ToSqlUserDefinedFunctionGetPropertiesResponseResourceOutputWithContext(ctx context.Context) SqlUserDefinedFunctionGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) ToSqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput() SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput {
+	return o.ToSqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) ToSqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) *SqlUserDefinedFunctionGetPropertiesResponseResource {
+		return &v
+	}).(SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+}
+
+// Body of the User Defined Function
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) *string { return v.Body }).(pulumi.StringPtrOutput)
+}
+
+// Name of the Cosmos DB SQL userDefinedFunction
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SqlUserDefinedFunctionGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SqlUserDefinedFunctionGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) ToSqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput() SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) ToSqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Elem() SqlUserDefinedFunctionGetPropertiesResponseResourceOutput {
+	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) SqlUserDefinedFunctionGetPropertiesResponseResource {
+		return *v
+	}).(SqlUserDefinedFunctionGetPropertiesResponseResourceOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v._ts
 	}).(pulumi.MapOutput)
+}
+
+// Body of the User Defined Function
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Body
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the Cosmos DB SQL userDefinedFunction
+func (o SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SqlUserDefinedFunctionGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // Cosmos DB SQL userDefinedFunction resource object
@@ -9299,8 +13363,8 @@ func (o SqlUserDefinedFunctionResourcePtrOutput) Id() pulumi.StringPtrOutput {
 
 // The properties of an Azure Cosmos Table
 type TableGetPropertiesResponse struct {
-	Options  map[string]interface{} `pulumi:"options"`
-	Resource map[string]interface{} `pulumi:"resource"`
+	Options  *TableGetPropertiesResponseOptions  `pulumi:"options"`
+	Resource *TableGetPropertiesResponseResource `pulumi:"resource"`
 }
 
 // TableGetPropertiesResponseInput is an input type that accepts TableGetPropertiesResponseArgs and TableGetPropertiesResponseOutput values.
@@ -9316,8 +13380,8 @@ type TableGetPropertiesResponseInput interface {
 
 // The properties of an Azure Cosmos Table
 type TableGetPropertiesResponseArgs struct {
-	Options  pulumi.MapInput `pulumi:"options"`
-	Resource pulumi.MapInput `pulumi:"resource"`
+	Options  TableGetPropertiesResponseOptionsPtrInput  `pulumi:"options"`
+	Resource TableGetPropertiesResponseResourcePtrInput `pulumi:"resource"`
 }
 
 func (TableGetPropertiesResponseArgs) ElementType() reflect.Type {
@@ -9397,12 +13461,12 @@ func (o TableGetPropertiesResponseOutput) ToTableGetPropertiesResponsePtrOutputW
 		return &v
 	}).(TableGetPropertiesResponsePtrOutput)
 }
-func (o TableGetPropertiesResponseOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v TableGetPropertiesResponse) map[string]interface{} { return v.Options }).(pulumi.MapOutput)
+func (o TableGetPropertiesResponseOutput) Options() TableGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v TableGetPropertiesResponse) *TableGetPropertiesResponseOptions { return v.Options }).(TableGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o TableGetPropertiesResponseOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v TableGetPropertiesResponse) map[string]interface{} { return v.Resource }).(pulumi.MapOutput)
+func (o TableGetPropertiesResponseOutput) Resource() TableGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v TableGetPropertiesResponse) *TableGetPropertiesResponseResource { return v.Resource }).(TableGetPropertiesResponseResourcePtrOutput)
 }
 
 type TableGetPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
@@ -9423,22 +13487,341 @@ func (o TableGetPropertiesResponsePtrOutput) Elem() TableGetPropertiesResponseOu
 	return o.ApplyT(func(v *TableGetPropertiesResponse) TableGetPropertiesResponse { return *v }).(TableGetPropertiesResponseOutput)
 }
 
-func (o TableGetPropertiesResponsePtrOutput) Options() pulumi.MapOutput {
-	return o.ApplyT(func(v *TableGetPropertiesResponse) map[string]interface{} {
+func (o TableGetPropertiesResponsePtrOutput) Options() TableGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v *TableGetPropertiesResponse) *TableGetPropertiesResponseOptions {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.MapOutput)
+	}).(TableGetPropertiesResponseOptionsPtrOutput)
 }
 
-func (o TableGetPropertiesResponsePtrOutput) Resource() pulumi.MapOutput {
-	return o.ApplyT(func(v *TableGetPropertiesResponse) map[string]interface{} {
+func (o TableGetPropertiesResponsePtrOutput) Resource() TableGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v *TableGetPropertiesResponse) *TableGetPropertiesResponseResource {
 		if v == nil {
 			return nil
 		}
 		return v.Resource
+	}).(TableGetPropertiesResponseResourcePtrOutput)
+}
+
+type TableGetPropertiesResponseOptions struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput *int `pulumi:"throughput"`
+}
+
+// TableGetPropertiesResponseOptionsInput is an input type that accepts TableGetPropertiesResponseOptionsArgs and TableGetPropertiesResponseOptionsOutput values.
+// You can construct a concrete instance of `TableGetPropertiesResponseOptionsInput` via:
+//
+//          TableGetPropertiesResponseOptionsArgs{...}
+type TableGetPropertiesResponseOptionsInput interface {
+	pulumi.Input
+
+	ToTableGetPropertiesResponseOptionsOutput() TableGetPropertiesResponseOptionsOutput
+	ToTableGetPropertiesResponseOptionsOutputWithContext(context.Context) TableGetPropertiesResponseOptionsOutput
+}
+
+type TableGetPropertiesResponseOptionsArgs struct {
+	// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+}
+
+func (TableGetPropertiesResponseOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i TableGetPropertiesResponseOptionsArgs) ToTableGetPropertiesResponseOptionsOutput() TableGetPropertiesResponseOptionsOutput {
+	return i.ToTableGetPropertiesResponseOptionsOutputWithContext(context.Background())
+}
+
+func (i TableGetPropertiesResponseOptionsArgs) ToTableGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) TableGetPropertiesResponseOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGetPropertiesResponseOptionsOutput)
+}
+
+func (i TableGetPropertiesResponseOptionsArgs) ToTableGetPropertiesResponseOptionsPtrOutput() TableGetPropertiesResponseOptionsPtrOutput {
+	return i.ToTableGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TableGetPropertiesResponseOptionsArgs) ToTableGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) TableGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGetPropertiesResponseOptionsOutput).ToTableGetPropertiesResponseOptionsPtrOutputWithContext(ctx)
+}
+
+// TableGetPropertiesResponseOptionsPtrInput is an input type that accepts TableGetPropertiesResponseOptionsArgs, TableGetPropertiesResponseOptionsPtr and TableGetPropertiesResponseOptionsPtrOutput values.
+// You can construct a concrete instance of `TableGetPropertiesResponseOptionsPtrInput` via:
+//
+//          TableGetPropertiesResponseOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type TableGetPropertiesResponseOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTableGetPropertiesResponseOptionsPtrOutput() TableGetPropertiesResponseOptionsPtrOutput
+	ToTableGetPropertiesResponseOptionsPtrOutputWithContext(context.Context) TableGetPropertiesResponseOptionsPtrOutput
+}
+
+type tableGetPropertiesResponseOptionsPtrType TableGetPropertiesResponseOptionsArgs
+
+func TableGetPropertiesResponseOptionsPtr(v *TableGetPropertiesResponseOptionsArgs) TableGetPropertiesResponseOptionsPtrInput {
+	return (*tableGetPropertiesResponseOptionsPtrType)(v)
+}
+
+func (*tableGetPropertiesResponseOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (i *tableGetPropertiesResponseOptionsPtrType) ToTableGetPropertiesResponseOptionsPtrOutput() TableGetPropertiesResponseOptionsPtrOutput {
+	return i.ToTableGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *tableGetPropertiesResponseOptionsPtrType) ToTableGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) TableGetPropertiesResponseOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGetPropertiesResponseOptionsPtrOutput)
+}
+
+type TableGetPropertiesResponseOptionsOutput struct{ *pulumi.OutputState }
+
+func (TableGetPropertiesResponseOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o TableGetPropertiesResponseOptionsOutput) ToTableGetPropertiesResponseOptionsOutput() TableGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o TableGetPropertiesResponseOptionsOutput) ToTableGetPropertiesResponseOptionsOutputWithContext(ctx context.Context) TableGetPropertiesResponseOptionsOutput {
+	return o
+}
+
+func (o TableGetPropertiesResponseOptionsOutput) ToTableGetPropertiesResponseOptionsPtrOutput() TableGetPropertiesResponseOptionsPtrOutput {
+	return o.ToTableGetPropertiesResponseOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TableGetPropertiesResponseOptionsOutput) ToTableGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) TableGetPropertiesResponseOptionsPtrOutput {
+	return o.ApplyT(func(v TableGetPropertiesResponseOptions) *TableGetPropertiesResponseOptions {
+		return &v
+	}).(TableGetPropertiesResponseOptionsPtrOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o TableGetPropertiesResponseOptionsOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TableGetPropertiesResponseOptions) *int { return v.Throughput }).(pulumi.IntPtrOutput)
+}
+
+type TableGetPropertiesResponseOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TableGetPropertiesResponseOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableGetPropertiesResponseOptions)(nil)).Elem()
+}
+
+func (o TableGetPropertiesResponseOptionsPtrOutput) ToTableGetPropertiesResponseOptionsPtrOutput() TableGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o TableGetPropertiesResponseOptionsPtrOutput) ToTableGetPropertiesResponseOptionsPtrOutputWithContext(ctx context.Context) TableGetPropertiesResponseOptionsPtrOutput {
+	return o
+}
+
+func (o TableGetPropertiesResponseOptionsPtrOutput) Elem() TableGetPropertiesResponseOptionsOutput {
+	return o.ApplyT(func(v *TableGetPropertiesResponseOptions) TableGetPropertiesResponseOptions { return *v }).(TableGetPropertiesResponseOptionsOutput)
+}
+
+// Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+func (o TableGetPropertiesResponseOptionsPtrOutput) Throughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TableGetPropertiesResponseOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type TableGetPropertiesResponseResource struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag string `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid string `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts map[string]interface{} `pulumi:"_ts"`
+	// Name of the Cosmos DB table
+	Id string `pulumi:"id"`
+}
+
+// TableGetPropertiesResponseResourceInput is an input type that accepts TableGetPropertiesResponseResourceArgs and TableGetPropertiesResponseResourceOutput values.
+// You can construct a concrete instance of `TableGetPropertiesResponseResourceInput` via:
+//
+//          TableGetPropertiesResponseResourceArgs{...}
+type TableGetPropertiesResponseResourceInput interface {
+	pulumi.Input
+
+	ToTableGetPropertiesResponseResourceOutput() TableGetPropertiesResponseResourceOutput
+	ToTableGetPropertiesResponseResourceOutputWithContext(context.Context) TableGetPropertiesResponseResourceOutput
+}
+
+type TableGetPropertiesResponseResourceArgs struct {
+	// A system generated property representing the resource etag required for optimistic concurrency control.
+	_etag pulumi.StringInput `pulumi:"_etag"`
+	// A system generated property. A unique identifier.
+	_rid pulumi.StringInput `pulumi:"_rid"`
+	// A system generated property that denotes the last updated timestamp of the resource.
+	_ts pulumi.MapInput `pulumi:"_ts"`
+	// Name of the Cosmos DB table
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (TableGetPropertiesResponseResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i TableGetPropertiesResponseResourceArgs) ToTableGetPropertiesResponseResourceOutput() TableGetPropertiesResponseResourceOutput {
+	return i.ToTableGetPropertiesResponseResourceOutputWithContext(context.Background())
+}
+
+func (i TableGetPropertiesResponseResourceArgs) ToTableGetPropertiesResponseResourceOutputWithContext(ctx context.Context) TableGetPropertiesResponseResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGetPropertiesResponseResourceOutput)
+}
+
+func (i TableGetPropertiesResponseResourceArgs) ToTableGetPropertiesResponseResourcePtrOutput() TableGetPropertiesResponseResourcePtrOutput {
+	return i.ToTableGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i TableGetPropertiesResponseResourceArgs) ToTableGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) TableGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGetPropertiesResponseResourceOutput).ToTableGetPropertiesResponseResourcePtrOutputWithContext(ctx)
+}
+
+// TableGetPropertiesResponseResourcePtrInput is an input type that accepts TableGetPropertiesResponseResourceArgs, TableGetPropertiesResponseResourcePtr and TableGetPropertiesResponseResourcePtrOutput values.
+// You can construct a concrete instance of `TableGetPropertiesResponseResourcePtrInput` via:
+//
+//          TableGetPropertiesResponseResourceArgs{...}
+//
+//  or:
+//
+//          nil
+type TableGetPropertiesResponseResourcePtrInput interface {
+	pulumi.Input
+
+	ToTableGetPropertiesResponseResourcePtrOutput() TableGetPropertiesResponseResourcePtrOutput
+	ToTableGetPropertiesResponseResourcePtrOutputWithContext(context.Context) TableGetPropertiesResponseResourcePtrOutput
+}
+
+type tableGetPropertiesResponseResourcePtrType TableGetPropertiesResponseResourceArgs
+
+func TableGetPropertiesResponseResourcePtr(v *TableGetPropertiesResponseResourceArgs) TableGetPropertiesResponseResourcePtrInput {
+	return (*tableGetPropertiesResponseResourcePtrType)(v)
+}
+
+func (*tableGetPropertiesResponseResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (i *tableGetPropertiesResponseResourcePtrType) ToTableGetPropertiesResponseResourcePtrOutput() TableGetPropertiesResponseResourcePtrOutput {
+	return i.ToTableGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *tableGetPropertiesResponseResourcePtrType) ToTableGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) TableGetPropertiesResponseResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGetPropertiesResponseResourcePtrOutput)
+}
+
+type TableGetPropertiesResponseResourceOutput struct{ *pulumi.OutputState }
+
+func (TableGetPropertiesResponseResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o TableGetPropertiesResponseResourceOutput) ToTableGetPropertiesResponseResourceOutput() TableGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o TableGetPropertiesResponseResourceOutput) ToTableGetPropertiesResponseResourceOutputWithContext(ctx context.Context) TableGetPropertiesResponseResourceOutput {
+	return o
+}
+
+func (o TableGetPropertiesResponseResourceOutput) ToTableGetPropertiesResponseResourcePtrOutput() TableGetPropertiesResponseResourcePtrOutput {
+	return o.ToTableGetPropertiesResponseResourcePtrOutputWithContext(context.Background())
+}
+
+func (o TableGetPropertiesResponseResourceOutput) ToTableGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) TableGetPropertiesResponseResourcePtrOutput {
+	return o.ApplyT(func(v TableGetPropertiesResponseResource) *TableGetPropertiesResponseResource {
+		return &v
+	}).(TableGetPropertiesResponseResourcePtrOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o TableGetPropertiesResponseResourceOutput) _etag() pulumi.StringOutput {
+	return o.ApplyT(func(v TableGetPropertiesResponseResource) string { return v._etag }).(pulumi.StringOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o TableGetPropertiesResponseResourceOutput) _rid() pulumi.StringOutput {
+	return o.ApplyT(func(v TableGetPropertiesResponseResource) string { return v._rid }).(pulumi.StringOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o TableGetPropertiesResponseResourceOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v TableGetPropertiesResponseResource) map[string]interface{} { return v._ts }).(pulumi.MapOutput)
+}
+
+// Name of the Cosmos DB table
+func (o TableGetPropertiesResponseResourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v TableGetPropertiesResponseResource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type TableGetPropertiesResponseResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (TableGetPropertiesResponseResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TableGetPropertiesResponseResource)(nil)).Elem()
+}
+
+func (o TableGetPropertiesResponseResourcePtrOutput) ToTableGetPropertiesResponseResourcePtrOutput() TableGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o TableGetPropertiesResponseResourcePtrOutput) ToTableGetPropertiesResponseResourcePtrOutputWithContext(ctx context.Context) TableGetPropertiesResponseResourcePtrOutput {
+	return o
+}
+
+func (o TableGetPropertiesResponseResourcePtrOutput) Elem() TableGetPropertiesResponseResourceOutput {
+	return o.ApplyT(func(v *TableGetPropertiesResponseResource) TableGetPropertiesResponseResource { return *v }).(TableGetPropertiesResponseResourceOutput)
+}
+
+// A system generated property representing the resource etag required for optimistic concurrency control.
+func (o TableGetPropertiesResponseResourcePtrOutput) _etag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._etag
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property. A unique identifier.
+func (o TableGetPropertiesResponseResourcePtrOutput) _rid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v._rid
+	}).(pulumi.StringPtrOutput)
+}
+
+// A system generated property that denotes the last updated timestamp of the resource.
+func (o TableGetPropertiesResponseResourcePtrOutput) _ts() pulumi.MapOutput {
+	return o.ApplyT(func(v *TableGetPropertiesResponseResource) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v._ts
 	}).(pulumi.MapOutput)
+}
+
+// Name of the Cosmos DB table
+func (o TableGetPropertiesResponseResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TableGetPropertiesResponseResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // Cosmos DB table resource object
@@ -9573,327 +13956,6 @@ func (o TableResourcePtrOutput) Id() pulumi.StringPtrOutput {
 		}
 		return &v.Id
 	}).(pulumi.StringPtrOutput)
-}
-
-// An Azure Cosmos DB Table.
-type TableResourceTableType struct {
-	// The location of the resource group to which the resource belongs.
-	Location *string `pulumi:"location"`
-	// The name of the ARM resource.
-	Name string `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Table
-	Properties TableGetPropertiesResponse `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags *TagsResponse `pulumi:"tags"`
-	// The type of Azure resource.
-	Type string `pulumi:"type"`
-}
-
-// TableResourceTableTypeInput is an input type that accepts TableResourceTableTypeArgs and TableResourceTableTypeOutput values.
-// You can construct a concrete instance of `TableResourceTableTypeInput` via:
-//
-//          TableResourceTableTypeArgs{...}
-type TableResourceTableTypeInput interface {
-	pulumi.Input
-
-	ToTableResourceTableTypeOutput() TableResourceTableTypeOutput
-	ToTableResourceTableTypeOutputWithContext(context.Context) TableResourceTableTypeOutput
-}
-
-// An Azure Cosmos DB Table.
-type TableResourceTableTypeArgs struct {
-	// The location of the resource group to which the resource belongs.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the ARM resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an Azure Cosmos DB Table
-	Properties TableGetPropertiesResponseInput `pulumi:"properties"`
-	// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-	Tags TagsResponsePtrInput `pulumi:"tags"`
-	// The type of Azure resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (TableResourceTableTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableResourceTableType)(nil)).Elem()
-}
-
-func (i TableResourceTableTypeArgs) ToTableResourceTableTypeOutput() TableResourceTableTypeOutput {
-	return i.ToTableResourceTableTypeOutputWithContext(context.Background())
-}
-
-func (i TableResourceTableTypeArgs) ToTableResourceTableTypeOutputWithContext(ctx context.Context) TableResourceTableTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TableResourceTableTypeOutput)
-}
-
-// An Azure Cosmos DB Table.
-type TableResourceTableTypeOutput struct{ *pulumi.OutputState }
-
-func (TableResourceTableTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TableResourceTableType)(nil)).Elem()
-}
-
-func (o TableResourceTableTypeOutput) ToTableResourceTableTypeOutput() TableResourceTableTypeOutput {
-	return o
-}
-
-func (o TableResourceTableTypeOutput) ToTableResourceTableTypeOutputWithContext(ctx context.Context) TableResourceTableTypeOutput {
-	return o
-}
-
-// The location of the resource group to which the resource belongs.
-func (o TableResourceTableTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TableResourceTableType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the ARM resource.
-func (o TableResourceTableTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v TableResourceTableType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an Azure Cosmos DB Table
-func (o TableResourceTableTypeOutput) Properties() TableGetPropertiesResponseOutput {
-	return o.ApplyT(func(v TableResourceTableType) TableGetPropertiesResponse { return v.Properties }).(TableGetPropertiesResponseOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-func (o TableResourceTableTypeOutput) Tags() TagsResponsePtrOutput {
-	return o.ApplyT(func(v TableResourceTableType) *TagsResponse { return v.Tags }).(TagsResponsePtrOutput)
-}
-
-// The type of Azure resource.
-func (o TableResourceTableTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TableResourceTableType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-type Tags struct {
-}
-
-// TagsInput is an input type that accepts TagsArgs and TagsOutput values.
-// You can construct a concrete instance of `TagsInput` via:
-//
-//          TagsArgs{...}
-type TagsInput interface {
-	pulumi.Input
-
-	ToTagsOutput() TagsOutput
-	ToTagsOutputWithContext(context.Context) TagsOutput
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-type TagsArgs struct {
-}
-
-func (TagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Tags)(nil)).Elem()
-}
-
-func (i TagsArgs) ToTagsOutput() TagsOutput {
-	return i.ToTagsOutputWithContext(context.Background())
-}
-
-func (i TagsArgs) ToTagsOutputWithContext(ctx context.Context) TagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsOutput)
-}
-
-func (i TagsArgs) ToTagsPtrOutput() TagsPtrOutput {
-	return i.ToTagsPtrOutputWithContext(context.Background())
-}
-
-func (i TagsArgs) ToTagsPtrOutputWithContext(ctx context.Context) TagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsOutput).ToTagsPtrOutputWithContext(ctx)
-}
-
-// TagsPtrInput is an input type that accepts TagsArgs, TagsPtr and TagsPtrOutput values.
-// You can construct a concrete instance of `TagsPtrInput` via:
-//
-//          TagsArgs{...}
-//
-//  or:
-//
-//          nil
-type TagsPtrInput interface {
-	pulumi.Input
-
-	ToTagsPtrOutput() TagsPtrOutput
-	ToTagsPtrOutputWithContext(context.Context) TagsPtrOutput
-}
-
-type tagsPtrType TagsArgs
-
-func TagsPtr(v *TagsArgs) TagsPtrInput {
-	return (*tagsPtrType)(v)
-}
-
-func (*tagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Tags)(nil)).Elem()
-}
-
-func (i *tagsPtrType) ToTagsPtrOutput() TagsPtrOutput {
-	return i.ToTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *tagsPtrType) ToTagsPtrOutputWithContext(ctx context.Context) TagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsPtrOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-type TagsOutput struct{ *pulumi.OutputState }
-
-func (TagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Tags)(nil)).Elem()
-}
-
-func (o TagsOutput) ToTagsOutput() TagsOutput {
-	return o
-}
-
-func (o TagsOutput) ToTagsOutputWithContext(ctx context.Context) TagsOutput {
-	return o
-}
-
-func (o TagsOutput) ToTagsPtrOutput() TagsPtrOutput {
-	return o.ToTagsPtrOutputWithContext(context.Background())
-}
-
-func (o TagsOutput) ToTagsPtrOutputWithContext(ctx context.Context) TagsPtrOutput {
-	return o.ApplyT(func(v Tags) *Tags {
-		return &v
-	}).(TagsPtrOutput)
-}
-
-type TagsPtrOutput struct{ *pulumi.OutputState }
-
-func (TagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Tags)(nil)).Elem()
-}
-
-func (o TagsPtrOutput) ToTagsPtrOutput() TagsPtrOutput {
-	return o
-}
-
-func (o TagsPtrOutput) ToTagsPtrOutputWithContext(ctx context.Context) TagsPtrOutput {
-	return o
-}
-
-func (o TagsPtrOutput) Elem() TagsOutput {
-	return o.ApplyT(func(v *Tags) Tags { return *v }).(TagsOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-type TagsResponse struct {
-}
-
-// TagsResponseInput is an input type that accepts TagsResponseArgs and TagsResponseOutput values.
-// You can construct a concrete instance of `TagsResponseInput` via:
-//
-//          TagsResponseArgs{...}
-type TagsResponseInput interface {
-	pulumi.Input
-
-	ToTagsResponseOutput() TagsResponseOutput
-	ToTagsResponseOutputWithContext(context.Context) TagsResponseOutput
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-type TagsResponseArgs struct {
-}
-
-func (TagsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagsResponse)(nil)).Elem()
-}
-
-func (i TagsResponseArgs) ToTagsResponseOutput() TagsResponseOutput {
-	return i.ToTagsResponseOutputWithContext(context.Background())
-}
-
-func (i TagsResponseArgs) ToTagsResponseOutputWithContext(ctx context.Context) TagsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsResponseOutput)
-}
-
-func (i TagsResponseArgs) ToTagsResponsePtrOutput() TagsResponsePtrOutput {
-	return i.ToTagsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i TagsResponseArgs) ToTagsResponsePtrOutputWithContext(ctx context.Context) TagsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsResponseOutput).ToTagsResponsePtrOutputWithContext(ctx)
-}
-
-// TagsResponsePtrInput is an input type that accepts TagsResponseArgs, TagsResponsePtr and TagsResponsePtrOutput values.
-// You can construct a concrete instance of `TagsResponsePtrInput` via:
-//
-//          TagsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type TagsResponsePtrInput interface {
-	pulumi.Input
-
-	ToTagsResponsePtrOutput() TagsResponsePtrOutput
-	ToTagsResponsePtrOutputWithContext(context.Context) TagsResponsePtrOutput
-}
-
-type tagsResponsePtrType TagsResponseArgs
-
-func TagsResponsePtr(v *TagsResponseArgs) TagsResponsePtrInput {
-	return (*tagsResponsePtrType)(v)
-}
-
-func (*tagsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagsResponse)(nil)).Elem()
-}
-
-func (i *tagsResponsePtrType) ToTagsResponsePtrOutput() TagsResponsePtrOutput {
-	return i.ToTagsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *tagsResponsePtrType) ToTagsResponsePtrOutputWithContext(ctx context.Context) TagsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagsResponsePtrOutput)
-}
-
-// Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
-type TagsResponseOutput struct{ *pulumi.OutputState }
-
-func (TagsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TagsResponse)(nil)).Elem()
-}
-
-func (o TagsResponseOutput) ToTagsResponseOutput() TagsResponseOutput {
-	return o
-}
-
-func (o TagsResponseOutput) ToTagsResponseOutputWithContext(ctx context.Context) TagsResponseOutput {
-	return o
-}
-
-func (o TagsResponseOutput) ToTagsResponsePtrOutput() TagsResponsePtrOutput {
-	return o.ToTagsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o TagsResponseOutput) ToTagsResponsePtrOutputWithContext(ctx context.Context) TagsResponsePtrOutput {
-	return o.ApplyT(func(v TagsResponse) *TagsResponse {
-		return &v
-	}).(TagsResponsePtrOutput)
-}
-
-type TagsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (TagsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagsResponse)(nil)).Elem()
-}
-
-func (o TagsResponsePtrOutput) ToTagsResponsePtrOutput() TagsResponsePtrOutput {
-	return o
-}
-
-func (o TagsResponsePtrOutput) ToTagsResponsePtrOutputWithContext(ctx context.Context) TagsResponsePtrOutput {
-	return o
-}
-
-func (o TagsResponsePtrOutput) Elem() TagsResponseOutput {
-	return o.ApplyT(func(v *TagsResponse) TagsResponse { return *v }).(TagsResponseOutput)
 }
 
 // The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
@@ -10130,6 +14192,240 @@ func (o UniqueKeyPolicyPtrOutput) UniqueKeys() UniqueKeyArrayOutput {
 	}).(UniqueKeyArrayOutput)
 }
 
+// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+type UniqueKeyPolicyResponse struct {
+	// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+	UniqueKeys []UniqueKeyResponse `pulumi:"uniqueKeys"`
+}
+
+// UniqueKeyPolicyResponseInput is an input type that accepts UniqueKeyPolicyResponseArgs and UniqueKeyPolicyResponseOutput values.
+// You can construct a concrete instance of `UniqueKeyPolicyResponseInput` via:
+//
+//          UniqueKeyPolicyResponseArgs{...}
+type UniqueKeyPolicyResponseInput interface {
+	pulumi.Input
+
+	ToUniqueKeyPolicyResponseOutput() UniqueKeyPolicyResponseOutput
+	ToUniqueKeyPolicyResponseOutputWithContext(context.Context) UniqueKeyPolicyResponseOutput
+}
+
+// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+type UniqueKeyPolicyResponseArgs struct {
+	// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+	UniqueKeys UniqueKeyResponseArrayInput `pulumi:"uniqueKeys"`
+}
+
+func (UniqueKeyPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UniqueKeyPolicyResponse)(nil)).Elem()
+}
+
+func (i UniqueKeyPolicyResponseArgs) ToUniqueKeyPolicyResponseOutput() UniqueKeyPolicyResponseOutput {
+	return i.ToUniqueKeyPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i UniqueKeyPolicyResponseArgs) ToUniqueKeyPolicyResponseOutputWithContext(ctx context.Context) UniqueKeyPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UniqueKeyPolicyResponseOutput)
+}
+
+func (i UniqueKeyPolicyResponseArgs) ToUniqueKeyPolicyResponsePtrOutput() UniqueKeyPolicyResponsePtrOutput {
+	return i.ToUniqueKeyPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i UniqueKeyPolicyResponseArgs) ToUniqueKeyPolicyResponsePtrOutputWithContext(ctx context.Context) UniqueKeyPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UniqueKeyPolicyResponseOutput).ToUniqueKeyPolicyResponsePtrOutputWithContext(ctx)
+}
+
+// UniqueKeyPolicyResponsePtrInput is an input type that accepts UniqueKeyPolicyResponseArgs, UniqueKeyPolicyResponsePtr and UniqueKeyPolicyResponsePtrOutput values.
+// You can construct a concrete instance of `UniqueKeyPolicyResponsePtrInput` via:
+//
+//          UniqueKeyPolicyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type UniqueKeyPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToUniqueKeyPolicyResponsePtrOutput() UniqueKeyPolicyResponsePtrOutput
+	ToUniqueKeyPolicyResponsePtrOutputWithContext(context.Context) UniqueKeyPolicyResponsePtrOutput
+}
+
+type uniqueKeyPolicyResponsePtrType UniqueKeyPolicyResponseArgs
+
+func UniqueKeyPolicyResponsePtr(v *UniqueKeyPolicyResponseArgs) UniqueKeyPolicyResponsePtrInput {
+	return (*uniqueKeyPolicyResponsePtrType)(v)
+}
+
+func (*uniqueKeyPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UniqueKeyPolicyResponse)(nil)).Elem()
+}
+
+func (i *uniqueKeyPolicyResponsePtrType) ToUniqueKeyPolicyResponsePtrOutput() UniqueKeyPolicyResponsePtrOutput {
+	return i.ToUniqueKeyPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *uniqueKeyPolicyResponsePtrType) ToUniqueKeyPolicyResponsePtrOutputWithContext(ctx context.Context) UniqueKeyPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UniqueKeyPolicyResponsePtrOutput)
+}
+
+// The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+type UniqueKeyPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (UniqueKeyPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UniqueKeyPolicyResponse)(nil)).Elem()
+}
+
+func (o UniqueKeyPolicyResponseOutput) ToUniqueKeyPolicyResponseOutput() UniqueKeyPolicyResponseOutput {
+	return o
+}
+
+func (o UniqueKeyPolicyResponseOutput) ToUniqueKeyPolicyResponseOutputWithContext(ctx context.Context) UniqueKeyPolicyResponseOutput {
+	return o
+}
+
+func (o UniqueKeyPolicyResponseOutput) ToUniqueKeyPolicyResponsePtrOutput() UniqueKeyPolicyResponsePtrOutput {
+	return o.ToUniqueKeyPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o UniqueKeyPolicyResponseOutput) ToUniqueKeyPolicyResponsePtrOutputWithContext(ctx context.Context) UniqueKeyPolicyResponsePtrOutput {
+	return o.ApplyT(func(v UniqueKeyPolicyResponse) *UniqueKeyPolicyResponse {
+		return &v
+	}).(UniqueKeyPolicyResponsePtrOutput)
+}
+
+// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+func (o UniqueKeyPolicyResponseOutput) UniqueKeys() UniqueKeyResponseArrayOutput {
+	return o.ApplyT(func(v UniqueKeyPolicyResponse) []UniqueKeyResponse { return v.UniqueKeys }).(UniqueKeyResponseArrayOutput)
+}
+
+type UniqueKeyPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (UniqueKeyPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UniqueKeyPolicyResponse)(nil)).Elem()
+}
+
+func (o UniqueKeyPolicyResponsePtrOutput) ToUniqueKeyPolicyResponsePtrOutput() UniqueKeyPolicyResponsePtrOutput {
+	return o
+}
+
+func (o UniqueKeyPolicyResponsePtrOutput) ToUniqueKeyPolicyResponsePtrOutputWithContext(ctx context.Context) UniqueKeyPolicyResponsePtrOutput {
+	return o
+}
+
+func (o UniqueKeyPolicyResponsePtrOutput) Elem() UniqueKeyPolicyResponseOutput {
+	return o.ApplyT(func(v *UniqueKeyPolicyResponse) UniqueKeyPolicyResponse { return *v }).(UniqueKeyPolicyResponseOutput)
+}
+
+// List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+func (o UniqueKeyPolicyResponsePtrOutput) UniqueKeys() UniqueKeyResponseArrayOutput {
+	return o.ApplyT(func(v *UniqueKeyPolicyResponse) []UniqueKeyResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UniqueKeys
+	}).(UniqueKeyResponseArrayOutput)
+}
+
+// The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+type UniqueKeyResponse struct {
+	// List of paths must be unique for each document in the Azure Cosmos DB service
+	Paths []string `pulumi:"paths"`
+}
+
+// UniqueKeyResponseInput is an input type that accepts UniqueKeyResponseArgs and UniqueKeyResponseOutput values.
+// You can construct a concrete instance of `UniqueKeyResponseInput` via:
+//
+//          UniqueKeyResponseArgs{...}
+type UniqueKeyResponseInput interface {
+	pulumi.Input
+
+	ToUniqueKeyResponseOutput() UniqueKeyResponseOutput
+	ToUniqueKeyResponseOutputWithContext(context.Context) UniqueKeyResponseOutput
+}
+
+// The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+type UniqueKeyResponseArgs struct {
+	// List of paths must be unique for each document in the Azure Cosmos DB service
+	Paths pulumi.StringArrayInput `pulumi:"paths"`
+}
+
+func (UniqueKeyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UniqueKeyResponse)(nil)).Elem()
+}
+
+func (i UniqueKeyResponseArgs) ToUniqueKeyResponseOutput() UniqueKeyResponseOutput {
+	return i.ToUniqueKeyResponseOutputWithContext(context.Background())
+}
+
+func (i UniqueKeyResponseArgs) ToUniqueKeyResponseOutputWithContext(ctx context.Context) UniqueKeyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UniqueKeyResponseOutput)
+}
+
+// UniqueKeyResponseArrayInput is an input type that accepts UniqueKeyResponseArray and UniqueKeyResponseArrayOutput values.
+// You can construct a concrete instance of `UniqueKeyResponseArrayInput` via:
+//
+//          UniqueKeyResponseArray{ UniqueKeyResponseArgs{...} }
+type UniqueKeyResponseArrayInput interface {
+	pulumi.Input
+
+	ToUniqueKeyResponseArrayOutput() UniqueKeyResponseArrayOutput
+	ToUniqueKeyResponseArrayOutputWithContext(context.Context) UniqueKeyResponseArrayOutput
+}
+
+type UniqueKeyResponseArray []UniqueKeyResponseInput
+
+func (UniqueKeyResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UniqueKeyResponse)(nil)).Elem()
+}
+
+func (i UniqueKeyResponseArray) ToUniqueKeyResponseArrayOutput() UniqueKeyResponseArrayOutput {
+	return i.ToUniqueKeyResponseArrayOutputWithContext(context.Background())
+}
+
+func (i UniqueKeyResponseArray) ToUniqueKeyResponseArrayOutputWithContext(ctx context.Context) UniqueKeyResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UniqueKeyResponseArrayOutput)
+}
+
+// The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+type UniqueKeyResponseOutput struct{ *pulumi.OutputState }
+
+func (UniqueKeyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UniqueKeyResponse)(nil)).Elem()
+}
+
+func (o UniqueKeyResponseOutput) ToUniqueKeyResponseOutput() UniqueKeyResponseOutput {
+	return o
+}
+
+func (o UniqueKeyResponseOutput) ToUniqueKeyResponseOutputWithContext(ctx context.Context) UniqueKeyResponseOutput {
+	return o
+}
+
+// List of paths must be unique for each document in the Azure Cosmos DB service
+func (o UniqueKeyResponseOutput) Paths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v UniqueKeyResponse) []string { return v.Paths }).(pulumi.StringArrayOutput)
+}
+
+type UniqueKeyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (UniqueKeyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UniqueKeyResponse)(nil)).Elem()
+}
+
+func (o UniqueKeyResponseArrayOutput) ToUniqueKeyResponseArrayOutput() UniqueKeyResponseArrayOutput {
+	return o
+}
+
+func (o UniqueKeyResponseArrayOutput) ToUniqueKeyResponseArrayOutputWithContext(ctx context.Context) UniqueKeyResponseArrayOutput {
+	return o
+}
+
+func (o UniqueKeyResponseArrayOutput) Index(i pulumi.IntInput) UniqueKeyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UniqueKeyResponse {
+		return vs[0].([]UniqueKeyResponse)[vs[1].(int)]
+	}).(UniqueKeyResponseOutput)
+}
+
 // Virtual Network ACL Rule object
 type VirtualNetworkRule struct {
 	// Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
@@ -10355,80 +14651,124 @@ func init() {
 	pulumi.RegisterOutputType(CapabilityResponseArrayOutput{})
 	pulumi.RegisterOutputType(CassandraKeyspaceGetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CassandraKeyspaceGetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(CassandraKeyspaceGetPropertiesResponseOptionsOutput{})
+	pulumi.RegisterOutputType(CassandraKeyspaceGetPropertiesResponseOptionsPtrOutput{})
+	pulumi.RegisterOutputType(CassandraKeyspaceGetPropertiesResponseResourceOutput{})
+	pulumi.RegisterOutputType(CassandraKeyspaceGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(CassandraKeyspaceResourceOutput{})
 	pulumi.RegisterOutputType(CassandraKeyspaceResourcePtrOutput{})
 	pulumi.RegisterOutputType(CassandraPartitionKeyOutput{})
 	pulumi.RegisterOutputType(CassandraPartitionKeyArrayOutput{})
-	pulumi.RegisterOutputType(CassandraResourceCassandraKeyspaceTypeOutput{})
-	pulumi.RegisterOutputType(CassandraResourceCassandraTableTypeOutput{})
+	pulumi.RegisterOutputType(CassandraPartitionKeyResponseOutput{})
+	pulumi.RegisterOutputType(CassandraPartitionKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(CassandraSchemaOutput{})
 	pulumi.RegisterOutputType(CassandraSchemaPtrOutput{})
+	pulumi.RegisterOutputType(CassandraSchemaResponseOutput{})
+	pulumi.RegisterOutputType(CassandraSchemaResponsePtrOutput{})
 	pulumi.RegisterOutputType(CassandraTableGetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CassandraTableGetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(CassandraTableGetPropertiesResponseOptionsOutput{})
+	pulumi.RegisterOutputType(CassandraTableGetPropertiesResponseOptionsPtrOutput{})
+	pulumi.RegisterOutputType(CassandraTableGetPropertiesResponseResourceOutput{})
+	pulumi.RegisterOutputType(CassandraTableGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(CassandraTableResourceOutput{})
 	pulumi.RegisterOutputType(CassandraTableResourcePtrOutput{})
 	pulumi.RegisterOutputType(ClusterKeyOutput{})
 	pulumi.RegisterOutputType(ClusterKeyArrayOutput{})
+	pulumi.RegisterOutputType(ClusterKeyResponseOutput{})
+	pulumi.RegisterOutputType(ClusterKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(ColumnOutput{})
 	pulumi.RegisterOutputType(ColumnArrayOutput{})
-	pulumi.RegisterOutputType(CompositePathListOutput{})
-	pulumi.RegisterOutputType(CompositePathListArrayOutput{})
+	pulumi.RegisterOutputType(ColumnResponseOutput{})
+	pulumi.RegisterOutputType(ColumnResponseArrayOutput{})
+	pulumi.RegisterOutputType(CompositePathOutput{})
+	pulumi.RegisterOutputType(CompositePathArrayOutput{})
+	pulumi.RegisterOutputType(CompositePathResponseOutput{})
+	pulumi.RegisterOutputType(CompositePathResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConflictResolutionPolicyOutput{})
 	pulumi.RegisterOutputType(ConflictResolutionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ConflictResolutionPolicyResponseOutput{})
+	pulumi.RegisterOutputType(ConflictResolutionPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConsistencyPolicyOutput{})
 	pulumi.RegisterOutputType(ConsistencyPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ConsistencyPolicyResponseOutput{})
 	pulumi.RegisterOutputType(ConsistencyPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(ContainerPartitionKeyOutput{})
 	pulumi.RegisterOutputType(ContainerPartitionKeyPtrOutput{})
+	pulumi.RegisterOutputType(ContainerPartitionKeyResponseOutput{})
+	pulumi.RegisterOutputType(ContainerPartitionKeyResponsePtrOutput{})
 	pulumi.RegisterOutputType(CreateUpdateOptionsOutput{})
 	pulumi.RegisterOutputType(CreateUpdateOptionsPtrOutput{})
-	pulumi.RegisterOutputType(DatabaseAccountTypeOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountConnectionStringResponseArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountGetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseAccountGetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExcludedPathOutput{})
 	pulumi.RegisterOutputType(ExcludedPathArrayOutput{})
+	pulumi.RegisterOutputType(ExcludedPathResponseOutput{})
+	pulumi.RegisterOutputType(ExcludedPathResponseArrayOutput{})
 	pulumi.RegisterOutputType(FailoverPolicyResponseOutput{})
 	pulumi.RegisterOutputType(FailoverPolicyResponseArrayOutput{})
 	pulumi.RegisterOutputType(GremlinDatabaseGetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(GremlinDatabaseGetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(GremlinDatabaseGetPropertiesResponseOptionsOutput{})
+	pulumi.RegisterOutputType(GremlinDatabaseGetPropertiesResponseOptionsPtrOutput{})
+	pulumi.RegisterOutputType(GremlinDatabaseGetPropertiesResponseResourceOutput{})
+	pulumi.RegisterOutputType(GremlinDatabaseGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(GremlinDatabaseResourceOutput{})
 	pulumi.RegisterOutputType(GremlinDatabaseResourcePtrOutput{})
 	pulumi.RegisterOutputType(GremlinGraphGetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(GremlinGraphGetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(GremlinGraphGetPropertiesResponseOptionsOutput{})
+	pulumi.RegisterOutputType(GremlinGraphGetPropertiesResponseOptionsPtrOutput{})
+	pulumi.RegisterOutputType(GremlinGraphGetPropertiesResponseResourceOutput{})
+	pulumi.RegisterOutputType(GremlinGraphGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(GremlinGraphResourceOutput{})
 	pulumi.RegisterOutputType(GremlinGraphResourcePtrOutput{})
-	pulumi.RegisterOutputType(GremlinResourceGremlinDatabaseTypeOutput{})
-	pulumi.RegisterOutputType(GremlinResourceGremlinGraphTypeOutput{})
 	pulumi.RegisterOutputType(IncludedPathOutput{})
 	pulumi.RegisterOutputType(IncludedPathArrayOutput{})
+	pulumi.RegisterOutputType(IncludedPathResponseOutput{})
+	pulumi.RegisterOutputType(IncludedPathResponseArrayOutput{})
 	pulumi.RegisterOutputType(IndexesOutput{})
 	pulumi.RegisterOutputType(IndexesArrayOutput{})
+	pulumi.RegisterOutputType(IndexesResponseOutput{})
+	pulumi.RegisterOutputType(IndexesResponseArrayOutput{})
 	pulumi.RegisterOutputType(IndexingPolicyOutput{})
 	pulumi.RegisterOutputType(IndexingPolicyPtrOutput{})
+	pulumi.RegisterOutputType(IndexingPolicyResponseOutput{})
+	pulumi.RegisterOutputType(IndexingPolicyResponsePtrOutput{})
 	pulumi.RegisterOutputType(LocationOutput{})
 	pulumi.RegisterOutputType(LocationArrayOutput{})
 	pulumi.RegisterOutputType(LocationResponseOutput{})
 	pulumi.RegisterOutputType(LocationResponseArrayOutput{})
 	pulumi.RegisterOutputType(MongoDBCollectionGetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MongoDBCollectionGetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(MongoDBCollectionGetPropertiesResponseOptionsOutput{})
+	pulumi.RegisterOutputType(MongoDBCollectionGetPropertiesResponseOptionsPtrOutput{})
+	pulumi.RegisterOutputType(MongoDBCollectionGetPropertiesResponseResourceOutput{})
+	pulumi.RegisterOutputType(MongoDBCollectionGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(MongoDBCollectionResourceOutput{})
 	pulumi.RegisterOutputType(MongoDBCollectionResourcePtrOutput{})
 	pulumi.RegisterOutputType(MongoDBDatabaseGetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MongoDBDatabaseGetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(MongoDBDatabaseGetPropertiesResponseOptionsOutput{})
+	pulumi.RegisterOutputType(MongoDBDatabaseGetPropertiesResponseOptionsPtrOutput{})
+	pulumi.RegisterOutputType(MongoDBDatabaseGetPropertiesResponseResourceOutput{})
+	pulumi.RegisterOutputType(MongoDBDatabaseGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(MongoDBDatabaseResourceOutput{})
 	pulumi.RegisterOutputType(MongoDBDatabaseResourcePtrOutput{})
-	pulumi.RegisterOutputType(MongoDBResourceMongoDBCollectionTypeOutput{})
-	pulumi.RegisterOutputType(MongoDBResourceMongoDBDatabaseTypeOutput{})
 	pulumi.RegisterOutputType(MongoIndexOutput{})
 	pulumi.RegisterOutputType(MongoIndexArrayOutput{})
 	pulumi.RegisterOutputType(MongoIndexKeysOutput{})
 	pulumi.RegisterOutputType(MongoIndexKeysPtrOutput{})
+	pulumi.RegisterOutputType(MongoIndexKeysResponseOutput{})
+	pulumi.RegisterOutputType(MongoIndexKeysResponsePtrOutput{})
 	pulumi.RegisterOutputType(MongoIndexOptionsOutput{})
 	pulumi.RegisterOutputType(MongoIndexOptionsPtrOutput{})
-	pulumi.RegisterOutputType(NotebookWorkspaceTypeOutput{})
+	pulumi.RegisterOutputType(MongoIndexOptionsResponseOutput{})
+	pulumi.RegisterOutputType(MongoIndexOptionsResponsePtrOutput{})
+	pulumi.RegisterOutputType(MongoIndexResponseOutput{})
+	pulumi.RegisterOutputType(MongoIndexResponseArrayOutput{})
 	pulumi.RegisterOutputType(NotebookWorkspacePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(NotebookWorkspacePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesResponseOutput{})
@@ -10439,50 +14779,60 @@ func init() {
 	pulumi.RegisterOutputType(PrivateEndpointPropertyResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStatePropertyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ShardKeysOutput{})
-	pulumi.RegisterOutputType(ShardKeysPtrOutput{})
 	pulumi.RegisterOutputType(SpatialSpecOutput{})
 	pulumi.RegisterOutputType(SpatialSpecArrayOutput{})
+	pulumi.RegisterOutputType(SpatialSpecResponseOutput{})
+	pulumi.RegisterOutputType(SpatialSpecResponseArrayOutput{})
 	pulumi.RegisterOutputType(SqlContainerGetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SqlContainerGetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(SqlContainerGetPropertiesResponseOptionsOutput{})
+	pulumi.RegisterOutputType(SqlContainerGetPropertiesResponseOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SqlContainerGetPropertiesResponseResourceOutput{})
+	pulumi.RegisterOutputType(SqlContainerGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(SqlContainerResourceOutput{})
 	pulumi.RegisterOutputType(SqlContainerResourcePtrOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseGetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseGetPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(SqlDatabaseGetPropertiesResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(SqlDatabaseGetPropertiesResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SqlDatabaseGetPropertiesResponseOptionsOutput{})
+	pulumi.RegisterOutputType(SqlDatabaseGetPropertiesResponseOptionsPtrOutput{})
+	pulumi.RegisterOutputType(SqlDatabaseGetPropertiesResponseResourceOutput{})
+	pulumi.RegisterOutputType(SqlDatabaseGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseResourceOutput{})
 	pulumi.RegisterOutputType(SqlDatabaseResourcePtrOutput{})
-	pulumi.RegisterOutputType(SqlResourceSqlContainerTypeOutput{})
-	pulumi.RegisterOutputType(SqlResourceSqlDatabaseTypeOutput{})
-	pulumi.RegisterOutputType(SqlResourceSqlStoredProcedureTypeOutput{})
-	pulumi.RegisterOutputType(SqlResourceSqlTriggerTypeOutput{})
-	pulumi.RegisterOutputType(SqlResourceSqlUserDefinedFunctionTypeOutput{})
 	pulumi.RegisterOutputType(SqlStoredProcedureGetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SqlStoredProcedureGetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(SqlStoredProcedureGetPropertiesResponseResourceOutput{})
+	pulumi.RegisterOutputType(SqlStoredProcedureGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(SqlStoredProcedureResourceOutput{})
 	pulumi.RegisterOutputType(SqlStoredProcedureResourcePtrOutput{})
 	pulumi.RegisterOutputType(SqlTriggerGetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SqlTriggerGetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(SqlTriggerGetPropertiesResponseResourceOutput{})
+	pulumi.RegisterOutputType(SqlTriggerGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(SqlTriggerResourceOutput{})
 	pulumi.RegisterOutputType(SqlTriggerResourcePtrOutput{})
 	pulumi.RegisterOutputType(SqlUserDefinedFunctionGetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SqlUserDefinedFunctionGetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(SqlUserDefinedFunctionGetPropertiesResponseResourceOutput{})
+	pulumi.RegisterOutputType(SqlUserDefinedFunctionGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(SqlUserDefinedFunctionResourceOutput{})
 	pulumi.RegisterOutputType(SqlUserDefinedFunctionResourcePtrOutput{})
 	pulumi.RegisterOutputType(TableGetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(TableGetPropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(TableGetPropertiesResponseOptionsOutput{})
+	pulumi.RegisterOutputType(TableGetPropertiesResponseOptionsPtrOutput{})
+	pulumi.RegisterOutputType(TableGetPropertiesResponseResourceOutput{})
+	pulumi.RegisterOutputType(TableGetPropertiesResponseResourcePtrOutput{})
 	pulumi.RegisterOutputType(TableResourceOutput{})
 	pulumi.RegisterOutputType(TableResourcePtrOutput{})
-	pulumi.RegisterOutputType(TableResourceTableTypeOutput{})
-	pulumi.RegisterOutputType(TagsOutput{})
-	pulumi.RegisterOutputType(TagsPtrOutput{})
-	pulumi.RegisterOutputType(TagsResponseOutput{})
-	pulumi.RegisterOutputType(TagsResponsePtrOutput{})
 	pulumi.RegisterOutputType(UniqueKeyOutput{})
 	pulumi.RegisterOutputType(UniqueKeyArrayOutput{})
 	pulumi.RegisterOutputType(UniqueKeyPolicyOutput{})
 	pulumi.RegisterOutputType(UniqueKeyPolicyPtrOutput{})
+	pulumi.RegisterOutputType(UniqueKeyPolicyResponseOutput{})
+	pulumi.RegisterOutputType(UniqueKeyPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(UniqueKeyResponseOutput{})
+	pulumi.RegisterOutputType(UniqueKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleArrayOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseOutput{})

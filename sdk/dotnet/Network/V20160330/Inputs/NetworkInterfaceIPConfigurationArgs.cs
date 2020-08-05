@@ -103,7 +103,7 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
         /// Subnet in a VirtualNetwork resource
         /// </summary>
         [Input("subnet")]
-        public Input<Inputs.SubnetDefinitionArgs>? Subnet { get; set; }
+        public Input<Inputs.SubnetArgs>? Subnet { get; set; }
 
         public NetworkInterfaceIPConfigurationArgs()
         {

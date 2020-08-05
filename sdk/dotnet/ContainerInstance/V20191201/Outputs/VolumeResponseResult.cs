@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.ContainerInstance.V20191201.Outputs
         /// <summary>
         /// The empty directory volume.
         /// </summary>
-        public readonly Outputs.EmptyDirVolumeResponseResult? EmptyDir;
+        public readonly ImmutableDictionary<string, object>? EmptyDir;
         /// <summary>
         /// The git repo volume.
         /// </summary>
@@ -32,19 +32,19 @@ namespace Pulumi.AzureRM.ContainerInstance.V20191201.Outputs
         /// <summary>
         /// The secret volume.
         /// </summary>
-        public readonly Outputs.SecretVolumeResponseResult? Secret;
+        public readonly ImmutableDictionary<string, string>? Secret;
 
         [OutputConstructor]
         private VolumeResponseResult(
             Outputs.AzureFileVolumeResponseResult? azureFile,
 
-            Outputs.EmptyDirVolumeResponseResult? emptyDir,
+            ImmutableDictionary<string, object>? emptyDir,
 
             Outputs.GitRepoVolumeResponseResult? gitRepo,
 
             string name,
 
-            Outputs.SecretVolumeResponseResult? secret)
+            ImmutableDictionary<string, string>? secret)
         {
             AzureFile = azureFile;
             EmptyDir = emptyDir;

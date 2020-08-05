@@ -138,7 +138,7 @@ export interface ProtectedItemArgs {
     /**
      * ProtectedItemResource properties
      */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20190615.ProtectedItemDefinition>;
+    readonly properties?: pulumi.Input<inputs.recoveryservices.v20190615.ProtectedItem>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

@@ -10,120 +10,43 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The application resource.
-type ApplicationType struct {
-	// Azure resource etag.
-	Etag string `pulumi:"etag"`
-	// Describes the managed identities for an Azure resource.
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location *string `pulumi:"location"`
-	// Azure resource name.
-	Name string `pulumi:"name"`
-	// The application resource properties.
-	Properties ApplicationResourcePropertiesResponse `pulumi:"properties"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
-	Type string `pulumi:"type"`
+// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+type ApplicationDeltaHealthPolicy struct {
+	// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
+	DefaultServiceTypeDeltaHealthPolicy *ServiceTypeDeltaHealthPolicy `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
+	// The map with service type delta health policy per service type name. The map is empty by default.
+	ServiceTypeDeltaHealthPolicies map[string]ServiceTypeDeltaHealthPolicy `pulumi:"serviceTypeDeltaHealthPolicies"`
 }
 
-// ApplicationTypeInput is an input type that accepts ApplicationTypeArgs and ApplicationTypeOutput values.
-// You can construct a concrete instance of `ApplicationTypeInput` via:
+// ApplicationDeltaHealthPolicyInput is an input type that accepts ApplicationDeltaHealthPolicyArgs and ApplicationDeltaHealthPolicyOutput values.
+// You can construct a concrete instance of `ApplicationDeltaHealthPolicyInput` via:
 //
-//          ApplicationTypeArgs{...}
-type ApplicationTypeInput interface {
+//          ApplicationDeltaHealthPolicyArgs{...}
+type ApplicationDeltaHealthPolicyInput interface {
 	pulumi.Input
 
-	ToApplicationTypeOutput() ApplicationTypeOutput
-	ToApplicationTypeOutputWithContext(context.Context) ApplicationTypeOutput
+	ToApplicationDeltaHealthPolicyOutput() ApplicationDeltaHealthPolicyOutput
+	ToApplicationDeltaHealthPolicyOutputWithContext(context.Context) ApplicationDeltaHealthPolicyOutput
 }
 
-// The application resource.
-type ApplicationTypeArgs struct {
-	// Azure resource etag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Describes the managed identities for an Azure resource.
-	Identity ManagedIdentityResponsePtrInput `pulumi:"identity"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The application resource properties.
-	Properties ApplicationResourcePropertiesResponseInput `pulumi:"properties"`
-	// Azure resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+type ApplicationDeltaHealthPolicyArgs struct {
+	// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
+	DefaultServiceTypeDeltaHealthPolicy ServiceTypeDeltaHealthPolicyPtrInput `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
+	// The map with service type delta health policy per service type name. The map is empty by default.
+	ServiceTypeDeltaHealthPolicies ServiceTypeDeltaHealthPolicyMapInput `pulumi:"serviceTypeDeltaHealthPolicies"`
 }
 
-func (ApplicationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
+func (ApplicationDeltaHealthPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDeltaHealthPolicy)(nil)).Elem()
 }
 
-func (i ApplicationTypeArgs) ToApplicationTypeOutput() ApplicationTypeOutput {
-	return i.ToApplicationTypeOutputWithContext(context.Background())
+func (i ApplicationDeltaHealthPolicyArgs) ToApplicationDeltaHealthPolicyOutput() ApplicationDeltaHealthPolicyOutput {
+	return i.ToApplicationDeltaHealthPolicyOutputWithContext(context.Background())
 }
 
-func (i ApplicationTypeArgs) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeOutput)
-}
-
-// The application resource.
-type ApplicationTypeOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
-}
-
-func (o ApplicationTypeOutput) ToApplicationTypeOutput() ApplicationTypeOutput {
-	return o
-}
-
-func (o ApplicationTypeOutput) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
-	return o
-}
-
-// Azure resource etag.
-func (o ApplicationTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// Describes the managed identities for an Azure resource.
-func (o ApplicationTypeOutput) Identity() ManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationType) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
-}
-
-// It will be deprecated in New API, resource location depends on the parent resource.
-func (o ApplicationTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Azure resource name.
-func (o ApplicationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The application resource properties.
-func (o ApplicationTypeOutput) Properties() ApplicationResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v ApplicationType) ApplicationResourcePropertiesResponse { return v.Properties }).(ApplicationResourcePropertiesResponseOutput)
-}
-
-// Azure resource tags.
-func (o ApplicationTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type.
-func (o ApplicationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Defines a map that contains specific application delta health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationDeltaHealthPolicyMap struct {
+func (i ApplicationDeltaHealthPolicyArgs) ToApplicationDeltaHealthPolicyOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyOutput)
 }
 
 // ApplicationDeltaHealthPolicyMapInput is an input type that accepts ApplicationDeltaHealthPolicyMap and ApplicationDeltaHealthPolicyMapOutput values.
@@ -137,74 +60,53 @@ type ApplicationDeltaHealthPolicyMapInput interface {
 	ToApplicationDeltaHealthPolicyMapOutputWithContext(context.Context) ApplicationDeltaHealthPolicyMapOutput
 }
 
-// Defines a map that contains specific application delta health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationDeltaHealthPolicyMapArgs struct {
+type ApplicationDeltaHealthPolicyMap map[string]ApplicationDeltaHealthPolicyInput
+
+func (ApplicationDeltaHealthPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApplicationDeltaHealthPolicy)(nil)).Elem()
 }
 
-func (ApplicationDeltaHealthPolicyMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDeltaHealthPolicyMap)(nil)).Elem()
-}
-
-func (i ApplicationDeltaHealthPolicyMapArgs) ToApplicationDeltaHealthPolicyMapOutput() ApplicationDeltaHealthPolicyMapOutput {
+func (i ApplicationDeltaHealthPolicyMap) ToApplicationDeltaHealthPolicyMapOutput() ApplicationDeltaHealthPolicyMapOutput {
 	return i.ToApplicationDeltaHealthPolicyMapOutputWithContext(context.Background())
 }
 
-func (i ApplicationDeltaHealthPolicyMapArgs) ToApplicationDeltaHealthPolicyMapOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapOutput {
+func (i ApplicationDeltaHealthPolicyMap) ToApplicationDeltaHealthPolicyMapOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyMapOutput)
 }
 
-func (i ApplicationDeltaHealthPolicyMapArgs) ToApplicationDeltaHealthPolicyMapPtrOutput() ApplicationDeltaHealthPolicyMapPtrOutput {
-	return i.ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(context.Background())
+// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+type ApplicationDeltaHealthPolicyOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDeltaHealthPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDeltaHealthPolicy)(nil)).Elem()
 }
 
-func (i ApplicationDeltaHealthPolicyMapArgs) ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyMapOutput).ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(ctx)
+func (o ApplicationDeltaHealthPolicyOutput) ToApplicationDeltaHealthPolicyOutput() ApplicationDeltaHealthPolicyOutput {
+	return o
 }
 
-// ApplicationDeltaHealthPolicyMapPtrInput is an input type that accepts ApplicationDeltaHealthPolicyMapArgs, ApplicationDeltaHealthPolicyMapPtr and ApplicationDeltaHealthPolicyMapPtrOutput values.
-// You can construct a concrete instance of `ApplicationDeltaHealthPolicyMapPtrInput` via:
-//
-//          ApplicationDeltaHealthPolicyMapArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationDeltaHealthPolicyMapPtrInput interface {
-	pulumi.Input
-
-	ToApplicationDeltaHealthPolicyMapPtrOutput() ApplicationDeltaHealthPolicyMapPtrOutput
-	ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(context.Context) ApplicationDeltaHealthPolicyMapPtrOutput
+func (o ApplicationDeltaHealthPolicyOutput) ToApplicationDeltaHealthPolicyOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyOutput {
+	return o
 }
 
-type applicationDeltaHealthPolicyMapPtrType ApplicationDeltaHealthPolicyMapArgs
-
-func ApplicationDeltaHealthPolicyMapPtr(v *ApplicationDeltaHealthPolicyMapArgs) ApplicationDeltaHealthPolicyMapPtrInput {
-	return (*applicationDeltaHealthPolicyMapPtrType)(v)
+// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
+func (o ApplicationDeltaHealthPolicyOutput) DefaultServiceTypeDeltaHealthPolicy() ServiceTypeDeltaHealthPolicyPtrOutput {
+	return o.ApplyT(func(v ApplicationDeltaHealthPolicy) *ServiceTypeDeltaHealthPolicy {
+		return v.DefaultServiceTypeDeltaHealthPolicy
+	}).(ServiceTypeDeltaHealthPolicyPtrOutput)
 }
 
-func (*applicationDeltaHealthPolicyMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationDeltaHealthPolicyMap)(nil)).Elem()
+// The map with service type delta health policy per service type name. The map is empty by default.
+func (o ApplicationDeltaHealthPolicyOutput) ServiceTypeDeltaHealthPolicies() ServiceTypeDeltaHealthPolicyMapOutput {
+	return o.ApplyT(func(v ApplicationDeltaHealthPolicy) map[string]ServiceTypeDeltaHealthPolicy {
+		return v.ServiceTypeDeltaHealthPolicies
+	}).(ServiceTypeDeltaHealthPolicyMapOutput)
 }
 
-func (i *applicationDeltaHealthPolicyMapPtrType) ToApplicationDeltaHealthPolicyMapPtrOutput() ApplicationDeltaHealthPolicyMapPtrOutput {
-	return i.ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationDeltaHealthPolicyMapPtrType) ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyMapPtrOutput)
-}
-
-// Defines a map that contains specific application delta health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
 type ApplicationDeltaHealthPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDeltaHealthPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDeltaHealthPolicyMap)(nil)).Elem()
+	return reflect.TypeOf((*map[string]ApplicationDeltaHealthPolicy)(nil)).Elem()
 }
 
 func (o ApplicationDeltaHealthPolicyMapOutput) ToApplicationDeltaHealthPolicyMapOutput() ApplicationDeltaHealthPolicyMapOutput {
@@ -215,163 +117,162 @@ func (o ApplicationDeltaHealthPolicyMapOutput) ToApplicationDeltaHealthPolicyMap
 	return o
 }
 
-func (o ApplicationDeltaHealthPolicyMapOutput) ToApplicationDeltaHealthPolicyMapPtrOutput() ApplicationDeltaHealthPolicyMapPtrOutput {
-	return o.ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(context.Background())
+func (o ApplicationDeltaHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) ApplicationDeltaHealthPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationDeltaHealthPolicy {
+		return vs[0].(map[string]ApplicationDeltaHealthPolicy)[vs[1].(string)]
+	}).(ApplicationDeltaHealthPolicyOutput)
 }
 
-func (o ApplicationDeltaHealthPolicyMapOutput) ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapPtrOutput {
-	return o.ApplyT(func(v ApplicationDeltaHealthPolicyMap) *ApplicationDeltaHealthPolicyMap {
-		return &v
-	}).(ApplicationDeltaHealthPolicyMapPtrOutput)
+// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+type ApplicationDeltaHealthPolicyResponse struct {
+	// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
+	DefaultServiceTypeDeltaHealthPolicy *ServiceTypeDeltaHealthPolicyResponse `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
+	// The map with service type delta health policy per service type name. The map is empty by default.
+	ServiceTypeDeltaHealthPolicies map[string]ServiceTypeDeltaHealthPolicyResponse `pulumi:"serviceTypeDeltaHealthPolicies"`
 }
 
-type ApplicationDeltaHealthPolicyMapPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationDeltaHealthPolicyMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationDeltaHealthPolicyMap)(nil)).Elem()
-}
-
-func (o ApplicationDeltaHealthPolicyMapPtrOutput) ToApplicationDeltaHealthPolicyMapPtrOutput() ApplicationDeltaHealthPolicyMapPtrOutput {
-	return o
-}
-
-func (o ApplicationDeltaHealthPolicyMapPtrOutput) ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapPtrOutput {
-	return o
-}
-
-func (o ApplicationDeltaHealthPolicyMapPtrOutput) Elem() ApplicationDeltaHealthPolicyMapOutput {
-	return o.ApplyT(func(v *ApplicationDeltaHealthPolicyMap) ApplicationDeltaHealthPolicyMap { return *v }).(ApplicationDeltaHealthPolicyMapOutput)
-}
-
-// Defines a map that contains specific application delta health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationDeltaHealthPolicyMapResponse struct {
-}
-
-// ApplicationDeltaHealthPolicyMapResponseInput is an input type that accepts ApplicationDeltaHealthPolicyMapResponseArgs and ApplicationDeltaHealthPolicyMapResponseOutput values.
-// You can construct a concrete instance of `ApplicationDeltaHealthPolicyMapResponseInput` via:
+// ApplicationDeltaHealthPolicyResponseInput is an input type that accepts ApplicationDeltaHealthPolicyResponseArgs and ApplicationDeltaHealthPolicyResponseOutput values.
+// You can construct a concrete instance of `ApplicationDeltaHealthPolicyResponseInput` via:
 //
-//          ApplicationDeltaHealthPolicyMapResponseArgs{...}
-type ApplicationDeltaHealthPolicyMapResponseInput interface {
+//          ApplicationDeltaHealthPolicyResponseArgs{...}
+type ApplicationDeltaHealthPolicyResponseInput interface {
 	pulumi.Input
 
-	ToApplicationDeltaHealthPolicyMapResponseOutput() ApplicationDeltaHealthPolicyMapResponseOutput
-	ToApplicationDeltaHealthPolicyMapResponseOutputWithContext(context.Context) ApplicationDeltaHealthPolicyMapResponseOutput
+	ToApplicationDeltaHealthPolicyResponseOutput() ApplicationDeltaHealthPolicyResponseOutput
+	ToApplicationDeltaHealthPolicyResponseOutputWithContext(context.Context) ApplicationDeltaHealthPolicyResponseOutput
 }
 
-// Defines a map that contains specific application delta health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationDeltaHealthPolicyMapResponseArgs struct {
+// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+type ApplicationDeltaHealthPolicyResponseArgs struct {
+	// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
+	DefaultServiceTypeDeltaHealthPolicy ServiceTypeDeltaHealthPolicyResponsePtrInput `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
+	// The map with service type delta health policy per service type name. The map is empty by default.
+	ServiceTypeDeltaHealthPolicies ServiceTypeDeltaHealthPolicyResponseMapInput `pulumi:"serviceTypeDeltaHealthPolicies"`
 }
 
-func (ApplicationDeltaHealthPolicyMapResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDeltaHealthPolicyMapResponse)(nil)).Elem()
+func (ApplicationDeltaHealthPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDeltaHealthPolicyResponse)(nil)).Elem()
 }
 
-func (i ApplicationDeltaHealthPolicyMapResponseArgs) ToApplicationDeltaHealthPolicyMapResponseOutput() ApplicationDeltaHealthPolicyMapResponseOutput {
-	return i.ToApplicationDeltaHealthPolicyMapResponseOutputWithContext(context.Background())
+func (i ApplicationDeltaHealthPolicyResponseArgs) ToApplicationDeltaHealthPolicyResponseOutput() ApplicationDeltaHealthPolicyResponseOutput {
+	return i.ToApplicationDeltaHealthPolicyResponseOutputWithContext(context.Background())
 }
 
-func (i ApplicationDeltaHealthPolicyMapResponseArgs) ToApplicationDeltaHealthPolicyMapResponseOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyMapResponseOutput)
+func (i ApplicationDeltaHealthPolicyResponseArgs) ToApplicationDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyResponseOutput)
 }
 
-func (i ApplicationDeltaHealthPolicyMapResponseArgs) ToApplicationDeltaHealthPolicyMapResponsePtrOutput() ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return i.ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationDeltaHealthPolicyMapResponseArgs) ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyMapResponseOutput).ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(ctx)
-}
-
-// ApplicationDeltaHealthPolicyMapResponsePtrInput is an input type that accepts ApplicationDeltaHealthPolicyMapResponseArgs, ApplicationDeltaHealthPolicyMapResponsePtr and ApplicationDeltaHealthPolicyMapResponsePtrOutput values.
-// You can construct a concrete instance of `ApplicationDeltaHealthPolicyMapResponsePtrInput` via:
+// ApplicationDeltaHealthPolicyResponseMapInput is an input type that accepts ApplicationDeltaHealthPolicyResponseMap and ApplicationDeltaHealthPolicyResponseMapOutput values.
+// You can construct a concrete instance of `ApplicationDeltaHealthPolicyResponseMapInput` via:
 //
-//          ApplicationDeltaHealthPolicyMapResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationDeltaHealthPolicyMapResponsePtrInput interface {
+//          ApplicationDeltaHealthPolicyResponseMap{ "key": ApplicationDeltaHealthPolicyResponseArgs{...} }
+type ApplicationDeltaHealthPolicyResponseMapInput interface {
 	pulumi.Input
 
-	ToApplicationDeltaHealthPolicyMapResponsePtrOutput() ApplicationDeltaHealthPolicyMapResponsePtrOutput
-	ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(context.Context) ApplicationDeltaHealthPolicyMapResponsePtrOutput
+	ToApplicationDeltaHealthPolicyResponseMapOutput() ApplicationDeltaHealthPolicyResponseMapOutput
+	ToApplicationDeltaHealthPolicyResponseMapOutputWithContext(context.Context) ApplicationDeltaHealthPolicyResponseMapOutput
 }
 
-type applicationDeltaHealthPolicyMapResponsePtrType ApplicationDeltaHealthPolicyMapResponseArgs
+type ApplicationDeltaHealthPolicyResponseMap map[string]ApplicationDeltaHealthPolicyResponseInput
 
-func ApplicationDeltaHealthPolicyMapResponsePtr(v *ApplicationDeltaHealthPolicyMapResponseArgs) ApplicationDeltaHealthPolicyMapResponsePtrInput {
-	return (*applicationDeltaHealthPolicyMapResponsePtrType)(v)
+func (ApplicationDeltaHealthPolicyResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApplicationDeltaHealthPolicyResponse)(nil)).Elem()
 }
 
-func (*applicationDeltaHealthPolicyMapResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationDeltaHealthPolicyMapResponse)(nil)).Elem()
+func (i ApplicationDeltaHealthPolicyResponseMap) ToApplicationDeltaHealthPolicyResponseMapOutput() ApplicationDeltaHealthPolicyResponseMapOutput {
+	return i.ToApplicationDeltaHealthPolicyResponseMapOutputWithContext(context.Background())
 }
 
-func (i *applicationDeltaHealthPolicyMapResponsePtrType) ToApplicationDeltaHealthPolicyMapResponsePtrOutput() ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return i.ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(context.Background())
+func (i ApplicationDeltaHealthPolicyResponseMap) ToApplicationDeltaHealthPolicyResponseMapOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyResponseMapOutput)
 }
 
-func (i *applicationDeltaHealthPolicyMapResponsePtrType) ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyMapResponsePtrOutput)
+// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+type ApplicationDeltaHealthPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDeltaHealthPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDeltaHealthPolicyResponse)(nil)).Elem()
 }
 
-// Defines a map that contains specific application delta health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationDeltaHealthPolicyMapResponseOutput struct{ *pulumi.OutputState }
-
-func (ApplicationDeltaHealthPolicyMapResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDeltaHealthPolicyMapResponse)(nil)).Elem()
-}
-
-func (o ApplicationDeltaHealthPolicyMapResponseOutput) ToApplicationDeltaHealthPolicyMapResponseOutput() ApplicationDeltaHealthPolicyMapResponseOutput {
+func (o ApplicationDeltaHealthPolicyResponseOutput) ToApplicationDeltaHealthPolicyResponseOutput() ApplicationDeltaHealthPolicyResponseOutput {
 	return o
 }
 
-func (o ApplicationDeltaHealthPolicyMapResponseOutput) ToApplicationDeltaHealthPolicyMapResponseOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapResponseOutput {
+func (o ApplicationDeltaHealthPolicyResponseOutput) ToApplicationDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyResponseOutput {
 	return o
 }
 
-func (o ApplicationDeltaHealthPolicyMapResponseOutput) ToApplicationDeltaHealthPolicyMapResponsePtrOutput() ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return o.ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(context.Background())
+// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
+func (o ApplicationDeltaHealthPolicyResponseOutput) DefaultServiceTypeDeltaHealthPolicy() ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationDeltaHealthPolicyResponse) *ServiceTypeDeltaHealthPolicyResponse {
+		return v.DefaultServiceTypeDeltaHealthPolicy
+	}).(ServiceTypeDeltaHealthPolicyResponsePtrOutput)
 }
 
-func (o ApplicationDeltaHealthPolicyMapResponseOutput) ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationDeltaHealthPolicyMapResponse) *ApplicationDeltaHealthPolicyMapResponse {
-		return &v
-	}).(ApplicationDeltaHealthPolicyMapResponsePtrOutput)
+// The map with service type delta health policy per service type name. The map is empty by default.
+func (o ApplicationDeltaHealthPolicyResponseOutput) ServiceTypeDeltaHealthPolicies() ServiceTypeDeltaHealthPolicyResponseMapOutput {
+	return o.ApplyT(func(v ApplicationDeltaHealthPolicyResponse) map[string]ServiceTypeDeltaHealthPolicyResponse {
+		return v.ServiceTypeDeltaHealthPolicies
+	}).(ServiceTypeDeltaHealthPolicyResponseMapOutput)
 }
 
-type ApplicationDeltaHealthPolicyMapResponsePtrOutput struct{ *pulumi.OutputState }
+type ApplicationDeltaHealthPolicyResponseMapOutput struct{ *pulumi.OutputState }
 
-func (ApplicationDeltaHealthPolicyMapResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationDeltaHealthPolicyMapResponse)(nil)).Elem()
+func (ApplicationDeltaHealthPolicyResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApplicationDeltaHealthPolicyResponse)(nil)).Elem()
 }
 
-func (o ApplicationDeltaHealthPolicyMapResponsePtrOutput) ToApplicationDeltaHealthPolicyMapResponsePtrOutput() ApplicationDeltaHealthPolicyMapResponsePtrOutput {
+func (o ApplicationDeltaHealthPolicyResponseMapOutput) ToApplicationDeltaHealthPolicyResponseMapOutput() ApplicationDeltaHealthPolicyResponseMapOutput {
 	return o
 }
 
-func (o ApplicationDeltaHealthPolicyMapResponsePtrOutput) ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapResponsePtrOutput {
+func (o ApplicationDeltaHealthPolicyResponseMapOutput) ToApplicationDeltaHealthPolicyResponseMapOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyResponseMapOutput {
 	return o
 }
 
-func (o ApplicationDeltaHealthPolicyMapResponsePtrOutput) Elem() ApplicationDeltaHealthPolicyMapResponseOutput {
-	return o.ApplyT(func(v *ApplicationDeltaHealthPolicyMapResponse) ApplicationDeltaHealthPolicyMapResponse { return *v }).(ApplicationDeltaHealthPolicyMapResponseOutput)
+func (o ApplicationDeltaHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInput) ApplicationDeltaHealthPolicyResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationDeltaHealthPolicyResponse {
+		return vs[0].(map[string]ApplicationDeltaHealthPolicyResponse)[vs[1].(string)]
+	}).(ApplicationDeltaHealthPolicyResponseOutput)
 }
 
-// Defines a map that contains specific application health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationHealthPolicy used to evaluate the application health.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationHealthPolicyMap struct {
+// Defines a health policy used to evaluate the health of an application or one of its children entities.
+type ApplicationHealthPolicy struct {
+	// The health policy used by default to evaluate the health of a service type.
+	DefaultServiceTypeHealthPolicy *ServiceTypeHealthPolicy `pulumi:"defaultServiceTypeHealthPolicy"`
+	// The map with service type health policy per service type name. The map is empty by default.
+	ServiceTypeHealthPolicies map[string]ServiceTypeHealthPolicy `pulumi:"serviceTypeHealthPolicies"`
+}
+
+// ApplicationHealthPolicyInput is an input type that accepts ApplicationHealthPolicyArgs and ApplicationHealthPolicyOutput values.
+// You can construct a concrete instance of `ApplicationHealthPolicyInput` via:
+//
+//          ApplicationHealthPolicyArgs{...}
+type ApplicationHealthPolicyInput interface {
+	pulumi.Input
+
+	ToApplicationHealthPolicyOutput() ApplicationHealthPolicyOutput
+	ToApplicationHealthPolicyOutputWithContext(context.Context) ApplicationHealthPolicyOutput
+}
+
+// Defines a health policy used to evaluate the health of an application or one of its children entities.
+type ApplicationHealthPolicyArgs struct {
+	// The health policy used by default to evaluate the health of a service type.
+	DefaultServiceTypeHealthPolicy ServiceTypeHealthPolicyPtrInput `pulumi:"defaultServiceTypeHealthPolicy"`
+	// The map with service type health policy per service type name. The map is empty by default.
+	ServiceTypeHealthPolicies ServiceTypeHealthPolicyMapInput `pulumi:"serviceTypeHealthPolicies"`
+}
+
+func (ApplicationHealthPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationHealthPolicy)(nil)).Elem()
+}
+
+func (i ApplicationHealthPolicyArgs) ToApplicationHealthPolicyOutput() ApplicationHealthPolicyOutput {
+	return i.ToApplicationHealthPolicyOutputWithContext(context.Background())
+}
+
+func (i ApplicationHealthPolicyArgs) ToApplicationHealthPolicyOutputWithContext(ctx context.Context) ApplicationHealthPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyOutput)
 }
 
 // ApplicationHealthPolicyMapInput is an input type that accepts ApplicationHealthPolicyMap and ApplicationHealthPolicyMapOutput values.
@@ -385,74 +286,49 @@ type ApplicationHealthPolicyMapInput interface {
 	ToApplicationHealthPolicyMapOutputWithContext(context.Context) ApplicationHealthPolicyMapOutput
 }
 
-// Defines a map that contains specific application health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationHealthPolicy used to evaluate the application health.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationHealthPolicyMapArgs struct {
+type ApplicationHealthPolicyMap map[string]ApplicationHealthPolicyInput
+
+func (ApplicationHealthPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApplicationHealthPolicy)(nil)).Elem()
 }
 
-func (ApplicationHealthPolicyMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationHealthPolicyMap)(nil)).Elem()
-}
-
-func (i ApplicationHealthPolicyMapArgs) ToApplicationHealthPolicyMapOutput() ApplicationHealthPolicyMapOutput {
+func (i ApplicationHealthPolicyMap) ToApplicationHealthPolicyMapOutput() ApplicationHealthPolicyMapOutput {
 	return i.ToApplicationHealthPolicyMapOutputWithContext(context.Background())
 }
 
-func (i ApplicationHealthPolicyMapArgs) ToApplicationHealthPolicyMapOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapOutput {
+func (i ApplicationHealthPolicyMap) ToApplicationHealthPolicyMapOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyMapOutput)
 }
 
-func (i ApplicationHealthPolicyMapArgs) ToApplicationHealthPolicyMapPtrOutput() ApplicationHealthPolicyMapPtrOutput {
-	return i.ToApplicationHealthPolicyMapPtrOutputWithContext(context.Background())
+// Defines a health policy used to evaluate the health of an application or one of its children entities.
+type ApplicationHealthPolicyOutput struct{ *pulumi.OutputState }
+
+func (ApplicationHealthPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationHealthPolicy)(nil)).Elem()
 }
 
-func (i ApplicationHealthPolicyMapArgs) ToApplicationHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyMapOutput).ToApplicationHealthPolicyMapPtrOutputWithContext(ctx)
+func (o ApplicationHealthPolicyOutput) ToApplicationHealthPolicyOutput() ApplicationHealthPolicyOutput {
+	return o
 }
 
-// ApplicationHealthPolicyMapPtrInput is an input type that accepts ApplicationHealthPolicyMapArgs, ApplicationHealthPolicyMapPtr and ApplicationHealthPolicyMapPtrOutput values.
-// You can construct a concrete instance of `ApplicationHealthPolicyMapPtrInput` via:
-//
-//          ApplicationHealthPolicyMapArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationHealthPolicyMapPtrInput interface {
-	pulumi.Input
-
-	ToApplicationHealthPolicyMapPtrOutput() ApplicationHealthPolicyMapPtrOutput
-	ToApplicationHealthPolicyMapPtrOutputWithContext(context.Context) ApplicationHealthPolicyMapPtrOutput
+func (o ApplicationHealthPolicyOutput) ToApplicationHealthPolicyOutputWithContext(ctx context.Context) ApplicationHealthPolicyOutput {
+	return o
 }
 
-type applicationHealthPolicyMapPtrType ApplicationHealthPolicyMapArgs
-
-func ApplicationHealthPolicyMapPtr(v *ApplicationHealthPolicyMapArgs) ApplicationHealthPolicyMapPtrInput {
-	return (*applicationHealthPolicyMapPtrType)(v)
+// The health policy used by default to evaluate the health of a service type.
+func (o ApplicationHealthPolicyOutput) DefaultServiceTypeHealthPolicy() ServiceTypeHealthPolicyPtrOutput {
+	return o.ApplyT(func(v ApplicationHealthPolicy) *ServiceTypeHealthPolicy { return v.DefaultServiceTypeHealthPolicy }).(ServiceTypeHealthPolicyPtrOutput)
 }
 
-func (*applicationHealthPolicyMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationHealthPolicyMap)(nil)).Elem()
+// The map with service type health policy per service type name. The map is empty by default.
+func (o ApplicationHealthPolicyOutput) ServiceTypeHealthPolicies() ServiceTypeHealthPolicyMapOutput {
+	return o.ApplyT(func(v ApplicationHealthPolicy) map[string]ServiceTypeHealthPolicy { return v.ServiceTypeHealthPolicies }).(ServiceTypeHealthPolicyMapOutput)
 }
 
-func (i *applicationHealthPolicyMapPtrType) ToApplicationHealthPolicyMapPtrOutput() ApplicationHealthPolicyMapPtrOutput {
-	return i.ToApplicationHealthPolicyMapPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationHealthPolicyMapPtrType) ToApplicationHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyMapPtrOutput)
-}
-
-// Defines a map that contains specific application health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationHealthPolicy used to evaluate the application health.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
 type ApplicationHealthPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ApplicationHealthPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationHealthPolicyMap)(nil)).Elem()
+	return reflect.TypeOf((*map[string]ApplicationHealthPolicy)(nil)).Elem()
 }
 
 func (o ApplicationHealthPolicyMapOutput) ToApplicationHealthPolicyMapOutput() ApplicationHealthPolicyMapOutput {
@@ -463,616 +339,437 @@ func (o ApplicationHealthPolicyMapOutput) ToApplicationHealthPolicyMapOutputWith
 	return o
 }
 
-func (o ApplicationHealthPolicyMapOutput) ToApplicationHealthPolicyMapPtrOutput() ApplicationHealthPolicyMapPtrOutput {
-	return o.ToApplicationHealthPolicyMapPtrOutputWithContext(context.Background())
+func (o ApplicationHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) ApplicationHealthPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationHealthPolicy {
+		return vs[0].(map[string]ApplicationHealthPolicy)[vs[1].(string)]
+	}).(ApplicationHealthPolicyOutput)
 }
 
-func (o ApplicationHealthPolicyMapOutput) ToApplicationHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapPtrOutput {
-	return o.ApplyT(func(v ApplicationHealthPolicyMap) *ApplicationHealthPolicyMap {
-		return &v
-	}).(ApplicationHealthPolicyMapPtrOutput)
+// Defines a health policy used to evaluate the health of an application or one of its children entities.
+type ApplicationHealthPolicyResponse struct {
+	// The health policy used by default to evaluate the health of a service type.
+	DefaultServiceTypeHealthPolicy *ServiceTypeHealthPolicyResponse `pulumi:"defaultServiceTypeHealthPolicy"`
+	// The map with service type health policy per service type name. The map is empty by default.
+	ServiceTypeHealthPolicies map[string]ServiceTypeHealthPolicyResponse `pulumi:"serviceTypeHealthPolicies"`
 }
 
-type ApplicationHealthPolicyMapPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationHealthPolicyMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationHealthPolicyMap)(nil)).Elem()
-}
-
-func (o ApplicationHealthPolicyMapPtrOutput) ToApplicationHealthPolicyMapPtrOutput() ApplicationHealthPolicyMapPtrOutput {
-	return o
-}
-
-func (o ApplicationHealthPolicyMapPtrOutput) ToApplicationHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapPtrOutput {
-	return o
-}
-
-func (o ApplicationHealthPolicyMapPtrOutput) Elem() ApplicationHealthPolicyMapOutput {
-	return o.ApplyT(func(v *ApplicationHealthPolicyMap) ApplicationHealthPolicyMap { return *v }).(ApplicationHealthPolicyMapOutput)
-}
-
-// Defines a map that contains specific application health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationHealthPolicy used to evaluate the application health.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationHealthPolicyMapResponse struct {
-}
-
-// ApplicationHealthPolicyMapResponseInput is an input type that accepts ApplicationHealthPolicyMapResponseArgs and ApplicationHealthPolicyMapResponseOutput values.
-// You can construct a concrete instance of `ApplicationHealthPolicyMapResponseInput` via:
+// ApplicationHealthPolicyResponseInput is an input type that accepts ApplicationHealthPolicyResponseArgs and ApplicationHealthPolicyResponseOutput values.
+// You can construct a concrete instance of `ApplicationHealthPolicyResponseInput` via:
 //
-//          ApplicationHealthPolicyMapResponseArgs{...}
-type ApplicationHealthPolicyMapResponseInput interface {
+//          ApplicationHealthPolicyResponseArgs{...}
+type ApplicationHealthPolicyResponseInput interface {
 	pulumi.Input
 
-	ToApplicationHealthPolicyMapResponseOutput() ApplicationHealthPolicyMapResponseOutput
-	ToApplicationHealthPolicyMapResponseOutputWithContext(context.Context) ApplicationHealthPolicyMapResponseOutput
+	ToApplicationHealthPolicyResponseOutput() ApplicationHealthPolicyResponseOutput
+	ToApplicationHealthPolicyResponseOutputWithContext(context.Context) ApplicationHealthPolicyResponseOutput
 }
 
-// Defines a map that contains specific application health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationHealthPolicy used to evaluate the application health.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationHealthPolicyMapResponseArgs struct {
+// Defines a health policy used to evaluate the health of an application or one of its children entities.
+type ApplicationHealthPolicyResponseArgs struct {
+	// The health policy used by default to evaluate the health of a service type.
+	DefaultServiceTypeHealthPolicy ServiceTypeHealthPolicyResponsePtrInput `pulumi:"defaultServiceTypeHealthPolicy"`
+	// The map with service type health policy per service type name. The map is empty by default.
+	ServiceTypeHealthPolicies ServiceTypeHealthPolicyResponseMapInput `pulumi:"serviceTypeHealthPolicies"`
 }
 
-func (ApplicationHealthPolicyMapResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationHealthPolicyMapResponse)(nil)).Elem()
+func (ApplicationHealthPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationHealthPolicyResponse)(nil)).Elem()
 }
 
-func (i ApplicationHealthPolicyMapResponseArgs) ToApplicationHealthPolicyMapResponseOutput() ApplicationHealthPolicyMapResponseOutput {
-	return i.ToApplicationHealthPolicyMapResponseOutputWithContext(context.Background())
+func (i ApplicationHealthPolicyResponseArgs) ToApplicationHealthPolicyResponseOutput() ApplicationHealthPolicyResponseOutput {
+	return i.ToApplicationHealthPolicyResponseOutputWithContext(context.Background())
 }
 
-func (i ApplicationHealthPolicyMapResponseArgs) ToApplicationHealthPolicyMapResponseOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyMapResponseOutput)
+func (i ApplicationHealthPolicyResponseArgs) ToApplicationHealthPolicyResponseOutputWithContext(ctx context.Context) ApplicationHealthPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyResponseOutput)
 }
 
-func (i ApplicationHealthPolicyMapResponseArgs) ToApplicationHealthPolicyMapResponsePtrOutput() ApplicationHealthPolicyMapResponsePtrOutput {
-	return i.ToApplicationHealthPolicyMapResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationHealthPolicyMapResponseArgs) ToApplicationHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyMapResponseOutput).ToApplicationHealthPolicyMapResponsePtrOutputWithContext(ctx)
-}
-
-// ApplicationHealthPolicyMapResponsePtrInput is an input type that accepts ApplicationHealthPolicyMapResponseArgs, ApplicationHealthPolicyMapResponsePtr and ApplicationHealthPolicyMapResponsePtrOutput values.
-// You can construct a concrete instance of `ApplicationHealthPolicyMapResponsePtrInput` via:
+// ApplicationHealthPolicyResponseMapInput is an input type that accepts ApplicationHealthPolicyResponseMap and ApplicationHealthPolicyResponseMapOutput values.
+// You can construct a concrete instance of `ApplicationHealthPolicyResponseMapInput` via:
 //
-//          ApplicationHealthPolicyMapResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationHealthPolicyMapResponsePtrInput interface {
+//          ApplicationHealthPolicyResponseMap{ "key": ApplicationHealthPolicyResponseArgs{...} }
+type ApplicationHealthPolicyResponseMapInput interface {
 	pulumi.Input
 
-	ToApplicationHealthPolicyMapResponsePtrOutput() ApplicationHealthPolicyMapResponsePtrOutput
-	ToApplicationHealthPolicyMapResponsePtrOutputWithContext(context.Context) ApplicationHealthPolicyMapResponsePtrOutput
+	ToApplicationHealthPolicyResponseMapOutput() ApplicationHealthPolicyResponseMapOutput
+	ToApplicationHealthPolicyResponseMapOutputWithContext(context.Context) ApplicationHealthPolicyResponseMapOutput
 }
 
-type applicationHealthPolicyMapResponsePtrType ApplicationHealthPolicyMapResponseArgs
+type ApplicationHealthPolicyResponseMap map[string]ApplicationHealthPolicyResponseInput
 
-func ApplicationHealthPolicyMapResponsePtr(v *ApplicationHealthPolicyMapResponseArgs) ApplicationHealthPolicyMapResponsePtrInput {
-	return (*applicationHealthPolicyMapResponsePtrType)(v)
+func (ApplicationHealthPolicyResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApplicationHealthPolicyResponse)(nil)).Elem()
 }
 
-func (*applicationHealthPolicyMapResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationHealthPolicyMapResponse)(nil)).Elem()
+func (i ApplicationHealthPolicyResponseMap) ToApplicationHealthPolicyResponseMapOutput() ApplicationHealthPolicyResponseMapOutput {
+	return i.ToApplicationHealthPolicyResponseMapOutputWithContext(context.Background())
 }
 
-func (i *applicationHealthPolicyMapResponsePtrType) ToApplicationHealthPolicyMapResponsePtrOutput() ApplicationHealthPolicyMapResponsePtrOutput {
-	return i.ToApplicationHealthPolicyMapResponsePtrOutputWithContext(context.Background())
+func (i ApplicationHealthPolicyResponseMap) ToApplicationHealthPolicyResponseMapOutputWithContext(ctx context.Context) ApplicationHealthPolicyResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyResponseMapOutput)
 }
 
-func (i *applicationHealthPolicyMapResponsePtrType) ToApplicationHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyMapResponsePtrOutput)
+// Defines a health policy used to evaluate the health of an application or one of its children entities.
+type ApplicationHealthPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationHealthPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationHealthPolicyResponse)(nil)).Elem()
 }
 
-// Defines a map that contains specific application health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationHealthPolicy used to evaluate the application health.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationHealthPolicyMapResponseOutput struct{ *pulumi.OutputState }
-
-func (ApplicationHealthPolicyMapResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationHealthPolicyMapResponse)(nil)).Elem()
-}
-
-func (o ApplicationHealthPolicyMapResponseOutput) ToApplicationHealthPolicyMapResponseOutput() ApplicationHealthPolicyMapResponseOutput {
+func (o ApplicationHealthPolicyResponseOutput) ToApplicationHealthPolicyResponseOutput() ApplicationHealthPolicyResponseOutput {
 	return o
 }
 
-func (o ApplicationHealthPolicyMapResponseOutput) ToApplicationHealthPolicyMapResponseOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapResponseOutput {
+func (o ApplicationHealthPolicyResponseOutput) ToApplicationHealthPolicyResponseOutputWithContext(ctx context.Context) ApplicationHealthPolicyResponseOutput {
 	return o
 }
 
-func (o ApplicationHealthPolicyMapResponseOutput) ToApplicationHealthPolicyMapResponsePtrOutput() ApplicationHealthPolicyMapResponsePtrOutput {
-	return o.ToApplicationHealthPolicyMapResponsePtrOutputWithContext(context.Background())
+// The health policy used by default to evaluate the health of a service type.
+func (o ApplicationHealthPolicyResponseOutput) DefaultServiceTypeHealthPolicy() ServiceTypeHealthPolicyResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationHealthPolicyResponse) *ServiceTypeHealthPolicyResponse {
+		return v.DefaultServiceTypeHealthPolicy
+	}).(ServiceTypeHealthPolicyResponsePtrOutput)
 }
 
-func (o ApplicationHealthPolicyMapResponseOutput) ToApplicationHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationHealthPolicyMapResponse) *ApplicationHealthPolicyMapResponse {
-		return &v
-	}).(ApplicationHealthPolicyMapResponsePtrOutput)
+// The map with service type health policy per service type name. The map is empty by default.
+func (o ApplicationHealthPolicyResponseOutput) ServiceTypeHealthPolicies() ServiceTypeHealthPolicyResponseMapOutput {
+	return o.ApplyT(func(v ApplicationHealthPolicyResponse) map[string]ServiceTypeHealthPolicyResponse {
+		return v.ServiceTypeHealthPolicies
+	}).(ServiceTypeHealthPolicyResponseMapOutput)
 }
 
-type ApplicationHealthPolicyMapResponsePtrOutput struct{ *pulumi.OutputState }
+type ApplicationHealthPolicyResponseMapOutput struct{ *pulumi.OutputState }
 
-func (ApplicationHealthPolicyMapResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationHealthPolicyMapResponse)(nil)).Elem()
+func (ApplicationHealthPolicyResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApplicationHealthPolicyResponse)(nil)).Elem()
 }
 
-func (o ApplicationHealthPolicyMapResponsePtrOutput) ToApplicationHealthPolicyMapResponsePtrOutput() ApplicationHealthPolicyMapResponsePtrOutput {
+func (o ApplicationHealthPolicyResponseMapOutput) ToApplicationHealthPolicyResponseMapOutput() ApplicationHealthPolicyResponseMapOutput {
 	return o
 }
 
-func (o ApplicationHealthPolicyMapResponsePtrOutput) ToApplicationHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapResponsePtrOutput {
+func (o ApplicationHealthPolicyResponseMapOutput) ToApplicationHealthPolicyResponseMapOutputWithContext(ctx context.Context) ApplicationHealthPolicyResponseMapOutput {
 	return o
 }
 
-func (o ApplicationHealthPolicyMapResponsePtrOutput) Elem() ApplicationHealthPolicyMapResponseOutput {
-	return o.ApplyT(func(v *ApplicationHealthPolicyMapResponse) ApplicationHealthPolicyMapResponse { return *v }).(ApplicationHealthPolicyMapResponseOutput)
+func (o ApplicationHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInput) ApplicationHealthPolicyResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationHealthPolicyResponse {
+		return vs[0].(map[string]ApplicationHealthPolicyResponse)[vs[1].(string)]
+	}).(ApplicationHealthPolicyResponseOutput)
 }
 
-// List of application capacity metric description.
-type ApplicationMetricDescriptionList struct {
+// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
+type ApplicationMetricDescription struct {
+	// The maximum node capacity for Service Fabric application.
+	// This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
+	// If set to zero, capacity for this metric is unlimited on each node.
+	// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+	// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+	MaximumCapacity *int `pulumi:"maximumCapacity"`
+	// The name of the metric.
+	Name *string `pulumi:"name"`
+	// The node reservation capacity for Service Fabric application.
+	// This is the amount of load which is reserved on nodes which have instances of this application.
+	// If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
+	// If set to zero, no capacity is reserved for this metric.
+	// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
+	ReservationCapacity *int `pulumi:"reservationCapacity"`
+	// The total metric capacity for Service Fabric application.
+	// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
+	// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
+	TotalApplicationCapacity *int `pulumi:"totalApplicationCapacity"`
 }
 
-// ApplicationMetricDescriptionListInput is an input type that accepts ApplicationMetricDescriptionListArgs and ApplicationMetricDescriptionListOutput values.
-// You can construct a concrete instance of `ApplicationMetricDescriptionListInput` via:
+// ApplicationMetricDescriptionInput is an input type that accepts ApplicationMetricDescriptionArgs and ApplicationMetricDescriptionOutput values.
+// You can construct a concrete instance of `ApplicationMetricDescriptionInput` via:
 //
-//          ApplicationMetricDescriptionListArgs{...}
-type ApplicationMetricDescriptionListInput interface {
+//          ApplicationMetricDescriptionArgs{...}
+type ApplicationMetricDescriptionInput interface {
 	pulumi.Input
 
-	ToApplicationMetricDescriptionListOutput() ApplicationMetricDescriptionListOutput
-	ToApplicationMetricDescriptionListOutputWithContext(context.Context) ApplicationMetricDescriptionListOutput
+	ToApplicationMetricDescriptionOutput() ApplicationMetricDescriptionOutput
+	ToApplicationMetricDescriptionOutputWithContext(context.Context) ApplicationMetricDescriptionOutput
 }
 
-// List of application capacity metric description.
-type ApplicationMetricDescriptionListArgs struct {
+// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
+type ApplicationMetricDescriptionArgs struct {
+	// The maximum node capacity for Service Fabric application.
+	// This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
+	// If set to zero, capacity for this metric is unlimited on each node.
+	// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+	// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+	MaximumCapacity pulumi.IntPtrInput `pulumi:"maximumCapacity"`
+	// The name of the metric.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The node reservation capacity for Service Fabric application.
+	// This is the amount of load which is reserved on nodes which have instances of this application.
+	// If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
+	// If set to zero, no capacity is reserved for this metric.
+	// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
+	ReservationCapacity pulumi.IntPtrInput `pulumi:"reservationCapacity"`
+	// The total metric capacity for Service Fabric application.
+	// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
+	// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
+	TotalApplicationCapacity pulumi.IntPtrInput `pulumi:"totalApplicationCapacity"`
 }
 
-func (ApplicationMetricDescriptionListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationMetricDescriptionList)(nil)).Elem()
+func (ApplicationMetricDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMetricDescription)(nil)).Elem()
 }
 
-func (i ApplicationMetricDescriptionListArgs) ToApplicationMetricDescriptionListOutput() ApplicationMetricDescriptionListOutput {
-	return i.ToApplicationMetricDescriptionListOutputWithContext(context.Background())
+func (i ApplicationMetricDescriptionArgs) ToApplicationMetricDescriptionOutput() ApplicationMetricDescriptionOutput {
+	return i.ToApplicationMetricDescriptionOutputWithContext(context.Background())
 }
 
-func (i ApplicationMetricDescriptionListArgs) ToApplicationMetricDescriptionListOutputWithContext(ctx context.Context) ApplicationMetricDescriptionListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMetricDescriptionListOutput)
+func (i ApplicationMetricDescriptionArgs) ToApplicationMetricDescriptionOutputWithContext(ctx context.Context) ApplicationMetricDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMetricDescriptionOutput)
 }
 
-func (i ApplicationMetricDescriptionListArgs) ToApplicationMetricDescriptionListPtrOutput() ApplicationMetricDescriptionListPtrOutput {
-	return i.ToApplicationMetricDescriptionListPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationMetricDescriptionListArgs) ToApplicationMetricDescriptionListPtrOutputWithContext(ctx context.Context) ApplicationMetricDescriptionListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMetricDescriptionListOutput).ToApplicationMetricDescriptionListPtrOutputWithContext(ctx)
-}
-
-// ApplicationMetricDescriptionListPtrInput is an input type that accepts ApplicationMetricDescriptionListArgs, ApplicationMetricDescriptionListPtr and ApplicationMetricDescriptionListPtrOutput values.
-// You can construct a concrete instance of `ApplicationMetricDescriptionListPtrInput` via:
+// ApplicationMetricDescriptionArrayInput is an input type that accepts ApplicationMetricDescriptionArray and ApplicationMetricDescriptionArrayOutput values.
+// You can construct a concrete instance of `ApplicationMetricDescriptionArrayInput` via:
 //
-//          ApplicationMetricDescriptionListArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationMetricDescriptionListPtrInput interface {
+//          ApplicationMetricDescriptionArray{ ApplicationMetricDescriptionArgs{...} }
+type ApplicationMetricDescriptionArrayInput interface {
 	pulumi.Input
 
-	ToApplicationMetricDescriptionListPtrOutput() ApplicationMetricDescriptionListPtrOutput
-	ToApplicationMetricDescriptionListPtrOutputWithContext(context.Context) ApplicationMetricDescriptionListPtrOutput
+	ToApplicationMetricDescriptionArrayOutput() ApplicationMetricDescriptionArrayOutput
+	ToApplicationMetricDescriptionArrayOutputWithContext(context.Context) ApplicationMetricDescriptionArrayOutput
 }
 
-type applicationMetricDescriptionListPtrType ApplicationMetricDescriptionListArgs
+type ApplicationMetricDescriptionArray []ApplicationMetricDescriptionInput
 
-func ApplicationMetricDescriptionListPtr(v *ApplicationMetricDescriptionListArgs) ApplicationMetricDescriptionListPtrInput {
-	return (*applicationMetricDescriptionListPtrType)(v)
+func (ApplicationMetricDescriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationMetricDescription)(nil)).Elem()
 }
 
-func (*applicationMetricDescriptionListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationMetricDescriptionList)(nil)).Elem()
+func (i ApplicationMetricDescriptionArray) ToApplicationMetricDescriptionArrayOutput() ApplicationMetricDescriptionArrayOutput {
+	return i.ToApplicationMetricDescriptionArrayOutputWithContext(context.Background())
 }
 
-func (i *applicationMetricDescriptionListPtrType) ToApplicationMetricDescriptionListPtrOutput() ApplicationMetricDescriptionListPtrOutput {
-	return i.ToApplicationMetricDescriptionListPtrOutputWithContext(context.Background())
+func (i ApplicationMetricDescriptionArray) ToApplicationMetricDescriptionArrayOutputWithContext(ctx context.Context) ApplicationMetricDescriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMetricDescriptionArrayOutput)
 }
 
-func (i *applicationMetricDescriptionListPtrType) ToApplicationMetricDescriptionListPtrOutputWithContext(ctx context.Context) ApplicationMetricDescriptionListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMetricDescriptionListPtrOutput)
+// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
+type ApplicationMetricDescriptionOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMetricDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMetricDescription)(nil)).Elem()
 }
 
-// List of application capacity metric description.
-type ApplicationMetricDescriptionListOutput struct{ *pulumi.OutputState }
-
-func (ApplicationMetricDescriptionListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationMetricDescriptionList)(nil)).Elem()
-}
-
-func (o ApplicationMetricDescriptionListOutput) ToApplicationMetricDescriptionListOutput() ApplicationMetricDescriptionListOutput {
+func (o ApplicationMetricDescriptionOutput) ToApplicationMetricDescriptionOutput() ApplicationMetricDescriptionOutput {
 	return o
 }
 
-func (o ApplicationMetricDescriptionListOutput) ToApplicationMetricDescriptionListOutputWithContext(ctx context.Context) ApplicationMetricDescriptionListOutput {
+func (o ApplicationMetricDescriptionOutput) ToApplicationMetricDescriptionOutputWithContext(ctx context.Context) ApplicationMetricDescriptionOutput {
 	return o
 }
 
-func (o ApplicationMetricDescriptionListOutput) ToApplicationMetricDescriptionListPtrOutput() ApplicationMetricDescriptionListPtrOutput {
-	return o.ToApplicationMetricDescriptionListPtrOutputWithContext(context.Background())
+// The maximum node capacity for Service Fabric application.
+// This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
+// If set to zero, capacity for this metric is unlimited on each node.
+// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+func (o ApplicationMetricDescriptionOutput) MaximumCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationMetricDescription) *int { return v.MaximumCapacity }).(pulumi.IntPtrOutput)
 }
 
-func (o ApplicationMetricDescriptionListOutput) ToApplicationMetricDescriptionListPtrOutputWithContext(ctx context.Context) ApplicationMetricDescriptionListPtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescriptionList) *ApplicationMetricDescriptionList {
-		return &v
-	}).(ApplicationMetricDescriptionListPtrOutput)
+// The name of the metric.
+func (o ApplicationMetricDescriptionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationMetricDescription) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type ApplicationMetricDescriptionListPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationMetricDescriptionListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationMetricDescriptionList)(nil)).Elem()
+// The node reservation capacity for Service Fabric application.
+// This is the amount of load which is reserved on nodes which have instances of this application.
+// If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
+// If set to zero, no capacity is reserved for this metric.
+// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
+func (o ApplicationMetricDescriptionOutput) ReservationCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationMetricDescription) *int { return v.ReservationCapacity }).(pulumi.IntPtrOutput)
 }
 
-func (o ApplicationMetricDescriptionListPtrOutput) ToApplicationMetricDescriptionListPtrOutput() ApplicationMetricDescriptionListPtrOutput {
+// The total metric capacity for Service Fabric application.
+// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
+// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
+func (o ApplicationMetricDescriptionOutput) TotalApplicationCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationMetricDescription) *int { return v.TotalApplicationCapacity }).(pulumi.IntPtrOutput)
+}
+
+type ApplicationMetricDescriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMetricDescriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationMetricDescription)(nil)).Elem()
+}
+
+func (o ApplicationMetricDescriptionArrayOutput) ToApplicationMetricDescriptionArrayOutput() ApplicationMetricDescriptionArrayOutput {
 	return o
 }
 
-func (o ApplicationMetricDescriptionListPtrOutput) ToApplicationMetricDescriptionListPtrOutputWithContext(ctx context.Context) ApplicationMetricDescriptionListPtrOutput {
+func (o ApplicationMetricDescriptionArrayOutput) ToApplicationMetricDescriptionArrayOutputWithContext(ctx context.Context) ApplicationMetricDescriptionArrayOutput {
 	return o
 }
 
-func (o ApplicationMetricDescriptionListPtrOutput) Elem() ApplicationMetricDescriptionListOutput {
-	return o.ApplyT(func(v *ApplicationMetricDescriptionList) ApplicationMetricDescriptionList { return *v }).(ApplicationMetricDescriptionListOutput)
+func (o ApplicationMetricDescriptionArrayOutput) Index(i pulumi.IntInput) ApplicationMetricDescriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationMetricDescription {
+		return vs[0].([]ApplicationMetricDescription)[vs[1].(int)]
+	}).(ApplicationMetricDescriptionOutput)
 }
 
-// List of application capacity metric description.
-type ApplicationMetricDescriptionListResponse struct {
+// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
+type ApplicationMetricDescriptionResponse struct {
+	// The maximum node capacity for Service Fabric application.
+	// This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
+	// If set to zero, capacity for this metric is unlimited on each node.
+	// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+	// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+	MaximumCapacity *int `pulumi:"maximumCapacity"`
+	// The name of the metric.
+	Name *string `pulumi:"name"`
+	// The node reservation capacity for Service Fabric application.
+	// This is the amount of load which is reserved on nodes which have instances of this application.
+	// If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
+	// If set to zero, no capacity is reserved for this metric.
+	// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
+	ReservationCapacity *int `pulumi:"reservationCapacity"`
+	// The total metric capacity for Service Fabric application.
+	// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
+	// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
+	TotalApplicationCapacity *int `pulumi:"totalApplicationCapacity"`
 }
 
-// ApplicationMetricDescriptionListResponseInput is an input type that accepts ApplicationMetricDescriptionListResponseArgs and ApplicationMetricDescriptionListResponseOutput values.
-// You can construct a concrete instance of `ApplicationMetricDescriptionListResponseInput` via:
+// ApplicationMetricDescriptionResponseInput is an input type that accepts ApplicationMetricDescriptionResponseArgs and ApplicationMetricDescriptionResponseOutput values.
+// You can construct a concrete instance of `ApplicationMetricDescriptionResponseInput` via:
 //
-//          ApplicationMetricDescriptionListResponseArgs{...}
-type ApplicationMetricDescriptionListResponseInput interface {
+//          ApplicationMetricDescriptionResponseArgs{...}
+type ApplicationMetricDescriptionResponseInput interface {
 	pulumi.Input
 
-	ToApplicationMetricDescriptionListResponseOutput() ApplicationMetricDescriptionListResponseOutput
-	ToApplicationMetricDescriptionListResponseOutputWithContext(context.Context) ApplicationMetricDescriptionListResponseOutput
+	ToApplicationMetricDescriptionResponseOutput() ApplicationMetricDescriptionResponseOutput
+	ToApplicationMetricDescriptionResponseOutputWithContext(context.Context) ApplicationMetricDescriptionResponseOutput
 }
 
-// List of application capacity metric description.
-type ApplicationMetricDescriptionListResponseArgs struct {
+// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
+type ApplicationMetricDescriptionResponseArgs struct {
+	// The maximum node capacity for Service Fabric application.
+	// This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
+	// If set to zero, capacity for this metric is unlimited on each node.
+	// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+	// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+	MaximumCapacity pulumi.IntPtrInput `pulumi:"maximumCapacity"`
+	// The name of the metric.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The node reservation capacity for Service Fabric application.
+	// This is the amount of load which is reserved on nodes which have instances of this application.
+	// If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
+	// If set to zero, no capacity is reserved for this metric.
+	// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
+	ReservationCapacity pulumi.IntPtrInput `pulumi:"reservationCapacity"`
+	// The total metric capacity for Service Fabric application.
+	// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
+	// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
+	TotalApplicationCapacity pulumi.IntPtrInput `pulumi:"totalApplicationCapacity"`
 }
 
-func (ApplicationMetricDescriptionListResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationMetricDescriptionListResponse)(nil)).Elem()
+func (ApplicationMetricDescriptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMetricDescriptionResponse)(nil)).Elem()
 }
 
-func (i ApplicationMetricDescriptionListResponseArgs) ToApplicationMetricDescriptionListResponseOutput() ApplicationMetricDescriptionListResponseOutput {
-	return i.ToApplicationMetricDescriptionListResponseOutputWithContext(context.Background())
+func (i ApplicationMetricDescriptionResponseArgs) ToApplicationMetricDescriptionResponseOutput() ApplicationMetricDescriptionResponseOutput {
+	return i.ToApplicationMetricDescriptionResponseOutputWithContext(context.Background())
 }
 
-func (i ApplicationMetricDescriptionListResponseArgs) ToApplicationMetricDescriptionListResponseOutputWithContext(ctx context.Context) ApplicationMetricDescriptionListResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMetricDescriptionListResponseOutput)
+func (i ApplicationMetricDescriptionResponseArgs) ToApplicationMetricDescriptionResponseOutputWithContext(ctx context.Context) ApplicationMetricDescriptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMetricDescriptionResponseOutput)
 }
 
-func (i ApplicationMetricDescriptionListResponseArgs) ToApplicationMetricDescriptionListResponsePtrOutput() ApplicationMetricDescriptionListResponsePtrOutput {
-	return i.ToApplicationMetricDescriptionListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationMetricDescriptionListResponseArgs) ToApplicationMetricDescriptionListResponsePtrOutputWithContext(ctx context.Context) ApplicationMetricDescriptionListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMetricDescriptionListResponseOutput).ToApplicationMetricDescriptionListResponsePtrOutputWithContext(ctx)
-}
-
-// ApplicationMetricDescriptionListResponsePtrInput is an input type that accepts ApplicationMetricDescriptionListResponseArgs, ApplicationMetricDescriptionListResponsePtr and ApplicationMetricDescriptionListResponsePtrOutput values.
-// You can construct a concrete instance of `ApplicationMetricDescriptionListResponsePtrInput` via:
+// ApplicationMetricDescriptionResponseArrayInput is an input type that accepts ApplicationMetricDescriptionResponseArray and ApplicationMetricDescriptionResponseArrayOutput values.
+// You can construct a concrete instance of `ApplicationMetricDescriptionResponseArrayInput` via:
 //
-//          ApplicationMetricDescriptionListResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationMetricDescriptionListResponsePtrInput interface {
+//          ApplicationMetricDescriptionResponseArray{ ApplicationMetricDescriptionResponseArgs{...} }
+type ApplicationMetricDescriptionResponseArrayInput interface {
 	pulumi.Input
 
-	ToApplicationMetricDescriptionListResponsePtrOutput() ApplicationMetricDescriptionListResponsePtrOutput
-	ToApplicationMetricDescriptionListResponsePtrOutputWithContext(context.Context) ApplicationMetricDescriptionListResponsePtrOutput
+	ToApplicationMetricDescriptionResponseArrayOutput() ApplicationMetricDescriptionResponseArrayOutput
+	ToApplicationMetricDescriptionResponseArrayOutputWithContext(context.Context) ApplicationMetricDescriptionResponseArrayOutput
 }
 
-type applicationMetricDescriptionListResponsePtrType ApplicationMetricDescriptionListResponseArgs
+type ApplicationMetricDescriptionResponseArray []ApplicationMetricDescriptionResponseInput
 
-func ApplicationMetricDescriptionListResponsePtr(v *ApplicationMetricDescriptionListResponseArgs) ApplicationMetricDescriptionListResponsePtrInput {
-	return (*applicationMetricDescriptionListResponsePtrType)(v)
+func (ApplicationMetricDescriptionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationMetricDescriptionResponse)(nil)).Elem()
 }
 
-func (*applicationMetricDescriptionListResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationMetricDescriptionListResponse)(nil)).Elem()
+func (i ApplicationMetricDescriptionResponseArray) ToApplicationMetricDescriptionResponseArrayOutput() ApplicationMetricDescriptionResponseArrayOutput {
+	return i.ToApplicationMetricDescriptionResponseArrayOutputWithContext(context.Background())
 }
 
-func (i *applicationMetricDescriptionListResponsePtrType) ToApplicationMetricDescriptionListResponsePtrOutput() ApplicationMetricDescriptionListResponsePtrOutput {
-	return i.ToApplicationMetricDescriptionListResponsePtrOutputWithContext(context.Background())
+func (i ApplicationMetricDescriptionResponseArray) ToApplicationMetricDescriptionResponseArrayOutputWithContext(ctx context.Context) ApplicationMetricDescriptionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMetricDescriptionResponseArrayOutput)
 }
 
-func (i *applicationMetricDescriptionListResponsePtrType) ToApplicationMetricDescriptionListResponsePtrOutputWithContext(ctx context.Context) ApplicationMetricDescriptionListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationMetricDescriptionListResponsePtrOutput)
+// Describes capacity information for a custom resource balancing metric. This can be used to limit the total consumption of this metric by the services of this application.
+type ApplicationMetricDescriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMetricDescriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationMetricDescriptionResponse)(nil)).Elem()
 }
 
-// List of application capacity metric description.
-type ApplicationMetricDescriptionListResponseOutput struct{ *pulumi.OutputState }
-
-func (ApplicationMetricDescriptionListResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationMetricDescriptionListResponse)(nil)).Elem()
-}
-
-func (o ApplicationMetricDescriptionListResponseOutput) ToApplicationMetricDescriptionListResponseOutput() ApplicationMetricDescriptionListResponseOutput {
+func (o ApplicationMetricDescriptionResponseOutput) ToApplicationMetricDescriptionResponseOutput() ApplicationMetricDescriptionResponseOutput {
 	return o
 }
 
-func (o ApplicationMetricDescriptionListResponseOutput) ToApplicationMetricDescriptionListResponseOutputWithContext(ctx context.Context) ApplicationMetricDescriptionListResponseOutput {
+func (o ApplicationMetricDescriptionResponseOutput) ToApplicationMetricDescriptionResponseOutputWithContext(ctx context.Context) ApplicationMetricDescriptionResponseOutput {
 	return o
 }
 
-func (o ApplicationMetricDescriptionListResponseOutput) ToApplicationMetricDescriptionListResponsePtrOutput() ApplicationMetricDescriptionListResponsePtrOutput {
-	return o.ToApplicationMetricDescriptionListResponsePtrOutputWithContext(context.Background())
+// The maximum node capacity for Service Fabric application.
+// This is the maximum Load for an instance of this application on a single node. Even if the capacity of node is greater than this value, Service Fabric will limit the total load of services within the application on each node to this value.
+// If set to zero, capacity for this metric is unlimited on each node.
+// When creating a new application with application capacity defined, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+// When updating existing application with application capacity, the product of MaximumNodes and this value must always be smaller than or equal to TotalApplicationCapacity.
+func (o ApplicationMetricDescriptionResponseOutput) MaximumCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationMetricDescriptionResponse) *int { return v.MaximumCapacity }).(pulumi.IntPtrOutput)
 }
 
-func (o ApplicationMetricDescriptionListResponseOutput) ToApplicationMetricDescriptionListResponsePtrOutputWithContext(ctx context.Context) ApplicationMetricDescriptionListResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationMetricDescriptionListResponse) *ApplicationMetricDescriptionListResponse {
-		return &v
-	}).(ApplicationMetricDescriptionListResponsePtrOutput)
+// The name of the metric.
+func (o ApplicationMetricDescriptionResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationMetricDescriptionResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type ApplicationMetricDescriptionListResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationMetricDescriptionListResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationMetricDescriptionListResponse)(nil)).Elem()
+// The node reservation capacity for Service Fabric application.
+// This is the amount of load which is reserved on nodes which have instances of this application.
+// If MinimumNodes is specified, then the product of these values will be the capacity reserved in the cluster for the application.
+// If set to zero, no capacity is reserved for this metric.
+// When setting application capacity or when updating application capacity; this value must be smaller than or equal to MaximumCapacity for each metric.
+func (o ApplicationMetricDescriptionResponseOutput) ReservationCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationMetricDescriptionResponse) *int { return v.ReservationCapacity }).(pulumi.IntPtrOutput)
 }
 
-func (o ApplicationMetricDescriptionListResponsePtrOutput) ToApplicationMetricDescriptionListResponsePtrOutput() ApplicationMetricDescriptionListResponsePtrOutput {
+// The total metric capacity for Service Fabric application.
+// This is the total metric capacity for this application in the cluster. Service Fabric will try to limit the sum of loads of services within the application to this value.
+// When creating a new application with application capacity defined, the product of MaximumNodes and MaximumCapacity must always be smaller than or equal to this value.
+func (o ApplicationMetricDescriptionResponseOutput) TotalApplicationCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationMetricDescriptionResponse) *int { return v.TotalApplicationCapacity }).(pulumi.IntPtrOutput)
+}
+
+type ApplicationMetricDescriptionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationMetricDescriptionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationMetricDescriptionResponse)(nil)).Elem()
+}
+
+func (o ApplicationMetricDescriptionResponseArrayOutput) ToApplicationMetricDescriptionResponseArrayOutput() ApplicationMetricDescriptionResponseArrayOutput {
 	return o
 }
 
-func (o ApplicationMetricDescriptionListResponsePtrOutput) ToApplicationMetricDescriptionListResponsePtrOutputWithContext(ctx context.Context) ApplicationMetricDescriptionListResponsePtrOutput {
+func (o ApplicationMetricDescriptionResponseArrayOutput) ToApplicationMetricDescriptionResponseArrayOutputWithContext(ctx context.Context) ApplicationMetricDescriptionResponseArrayOutput {
 	return o
 }
 
-func (o ApplicationMetricDescriptionListResponsePtrOutput) Elem() ApplicationMetricDescriptionListResponseOutput {
-	return o.ApplyT(func(v *ApplicationMetricDescriptionListResponse) ApplicationMetricDescriptionListResponse { return *v }).(ApplicationMetricDescriptionListResponseOutput)
-}
-
-// List of application parameters with overridden values from their default values specified in the application manifest.
-type ApplicationParameterList struct {
-}
-
-// ApplicationParameterListInput is an input type that accepts ApplicationParameterListArgs and ApplicationParameterListOutput values.
-// You can construct a concrete instance of `ApplicationParameterListInput` via:
-//
-//          ApplicationParameterListArgs{...}
-type ApplicationParameterListInput interface {
-	pulumi.Input
-
-	ToApplicationParameterListOutput() ApplicationParameterListOutput
-	ToApplicationParameterListOutputWithContext(context.Context) ApplicationParameterListOutput
-}
-
-// List of application parameters with overridden values from their default values specified in the application manifest.
-type ApplicationParameterListArgs struct {
-}
-
-func (ApplicationParameterListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationParameterList)(nil)).Elem()
-}
-
-func (i ApplicationParameterListArgs) ToApplicationParameterListOutput() ApplicationParameterListOutput {
-	return i.ToApplicationParameterListOutputWithContext(context.Background())
-}
-
-func (i ApplicationParameterListArgs) ToApplicationParameterListOutputWithContext(ctx context.Context) ApplicationParameterListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationParameterListOutput)
-}
-
-func (i ApplicationParameterListArgs) ToApplicationParameterListPtrOutput() ApplicationParameterListPtrOutput {
-	return i.ToApplicationParameterListPtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationParameterListArgs) ToApplicationParameterListPtrOutputWithContext(ctx context.Context) ApplicationParameterListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationParameterListOutput).ToApplicationParameterListPtrOutputWithContext(ctx)
-}
-
-// ApplicationParameterListPtrInput is an input type that accepts ApplicationParameterListArgs, ApplicationParameterListPtr and ApplicationParameterListPtrOutput values.
-// You can construct a concrete instance of `ApplicationParameterListPtrInput` via:
-//
-//          ApplicationParameterListArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationParameterListPtrInput interface {
-	pulumi.Input
-
-	ToApplicationParameterListPtrOutput() ApplicationParameterListPtrOutput
-	ToApplicationParameterListPtrOutputWithContext(context.Context) ApplicationParameterListPtrOutput
-}
-
-type applicationParameterListPtrType ApplicationParameterListArgs
-
-func ApplicationParameterListPtr(v *ApplicationParameterListArgs) ApplicationParameterListPtrInput {
-	return (*applicationParameterListPtrType)(v)
-}
-
-func (*applicationParameterListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationParameterList)(nil)).Elem()
-}
-
-func (i *applicationParameterListPtrType) ToApplicationParameterListPtrOutput() ApplicationParameterListPtrOutput {
-	return i.ToApplicationParameterListPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationParameterListPtrType) ToApplicationParameterListPtrOutputWithContext(ctx context.Context) ApplicationParameterListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationParameterListPtrOutput)
-}
-
-// List of application parameters with overridden values from their default values specified in the application manifest.
-type ApplicationParameterListOutput struct{ *pulumi.OutputState }
-
-func (ApplicationParameterListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationParameterList)(nil)).Elem()
-}
-
-func (o ApplicationParameterListOutput) ToApplicationParameterListOutput() ApplicationParameterListOutput {
-	return o
-}
-
-func (o ApplicationParameterListOutput) ToApplicationParameterListOutputWithContext(ctx context.Context) ApplicationParameterListOutput {
-	return o
-}
-
-func (o ApplicationParameterListOutput) ToApplicationParameterListPtrOutput() ApplicationParameterListPtrOutput {
-	return o.ToApplicationParameterListPtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationParameterListOutput) ToApplicationParameterListPtrOutputWithContext(ctx context.Context) ApplicationParameterListPtrOutput {
-	return o.ApplyT(func(v ApplicationParameterList) *ApplicationParameterList {
-		return &v
-	}).(ApplicationParameterListPtrOutput)
-}
-
-type ApplicationParameterListPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationParameterListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationParameterList)(nil)).Elem()
-}
-
-func (o ApplicationParameterListPtrOutput) ToApplicationParameterListPtrOutput() ApplicationParameterListPtrOutput {
-	return o
-}
-
-func (o ApplicationParameterListPtrOutput) ToApplicationParameterListPtrOutputWithContext(ctx context.Context) ApplicationParameterListPtrOutput {
-	return o
-}
-
-func (o ApplicationParameterListPtrOutput) Elem() ApplicationParameterListOutput {
-	return o.ApplyT(func(v *ApplicationParameterList) ApplicationParameterList { return *v }).(ApplicationParameterListOutput)
-}
-
-// List of application parameters with overridden values from their default values specified in the application manifest.
-type ApplicationParameterListResponse struct {
-}
-
-// ApplicationParameterListResponseInput is an input type that accepts ApplicationParameterListResponseArgs and ApplicationParameterListResponseOutput values.
-// You can construct a concrete instance of `ApplicationParameterListResponseInput` via:
-//
-//          ApplicationParameterListResponseArgs{...}
-type ApplicationParameterListResponseInput interface {
-	pulumi.Input
-
-	ToApplicationParameterListResponseOutput() ApplicationParameterListResponseOutput
-	ToApplicationParameterListResponseOutputWithContext(context.Context) ApplicationParameterListResponseOutput
-}
-
-// List of application parameters with overridden values from their default values specified in the application manifest.
-type ApplicationParameterListResponseArgs struct {
-}
-
-func (ApplicationParameterListResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationParameterListResponse)(nil)).Elem()
-}
-
-func (i ApplicationParameterListResponseArgs) ToApplicationParameterListResponseOutput() ApplicationParameterListResponseOutput {
-	return i.ToApplicationParameterListResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationParameterListResponseArgs) ToApplicationParameterListResponseOutputWithContext(ctx context.Context) ApplicationParameterListResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationParameterListResponseOutput)
-}
-
-func (i ApplicationParameterListResponseArgs) ToApplicationParameterListResponsePtrOutput() ApplicationParameterListResponsePtrOutput {
-	return i.ToApplicationParameterListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationParameterListResponseArgs) ToApplicationParameterListResponsePtrOutputWithContext(ctx context.Context) ApplicationParameterListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationParameterListResponseOutput).ToApplicationParameterListResponsePtrOutputWithContext(ctx)
-}
-
-// ApplicationParameterListResponsePtrInput is an input type that accepts ApplicationParameterListResponseArgs, ApplicationParameterListResponsePtr and ApplicationParameterListResponsePtrOutput values.
-// You can construct a concrete instance of `ApplicationParameterListResponsePtrInput` via:
-//
-//          ApplicationParameterListResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationParameterListResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicationParameterListResponsePtrOutput() ApplicationParameterListResponsePtrOutput
-	ToApplicationParameterListResponsePtrOutputWithContext(context.Context) ApplicationParameterListResponsePtrOutput
-}
-
-type applicationParameterListResponsePtrType ApplicationParameterListResponseArgs
-
-func ApplicationParameterListResponsePtr(v *ApplicationParameterListResponseArgs) ApplicationParameterListResponsePtrInput {
-	return (*applicationParameterListResponsePtrType)(v)
-}
-
-func (*applicationParameterListResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationParameterListResponse)(nil)).Elem()
-}
-
-func (i *applicationParameterListResponsePtrType) ToApplicationParameterListResponsePtrOutput() ApplicationParameterListResponsePtrOutput {
-	return i.ToApplicationParameterListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationParameterListResponsePtrType) ToApplicationParameterListResponsePtrOutputWithContext(ctx context.Context) ApplicationParameterListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationParameterListResponsePtrOutput)
-}
-
-// List of application parameters with overridden values from their default values specified in the application manifest.
-type ApplicationParameterListResponseOutput struct{ *pulumi.OutputState }
-
-func (ApplicationParameterListResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationParameterListResponse)(nil)).Elem()
-}
-
-func (o ApplicationParameterListResponseOutput) ToApplicationParameterListResponseOutput() ApplicationParameterListResponseOutput {
-	return o
-}
-
-func (o ApplicationParameterListResponseOutput) ToApplicationParameterListResponseOutputWithContext(ctx context.Context) ApplicationParameterListResponseOutput {
-	return o
-}
-
-func (o ApplicationParameterListResponseOutput) ToApplicationParameterListResponsePtrOutput() ApplicationParameterListResponsePtrOutput {
-	return o.ToApplicationParameterListResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationParameterListResponseOutput) ToApplicationParameterListResponsePtrOutputWithContext(ctx context.Context) ApplicationParameterListResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationParameterListResponse) *ApplicationParameterListResponse {
-		return &v
-	}).(ApplicationParameterListResponsePtrOutput)
-}
-
-type ApplicationParameterListResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationParameterListResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationParameterListResponse)(nil)).Elem()
-}
-
-func (o ApplicationParameterListResponsePtrOutput) ToApplicationParameterListResponsePtrOutput() ApplicationParameterListResponsePtrOutput {
-	return o
-}
-
-func (o ApplicationParameterListResponsePtrOutput) ToApplicationParameterListResponsePtrOutputWithContext(ctx context.Context) ApplicationParameterListResponsePtrOutput {
-	return o
-}
-
-func (o ApplicationParameterListResponsePtrOutput) Elem() ApplicationParameterListResponseOutput {
-	return o.ApplyT(func(v *ApplicationParameterListResponse) ApplicationParameterListResponse { return *v }).(ApplicationParameterListResponseOutput)
+func (o ApplicationMetricDescriptionResponseArrayOutput) Index(i pulumi.IntInput) ApplicationMetricDescriptionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationMetricDescriptionResponse {
+		return vs[0].([]ApplicationMetricDescriptionResponse)[vs[1].(int)]
+	}).(ApplicationMetricDescriptionResponseOutput)
 }
 
 // The application resource properties.
@@ -1082,11 +779,11 @@ type ApplicationResourcePropertiesResponse struct {
 	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
 	MaximumNodes *int `pulumi:"maximumNodes"`
 	// List of application capacity metric description.
-	Metrics *ApplicationMetricDescriptionListResponse `pulumi:"metrics"`
+	Metrics []ApplicationMetricDescriptionResponse `pulumi:"metrics"`
 	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
 	MinimumNodes *int `pulumi:"minimumNodes"`
 	// List of application parameters with overridden values from their default values specified in the application manifest.
-	Parameters *ApplicationParameterListResponse `pulumi:"parameters"`
+	Parameters map[string]string `pulumi:"parameters"`
 	// The current deployment or provisioning state, which only appears in the response
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Remove the current application capacity settings.
@@ -1117,11 +814,11 @@ type ApplicationResourcePropertiesResponseArgs struct {
 	// The maximum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. By default, the value of this property is zero and it means that the services can be placed on any node.
 	MaximumNodes pulumi.IntPtrInput `pulumi:"maximumNodes"`
 	// List of application capacity metric description.
-	Metrics ApplicationMetricDescriptionListResponsePtrInput `pulumi:"metrics"`
+	Metrics ApplicationMetricDescriptionResponseArrayInput `pulumi:"metrics"`
 	// The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
 	MinimumNodes pulumi.IntPtrInput `pulumi:"minimumNodes"`
 	// List of application parameters with overridden values from their default values specified in the application manifest.
-	Parameters ApplicationParameterListResponsePtrInput `pulumi:"parameters"`
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
 	// The current deployment or provisioning state, which only appears in the response
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 	// Remove the current application capacity settings.
@@ -1225,10 +922,8 @@ func (o ApplicationResourcePropertiesResponseOutput) MaximumNodes() pulumi.IntPt
 }
 
 // List of application capacity metric description.
-func (o ApplicationResourcePropertiesResponseOutput) Metrics() ApplicationMetricDescriptionListResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationResourcePropertiesResponse) *ApplicationMetricDescriptionListResponse {
-		return v.Metrics
-	}).(ApplicationMetricDescriptionListResponsePtrOutput)
+func (o ApplicationResourcePropertiesResponseOutput) Metrics() ApplicationMetricDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v ApplicationResourcePropertiesResponse) []ApplicationMetricDescriptionResponse { return v.Metrics }).(ApplicationMetricDescriptionResponseArrayOutput)
 }
 
 // The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
@@ -1237,8 +932,8 @@ func (o ApplicationResourcePropertiesResponseOutput) MinimumNodes() pulumi.IntPt
 }
 
 // List of application parameters with overridden values from their default values specified in the application manifest.
-func (o ApplicationResourcePropertiesResponseOutput) Parameters() ApplicationParameterListResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationResourcePropertiesResponse) *ApplicationParameterListResponse { return v.Parameters }).(ApplicationParameterListResponsePtrOutput)
+func (o ApplicationResourcePropertiesResponseOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationResourcePropertiesResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 // The current deployment or provisioning state, which only appears in the response
@@ -1307,13 +1002,13 @@ func (o ApplicationResourcePropertiesResponsePtrOutput) MaximumNodes() pulumi.In
 }
 
 // List of application capacity metric description.
-func (o ApplicationResourcePropertiesResponsePtrOutput) Metrics() ApplicationMetricDescriptionListResponsePtrOutput {
-	return o.ApplyT(func(v *ApplicationResourcePropertiesResponse) *ApplicationMetricDescriptionListResponse {
+func (o ApplicationResourcePropertiesResponsePtrOutput) Metrics() ApplicationMetricDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v *ApplicationResourcePropertiesResponse) []ApplicationMetricDescriptionResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Metrics
-	}).(ApplicationMetricDescriptionListResponsePtrOutput)
+	}).(ApplicationMetricDescriptionResponseArrayOutput)
 }
 
 // The minimum number of nodes where Service Fabric will reserve capacity for this application. Note that this does not mean that the services of this application will be placed on all of those nodes. If this property is set to zero, no capacity will be reserved. The value of this property cannot be more than the value of the MaximumNodes property.
@@ -1327,13 +1022,13 @@ func (o ApplicationResourcePropertiesResponsePtrOutput) MinimumNodes() pulumi.In
 }
 
 // List of application parameters with overridden values from their default values specified in the application manifest.
-func (o ApplicationResourcePropertiesResponsePtrOutput) Parameters() ApplicationParameterListResponsePtrOutput {
-	return o.ApplyT(func(v *ApplicationResourcePropertiesResponse) *ApplicationParameterListResponse {
+func (o ApplicationResourcePropertiesResponsePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationResourcePropertiesResponse) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(ApplicationParameterListResponsePtrOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The current deployment or provisioning state, which only appears in the response
@@ -1384,267 +1079,6 @@ func (o ApplicationResourcePropertiesResponsePtrOutput) UpgradePolicy() Applicat
 		}
 		return v.UpgradePolicy
 	}).(ApplicationUpgradePolicyResponsePtrOutput)
-}
-
-// The application type name resource
-type ApplicationTypeType struct {
-	// Azure resource etag.
-	Etag string `pulumi:"etag"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location *string `pulumi:"location"`
-	// Azure resource name.
-	Name string `pulumi:"name"`
-	// The application type name properties
-	Properties ApplicationTypeResourcePropertiesResponse `pulumi:"properties"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
-	Type string `pulumi:"type"`
-}
-
-// ApplicationTypeTypeInput is an input type that accepts ApplicationTypeTypeArgs and ApplicationTypeTypeOutput values.
-// You can construct a concrete instance of `ApplicationTypeTypeInput` via:
-//
-//          ApplicationTypeTypeArgs{...}
-type ApplicationTypeTypeInput interface {
-	pulumi.Input
-
-	ToApplicationTypeTypeOutput() ApplicationTypeTypeOutput
-	ToApplicationTypeTypeOutputWithContext(context.Context) ApplicationTypeTypeOutput
-}
-
-// The application type name resource
-type ApplicationTypeTypeArgs struct {
-	// Azure resource etag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The application type name properties
-	Properties ApplicationTypeResourcePropertiesResponseInput `pulumi:"properties"`
-	// Azure resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ApplicationTypeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTypeType)(nil)).Elem()
-}
-
-func (i ApplicationTypeTypeArgs) ToApplicationTypeTypeOutput() ApplicationTypeTypeOutput {
-	return i.ToApplicationTypeTypeOutputWithContext(context.Background())
-}
-
-func (i ApplicationTypeTypeArgs) ToApplicationTypeTypeOutputWithContext(ctx context.Context) ApplicationTypeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeTypeOutput)
-}
-
-// The application type name resource
-type ApplicationTypeTypeOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTypeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTypeType)(nil)).Elem()
-}
-
-func (o ApplicationTypeTypeOutput) ToApplicationTypeTypeOutput() ApplicationTypeTypeOutput {
-	return o
-}
-
-func (o ApplicationTypeTypeOutput) ToApplicationTypeTypeOutputWithContext(ctx context.Context) ApplicationTypeTypeOutput {
-	return o
-}
-
-// Azure resource etag.
-func (o ApplicationTypeTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTypeType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// It will be deprecated in New API, resource location depends on the parent resource.
-func (o ApplicationTypeTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationTypeType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Azure resource name.
-func (o ApplicationTypeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTypeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The application type name properties
-func (o ApplicationTypeTypeOutput) Properties() ApplicationTypeResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v ApplicationTypeType) ApplicationTypeResourcePropertiesResponse { return v.Properties }).(ApplicationTypeResourcePropertiesResponseOutput)
-}
-
-// Azure resource tags.
-func (o ApplicationTypeTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationTypeType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type.
-func (o ApplicationTypeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTypeType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// List of application type parameters that can be overridden when creating or updating the application.
-type ApplicationTypeParameterList struct {
-}
-
-// ApplicationTypeParameterListInput is an input type that accepts ApplicationTypeParameterListArgs and ApplicationTypeParameterListOutput values.
-// You can construct a concrete instance of `ApplicationTypeParameterListInput` via:
-//
-//          ApplicationTypeParameterListArgs{...}
-type ApplicationTypeParameterListInput interface {
-	pulumi.Input
-
-	ToApplicationTypeParameterListOutput() ApplicationTypeParameterListOutput
-	ToApplicationTypeParameterListOutputWithContext(context.Context) ApplicationTypeParameterListOutput
-}
-
-// List of application type parameters that can be overridden when creating or updating the application.
-type ApplicationTypeParameterListArgs struct {
-}
-
-func (ApplicationTypeParameterListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTypeParameterList)(nil)).Elem()
-}
-
-func (i ApplicationTypeParameterListArgs) ToApplicationTypeParameterListOutput() ApplicationTypeParameterListOutput {
-	return i.ToApplicationTypeParameterListOutputWithContext(context.Background())
-}
-
-func (i ApplicationTypeParameterListArgs) ToApplicationTypeParameterListOutputWithContext(ctx context.Context) ApplicationTypeParameterListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeParameterListOutput)
-}
-
-// List of application type parameters that can be overridden when creating or updating the application.
-type ApplicationTypeParameterListOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTypeParameterListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTypeParameterList)(nil)).Elem()
-}
-
-func (o ApplicationTypeParameterListOutput) ToApplicationTypeParameterListOutput() ApplicationTypeParameterListOutput {
-	return o
-}
-
-func (o ApplicationTypeParameterListOutput) ToApplicationTypeParameterListOutputWithContext(ctx context.Context) ApplicationTypeParameterListOutput {
-	return o
-}
-
-// List of application type parameters that can be overridden when creating or updating the application.
-type ApplicationTypeParameterListResponse struct {
-}
-
-// ApplicationTypeParameterListResponseInput is an input type that accepts ApplicationTypeParameterListResponseArgs and ApplicationTypeParameterListResponseOutput values.
-// You can construct a concrete instance of `ApplicationTypeParameterListResponseInput` via:
-//
-//          ApplicationTypeParameterListResponseArgs{...}
-type ApplicationTypeParameterListResponseInput interface {
-	pulumi.Input
-
-	ToApplicationTypeParameterListResponseOutput() ApplicationTypeParameterListResponseOutput
-	ToApplicationTypeParameterListResponseOutputWithContext(context.Context) ApplicationTypeParameterListResponseOutput
-}
-
-// List of application type parameters that can be overridden when creating or updating the application.
-type ApplicationTypeParameterListResponseArgs struct {
-}
-
-func (ApplicationTypeParameterListResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTypeParameterListResponse)(nil)).Elem()
-}
-
-func (i ApplicationTypeParameterListResponseArgs) ToApplicationTypeParameterListResponseOutput() ApplicationTypeParameterListResponseOutput {
-	return i.ToApplicationTypeParameterListResponseOutputWithContext(context.Background())
-}
-
-func (i ApplicationTypeParameterListResponseArgs) ToApplicationTypeParameterListResponseOutputWithContext(ctx context.Context) ApplicationTypeParameterListResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeParameterListResponseOutput)
-}
-
-func (i ApplicationTypeParameterListResponseArgs) ToApplicationTypeParameterListResponsePtrOutput() ApplicationTypeParameterListResponsePtrOutput {
-	return i.ToApplicationTypeParameterListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationTypeParameterListResponseArgs) ToApplicationTypeParameterListResponsePtrOutputWithContext(ctx context.Context) ApplicationTypeParameterListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeParameterListResponseOutput).ToApplicationTypeParameterListResponsePtrOutputWithContext(ctx)
-}
-
-// ApplicationTypeParameterListResponsePtrInput is an input type that accepts ApplicationTypeParameterListResponseArgs, ApplicationTypeParameterListResponsePtr and ApplicationTypeParameterListResponsePtrOutput values.
-// You can construct a concrete instance of `ApplicationTypeParameterListResponsePtrInput` via:
-//
-//          ApplicationTypeParameterListResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationTypeParameterListResponsePtrInput interface {
-	pulumi.Input
-
-	ToApplicationTypeParameterListResponsePtrOutput() ApplicationTypeParameterListResponsePtrOutput
-	ToApplicationTypeParameterListResponsePtrOutputWithContext(context.Context) ApplicationTypeParameterListResponsePtrOutput
-}
-
-type applicationTypeParameterListResponsePtrType ApplicationTypeParameterListResponseArgs
-
-func ApplicationTypeParameterListResponsePtr(v *ApplicationTypeParameterListResponseArgs) ApplicationTypeParameterListResponsePtrInput {
-	return (*applicationTypeParameterListResponsePtrType)(v)
-}
-
-func (*applicationTypeParameterListResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationTypeParameterListResponse)(nil)).Elem()
-}
-
-func (i *applicationTypeParameterListResponsePtrType) ToApplicationTypeParameterListResponsePtrOutput() ApplicationTypeParameterListResponsePtrOutput {
-	return i.ToApplicationTypeParameterListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *applicationTypeParameterListResponsePtrType) ToApplicationTypeParameterListResponsePtrOutputWithContext(ctx context.Context) ApplicationTypeParameterListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeParameterListResponsePtrOutput)
-}
-
-// List of application type parameters that can be overridden when creating or updating the application.
-type ApplicationTypeParameterListResponseOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTypeParameterListResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTypeParameterListResponse)(nil)).Elem()
-}
-
-func (o ApplicationTypeParameterListResponseOutput) ToApplicationTypeParameterListResponseOutput() ApplicationTypeParameterListResponseOutput {
-	return o
-}
-
-func (o ApplicationTypeParameterListResponseOutput) ToApplicationTypeParameterListResponseOutputWithContext(ctx context.Context) ApplicationTypeParameterListResponseOutput {
-	return o
-}
-
-func (o ApplicationTypeParameterListResponseOutput) ToApplicationTypeParameterListResponsePtrOutput() ApplicationTypeParameterListResponsePtrOutput {
-	return o.ToApplicationTypeParameterListResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ApplicationTypeParameterListResponseOutput) ToApplicationTypeParameterListResponsePtrOutputWithContext(ctx context.Context) ApplicationTypeParameterListResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationTypeParameterListResponse) *ApplicationTypeParameterListResponse {
-		return &v
-	}).(ApplicationTypeParameterListResponsePtrOutput)
-}
-
-type ApplicationTypeParameterListResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTypeParameterListResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationTypeParameterListResponse)(nil)).Elem()
-}
-
-func (o ApplicationTypeParameterListResponsePtrOutput) ToApplicationTypeParameterListResponsePtrOutput() ApplicationTypeParameterListResponsePtrOutput {
-	return o
-}
-
-func (o ApplicationTypeParameterListResponsePtrOutput) ToApplicationTypeParameterListResponsePtrOutputWithContext(ctx context.Context) ApplicationTypeParameterListResponsePtrOutput {
-	return o
-}
-
-func (o ApplicationTypeParameterListResponsePtrOutput) Elem() ApplicationTypeParameterListResponseOutput {
-	return o.ApplyT(func(v *ApplicationTypeParameterListResponse) ApplicationTypeParameterListResponse { return *v }).(ApplicationTypeParameterListResponseOutput)
 }
 
 // The application type name properties
@@ -1783,114 +1217,12 @@ func (o ApplicationTypeResourcePropertiesResponsePtrOutput) ProvisioningState() 
 	}).(pulumi.StringPtrOutput)
 }
 
-// An application type version resource for the specified application type name resource.
-type ApplicationTypeVersionType struct {
-	// Azure resource etag.
-	Etag string `pulumi:"etag"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location *string `pulumi:"location"`
-	// Azure resource name.
-	Name string `pulumi:"name"`
-	// The properties of the application type version resource.
-	Properties ApplicationTypeVersionResourcePropertiesResponse `pulumi:"properties"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
-	Type string `pulumi:"type"`
-}
-
-// ApplicationTypeVersionTypeInput is an input type that accepts ApplicationTypeVersionTypeArgs and ApplicationTypeVersionTypeOutput values.
-// You can construct a concrete instance of `ApplicationTypeVersionTypeInput` via:
-//
-//          ApplicationTypeVersionTypeArgs{...}
-type ApplicationTypeVersionTypeInput interface {
-	pulumi.Input
-
-	ToApplicationTypeVersionTypeOutput() ApplicationTypeVersionTypeOutput
-	ToApplicationTypeVersionTypeOutputWithContext(context.Context) ApplicationTypeVersionTypeOutput
-}
-
-// An application type version resource for the specified application type name resource.
-type ApplicationTypeVersionTypeArgs struct {
-	// Azure resource etag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the application type version resource.
-	Properties ApplicationTypeVersionResourcePropertiesResponseInput `pulumi:"properties"`
-	// Azure resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ApplicationTypeVersionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTypeVersionType)(nil)).Elem()
-}
-
-func (i ApplicationTypeVersionTypeArgs) ToApplicationTypeVersionTypeOutput() ApplicationTypeVersionTypeOutput {
-	return i.ToApplicationTypeVersionTypeOutputWithContext(context.Background())
-}
-
-func (i ApplicationTypeVersionTypeArgs) ToApplicationTypeVersionTypeOutputWithContext(ctx context.Context) ApplicationTypeVersionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeVersionTypeOutput)
-}
-
-// An application type version resource for the specified application type name resource.
-type ApplicationTypeVersionTypeOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTypeVersionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationTypeVersionType)(nil)).Elem()
-}
-
-func (o ApplicationTypeVersionTypeOutput) ToApplicationTypeVersionTypeOutput() ApplicationTypeVersionTypeOutput {
-	return o
-}
-
-func (o ApplicationTypeVersionTypeOutput) ToApplicationTypeVersionTypeOutputWithContext(ctx context.Context) ApplicationTypeVersionTypeOutput {
-	return o
-}
-
-// Azure resource etag.
-func (o ApplicationTypeVersionTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTypeVersionType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// It will be deprecated in New API, resource location depends on the parent resource.
-func (o ApplicationTypeVersionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationTypeVersionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Azure resource name.
-func (o ApplicationTypeVersionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTypeVersionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the application type version resource.
-func (o ApplicationTypeVersionTypeOutput) Properties() ApplicationTypeVersionResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v ApplicationTypeVersionType) ApplicationTypeVersionResourcePropertiesResponse {
-		return v.Properties
-	}).(ApplicationTypeVersionResourcePropertiesResponseOutput)
-}
-
-// Azure resource tags.
-func (o ApplicationTypeVersionTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationTypeVersionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type.
-func (o ApplicationTypeVersionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationTypeVersionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of the application type version resource.
 type ApplicationTypeVersionResourcePropertiesResponse struct {
 	// The URL to the application package
 	AppPackageUrl string `pulumi:"appPackageUrl"`
 	// List of application type parameters that can be overridden when creating or updating the application.
-	DefaultParameterList ApplicationTypeParameterListResponse `pulumi:"defaultParameterList"`
+	DefaultParameterList map[string]string `pulumi:"defaultParameterList"`
 	// The current deployment or provisioning state, which only appears in the response
 	ProvisioningState string `pulumi:"provisioningState"`
 }
@@ -1911,7 +1243,7 @@ type ApplicationTypeVersionResourcePropertiesResponseArgs struct {
 	// The URL to the application package
 	AppPackageUrl pulumi.StringInput `pulumi:"appPackageUrl"`
 	// List of application type parameters that can be overridden when creating or updating the application.
-	DefaultParameterList ApplicationTypeParameterListResponseInput `pulumi:"defaultParameterList"`
+	DefaultParameterList pulumi.StringMapInput `pulumi:"defaultParameterList"`
 	// The current deployment or provisioning state, which only appears in the response
 	ProvisioningState pulumi.StringInput `pulumi:"provisioningState"`
 }
@@ -2000,10 +1332,10 @@ func (o ApplicationTypeVersionResourcePropertiesResponseOutput) AppPackageUrl() 
 }
 
 // List of application type parameters that can be overridden when creating or updating the application.
-func (o ApplicationTypeVersionResourcePropertiesResponseOutput) DefaultParameterList() ApplicationTypeParameterListResponseOutput {
-	return o.ApplyT(func(v ApplicationTypeVersionResourcePropertiesResponse) ApplicationTypeParameterListResponse {
+func (o ApplicationTypeVersionResourcePropertiesResponseOutput) DefaultParameterList() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ApplicationTypeVersionResourcePropertiesResponse) map[string]string {
 		return v.DefaultParameterList
-	}).(ApplicationTypeParameterListResponseOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The current deployment or provisioning state, which only appears in the response
@@ -2042,13 +1374,13 @@ func (o ApplicationTypeVersionResourcePropertiesResponsePtrOutput) AppPackageUrl
 }
 
 // List of application type parameters that can be overridden when creating or updating the application.
-func (o ApplicationTypeVersionResourcePropertiesResponsePtrOutput) DefaultParameterList() ApplicationTypeParameterListResponsePtrOutput {
-	return o.ApplyT(func(v *ApplicationTypeVersionResourcePropertiesResponse) *ApplicationTypeParameterListResponse {
+func (o ApplicationTypeVersionResourcePropertiesResponsePtrOutput) DefaultParameterList() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ApplicationTypeVersionResourcePropertiesResponse) map[string]string {
 		if v == nil {
 			return nil
 		}
-		return &v.DefaultParameterList
-	}).(ApplicationTypeParameterListResponsePtrOutput)
+		return v.DefaultParameterList
+	}).(pulumi.StringMapOutput)
 }
 
 // The current deployment or provisioning state, which only appears in the response
@@ -2975,7 +2307,7 @@ type ArmApplicationHealthPolicy struct {
 	// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
 	MaxPercentUnhealthyDeployedApplications *int `pulumi:"maxPercentUnhealthyDeployedApplications"`
 	// The map with service type health policy per service type name. The map is empty by default.
-	ServiceTypeHealthPolicyMap *ArmServiceTypeHealthPolicyMap `pulumi:"serviceTypeHealthPolicyMap"`
+	ServiceTypeHealthPolicyMap map[string]ArmServiceTypeHealthPolicy `pulumi:"serviceTypeHealthPolicyMap"`
 }
 
 // ArmApplicationHealthPolicyInput is an input type that accepts ArmApplicationHealthPolicyArgs and ArmApplicationHealthPolicyOutput values.
@@ -3001,7 +2333,7 @@ type ArmApplicationHealthPolicyArgs struct {
 	// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
 	MaxPercentUnhealthyDeployedApplications pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyDeployedApplications"`
 	// The map with service type health policy per service type name. The map is empty by default.
-	ServiceTypeHealthPolicyMap ArmServiceTypeHealthPolicyMapPtrInput `pulumi:"serviceTypeHealthPolicyMap"`
+	ServiceTypeHealthPolicyMap ArmServiceTypeHealthPolicyMapInput `pulumi:"serviceTypeHealthPolicyMap"`
 }
 
 func (ArmApplicationHealthPolicyArgs) ElementType() reflect.Type {
@@ -3103,8 +2435,10 @@ func (o ArmApplicationHealthPolicyOutput) MaxPercentUnhealthyDeployedApplication
 }
 
 // The map with service type health policy per service type name. The map is empty by default.
-func (o ArmApplicationHealthPolicyOutput) ServiceTypeHealthPolicyMap() ArmServiceTypeHealthPolicyMapPtrOutput {
-	return o.ApplyT(func(v ArmApplicationHealthPolicy) *ArmServiceTypeHealthPolicyMap { return v.ServiceTypeHealthPolicyMap }).(ArmServiceTypeHealthPolicyMapPtrOutput)
+func (o ArmApplicationHealthPolicyOutput) ServiceTypeHealthPolicyMap() ArmServiceTypeHealthPolicyMapOutput {
+	return o.ApplyT(func(v ArmApplicationHealthPolicy) map[string]ArmServiceTypeHealthPolicy {
+		return v.ServiceTypeHealthPolicyMap
+	}).(ArmServiceTypeHealthPolicyMapOutput)
 }
 
 type ArmApplicationHealthPolicyPtrOutput struct{ *pulumi.OutputState }
@@ -3159,13 +2493,13 @@ func (o ArmApplicationHealthPolicyPtrOutput) MaxPercentUnhealthyDeployedApplicat
 }
 
 // The map with service type health policy per service type name. The map is empty by default.
-func (o ArmApplicationHealthPolicyPtrOutput) ServiceTypeHealthPolicyMap() ArmServiceTypeHealthPolicyMapPtrOutput {
-	return o.ApplyT(func(v *ArmApplicationHealthPolicy) *ArmServiceTypeHealthPolicyMap {
+func (o ArmApplicationHealthPolicyPtrOutput) ServiceTypeHealthPolicyMap() ArmServiceTypeHealthPolicyMapOutput {
+	return o.ApplyT(func(v *ArmApplicationHealthPolicy) map[string]ArmServiceTypeHealthPolicy {
 		if v == nil {
 			return nil
 		}
 		return v.ServiceTypeHealthPolicyMap
-	}).(ArmServiceTypeHealthPolicyMapPtrOutput)
+	}).(ArmServiceTypeHealthPolicyMapOutput)
 }
 
 // Defines a health policy used to evaluate the health of an application or one of its children entities.
@@ -3180,7 +2514,7 @@ type ArmApplicationHealthPolicyResponse struct {
 	// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
 	MaxPercentUnhealthyDeployedApplications *int `pulumi:"maxPercentUnhealthyDeployedApplications"`
 	// The map with service type health policy per service type name. The map is empty by default.
-	ServiceTypeHealthPolicyMap *ArmServiceTypeHealthPolicyMapResponse `pulumi:"serviceTypeHealthPolicyMap"`
+	ServiceTypeHealthPolicyMap map[string]ArmServiceTypeHealthPolicyResponse `pulumi:"serviceTypeHealthPolicyMap"`
 }
 
 // ArmApplicationHealthPolicyResponseInput is an input type that accepts ArmApplicationHealthPolicyResponseArgs and ArmApplicationHealthPolicyResponseOutput values.
@@ -3206,7 +2540,7 @@ type ArmApplicationHealthPolicyResponseArgs struct {
 	// The computation rounds up to tolerate one failure on small numbers of nodes. Default percentage is zero.
 	MaxPercentUnhealthyDeployedApplications pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyDeployedApplications"`
 	// The map with service type health policy per service type name. The map is empty by default.
-	ServiceTypeHealthPolicyMap ArmServiceTypeHealthPolicyMapResponsePtrInput `pulumi:"serviceTypeHealthPolicyMap"`
+	ServiceTypeHealthPolicyMap ArmServiceTypeHealthPolicyResponseMapInput `pulumi:"serviceTypeHealthPolicyMap"`
 }
 
 func (ArmApplicationHealthPolicyResponseArgs) ElementType() reflect.Type {
@@ -3308,10 +2642,10 @@ func (o ArmApplicationHealthPolicyResponseOutput) MaxPercentUnhealthyDeployedApp
 }
 
 // The map with service type health policy per service type name. The map is empty by default.
-func (o ArmApplicationHealthPolicyResponseOutput) ServiceTypeHealthPolicyMap() ArmServiceTypeHealthPolicyMapResponsePtrOutput {
-	return o.ApplyT(func(v ArmApplicationHealthPolicyResponse) *ArmServiceTypeHealthPolicyMapResponse {
+func (o ArmApplicationHealthPolicyResponseOutput) ServiceTypeHealthPolicyMap() ArmServiceTypeHealthPolicyResponseMapOutput {
+	return o.ApplyT(func(v ArmApplicationHealthPolicyResponse) map[string]ArmServiceTypeHealthPolicyResponse {
 		return v.ServiceTypeHealthPolicyMap
-	}).(ArmServiceTypeHealthPolicyMapResponsePtrOutput)
+	}).(ArmServiceTypeHealthPolicyResponseMapOutput)
 }
 
 type ArmApplicationHealthPolicyResponsePtrOutput struct{ *pulumi.OutputState }
@@ -3366,13 +2700,13 @@ func (o ArmApplicationHealthPolicyResponsePtrOutput) MaxPercentUnhealthyDeployed
 }
 
 // The map with service type health policy per service type name. The map is empty by default.
-func (o ArmApplicationHealthPolicyResponsePtrOutput) ServiceTypeHealthPolicyMap() ArmServiceTypeHealthPolicyMapResponsePtrOutput {
-	return o.ApplyT(func(v *ArmApplicationHealthPolicyResponse) *ArmServiceTypeHealthPolicyMapResponse {
+func (o ArmApplicationHealthPolicyResponsePtrOutput) ServiceTypeHealthPolicyMap() ArmServiceTypeHealthPolicyResponseMapOutput {
+	return o.ApplyT(func(v *ArmApplicationHealthPolicyResponse) map[string]ArmServiceTypeHealthPolicyResponse {
 		if v == nil {
 			return nil
 		}
 		return v.ServiceTypeHealthPolicyMap
-	}).(ArmServiceTypeHealthPolicyMapResponsePtrOutput)
+	}).(ArmServiceTypeHealthPolicyResponseMapOutput)
 }
 
 // The policy used for monitoring the application upgrade
@@ -3919,6 +3253,31 @@ func (i *armServiceTypeHealthPolicyPtrType) ToArmServiceTypeHealthPolicyPtrOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyPtrOutput)
 }
 
+// ArmServiceTypeHealthPolicyMapInput is an input type that accepts ArmServiceTypeHealthPolicyMap and ArmServiceTypeHealthPolicyMapOutput values.
+// You can construct a concrete instance of `ArmServiceTypeHealthPolicyMapInput` via:
+//
+//          ArmServiceTypeHealthPolicyMap{ "key": ArmServiceTypeHealthPolicyArgs{...} }
+type ArmServiceTypeHealthPolicyMapInput interface {
+	pulumi.Input
+
+	ToArmServiceTypeHealthPolicyMapOutput() ArmServiceTypeHealthPolicyMapOutput
+	ToArmServiceTypeHealthPolicyMapOutputWithContext(context.Context) ArmServiceTypeHealthPolicyMapOutput
+}
+
+type ArmServiceTypeHealthPolicyMap map[string]ArmServiceTypeHealthPolicyInput
+
+func (ArmServiceTypeHealthPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ArmServiceTypeHealthPolicy)(nil)).Elem()
+}
+
+func (i ArmServiceTypeHealthPolicyMap) ToArmServiceTypeHealthPolicyMapOutput() ArmServiceTypeHealthPolicyMapOutput {
+	return i.ToArmServiceTypeHealthPolicyMapOutputWithContext(context.Background())
+}
+
+func (i ArmServiceTypeHealthPolicyMap) ToArmServiceTypeHealthPolicyMapOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyMapOutput)
+}
+
 // Represents the health policy used to evaluate the health of services belonging to a service type.
 type ArmServiceTypeHealthPolicyOutput struct{ *pulumi.OutputState }
 
@@ -4007,101 +3366,10 @@ func (o ArmServiceTypeHealthPolicyPtrOutput) MaxPercentUnhealthyServices() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// Defines a ServiceTypeHealthPolicy per service type name.
-//
-// The entries in the map replace the default service type health policy for each specified service type.
-// For example, in an application that contains both a stateless gateway service type and a stateful engine service type, the health policies for the stateless and stateful services can be configured differently.
-// With policy per service type, there's more granular control of the health of the service.
-//
-// If no policy is specified for a service type name, the DefaultServiceTypeHealthPolicy is used for evaluation.
-type ArmServiceTypeHealthPolicyMap struct {
-}
-
-// ArmServiceTypeHealthPolicyMapInput is an input type that accepts ArmServiceTypeHealthPolicyMap and ArmServiceTypeHealthPolicyMapOutput values.
-// You can construct a concrete instance of `ArmServiceTypeHealthPolicyMapInput` via:
-//
-//          ArmServiceTypeHealthPolicyMap{ "key": ArmServiceTypeHealthPolicyArgs{...} }
-type ArmServiceTypeHealthPolicyMapInput interface {
-	pulumi.Input
-
-	ToArmServiceTypeHealthPolicyMapOutput() ArmServiceTypeHealthPolicyMapOutput
-	ToArmServiceTypeHealthPolicyMapOutputWithContext(context.Context) ArmServiceTypeHealthPolicyMapOutput
-}
-
-// Defines a ServiceTypeHealthPolicy per service type name.
-//
-// The entries in the map replace the default service type health policy for each specified service type.
-// For example, in an application that contains both a stateless gateway service type and a stateful engine service type, the health policies for the stateless and stateful services can be configured differently.
-// With policy per service type, there's more granular control of the health of the service.
-//
-// If no policy is specified for a service type name, the DefaultServiceTypeHealthPolicy is used for evaluation.
-type ArmServiceTypeHealthPolicyMapArgs struct {
-}
-
-func (ArmServiceTypeHealthPolicyMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmServiceTypeHealthPolicyMap)(nil)).Elem()
-}
-
-func (i ArmServiceTypeHealthPolicyMapArgs) ToArmServiceTypeHealthPolicyMapOutput() ArmServiceTypeHealthPolicyMapOutput {
-	return i.ToArmServiceTypeHealthPolicyMapOutputWithContext(context.Background())
-}
-
-func (i ArmServiceTypeHealthPolicyMapArgs) ToArmServiceTypeHealthPolicyMapOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyMapOutput)
-}
-
-func (i ArmServiceTypeHealthPolicyMapArgs) ToArmServiceTypeHealthPolicyMapPtrOutput() ArmServiceTypeHealthPolicyMapPtrOutput {
-	return i.ToArmServiceTypeHealthPolicyMapPtrOutputWithContext(context.Background())
-}
-
-func (i ArmServiceTypeHealthPolicyMapArgs) ToArmServiceTypeHealthPolicyMapPtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyMapOutput).ToArmServiceTypeHealthPolicyMapPtrOutputWithContext(ctx)
-}
-
-// ArmServiceTypeHealthPolicyMapPtrInput is an input type that accepts ArmServiceTypeHealthPolicyMapArgs, ArmServiceTypeHealthPolicyMapPtr and ArmServiceTypeHealthPolicyMapPtrOutput values.
-// You can construct a concrete instance of `ArmServiceTypeHealthPolicyMapPtrInput` via:
-//
-//          ArmServiceTypeHealthPolicyMapArgs{...}
-//
-//  or:
-//
-//          nil
-type ArmServiceTypeHealthPolicyMapPtrInput interface {
-	pulumi.Input
-
-	ToArmServiceTypeHealthPolicyMapPtrOutput() ArmServiceTypeHealthPolicyMapPtrOutput
-	ToArmServiceTypeHealthPolicyMapPtrOutputWithContext(context.Context) ArmServiceTypeHealthPolicyMapPtrOutput
-}
-
-type armServiceTypeHealthPolicyMapPtrType ArmServiceTypeHealthPolicyMapArgs
-
-func ArmServiceTypeHealthPolicyMapPtr(v *ArmServiceTypeHealthPolicyMapArgs) ArmServiceTypeHealthPolicyMapPtrInput {
-	return (*armServiceTypeHealthPolicyMapPtrType)(v)
-}
-
-func (*armServiceTypeHealthPolicyMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmServiceTypeHealthPolicyMap)(nil)).Elem()
-}
-
-func (i *armServiceTypeHealthPolicyMapPtrType) ToArmServiceTypeHealthPolicyMapPtrOutput() ArmServiceTypeHealthPolicyMapPtrOutput {
-	return i.ToArmServiceTypeHealthPolicyMapPtrOutputWithContext(context.Background())
-}
-
-func (i *armServiceTypeHealthPolicyMapPtrType) ToArmServiceTypeHealthPolicyMapPtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyMapPtrOutput)
-}
-
-// Defines a ServiceTypeHealthPolicy per service type name.
-//
-// The entries in the map replace the default service type health policy for each specified service type.
-// For example, in an application that contains both a stateless gateway service type and a stateful engine service type, the health policies for the stateless and stateful services can be configured differently.
-// With policy per service type, there's more granular control of the health of the service.
-//
-// If no policy is specified for a service type name, the DefaultServiceTypeHealthPolicy is used for evaluation.
 type ArmServiceTypeHealthPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ArmServiceTypeHealthPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmServiceTypeHealthPolicyMap)(nil)).Elem()
+	return reflect.TypeOf((*map[string]ArmServiceTypeHealthPolicy)(nil)).Elem()
 }
 
 func (o ArmServiceTypeHealthPolicyMapOutput) ToArmServiceTypeHealthPolicyMapOutput() ArmServiceTypeHealthPolicyMapOutput {
@@ -4112,165 +3380,10 @@ func (o ArmServiceTypeHealthPolicyMapOutput) ToArmServiceTypeHealthPolicyMapOutp
 	return o
 }
 
-func (o ArmServiceTypeHealthPolicyMapOutput) ToArmServiceTypeHealthPolicyMapPtrOutput() ArmServiceTypeHealthPolicyMapPtrOutput {
-	return o.ToArmServiceTypeHealthPolicyMapPtrOutputWithContext(context.Background())
-}
-
-func (o ArmServiceTypeHealthPolicyMapOutput) ToArmServiceTypeHealthPolicyMapPtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyMapPtrOutput {
-	return o.ApplyT(func(v ArmServiceTypeHealthPolicyMap) *ArmServiceTypeHealthPolicyMap {
-		return &v
-	}).(ArmServiceTypeHealthPolicyMapPtrOutput)
-}
-
-type ArmServiceTypeHealthPolicyMapPtrOutput struct{ *pulumi.OutputState }
-
-func (ArmServiceTypeHealthPolicyMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmServiceTypeHealthPolicyMap)(nil)).Elem()
-}
-
-func (o ArmServiceTypeHealthPolicyMapPtrOutput) ToArmServiceTypeHealthPolicyMapPtrOutput() ArmServiceTypeHealthPolicyMapPtrOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyMapPtrOutput) ToArmServiceTypeHealthPolicyMapPtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyMapPtrOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyMapPtrOutput) Elem() ArmServiceTypeHealthPolicyMapOutput {
-	return o.ApplyT(func(v *ArmServiceTypeHealthPolicyMap) ArmServiceTypeHealthPolicyMap { return *v }).(ArmServiceTypeHealthPolicyMapOutput)
-}
-
-// Defines a ServiceTypeHealthPolicy per service type name.
-//
-// The entries in the map replace the default service type health policy for each specified service type.
-// For example, in an application that contains both a stateless gateway service type and a stateful engine service type, the health policies for the stateless and stateful services can be configured differently.
-// With policy per service type, there's more granular control of the health of the service.
-//
-// If no policy is specified for a service type name, the DefaultServiceTypeHealthPolicy is used for evaluation.
-type ArmServiceTypeHealthPolicyMapResponse struct {
-}
-
-// ArmServiceTypeHealthPolicyMapResponseInput is an input type that accepts ArmServiceTypeHealthPolicyMapResponseArgs and ArmServiceTypeHealthPolicyMapResponseOutput values.
-// You can construct a concrete instance of `ArmServiceTypeHealthPolicyMapResponseInput` via:
-//
-//          ArmServiceTypeHealthPolicyMapResponseArgs{...}
-type ArmServiceTypeHealthPolicyMapResponseInput interface {
-	pulumi.Input
-
-	ToArmServiceTypeHealthPolicyMapResponseOutput() ArmServiceTypeHealthPolicyMapResponseOutput
-	ToArmServiceTypeHealthPolicyMapResponseOutputWithContext(context.Context) ArmServiceTypeHealthPolicyMapResponseOutput
-}
-
-// Defines a ServiceTypeHealthPolicy per service type name.
-//
-// The entries in the map replace the default service type health policy for each specified service type.
-// For example, in an application that contains both a stateless gateway service type and a stateful engine service type, the health policies for the stateless and stateful services can be configured differently.
-// With policy per service type, there's more granular control of the health of the service.
-//
-// If no policy is specified for a service type name, the DefaultServiceTypeHealthPolicy is used for evaluation.
-type ArmServiceTypeHealthPolicyMapResponseArgs struct {
-}
-
-func (ArmServiceTypeHealthPolicyMapResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmServiceTypeHealthPolicyMapResponse)(nil)).Elem()
-}
-
-func (i ArmServiceTypeHealthPolicyMapResponseArgs) ToArmServiceTypeHealthPolicyMapResponseOutput() ArmServiceTypeHealthPolicyMapResponseOutput {
-	return i.ToArmServiceTypeHealthPolicyMapResponseOutputWithContext(context.Background())
-}
-
-func (i ArmServiceTypeHealthPolicyMapResponseArgs) ToArmServiceTypeHealthPolicyMapResponseOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyMapResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyMapResponseOutput)
-}
-
-func (i ArmServiceTypeHealthPolicyMapResponseArgs) ToArmServiceTypeHealthPolicyMapResponsePtrOutput() ArmServiceTypeHealthPolicyMapResponsePtrOutput {
-	return i.ToArmServiceTypeHealthPolicyMapResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ArmServiceTypeHealthPolicyMapResponseArgs) ToArmServiceTypeHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyMapResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyMapResponseOutput).ToArmServiceTypeHealthPolicyMapResponsePtrOutputWithContext(ctx)
-}
-
-// ArmServiceTypeHealthPolicyMapResponsePtrInput is an input type that accepts ArmServiceTypeHealthPolicyMapResponseArgs, ArmServiceTypeHealthPolicyMapResponsePtr and ArmServiceTypeHealthPolicyMapResponsePtrOutput values.
-// You can construct a concrete instance of `ArmServiceTypeHealthPolicyMapResponsePtrInput` via:
-//
-//          ArmServiceTypeHealthPolicyMapResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ArmServiceTypeHealthPolicyMapResponsePtrInput interface {
-	pulumi.Input
-
-	ToArmServiceTypeHealthPolicyMapResponsePtrOutput() ArmServiceTypeHealthPolicyMapResponsePtrOutput
-	ToArmServiceTypeHealthPolicyMapResponsePtrOutputWithContext(context.Context) ArmServiceTypeHealthPolicyMapResponsePtrOutput
-}
-
-type armServiceTypeHealthPolicyMapResponsePtrType ArmServiceTypeHealthPolicyMapResponseArgs
-
-func ArmServiceTypeHealthPolicyMapResponsePtr(v *ArmServiceTypeHealthPolicyMapResponseArgs) ArmServiceTypeHealthPolicyMapResponsePtrInput {
-	return (*armServiceTypeHealthPolicyMapResponsePtrType)(v)
-}
-
-func (*armServiceTypeHealthPolicyMapResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmServiceTypeHealthPolicyMapResponse)(nil)).Elem()
-}
-
-func (i *armServiceTypeHealthPolicyMapResponsePtrType) ToArmServiceTypeHealthPolicyMapResponsePtrOutput() ArmServiceTypeHealthPolicyMapResponsePtrOutput {
-	return i.ToArmServiceTypeHealthPolicyMapResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *armServiceTypeHealthPolicyMapResponsePtrType) ToArmServiceTypeHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyMapResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyMapResponsePtrOutput)
-}
-
-// Defines a ServiceTypeHealthPolicy per service type name.
-//
-// The entries in the map replace the default service type health policy for each specified service type.
-// For example, in an application that contains both a stateless gateway service type and a stateful engine service type, the health policies for the stateless and stateful services can be configured differently.
-// With policy per service type, there's more granular control of the health of the service.
-//
-// If no policy is specified for a service type name, the DefaultServiceTypeHealthPolicy is used for evaluation.
-type ArmServiceTypeHealthPolicyMapResponseOutput struct{ *pulumi.OutputState }
-
-func (ArmServiceTypeHealthPolicyMapResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ArmServiceTypeHealthPolicyMapResponse)(nil)).Elem()
-}
-
-func (o ArmServiceTypeHealthPolicyMapResponseOutput) ToArmServiceTypeHealthPolicyMapResponseOutput() ArmServiceTypeHealthPolicyMapResponseOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyMapResponseOutput) ToArmServiceTypeHealthPolicyMapResponseOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyMapResponseOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyMapResponseOutput) ToArmServiceTypeHealthPolicyMapResponsePtrOutput() ArmServiceTypeHealthPolicyMapResponsePtrOutput {
-	return o.ToArmServiceTypeHealthPolicyMapResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ArmServiceTypeHealthPolicyMapResponseOutput) ToArmServiceTypeHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyMapResponsePtrOutput {
-	return o.ApplyT(func(v ArmServiceTypeHealthPolicyMapResponse) *ArmServiceTypeHealthPolicyMapResponse {
-		return &v
-	}).(ArmServiceTypeHealthPolicyMapResponsePtrOutput)
-}
-
-type ArmServiceTypeHealthPolicyMapResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ArmServiceTypeHealthPolicyMapResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ArmServiceTypeHealthPolicyMapResponse)(nil)).Elem()
-}
-
-func (o ArmServiceTypeHealthPolicyMapResponsePtrOutput) ToArmServiceTypeHealthPolicyMapResponsePtrOutput() ArmServiceTypeHealthPolicyMapResponsePtrOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyMapResponsePtrOutput) ToArmServiceTypeHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyMapResponsePtrOutput {
-	return o
-}
-
-func (o ArmServiceTypeHealthPolicyMapResponsePtrOutput) Elem() ArmServiceTypeHealthPolicyMapResponseOutput {
-	return o.ApplyT(func(v *ArmServiceTypeHealthPolicyMapResponse) ArmServiceTypeHealthPolicyMapResponse { return *v }).(ArmServiceTypeHealthPolicyMapResponseOutput)
+func (o ArmServiceTypeHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) ArmServiceTypeHealthPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ArmServiceTypeHealthPolicy {
+		return vs[0].(map[string]ArmServiceTypeHealthPolicy)[vs[1].(string)]
+	}).(ArmServiceTypeHealthPolicyOutput)
 }
 
 // Represents the health policy used to evaluate the health of services belonging to a service type.
@@ -4355,6 +3468,31 @@ func (i *armServiceTypeHealthPolicyResponsePtrType) ToArmServiceTypeHealthPolicy
 
 func (i *armServiceTypeHealthPolicyResponsePtrType) ToArmServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyResponsePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyResponsePtrOutput)
+}
+
+// ArmServiceTypeHealthPolicyResponseMapInput is an input type that accepts ArmServiceTypeHealthPolicyResponseMap and ArmServiceTypeHealthPolicyResponseMapOutput values.
+// You can construct a concrete instance of `ArmServiceTypeHealthPolicyResponseMapInput` via:
+//
+//          ArmServiceTypeHealthPolicyResponseMap{ "key": ArmServiceTypeHealthPolicyResponseArgs{...} }
+type ArmServiceTypeHealthPolicyResponseMapInput interface {
+	pulumi.Input
+
+	ToArmServiceTypeHealthPolicyResponseMapOutput() ArmServiceTypeHealthPolicyResponseMapOutput
+	ToArmServiceTypeHealthPolicyResponseMapOutputWithContext(context.Context) ArmServiceTypeHealthPolicyResponseMapOutput
+}
+
+type ArmServiceTypeHealthPolicyResponseMap map[string]ArmServiceTypeHealthPolicyResponseInput
+
+func (ArmServiceTypeHealthPolicyResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ArmServiceTypeHealthPolicyResponse)(nil)).Elem()
+}
+
+func (i ArmServiceTypeHealthPolicyResponseMap) ToArmServiceTypeHealthPolicyResponseMapOutput() ArmServiceTypeHealthPolicyResponseMapOutput {
+	return i.ToArmServiceTypeHealthPolicyResponseMapOutputWithContext(context.Background())
+}
+
+func (i ArmServiceTypeHealthPolicyResponseMap) ToArmServiceTypeHealthPolicyResponseMapOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ArmServiceTypeHealthPolicyResponseMapOutput)
 }
 
 // Represents the health policy used to evaluate the health of services belonging to a service type.
@@ -4443,6 +3581,26 @@ func (o ArmServiceTypeHealthPolicyResponsePtrOutput) MaxPercentUnhealthyServices
 		}
 		return v.MaxPercentUnhealthyServices
 	}).(pulumi.IntPtrOutput)
+}
+
+type ArmServiceTypeHealthPolicyResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ArmServiceTypeHealthPolicyResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ArmServiceTypeHealthPolicyResponse)(nil)).Elem()
+}
+
+func (o ArmServiceTypeHealthPolicyResponseMapOutput) ToArmServiceTypeHealthPolicyResponseMapOutput() ArmServiceTypeHealthPolicyResponseMapOutput {
+	return o
+}
+
+func (o ArmServiceTypeHealthPolicyResponseMapOutput) ToArmServiceTypeHealthPolicyResponseMapOutputWithContext(ctx context.Context) ArmServiceTypeHealthPolicyResponseMapOutput {
+	return o
+}
+
+func (o ArmServiceTypeHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInput) ArmServiceTypeHealthPolicyResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ArmServiceTypeHealthPolicyResponse {
+		return vs[0].(map[string]ArmServiceTypeHealthPolicyResponse)[vs[1].(string)]
+	}).(ArmServiceTypeHealthPolicyResponseOutput)
 }
 
 // The settings to enable AAD authentication on the cluster.
@@ -5587,110 +4745,10 @@ func (o ClientCertificateThumbprintResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ClientCertificateThumbprintResponseOutput)
 }
 
-// The cluster resource
-type ClusterType struct {
-	// Azure resource etag.
-	Etag string `pulumi:"etag"`
-	// Azure resource location.
-	Location string `pulumi:"location"`
-	// Azure resource name.
-	Name string `pulumi:"name"`
-	// The cluster resource properties
-	Properties ClusterPropertiesResponse `pulumi:"properties"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
-	Type string `pulumi:"type"`
-}
-
-// ClusterTypeInput is an input type that accepts ClusterTypeArgs and ClusterTypeOutput values.
-// You can construct a concrete instance of `ClusterTypeInput` via:
-//
-//          ClusterTypeArgs{...}
-type ClusterTypeInput interface {
-	pulumi.Input
-
-	ToClusterTypeOutput() ClusterTypeOutput
-	ToClusterTypeOutputWithContext(context.Context) ClusterTypeOutput
-}
-
-// The cluster resource
-type ClusterTypeArgs struct {
-	// Azure resource etag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// Azure resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The cluster resource properties
-	Properties ClusterPropertiesResponseInput `pulumi:"properties"`
-	// Azure resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterType)(nil)).Elem()
-}
-
-func (i ClusterTypeArgs) ToClusterTypeOutput() ClusterTypeOutput {
-	return i.ToClusterTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterTypeArgs) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterTypeOutput)
-}
-
-// The cluster resource
-type ClusterTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterType)(nil)).Elem()
-}
-
-func (o ClusterTypeOutput) ToClusterTypeOutput() ClusterTypeOutput {
-	return o
-}
-
-func (o ClusterTypeOutput) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
-	return o
-}
-
-// Azure resource etag.
-func (o ClusterTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// Azure resource location.
-func (o ClusterTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Azure resource name.
-func (o ClusterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The cluster resource properties
-func (o ClusterTypeOutput) Properties() ClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v ClusterType) ClusterPropertiesResponse { return v.Properties }).(ClusterPropertiesResponseOutput)
-}
-
-// Azure resource tags.
-func (o ClusterTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ClusterType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type.
-func (o ClusterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 type ClusterHealthPolicy struct {
 	// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-	ApplicationHealthPolicies *ApplicationHealthPolicyMap `pulumi:"applicationHealthPolicies"`
+	ApplicationHealthPolicies map[string]ApplicationHealthPolicy `pulumi:"applicationHealthPolicies"`
 	// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
 	//
 	// The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
@@ -5723,7 +4781,7 @@ type ClusterHealthPolicyInput interface {
 // Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 type ClusterHealthPolicyArgs struct {
 	// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-	ApplicationHealthPolicies ApplicationHealthPolicyMapPtrInput `pulumi:"applicationHealthPolicies"`
+	ApplicationHealthPolicies ApplicationHealthPolicyMapInput `pulumi:"applicationHealthPolicies"`
 	// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
 	//
 	// The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
@@ -5821,8 +4879,8 @@ func (o ClusterHealthPolicyOutput) ToClusterHealthPolicyPtrOutputWithContext(ctx
 }
 
 // Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-func (o ClusterHealthPolicyOutput) ApplicationHealthPolicies() ApplicationHealthPolicyMapPtrOutput {
-	return o.ApplyT(func(v ClusterHealthPolicy) *ApplicationHealthPolicyMap { return v.ApplicationHealthPolicies }).(ApplicationHealthPolicyMapPtrOutput)
+func (o ClusterHealthPolicyOutput) ApplicationHealthPolicies() ApplicationHealthPolicyMapOutput {
+	return o.ApplyT(func(v ClusterHealthPolicy) map[string]ApplicationHealthPolicy { return v.ApplicationHealthPolicies }).(ApplicationHealthPolicyMapOutput)
 }
 
 // The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
@@ -5866,13 +4924,13 @@ func (o ClusterHealthPolicyPtrOutput) Elem() ClusterHealthPolicyOutput {
 }
 
 // Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-func (o ClusterHealthPolicyPtrOutput) ApplicationHealthPolicies() ApplicationHealthPolicyMapPtrOutput {
-	return o.ApplyT(func(v *ClusterHealthPolicy) *ApplicationHealthPolicyMap {
+func (o ClusterHealthPolicyPtrOutput) ApplicationHealthPolicies() ApplicationHealthPolicyMapOutput {
+	return o.ApplyT(func(v *ClusterHealthPolicy) map[string]ApplicationHealthPolicy {
 		if v == nil {
 			return nil
 		}
 		return v.ApplicationHealthPolicies
-	}).(ApplicationHealthPolicyMapPtrOutput)
+	}).(ApplicationHealthPolicyMapOutput)
 }
 
 // The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
@@ -5910,7 +4968,7 @@ func (o ClusterHealthPolicyPtrOutput) MaxPercentUnhealthyNodes() pulumi.IntPtrOu
 // Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 type ClusterHealthPolicyResponse struct {
 	// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-	ApplicationHealthPolicies *ApplicationHealthPolicyMapResponse `pulumi:"applicationHealthPolicies"`
+	ApplicationHealthPolicies map[string]ApplicationHealthPolicyResponse `pulumi:"applicationHealthPolicies"`
 	// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
 	//
 	// The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
@@ -5943,7 +5001,7 @@ type ClusterHealthPolicyResponseInput interface {
 // Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 type ClusterHealthPolicyResponseArgs struct {
 	// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-	ApplicationHealthPolicies ApplicationHealthPolicyMapResponsePtrInput `pulumi:"applicationHealthPolicies"`
+	ApplicationHealthPolicies ApplicationHealthPolicyResponseMapInput `pulumi:"applicationHealthPolicies"`
 	// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
 	//
 	// The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
@@ -6041,10 +5099,10 @@ func (o ClusterHealthPolicyResponseOutput) ToClusterHealthPolicyResponsePtrOutpu
 }
 
 // Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-func (o ClusterHealthPolicyResponseOutput) ApplicationHealthPolicies() ApplicationHealthPolicyMapResponsePtrOutput {
-	return o.ApplyT(func(v ClusterHealthPolicyResponse) *ApplicationHealthPolicyMapResponse {
+func (o ClusterHealthPolicyResponseOutput) ApplicationHealthPolicies() ApplicationHealthPolicyResponseMapOutput {
+	return o.ApplyT(func(v ClusterHealthPolicyResponse) map[string]ApplicationHealthPolicyResponse {
 		return v.ApplicationHealthPolicies
-	}).(ApplicationHealthPolicyMapResponsePtrOutput)
+	}).(ApplicationHealthPolicyResponseMapOutput)
 }
 
 // The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
@@ -6088,13 +5146,13 @@ func (o ClusterHealthPolicyResponsePtrOutput) Elem() ClusterHealthPolicyResponse
 }
 
 // Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-func (o ClusterHealthPolicyResponsePtrOutput) ApplicationHealthPolicies() ApplicationHealthPolicyMapResponsePtrOutput {
-	return o.ApplyT(func(v *ClusterHealthPolicyResponse) *ApplicationHealthPolicyMapResponse {
+func (o ClusterHealthPolicyResponsePtrOutput) ApplicationHealthPolicies() ApplicationHealthPolicyResponseMapOutput {
+	return o.ApplyT(func(v *ClusterHealthPolicyResponse) map[string]ApplicationHealthPolicyResponse {
 		if v == nil {
 			return nil
 		}
 		return v.ApplicationHealthPolicies
-	}).(ApplicationHealthPolicyMapResponsePtrOutput)
+	}).(ApplicationHealthPolicyResponseMapOutput)
 }
 
 // The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
@@ -6795,7 +5853,7 @@ func (o ClusterPropertiesResponsePtrOutput) VmImage() pulumi.StringPtrOutput {
 // Describes the delta health policies for the cluster upgrade.
 type ClusterUpgradeDeltaHealthPolicy struct {
 	// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-	ApplicationDeltaHealthPolicies *ApplicationDeltaHealthPolicyMap `pulumi:"applicationDeltaHealthPolicies"`
+	ApplicationDeltaHealthPolicies map[string]ApplicationDeltaHealthPolicy `pulumi:"applicationDeltaHealthPolicies"`
 	// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
 	// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
 	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
@@ -6824,7 +5882,7 @@ type ClusterUpgradeDeltaHealthPolicyInput interface {
 // Describes the delta health policies for the cluster upgrade.
 type ClusterUpgradeDeltaHealthPolicyArgs struct {
 	// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-	ApplicationDeltaHealthPolicies ApplicationDeltaHealthPolicyMapPtrInput `pulumi:"applicationDeltaHealthPolicies"`
+	ApplicationDeltaHealthPolicies ApplicationDeltaHealthPolicyMapInput `pulumi:"applicationDeltaHealthPolicies"`
 	// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
 	// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
 	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
@@ -6918,10 +5976,10 @@ func (o ClusterUpgradeDeltaHealthPolicyOutput) ToClusterUpgradeDeltaHealthPolicy
 }
 
 // Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-func (o ClusterUpgradeDeltaHealthPolicyOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyMapPtrOutput {
-	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicy) *ApplicationDeltaHealthPolicyMap {
+func (o ClusterUpgradeDeltaHealthPolicyOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyMapOutput {
+	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicy) map[string]ApplicationDeltaHealthPolicy {
 		return v.ApplicationDeltaHealthPolicies
-	}).(ApplicationDeltaHealthPolicyMapPtrOutput)
+	}).(ApplicationDeltaHealthPolicyMapOutput)
 }
 
 // The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
@@ -6964,13 +6022,13 @@ func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) Elem() ClusterUpgradeDeltaHeal
 }
 
 // Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyMapPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicy) *ApplicationDeltaHealthPolicyMap {
+func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyMapOutput {
+	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicy) map[string]ApplicationDeltaHealthPolicy {
 		if v == nil {
 			return nil
 		}
 		return v.ApplicationDeltaHealthPolicies
-	}).(ApplicationDeltaHealthPolicyMapPtrOutput)
+	}).(ApplicationDeltaHealthPolicyMapOutput)
 }
 
 // The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
@@ -7012,7 +6070,7 @@ func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) MaxPercentUpgradeDomainDeltaUn
 // Describes the delta health policies for the cluster upgrade.
 type ClusterUpgradeDeltaHealthPolicyResponse struct {
 	// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-	ApplicationDeltaHealthPolicies *ApplicationDeltaHealthPolicyMapResponse `pulumi:"applicationDeltaHealthPolicies"`
+	ApplicationDeltaHealthPolicies map[string]ApplicationDeltaHealthPolicyResponse `pulumi:"applicationDeltaHealthPolicies"`
 	// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
 	// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
 	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
@@ -7041,7 +6099,7 @@ type ClusterUpgradeDeltaHealthPolicyResponseInput interface {
 // Describes the delta health policies for the cluster upgrade.
 type ClusterUpgradeDeltaHealthPolicyResponseArgs struct {
 	// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-	ApplicationDeltaHealthPolicies ApplicationDeltaHealthPolicyMapResponsePtrInput `pulumi:"applicationDeltaHealthPolicies"`
+	ApplicationDeltaHealthPolicies ApplicationDeltaHealthPolicyResponseMapInput `pulumi:"applicationDeltaHealthPolicies"`
 	// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
 	// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
 	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
@@ -7135,10 +6193,10 @@ func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ToClusterUpgradeDeltaHeal
 }
 
 // Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicyResponse) *ApplicationDeltaHealthPolicyMapResponse {
+func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyResponseMapOutput {
+	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicyResponse) map[string]ApplicationDeltaHealthPolicyResponse {
 		return v.ApplicationDeltaHealthPolicies
-	}).(ApplicationDeltaHealthPolicyMapResponsePtrOutput)
+	}).(ApplicationDeltaHealthPolicyResponseMapOutput)
 }
 
 // The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
@@ -7183,13 +6241,13 @@ func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) Elem() ClusterUpgradeD
 }
 
 // Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicyResponse) *ApplicationDeltaHealthPolicyMapResponse {
+func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyResponseMapOutput {
+	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicyResponse) map[string]ApplicationDeltaHealthPolicyResponse {
 		if v == nil {
 			return nil
 		}
 		return v.ApplicationDeltaHealthPolicies
-	}).(ApplicationDeltaHealthPolicyMapResponsePtrOutput)
+	}).(ApplicationDeltaHealthPolicyResponseMapOutput)
 }
 
 // The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
@@ -7803,79 +6861,6 @@ func (o ClusterUpgradePolicyResponsePtrOutput) UpgradeTimeout() pulumi.StringPtr
 }
 
 // The detail of the Service Fabric runtime version result
-type ClusterVersionDetails struct {
-	// The Service Fabric runtime version of the cluster.
-	CodeVersion *string `pulumi:"codeVersion"`
-	// Indicates if this version is for Windows or Linux operating system.
-	Environment *string `pulumi:"environment"`
-	// The date of expiry of support of the version.
-	SupportExpiryUtc *string `pulumi:"supportExpiryUtc"`
-}
-
-// ClusterVersionDetailsInput is an input type that accepts ClusterVersionDetailsArgs and ClusterVersionDetailsOutput values.
-// You can construct a concrete instance of `ClusterVersionDetailsInput` via:
-//
-//          ClusterVersionDetailsArgs{...}
-type ClusterVersionDetailsInput interface {
-	pulumi.Input
-
-	ToClusterVersionDetailsOutput() ClusterVersionDetailsOutput
-	ToClusterVersionDetailsOutputWithContext(context.Context) ClusterVersionDetailsOutput
-}
-
-// The detail of the Service Fabric runtime version result
-type ClusterVersionDetailsArgs struct {
-	// The Service Fabric runtime version of the cluster.
-	CodeVersion pulumi.StringPtrInput `pulumi:"codeVersion"`
-	// Indicates if this version is for Windows or Linux operating system.
-	Environment pulumi.StringPtrInput `pulumi:"environment"`
-	// The date of expiry of support of the version.
-	SupportExpiryUtc pulumi.StringPtrInput `pulumi:"supportExpiryUtc"`
-}
-
-func (ClusterVersionDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterVersionDetails)(nil)).Elem()
-}
-
-func (i ClusterVersionDetailsArgs) ToClusterVersionDetailsOutput() ClusterVersionDetailsOutput {
-	return i.ToClusterVersionDetailsOutputWithContext(context.Background())
-}
-
-func (i ClusterVersionDetailsArgs) ToClusterVersionDetailsOutputWithContext(ctx context.Context) ClusterVersionDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterVersionDetailsOutput)
-}
-
-// The detail of the Service Fabric runtime version result
-type ClusterVersionDetailsOutput struct{ *pulumi.OutputState }
-
-func (ClusterVersionDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterVersionDetails)(nil)).Elem()
-}
-
-func (o ClusterVersionDetailsOutput) ToClusterVersionDetailsOutput() ClusterVersionDetailsOutput {
-	return o
-}
-
-func (o ClusterVersionDetailsOutput) ToClusterVersionDetailsOutputWithContext(ctx context.Context) ClusterVersionDetailsOutput {
-	return o
-}
-
-// The Service Fabric runtime version of the cluster.
-func (o ClusterVersionDetailsOutput) CodeVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVersionDetails) *string { return v.CodeVersion }).(pulumi.StringPtrOutput)
-}
-
-// Indicates if this version is for Windows or Linux operating system.
-func (o ClusterVersionDetailsOutput) Environment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVersionDetails) *string { return v.Environment }).(pulumi.StringPtrOutput)
-}
-
-// The date of expiry of support of the version.
-func (o ClusterVersionDetailsOutput) SupportExpiryUtc() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVersionDetails) *string { return v.SupportExpiryUtc }).(pulumi.StringPtrOutput)
-}
-
-// The detail of the Service Fabric runtime version result
 type ClusterVersionDetailsResponse struct {
 	// The Service Fabric runtime version of the cluster.
 	CodeVersion *string `pulumi:"codeVersion"`
@@ -7991,236 +6976,6 @@ func (o ClusterVersionDetailsResponseArrayOutput) Index(i pulumi.IntInput) Clust
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterVersionDetailsResponse {
 		return vs[0].([]ClusterVersionDetailsResponse)[vs[1].(int)]
 	}).(ClusterVersionDetailsResponseOutput)
-}
-
-// A list that describes the correlation of the service with other services.
-type CorrelationSchemeList struct {
-}
-
-// CorrelationSchemeListInput is an input type that accepts CorrelationSchemeListArgs and CorrelationSchemeListOutput values.
-// You can construct a concrete instance of `CorrelationSchemeListInput` via:
-//
-//          CorrelationSchemeListArgs{...}
-type CorrelationSchemeListInput interface {
-	pulumi.Input
-
-	ToCorrelationSchemeListOutput() CorrelationSchemeListOutput
-	ToCorrelationSchemeListOutputWithContext(context.Context) CorrelationSchemeListOutput
-}
-
-// A list that describes the correlation of the service with other services.
-type CorrelationSchemeListArgs struct {
-}
-
-func (CorrelationSchemeListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CorrelationSchemeList)(nil)).Elem()
-}
-
-func (i CorrelationSchemeListArgs) ToCorrelationSchemeListOutput() CorrelationSchemeListOutput {
-	return i.ToCorrelationSchemeListOutputWithContext(context.Background())
-}
-
-func (i CorrelationSchemeListArgs) ToCorrelationSchemeListOutputWithContext(ctx context.Context) CorrelationSchemeListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CorrelationSchemeListOutput)
-}
-
-func (i CorrelationSchemeListArgs) ToCorrelationSchemeListPtrOutput() CorrelationSchemeListPtrOutput {
-	return i.ToCorrelationSchemeListPtrOutputWithContext(context.Background())
-}
-
-func (i CorrelationSchemeListArgs) ToCorrelationSchemeListPtrOutputWithContext(ctx context.Context) CorrelationSchemeListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CorrelationSchemeListOutput).ToCorrelationSchemeListPtrOutputWithContext(ctx)
-}
-
-// CorrelationSchemeListPtrInput is an input type that accepts CorrelationSchemeListArgs, CorrelationSchemeListPtr and CorrelationSchemeListPtrOutput values.
-// You can construct a concrete instance of `CorrelationSchemeListPtrInput` via:
-//
-//          CorrelationSchemeListArgs{...}
-//
-//  or:
-//
-//          nil
-type CorrelationSchemeListPtrInput interface {
-	pulumi.Input
-
-	ToCorrelationSchemeListPtrOutput() CorrelationSchemeListPtrOutput
-	ToCorrelationSchemeListPtrOutputWithContext(context.Context) CorrelationSchemeListPtrOutput
-}
-
-type correlationSchemeListPtrType CorrelationSchemeListArgs
-
-func CorrelationSchemeListPtr(v *CorrelationSchemeListArgs) CorrelationSchemeListPtrInput {
-	return (*correlationSchemeListPtrType)(v)
-}
-
-func (*correlationSchemeListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CorrelationSchemeList)(nil)).Elem()
-}
-
-func (i *correlationSchemeListPtrType) ToCorrelationSchemeListPtrOutput() CorrelationSchemeListPtrOutput {
-	return i.ToCorrelationSchemeListPtrOutputWithContext(context.Background())
-}
-
-func (i *correlationSchemeListPtrType) ToCorrelationSchemeListPtrOutputWithContext(ctx context.Context) CorrelationSchemeListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CorrelationSchemeListPtrOutput)
-}
-
-// A list that describes the correlation of the service with other services.
-type CorrelationSchemeListOutput struct{ *pulumi.OutputState }
-
-func (CorrelationSchemeListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CorrelationSchemeList)(nil)).Elem()
-}
-
-func (o CorrelationSchemeListOutput) ToCorrelationSchemeListOutput() CorrelationSchemeListOutput {
-	return o
-}
-
-func (o CorrelationSchemeListOutput) ToCorrelationSchemeListOutputWithContext(ctx context.Context) CorrelationSchemeListOutput {
-	return o
-}
-
-func (o CorrelationSchemeListOutput) ToCorrelationSchemeListPtrOutput() CorrelationSchemeListPtrOutput {
-	return o.ToCorrelationSchemeListPtrOutputWithContext(context.Background())
-}
-
-func (o CorrelationSchemeListOutput) ToCorrelationSchemeListPtrOutputWithContext(ctx context.Context) CorrelationSchemeListPtrOutput {
-	return o.ApplyT(func(v CorrelationSchemeList) *CorrelationSchemeList {
-		return &v
-	}).(CorrelationSchemeListPtrOutput)
-}
-
-type CorrelationSchemeListPtrOutput struct{ *pulumi.OutputState }
-
-func (CorrelationSchemeListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CorrelationSchemeList)(nil)).Elem()
-}
-
-func (o CorrelationSchemeListPtrOutput) ToCorrelationSchemeListPtrOutput() CorrelationSchemeListPtrOutput {
-	return o
-}
-
-func (o CorrelationSchemeListPtrOutput) ToCorrelationSchemeListPtrOutputWithContext(ctx context.Context) CorrelationSchemeListPtrOutput {
-	return o
-}
-
-func (o CorrelationSchemeListPtrOutput) Elem() CorrelationSchemeListOutput {
-	return o.ApplyT(func(v *CorrelationSchemeList) CorrelationSchemeList { return *v }).(CorrelationSchemeListOutput)
-}
-
-// A list that describes the correlation of the service with other services.
-type CorrelationSchemeListResponse struct {
-}
-
-// CorrelationSchemeListResponseInput is an input type that accepts CorrelationSchemeListResponseArgs and CorrelationSchemeListResponseOutput values.
-// You can construct a concrete instance of `CorrelationSchemeListResponseInput` via:
-//
-//          CorrelationSchemeListResponseArgs{...}
-type CorrelationSchemeListResponseInput interface {
-	pulumi.Input
-
-	ToCorrelationSchemeListResponseOutput() CorrelationSchemeListResponseOutput
-	ToCorrelationSchemeListResponseOutputWithContext(context.Context) CorrelationSchemeListResponseOutput
-}
-
-// A list that describes the correlation of the service with other services.
-type CorrelationSchemeListResponseArgs struct {
-}
-
-func (CorrelationSchemeListResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CorrelationSchemeListResponse)(nil)).Elem()
-}
-
-func (i CorrelationSchemeListResponseArgs) ToCorrelationSchemeListResponseOutput() CorrelationSchemeListResponseOutput {
-	return i.ToCorrelationSchemeListResponseOutputWithContext(context.Background())
-}
-
-func (i CorrelationSchemeListResponseArgs) ToCorrelationSchemeListResponseOutputWithContext(ctx context.Context) CorrelationSchemeListResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CorrelationSchemeListResponseOutput)
-}
-
-func (i CorrelationSchemeListResponseArgs) ToCorrelationSchemeListResponsePtrOutput() CorrelationSchemeListResponsePtrOutput {
-	return i.ToCorrelationSchemeListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i CorrelationSchemeListResponseArgs) ToCorrelationSchemeListResponsePtrOutputWithContext(ctx context.Context) CorrelationSchemeListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CorrelationSchemeListResponseOutput).ToCorrelationSchemeListResponsePtrOutputWithContext(ctx)
-}
-
-// CorrelationSchemeListResponsePtrInput is an input type that accepts CorrelationSchemeListResponseArgs, CorrelationSchemeListResponsePtr and CorrelationSchemeListResponsePtrOutput values.
-// You can construct a concrete instance of `CorrelationSchemeListResponsePtrInput` via:
-//
-//          CorrelationSchemeListResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type CorrelationSchemeListResponsePtrInput interface {
-	pulumi.Input
-
-	ToCorrelationSchemeListResponsePtrOutput() CorrelationSchemeListResponsePtrOutput
-	ToCorrelationSchemeListResponsePtrOutputWithContext(context.Context) CorrelationSchemeListResponsePtrOutput
-}
-
-type correlationSchemeListResponsePtrType CorrelationSchemeListResponseArgs
-
-func CorrelationSchemeListResponsePtr(v *CorrelationSchemeListResponseArgs) CorrelationSchemeListResponsePtrInput {
-	return (*correlationSchemeListResponsePtrType)(v)
-}
-
-func (*correlationSchemeListResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CorrelationSchemeListResponse)(nil)).Elem()
-}
-
-func (i *correlationSchemeListResponsePtrType) ToCorrelationSchemeListResponsePtrOutput() CorrelationSchemeListResponsePtrOutput {
-	return i.ToCorrelationSchemeListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *correlationSchemeListResponsePtrType) ToCorrelationSchemeListResponsePtrOutputWithContext(ctx context.Context) CorrelationSchemeListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CorrelationSchemeListResponsePtrOutput)
-}
-
-// A list that describes the correlation of the service with other services.
-type CorrelationSchemeListResponseOutput struct{ *pulumi.OutputState }
-
-func (CorrelationSchemeListResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CorrelationSchemeListResponse)(nil)).Elem()
-}
-
-func (o CorrelationSchemeListResponseOutput) ToCorrelationSchemeListResponseOutput() CorrelationSchemeListResponseOutput {
-	return o
-}
-
-func (o CorrelationSchemeListResponseOutput) ToCorrelationSchemeListResponseOutputWithContext(ctx context.Context) CorrelationSchemeListResponseOutput {
-	return o
-}
-
-func (o CorrelationSchemeListResponseOutput) ToCorrelationSchemeListResponsePtrOutput() CorrelationSchemeListResponsePtrOutput {
-	return o.ToCorrelationSchemeListResponsePtrOutputWithContext(context.Background())
-}
-
-func (o CorrelationSchemeListResponseOutput) ToCorrelationSchemeListResponsePtrOutputWithContext(ctx context.Context) CorrelationSchemeListResponsePtrOutput {
-	return o.ApplyT(func(v CorrelationSchemeListResponse) *CorrelationSchemeListResponse {
-		return &v
-	}).(CorrelationSchemeListResponsePtrOutput)
-}
-
-type CorrelationSchemeListResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (CorrelationSchemeListResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CorrelationSchemeListResponse)(nil)).Elem()
-}
-
-func (o CorrelationSchemeListResponsePtrOutput) ToCorrelationSchemeListResponsePtrOutput() CorrelationSchemeListResponsePtrOutput {
-	return o
-}
-
-func (o CorrelationSchemeListResponsePtrOutput) ToCorrelationSchemeListResponsePtrOutputWithContext(ctx context.Context) CorrelationSchemeListResponsePtrOutput {
-	return o
-}
-
-func (o CorrelationSchemeListResponsePtrOutput) Elem() CorrelationSchemeListResponseOutput {
-	return o.ApplyT(func(v *CorrelationSchemeListResponse) CorrelationSchemeListResponse { return *v }).(CorrelationSchemeListResponseOutput)
 }
 
 // The storage account information for storing Service Fabric diagnostic logs.
@@ -8991,9 +7746,6 @@ func (o EndpointRangeDescriptionResponsePtrOutput) StartPort() pulumi.IntPtrOutp
 type ManagedIdentity struct {
 	// The type of managed identity for the resource.
 	Type *string `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities *UserAssignedIdentityMap `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedIdentityInput is an input type that accepts ManagedIdentityArgs and ManagedIdentityOutput values.
@@ -9011,9 +7763,6 @@ type ManagedIdentityInput interface {
 type ManagedIdentityArgs struct {
 	// The type of managed identity for the resource.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities UserAssignedIdentityMapPtrInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedIdentityArgs) ElementType() reflect.Type {
@@ -9099,12 +7848,6 @@ func (o ManagedIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ManagedIdentityOutput) UserAssignedIdentities() UserAssignedIdentityMapPtrOutput {
-	return o.ApplyT(func(v ManagedIdentity) *UserAssignedIdentityMap { return v.UserAssignedIdentities }).(UserAssignedIdentityMapPtrOutput)
-}
-
 type ManagedIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (ManagedIdentityPtrOutput) ElementType() reflect.Type {
@@ -9133,17 +7876,6 @@ func (o ManagedIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ManagedIdentityPtrOutput) UserAssignedIdentities() UserAssignedIdentityMapPtrOutput {
-	return o.ApplyT(func(v *ManagedIdentity) *UserAssignedIdentityMap {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(UserAssignedIdentityMapPtrOutput)
-}
-
 // Describes the managed identities for an Azure resource.
 type ManagedIdentityResponse struct {
 	// The principal id of the managed identity. This property will only be provided for a system assigned identity.
@@ -9154,7 +7886,7 @@ type ManagedIdentityResponse struct {
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
 	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities *UserAssignedIdentityMapResponse `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]UserAssignedIdentityResponse `pulumi:"userAssignedIdentities"`
 }
 
 // ManagedIdentityResponseInput is an input type that accepts ManagedIdentityResponseArgs and ManagedIdentityResponseOutput values.
@@ -9178,7 +7910,7 @@ type ManagedIdentityResponseArgs struct {
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
 	// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities UserAssignedIdentityMapResponsePtrInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities UserAssignedIdentityResponseMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ManagedIdentityResponseArgs) ElementType() reflect.Type {
@@ -9276,8 +8008,10 @@ func (o ManagedIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ManagedIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityMapResponsePtrOutput {
-	return o.ApplyT(func(v ManagedIdentityResponse) *UserAssignedIdentityMapResponse { return v.UserAssignedIdentities }).(UserAssignedIdentityMapResponsePtrOutput)
+func (o ManagedIdentityResponseOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v ManagedIdentityResponse) map[string]UserAssignedIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedIdentityResponseMapOutput)
 }
 
 type ManagedIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -9330,13 +8064,13 @@ func (o ManagedIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 
 // The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
 // '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ManagedIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityMapResponsePtrOutput {
-	return o.ApplyT(func(v *ManagedIdentityResponse) *UserAssignedIdentityMapResponse {
+func (o ManagedIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *ManagedIdentityResponse) map[string]UserAssignedIdentityResponse {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(UserAssignedIdentityMapResponsePtrOutput)
+	}).(UserAssignedIdentityResponseMapOutput)
 }
 
 // Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
@@ -10537,570 +9271,700 @@ func (o ServerCertificateCommonNamesResponsePtrOutput) X509StoreName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
-// The service resource.
-type ServiceType struct {
-	// Azure resource etag.
-	Etag string `pulumi:"etag"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location *string `pulumi:"location"`
-	// Azure resource name.
+// Creates a particular correlation between services.
+type ServiceCorrelationDescription struct {
+	// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
+	Scheme string `pulumi:"scheme"`
+	// The name of the service that the correlation relationship is established with.
+	ServiceName string `pulumi:"serviceName"`
+}
+
+// ServiceCorrelationDescriptionInput is an input type that accepts ServiceCorrelationDescriptionArgs and ServiceCorrelationDescriptionOutput values.
+// You can construct a concrete instance of `ServiceCorrelationDescriptionInput` via:
+//
+//          ServiceCorrelationDescriptionArgs{...}
+type ServiceCorrelationDescriptionInput interface {
+	pulumi.Input
+
+	ToServiceCorrelationDescriptionOutput() ServiceCorrelationDescriptionOutput
+	ToServiceCorrelationDescriptionOutputWithContext(context.Context) ServiceCorrelationDescriptionOutput
+}
+
+// Creates a particular correlation between services.
+type ServiceCorrelationDescriptionArgs struct {
+	// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
+	// The name of the service that the correlation relationship is established with.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (ServiceCorrelationDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCorrelationDescription)(nil)).Elem()
+}
+
+func (i ServiceCorrelationDescriptionArgs) ToServiceCorrelationDescriptionOutput() ServiceCorrelationDescriptionOutput {
+	return i.ToServiceCorrelationDescriptionOutputWithContext(context.Background())
+}
+
+func (i ServiceCorrelationDescriptionArgs) ToServiceCorrelationDescriptionOutputWithContext(ctx context.Context) ServiceCorrelationDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorrelationDescriptionOutput)
+}
+
+// ServiceCorrelationDescriptionArrayInput is an input type that accepts ServiceCorrelationDescriptionArray and ServiceCorrelationDescriptionArrayOutput values.
+// You can construct a concrete instance of `ServiceCorrelationDescriptionArrayInput` via:
+//
+//          ServiceCorrelationDescriptionArray{ ServiceCorrelationDescriptionArgs{...} }
+type ServiceCorrelationDescriptionArrayInput interface {
+	pulumi.Input
+
+	ToServiceCorrelationDescriptionArrayOutput() ServiceCorrelationDescriptionArrayOutput
+	ToServiceCorrelationDescriptionArrayOutputWithContext(context.Context) ServiceCorrelationDescriptionArrayOutput
+}
+
+type ServiceCorrelationDescriptionArray []ServiceCorrelationDescriptionInput
+
+func (ServiceCorrelationDescriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceCorrelationDescription)(nil)).Elem()
+}
+
+func (i ServiceCorrelationDescriptionArray) ToServiceCorrelationDescriptionArrayOutput() ServiceCorrelationDescriptionArrayOutput {
+	return i.ToServiceCorrelationDescriptionArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceCorrelationDescriptionArray) ToServiceCorrelationDescriptionArrayOutputWithContext(ctx context.Context) ServiceCorrelationDescriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorrelationDescriptionArrayOutput)
+}
+
+// Creates a particular correlation between services.
+type ServiceCorrelationDescriptionOutput struct{ *pulumi.OutputState }
+
+func (ServiceCorrelationDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCorrelationDescription)(nil)).Elem()
+}
+
+func (o ServiceCorrelationDescriptionOutput) ToServiceCorrelationDescriptionOutput() ServiceCorrelationDescriptionOutput {
+	return o
+}
+
+func (o ServiceCorrelationDescriptionOutput) ToServiceCorrelationDescriptionOutputWithContext(ctx context.Context) ServiceCorrelationDescriptionOutput {
+	return o
+}
+
+// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
+func (o ServiceCorrelationDescriptionOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceCorrelationDescription) string { return v.Scheme }).(pulumi.StringOutput)
+}
+
+// The name of the service that the correlation relationship is established with.
+func (o ServiceCorrelationDescriptionOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceCorrelationDescription) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+type ServiceCorrelationDescriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceCorrelationDescriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceCorrelationDescription)(nil)).Elem()
+}
+
+func (o ServiceCorrelationDescriptionArrayOutput) ToServiceCorrelationDescriptionArrayOutput() ServiceCorrelationDescriptionArrayOutput {
+	return o
+}
+
+func (o ServiceCorrelationDescriptionArrayOutput) ToServiceCorrelationDescriptionArrayOutputWithContext(ctx context.Context) ServiceCorrelationDescriptionArrayOutput {
+	return o
+}
+
+func (o ServiceCorrelationDescriptionArrayOutput) Index(i pulumi.IntInput) ServiceCorrelationDescriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceCorrelationDescription {
+		return vs[0].([]ServiceCorrelationDescription)[vs[1].(int)]
+	}).(ServiceCorrelationDescriptionOutput)
+}
+
+// Creates a particular correlation between services.
+type ServiceCorrelationDescriptionResponse struct {
+	// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
+	Scheme string `pulumi:"scheme"`
+	// The name of the service that the correlation relationship is established with.
+	ServiceName string `pulumi:"serviceName"`
+}
+
+// ServiceCorrelationDescriptionResponseInput is an input type that accepts ServiceCorrelationDescriptionResponseArgs and ServiceCorrelationDescriptionResponseOutput values.
+// You can construct a concrete instance of `ServiceCorrelationDescriptionResponseInput` via:
+//
+//          ServiceCorrelationDescriptionResponseArgs{...}
+type ServiceCorrelationDescriptionResponseInput interface {
+	pulumi.Input
+
+	ToServiceCorrelationDescriptionResponseOutput() ServiceCorrelationDescriptionResponseOutput
+	ToServiceCorrelationDescriptionResponseOutputWithContext(context.Context) ServiceCorrelationDescriptionResponseOutput
+}
+
+// Creates a particular correlation between services.
+type ServiceCorrelationDescriptionResponseArgs struct {
+	// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
+	Scheme pulumi.StringInput `pulumi:"scheme"`
+	// The name of the service that the correlation relationship is established with.
+	ServiceName pulumi.StringInput `pulumi:"serviceName"`
+}
+
+func (ServiceCorrelationDescriptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCorrelationDescriptionResponse)(nil)).Elem()
+}
+
+func (i ServiceCorrelationDescriptionResponseArgs) ToServiceCorrelationDescriptionResponseOutput() ServiceCorrelationDescriptionResponseOutput {
+	return i.ToServiceCorrelationDescriptionResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceCorrelationDescriptionResponseArgs) ToServiceCorrelationDescriptionResponseOutputWithContext(ctx context.Context) ServiceCorrelationDescriptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorrelationDescriptionResponseOutput)
+}
+
+// ServiceCorrelationDescriptionResponseArrayInput is an input type that accepts ServiceCorrelationDescriptionResponseArray and ServiceCorrelationDescriptionResponseArrayOutput values.
+// You can construct a concrete instance of `ServiceCorrelationDescriptionResponseArrayInput` via:
+//
+//          ServiceCorrelationDescriptionResponseArray{ ServiceCorrelationDescriptionResponseArgs{...} }
+type ServiceCorrelationDescriptionResponseArrayInput interface {
+	pulumi.Input
+
+	ToServiceCorrelationDescriptionResponseArrayOutput() ServiceCorrelationDescriptionResponseArrayOutput
+	ToServiceCorrelationDescriptionResponseArrayOutputWithContext(context.Context) ServiceCorrelationDescriptionResponseArrayOutput
+}
+
+type ServiceCorrelationDescriptionResponseArray []ServiceCorrelationDescriptionResponseInput
+
+func (ServiceCorrelationDescriptionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceCorrelationDescriptionResponse)(nil)).Elem()
+}
+
+func (i ServiceCorrelationDescriptionResponseArray) ToServiceCorrelationDescriptionResponseArrayOutput() ServiceCorrelationDescriptionResponseArrayOutput {
+	return i.ToServiceCorrelationDescriptionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceCorrelationDescriptionResponseArray) ToServiceCorrelationDescriptionResponseArrayOutputWithContext(ctx context.Context) ServiceCorrelationDescriptionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceCorrelationDescriptionResponseArrayOutput)
+}
+
+// Creates a particular correlation between services.
+type ServiceCorrelationDescriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceCorrelationDescriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceCorrelationDescriptionResponse)(nil)).Elem()
+}
+
+func (o ServiceCorrelationDescriptionResponseOutput) ToServiceCorrelationDescriptionResponseOutput() ServiceCorrelationDescriptionResponseOutput {
+	return o
+}
+
+func (o ServiceCorrelationDescriptionResponseOutput) ToServiceCorrelationDescriptionResponseOutputWithContext(ctx context.Context) ServiceCorrelationDescriptionResponseOutput {
+	return o
+}
+
+// The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
+func (o ServiceCorrelationDescriptionResponseOutput) Scheme() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceCorrelationDescriptionResponse) string { return v.Scheme }).(pulumi.StringOutput)
+}
+
+// The name of the service that the correlation relationship is established with.
+func (o ServiceCorrelationDescriptionResponseOutput) ServiceName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceCorrelationDescriptionResponse) string { return v.ServiceName }).(pulumi.StringOutput)
+}
+
+type ServiceCorrelationDescriptionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceCorrelationDescriptionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceCorrelationDescriptionResponse)(nil)).Elem()
+}
+
+func (o ServiceCorrelationDescriptionResponseArrayOutput) ToServiceCorrelationDescriptionResponseArrayOutput() ServiceCorrelationDescriptionResponseArrayOutput {
+	return o
+}
+
+func (o ServiceCorrelationDescriptionResponseArrayOutput) ToServiceCorrelationDescriptionResponseArrayOutputWithContext(ctx context.Context) ServiceCorrelationDescriptionResponseArrayOutput {
+	return o
+}
+
+func (o ServiceCorrelationDescriptionResponseArrayOutput) Index(i pulumi.IntInput) ServiceCorrelationDescriptionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceCorrelationDescriptionResponse {
+		return vs[0].([]ServiceCorrelationDescriptionResponse)[vs[1].(int)]
+	}).(ServiceCorrelationDescriptionResponseOutput)
+}
+
+// Specifies a metric to load balance a service during runtime.
+type ServiceLoadMetricDescription struct {
+	// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
+	DefaultLoad *int `pulumi:"defaultLoad"`
+	// The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
 	Name string `pulumi:"name"`
-	// The service resource properties.
-	Properties ServiceResourcePropertiesResponse `pulumi:"properties"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
+	// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
+	PrimaryDefaultLoad *int `pulumi:"primaryDefaultLoad"`
+	// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
+	SecondaryDefaultLoad *int `pulumi:"secondaryDefaultLoad"`
+	// The service load metric relative weight, compared to other metrics configured for this service, as a number.
+	Weight *string `pulumi:"weight"`
+}
+
+// ServiceLoadMetricDescriptionInput is an input type that accepts ServiceLoadMetricDescriptionArgs and ServiceLoadMetricDescriptionOutput values.
+// You can construct a concrete instance of `ServiceLoadMetricDescriptionInput` via:
+//
+//          ServiceLoadMetricDescriptionArgs{...}
+type ServiceLoadMetricDescriptionInput interface {
+	pulumi.Input
+
+	ToServiceLoadMetricDescriptionOutput() ServiceLoadMetricDescriptionOutput
+	ToServiceLoadMetricDescriptionOutputWithContext(context.Context) ServiceLoadMetricDescriptionOutput
+}
+
+// Specifies a metric to load balance a service during runtime.
+type ServiceLoadMetricDescriptionArgs struct {
+	// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
+	DefaultLoad pulumi.IntPtrInput `pulumi:"defaultLoad"`
+	// The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
+	PrimaryDefaultLoad pulumi.IntPtrInput `pulumi:"primaryDefaultLoad"`
+	// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
+	SecondaryDefaultLoad pulumi.IntPtrInput `pulumi:"secondaryDefaultLoad"`
+	// The service load metric relative weight, compared to other metrics configured for this service, as a number.
+	Weight pulumi.StringPtrInput `pulumi:"weight"`
+}
+
+func (ServiceLoadMetricDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLoadMetricDescription)(nil)).Elem()
+}
+
+func (i ServiceLoadMetricDescriptionArgs) ToServiceLoadMetricDescriptionOutput() ServiceLoadMetricDescriptionOutput {
+	return i.ToServiceLoadMetricDescriptionOutputWithContext(context.Background())
+}
+
+func (i ServiceLoadMetricDescriptionArgs) ToServiceLoadMetricDescriptionOutputWithContext(ctx context.Context) ServiceLoadMetricDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadMetricDescriptionOutput)
+}
+
+// ServiceLoadMetricDescriptionArrayInput is an input type that accepts ServiceLoadMetricDescriptionArray and ServiceLoadMetricDescriptionArrayOutput values.
+// You can construct a concrete instance of `ServiceLoadMetricDescriptionArrayInput` via:
+//
+//          ServiceLoadMetricDescriptionArray{ ServiceLoadMetricDescriptionArgs{...} }
+type ServiceLoadMetricDescriptionArrayInput interface {
+	pulumi.Input
+
+	ToServiceLoadMetricDescriptionArrayOutput() ServiceLoadMetricDescriptionArrayOutput
+	ToServiceLoadMetricDescriptionArrayOutputWithContext(context.Context) ServiceLoadMetricDescriptionArrayOutput
+}
+
+type ServiceLoadMetricDescriptionArray []ServiceLoadMetricDescriptionInput
+
+func (ServiceLoadMetricDescriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLoadMetricDescription)(nil)).Elem()
+}
+
+func (i ServiceLoadMetricDescriptionArray) ToServiceLoadMetricDescriptionArrayOutput() ServiceLoadMetricDescriptionArrayOutput {
+	return i.ToServiceLoadMetricDescriptionArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceLoadMetricDescriptionArray) ToServiceLoadMetricDescriptionArrayOutputWithContext(ctx context.Context) ServiceLoadMetricDescriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadMetricDescriptionArrayOutput)
+}
+
+// Specifies a metric to load balance a service during runtime.
+type ServiceLoadMetricDescriptionOutput struct{ *pulumi.OutputState }
+
+func (ServiceLoadMetricDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLoadMetricDescription)(nil)).Elem()
+}
+
+func (o ServiceLoadMetricDescriptionOutput) ToServiceLoadMetricDescriptionOutput() ServiceLoadMetricDescriptionOutput {
+	return o
+}
+
+func (o ServiceLoadMetricDescriptionOutput) ToServiceLoadMetricDescriptionOutputWithContext(ctx context.Context) ServiceLoadMetricDescriptionOutput {
+	return o
+}
+
+// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
+func (o ServiceLoadMetricDescriptionOutput) DefaultLoad() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceLoadMetricDescription) *int { return v.DefaultLoad }).(pulumi.IntPtrOutput)
+}
+
+// The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
+func (o ServiceLoadMetricDescriptionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLoadMetricDescription) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
+func (o ServiceLoadMetricDescriptionOutput) PrimaryDefaultLoad() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceLoadMetricDescription) *int { return v.PrimaryDefaultLoad }).(pulumi.IntPtrOutput)
+}
+
+// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
+func (o ServiceLoadMetricDescriptionOutput) SecondaryDefaultLoad() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceLoadMetricDescription) *int { return v.SecondaryDefaultLoad }).(pulumi.IntPtrOutput)
+}
+
+// The service load metric relative weight, compared to other metrics configured for this service, as a number.
+func (o ServiceLoadMetricDescriptionOutput) Weight() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLoadMetricDescription) *string { return v.Weight }).(pulumi.StringPtrOutput)
+}
+
+type ServiceLoadMetricDescriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceLoadMetricDescriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLoadMetricDescription)(nil)).Elem()
+}
+
+func (o ServiceLoadMetricDescriptionArrayOutput) ToServiceLoadMetricDescriptionArrayOutput() ServiceLoadMetricDescriptionArrayOutput {
+	return o
+}
+
+func (o ServiceLoadMetricDescriptionArrayOutput) ToServiceLoadMetricDescriptionArrayOutputWithContext(ctx context.Context) ServiceLoadMetricDescriptionArrayOutput {
+	return o
+}
+
+func (o ServiceLoadMetricDescriptionArrayOutput) Index(i pulumi.IntInput) ServiceLoadMetricDescriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLoadMetricDescription {
+		return vs[0].([]ServiceLoadMetricDescription)[vs[1].(int)]
+	}).(ServiceLoadMetricDescriptionOutput)
+}
+
+// Specifies a metric to load balance a service during runtime.
+type ServiceLoadMetricDescriptionResponse struct {
+	// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
+	DefaultLoad *int `pulumi:"defaultLoad"`
+	// The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
+	Name string `pulumi:"name"`
+	// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
+	PrimaryDefaultLoad *int `pulumi:"primaryDefaultLoad"`
+	// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
+	SecondaryDefaultLoad *int `pulumi:"secondaryDefaultLoad"`
+	// The service load metric relative weight, compared to other metrics configured for this service, as a number.
+	Weight *string `pulumi:"weight"`
+}
+
+// ServiceLoadMetricDescriptionResponseInput is an input type that accepts ServiceLoadMetricDescriptionResponseArgs and ServiceLoadMetricDescriptionResponseOutput values.
+// You can construct a concrete instance of `ServiceLoadMetricDescriptionResponseInput` via:
+//
+//          ServiceLoadMetricDescriptionResponseArgs{...}
+type ServiceLoadMetricDescriptionResponseInput interface {
+	pulumi.Input
+
+	ToServiceLoadMetricDescriptionResponseOutput() ServiceLoadMetricDescriptionResponseOutput
+	ToServiceLoadMetricDescriptionResponseOutputWithContext(context.Context) ServiceLoadMetricDescriptionResponseOutput
+}
+
+// Specifies a metric to load balance a service during runtime.
+type ServiceLoadMetricDescriptionResponseArgs struct {
+	// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
+	DefaultLoad pulumi.IntPtrInput `pulumi:"defaultLoad"`
+	// The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
+	PrimaryDefaultLoad pulumi.IntPtrInput `pulumi:"primaryDefaultLoad"`
+	// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
+	SecondaryDefaultLoad pulumi.IntPtrInput `pulumi:"secondaryDefaultLoad"`
+	// The service load metric relative weight, compared to other metrics configured for this service, as a number.
+	Weight pulumi.StringPtrInput `pulumi:"weight"`
+}
+
+func (ServiceLoadMetricDescriptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLoadMetricDescriptionResponse)(nil)).Elem()
+}
+
+func (i ServiceLoadMetricDescriptionResponseArgs) ToServiceLoadMetricDescriptionResponseOutput() ServiceLoadMetricDescriptionResponseOutput {
+	return i.ToServiceLoadMetricDescriptionResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceLoadMetricDescriptionResponseArgs) ToServiceLoadMetricDescriptionResponseOutputWithContext(ctx context.Context) ServiceLoadMetricDescriptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadMetricDescriptionResponseOutput)
+}
+
+// ServiceLoadMetricDescriptionResponseArrayInput is an input type that accepts ServiceLoadMetricDescriptionResponseArray and ServiceLoadMetricDescriptionResponseArrayOutput values.
+// You can construct a concrete instance of `ServiceLoadMetricDescriptionResponseArrayInput` via:
+//
+//          ServiceLoadMetricDescriptionResponseArray{ ServiceLoadMetricDescriptionResponseArgs{...} }
+type ServiceLoadMetricDescriptionResponseArrayInput interface {
+	pulumi.Input
+
+	ToServiceLoadMetricDescriptionResponseArrayOutput() ServiceLoadMetricDescriptionResponseArrayOutput
+	ToServiceLoadMetricDescriptionResponseArrayOutputWithContext(context.Context) ServiceLoadMetricDescriptionResponseArrayOutput
+}
+
+type ServiceLoadMetricDescriptionResponseArray []ServiceLoadMetricDescriptionResponseInput
+
+func (ServiceLoadMetricDescriptionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLoadMetricDescriptionResponse)(nil)).Elem()
+}
+
+func (i ServiceLoadMetricDescriptionResponseArray) ToServiceLoadMetricDescriptionResponseArrayOutput() ServiceLoadMetricDescriptionResponseArrayOutput {
+	return i.ToServiceLoadMetricDescriptionResponseArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceLoadMetricDescriptionResponseArray) ToServiceLoadMetricDescriptionResponseArrayOutputWithContext(ctx context.Context) ServiceLoadMetricDescriptionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadMetricDescriptionResponseArrayOutput)
+}
+
+// Specifies a metric to load balance a service during runtime.
+type ServiceLoadMetricDescriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceLoadMetricDescriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceLoadMetricDescriptionResponse)(nil)).Elem()
+}
+
+func (o ServiceLoadMetricDescriptionResponseOutput) ToServiceLoadMetricDescriptionResponseOutput() ServiceLoadMetricDescriptionResponseOutput {
+	return o
+}
+
+func (o ServiceLoadMetricDescriptionResponseOutput) ToServiceLoadMetricDescriptionResponseOutputWithContext(ctx context.Context) ServiceLoadMetricDescriptionResponseOutput {
+	return o
+}
+
+// Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.
+func (o ServiceLoadMetricDescriptionResponseOutput) DefaultLoad() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceLoadMetricDescriptionResponse) *int { return v.DefaultLoad }).(pulumi.IntPtrOutput)
+}
+
+// The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.
+func (o ServiceLoadMetricDescriptionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceLoadMetricDescriptionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.
+func (o ServiceLoadMetricDescriptionResponseOutput) PrimaryDefaultLoad() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceLoadMetricDescriptionResponse) *int { return v.PrimaryDefaultLoad }).(pulumi.IntPtrOutput)
+}
+
+// Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.
+func (o ServiceLoadMetricDescriptionResponseOutput) SecondaryDefaultLoad() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceLoadMetricDescriptionResponse) *int { return v.SecondaryDefaultLoad }).(pulumi.IntPtrOutput)
+}
+
+// The service load metric relative weight, compared to other metrics configured for this service, as a number.
+func (o ServiceLoadMetricDescriptionResponseOutput) Weight() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceLoadMetricDescriptionResponse) *string { return v.Weight }).(pulumi.StringPtrOutput)
+}
+
+type ServiceLoadMetricDescriptionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceLoadMetricDescriptionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceLoadMetricDescriptionResponse)(nil)).Elem()
+}
+
+func (o ServiceLoadMetricDescriptionResponseArrayOutput) ToServiceLoadMetricDescriptionResponseArrayOutput() ServiceLoadMetricDescriptionResponseArrayOutput {
+	return o
+}
+
+func (o ServiceLoadMetricDescriptionResponseArrayOutput) ToServiceLoadMetricDescriptionResponseArrayOutputWithContext(ctx context.Context) ServiceLoadMetricDescriptionResponseArrayOutput {
+	return o
+}
+
+func (o ServiceLoadMetricDescriptionResponseArrayOutput) Index(i pulumi.IntInput) ServiceLoadMetricDescriptionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceLoadMetricDescriptionResponse {
+		return vs[0].([]ServiceLoadMetricDescriptionResponse)[vs[1].(int)]
+	}).(ServiceLoadMetricDescriptionResponseOutput)
+}
+
+// Describes the policy to be used for placement of a Service Fabric service.
+type ServicePlacementPolicyDescription struct {
+	// The type of placement policy for a service fabric service. Following are the possible values.
 	Type string `pulumi:"type"`
 }
 
-// ServiceTypeInput is an input type that accepts ServiceTypeArgs and ServiceTypeOutput values.
-// You can construct a concrete instance of `ServiceTypeInput` via:
+// ServicePlacementPolicyDescriptionInput is an input type that accepts ServicePlacementPolicyDescriptionArgs and ServicePlacementPolicyDescriptionOutput values.
+// You can construct a concrete instance of `ServicePlacementPolicyDescriptionInput` via:
 //
-//          ServiceTypeArgs{...}
-type ServiceTypeInput interface {
+//          ServicePlacementPolicyDescriptionArgs{...}
+type ServicePlacementPolicyDescriptionInput interface {
 	pulumi.Input
 
-	ToServiceTypeOutput() ServiceTypeOutput
-	ToServiceTypeOutputWithContext(context.Context) ServiceTypeOutput
+	ToServicePlacementPolicyDescriptionOutput() ServicePlacementPolicyDescriptionOutput
+	ToServicePlacementPolicyDescriptionOutputWithContext(context.Context) ServicePlacementPolicyDescriptionOutput
 }
 
-// The service resource.
-type ServiceTypeArgs struct {
-	// Azure resource etag.
-	Etag pulumi.StringInput `pulumi:"etag"`
-	// It will be deprecated in New API, resource location depends on the parent resource.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The service resource properties.
-	Properties ServiceResourcePropertiesResponseInput `pulumi:"properties"`
-	// Azure resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type.
+// Describes the policy to be used for placement of a Service Fabric service.
+type ServicePlacementPolicyDescriptionArgs struct {
+	// The type of placement policy for a service fabric service. Following are the possible values.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (ServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceType)(nil)).Elem()
+func (ServicePlacementPolicyDescriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePlacementPolicyDescription)(nil)).Elem()
 }
 
-func (i ServiceTypeArgs) ToServiceTypeOutput() ServiceTypeOutput {
-	return i.ToServiceTypeOutputWithContext(context.Background())
+func (i ServicePlacementPolicyDescriptionArgs) ToServicePlacementPolicyDescriptionOutput() ServicePlacementPolicyDescriptionOutput {
+	return i.ToServicePlacementPolicyDescriptionOutputWithContext(context.Background())
 }
 
-func (i ServiceTypeArgs) ToServiceTypeOutputWithContext(ctx context.Context) ServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeOutput)
+func (i ServicePlacementPolicyDescriptionArgs) ToServicePlacementPolicyDescriptionOutputWithContext(ctx context.Context) ServicePlacementPolicyDescriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementPolicyDescriptionOutput)
 }
 
-// The service resource.
-type ServiceTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceType)(nil)).Elem()
-}
-
-func (o ServiceTypeOutput) ToServiceTypeOutput() ServiceTypeOutput {
-	return o
-}
-
-func (o ServiceTypeOutput) ToServiceTypeOutputWithContext(ctx context.Context) ServiceTypeOutput {
-	return o
-}
-
-// Azure resource etag.
-func (o ServiceTypeOutput) Etag() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceType) string { return v.Etag }).(pulumi.StringOutput)
-}
-
-// It will be deprecated in New API, resource location depends on the parent resource.
-func (o ServiceTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Azure resource name.
-func (o ServiceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The service resource properties.
-func (o ServiceTypeOutput) Properties() ServiceResourcePropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceType) ServiceResourcePropertiesResponse { return v.Properties }).(ServiceResourcePropertiesResponseOutput)
-}
-
-// Azure resource tags.
-func (o ServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type.
-func (o ServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-type ServiceLoadMetricsList struct {
-}
-
-// ServiceLoadMetricsListInput is an input type that accepts ServiceLoadMetricsListArgs and ServiceLoadMetricsListOutput values.
-// You can construct a concrete instance of `ServiceLoadMetricsListInput` via:
+// ServicePlacementPolicyDescriptionArrayInput is an input type that accepts ServicePlacementPolicyDescriptionArray and ServicePlacementPolicyDescriptionArrayOutput values.
+// You can construct a concrete instance of `ServicePlacementPolicyDescriptionArrayInput` via:
 //
-//          ServiceLoadMetricsListArgs{...}
-type ServiceLoadMetricsListInput interface {
+//          ServicePlacementPolicyDescriptionArray{ ServicePlacementPolicyDescriptionArgs{...} }
+type ServicePlacementPolicyDescriptionArrayInput interface {
 	pulumi.Input
 
-	ToServiceLoadMetricsListOutput() ServiceLoadMetricsListOutput
-	ToServiceLoadMetricsListOutputWithContext(context.Context) ServiceLoadMetricsListOutput
+	ToServicePlacementPolicyDescriptionArrayOutput() ServicePlacementPolicyDescriptionArrayOutput
+	ToServicePlacementPolicyDescriptionArrayOutputWithContext(context.Context) ServicePlacementPolicyDescriptionArrayOutput
 }
 
-// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-type ServiceLoadMetricsListArgs struct {
+type ServicePlacementPolicyDescriptionArray []ServicePlacementPolicyDescriptionInput
+
+func (ServicePlacementPolicyDescriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServicePlacementPolicyDescription)(nil)).Elem()
 }
 
-func (ServiceLoadMetricsListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLoadMetricsList)(nil)).Elem()
+func (i ServicePlacementPolicyDescriptionArray) ToServicePlacementPolicyDescriptionArrayOutput() ServicePlacementPolicyDescriptionArrayOutput {
+	return i.ToServicePlacementPolicyDescriptionArrayOutputWithContext(context.Background())
 }
 
-func (i ServiceLoadMetricsListArgs) ToServiceLoadMetricsListOutput() ServiceLoadMetricsListOutput {
-	return i.ToServiceLoadMetricsListOutputWithContext(context.Background())
+func (i ServicePlacementPolicyDescriptionArray) ToServicePlacementPolicyDescriptionArrayOutputWithContext(ctx context.Context) ServicePlacementPolicyDescriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementPolicyDescriptionArrayOutput)
 }
 
-func (i ServiceLoadMetricsListArgs) ToServiceLoadMetricsListOutputWithContext(ctx context.Context) ServiceLoadMetricsListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadMetricsListOutput)
+// Describes the policy to be used for placement of a Service Fabric service.
+type ServicePlacementPolicyDescriptionOutput struct{ *pulumi.OutputState }
+
+func (ServicePlacementPolicyDescriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePlacementPolicyDescription)(nil)).Elem()
 }
 
-func (i ServiceLoadMetricsListArgs) ToServiceLoadMetricsListPtrOutput() ServiceLoadMetricsListPtrOutput {
-	return i.ToServiceLoadMetricsListPtrOutputWithContext(context.Background())
+func (o ServicePlacementPolicyDescriptionOutput) ToServicePlacementPolicyDescriptionOutput() ServicePlacementPolicyDescriptionOutput {
+	return o
 }
 
-func (i ServiceLoadMetricsListArgs) ToServiceLoadMetricsListPtrOutputWithContext(ctx context.Context) ServiceLoadMetricsListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadMetricsListOutput).ToServiceLoadMetricsListPtrOutputWithContext(ctx)
+func (o ServicePlacementPolicyDescriptionOutput) ToServicePlacementPolicyDescriptionOutputWithContext(ctx context.Context) ServicePlacementPolicyDescriptionOutput {
+	return o
 }
 
-// ServiceLoadMetricsListPtrInput is an input type that accepts ServiceLoadMetricsListArgs, ServiceLoadMetricsListPtr and ServiceLoadMetricsListPtrOutput values.
-// You can construct a concrete instance of `ServiceLoadMetricsListPtrInput` via:
+// The type of placement policy for a service fabric service. Following are the possible values.
+func (o ServicePlacementPolicyDescriptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServicePlacementPolicyDescription) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ServicePlacementPolicyDescriptionArrayOutput struct{ *pulumi.OutputState }
+
+func (ServicePlacementPolicyDescriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServicePlacementPolicyDescription)(nil)).Elem()
+}
+
+func (o ServicePlacementPolicyDescriptionArrayOutput) ToServicePlacementPolicyDescriptionArrayOutput() ServicePlacementPolicyDescriptionArrayOutput {
+	return o
+}
+
+func (o ServicePlacementPolicyDescriptionArrayOutput) ToServicePlacementPolicyDescriptionArrayOutputWithContext(ctx context.Context) ServicePlacementPolicyDescriptionArrayOutput {
+	return o
+}
+
+func (o ServicePlacementPolicyDescriptionArrayOutput) Index(i pulumi.IntInput) ServicePlacementPolicyDescriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServicePlacementPolicyDescription {
+		return vs[0].([]ServicePlacementPolicyDescription)[vs[1].(int)]
+	}).(ServicePlacementPolicyDescriptionOutput)
+}
+
+// Describes the policy to be used for placement of a Service Fabric service.
+type ServicePlacementPolicyDescriptionResponse struct {
+	// The type of placement policy for a service fabric service. Following are the possible values.
+	Type string `pulumi:"type"`
+}
+
+// ServicePlacementPolicyDescriptionResponseInput is an input type that accepts ServicePlacementPolicyDescriptionResponseArgs and ServicePlacementPolicyDescriptionResponseOutput values.
+// You can construct a concrete instance of `ServicePlacementPolicyDescriptionResponseInput` via:
 //
-//          ServiceLoadMetricsListArgs{...}
-//
-//  or:
-//
-//          nil
-type ServiceLoadMetricsListPtrInput interface {
+//          ServicePlacementPolicyDescriptionResponseArgs{...}
+type ServicePlacementPolicyDescriptionResponseInput interface {
 	pulumi.Input
 
-	ToServiceLoadMetricsListPtrOutput() ServiceLoadMetricsListPtrOutput
-	ToServiceLoadMetricsListPtrOutputWithContext(context.Context) ServiceLoadMetricsListPtrOutput
+	ToServicePlacementPolicyDescriptionResponseOutput() ServicePlacementPolicyDescriptionResponseOutput
+	ToServicePlacementPolicyDescriptionResponseOutputWithContext(context.Context) ServicePlacementPolicyDescriptionResponseOutput
 }
 
-type serviceLoadMetricsListPtrType ServiceLoadMetricsListArgs
-
-func ServiceLoadMetricsListPtr(v *ServiceLoadMetricsListArgs) ServiceLoadMetricsListPtrInput {
-	return (*serviceLoadMetricsListPtrType)(v)
+// Describes the policy to be used for placement of a Service Fabric service.
+type ServicePlacementPolicyDescriptionResponseArgs struct {
+	// The type of placement policy for a service fabric service. Following are the possible values.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
-func (*serviceLoadMetricsListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceLoadMetricsList)(nil)).Elem()
+func (ServicePlacementPolicyDescriptionResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePlacementPolicyDescriptionResponse)(nil)).Elem()
 }
 
-func (i *serviceLoadMetricsListPtrType) ToServiceLoadMetricsListPtrOutput() ServiceLoadMetricsListPtrOutput {
-	return i.ToServiceLoadMetricsListPtrOutputWithContext(context.Background())
+func (i ServicePlacementPolicyDescriptionResponseArgs) ToServicePlacementPolicyDescriptionResponseOutput() ServicePlacementPolicyDescriptionResponseOutput {
+	return i.ToServicePlacementPolicyDescriptionResponseOutputWithContext(context.Background())
 }
 
-func (i *serviceLoadMetricsListPtrType) ToServiceLoadMetricsListPtrOutputWithContext(ctx context.Context) ServiceLoadMetricsListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadMetricsListPtrOutput)
+func (i ServicePlacementPolicyDescriptionResponseArgs) ToServicePlacementPolicyDescriptionResponseOutputWithContext(ctx context.Context) ServicePlacementPolicyDescriptionResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementPolicyDescriptionResponseOutput)
 }
 
-// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-type ServiceLoadMetricsListOutput struct{ *pulumi.OutputState }
-
-func (ServiceLoadMetricsListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLoadMetricsList)(nil)).Elem()
-}
-
-func (o ServiceLoadMetricsListOutput) ToServiceLoadMetricsListOutput() ServiceLoadMetricsListOutput {
-	return o
-}
-
-func (o ServiceLoadMetricsListOutput) ToServiceLoadMetricsListOutputWithContext(ctx context.Context) ServiceLoadMetricsListOutput {
-	return o
-}
-
-func (o ServiceLoadMetricsListOutput) ToServiceLoadMetricsListPtrOutput() ServiceLoadMetricsListPtrOutput {
-	return o.ToServiceLoadMetricsListPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceLoadMetricsListOutput) ToServiceLoadMetricsListPtrOutputWithContext(ctx context.Context) ServiceLoadMetricsListPtrOutput {
-	return o.ApplyT(func(v ServiceLoadMetricsList) *ServiceLoadMetricsList {
-		return &v
-	}).(ServiceLoadMetricsListPtrOutput)
-}
-
-type ServiceLoadMetricsListPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceLoadMetricsListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceLoadMetricsList)(nil)).Elem()
-}
-
-func (o ServiceLoadMetricsListPtrOutput) ToServiceLoadMetricsListPtrOutput() ServiceLoadMetricsListPtrOutput {
-	return o
-}
-
-func (o ServiceLoadMetricsListPtrOutput) ToServiceLoadMetricsListPtrOutputWithContext(ctx context.Context) ServiceLoadMetricsListPtrOutput {
-	return o
-}
-
-func (o ServiceLoadMetricsListPtrOutput) Elem() ServiceLoadMetricsListOutput {
-	return o.ApplyT(func(v *ServiceLoadMetricsList) ServiceLoadMetricsList { return *v }).(ServiceLoadMetricsListOutput)
-}
-
-// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-type ServiceLoadMetricsListResponse struct {
-}
-
-// ServiceLoadMetricsListResponseInput is an input type that accepts ServiceLoadMetricsListResponseArgs and ServiceLoadMetricsListResponseOutput values.
-// You can construct a concrete instance of `ServiceLoadMetricsListResponseInput` via:
+// ServicePlacementPolicyDescriptionResponseArrayInput is an input type that accepts ServicePlacementPolicyDescriptionResponseArray and ServicePlacementPolicyDescriptionResponseArrayOutput values.
+// You can construct a concrete instance of `ServicePlacementPolicyDescriptionResponseArrayInput` via:
 //
-//          ServiceLoadMetricsListResponseArgs{...}
-type ServiceLoadMetricsListResponseInput interface {
+//          ServicePlacementPolicyDescriptionResponseArray{ ServicePlacementPolicyDescriptionResponseArgs{...} }
+type ServicePlacementPolicyDescriptionResponseArrayInput interface {
 	pulumi.Input
 
-	ToServiceLoadMetricsListResponseOutput() ServiceLoadMetricsListResponseOutput
-	ToServiceLoadMetricsListResponseOutputWithContext(context.Context) ServiceLoadMetricsListResponseOutput
+	ToServicePlacementPolicyDescriptionResponseArrayOutput() ServicePlacementPolicyDescriptionResponseArrayOutput
+	ToServicePlacementPolicyDescriptionResponseArrayOutputWithContext(context.Context) ServicePlacementPolicyDescriptionResponseArrayOutput
 }
 
-// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-type ServiceLoadMetricsListResponseArgs struct {
+type ServicePlacementPolicyDescriptionResponseArray []ServicePlacementPolicyDescriptionResponseInput
+
+func (ServicePlacementPolicyDescriptionResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServicePlacementPolicyDescriptionResponse)(nil)).Elem()
 }
 
-func (ServiceLoadMetricsListResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLoadMetricsListResponse)(nil)).Elem()
+func (i ServicePlacementPolicyDescriptionResponseArray) ToServicePlacementPolicyDescriptionResponseArrayOutput() ServicePlacementPolicyDescriptionResponseArrayOutput {
+	return i.ToServicePlacementPolicyDescriptionResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ServiceLoadMetricsListResponseArgs) ToServiceLoadMetricsListResponseOutput() ServiceLoadMetricsListResponseOutput {
-	return i.ToServiceLoadMetricsListResponseOutputWithContext(context.Background())
+func (i ServicePlacementPolicyDescriptionResponseArray) ToServicePlacementPolicyDescriptionResponseArrayOutputWithContext(ctx context.Context) ServicePlacementPolicyDescriptionResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementPolicyDescriptionResponseArrayOutput)
 }
 
-func (i ServiceLoadMetricsListResponseArgs) ToServiceLoadMetricsListResponseOutputWithContext(ctx context.Context) ServiceLoadMetricsListResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadMetricsListResponseOutput)
+// Describes the policy to be used for placement of a Service Fabric service.
+type ServicePlacementPolicyDescriptionResponseOutput struct{ *pulumi.OutputState }
+
+func (ServicePlacementPolicyDescriptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServicePlacementPolicyDescriptionResponse)(nil)).Elem()
 }
 
-func (i ServiceLoadMetricsListResponseArgs) ToServiceLoadMetricsListResponsePtrOutput() ServiceLoadMetricsListResponsePtrOutput {
-	return i.ToServiceLoadMetricsListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServiceLoadMetricsListResponseArgs) ToServiceLoadMetricsListResponsePtrOutputWithContext(ctx context.Context) ServiceLoadMetricsListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadMetricsListResponseOutput).ToServiceLoadMetricsListResponsePtrOutputWithContext(ctx)
-}
-
-// ServiceLoadMetricsListResponsePtrInput is an input type that accepts ServiceLoadMetricsListResponseArgs, ServiceLoadMetricsListResponsePtr and ServiceLoadMetricsListResponsePtrOutput values.
-// You can construct a concrete instance of `ServiceLoadMetricsListResponsePtrInput` via:
-//
-//          ServiceLoadMetricsListResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ServiceLoadMetricsListResponsePtrInput interface {
-	pulumi.Input
-
-	ToServiceLoadMetricsListResponsePtrOutput() ServiceLoadMetricsListResponsePtrOutput
-	ToServiceLoadMetricsListResponsePtrOutputWithContext(context.Context) ServiceLoadMetricsListResponsePtrOutput
-}
-
-type serviceLoadMetricsListResponsePtrType ServiceLoadMetricsListResponseArgs
-
-func ServiceLoadMetricsListResponsePtr(v *ServiceLoadMetricsListResponseArgs) ServiceLoadMetricsListResponsePtrInput {
-	return (*serviceLoadMetricsListResponsePtrType)(v)
-}
-
-func (*serviceLoadMetricsListResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceLoadMetricsListResponse)(nil)).Elem()
-}
-
-func (i *serviceLoadMetricsListResponsePtrType) ToServiceLoadMetricsListResponsePtrOutput() ServiceLoadMetricsListResponsePtrOutput {
-	return i.ToServiceLoadMetricsListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *serviceLoadMetricsListResponsePtrType) ToServiceLoadMetricsListResponsePtrOutputWithContext(ctx context.Context) ServiceLoadMetricsListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceLoadMetricsListResponsePtrOutput)
-}
-
-// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-type ServiceLoadMetricsListResponseOutput struct{ *pulumi.OutputState }
-
-func (ServiceLoadMetricsListResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceLoadMetricsListResponse)(nil)).Elem()
-}
-
-func (o ServiceLoadMetricsListResponseOutput) ToServiceLoadMetricsListResponseOutput() ServiceLoadMetricsListResponseOutput {
+func (o ServicePlacementPolicyDescriptionResponseOutput) ToServicePlacementPolicyDescriptionResponseOutput() ServicePlacementPolicyDescriptionResponseOutput {
 	return o
 }
 
-func (o ServiceLoadMetricsListResponseOutput) ToServiceLoadMetricsListResponseOutputWithContext(ctx context.Context) ServiceLoadMetricsListResponseOutput {
+func (o ServicePlacementPolicyDescriptionResponseOutput) ToServicePlacementPolicyDescriptionResponseOutputWithContext(ctx context.Context) ServicePlacementPolicyDescriptionResponseOutput {
 	return o
 }
 
-func (o ServiceLoadMetricsListResponseOutput) ToServiceLoadMetricsListResponsePtrOutput() ServiceLoadMetricsListResponsePtrOutput {
-	return o.ToServiceLoadMetricsListResponsePtrOutputWithContext(context.Background())
+// The type of placement policy for a service fabric service. Following are the possible values.
+func (o ServicePlacementPolicyDescriptionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ServicePlacementPolicyDescriptionResponse) string { return v.Type }).(pulumi.StringOutput)
 }
 
-func (o ServiceLoadMetricsListResponseOutput) ToServiceLoadMetricsListResponsePtrOutputWithContext(ctx context.Context) ServiceLoadMetricsListResponsePtrOutput {
-	return o.ApplyT(func(v ServiceLoadMetricsListResponse) *ServiceLoadMetricsListResponse {
-		return &v
-	}).(ServiceLoadMetricsListResponsePtrOutput)
+type ServicePlacementPolicyDescriptionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServicePlacementPolicyDescriptionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServicePlacementPolicyDescriptionResponse)(nil)).Elem()
 }
 
-type ServiceLoadMetricsListResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceLoadMetricsListResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceLoadMetricsListResponse)(nil)).Elem()
-}
-
-func (o ServiceLoadMetricsListResponsePtrOutput) ToServiceLoadMetricsListResponsePtrOutput() ServiceLoadMetricsListResponsePtrOutput {
+func (o ServicePlacementPolicyDescriptionResponseArrayOutput) ToServicePlacementPolicyDescriptionResponseArrayOutput() ServicePlacementPolicyDescriptionResponseArrayOutput {
 	return o
 }
 
-func (o ServiceLoadMetricsListResponsePtrOutput) ToServiceLoadMetricsListResponsePtrOutputWithContext(ctx context.Context) ServiceLoadMetricsListResponsePtrOutput {
+func (o ServicePlacementPolicyDescriptionResponseArrayOutput) ToServicePlacementPolicyDescriptionResponseArrayOutputWithContext(ctx context.Context) ServicePlacementPolicyDescriptionResponseArrayOutput {
 	return o
 }
 
-func (o ServiceLoadMetricsListResponsePtrOutput) Elem() ServiceLoadMetricsListResponseOutput {
-	return o.ApplyT(func(v *ServiceLoadMetricsListResponse) ServiceLoadMetricsListResponse { return *v }).(ServiceLoadMetricsListResponseOutput)
-}
-
-// A list that describes the correlation of the service with other services.
-type ServicePlacementPoliciesList struct {
-}
-
-// ServicePlacementPoliciesListInput is an input type that accepts ServicePlacementPoliciesListArgs and ServicePlacementPoliciesListOutput values.
-// You can construct a concrete instance of `ServicePlacementPoliciesListInput` via:
-//
-//          ServicePlacementPoliciesListArgs{...}
-type ServicePlacementPoliciesListInput interface {
-	pulumi.Input
-
-	ToServicePlacementPoliciesListOutput() ServicePlacementPoliciesListOutput
-	ToServicePlacementPoliciesListOutputWithContext(context.Context) ServicePlacementPoliciesListOutput
-}
-
-// A list that describes the correlation of the service with other services.
-type ServicePlacementPoliciesListArgs struct {
-}
-
-func (ServicePlacementPoliciesListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePlacementPoliciesList)(nil)).Elem()
-}
-
-func (i ServicePlacementPoliciesListArgs) ToServicePlacementPoliciesListOutput() ServicePlacementPoliciesListOutput {
-	return i.ToServicePlacementPoliciesListOutputWithContext(context.Background())
-}
-
-func (i ServicePlacementPoliciesListArgs) ToServicePlacementPoliciesListOutputWithContext(ctx context.Context) ServicePlacementPoliciesListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementPoliciesListOutput)
-}
-
-func (i ServicePlacementPoliciesListArgs) ToServicePlacementPoliciesListPtrOutput() ServicePlacementPoliciesListPtrOutput {
-	return i.ToServicePlacementPoliciesListPtrOutputWithContext(context.Background())
-}
-
-func (i ServicePlacementPoliciesListArgs) ToServicePlacementPoliciesListPtrOutputWithContext(ctx context.Context) ServicePlacementPoliciesListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementPoliciesListOutput).ToServicePlacementPoliciesListPtrOutputWithContext(ctx)
-}
-
-// ServicePlacementPoliciesListPtrInput is an input type that accepts ServicePlacementPoliciesListArgs, ServicePlacementPoliciesListPtr and ServicePlacementPoliciesListPtrOutput values.
-// You can construct a concrete instance of `ServicePlacementPoliciesListPtrInput` via:
-//
-//          ServicePlacementPoliciesListArgs{...}
-//
-//  or:
-//
-//          nil
-type ServicePlacementPoliciesListPtrInput interface {
-	pulumi.Input
-
-	ToServicePlacementPoliciesListPtrOutput() ServicePlacementPoliciesListPtrOutput
-	ToServicePlacementPoliciesListPtrOutputWithContext(context.Context) ServicePlacementPoliciesListPtrOutput
-}
-
-type servicePlacementPoliciesListPtrType ServicePlacementPoliciesListArgs
-
-func ServicePlacementPoliciesListPtr(v *ServicePlacementPoliciesListArgs) ServicePlacementPoliciesListPtrInput {
-	return (*servicePlacementPoliciesListPtrType)(v)
-}
-
-func (*servicePlacementPoliciesListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServicePlacementPoliciesList)(nil)).Elem()
-}
-
-func (i *servicePlacementPoliciesListPtrType) ToServicePlacementPoliciesListPtrOutput() ServicePlacementPoliciesListPtrOutput {
-	return i.ToServicePlacementPoliciesListPtrOutputWithContext(context.Background())
-}
-
-func (i *servicePlacementPoliciesListPtrType) ToServicePlacementPoliciesListPtrOutputWithContext(ctx context.Context) ServicePlacementPoliciesListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementPoliciesListPtrOutput)
-}
-
-// A list that describes the correlation of the service with other services.
-type ServicePlacementPoliciesListOutput struct{ *pulumi.OutputState }
-
-func (ServicePlacementPoliciesListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePlacementPoliciesList)(nil)).Elem()
-}
-
-func (o ServicePlacementPoliciesListOutput) ToServicePlacementPoliciesListOutput() ServicePlacementPoliciesListOutput {
-	return o
-}
-
-func (o ServicePlacementPoliciesListOutput) ToServicePlacementPoliciesListOutputWithContext(ctx context.Context) ServicePlacementPoliciesListOutput {
-	return o
-}
-
-func (o ServicePlacementPoliciesListOutput) ToServicePlacementPoliciesListPtrOutput() ServicePlacementPoliciesListPtrOutput {
-	return o.ToServicePlacementPoliciesListPtrOutputWithContext(context.Background())
-}
-
-func (o ServicePlacementPoliciesListOutput) ToServicePlacementPoliciesListPtrOutputWithContext(ctx context.Context) ServicePlacementPoliciesListPtrOutput {
-	return o.ApplyT(func(v ServicePlacementPoliciesList) *ServicePlacementPoliciesList {
-		return &v
-	}).(ServicePlacementPoliciesListPtrOutput)
-}
-
-type ServicePlacementPoliciesListPtrOutput struct{ *pulumi.OutputState }
-
-func (ServicePlacementPoliciesListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServicePlacementPoliciesList)(nil)).Elem()
-}
-
-func (o ServicePlacementPoliciesListPtrOutput) ToServicePlacementPoliciesListPtrOutput() ServicePlacementPoliciesListPtrOutput {
-	return o
-}
-
-func (o ServicePlacementPoliciesListPtrOutput) ToServicePlacementPoliciesListPtrOutputWithContext(ctx context.Context) ServicePlacementPoliciesListPtrOutput {
-	return o
-}
-
-func (o ServicePlacementPoliciesListPtrOutput) Elem() ServicePlacementPoliciesListOutput {
-	return o.ApplyT(func(v *ServicePlacementPoliciesList) ServicePlacementPoliciesList { return *v }).(ServicePlacementPoliciesListOutput)
-}
-
-// A list that describes the correlation of the service with other services.
-type ServicePlacementPoliciesListResponse struct {
-}
-
-// ServicePlacementPoliciesListResponseInput is an input type that accepts ServicePlacementPoliciesListResponseArgs and ServicePlacementPoliciesListResponseOutput values.
-// You can construct a concrete instance of `ServicePlacementPoliciesListResponseInput` via:
-//
-//          ServicePlacementPoliciesListResponseArgs{...}
-type ServicePlacementPoliciesListResponseInput interface {
-	pulumi.Input
-
-	ToServicePlacementPoliciesListResponseOutput() ServicePlacementPoliciesListResponseOutput
-	ToServicePlacementPoliciesListResponseOutputWithContext(context.Context) ServicePlacementPoliciesListResponseOutput
-}
-
-// A list that describes the correlation of the service with other services.
-type ServicePlacementPoliciesListResponseArgs struct {
-}
-
-func (ServicePlacementPoliciesListResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePlacementPoliciesListResponse)(nil)).Elem()
-}
-
-func (i ServicePlacementPoliciesListResponseArgs) ToServicePlacementPoliciesListResponseOutput() ServicePlacementPoliciesListResponseOutput {
-	return i.ToServicePlacementPoliciesListResponseOutputWithContext(context.Background())
-}
-
-func (i ServicePlacementPoliciesListResponseArgs) ToServicePlacementPoliciesListResponseOutputWithContext(ctx context.Context) ServicePlacementPoliciesListResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementPoliciesListResponseOutput)
-}
-
-func (i ServicePlacementPoliciesListResponseArgs) ToServicePlacementPoliciesListResponsePtrOutput() ServicePlacementPoliciesListResponsePtrOutput {
-	return i.ToServicePlacementPoliciesListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServicePlacementPoliciesListResponseArgs) ToServicePlacementPoliciesListResponsePtrOutputWithContext(ctx context.Context) ServicePlacementPoliciesListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementPoliciesListResponseOutput).ToServicePlacementPoliciesListResponsePtrOutputWithContext(ctx)
-}
-
-// ServicePlacementPoliciesListResponsePtrInput is an input type that accepts ServicePlacementPoliciesListResponseArgs, ServicePlacementPoliciesListResponsePtr and ServicePlacementPoliciesListResponsePtrOutput values.
-// You can construct a concrete instance of `ServicePlacementPoliciesListResponsePtrInput` via:
-//
-//          ServicePlacementPoliciesListResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ServicePlacementPoliciesListResponsePtrInput interface {
-	pulumi.Input
-
-	ToServicePlacementPoliciesListResponsePtrOutput() ServicePlacementPoliciesListResponsePtrOutput
-	ToServicePlacementPoliciesListResponsePtrOutputWithContext(context.Context) ServicePlacementPoliciesListResponsePtrOutput
-}
-
-type servicePlacementPoliciesListResponsePtrType ServicePlacementPoliciesListResponseArgs
-
-func ServicePlacementPoliciesListResponsePtr(v *ServicePlacementPoliciesListResponseArgs) ServicePlacementPoliciesListResponsePtrInput {
-	return (*servicePlacementPoliciesListResponsePtrType)(v)
-}
-
-func (*servicePlacementPoliciesListResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServicePlacementPoliciesListResponse)(nil)).Elem()
-}
-
-func (i *servicePlacementPoliciesListResponsePtrType) ToServicePlacementPoliciesListResponsePtrOutput() ServicePlacementPoliciesListResponsePtrOutput {
-	return i.ToServicePlacementPoliciesListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *servicePlacementPoliciesListResponsePtrType) ToServicePlacementPoliciesListResponsePtrOutputWithContext(ctx context.Context) ServicePlacementPoliciesListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServicePlacementPoliciesListResponsePtrOutput)
-}
-
-// A list that describes the correlation of the service with other services.
-type ServicePlacementPoliciesListResponseOutput struct{ *pulumi.OutputState }
-
-func (ServicePlacementPoliciesListResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServicePlacementPoliciesListResponse)(nil)).Elem()
-}
-
-func (o ServicePlacementPoliciesListResponseOutput) ToServicePlacementPoliciesListResponseOutput() ServicePlacementPoliciesListResponseOutput {
-	return o
-}
-
-func (o ServicePlacementPoliciesListResponseOutput) ToServicePlacementPoliciesListResponseOutputWithContext(ctx context.Context) ServicePlacementPoliciesListResponseOutput {
-	return o
-}
-
-func (o ServicePlacementPoliciesListResponseOutput) ToServicePlacementPoliciesListResponsePtrOutput() ServicePlacementPoliciesListResponsePtrOutput {
-	return o.ToServicePlacementPoliciesListResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ServicePlacementPoliciesListResponseOutput) ToServicePlacementPoliciesListResponsePtrOutputWithContext(ctx context.Context) ServicePlacementPoliciesListResponsePtrOutput {
-	return o.ApplyT(func(v ServicePlacementPoliciesListResponse) *ServicePlacementPoliciesListResponse {
-		return &v
-	}).(ServicePlacementPoliciesListResponsePtrOutput)
-}
-
-type ServicePlacementPoliciesListResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ServicePlacementPoliciesListResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServicePlacementPoliciesListResponse)(nil)).Elem()
-}
-
-func (o ServicePlacementPoliciesListResponsePtrOutput) ToServicePlacementPoliciesListResponsePtrOutput() ServicePlacementPoliciesListResponsePtrOutput {
-	return o
-}
-
-func (o ServicePlacementPoliciesListResponsePtrOutput) ToServicePlacementPoliciesListResponsePtrOutputWithContext(ctx context.Context) ServicePlacementPoliciesListResponsePtrOutput {
-	return o
-}
-
-func (o ServicePlacementPoliciesListResponsePtrOutput) Elem() ServicePlacementPoliciesListResponseOutput {
-	return o.ApplyT(func(v *ServicePlacementPoliciesListResponse) ServicePlacementPoliciesListResponse { return *v }).(ServicePlacementPoliciesListResponseOutput)
+func (o ServicePlacementPolicyDescriptionResponseArrayOutput) Index(i pulumi.IntInput) ServicePlacementPolicyDescriptionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServicePlacementPolicyDescriptionResponse {
+		return vs[0].([]ServicePlacementPolicyDescriptionResponse)[vs[1].(int)]
+	}).(ServicePlacementPolicyDescriptionResponseOutput)
 }
 
 // The service resource properties.
 type ServiceResourcePropertiesResponse struct {
 	// A list that describes the correlation of the service with other services.
-	CorrelationScheme *CorrelationSchemeListResponse `pulumi:"correlationScheme"`
+	CorrelationScheme []ServiceCorrelationDescriptionResponse `pulumi:"correlationScheme"`
 	// Specifies the move cost for the service.
 	DefaultMoveCost *string `pulumi:"defaultMoveCost"`
 	// Describes how the service is partitioned.
@@ -11114,11 +9978,11 @@ type ServiceResourcePropertiesResponse struct {
 	// The kind of service (Stateless or Stateful).
 	ServiceKind string `pulumi:"serviceKind"`
 	// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-	ServiceLoadMetrics *ServiceLoadMetricsListResponse `pulumi:"serviceLoadMetrics"`
+	ServiceLoadMetrics []ServiceLoadMetricDescriptionResponse `pulumi:"serviceLoadMetrics"`
 	// The activation Mode of the service package
 	ServicePackageActivationMode *string `pulumi:"servicePackageActivationMode"`
 	// A list that describes the correlation of the service with other services.
-	ServicePlacementPolicies *ServicePlacementPoliciesListResponse `pulumi:"servicePlacementPolicies"`
+	ServicePlacementPolicies []ServicePlacementPolicyDescriptionResponse `pulumi:"servicePlacementPolicies"`
 	// The name of the service type
 	ServiceTypeName *string `pulumi:"serviceTypeName"`
 }
@@ -11137,7 +10001,7 @@ type ServiceResourcePropertiesResponseInput interface {
 // The service resource properties.
 type ServiceResourcePropertiesResponseArgs struct {
 	// A list that describes the correlation of the service with other services.
-	CorrelationScheme CorrelationSchemeListResponsePtrInput `pulumi:"correlationScheme"`
+	CorrelationScheme ServiceCorrelationDescriptionResponseArrayInput `pulumi:"correlationScheme"`
 	// Specifies the move cost for the service.
 	DefaultMoveCost pulumi.StringPtrInput `pulumi:"defaultMoveCost"`
 	// Describes how the service is partitioned.
@@ -11151,11 +10015,11 @@ type ServiceResourcePropertiesResponseArgs struct {
 	// The kind of service (Stateless or Stateful).
 	ServiceKind pulumi.StringInput `pulumi:"serviceKind"`
 	// The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-	ServiceLoadMetrics ServiceLoadMetricsListResponsePtrInput `pulumi:"serviceLoadMetrics"`
+	ServiceLoadMetrics ServiceLoadMetricDescriptionResponseArrayInput `pulumi:"serviceLoadMetrics"`
 	// The activation Mode of the service package
 	ServicePackageActivationMode pulumi.StringPtrInput `pulumi:"servicePackageActivationMode"`
 	// A list that describes the correlation of the service with other services.
-	ServicePlacementPolicies ServicePlacementPoliciesListResponsePtrInput `pulumi:"servicePlacementPolicies"`
+	ServicePlacementPolicies ServicePlacementPolicyDescriptionResponseArrayInput `pulumi:"servicePlacementPolicies"`
 	// The name of the service type
 	ServiceTypeName pulumi.StringPtrInput `pulumi:"serviceTypeName"`
 }
@@ -11239,8 +10103,10 @@ func (o ServiceResourcePropertiesResponseOutput) ToServiceResourcePropertiesResp
 }
 
 // A list that describes the correlation of the service with other services.
-func (o ServiceResourcePropertiesResponseOutput) CorrelationScheme() CorrelationSchemeListResponsePtrOutput {
-	return o.ApplyT(func(v ServiceResourcePropertiesResponse) *CorrelationSchemeListResponse { return v.CorrelationScheme }).(CorrelationSchemeListResponsePtrOutput)
+func (o ServiceResourcePropertiesResponseOutput) CorrelationScheme() ServiceCorrelationDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v ServiceResourcePropertiesResponse) []ServiceCorrelationDescriptionResponse {
+		return v.CorrelationScheme
+	}).(ServiceCorrelationDescriptionResponseArrayOutput)
 }
 
 // Specifies the move cost for the service.
@@ -11276,8 +10142,10 @@ func (o ServiceResourcePropertiesResponseOutput) ServiceKind() pulumi.StringOutp
 }
 
 // The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-func (o ServiceResourcePropertiesResponseOutput) ServiceLoadMetrics() ServiceLoadMetricsListResponsePtrOutput {
-	return o.ApplyT(func(v ServiceResourcePropertiesResponse) *ServiceLoadMetricsListResponse { return v.ServiceLoadMetrics }).(ServiceLoadMetricsListResponsePtrOutput)
+func (o ServiceResourcePropertiesResponseOutput) ServiceLoadMetrics() ServiceLoadMetricDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v ServiceResourcePropertiesResponse) []ServiceLoadMetricDescriptionResponse {
+		return v.ServiceLoadMetrics
+	}).(ServiceLoadMetricDescriptionResponseArrayOutput)
 }
 
 // The activation Mode of the service package
@@ -11286,10 +10154,10 @@ func (o ServiceResourcePropertiesResponseOutput) ServicePackageActivationMode() 
 }
 
 // A list that describes the correlation of the service with other services.
-func (o ServiceResourcePropertiesResponseOutput) ServicePlacementPolicies() ServicePlacementPoliciesListResponsePtrOutput {
-	return o.ApplyT(func(v ServiceResourcePropertiesResponse) *ServicePlacementPoliciesListResponse {
+func (o ServiceResourcePropertiesResponseOutput) ServicePlacementPolicies() ServicePlacementPolicyDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v ServiceResourcePropertiesResponse) []ServicePlacementPolicyDescriptionResponse {
 		return v.ServicePlacementPolicies
-	}).(ServicePlacementPoliciesListResponsePtrOutput)
+	}).(ServicePlacementPolicyDescriptionResponseArrayOutput)
 }
 
 // The name of the service type
@@ -11316,13 +10184,13 @@ func (o ServiceResourcePropertiesResponsePtrOutput) Elem() ServiceResourceProper
 }
 
 // A list that describes the correlation of the service with other services.
-func (o ServiceResourcePropertiesResponsePtrOutput) CorrelationScheme() CorrelationSchemeListResponsePtrOutput {
-	return o.ApplyT(func(v *ServiceResourcePropertiesResponse) *CorrelationSchemeListResponse {
+func (o ServiceResourcePropertiesResponsePtrOutput) CorrelationScheme() ServiceCorrelationDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v *ServiceResourcePropertiesResponse) []ServiceCorrelationDescriptionResponse {
 		if v == nil {
 			return nil
 		}
 		return v.CorrelationScheme
-	}).(CorrelationSchemeListResponsePtrOutput)
+	}).(ServiceCorrelationDescriptionResponseArrayOutput)
 }
 
 // Specifies the move cost for the service.
@@ -11386,13 +10254,13 @@ func (o ServiceResourcePropertiesResponsePtrOutput) ServiceKind() pulumi.StringP
 }
 
 // The service load metrics is given as an array of ServiceLoadMetricDescription objects.
-func (o ServiceResourcePropertiesResponsePtrOutput) ServiceLoadMetrics() ServiceLoadMetricsListResponsePtrOutput {
-	return o.ApplyT(func(v *ServiceResourcePropertiesResponse) *ServiceLoadMetricsListResponse {
+func (o ServiceResourcePropertiesResponsePtrOutput) ServiceLoadMetrics() ServiceLoadMetricDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v *ServiceResourcePropertiesResponse) []ServiceLoadMetricDescriptionResponse {
 		if v == nil {
 			return nil
 		}
 		return v.ServiceLoadMetrics
-	}).(ServiceLoadMetricsListResponsePtrOutput)
+	}).(ServiceLoadMetricDescriptionResponseArrayOutput)
 }
 
 // The activation Mode of the service package
@@ -11406,13 +10274,13 @@ func (o ServiceResourcePropertiesResponsePtrOutput) ServicePackageActivationMode
 }
 
 // A list that describes the correlation of the service with other services.
-func (o ServiceResourcePropertiesResponsePtrOutput) ServicePlacementPolicies() ServicePlacementPoliciesListResponsePtrOutput {
-	return o.ApplyT(func(v *ServiceResourcePropertiesResponse) *ServicePlacementPoliciesListResponse {
+func (o ServiceResourcePropertiesResponsePtrOutput) ServicePlacementPolicies() ServicePlacementPolicyDescriptionResponseArrayOutput {
+	return o.ApplyT(func(v *ServiceResourcePropertiesResponse) []ServicePlacementPolicyDescriptionResponse {
 		if v == nil {
 			return nil
 		}
 		return v.ServicePlacementPolicies
-	}).(ServicePlacementPoliciesListResponsePtrOutput)
+	}).(ServicePlacementPolicyDescriptionResponseArrayOutput)
 }
 
 // The name of the service type
@@ -11423,6 +10291,738 @@ func (o ServiceResourcePropertiesResponsePtrOutput) ServiceTypeName() pulumi.Str
 		}
 		return v.ServiceTypeName
 	}).(pulumi.StringPtrOutput)
+}
+
+// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
+type ServiceTypeDeltaHealthPolicy struct {
+	// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+	// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+	MaxPercentDeltaUnhealthyServices *int `pulumi:"maxPercentDeltaUnhealthyServices"`
+}
+
+// ServiceTypeDeltaHealthPolicyInput is an input type that accepts ServiceTypeDeltaHealthPolicyArgs and ServiceTypeDeltaHealthPolicyOutput values.
+// You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyInput` via:
+//
+//          ServiceTypeDeltaHealthPolicyArgs{...}
+type ServiceTypeDeltaHealthPolicyInput interface {
+	pulumi.Input
+
+	ToServiceTypeDeltaHealthPolicyOutput() ServiceTypeDeltaHealthPolicyOutput
+	ToServiceTypeDeltaHealthPolicyOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyOutput
+}
+
+// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
+type ServiceTypeDeltaHealthPolicyArgs struct {
+	// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+	// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+	MaxPercentDeltaUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentDeltaUnhealthyServices"`
+}
+
+func (ServiceTypeDeltaHealthPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (i ServiceTypeDeltaHealthPolicyArgs) ToServiceTypeDeltaHealthPolicyOutput() ServiceTypeDeltaHealthPolicyOutput {
+	return i.ToServiceTypeDeltaHealthPolicyOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeDeltaHealthPolicyArgs) ToServiceTypeDeltaHealthPolicyOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyOutput)
+}
+
+func (i ServiceTypeDeltaHealthPolicyArgs) ToServiceTypeDeltaHealthPolicyPtrOutput() ServiceTypeDeltaHealthPolicyPtrOutput {
+	return i.ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeDeltaHealthPolicyArgs) ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyOutput).ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx)
+}
+
+// ServiceTypeDeltaHealthPolicyPtrInput is an input type that accepts ServiceTypeDeltaHealthPolicyArgs, ServiceTypeDeltaHealthPolicyPtr and ServiceTypeDeltaHealthPolicyPtrOutput values.
+// You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyPtrInput` via:
+//
+//          ServiceTypeDeltaHealthPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceTypeDeltaHealthPolicyPtrInput interface {
+	pulumi.Input
+
+	ToServiceTypeDeltaHealthPolicyPtrOutput() ServiceTypeDeltaHealthPolicyPtrOutput
+	ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyPtrOutput
+}
+
+type serviceTypeDeltaHealthPolicyPtrType ServiceTypeDeltaHealthPolicyArgs
+
+func ServiceTypeDeltaHealthPolicyPtr(v *ServiceTypeDeltaHealthPolicyArgs) ServiceTypeDeltaHealthPolicyPtrInput {
+	return (*serviceTypeDeltaHealthPolicyPtrType)(v)
+}
+
+func (*serviceTypeDeltaHealthPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (i *serviceTypeDeltaHealthPolicyPtrType) ToServiceTypeDeltaHealthPolicyPtrOutput() ServiceTypeDeltaHealthPolicyPtrOutput {
+	return i.ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceTypeDeltaHealthPolicyPtrType) ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyPtrOutput)
+}
+
+// ServiceTypeDeltaHealthPolicyMapInput is an input type that accepts ServiceTypeDeltaHealthPolicyMap and ServiceTypeDeltaHealthPolicyMapOutput values.
+// You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyMapInput` via:
+//
+//          ServiceTypeDeltaHealthPolicyMap{ "key": ServiceTypeDeltaHealthPolicyArgs{...} }
+type ServiceTypeDeltaHealthPolicyMapInput interface {
+	pulumi.Input
+
+	ToServiceTypeDeltaHealthPolicyMapOutput() ServiceTypeDeltaHealthPolicyMapOutput
+	ToServiceTypeDeltaHealthPolicyMapOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyMapOutput
+}
+
+type ServiceTypeDeltaHealthPolicyMap map[string]ServiceTypeDeltaHealthPolicyInput
+
+func (ServiceTypeDeltaHealthPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (i ServiceTypeDeltaHealthPolicyMap) ToServiceTypeDeltaHealthPolicyMapOutput() ServiceTypeDeltaHealthPolicyMapOutput {
+	return i.ToServiceTypeDeltaHealthPolicyMapOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeDeltaHealthPolicyMap) ToServiceTypeDeltaHealthPolicyMapOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyMapOutput)
+}
+
+// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
+type ServiceTypeDeltaHealthPolicyOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeDeltaHealthPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (o ServiceTypeDeltaHealthPolicyOutput) ToServiceTypeDeltaHealthPolicyOutput() ServiceTypeDeltaHealthPolicyOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyOutput) ToServiceTypeDeltaHealthPolicyOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyOutput) ToServiceTypeDeltaHealthPolicyPtrOutput() ServiceTypeDeltaHealthPolicyPtrOutput {
+	return o.ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceTypeDeltaHealthPolicyOutput) ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyPtrOutput {
+	return o.ApplyT(func(v ServiceTypeDeltaHealthPolicy) *ServiceTypeDeltaHealthPolicy {
+		return &v
+	}).(ServiceTypeDeltaHealthPolicyPtrOutput)
+}
+
+// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+func (o ServiceTypeDeltaHealthPolicyOutput) MaxPercentDeltaUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceTypeDeltaHealthPolicy) *int { return v.MaxPercentDeltaUnhealthyServices }).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeDeltaHealthPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeDeltaHealthPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (o ServiceTypeDeltaHealthPolicyPtrOutput) ToServiceTypeDeltaHealthPolicyPtrOutput() ServiceTypeDeltaHealthPolicyPtrOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyPtrOutput) ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyPtrOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyPtrOutput) Elem() ServiceTypeDeltaHealthPolicyOutput {
+	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicy) ServiceTypeDeltaHealthPolicy { return *v }).(ServiceTypeDeltaHealthPolicyOutput)
+}
+
+// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+func (o ServiceTypeDeltaHealthPolicyPtrOutput) MaxPercentDeltaUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPercentDeltaUnhealthyServices
+	}).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeDeltaHealthPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeDeltaHealthPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (o ServiceTypeDeltaHealthPolicyMapOutput) ToServiceTypeDeltaHealthPolicyMapOutput() ServiceTypeDeltaHealthPolicyMapOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyMapOutput) ToServiceTypeDeltaHealthPolicyMapOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyMapOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) ServiceTypeDeltaHealthPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceTypeDeltaHealthPolicy {
+		return vs[0].(map[string]ServiceTypeDeltaHealthPolicy)[vs[1].(string)]
+	}).(ServiceTypeDeltaHealthPolicyOutput)
+}
+
+// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
+type ServiceTypeDeltaHealthPolicyResponse struct {
+	// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+	// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+	MaxPercentDeltaUnhealthyServices *int `pulumi:"maxPercentDeltaUnhealthyServices"`
+}
+
+// ServiceTypeDeltaHealthPolicyResponseInput is an input type that accepts ServiceTypeDeltaHealthPolicyResponseArgs and ServiceTypeDeltaHealthPolicyResponseOutput values.
+// You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyResponseInput` via:
+//
+//          ServiceTypeDeltaHealthPolicyResponseArgs{...}
+type ServiceTypeDeltaHealthPolicyResponseInput interface {
+	pulumi.Input
+
+	ToServiceTypeDeltaHealthPolicyResponseOutput() ServiceTypeDeltaHealthPolicyResponseOutput
+	ToServiceTypeDeltaHealthPolicyResponseOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyResponseOutput
+}
+
+// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
+type ServiceTypeDeltaHealthPolicyResponseArgs struct {
+	// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+	// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+	MaxPercentDeltaUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentDeltaUnhealthyServices"`
+}
+
+func (ServiceTypeDeltaHealthPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
+}
+
+func (i ServiceTypeDeltaHealthPolicyResponseArgs) ToServiceTypeDeltaHealthPolicyResponseOutput() ServiceTypeDeltaHealthPolicyResponseOutput {
+	return i.ToServiceTypeDeltaHealthPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeDeltaHealthPolicyResponseArgs) ToServiceTypeDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyResponseOutput)
+}
+
+func (i ServiceTypeDeltaHealthPolicyResponseArgs) ToServiceTypeDeltaHealthPolicyResponsePtrOutput() ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return i.ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeDeltaHealthPolicyResponseArgs) ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyResponseOutput).ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceTypeDeltaHealthPolicyResponsePtrInput is an input type that accepts ServiceTypeDeltaHealthPolicyResponseArgs, ServiceTypeDeltaHealthPolicyResponsePtr and ServiceTypeDeltaHealthPolicyResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyResponsePtrInput` via:
+//
+//          ServiceTypeDeltaHealthPolicyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceTypeDeltaHealthPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceTypeDeltaHealthPolicyResponsePtrOutput() ServiceTypeDeltaHealthPolicyResponsePtrOutput
+	ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput
+}
+
+type serviceTypeDeltaHealthPolicyResponsePtrType ServiceTypeDeltaHealthPolicyResponseArgs
+
+func ServiceTypeDeltaHealthPolicyResponsePtr(v *ServiceTypeDeltaHealthPolicyResponseArgs) ServiceTypeDeltaHealthPolicyResponsePtrInput {
+	return (*serviceTypeDeltaHealthPolicyResponsePtrType)(v)
+}
+
+func (*serviceTypeDeltaHealthPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
+}
+
+func (i *serviceTypeDeltaHealthPolicyResponsePtrType) ToServiceTypeDeltaHealthPolicyResponsePtrOutput() ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return i.ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceTypeDeltaHealthPolicyResponsePtrType) ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyResponsePtrOutput)
+}
+
+// ServiceTypeDeltaHealthPolicyResponseMapInput is an input type that accepts ServiceTypeDeltaHealthPolicyResponseMap and ServiceTypeDeltaHealthPolicyResponseMapOutput values.
+// You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyResponseMapInput` via:
+//
+//          ServiceTypeDeltaHealthPolicyResponseMap{ "key": ServiceTypeDeltaHealthPolicyResponseArgs{...} }
+type ServiceTypeDeltaHealthPolicyResponseMapInput interface {
+	pulumi.Input
+
+	ToServiceTypeDeltaHealthPolicyResponseMapOutput() ServiceTypeDeltaHealthPolicyResponseMapOutput
+	ToServiceTypeDeltaHealthPolicyResponseMapOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyResponseMapOutput
+}
+
+type ServiceTypeDeltaHealthPolicyResponseMap map[string]ServiceTypeDeltaHealthPolicyResponseInput
+
+func (ServiceTypeDeltaHealthPolicyResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
+}
+
+func (i ServiceTypeDeltaHealthPolicyResponseMap) ToServiceTypeDeltaHealthPolicyResponseMapOutput() ServiceTypeDeltaHealthPolicyResponseMapOutput {
+	return i.ToServiceTypeDeltaHealthPolicyResponseMapOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeDeltaHealthPolicyResponseMap) ToServiceTypeDeltaHealthPolicyResponseMapOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyResponseMapOutput)
+}
+
+// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
+type ServiceTypeDeltaHealthPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeDeltaHealthPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPolicyResponseOutput() ServiceTypeDeltaHealthPolicyResponseOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponseOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPolicyResponsePtrOutput() ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return o.ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return o.ApplyT(func(v ServiceTypeDeltaHealthPolicyResponse) *ServiceTypeDeltaHealthPolicyResponse {
+		return &v
+	}).(ServiceTypeDeltaHealthPolicyResponsePtrOutput)
+}
+
+// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+func (o ServiceTypeDeltaHealthPolicyResponseOutput) MaxPercentDeltaUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceTypeDeltaHealthPolicyResponse) *int { return v.MaxPercentDeltaUnhealthyServices }).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeDeltaHealthPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeDeltaHealthPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponsePtrOutput) ToServiceTypeDeltaHealthPolicyResponsePtrOutput() ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponsePtrOutput) ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponsePtrOutput) Elem() ServiceTypeDeltaHealthPolicyResponseOutput {
+	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicyResponse) ServiceTypeDeltaHealthPolicyResponse { return *v }).(ServiceTypeDeltaHealthPolicyResponseOutput)
+}
+
+// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+func (o ServiceTypeDeltaHealthPolicyResponsePtrOutput) MaxPercentDeltaUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicyResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPercentDeltaUnhealthyServices
+	}).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeDeltaHealthPolicyResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeDeltaHealthPolicyResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponseMapOutput) ToServiceTypeDeltaHealthPolicyResponseMapOutput() ServiceTypeDeltaHealthPolicyResponseMapOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponseMapOutput) ToServiceTypeDeltaHealthPolicyResponseMapOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponseMapOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInput) ServiceTypeDeltaHealthPolicyResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceTypeDeltaHealthPolicyResponse {
+		return vs[0].(map[string]ServiceTypeDeltaHealthPolicyResponse)[vs[1].(string)]
+	}).(ServiceTypeDeltaHealthPolicyResponseOutput)
+}
+
+// Represents the health policy used to evaluate the health of services belonging to a service type.
+type ServiceTypeHealthPolicy struct {
+	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+	MaxPercentUnhealthyServices *int `pulumi:"maxPercentUnhealthyServices"`
+}
+
+// ServiceTypeHealthPolicyInput is an input type that accepts ServiceTypeHealthPolicyArgs and ServiceTypeHealthPolicyOutput values.
+// You can construct a concrete instance of `ServiceTypeHealthPolicyInput` via:
+//
+//          ServiceTypeHealthPolicyArgs{...}
+type ServiceTypeHealthPolicyInput interface {
+	pulumi.Input
+
+	ToServiceTypeHealthPolicyOutput() ServiceTypeHealthPolicyOutput
+	ToServiceTypeHealthPolicyOutputWithContext(context.Context) ServiceTypeHealthPolicyOutput
+}
+
+// Represents the health policy used to evaluate the health of services belonging to a service type.
+type ServiceTypeHealthPolicyArgs struct {
+	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+	MaxPercentUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyServices"`
+}
+
+func (ServiceTypeHealthPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeHealthPolicy)(nil)).Elem()
+}
+
+func (i ServiceTypeHealthPolicyArgs) ToServiceTypeHealthPolicyOutput() ServiceTypeHealthPolicyOutput {
+	return i.ToServiceTypeHealthPolicyOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeHealthPolicyArgs) ToServiceTypeHealthPolicyOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyOutput)
+}
+
+func (i ServiceTypeHealthPolicyArgs) ToServiceTypeHealthPolicyPtrOutput() ServiceTypeHealthPolicyPtrOutput {
+	return i.ToServiceTypeHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeHealthPolicyArgs) ToServiceTypeHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyOutput).ToServiceTypeHealthPolicyPtrOutputWithContext(ctx)
+}
+
+// ServiceTypeHealthPolicyPtrInput is an input type that accepts ServiceTypeHealthPolicyArgs, ServiceTypeHealthPolicyPtr and ServiceTypeHealthPolicyPtrOutput values.
+// You can construct a concrete instance of `ServiceTypeHealthPolicyPtrInput` via:
+//
+//          ServiceTypeHealthPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceTypeHealthPolicyPtrInput interface {
+	pulumi.Input
+
+	ToServiceTypeHealthPolicyPtrOutput() ServiceTypeHealthPolicyPtrOutput
+	ToServiceTypeHealthPolicyPtrOutputWithContext(context.Context) ServiceTypeHealthPolicyPtrOutput
+}
+
+type serviceTypeHealthPolicyPtrType ServiceTypeHealthPolicyArgs
+
+func ServiceTypeHealthPolicyPtr(v *ServiceTypeHealthPolicyArgs) ServiceTypeHealthPolicyPtrInput {
+	return (*serviceTypeHealthPolicyPtrType)(v)
+}
+
+func (*serviceTypeHealthPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeHealthPolicy)(nil)).Elem()
+}
+
+func (i *serviceTypeHealthPolicyPtrType) ToServiceTypeHealthPolicyPtrOutput() ServiceTypeHealthPolicyPtrOutput {
+	return i.ToServiceTypeHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceTypeHealthPolicyPtrType) ToServiceTypeHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyPtrOutput)
+}
+
+// ServiceTypeHealthPolicyMapInput is an input type that accepts ServiceTypeHealthPolicyMap and ServiceTypeHealthPolicyMapOutput values.
+// You can construct a concrete instance of `ServiceTypeHealthPolicyMapInput` via:
+//
+//          ServiceTypeHealthPolicyMap{ "key": ServiceTypeHealthPolicyArgs{...} }
+type ServiceTypeHealthPolicyMapInput interface {
+	pulumi.Input
+
+	ToServiceTypeHealthPolicyMapOutput() ServiceTypeHealthPolicyMapOutput
+	ToServiceTypeHealthPolicyMapOutputWithContext(context.Context) ServiceTypeHealthPolicyMapOutput
+}
+
+type ServiceTypeHealthPolicyMap map[string]ServiceTypeHealthPolicyInput
+
+func (ServiceTypeHealthPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeHealthPolicy)(nil)).Elem()
+}
+
+func (i ServiceTypeHealthPolicyMap) ToServiceTypeHealthPolicyMapOutput() ServiceTypeHealthPolicyMapOutput {
+	return i.ToServiceTypeHealthPolicyMapOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeHealthPolicyMap) ToServiceTypeHealthPolicyMapOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyMapOutput)
+}
+
+// Represents the health policy used to evaluate the health of services belonging to a service type.
+type ServiceTypeHealthPolicyOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeHealthPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeHealthPolicy)(nil)).Elem()
+}
+
+func (o ServiceTypeHealthPolicyOutput) ToServiceTypeHealthPolicyOutput() ServiceTypeHealthPolicyOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyOutput) ToServiceTypeHealthPolicyOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyOutput) ToServiceTypeHealthPolicyPtrOutput() ServiceTypeHealthPolicyPtrOutput {
+	return o.ToServiceTypeHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceTypeHealthPolicyOutput) ToServiceTypeHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyPtrOutput {
+	return o.ApplyT(func(v ServiceTypeHealthPolicy) *ServiceTypeHealthPolicy {
+		return &v
+	}).(ServiceTypeHealthPolicyPtrOutput)
+}
+
+// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+func (o ServiceTypeHealthPolicyOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceTypeHealthPolicy) *int { return v.MaxPercentUnhealthyServices }).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeHealthPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeHealthPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeHealthPolicy)(nil)).Elem()
+}
+
+func (o ServiceTypeHealthPolicyPtrOutput) ToServiceTypeHealthPolicyPtrOutput() ServiceTypeHealthPolicyPtrOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyPtrOutput) ToServiceTypeHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyPtrOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyPtrOutput) Elem() ServiceTypeHealthPolicyOutput {
+	return o.ApplyT(func(v *ServiceTypeHealthPolicy) ServiceTypeHealthPolicy { return *v }).(ServiceTypeHealthPolicyOutput)
+}
+
+// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+func (o ServiceTypeHealthPolicyPtrOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceTypeHealthPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPercentUnhealthyServices
+	}).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeHealthPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeHealthPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeHealthPolicy)(nil)).Elem()
+}
+
+func (o ServiceTypeHealthPolicyMapOutput) ToServiceTypeHealthPolicyMapOutput() ServiceTypeHealthPolicyMapOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyMapOutput) ToServiceTypeHealthPolicyMapOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyMapOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) ServiceTypeHealthPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceTypeHealthPolicy {
+		return vs[0].(map[string]ServiceTypeHealthPolicy)[vs[1].(string)]
+	}).(ServiceTypeHealthPolicyOutput)
+}
+
+// Represents the health policy used to evaluate the health of services belonging to a service type.
+type ServiceTypeHealthPolicyResponse struct {
+	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+	MaxPercentUnhealthyServices *int `pulumi:"maxPercentUnhealthyServices"`
+}
+
+// ServiceTypeHealthPolicyResponseInput is an input type that accepts ServiceTypeHealthPolicyResponseArgs and ServiceTypeHealthPolicyResponseOutput values.
+// You can construct a concrete instance of `ServiceTypeHealthPolicyResponseInput` via:
+//
+//          ServiceTypeHealthPolicyResponseArgs{...}
+type ServiceTypeHealthPolicyResponseInput interface {
+	pulumi.Input
+
+	ToServiceTypeHealthPolicyResponseOutput() ServiceTypeHealthPolicyResponseOutput
+	ToServiceTypeHealthPolicyResponseOutputWithContext(context.Context) ServiceTypeHealthPolicyResponseOutput
+}
+
+// Represents the health policy used to evaluate the health of services belonging to a service type.
+type ServiceTypeHealthPolicyResponseArgs struct {
+	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+	MaxPercentUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyServices"`
+}
+
+func (ServiceTypeHealthPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeHealthPolicyResponse)(nil)).Elem()
+}
+
+func (i ServiceTypeHealthPolicyResponseArgs) ToServiceTypeHealthPolicyResponseOutput() ServiceTypeHealthPolicyResponseOutput {
+	return i.ToServiceTypeHealthPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeHealthPolicyResponseArgs) ToServiceTypeHealthPolicyResponseOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyResponseOutput)
+}
+
+func (i ServiceTypeHealthPolicyResponseArgs) ToServiceTypeHealthPolicyResponsePtrOutput() ServiceTypeHealthPolicyResponsePtrOutput {
+	return i.ToServiceTypeHealthPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeHealthPolicyResponseArgs) ToServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyResponseOutput).ToServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceTypeHealthPolicyResponsePtrInput is an input type that accepts ServiceTypeHealthPolicyResponseArgs, ServiceTypeHealthPolicyResponsePtr and ServiceTypeHealthPolicyResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceTypeHealthPolicyResponsePtrInput` via:
+//
+//          ServiceTypeHealthPolicyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceTypeHealthPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceTypeHealthPolicyResponsePtrOutput() ServiceTypeHealthPolicyResponsePtrOutput
+	ToServiceTypeHealthPolicyResponsePtrOutputWithContext(context.Context) ServiceTypeHealthPolicyResponsePtrOutput
+}
+
+type serviceTypeHealthPolicyResponsePtrType ServiceTypeHealthPolicyResponseArgs
+
+func ServiceTypeHealthPolicyResponsePtr(v *ServiceTypeHealthPolicyResponseArgs) ServiceTypeHealthPolicyResponsePtrInput {
+	return (*serviceTypeHealthPolicyResponsePtrType)(v)
+}
+
+func (*serviceTypeHealthPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeHealthPolicyResponse)(nil)).Elem()
+}
+
+func (i *serviceTypeHealthPolicyResponsePtrType) ToServiceTypeHealthPolicyResponsePtrOutput() ServiceTypeHealthPolicyResponsePtrOutput {
+	return i.ToServiceTypeHealthPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceTypeHealthPolicyResponsePtrType) ToServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyResponsePtrOutput)
+}
+
+// ServiceTypeHealthPolicyResponseMapInput is an input type that accepts ServiceTypeHealthPolicyResponseMap and ServiceTypeHealthPolicyResponseMapOutput values.
+// You can construct a concrete instance of `ServiceTypeHealthPolicyResponseMapInput` via:
+//
+//          ServiceTypeHealthPolicyResponseMap{ "key": ServiceTypeHealthPolicyResponseArgs{...} }
+type ServiceTypeHealthPolicyResponseMapInput interface {
+	pulumi.Input
+
+	ToServiceTypeHealthPolicyResponseMapOutput() ServiceTypeHealthPolicyResponseMapOutput
+	ToServiceTypeHealthPolicyResponseMapOutputWithContext(context.Context) ServiceTypeHealthPolicyResponseMapOutput
+}
+
+type ServiceTypeHealthPolicyResponseMap map[string]ServiceTypeHealthPolicyResponseInput
+
+func (ServiceTypeHealthPolicyResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeHealthPolicyResponse)(nil)).Elem()
+}
+
+func (i ServiceTypeHealthPolicyResponseMap) ToServiceTypeHealthPolicyResponseMapOutput() ServiceTypeHealthPolicyResponseMapOutput {
+	return i.ToServiceTypeHealthPolicyResponseMapOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeHealthPolicyResponseMap) ToServiceTypeHealthPolicyResponseMapOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyResponseMapOutput)
+}
+
+// Represents the health policy used to evaluate the health of services belonging to a service type.
+type ServiceTypeHealthPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeHealthPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeHealthPolicyResponse)(nil)).Elem()
+}
+
+func (o ServiceTypeHealthPolicyResponseOutput) ToServiceTypeHealthPolicyResponseOutput() ServiceTypeHealthPolicyResponseOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyResponseOutput) ToServiceTypeHealthPolicyResponseOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponseOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyResponseOutput) ToServiceTypeHealthPolicyResponsePtrOutput() ServiceTypeHealthPolicyResponsePtrOutput {
+	return o.ToServiceTypeHealthPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceTypeHealthPolicyResponseOutput) ToServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponsePtrOutput {
+	return o.ApplyT(func(v ServiceTypeHealthPolicyResponse) *ServiceTypeHealthPolicyResponse {
+		return &v
+	}).(ServiceTypeHealthPolicyResponsePtrOutput)
+}
+
+// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+func (o ServiceTypeHealthPolicyResponseOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceTypeHealthPolicyResponse) *int { return v.MaxPercentUnhealthyServices }).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeHealthPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeHealthPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeHealthPolicyResponse)(nil)).Elem()
+}
+
+func (o ServiceTypeHealthPolicyResponsePtrOutput) ToServiceTypeHealthPolicyResponsePtrOutput() ServiceTypeHealthPolicyResponsePtrOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyResponsePtrOutput) ToServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponsePtrOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyResponsePtrOutput) Elem() ServiceTypeHealthPolicyResponseOutput {
+	return o.ApplyT(func(v *ServiceTypeHealthPolicyResponse) ServiceTypeHealthPolicyResponse { return *v }).(ServiceTypeHealthPolicyResponseOutput)
+}
+
+// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+func (o ServiceTypeHealthPolicyResponsePtrOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceTypeHealthPolicyResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPercentUnhealthyServices
+	}).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeHealthPolicyResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeHealthPolicyResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeHealthPolicyResponse)(nil)).Elem()
+}
+
+func (o ServiceTypeHealthPolicyResponseMapOutput) ToServiceTypeHealthPolicyResponseMapOutput() ServiceTypeHealthPolicyResponseMapOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyResponseMapOutput) ToServiceTypeHealthPolicyResponseMapOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponseMapOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInput) ServiceTypeHealthPolicyResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceTypeHealthPolicyResponse {
+		return vs[0].(map[string]ServiceTypeHealthPolicyResponse)[vs[1].(string)]
+	}).(ServiceTypeHealthPolicyResponseOutput)
 }
 
 // Describes a parameter in fabric settings of the cluster.
@@ -11861,269 +11461,129 @@ func (o SettingsSectionDescriptionResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(SettingsSectionDescriptionResponseOutput)
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-type UserAssignedIdentityMap struct {
+type UserAssignedIdentityResponse struct {
+	// The client id of user assigned identity.
+	ClientId string `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId string `pulumi:"principalId"`
 }
 
-// UserAssignedIdentityMapInput is an input type that accepts UserAssignedIdentityMap and UserAssignedIdentityMapOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityMapInput` via:
+// UserAssignedIdentityResponseInput is an input type that accepts UserAssignedIdentityResponseArgs and UserAssignedIdentityResponseOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityResponseInput` via:
 //
-//          UserAssignedIdentityMap{ "key": UserAssignedIdentityArgs{...} }
-type UserAssignedIdentityMapInput interface {
+//          UserAssignedIdentityResponseArgs{...}
+type UserAssignedIdentityResponseInput interface {
 	pulumi.Input
 
-	ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput
-	ToUserAssignedIdentityMapOutputWithContext(context.Context) UserAssignedIdentityMapOutput
+	ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput
+	ToUserAssignedIdentityResponseOutputWithContext(context.Context) UserAssignedIdentityResponseOutput
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-type UserAssignedIdentityMapArgs struct {
+type UserAssignedIdentityResponseArgs struct {
+	// The client id of user assigned identity.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The principal id of user assigned identity.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
-func (UserAssignedIdentityMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityMap)(nil)).Elem()
+func (UserAssignedIdentityResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
 }
 
-func (i UserAssignedIdentityMapArgs) ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput {
-	return i.ToUserAssignedIdentityMapOutputWithContext(context.Background())
+func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
+	return i.ToUserAssignedIdentityResponseOutputWithContext(context.Background())
 }
 
-func (i UserAssignedIdentityMapArgs) ToUserAssignedIdentityMapOutputWithContext(ctx context.Context) UserAssignedIdentityMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMapOutput)
+func (i UserAssignedIdentityResponseArgs) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseOutput)
 }
 
-func (i UserAssignedIdentityMapArgs) ToUserAssignedIdentityMapPtrOutput() UserAssignedIdentityMapPtrOutput {
-	return i.ToUserAssignedIdentityMapPtrOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityMapArgs) ToUserAssignedIdentityMapPtrOutputWithContext(ctx context.Context) UserAssignedIdentityMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMapOutput).ToUserAssignedIdentityMapPtrOutputWithContext(ctx)
-}
-
-// UserAssignedIdentityMapPtrInput is an input type that accepts UserAssignedIdentityMapArgs, UserAssignedIdentityMapPtr and UserAssignedIdentityMapPtrOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityMapPtrInput` via:
+// UserAssignedIdentityResponseMapInput is an input type that accepts UserAssignedIdentityResponseMap and UserAssignedIdentityResponseMapOutput values.
+// You can construct a concrete instance of `UserAssignedIdentityResponseMapInput` via:
 //
-//          UserAssignedIdentityMapArgs{...}
-//
-//  or:
-//
-//          nil
-type UserAssignedIdentityMapPtrInput interface {
+//          UserAssignedIdentityResponseMap{ "key": UserAssignedIdentityResponseArgs{...} }
+type UserAssignedIdentityResponseMapInput interface {
 	pulumi.Input
 
-	ToUserAssignedIdentityMapPtrOutput() UserAssignedIdentityMapPtrOutput
-	ToUserAssignedIdentityMapPtrOutputWithContext(context.Context) UserAssignedIdentityMapPtrOutput
+	ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput
+	ToUserAssignedIdentityResponseMapOutputWithContext(context.Context) UserAssignedIdentityResponseMapOutput
 }
 
-type userAssignedIdentityMapPtrType UserAssignedIdentityMapArgs
+type UserAssignedIdentityResponseMap map[string]UserAssignedIdentityResponseInput
 
-func UserAssignedIdentityMapPtr(v *UserAssignedIdentityMapArgs) UserAssignedIdentityMapPtrInput {
-	return (*userAssignedIdentityMapPtrType)(v)
+func (UserAssignedIdentityResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
 }
 
-func (*userAssignedIdentityMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserAssignedIdentityMap)(nil)).Elem()
+func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
+	return i.ToUserAssignedIdentityResponseMapOutputWithContext(context.Background())
 }
 
-func (i *userAssignedIdentityMapPtrType) ToUserAssignedIdentityMapPtrOutput() UserAssignedIdentityMapPtrOutput {
-	return i.ToUserAssignedIdentityMapPtrOutputWithContext(context.Background())
+func (i UserAssignedIdentityResponseMap) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityResponseMapOutput)
 }
 
-func (i *userAssignedIdentityMapPtrType) ToUserAssignedIdentityMapPtrOutputWithContext(ctx context.Context) UserAssignedIdentityMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMapPtrOutput)
+type UserAssignedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedIdentityResponse)(nil)).Elem()
 }
 
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-type UserAssignedIdentityMapOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityMap)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapOutput() UserAssignedIdentityMapOutput {
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutput() UserAssignedIdentityResponseOutput {
 	return o
 }
 
-func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapOutputWithContext(ctx context.Context) UserAssignedIdentityMapOutput {
+func (o UserAssignedIdentityResponseOutput) ToUserAssignedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedIdentityResponseOutput {
 	return o
 }
 
-func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapPtrOutput() UserAssignedIdentityMapPtrOutput {
-	return o.ToUserAssignedIdentityMapPtrOutputWithContext(context.Background())
+// The client id of user assigned identity.
+func (o UserAssignedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
-func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapPtrOutputWithContext(ctx context.Context) UserAssignedIdentityMapPtrOutput {
-	return o.ApplyT(func(v UserAssignedIdentityMap) *UserAssignedIdentityMap {
-		return &v
-	}).(UserAssignedIdentityMapPtrOutput)
+// The principal id of user assigned identity.
+func (o UserAssignedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-type UserAssignedIdentityMapPtrOutput struct{ *pulumi.OutputState }
+type UserAssignedIdentityResponseMapOutput struct{ *pulumi.OutputState }
 
-func (UserAssignedIdentityMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserAssignedIdentityMap)(nil)).Elem()
+func (UserAssignedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedIdentityResponse)(nil)).Elem()
 }
 
-func (o UserAssignedIdentityMapPtrOutput) ToUserAssignedIdentityMapPtrOutput() UserAssignedIdentityMapPtrOutput {
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutput() UserAssignedIdentityResponseMapOutput {
 	return o
 }
 
-func (o UserAssignedIdentityMapPtrOutput) ToUserAssignedIdentityMapPtrOutputWithContext(ctx context.Context) UserAssignedIdentityMapPtrOutput {
+func (o UserAssignedIdentityResponseMapOutput) ToUserAssignedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedIdentityResponseMapOutput {
 	return o
 }
 
-func (o UserAssignedIdentityMapPtrOutput) Elem() UserAssignedIdentityMapOutput {
-	return o.ApplyT(func(v *UserAssignedIdentityMap) UserAssignedIdentityMap { return *v }).(UserAssignedIdentityMapOutput)
-}
-
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-type UserAssignedIdentityMapResponse struct {
-}
-
-// UserAssignedIdentityMapResponseInput is an input type that accepts UserAssignedIdentityMapResponseArgs and UserAssignedIdentityMapResponseOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityMapResponseInput` via:
-//
-//          UserAssignedIdentityMapResponseArgs{...}
-type UserAssignedIdentityMapResponseInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityMapResponseOutput() UserAssignedIdentityMapResponseOutput
-	ToUserAssignedIdentityMapResponseOutputWithContext(context.Context) UserAssignedIdentityMapResponseOutput
-}
-
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-type UserAssignedIdentityMapResponseArgs struct {
-}
-
-func (UserAssignedIdentityMapResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityMapResponse)(nil)).Elem()
-}
-
-func (i UserAssignedIdentityMapResponseArgs) ToUserAssignedIdentityMapResponseOutput() UserAssignedIdentityMapResponseOutput {
-	return i.ToUserAssignedIdentityMapResponseOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityMapResponseArgs) ToUserAssignedIdentityMapResponseOutputWithContext(ctx context.Context) UserAssignedIdentityMapResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMapResponseOutput)
-}
-
-func (i UserAssignedIdentityMapResponseArgs) ToUserAssignedIdentityMapResponsePtrOutput() UserAssignedIdentityMapResponsePtrOutput {
-	return i.ToUserAssignedIdentityMapResponsePtrOutputWithContext(context.Background())
-}
-
-func (i UserAssignedIdentityMapResponseArgs) ToUserAssignedIdentityMapResponsePtrOutputWithContext(ctx context.Context) UserAssignedIdentityMapResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMapResponseOutput).ToUserAssignedIdentityMapResponsePtrOutputWithContext(ctx)
-}
-
-// UserAssignedIdentityMapResponsePtrInput is an input type that accepts UserAssignedIdentityMapResponseArgs, UserAssignedIdentityMapResponsePtr and UserAssignedIdentityMapResponsePtrOutput values.
-// You can construct a concrete instance of `UserAssignedIdentityMapResponsePtrInput` via:
-//
-//          UserAssignedIdentityMapResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type UserAssignedIdentityMapResponsePtrInput interface {
-	pulumi.Input
-
-	ToUserAssignedIdentityMapResponsePtrOutput() UserAssignedIdentityMapResponsePtrOutput
-	ToUserAssignedIdentityMapResponsePtrOutputWithContext(context.Context) UserAssignedIdentityMapResponsePtrOutput
-}
-
-type userAssignedIdentityMapResponsePtrType UserAssignedIdentityMapResponseArgs
-
-func UserAssignedIdentityMapResponsePtr(v *UserAssignedIdentityMapResponseArgs) UserAssignedIdentityMapResponsePtrInput {
-	return (*userAssignedIdentityMapResponsePtrType)(v)
-}
-
-func (*userAssignedIdentityMapResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserAssignedIdentityMapResponse)(nil)).Elem()
-}
-
-func (i *userAssignedIdentityMapResponsePtrType) ToUserAssignedIdentityMapResponsePtrOutput() UserAssignedIdentityMapResponsePtrOutput {
-	return i.ToUserAssignedIdentityMapResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *userAssignedIdentityMapResponsePtrType) ToUserAssignedIdentityMapResponsePtrOutputWithContext(ctx context.Context) UserAssignedIdentityMapResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMapResponsePtrOutput)
-}
-
-// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form:
-// '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-type UserAssignedIdentityMapResponseOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityMapResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserAssignedIdentityMapResponse)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityMapResponseOutput) ToUserAssignedIdentityMapResponseOutput() UserAssignedIdentityMapResponseOutput {
-	return o
-}
-
-func (o UserAssignedIdentityMapResponseOutput) ToUserAssignedIdentityMapResponseOutputWithContext(ctx context.Context) UserAssignedIdentityMapResponseOutput {
-	return o
-}
-
-func (o UserAssignedIdentityMapResponseOutput) ToUserAssignedIdentityMapResponsePtrOutput() UserAssignedIdentityMapResponsePtrOutput {
-	return o.ToUserAssignedIdentityMapResponsePtrOutputWithContext(context.Background())
-}
-
-func (o UserAssignedIdentityMapResponseOutput) ToUserAssignedIdentityMapResponsePtrOutputWithContext(ctx context.Context) UserAssignedIdentityMapResponsePtrOutput {
-	return o.ApplyT(func(v UserAssignedIdentityMapResponse) *UserAssignedIdentityMapResponse {
-		return &v
-	}).(UserAssignedIdentityMapResponsePtrOutput)
-}
-
-type UserAssignedIdentityMapResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (UserAssignedIdentityMapResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserAssignedIdentityMapResponse)(nil)).Elem()
-}
-
-func (o UserAssignedIdentityMapResponsePtrOutput) ToUserAssignedIdentityMapResponsePtrOutput() UserAssignedIdentityMapResponsePtrOutput {
-	return o
-}
-
-func (o UserAssignedIdentityMapResponsePtrOutput) ToUserAssignedIdentityMapResponsePtrOutputWithContext(ctx context.Context) UserAssignedIdentityMapResponsePtrOutput {
-	return o
-}
-
-func (o UserAssignedIdentityMapResponsePtrOutput) Elem() UserAssignedIdentityMapResponseOutput {
-	return o.ApplyT(func(v *UserAssignedIdentityMapResponse) UserAssignedIdentityMapResponse { return *v }).(UserAssignedIdentityMapResponseOutput)
+func (o UserAssignedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedIdentityResponse {
+		return vs[0].(map[string]UserAssignedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedIdentityResponseOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(ApplicationTypeOutput{})
+	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyOutput{})
 	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyMapOutput{})
-	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyMapPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyMapResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyMapResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyResponseMapOutput{})
+	pulumi.RegisterOutputType(ApplicationHealthPolicyOutput{})
 	pulumi.RegisterOutputType(ApplicationHealthPolicyMapOutput{})
-	pulumi.RegisterOutputType(ApplicationHealthPolicyMapPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationHealthPolicyMapResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationHealthPolicyMapResponsePtrOutput{})
-	pulumi.RegisterOutputType(ApplicationMetricDescriptionListOutput{})
-	pulumi.RegisterOutputType(ApplicationMetricDescriptionListPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationMetricDescriptionListResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationMetricDescriptionListResponsePtrOutput{})
-	pulumi.RegisterOutputType(ApplicationParameterListOutput{})
-	pulumi.RegisterOutputType(ApplicationParameterListPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationParameterListResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationParameterListResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationHealthPolicyResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationHealthPolicyResponseMapOutput{})
+	pulumi.RegisterOutputType(ApplicationMetricDescriptionOutput{})
+	pulumi.RegisterOutputType(ApplicationMetricDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationMetricDescriptionResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationMetricDescriptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationResourcePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ApplicationTypeTypeOutput{})
-	pulumi.RegisterOutputType(ApplicationTypeParameterListOutput{})
-	pulumi.RegisterOutputType(ApplicationTypeParameterListResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationTypeParameterListResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeResourcePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ApplicationTypeVersionTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeVersionResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeVersionResourcePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationTypeVersionsCleanupPolicyOutput{})
@@ -12149,11 +11609,9 @@ func init() {
 	pulumi.RegisterOutputType(ArmServiceTypeHealthPolicyOutput{})
 	pulumi.RegisterOutputType(ArmServiceTypeHealthPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ArmServiceTypeHealthPolicyMapOutput{})
-	pulumi.RegisterOutputType(ArmServiceTypeHealthPolicyMapPtrOutput{})
-	pulumi.RegisterOutputType(ArmServiceTypeHealthPolicyMapResponseOutput{})
-	pulumi.RegisterOutputType(ArmServiceTypeHealthPolicyMapResponsePtrOutput{})
 	pulumi.RegisterOutputType(ArmServiceTypeHealthPolicyResponseOutput{})
 	pulumi.RegisterOutputType(ArmServiceTypeHealthPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(ArmServiceTypeHealthPolicyResponseMapOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryResponseOutput{})
@@ -12170,7 +11628,6 @@ func init() {
 	pulumi.RegisterOutputType(ClientCertificateThumbprintArrayOutput{})
 	pulumi.RegisterOutputType(ClientCertificateThumbprintResponseOutput{})
 	pulumi.RegisterOutputType(ClientCertificateThumbprintResponseArrayOutput{})
-	pulumi.RegisterOutputType(ClusterTypeOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyResponseOutput{})
@@ -12185,13 +11642,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyResponseOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ClusterVersionDetailsOutput{})
 	pulumi.RegisterOutputType(ClusterVersionDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ClusterVersionDetailsResponseArrayOutput{})
-	pulumi.RegisterOutputType(CorrelationSchemeListOutput{})
-	pulumi.RegisterOutputType(CorrelationSchemeListPtrOutput{})
-	pulumi.RegisterOutputType(CorrelationSchemeListResponseOutput{})
-	pulumi.RegisterOutputType(CorrelationSchemeListResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticsStorageAccountConfigOutput{})
 	pulumi.RegisterOutputType(DiagnosticsStorageAccountConfigPtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticsStorageAccountConfigResponseOutput{})
@@ -12220,17 +11672,32 @@ func init() {
 	pulumi.RegisterOutputType(ServerCertificateCommonNamesPtrOutput{})
 	pulumi.RegisterOutputType(ServerCertificateCommonNamesResponseOutput{})
 	pulumi.RegisterOutputType(ServerCertificateCommonNamesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServiceTypeOutput{})
-	pulumi.RegisterOutputType(ServiceLoadMetricsListOutput{})
-	pulumi.RegisterOutputType(ServiceLoadMetricsListPtrOutput{})
-	pulumi.RegisterOutputType(ServiceLoadMetricsListResponseOutput{})
-	pulumi.RegisterOutputType(ServiceLoadMetricsListResponsePtrOutput{})
-	pulumi.RegisterOutputType(ServicePlacementPoliciesListOutput{})
-	pulumi.RegisterOutputType(ServicePlacementPoliciesListPtrOutput{})
-	pulumi.RegisterOutputType(ServicePlacementPoliciesListResponseOutput{})
-	pulumi.RegisterOutputType(ServicePlacementPoliciesListResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceCorrelationDescriptionOutput{})
+	pulumi.RegisterOutputType(ServiceCorrelationDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(ServiceCorrelationDescriptionResponseOutput{})
+	pulumi.RegisterOutputType(ServiceCorrelationDescriptionResponseArrayOutput{})
+	pulumi.RegisterOutputType(ServiceLoadMetricDescriptionOutput{})
+	pulumi.RegisterOutputType(ServiceLoadMetricDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(ServiceLoadMetricDescriptionResponseOutput{})
+	pulumi.RegisterOutputType(ServiceLoadMetricDescriptionResponseArrayOutput{})
+	pulumi.RegisterOutputType(ServicePlacementPolicyDescriptionOutput{})
+	pulumi.RegisterOutputType(ServicePlacementPolicyDescriptionArrayOutput{})
+	pulumi.RegisterOutputType(ServicePlacementPolicyDescriptionResponseOutput{})
+	pulumi.RegisterOutputType(ServicePlacementPolicyDescriptionResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServiceResourcePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ServiceResourcePropertiesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyOutput{})
+	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyMapOutput{})
+	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyResponseOutput{})
+	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyResponseMapOutput{})
+	pulumi.RegisterOutputType(ServiceTypeHealthPolicyOutput{})
+	pulumi.RegisterOutputType(ServiceTypeHealthPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ServiceTypeHealthPolicyMapOutput{})
+	pulumi.RegisterOutputType(ServiceTypeHealthPolicyResponseOutput{})
+	pulumi.RegisterOutputType(ServiceTypeHealthPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceTypeHealthPolicyResponseMapOutput{})
 	pulumi.RegisterOutputType(SettingsParameterDescriptionOutput{})
 	pulumi.RegisterOutputType(SettingsParameterDescriptionArrayOutput{})
 	pulumi.RegisterOutputType(SettingsParameterDescriptionResponseOutput{})
@@ -12239,8 +11706,6 @@ func init() {
 	pulumi.RegisterOutputType(SettingsSectionDescriptionArrayOutput{})
 	pulumi.RegisterOutputType(SettingsSectionDescriptionResponseOutput{})
 	pulumi.RegisterOutputType(SettingsSectionDescriptionResponseArrayOutput{})
-	pulumi.RegisterOutputType(UserAssignedIdentityMapOutput{})
-	pulumi.RegisterOutputType(UserAssignedIdentityMapPtrOutput{})
-	pulumi.RegisterOutputType(UserAssignedIdentityMapResponseOutput{})
-	pulumi.RegisterOutputType(UserAssignedIdentityMapResponsePtrOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedIdentityResponseMapOutput{})
 }

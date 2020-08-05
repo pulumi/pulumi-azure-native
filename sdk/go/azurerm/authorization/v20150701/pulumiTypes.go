@@ -228,79 +228,6 @@ func (o PermissionResponseArrayOutput) Index(i pulumi.IntInput) PermissionRespon
 	}).(PermissionResponseOutput)
 }
 
-// Role Assignments
-type RoleAssignmentType struct {
-	// The role assignment name.
-	Name string `pulumi:"name"`
-	// Role assignment properties.
-	Properties RoleAssignmentPropertiesWithScopeResponse `pulumi:"properties"`
-	// The role assignment type.
-	Type string `pulumi:"type"`
-}
-
-// RoleAssignmentTypeInput is an input type that accepts RoleAssignmentTypeArgs and RoleAssignmentTypeOutput values.
-// You can construct a concrete instance of `RoleAssignmentTypeInput` via:
-//
-//          RoleAssignmentTypeArgs{...}
-type RoleAssignmentTypeInput interface {
-	pulumi.Input
-
-	ToRoleAssignmentTypeOutput() RoleAssignmentTypeOutput
-	ToRoleAssignmentTypeOutputWithContext(context.Context) RoleAssignmentTypeOutput
-}
-
-// Role Assignments
-type RoleAssignmentTypeArgs struct {
-	// The role assignment name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Role assignment properties.
-	Properties RoleAssignmentPropertiesWithScopeResponseInput `pulumi:"properties"`
-	// The role assignment type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RoleAssignmentTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignmentType)(nil)).Elem()
-}
-
-func (i RoleAssignmentTypeArgs) ToRoleAssignmentTypeOutput() RoleAssignmentTypeOutput {
-	return i.ToRoleAssignmentTypeOutputWithContext(context.Background())
-}
-
-func (i RoleAssignmentTypeArgs) ToRoleAssignmentTypeOutputWithContext(ctx context.Context) RoleAssignmentTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAssignmentTypeOutput)
-}
-
-// Role Assignments
-type RoleAssignmentTypeOutput struct{ *pulumi.OutputState }
-
-func (RoleAssignmentTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAssignmentType)(nil)).Elem()
-}
-
-func (o RoleAssignmentTypeOutput) ToRoleAssignmentTypeOutput() RoleAssignmentTypeOutput {
-	return o
-}
-
-func (o RoleAssignmentTypeOutput) ToRoleAssignmentTypeOutputWithContext(ctx context.Context) RoleAssignmentTypeOutput {
-	return o
-}
-
-// The role assignment name.
-func (o RoleAssignmentTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RoleAssignmentType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Role assignment properties.
-func (o RoleAssignmentTypeOutput) Properties() RoleAssignmentPropertiesWithScopeResponseOutput {
-	return o.ApplyT(func(v RoleAssignmentType) RoleAssignmentPropertiesWithScopeResponse { return v.Properties }).(RoleAssignmentPropertiesWithScopeResponseOutput)
-}
-
-// The role assignment type.
-func (o RoleAssignmentTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RoleAssignmentType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Role assignment properties.
 type RoleAssignmentProperties struct {
 	// The principal ID assigned to the role. This maps to the ID inside the Active Directory. It can point to a user, service principal, or security group.
@@ -628,79 +555,6 @@ func (o RoleAssignmentPropertiesWithScopeResponsePtrOutput) Scope() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Role definition.
-type RoleDefinitionType struct {
-	// The role definition name.
-	Name string `pulumi:"name"`
-	// Role definition properties.
-	Properties RoleDefinitionPropertiesResponse `pulumi:"properties"`
-	// The role definition type.
-	Type string `pulumi:"type"`
-}
-
-// RoleDefinitionTypeInput is an input type that accepts RoleDefinitionTypeArgs and RoleDefinitionTypeOutput values.
-// You can construct a concrete instance of `RoleDefinitionTypeInput` via:
-//
-//          RoleDefinitionTypeArgs{...}
-type RoleDefinitionTypeInput interface {
-	pulumi.Input
-
-	ToRoleDefinitionTypeOutput() RoleDefinitionTypeOutput
-	ToRoleDefinitionTypeOutputWithContext(context.Context) RoleDefinitionTypeOutput
-}
-
-// Role definition.
-type RoleDefinitionTypeArgs struct {
-	// The role definition name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Role definition properties.
-	Properties RoleDefinitionPropertiesResponseInput `pulumi:"properties"`
-	// The role definition type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RoleDefinitionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleDefinitionType)(nil)).Elem()
-}
-
-func (i RoleDefinitionTypeArgs) ToRoleDefinitionTypeOutput() RoleDefinitionTypeOutput {
-	return i.ToRoleDefinitionTypeOutputWithContext(context.Background())
-}
-
-func (i RoleDefinitionTypeArgs) ToRoleDefinitionTypeOutputWithContext(ctx context.Context) RoleDefinitionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionTypeOutput)
-}
-
-// Role definition.
-type RoleDefinitionTypeOutput struct{ *pulumi.OutputState }
-
-func (RoleDefinitionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleDefinitionType)(nil)).Elem()
-}
-
-func (o RoleDefinitionTypeOutput) ToRoleDefinitionTypeOutput() RoleDefinitionTypeOutput {
-	return o
-}
-
-func (o RoleDefinitionTypeOutput) ToRoleDefinitionTypeOutputWithContext(ctx context.Context) RoleDefinitionTypeOutput {
-	return o
-}
-
-// The role definition name.
-func (o RoleDefinitionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RoleDefinitionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Role definition properties.
-func (o RoleDefinitionTypeOutput) Properties() RoleDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v RoleDefinitionType) RoleDefinitionPropertiesResponse { return v.Properties }).(RoleDefinitionPropertiesResponseOutput)
-}
-
-// The role definition type.
-func (o RoleDefinitionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RoleDefinitionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Role definition properties.
 type RoleDefinitionPropertiesResponse struct {
 	// Role definition assignable scopes.
@@ -916,12 +770,10 @@ func init() {
 	pulumi.RegisterOutputType(PermissionArrayOutput{})
 	pulumi.RegisterOutputType(PermissionResponseOutput{})
 	pulumi.RegisterOutputType(PermissionResponseArrayOutput{})
-	pulumi.RegisterOutputType(RoleAssignmentTypeOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesWithScopeResponseOutput{})
 	pulumi.RegisterOutputType(RoleAssignmentPropertiesWithScopeResponsePtrOutput{})
-	pulumi.RegisterOutputType(RoleDefinitionTypeOutput{})
 	pulumi.RegisterOutputType(RoleDefinitionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RoleDefinitionPropertiesResponsePtrOutput{})
 }

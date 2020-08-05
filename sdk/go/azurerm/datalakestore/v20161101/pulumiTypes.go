@@ -10,106 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Data Lake Store account information.
-type AccountType struct {
-	// The Key Vault encryption identity, if any.
-	Identity EncryptionIdentityResponse `pulumi:"identity"`
-	// The resource location.
-	Location string `pulumi:"location"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The Data Lake Store account properties.
-	Properties DataLakeStoreAccountPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// AccountTypeInput is an input type that accepts AccountTypeArgs and AccountTypeOutput values.
-// You can construct a concrete instance of `AccountTypeInput` via:
-//
-//          AccountTypeArgs{...}
-type AccountTypeInput interface {
-	pulumi.Input
-
-	ToAccountTypeOutput() AccountTypeOutput
-	ToAccountTypeOutputWithContext(context.Context) AccountTypeOutput
-}
-
-// Data Lake Store account information.
-type AccountTypeArgs struct {
-	// The Key Vault encryption identity, if any.
-	Identity EncryptionIdentityResponseInput `pulumi:"identity"`
-	// The resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The Data Lake Store account properties.
-	Properties DataLakeStoreAccountPropertiesResponseInput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AccountTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountType)(nil)).Elem()
-}
-
-func (i AccountTypeArgs) ToAccountTypeOutput() AccountTypeOutput {
-	return i.ToAccountTypeOutputWithContext(context.Background())
-}
-
-func (i AccountTypeArgs) ToAccountTypeOutputWithContext(ctx context.Context) AccountTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountTypeOutput)
-}
-
-// Data Lake Store account information.
-type AccountTypeOutput struct{ *pulumi.OutputState }
-
-func (AccountTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountType)(nil)).Elem()
-}
-
-func (o AccountTypeOutput) ToAccountTypeOutput() AccountTypeOutput {
-	return o
-}
-
-func (o AccountTypeOutput) ToAccountTypeOutputWithContext(ctx context.Context) AccountTypeOutput {
-	return o
-}
-
-// The Key Vault encryption identity, if any.
-func (o AccountTypeOutput) Identity() EncryptionIdentityResponseOutput {
-	return o.ApplyT(func(v AccountType) EncryptionIdentityResponse { return v.Identity }).(EncryptionIdentityResponseOutput)
-}
-
-// The resource location.
-func (o AccountTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The resource name.
-func (o AccountTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The Data Lake Store account properties.
-func (o AccountTypeOutput) Properties() DataLakeStoreAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v AccountType) DataLakeStoreAccountPropertiesResponse { return v.Properties }).(DataLakeStoreAccountPropertiesResponseOutput)
-}
-
-// The resource tags.
-func (o AccountTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AccountType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The resource type.
-func (o AccountTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The parameters used to create a new firewall rule while creating a new Data Lake Store account.
 type CreateFirewallRuleWithAccountParameters struct {
 	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
@@ -1519,79 +1419,6 @@ func (o EncryptionIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data Lake Store firewall rule information.
-type FirewallRuleType struct {
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The firewall rule properties.
-	Properties FirewallRulePropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// FirewallRuleTypeInput is an input type that accepts FirewallRuleTypeArgs and FirewallRuleTypeOutput values.
-// You can construct a concrete instance of `FirewallRuleTypeInput` via:
-//
-//          FirewallRuleTypeArgs{...}
-type FirewallRuleTypeInput interface {
-	pulumi.Input
-
-	ToFirewallRuleTypeOutput() FirewallRuleTypeOutput
-	ToFirewallRuleTypeOutputWithContext(context.Context) FirewallRuleTypeOutput
-}
-
-// Data Lake Store firewall rule information.
-type FirewallRuleTypeArgs struct {
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The firewall rule properties.
-	Properties FirewallRulePropertiesResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (FirewallRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleType)(nil)).Elem()
-}
-
-func (i FirewallRuleTypeArgs) ToFirewallRuleTypeOutput() FirewallRuleTypeOutput {
-	return i.ToFirewallRuleTypeOutputWithContext(context.Background())
-}
-
-func (i FirewallRuleTypeArgs) ToFirewallRuleTypeOutputWithContext(ctx context.Context) FirewallRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleTypeOutput)
-}
-
-// Data Lake Store firewall rule information.
-type FirewallRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (FirewallRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleType)(nil)).Elem()
-}
-
-func (o FirewallRuleTypeOutput) ToFirewallRuleTypeOutput() FirewallRuleTypeOutput {
-	return o
-}
-
-func (o FirewallRuleTypeOutput) ToFirewallRuleTypeOutputWithContext(ctx context.Context) FirewallRuleTypeOutput {
-	return o
-}
-
-// The resource name.
-func (o FirewallRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The firewall rule properties.
-func (o FirewallRuleTypeOutput) Properties() FirewallRulePropertiesResponseOutput {
-	return o.ApplyT(func(v FirewallRuleType) FirewallRulePropertiesResponse { return v.Properties }).(FirewallRulePropertiesResponseOutput)
-}
-
-// The resource type.
-func (o FirewallRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallRuleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The firewall rule properties.
 type FirewallRulePropertiesResponse struct {
 	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
@@ -2216,79 +2043,6 @@ func (o KeyVaultMetaInfoResponsePtrOutput) KeyVaultResourceId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data Lake Store trusted identity provider information.
-type TrustedIdProviderType struct {
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The trusted identity provider properties.
-	Properties TrustedIdProviderPropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// TrustedIdProviderTypeInput is an input type that accepts TrustedIdProviderTypeArgs and TrustedIdProviderTypeOutput values.
-// You can construct a concrete instance of `TrustedIdProviderTypeInput` via:
-//
-//          TrustedIdProviderTypeArgs{...}
-type TrustedIdProviderTypeInput interface {
-	pulumi.Input
-
-	ToTrustedIdProviderTypeOutput() TrustedIdProviderTypeOutput
-	ToTrustedIdProviderTypeOutputWithContext(context.Context) TrustedIdProviderTypeOutput
-}
-
-// Data Lake Store trusted identity provider information.
-type TrustedIdProviderTypeArgs struct {
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The trusted identity provider properties.
-	Properties TrustedIdProviderPropertiesResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (TrustedIdProviderTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrustedIdProviderType)(nil)).Elem()
-}
-
-func (i TrustedIdProviderTypeArgs) ToTrustedIdProviderTypeOutput() TrustedIdProviderTypeOutput {
-	return i.ToTrustedIdProviderTypeOutputWithContext(context.Background())
-}
-
-func (i TrustedIdProviderTypeArgs) ToTrustedIdProviderTypeOutputWithContext(ctx context.Context) TrustedIdProviderTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrustedIdProviderTypeOutput)
-}
-
-// Data Lake Store trusted identity provider information.
-type TrustedIdProviderTypeOutput struct{ *pulumi.OutputState }
-
-func (TrustedIdProviderTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrustedIdProviderType)(nil)).Elem()
-}
-
-func (o TrustedIdProviderTypeOutput) ToTrustedIdProviderTypeOutput() TrustedIdProviderTypeOutput {
-	return o
-}
-
-func (o TrustedIdProviderTypeOutput) ToTrustedIdProviderTypeOutputWithContext(ctx context.Context) TrustedIdProviderTypeOutput {
-	return o
-}
-
-// The resource name.
-func (o TrustedIdProviderTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v TrustedIdProviderType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The trusted identity provider properties.
-func (o TrustedIdProviderTypeOutput) Properties() TrustedIdProviderPropertiesResponseOutput {
-	return o.ApplyT(func(v TrustedIdProviderType) TrustedIdProviderPropertiesResponse { return v.Properties }).(TrustedIdProviderPropertiesResponseOutput)
-}
-
-// The resource type.
-func (o TrustedIdProviderTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v TrustedIdProviderType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The trusted identity provider properties.
 type TrustedIdProviderPropertiesResponse struct {
 	// The URL of this trusted identity provider.
@@ -2548,79 +2302,6 @@ func (o TrustedIdProviderResponseArrayOutput) Index(i pulumi.IntInput) TrustedId
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrustedIdProviderResponse {
 		return vs[0].([]TrustedIdProviderResponse)[vs[1].(int)]
 	}).(TrustedIdProviderResponseOutput)
-}
-
-// Data Lake Store virtual network rule information.
-type VirtualNetworkRuleType struct {
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The virtual network rule properties.
-	Properties VirtualNetworkRulePropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// VirtualNetworkRuleTypeInput is an input type that accepts VirtualNetworkRuleTypeArgs and VirtualNetworkRuleTypeOutput values.
-// You can construct a concrete instance of `VirtualNetworkRuleTypeInput` via:
-//
-//          VirtualNetworkRuleTypeArgs{...}
-type VirtualNetworkRuleTypeInput interface {
-	pulumi.Input
-
-	ToVirtualNetworkRuleTypeOutput() VirtualNetworkRuleTypeOutput
-	ToVirtualNetworkRuleTypeOutputWithContext(context.Context) VirtualNetworkRuleTypeOutput
-}
-
-// Data Lake Store virtual network rule information.
-type VirtualNetworkRuleTypeArgs struct {
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The virtual network rule properties.
-	Properties VirtualNetworkRulePropertiesResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VirtualNetworkRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkRuleType)(nil)).Elem()
-}
-
-func (i VirtualNetworkRuleTypeArgs) ToVirtualNetworkRuleTypeOutput() VirtualNetworkRuleTypeOutput {
-	return i.ToVirtualNetworkRuleTypeOutputWithContext(context.Background())
-}
-
-func (i VirtualNetworkRuleTypeArgs) ToVirtualNetworkRuleTypeOutputWithContext(ctx context.Context) VirtualNetworkRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkRuleTypeOutput)
-}
-
-// Data Lake Store virtual network rule information.
-type VirtualNetworkRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (VirtualNetworkRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualNetworkRuleType)(nil)).Elem()
-}
-
-func (o VirtualNetworkRuleTypeOutput) ToVirtualNetworkRuleTypeOutput() VirtualNetworkRuleTypeOutput {
-	return o
-}
-
-func (o VirtualNetworkRuleTypeOutput) ToVirtualNetworkRuleTypeOutputWithContext(ctx context.Context) VirtualNetworkRuleTypeOutput {
-	return o
-}
-
-// The resource name.
-func (o VirtualNetworkRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The virtual network rule properties.
-func (o VirtualNetworkRuleTypeOutput) Properties() VirtualNetworkRulePropertiesResponseOutput {
-	return o.ApplyT(func(v VirtualNetworkRuleType) VirtualNetworkRulePropertiesResponse { return v.Properties }).(VirtualNetworkRulePropertiesResponseOutput)
-}
-
-// The resource type.
-func (o VirtualNetworkRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualNetworkRuleType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The virtual network rule properties.
@@ -2885,7 +2566,6 @@ func (o VirtualNetworkRuleResponseArrayOutput) Index(i pulumi.IntInput) VirtualN
 }
 
 func init() {
-	pulumi.RegisterOutputType(AccountTypeOutput{})
 	pulumi.RegisterOutputType(CreateFirewallRuleWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(CreateFirewallRuleWithAccountParametersArrayOutput{})
 	pulumi.RegisterOutputType(CreateTrustedIdProviderWithAccountParametersOutput{})
@@ -2902,7 +2582,6 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionIdentityPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionIdentityResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(FirewallRuleTypeOutput{})
 	pulumi.RegisterOutputType(FirewallRulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(FirewallRulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseOutput{})
@@ -2911,12 +2590,10 @@ func init() {
 	pulumi.RegisterOutputType(KeyVaultMetaInfoPtrOutput{})
 	pulumi.RegisterOutputType(KeyVaultMetaInfoResponseOutput{})
 	pulumi.RegisterOutputType(KeyVaultMetaInfoResponsePtrOutput{})
-	pulumi.RegisterOutputType(TrustedIdProviderTypeOutput{})
 	pulumi.RegisterOutputType(TrustedIdProviderPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(TrustedIdProviderPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(TrustedIdProviderResponseOutput{})
 	pulumi.RegisterOutputType(TrustedIdProviderResponseArrayOutput{})
-	pulumi.RegisterOutputType(VirtualNetworkRuleTypeOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkRuleResponseOutput{})

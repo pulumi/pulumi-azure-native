@@ -60,7 +60,7 @@ namespace Pulumi.AzureRM.Kusto.V20190907
         /// The availability zones of the cluster.
         /// </summary>
         [Output("zones")]
-        public Output<Outputs.ZonesResponseResult?> Zones { get; private set; } = null!;
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -191,11 +191,17 @@ namespace Pulumi.AzureRM.Kusto.V20190907
         [Input("virtualNetworkConfiguration")]
         public Input<Inputs.VirtualNetworkConfigurationArgs>? VirtualNetworkConfiguration { get; set; }
 
+        [Input("zones")]
+        private InputList<string>? _zones;
+
         /// <summary>
         /// The availability zones of the cluster.
         /// </summary>
-        [Input("zones")]
-        public Input<Inputs.ZonesArgs>? Zones { get; set; }
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
+        }
 
         public ClusterArgs()
         {

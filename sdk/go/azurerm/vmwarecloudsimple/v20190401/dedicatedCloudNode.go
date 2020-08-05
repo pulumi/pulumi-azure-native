@@ -23,7 +23,7 @@ type DedicatedCloudNode struct {
 	// Dedicated Cloud Nodes SKU
 	Sku SkuResponsePtrOutput `pulumi:"sku"`
 	// Dedicated Cloud Nodes tags
-	Tags TagsResponsePtrOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// {resourceProviderNamespace}/{resourceType}
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -92,7 +92,7 @@ type dedicatedCloudNodeState struct {
 	// Dedicated Cloud Nodes SKU
 	Sku *SkuResponse `pulumi:"sku"`
 	// Dedicated Cloud Nodes tags
-	Tags *TagsResponse `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// {resourceProviderNamespace}/{resourceType}
 	Type *string `pulumi:"type"`
 }
@@ -107,7 +107,7 @@ type DedicatedCloudNodeState struct {
 	// Dedicated Cloud Nodes SKU
 	Sku SkuResponsePtrInput
 	// Dedicated Cloud Nodes tags
-	Tags TagsResponsePtrInput
+	Tags pulumi.StringMapInput
 	// {resourceProviderNamespace}/{resourceType}
 	Type pulumi.StringPtrInput
 }
@@ -138,7 +138,7 @@ type dedicatedCloudNodeArgs struct {
 	// Dedicated Cloud Nodes SKU
 	Sku *Sku `pulumi:"sku"`
 	// Dedicated Cloud Nodes tags
-	Tags *Tags `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DedicatedCloudNode resource.
@@ -164,7 +164,7 @@ type DedicatedCloudNodeArgs struct {
 	// Dedicated Cloud Nodes SKU
 	Sku SkuPtrInput
 	// Dedicated Cloud Nodes tags
-	Tags TagsPtrInput
+	Tags pulumi.StringMapInput
 }
 
 func (DedicatedCloudNodeArgs) ElementType() reflect.Type {

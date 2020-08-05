@@ -111,7 +111,7 @@ namespace Pulumi.AzureRM.BatchAI.V20180501
         /// Constraints associated with the Job.
         /// </summary>
         [Input("constraints")]
-        public Input<Inputs.JobBasePropertiesPropertiesArgs>? Constraints { get; set; }
+        public Input<Inputs.JobBasePropertiesConstraintsArgs>? Constraints { get; set; }
 
         /// <summary>
         /// Docker container settings for the job. If not provided, the job will run directly on the node.

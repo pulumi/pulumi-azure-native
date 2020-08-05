@@ -145,7 +145,7 @@ export interface PolicyAssignmentArgs {
     /**
      * The parameter values for the assigned policy rule. The keys are the parameter names.
      */
-    readonly parameters?: pulumi.Input<inputs.authorization.v20190901.ParameterValues>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.v20190901.ParameterValuesValue>}>;
     /**
      * The ID of the policy definition or policy set definition being assigned.
      */

@@ -800,106 +800,6 @@ func (o AutoOSUpgradePolicyResponsePtrOutput) DisableAutoRollback() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
-type AvailabilitySetType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The instance view of a resource.
-	Properties AvailabilitySetPropertiesResponse `pulumi:"properties"`
-	// Sku of the availability set
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// AvailabilitySetTypeInput is an input type that accepts AvailabilitySetTypeArgs and AvailabilitySetTypeOutput values.
-// You can construct a concrete instance of `AvailabilitySetTypeInput` via:
-//
-//          AvailabilitySetTypeArgs{...}
-type AvailabilitySetTypeInput interface {
-	pulumi.Input
-
-	ToAvailabilitySetTypeOutput() AvailabilitySetTypeOutput
-	ToAvailabilitySetTypeOutputWithContext(context.Context) AvailabilitySetTypeOutput
-}
-
-// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
-type AvailabilitySetTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The instance view of a resource.
-	Properties AvailabilitySetPropertiesResponseInput `pulumi:"properties"`
-	// Sku of the availability set
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AvailabilitySetTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvailabilitySetType)(nil)).Elem()
-}
-
-func (i AvailabilitySetTypeArgs) ToAvailabilitySetTypeOutput() AvailabilitySetTypeOutput {
-	return i.ToAvailabilitySetTypeOutputWithContext(context.Background())
-}
-
-func (i AvailabilitySetTypeArgs) ToAvailabilitySetTypeOutputWithContext(ctx context.Context) AvailabilitySetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AvailabilitySetTypeOutput)
-}
-
-// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
-type AvailabilitySetTypeOutput struct{ *pulumi.OutputState }
-
-func (AvailabilitySetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AvailabilitySetType)(nil)).Elem()
-}
-
-func (o AvailabilitySetTypeOutput) ToAvailabilitySetTypeOutput() AvailabilitySetTypeOutput {
-	return o
-}
-
-func (o AvailabilitySetTypeOutput) ToAvailabilitySetTypeOutputWithContext(ctx context.Context) AvailabilitySetTypeOutput {
-	return o
-}
-
-// Resource location
-func (o AvailabilitySetTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v AvailabilitySetType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o AvailabilitySetTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AvailabilitySetType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The instance view of a resource.
-func (o AvailabilitySetTypeOutput) Properties() AvailabilitySetPropertiesResponseOutput {
-	return o.ApplyT(func(v AvailabilitySetType) AvailabilitySetPropertiesResponse { return v.Properties }).(AvailabilitySetPropertiesResponseOutput)
-}
-
-// Sku of the availability set
-func (o AvailabilitySetTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v AvailabilitySetType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Resource tags
-func (o AvailabilitySetTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AvailabilitySetType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o AvailabilitySetTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AvailabilitySetType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The instance view of a resource.
 type AvailabilitySetPropertiesResponse struct {
 	// Fault Domain count.
@@ -1261,121 +1161,6 @@ func (o BootDiagnosticsPtrOutput) StorageUri() pulumi.StringPtrOutput {
 		}
 		return v.StorageUri
 	}).(pulumi.StringPtrOutput)
-}
-
-// The instance view of a virtual machine boot diagnostics.
-type BootDiagnosticsInstanceView struct {
-}
-
-// BootDiagnosticsInstanceViewInput is an input type that accepts BootDiagnosticsInstanceViewArgs and BootDiagnosticsInstanceViewOutput values.
-// You can construct a concrete instance of `BootDiagnosticsInstanceViewInput` via:
-//
-//          BootDiagnosticsInstanceViewArgs{...}
-type BootDiagnosticsInstanceViewInput interface {
-	pulumi.Input
-
-	ToBootDiagnosticsInstanceViewOutput() BootDiagnosticsInstanceViewOutput
-	ToBootDiagnosticsInstanceViewOutputWithContext(context.Context) BootDiagnosticsInstanceViewOutput
-}
-
-// The instance view of a virtual machine boot diagnostics.
-type BootDiagnosticsInstanceViewArgs struct {
-}
-
-func (BootDiagnosticsInstanceViewArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BootDiagnosticsInstanceView)(nil)).Elem()
-}
-
-func (i BootDiagnosticsInstanceViewArgs) ToBootDiagnosticsInstanceViewOutput() BootDiagnosticsInstanceViewOutput {
-	return i.ToBootDiagnosticsInstanceViewOutputWithContext(context.Background())
-}
-
-func (i BootDiagnosticsInstanceViewArgs) ToBootDiagnosticsInstanceViewOutputWithContext(ctx context.Context) BootDiagnosticsInstanceViewOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BootDiagnosticsInstanceViewOutput)
-}
-
-func (i BootDiagnosticsInstanceViewArgs) ToBootDiagnosticsInstanceViewPtrOutput() BootDiagnosticsInstanceViewPtrOutput {
-	return i.ToBootDiagnosticsInstanceViewPtrOutputWithContext(context.Background())
-}
-
-func (i BootDiagnosticsInstanceViewArgs) ToBootDiagnosticsInstanceViewPtrOutputWithContext(ctx context.Context) BootDiagnosticsInstanceViewPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BootDiagnosticsInstanceViewOutput).ToBootDiagnosticsInstanceViewPtrOutputWithContext(ctx)
-}
-
-// BootDiagnosticsInstanceViewPtrInput is an input type that accepts BootDiagnosticsInstanceViewArgs, BootDiagnosticsInstanceViewPtr and BootDiagnosticsInstanceViewPtrOutput values.
-// You can construct a concrete instance of `BootDiagnosticsInstanceViewPtrInput` via:
-//
-//          BootDiagnosticsInstanceViewArgs{...}
-//
-//  or:
-//
-//          nil
-type BootDiagnosticsInstanceViewPtrInput interface {
-	pulumi.Input
-
-	ToBootDiagnosticsInstanceViewPtrOutput() BootDiagnosticsInstanceViewPtrOutput
-	ToBootDiagnosticsInstanceViewPtrOutputWithContext(context.Context) BootDiagnosticsInstanceViewPtrOutput
-}
-
-type bootDiagnosticsInstanceViewPtrType BootDiagnosticsInstanceViewArgs
-
-func BootDiagnosticsInstanceViewPtr(v *BootDiagnosticsInstanceViewArgs) BootDiagnosticsInstanceViewPtrInput {
-	return (*bootDiagnosticsInstanceViewPtrType)(v)
-}
-
-func (*bootDiagnosticsInstanceViewPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BootDiagnosticsInstanceView)(nil)).Elem()
-}
-
-func (i *bootDiagnosticsInstanceViewPtrType) ToBootDiagnosticsInstanceViewPtrOutput() BootDiagnosticsInstanceViewPtrOutput {
-	return i.ToBootDiagnosticsInstanceViewPtrOutputWithContext(context.Background())
-}
-
-func (i *bootDiagnosticsInstanceViewPtrType) ToBootDiagnosticsInstanceViewPtrOutputWithContext(ctx context.Context) BootDiagnosticsInstanceViewPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BootDiagnosticsInstanceViewPtrOutput)
-}
-
-// The instance view of a virtual machine boot diagnostics.
-type BootDiagnosticsInstanceViewOutput struct{ *pulumi.OutputState }
-
-func (BootDiagnosticsInstanceViewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BootDiagnosticsInstanceView)(nil)).Elem()
-}
-
-func (o BootDiagnosticsInstanceViewOutput) ToBootDiagnosticsInstanceViewOutput() BootDiagnosticsInstanceViewOutput {
-	return o
-}
-
-func (o BootDiagnosticsInstanceViewOutput) ToBootDiagnosticsInstanceViewOutputWithContext(ctx context.Context) BootDiagnosticsInstanceViewOutput {
-	return o
-}
-
-func (o BootDiagnosticsInstanceViewOutput) ToBootDiagnosticsInstanceViewPtrOutput() BootDiagnosticsInstanceViewPtrOutput {
-	return o.ToBootDiagnosticsInstanceViewPtrOutputWithContext(context.Background())
-}
-
-func (o BootDiagnosticsInstanceViewOutput) ToBootDiagnosticsInstanceViewPtrOutputWithContext(ctx context.Context) BootDiagnosticsInstanceViewPtrOutput {
-	return o.ApplyT(func(v BootDiagnosticsInstanceView) *BootDiagnosticsInstanceView {
-		return &v
-	}).(BootDiagnosticsInstanceViewPtrOutput)
-}
-
-type BootDiagnosticsInstanceViewPtrOutput struct{ *pulumi.OutputState }
-
-func (BootDiagnosticsInstanceViewPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BootDiagnosticsInstanceView)(nil)).Elem()
-}
-
-func (o BootDiagnosticsInstanceViewPtrOutput) ToBootDiagnosticsInstanceViewPtrOutput() BootDiagnosticsInstanceViewPtrOutput {
-	return o
-}
-
-func (o BootDiagnosticsInstanceViewPtrOutput) ToBootDiagnosticsInstanceViewPtrOutputWithContext(ctx context.Context) BootDiagnosticsInstanceViewPtrOutput {
-	return o
-}
-
-func (o BootDiagnosticsInstanceViewPtrOutput) Elem() BootDiagnosticsInstanceViewOutput {
-	return o.ApplyT(func(v *BootDiagnosticsInstanceView) BootDiagnosticsInstanceView { return *v }).(BootDiagnosticsInstanceViewOutput)
 }
 
 // The instance view of a virtual machine boot diagnostics.
@@ -2735,124 +2520,6 @@ func (o DiagnosticsProfileResponsePtrOutput) BootDiagnostics() BootDiagnosticsRe
 	}).(BootDiagnosticsResponsePtrOutput)
 }
 
-// Disk resource.
-type DiskType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// A relative URI containing the ID of the VM that has the disk attached.
-	ManagedBy string `pulumi:"managedBy"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Disk resource properties.
-	Properties DiskPropertiesResponse `pulumi:"properties"`
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, or StandardSSD_LRS.
-	Sku *DiskSkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// The Logical zone list for Disk.
-	Zones []string `pulumi:"zones"`
-}
-
-// DiskTypeInput is an input type that accepts DiskTypeArgs and DiskTypeOutput values.
-// You can construct a concrete instance of `DiskTypeInput` via:
-//
-//          DiskTypeArgs{...}
-type DiskTypeInput interface {
-	pulumi.Input
-
-	ToDiskTypeOutput() DiskTypeOutput
-	ToDiskTypeOutputWithContext(context.Context) DiskTypeOutput
-}
-
-// Disk resource.
-type DiskTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// A relative URI containing the ID of the VM that has the disk attached.
-	ManagedBy pulumi.StringInput `pulumi:"managedBy"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Disk resource properties.
-	Properties DiskPropertiesResponseInput `pulumi:"properties"`
-	// The disks sku name. Can be Standard_LRS, Premium_LRS, or StandardSSD_LRS.
-	Sku DiskSkuResponsePtrInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-	// The Logical zone list for Disk.
-	Zones pulumi.StringArrayInput `pulumi:"zones"`
-}
-
-func (DiskTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskType)(nil)).Elem()
-}
-
-func (i DiskTypeArgs) ToDiskTypeOutput() DiskTypeOutput {
-	return i.ToDiskTypeOutputWithContext(context.Background())
-}
-
-func (i DiskTypeArgs) ToDiskTypeOutputWithContext(ctx context.Context) DiskTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskTypeOutput)
-}
-
-// Disk resource.
-type DiskTypeOutput struct{ *pulumi.OutputState }
-
-func (DiskTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskType)(nil)).Elem()
-}
-
-func (o DiskTypeOutput) ToDiskTypeOutput() DiskTypeOutput {
-	return o
-}
-
-func (o DiskTypeOutput) ToDiskTypeOutputWithContext(ctx context.Context) DiskTypeOutput {
-	return o
-}
-
-// Resource location
-func (o DiskTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// A relative URI containing the ID of the VM that has the disk attached.
-func (o DiskTypeOutput) ManagedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskType) string { return v.ManagedBy }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o DiskTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Disk resource properties.
-func (o DiskTypeOutput) Properties() DiskPropertiesResponseOutput {
-	return o.ApplyT(func(v DiskType) DiskPropertiesResponse { return v.Properties }).(DiskPropertiesResponseOutput)
-}
-
-// The disks sku name. Can be Standard_LRS, Premium_LRS, or StandardSSD_LRS.
-func (o DiskTypeOutput) Sku() DiskSkuResponsePtrOutput {
-	return o.ApplyT(func(v DiskType) *DiskSkuResponse { return v.Sku }).(DiskSkuResponsePtrOutput)
-}
-
-// Resource tags
-func (o DiskTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v DiskType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o DiskTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DiskType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The Logical zone list for Disk.
-func (o DiskTypeOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DiskType) []string { return v.Zones }).(pulumi.StringArrayOutput)
-}
-
 // Describes a Encryption Settings for a Disk
 type DiskEncryptionSettings struct {
 	// Specifies the location of the disk encryption key, which is a Key Vault Secret.
@@ -2935,31 +2602,6 @@ func (i *diskEncryptionSettingsPtrType) ToDiskEncryptionSettingsPtrOutput() Disk
 
 func (i *diskEncryptionSettingsPtrType) ToDiskEncryptionSettingsPtrOutputWithContext(ctx context.Context) DiskEncryptionSettingsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSettingsPtrOutput)
-}
-
-// DiskEncryptionSettingsArrayInput is an input type that accepts DiskEncryptionSettingsArray and DiskEncryptionSettingsArrayOutput values.
-// You can construct a concrete instance of `DiskEncryptionSettingsArrayInput` via:
-//
-//          DiskEncryptionSettingsArray{ DiskEncryptionSettingsArgs{...} }
-type DiskEncryptionSettingsArrayInput interface {
-	pulumi.Input
-
-	ToDiskEncryptionSettingsArrayOutput() DiskEncryptionSettingsArrayOutput
-	ToDiskEncryptionSettingsArrayOutputWithContext(context.Context) DiskEncryptionSettingsArrayOutput
-}
-
-type DiskEncryptionSettingsArray []DiskEncryptionSettingsInput
-
-func (DiskEncryptionSettingsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiskEncryptionSettings)(nil)).Elem()
-}
-
-func (i DiskEncryptionSettingsArray) ToDiskEncryptionSettingsArrayOutput() DiskEncryptionSettingsArrayOutput {
-	return i.ToDiskEncryptionSettingsArrayOutputWithContext(context.Background())
-}
-
-func (i DiskEncryptionSettingsArray) ToDiskEncryptionSettingsArrayOutputWithContext(ctx context.Context) DiskEncryptionSettingsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSettingsArrayOutput)
 }
 
 // Describes a Encryption Settings for a Disk
@@ -3048,26 +2690,6 @@ func (o DiskEncryptionSettingsPtrOutput) KeyEncryptionKey() KeyVaultKeyReference
 		}
 		return v.KeyEncryptionKey
 	}).(KeyVaultKeyReferencePtrOutput)
-}
-
-type DiskEncryptionSettingsArrayOutput struct{ *pulumi.OutputState }
-
-func (DiskEncryptionSettingsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiskEncryptionSettings)(nil)).Elem()
-}
-
-func (o DiskEncryptionSettingsArrayOutput) ToDiskEncryptionSettingsArrayOutput() DiskEncryptionSettingsArrayOutput {
-	return o
-}
-
-func (o DiskEncryptionSettingsArrayOutput) ToDiskEncryptionSettingsArrayOutputWithContext(ctx context.Context) DiskEncryptionSettingsArrayOutput {
-	return o
-}
-
-func (o DiskEncryptionSettingsArrayOutput) Index(i pulumi.IntInput) DiskEncryptionSettingsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiskEncryptionSettings {
-		return vs[0].([]DiskEncryptionSettings)[vs[1].(int)]
-	}).(DiskEncryptionSettingsOutput)
 }
 
 // Describes a Encryption Settings for a Disk
@@ -3285,124 +2907,6 @@ func (o DiskEncryptionSettingsResponseArrayOutput) Index(i pulumi.IntInput) Disk
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiskEncryptionSettingsResponse {
 		return vs[0].([]DiskEncryptionSettingsResponse)[vs[1].(int)]
 	}).(DiskEncryptionSettingsResponseOutput)
-}
-
-// The instance view of the disk.
-type DiskInstanceView struct {
-	// Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
-	EncryptionSettings []DiskEncryptionSettings `pulumi:"encryptionSettings"`
-	// The disk name.
-	Name *string `pulumi:"name"`
-	// The resource status information.
-	Statuses []InstanceViewStatus `pulumi:"statuses"`
-}
-
-// DiskInstanceViewInput is an input type that accepts DiskInstanceViewArgs and DiskInstanceViewOutput values.
-// You can construct a concrete instance of `DiskInstanceViewInput` via:
-//
-//          DiskInstanceViewArgs{...}
-type DiskInstanceViewInput interface {
-	pulumi.Input
-
-	ToDiskInstanceViewOutput() DiskInstanceViewOutput
-	ToDiskInstanceViewOutputWithContext(context.Context) DiskInstanceViewOutput
-}
-
-// The instance view of the disk.
-type DiskInstanceViewArgs struct {
-	// Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
-	EncryptionSettings DiskEncryptionSettingsArrayInput `pulumi:"encryptionSettings"`
-	// The disk name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The resource status information.
-	Statuses InstanceViewStatusArrayInput `pulumi:"statuses"`
-}
-
-func (DiskInstanceViewArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskInstanceView)(nil)).Elem()
-}
-
-func (i DiskInstanceViewArgs) ToDiskInstanceViewOutput() DiskInstanceViewOutput {
-	return i.ToDiskInstanceViewOutputWithContext(context.Background())
-}
-
-func (i DiskInstanceViewArgs) ToDiskInstanceViewOutputWithContext(ctx context.Context) DiskInstanceViewOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskInstanceViewOutput)
-}
-
-// DiskInstanceViewArrayInput is an input type that accepts DiskInstanceViewArray and DiskInstanceViewArrayOutput values.
-// You can construct a concrete instance of `DiskInstanceViewArrayInput` via:
-//
-//          DiskInstanceViewArray{ DiskInstanceViewArgs{...} }
-type DiskInstanceViewArrayInput interface {
-	pulumi.Input
-
-	ToDiskInstanceViewArrayOutput() DiskInstanceViewArrayOutput
-	ToDiskInstanceViewArrayOutputWithContext(context.Context) DiskInstanceViewArrayOutput
-}
-
-type DiskInstanceViewArray []DiskInstanceViewInput
-
-func (DiskInstanceViewArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiskInstanceView)(nil)).Elem()
-}
-
-func (i DiskInstanceViewArray) ToDiskInstanceViewArrayOutput() DiskInstanceViewArrayOutput {
-	return i.ToDiskInstanceViewArrayOutputWithContext(context.Background())
-}
-
-func (i DiskInstanceViewArray) ToDiskInstanceViewArrayOutputWithContext(ctx context.Context) DiskInstanceViewArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiskInstanceViewArrayOutput)
-}
-
-// The instance view of the disk.
-type DiskInstanceViewOutput struct{ *pulumi.OutputState }
-
-func (DiskInstanceViewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiskInstanceView)(nil)).Elem()
-}
-
-func (o DiskInstanceViewOutput) ToDiskInstanceViewOutput() DiskInstanceViewOutput {
-	return o
-}
-
-func (o DiskInstanceViewOutput) ToDiskInstanceViewOutputWithContext(ctx context.Context) DiskInstanceViewOutput {
-	return o
-}
-
-// Specifies the encryption settings for the OS Disk. <br><br> Minimum api-version: 2015-06-15
-func (o DiskInstanceViewOutput) EncryptionSettings() DiskEncryptionSettingsArrayOutput {
-	return o.ApplyT(func(v DiskInstanceView) []DiskEncryptionSettings { return v.EncryptionSettings }).(DiskEncryptionSettingsArrayOutput)
-}
-
-// The disk name.
-func (o DiskInstanceViewOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DiskInstanceView) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-// The resource status information.
-func (o DiskInstanceViewOutput) Statuses() InstanceViewStatusArrayOutput {
-	return o.ApplyT(func(v DiskInstanceView) []InstanceViewStatus { return v.Statuses }).(InstanceViewStatusArrayOutput)
-}
-
-type DiskInstanceViewArrayOutput struct{ *pulumi.OutputState }
-
-func (DiskInstanceViewArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DiskInstanceView)(nil)).Elem()
-}
-
-func (o DiskInstanceViewArrayOutput) ToDiskInstanceViewArrayOutput() DiskInstanceViewArrayOutput {
-	return o
-}
-
-func (o DiskInstanceViewArrayOutput) ToDiskInstanceViewArrayOutputWithContext(ctx context.Context) DiskInstanceViewArrayOutput {
-	return o
-}
-
-func (o DiskInstanceViewArrayOutput) Index(i pulumi.IntInput) DiskInstanceViewOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DiskInstanceView {
-		return vs[0].([]DiskInstanceView)[vs[1].(int)]
-	}).(DiskInstanceViewOutput)
 }
 
 // The instance view of the disk.
@@ -4649,97 +4153,6 @@ func (o HardwareProfileResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
 		}
 		return v.VmSize
 	}).(pulumi.StringPtrOutput)
-}
-
-// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
-type ImageType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Describes the properties of an Image.
-	Properties ImagePropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ImageTypeInput is an input type that accepts ImageTypeArgs and ImageTypeOutput values.
-// You can construct a concrete instance of `ImageTypeInput` via:
-//
-//          ImageTypeArgs{...}
-type ImageTypeInput interface {
-	pulumi.Input
-
-	ToImageTypeOutput() ImageTypeOutput
-	ToImageTypeOutputWithContext(context.Context) ImageTypeOutput
-}
-
-// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
-type ImageTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Describes the properties of an Image.
-	Properties ImagePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ImageTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageType)(nil)).Elem()
-}
-
-func (i ImageTypeArgs) ToImageTypeOutput() ImageTypeOutput {
-	return i.ToImageTypeOutputWithContext(context.Background())
-}
-
-func (i ImageTypeArgs) ToImageTypeOutputWithContext(ctx context.Context) ImageTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTypeOutput)
-}
-
-// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
-type ImageTypeOutput struct{ *pulumi.OutputState }
-
-func (ImageTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageType)(nil)).Elem()
-}
-
-func (o ImageTypeOutput) ToImageTypeOutput() ImageTypeOutput {
-	return o
-}
-
-func (o ImageTypeOutput) ToImageTypeOutputWithContext(ctx context.Context) ImageTypeOutput {
-	return o
-}
-
-// Resource location
-func (o ImageTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o ImageTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Describes the properties of an Image.
-func (o ImageTypeOutput) Properties() ImagePropertiesResponseOutput {
-	return o.ApplyT(func(v ImageType) ImagePropertiesResponse { return v.Properties }).(ImagePropertiesResponseOutput)
-}
-
-// Resource tags
-func (o ImageTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ImageType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o ImageTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Describes a data disk.
@@ -6877,47 +6290,6 @@ func (i InstanceViewStatusArgs) ToInstanceViewStatusOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceViewStatusOutput)
 }
 
-func (i InstanceViewStatusArgs) ToInstanceViewStatusPtrOutput() InstanceViewStatusPtrOutput {
-	return i.ToInstanceViewStatusPtrOutputWithContext(context.Background())
-}
-
-func (i InstanceViewStatusArgs) ToInstanceViewStatusPtrOutputWithContext(ctx context.Context) InstanceViewStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceViewStatusOutput).ToInstanceViewStatusPtrOutputWithContext(ctx)
-}
-
-// InstanceViewStatusPtrInput is an input type that accepts InstanceViewStatusArgs, InstanceViewStatusPtr and InstanceViewStatusPtrOutput values.
-// You can construct a concrete instance of `InstanceViewStatusPtrInput` via:
-//
-//          InstanceViewStatusArgs{...}
-//
-//  or:
-//
-//          nil
-type InstanceViewStatusPtrInput interface {
-	pulumi.Input
-
-	ToInstanceViewStatusPtrOutput() InstanceViewStatusPtrOutput
-	ToInstanceViewStatusPtrOutputWithContext(context.Context) InstanceViewStatusPtrOutput
-}
-
-type instanceViewStatusPtrType InstanceViewStatusArgs
-
-func InstanceViewStatusPtr(v *InstanceViewStatusArgs) InstanceViewStatusPtrInput {
-	return (*instanceViewStatusPtrType)(v)
-}
-
-func (*instanceViewStatusPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceViewStatus)(nil)).Elem()
-}
-
-func (i *instanceViewStatusPtrType) ToInstanceViewStatusPtrOutput() InstanceViewStatusPtrOutput {
-	return i.ToInstanceViewStatusPtrOutputWithContext(context.Background())
-}
-
-func (i *instanceViewStatusPtrType) ToInstanceViewStatusPtrOutputWithContext(ctx context.Context) InstanceViewStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceViewStatusPtrOutput)
-}
-
 // InstanceViewStatusArrayInput is an input type that accepts InstanceViewStatusArray and InstanceViewStatusArrayOutput values.
 // You can construct a concrete instance of `InstanceViewStatusArrayInput` via:
 //
@@ -6958,16 +6330,6 @@ func (o InstanceViewStatusOutput) ToInstanceViewStatusOutputWithContext(ctx cont
 	return o
 }
 
-func (o InstanceViewStatusOutput) ToInstanceViewStatusPtrOutput() InstanceViewStatusPtrOutput {
-	return o.ToInstanceViewStatusPtrOutputWithContext(context.Background())
-}
-
-func (o InstanceViewStatusOutput) ToInstanceViewStatusPtrOutputWithContext(ctx context.Context) InstanceViewStatusPtrOutput {
-	return o.ApplyT(func(v InstanceViewStatus) *InstanceViewStatus {
-		return &v
-	}).(InstanceViewStatusPtrOutput)
-}
-
 // The status code.
 func (o InstanceViewStatusOutput) Code() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceViewStatus) *string { return v.Code }).(pulumi.StringPtrOutput)
@@ -6991,74 +6353,6 @@ func (o InstanceViewStatusOutput) Message() pulumi.StringPtrOutput {
 // The time of the status.
 func (o InstanceViewStatusOutput) Time() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceViewStatus) *string { return v.Time }).(pulumi.StringPtrOutput)
-}
-
-type InstanceViewStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (InstanceViewStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceViewStatus)(nil)).Elem()
-}
-
-func (o InstanceViewStatusPtrOutput) ToInstanceViewStatusPtrOutput() InstanceViewStatusPtrOutput {
-	return o
-}
-
-func (o InstanceViewStatusPtrOutput) ToInstanceViewStatusPtrOutputWithContext(ctx context.Context) InstanceViewStatusPtrOutput {
-	return o
-}
-
-func (o InstanceViewStatusPtrOutput) Elem() InstanceViewStatusOutput {
-	return o.ApplyT(func(v *InstanceViewStatus) InstanceViewStatus { return *v }).(InstanceViewStatusOutput)
-}
-
-// The status code.
-func (o InstanceViewStatusPtrOutput) Code() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InstanceViewStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Code
-	}).(pulumi.StringPtrOutput)
-}
-
-// The short localizable label for the status.
-func (o InstanceViewStatusPtrOutput) DisplayStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InstanceViewStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayStatus
-	}).(pulumi.StringPtrOutput)
-}
-
-// The level code.
-func (o InstanceViewStatusPtrOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InstanceViewStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Level
-	}).(pulumi.StringPtrOutput)
-}
-
-// The detailed status message, including for alerts and error messages.
-func (o InstanceViewStatusPtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InstanceViewStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Message
-	}).(pulumi.StringPtrOutput)
-}
-
-// The time of the status.
-func (o InstanceViewStatusPtrOutput) Time() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InstanceViewStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Time
-	}).(pulumi.StringPtrOutput)
 }
 
 type InstanceViewStatusArrayOutput struct{ *pulumi.OutputState }
@@ -8864,254 +8158,6 @@ func (o LinuxConfigurationResponsePtrOutput) Ssh() SshConfigurationResponsePtrOu
 		}
 		return v.Ssh
 	}).(SshConfigurationResponsePtrOutput)
-}
-
-// Maintenance Operation Status.
-type MaintenanceRedeployStatus struct {
-	// True, if customer is allowed to perform Maintenance.
-	IsCustomerInitiatedMaintenanceAllowed *bool `pulumi:"isCustomerInitiatedMaintenanceAllowed"`
-	// Message returned for the last Maintenance Operation.
-	LastOperationMessage *string `pulumi:"lastOperationMessage"`
-	// The Last Maintenance Operation Result Code.
-	LastOperationResultCode *string `pulumi:"lastOperationResultCode"`
-	// End Time for the Maintenance Window.
-	MaintenanceWindowEndTime *string `pulumi:"maintenanceWindowEndTime"`
-	// Start Time for the Maintenance Window.
-	MaintenanceWindowStartTime *string `pulumi:"maintenanceWindowStartTime"`
-	// End Time for the Pre Maintenance Window.
-	PreMaintenanceWindowEndTime *string `pulumi:"preMaintenanceWindowEndTime"`
-	// Start Time for the Pre Maintenance Window.
-	PreMaintenanceWindowStartTime *string `pulumi:"preMaintenanceWindowStartTime"`
-}
-
-// MaintenanceRedeployStatusInput is an input type that accepts MaintenanceRedeployStatusArgs and MaintenanceRedeployStatusOutput values.
-// You can construct a concrete instance of `MaintenanceRedeployStatusInput` via:
-//
-//          MaintenanceRedeployStatusArgs{...}
-type MaintenanceRedeployStatusInput interface {
-	pulumi.Input
-
-	ToMaintenanceRedeployStatusOutput() MaintenanceRedeployStatusOutput
-	ToMaintenanceRedeployStatusOutputWithContext(context.Context) MaintenanceRedeployStatusOutput
-}
-
-// Maintenance Operation Status.
-type MaintenanceRedeployStatusArgs struct {
-	// True, if customer is allowed to perform Maintenance.
-	IsCustomerInitiatedMaintenanceAllowed pulumi.BoolPtrInput `pulumi:"isCustomerInitiatedMaintenanceAllowed"`
-	// Message returned for the last Maintenance Operation.
-	LastOperationMessage pulumi.StringPtrInput `pulumi:"lastOperationMessage"`
-	// The Last Maintenance Operation Result Code.
-	LastOperationResultCode pulumi.StringPtrInput `pulumi:"lastOperationResultCode"`
-	// End Time for the Maintenance Window.
-	MaintenanceWindowEndTime pulumi.StringPtrInput `pulumi:"maintenanceWindowEndTime"`
-	// Start Time for the Maintenance Window.
-	MaintenanceWindowStartTime pulumi.StringPtrInput `pulumi:"maintenanceWindowStartTime"`
-	// End Time for the Pre Maintenance Window.
-	PreMaintenanceWindowEndTime pulumi.StringPtrInput `pulumi:"preMaintenanceWindowEndTime"`
-	// Start Time for the Pre Maintenance Window.
-	PreMaintenanceWindowStartTime pulumi.StringPtrInput `pulumi:"preMaintenanceWindowStartTime"`
-}
-
-func (MaintenanceRedeployStatusArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceRedeployStatus)(nil)).Elem()
-}
-
-func (i MaintenanceRedeployStatusArgs) ToMaintenanceRedeployStatusOutput() MaintenanceRedeployStatusOutput {
-	return i.ToMaintenanceRedeployStatusOutputWithContext(context.Background())
-}
-
-func (i MaintenanceRedeployStatusArgs) ToMaintenanceRedeployStatusOutputWithContext(ctx context.Context) MaintenanceRedeployStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceRedeployStatusOutput)
-}
-
-func (i MaintenanceRedeployStatusArgs) ToMaintenanceRedeployStatusPtrOutput() MaintenanceRedeployStatusPtrOutput {
-	return i.ToMaintenanceRedeployStatusPtrOutputWithContext(context.Background())
-}
-
-func (i MaintenanceRedeployStatusArgs) ToMaintenanceRedeployStatusPtrOutputWithContext(ctx context.Context) MaintenanceRedeployStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceRedeployStatusOutput).ToMaintenanceRedeployStatusPtrOutputWithContext(ctx)
-}
-
-// MaintenanceRedeployStatusPtrInput is an input type that accepts MaintenanceRedeployStatusArgs, MaintenanceRedeployStatusPtr and MaintenanceRedeployStatusPtrOutput values.
-// You can construct a concrete instance of `MaintenanceRedeployStatusPtrInput` via:
-//
-//          MaintenanceRedeployStatusArgs{...}
-//
-//  or:
-//
-//          nil
-type MaintenanceRedeployStatusPtrInput interface {
-	pulumi.Input
-
-	ToMaintenanceRedeployStatusPtrOutput() MaintenanceRedeployStatusPtrOutput
-	ToMaintenanceRedeployStatusPtrOutputWithContext(context.Context) MaintenanceRedeployStatusPtrOutput
-}
-
-type maintenanceRedeployStatusPtrType MaintenanceRedeployStatusArgs
-
-func MaintenanceRedeployStatusPtr(v *MaintenanceRedeployStatusArgs) MaintenanceRedeployStatusPtrInput {
-	return (*maintenanceRedeployStatusPtrType)(v)
-}
-
-func (*maintenanceRedeployStatusPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MaintenanceRedeployStatus)(nil)).Elem()
-}
-
-func (i *maintenanceRedeployStatusPtrType) ToMaintenanceRedeployStatusPtrOutput() MaintenanceRedeployStatusPtrOutput {
-	return i.ToMaintenanceRedeployStatusPtrOutputWithContext(context.Background())
-}
-
-func (i *maintenanceRedeployStatusPtrType) ToMaintenanceRedeployStatusPtrOutputWithContext(ctx context.Context) MaintenanceRedeployStatusPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MaintenanceRedeployStatusPtrOutput)
-}
-
-// Maintenance Operation Status.
-type MaintenanceRedeployStatusOutput struct{ *pulumi.OutputState }
-
-func (MaintenanceRedeployStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MaintenanceRedeployStatus)(nil)).Elem()
-}
-
-func (o MaintenanceRedeployStatusOutput) ToMaintenanceRedeployStatusOutput() MaintenanceRedeployStatusOutput {
-	return o
-}
-
-func (o MaintenanceRedeployStatusOutput) ToMaintenanceRedeployStatusOutputWithContext(ctx context.Context) MaintenanceRedeployStatusOutput {
-	return o
-}
-
-func (o MaintenanceRedeployStatusOutput) ToMaintenanceRedeployStatusPtrOutput() MaintenanceRedeployStatusPtrOutput {
-	return o.ToMaintenanceRedeployStatusPtrOutputWithContext(context.Background())
-}
-
-func (o MaintenanceRedeployStatusOutput) ToMaintenanceRedeployStatusPtrOutputWithContext(ctx context.Context) MaintenanceRedeployStatusPtrOutput {
-	return o.ApplyT(func(v MaintenanceRedeployStatus) *MaintenanceRedeployStatus {
-		return &v
-	}).(MaintenanceRedeployStatusPtrOutput)
-}
-
-// True, if customer is allowed to perform Maintenance.
-func (o MaintenanceRedeployStatusOutput) IsCustomerInitiatedMaintenanceAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v MaintenanceRedeployStatus) *bool { return v.IsCustomerInitiatedMaintenanceAllowed }).(pulumi.BoolPtrOutput)
-}
-
-// Message returned for the last Maintenance Operation.
-func (o MaintenanceRedeployStatusOutput) LastOperationMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MaintenanceRedeployStatus) *string { return v.LastOperationMessage }).(pulumi.StringPtrOutput)
-}
-
-// The Last Maintenance Operation Result Code.
-func (o MaintenanceRedeployStatusOutput) LastOperationResultCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MaintenanceRedeployStatus) *string { return v.LastOperationResultCode }).(pulumi.StringPtrOutput)
-}
-
-// End Time for the Maintenance Window.
-func (o MaintenanceRedeployStatusOutput) MaintenanceWindowEndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MaintenanceRedeployStatus) *string { return v.MaintenanceWindowEndTime }).(pulumi.StringPtrOutput)
-}
-
-// Start Time for the Maintenance Window.
-func (o MaintenanceRedeployStatusOutput) MaintenanceWindowStartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MaintenanceRedeployStatus) *string { return v.MaintenanceWindowStartTime }).(pulumi.StringPtrOutput)
-}
-
-// End Time for the Pre Maintenance Window.
-func (o MaintenanceRedeployStatusOutput) PreMaintenanceWindowEndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MaintenanceRedeployStatus) *string { return v.PreMaintenanceWindowEndTime }).(pulumi.StringPtrOutput)
-}
-
-// Start Time for the Pre Maintenance Window.
-func (o MaintenanceRedeployStatusOutput) PreMaintenanceWindowStartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MaintenanceRedeployStatus) *string { return v.PreMaintenanceWindowStartTime }).(pulumi.StringPtrOutput)
-}
-
-type MaintenanceRedeployStatusPtrOutput struct{ *pulumi.OutputState }
-
-func (MaintenanceRedeployStatusPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MaintenanceRedeployStatus)(nil)).Elem()
-}
-
-func (o MaintenanceRedeployStatusPtrOutput) ToMaintenanceRedeployStatusPtrOutput() MaintenanceRedeployStatusPtrOutput {
-	return o
-}
-
-func (o MaintenanceRedeployStatusPtrOutput) ToMaintenanceRedeployStatusPtrOutputWithContext(ctx context.Context) MaintenanceRedeployStatusPtrOutput {
-	return o
-}
-
-func (o MaintenanceRedeployStatusPtrOutput) Elem() MaintenanceRedeployStatusOutput {
-	return o.ApplyT(func(v *MaintenanceRedeployStatus) MaintenanceRedeployStatus { return *v }).(MaintenanceRedeployStatusOutput)
-}
-
-// True, if customer is allowed to perform Maintenance.
-func (o MaintenanceRedeployStatusPtrOutput) IsCustomerInitiatedMaintenanceAllowed() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MaintenanceRedeployStatus) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsCustomerInitiatedMaintenanceAllowed
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Message returned for the last Maintenance Operation.
-func (o MaintenanceRedeployStatusPtrOutput) LastOperationMessage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MaintenanceRedeployStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastOperationMessage
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Last Maintenance Operation Result Code.
-func (o MaintenanceRedeployStatusPtrOutput) LastOperationResultCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MaintenanceRedeployStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LastOperationResultCode
-	}).(pulumi.StringPtrOutput)
-}
-
-// End Time for the Maintenance Window.
-func (o MaintenanceRedeployStatusPtrOutput) MaintenanceWindowEndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MaintenanceRedeployStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MaintenanceWindowEndTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Start Time for the Maintenance Window.
-func (o MaintenanceRedeployStatusPtrOutput) MaintenanceWindowStartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MaintenanceRedeployStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MaintenanceWindowStartTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// End Time for the Pre Maintenance Window.
-func (o MaintenanceRedeployStatusPtrOutput) PreMaintenanceWindowEndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MaintenanceRedeployStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PreMaintenanceWindowEndTime
-	}).(pulumi.StringPtrOutput)
-}
-
-// Start Time for the Pre Maintenance Window.
-func (o MaintenanceRedeployStatusPtrOutput) PreMaintenanceWindowStartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MaintenanceRedeployStatus) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PreMaintenanceWindowStartTime
-	}).(pulumi.StringPtrOutput)
 }
 
 // Maintenance Operation Status.
@@ -11780,97 +10826,6 @@ func (o PlanResponsePtrOutput) Publisher() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies information about the proximity placement group.
-type ProximityPlacementGroupType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Describes the properties of a Proximity Placement Group.
-	Properties ProximityPlacementGroupPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// ProximityPlacementGroupTypeInput is an input type that accepts ProximityPlacementGroupTypeArgs and ProximityPlacementGroupTypeOutput values.
-// You can construct a concrete instance of `ProximityPlacementGroupTypeInput` via:
-//
-//          ProximityPlacementGroupTypeArgs{...}
-type ProximityPlacementGroupTypeInput interface {
-	pulumi.Input
-
-	ToProximityPlacementGroupTypeOutput() ProximityPlacementGroupTypeOutput
-	ToProximityPlacementGroupTypeOutputWithContext(context.Context) ProximityPlacementGroupTypeOutput
-}
-
-// Specifies information about the proximity placement group.
-type ProximityPlacementGroupTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Describes the properties of a Proximity Placement Group.
-	Properties ProximityPlacementGroupPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ProximityPlacementGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProximityPlacementGroupType)(nil)).Elem()
-}
-
-func (i ProximityPlacementGroupTypeArgs) ToProximityPlacementGroupTypeOutput() ProximityPlacementGroupTypeOutput {
-	return i.ToProximityPlacementGroupTypeOutputWithContext(context.Background())
-}
-
-func (i ProximityPlacementGroupTypeArgs) ToProximityPlacementGroupTypeOutputWithContext(ctx context.Context) ProximityPlacementGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProximityPlacementGroupTypeOutput)
-}
-
-// Specifies information about the proximity placement group.
-type ProximityPlacementGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (ProximityPlacementGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProximityPlacementGroupType)(nil)).Elem()
-}
-
-func (o ProximityPlacementGroupTypeOutput) ToProximityPlacementGroupTypeOutput() ProximityPlacementGroupTypeOutput {
-	return o
-}
-
-func (o ProximityPlacementGroupTypeOutput) ToProximityPlacementGroupTypeOutputWithContext(ctx context.Context) ProximityPlacementGroupTypeOutput {
-	return o
-}
-
-// Resource location
-func (o ProximityPlacementGroupTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ProximityPlacementGroupType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o ProximityPlacementGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ProximityPlacementGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Describes the properties of a Proximity Placement Group.
-func (o ProximityPlacementGroupTypeOutput) Properties() ProximityPlacementGroupPropertiesResponseOutput {
-	return o.ApplyT(func(v ProximityPlacementGroupType) ProximityPlacementGroupPropertiesResponse { return v.Properties }).(ProximityPlacementGroupPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o ProximityPlacementGroupTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ProximityPlacementGroupType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o ProximityPlacementGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProximityPlacementGroupType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Describes the properties of a Proximity Placement Group.
 type ProximityPlacementGroupPropertiesResponse struct {
 	// A list of references to all availability sets in the proximity placement group.
@@ -12790,115 +11745,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return v.Tier
 	}).(pulumi.StringPtrOutput)
-}
-
-// Snapshot resource.
-type SnapshotType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Unused. Always Null.
-	ManagedBy string `pulumi:"managedBy"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Disk resource properties.
-	Properties DiskPropertiesResponse `pulumi:"properties"`
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-	Sku *SnapshotSkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// SnapshotTypeInput is an input type that accepts SnapshotTypeArgs and SnapshotTypeOutput values.
-// You can construct a concrete instance of `SnapshotTypeInput` via:
-//
-//          SnapshotTypeArgs{...}
-type SnapshotTypeInput interface {
-	pulumi.Input
-
-	ToSnapshotTypeOutput() SnapshotTypeOutput
-	ToSnapshotTypeOutputWithContext(context.Context) SnapshotTypeOutput
-}
-
-// Snapshot resource.
-type SnapshotTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Unused. Always Null.
-	ManagedBy pulumi.StringInput `pulumi:"managedBy"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Disk resource properties.
-	Properties DiskPropertiesResponseInput `pulumi:"properties"`
-	// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-	Sku SnapshotSkuResponsePtrInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SnapshotTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotType)(nil)).Elem()
-}
-
-func (i SnapshotTypeArgs) ToSnapshotTypeOutput() SnapshotTypeOutput {
-	return i.ToSnapshotTypeOutputWithContext(context.Background())
-}
-
-func (i SnapshotTypeArgs) ToSnapshotTypeOutputWithContext(ctx context.Context) SnapshotTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotTypeOutput)
-}
-
-// Snapshot resource.
-type SnapshotTypeOutput struct{ *pulumi.OutputState }
-
-func (SnapshotTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotType)(nil)).Elem()
-}
-
-func (o SnapshotTypeOutput) ToSnapshotTypeOutput() SnapshotTypeOutput {
-	return o
-}
-
-func (o SnapshotTypeOutput) ToSnapshotTypeOutputWithContext(ctx context.Context) SnapshotTypeOutput {
-	return o
-}
-
-// Resource location
-func (o SnapshotTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Unused. Always Null.
-func (o SnapshotTypeOutput) ManagedBy() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotType) string { return v.ManagedBy }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o SnapshotTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Disk resource properties.
-func (o SnapshotTypeOutput) Properties() DiskPropertiesResponseOutput {
-	return o.ApplyT(func(v SnapshotType) DiskPropertiesResponse { return v.Properties }).(DiskPropertiesResponseOutput)
-}
-
-// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
-func (o SnapshotTypeOutput) Sku() SnapshotSkuResponsePtrOutput {
-	return o.ApplyT(func(v SnapshotType) *SnapshotSkuResponse { return v.Sku }).(SnapshotSkuResponsePtrOutput)
-}
-
-// Resource tags
-func (o SnapshotTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v SnapshotType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o SnapshotTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS.
@@ -15724,307 +14570,6 @@ func (o VirtualHardDiskResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a Virtual Machine.
-type VirtualMachineType struct {
-	// The identity of the virtual machine, if configured.
-	Identity *VirtualMachineIdentityResponse `pulumi:"identity"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-	Plan *PlanResponse `pulumi:"plan"`
-	// Describes the properties of a Virtual Machine.
-	Properties VirtualMachinePropertiesResponse `pulumi:"properties"`
-	// The virtual machine child extension resources.
-	Resources []VirtualMachineExtensionResponse `pulumi:"resources"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// The virtual machine zones.
-	Zones []string `pulumi:"zones"`
-}
-
-// VirtualMachineTypeInput is an input type that accepts VirtualMachineTypeArgs and VirtualMachineTypeOutput values.
-// You can construct a concrete instance of `VirtualMachineTypeInput` via:
-//
-//          VirtualMachineTypeArgs{...}
-type VirtualMachineTypeInput interface {
-	pulumi.Input
-
-	ToVirtualMachineTypeOutput() VirtualMachineTypeOutput
-	ToVirtualMachineTypeOutputWithContext(context.Context) VirtualMachineTypeOutput
-}
-
-// Describes a Virtual Machine.
-type VirtualMachineTypeArgs struct {
-	// The identity of the virtual machine, if configured.
-	Identity VirtualMachineIdentityResponsePtrInput `pulumi:"identity"`
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-	Plan PlanResponsePtrInput `pulumi:"plan"`
-	// Describes the properties of a Virtual Machine.
-	Properties VirtualMachinePropertiesResponseInput `pulumi:"properties"`
-	// The virtual machine child extension resources.
-	Resources VirtualMachineExtensionResponseArrayInput `pulumi:"resources"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-	// The virtual machine zones.
-	Zones pulumi.StringArrayInput `pulumi:"zones"`
-}
-
-func (VirtualMachineTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineType)(nil)).Elem()
-}
-
-func (i VirtualMachineTypeArgs) ToVirtualMachineTypeOutput() VirtualMachineTypeOutput {
-	return i.ToVirtualMachineTypeOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineTypeArgs) ToVirtualMachineTypeOutputWithContext(ctx context.Context) VirtualMachineTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineTypeOutput)
-}
-
-// Describes a Virtual Machine.
-type VirtualMachineTypeOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineType)(nil)).Elem()
-}
-
-func (o VirtualMachineTypeOutput) ToVirtualMachineTypeOutput() VirtualMachineTypeOutput {
-	return o
-}
-
-func (o VirtualMachineTypeOutput) ToVirtualMachineTypeOutputWithContext(ctx context.Context) VirtualMachineTypeOutput {
-	return o
-}
-
-// The identity of the virtual machine, if configured.
-func (o VirtualMachineTypeOutput) Identity() VirtualMachineIdentityResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineType) *VirtualMachineIdentityResponse { return v.Identity }).(VirtualMachineIdentityResponsePtrOutput)
-}
-
-// Resource location
-func (o VirtualMachineTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o VirtualMachineTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-func (o VirtualMachineTypeOutput) Plan() PlanResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineType) *PlanResponse { return v.Plan }).(PlanResponsePtrOutput)
-}
-
-// Describes the properties of a Virtual Machine.
-func (o VirtualMachineTypeOutput) Properties() VirtualMachinePropertiesResponseOutput {
-	return o.ApplyT(func(v VirtualMachineType) VirtualMachinePropertiesResponse { return v.Properties }).(VirtualMachinePropertiesResponseOutput)
-}
-
-// The virtual machine child extension resources.
-func (o VirtualMachineTypeOutput) Resources() VirtualMachineExtensionResponseArrayOutput {
-	return o.ApplyT(func(v VirtualMachineType) []VirtualMachineExtensionResponse { return v.Resources }).(VirtualMachineExtensionResponseArrayOutput)
-}
-
-// Resource tags
-func (o VirtualMachineTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o VirtualMachineTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The virtual machine zones.
-func (o VirtualMachineTypeOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v VirtualMachineType) []string { return v.Zones }).(pulumi.StringArrayOutput)
-}
-
-// The instance view of the VM Agent running on the virtual machine.
-type VirtualMachineAgentInstanceView struct {
-	// The virtual machine extension handler instance view.
-	ExtensionHandlers []VirtualMachineExtensionHandlerInstanceView `pulumi:"extensionHandlers"`
-	// The resource status information.
-	Statuses []InstanceViewStatus `pulumi:"statuses"`
-	// The VM Agent full version.
-	VmAgentVersion *string `pulumi:"vmAgentVersion"`
-}
-
-// VirtualMachineAgentInstanceViewInput is an input type that accepts VirtualMachineAgentInstanceViewArgs and VirtualMachineAgentInstanceViewOutput values.
-// You can construct a concrete instance of `VirtualMachineAgentInstanceViewInput` via:
-//
-//          VirtualMachineAgentInstanceViewArgs{...}
-type VirtualMachineAgentInstanceViewInput interface {
-	pulumi.Input
-
-	ToVirtualMachineAgentInstanceViewOutput() VirtualMachineAgentInstanceViewOutput
-	ToVirtualMachineAgentInstanceViewOutputWithContext(context.Context) VirtualMachineAgentInstanceViewOutput
-}
-
-// The instance view of the VM Agent running on the virtual machine.
-type VirtualMachineAgentInstanceViewArgs struct {
-	// The virtual machine extension handler instance view.
-	ExtensionHandlers VirtualMachineExtensionHandlerInstanceViewArrayInput `pulumi:"extensionHandlers"`
-	// The resource status information.
-	Statuses InstanceViewStatusArrayInput `pulumi:"statuses"`
-	// The VM Agent full version.
-	VmAgentVersion pulumi.StringPtrInput `pulumi:"vmAgentVersion"`
-}
-
-func (VirtualMachineAgentInstanceViewArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineAgentInstanceView)(nil)).Elem()
-}
-
-func (i VirtualMachineAgentInstanceViewArgs) ToVirtualMachineAgentInstanceViewOutput() VirtualMachineAgentInstanceViewOutput {
-	return i.ToVirtualMachineAgentInstanceViewOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineAgentInstanceViewArgs) ToVirtualMachineAgentInstanceViewOutputWithContext(ctx context.Context) VirtualMachineAgentInstanceViewOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAgentInstanceViewOutput)
-}
-
-func (i VirtualMachineAgentInstanceViewArgs) ToVirtualMachineAgentInstanceViewPtrOutput() VirtualMachineAgentInstanceViewPtrOutput {
-	return i.ToVirtualMachineAgentInstanceViewPtrOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineAgentInstanceViewArgs) ToVirtualMachineAgentInstanceViewPtrOutputWithContext(ctx context.Context) VirtualMachineAgentInstanceViewPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAgentInstanceViewOutput).ToVirtualMachineAgentInstanceViewPtrOutputWithContext(ctx)
-}
-
-// VirtualMachineAgentInstanceViewPtrInput is an input type that accepts VirtualMachineAgentInstanceViewArgs, VirtualMachineAgentInstanceViewPtr and VirtualMachineAgentInstanceViewPtrOutput values.
-// You can construct a concrete instance of `VirtualMachineAgentInstanceViewPtrInput` via:
-//
-//          VirtualMachineAgentInstanceViewArgs{...}
-//
-//  or:
-//
-//          nil
-type VirtualMachineAgentInstanceViewPtrInput interface {
-	pulumi.Input
-
-	ToVirtualMachineAgentInstanceViewPtrOutput() VirtualMachineAgentInstanceViewPtrOutput
-	ToVirtualMachineAgentInstanceViewPtrOutputWithContext(context.Context) VirtualMachineAgentInstanceViewPtrOutput
-}
-
-type virtualMachineAgentInstanceViewPtrType VirtualMachineAgentInstanceViewArgs
-
-func VirtualMachineAgentInstanceViewPtr(v *VirtualMachineAgentInstanceViewArgs) VirtualMachineAgentInstanceViewPtrInput {
-	return (*virtualMachineAgentInstanceViewPtrType)(v)
-}
-
-func (*virtualMachineAgentInstanceViewPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineAgentInstanceView)(nil)).Elem()
-}
-
-func (i *virtualMachineAgentInstanceViewPtrType) ToVirtualMachineAgentInstanceViewPtrOutput() VirtualMachineAgentInstanceViewPtrOutput {
-	return i.ToVirtualMachineAgentInstanceViewPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualMachineAgentInstanceViewPtrType) ToVirtualMachineAgentInstanceViewPtrOutputWithContext(ctx context.Context) VirtualMachineAgentInstanceViewPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAgentInstanceViewPtrOutput)
-}
-
-// The instance view of the VM Agent running on the virtual machine.
-type VirtualMachineAgentInstanceViewOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineAgentInstanceViewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineAgentInstanceView)(nil)).Elem()
-}
-
-func (o VirtualMachineAgentInstanceViewOutput) ToVirtualMachineAgentInstanceViewOutput() VirtualMachineAgentInstanceViewOutput {
-	return o
-}
-
-func (o VirtualMachineAgentInstanceViewOutput) ToVirtualMachineAgentInstanceViewOutputWithContext(ctx context.Context) VirtualMachineAgentInstanceViewOutput {
-	return o
-}
-
-func (o VirtualMachineAgentInstanceViewOutput) ToVirtualMachineAgentInstanceViewPtrOutput() VirtualMachineAgentInstanceViewPtrOutput {
-	return o.ToVirtualMachineAgentInstanceViewPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualMachineAgentInstanceViewOutput) ToVirtualMachineAgentInstanceViewPtrOutputWithContext(ctx context.Context) VirtualMachineAgentInstanceViewPtrOutput {
-	return o.ApplyT(func(v VirtualMachineAgentInstanceView) *VirtualMachineAgentInstanceView {
-		return &v
-	}).(VirtualMachineAgentInstanceViewPtrOutput)
-}
-
-// The virtual machine extension handler instance view.
-func (o VirtualMachineAgentInstanceViewOutput) ExtensionHandlers() VirtualMachineExtensionHandlerInstanceViewArrayOutput {
-	return o.ApplyT(func(v VirtualMachineAgentInstanceView) []VirtualMachineExtensionHandlerInstanceView {
-		return v.ExtensionHandlers
-	}).(VirtualMachineExtensionHandlerInstanceViewArrayOutput)
-}
-
-// The resource status information.
-func (o VirtualMachineAgentInstanceViewOutput) Statuses() InstanceViewStatusArrayOutput {
-	return o.ApplyT(func(v VirtualMachineAgentInstanceView) []InstanceViewStatus { return v.Statuses }).(InstanceViewStatusArrayOutput)
-}
-
-// The VM Agent full version.
-func (o VirtualMachineAgentInstanceViewOutput) VmAgentVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineAgentInstanceView) *string { return v.VmAgentVersion }).(pulumi.StringPtrOutput)
-}
-
-type VirtualMachineAgentInstanceViewPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineAgentInstanceViewPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualMachineAgentInstanceView)(nil)).Elem()
-}
-
-func (o VirtualMachineAgentInstanceViewPtrOutput) ToVirtualMachineAgentInstanceViewPtrOutput() VirtualMachineAgentInstanceViewPtrOutput {
-	return o
-}
-
-func (o VirtualMachineAgentInstanceViewPtrOutput) ToVirtualMachineAgentInstanceViewPtrOutputWithContext(ctx context.Context) VirtualMachineAgentInstanceViewPtrOutput {
-	return o
-}
-
-func (o VirtualMachineAgentInstanceViewPtrOutput) Elem() VirtualMachineAgentInstanceViewOutput {
-	return o.ApplyT(func(v *VirtualMachineAgentInstanceView) VirtualMachineAgentInstanceView { return *v }).(VirtualMachineAgentInstanceViewOutput)
-}
-
-// The virtual machine extension handler instance view.
-func (o VirtualMachineAgentInstanceViewPtrOutput) ExtensionHandlers() VirtualMachineExtensionHandlerInstanceViewArrayOutput {
-	return o.ApplyT(func(v *VirtualMachineAgentInstanceView) []VirtualMachineExtensionHandlerInstanceView {
-		if v == nil {
-			return nil
-		}
-		return v.ExtensionHandlers
-	}).(VirtualMachineExtensionHandlerInstanceViewArrayOutput)
-}
-
-// The resource status information.
-func (o VirtualMachineAgentInstanceViewPtrOutput) Statuses() InstanceViewStatusArrayOutput {
-	return o.ApplyT(func(v *VirtualMachineAgentInstanceView) []InstanceViewStatus {
-		if v == nil {
-			return nil
-		}
-		return v.Statuses
-	}).(InstanceViewStatusArrayOutput)
-}
-
-// The VM Agent full version.
-func (o VirtualMachineAgentInstanceViewPtrOutput) VmAgentVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualMachineAgentInstanceView) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VmAgentVersion
-	}).(pulumi.StringPtrOutput)
-}
-
 // The instance view of the VM Agent running on the virtual machine.
 type VirtualMachineAgentInstanceViewResponse struct {
 	// The virtual machine extension handler instance view.
@@ -16197,215 +14742,6 @@ func (o VirtualMachineAgentInstanceViewResponsePtrOutput) VmAgentVersion() pulum
 		}
 		return v.VmAgentVersion
 	}).(pulumi.StringPtrOutput)
-}
-
-// Describes a Virtual Machine Extension.
-type VirtualMachineExtensionType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Describes the properties of a Virtual Machine Extension.
-	Properties VirtualMachineExtensionPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// VirtualMachineExtensionTypeInput is an input type that accepts VirtualMachineExtensionTypeArgs and VirtualMachineExtensionTypeOutput values.
-// You can construct a concrete instance of `VirtualMachineExtensionTypeInput` via:
-//
-//          VirtualMachineExtensionTypeArgs{...}
-type VirtualMachineExtensionTypeInput interface {
-	pulumi.Input
-
-	ToVirtualMachineExtensionTypeOutput() VirtualMachineExtensionTypeOutput
-	ToVirtualMachineExtensionTypeOutputWithContext(context.Context) VirtualMachineExtensionTypeOutput
-}
-
-// Describes a Virtual Machine Extension.
-type VirtualMachineExtensionTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Describes the properties of a Virtual Machine Extension.
-	Properties VirtualMachineExtensionPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VirtualMachineExtensionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineExtensionType)(nil)).Elem()
-}
-
-func (i VirtualMachineExtensionTypeArgs) ToVirtualMachineExtensionTypeOutput() VirtualMachineExtensionTypeOutput {
-	return i.ToVirtualMachineExtensionTypeOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineExtensionTypeArgs) ToVirtualMachineExtensionTypeOutputWithContext(ctx context.Context) VirtualMachineExtensionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionTypeOutput)
-}
-
-// Describes a Virtual Machine Extension.
-type VirtualMachineExtensionTypeOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineExtensionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineExtensionType)(nil)).Elem()
-}
-
-func (o VirtualMachineExtensionTypeOutput) ToVirtualMachineExtensionTypeOutput() VirtualMachineExtensionTypeOutput {
-	return o
-}
-
-func (o VirtualMachineExtensionTypeOutput) ToVirtualMachineExtensionTypeOutputWithContext(ctx context.Context) VirtualMachineExtensionTypeOutput {
-	return o
-}
-
-// Resource location
-func (o VirtualMachineExtensionTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o VirtualMachineExtensionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Describes the properties of a Virtual Machine Extension.
-func (o VirtualMachineExtensionTypeOutput) Properties() VirtualMachineExtensionPropertiesResponseOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionType) VirtualMachineExtensionPropertiesResponse { return v.Properties }).(VirtualMachineExtensionPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o VirtualMachineExtensionTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o VirtualMachineExtensionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The instance view of a virtual machine extension handler.
-type VirtualMachineExtensionHandlerInstanceView struct {
-	// The extension handler status.
-	Status *InstanceViewStatus `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type *string `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
-}
-
-// VirtualMachineExtensionHandlerInstanceViewInput is an input type that accepts VirtualMachineExtensionHandlerInstanceViewArgs and VirtualMachineExtensionHandlerInstanceViewOutput values.
-// You can construct a concrete instance of `VirtualMachineExtensionHandlerInstanceViewInput` via:
-//
-//          VirtualMachineExtensionHandlerInstanceViewArgs{...}
-type VirtualMachineExtensionHandlerInstanceViewInput interface {
-	pulumi.Input
-
-	ToVirtualMachineExtensionHandlerInstanceViewOutput() VirtualMachineExtensionHandlerInstanceViewOutput
-	ToVirtualMachineExtensionHandlerInstanceViewOutputWithContext(context.Context) VirtualMachineExtensionHandlerInstanceViewOutput
-}
-
-// The instance view of a virtual machine extension handler.
-type VirtualMachineExtensionHandlerInstanceViewArgs struct {
-	// The extension handler status.
-	Status InstanceViewStatusPtrInput `pulumi:"status"`
-	// Specifies the type of the extension; an example is "CustomScriptExtension".
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Specifies the version of the script handler.
-	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
-}
-
-func (VirtualMachineExtensionHandlerInstanceViewArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineExtensionHandlerInstanceView)(nil)).Elem()
-}
-
-func (i VirtualMachineExtensionHandlerInstanceViewArgs) ToVirtualMachineExtensionHandlerInstanceViewOutput() VirtualMachineExtensionHandlerInstanceViewOutput {
-	return i.ToVirtualMachineExtensionHandlerInstanceViewOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineExtensionHandlerInstanceViewArgs) ToVirtualMachineExtensionHandlerInstanceViewOutputWithContext(ctx context.Context) VirtualMachineExtensionHandlerInstanceViewOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionHandlerInstanceViewOutput)
-}
-
-// VirtualMachineExtensionHandlerInstanceViewArrayInput is an input type that accepts VirtualMachineExtensionHandlerInstanceViewArray and VirtualMachineExtensionHandlerInstanceViewArrayOutput values.
-// You can construct a concrete instance of `VirtualMachineExtensionHandlerInstanceViewArrayInput` via:
-//
-//          VirtualMachineExtensionHandlerInstanceViewArray{ VirtualMachineExtensionHandlerInstanceViewArgs{...} }
-type VirtualMachineExtensionHandlerInstanceViewArrayInput interface {
-	pulumi.Input
-
-	ToVirtualMachineExtensionHandlerInstanceViewArrayOutput() VirtualMachineExtensionHandlerInstanceViewArrayOutput
-	ToVirtualMachineExtensionHandlerInstanceViewArrayOutputWithContext(context.Context) VirtualMachineExtensionHandlerInstanceViewArrayOutput
-}
-
-type VirtualMachineExtensionHandlerInstanceViewArray []VirtualMachineExtensionHandlerInstanceViewInput
-
-func (VirtualMachineExtensionHandlerInstanceViewArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualMachineExtensionHandlerInstanceView)(nil)).Elem()
-}
-
-func (i VirtualMachineExtensionHandlerInstanceViewArray) ToVirtualMachineExtensionHandlerInstanceViewArrayOutput() VirtualMachineExtensionHandlerInstanceViewArrayOutput {
-	return i.ToVirtualMachineExtensionHandlerInstanceViewArrayOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineExtensionHandlerInstanceViewArray) ToVirtualMachineExtensionHandlerInstanceViewArrayOutputWithContext(ctx context.Context) VirtualMachineExtensionHandlerInstanceViewArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionHandlerInstanceViewArrayOutput)
-}
-
-// The instance view of a virtual machine extension handler.
-type VirtualMachineExtensionHandlerInstanceViewOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineExtensionHandlerInstanceViewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineExtensionHandlerInstanceView)(nil)).Elem()
-}
-
-func (o VirtualMachineExtensionHandlerInstanceViewOutput) ToVirtualMachineExtensionHandlerInstanceViewOutput() VirtualMachineExtensionHandlerInstanceViewOutput {
-	return o
-}
-
-func (o VirtualMachineExtensionHandlerInstanceViewOutput) ToVirtualMachineExtensionHandlerInstanceViewOutputWithContext(ctx context.Context) VirtualMachineExtensionHandlerInstanceViewOutput {
-	return o
-}
-
-// The extension handler status.
-func (o VirtualMachineExtensionHandlerInstanceViewOutput) Status() InstanceViewStatusPtrOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionHandlerInstanceView) *InstanceViewStatus { return v.Status }).(InstanceViewStatusPtrOutput)
-}
-
-// Specifies the type of the extension; an example is "CustomScriptExtension".
-func (o VirtualMachineExtensionHandlerInstanceViewOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionHandlerInstanceView) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the version of the script handler.
-func (o VirtualMachineExtensionHandlerInstanceViewOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineExtensionHandlerInstanceView) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
-}
-
-type VirtualMachineExtensionHandlerInstanceViewArrayOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineExtensionHandlerInstanceViewArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualMachineExtensionHandlerInstanceView)(nil)).Elem()
-}
-
-func (o VirtualMachineExtensionHandlerInstanceViewArrayOutput) ToVirtualMachineExtensionHandlerInstanceViewArrayOutput() VirtualMachineExtensionHandlerInstanceViewArrayOutput {
-	return o
-}
-
-func (o VirtualMachineExtensionHandlerInstanceViewArrayOutput) ToVirtualMachineExtensionHandlerInstanceViewArrayOutputWithContext(ctx context.Context) VirtualMachineExtensionHandlerInstanceViewArrayOutput {
-	return o
-}
-
-func (o VirtualMachineExtensionHandlerInstanceViewArrayOutput) Index(i pulumi.IntInput) VirtualMachineExtensionHandlerInstanceViewOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineExtensionHandlerInstanceView {
-		return vs[0].([]VirtualMachineExtensionHandlerInstanceView)[vs[1].(int)]
-	}).(VirtualMachineExtensionHandlerInstanceViewOutput)
 }
 
 // The instance view of a virtual machine extension handler.
@@ -16620,31 +14956,6 @@ func (i *virtualMachineExtensionInstanceViewPtrType) ToVirtualMachineExtensionIn
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionInstanceViewPtrOutput)
 }
 
-// VirtualMachineExtensionInstanceViewArrayInput is an input type that accepts VirtualMachineExtensionInstanceViewArray and VirtualMachineExtensionInstanceViewArrayOutput values.
-// You can construct a concrete instance of `VirtualMachineExtensionInstanceViewArrayInput` via:
-//
-//          VirtualMachineExtensionInstanceViewArray{ VirtualMachineExtensionInstanceViewArgs{...} }
-type VirtualMachineExtensionInstanceViewArrayInput interface {
-	pulumi.Input
-
-	ToVirtualMachineExtensionInstanceViewArrayOutput() VirtualMachineExtensionInstanceViewArrayOutput
-	ToVirtualMachineExtensionInstanceViewArrayOutputWithContext(context.Context) VirtualMachineExtensionInstanceViewArrayOutput
-}
-
-type VirtualMachineExtensionInstanceViewArray []VirtualMachineExtensionInstanceViewInput
-
-func (VirtualMachineExtensionInstanceViewArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualMachineExtensionInstanceView)(nil)).Elem()
-}
-
-func (i VirtualMachineExtensionInstanceViewArray) ToVirtualMachineExtensionInstanceViewArrayOutput() VirtualMachineExtensionInstanceViewArrayOutput {
-	return i.ToVirtualMachineExtensionInstanceViewArrayOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineExtensionInstanceViewArray) ToVirtualMachineExtensionInstanceViewArrayOutputWithContext(ctx context.Context) VirtualMachineExtensionInstanceViewArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineExtensionInstanceViewArrayOutput)
-}
-
 // The instance view of a virtual machine extension.
 type VirtualMachineExtensionInstanceViewOutput struct{ *pulumi.OutputState }
 
@@ -16761,26 +15072,6 @@ func (o VirtualMachineExtensionInstanceViewPtrOutput) TypeHandlerVersion() pulum
 		}
 		return v.TypeHandlerVersion
 	}).(pulumi.StringPtrOutput)
-}
-
-type VirtualMachineExtensionInstanceViewArrayOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineExtensionInstanceViewArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualMachineExtensionInstanceView)(nil)).Elem()
-}
-
-func (o VirtualMachineExtensionInstanceViewArrayOutput) ToVirtualMachineExtensionInstanceViewArrayOutput() VirtualMachineExtensionInstanceViewArrayOutput {
-	return o
-}
-
-func (o VirtualMachineExtensionInstanceViewArrayOutput) ToVirtualMachineExtensionInstanceViewArrayOutputWithContext(ctx context.Context) VirtualMachineExtensionInstanceViewArrayOutput {
-	return o
-}
-
-func (o VirtualMachineExtensionInstanceViewArrayOutput) Index(i pulumi.IntInput) VirtualMachineExtensionInstanceViewOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualMachineExtensionInstanceView {
-		return vs[0].([]VirtualMachineExtensionInstanceView)[vs[1].(int)]
-	}).(VirtualMachineExtensionInstanceViewOutput)
 }
 
 // The instance view of a virtual machine extension.
@@ -17478,52 +15769,6 @@ func (o VirtualMachineExtensionResponseArrayOutput) Index(i pulumi.IntInput) Vir
 }
 
 // The health status of the VM.
-type VirtualMachineHealthStatus struct {
-}
-
-// VirtualMachineHealthStatusInput is an input type that accepts VirtualMachineHealthStatusArgs and VirtualMachineHealthStatusOutput values.
-// You can construct a concrete instance of `VirtualMachineHealthStatusInput` via:
-//
-//          VirtualMachineHealthStatusArgs{...}
-type VirtualMachineHealthStatusInput interface {
-	pulumi.Input
-
-	ToVirtualMachineHealthStatusOutput() VirtualMachineHealthStatusOutput
-	ToVirtualMachineHealthStatusOutputWithContext(context.Context) VirtualMachineHealthStatusOutput
-}
-
-// The health status of the VM.
-type VirtualMachineHealthStatusArgs struct {
-}
-
-func (VirtualMachineHealthStatusArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineHealthStatus)(nil)).Elem()
-}
-
-func (i VirtualMachineHealthStatusArgs) ToVirtualMachineHealthStatusOutput() VirtualMachineHealthStatusOutput {
-	return i.ToVirtualMachineHealthStatusOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineHealthStatusArgs) ToVirtualMachineHealthStatusOutputWithContext(ctx context.Context) VirtualMachineHealthStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineHealthStatusOutput)
-}
-
-// The health status of the VM.
-type VirtualMachineHealthStatusOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineHealthStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineHealthStatus)(nil)).Elem()
-}
-
-func (o VirtualMachineHealthStatusOutput) ToVirtualMachineHealthStatusOutput() VirtualMachineHealthStatusOutput {
-	return o
-}
-
-func (o VirtualMachineHealthStatusOutput) ToVirtualMachineHealthStatusOutputWithContext(ctx context.Context) VirtualMachineHealthStatusOutput {
-	return o
-}
-
-// The health status of the VM.
 type VirtualMachineHealthStatusResponse struct {
 	// The health status information for the VM.
 	Status InstanceViewStatusResponse `pulumi:"status"`
@@ -17999,160 +16244,6 @@ func (o VirtualMachineIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-// The instance view of a virtual machine.
-type VirtualMachineInstanceView struct {
-	// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
-	BootDiagnostics *BootDiagnosticsInstanceView `pulumi:"bootDiagnostics"`
-	// The computer name assigned to the virtual machine.
-	ComputerName *string `pulumi:"computerName"`
-	// The virtual machine disk information.
-	Disks []DiskInstanceView `pulumi:"disks"`
-	// The extensions information.
-	Extensions []VirtualMachineExtensionInstanceView `pulumi:"extensions"`
-	// The Maintenance Operation status on the virtual machine.
-	MaintenanceRedeployStatus *MaintenanceRedeployStatus `pulumi:"maintenanceRedeployStatus"`
-	// The Operating System running on the virtual machine.
-	OsName *string `pulumi:"osName"`
-	// The version of Operating System running on the virtual machine.
-	OsVersion *string `pulumi:"osVersion"`
-	// Specifies the fault domain of the virtual machine.
-	PlatformFaultDomain *int `pulumi:"platformFaultDomain"`
-	// Specifies the update domain of the virtual machine.
-	PlatformUpdateDomain *int `pulumi:"platformUpdateDomain"`
-	// The Remote desktop certificate thumbprint.
-	RdpThumbPrint *string `pulumi:"rdpThumbPrint"`
-	// The resource status information.
-	Statuses []InstanceViewStatus `pulumi:"statuses"`
-	// The VM Agent running on the virtual machine.
-	VmAgent *VirtualMachineAgentInstanceView `pulumi:"vmAgent"`
-}
-
-// VirtualMachineInstanceViewInput is an input type that accepts VirtualMachineInstanceViewArgs and VirtualMachineInstanceViewOutput values.
-// You can construct a concrete instance of `VirtualMachineInstanceViewInput` via:
-//
-//          VirtualMachineInstanceViewArgs{...}
-type VirtualMachineInstanceViewInput interface {
-	pulumi.Input
-
-	ToVirtualMachineInstanceViewOutput() VirtualMachineInstanceViewOutput
-	ToVirtualMachineInstanceViewOutputWithContext(context.Context) VirtualMachineInstanceViewOutput
-}
-
-// The instance view of a virtual machine.
-type VirtualMachineInstanceViewArgs struct {
-	// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
-	BootDiagnostics BootDiagnosticsInstanceViewPtrInput `pulumi:"bootDiagnostics"`
-	// The computer name assigned to the virtual machine.
-	ComputerName pulumi.StringPtrInput `pulumi:"computerName"`
-	// The virtual machine disk information.
-	Disks DiskInstanceViewArrayInput `pulumi:"disks"`
-	// The extensions information.
-	Extensions VirtualMachineExtensionInstanceViewArrayInput `pulumi:"extensions"`
-	// The Maintenance Operation status on the virtual machine.
-	MaintenanceRedeployStatus MaintenanceRedeployStatusPtrInput `pulumi:"maintenanceRedeployStatus"`
-	// The Operating System running on the virtual machine.
-	OsName pulumi.StringPtrInput `pulumi:"osName"`
-	// The version of Operating System running on the virtual machine.
-	OsVersion pulumi.StringPtrInput `pulumi:"osVersion"`
-	// Specifies the fault domain of the virtual machine.
-	PlatformFaultDomain pulumi.IntPtrInput `pulumi:"platformFaultDomain"`
-	// Specifies the update domain of the virtual machine.
-	PlatformUpdateDomain pulumi.IntPtrInput `pulumi:"platformUpdateDomain"`
-	// The Remote desktop certificate thumbprint.
-	RdpThumbPrint pulumi.StringPtrInput `pulumi:"rdpThumbPrint"`
-	// The resource status information.
-	Statuses InstanceViewStatusArrayInput `pulumi:"statuses"`
-	// The VM Agent running on the virtual machine.
-	VmAgent VirtualMachineAgentInstanceViewPtrInput `pulumi:"vmAgent"`
-}
-
-func (VirtualMachineInstanceViewArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineInstanceView)(nil)).Elem()
-}
-
-func (i VirtualMachineInstanceViewArgs) ToVirtualMachineInstanceViewOutput() VirtualMachineInstanceViewOutput {
-	return i.ToVirtualMachineInstanceViewOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineInstanceViewArgs) ToVirtualMachineInstanceViewOutputWithContext(ctx context.Context) VirtualMachineInstanceViewOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineInstanceViewOutput)
-}
-
-// The instance view of a virtual machine.
-type VirtualMachineInstanceViewOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineInstanceViewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineInstanceView)(nil)).Elem()
-}
-
-func (o VirtualMachineInstanceViewOutput) ToVirtualMachineInstanceViewOutput() VirtualMachineInstanceViewOutput {
-	return o
-}
-
-func (o VirtualMachineInstanceViewOutput) ToVirtualMachineInstanceViewOutputWithContext(ctx context.Context) VirtualMachineInstanceViewOutput {
-	return o
-}
-
-// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
-func (o VirtualMachineInstanceViewOutput) BootDiagnostics() BootDiagnosticsInstanceViewPtrOutput {
-	return o.ApplyT(func(v VirtualMachineInstanceView) *BootDiagnosticsInstanceView { return v.BootDiagnostics }).(BootDiagnosticsInstanceViewPtrOutput)
-}
-
-// The computer name assigned to the virtual machine.
-func (o VirtualMachineInstanceViewOutput) ComputerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineInstanceView) *string { return v.ComputerName }).(pulumi.StringPtrOutput)
-}
-
-// The virtual machine disk information.
-func (o VirtualMachineInstanceViewOutput) Disks() DiskInstanceViewArrayOutput {
-	return o.ApplyT(func(v VirtualMachineInstanceView) []DiskInstanceView { return v.Disks }).(DiskInstanceViewArrayOutput)
-}
-
-// The extensions information.
-func (o VirtualMachineInstanceViewOutput) Extensions() VirtualMachineExtensionInstanceViewArrayOutput {
-	return o.ApplyT(func(v VirtualMachineInstanceView) []VirtualMachineExtensionInstanceView { return v.Extensions }).(VirtualMachineExtensionInstanceViewArrayOutput)
-}
-
-// The Maintenance Operation status on the virtual machine.
-func (o VirtualMachineInstanceViewOutput) MaintenanceRedeployStatus() MaintenanceRedeployStatusPtrOutput {
-	return o.ApplyT(func(v VirtualMachineInstanceView) *MaintenanceRedeployStatus { return v.MaintenanceRedeployStatus }).(MaintenanceRedeployStatusPtrOutput)
-}
-
-// The Operating System running on the virtual machine.
-func (o VirtualMachineInstanceViewOutput) OsName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineInstanceView) *string { return v.OsName }).(pulumi.StringPtrOutput)
-}
-
-// The version of Operating System running on the virtual machine.
-func (o VirtualMachineInstanceViewOutput) OsVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineInstanceView) *string { return v.OsVersion }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the fault domain of the virtual machine.
-func (o VirtualMachineInstanceViewOutput) PlatformFaultDomain() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualMachineInstanceView) *int { return v.PlatformFaultDomain }).(pulumi.IntPtrOutput)
-}
-
-// Specifies the update domain of the virtual machine.
-func (o VirtualMachineInstanceViewOutput) PlatformUpdateDomain() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualMachineInstanceView) *int { return v.PlatformUpdateDomain }).(pulumi.IntPtrOutput)
-}
-
-// The Remote desktop certificate thumbprint.
-func (o VirtualMachineInstanceViewOutput) RdpThumbPrint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineInstanceView) *string { return v.RdpThumbPrint }).(pulumi.StringPtrOutput)
-}
-
-// The resource status information.
-func (o VirtualMachineInstanceViewOutput) Statuses() InstanceViewStatusArrayOutput {
-	return o.ApplyT(func(v VirtualMachineInstanceView) []InstanceViewStatus { return v.Statuses }).(InstanceViewStatusArrayOutput)
-}
-
-// The VM Agent running on the virtual machine.
-func (o VirtualMachineInstanceViewOutput) VmAgent() VirtualMachineAgentInstanceViewPtrOutput {
-	return o.ApplyT(func(v VirtualMachineInstanceView) *VirtualMachineAgentInstanceView { return v.VmAgent }).(VirtualMachineAgentInstanceViewPtrOutput)
 }
 
 // The instance view of a virtual machine.
@@ -18828,133 +16919,6 @@ func (o VirtualMachinePropertiesResponsePtrOutput) VmId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Describes a Virtual Machine Scale Set.
-type VirtualMachineScaleSetType struct {
-	// The identity of the virtual machine scale set, if configured.
-	Identity *VirtualMachineScaleSetIdentityResponse `pulumi:"identity"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-	Plan *PlanResponse `pulumi:"plan"`
-	// Describes the properties of a Virtual Machine Scale Set.
-	Properties VirtualMachineScaleSetPropertiesResponse `pulumi:"properties"`
-	// The virtual machine scale set sku.
-	Sku *SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
-	Zones []string `pulumi:"zones"`
-}
-
-// VirtualMachineScaleSetTypeInput is an input type that accepts VirtualMachineScaleSetTypeArgs and VirtualMachineScaleSetTypeOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetTypeInput` via:
-//
-//          VirtualMachineScaleSetTypeArgs{...}
-type VirtualMachineScaleSetTypeInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetTypeOutput() VirtualMachineScaleSetTypeOutput
-	ToVirtualMachineScaleSetTypeOutputWithContext(context.Context) VirtualMachineScaleSetTypeOutput
-}
-
-// Describes a Virtual Machine Scale Set.
-type VirtualMachineScaleSetTypeArgs struct {
-	// The identity of the virtual machine scale set, if configured.
-	Identity VirtualMachineScaleSetIdentityResponsePtrInput `pulumi:"identity"`
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-	Plan PlanResponsePtrInput `pulumi:"plan"`
-	// Describes the properties of a Virtual Machine Scale Set.
-	Properties VirtualMachineScaleSetPropertiesResponseInput `pulumi:"properties"`
-	// The virtual machine scale set sku.
-	Sku SkuResponsePtrInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-	// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
-	Zones pulumi.StringArrayInput `pulumi:"zones"`
-}
-
-func (VirtualMachineScaleSetTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetType)(nil)).Elem()
-}
-
-func (i VirtualMachineScaleSetTypeArgs) ToVirtualMachineScaleSetTypeOutput() VirtualMachineScaleSetTypeOutput {
-	return i.ToVirtualMachineScaleSetTypeOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetTypeArgs) ToVirtualMachineScaleSetTypeOutputWithContext(ctx context.Context) VirtualMachineScaleSetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetTypeOutput)
-}
-
-// Describes a Virtual Machine Scale Set.
-type VirtualMachineScaleSetTypeOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetType)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetTypeOutput) ToVirtualMachineScaleSetTypeOutput() VirtualMachineScaleSetTypeOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetTypeOutput) ToVirtualMachineScaleSetTypeOutputWithContext(ctx context.Context) VirtualMachineScaleSetTypeOutput {
-	return o
-}
-
-// The identity of the virtual machine scale set, if configured.
-func (o VirtualMachineScaleSetTypeOutput) Identity() VirtualMachineScaleSetIdentityResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetType) *VirtualMachineScaleSetIdentityResponse { return v.Identity }).(VirtualMachineScaleSetIdentityResponsePtrOutput)
-}
-
-// Resource location
-func (o VirtualMachineScaleSetTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o VirtualMachineScaleSetTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-func (o VirtualMachineScaleSetTypeOutput) Plan() PlanResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetType) *PlanResponse { return v.Plan }).(PlanResponsePtrOutput)
-}
-
-// Describes the properties of a Virtual Machine Scale Set.
-func (o VirtualMachineScaleSetTypeOutput) Properties() VirtualMachineScaleSetPropertiesResponseOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetType) VirtualMachineScaleSetPropertiesResponse { return v.Properties }).(VirtualMachineScaleSetPropertiesResponseOutput)
-}
-
-// The virtual machine scale set sku.
-func (o VirtualMachineScaleSetTypeOutput) Sku() SkuResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetType) *SkuResponse { return v.Sku }).(SkuResponsePtrOutput)
-}
-
-// Resource tags
-func (o VirtualMachineScaleSetTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o VirtualMachineScaleSetTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The virtual machine scale set zones. NOTE: Availability zones can only be set when you create the scale set.
-func (o VirtualMachineScaleSetTypeOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetType) []string { return v.Zones }).(pulumi.StringArrayOutput)
-}
-
 // Describes a virtual machine scale set data disk.
 type VirtualMachineScaleSetDataDisk struct {
 	// Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
@@ -19269,10 +17233,22 @@ func (o VirtualMachineScaleSetDataDiskResponseArrayOutput) Index(i pulumi.IntInp
 
 // Describes a Virtual Machine Scale Set Extension.
 type VirtualMachineScaleSetExtensionType struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion *bool `pulumi:"autoUpgradeMinorVersion"`
+	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The name of the extension.
 	Name *string `pulumi:"name"`
-	// Describes the properties of a Virtual Machine Scale Set Extension.
-	Properties VirtualMachineScaleSetExtensionPropertiesResponse `pulumi:"properties"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings map[string]interface{} `pulumi:"protectedSettings"`
+	// The name of the extension handler publisher.
+	Publisher *string `pulumi:"publisher"`
+	// Json formatted public settings for the extension.
+	Settings map[string]interface{} `pulumi:"settings"`
+	// Specifies the type of the extension; an example is "CustomScriptExtension".
+	Type *string `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 }
 
 // VirtualMachineScaleSetExtensionTypeInput is an input type that accepts VirtualMachineScaleSetExtensionTypeArgs and VirtualMachineScaleSetExtensionTypeOutput values.
@@ -19288,10 +17264,22 @@ type VirtualMachineScaleSetExtensionTypeInput interface {
 
 // Describes a Virtual Machine Scale Set Extension.
 type VirtualMachineScaleSetExtensionTypeArgs struct {
+	// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+	AutoUpgradeMinorVersion pulumi.BoolPtrInput `pulumi:"autoUpgradeMinorVersion"`
+	// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+	ForceUpdateTag pulumi.StringPtrInput `pulumi:"forceUpdateTag"`
 	// The name of the extension.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Describes the properties of a Virtual Machine Scale Set Extension.
-	Properties VirtualMachineScaleSetExtensionPropertiesResponseInput `pulumi:"properties"`
+	// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+	ProtectedSettings pulumi.MapInput `pulumi:"protectedSettings"`
+	// The name of the extension handler publisher.
+	Publisher pulumi.StringPtrInput `pulumi:"publisher"`
+	// Json formatted public settings for the extension.
+	Settings pulumi.MapInput `pulumi:"settings"`
+	// Specifies the type of the extension; an example is "CustomScriptExtension".
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Specifies the version of the script handler.
+	TypeHandlerVersion pulumi.StringPtrInput `pulumi:"typeHandlerVersion"`
 }
 
 func (VirtualMachineScaleSetExtensionTypeArgs) ElementType() reflect.Type {
@@ -19346,16 +17334,44 @@ func (o VirtualMachineScaleSetExtensionTypeOutput) ToVirtualMachineScaleSetExten
 	return o
 }
 
+// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+func (o VirtualMachineScaleSetExtensionTypeOutput) AutoUpgradeMinorVersion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionType) *bool { return v.AutoUpgradeMinorVersion }).(pulumi.BoolPtrOutput)
+}
+
+// If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
+func (o VirtualMachineScaleSetExtensionTypeOutput) ForceUpdateTag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionType) *string { return v.ForceUpdateTag }).(pulumi.StringPtrOutput)
+}
+
 // The name of the extension.
 func (o VirtualMachineScaleSetExtensionTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v VirtualMachineScaleSetExtensionType) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Describes the properties of a Virtual Machine Scale Set Extension.
-func (o VirtualMachineScaleSetExtensionTypeOutput) Properties() VirtualMachineScaleSetExtensionPropertiesResponseOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetExtensionType) VirtualMachineScaleSetExtensionPropertiesResponse {
-		return v.Properties
-	}).(VirtualMachineScaleSetExtensionPropertiesResponseOutput)
+// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+func (o VirtualMachineScaleSetExtensionTypeOutput) ProtectedSettings() pulumi.MapOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionType) map[string]interface{} { return v.ProtectedSettings }).(pulumi.MapOutput)
+}
+
+// The name of the extension handler publisher.
+func (o VirtualMachineScaleSetExtensionTypeOutput) Publisher() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionType) *string { return v.Publisher }).(pulumi.StringPtrOutput)
+}
+
+// Json formatted public settings for the extension.
+func (o VirtualMachineScaleSetExtensionTypeOutput) Settings() pulumi.MapOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionType) map[string]interface{} { return v.Settings }).(pulumi.MapOutput)
+}
+
+// Specifies the type of the extension; an example is "CustomScriptExtension".
+func (o VirtualMachineScaleSetExtensionTypeOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionType) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the version of the script handler.
+func (o VirtualMachineScaleSetExtensionTypeOutput) TypeHandlerVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualMachineScaleSetExtensionType) *string { return v.TypeHandlerVersion }).(pulumi.StringPtrOutput)
 }
 
 type VirtualMachineScaleSetExtensionTypeArrayOutput struct{ *pulumi.OutputState }
@@ -25071,282 +23087,6 @@ func (o VirtualMachineScaleSetStorageProfileResponsePtrOutput) OsDisk() VirtualM
 	}).(VirtualMachineScaleSetOSDiskResponsePtrOutput)
 }
 
-// Describes a virtual machine scale set virtual machine.
-type VirtualMachineScaleSetVMType struct {
-	// The virtual machine instance ID.
-	InstanceId string `pulumi:"instanceId"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-	Plan *PlanResponse `pulumi:"plan"`
-	// Describes the properties of a virtual machine scale set virtual machine.
-	Properties VirtualMachineScaleSetVMPropertiesResponse `pulumi:"properties"`
-	// The virtual machine child extension resources.
-	Resources []VirtualMachineExtensionResponse `pulumi:"resources"`
-	// The virtual machine SKU.
-	Sku SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-	// The virtual machine zones.
-	Zones []string `pulumi:"zones"`
-}
-
-// VirtualMachineScaleSetVMTypeInput is an input type that accepts VirtualMachineScaleSetVMTypeArgs and VirtualMachineScaleSetVMTypeOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetVMTypeInput` via:
-//
-//          VirtualMachineScaleSetVMTypeArgs{...}
-type VirtualMachineScaleSetVMTypeInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetVMTypeOutput() VirtualMachineScaleSetVMTypeOutput
-	ToVirtualMachineScaleSetVMTypeOutputWithContext(context.Context) VirtualMachineScaleSetVMTypeOutput
-}
-
-// Describes a virtual machine scale set virtual machine.
-type VirtualMachineScaleSetVMTypeArgs struct {
-	// The virtual machine instance ID.
-	InstanceId pulumi.StringInput `pulumi:"instanceId"`
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-	Plan PlanResponsePtrInput `pulumi:"plan"`
-	// Describes the properties of a virtual machine scale set virtual machine.
-	Properties VirtualMachineScaleSetVMPropertiesResponseInput `pulumi:"properties"`
-	// The virtual machine child extension resources.
-	Resources VirtualMachineExtensionResponseArrayInput `pulumi:"resources"`
-	// The virtual machine SKU.
-	Sku SkuResponseInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-	// The virtual machine zones.
-	Zones pulumi.StringArrayInput `pulumi:"zones"`
-}
-
-func (VirtualMachineScaleSetVMTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetVMType)(nil)).Elem()
-}
-
-func (i VirtualMachineScaleSetVMTypeArgs) ToVirtualMachineScaleSetVMTypeOutput() VirtualMachineScaleSetVMTypeOutput {
-	return i.ToVirtualMachineScaleSetVMTypeOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetVMTypeArgs) ToVirtualMachineScaleSetVMTypeOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMTypeOutput)
-}
-
-// Describes a virtual machine scale set virtual machine.
-type VirtualMachineScaleSetVMTypeOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetVMTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetVMType)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetVMTypeOutput) ToVirtualMachineScaleSetVMTypeOutput() VirtualMachineScaleSetVMTypeOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetVMTypeOutput) ToVirtualMachineScaleSetVMTypeOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMTypeOutput {
-	return o
-}
-
-// The virtual machine instance ID.
-func (o VirtualMachineScaleSetVMTypeOutput) InstanceId() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMType) string { return v.InstanceId }).(pulumi.StringOutput)
-}
-
-// Resource location
-func (o VirtualMachineScaleSetVMTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o VirtualMachineScaleSetVMTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
-func (o VirtualMachineScaleSetVMTypeOutput) Plan() PlanResponsePtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMType) *PlanResponse { return v.Plan }).(PlanResponsePtrOutput)
-}
-
-// Describes the properties of a virtual machine scale set virtual machine.
-func (o VirtualMachineScaleSetVMTypeOutput) Properties() VirtualMachineScaleSetVMPropertiesResponseOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMType) VirtualMachineScaleSetVMPropertiesResponse { return v.Properties }).(VirtualMachineScaleSetVMPropertiesResponseOutput)
-}
-
-// The virtual machine child extension resources.
-func (o VirtualMachineScaleSetVMTypeOutput) Resources() VirtualMachineExtensionResponseArrayOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMType) []VirtualMachineExtensionResponse { return v.Resources }).(VirtualMachineExtensionResponseArrayOutput)
-}
-
-// The virtual machine SKU.
-func (o VirtualMachineScaleSetVMTypeOutput) Sku() SkuResponseOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMType) SkuResponse { return v.Sku }).(SkuResponseOutput)
-}
-
-// Resource tags
-func (o VirtualMachineScaleSetVMTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o VirtualMachineScaleSetVMTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The virtual machine zones.
-func (o VirtualMachineScaleSetVMTypeOutput) Zones() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMType) []string { return v.Zones }).(pulumi.StringArrayOutput)
-}
-
-// The instance view of a virtual machine scale set VM.
-type VirtualMachineScaleSetVMInstanceView struct {
-	// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
-	BootDiagnostics *BootDiagnosticsInstanceView `pulumi:"bootDiagnostics"`
-	// The disks information.
-	Disks []DiskInstanceView `pulumi:"disks"`
-	// The extensions information.
-	Extensions []VirtualMachineExtensionInstanceView `pulumi:"extensions"`
-	// The Maintenance Operation status on the virtual machine.
-	MaintenanceRedeployStatus *MaintenanceRedeployStatus `pulumi:"maintenanceRedeployStatus"`
-	// The placement group in which the VM is running. If the VM is deallocated it will not have a placementGroupId.
-	PlacementGroupId *string `pulumi:"placementGroupId"`
-	// The Fault Domain count.
-	PlatformFaultDomain *int `pulumi:"platformFaultDomain"`
-	// The Update Domain count.
-	PlatformUpdateDomain *int `pulumi:"platformUpdateDomain"`
-	// The Remote desktop certificate thumbprint.
-	RdpThumbPrint *string `pulumi:"rdpThumbPrint"`
-	// The resource status information.
-	Statuses []InstanceViewStatus `pulumi:"statuses"`
-	// The VM Agent running on the virtual machine.
-	VmAgent *VirtualMachineAgentInstanceView `pulumi:"vmAgent"`
-}
-
-// VirtualMachineScaleSetVMInstanceViewInput is an input type that accepts VirtualMachineScaleSetVMInstanceViewArgs and VirtualMachineScaleSetVMInstanceViewOutput values.
-// You can construct a concrete instance of `VirtualMachineScaleSetVMInstanceViewInput` via:
-//
-//          VirtualMachineScaleSetVMInstanceViewArgs{...}
-type VirtualMachineScaleSetVMInstanceViewInput interface {
-	pulumi.Input
-
-	ToVirtualMachineScaleSetVMInstanceViewOutput() VirtualMachineScaleSetVMInstanceViewOutput
-	ToVirtualMachineScaleSetVMInstanceViewOutputWithContext(context.Context) VirtualMachineScaleSetVMInstanceViewOutput
-}
-
-// The instance view of a virtual machine scale set VM.
-type VirtualMachineScaleSetVMInstanceViewArgs struct {
-	// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
-	BootDiagnostics BootDiagnosticsInstanceViewPtrInput `pulumi:"bootDiagnostics"`
-	// The disks information.
-	Disks DiskInstanceViewArrayInput `pulumi:"disks"`
-	// The extensions information.
-	Extensions VirtualMachineExtensionInstanceViewArrayInput `pulumi:"extensions"`
-	// The Maintenance Operation status on the virtual machine.
-	MaintenanceRedeployStatus MaintenanceRedeployStatusPtrInput `pulumi:"maintenanceRedeployStatus"`
-	// The placement group in which the VM is running. If the VM is deallocated it will not have a placementGroupId.
-	PlacementGroupId pulumi.StringPtrInput `pulumi:"placementGroupId"`
-	// The Fault Domain count.
-	PlatformFaultDomain pulumi.IntPtrInput `pulumi:"platformFaultDomain"`
-	// The Update Domain count.
-	PlatformUpdateDomain pulumi.IntPtrInput `pulumi:"platformUpdateDomain"`
-	// The Remote desktop certificate thumbprint.
-	RdpThumbPrint pulumi.StringPtrInput `pulumi:"rdpThumbPrint"`
-	// The resource status information.
-	Statuses InstanceViewStatusArrayInput `pulumi:"statuses"`
-	// The VM Agent running on the virtual machine.
-	VmAgent VirtualMachineAgentInstanceViewPtrInput `pulumi:"vmAgent"`
-}
-
-func (VirtualMachineScaleSetVMInstanceViewArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetVMInstanceView)(nil)).Elem()
-}
-
-func (i VirtualMachineScaleSetVMInstanceViewArgs) ToVirtualMachineScaleSetVMInstanceViewOutput() VirtualMachineScaleSetVMInstanceViewOutput {
-	return i.ToVirtualMachineScaleSetVMInstanceViewOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineScaleSetVMInstanceViewArgs) ToVirtualMachineScaleSetVMInstanceViewOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMInstanceViewOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetVMInstanceViewOutput)
-}
-
-// The instance view of a virtual machine scale set VM.
-type VirtualMachineScaleSetVMInstanceViewOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineScaleSetVMInstanceViewOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineScaleSetVMInstanceView)(nil)).Elem()
-}
-
-func (o VirtualMachineScaleSetVMInstanceViewOutput) ToVirtualMachineScaleSetVMInstanceViewOutput() VirtualMachineScaleSetVMInstanceViewOutput {
-	return o
-}
-
-func (o VirtualMachineScaleSetVMInstanceViewOutput) ToVirtualMachineScaleSetVMInstanceViewOutputWithContext(ctx context.Context) VirtualMachineScaleSetVMInstanceViewOutput {
-	return o
-}
-
-// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
-func (o VirtualMachineScaleSetVMInstanceViewOutput) BootDiagnostics() BootDiagnosticsInstanceViewPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMInstanceView) *BootDiagnosticsInstanceView { return v.BootDiagnostics }).(BootDiagnosticsInstanceViewPtrOutput)
-}
-
-// The disks information.
-func (o VirtualMachineScaleSetVMInstanceViewOutput) Disks() DiskInstanceViewArrayOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMInstanceView) []DiskInstanceView { return v.Disks }).(DiskInstanceViewArrayOutput)
-}
-
-// The extensions information.
-func (o VirtualMachineScaleSetVMInstanceViewOutput) Extensions() VirtualMachineExtensionInstanceViewArrayOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMInstanceView) []VirtualMachineExtensionInstanceView {
-		return v.Extensions
-	}).(VirtualMachineExtensionInstanceViewArrayOutput)
-}
-
-// The Maintenance Operation status on the virtual machine.
-func (o VirtualMachineScaleSetVMInstanceViewOutput) MaintenanceRedeployStatus() MaintenanceRedeployStatusPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMInstanceView) *MaintenanceRedeployStatus {
-		return v.MaintenanceRedeployStatus
-	}).(MaintenanceRedeployStatusPtrOutput)
-}
-
-// The placement group in which the VM is running. If the VM is deallocated it will not have a placementGroupId.
-func (o VirtualMachineScaleSetVMInstanceViewOutput) PlacementGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMInstanceView) *string { return v.PlacementGroupId }).(pulumi.StringPtrOutput)
-}
-
-// The Fault Domain count.
-func (o VirtualMachineScaleSetVMInstanceViewOutput) PlatformFaultDomain() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMInstanceView) *int { return v.PlatformFaultDomain }).(pulumi.IntPtrOutput)
-}
-
-// The Update Domain count.
-func (o VirtualMachineScaleSetVMInstanceViewOutput) PlatformUpdateDomain() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMInstanceView) *int { return v.PlatformUpdateDomain }).(pulumi.IntPtrOutput)
-}
-
-// The Remote desktop certificate thumbprint.
-func (o VirtualMachineScaleSetVMInstanceViewOutput) RdpThumbPrint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMInstanceView) *string { return v.RdpThumbPrint }).(pulumi.StringPtrOutput)
-}
-
-// The resource status information.
-func (o VirtualMachineScaleSetVMInstanceViewOutput) Statuses() InstanceViewStatusArrayOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMInstanceView) []InstanceViewStatus { return v.Statuses }).(InstanceViewStatusArrayOutput)
-}
-
-// The VM Agent running on the virtual machine.
-func (o VirtualMachineScaleSetVMInstanceViewOutput) VmAgent() VirtualMachineAgentInstanceViewPtrOutput {
-	return o.ApplyT(func(v VirtualMachineScaleSetVMInstanceView) *VirtualMachineAgentInstanceView { return v.VmAgent }).(VirtualMachineAgentInstanceViewPtrOutput)
-}
-
 // The instance view of a virtual machine scale set VM.
 type VirtualMachineScaleSetVMInstanceViewResponse struct {
 	// Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. <br><br> You can easily view the output of your console log. <br><br> Azure also enables you to see a screenshot of the VM from the hypervisor.
@@ -27480,13 +25220,10 @@ func init() {
 	pulumi.RegisterOutputType(AutoOSUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(AutoOSUpgradePolicyResponseOutput{})
 	pulumi.RegisterOutputType(AutoOSUpgradePolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(AvailabilitySetTypeOutput{})
 	pulumi.RegisterOutputType(AvailabilitySetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AvailabilitySetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(BootDiagnosticsOutput{})
 	pulumi.RegisterOutputType(BootDiagnosticsPtrOutput{})
-	pulumi.RegisterOutputType(BootDiagnosticsInstanceViewOutput{})
-	pulumi.RegisterOutputType(BootDiagnosticsInstanceViewPtrOutput{})
 	pulumi.RegisterOutputType(BootDiagnosticsInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(BootDiagnosticsInstanceViewResponsePtrOutput{})
 	pulumi.RegisterOutputType(BootDiagnosticsResponseOutput{})
@@ -27503,15 +25240,11 @@ func init() {
 	pulumi.RegisterOutputType(DiagnosticsProfilePtrOutput{})
 	pulumi.RegisterOutputType(DiagnosticsProfileResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticsProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(DiskTypeOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSettingsOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSettingsPtrOutput{})
-	pulumi.RegisterOutputType(DiskEncryptionSettingsArrayOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSettingsResponseOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(DiskEncryptionSettingsResponseArrayOutput{})
-	pulumi.RegisterOutputType(DiskInstanceViewOutput{})
-	pulumi.RegisterOutputType(DiskInstanceViewArrayOutput{})
 	pulumi.RegisterOutputType(DiskInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(DiskInstanceViewResponseArrayOutput{})
 	pulumi.RegisterOutputType(DiskPropertiesResponseOutput{})
@@ -27528,7 +25261,6 @@ func init() {
 	pulumi.RegisterOutputType(HardwareProfilePtrOutput{})
 	pulumi.RegisterOutputType(HardwareProfileResponseOutput{})
 	pulumi.RegisterOutputType(HardwareProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(ImageTypeOutput{})
 	pulumi.RegisterOutputType(ImageDataDiskOutput{})
 	pulumi.RegisterOutputType(ImageDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(ImageDataDiskResponseOutput{})
@@ -27552,7 +25284,6 @@ func init() {
 	pulumi.RegisterOutputType(ImageStorageProfileResponseOutput{})
 	pulumi.RegisterOutputType(ImageStorageProfileResponsePtrOutput{})
 	pulumi.RegisterOutputType(InstanceViewStatusOutput{})
-	pulumi.RegisterOutputType(InstanceViewStatusPtrOutput{})
 	pulumi.RegisterOutputType(InstanceViewStatusArrayOutput{})
 	pulumi.RegisterOutputType(InstanceViewStatusResponseOutput{})
 	pulumi.RegisterOutputType(InstanceViewStatusResponsePtrOutput{})
@@ -27577,8 +25308,6 @@ func init() {
 	pulumi.RegisterOutputType(LinuxConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(LinuxConfigurationResponsePtrOutput{})
-	pulumi.RegisterOutputType(MaintenanceRedeployStatusOutput{})
-	pulumi.RegisterOutputType(MaintenanceRedeployStatusPtrOutput{})
 	pulumi.RegisterOutputType(MaintenanceRedeployStatusResponseOutput{})
 	pulumi.RegisterOutputType(MaintenanceRedeployStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedDiskParametersOutput{})
@@ -27607,7 +25336,6 @@ func init() {
 	pulumi.RegisterOutputType(PlanPtrOutput{})
 	pulumi.RegisterOutputType(PlanResponseOutput{})
 	pulumi.RegisterOutputType(PlanResponsePtrOutput{})
-	pulumi.RegisterOutputType(ProximityPlacementGroupTypeOutput{})
 	pulumi.RegisterOutputType(ProximityPlacementGroupPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ProximityPlacementGroupPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(RollingUpgradePolicyOutput{})
@@ -27618,7 +25346,6 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(SnapshotTypeOutput{})
 	pulumi.RegisterOutputType(SnapshotSkuOutput{})
 	pulumi.RegisterOutputType(SnapshotSkuPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotSkuResponseOutput{})
@@ -27661,19 +25388,12 @@ func init() {
 	pulumi.RegisterOutputType(VirtualHardDiskPtrOutput{})
 	pulumi.RegisterOutputType(VirtualHardDiskResponseOutput{})
 	pulumi.RegisterOutputType(VirtualHardDiskResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualMachineTypeOutput{})
-	pulumi.RegisterOutputType(VirtualMachineAgentInstanceViewOutput{})
-	pulumi.RegisterOutputType(VirtualMachineAgentInstanceViewPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineAgentInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineAgentInstanceViewResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualMachineExtensionTypeOutput{})
-	pulumi.RegisterOutputType(VirtualMachineExtensionHandlerInstanceViewOutput{})
-	pulumi.RegisterOutputType(VirtualMachineExtensionHandlerInstanceViewArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineExtensionHandlerInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineExtensionHandlerInstanceViewResponseArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineExtensionInstanceViewOutput{})
 	pulumi.RegisterOutputType(VirtualMachineExtensionInstanceViewPtrOutput{})
-	pulumi.RegisterOutputType(VirtualMachineExtensionInstanceViewArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineExtensionInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineExtensionInstanceViewResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineExtensionInstanceViewResponseArrayOutput{})
@@ -27681,19 +25401,16 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineExtensionPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineExtensionResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineExtensionResponseArrayOutput{})
-	pulumi.RegisterOutputType(VirtualMachineHealthStatusOutput{})
 	pulumi.RegisterOutputType(VirtualMachineHealthStatusResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineHealthStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineIdentityOutput{})
 	pulumi.RegisterOutputType(VirtualMachineIdentityPtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineIdentityResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualMachineInstanceViewOutput{})
 	pulumi.RegisterOutputType(VirtualMachineInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineInstanceViewResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachinePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachinePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetTypeOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetDataDiskOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetDataDiskResponseOutput{})
@@ -27764,8 +25481,6 @@ func init() {
 	pulumi.RegisterOutputType(VirtualMachineScaleSetStorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetStorageProfileResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetStorageProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetVMTypeOutput{})
-	pulumi.RegisterOutputType(VirtualMachineScaleSetVMInstanceViewOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMInstanceViewResponseOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMInstanceViewResponsePtrOutput{})
 	pulumi.RegisterOutputType(VirtualMachineScaleSetVMProfileOutput{})

@@ -55,7 +55,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * Properties of the vault.
      */
-    public readonly properties!: pulumi.Output<outputs.recoveryservices.v20160601.VaultPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.recoveryservices.v20160601.VaultPropertiesResponse>;
     /**
      * Identifies the unique system identifier for each Azure resource.
      */
@@ -95,10 +95,10 @@ export class Vault extends pulumi.CustomResource {
             inputs["identity"] = args ? args.identity : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -132,10 +132,6 @@ export interface VaultArgs {
      * The name of the recovery services vault.
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * Properties of the vault.
-     */
-    readonly properties?: pulumi.Input<inputs.recoveryservices.v20160601.VaultProperties>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

@@ -21,6 +21,26 @@ class MachineExtension(pulumi.CustomResource):
     properties: pulumi.Output[dict]
     """
     Describes Machine Extension Properties.
+      * `auto_upgrade_minor_version` (`bool`) - Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+      * `force_update_tag` (`str`) - How the extension handler should be forced to update even if the extension configuration has not changed.
+      * `instance_view` (`dict`) - The machine extension instance view.
+        * `name` (`str`) - The machine extension name.
+        * `status` (`dict`) - Instance view status.
+          * `code` (`str`) - The status code.
+          * `display_status` (`str`) - The short localizable label for the status.
+          * `level` (`str`) - The level code.
+          * `message` (`str`) - The detailed status message, including for alerts and error messages.
+          * `time` (`str`) - The time of the status.
+
+        * `type` (`str`) - Specifies the type of the extension; an example is "CustomScriptExtension".
+        * `type_handler_version` (`str`) - Specifies the version of the script handler.
+
+      * `protected_settings` (`dict`) - The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+      * `provisioning_state` (`str`) - The provisioning state, which only appears in the response.
+      * `publisher` (`str`) - The name of the extension handler publisher.
+      * `settings` (`dict`) - Json formatted public settings for the extension.
+      * `type` (`str`) - Specifies the type of the extension; an example is "CustomScriptExtension".
+      * `type_handler_version` (`str`) - Specifies the version of the script handler.
     """
     tags: pulumi.Output[dict]
     """
@@ -48,6 +68,19 @@ class MachineExtension(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Resource tags.
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
+
+        The **instance_view** object supports the following:
+
+          * `name` (`pulumi.Input[str]`) - The machine extension name.
+          * `status` (`pulumi.Input[dict]`) - Instance view status.
+            * `code` (`pulumi.Input[str]`) - The status code.
+            * `display_status` (`pulumi.Input[str]`) - The short localizable label for the status.
+            * `level` (`pulumi.Input[str]`) - The level code.
+            * `message` (`pulumi.Input[str]`) - The detailed status message, including for alerts and error messages.
+            * `time` (`pulumi.Input[str]`) - The time of the status.
+
+          * `type` (`pulumi.Input[str]`) - Specifies the type of the extension; an example is "CustomScriptExtension".
+          * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the script handler.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

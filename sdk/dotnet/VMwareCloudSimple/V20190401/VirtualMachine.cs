@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         /// The list of tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.TagsResponseResult?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// {resourceProviderNamespace}/{resourceType}
@@ -179,11 +179,17 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         [Input("resourcePool")]
         public Input<Inputs.ResourcePoolArgs>? ResourcePool { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// The list of tags
         /// </summary>
-        [Input("tags")]
-        public Input<Inputs.TagsArgs>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// Virtual Machine Template Id

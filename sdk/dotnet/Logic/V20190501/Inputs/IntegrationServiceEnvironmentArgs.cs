@@ -22,22 +22,16 @@ namespace Pulumi.AzureRM.Logic.V20190501.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Gets the resource name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The integration service environment properties.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.IntegrationServiceEnvironmentPropertiesResponseArgs> Properties { get; set; } = null!;
+        [Input("properties")]
+        public Input<Inputs.IntegrationServiceEnvironmentPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The sku.
         /// </summary>
         [Input("sku")]
-        public Input<Inputs.IntegrationServiceEnvironmentSkuResponseArgs>? Sku { get; set; }
+        public Input<Inputs.IntegrationServiceEnvironmentSkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -50,12 +44,6 @@ namespace Pulumi.AzureRM.Logic.V20190501.Inputs
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Gets the resource type.
-        /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
 
         public IntegrationServiceEnvironmentArgs()
         {

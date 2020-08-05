@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// Parameters for linked service.
         /// </summary>
-        public readonly Outputs.ParameterDefinitionSpecificationResponseResult? Parameters;
+        public readonly ImmutableDictionary<string, Outputs.ParameterSpecificationResponseResult>? Parameters;
         /// <summary>
         /// Type of linked service.
         /// </summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
 
             string? description,
 
-            Outputs.ParameterDefinitionSpecificationResponseResult? parameters,
+            ImmutableDictionary<string, Outputs.ParameterSpecificationResponseResult>? parameters,
 
             string type)
         {

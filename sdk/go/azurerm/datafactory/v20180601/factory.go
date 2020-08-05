@@ -103,7 +103,7 @@ func (FactoryState) ElementType() reflect.Type {
 
 type factoryArgs struct {
 	// List of parameters for factory.
-	GlobalParameters *GlobalParameterDefinitionSpecification `pulumi:"globalParameters"`
+	GlobalParameters map[string]GlobalParameterSpecification `pulumi:"globalParameters"`
 	// Managed service identity of the factory.
 	Identity *FactoryIdentity `pulumi:"identity"`
 	// The resource location.
@@ -121,7 +121,7 @@ type factoryArgs struct {
 // The set of arguments for constructing a Factory resource.
 type FactoryArgs struct {
 	// List of parameters for factory.
-	GlobalParameters GlobalParameterDefinitionSpecificationPtrInput
+	GlobalParameters GlobalParameterSpecificationMapInput
 	// Managed service identity of the factory.
 	Identity FactoryIdentityPtrInput
 	// The resource location.

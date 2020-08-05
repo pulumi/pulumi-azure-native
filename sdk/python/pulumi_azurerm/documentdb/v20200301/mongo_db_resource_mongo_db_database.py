@@ -22,7 +22,13 @@ class MongoDBResourceMongoDBDatabase(pulumi.CustomResource):
     """
     The properties of an Azure Cosmos DB MongoDB database
       * `options` (`dict`)
+        * `throughput` (`float`) - Value of the Cosmos DB resource throughput. Use the ThroughputSetting resource when retrieving offer details.
+
       * `resource` (`dict`)
+        * `_etag` (`str`) - A system generated property representing the resource etag required for optimistic concurrency control.
+        * `_rid` (`str`) - A system generated property. A unique identifier.
+        * `_ts` (`dict`) - A system generated property that denotes the last updated timestamp of the resource.
+        * `id` (`str`) - Name of the Cosmos DB MongoDB database
     """
     tags: pulumi.Output[dict]
     """

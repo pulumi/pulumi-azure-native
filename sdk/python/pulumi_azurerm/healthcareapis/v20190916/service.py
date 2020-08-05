@@ -36,7 +36,9 @@ class Service(pulumi.CustomResource):
     properties: pulumi.Output[dict]
     """
     The common properties of a service.
-      * `access_policies` (`dict`) - The access policies of the service instance.
+      * `access_policies` (`list`) - The access policies of the service instance.
+        * `object_id` (`str`) - An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+
       * `authentication_configuration` (`dict`) - The authentication configuration for the service instance.
         * `audience` (`str`) - The audience url for the service
         * `authority` (`str`) - The authority url for the service
@@ -86,7 +88,9 @@ class Service(pulumi.CustomResource):
 
         The **properties** object supports the following:
 
-          * `access_policies` (`pulumi.Input[dict]`) - The access policies of the service instance.
+          * `access_policies` (`pulumi.Input[list]`) - The access policies of the service instance.
+            * `object_id` (`pulumi.Input[str]`) - An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+
           * `authentication_configuration` (`pulumi.Input[dict]`) - The authentication configuration for the service instance.
             * `audience` (`pulumi.Input[str]`) - The audience url for the service
             * `authority` (`pulumi.Input[str]`) - The authority url for the service

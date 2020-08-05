@@ -21,18 +21,6 @@ namespace Pulumi.AzureRM.VirtualMachineImages.V20200214.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
-        [Input("userAssignedIdentities")]
-        private InputMap<Inputs.ImageTemplateIdentityPropertiesArgs>? _userAssignedIdentities;
-
-        /// <summary>
-        /// The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-        /// </summary>
-        public InputMap<Inputs.ImageTemplateIdentityPropertiesArgs> UserAssignedIdentities
-        {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<Inputs.ImageTemplateIdentityPropertiesArgs>());
-            set => _userAssignedIdentities = value;
-        }
-
         public ImageTemplateIdentityArgs()
         {
         }

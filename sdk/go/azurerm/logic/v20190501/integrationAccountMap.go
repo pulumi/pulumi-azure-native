@@ -111,7 +111,7 @@ type integrationAccountMapArgs struct {
 	// The integration account map name.
 	Name string `pulumi:"name"`
 	// The parameters schema of integration account map.
-	ParametersSchema *IntegrationAccountMapPropertiesProperties `pulumi:"parametersSchema"`
+	ParametersSchema *IntegrationAccountMapPropertiesParametersSchema `pulumi:"parametersSchema"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource tags.
@@ -135,7 +135,7 @@ type IntegrationAccountMapArgs struct {
 	// The integration account map name.
 	Name pulumi.StringInput
 	// The parameters schema of integration account map.
-	ParametersSchema IntegrationAccountMapPropertiesPropertiesPtrInput
+	ParametersSchema IntegrationAccountMapPropertiesParametersSchemaPtrInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// The resource tags.

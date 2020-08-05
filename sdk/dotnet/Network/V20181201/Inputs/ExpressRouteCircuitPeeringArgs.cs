@@ -34,12 +34,6 @@ namespace Pulumi.AzureRM.Network.V20181201.Inputs
         }
 
         /// <summary>
-        /// The ExpressRoute connection.
-        /// </summary>
-        [Input("expressRouteConnection")]
-        public Input<Inputs.ExpressRouteConnectionIdArgs>? ExpressRouteConnection { get; set; }
-
-        /// <summary>
         /// The GatewayManager Etag.
         /// </summary>
         [Input("gatewayManagerEtag")]
@@ -109,7 +103,7 @@ namespace Pulumi.AzureRM.Network.V20181201.Inputs
         /// The reference of the RouteFilter resource.
         /// </summary>
         [Input("routeFilter")]
-        public Input<Inputs.RouteFilterDefinitionArgs>? RouteFilter { get; set; }
+        public Input<Inputs.RouteFilterArgs>? RouteFilter { get; set; }
 
         /// <summary>
         /// The secondary port.

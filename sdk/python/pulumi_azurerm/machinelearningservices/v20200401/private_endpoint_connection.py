@@ -53,7 +53,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     """
     Specifies the type of the resource.
     """
-    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, resource_group_name=None, sku=None, tags=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, identity=None, location=None, name=None, private_link_service_connection_state=None, provisioning_state=None, resource_group_name=None, sku=None, tags=None, workspace_name=None, __props__=None, __name__=None, __opts__=None):
         """
         The Private Endpoint Connection resource.
 
@@ -62,7 +62,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[dict] identity: The identity of the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[str] name: The name of the private endpoint connection associated with the workspace
-        :param pulumi.Input[dict] private_endpoint: The resource of private end point.
         :param pulumi.Input[dict] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[str] provisioning_state: The provisioning state of the private endpoint connection resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
@@ -73,7 +72,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The identity type.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 
         The **private_link_service_connection_state** object supports the following:
 
@@ -108,7 +106,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['private_endpoint'] = private_endpoint
             if private_link_service_connection_state is None:
                 raise TypeError("Missing required property 'private_link_service_connection_state'")
             __props__['private_link_service_connection_state'] = private_link_service_connection_state

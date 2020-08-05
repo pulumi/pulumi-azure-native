@@ -10,100 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-type ControllerType struct {
-	// Region where the Azure resource is located.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name       string                       `pulumi:"name"`
-	Properties ControllerPropertiesResponse `pulumi:"properties"`
-	// Model representing SKU for Azure Dev Spaces Controller.
-	Sku SkuResponse `pulumi:"sku"`
-	// Tags for the Azure resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// ControllerTypeInput is an input type that accepts ControllerTypeArgs and ControllerTypeOutput values.
-// You can construct a concrete instance of `ControllerTypeInput` via:
-//
-//          ControllerTypeArgs{...}
-type ControllerTypeInput interface {
-	pulumi.Input
-
-	ToControllerTypeOutput() ControllerTypeOutput
-	ToControllerTypeOutputWithContext(context.Context) ControllerTypeOutput
-}
-
-type ControllerTypeArgs struct {
-	// Region where the Azure resource is located.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource.
-	Name       pulumi.StringInput                `pulumi:"name"`
-	Properties ControllerPropertiesResponseInput `pulumi:"properties"`
-	// Model representing SKU for Azure Dev Spaces Controller.
-	Sku SkuResponseInput `pulumi:"sku"`
-	// Tags for the Azure resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ControllerTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControllerType)(nil)).Elem()
-}
-
-func (i ControllerTypeArgs) ToControllerTypeOutput() ControllerTypeOutput {
-	return i.ToControllerTypeOutputWithContext(context.Background())
-}
-
-func (i ControllerTypeArgs) ToControllerTypeOutputWithContext(ctx context.Context) ControllerTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ControllerTypeOutput)
-}
-
-type ControllerTypeOutput struct{ *pulumi.OutputState }
-
-func (ControllerTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ControllerType)(nil)).Elem()
-}
-
-func (o ControllerTypeOutput) ToControllerTypeOutput() ControllerTypeOutput {
-	return o
-}
-
-func (o ControllerTypeOutput) ToControllerTypeOutputWithContext(ctx context.Context) ControllerTypeOutput {
-	return o
-}
-
-// Region where the Azure resource is located.
-func (o ControllerTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ControllerType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource.
-func (o ControllerTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ControllerType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o ControllerTypeOutput) Properties() ControllerPropertiesResponseOutput {
-	return o.ApplyT(func(v ControllerType) ControllerPropertiesResponse { return v.Properties }).(ControllerPropertiesResponseOutput)
-}
-
-// Model representing SKU for Azure Dev Spaces Controller.
-func (o ControllerTypeOutput) Sku() SkuResponseOutput {
-	return o.ApplyT(func(v ControllerType) SkuResponse { return v.Sku }).(SkuResponseOutput)
-}
-
-// Tags for the Azure resource.
-func (o ControllerTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ControllerType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o ControllerTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ControllerType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 type ControllerConnectionDetailsResponse struct {
 	// Base class for types that supply values used to connect to container orchestrators
 	OrchestratorSpecificConnectionDetails *OrchestratorSpecificConnectionDetailsResponse `pulumi:"orchestratorSpecificConnectionDetails"`
@@ -872,7 +778,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(ControllerTypeOutput{})
 	pulumi.RegisterOutputType(ControllerConnectionDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ControllerConnectionDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(ControllerPropertiesResponseOutput{})

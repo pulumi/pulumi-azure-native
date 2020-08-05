@@ -10,537 +10,768 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The parameter definitions for parameters used in the policy. The keys are the parameter names.
-type ParameterDefinitions struct {
+// The definition of a parameter that can be provided to the policy.
+type ParameterDefinitionsValue struct {
+	// The allowed values for the parameter.
+	AllowedValues []map[string]interface{} `pulumi:"allowedValues"`
+	// The default value for the parameter if no value is provided.
+	DefaultValue map[string]interface{} `pulumi:"defaultValue"`
+	// General metadata for the parameter.
+	Metadata *ParameterDefinitionsValueMetadata `pulumi:"metadata"`
+	// The data type of the parameter.
+	Type *string `pulumi:"type"`
 }
 
-// ParameterDefinitionsInput is an input type that accepts ParameterDefinitionsArgs and ParameterDefinitionsOutput values.
-// You can construct a concrete instance of `ParameterDefinitionsInput` via:
+// ParameterDefinitionsValueInput is an input type that accepts ParameterDefinitionsValueArgs and ParameterDefinitionsValueOutput values.
+// You can construct a concrete instance of `ParameterDefinitionsValueInput` via:
 //
-//          ParameterDefinitionsArgs{...}
-type ParameterDefinitionsInput interface {
+//          ParameterDefinitionsValueArgs{...}
+type ParameterDefinitionsValueInput interface {
 	pulumi.Input
 
-	ToParameterDefinitionsOutput() ParameterDefinitionsOutput
-	ToParameterDefinitionsOutputWithContext(context.Context) ParameterDefinitionsOutput
+	ToParameterDefinitionsValueOutput() ParameterDefinitionsValueOutput
+	ToParameterDefinitionsValueOutputWithContext(context.Context) ParameterDefinitionsValueOutput
 }
 
-// The parameter definitions for parameters used in the policy. The keys are the parameter names.
-type ParameterDefinitionsArgs struct {
+// The definition of a parameter that can be provided to the policy.
+type ParameterDefinitionsValueArgs struct {
+	// The allowed values for the parameter.
+	AllowedValues pulumi.MapArrayInput `pulumi:"allowedValues"`
+	// The default value for the parameter if no value is provided.
+	DefaultValue pulumi.MapInput `pulumi:"defaultValue"`
+	// General metadata for the parameter.
+	Metadata ParameterDefinitionsValueMetadataPtrInput `pulumi:"metadata"`
+	// The data type of the parameter.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
-func (ParameterDefinitionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterDefinitions)(nil)).Elem()
+func (ParameterDefinitionsValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterDefinitionsValue)(nil)).Elem()
 }
 
-func (i ParameterDefinitionsArgs) ToParameterDefinitionsOutput() ParameterDefinitionsOutput {
-	return i.ToParameterDefinitionsOutputWithContext(context.Background())
+func (i ParameterDefinitionsValueArgs) ToParameterDefinitionsValueOutput() ParameterDefinitionsValueOutput {
+	return i.ToParameterDefinitionsValueOutputWithContext(context.Background())
 }
 
-func (i ParameterDefinitionsArgs) ToParameterDefinitionsOutputWithContext(ctx context.Context) ParameterDefinitionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsOutput)
+func (i ParameterDefinitionsValueArgs) ToParameterDefinitionsValueOutputWithContext(ctx context.Context) ParameterDefinitionsValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsValueOutput)
 }
 
-func (i ParameterDefinitionsArgs) ToParameterDefinitionsPtrOutput() ParameterDefinitionsPtrOutput {
-	return i.ToParameterDefinitionsPtrOutputWithContext(context.Background())
-}
-
-func (i ParameterDefinitionsArgs) ToParameterDefinitionsPtrOutputWithContext(ctx context.Context) ParameterDefinitionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsOutput).ToParameterDefinitionsPtrOutputWithContext(ctx)
-}
-
-// ParameterDefinitionsPtrInput is an input type that accepts ParameterDefinitionsArgs, ParameterDefinitionsPtr and ParameterDefinitionsPtrOutput values.
-// You can construct a concrete instance of `ParameterDefinitionsPtrInput` via:
+// ParameterDefinitionsValueMapInput is an input type that accepts ParameterDefinitionsValueMap and ParameterDefinitionsValueMapOutput values.
+// You can construct a concrete instance of `ParameterDefinitionsValueMapInput` via:
 //
-//          ParameterDefinitionsArgs{...}
+//          ParameterDefinitionsValueMap{ "key": ParameterDefinitionsValueArgs{...} }
+type ParameterDefinitionsValueMapInput interface {
+	pulumi.Input
+
+	ToParameterDefinitionsValueMapOutput() ParameterDefinitionsValueMapOutput
+	ToParameterDefinitionsValueMapOutputWithContext(context.Context) ParameterDefinitionsValueMapOutput
+}
+
+type ParameterDefinitionsValueMap map[string]ParameterDefinitionsValueInput
+
+func (ParameterDefinitionsValueMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterDefinitionsValue)(nil)).Elem()
+}
+
+func (i ParameterDefinitionsValueMap) ToParameterDefinitionsValueMapOutput() ParameterDefinitionsValueMapOutput {
+	return i.ToParameterDefinitionsValueMapOutputWithContext(context.Background())
+}
+
+func (i ParameterDefinitionsValueMap) ToParameterDefinitionsValueMapOutputWithContext(ctx context.Context) ParameterDefinitionsValueMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsValueMapOutput)
+}
+
+// The definition of a parameter that can be provided to the policy.
+type ParameterDefinitionsValueOutput struct{ *pulumi.OutputState }
+
+func (ParameterDefinitionsValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterDefinitionsValue)(nil)).Elem()
+}
+
+func (o ParameterDefinitionsValueOutput) ToParameterDefinitionsValueOutput() ParameterDefinitionsValueOutput {
+	return o
+}
+
+func (o ParameterDefinitionsValueOutput) ToParameterDefinitionsValueOutputWithContext(ctx context.Context) ParameterDefinitionsValueOutput {
+	return o
+}
+
+// The allowed values for the parameter.
+func (o ParameterDefinitionsValueOutput) AllowedValues() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValue) []map[string]interface{} { return v.AllowedValues }).(pulumi.MapArrayOutput)
+}
+
+// The default value for the parameter if no value is provided.
+func (o ParameterDefinitionsValueOutput) DefaultValue() pulumi.MapOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValue) map[string]interface{} { return v.DefaultValue }).(pulumi.MapOutput)
+}
+
+// General metadata for the parameter.
+func (o ParameterDefinitionsValueOutput) Metadata() ParameterDefinitionsValueMetadataPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValue) *ParameterDefinitionsValueMetadata { return v.Metadata }).(ParameterDefinitionsValueMetadataPtrOutput)
+}
+
+// The data type of the parameter.
+func (o ParameterDefinitionsValueOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValue) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ParameterDefinitionsValueMapOutput struct{ *pulumi.OutputState }
+
+func (ParameterDefinitionsValueMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterDefinitionsValue)(nil)).Elem()
+}
+
+func (o ParameterDefinitionsValueMapOutput) ToParameterDefinitionsValueMapOutput() ParameterDefinitionsValueMapOutput {
+	return o
+}
+
+func (o ParameterDefinitionsValueMapOutput) ToParameterDefinitionsValueMapOutputWithContext(ctx context.Context) ParameterDefinitionsValueMapOutput {
+	return o
+}
+
+func (o ParameterDefinitionsValueMapOutput) MapIndex(k pulumi.StringInput) ParameterDefinitionsValueOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ParameterDefinitionsValue {
+		return vs[0].(map[string]ParameterDefinitionsValue)[vs[1].(string)]
+	}).(ParameterDefinitionsValueOutput)
+}
+
+// General metadata for the parameter.
+type ParameterDefinitionsValueMetadata struct {
+	// The description of the parameter.
+	Description *string `pulumi:"description"`
+	// The display name for the parameter.
+	DisplayName *string `pulumi:"displayName"`
+}
+
+// ParameterDefinitionsValueMetadataInput is an input type that accepts ParameterDefinitionsValueMetadataArgs and ParameterDefinitionsValueMetadataOutput values.
+// You can construct a concrete instance of `ParameterDefinitionsValueMetadataInput` via:
+//
+//          ParameterDefinitionsValueMetadataArgs{...}
+type ParameterDefinitionsValueMetadataInput interface {
+	pulumi.Input
+
+	ToParameterDefinitionsValueMetadataOutput() ParameterDefinitionsValueMetadataOutput
+	ToParameterDefinitionsValueMetadataOutputWithContext(context.Context) ParameterDefinitionsValueMetadataOutput
+}
+
+// General metadata for the parameter.
+type ParameterDefinitionsValueMetadataArgs struct {
+	// The description of the parameter.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The display name for the parameter.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+}
+
+func (ParameterDefinitionsValueMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterDefinitionsValueMetadata)(nil)).Elem()
+}
+
+func (i ParameterDefinitionsValueMetadataArgs) ToParameterDefinitionsValueMetadataOutput() ParameterDefinitionsValueMetadataOutput {
+	return i.ToParameterDefinitionsValueMetadataOutputWithContext(context.Background())
+}
+
+func (i ParameterDefinitionsValueMetadataArgs) ToParameterDefinitionsValueMetadataOutputWithContext(ctx context.Context) ParameterDefinitionsValueMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsValueMetadataOutput)
+}
+
+func (i ParameterDefinitionsValueMetadataArgs) ToParameterDefinitionsValueMetadataPtrOutput() ParameterDefinitionsValueMetadataPtrOutput {
+	return i.ToParameterDefinitionsValueMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i ParameterDefinitionsValueMetadataArgs) ToParameterDefinitionsValueMetadataPtrOutputWithContext(ctx context.Context) ParameterDefinitionsValueMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsValueMetadataOutput).ToParameterDefinitionsValueMetadataPtrOutputWithContext(ctx)
+}
+
+// ParameterDefinitionsValueMetadataPtrInput is an input type that accepts ParameterDefinitionsValueMetadataArgs, ParameterDefinitionsValueMetadataPtr and ParameterDefinitionsValueMetadataPtrOutput values.
+// You can construct a concrete instance of `ParameterDefinitionsValueMetadataPtrInput` via:
+//
+//          ParameterDefinitionsValueMetadataArgs{...}
 //
 //  or:
 //
 //          nil
-type ParameterDefinitionsPtrInput interface {
+type ParameterDefinitionsValueMetadataPtrInput interface {
 	pulumi.Input
 
-	ToParameterDefinitionsPtrOutput() ParameterDefinitionsPtrOutput
-	ToParameterDefinitionsPtrOutputWithContext(context.Context) ParameterDefinitionsPtrOutput
+	ToParameterDefinitionsValueMetadataPtrOutput() ParameterDefinitionsValueMetadataPtrOutput
+	ToParameterDefinitionsValueMetadataPtrOutputWithContext(context.Context) ParameterDefinitionsValueMetadataPtrOutput
 }
 
-type parameterDefinitionsPtrType ParameterDefinitionsArgs
+type parameterDefinitionsValueMetadataPtrType ParameterDefinitionsValueMetadataArgs
 
-func ParameterDefinitionsPtr(v *ParameterDefinitionsArgs) ParameterDefinitionsPtrInput {
-	return (*parameterDefinitionsPtrType)(v)
+func ParameterDefinitionsValueMetadataPtr(v *ParameterDefinitionsValueMetadataArgs) ParameterDefinitionsValueMetadataPtrInput {
+	return (*parameterDefinitionsValueMetadataPtrType)(v)
 }
 
-func (*parameterDefinitionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ParameterDefinitions)(nil)).Elem()
+func (*parameterDefinitionsValueMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParameterDefinitionsValueMetadata)(nil)).Elem()
 }
 
-func (i *parameterDefinitionsPtrType) ToParameterDefinitionsPtrOutput() ParameterDefinitionsPtrOutput {
-	return i.ToParameterDefinitionsPtrOutputWithContext(context.Background())
+func (i *parameterDefinitionsValueMetadataPtrType) ToParameterDefinitionsValueMetadataPtrOutput() ParameterDefinitionsValueMetadataPtrOutput {
+	return i.ToParameterDefinitionsValueMetadataPtrOutputWithContext(context.Background())
 }
 
-func (i *parameterDefinitionsPtrType) ToParameterDefinitionsPtrOutputWithContext(ctx context.Context) ParameterDefinitionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsPtrOutput)
+func (i *parameterDefinitionsValueMetadataPtrType) ToParameterDefinitionsValueMetadataPtrOutputWithContext(ctx context.Context) ParameterDefinitionsValueMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsValueMetadataPtrOutput)
 }
 
-// The parameter definitions for parameters used in the policy. The keys are the parameter names.
-type ParameterDefinitionsOutput struct{ *pulumi.OutputState }
+// General metadata for the parameter.
+type ParameterDefinitionsValueMetadataOutput struct{ *pulumi.OutputState }
 
-func (ParameterDefinitionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterDefinitions)(nil)).Elem()
+func (ParameterDefinitionsValueMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterDefinitionsValueMetadata)(nil)).Elem()
 }
 
-func (o ParameterDefinitionsOutput) ToParameterDefinitionsOutput() ParameterDefinitionsOutput {
+func (o ParameterDefinitionsValueMetadataOutput) ToParameterDefinitionsValueMetadataOutput() ParameterDefinitionsValueMetadataOutput {
 	return o
 }
 
-func (o ParameterDefinitionsOutput) ToParameterDefinitionsOutputWithContext(ctx context.Context) ParameterDefinitionsOutput {
+func (o ParameterDefinitionsValueMetadataOutput) ToParameterDefinitionsValueMetadataOutputWithContext(ctx context.Context) ParameterDefinitionsValueMetadataOutput {
 	return o
 }
 
-func (o ParameterDefinitionsOutput) ToParameterDefinitionsPtrOutput() ParameterDefinitionsPtrOutput {
-	return o.ToParameterDefinitionsPtrOutputWithContext(context.Background())
+func (o ParameterDefinitionsValueMetadataOutput) ToParameterDefinitionsValueMetadataPtrOutput() ParameterDefinitionsValueMetadataPtrOutput {
+	return o.ToParameterDefinitionsValueMetadataPtrOutputWithContext(context.Background())
 }
 
-func (o ParameterDefinitionsOutput) ToParameterDefinitionsPtrOutputWithContext(ctx context.Context) ParameterDefinitionsPtrOutput {
-	return o.ApplyT(func(v ParameterDefinitions) *ParameterDefinitions {
+func (o ParameterDefinitionsValueMetadataOutput) ToParameterDefinitionsValueMetadataPtrOutputWithContext(ctx context.Context) ParameterDefinitionsValueMetadataPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *ParameterDefinitionsValueMetadata {
 		return &v
-	}).(ParameterDefinitionsPtrOutput)
+	}).(ParameterDefinitionsValueMetadataPtrOutput)
 }
 
-type ParameterDefinitionsPtrOutput struct{ *pulumi.OutputState }
-
-func (ParameterDefinitionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ParameterDefinitions)(nil)).Elem()
+// The description of the parameter.
+func (o ParameterDefinitionsValueMetadataOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o ParameterDefinitionsPtrOutput) ToParameterDefinitionsPtrOutput() ParameterDefinitionsPtrOutput {
+// The display name for the parameter.
+func (o ParameterDefinitionsValueMetadataOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueMetadata) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+type ParameterDefinitionsValueMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (ParameterDefinitionsValueMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParameterDefinitionsValueMetadata)(nil)).Elem()
+}
+
+func (o ParameterDefinitionsValueMetadataPtrOutput) ToParameterDefinitionsValueMetadataPtrOutput() ParameterDefinitionsValueMetadataPtrOutput {
 	return o
 }
 
-func (o ParameterDefinitionsPtrOutput) ToParameterDefinitionsPtrOutputWithContext(ctx context.Context) ParameterDefinitionsPtrOutput {
+func (o ParameterDefinitionsValueMetadataPtrOutput) ToParameterDefinitionsValueMetadataPtrOutputWithContext(ctx context.Context) ParameterDefinitionsValueMetadataPtrOutput {
 	return o
 }
 
-func (o ParameterDefinitionsPtrOutput) Elem() ParameterDefinitionsOutput {
-	return o.ApplyT(func(v *ParameterDefinitions) ParameterDefinitions { return *v }).(ParameterDefinitionsOutput)
+func (o ParameterDefinitionsValueMetadataPtrOutput) Elem() ParameterDefinitionsValueMetadataOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) ParameterDefinitionsValueMetadata { return *v }).(ParameterDefinitionsValueMetadataOutput)
 }
 
-// The parameter definitions for parameters used in the policy. The keys are the parameter names.
-type ParameterDefinitionsResponse struct {
+// The description of the parameter.
+func (o ParameterDefinitionsValueMetadataPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
 }
 
-// ParameterDefinitionsResponseInput is an input type that accepts ParameterDefinitionsResponseArgs and ParameterDefinitionsResponseOutput values.
-// You can construct a concrete instance of `ParameterDefinitionsResponseInput` via:
+// The display name for the parameter.
+func (o ParameterDefinitionsValueMetadataPtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The definition of a parameter that can be provided to the policy.
+type ParameterDefinitionsValueResponse struct {
+	// The allowed values for the parameter.
+	AllowedValues []map[string]interface{} `pulumi:"allowedValues"`
+	// The default value for the parameter if no value is provided.
+	DefaultValue map[string]interface{} `pulumi:"defaultValue"`
+	// General metadata for the parameter.
+	Metadata *ParameterDefinitionsValueResponseMetadata `pulumi:"metadata"`
+	// The data type of the parameter.
+	Type *string `pulumi:"type"`
+}
+
+// ParameterDefinitionsValueResponseInput is an input type that accepts ParameterDefinitionsValueResponseArgs and ParameterDefinitionsValueResponseOutput values.
+// You can construct a concrete instance of `ParameterDefinitionsValueResponseInput` via:
 //
-//          ParameterDefinitionsResponseArgs{...}
-type ParameterDefinitionsResponseInput interface {
+//          ParameterDefinitionsValueResponseArgs{...}
+type ParameterDefinitionsValueResponseInput interface {
 	pulumi.Input
 
-	ToParameterDefinitionsResponseOutput() ParameterDefinitionsResponseOutput
-	ToParameterDefinitionsResponseOutputWithContext(context.Context) ParameterDefinitionsResponseOutput
+	ToParameterDefinitionsValueResponseOutput() ParameterDefinitionsValueResponseOutput
+	ToParameterDefinitionsValueResponseOutputWithContext(context.Context) ParameterDefinitionsValueResponseOutput
 }
 
-// The parameter definitions for parameters used in the policy. The keys are the parameter names.
-type ParameterDefinitionsResponseArgs struct {
+// The definition of a parameter that can be provided to the policy.
+type ParameterDefinitionsValueResponseArgs struct {
+	// The allowed values for the parameter.
+	AllowedValues pulumi.MapArrayInput `pulumi:"allowedValues"`
+	// The default value for the parameter if no value is provided.
+	DefaultValue pulumi.MapInput `pulumi:"defaultValue"`
+	// General metadata for the parameter.
+	Metadata ParameterDefinitionsValueResponseMetadataPtrInput `pulumi:"metadata"`
+	// The data type of the parameter.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
-func (ParameterDefinitionsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterDefinitionsResponse)(nil)).Elem()
+func (ParameterDefinitionsValueResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterDefinitionsValueResponse)(nil)).Elem()
 }
 
-func (i ParameterDefinitionsResponseArgs) ToParameterDefinitionsResponseOutput() ParameterDefinitionsResponseOutput {
-	return i.ToParameterDefinitionsResponseOutputWithContext(context.Background())
+func (i ParameterDefinitionsValueResponseArgs) ToParameterDefinitionsValueResponseOutput() ParameterDefinitionsValueResponseOutput {
+	return i.ToParameterDefinitionsValueResponseOutputWithContext(context.Background())
 }
 
-func (i ParameterDefinitionsResponseArgs) ToParameterDefinitionsResponseOutputWithContext(ctx context.Context) ParameterDefinitionsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsResponseOutput)
+func (i ParameterDefinitionsValueResponseArgs) ToParameterDefinitionsValueResponseOutputWithContext(ctx context.Context) ParameterDefinitionsValueResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsValueResponseOutput)
 }
 
-func (i ParameterDefinitionsResponseArgs) ToParameterDefinitionsResponsePtrOutput() ParameterDefinitionsResponsePtrOutput {
-	return i.ToParameterDefinitionsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ParameterDefinitionsResponseArgs) ToParameterDefinitionsResponsePtrOutputWithContext(ctx context.Context) ParameterDefinitionsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsResponseOutput).ToParameterDefinitionsResponsePtrOutputWithContext(ctx)
-}
-
-// ParameterDefinitionsResponsePtrInput is an input type that accepts ParameterDefinitionsResponseArgs, ParameterDefinitionsResponsePtr and ParameterDefinitionsResponsePtrOutput values.
-// You can construct a concrete instance of `ParameterDefinitionsResponsePtrInput` via:
+// ParameterDefinitionsValueResponseMapInput is an input type that accepts ParameterDefinitionsValueResponseMap and ParameterDefinitionsValueResponseMapOutput values.
+// You can construct a concrete instance of `ParameterDefinitionsValueResponseMapInput` via:
 //
-//          ParameterDefinitionsResponseArgs{...}
+//          ParameterDefinitionsValueResponseMap{ "key": ParameterDefinitionsValueResponseArgs{...} }
+type ParameterDefinitionsValueResponseMapInput interface {
+	pulumi.Input
+
+	ToParameterDefinitionsValueResponseMapOutput() ParameterDefinitionsValueResponseMapOutput
+	ToParameterDefinitionsValueResponseMapOutputWithContext(context.Context) ParameterDefinitionsValueResponseMapOutput
+}
+
+type ParameterDefinitionsValueResponseMap map[string]ParameterDefinitionsValueResponseInput
+
+func (ParameterDefinitionsValueResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterDefinitionsValueResponse)(nil)).Elem()
+}
+
+func (i ParameterDefinitionsValueResponseMap) ToParameterDefinitionsValueResponseMapOutput() ParameterDefinitionsValueResponseMapOutput {
+	return i.ToParameterDefinitionsValueResponseMapOutputWithContext(context.Background())
+}
+
+func (i ParameterDefinitionsValueResponseMap) ToParameterDefinitionsValueResponseMapOutputWithContext(ctx context.Context) ParameterDefinitionsValueResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsValueResponseMapOutput)
+}
+
+// The definition of a parameter that can be provided to the policy.
+type ParameterDefinitionsValueResponseOutput struct{ *pulumi.OutputState }
+
+func (ParameterDefinitionsValueResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterDefinitionsValueResponse)(nil)).Elem()
+}
+
+func (o ParameterDefinitionsValueResponseOutput) ToParameterDefinitionsValueResponseOutput() ParameterDefinitionsValueResponseOutput {
+	return o
+}
+
+func (o ParameterDefinitionsValueResponseOutput) ToParameterDefinitionsValueResponseOutputWithContext(ctx context.Context) ParameterDefinitionsValueResponseOutput {
+	return o
+}
+
+// The allowed values for the parameter.
+func (o ParameterDefinitionsValueResponseOutput) AllowedValues() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponse) []map[string]interface{} { return v.AllowedValues }).(pulumi.MapArrayOutput)
+}
+
+// The default value for the parameter if no value is provided.
+func (o ParameterDefinitionsValueResponseOutput) DefaultValue() pulumi.MapOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponse) map[string]interface{} { return v.DefaultValue }).(pulumi.MapOutput)
+}
+
+// General metadata for the parameter.
+func (o ParameterDefinitionsValueResponseOutput) Metadata() ParameterDefinitionsValueResponseMetadataPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponse) *ParameterDefinitionsValueResponseMetadata {
+		return v.Metadata
+	}).(ParameterDefinitionsValueResponseMetadataPtrOutput)
+}
+
+// The data type of the parameter.
+func (o ParameterDefinitionsValueResponseOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ParameterDefinitionsValueResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ParameterDefinitionsValueResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterDefinitionsValueResponse)(nil)).Elem()
+}
+
+func (o ParameterDefinitionsValueResponseMapOutput) ToParameterDefinitionsValueResponseMapOutput() ParameterDefinitionsValueResponseMapOutput {
+	return o
+}
+
+func (o ParameterDefinitionsValueResponseMapOutput) ToParameterDefinitionsValueResponseMapOutputWithContext(ctx context.Context) ParameterDefinitionsValueResponseMapOutput {
+	return o
+}
+
+func (o ParameterDefinitionsValueResponseMapOutput) MapIndex(k pulumi.StringInput) ParameterDefinitionsValueResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ParameterDefinitionsValueResponse {
+		return vs[0].(map[string]ParameterDefinitionsValueResponse)[vs[1].(string)]
+	}).(ParameterDefinitionsValueResponseOutput)
+}
+
+// General metadata for the parameter.
+type ParameterDefinitionsValueResponseMetadata struct {
+	// The description of the parameter.
+	Description *string `pulumi:"description"`
+	// The display name for the parameter.
+	DisplayName *string `pulumi:"displayName"`
+}
+
+// ParameterDefinitionsValueResponseMetadataInput is an input type that accepts ParameterDefinitionsValueResponseMetadataArgs and ParameterDefinitionsValueResponseMetadataOutput values.
+// You can construct a concrete instance of `ParameterDefinitionsValueResponseMetadataInput` via:
+//
+//          ParameterDefinitionsValueResponseMetadataArgs{...}
+type ParameterDefinitionsValueResponseMetadataInput interface {
+	pulumi.Input
+
+	ToParameterDefinitionsValueResponseMetadataOutput() ParameterDefinitionsValueResponseMetadataOutput
+	ToParameterDefinitionsValueResponseMetadataOutputWithContext(context.Context) ParameterDefinitionsValueResponseMetadataOutput
+}
+
+// General metadata for the parameter.
+type ParameterDefinitionsValueResponseMetadataArgs struct {
+	// The description of the parameter.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The display name for the parameter.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+}
+
+func (ParameterDefinitionsValueResponseMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterDefinitionsValueResponseMetadata)(nil)).Elem()
+}
+
+func (i ParameterDefinitionsValueResponseMetadataArgs) ToParameterDefinitionsValueResponseMetadataOutput() ParameterDefinitionsValueResponseMetadataOutput {
+	return i.ToParameterDefinitionsValueResponseMetadataOutputWithContext(context.Background())
+}
+
+func (i ParameterDefinitionsValueResponseMetadataArgs) ToParameterDefinitionsValueResponseMetadataOutputWithContext(ctx context.Context) ParameterDefinitionsValueResponseMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsValueResponseMetadataOutput)
+}
+
+func (i ParameterDefinitionsValueResponseMetadataArgs) ToParameterDefinitionsValueResponseMetadataPtrOutput() ParameterDefinitionsValueResponseMetadataPtrOutput {
+	return i.ToParameterDefinitionsValueResponseMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i ParameterDefinitionsValueResponseMetadataArgs) ToParameterDefinitionsValueResponseMetadataPtrOutputWithContext(ctx context.Context) ParameterDefinitionsValueResponseMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsValueResponseMetadataOutput).ToParameterDefinitionsValueResponseMetadataPtrOutputWithContext(ctx)
+}
+
+// ParameterDefinitionsValueResponseMetadataPtrInput is an input type that accepts ParameterDefinitionsValueResponseMetadataArgs, ParameterDefinitionsValueResponseMetadataPtr and ParameterDefinitionsValueResponseMetadataPtrOutput values.
+// You can construct a concrete instance of `ParameterDefinitionsValueResponseMetadataPtrInput` via:
+//
+//          ParameterDefinitionsValueResponseMetadataArgs{...}
 //
 //  or:
 //
 //          nil
-type ParameterDefinitionsResponsePtrInput interface {
+type ParameterDefinitionsValueResponseMetadataPtrInput interface {
 	pulumi.Input
 
-	ToParameterDefinitionsResponsePtrOutput() ParameterDefinitionsResponsePtrOutput
-	ToParameterDefinitionsResponsePtrOutputWithContext(context.Context) ParameterDefinitionsResponsePtrOutput
+	ToParameterDefinitionsValueResponseMetadataPtrOutput() ParameterDefinitionsValueResponseMetadataPtrOutput
+	ToParameterDefinitionsValueResponseMetadataPtrOutputWithContext(context.Context) ParameterDefinitionsValueResponseMetadataPtrOutput
 }
 
-type parameterDefinitionsResponsePtrType ParameterDefinitionsResponseArgs
+type parameterDefinitionsValueResponseMetadataPtrType ParameterDefinitionsValueResponseMetadataArgs
 
-func ParameterDefinitionsResponsePtr(v *ParameterDefinitionsResponseArgs) ParameterDefinitionsResponsePtrInput {
-	return (*parameterDefinitionsResponsePtrType)(v)
+func ParameterDefinitionsValueResponseMetadataPtr(v *ParameterDefinitionsValueResponseMetadataArgs) ParameterDefinitionsValueResponseMetadataPtrInput {
+	return (*parameterDefinitionsValueResponseMetadataPtrType)(v)
 }
 
-func (*parameterDefinitionsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ParameterDefinitionsResponse)(nil)).Elem()
+func (*parameterDefinitionsValueResponseMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParameterDefinitionsValueResponseMetadata)(nil)).Elem()
 }
 
-func (i *parameterDefinitionsResponsePtrType) ToParameterDefinitionsResponsePtrOutput() ParameterDefinitionsResponsePtrOutput {
-	return i.ToParameterDefinitionsResponsePtrOutputWithContext(context.Background())
+func (i *parameterDefinitionsValueResponseMetadataPtrType) ToParameterDefinitionsValueResponseMetadataPtrOutput() ParameterDefinitionsValueResponseMetadataPtrOutput {
+	return i.ToParameterDefinitionsValueResponseMetadataPtrOutputWithContext(context.Background())
 }
 
-func (i *parameterDefinitionsResponsePtrType) ToParameterDefinitionsResponsePtrOutputWithContext(ctx context.Context) ParameterDefinitionsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsResponsePtrOutput)
+func (i *parameterDefinitionsValueResponseMetadataPtrType) ToParameterDefinitionsValueResponseMetadataPtrOutputWithContext(ctx context.Context) ParameterDefinitionsValueResponseMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterDefinitionsValueResponseMetadataPtrOutput)
 }
 
-// The parameter definitions for parameters used in the policy. The keys are the parameter names.
-type ParameterDefinitionsResponseOutput struct{ *pulumi.OutputState }
+// General metadata for the parameter.
+type ParameterDefinitionsValueResponseMetadataOutput struct{ *pulumi.OutputState }
 
-func (ParameterDefinitionsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterDefinitionsResponse)(nil)).Elem()
+func (ParameterDefinitionsValueResponseMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterDefinitionsValueResponseMetadata)(nil)).Elem()
 }
 
-func (o ParameterDefinitionsResponseOutput) ToParameterDefinitionsResponseOutput() ParameterDefinitionsResponseOutput {
+func (o ParameterDefinitionsValueResponseMetadataOutput) ToParameterDefinitionsValueResponseMetadataOutput() ParameterDefinitionsValueResponseMetadataOutput {
 	return o
 }
 
-func (o ParameterDefinitionsResponseOutput) ToParameterDefinitionsResponseOutputWithContext(ctx context.Context) ParameterDefinitionsResponseOutput {
+func (o ParameterDefinitionsValueResponseMetadataOutput) ToParameterDefinitionsValueResponseMetadataOutputWithContext(ctx context.Context) ParameterDefinitionsValueResponseMetadataOutput {
 	return o
 }
 
-func (o ParameterDefinitionsResponseOutput) ToParameterDefinitionsResponsePtrOutput() ParameterDefinitionsResponsePtrOutput {
-	return o.ToParameterDefinitionsResponsePtrOutputWithContext(context.Background())
+func (o ParameterDefinitionsValueResponseMetadataOutput) ToParameterDefinitionsValueResponseMetadataPtrOutput() ParameterDefinitionsValueResponseMetadataPtrOutput {
+	return o.ToParameterDefinitionsValueResponseMetadataPtrOutputWithContext(context.Background())
 }
 
-func (o ParameterDefinitionsResponseOutput) ToParameterDefinitionsResponsePtrOutputWithContext(ctx context.Context) ParameterDefinitionsResponsePtrOutput {
-	return o.ApplyT(func(v ParameterDefinitionsResponse) *ParameterDefinitionsResponse {
+func (o ParameterDefinitionsValueResponseMetadataOutput) ToParameterDefinitionsValueResponseMetadataPtrOutputWithContext(ctx context.Context) ParameterDefinitionsValueResponseMetadataPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *ParameterDefinitionsValueResponseMetadata {
 		return &v
-	}).(ParameterDefinitionsResponsePtrOutput)
+	}).(ParameterDefinitionsValueResponseMetadataPtrOutput)
 }
 
-type ParameterDefinitionsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ParameterDefinitionsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ParameterDefinitionsResponse)(nil)).Elem()
+// The description of the parameter.
+func (o ParameterDefinitionsValueResponseMetadataOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-func (o ParameterDefinitionsResponsePtrOutput) ToParameterDefinitionsResponsePtrOutput() ParameterDefinitionsResponsePtrOutput {
+// The display name for the parameter.
+func (o ParameterDefinitionsValueResponseMetadataOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParameterDefinitionsValueResponseMetadata) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+type ParameterDefinitionsValueResponseMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (ParameterDefinitionsValueResponseMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParameterDefinitionsValueResponseMetadata)(nil)).Elem()
+}
+
+func (o ParameterDefinitionsValueResponseMetadataPtrOutput) ToParameterDefinitionsValueResponseMetadataPtrOutput() ParameterDefinitionsValueResponseMetadataPtrOutput {
 	return o
 }
 
-func (o ParameterDefinitionsResponsePtrOutput) ToParameterDefinitionsResponsePtrOutputWithContext(ctx context.Context) ParameterDefinitionsResponsePtrOutput {
+func (o ParameterDefinitionsValueResponseMetadataPtrOutput) ToParameterDefinitionsValueResponseMetadataPtrOutputWithContext(ctx context.Context) ParameterDefinitionsValueResponseMetadataPtrOutput {
 	return o
 }
 
-func (o ParameterDefinitionsResponsePtrOutput) Elem() ParameterDefinitionsResponseOutput {
-	return o.ApplyT(func(v *ParameterDefinitionsResponse) ParameterDefinitionsResponse { return *v }).(ParameterDefinitionsResponseOutput)
+func (o ParameterDefinitionsValueResponseMetadataPtrOutput) Elem() ParameterDefinitionsValueResponseMetadataOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) ParameterDefinitionsValueResponseMetadata {
+		return *v
+	}).(ParameterDefinitionsValueResponseMetadataOutput)
 }
 
-// The parameter values for the policy rule. The keys are the parameter names.
-type ParameterValues struct {
+// The description of the parameter.
+func (o ParameterDefinitionsValueResponseMetadataPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
 }
 
-// ParameterValuesInput is an input type that accepts ParameterValuesArgs and ParameterValuesOutput values.
-// You can construct a concrete instance of `ParameterValuesInput` via:
+// The display name for the parameter.
+func (o ParameterDefinitionsValueResponseMetadataPtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParameterDefinitionsValueResponseMetadata) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of a parameter.
+type ParameterValuesValue struct {
+	// The value of the parameter.
+	Value map[string]interface{} `pulumi:"value"`
+}
+
+// ParameterValuesValueInput is an input type that accepts ParameterValuesValueArgs and ParameterValuesValueOutput values.
+// You can construct a concrete instance of `ParameterValuesValueInput` via:
 //
-//          ParameterValuesArgs{...}
-type ParameterValuesInput interface {
+//          ParameterValuesValueArgs{...}
+type ParameterValuesValueInput interface {
 	pulumi.Input
 
-	ToParameterValuesOutput() ParameterValuesOutput
-	ToParameterValuesOutputWithContext(context.Context) ParameterValuesOutput
+	ToParameterValuesValueOutput() ParameterValuesValueOutput
+	ToParameterValuesValueOutputWithContext(context.Context) ParameterValuesValueOutput
 }
 
-// The parameter values for the policy rule. The keys are the parameter names.
-type ParameterValuesArgs struct {
+// The value of a parameter.
+type ParameterValuesValueArgs struct {
+	// The value of the parameter.
+	Value pulumi.MapInput `pulumi:"value"`
 }
 
-func (ParameterValuesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterValues)(nil)).Elem()
+func (ParameterValuesValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterValuesValue)(nil)).Elem()
 }
 
-func (i ParameterValuesArgs) ToParameterValuesOutput() ParameterValuesOutput {
-	return i.ToParameterValuesOutputWithContext(context.Background())
+func (i ParameterValuesValueArgs) ToParameterValuesValueOutput() ParameterValuesValueOutput {
+	return i.ToParameterValuesValueOutputWithContext(context.Background())
 }
 
-func (i ParameterValuesArgs) ToParameterValuesOutputWithContext(ctx context.Context) ParameterValuesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterValuesOutput)
+func (i ParameterValuesValueArgs) ToParameterValuesValueOutputWithContext(ctx context.Context) ParameterValuesValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterValuesValueOutput)
 }
 
-func (i ParameterValuesArgs) ToParameterValuesPtrOutput() ParameterValuesPtrOutput {
-	return i.ToParameterValuesPtrOutputWithContext(context.Background())
-}
-
-func (i ParameterValuesArgs) ToParameterValuesPtrOutputWithContext(ctx context.Context) ParameterValuesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterValuesOutput).ToParameterValuesPtrOutputWithContext(ctx)
-}
-
-// ParameterValuesPtrInput is an input type that accepts ParameterValuesArgs, ParameterValuesPtr and ParameterValuesPtrOutput values.
-// You can construct a concrete instance of `ParameterValuesPtrInput` via:
+// ParameterValuesValueMapInput is an input type that accepts ParameterValuesValueMap and ParameterValuesValueMapOutput values.
+// You can construct a concrete instance of `ParameterValuesValueMapInput` via:
 //
-//          ParameterValuesArgs{...}
-//
-//  or:
-//
-//          nil
-type ParameterValuesPtrInput interface {
+//          ParameterValuesValueMap{ "key": ParameterValuesValueArgs{...} }
+type ParameterValuesValueMapInput interface {
 	pulumi.Input
 
-	ToParameterValuesPtrOutput() ParameterValuesPtrOutput
-	ToParameterValuesPtrOutputWithContext(context.Context) ParameterValuesPtrOutput
+	ToParameterValuesValueMapOutput() ParameterValuesValueMapOutput
+	ToParameterValuesValueMapOutputWithContext(context.Context) ParameterValuesValueMapOutput
 }
 
-type parameterValuesPtrType ParameterValuesArgs
+type ParameterValuesValueMap map[string]ParameterValuesValueInput
 
-func ParameterValuesPtr(v *ParameterValuesArgs) ParameterValuesPtrInput {
-	return (*parameterValuesPtrType)(v)
+func (ParameterValuesValueMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterValuesValue)(nil)).Elem()
 }
 
-func (*parameterValuesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ParameterValues)(nil)).Elem()
+func (i ParameterValuesValueMap) ToParameterValuesValueMapOutput() ParameterValuesValueMapOutput {
+	return i.ToParameterValuesValueMapOutputWithContext(context.Background())
 }
 
-func (i *parameterValuesPtrType) ToParameterValuesPtrOutput() ParameterValuesPtrOutput {
-	return i.ToParameterValuesPtrOutputWithContext(context.Background())
+func (i ParameterValuesValueMap) ToParameterValuesValueMapOutputWithContext(ctx context.Context) ParameterValuesValueMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterValuesValueMapOutput)
 }
 
-func (i *parameterValuesPtrType) ToParameterValuesPtrOutputWithContext(ctx context.Context) ParameterValuesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterValuesPtrOutput)
+// The value of a parameter.
+type ParameterValuesValueOutput struct{ *pulumi.OutputState }
+
+func (ParameterValuesValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterValuesValue)(nil)).Elem()
 }
 
-// The parameter values for the policy rule. The keys are the parameter names.
-type ParameterValuesOutput struct{ *pulumi.OutputState }
-
-func (ParameterValuesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterValues)(nil)).Elem()
-}
-
-func (o ParameterValuesOutput) ToParameterValuesOutput() ParameterValuesOutput {
+func (o ParameterValuesValueOutput) ToParameterValuesValueOutput() ParameterValuesValueOutput {
 	return o
 }
 
-func (o ParameterValuesOutput) ToParameterValuesOutputWithContext(ctx context.Context) ParameterValuesOutput {
+func (o ParameterValuesValueOutput) ToParameterValuesValueOutputWithContext(ctx context.Context) ParameterValuesValueOutput {
 	return o
 }
 
-func (o ParameterValuesOutput) ToParameterValuesPtrOutput() ParameterValuesPtrOutput {
-	return o.ToParameterValuesPtrOutputWithContext(context.Background())
+// The value of the parameter.
+func (o ParameterValuesValueOutput) Value() pulumi.MapOutput {
+	return o.ApplyT(func(v ParameterValuesValue) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
 }
 
-func (o ParameterValuesOutput) ToParameterValuesPtrOutputWithContext(ctx context.Context) ParameterValuesPtrOutput {
-	return o.ApplyT(func(v ParameterValues) *ParameterValues {
-		return &v
-	}).(ParameterValuesPtrOutput)
+type ParameterValuesValueMapOutput struct{ *pulumi.OutputState }
+
+func (ParameterValuesValueMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterValuesValue)(nil)).Elem()
 }
 
-type ParameterValuesPtrOutput struct{ *pulumi.OutputState }
-
-func (ParameterValuesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ParameterValues)(nil)).Elem()
-}
-
-func (o ParameterValuesPtrOutput) ToParameterValuesPtrOutput() ParameterValuesPtrOutput {
+func (o ParameterValuesValueMapOutput) ToParameterValuesValueMapOutput() ParameterValuesValueMapOutput {
 	return o
 }
 
-func (o ParameterValuesPtrOutput) ToParameterValuesPtrOutputWithContext(ctx context.Context) ParameterValuesPtrOutput {
+func (o ParameterValuesValueMapOutput) ToParameterValuesValueMapOutputWithContext(ctx context.Context) ParameterValuesValueMapOutput {
 	return o
 }
 
-func (o ParameterValuesPtrOutput) Elem() ParameterValuesOutput {
-	return o.ApplyT(func(v *ParameterValues) ParameterValues { return *v }).(ParameterValuesOutput)
+func (o ParameterValuesValueMapOutput) MapIndex(k pulumi.StringInput) ParameterValuesValueOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ParameterValuesValue {
+		return vs[0].(map[string]ParameterValuesValue)[vs[1].(string)]
+	}).(ParameterValuesValueOutput)
 }
 
-// The parameter values for the policy rule. The keys are the parameter names.
-type ParameterValuesResponse struct {
+// The value of a parameter.
+type ParameterValuesValueResponse struct {
+	// The value of the parameter.
+	Value map[string]interface{} `pulumi:"value"`
 }
 
-// ParameterValuesResponseInput is an input type that accepts ParameterValuesResponseArgs and ParameterValuesResponseOutput values.
-// You can construct a concrete instance of `ParameterValuesResponseInput` via:
+// ParameterValuesValueResponseInput is an input type that accepts ParameterValuesValueResponseArgs and ParameterValuesValueResponseOutput values.
+// You can construct a concrete instance of `ParameterValuesValueResponseInput` via:
 //
-//          ParameterValuesResponseArgs{...}
-type ParameterValuesResponseInput interface {
+//          ParameterValuesValueResponseArgs{...}
+type ParameterValuesValueResponseInput interface {
 	pulumi.Input
 
-	ToParameterValuesResponseOutput() ParameterValuesResponseOutput
-	ToParameterValuesResponseOutputWithContext(context.Context) ParameterValuesResponseOutput
+	ToParameterValuesValueResponseOutput() ParameterValuesValueResponseOutput
+	ToParameterValuesValueResponseOutputWithContext(context.Context) ParameterValuesValueResponseOutput
 }
 
-// The parameter values for the policy rule. The keys are the parameter names.
-type ParameterValuesResponseArgs struct {
+// The value of a parameter.
+type ParameterValuesValueResponseArgs struct {
+	// The value of the parameter.
+	Value pulumi.MapInput `pulumi:"value"`
 }
 
-func (ParameterValuesResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterValuesResponse)(nil)).Elem()
+func (ParameterValuesValueResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterValuesValueResponse)(nil)).Elem()
 }
 
-func (i ParameterValuesResponseArgs) ToParameterValuesResponseOutput() ParameterValuesResponseOutput {
-	return i.ToParameterValuesResponseOutputWithContext(context.Background())
+func (i ParameterValuesValueResponseArgs) ToParameterValuesValueResponseOutput() ParameterValuesValueResponseOutput {
+	return i.ToParameterValuesValueResponseOutputWithContext(context.Background())
 }
 
-func (i ParameterValuesResponseArgs) ToParameterValuesResponseOutputWithContext(ctx context.Context) ParameterValuesResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterValuesResponseOutput)
+func (i ParameterValuesValueResponseArgs) ToParameterValuesValueResponseOutputWithContext(ctx context.Context) ParameterValuesValueResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterValuesValueResponseOutput)
 }
 
-func (i ParameterValuesResponseArgs) ToParameterValuesResponsePtrOutput() ParameterValuesResponsePtrOutput {
-	return i.ToParameterValuesResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ParameterValuesResponseArgs) ToParameterValuesResponsePtrOutputWithContext(ctx context.Context) ParameterValuesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterValuesResponseOutput).ToParameterValuesResponsePtrOutputWithContext(ctx)
-}
-
-// ParameterValuesResponsePtrInput is an input type that accepts ParameterValuesResponseArgs, ParameterValuesResponsePtr and ParameterValuesResponsePtrOutput values.
-// You can construct a concrete instance of `ParameterValuesResponsePtrInput` via:
+// ParameterValuesValueResponseMapInput is an input type that accepts ParameterValuesValueResponseMap and ParameterValuesValueResponseMapOutput values.
+// You can construct a concrete instance of `ParameterValuesValueResponseMapInput` via:
 //
-//          ParameterValuesResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ParameterValuesResponsePtrInput interface {
+//          ParameterValuesValueResponseMap{ "key": ParameterValuesValueResponseArgs{...} }
+type ParameterValuesValueResponseMapInput interface {
 	pulumi.Input
 
-	ToParameterValuesResponsePtrOutput() ParameterValuesResponsePtrOutput
-	ToParameterValuesResponsePtrOutputWithContext(context.Context) ParameterValuesResponsePtrOutput
+	ToParameterValuesValueResponseMapOutput() ParameterValuesValueResponseMapOutput
+	ToParameterValuesValueResponseMapOutputWithContext(context.Context) ParameterValuesValueResponseMapOutput
 }
 
-type parameterValuesResponsePtrType ParameterValuesResponseArgs
+type ParameterValuesValueResponseMap map[string]ParameterValuesValueResponseInput
 
-func ParameterValuesResponsePtr(v *ParameterValuesResponseArgs) ParameterValuesResponsePtrInput {
-	return (*parameterValuesResponsePtrType)(v)
+func (ParameterValuesValueResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterValuesValueResponse)(nil)).Elem()
 }
 
-func (*parameterValuesResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ParameterValuesResponse)(nil)).Elem()
+func (i ParameterValuesValueResponseMap) ToParameterValuesValueResponseMapOutput() ParameterValuesValueResponseMapOutput {
+	return i.ToParameterValuesValueResponseMapOutputWithContext(context.Background())
 }
 
-func (i *parameterValuesResponsePtrType) ToParameterValuesResponsePtrOutput() ParameterValuesResponsePtrOutput {
-	return i.ToParameterValuesResponsePtrOutputWithContext(context.Background())
+func (i ParameterValuesValueResponseMap) ToParameterValuesValueResponseMapOutputWithContext(ctx context.Context) ParameterValuesValueResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ParameterValuesValueResponseMapOutput)
 }
 
-func (i *parameterValuesResponsePtrType) ToParameterValuesResponsePtrOutputWithContext(ctx context.Context) ParameterValuesResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ParameterValuesResponsePtrOutput)
+// The value of a parameter.
+type ParameterValuesValueResponseOutput struct{ *pulumi.OutputState }
+
+func (ParameterValuesValueResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParameterValuesValueResponse)(nil)).Elem()
 }
 
-// The parameter values for the policy rule. The keys are the parameter names.
-type ParameterValuesResponseOutput struct{ *pulumi.OutputState }
-
-func (ParameterValuesResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ParameterValuesResponse)(nil)).Elem()
-}
-
-func (o ParameterValuesResponseOutput) ToParameterValuesResponseOutput() ParameterValuesResponseOutput {
+func (o ParameterValuesValueResponseOutput) ToParameterValuesValueResponseOutput() ParameterValuesValueResponseOutput {
 	return o
 }
 
-func (o ParameterValuesResponseOutput) ToParameterValuesResponseOutputWithContext(ctx context.Context) ParameterValuesResponseOutput {
+func (o ParameterValuesValueResponseOutput) ToParameterValuesValueResponseOutputWithContext(ctx context.Context) ParameterValuesValueResponseOutput {
 	return o
 }
 
-func (o ParameterValuesResponseOutput) ToParameterValuesResponsePtrOutput() ParameterValuesResponsePtrOutput {
-	return o.ToParameterValuesResponsePtrOutputWithContext(context.Background())
+// The value of the parameter.
+func (o ParameterValuesValueResponseOutput) Value() pulumi.MapOutput {
+	return o.ApplyT(func(v ParameterValuesValueResponse) map[string]interface{} { return v.Value }).(pulumi.MapOutput)
 }
 
-func (o ParameterValuesResponseOutput) ToParameterValuesResponsePtrOutputWithContext(ctx context.Context) ParameterValuesResponsePtrOutput {
-	return o.ApplyT(func(v ParameterValuesResponse) *ParameterValuesResponse {
-		return &v
-	}).(ParameterValuesResponsePtrOutput)
+type ParameterValuesValueResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ParameterValuesValueResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ParameterValuesValueResponse)(nil)).Elem()
 }
 
-type ParameterValuesResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ParameterValuesResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ParameterValuesResponse)(nil)).Elem()
-}
-
-func (o ParameterValuesResponsePtrOutput) ToParameterValuesResponsePtrOutput() ParameterValuesResponsePtrOutput {
+func (o ParameterValuesValueResponseMapOutput) ToParameterValuesValueResponseMapOutput() ParameterValuesValueResponseMapOutput {
 	return o
 }
 
-func (o ParameterValuesResponsePtrOutput) ToParameterValuesResponsePtrOutputWithContext(ctx context.Context) ParameterValuesResponsePtrOutput {
+func (o ParameterValuesValueResponseMapOutput) ToParameterValuesValueResponseMapOutputWithContext(ctx context.Context) ParameterValuesValueResponseMapOutput {
 	return o
 }
 
-func (o ParameterValuesResponsePtrOutput) Elem() ParameterValuesResponseOutput {
-	return o.ApplyT(func(v *ParameterValuesResponse) ParameterValuesResponse { return *v }).(ParameterValuesResponseOutput)
-}
-
-// The policy definition.
-type PolicyDefinitionAtManagementGroupType struct {
-	// The name of the policy definition.
-	Name string `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource (Microsoft.Authorization/policyDefinitions).
-	Type string `pulumi:"type"`
-}
-
-// PolicyDefinitionAtManagementGroupTypeInput is an input type that accepts PolicyDefinitionAtManagementGroupTypeArgs and PolicyDefinitionAtManagementGroupTypeOutput values.
-// You can construct a concrete instance of `PolicyDefinitionAtManagementGroupTypeInput` via:
-//
-//          PolicyDefinitionAtManagementGroupTypeArgs{...}
-type PolicyDefinitionAtManagementGroupTypeInput interface {
-	pulumi.Input
-
-	ToPolicyDefinitionAtManagementGroupTypeOutput() PolicyDefinitionAtManagementGroupTypeOutput
-	ToPolicyDefinitionAtManagementGroupTypeOutputWithContext(context.Context) PolicyDefinitionAtManagementGroupTypeOutput
-}
-
-// The policy definition.
-type PolicyDefinitionAtManagementGroupTypeArgs struct {
-	// The name of the policy definition.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicyDefinitionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource (Microsoft.Authorization/policyDefinitions).
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PolicyDefinitionAtManagementGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionAtManagementGroupType)(nil)).Elem()
-}
-
-func (i PolicyDefinitionAtManagementGroupTypeArgs) ToPolicyDefinitionAtManagementGroupTypeOutput() PolicyDefinitionAtManagementGroupTypeOutput {
-	return i.ToPolicyDefinitionAtManagementGroupTypeOutputWithContext(context.Background())
-}
-
-func (i PolicyDefinitionAtManagementGroupTypeArgs) ToPolicyDefinitionAtManagementGroupTypeOutputWithContext(ctx context.Context) PolicyDefinitionAtManagementGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyDefinitionAtManagementGroupTypeOutput)
-}
-
-// The policy definition.
-type PolicyDefinitionAtManagementGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (PolicyDefinitionAtManagementGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyDefinitionAtManagementGroupType)(nil)).Elem()
-}
-
-func (o PolicyDefinitionAtManagementGroupTypeOutput) ToPolicyDefinitionAtManagementGroupTypeOutput() PolicyDefinitionAtManagementGroupTypeOutput {
-	return o
-}
-
-func (o PolicyDefinitionAtManagementGroupTypeOutput) ToPolicyDefinitionAtManagementGroupTypeOutputWithContext(ctx context.Context) PolicyDefinitionAtManagementGroupTypeOutput {
-	return o
-}
-
-// The name of the policy definition.
-func (o PolicyDefinitionAtManagementGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyDefinitionAtManagementGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The policy definition properties.
-func (o PolicyDefinitionAtManagementGroupTypeOutput) Properties() PolicyDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v PolicyDefinitionAtManagementGroupType) PolicyDefinitionPropertiesResponse { return v.Properties }).(PolicyDefinitionPropertiesResponseOutput)
-}
-
-// The type of the resource (Microsoft.Authorization/policyDefinitions).
-func (o PolicyDefinitionAtManagementGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicyDefinitionAtManagementGroupType) string { return v.Type }).(pulumi.StringOutput)
+func (o ParameterValuesValueResponseMapOutput) MapIndex(k pulumi.StringInput) ParameterValuesValueResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ParameterValuesValueResponse {
+		return vs[0].(map[string]ParameterValuesValueResponse)[vs[1].(string)]
+	}).(ParameterValuesValueResponseOutput)
 }
 
 // The policy definition group.
@@ -826,7 +1057,7 @@ type PolicyDefinitionPropertiesResponse struct {
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode *string `pulumi:"mode"`
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
-	Parameters *ParameterDefinitionsResponse `pulumi:"parameters"`
+	Parameters map[string]ParameterDefinitionsValueResponse `pulumi:"parameters"`
 	// The policy rule.
 	PolicyRule map[string]interface{} `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
@@ -855,7 +1086,7 @@ type PolicyDefinitionPropertiesResponseArgs struct {
 	// The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
 	// The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
-	Parameters ParameterDefinitionsResponsePtrInput `pulumi:"parameters"`
+	Parameters ParameterDefinitionsValueResponseMapInput `pulumi:"parameters"`
 	// The policy rule.
 	PolicyRule pulumi.MapInput `pulumi:"policyRule"`
 	// The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
@@ -961,8 +1192,10 @@ func (o PolicyDefinitionPropertiesResponseOutput) Mode() pulumi.StringPtrOutput 
 }
 
 // The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
-func (o PolicyDefinitionPropertiesResponseOutput) Parameters() ParameterDefinitionsResponsePtrOutput {
-	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) *ParameterDefinitionsResponse { return v.Parameters }).(ParameterDefinitionsResponsePtrOutput)
+func (o PolicyDefinitionPropertiesResponseOutput) Parameters() ParameterDefinitionsValueResponseMapOutput {
+	return o.ApplyT(func(v PolicyDefinitionPropertiesResponse) map[string]ParameterDefinitionsValueResponse {
+		return v.Parameters
+	}).(ParameterDefinitionsValueResponseMapOutput)
 }
 
 // The policy rule.
@@ -1034,13 +1267,13 @@ func (o PolicyDefinitionPropertiesResponsePtrOutput) Mode() pulumi.StringPtrOutp
 }
 
 // The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
-func (o PolicyDefinitionPropertiesResponsePtrOutput) Parameters() ParameterDefinitionsResponsePtrOutput {
-	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) *ParameterDefinitionsResponse {
+func (o PolicyDefinitionPropertiesResponsePtrOutput) Parameters() ParameterDefinitionsValueResponseMapOutput {
+	return o.ApplyT(func(v *PolicyDefinitionPropertiesResponse) map[string]ParameterDefinitionsValueResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(ParameterDefinitionsResponsePtrOutput)
+	}).(ParameterDefinitionsValueResponseMapOutput)
 }
 
 // The policy rule.
@@ -1068,7 +1301,7 @@ type PolicyDefinitionReference struct {
 	// The name of the groups that this policy definition reference belongs to.
 	GroupNames []string `pulumi:"groupNames"`
 	// The parameter values for the referenced policy rule. The keys are the parameter names.
-	Parameters *ParameterValues `pulumi:"parameters"`
+	Parameters map[string]ParameterValuesValue `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition.
 	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
 	// A unique id (within the policy set definition) for this policy definition reference.
@@ -1091,7 +1324,7 @@ type PolicyDefinitionReferenceArgs struct {
 	// The name of the groups that this policy definition reference belongs to.
 	GroupNames pulumi.StringArrayInput `pulumi:"groupNames"`
 	// The parameter values for the referenced policy rule. The keys are the parameter names.
-	Parameters ParameterValuesPtrInput `pulumi:"parameters"`
+	Parameters ParameterValuesValueMapInput `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition.
 	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
 	// A unique id (within the policy set definition) for this policy definition reference.
@@ -1156,8 +1389,8 @@ func (o PolicyDefinitionReferenceOutput) GroupNames() pulumi.StringArrayOutput {
 }
 
 // The parameter values for the referenced policy rule. The keys are the parameter names.
-func (o PolicyDefinitionReferenceOutput) Parameters() ParameterValuesPtrOutput {
-	return o.ApplyT(func(v PolicyDefinitionReference) *ParameterValues { return v.Parameters }).(ParameterValuesPtrOutput)
+func (o PolicyDefinitionReferenceOutput) Parameters() ParameterValuesValueMapOutput {
+	return o.ApplyT(func(v PolicyDefinitionReference) map[string]ParameterValuesValue { return v.Parameters }).(ParameterValuesValueMapOutput)
 }
 
 // The ID of the policy definition or policy set definition.
@@ -1195,7 +1428,7 @@ type PolicyDefinitionReferenceResponse struct {
 	// The name of the groups that this policy definition reference belongs to.
 	GroupNames []string `pulumi:"groupNames"`
 	// The parameter values for the referenced policy rule. The keys are the parameter names.
-	Parameters *ParameterValuesResponse `pulumi:"parameters"`
+	Parameters map[string]ParameterValuesValueResponse `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition.
 	PolicyDefinitionId string `pulumi:"policyDefinitionId"`
 	// A unique id (within the policy set definition) for this policy definition reference.
@@ -1218,7 +1451,7 @@ type PolicyDefinitionReferenceResponseArgs struct {
 	// The name of the groups that this policy definition reference belongs to.
 	GroupNames pulumi.StringArrayInput `pulumi:"groupNames"`
 	// The parameter values for the referenced policy rule. The keys are the parameter names.
-	Parameters ParameterValuesResponsePtrInput `pulumi:"parameters"`
+	Parameters ParameterValuesValueResponseMapInput `pulumi:"parameters"`
 	// The ID of the policy definition or policy set definition.
 	PolicyDefinitionId pulumi.StringInput `pulumi:"policyDefinitionId"`
 	// A unique id (within the policy set definition) for this policy definition reference.
@@ -1283,8 +1516,8 @@ func (o PolicyDefinitionReferenceResponseOutput) GroupNames() pulumi.StringArray
 }
 
 // The parameter values for the referenced policy rule. The keys are the parameter names.
-func (o PolicyDefinitionReferenceResponseOutput) Parameters() ParameterValuesResponsePtrOutput {
-	return o.ApplyT(func(v PolicyDefinitionReferenceResponse) *ParameterValuesResponse { return v.Parameters }).(ParameterValuesResponsePtrOutput)
+func (o PolicyDefinitionReferenceResponseOutput) Parameters() ParameterValuesValueResponseMapOutput {
+	return o.ApplyT(func(v PolicyDefinitionReferenceResponse) map[string]ParameterValuesValueResponse { return v.Parameters }).(ParameterValuesValueResponseMapOutput)
 }
 
 // The ID of the policy definition or policy set definition.
@@ -1317,81 +1550,6 @@ func (o PolicyDefinitionReferenceResponseArrayOutput) Index(i pulumi.IntInput) P
 	}).(PolicyDefinitionReferenceResponseOutput)
 }
 
-// The policy set definition.
-type PolicySetDefinitionAtManagementGroupType struct {
-	// The name of the policy set definition.
-	Name string `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicySetDefinitionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
-	Type string `pulumi:"type"`
-}
-
-// PolicySetDefinitionAtManagementGroupTypeInput is an input type that accepts PolicySetDefinitionAtManagementGroupTypeArgs and PolicySetDefinitionAtManagementGroupTypeOutput values.
-// You can construct a concrete instance of `PolicySetDefinitionAtManagementGroupTypeInput` via:
-//
-//          PolicySetDefinitionAtManagementGroupTypeArgs{...}
-type PolicySetDefinitionAtManagementGroupTypeInput interface {
-	pulumi.Input
-
-	ToPolicySetDefinitionAtManagementGroupTypeOutput() PolicySetDefinitionAtManagementGroupTypeOutput
-	ToPolicySetDefinitionAtManagementGroupTypeOutputWithContext(context.Context) PolicySetDefinitionAtManagementGroupTypeOutput
-}
-
-// The policy set definition.
-type PolicySetDefinitionAtManagementGroupTypeArgs struct {
-	// The name of the policy set definition.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The policy definition properties.
-	Properties PolicySetDefinitionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource (Microsoft.Authorization/policySetDefinitions).
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PolicySetDefinitionAtManagementGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySetDefinitionAtManagementGroupType)(nil)).Elem()
-}
-
-func (i PolicySetDefinitionAtManagementGroupTypeArgs) ToPolicySetDefinitionAtManagementGroupTypeOutput() PolicySetDefinitionAtManagementGroupTypeOutput {
-	return i.ToPolicySetDefinitionAtManagementGroupTypeOutputWithContext(context.Background())
-}
-
-func (i PolicySetDefinitionAtManagementGroupTypeArgs) ToPolicySetDefinitionAtManagementGroupTypeOutputWithContext(ctx context.Context) PolicySetDefinitionAtManagementGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionAtManagementGroupTypeOutput)
-}
-
-// The policy set definition.
-type PolicySetDefinitionAtManagementGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (PolicySetDefinitionAtManagementGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicySetDefinitionAtManagementGroupType)(nil)).Elem()
-}
-
-func (o PolicySetDefinitionAtManagementGroupTypeOutput) ToPolicySetDefinitionAtManagementGroupTypeOutput() PolicySetDefinitionAtManagementGroupTypeOutput {
-	return o
-}
-
-func (o PolicySetDefinitionAtManagementGroupTypeOutput) ToPolicySetDefinitionAtManagementGroupTypeOutputWithContext(ctx context.Context) PolicySetDefinitionAtManagementGroupTypeOutput {
-	return o
-}
-
-// The name of the policy set definition.
-func (o PolicySetDefinitionAtManagementGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicySetDefinitionAtManagementGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The policy definition properties.
-func (o PolicySetDefinitionAtManagementGroupTypeOutput) Properties() PolicySetDefinitionPropertiesResponseOutput {
-	return o.ApplyT(func(v PolicySetDefinitionAtManagementGroupType) PolicySetDefinitionPropertiesResponse {
-		return v.Properties
-	}).(PolicySetDefinitionPropertiesResponseOutput)
-}
-
-// The type of the resource (Microsoft.Authorization/policySetDefinitions).
-func (o PolicySetDefinitionAtManagementGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PolicySetDefinitionAtManagementGroupType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The policy set definition properties.
 type PolicySetDefinitionPropertiesResponse struct {
 	// The policy set definition description.
@@ -1401,7 +1559,7 @@ type PolicySetDefinitionPropertiesResponse struct {
 	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
 	Metadata map[string]interface{} `pulumi:"metadata"`
 	// The policy set definition parameters that can be used in policy definition references.
-	Parameters *ParameterDefinitionsResponse `pulumi:"parameters"`
+	Parameters map[string]ParameterDefinitionsValueResponse `pulumi:"parameters"`
 	// The metadata describing groups of policy definition references within the policy set definition.
 	PolicyDefinitionGroups []PolicyDefinitionGroupResponse `pulumi:"policyDefinitionGroups"`
 	// An array of policy definition references.
@@ -1430,7 +1588,7 @@ type PolicySetDefinitionPropertiesResponseArgs struct {
 	// The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
 	Metadata pulumi.MapInput `pulumi:"metadata"`
 	// The policy set definition parameters that can be used in policy definition references.
-	Parameters ParameterDefinitionsResponsePtrInput `pulumi:"parameters"`
+	Parameters ParameterDefinitionsValueResponseMapInput `pulumi:"parameters"`
 	// The metadata describing groups of policy definition references within the policy set definition.
 	PolicyDefinitionGroups PolicyDefinitionGroupResponseArrayInput `pulumi:"policyDefinitionGroups"`
 	// An array of policy definition references.
@@ -1533,8 +1691,10 @@ func (o PolicySetDefinitionPropertiesResponseOutput) Metadata() pulumi.MapOutput
 }
 
 // The policy set definition parameters that can be used in policy definition references.
-func (o PolicySetDefinitionPropertiesResponseOutput) Parameters() ParameterDefinitionsResponsePtrOutput {
-	return o.ApplyT(func(v PolicySetDefinitionPropertiesResponse) *ParameterDefinitionsResponse { return v.Parameters }).(ParameterDefinitionsResponsePtrOutput)
+func (o PolicySetDefinitionPropertiesResponseOutput) Parameters() ParameterDefinitionsValueResponseMapOutput {
+	return o.ApplyT(func(v PolicySetDefinitionPropertiesResponse) map[string]ParameterDefinitionsValueResponse {
+		return v.Parameters
+	}).(ParameterDefinitionsValueResponseMapOutput)
 }
 
 // The metadata describing groups of policy definition references within the policy set definition.
@@ -1605,13 +1765,13 @@ func (o PolicySetDefinitionPropertiesResponsePtrOutput) Metadata() pulumi.MapOut
 }
 
 // The policy set definition parameters that can be used in policy definition references.
-func (o PolicySetDefinitionPropertiesResponsePtrOutput) Parameters() ParameterDefinitionsResponsePtrOutput {
-	return o.ApplyT(func(v *PolicySetDefinitionPropertiesResponse) *ParameterDefinitionsResponse {
+func (o PolicySetDefinitionPropertiesResponsePtrOutput) Parameters() ParameterDefinitionsValueResponseMapOutput {
+	return o.ApplyT(func(v *PolicySetDefinitionPropertiesResponse) map[string]ParameterDefinitionsValueResponse {
 		if v == nil {
 			return nil
 		}
 		return v.Parameters
-	}).(ParameterDefinitionsResponsePtrOutput)
+	}).(ParameterDefinitionsValueResponseMapOutput)
 }
 
 // The metadata describing groups of policy definition references within the policy set definition.
@@ -1645,15 +1805,18 @@ func (o PolicySetDefinitionPropertiesResponsePtrOutput) PolicyType() pulumi.Stri
 }
 
 func init() {
-	pulumi.RegisterOutputType(ParameterDefinitionsOutput{})
-	pulumi.RegisterOutputType(ParameterDefinitionsPtrOutput{})
-	pulumi.RegisterOutputType(ParameterDefinitionsResponseOutput{})
-	pulumi.RegisterOutputType(ParameterDefinitionsResponsePtrOutput{})
-	pulumi.RegisterOutputType(ParameterValuesOutput{})
-	pulumi.RegisterOutputType(ParameterValuesPtrOutput{})
-	pulumi.RegisterOutputType(ParameterValuesResponseOutput{})
-	pulumi.RegisterOutputType(ParameterValuesResponsePtrOutput{})
-	pulumi.RegisterOutputType(PolicyDefinitionAtManagementGroupTypeOutput{})
+	pulumi.RegisterOutputType(ParameterDefinitionsValueOutput{})
+	pulumi.RegisterOutputType(ParameterDefinitionsValueMapOutput{})
+	pulumi.RegisterOutputType(ParameterDefinitionsValueMetadataOutput{})
+	pulumi.RegisterOutputType(ParameterDefinitionsValueMetadataPtrOutput{})
+	pulumi.RegisterOutputType(ParameterDefinitionsValueResponseOutput{})
+	pulumi.RegisterOutputType(ParameterDefinitionsValueResponseMapOutput{})
+	pulumi.RegisterOutputType(ParameterDefinitionsValueResponseMetadataOutput{})
+	pulumi.RegisterOutputType(ParameterDefinitionsValueResponseMetadataPtrOutput{})
+	pulumi.RegisterOutputType(ParameterValuesValueOutput{})
+	pulumi.RegisterOutputType(ParameterValuesValueMapOutput{})
+	pulumi.RegisterOutputType(ParameterValuesValueResponseOutput{})
+	pulumi.RegisterOutputType(ParameterValuesValueResponseMapOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionGroupOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionGroupArrayOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionGroupResponseOutput{})
@@ -1664,7 +1827,6 @@ func init() {
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceArrayOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseOutput{})
 	pulumi.RegisterOutputType(PolicyDefinitionReferenceResponseArrayOutput{})
-	pulumi.RegisterOutputType(PolicySetDefinitionAtManagementGroupTypeOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PolicySetDefinitionPropertiesResponsePtrOutput{})
 }

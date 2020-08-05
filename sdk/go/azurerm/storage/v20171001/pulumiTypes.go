@@ -2951,52 +2951,6 @@ func (o RestrictionResponseArrayOutput) Index(i pulumi.IntInput) RestrictionResp
 }
 
 // The capability information in the specified sku, including file encryption, network acls, change notification, etc.
-type SKUCapability struct {
-}
-
-// SKUCapabilityInput is an input type that accepts SKUCapabilityArgs and SKUCapabilityOutput values.
-// You can construct a concrete instance of `SKUCapabilityInput` via:
-//
-//          SKUCapabilityArgs{...}
-type SKUCapabilityInput interface {
-	pulumi.Input
-
-	ToSKUCapabilityOutput() SKUCapabilityOutput
-	ToSKUCapabilityOutputWithContext(context.Context) SKUCapabilityOutput
-}
-
-// The capability information in the specified sku, including file encryption, network acls, change notification, etc.
-type SKUCapabilityArgs struct {
-}
-
-func (SKUCapabilityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SKUCapability)(nil)).Elem()
-}
-
-func (i SKUCapabilityArgs) ToSKUCapabilityOutput() SKUCapabilityOutput {
-	return i.ToSKUCapabilityOutputWithContext(context.Background())
-}
-
-func (i SKUCapabilityArgs) ToSKUCapabilityOutputWithContext(ctx context.Context) SKUCapabilityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SKUCapabilityOutput)
-}
-
-// The capability information in the specified sku, including file encryption, network acls, change notification, etc.
-type SKUCapabilityOutput struct{ *pulumi.OutputState }
-
-func (SKUCapabilityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SKUCapability)(nil)).Elem()
-}
-
-func (o SKUCapabilityOutput) ToSKUCapabilityOutput() SKUCapabilityOutput {
-	return o
-}
-
-func (o SKUCapabilityOutput) ToSKUCapabilityOutputWithContext(ctx context.Context) SKUCapabilityOutput {
-	return o
-}
-
-// The capability information in the specified sku, including file encryption, network acls, change notification, etc.
 type SKUCapabilityResponse struct {
 	// The name of capability, The capability information in the specified sku, including file encryption, network acls, change notification, etc.
 	Name string `pulumi:"name"`
@@ -3504,124 +3458,6 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 		}
 		return &v.Tier
 	}).(pulumi.StringPtrOutput)
-}
-
-// The storage account.
-type StorageAccountType struct {
-	// The identity of the resource.
-	Identity *IdentityResponse `pulumi:"identity"`
-	// Gets the Kind.
-	Kind string `pulumi:"kind"`
-	// Resource location
-	Location *string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Properties of the storage account.
-	Properties StorageAccountPropertiesResponse `pulumi:"properties"`
-	// Gets the SKU.
-	Sku SkuResponse `pulumi:"sku"`
-	// Tags assigned to a resource; can be used for viewing and grouping a resource (across resource groups).
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// StorageAccountTypeInput is an input type that accepts StorageAccountTypeArgs and StorageAccountTypeOutput values.
-// You can construct a concrete instance of `StorageAccountTypeInput` via:
-//
-//          StorageAccountTypeArgs{...}
-type StorageAccountTypeInput interface {
-	pulumi.Input
-
-	ToStorageAccountTypeOutput() StorageAccountTypeOutput
-	ToStorageAccountTypeOutputWithContext(context.Context) StorageAccountTypeOutput
-}
-
-// The storage account.
-type StorageAccountTypeArgs struct {
-	// The identity of the resource.
-	Identity IdentityResponsePtrInput `pulumi:"identity"`
-	// Gets the Kind.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// Resource location
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the storage account.
-	Properties StorageAccountPropertiesResponseInput `pulumi:"properties"`
-	// Gets the SKU.
-	Sku SkuResponseInput `pulumi:"sku"`
-	// Tags assigned to a resource; can be used for viewing and grouping a resource (across resource groups).
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StorageAccountTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountType)(nil)).Elem()
-}
-
-func (i StorageAccountTypeArgs) ToStorageAccountTypeOutput() StorageAccountTypeOutput {
-	return i.ToStorageAccountTypeOutputWithContext(context.Background())
-}
-
-func (i StorageAccountTypeArgs) ToStorageAccountTypeOutputWithContext(ctx context.Context) StorageAccountTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountTypeOutput)
-}
-
-// The storage account.
-type StorageAccountTypeOutput struct{ *pulumi.OutputState }
-
-func (StorageAccountTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageAccountType)(nil)).Elem()
-}
-
-func (o StorageAccountTypeOutput) ToStorageAccountTypeOutput() StorageAccountTypeOutput {
-	return o
-}
-
-func (o StorageAccountTypeOutput) ToStorageAccountTypeOutputWithContext(ctx context.Context) StorageAccountTypeOutput {
-	return o
-}
-
-// The identity of the resource.
-func (o StorageAccountTypeOutput) Identity() IdentityResponsePtrOutput {
-	return o.ApplyT(func(v StorageAccountType) *IdentityResponse { return v.Identity }).(IdentityResponsePtrOutput)
-}
-
-// Gets the Kind.
-func (o StorageAccountTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// Resource location
-func (o StorageAccountTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageAccountType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o StorageAccountTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the storage account.
-func (o StorageAccountTypeOutput) Properties() StorageAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v StorageAccountType) StorageAccountPropertiesResponse { return v.Properties }).(StorageAccountPropertiesResponseOutput)
-}
-
-// Gets the SKU.
-func (o StorageAccountTypeOutput) Sku() SkuResponseOutput {
-	return o.ApplyT(func(v StorageAccountType) SkuResponse { return v.Sku }).(SkuResponseOutput)
-}
-
-// Tags assigned to a resource; can be used for viewing and grouping a resource (across resource groups).
-func (o StorageAccountTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v StorageAccountType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o StorageAccountTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageAccountType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // An access key for the storage account.
@@ -4398,14 +4234,12 @@ func init() {
 	pulumi.RegisterOutputType(RestrictionArrayOutput{})
 	pulumi.RegisterOutputType(RestrictionResponseOutput{})
 	pulumi.RegisterOutputType(RestrictionResponseArrayOutput{})
-	pulumi.RegisterOutputType(SKUCapabilityOutput{})
 	pulumi.RegisterOutputType(SKUCapabilityResponseOutput{})
 	pulumi.RegisterOutputType(SKUCapabilityResponseArrayOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(StorageAccountTypeOutput{})
 	pulumi.RegisterOutputType(StorageAccountKeyResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountKeyResponseArrayOutput{})
 	pulumi.RegisterOutputType(StorageAccountPropertiesResponseOutput{})

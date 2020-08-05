@@ -114,12 +114,6 @@ namespace Pulumi.AzureRM.CostManagement.V20200601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// If requested, has the most recent execution history for the export.
-        /// </summary>
-        [Input("runHistory")]
-        public Input<Inputs.ExportExecutionListResultArgs>? RunHistory { get; set; }
-
-        /// <summary>
         /// Has schedule information for the export.
         /// </summary>
         [Input("schedule")]

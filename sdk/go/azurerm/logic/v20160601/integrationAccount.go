@@ -19,7 +19,7 @@ type IntegrationAccount struct {
 	// Gets the resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The integration account properties.
-	Properties IntegrationAccountPropertiesResponseOutput `pulumi:"properties"`
+	Properties pulumi.MapOutput `pulumi:"properties"`
 	// The sku.
 	Sku IntegrationAccountSkuResponsePtrOutput `pulumi:"sku"`
 	// The resource tags.
@@ -67,7 +67,7 @@ type integrationAccountState struct {
 	// Gets the resource name.
 	Name *string `pulumi:"name"`
 	// The integration account properties.
-	Properties *IntegrationAccountPropertiesResponse `pulumi:"properties"`
+	Properties map[string]interface{} `pulumi:"properties"`
 	// The sku.
 	Sku *IntegrationAccountSkuResponse `pulumi:"sku"`
 	// The resource tags.
@@ -82,7 +82,7 @@ type IntegrationAccountState struct {
 	// Gets the resource name.
 	Name pulumi.StringPtrInput
 	// The integration account properties.
-	Properties IntegrationAccountPropertiesResponsePtrInput
+	Properties pulumi.MapInput
 	// The sku.
 	Sku IntegrationAccountSkuResponsePtrInput
 	// The resource tags.

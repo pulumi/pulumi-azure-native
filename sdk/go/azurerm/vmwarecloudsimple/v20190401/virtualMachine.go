@@ -21,7 +21,7 @@ type VirtualMachine struct {
 	// Virtual machine properties
 	Properties VirtualMachinePropertiesResponseOutput `pulumi:"properties"`
 	// The list of tags
-	Tags TagsResponsePtrOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// {resourceProviderNamespace}/{resourceType}
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -82,7 +82,7 @@ type virtualMachineState struct {
 	// Virtual machine properties
 	Properties *VirtualMachinePropertiesResponse `pulumi:"properties"`
 	// The list of tags
-	Tags *TagsResponse `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// {resourceProviderNamespace}/{resourceType}
 	Type *string `pulumi:"type"`
 }
@@ -95,7 +95,7 @@ type VirtualMachineState struct {
 	// Virtual machine properties
 	Properties VirtualMachinePropertiesResponsePtrInput
 	// The list of tags
-	Tags TagsResponsePtrInput
+	Tags pulumi.StringMapInput
 	// {resourceProviderNamespace}/{resourceType}
 	Type pulumi.StringPtrInput
 }
@@ -132,7 +132,7 @@ type virtualMachineArgs struct {
 	// Virtual Machines Resource Pool
 	ResourcePool *ResourcePool `pulumi:"resourcePool"`
 	// The list of tags
-	Tags *Tags `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
 	// Virtual Machine Template Id
 	TemplateId *string `pulumi:"templateId"`
 	// Username for login. Deprecated - use customization property
@@ -170,7 +170,7 @@ type VirtualMachineArgs struct {
 	// Virtual Machines Resource Pool
 	ResourcePool ResourcePoolPtrInput
 	// The list of tags
-	Tags TagsPtrInput
+	Tags pulumi.StringMapInput
 	// Virtual Machine Template Id
 	TemplateId pulumi.StringPtrInput
 	// Username for login. Deprecated - use customization property

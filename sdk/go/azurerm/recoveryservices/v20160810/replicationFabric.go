@@ -89,8 +89,6 @@ func (ReplicationFabricState) ElementType() reflect.Type {
 type replicationFabricArgs struct {
 	// Name of the ASR fabric.
 	Name string `pulumi:"name"`
-	// Fabric creation input.
-	Properties *FabricCreationInputProperties `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the recovery services vault.
@@ -101,8 +99,6 @@ type replicationFabricArgs struct {
 type ReplicationFabricArgs struct {
 	// Name of the ASR fabric.
 	Name pulumi.StringInput
-	// Fabric creation input.
-	Properties FabricCreationInputPropertiesPtrInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// The name of the recovery services vault.

@@ -75,7 +75,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
             inputs["name"] = args ? args.name : undefined;
-            inputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
             inputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             inputs["provisioningState"] = args ? args.provisioningState : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -102,10 +101,6 @@ export interface PrivateEndpointConnectionArgs {
      * The name of the private endpoint connection associated with the Azure resource
      */
     readonly name: pulumi.Input<string>;
-    /**
-     * The resource of private end point.
-     */
-    readonly privateEndpoint?: pulumi.Input<inputs.storagesync.v20200301.PrivateEndpoint>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */

@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// Dataset properties.
         /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.DatasetDefinitionArgs> Properties { get; set; } = null!;
+        public Input<Inputs.DatasetArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

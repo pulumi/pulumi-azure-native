@@ -16,12 +16,6 @@ namespace Pulumi.AzureRM.Devices.V20200401.Inputs
     public sealed class PrivateEndpointConnectionPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The private endpoint property of a private endpoint connection
-        /// </summary>
-        [Input("privateEndpoint")]
-        public Input<Inputs.PrivateEndpointArgs>? PrivateEndpoint { get; set; }
-
-        /// <summary>
         /// The current state of a private endpoint connection
         /// </summary>
         [Input("privateLinkServiceConnectionState", required: true)]

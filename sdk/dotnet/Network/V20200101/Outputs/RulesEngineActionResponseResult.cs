@@ -21,22 +21,15 @@ namespace Pulumi.AzureRM.Network.V20200101.Outputs
         /// A list of header actions to apply from the response from AFD to the client.
         /// </summary>
         public readonly ImmutableArray<Outputs.HeaderActionResponseResult> ResponseHeaderActions;
-        /// <summary>
-        /// Override the route configuration.
-        /// </summary>
-        public readonly Outputs.RouteConfigurationResponseResult? RouteConfigurationOverride;
 
         [OutputConstructor]
         private RulesEngineActionResponseResult(
             ImmutableArray<Outputs.HeaderActionResponseResult> requestHeaderActions,
 
-            ImmutableArray<Outputs.HeaderActionResponseResult> responseHeaderActions,
-
-            Outputs.RouteConfigurationResponseResult? routeConfigurationOverride)
+            ImmutableArray<Outputs.HeaderActionResponseResult> responseHeaderActions)
         {
             RequestHeaderActions = requestHeaderActions;
             ResponseHeaderActions = responseHeaderActions;
-            RouteConfigurationOverride = routeConfigurationOverride;
         }
     }
 }

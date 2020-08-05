@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.ContainerInstance.V20191201.Outputs
         /// <summary>
         /// The instance view of the container instance. Only valid in response.
         /// </summary>
-        public readonly Outputs.ContainerPropertiesResponsePropertiesResult InstanceView;
+        public readonly Outputs.ContainerPropertiesResponseInstanceViewResult InstanceView;
         /// <summary>
         /// The liveness probe.
         /// </summary>
@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.ContainerInstance.V20191201.Outputs
 
             string image,
 
-            Outputs.ContainerPropertiesResponsePropertiesResult instanceView,
+            Outputs.ContainerPropertiesResponseInstanceViewResult instanceView,
 
             Outputs.ContainerProbeResponseResult? livenessProbe,
 

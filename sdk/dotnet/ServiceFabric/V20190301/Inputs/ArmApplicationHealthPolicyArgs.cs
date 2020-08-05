@@ -36,11 +36,17 @@ namespace Pulumi.AzureRM.ServiceFabric.V20190301.Inputs
         [Input("maxPercentUnhealthyDeployedApplications")]
         public Input<int>? MaxPercentUnhealthyDeployedApplications { get; set; }
 
+        [Input("serviceTypeHealthPolicyMap")]
+        private InputMap<Inputs.ArmServiceTypeHealthPolicyArgs>? _serviceTypeHealthPolicyMap;
+
         /// <summary>
         /// The map with service type health policy per service type name. The map is empty by default.
         /// </summary>
-        [Input("serviceTypeHealthPolicyMap")]
-        public Input<Inputs.ArmServiceTypeHealthPolicyMapArgs>? ServiceTypeHealthPolicyMap { get; set; }
+        public InputMap<Inputs.ArmServiceTypeHealthPolicyArgs> ServiceTypeHealthPolicyMap
+        {
+            get => _serviceTypeHealthPolicyMap ?? (_serviceTypeHealthPolicyMap = new InputMap<Inputs.ArmServiceTypeHealthPolicyArgs>());
+            set => _serviceTypeHealthPolicyMap = value;
+        }
 
         public ArmApplicationHealthPolicyArgs()
         {

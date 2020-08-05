@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.StorageCache.V20200301.Inputs
         /// Describes a resource Id to source Key Vault.
         /// </summary>
         [Input("sourceVault", required: true)]
-        public Input<Inputs.KeyVaultKeyReferencePropertiesArgs> SourceVault { get; set; } = null!;
+        public Input<Inputs.KeyVaultKeyReferenceSourceVaultArgs> SourceVault { get; set; } = null!;
 
         public KeyVaultKeyReferenceArgs()
         {

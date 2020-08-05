@@ -39,20 +39,7 @@ class Cache(pulumi.CustomResource):
     sku: pulumi.Output[dict]
     """
     SKU for the Cache.
-      * `cache_size_gb` (`float`) - The size of this Cache, in GB.
-      * `health` (`dict`) - Health of the Cache.
-        * `state` (`str`) - List of Cache health states.
-        * `status_description` (`str`) - Describes explanation of state.
-
-      * `mount_addresses` (`list`) - Array of IP addresses that can be used by clients mounting this Cache.
-      * `provisioning_state` (`str`) - ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-      * `subnet` (`str`) - Subnet used for the Cache.
-      * `upgrade_status` (`dict`) - Upgrade status of the Cache.
-        * `current_firmware_version` (`str`) - Version string of the firmware currently installed on this Cache.
-        * `firmware_update_deadline` (`str`) - Time at which the pending firmware update will automatically be installed on the Cache.
-        * `firmware_update_status` (`str`) - True if there is a firmware update ready to install on this Cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
-        * `last_firmware_update` (`str`) - Time of the last successful firmware update.
-        * `pending_firmware_version` (`str`) - When firmwareUpdateAvailable is true, this field holds the version string for the update.
+      * `name` (`str`) - SKU name for this Cache.
     """
     tags: pulumi.Output[dict]
     """
@@ -62,7 +49,7 @@ class Cache(pulumi.CustomResource):
     """
     Type of the Cache; Microsoft.StorageCache/Cache
     """
-    def __init__(__self__, resource_name, opts=None, cache_size_gb=None, location=None, name=None, provisioning_state=None, resource_group_name=None, sku=None, subnet=None, tags=None, upgrade_status=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, cache_size_gb=None, location=None, name=None, provisioning_state=None, resource_group_name=None, sku=None, subnet=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 
@@ -76,7 +63,6 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[dict] sku: SKU for the Cache.
         :param pulumi.Input[str] subnet: Subnet used for the Cache.
         :param pulumi.Input[dict] tags: ARM tags as name/value pairs.
-        :param pulumi.Input[dict] upgrade_status: Upgrade status of the Cache.
 
         The **sku** object supports the following:
 
@@ -111,7 +97,6 @@ class Cache(pulumi.CustomResource):
             __props__['sku'] = sku
             __props__['subnet'] = subnet
             __props__['tags'] = tags
-            __props__['upgrade_status'] = upgrade_status
             __props__['properties'] = None
             __props__['type'] = None
         super(Cache, __self__).__init__(

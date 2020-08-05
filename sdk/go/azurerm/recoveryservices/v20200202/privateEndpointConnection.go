@@ -106,7 +106,7 @@ type privateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection.
 	Name string `pulumi:"name"`
 	// PrivateEndpointConnectionResource properties
-	Properties *PrivateEndpointConnectionDefinition `pulumi:"properties"`
+	Properties *PrivateEndpointConnectionType `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -124,7 +124,7 @@ type PrivateEndpointConnectionArgs struct {
 	// The name of the private endpoint connection.
 	Name pulumi.StringInput
 	// PrivateEndpointConnectionResource properties
-	Properties PrivateEndpointConnectionDefinitionPtrInput
+	Properties PrivateEndpointConnectionTypePtrInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

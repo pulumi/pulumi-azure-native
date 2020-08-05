@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.TimeSeriesInsights.V20200515.Inputs
         /// An object that represents the offset information for the local timestamp format specified. Should not be specified for LocalTimestampFormat - Embedded.
         /// </summary>
         [Input("timeZoneOffset")]
-        public Input<Inputs.LocalTimestampPropertiesArgs>? TimeZoneOffset { get; set; }
+        public Input<Inputs.LocalTimestampTimeZoneOffsetArgs>? TimeZoneOffset { get; set; }
 
         public LocalTimestampArgs()
         {

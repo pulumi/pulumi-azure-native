@@ -11,88 +11,6 @@ import (
 )
 
 // Value object for saved search results.
-type SavedSearchType struct {
-	// The ETag of the saved search.
-	ETag *string `pulumi:"eTag"`
-	// The name of the saved search.
-	Name string `pulumi:"name"`
-	// The properties of the saved search.
-	Properties SavedSearchPropertiesResponse `pulumi:"properties"`
-	// The type of the saved search.
-	Type string `pulumi:"type"`
-}
-
-// SavedSearchTypeInput is an input type that accepts SavedSearchTypeArgs and SavedSearchTypeOutput values.
-// You can construct a concrete instance of `SavedSearchTypeInput` via:
-//
-//          SavedSearchTypeArgs{...}
-type SavedSearchTypeInput interface {
-	pulumi.Input
-
-	ToSavedSearchTypeOutput() SavedSearchTypeOutput
-	ToSavedSearchTypeOutputWithContext(context.Context) SavedSearchTypeOutput
-}
-
-// Value object for saved search results.
-type SavedSearchTypeArgs struct {
-	// The ETag of the saved search.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// The name of the saved search.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the saved search.
-	Properties SavedSearchPropertiesResponseInput `pulumi:"properties"`
-	// The type of the saved search.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SavedSearchTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SavedSearchType)(nil)).Elem()
-}
-
-func (i SavedSearchTypeArgs) ToSavedSearchTypeOutput() SavedSearchTypeOutput {
-	return i.ToSavedSearchTypeOutputWithContext(context.Background())
-}
-
-func (i SavedSearchTypeArgs) ToSavedSearchTypeOutputWithContext(ctx context.Context) SavedSearchTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SavedSearchTypeOutput)
-}
-
-// Value object for saved search results.
-type SavedSearchTypeOutput struct{ *pulumi.OutputState }
-
-func (SavedSearchTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SavedSearchType)(nil)).Elem()
-}
-
-func (o SavedSearchTypeOutput) ToSavedSearchTypeOutput() SavedSearchTypeOutput {
-	return o
-}
-
-func (o SavedSearchTypeOutput) ToSavedSearchTypeOutputWithContext(ctx context.Context) SavedSearchTypeOutput {
-	return o
-}
-
-// The ETag of the saved search.
-func (o SavedSearchTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SavedSearchType) *string { return v.ETag }).(pulumi.StringPtrOutput)
-}
-
-// The name of the saved search.
-func (o SavedSearchTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SavedSearchType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the saved search.
-func (o SavedSearchTypeOutput) Properties() SavedSearchPropertiesResponseOutput {
-	return o.ApplyT(func(v SavedSearchType) SavedSearchPropertiesResponse { return v.Properties }).(SavedSearchPropertiesResponseOutput)
-}
-
-// The type of the saved search.
-func (o SavedSearchTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SavedSearchType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Value object for saved search results.
 type SavedSearchPropertiesResponse struct {
 	// The category of the saved search. This helps the user to find a saved search faster.
 	Category string `pulumi:"category"`
@@ -608,97 +526,6 @@ func (o StorageAccountResponsePtrOutput) Key() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The top level storage insight resource container.
-type StorageInsightType struct {
-	// The ETag of the storage insight.
-	ETag *string `pulumi:"eTag"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// Storage insight properties.
-	Properties StorageInsightPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// StorageInsightTypeInput is an input type that accepts StorageInsightTypeArgs and StorageInsightTypeOutput values.
-// You can construct a concrete instance of `StorageInsightTypeInput` via:
-//
-//          StorageInsightTypeArgs{...}
-type StorageInsightTypeInput interface {
-	pulumi.Input
-
-	ToStorageInsightTypeOutput() StorageInsightTypeOutput
-	ToStorageInsightTypeOutputWithContext(context.Context) StorageInsightTypeOutput
-}
-
-// The top level storage insight resource container.
-type StorageInsightTypeArgs struct {
-	// The ETag of the storage insight.
-	ETag pulumi.StringPtrInput `pulumi:"eTag"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Storage insight properties.
-	Properties StorageInsightPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (StorageInsightTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageInsightType)(nil)).Elem()
-}
-
-func (i StorageInsightTypeArgs) ToStorageInsightTypeOutput() StorageInsightTypeOutput {
-	return i.ToStorageInsightTypeOutputWithContext(context.Background())
-}
-
-func (i StorageInsightTypeArgs) ToStorageInsightTypeOutputWithContext(ctx context.Context) StorageInsightTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightTypeOutput)
-}
-
-// The top level storage insight resource container.
-type StorageInsightTypeOutput struct{ *pulumi.OutputState }
-
-func (StorageInsightTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageInsightType)(nil)).Elem()
-}
-
-func (o StorageInsightTypeOutput) ToStorageInsightTypeOutput() StorageInsightTypeOutput {
-	return o
-}
-
-func (o StorageInsightTypeOutput) ToStorageInsightTypeOutputWithContext(ctx context.Context) StorageInsightTypeOutput {
-	return o
-}
-
-// The ETag of the storage insight.
-func (o StorageInsightTypeOutput) ETag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageInsightType) *string { return v.ETag }).(pulumi.StringPtrOutput)
-}
-
-// Resource name.
-func (o StorageInsightTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageInsightType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Storage insight properties.
-func (o StorageInsightTypeOutput) Properties() StorageInsightPropertiesResponseOutput {
-	return o.ApplyT(func(v StorageInsightType) StorageInsightPropertiesResponse { return v.Properties }).(StorageInsightPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o StorageInsightTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v StorageInsightType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o StorageInsightTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageInsightType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Storage insight properties.
 type StorageInsightPropertiesResponse struct {
 	// The names of the blob containers that the workspace should read
@@ -888,70 +715,6 @@ func (o StorageInsightPropertiesResponsePtrOutput) Tables() pulumi.StringArrayOu
 		}
 		return v.Tables
 	}).(pulumi.StringArrayOutput)
-}
-
-// The status of the storage insight.
-type StorageInsightStatus struct {
-	// Description of the state of the storage insight.
-	Description *string `pulumi:"description"`
-	// The state of the storage insight connection to the workspace
-	State string `pulumi:"state"`
-}
-
-// StorageInsightStatusInput is an input type that accepts StorageInsightStatusArgs and StorageInsightStatusOutput values.
-// You can construct a concrete instance of `StorageInsightStatusInput` via:
-//
-//          StorageInsightStatusArgs{...}
-type StorageInsightStatusInput interface {
-	pulumi.Input
-
-	ToStorageInsightStatusOutput() StorageInsightStatusOutput
-	ToStorageInsightStatusOutputWithContext(context.Context) StorageInsightStatusOutput
-}
-
-// The status of the storage insight.
-type StorageInsightStatusArgs struct {
-	// Description of the state of the storage insight.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The state of the storage insight connection to the workspace
-	State pulumi.StringInput `pulumi:"state"`
-}
-
-func (StorageInsightStatusArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageInsightStatus)(nil)).Elem()
-}
-
-func (i StorageInsightStatusArgs) ToStorageInsightStatusOutput() StorageInsightStatusOutput {
-	return i.ToStorageInsightStatusOutputWithContext(context.Background())
-}
-
-func (i StorageInsightStatusArgs) ToStorageInsightStatusOutputWithContext(ctx context.Context) StorageInsightStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StorageInsightStatusOutput)
-}
-
-// The status of the storage insight.
-type StorageInsightStatusOutput struct{ *pulumi.OutputState }
-
-func (StorageInsightStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StorageInsightStatus)(nil)).Elem()
-}
-
-func (o StorageInsightStatusOutput) ToStorageInsightStatusOutput() StorageInsightStatusOutput {
-	return o
-}
-
-func (o StorageInsightStatusOutput) ToStorageInsightStatusOutputWithContext(ctx context.Context) StorageInsightStatusOutput {
-	return o
-}
-
-// Description of the state of the storage insight.
-func (o StorageInsightStatusOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v StorageInsightStatus) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// The state of the storage insight connection to the workspace
-func (o StorageInsightStatusOutput) State() pulumi.StringOutput {
-	return o.ApplyT(func(v StorageInsightStatus) string { return v.State }).(pulumi.StringOutput)
 }
 
 // The status of the storage insight.
@@ -1326,17 +1089,14 @@ func (o TagResponseArrayOutput) Index(i pulumi.IntInput) TagResponseOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(SavedSearchTypeOutput{})
 	pulumi.RegisterOutputType(SavedSearchPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SavedSearchPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountOutput{})
 	pulumi.RegisterOutputType(StorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponseOutput{})
 	pulumi.RegisterOutputType(StorageAccountResponsePtrOutput{})
-	pulumi.RegisterOutputType(StorageInsightTypeOutput{})
 	pulumi.RegisterOutputType(StorageInsightPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(StorageInsightPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(StorageInsightStatusOutput{})
 	pulumi.RegisterOutputType(StorageInsightStatusResponseOutput{})
 	pulumi.RegisterOutputType(StorageInsightStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(TagOutput{})

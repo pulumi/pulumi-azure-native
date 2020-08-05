@@ -95,8 +95,6 @@ func (GalleryState) ElementType() reflect.Type {
 type galleryArgs struct {
 	// The description of this Shared Image Gallery resource. This property is updatable.
 	Description *string `pulumi:"description"`
-	// Describes the gallery unique name.
-	Identifier *GalleryIdentifier `pulumi:"identifier"`
 	// Resource location
 	Location string `pulumi:"location"`
 	// The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.
@@ -111,8 +109,6 @@ type galleryArgs struct {
 type GalleryArgs struct {
 	// The description of this Shared Image Gallery resource. This property is updatable.
 	Description pulumi.StringPtrInput
-	// Describes the gallery unique name.
-	Identifier GalleryIdentifierPtrInput
 	// Resource location
 	Location pulumi.StringInput
 	// The name of the Shared Image Gallery. The allowed characters are alphabets and numbers with dots and periods allowed in the middle. The maximum length is 80 characters.

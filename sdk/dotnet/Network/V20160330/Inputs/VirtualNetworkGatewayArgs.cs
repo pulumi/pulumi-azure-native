@@ -16,10 +16,52 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
     public sealed class VirtualNetworkGatewayArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Virtual network gateway's BGP speaker settings
+        /// </summary>
+        [Input("bgpSettings")]
+        public Input<Inputs.BgpSettingsArgs>? BgpSettings { get; set; }
+
+        /// <summary>
+        /// EnableBgp Flag
+        /// </summary>
+        [Input("enableBgp")]
+        public Input<bool>? EnableBgp { get; set; }
+
+        /// <summary>
         /// Gets a unique read-only string that changes whenever the resource is updated
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// Gets or sets the reference of the LocalNetworkGateway resource which represents Local network site having default routes. Assign Null value in case of removing existing default site setting.
+        /// </summary>
+        [Input("gatewayDefaultSite")]
+        public Input<Inputs.SubResourceArgs>? GatewayDefaultSite { get; set; }
+
+        /// <summary>
+        /// The type of this virtual network gateway.
+        /// </summary>
+        [Input("gatewayType")]
+        public Input<string>? GatewayType { get; set; }
+
+        /// <summary>
+        /// Resource Id
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        [Input("ipConfigurations")]
+        private InputList<Inputs.VirtualNetworkGatewayIPConfigurationArgs>? _ipConfigurations;
+
+        /// <summary>
+        /// IpConfigurations for Virtual network gateway.
+        /// </summary>
+        public InputList<Inputs.VirtualNetworkGatewayIPConfigurationArgs> IpConfigurations
+        {
+            get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.VirtualNetworkGatewayIPConfigurationArgs>());
+            set => _ipConfigurations = value;
+        }
 
         /// <summary>
         /// Resource location
@@ -28,16 +70,22 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Resource name
+        /// Gets or sets Provisioning state of the VirtualNetworkGateway resource Updating/Deleting/Failed
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("provisioningState")]
+        public Input<string>? ProvisioningState { get; set; }
 
         /// <summary>
-        /// VirtualNetworkGateway properties
+        /// Gets or sets resource GUID property of the VirtualNetworkGateway resource
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.VirtualNetworkGatewayPropertiesFormatResponseArgs> Properties { get; set; } = null!;
+        [Input("resourceGuid")]
+        public Input<string>? ResourceGuid { get; set; }
+
+        /// <summary>
+        /// Gets or sets the reference of the VirtualNetworkGatewaySku resource which represents the sku selected for Virtual network gateway.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.VirtualNetworkGatewaySkuArgs>? Sku { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -52,10 +100,16 @@ namespace Pulumi.AzureRM.Network.V20160330.Inputs
         }
 
         /// <summary>
-        /// Resource type
+        /// Gets or sets the reference of the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
         /// </summary>
-        [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        [Input("vpnClientConfiguration")]
+        public Input<Inputs.VpnClientConfigurationArgs>? VpnClientConfiguration { get; set; }
+
+        /// <summary>
+        /// The type of this virtual network gateway.
+        /// </summary>
+        [Input("vpnType")]
+        public Input<string>? VpnType { get; set; }
 
         public VirtualNetworkGatewayArgs()
         {

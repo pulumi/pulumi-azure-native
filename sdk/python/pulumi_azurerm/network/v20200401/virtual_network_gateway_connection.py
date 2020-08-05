@@ -212,31 +212,23 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
         The **local_network_gateway2** object supports the following:
 
-          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+          * `bgp_settings` (`pulumi.Input[dict]`) - Local network gateway's BGP speaker settings.
+            * `asn` (`pulumi.Input[float]`) - The BGP speaker's ASN.
+            * `bgp_peering_address` (`pulumi.Input[str]`) - The BGP peering address and BGP identifier of this BGP speaker.
+            * `bgp_peering_addresses` (`pulumi.Input[list]`) - BGP peering address with IP configuration ID for virtual network gateway.
+              * `custom_bgp_ip_addresses` (`pulumi.Input[list]`) - The list of custom BGP peering addresses which belong to IP configuration.
+              * `ipconfiguration_id` (`pulumi.Input[str]`) - The ID of IP configuration which belongs to gateway.
+
+            * `peer_weight` (`pulumi.Input[float]`) - The weight added to routes learned from this BGP speaker.
+
+          * `fqdn` (`pulumi.Input[str]`) - FQDN of local network gateway.
+          * `gateway_ip_address` (`pulumi.Input[str]`) - IP address of local network gateway.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `local_network_address_space` (`pulumi.Input[dict]`) - Local network site address space.
+            * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
+
           * `location` (`pulumi.Input[str]`) - Resource location.
-          * `name` (`pulumi.Input[str]`) - Resource name.
-          * `properties` (`pulumi.Input[dict]`) - Properties of the local network gateway.
-            * `bgp_settings` (`pulumi.Input[dict]`) - Local network gateway's BGP speaker settings.
-              * `asn` (`pulumi.Input[float]`) - The BGP speaker's ASN.
-              * `bgp_peering_address` (`pulumi.Input[str]`) - The BGP peering address and BGP identifier of this BGP speaker.
-              * `bgp_peering_addresses` (`pulumi.Input[list]`) - BGP peering address with IP configuration ID for virtual network gateway.
-                * `custom_bgp_ip_addresses` (`pulumi.Input[list]`) - The list of custom BGP peering addresses which belong to IP configuration.
-                * `default_bgp_ip_addresses` (`pulumi.Input[list]`) - The list of default BGP peering addresses which belong to IP configuration.
-                * `ipconfiguration_id` (`pulumi.Input[str]`) - The ID of IP configuration which belongs to gateway.
-                * `tunnel_ip_addresses` (`pulumi.Input[list]`) - The list of tunnel public IP addresses which belong to IP configuration.
-
-              * `peer_weight` (`pulumi.Input[float]`) - The weight added to routes learned from this BGP speaker.
-
-            * `fqdn` (`pulumi.Input[str]`) - FQDN of local network gateway.
-            * `gateway_ip_address` (`pulumi.Input[str]`) - IP address of local network gateway.
-            * `local_network_address_space` (`pulumi.Input[dict]`) - Local network site address space.
-              * `address_prefixes` (`pulumi.Input[list]`) - A list of address blocks reserved for this virtual network in CIDR notation.
-
-            * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the local network gateway resource.
-            * `resource_guid` (`pulumi.Input[str]`) - The resource GUID property of the local network gateway resource.
-
           * `tags` (`pulumi.Input[dict]`) - Resource tags.
-          * `type` (`pulumi.Input[str]`) - Resource type.
 
         The **peer** object supports the following:
 
@@ -249,83 +241,54 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
 
         The **virtual_network_gateway1** object supports the following:
 
-          * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+          * `active_active` (`pulumi.Input[bool]`) - ActiveActive flag.
+          * `bgp_settings` (`pulumi.Input[dict]`) - Virtual network gateway's BGP speaker settings.
+          * `custom_routes` (`pulumi.Input[dict]`) - The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
+          * `enable_bgp` (`pulumi.Input[bool]`) - Whether BGP is enabled for this virtual network gateway or not.
+          * `enable_dns_forwarding` (`pulumi.Input[bool]`) - Whether dns forwarding is enabled or not.
+          * `enable_private_ip_address` (`pulumi.Input[bool]`) - Whether private IP needs to be enabled on this gateway for connections or not.
+          * `gateway_default_site` (`pulumi.Input[dict]`) - The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
+          * `gateway_type` (`pulumi.Input[str]`) - The type of this virtual network gateway.
+          * `id` (`pulumi.Input[str]`) - Resource ID.
+          * `ip_configurations` (`pulumi.Input[list]`) - IP configurations for virtual network gateway.
+            * `id` (`pulumi.Input[str]`) - Resource ID.
+            * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+            * `private_ip_allocation_method` (`pulumi.Input[str]`) - The private IP address allocation method.
+            * `public_ip_address` (`pulumi.Input[dict]`) - The reference to the public IP resource.
+            * `subnet` (`pulumi.Input[dict]`) - The reference to the subnet resource.
+
           * `location` (`pulumi.Input[str]`) - Resource location.
-          * `name` (`pulumi.Input[str]`) - Resource name.
-          * `properties` (`pulumi.Input[dict]`) - Properties of the virtual network gateway.
-            * `active_active` (`pulumi.Input[bool]`) - ActiveActive flag.
-            * `bgp_settings` (`pulumi.Input[dict]`) - Virtual network gateway's BGP speaker settings.
-            * `custom_routes` (`pulumi.Input[dict]`) - The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
-            * `enable_bgp` (`pulumi.Input[bool]`) - Whether BGP is enabled for this virtual network gateway or not.
-            * `enable_dns_forwarding` (`pulumi.Input[bool]`) - Whether dns forwarding is enabled or not.
-            * `enable_private_ip_address` (`pulumi.Input[bool]`) - Whether private IP needs to be enabled on this gateway for connections or not.
-            * `gateway_default_site` (`pulumi.Input[dict]`) - The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
-              * `id` (`pulumi.Input[str]`) - Resource ID.
-
-            * `gateway_type` (`pulumi.Input[str]`) - The type of this virtual network gateway.
-            * `inbound_dns_forwarding_endpoint` (`pulumi.Input[str]`) - The IP address allocated by the gateway to which dns requests can be sent.
-            * `ip_configurations` (`pulumi.Input[list]`) - IP configurations for virtual network gateway.
-              * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-              * `id` (`pulumi.Input[str]`) - Resource ID.
-              * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-              * `properties` (`pulumi.Input[dict]`) - Properties of the virtual network gateway ip configuration.
-                * `private_ip_address` (`pulumi.Input[str]`) - Private IP Address for this gateway.
-                * `private_ip_allocation_method` (`pulumi.Input[str]`) - The private IP address allocation method.
-                * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the virtual network gateway IP configuration resource.
-                * `public_ip_address` (`pulumi.Input[dict]`) - The reference to the public IP resource.
-                * `subnet` (`pulumi.Input[dict]`) - The reference to the subnet resource.
-
-            * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the virtual network gateway resource.
-            * `resource_guid` (`pulumi.Input[str]`) - The resource GUID property of the virtual network gateway resource.
-            * `sku` (`pulumi.Input[dict]`) - The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
-              * `capacity` (`pulumi.Input[float]`) - The capacity.
-              * `name` (`pulumi.Input[str]`) - Gateway SKU name.
-              * `tier` (`pulumi.Input[str]`) - Gateway SKU tier.
-
-            * `vpn_client_configuration` (`pulumi.Input[dict]`) - The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
-              * `aad_audience` (`pulumi.Input[str]`) - The AADAudience property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
-              * `aad_issuer` (`pulumi.Input[str]`) - The AADIssuer property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
-              * `aad_tenant` (`pulumi.Input[str]`) - The AADTenant property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
-              * `radius_server_address` (`pulumi.Input[str]`) - The radius server address property of the VirtualNetworkGateway resource for vpn client connection.
-              * `radius_server_secret` (`pulumi.Input[str]`) - The radius secret property of the VirtualNetworkGateway resource for vpn client connection.
-              * `radius_servers` (`pulumi.Input[list]`) - The radiusServers property for multiple radius server configuration.
-                * `radius_server_address` (`pulumi.Input[str]`) - The address of this radius server.
-                * `radius_server_score` (`pulumi.Input[float]`) - The initial score assigned to this radius server.
-                * `radius_server_secret` (`pulumi.Input[str]`) - The secret used for this radius server.
-
-              * `vpn_client_address_pool` (`pulumi.Input[dict]`) - The reference to the address space resource which represents Address space for P2S VpnClient.
-              * `vpn_client_ipsec_policies` (`pulumi.Input[list]`) - VpnClientIpsecPolicies for virtual network gateway P2S client.
-                * `dh_group` (`pulumi.Input[str]`) - The DH Group used in IKE Phase 1 for initial SA.
-                * `ike_encryption` (`pulumi.Input[str]`) - The IKE encryption algorithm (IKE phase 2).
-                * `ike_integrity` (`pulumi.Input[str]`) - The IKE integrity algorithm (IKE phase 2).
-                * `ipsec_encryption` (`pulumi.Input[str]`) - The IPSec encryption algorithm (IKE phase 1).
-                * `ipsec_integrity` (`pulumi.Input[str]`) - The IPSec integrity algorithm (IKE phase 1).
-                * `pfs_group` (`pulumi.Input[str]`) - The Pfs Group used in IKE Phase 2 for new child SA.
-                * `sa_data_size_kilobytes` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.
-                * `sa_life_time_seconds` (`pulumi.Input[float]`) - The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.
-
-              * `vpn_client_protocols` (`pulumi.Input[list]`) - VpnClientProtocols for Virtual network gateway.
-              * `vpn_client_revoked_certificates` (`pulumi.Input[list]`) - VpnClientRevokedCertificate for Virtual network gateway.
-                * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`pulumi.Input[str]`) - Resource ID.
-                * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `properties` (`pulumi.Input[dict]`) - Properties of the vpn client revoked certificate.
-                  * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the VPN client revoked certificate resource.
-                  * `thumbprint` (`pulumi.Input[str]`) - The revoked VPN client certificate thumbprint.
-
-              * `vpn_client_root_certificates` (`pulumi.Input[list]`) - VpnClientRootCertificate for virtual network gateway.
-                * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
-                * `id` (`pulumi.Input[str]`) - Resource ID.
-                * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `properties` (`pulumi.Input[dict]`) - Properties of the vpn client root certificate.
-                  * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the VPN client root certificate resource.
-                  * `public_cert_data` (`pulumi.Input[str]`) - The certificate public data.
-
-            * `vpn_gateway_generation` (`pulumi.Input[str]`) - The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
-            * `vpn_type` (`pulumi.Input[str]`) - The type of this virtual network gateway.
+          * `sku` (`pulumi.Input[dict]`) - The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
+            * `name` (`pulumi.Input[str]`) - Gateway SKU name.
+            * `tier` (`pulumi.Input[str]`) - Gateway SKU tier.
 
           * `tags` (`pulumi.Input[dict]`) - Resource tags.
-          * `type` (`pulumi.Input[str]`) - Resource type.
+          * `vpn_client_configuration` (`pulumi.Input[dict]`) - The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
+            * `aad_audience` (`pulumi.Input[str]`) - The AADAudience property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+            * `aad_issuer` (`pulumi.Input[str]`) - The AADIssuer property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+            * `aad_tenant` (`pulumi.Input[str]`) - The AADTenant property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.
+            * `radius_server_address` (`pulumi.Input[str]`) - The radius server address property of the VirtualNetworkGateway resource for vpn client connection.
+            * `radius_server_secret` (`pulumi.Input[str]`) - The radius secret property of the VirtualNetworkGateway resource for vpn client connection.
+            * `radius_servers` (`pulumi.Input[list]`) - The radiusServers property for multiple radius server configuration.
+              * `radius_server_address` (`pulumi.Input[str]`) - The address of this radius server.
+              * `radius_server_score` (`pulumi.Input[float]`) - The initial score assigned to this radius server.
+              * `radius_server_secret` (`pulumi.Input[str]`) - The secret used for this radius server.
+
+            * `vpn_client_address_pool` (`pulumi.Input[dict]`) - The reference to the address space resource which represents Address space for P2S VpnClient.
+            * `vpn_client_ipsec_policies` (`pulumi.Input[list]`) - VpnClientIpsecPolicies for virtual network gateway P2S client.
+            * `vpn_client_protocols` (`pulumi.Input[list]`) - VpnClientProtocols for Virtual network gateway.
+            * `vpn_client_revoked_certificates` (`pulumi.Input[list]`) - VpnClientRevokedCertificate for Virtual network gateway.
+              * `id` (`pulumi.Input[str]`) - Resource ID.
+              * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+              * `thumbprint` (`pulumi.Input[str]`) - The revoked VPN client certificate thumbprint.
+
+            * `vpn_client_root_certificates` (`pulumi.Input[list]`) - VpnClientRootCertificate for virtual network gateway.
+              * `id` (`pulumi.Input[str]`) - Resource ID.
+              * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
+              * `public_cert_data` (`pulumi.Input[str]`) - The certificate public data.
+
+          * `vpn_gateway_generation` (`pulumi.Input[str]`) - The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
+          * `vpn_type` (`pulumi.Input[str]`) - The type of this virtual network gateway.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

@@ -16,10 +16,10 @@ namespace Pulumi.AzureRM.StorageCache.V20191101.Outputs
         /// <summary>
         /// Dictionary of string-&gt;string pairs containing information about the Storage Target.
         /// </summary>
-        public readonly Outputs.UnknownPropertiesResponseResult? UnknownMap;
+        public readonly ImmutableDictionary<string, string>? UnknownMap;
 
         [OutputConstructor]
-        private UnknownTargetResponseResult(Outputs.UnknownPropertiesResponseResult? unknownMap)
+        private UnknownTargetResponseResult(ImmutableDictionary<string, string>? unknownMap)
         {
             UnknownMap = unknownMap;
         }

@@ -21,7 +21,7 @@ type Account struct {
 	// NetApp Account properties
 	Properties AccountPropertiesResponseOutput `pulumi:"properties"`
 	// Resource tags
-	Tags ResourceTagsResponsePtrOutput `pulumi:"tags"`
+	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -70,7 +70,7 @@ type accountState struct {
 	// NetApp Account properties
 	Properties *AccountPropertiesResponse `pulumi:"properties"`
 	// Resource tags
-	Tags *ResourceTagsResponse `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -83,7 +83,7 @@ type AccountState struct {
 	// NetApp Account properties
 	Properties AccountPropertiesResponsePtrInput
 	// Resource tags
-	Tags ResourceTagsResponsePtrInput
+	Tags pulumi.MapInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }
@@ -102,7 +102,7 @@ type accountArgs struct {
 	// The name of the resource group.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags
-	Tags *ResourceTags `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
@@ -116,7 +116,7 @@ type AccountArgs struct {
 	// The name of the resource group.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags
-	Tags ResourceTagsPtrInput
+	Tags pulumi.MapInput
 }
 
 func (AccountArgs) ElementType() reflect.Type {

@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         /// <summary>
         /// List of parameters for factory.
         /// </summary>
-        public readonly Outputs.GlobalParameterDefinitionSpecificationResponseResult? GlobalParameters;
+        public readonly ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponseResult>? GlobalParameters;
         /// <summary>
         /// Factory provisioning state, example Succeeded.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601.Outputs
         private FactoryPropertiesResponseResult(
             string createTime,
 
-            Outputs.GlobalParameterDefinitionSpecificationResponseResult? globalParameters,
+            ImmutableDictionary<string, Outputs.GlobalParameterSpecificationResponseResult>? globalParameters,
 
             string provisioningState,
 

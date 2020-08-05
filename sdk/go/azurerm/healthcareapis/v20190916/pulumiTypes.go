@@ -11,132 +11,132 @@ import (
 )
 
 // Setting indicating whether the service has a managed identity associated with it.
-type ResourceProperties struct {
+type ResourceIdentity struct {
 	// Type of identity being specified, currently SystemAssigned and None are allowed.
 	Type *string `pulumi:"type"`
 }
 
-// ResourcePropertiesInput is an input type that accepts ResourcePropertiesArgs and ResourcePropertiesOutput values.
-// You can construct a concrete instance of `ResourcePropertiesInput` via:
+// ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
+// You can construct a concrete instance of `ResourceIdentityInput` via:
 //
-//          ResourcePropertiesArgs{...}
-type ResourcePropertiesInput interface {
+//          ResourceIdentityArgs{...}
+type ResourceIdentityInput interface {
 	pulumi.Input
 
-	ToResourcePropertiesOutput() ResourcePropertiesOutput
-	ToResourcePropertiesOutputWithContext(context.Context) ResourcePropertiesOutput
+	ToResourceIdentityOutput() ResourceIdentityOutput
+	ToResourceIdentityOutputWithContext(context.Context) ResourceIdentityOutput
 }
 
 // Setting indicating whether the service has a managed identity associated with it.
-type ResourcePropertiesArgs struct {
+type ResourceIdentityArgs struct {
 	// Type of identity being specified, currently SystemAssigned and None are allowed.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
-func (ResourcePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceProperties)(nil)).Elem()
+func (ResourceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
 }
 
-func (i ResourcePropertiesArgs) ToResourcePropertiesOutput() ResourcePropertiesOutput {
-	return i.ToResourcePropertiesOutputWithContext(context.Background())
+func (i ResourceIdentityArgs) ToResourceIdentityOutput() ResourceIdentityOutput {
+	return i.ToResourceIdentityOutputWithContext(context.Background())
 }
 
-func (i ResourcePropertiesArgs) ToResourcePropertiesOutputWithContext(ctx context.Context) ResourcePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourcePropertiesOutput)
+func (i ResourceIdentityArgs) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput)
 }
 
-func (i ResourcePropertiesArgs) ToResourcePropertiesPtrOutput() ResourcePropertiesPtrOutput {
-	return i.ToResourcePropertiesPtrOutputWithContext(context.Background())
+func (i ResourceIdentityArgs) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
 }
 
-func (i ResourcePropertiesArgs) ToResourcePropertiesPtrOutputWithContext(ctx context.Context) ResourcePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourcePropertiesOutput).ToResourcePropertiesPtrOutputWithContext(ctx)
+func (i ResourceIdentityArgs) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput).ToResourceIdentityPtrOutputWithContext(ctx)
 }
 
-// ResourcePropertiesPtrInput is an input type that accepts ResourcePropertiesArgs, ResourcePropertiesPtr and ResourcePropertiesPtrOutput values.
-// You can construct a concrete instance of `ResourcePropertiesPtrInput` via:
+// ResourceIdentityPtrInput is an input type that accepts ResourceIdentityArgs, ResourceIdentityPtr and ResourceIdentityPtrOutput values.
+// You can construct a concrete instance of `ResourceIdentityPtrInput` via:
 //
-//          ResourcePropertiesArgs{...}
+//          ResourceIdentityArgs{...}
 //
 //  or:
 //
 //          nil
-type ResourcePropertiesPtrInput interface {
+type ResourceIdentityPtrInput interface {
 	pulumi.Input
 
-	ToResourcePropertiesPtrOutput() ResourcePropertiesPtrOutput
-	ToResourcePropertiesPtrOutputWithContext(context.Context) ResourcePropertiesPtrOutput
+	ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput
+	ToResourceIdentityPtrOutputWithContext(context.Context) ResourceIdentityPtrOutput
 }
 
-type resourcePropertiesPtrType ResourcePropertiesArgs
+type resourceIdentityPtrType ResourceIdentityArgs
 
-func ResourcePropertiesPtr(v *ResourcePropertiesArgs) ResourcePropertiesPtrInput {
-	return (*resourcePropertiesPtrType)(v)
+func ResourceIdentityPtr(v *ResourceIdentityArgs) ResourceIdentityPtrInput {
+	return (*resourceIdentityPtrType)(v)
 }
 
-func (*resourcePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceProperties)(nil)).Elem()
+func (*resourceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
 }
 
-func (i *resourcePropertiesPtrType) ToResourcePropertiesPtrOutput() ResourcePropertiesPtrOutput {
-	return i.ToResourcePropertiesPtrOutputWithContext(context.Background())
+func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
 }
 
-func (i *resourcePropertiesPtrType) ToResourcePropertiesPtrOutputWithContext(ctx context.Context) ResourcePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourcePropertiesPtrOutput)
+func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityPtrOutput)
 }
 
 // Setting indicating whether the service has a managed identity associated with it.
-type ResourcePropertiesOutput struct{ *pulumi.OutputState }
+type ResourceIdentityOutput struct{ *pulumi.OutputState }
 
-func (ResourcePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceProperties)(nil)).Elem()
+func (ResourceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
 }
 
-func (o ResourcePropertiesOutput) ToResourcePropertiesOutput() ResourcePropertiesOutput {
+func (o ResourceIdentityOutput) ToResourceIdentityOutput() ResourceIdentityOutput {
 	return o
 }
 
-func (o ResourcePropertiesOutput) ToResourcePropertiesOutputWithContext(ctx context.Context) ResourcePropertiesOutput {
+func (o ResourceIdentityOutput) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
 	return o
 }
 
-func (o ResourcePropertiesOutput) ToResourcePropertiesPtrOutput() ResourcePropertiesPtrOutput {
-	return o.ToResourcePropertiesPtrOutputWithContext(context.Background())
+func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return o.ToResourceIdentityPtrOutputWithContext(context.Background())
 }
 
-func (o ResourcePropertiesOutput) ToResourcePropertiesPtrOutputWithContext(ctx context.Context) ResourcePropertiesPtrOutput {
-	return o.ApplyT(func(v ResourceProperties) *ResourceProperties {
+func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return o.ApplyT(func(v ResourceIdentity) *ResourceIdentity {
 		return &v
-	}).(ResourcePropertiesPtrOutput)
+	}).(ResourceIdentityPtrOutput)
 }
 
 // Type of identity being specified, currently SystemAssigned and None are allowed.
-func (o ResourcePropertiesOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type ResourcePropertiesPtrOutput struct{ *pulumi.OutputState }
+type ResourceIdentityPtrOutput struct{ *pulumi.OutputState }
 
-func (ResourcePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceProperties)(nil)).Elem()
+func (ResourceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
 }
 
-func (o ResourcePropertiesPtrOutput) ToResourcePropertiesPtrOutput() ResourcePropertiesPtrOutput {
+func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
 	return o
 }
 
-func (o ResourcePropertiesPtrOutput) ToResourcePropertiesPtrOutputWithContext(ctx context.Context) ResourcePropertiesPtrOutput {
+func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
 	return o
 }
 
-func (o ResourcePropertiesPtrOutput) Elem() ResourcePropertiesOutput {
-	return o.ApplyT(func(v *ResourceProperties) ResourceProperties { return *v }).(ResourcePropertiesOutput)
+func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity { return *v }).(ResourceIdentityOutput)
 }
 
 // Type of identity being specified, currently SystemAssigned and None are allowed.
-func (o ResourcePropertiesPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceProperties) *string {
+func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentity) *string {
 		if v == nil {
 			return nil
 		}
@@ -145,7 +145,7 @@ func (o ResourcePropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // Setting indicating whether the service has a managed identity associated with it.
-type ResourceResponseProperties struct {
+type ResourceResponseIdentity struct {
 	// The principal ID of the resource identity.
 	PrincipalId string `pulumi:"principalId"`
 	// The tenant ID of the resource.
@@ -154,19 +154,19 @@ type ResourceResponseProperties struct {
 	Type *string `pulumi:"type"`
 }
 
-// ResourceResponsePropertiesInput is an input type that accepts ResourceResponsePropertiesArgs and ResourceResponsePropertiesOutput values.
-// You can construct a concrete instance of `ResourceResponsePropertiesInput` via:
+// ResourceResponseIdentityInput is an input type that accepts ResourceResponseIdentityArgs and ResourceResponseIdentityOutput values.
+// You can construct a concrete instance of `ResourceResponseIdentityInput` via:
 //
-//          ResourceResponsePropertiesArgs{...}
-type ResourceResponsePropertiesInput interface {
+//          ResourceResponseIdentityArgs{...}
+type ResourceResponseIdentityInput interface {
 	pulumi.Input
 
-	ToResourceResponsePropertiesOutput() ResourceResponsePropertiesOutput
-	ToResourceResponsePropertiesOutputWithContext(context.Context) ResourceResponsePropertiesOutput
+	ToResourceResponseIdentityOutput() ResourceResponseIdentityOutput
+	ToResourceResponseIdentityOutputWithContext(context.Context) ResourceResponseIdentityOutput
 }
 
 // Setting indicating whether the service has a managed identity associated with it.
-type ResourceResponsePropertiesArgs struct {
+type ResourceResponseIdentityArgs struct {
 	// The principal ID of the resource identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 	// The tenant ID of the resource.
@@ -175,120 +175,120 @@ type ResourceResponsePropertiesArgs struct {
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
-func (ResourceResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceResponseProperties)(nil)).Elem()
+func (ResourceResponseIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceResponseIdentity)(nil)).Elem()
 }
 
-func (i ResourceResponsePropertiesArgs) ToResourceResponsePropertiesOutput() ResourceResponsePropertiesOutput {
-	return i.ToResourceResponsePropertiesOutputWithContext(context.Background())
+func (i ResourceResponseIdentityArgs) ToResourceResponseIdentityOutput() ResourceResponseIdentityOutput {
+	return i.ToResourceResponseIdentityOutputWithContext(context.Background())
 }
 
-func (i ResourceResponsePropertiesArgs) ToResourceResponsePropertiesOutputWithContext(ctx context.Context) ResourceResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceResponsePropertiesOutput)
+func (i ResourceResponseIdentityArgs) ToResourceResponseIdentityOutputWithContext(ctx context.Context) ResourceResponseIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceResponseIdentityOutput)
 }
 
-func (i ResourceResponsePropertiesArgs) ToResourceResponsePropertiesPtrOutput() ResourceResponsePropertiesPtrOutput {
-	return i.ToResourceResponsePropertiesPtrOutputWithContext(context.Background())
+func (i ResourceResponseIdentityArgs) ToResourceResponseIdentityPtrOutput() ResourceResponseIdentityPtrOutput {
+	return i.ToResourceResponseIdentityPtrOutputWithContext(context.Background())
 }
 
-func (i ResourceResponsePropertiesArgs) ToResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) ResourceResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceResponsePropertiesOutput).ToResourceResponsePropertiesPtrOutputWithContext(ctx)
+func (i ResourceResponseIdentityArgs) ToResourceResponseIdentityPtrOutputWithContext(ctx context.Context) ResourceResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceResponseIdentityOutput).ToResourceResponseIdentityPtrOutputWithContext(ctx)
 }
 
-// ResourceResponsePropertiesPtrInput is an input type that accepts ResourceResponsePropertiesArgs, ResourceResponsePropertiesPtr and ResourceResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `ResourceResponsePropertiesPtrInput` via:
+// ResourceResponseIdentityPtrInput is an input type that accepts ResourceResponseIdentityArgs, ResourceResponseIdentityPtr and ResourceResponseIdentityPtrOutput values.
+// You can construct a concrete instance of `ResourceResponseIdentityPtrInput` via:
 //
-//          ResourceResponsePropertiesArgs{...}
+//          ResourceResponseIdentityArgs{...}
 //
 //  or:
 //
 //          nil
-type ResourceResponsePropertiesPtrInput interface {
+type ResourceResponseIdentityPtrInput interface {
 	pulumi.Input
 
-	ToResourceResponsePropertiesPtrOutput() ResourceResponsePropertiesPtrOutput
-	ToResourceResponsePropertiesPtrOutputWithContext(context.Context) ResourceResponsePropertiesPtrOutput
+	ToResourceResponseIdentityPtrOutput() ResourceResponseIdentityPtrOutput
+	ToResourceResponseIdentityPtrOutputWithContext(context.Context) ResourceResponseIdentityPtrOutput
 }
 
-type resourceResponsePropertiesPtrType ResourceResponsePropertiesArgs
+type resourceResponseIdentityPtrType ResourceResponseIdentityArgs
 
-func ResourceResponsePropertiesPtr(v *ResourceResponsePropertiesArgs) ResourceResponsePropertiesPtrInput {
-	return (*resourceResponsePropertiesPtrType)(v)
+func ResourceResponseIdentityPtr(v *ResourceResponseIdentityArgs) ResourceResponseIdentityPtrInput {
+	return (*resourceResponseIdentityPtrType)(v)
 }
 
-func (*resourceResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceResponseProperties)(nil)).Elem()
+func (*resourceResponseIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceResponseIdentity)(nil)).Elem()
 }
 
-func (i *resourceResponsePropertiesPtrType) ToResourceResponsePropertiesPtrOutput() ResourceResponsePropertiesPtrOutput {
-	return i.ToResourceResponsePropertiesPtrOutputWithContext(context.Background())
+func (i *resourceResponseIdentityPtrType) ToResourceResponseIdentityPtrOutput() ResourceResponseIdentityPtrOutput {
+	return i.ToResourceResponseIdentityPtrOutputWithContext(context.Background())
 }
 
-func (i *resourceResponsePropertiesPtrType) ToResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) ResourceResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceResponsePropertiesPtrOutput)
+func (i *resourceResponseIdentityPtrType) ToResourceResponseIdentityPtrOutputWithContext(ctx context.Context) ResourceResponseIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceResponseIdentityPtrOutput)
 }
 
 // Setting indicating whether the service has a managed identity associated with it.
-type ResourceResponsePropertiesOutput struct{ *pulumi.OutputState }
+type ResourceResponseIdentityOutput struct{ *pulumi.OutputState }
 
-func (ResourceResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceResponseProperties)(nil)).Elem()
+func (ResourceResponseIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceResponseIdentity)(nil)).Elem()
 }
 
-func (o ResourceResponsePropertiesOutput) ToResourceResponsePropertiesOutput() ResourceResponsePropertiesOutput {
+func (o ResourceResponseIdentityOutput) ToResourceResponseIdentityOutput() ResourceResponseIdentityOutput {
 	return o
 }
 
-func (o ResourceResponsePropertiesOutput) ToResourceResponsePropertiesOutputWithContext(ctx context.Context) ResourceResponsePropertiesOutput {
+func (o ResourceResponseIdentityOutput) ToResourceResponseIdentityOutputWithContext(ctx context.Context) ResourceResponseIdentityOutput {
 	return o
 }
 
-func (o ResourceResponsePropertiesOutput) ToResourceResponsePropertiesPtrOutput() ResourceResponsePropertiesPtrOutput {
-	return o.ToResourceResponsePropertiesPtrOutputWithContext(context.Background())
+func (o ResourceResponseIdentityOutput) ToResourceResponseIdentityPtrOutput() ResourceResponseIdentityPtrOutput {
+	return o.ToResourceResponseIdentityPtrOutputWithContext(context.Background())
 }
 
-func (o ResourceResponsePropertiesOutput) ToResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) ResourceResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v ResourceResponseProperties) *ResourceResponseProperties {
+func (o ResourceResponseIdentityOutput) ToResourceResponseIdentityPtrOutputWithContext(ctx context.Context) ResourceResponseIdentityPtrOutput {
+	return o.ApplyT(func(v ResourceResponseIdentity) *ResourceResponseIdentity {
 		return &v
-	}).(ResourceResponsePropertiesPtrOutput)
+	}).(ResourceResponseIdentityPtrOutput)
 }
 
 // The principal ID of the resource identity.
-func (o ResourceResponsePropertiesOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceResponseProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
+func (o ResourceResponseIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceResponseIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
 // The tenant ID of the resource.
-func (o ResourceResponsePropertiesOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v ResourceResponseProperties) string { return v.TenantId }).(pulumi.StringOutput)
+func (o ResourceResponseIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceResponseIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 // Type of identity being specified, currently SystemAssigned and None are allowed.
-func (o ResourceResponsePropertiesOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ResourceResponseProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
+func (o ResourceResponseIdentityOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceResponseIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type ResourceResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+type ResourceResponseIdentityPtrOutput struct{ *pulumi.OutputState }
 
-func (ResourceResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceResponseProperties)(nil)).Elem()
+func (ResourceResponseIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceResponseIdentity)(nil)).Elem()
 }
 
-func (o ResourceResponsePropertiesPtrOutput) ToResourceResponsePropertiesPtrOutput() ResourceResponsePropertiesPtrOutput {
+func (o ResourceResponseIdentityPtrOutput) ToResourceResponseIdentityPtrOutput() ResourceResponseIdentityPtrOutput {
 	return o
 }
 
-func (o ResourceResponsePropertiesPtrOutput) ToResourceResponsePropertiesPtrOutputWithContext(ctx context.Context) ResourceResponsePropertiesPtrOutput {
+func (o ResourceResponseIdentityPtrOutput) ToResourceResponseIdentityPtrOutputWithContext(ctx context.Context) ResourceResponseIdentityPtrOutput {
 	return o
 }
 
-func (o ResourceResponsePropertiesPtrOutput) Elem() ResourceResponsePropertiesOutput {
-	return o.ApplyT(func(v *ResourceResponseProperties) ResourceResponseProperties { return *v }).(ResourceResponsePropertiesOutput)
+func (o ResourceResponseIdentityPtrOutput) Elem() ResourceResponseIdentityOutput {
+	return o.ApplyT(func(v *ResourceResponseIdentity) ResourceResponseIdentity { return *v }).(ResourceResponseIdentityOutput)
 }
 
 // The principal ID of the resource identity.
-func (o ResourceResponsePropertiesPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceResponseProperties) *string {
+func (o ResourceResponseIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceResponseIdentity) *string {
 		if v == nil {
 			return nil
 		}
@@ -297,8 +297,8 @@ func (o ResourceResponsePropertiesPtrOutput) PrincipalId() pulumi.StringPtrOutpu
 }
 
 // The tenant ID of the resource.
-func (o ResourceResponsePropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceResponseProperties) *string {
+func (o ResourceResponseIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceResponseIdentity) *string {
 		if v == nil {
 			return nil
 		}
@@ -307,8 +307,8 @@ func (o ResourceResponsePropertiesPtrOutput) TenantId() pulumi.StringPtrOutput {
 }
 
 // Type of identity being specified, currently SystemAssigned and None are allowed.
-func (o ResourceResponsePropertiesPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceResponseProperties) *string {
+func (o ResourceResponseIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceResponseIdentity) *string {
 		if v == nil {
 			return nil
 		}
@@ -316,352 +316,204 @@ func (o ResourceResponsePropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The description of the service.
-type ServiceType struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag *string `pulumi:"etag"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity *ResourceResponseProperties `pulumi:"identity"`
-	// The kind of the service.
-	Kind string `pulumi:"kind"`
-	// The resource location.
-	Location string `pulumi:"location"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The common properties of a service.
-	Properties ServicesPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
+// An access policy entry.
+type ServiceAccessPolicyEntry struct {
+	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+	ObjectId string `pulumi:"objectId"`
 }
 
-// ServiceTypeInput is an input type that accepts ServiceTypeArgs and ServiceTypeOutput values.
-// You can construct a concrete instance of `ServiceTypeInput` via:
+// ServiceAccessPolicyEntryInput is an input type that accepts ServiceAccessPolicyEntryArgs and ServiceAccessPolicyEntryOutput values.
+// You can construct a concrete instance of `ServiceAccessPolicyEntryInput` via:
 //
-//          ServiceTypeArgs{...}
-type ServiceTypeInput interface {
+//          ServiceAccessPolicyEntryArgs{...}
+type ServiceAccessPolicyEntryInput interface {
 	pulumi.Input
 
-	ToServiceTypeOutput() ServiceTypeOutput
-	ToServiceTypeOutputWithContext(context.Context) ServiceTypeOutput
+	ToServiceAccessPolicyEntryOutput() ServiceAccessPolicyEntryOutput
+	ToServiceAccessPolicyEntryOutputWithContext(context.Context) ServiceAccessPolicyEntryOutput
 }
 
-// The description of the service.
-type ServiceTypeArgs struct {
-	// An etag associated with the resource, used for optimistic concurrency when editing it.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Setting indicating whether the service has a managed identity associated with it.
-	Identity ResourceResponsePropertiesPtrInput `pulumi:"identity"`
-	// The kind of the service.
-	Kind pulumi.StringInput `pulumi:"kind"`
-	// The resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The common properties of a service.
-	Properties ServicesPropertiesResponseInput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
+// An access policy entry.
+type ServiceAccessPolicyEntryArgs struct {
+	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
 }
 
-func (ServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceType)(nil)).Elem()
+func (ServiceAccessPolicyEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAccessPolicyEntry)(nil)).Elem()
 }
 
-func (i ServiceTypeArgs) ToServiceTypeOutput() ServiceTypeOutput {
-	return i.ToServiceTypeOutputWithContext(context.Background())
+func (i ServiceAccessPolicyEntryArgs) ToServiceAccessPolicyEntryOutput() ServiceAccessPolicyEntryOutput {
+	return i.ToServiceAccessPolicyEntryOutputWithContext(context.Background())
 }
 
-func (i ServiceTypeArgs) ToServiceTypeOutputWithContext(ctx context.Context) ServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeOutput)
+func (i ServiceAccessPolicyEntryArgs) ToServiceAccessPolicyEntryOutputWithContext(ctx context.Context) ServiceAccessPolicyEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccessPolicyEntryOutput)
 }
 
-// The description of the service.
-type ServiceTypeOutput struct{ *pulumi.OutputState }
-
-func (ServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceType)(nil)).Elem()
-}
-
-func (o ServiceTypeOutput) ToServiceTypeOutput() ServiceTypeOutput {
-	return o
-}
-
-func (o ServiceTypeOutput) ToServiceTypeOutputWithContext(ctx context.Context) ServiceTypeOutput {
-	return o
-}
-
-// An etag associated with the resource, used for optimistic concurrency when editing it.
-func (o ServiceTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Setting indicating whether the service has a managed identity associated with it.
-func (o ServiceTypeOutput) Identity() ResourceResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v ServiceType) *ResourceResponseProperties { return v.Identity }).(ResourceResponsePropertiesPtrOutput)
-}
-
-// The kind of the service.
-func (o ServiceTypeOutput) Kind() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceType) string { return v.Kind }).(pulumi.StringOutput)
-}
-
-// The resource location.
-func (o ServiceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The resource name.
-func (o ServiceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The common properties of a service.
-func (o ServiceTypeOutput) Properties() ServicesPropertiesResponseOutput {
-	return o.ApplyT(func(v ServiceType) ServicesPropertiesResponse { return v.Properties }).(ServicesPropertiesResponseOutput)
-}
-
-// The resource tags.
-func (o ServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The resource type.
-func (o ServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// The access policies of the service instance.
-type ServiceAccessPoliciesInfo struct {
-}
-
-// ServiceAccessPoliciesInfoInput is an input type that accepts ServiceAccessPoliciesInfoArgs and ServiceAccessPoliciesInfoOutput values.
-// You can construct a concrete instance of `ServiceAccessPoliciesInfoInput` via:
+// ServiceAccessPolicyEntryArrayInput is an input type that accepts ServiceAccessPolicyEntryArray and ServiceAccessPolicyEntryArrayOutput values.
+// You can construct a concrete instance of `ServiceAccessPolicyEntryArrayInput` via:
 //
-//          ServiceAccessPoliciesInfoArgs{...}
-type ServiceAccessPoliciesInfoInput interface {
+//          ServiceAccessPolicyEntryArray{ ServiceAccessPolicyEntryArgs{...} }
+type ServiceAccessPolicyEntryArrayInput interface {
 	pulumi.Input
 
-	ToServiceAccessPoliciesInfoOutput() ServiceAccessPoliciesInfoOutput
-	ToServiceAccessPoliciesInfoOutputWithContext(context.Context) ServiceAccessPoliciesInfoOutput
+	ToServiceAccessPolicyEntryArrayOutput() ServiceAccessPolicyEntryArrayOutput
+	ToServiceAccessPolicyEntryArrayOutputWithContext(context.Context) ServiceAccessPolicyEntryArrayOutput
 }
 
-// The access policies of the service instance.
-type ServiceAccessPoliciesInfoArgs struct {
+type ServiceAccessPolicyEntryArray []ServiceAccessPolicyEntryInput
+
+func (ServiceAccessPolicyEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceAccessPolicyEntry)(nil)).Elem()
 }
 
-func (ServiceAccessPoliciesInfoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceAccessPoliciesInfo)(nil)).Elem()
+func (i ServiceAccessPolicyEntryArray) ToServiceAccessPolicyEntryArrayOutput() ServiceAccessPolicyEntryArrayOutput {
+	return i.ToServiceAccessPolicyEntryArrayOutputWithContext(context.Background())
 }
 
-func (i ServiceAccessPoliciesInfoArgs) ToServiceAccessPoliciesInfoOutput() ServiceAccessPoliciesInfoOutput {
-	return i.ToServiceAccessPoliciesInfoOutputWithContext(context.Background())
+func (i ServiceAccessPolicyEntryArray) ToServiceAccessPolicyEntryArrayOutputWithContext(ctx context.Context) ServiceAccessPolicyEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccessPolicyEntryArrayOutput)
 }
 
-func (i ServiceAccessPoliciesInfoArgs) ToServiceAccessPoliciesInfoOutputWithContext(ctx context.Context) ServiceAccessPoliciesInfoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccessPoliciesInfoOutput)
+// An access policy entry.
+type ServiceAccessPolicyEntryOutput struct{ *pulumi.OutputState }
+
+func (ServiceAccessPolicyEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAccessPolicyEntry)(nil)).Elem()
 }
 
-func (i ServiceAccessPoliciesInfoArgs) ToServiceAccessPoliciesInfoPtrOutput() ServiceAccessPoliciesInfoPtrOutput {
-	return i.ToServiceAccessPoliciesInfoPtrOutputWithContext(context.Background())
+func (o ServiceAccessPolicyEntryOutput) ToServiceAccessPolicyEntryOutput() ServiceAccessPolicyEntryOutput {
+	return o
 }
 
-func (i ServiceAccessPoliciesInfoArgs) ToServiceAccessPoliciesInfoPtrOutputWithContext(ctx context.Context) ServiceAccessPoliciesInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccessPoliciesInfoOutput).ToServiceAccessPoliciesInfoPtrOutputWithContext(ctx)
+func (o ServiceAccessPolicyEntryOutput) ToServiceAccessPolicyEntryOutputWithContext(ctx context.Context) ServiceAccessPolicyEntryOutput {
+	return o
 }
 
-// ServiceAccessPoliciesInfoPtrInput is an input type that accepts ServiceAccessPoliciesInfoArgs, ServiceAccessPoliciesInfoPtr and ServiceAccessPoliciesInfoPtrOutput values.
-// You can construct a concrete instance of `ServiceAccessPoliciesInfoPtrInput` via:
+// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+func (o ServiceAccessPolicyEntryOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceAccessPolicyEntry) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+type ServiceAccessPolicyEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceAccessPolicyEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceAccessPolicyEntry)(nil)).Elem()
+}
+
+func (o ServiceAccessPolicyEntryArrayOutput) ToServiceAccessPolicyEntryArrayOutput() ServiceAccessPolicyEntryArrayOutput {
+	return o
+}
+
+func (o ServiceAccessPolicyEntryArrayOutput) ToServiceAccessPolicyEntryArrayOutputWithContext(ctx context.Context) ServiceAccessPolicyEntryArrayOutput {
+	return o
+}
+
+func (o ServiceAccessPolicyEntryArrayOutput) Index(i pulumi.IntInput) ServiceAccessPolicyEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceAccessPolicyEntry {
+		return vs[0].([]ServiceAccessPolicyEntry)[vs[1].(int)]
+	}).(ServiceAccessPolicyEntryOutput)
+}
+
+// An access policy entry.
+type ServiceAccessPolicyEntryResponse struct {
+	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+	ObjectId string `pulumi:"objectId"`
+}
+
+// ServiceAccessPolicyEntryResponseInput is an input type that accepts ServiceAccessPolicyEntryResponseArgs and ServiceAccessPolicyEntryResponseOutput values.
+// You can construct a concrete instance of `ServiceAccessPolicyEntryResponseInput` via:
 //
-//          ServiceAccessPoliciesInfoArgs{...}
-//
-//  or:
-//
-//          nil
-type ServiceAccessPoliciesInfoPtrInput interface {
+//          ServiceAccessPolicyEntryResponseArgs{...}
+type ServiceAccessPolicyEntryResponseInput interface {
 	pulumi.Input
 
-	ToServiceAccessPoliciesInfoPtrOutput() ServiceAccessPoliciesInfoPtrOutput
-	ToServiceAccessPoliciesInfoPtrOutputWithContext(context.Context) ServiceAccessPoliciesInfoPtrOutput
+	ToServiceAccessPolicyEntryResponseOutput() ServiceAccessPolicyEntryResponseOutput
+	ToServiceAccessPolicyEntryResponseOutputWithContext(context.Context) ServiceAccessPolicyEntryResponseOutput
 }
 
-type serviceAccessPoliciesInfoPtrType ServiceAccessPoliciesInfoArgs
-
-func ServiceAccessPoliciesInfoPtr(v *ServiceAccessPoliciesInfoArgs) ServiceAccessPoliciesInfoPtrInput {
-	return (*serviceAccessPoliciesInfoPtrType)(v)
+// An access policy entry.
+type ServiceAccessPolicyEntryResponseArgs struct {
+	// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
 }
 
-func (*serviceAccessPoliciesInfoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceAccessPoliciesInfo)(nil)).Elem()
+func (ServiceAccessPolicyEntryResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAccessPolicyEntryResponse)(nil)).Elem()
 }
 
-func (i *serviceAccessPoliciesInfoPtrType) ToServiceAccessPoliciesInfoPtrOutput() ServiceAccessPoliciesInfoPtrOutput {
-	return i.ToServiceAccessPoliciesInfoPtrOutputWithContext(context.Background())
+func (i ServiceAccessPolicyEntryResponseArgs) ToServiceAccessPolicyEntryResponseOutput() ServiceAccessPolicyEntryResponseOutput {
+	return i.ToServiceAccessPolicyEntryResponseOutputWithContext(context.Background())
 }
 
-func (i *serviceAccessPoliciesInfoPtrType) ToServiceAccessPoliciesInfoPtrOutputWithContext(ctx context.Context) ServiceAccessPoliciesInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccessPoliciesInfoPtrOutput)
+func (i ServiceAccessPolicyEntryResponseArgs) ToServiceAccessPolicyEntryResponseOutputWithContext(ctx context.Context) ServiceAccessPolicyEntryResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccessPolicyEntryResponseOutput)
 }
 
-// The access policies of the service instance.
-type ServiceAccessPoliciesInfoOutput struct{ *pulumi.OutputState }
-
-func (ServiceAccessPoliciesInfoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceAccessPoliciesInfo)(nil)).Elem()
-}
-
-func (o ServiceAccessPoliciesInfoOutput) ToServiceAccessPoliciesInfoOutput() ServiceAccessPoliciesInfoOutput {
-	return o
-}
-
-func (o ServiceAccessPoliciesInfoOutput) ToServiceAccessPoliciesInfoOutputWithContext(ctx context.Context) ServiceAccessPoliciesInfoOutput {
-	return o
-}
-
-func (o ServiceAccessPoliciesInfoOutput) ToServiceAccessPoliciesInfoPtrOutput() ServiceAccessPoliciesInfoPtrOutput {
-	return o.ToServiceAccessPoliciesInfoPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceAccessPoliciesInfoOutput) ToServiceAccessPoliciesInfoPtrOutputWithContext(ctx context.Context) ServiceAccessPoliciesInfoPtrOutput {
-	return o.ApplyT(func(v ServiceAccessPoliciesInfo) *ServiceAccessPoliciesInfo {
-		return &v
-	}).(ServiceAccessPoliciesInfoPtrOutput)
-}
-
-type ServiceAccessPoliciesInfoPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceAccessPoliciesInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceAccessPoliciesInfo)(nil)).Elem()
-}
-
-func (o ServiceAccessPoliciesInfoPtrOutput) ToServiceAccessPoliciesInfoPtrOutput() ServiceAccessPoliciesInfoPtrOutput {
-	return o
-}
-
-func (o ServiceAccessPoliciesInfoPtrOutput) ToServiceAccessPoliciesInfoPtrOutputWithContext(ctx context.Context) ServiceAccessPoliciesInfoPtrOutput {
-	return o
-}
-
-func (o ServiceAccessPoliciesInfoPtrOutput) Elem() ServiceAccessPoliciesInfoOutput {
-	return o.ApplyT(func(v *ServiceAccessPoliciesInfo) ServiceAccessPoliciesInfo { return *v }).(ServiceAccessPoliciesInfoOutput)
-}
-
-// The access policies of the service instance.
-type ServiceAccessPoliciesInfoResponse struct {
-}
-
-// ServiceAccessPoliciesInfoResponseInput is an input type that accepts ServiceAccessPoliciesInfoResponseArgs and ServiceAccessPoliciesInfoResponseOutput values.
-// You can construct a concrete instance of `ServiceAccessPoliciesInfoResponseInput` via:
+// ServiceAccessPolicyEntryResponseArrayInput is an input type that accepts ServiceAccessPolicyEntryResponseArray and ServiceAccessPolicyEntryResponseArrayOutput values.
+// You can construct a concrete instance of `ServiceAccessPolicyEntryResponseArrayInput` via:
 //
-//          ServiceAccessPoliciesInfoResponseArgs{...}
-type ServiceAccessPoliciesInfoResponseInput interface {
+//          ServiceAccessPolicyEntryResponseArray{ ServiceAccessPolicyEntryResponseArgs{...} }
+type ServiceAccessPolicyEntryResponseArrayInput interface {
 	pulumi.Input
 
-	ToServiceAccessPoliciesInfoResponseOutput() ServiceAccessPoliciesInfoResponseOutput
-	ToServiceAccessPoliciesInfoResponseOutputWithContext(context.Context) ServiceAccessPoliciesInfoResponseOutput
+	ToServiceAccessPolicyEntryResponseArrayOutput() ServiceAccessPolicyEntryResponseArrayOutput
+	ToServiceAccessPolicyEntryResponseArrayOutputWithContext(context.Context) ServiceAccessPolicyEntryResponseArrayOutput
 }
 
-// The access policies of the service instance.
-type ServiceAccessPoliciesInfoResponseArgs struct {
+type ServiceAccessPolicyEntryResponseArray []ServiceAccessPolicyEntryResponseInput
+
+func (ServiceAccessPolicyEntryResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceAccessPolicyEntryResponse)(nil)).Elem()
 }
 
-func (ServiceAccessPoliciesInfoResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceAccessPoliciesInfoResponse)(nil)).Elem()
+func (i ServiceAccessPolicyEntryResponseArray) ToServiceAccessPolicyEntryResponseArrayOutput() ServiceAccessPolicyEntryResponseArrayOutput {
+	return i.ToServiceAccessPolicyEntryResponseArrayOutputWithContext(context.Background())
 }
 
-func (i ServiceAccessPoliciesInfoResponseArgs) ToServiceAccessPoliciesInfoResponseOutput() ServiceAccessPoliciesInfoResponseOutput {
-	return i.ToServiceAccessPoliciesInfoResponseOutputWithContext(context.Background())
+func (i ServiceAccessPolicyEntryResponseArray) ToServiceAccessPolicyEntryResponseArrayOutputWithContext(ctx context.Context) ServiceAccessPolicyEntryResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccessPolicyEntryResponseArrayOutput)
 }
 
-func (i ServiceAccessPoliciesInfoResponseArgs) ToServiceAccessPoliciesInfoResponseOutputWithContext(ctx context.Context) ServiceAccessPoliciesInfoResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccessPoliciesInfoResponseOutput)
+// An access policy entry.
+type ServiceAccessPolicyEntryResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceAccessPolicyEntryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceAccessPolicyEntryResponse)(nil)).Elem()
 }
 
-func (i ServiceAccessPoliciesInfoResponseArgs) ToServiceAccessPoliciesInfoResponsePtrOutput() ServiceAccessPoliciesInfoResponsePtrOutput {
-	return i.ToServiceAccessPoliciesInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ServiceAccessPoliciesInfoResponseArgs) ToServiceAccessPoliciesInfoResponsePtrOutputWithContext(ctx context.Context) ServiceAccessPoliciesInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccessPoliciesInfoResponseOutput).ToServiceAccessPoliciesInfoResponsePtrOutputWithContext(ctx)
-}
-
-// ServiceAccessPoliciesInfoResponsePtrInput is an input type that accepts ServiceAccessPoliciesInfoResponseArgs, ServiceAccessPoliciesInfoResponsePtr and ServiceAccessPoliciesInfoResponsePtrOutput values.
-// You can construct a concrete instance of `ServiceAccessPoliciesInfoResponsePtrInput` via:
-//
-//          ServiceAccessPoliciesInfoResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ServiceAccessPoliciesInfoResponsePtrInput interface {
-	pulumi.Input
-
-	ToServiceAccessPoliciesInfoResponsePtrOutput() ServiceAccessPoliciesInfoResponsePtrOutput
-	ToServiceAccessPoliciesInfoResponsePtrOutputWithContext(context.Context) ServiceAccessPoliciesInfoResponsePtrOutput
-}
-
-type serviceAccessPoliciesInfoResponsePtrType ServiceAccessPoliciesInfoResponseArgs
-
-func ServiceAccessPoliciesInfoResponsePtr(v *ServiceAccessPoliciesInfoResponseArgs) ServiceAccessPoliciesInfoResponsePtrInput {
-	return (*serviceAccessPoliciesInfoResponsePtrType)(v)
-}
-
-func (*serviceAccessPoliciesInfoResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceAccessPoliciesInfoResponse)(nil)).Elem()
-}
-
-func (i *serviceAccessPoliciesInfoResponsePtrType) ToServiceAccessPoliciesInfoResponsePtrOutput() ServiceAccessPoliciesInfoResponsePtrOutput {
-	return i.ToServiceAccessPoliciesInfoResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *serviceAccessPoliciesInfoResponsePtrType) ToServiceAccessPoliciesInfoResponsePtrOutputWithContext(ctx context.Context) ServiceAccessPoliciesInfoResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceAccessPoliciesInfoResponsePtrOutput)
-}
-
-// The access policies of the service instance.
-type ServiceAccessPoliciesInfoResponseOutput struct{ *pulumi.OutputState }
-
-func (ServiceAccessPoliciesInfoResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceAccessPoliciesInfoResponse)(nil)).Elem()
-}
-
-func (o ServiceAccessPoliciesInfoResponseOutput) ToServiceAccessPoliciesInfoResponseOutput() ServiceAccessPoliciesInfoResponseOutput {
+func (o ServiceAccessPolicyEntryResponseOutput) ToServiceAccessPolicyEntryResponseOutput() ServiceAccessPolicyEntryResponseOutput {
 	return o
 }
 
-func (o ServiceAccessPoliciesInfoResponseOutput) ToServiceAccessPoliciesInfoResponseOutputWithContext(ctx context.Context) ServiceAccessPoliciesInfoResponseOutput {
+func (o ServiceAccessPolicyEntryResponseOutput) ToServiceAccessPolicyEntryResponseOutputWithContext(ctx context.Context) ServiceAccessPolicyEntryResponseOutput {
 	return o
 }
 
-func (o ServiceAccessPoliciesInfoResponseOutput) ToServiceAccessPoliciesInfoResponsePtrOutput() ServiceAccessPoliciesInfoResponsePtrOutput {
-	return o.ToServiceAccessPoliciesInfoResponsePtrOutputWithContext(context.Background())
+// An Azure AD object ID (User or Apps) that is allowed access to the FHIR service.
+func (o ServiceAccessPolicyEntryResponseOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceAccessPolicyEntryResponse) string { return v.ObjectId }).(pulumi.StringOutput)
 }
 
-func (o ServiceAccessPoliciesInfoResponseOutput) ToServiceAccessPoliciesInfoResponsePtrOutputWithContext(ctx context.Context) ServiceAccessPoliciesInfoResponsePtrOutput {
-	return o.ApplyT(func(v ServiceAccessPoliciesInfoResponse) *ServiceAccessPoliciesInfoResponse {
-		return &v
-	}).(ServiceAccessPoliciesInfoResponsePtrOutput)
+type ServiceAccessPolicyEntryResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceAccessPolicyEntryResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceAccessPolicyEntryResponse)(nil)).Elem()
 }
 
-type ServiceAccessPoliciesInfoResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceAccessPoliciesInfoResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceAccessPoliciesInfoResponse)(nil)).Elem()
-}
-
-func (o ServiceAccessPoliciesInfoResponsePtrOutput) ToServiceAccessPoliciesInfoResponsePtrOutput() ServiceAccessPoliciesInfoResponsePtrOutput {
+func (o ServiceAccessPolicyEntryResponseArrayOutput) ToServiceAccessPolicyEntryResponseArrayOutput() ServiceAccessPolicyEntryResponseArrayOutput {
 	return o
 }
 
-func (o ServiceAccessPoliciesInfoResponsePtrOutput) ToServiceAccessPoliciesInfoResponsePtrOutputWithContext(ctx context.Context) ServiceAccessPoliciesInfoResponsePtrOutput {
+func (o ServiceAccessPolicyEntryResponseArrayOutput) ToServiceAccessPolicyEntryResponseArrayOutputWithContext(ctx context.Context) ServiceAccessPolicyEntryResponseArrayOutput {
 	return o
 }
 
-func (o ServiceAccessPoliciesInfoResponsePtrOutput) Elem() ServiceAccessPoliciesInfoResponseOutput {
-	return o.ApplyT(func(v *ServiceAccessPoliciesInfoResponse) ServiceAccessPoliciesInfoResponse { return *v }).(ServiceAccessPoliciesInfoResponseOutput)
+func (o ServiceAccessPolicyEntryResponseArrayOutput) Index(i pulumi.IntInput) ServiceAccessPolicyEntryResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceAccessPolicyEntryResponse {
+		return vs[0].([]ServiceAccessPolicyEntryResponse)[vs[1].(int)]
+	}).(ServiceAccessPolicyEntryResponseOutput)
 }
 
 // Authentication configuration information
@@ -1969,7 +1821,7 @@ func (o ServiceExportConfigurationInfoResponsePtrOutput) StorageAccountName() pu
 // The properties of a service instance.
 type ServicesProperties struct {
 	// The access policies of the service instance.
-	AccessPolicies *ServiceAccessPoliciesInfo `pulumi:"accessPolicies"`
+	AccessPolicies []ServiceAccessPolicyEntry `pulumi:"accessPolicies"`
 	// The authentication configuration for the service instance.
 	AuthenticationConfiguration *ServiceAuthenticationConfigurationInfo `pulumi:"authenticationConfiguration"`
 	// The settings for the CORS configuration of the service instance.
@@ -1994,7 +1846,7 @@ type ServicesPropertiesInput interface {
 // The properties of a service instance.
 type ServicesPropertiesArgs struct {
 	// The access policies of the service instance.
-	AccessPolicies ServiceAccessPoliciesInfoPtrInput `pulumi:"accessPolicies"`
+	AccessPolicies ServiceAccessPolicyEntryArrayInput `pulumi:"accessPolicies"`
 	// The authentication configuration for the service instance.
 	AuthenticationConfiguration ServiceAuthenticationConfigurationInfoPtrInput `pulumi:"authenticationConfiguration"`
 	// The settings for the CORS configuration of the service instance.
@@ -2084,8 +1936,8 @@ func (o ServicesPropertiesOutput) ToServicesPropertiesPtrOutputWithContext(ctx c
 }
 
 // The access policies of the service instance.
-func (o ServicesPropertiesOutput) AccessPolicies() ServiceAccessPoliciesInfoPtrOutput {
-	return o.ApplyT(func(v ServicesProperties) *ServiceAccessPoliciesInfo { return v.AccessPolicies }).(ServiceAccessPoliciesInfoPtrOutput)
+func (o ServicesPropertiesOutput) AccessPolicies() ServiceAccessPolicyEntryArrayOutput {
+	return o.ApplyT(func(v ServicesProperties) []ServiceAccessPolicyEntry { return v.AccessPolicies }).(ServiceAccessPolicyEntryArrayOutput)
 }
 
 // The authentication configuration for the service instance.
@@ -2129,13 +1981,13 @@ func (o ServicesPropertiesPtrOutput) Elem() ServicesPropertiesOutput {
 }
 
 // The access policies of the service instance.
-func (o ServicesPropertiesPtrOutput) AccessPolicies() ServiceAccessPoliciesInfoPtrOutput {
-	return o.ApplyT(func(v *ServicesProperties) *ServiceAccessPoliciesInfo {
+func (o ServicesPropertiesPtrOutput) AccessPolicies() ServiceAccessPolicyEntryArrayOutput {
+	return o.ApplyT(func(v *ServicesProperties) []ServiceAccessPolicyEntry {
 		if v == nil {
 			return nil
 		}
 		return v.AccessPolicies
-	}).(ServiceAccessPoliciesInfoPtrOutput)
+	}).(ServiceAccessPolicyEntryArrayOutput)
 }
 
 // The authentication configuration for the service instance.
@@ -2181,7 +2033,7 @@ func (o ServicesPropertiesPtrOutput) ExportConfiguration() ServiceExportConfigur
 // The properties of a service instance.
 type ServicesPropertiesResponse struct {
 	// The access policies of the service instance.
-	AccessPolicies *ServiceAccessPoliciesInfoResponse `pulumi:"accessPolicies"`
+	AccessPolicies []ServiceAccessPolicyEntryResponse `pulumi:"accessPolicies"`
 	// The authentication configuration for the service instance.
 	AuthenticationConfiguration *ServiceAuthenticationConfigurationInfoResponse `pulumi:"authenticationConfiguration"`
 	// The settings for the CORS configuration of the service instance.
@@ -2208,7 +2060,7 @@ type ServicesPropertiesResponseInput interface {
 // The properties of a service instance.
 type ServicesPropertiesResponseArgs struct {
 	// The access policies of the service instance.
-	AccessPolicies ServiceAccessPoliciesInfoResponsePtrInput `pulumi:"accessPolicies"`
+	AccessPolicies ServiceAccessPolicyEntryResponseArrayInput `pulumi:"accessPolicies"`
 	// The authentication configuration for the service instance.
 	AuthenticationConfiguration ServiceAuthenticationConfigurationInfoResponsePtrInput `pulumi:"authenticationConfiguration"`
 	// The settings for the CORS configuration of the service instance.
@@ -2300,8 +2152,8 @@ func (o ServicesPropertiesResponseOutput) ToServicesPropertiesResponsePtrOutputW
 }
 
 // The access policies of the service instance.
-func (o ServicesPropertiesResponseOutput) AccessPolicies() ServiceAccessPoliciesInfoResponsePtrOutput {
-	return o.ApplyT(func(v ServicesPropertiesResponse) *ServiceAccessPoliciesInfoResponse { return v.AccessPolicies }).(ServiceAccessPoliciesInfoResponsePtrOutput)
+func (o ServicesPropertiesResponseOutput) AccessPolicies() ServiceAccessPolicyEntryResponseArrayOutput {
+	return o.ApplyT(func(v ServicesPropertiesResponse) []ServiceAccessPolicyEntryResponse { return v.AccessPolicies }).(ServiceAccessPolicyEntryResponseArrayOutput)
 }
 
 // The authentication configuration for the service instance.
@@ -2354,13 +2206,13 @@ func (o ServicesPropertiesResponsePtrOutput) Elem() ServicesPropertiesResponseOu
 }
 
 // The access policies of the service instance.
-func (o ServicesPropertiesResponsePtrOutput) AccessPolicies() ServiceAccessPoliciesInfoResponsePtrOutput {
-	return o.ApplyT(func(v *ServicesPropertiesResponse) *ServiceAccessPoliciesInfoResponse {
+func (o ServicesPropertiesResponsePtrOutput) AccessPolicies() ServiceAccessPolicyEntryResponseArrayOutput {
+	return o.ApplyT(func(v *ServicesPropertiesResponse) []ServiceAccessPolicyEntryResponse {
 		if v == nil {
 			return nil
 		}
 		return v.AccessPolicies
-	}).(ServiceAccessPoliciesInfoResponsePtrOutput)
+	}).(ServiceAccessPolicyEntryResponseArrayOutput)
 }
 
 // The authentication configuration for the service instance.
@@ -2414,15 +2266,14 @@ func (o ServicesPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPt
 }
 
 func init() {
-	pulumi.RegisterOutputType(ResourcePropertiesOutput{})
-	pulumi.RegisterOutputType(ResourcePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ResourceResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(ResourceResponsePropertiesPtrOutput{})
-	pulumi.RegisterOutputType(ServiceTypeOutput{})
-	pulumi.RegisterOutputType(ServiceAccessPoliciesInfoOutput{})
-	pulumi.RegisterOutputType(ServiceAccessPoliciesInfoPtrOutput{})
-	pulumi.RegisterOutputType(ServiceAccessPoliciesInfoResponseOutput{})
-	pulumi.RegisterOutputType(ServiceAccessPoliciesInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceResponseIdentityOutput{})
+	pulumi.RegisterOutputType(ResourceResponseIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ServiceAccessPolicyEntryOutput{})
+	pulumi.RegisterOutputType(ServiceAccessPolicyEntryArrayOutput{})
+	pulumi.RegisterOutputType(ServiceAccessPolicyEntryResponseOutput{})
+	pulumi.RegisterOutputType(ServiceAccessPolicyEntryResponseArrayOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationInfoOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationInfoPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAuthenticationConfigurationInfoResponseOutput{})

@@ -16,12 +16,6 @@ namespace Pulumi.AzureRM.Resources.V20160201.Inputs
     public sealed class DeploymentPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The debug setting of the deployment.
-        /// </summary>
-        [Input("debugSetting")]
-        public Input<Inputs.DebugSettingArgs>? DebugSetting { get; set; }
-
-        /// <summary>
         /// The deployment mode.
         /// </summary>
         [Input("mode", required: true)]

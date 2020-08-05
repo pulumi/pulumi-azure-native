@@ -27,6 +27,8 @@ class ExpressRouteGateway(pulumi.CustomResource):
     Properties of the express route gateway.
       * `auto_scale_configuration` (`dict`) - Configuration for auto scaling.
         * `bounds` (`dict`) - Minimum and maximum number of scale units to deploy.
+          * `max` (`float`) - Maximum number of scale units deployed for ExpressRoute gateway.
+          * `min` (`float`) - Minimum number of scale units deployed for ExpressRoute gateway.
 
       * `express_route_connections` (`list`) - List of ExpressRoute connections to the ExpressRoute gateway.
         * `id` (`str`) - Resource ID.
@@ -69,6 +71,8 @@ class ExpressRouteGateway(pulumi.CustomResource):
         The **auto_scale_configuration** object supports the following:
 
           * `bounds` (`pulumi.Input[dict]`) - Minimum and maximum number of scale units to deploy.
+            * `max` (`pulumi.Input[float]`) - Maximum number of scale units deployed for ExpressRoute gateway.
+            * `min` (`pulumi.Input[float]`) - Minimum number of scale units deployed for ExpressRoute gateway.
 
         The **virtual_hub** object supports the following:
 

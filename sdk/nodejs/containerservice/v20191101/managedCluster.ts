@@ -155,7 +155,7 @@ export interface ManagedClusterArgs {
     /**
      * Identities associated with the cluster.
      */
-    readonly identityProfile?: pulumi.Input<{[key: string]: pulumi.Input<{[key: string]: any}>}>;
+    readonly identityProfile?: pulumi.Input<{[key: string]: pulumi.Input<inputs.containerservice.v20191101.ManagedClusterPropertiesIdentityProfile>}>;
     /**
      * Version of Kubernetes specified when creating the managed cluster.
      */

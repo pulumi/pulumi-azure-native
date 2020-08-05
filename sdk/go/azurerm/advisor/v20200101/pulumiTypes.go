@@ -10,79 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
-type SuppressionType struct {
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of the suppression.
-	Properties SuppressionPropertiesResponse `pulumi:"properties"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// SuppressionTypeInput is an input type that accepts SuppressionTypeArgs and SuppressionTypeOutput values.
-// You can construct a concrete instance of `SuppressionTypeInput` via:
-//
-//          SuppressionTypeArgs{...}
-type SuppressionTypeInput interface {
-	pulumi.Input
-
-	ToSuppressionTypeOutput() SuppressionTypeOutput
-	ToSuppressionTypeOutputWithContext(context.Context) SuppressionTypeOutput
-}
-
-// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
-type SuppressionTypeArgs struct {
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the suppression.
-	Properties SuppressionPropertiesResponseInput `pulumi:"properties"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SuppressionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SuppressionType)(nil)).Elem()
-}
-
-func (i SuppressionTypeArgs) ToSuppressionTypeOutput() SuppressionTypeOutput {
-	return i.ToSuppressionTypeOutputWithContext(context.Background())
-}
-
-func (i SuppressionTypeArgs) ToSuppressionTypeOutputWithContext(ctx context.Context) SuppressionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SuppressionTypeOutput)
-}
-
-// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
-type SuppressionTypeOutput struct{ *pulumi.OutputState }
-
-func (SuppressionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SuppressionType)(nil)).Elem()
-}
-
-func (o SuppressionTypeOutput) ToSuppressionTypeOutput() SuppressionTypeOutput {
-	return o
-}
-
-func (o SuppressionTypeOutput) ToSuppressionTypeOutputWithContext(ctx context.Context) SuppressionTypeOutput {
-	return o
-}
-
-// The name of the resource.
-func (o SuppressionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SuppressionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the suppression.
-func (o SuppressionTypeOutput) Properties() SuppressionPropertiesResponseOutput {
-	return o.ApplyT(func(v SuppressionType) SuppressionPropertiesResponse { return v.Properties }).(SuppressionPropertiesResponseOutput)
-}
-
-// The type of the resource.
-func (o SuppressionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SuppressionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of the suppression.
 type SuppressionPropertiesResponse struct {
 	// The GUID of the suppression.
@@ -237,7 +164,6 @@ func (o SuppressionPropertiesResponsePtrOutput) Ttl() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(SuppressionTypeOutput{})
 	pulumi.RegisterOutputType(SuppressionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SuppressionPropertiesResponsePtrOutput{})
 }

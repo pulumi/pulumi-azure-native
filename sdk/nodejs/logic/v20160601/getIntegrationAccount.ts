@@ -46,7 +46,7 @@ export interface GetIntegrationAccountResult {
     /**
      * The integration account properties.
      */
-    readonly properties: outputs.logic.v20160601.IntegrationAccountPropertiesResponse;
+    readonly properties: {[key: string]: any};
     /**
      * The sku.
      */

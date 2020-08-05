@@ -19,7 +19,7 @@ type MachineExtension struct {
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Describes Machine Extension Properties.
-	Properties pulumi.MapOutput `pulumi:"properties"`
+	Properties MachineExtensionResponsePropertiesOutput `pulumi:"properties"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -68,7 +68,7 @@ type machineExtensionState struct {
 	// The name of the resource
 	Name *string `pulumi:"name"`
 	// Describes Machine Extension Properties.
-	Properties map[string]interface{} `pulumi:"properties"`
+	Properties *MachineExtensionResponseProperties `pulumi:"properties"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -81,7 +81,7 @@ type MachineExtensionState struct {
 	// The name of the resource
 	Name pulumi.StringPtrInput
 	// Describes Machine Extension Properties.
-	Properties pulumi.MapInput
+	Properties MachineExtensionResponsePropertiesPtrInput
 	// Resource tags.
 	Tags pulumi.StringMapInput
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
@@ -98,7 +98,7 @@ type machineExtensionArgs struct {
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag *string `pulumi:"forceUpdateTag"`
 	// The machine extension instance view.
-	InstanceView map[string]interface{} `pulumi:"instanceView"`
+	InstanceView *MachineExtensionPropertiesInstanceView `pulumi:"instanceView"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the machine extension.
@@ -126,7 +126,7 @@ type MachineExtensionArgs struct {
 	// How the extension handler should be forced to update even if the extension configuration has not changed.
 	ForceUpdateTag pulumi.StringPtrInput
 	// The machine extension instance view.
-	InstanceView pulumi.MapInput
+	InstanceView MachineExtensionPropertiesInstanceViewPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringInput
 	// The name of the machine extension.

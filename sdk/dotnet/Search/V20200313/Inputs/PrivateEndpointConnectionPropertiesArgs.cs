@@ -19,13 +19,13 @@ namespace Pulumi.AzureRM.Search.V20200313.Inputs
         /// The private endpoint resource from Microsoft.Network provider.
         /// </summary>
         [Input("privateEndpoint")]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesPropertiesArgs>? PrivateEndpoint { get; set; }
+        public Input<Inputs.PrivateEndpointConnectionPropertiesPrivateEndpointArgs>? PrivateEndpoint { get; set; }
 
         /// <summary>
         /// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
         /// </summary>
         [Input("privateLinkServiceConnectionState")]
-        public Input<Inputs.PrivateEndpointConnectionPropertiesPropertiesArgs>? PrivateLinkServiceConnectionState { get; set; }
+        public Input<Inputs.PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
 
         public PrivateEndpointConnectionPropertiesArgs()
         {

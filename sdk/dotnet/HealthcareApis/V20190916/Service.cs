@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.HealthcareApis.V20190916
         /// Setting indicating whether the service has a managed identity associated with it.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ResourceResponsePropertiesResult?> Identity { get; private set; } = null!;
+        public Output<Outputs.ResourceResponseIdentityResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The kind of the service.
@@ -117,7 +117,7 @@ namespace Pulumi.AzureRM.HealthcareApis.V20190916
         /// Setting indicating whether the service has a managed identity associated with it.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ResourcePropertiesArgs>? Identity { get; set; }
+        public Input<Inputs.ResourceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The kind of the service.

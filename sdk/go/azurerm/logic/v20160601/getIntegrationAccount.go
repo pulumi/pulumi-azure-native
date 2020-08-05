@@ -30,7 +30,7 @@ type LookupIntegrationAccountResult struct {
 	// Gets the resource name.
 	Name string `pulumi:"name"`
 	// The integration account properties.
-	Properties IntegrationAccountPropertiesResponse `pulumi:"properties"`
+	Properties map[string]interface{} `pulumi:"properties"`
 	// The sku.
 	Sku *IntegrationAccountSkuResponse `pulumi:"sku"`
 	// The resource tags.

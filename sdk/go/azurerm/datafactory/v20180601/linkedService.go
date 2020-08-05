@@ -95,7 +95,7 @@ type linkedServiceArgs struct {
 	// The linked service name.
 	Name string `pulumi:"name"`
 	// Properties of linked service.
-	Properties LinkedServiceDefinition `pulumi:"properties"`
+	Properties LinkedServiceType `pulumi:"properties"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -107,7 +107,7 @@ type LinkedServiceArgs struct {
 	// The linked service name.
 	Name pulumi.StringInput
 	// Properties of linked service.
-	Properties LinkedServiceDefinitionInput
+	Properties LinkedServiceTypeInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 }

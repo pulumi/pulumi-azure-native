@@ -10,79 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The diagnostic setting resource.
-type DiagnosticSettingType struct {
-	// Azure resource name
-	Name string `pulumi:"name"`
-	// Properties of a Diagnostic Settings Resource.
-	Properties DiagnosticSettingsResponse `pulumi:"properties"`
-	// Azure resource type
-	Type string `pulumi:"type"`
-}
-
-// DiagnosticSettingTypeInput is an input type that accepts DiagnosticSettingTypeArgs and DiagnosticSettingTypeOutput values.
-// You can construct a concrete instance of `DiagnosticSettingTypeInput` via:
-//
-//          DiagnosticSettingTypeArgs{...}
-type DiagnosticSettingTypeInput interface {
-	pulumi.Input
-
-	ToDiagnosticSettingTypeOutput() DiagnosticSettingTypeOutput
-	ToDiagnosticSettingTypeOutputWithContext(context.Context) DiagnosticSettingTypeOutput
-}
-
-// The diagnostic setting resource.
-type DiagnosticSettingTypeArgs struct {
-	// Azure resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of a Diagnostic Settings Resource.
-	Properties DiagnosticSettingsResponseInput `pulumi:"properties"`
-	// Azure resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DiagnosticSettingTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticSettingType)(nil)).Elem()
-}
-
-func (i DiagnosticSettingTypeArgs) ToDiagnosticSettingTypeOutput() DiagnosticSettingTypeOutput {
-	return i.ToDiagnosticSettingTypeOutputWithContext(context.Background())
-}
-
-func (i DiagnosticSettingTypeArgs) ToDiagnosticSettingTypeOutputWithContext(ctx context.Context) DiagnosticSettingTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingTypeOutput)
-}
-
-// The diagnostic setting resource.
-type DiagnosticSettingTypeOutput struct{ *pulumi.OutputState }
-
-func (DiagnosticSettingTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DiagnosticSettingType)(nil)).Elem()
-}
-
-func (o DiagnosticSettingTypeOutput) ToDiagnosticSettingTypeOutput() DiagnosticSettingTypeOutput {
-	return o
-}
-
-func (o DiagnosticSettingTypeOutput) ToDiagnosticSettingTypeOutputWithContext(ctx context.Context) DiagnosticSettingTypeOutput {
-	return o
-}
-
-// Azure resource name
-func (o DiagnosticSettingTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticSettingType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of a Diagnostic Settings Resource.
-func (o DiagnosticSettingTypeOutput) Properties() DiagnosticSettingsResponseOutput {
-	return o.ApplyT(func(v DiagnosticSettingType) DiagnosticSettingsResponse { return v.Properties }).(DiagnosticSettingsResponseOutput)
-}
-
-// Azure resource type
-func (o DiagnosticSettingTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DiagnosticSettingType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The diagnostic settings.
 type DiagnosticSettingsResponse struct {
 	// The resource Id for the event hub authorization rule.
@@ -855,7 +782,6 @@ func (o RetentionPolicyResponsePtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(DiagnosticSettingTypeOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingsResponseOutput{})
 	pulumi.RegisterOutputType(DiagnosticSettingsResponsePtrOutput{})
 	pulumi.RegisterOutputType(LogSettingsOutput{})

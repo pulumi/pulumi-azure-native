@@ -99,7 +99,12 @@ namespace Pulumi.AzureRM.Security.V20200101
         public Input<string> Name { get; set; } = null!;
 
         [Input("pathRecommendations")]
-        public Input<Inputs.PathRecommendationsArgs>? PathRecommendations { get; set; }
+        private InputList<Inputs.PathRecommendationArgs>? _pathRecommendations;
+        public InputList<Inputs.PathRecommendationArgs> PathRecommendations
+        {
+            get => _pathRecommendations ?? (_pathRecommendations = new InputList<Inputs.PathRecommendationArgs>());
+            set => _pathRecommendations = value;
+        }
 
         /// <summary>
         /// The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
@@ -108,7 +113,12 @@ namespace Pulumi.AzureRM.Security.V20200101
         public Input<Inputs.ProtectionModeArgs>? ProtectionMode { get; set; }
 
         [Input("vmRecommendations")]
-        public Input<Inputs.VmRecommendationsArgs>? VmRecommendations { get; set; }
+        private InputList<Inputs.VmRecommendationArgs>? _vmRecommendations;
+        public InputList<Inputs.VmRecommendationArgs> VmRecommendations
+        {
+            get => _vmRecommendations ?? (_vmRecommendations = new InputList<Inputs.VmRecommendationArgs>());
+            set => _vmRecommendations = value;
+        }
 
         public AdaptiveApplicationControlArgs()
         {

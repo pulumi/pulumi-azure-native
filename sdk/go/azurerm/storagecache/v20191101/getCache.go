@@ -32,7 +32,7 @@ type LookupCacheResult struct {
 	// Properties of the Cache.
 	Properties CacheResponseProperties `pulumi:"properties"`
 	// SKU for the Cache.
-	Sku *CacheResponseProperties `pulumi:"sku"`
+	Sku *CacheResponseSku `pulumi:"sku"`
 	// ARM tags as name/value pairs.
 	Tags map[string]interface{} `pulumi:"tags"`
 	// Type of the Cache; Microsoft.StorageCache/Cache

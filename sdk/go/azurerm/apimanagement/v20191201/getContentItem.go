@@ -32,7 +32,7 @@ type LookupContentItemResult struct {
 	// Resource name.
 	Name string `pulumi:"name"`
 	// Properties of the content item.
-	Properties ContentItemContractPropertiesResponse `pulumi:"properties"`
+	Properties map[string]interface{} `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type string `pulumi:"type"`
 }

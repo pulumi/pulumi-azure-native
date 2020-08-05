@@ -34,17 +34,13 @@ namespace Pulumi.AzureRM.Network.V20200401.Outputs
         /// </summary>
         public readonly string? ResourceState;
         /// <summary>
-        /// A reference to the routing configuration.
-        /// </summary>
-        public readonly Outputs.RouteConfigurationResponseResult? RouteConfiguration;
-        /// <summary>
         /// A reference to a specific Rules Engine Configuration to apply to this route.
         /// </summary>
         public readonly Outputs.SubResourceResponseResult? RulesEngine;
         /// <summary>
         /// Defines the Web Application Firewall policy for each routing rule (if applicable)
         /// </summary>
-        public readonly Outputs.RoutingRuleUpdateParametersResponsePropertiesResult? WebApplicationFirewallPolicyLink;
+        public readonly Outputs.RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? WebApplicationFirewallPolicyLink;
 
         [OutputConstructor]
         private RoutingRulePropertiesResponseResult(
@@ -58,18 +54,15 @@ namespace Pulumi.AzureRM.Network.V20200401.Outputs
 
             string? resourceState,
 
-            Outputs.RouteConfigurationResponseResult? routeConfiguration,
-
             Outputs.SubResourceResponseResult? rulesEngine,
 
-            Outputs.RoutingRuleUpdateParametersResponsePropertiesResult? webApplicationFirewallPolicyLink)
+            Outputs.RoutingRuleUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? webApplicationFirewallPolicyLink)
         {
             AcceptedProtocols = acceptedProtocols;
             EnabledState = enabledState;
             FrontendEndpoints = frontendEndpoints;
             PatternsToMatch = patternsToMatch;
             ResourceState = resourceState;
-            RouteConfiguration = routeConfiguration;
             RulesEngine = rulesEngine;
             WebApplicationFirewallPolicyLink = webApplicationFirewallPolicyLink;
         }

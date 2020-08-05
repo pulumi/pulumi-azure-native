@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.ContainerInstance.V20191201.Outputs
         /// <summary>
         /// The instance view of the container group. Only valid in response.
         /// </summary>
-        public readonly Outputs.ContainerGroupResponsePropertiesResult InstanceView;
+        public readonly Outputs.ContainerGroupResponseInstanceViewResult InstanceView;
         /// <summary>
         /// The IP address type of the container group.
         /// </summary>
@@ -87,7 +87,7 @@ namespace Pulumi.AzureRM.ContainerInstance.V20191201.Outputs
 
             ImmutableArray<Outputs.InitContainerDefinitionResponseResult> initContainers,
 
-            Outputs.ContainerGroupResponsePropertiesResult instanceView,
+            Outputs.ContainerGroupResponseInstanceViewResult instanceView,
 
             Outputs.IpAddressResponseResult? ipAddress,
 

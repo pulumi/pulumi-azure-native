@@ -16,10 +16,28 @@ namespace Pulumi.AzureRM.Network.V20190901.Inputs
     public sealed class VirtualNetworkPeeringArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
+        /// Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
         /// </summary>
-        [Input("etag", required: true)]
-        public Input<string> Etag { get; set; } = null!;
+        [Input("allowForwardedTraffic")]
+        public Input<bool>? AllowForwardedTraffic { get; set; }
+
+        /// <summary>
+        /// If gateway links can be used in remote virtual networking to link to this virtual network.
+        /// </summary>
+        [Input("allowGatewayTransit")]
+        public Input<bool>? AllowGatewayTransit { get; set; }
+
+        /// <summary>
+        /// Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
+        /// </summary>
+        [Input("allowVirtualNetworkAccess")]
+        public Input<bool>? AllowVirtualNetworkAccess { get; set; }
+
+        /// <summary>
+        /// Resource ID.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// The name of the resource that is unique within a resource group. This name can be used to access the resource.
@@ -28,10 +46,28 @@ namespace Pulumi.AzureRM.Network.V20190901.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Properties of the virtual network peering.
+        /// The status of the virtual network peering.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.VirtualNetworkPeeringPropertiesFormatResponseArgs> Properties { get; set; } = null!;
+        [Input("peeringState")]
+        public Input<string>? PeeringState { get; set; }
+
+        /// <summary>
+        /// The reference of the remote virtual network address space.
+        /// </summary>
+        [Input("remoteAddressSpace")]
+        public Input<Inputs.AddressSpaceArgs>? RemoteAddressSpace { get; set; }
+
+        /// <summary>
+        /// The reference of the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
+        /// </summary>
+        [Input("remoteVirtualNetwork")]
+        public Input<Inputs.SubResourceArgs>? RemoteVirtualNetwork { get; set; }
+
+        /// <summary>
+        /// If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        /// </summary>
+        [Input("useRemoteGateways")]
+        public Input<bool>? UseRemoteGateways { get; set; }
 
         public VirtualNetworkPeeringArgs()
         {

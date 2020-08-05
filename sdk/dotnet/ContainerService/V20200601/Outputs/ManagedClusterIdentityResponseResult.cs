@@ -28,7 +28,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200601.Outputs
         /// <summary>
         /// The user identity associated with the managed cluster. This identity will be used in control plane and only one user assigned identity is allowed. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.ManagedClusterIdentityResponsePropertiesResult>? UserAssignedIdentities;
+        public readonly ImmutableDictionary<string, Outputs.ManagedClusterIdentityResponseUserAssignedIdentitiesResult>? UserAssignedIdentities;
 
         [OutputConstructor]
         private ManagedClusterIdentityResponseResult(
@@ -38,7 +38,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200601.Outputs
 
             string? type,
 
-            ImmutableDictionary<string, Outputs.ManagedClusterIdentityResponsePropertiesResult>? userAssignedIdentities)
+            ImmutableDictionary<string, Outputs.ManagedClusterIdentityResponseUserAssignedIdentitiesResult>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;

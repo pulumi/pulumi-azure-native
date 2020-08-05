@@ -67,7 +67,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The availability zones of the cluster.
      */
-    public readonly zones!: pulumi.Output<outputs.kusto.v20190907.ZonesResponse | undefined>;
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -176,5 +176,5 @@ export interface ClusterArgs {
     /**
      * The availability zones of the cluster.
      */
-    readonly zones?: pulumi.Input<inputs.kusto.v20190907.Zones>;
+    readonly zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

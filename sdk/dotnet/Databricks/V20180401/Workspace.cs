@@ -108,12 +108,6 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         }
 
         /// <summary>
-        /// Indicates the Object ID, PUID and Application ID of entity that created the workspace.
-        /// </summary>
-        [Input("createdBy")]
-        public Input<Inputs.CreatedByArgs>? CreatedBy { get; set; }
-
-        /// <summary>
         /// Specifies the date and time when the workspace is created.
         /// </summary>
         [Input("createdDateTime")]
@@ -155,12 +149,6 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
 
-        /// <summary>
-        /// The details of Managed Identity of Storage Account
-        /// </summary>
-        [Input("storageAccountIdentity")]
-        public Input<Inputs.ManagedIdentityConfigurationArgs>? StorageAccountIdentity { get; set; }
-
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -178,12 +166,6 @@ namespace Pulumi.AzureRM.Databricks.V20180401
         /// </summary>
         [Input("uiDefinitionUri")]
         public Input<string>? UiDefinitionUri { get; set; }
-
-        /// <summary>
-        /// Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
-        /// </summary>
-        [Input("updatedBy")]
-        public Input<Inputs.CreatedByArgs>? UpdatedBy { get; set; }
 
         public WorkspaceArgs()
         {

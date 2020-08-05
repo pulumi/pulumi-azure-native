@@ -50,7 +50,9 @@ class DatabaseAccount(pulumi.CustomResource):
         * `id` (`str`) - The unique identifier of the region in which the database account replicates to. Example: &lt;accountName&gt;-&lt;locationName&gt;.
         * `location_name` (`str`) - The name of the region in which the database account exists.
 
-      * `ip_rules` (`dict`) - List of IpRules.
+      * `ip_rules` (`list`) - List of IpRules.
+        * `ip_address_or_range` (`str`) - A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
+
       * `is_virtual_network_filter_enabled` (`bool`) - Flag to indicate whether to enable/disable Virtual Network ACL rules.
       * `key_vault_key_uri` (`str`) - The URI of the key vault
       * `locations` (`list`) - An array that contains all of the locations enabled for the Cosmos DB account.
@@ -108,7 +110,7 @@ class DatabaseAccount(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_cassandra_connector: Enables the cassandra connector on the Cosmos DB C* account
         :param pulumi.Input[bool] enable_free_tier: Flag to indicate whether Free Tier is enabled.
         :param pulumi.Input[bool] enable_multiple_write_locations: Enables the account to write in multiple locations
-        :param pulumi.Input[dict] ip_rules: List of IpRules.
+        :param pulumi.Input[list] ip_rules: List of IpRules.
         :param pulumi.Input[bool] is_virtual_network_filter_enabled: Flag to indicate whether to enable/disable Virtual Network ACL rules.
         :param pulumi.Input[str] key_vault_key_uri: The URI of the key vault
         :param pulumi.Input[str] kind: Indicates the type of database account. This can only be set at database account creation.
@@ -133,6 +135,10 @@ class DatabaseAccount(pulumi.CustomResource):
           * `default_consistency_level` (`pulumi.Input[str]`) - The default consistency level and configuration settings of the Cosmos DB account.
           * `max_interval_in_seconds` (`pulumi.Input[float]`) - When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
           * `max_staleness_prefix` (`pulumi.Input[float]`) - When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+
+        The **ip_rules** object supports the following:
+
+          * `ip_address_or_range` (`pulumi.Input[str]`) - A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
 
         The **locations** object supports the following:
 

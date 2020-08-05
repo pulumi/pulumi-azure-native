@@ -76,12 +76,6 @@ namespace Pulumi.AzureRM.Network.V20200101.Inputs
         public Input<string>? ResourceState { get; set; }
 
         /// <summary>
-        /// A reference to the routing configuration.
-        /// </summary>
-        [Input("routeConfiguration")]
-        public Input<Inputs.RouteConfigurationArgs>? RouteConfiguration { get; set; }
-
-        /// <summary>
         /// A reference to a specific Rules Engine Configuration to apply to this route.
         /// </summary>
         [Input("rulesEngine")]

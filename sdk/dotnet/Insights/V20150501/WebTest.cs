@@ -99,7 +99,7 @@ namespace Pulumi.AzureRM.Insights.V20150501
         /// An XML configuration specification for a WebTest.
         /// </summary>
         [Input("Configuration")]
-        public Input<Inputs.WebTestPropertiesPropertiesArgs>? Configuration { get; set; }
+        public Input<Inputs.WebTestPropertiesConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
         /// Purpose/user defined descriptive test for this WebTest.

@@ -133,7 +133,7 @@ type apiArgs struct {
 	// Content value when Importing an API.
 	Value *string `pulumi:"value"`
 	// Criteria to limit import of WSDL to a subset of the document.
-	WsdlSelector *ApiCreateOrUpdatePropertiesProperties `pulumi:"wsdlSelector"`
+	WsdlSelector *ApiCreateOrUpdatePropertiesWsdlSelector `pulumi:"wsdlSelector"`
 }
 
 // The set of arguments for constructing a Api resource.
@@ -187,7 +187,7 @@ type ApiArgs struct {
 	// Content value when Importing an API.
 	Value pulumi.StringPtrInput
 	// Criteria to limit import of WSDL to a subset of the document.
-	WsdlSelector ApiCreateOrUpdatePropertiesPropertiesPtrInput
+	WsdlSelector ApiCreateOrUpdatePropertiesWsdlSelectorPtrInput
 }
 
 func (ApiArgs) ElementType() reflect.Type {

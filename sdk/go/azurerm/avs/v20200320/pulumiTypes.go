@@ -10,194 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// ExpressRoute Circuit Authorization
-type AuthorizationType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties of an ExpressRoute Circuit Authorization resource
-	Properties ExpressRouteAuthorizationPropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// AuthorizationTypeInput is an input type that accepts AuthorizationTypeArgs and AuthorizationTypeOutput values.
-// You can construct a concrete instance of `AuthorizationTypeInput` via:
-//
-//          AuthorizationTypeArgs{...}
-type AuthorizationTypeInput interface {
-	pulumi.Input
-
-	ToAuthorizationTypeOutput() AuthorizationTypeOutput
-	ToAuthorizationTypeOutputWithContext(context.Context) AuthorizationTypeOutput
-}
-
-// ExpressRoute Circuit Authorization
-type AuthorizationTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an ExpressRoute Circuit Authorization resource
-	Properties ExpressRouteAuthorizationPropertiesResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AuthorizationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthorizationType)(nil)).Elem()
-}
-
-func (i AuthorizationTypeArgs) ToAuthorizationTypeOutput() AuthorizationTypeOutput {
-	return i.ToAuthorizationTypeOutputWithContext(context.Background())
-}
-
-func (i AuthorizationTypeArgs) ToAuthorizationTypeOutputWithContext(ctx context.Context) AuthorizationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationTypeOutput)
-}
-
-// ExpressRoute Circuit Authorization
-type AuthorizationTypeOutput struct{ *pulumi.OutputState }
-
-func (AuthorizationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AuthorizationType)(nil)).Elem()
-}
-
-func (o AuthorizationTypeOutput) ToAuthorizationTypeOutput() AuthorizationTypeOutput {
-	return o
-}
-
-func (o AuthorizationTypeOutput) ToAuthorizationTypeOutputWithContext(ctx context.Context) AuthorizationTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o AuthorizationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AuthorizationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an ExpressRoute Circuit Authorization resource
-func (o AuthorizationTypeOutput) Properties() ExpressRouteAuthorizationPropertiesResponseOutput {
-	return o.ApplyT(func(v AuthorizationType) ExpressRouteAuthorizationPropertiesResponse { return v.Properties }).(ExpressRouteAuthorizationPropertiesResponseOutput)
-}
-
-// Resource type.
-func (o AuthorizationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AuthorizationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// An ExpressRoute Circuit
-type Circuit struct {
-}
-
-// CircuitInput is an input type that accepts CircuitArgs and CircuitOutput values.
-// You can construct a concrete instance of `CircuitInput` via:
-//
-//          CircuitArgs{...}
-type CircuitInput interface {
-	pulumi.Input
-
-	ToCircuitOutput() CircuitOutput
-	ToCircuitOutputWithContext(context.Context) CircuitOutput
-}
-
-// An ExpressRoute Circuit
-type CircuitArgs struct {
-}
-
-func (CircuitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Circuit)(nil)).Elem()
-}
-
-func (i CircuitArgs) ToCircuitOutput() CircuitOutput {
-	return i.ToCircuitOutputWithContext(context.Background())
-}
-
-func (i CircuitArgs) ToCircuitOutputWithContext(ctx context.Context) CircuitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CircuitOutput)
-}
-
-func (i CircuitArgs) ToCircuitPtrOutput() CircuitPtrOutput {
-	return i.ToCircuitPtrOutputWithContext(context.Background())
-}
-
-func (i CircuitArgs) ToCircuitPtrOutputWithContext(ctx context.Context) CircuitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CircuitOutput).ToCircuitPtrOutputWithContext(ctx)
-}
-
-// CircuitPtrInput is an input type that accepts CircuitArgs, CircuitPtr and CircuitPtrOutput values.
-// You can construct a concrete instance of `CircuitPtrInput` via:
-//
-//          CircuitArgs{...}
-//
-//  or:
-//
-//          nil
-type CircuitPtrInput interface {
-	pulumi.Input
-
-	ToCircuitPtrOutput() CircuitPtrOutput
-	ToCircuitPtrOutputWithContext(context.Context) CircuitPtrOutput
-}
-
-type circuitPtrType CircuitArgs
-
-func CircuitPtr(v *CircuitArgs) CircuitPtrInput {
-	return (*circuitPtrType)(v)
-}
-
-func (*circuitPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Circuit)(nil)).Elem()
-}
-
-func (i *circuitPtrType) ToCircuitPtrOutput() CircuitPtrOutput {
-	return i.ToCircuitPtrOutputWithContext(context.Background())
-}
-
-func (i *circuitPtrType) ToCircuitPtrOutputWithContext(ctx context.Context) CircuitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CircuitPtrOutput)
-}
-
-// An ExpressRoute Circuit
-type CircuitOutput struct{ *pulumi.OutputState }
-
-func (CircuitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Circuit)(nil)).Elem()
-}
-
-func (o CircuitOutput) ToCircuitOutput() CircuitOutput {
-	return o
-}
-
-func (o CircuitOutput) ToCircuitOutputWithContext(ctx context.Context) CircuitOutput {
-	return o
-}
-
-func (o CircuitOutput) ToCircuitPtrOutput() CircuitPtrOutput {
-	return o.ToCircuitPtrOutputWithContext(context.Background())
-}
-
-func (o CircuitOutput) ToCircuitPtrOutputWithContext(ctx context.Context) CircuitPtrOutput {
-	return o.ApplyT(func(v Circuit) *Circuit {
-		return &v
-	}).(CircuitPtrOutput)
-}
-
-type CircuitPtrOutput struct{ *pulumi.OutputState }
-
-func (CircuitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Circuit)(nil)).Elem()
-}
-
-func (o CircuitPtrOutput) ToCircuitPtrOutput() CircuitPtrOutput {
-	return o
-}
-
-func (o CircuitPtrOutput) ToCircuitPtrOutputWithContext(ctx context.Context) CircuitPtrOutput {
-	return o
-}
-
-func (o CircuitPtrOutput) Elem() CircuitOutput {
-	return o.ApplyT(func(v *Circuit) Circuit { return *v }).(CircuitOutput)
-}
-
 // An ExpressRoute Circuit
 type CircuitResponse struct {
 	// Identifier of the ExpressRoute Circuit (Microsoft Colo only)
@@ -389,88 +201,6 @@ func (o CircuitResponsePtrOutput) SecondarySubnet() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A cluster resource
-type ClusterType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties of a cluster resource
-	Properties ClusterPropertiesResponse `pulumi:"properties"`
-	// The cluster SKU
-	Sku SkuResponse `pulumi:"sku"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ClusterTypeInput is an input type that accepts ClusterTypeArgs and ClusterTypeOutput values.
-// You can construct a concrete instance of `ClusterTypeInput` via:
-//
-//          ClusterTypeArgs{...}
-type ClusterTypeInput interface {
-	pulumi.Input
-
-	ToClusterTypeOutput() ClusterTypeOutput
-	ToClusterTypeOutputWithContext(context.Context) ClusterTypeOutput
-}
-
-// A cluster resource
-type ClusterTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of a cluster resource
-	Properties ClusterPropertiesResponseInput `pulumi:"properties"`
-	// The cluster SKU
-	Sku SkuResponseInput `pulumi:"sku"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterType)(nil)).Elem()
-}
-
-func (i ClusterTypeArgs) ToClusterTypeOutput() ClusterTypeOutput {
-	return i.ToClusterTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterTypeArgs) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterTypeOutput)
-}
-
-// A cluster resource
-type ClusterTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterType)(nil)).Elem()
-}
-
-func (o ClusterTypeOutput) ToClusterTypeOutput() ClusterTypeOutput {
-	return o
-}
-
-func (o ClusterTypeOutput) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o ClusterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of a cluster resource
-func (o ClusterTypeOutput) Properties() ClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v ClusterType) ClusterPropertiesResponse { return v.Properties }).(ClusterPropertiesResponseOutput)
-}
-
-// The cluster SKU
-func (o ClusterTypeOutput) Sku() SkuResponseOutput {
-	return o.ApplyT(func(v ClusterType) SkuResponse { return v.Sku }).(SkuResponseOutput)
-}
-
-// Resource type.
-func (o ClusterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of a cluster
 type ClusterPropertiesResponse struct {
 	// The identity
@@ -660,52 +390,6 @@ func (o ClusterPropertiesResponsePtrOutput) ProvisioningState() pulumi.StringPtr
 		}
 		return &v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
-}
-
-// Endpoint addresses
-type Endpoints struct {
-}
-
-// EndpointsInput is an input type that accepts EndpointsArgs and EndpointsOutput values.
-// You can construct a concrete instance of `EndpointsInput` via:
-//
-//          EndpointsArgs{...}
-type EndpointsInput interface {
-	pulumi.Input
-
-	ToEndpointsOutput() EndpointsOutput
-	ToEndpointsOutputWithContext(context.Context) EndpointsOutput
-}
-
-// Endpoint addresses
-type EndpointsArgs struct {
-}
-
-func (EndpointsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Endpoints)(nil)).Elem()
-}
-
-func (i EndpointsArgs) ToEndpointsOutput() EndpointsOutput {
-	return i.ToEndpointsOutputWithContext(context.Background())
-}
-
-func (i EndpointsArgs) ToEndpointsOutputWithContext(ctx context.Context) EndpointsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointsOutput)
-}
-
-// Endpoint addresses
-type EndpointsOutput struct{ *pulumi.OutputState }
-
-func (EndpointsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Endpoints)(nil)).Elem()
-}
-
-func (o EndpointsOutput) ToEndpointsOutput() EndpointsOutput {
-	return o
-}
-
-func (o EndpointsOutput) ToEndpointsOutputWithContext(ctx context.Context) EndpointsOutput {
-	return o
 }
 
 // Endpoint addresses
@@ -1052,79 +736,6 @@ func (o ExpressRouteAuthorizationPropertiesResponsePtrOutput) ProvisioningState(
 		}
 		return &v.ProvisioningState
 	}).(pulumi.StringPtrOutput)
-}
-
-// An HCX Enterprise Site resource
-type HcxEnterpriseSiteType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties of an HCX Enterprise Site resource
-	Properties HcxEnterpriseSitePropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// HcxEnterpriseSiteTypeInput is an input type that accepts HcxEnterpriseSiteTypeArgs and HcxEnterpriseSiteTypeOutput values.
-// You can construct a concrete instance of `HcxEnterpriseSiteTypeInput` via:
-//
-//          HcxEnterpriseSiteTypeArgs{...}
-type HcxEnterpriseSiteTypeInput interface {
-	pulumi.Input
-
-	ToHcxEnterpriseSiteTypeOutput() HcxEnterpriseSiteTypeOutput
-	ToHcxEnterpriseSiteTypeOutputWithContext(context.Context) HcxEnterpriseSiteTypeOutput
-}
-
-// An HCX Enterprise Site resource
-type HcxEnterpriseSiteTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of an HCX Enterprise Site resource
-	Properties HcxEnterpriseSitePropertiesResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (HcxEnterpriseSiteTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HcxEnterpriseSiteType)(nil)).Elem()
-}
-
-func (i HcxEnterpriseSiteTypeArgs) ToHcxEnterpriseSiteTypeOutput() HcxEnterpriseSiteTypeOutput {
-	return i.ToHcxEnterpriseSiteTypeOutputWithContext(context.Background())
-}
-
-func (i HcxEnterpriseSiteTypeArgs) ToHcxEnterpriseSiteTypeOutputWithContext(ctx context.Context) HcxEnterpriseSiteTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HcxEnterpriseSiteTypeOutput)
-}
-
-// An HCX Enterprise Site resource
-type HcxEnterpriseSiteTypeOutput struct{ *pulumi.OutputState }
-
-func (HcxEnterpriseSiteTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HcxEnterpriseSiteType)(nil)).Elem()
-}
-
-func (o HcxEnterpriseSiteTypeOutput) ToHcxEnterpriseSiteTypeOutput() HcxEnterpriseSiteTypeOutput {
-	return o
-}
-
-func (o HcxEnterpriseSiteTypeOutput) ToHcxEnterpriseSiteTypeOutputWithContext(ctx context.Context) HcxEnterpriseSiteTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o HcxEnterpriseSiteTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v HcxEnterpriseSiteType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of an HCX Enterprise Site resource
-func (o HcxEnterpriseSiteTypeOutput) Properties() HcxEnterpriseSitePropertiesResponseOutput {
-	return o.ApplyT(func(v HcxEnterpriseSiteType) HcxEnterpriseSitePropertiesResponse { return v.Properties }).(HcxEnterpriseSitePropertiesResponseOutput)
-}
-
-// Resource type.
-func (o HcxEnterpriseSiteTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v HcxEnterpriseSiteType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The properties of an HCX Enterprise Site
@@ -1948,106 +1559,6 @@ func (o ManagementClusterResponsePtrOutput) Hosts() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// A private cloud resource
-type PrivateCloudType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties of a private cloud resource
-	Properties PrivateCloudPropertiesResponse `pulumi:"properties"`
-	// The private cloud SKU
-	Sku SkuResponse `pulumi:"sku"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// PrivateCloudTypeInput is an input type that accepts PrivateCloudTypeArgs and PrivateCloudTypeOutput values.
-// You can construct a concrete instance of `PrivateCloudTypeInput` via:
-//
-//          PrivateCloudTypeArgs{...}
-type PrivateCloudTypeInput interface {
-	pulumi.Input
-
-	ToPrivateCloudTypeOutput() PrivateCloudTypeOutput
-	ToPrivateCloudTypeOutputWithContext(context.Context) PrivateCloudTypeOutput
-}
-
-// A private cloud resource
-type PrivateCloudTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of a private cloud resource
-	Properties PrivateCloudPropertiesResponseInput `pulumi:"properties"`
-	// The private cloud SKU
-	Sku SkuResponseInput `pulumi:"sku"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PrivateCloudTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateCloudType)(nil)).Elem()
-}
-
-func (i PrivateCloudTypeArgs) ToPrivateCloudTypeOutput() PrivateCloudTypeOutput {
-	return i.ToPrivateCloudTypeOutputWithContext(context.Background())
-}
-
-func (i PrivateCloudTypeArgs) ToPrivateCloudTypeOutputWithContext(ctx context.Context) PrivateCloudTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudTypeOutput)
-}
-
-// A private cloud resource
-type PrivateCloudTypeOutput struct{ *pulumi.OutputState }
-
-func (PrivateCloudTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PrivateCloudType)(nil)).Elem()
-}
-
-func (o PrivateCloudTypeOutput) ToPrivateCloudTypeOutput() PrivateCloudTypeOutput {
-	return o
-}
-
-func (o PrivateCloudTypeOutput) ToPrivateCloudTypeOutputWithContext(ctx context.Context) PrivateCloudTypeOutput {
-	return o
-}
-
-// Resource location
-func (o PrivateCloudTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateCloudType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name.
-func (o PrivateCloudTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateCloudType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of a private cloud resource
-func (o PrivateCloudTypeOutput) Properties() PrivateCloudPropertiesResponseOutput {
-	return o.ApplyT(func(v PrivateCloudType) PrivateCloudPropertiesResponse { return v.Properties }).(PrivateCloudPropertiesResponseOutput)
-}
-
-// The private cloud SKU
-func (o PrivateCloudTypeOutput) Sku() SkuResponseOutput {
-	return o.ApplyT(func(v PrivateCloudType) SkuResponse { return v.Sku }).(SkuResponseOutput)
-}
-
-// Resource tags
-func (o PrivateCloudTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v PrivateCloudType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o PrivateCloudTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PrivateCloudType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of a private cloud resource
 type PrivateCloudPropertiesResponse struct {
 	// An ExpressRoute Circuit
@@ -2698,20 +2209,14 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(AuthorizationTypeOutput{})
-	pulumi.RegisterOutputType(CircuitOutput{})
-	pulumi.RegisterOutputType(CircuitPtrOutput{})
 	pulumi.RegisterOutputType(CircuitResponseOutput{})
 	pulumi.RegisterOutputType(CircuitResponsePtrOutput{})
-	pulumi.RegisterOutputType(ClusterTypeOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ClusterPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(EndpointsOutput{})
 	pulumi.RegisterOutputType(EndpointsResponseOutput{})
 	pulumi.RegisterOutputType(EndpointsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ExpressRouteAuthorizationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ExpressRouteAuthorizationPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(HcxEnterpriseSiteTypeOutput{})
 	pulumi.RegisterOutputType(HcxEnterpriseSitePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(HcxEnterpriseSitePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(IdentitySourceOutput{})
@@ -2722,7 +2227,6 @@ func init() {
 	pulumi.RegisterOutputType(ManagementClusterPtrOutput{})
 	pulumi.RegisterOutputType(ManagementClusterResponseOutput{})
 	pulumi.RegisterOutputType(ManagementClusterResponsePtrOutput{})
-	pulumi.RegisterOutputType(PrivateCloudTypeOutput{})
 	pulumi.RegisterOutputType(PrivateCloudPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PrivateCloudPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})

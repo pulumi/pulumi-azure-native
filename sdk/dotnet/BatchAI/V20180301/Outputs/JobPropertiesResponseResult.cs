@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.BatchAI.V20180301.Outputs
         /// <summary>
         /// Constraints associated with the Job.
         /// </summary>
-        public readonly Outputs.JobPropertiesResponsePropertiesResult? Constraints;
+        public readonly Outputs.JobPropertiesResponseConstraintsResult? Constraints;
         /// <summary>
         /// If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
         /// </summary>
@@ -52,7 +52,7 @@ namespace Pulumi.AzureRM.BatchAI.V20180301.Outputs
         /// <summary>
         /// Contains information about the execution of a job in the Azure Batch service.
         /// </summary>
-        public readonly Outputs.JobPropertiesResponsePropertiesResult? ExecutionInfo;
+        public readonly Outputs.JobPropertiesResponseExecutionInfoResult? ExecutionInfo;
         /// <summary>
         /// The current state of the job. Possible values are: queued - The job is queued and able to run. A job enters this state when it is created, or when it is awaiting a retry after a failed run. running - The job is running on a compute cluster. This includes job-level preparation such as downloading resource files or set up container specified on the job - it does not necessarily mean that the job command line has started executing. terminating - The job is terminated by the user, the terminate operation is in progress. succeeded - The job has completed running successfully and exited with exit code 0. failed - The job has finished unsuccessfully (failed with a non-zero exit code) and has exhausted its retry limit. A job is also marked as failed if an error occurred launching the job.
         /// </summary>
@@ -126,7 +126,7 @@ namespace Pulumi.AzureRM.BatchAI.V20180301.Outputs
 
             Outputs.CNTKsettingsResponseResult? cntkSettings,
 
-            Outputs.JobPropertiesResponsePropertiesResult? constraints,
+            Outputs.JobPropertiesResponseConstraintsResult? constraints,
 
             Outputs.ContainerSettingsResponseResult? containerSettings,
 
@@ -136,7 +136,7 @@ namespace Pulumi.AzureRM.BatchAI.V20180301.Outputs
 
             ImmutableArray<Outputs.EnvironmentVariableResponseResult> environmentVariables,
 
-            Outputs.JobPropertiesResponsePropertiesResult? executionInfo,
+            Outputs.JobPropertiesResponseExecutionInfoResult? executionInfo,
 
             string? executionState,
 

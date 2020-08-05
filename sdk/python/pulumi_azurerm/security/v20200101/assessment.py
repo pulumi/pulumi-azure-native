@@ -56,14 +56,13 @@ class Assessment(pulumi.CustomResource):
     """
     Resource type
     """
-    def __init__(__self__, resource_name, opts=None, additional_data=None, links=None, metadata=None, name=None, partners_data=None, resource_details=None, resource_id=None, status=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, additional_data=None, metadata=None, name=None, partners_data=None, resource_details=None, resource_id=None, status=None, __props__=None, __name__=None, __opts__=None):
         """
         Security assessment on a resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[dict] additional_data: Additional data regarding the assessment
-        :param pulumi.Input[dict] links: Links relevant to the assessment
         :param pulumi.Input[dict] metadata: Describes properties of an assessment metadata.
         :param pulumi.Input[str] name: The Assessment Key - Unique key for the assessment type
         :param pulumi.Input[dict] partners_data: Data regarding 3rd party partner integration
@@ -122,7 +121,6 @@ class Assessment(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['additional_data'] = additional_data
-            __props__['links'] = links
             __props__['metadata'] = metadata
             if name is None:
                 raise TypeError("Missing required property 'name'")

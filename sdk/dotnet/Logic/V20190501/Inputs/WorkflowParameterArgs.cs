@@ -21,11 +21,17 @@ namespace Pulumi.AzureRM.Logic.V20190501.Inputs
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("metadata")]
+        private InputMap<object>? _metadata;
+
         /// <summary>
         /// The metadata.
         /// </summary>
-        [Input("metadata")]
-        public Input<Inputs.ObjectArgs>? Metadata { get; set; }
+        public InputMap<object> Metadata
+        {
+            get => _metadata ?? (_metadata = new InputMap<object>());
+            set => _metadata = value;
+        }
 
         /// <summary>
         /// The type.
@@ -33,11 +39,17 @@ namespace Pulumi.AzureRM.Logic.V20190501.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        [Input("value")]
+        private InputMap<object>? _value;
+
         /// <summary>
         /// The value.
         /// </summary>
-        [Input("value")]
-        public Input<Inputs.ObjectArgs>? Value { get; set; }
+        public InputMap<object> Value
+        {
+            get => _value ?? (_value = new InputMap<object>());
+            set => _value = value;
+        }
 
         public WorkflowParameterArgs()
         {

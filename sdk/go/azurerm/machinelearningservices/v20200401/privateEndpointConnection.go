@@ -114,8 +114,6 @@ type privateEndpointConnectionArgs struct {
 	Location *string `pulumi:"location"`
 	// The name of the private endpoint connection associated with the workspace
 	Name string `pulumi:"name"`
-	// The resource of private end point.
-	PrivateEndpoint *PrivateEndpoint `pulumi:"privateEndpoint"`
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionState `pulumi:"privateLinkServiceConnectionState"`
 	// The provisioning state of the private endpoint connection resource.
@@ -138,8 +136,6 @@ type PrivateEndpointConnectionArgs struct {
 	Location pulumi.StringPtrInput
 	// The name of the private endpoint connection associated with the workspace
 	Name pulumi.StringInput
-	// The resource of private end point.
-	PrivateEndpoint PrivateEndpointPtrInput
 	// A collection of information about the state of the connection between service consumer and provider.
 	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateInput
 	// The provisioning state of the private endpoint connection resource.

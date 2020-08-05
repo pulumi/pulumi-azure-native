@@ -10,370 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// NetApp account resource
-type AccountType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// NetApp Account properties
-	Properties AccountPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags *ResourceTagsResponse `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// AccountTypeInput is an input type that accepts AccountTypeArgs and AccountTypeOutput values.
-// You can construct a concrete instance of `AccountTypeInput` via:
-//
-//          AccountTypeArgs{...}
-type AccountTypeInput interface {
-	pulumi.Input
-
-	ToAccountTypeOutput() AccountTypeOutput
-	ToAccountTypeOutputWithContext(context.Context) AccountTypeOutput
-}
-
-// NetApp account resource
-type AccountTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// NetApp Account properties
-	Properties AccountPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags ResourceTagsResponsePtrInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AccountTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountType)(nil)).Elem()
-}
-
-func (i AccountTypeArgs) ToAccountTypeOutput() AccountTypeOutput {
-	return i.ToAccountTypeOutputWithContext(context.Background())
-}
-
-func (i AccountTypeArgs) ToAccountTypeOutputWithContext(ctx context.Context) AccountTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountTypeOutput)
-}
-
-// NetApp account resource
-type AccountTypeOutput struct{ *pulumi.OutputState }
-
-func (AccountTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountType)(nil)).Elem()
-}
-
-func (o AccountTypeOutput) ToAccountTypeOutput() AccountTypeOutput {
-	return o
-}
-
-func (o AccountTypeOutput) ToAccountTypeOutputWithContext(ctx context.Context) AccountTypeOutput {
-	return o
-}
-
-// Resource location
-func (o AccountTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o AccountTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// NetApp Account properties
-func (o AccountTypeOutput) Properties() AccountPropertiesResponseOutput {
-	return o.ApplyT(func(v AccountType) AccountPropertiesResponse { return v.Properties }).(AccountPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o AccountTypeOutput) Tags() ResourceTagsResponsePtrOutput {
-	return o.ApplyT(func(v AccountType) *ResourceTagsResponse { return v.Tags }).(ResourceTagsResponsePtrOutput)
-}
-
-// Resource type
-func (o AccountTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Capacity pool resource
-type PoolType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Capacity pool properties
-	Properties PoolPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags *ResourceTagsResponse `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// PoolTypeInput is an input type that accepts PoolTypeArgs and PoolTypeOutput values.
-// You can construct a concrete instance of `PoolTypeInput` via:
-//
-//          PoolTypeArgs{...}
-type PoolTypeInput interface {
-	pulumi.Input
-
-	ToPoolTypeOutput() PoolTypeOutput
-	ToPoolTypeOutputWithContext(context.Context) PoolTypeOutput
-}
-
-// Capacity pool resource
-type PoolTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Capacity pool properties
-	Properties PoolPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags ResourceTagsResponsePtrInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (PoolTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PoolType)(nil)).Elem()
-}
-
-func (i PoolTypeArgs) ToPoolTypeOutput() PoolTypeOutput {
-	return i.ToPoolTypeOutputWithContext(context.Background())
-}
-
-func (i PoolTypeArgs) ToPoolTypeOutputWithContext(ctx context.Context) PoolTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PoolTypeOutput)
-}
-
-// Capacity pool resource
-type PoolTypeOutput struct{ *pulumi.OutputState }
-
-func (PoolTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PoolType)(nil)).Elem()
-}
-
-func (o PoolTypeOutput) ToPoolTypeOutput() PoolTypeOutput {
-	return o
-}
-
-func (o PoolTypeOutput) ToPoolTypeOutputWithContext(ctx context.Context) PoolTypeOutput {
-	return o
-}
-
-// Resource location
-func (o PoolTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v PoolType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o PoolTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PoolType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Capacity pool properties
-func (o PoolTypeOutput) Properties() PoolPropertiesResponseOutput {
-	return o.ApplyT(func(v PoolType) PoolPropertiesResponse { return v.Properties }).(PoolPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o PoolTypeOutput) Tags() ResourceTagsResponsePtrOutput {
-	return o.ApplyT(func(v PoolType) *ResourceTagsResponse { return v.Tags }).(ResourceTagsResponsePtrOutput)
-}
-
-// Resource type
-func (o PoolTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v PoolType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Snapshot of a Volume
-type SnapshotType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Snapshot Properties
-	Properties SnapshotPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags *ResourceTagsResponse `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// SnapshotTypeInput is an input type that accepts SnapshotTypeArgs and SnapshotTypeOutput values.
-// You can construct a concrete instance of `SnapshotTypeInput` via:
-//
-//          SnapshotTypeArgs{...}
-type SnapshotTypeInput interface {
-	pulumi.Input
-
-	ToSnapshotTypeOutput() SnapshotTypeOutput
-	ToSnapshotTypeOutputWithContext(context.Context) SnapshotTypeOutput
-}
-
-// Snapshot of a Volume
-type SnapshotTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Snapshot Properties
-	Properties SnapshotPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags ResourceTagsResponsePtrInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SnapshotTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotType)(nil)).Elem()
-}
-
-func (i SnapshotTypeArgs) ToSnapshotTypeOutput() SnapshotTypeOutput {
-	return i.ToSnapshotTypeOutputWithContext(context.Background())
-}
-
-func (i SnapshotTypeArgs) ToSnapshotTypeOutputWithContext(ctx context.Context) SnapshotTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotTypeOutput)
-}
-
-// Snapshot of a Volume
-type SnapshotTypeOutput struct{ *pulumi.OutputState }
-
-func (SnapshotTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotType)(nil)).Elem()
-}
-
-func (o SnapshotTypeOutput) ToSnapshotTypeOutput() SnapshotTypeOutput {
-	return o
-}
-
-func (o SnapshotTypeOutput) ToSnapshotTypeOutputWithContext(ctx context.Context) SnapshotTypeOutput {
-	return o
-}
-
-// Resource location
-func (o SnapshotTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o SnapshotTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Snapshot Properties
-func (o SnapshotTypeOutput) Properties() SnapshotPropertiesResponseOutput {
-	return o.ApplyT(func(v SnapshotType) SnapshotPropertiesResponse { return v.Properties }).(SnapshotPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o SnapshotTypeOutput) Tags() ResourceTagsResponsePtrOutput {
-	return o.ApplyT(func(v SnapshotType) *ResourceTagsResponse { return v.Tags }).(ResourceTagsResponsePtrOutput)
-}
-
-// Resource type
-func (o SnapshotTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SnapshotType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// Volume resource
-type VolumeType struct {
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// Volume properties
-	Properties VolumePropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags *ResourceTagsResponse `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// VolumeTypeInput is an input type that accepts VolumeTypeArgs and VolumeTypeOutput values.
-// You can construct a concrete instance of `VolumeTypeInput` via:
-//
-//          VolumeTypeArgs{...}
-type VolumeTypeInput interface {
-	pulumi.Input
-
-	ToVolumeTypeOutput() VolumeTypeOutput
-	ToVolumeTypeOutputWithContext(context.Context) VolumeTypeOutput
-}
-
-// Volume resource
-type VolumeTypeArgs struct {
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Volume properties
-	Properties VolumePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags ResourceTagsResponsePtrInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VolumeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeType)(nil)).Elem()
-}
-
-func (i VolumeTypeArgs) ToVolumeTypeOutput() VolumeTypeOutput {
-	return i.ToVolumeTypeOutputWithContext(context.Background())
-}
-
-func (i VolumeTypeArgs) ToVolumeTypeOutputWithContext(ctx context.Context) VolumeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumeTypeOutput)
-}
-
-// Volume resource
-type VolumeTypeOutput struct{ *pulumi.OutputState }
-
-func (VolumeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumeType)(nil)).Elem()
-}
-
-func (o VolumeTypeOutput) ToVolumeTypeOutput() VolumeTypeOutput {
-	return o
-}
-
-func (o VolumeTypeOutput) ToVolumeTypeOutputWithContext(ctx context.Context) VolumeTypeOutput {
-	return o
-}
-
-// Resource location
-func (o VolumeTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v VolumeType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o VolumeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VolumeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Volume properties
-func (o VolumeTypeOutput) Properties() VolumePropertiesResponseOutput {
-	return o.ApplyT(func(v VolumeType) VolumePropertiesResponse { return v.Properties }).(VolumePropertiesResponseOutput)
-}
-
-// Resource tags
-func (o VolumeTypeOutput) Tags() ResourceTagsResponsePtrOutput {
-	return o.ApplyT(func(v VolumeType) *ResourceTagsResponse { return v.Tags }).(ResourceTagsResponsePtrOutput)
-}
-
-// Resource type
-func (o VolumeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VolumeType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // NetApp account properties
 type AccountPropertiesResponse struct {
 	// Active Directories
@@ -1687,236 +1323,6 @@ func (o PoolPropertiesResponsePtrOutput) Size() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Resource tags
-type ResourceTags struct {
-}
-
-// ResourceTagsInput is an input type that accepts ResourceTagsArgs and ResourceTagsOutput values.
-// You can construct a concrete instance of `ResourceTagsInput` via:
-//
-//          ResourceTagsArgs{...}
-type ResourceTagsInput interface {
-	pulumi.Input
-
-	ToResourceTagsOutput() ResourceTagsOutput
-	ToResourceTagsOutputWithContext(context.Context) ResourceTagsOutput
-}
-
-// Resource tags
-type ResourceTagsArgs struct {
-}
-
-func (ResourceTagsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceTags)(nil)).Elem()
-}
-
-func (i ResourceTagsArgs) ToResourceTagsOutput() ResourceTagsOutput {
-	return i.ToResourceTagsOutputWithContext(context.Background())
-}
-
-func (i ResourceTagsArgs) ToResourceTagsOutputWithContext(ctx context.Context) ResourceTagsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceTagsOutput)
-}
-
-func (i ResourceTagsArgs) ToResourceTagsPtrOutput() ResourceTagsPtrOutput {
-	return i.ToResourceTagsPtrOutputWithContext(context.Background())
-}
-
-func (i ResourceTagsArgs) ToResourceTagsPtrOutputWithContext(ctx context.Context) ResourceTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceTagsOutput).ToResourceTagsPtrOutputWithContext(ctx)
-}
-
-// ResourceTagsPtrInput is an input type that accepts ResourceTagsArgs, ResourceTagsPtr and ResourceTagsPtrOutput values.
-// You can construct a concrete instance of `ResourceTagsPtrInput` via:
-//
-//          ResourceTagsArgs{...}
-//
-//  or:
-//
-//          nil
-type ResourceTagsPtrInput interface {
-	pulumi.Input
-
-	ToResourceTagsPtrOutput() ResourceTagsPtrOutput
-	ToResourceTagsPtrOutputWithContext(context.Context) ResourceTagsPtrOutput
-}
-
-type resourceTagsPtrType ResourceTagsArgs
-
-func ResourceTagsPtr(v *ResourceTagsArgs) ResourceTagsPtrInput {
-	return (*resourceTagsPtrType)(v)
-}
-
-func (*resourceTagsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceTags)(nil)).Elem()
-}
-
-func (i *resourceTagsPtrType) ToResourceTagsPtrOutput() ResourceTagsPtrOutput {
-	return i.ToResourceTagsPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceTagsPtrType) ToResourceTagsPtrOutputWithContext(ctx context.Context) ResourceTagsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceTagsPtrOutput)
-}
-
-// Resource tags
-type ResourceTagsOutput struct{ *pulumi.OutputState }
-
-func (ResourceTagsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceTags)(nil)).Elem()
-}
-
-func (o ResourceTagsOutput) ToResourceTagsOutput() ResourceTagsOutput {
-	return o
-}
-
-func (o ResourceTagsOutput) ToResourceTagsOutputWithContext(ctx context.Context) ResourceTagsOutput {
-	return o
-}
-
-func (o ResourceTagsOutput) ToResourceTagsPtrOutput() ResourceTagsPtrOutput {
-	return o.ToResourceTagsPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceTagsOutput) ToResourceTagsPtrOutputWithContext(ctx context.Context) ResourceTagsPtrOutput {
-	return o.ApplyT(func(v ResourceTags) *ResourceTags {
-		return &v
-	}).(ResourceTagsPtrOutput)
-}
-
-type ResourceTagsPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceTagsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceTags)(nil)).Elem()
-}
-
-func (o ResourceTagsPtrOutput) ToResourceTagsPtrOutput() ResourceTagsPtrOutput {
-	return o
-}
-
-func (o ResourceTagsPtrOutput) ToResourceTagsPtrOutputWithContext(ctx context.Context) ResourceTagsPtrOutput {
-	return o
-}
-
-func (o ResourceTagsPtrOutput) Elem() ResourceTagsOutput {
-	return o.ApplyT(func(v *ResourceTags) ResourceTags { return *v }).(ResourceTagsOutput)
-}
-
-// Resource tags
-type ResourceTagsResponse struct {
-}
-
-// ResourceTagsResponseInput is an input type that accepts ResourceTagsResponseArgs and ResourceTagsResponseOutput values.
-// You can construct a concrete instance of `ResourceTagsResponseInput` via:
-//
-//          ResourceTagsResponseArgs{...}
-type ResourceTagsResponseInput interface {
-	pulumi.Input
-
-	ToResourceTagsResponseOutput() ResourceTagsResponseOutput
-	ToResourceTagsResponseOutputWithContext(context.Context) ResourceTagsResponseOutput
-}
-
-// Resource tags
-type ResourceTagsResponseArgs struct {
-}
-
-func (ResourceTagsResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceTagsResponse)(nil)).Elem()
-}
-
-func (i ResourceTagsResponseArgs) ToResourceTagsResponseOutput() ResourceTagsResponseOutput {
-	return i.ToResourceTagsResponseOutputWithContext(context.Background())
-}
-
-func (i ResourceTagsResponseArgs) ToResourceTagsResponseOutputWithContext(ctx context.Context) ResourceTagsResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceTagsResponseOutput)
-}
-
-func (i ResourceTagsResponseArgs) ToResourceTagsResponsePtrOutput() ResourceTagsResponsePtrOutput {
-	return i.ToResourceTagsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ResourceTagsResponseArgs) ToResourceTagsResponsePtrOutputWithContext(ctx context.Context) ResourceTagsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceTagsResponseOutput).ToResourceTagsResponsePtrOutputWithContext(ctx)
-}
-
-// ResourceTagsResponsePtrInput is an input type that accepts ResourceTagsResponseArgs, ResourceTagsResponsePtr and ResourceTagsResponsePtrOutput values.
-// You can construct a concrete instance of `ResourceTagsResponsePtrInput` via:
-//
-//          ResourceTagsResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ResourceTagsResponsePtrInput interface {
-	pulumi.Input
-
-	ToResourceTagsResponsePtrOutput() ResourceTagsResponsePtrOutput
-	ToResourceTagsResponsePtrOutputWithContext(context.Context) ResourceTagsResponsePtrOutput
-}
-
-type resourceTagsResponsePtrType ResourceTagsResponseArgs
-
-func ResourceTagsResponsePtr(v *ResourceTagsResponseArgs) ResourceTagsResponsePtrInput {
-	return (*resourceTagsResponsePtrType)(v)
-}
-
-func (*resourceTagsResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceTagsResponse)(nil)).Elem()
-}
-
-func (i *resourceTagsResponsePtrType) ToResourceTagsResponsePtrOutput() ResourceTagsResponsePtrOutput {
-	return i.ToResourceTagsResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *resourceTagsResponsePtrType) ToResourceTagsResponsePtrOutputWithContext(ctx context.Context) ResourceTagsResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceTagsResponsePtrOutput)
-}
-
-// Resource tags
-type ResourceTagsResponseOutput struct{ *pulumi.OutputState }
-
-func (ResourceTagsResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceTagsResponse)(nil)).Elem()
-}
-
-func (o ResourceTagsResponseOutput) ToResourceTagsResponseOutput() ResourceTagsResponseOutput {
-	return o
-}
-
-func (o ResourceTagsResponseOutput) ToResourceTagsResponseOutputWithContext(ctx context.Context) ResourceTagsResponseOutput {
-	return o
-}
-
-func (o ResourceTagsResponseOutput) ToResourceTagsResponsePtrOutput() ResourceTagsResponsePtrOutput {
-	return o.ToResourceTagsResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ResourceTagsResponseOutput) ToResourceTagsResponsePtrOutputWithContext(ctx context.Context) ResourceTagsResponsePtrOutput {
-	return o.ApplyT(func(v ResourceTagsResponse) *ResourceTagsResponse {
-		return &v
-	}).(ResourceTagsResponsePtrOutput)
-}
-
-type ResourceTagsResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceTagsResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceTagsResponse)(nil)).Elem()
-}
-
-func (o ResourceTagsResponsePtrOutput) ToResourceTagsResponsePtrOutput() ResourceTagsResponsePtrOutput {
-	return o
-}
-
-func (o ResourceTagsResponsePtrOutput) ToResourceTagsResponsePtrOutputWithContext(ctx context.Context) ResourceTagsResponsePtrOutput {
-	return o
-}
-
-func (o ResourceTagsResponsePtrOutput) Elem() ResourceTagsResponseOutput {
-	return o.ApplyT(func(v *ResourceTagsResponse) ResourceTagsResponse { return *v }).(ResourceTagsResponseOutput)
-}
-
 // Snapshot properties
 type SnapshotPropertiesResponse struct {
 	// The creation date of the snapshot
@@ -2109,132 +1515,132 @@ func (o SnapshotPropertiesResponsePtrOutput) SnapshotId() pulumi.StringPtrOutput
 }
 
 // Set of export policy rules
-type VolumePropertiesProperties struct {
+type VolumePropertiesExportPolicy struct {
 	// Export policy rule
 	Rules []ExportPolicyRule `pulumi:"rules"`
 }
 
-// VolumePropertiesPropertiesInput is an input type that accepts VolumePropertiesPropertiesArgs and VolumePropertiesPropertiesOutput values.
-// You can construct a concrete instance of `VolumePropertiesPropertiesInput` via:
+// VolumePropertiesExportPolicyInput is an input type that accepts VolumePropertiesExportPolicyArgs and VolumePropertiesExportPolicyOutput values.
+// You can construct a concrete instance of `VolumePropertiesExportPolicyInput` via:
 //
-//          VolumePropertiesPropertiesArgs{...}
-type VolumePropertiesPropertiesInput interface {
+//          VolumePropertiesExportPolicyArgs{...}
+type VolumePropertiesExportPolicyInput interface {
 	pulumi.Input
 
-	ToVolumePropertiesPropertiesOutput() VolumePropertiesPropertiesOutput
-	ToVolumePropertiesPropertiesOutputWithContext(context.Context) VolumePropertiesPropertiesOutput
+	ToVolumePropertiesExportPolicyOutput() VolumePropertiesExportPolicyOutput
+	ToVolumePropertiesExportPolicyOutputWithContext(context.Context) VolumePropertiesExportPolicyOutput
 }
 
 // Set of export policy rules
-type VolumePropertiesPropertiesArgs struct {
+type VolumePropertiesExportPolicyArgs struct {
 	// Export policy rule
 	Rules ExportPolicyRuleArrayInput `pulumi:"rules"`
 }
 
-func (VolumePropertiesPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumePropertiesProperties)(nil)).Elem()
+func (VolumePropertiesExportPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumePropertiesExportPolicy)(nil)).Elem()
 }
 
-func (i VolumePropertiesPropertiesArgs) ToVolumePropertiesPropertiesOutput() VolumePropertiesPropertiesOutput {
-	return i.ToVolumePropertiesPropertiesOutputWithContext(context.Background())
+func (i VolumePropertiesExportPolicyArgs) ToVolumePropertiesExportPolicyOutput() VolumePropertiesExportPolicyOutput {
+	return i.ToVolumePropertiesExportPolicyOutputWithContext(context.Background())
 }
 
-func (i VolumePropertiesPropertiesArgs) ToVolumePropertiesPropertiesOutputWithContext(ctx context.Context) VolumePropertiesPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesPropertiesOutput)
+func (i VolumePropertiesExportPolicyArgs) ToVolumePropertiesExportPolicyOutputWithContext(ctx context.Context) VolumePropertiesExportPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesExportPolicyOutput)
 }
 
-func (i VolumePropertiesPropertiesArgs) ToVolumePropertiesPropertiesPtrOutput() VolumePropertiesPropertiesPtrOutput {
-	return i.ToVolumePropertiesPropertiesPtrOutputWithContext(context.Background())
+func (i VolumePropertiesExportPolicyArgs) ToVolumePropertiesExportPolicyPtrOutput() VolumePropertiesExportPolicyPtrOutput {
+	return i.ToVolumePropertiesExportPolicyPtrOutputWithContext(context.Background())
 }
 
-func (i VolumePropertiesPropertiesArgs) ToVolumePropertiesPropertiesPtrOutputWithContext(ctx context.Context) VolumePropertiesPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesPropertiesOutput).ToVolumePropertiesPropertiesPtrOutputWithContext(ctx)
+func (i VolumePropertiesExportPolicyArgs) ToVolumePropertiesExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesExportPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesExportPolicyOutput).ToVolumePropertiesExportPolicyPtrOutputWithContext(ctx)
 }
 
-// VolumePropertiesPropertiesPtrInput is an input type that accepts VolumePropertiesPropertiesArgs, VolumePropertiesPropertiesPtr and VolumePropertiesPropertiesPtrOutput values.
-// You can construct a concrete instance of `VolumePropertiesPropertiesPtrInput` via:
+// VolumePropertiesExportPolicyPtrInput is an input type that accepts VolumePropertiesExportPolicyArgs, VolumePropertiesExportPolicyPtr and VolumePropertiesExportPolicyPtrOutput values.
+// You can construct a concrete instance of `VolumePropertiesExportPolicyPtrInput` via:
 //
-//          VolumePropertiesPropertiesArgs{...}
+//          VolumePropertiesExportPolicyArgs{...}
 //
 //  or:
 //
 //          nil
-type VolumePropertiesPropertiesPtrInput interface {
+type VolumePropertiesExportPolicyPtrInput interface {
 	pulumi.Input
 
-	ToVolumePropertiesPropertiesPtrOutput() VolumePropertiesPropertiesPtrOutput
-	ToVolumePropertiesPropertiesPtrOutputWithContext(context.Context) VolumePropertiesPropertiesPtrOutput
+	ToVolumePropertiesExportPolicyPtrOutput() VolumePropertiesExportPolicyPtrOutput
+	ToVolumePropertiesExportPolicyPtrOutputWithContext(context.Context) VolumePropertiesExportPolicyPtrOutput
 }
 
-type volumePropertiesPropertiesPtrType VolumePropertiesPropertiesArgs
+type volumePropertiesExportPolicyPtrType VolumePropertiesExportPolicyArgs
 
-func VolumePropertiesPropertiesPtr(v *VolumePropertiesPropertiesArgs) VolumePropertiesPropertiesPtrInput {
-	return (*volumePropertiesPropertiesPtrType)(v)
+func VolumePropertiesExportPolicyPtr(v *VolumePropertiesExportPolicyArgs) VolumePropertiesExportPolicyPtrInput {
+	return (*volumePropertiesExportPolicyPtrType)(v)
 }
 
-func (*volumePropertiesPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VolumePropertiesProperties)(nil)).Elem()
+func (*volumePropertiesExportPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumePropertiesExportPolicy)(nil)).Elem()
 }
 
-func (i *volumePropertiesPropertiesPtrType) ToVolumePropertiesPropertiesPtrOutput() VolumePropertiesPropertiesPtrOutput {
-	return i.ToVolumePropertiesPropertiesPtrOutputWithContext(context.Background())
+func (i *volumePropertiesExportPolicyPtrType) ToVolumePropertiesExportPolicyPtrOutput() VolumePropertiesExportPolicyPtrOutput {
+	return i.ToVolumePropertiesExportPolicyPtrOutputWithContext(context.Background())
 }
 
-func (i *volumePropertiesPropertiesPtrType) ToVolumePropertiesPropertiesPtrOutputWithContext(ctx context.Context) VolumePropertiesPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesPropertiesPtrOutput)
+func (i *volumePropertiesExportPolicyPtrType) ToVolumePropertiesExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesExportPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesExportPolicyPtrOutput)
 }
 
 // Set of export policy rules
-type VolumePropertiesPropertiesOutput struct{ *pulumi.OutputState }
+type VolumePropertiesExportPolicyOutput struct{ *pulumi.OutputState }
 
-func (VolumePropertiesPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumePropertiesProperties)(nil)).Elem()
+func (VolumePropertiesExportPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumePropertiesExportPolicy)(nil)).Elem()
 }
 
-func (o VolumePropertiesPropertiesOutput) ToVolumePropertiesPropertiesOutput() VolumePropertiesPropertiesOutput {
+func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyOutput() VolumePropertiesExportPolicyOutput {
 	return o
 }
 
-func (o VolumePropertiesPropertiesOutput) ToVolumePropertiesPropertiesOutputWithContext(ctx context.Context) VolumePropertiesPropertiesOutput {
+func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyOutputWithContext(ctx context.Context) VolumePropertiesExportPolicyOutput {
 	return o
 }
 
-func (o VolumePropertiesPropertiesOutput) ToVolumePropertiesPropertiesPtrOutput() VolumePropertiesPropertiesPtrOutput {
-	return o.ToVolumePropertiesPropertiesPtrOutputWithContext(context.Background())
+func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyPtrOutput() VolumePropertiesExportPolicyPtrOutput {
+	return o.ToVolumePropertiesExportPolicyPtrOutputWithContext(context.Background())
 }
 
-func (o VolumePropertiesPropertiesOutput) ToVolumePropertiesPropertiesPtrOutputWithContext(ctx context.Context) VolumePropertiesPropertiesPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesProperties) *VolumePropertiesProperties {
+func (o VolumePropertiesExportPolicyOutput) ToVolumePropertiesExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesExportPolicyPtrOutput {
+	return o.ApplyT(func(v VolumePropertiesExportPolicy) *VolumePropertiesExportPolicy {
 		return &v
-	}).(VolumePropertiesPropertiesPtrOutput)
+	}).(VolumePropertiesExportPolicyPtrOutput)
 }
 
 // Export policy rule
-func (o VolumePropertiesPropertiesOutput) Rules() ExportPolicyRuleArrayOutput {
-	return o.ApplyT(func(v VolumePropertiesProperties) []ExportPolicyRule { return v.Rules }).(ExportPolicyRuleArrayOutput)
+func (o VolumePropertiesExportPolicyOutput) Rules() ExportPolicyRuleArrayOutput {
+	return o.ApplyT(func(v VolumePropertiesExportPolicy) []ExportPolicyRule { return v.Rules }).(ExportPolicyRuleArrayOutput)
 }
 
-type VolumePropertiesPropertiesPtrOutput struct{ *pulumi.OutputState }
+type VolumePropertiesExportPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (VolumePropertiesPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VolumePropertiesProperties)(nil)).Elem()
+func (VolumePropertiesExportPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumePropertiesExportPolicy)(nil)).Elem()
 }
 
-func (o VolumePropertiesPropertiesPtrOutput) ToVolumePropertiesPropertiesPtrOutput() VolumePropertiesPropertiesPtrOutput {
+func (o VolumePropertiesExportPolicyPtrOutput) ToVolumePropertiesExportPolicyPtrOutput() VolumePropertiesExportPolicyPtrOutput {
 	return o
 }
 
-func (o VolumePropertiesPropertiesPtrOutput) ToVolumePropertiesPropertiesPtrOutputWithContext(ctx context.Context) VolumePropertiesPropertiesPtrOutput {
+func (o VolumePropertiesExportPolicyPtrOutput) ToVolumePropertiesExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesExportPolicyPtrOutput {
 	return o
 }
 
-func (o VolumePropertiesPropertiesPtrOutput) Elem() VolumePropertiesPropertiesOutput {
-	return o.ApplyT(func(v *VolumePropertiesProperties) VolumePropertiesProperties { return *v }).(VolumePropertiesPropertiesOutput)
+func (o VolumePropertiesExportPolicyPtrOutput) Elem() VolumePropertiesExportPolicyOutput {
+	return o.ApplyT(func(v *VolumePropertiesExportPolicy) VolumePropertiesExportPolicy { return *v }).(VolumePropertiesExportPolicyOutput)
 }
 
 // Export policy rule
-func (o VolumePropertiesPropertiesPtrOutput) Rules() ExportPolicyRuleArrayOutput {
-	return o.ApplyT(func(v *VolumePropertiesProperties) []ExportPolicyRule {
+func (o VolumePropertiesExportPolicyPtrOutput) Rules() ExportPolicyRuleArrayOutput {
+	return o.ApplyT(func(v *VolumePropertiesExportPolicy) []ExportPolicyRule {
 		if v == nil {
 			return nil
 		}
@@ -2249,7 +1655,7 @@ type VolumePropertiesResponse struct {
 	// A unique file path for the volume. Used when creating mount targets
 	CreationToken string `pulumi:"creationToken"`
 	// Set of export policy rules
-	ExportPolicy *VolumePropertiesResponseProperties `pulumi:"exportPolicy"`
+	ExportPolicy *VolumePropertiesResponseExportPolicy `pulumi:"exportPolicy"`
 	// Unique FileSystem Identifier.
 	FileSystemId string `pulumi:"fileSystemId"`
 	// List of mount targets
@@ -2286,7 +1692,7 @@ type VolumePropertiesResponseArgs struct {
 	// A unique file path for the volume. Used when creating mount targets
 	CreationToken pulumi.StringInput `pulumi:"creationToken"`
 	// Set of export policy rules
-	ExportPolicy VolumePropertiesResponsePropertiesPtrInput `pulumi:"exportPolicy"`
+	ExportPolicy VolumePropertiesResponseExportPolicyPtrInput `pulumi:"exportPolicy"`
 	// Unique FileSystem Identifier.
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
 	// List of mount targets
@@ -2394,8 +1800,8 @@ func (o VolumePropertiesResponseOutput) CreationToken() pulumi.StringOutput {
 }
 
 // Set of export policy rules
-func (o VolumePropertiesResponseOutput) ExportPolicy() VolumePropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesResponse) *VolumePropertiesResponseProperties { return v.ExportPolicy }).(VolumePropertiesResponsePropertiesPtrOutput)
+func (o VolumePropertiesResponseOutput) ExportPolicy() VolumePropertiesResponseExportPolicyPtrOutput {
+	return o.ApplyT(func(v VolumePropertiesResponse) *VolumePropertiesResponseExportPolicy { return v.ExportPolicy }).(VolumePropertiesResponseExportPolicyPtrOutput)
 }
 
 // Unique FileSystem Identifier.
@@ -2477,13 +1883,13 @@ func (o VolumePropertiesResponsePtrOutput) CreationToken() pulumi.StringPtrOutpu
 }
 
 // Set of export policy rules
-func (o VolumePropertiesResponsePtrOutput) ExportPolicy() VolumePropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *VolumePropertiesResponse) *VolumePropertiesResponseProperties {
+func (o VolumePropertiesResponsePtrOutput) ExportPolicy() VolumePropertiesResponseExportPolicyPtrOutput {
+	return o.ApplyT(func(v *VolumePropertiesResponse) *VolumePropertiesResponseExportPolicy {
 		if v == nil {
 			return nil
 		}
 		return v.ExportPolicy
-	}).(VolumePropertiesResponsePropertiesPtrOutput)
+	}).(VolumePropertiesResponseExportPolicyPtrOutput)
 }
 
 // Unique FileSystem Identifier.
@@ -2567,132 +1973,132 @@ func (o VolumePropertiesResponsePtrOutput) UsageThreshold() pulumi.IntPtrOutput 
 }
 
 // Set of export policy rules
-type VolumePropertiesResponseProperties struct {
+type VolumePropertiesResponseExportPolicy struct {
 	// Export policy rule
 	Rules []ExportPolicyRuleResponse `pulumi:"rules"`
 }
 
-// VolumePropertiesResponsePropertiesInput is an input type that accepts VolumePropertiesResponsePropertiesArgs and VolumePropertiesResponsePropertiesOutput values.
-// You can construct a concrete instance of `VolumePropertiesResponsePropertiesInput` via:
+// VolumePropertiesResponseExportPolicyInput is an input type that accepts VolumePropertiesResponseExportPolicyArgs and VolumePropertiesResponseExportPolicyOutput values.
+// You can construct a concrete instance of `VolumePropertiesResponseExportPolicyInput` via:
 //
-//          VolumePropertiesResponsePropertiesArgs{...}
-type VolumePropertiesResponsePropertiesInput interface {
+//          VolumePropertiesResponseExportPolicyArgs{...}
+type VolumePropertiesResponseExportPolicyInput interface {
 	pulumi.Input
 
-	ToVolumePropertiesResponsePropertiesOutput() VolumePropertiesResponsePropertiesOutput
-	ToVolumePropertiesResponsePropertiesOutputWithContext(context.Context) VolumePropertiesResponsePropertiesOutput
+	ToVolumePropertiesResponseExportPolicyOutput() VolumePropertiesResponseExportPolicyOutput
+	ToVolumePropertiesResponseExportPolicyOutputWithContext(context.Context) VolumePropertiesResponseExportPolicyOutput
 }
 
 // Set of export policy rules
-type VolumePropertiesResponsePropertiesArgs struct {
+type VolumePropertiesResponseExportPolicyArgs struct {
 	// Export policy rule
 	Rules ExportPolicyRuleResponseArrayInput `pulumi:"rules"`
 }
 
-func (VolumePropertiesResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumePropertiesResponseProperties)(nil)).Elem()
+func (VolumePropertiesResponseExportPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumePropertiesResponseExportPolicy)(nil)).Elem()
 }
 
-func (i VolumePropertiesResponsePropertiesArgs) ToVolumePropertiesResponsePropertiesOutput() VolumePropertiesResponsePropertiesOutput {
-	return i.ToVolumePropertiesResponsePropertiesOutputWithContext(context.Background())
+func (i VolumePropertiesResponseExportPolicyArgs) ToVolumePropertiesResponseExportPolicyOutput() VolumePropertiesResponseExportPolicyOutput {
+	return i.ToVolumePropertiesResponseExportPolicyOutputWithContext(context.Background())
 }
 
-func (i VolumePropertiesResponsePropertiesArgs) ToVolumePropertiesResponsePropertiesOutputWithContext(ctx context.Context) VolumePropertiesResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponsePropertiesOutput)
+func (i VolumePropertiesResponseExportPolicyArgs) ToVolumePropertiesResponseExportPolicyOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseExportPolicyOutput)
 }
 
-func (i VolumePropertiesResponsePropertiesArgs) ToVolumePropertiesResponsePropertiesPtrOutput() VolumePropertiesResponsePropertiesPtrOutput {
-	return i.ToVolumePropertiesResponsePropertiesPtrOutputWithContext(context.Background())
+func (i VolumePropertiesResponseExportPolicyArgs) ToVolumePropertiesResponseExportPolicyPtrOutput() VolumePropertiesResponseExportPolicyPtrOutput {
+	return i.ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(context.Background())
 }
 
-func (i VolumePropertiesResponsePropertiesArgs) ToVolumePropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) VolumePropertiesResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponsePropertiesOutput).ToVolumePropertiesResponsePropertiesPtrOutputWithContext(ctx)
+func (i VolumePropertiesResponseExportPolicyArgs) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseExportPolicyOutput).ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx)
 }
 
-// VolumePropertiesResponsePropertiesPtrInput is an input type that accepts VolumePropertiesResponsePropertiesArgs, VolumePropertiesResponsePropertiesPtr and VolumePropertiesResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `VolumePropertiesResponsePropertiesPtrInput` via:
+// VolumePropertiesResponseExportPolicyPtrInput is an input type that accepts VolumePropertiesResponseExportPolicyArgs, VolumePropertiesResponseExportPolicyPtr and VolumePropertiesResponseExportPolicyPtrOutput values.
+// You can construct a concrete instance of `VolumePropertiesResponseExportPolicyPtrInput` via:
 //
-//          VolumePropertiesResponsePropertiesArgs{...}
+//          VolumePropertiesResponseExportPolicyArgs{...}
 //
 //  or:
 //
 //          nil
-type VolumePropertiesResponsePropertiesPtrInput interface {
+type VolumePropertiesResponseExportPolicyPtrInput interface {
 	pulumi.Input
 
-	ToVolumePropertiesResponsePropertiesPtrOutput() VolumePropertiesResponsePropertiesPtrOutput
-	ToVolumePropertiesResponsePropertiesPtrOutputWithContext(context.Context) VolumePropertiesResponsePropertiesPtrOutput
+	ToVolumePropertiesResponseExportPolicyPtrOutput() VolumePropertiesResponseExportPolicyPtrOutput
+	ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(context.Context) VolumePropertiesResponseExportPolicyPtrOutput
 }
 
-type volumePropertiesResponsePropertiesPtrType VolumePropertiesResponsePropertiesArgs
+type volumePropertiesResponseExportPolicyPtrType VolumePropertiesResponseExportPolicyArgs
 
-func VolumePropertiesResponsePropertiesPtr(v *VolumePropertiesResponsePropertiesArgs) VolumePropertiesResponsePropertiesPtrInput {
-	return (*volumePropertiesResponsePropertiesPtrType)(v)
+func VolumePropertiesResponseExportPolicyPtr(v *VolumePropertiesResponseExportPolicyArgs) VolumePropertiesResponseExportPolicyPtrInput {
+	return (*volumePropertiesResponseExportPolicyPtrType)(v)
 }
 
-func (*volumePropertiesResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VolumePropertiesResponseProperties)(nil)).Elem()
+func (*volumePropertiesResponseExportPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumePropertiesResponseExportPolicy)(nil)).Elem()
 }
 
-func (i *volumePropertiesResponsePropertiesPtrType) ToVolumePropertiesResponsePropertiesPtrOutput() VolumePropertiesResponsePropertiesPtrOutput {
-	return i.ToVolumePropertiesResponsePropertiesPtrOutputWithContext(context.Background())
+func (i *volumePropertiesResponseExportPolicyPtrType) ToVolumePropertiesResponseExportPolicyPtrOutput() VolumePropertiesResponseExportPolicyPtrOutput {
+	return i.ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(context.Background())
 }
 
-func (i *volumePropertiesResponsePropertiesPtrType) ToVolumePropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) VolumePropertiesResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponsePropertiesPtrOutput)
+func (i *volumePropertiesResponseExportPolicyPtrType) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumePropertiesResponseExportPolicyPtrOutput)
 }
 
 // Set of export policy rules
-type VolumePropertiesResponsePropertiesOutput struct{ *pulumi.OutputState }
+type VolumePropertiesResponseExportPolicyOutput struct{ *pulumi.OutputState }
 
-func (VolumePropertiesResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VolumePropertiesResponseProperties)(nil)).Elem()
+func (VolumePropertiesResponseExportPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumePropertiesResponseExportPolicy)(nil)).Elem()
 }
 
-func (o VolumePropertiesResponsePropertiesOutput) ToVolumePropertiesResponsePropertiesOutput() VolumePropertiesResponsePropertiesOutput {
+func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseExportPolicyOutput() VolumePropertiesResponseExportPolicyOutput {
 	return o
 }
 
-func (o VolumePropertiesResponsePropertiesOutput) ToVolumePropertiesResponsePropertiesOutputWithContext(ctx context.Context) VolumePropertiesResponsePropertiesOutput {
+func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseExportPolicyOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyOutput {
 	return o
 }
 
-func (o VolumePropertiesResponsePropertiesOutput) ToVolumePropertiesResponsePropertiesPtrOutput() VolumePropertiesResponsePropertiesPtrOutput {
-	return o.ToVolumePropertiesResponsePropertiesPtrOutputWithContext(context.Background())
+func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseExportPolicyPtrOutput() VolumePropertiesResponseExportPolicyPtrOutput {
+	return o.ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(context.Background())
 }
 
-func (o VolumePropertiesResponsePropertiesOutput) ToVolumePropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) VolumePropertiesResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v VolumePropertiesResponseProperties) *VolumePropertiesResponseProperties {
+func (o VolumePropertiesResponseExportPolicyOutput) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
+	return o.ApplyT(func(v VolumePropertiesResponseExportPolicy) *VolumePropertiesResponseExportPolicy {
 		return &v
-	}).(VolumePropertiesResponsePropertiesPtrOutput)
+	}).(VolumePropertiesResponseExportPolicyPtrOutput)
 }
 
 // Export policy rule
-func (o VolumePropertiesResponsePropertiesOutput) Rules() ExportPolicyRuleResponseArrayOutput {
-	return o.ApplyT(func(v VolumePropertiesResponseProperties) []ExportPolicyRuleResponse { return v.Rules }).(ExportPolicyRuleResponseArrayOutput)
+func (o VolumePropertiesResponseExportPolicyOutput) Rules() ExportPolicyRuleResponseArrayOutput {
+	return o.ApplyT(func(v VolumePropertiesResponseExportPolicy) []ExportPolicyRuleResponse { return v.Rules }).(ExportPolicyRuleResponseArrayOutput)
 }
 
-type VolumePropertiesResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+type VolumePropertiesResponseExportPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (VolumePropertiesResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VolumePropertiesResponseProperties)(nil)).Elem()
+func (VolumePropertiesResponseExportPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumePropertiesResponseExportPolicy)(nil)).Elem()
 }
 
-func (o VolumePropertiesResponsePropertiesPtrOutput) ToVolumePropertiesResponsePropertiesPtrOutput() VolumePropertiesResponsePropertiesPtrOutput {
+func (o VolumePropertiesResponseExportPolicyPtrOutput) ToVolumePropertiesResponseExportPolicyPtrOutput() VolumePropertiesResponseExportPolicyPtrOutput {
 	return o
 }
 
-func (o VolumePropertiesResponsePropertiesPtrOutput) ToVolumePropertiesResponsePropertiesPtrOutputWithContext(ctx context.Context) VolumePropertiesResponsePropertiesPtrOutput {
+func (o VolumePropertiesResponseExportPolicyPtrOutput) ToVolumePropertiesResponseExportPolicyPtrOutputWithContext(ctx context.Context) VolumePropertiesResponseExportPolicyPtrOutput {
 	return o
 }
 
-func (o VolumePropertiesResponsePropertiesPtrOutput) Elem() VolumePropertiesResponsePropertiesOutput {
-	return o.ApplyT(func(v *VolumePropertiesResponseProperties) VolumePropertiesResponseProperties { return *v }).(VolumePropertiesResponsePropertiesOutput)
+func (o VolumePropertiesResponseExportPolicyPtrOutput) Elem() VolumePropertiesResponseExportPolicyOutput {
+	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) VolumePropertiesResponseExportPolicy { return *v }).(VolumePropertiesResponseExportPolicyOutput)
 }
 
 // Export policy rule
-func (o VolumePropertiesResponsePropertiesPtrOutput) Rules() ExportPolicyRuleResponseArrayOutput {
-	return o.ApplyT(func(v *VolumePropertiesResponseProperties) []ExportPolicyRuleResponse {
+func (o VolumePropertiesResponseExportPolicyPtrOutput) Rules() ExportPolicyRuleResponseArrayOutput {
+	return o.ApplyT(func(v *VolumePropertiesResponseExportPolicy) []ExportPolicyRuleResponse {
 		if v == nil {
 			return nil
 		}
@@ -2701,10 +2107,6 @@ func (o VolumePropertiesResponsePropertiesPtrOutput) Rules() ExportPolicyRuleRes
 }
 
 func init() {
-	pulumi.RegisterOutputType(AccountTypeOutput{})
-	pulumi.RegisterOutputType(PoolTypeOutput{})
-	pulumi.RegisterOutputType(SnapshotTypeOutput{})
-	pulumi.RegisterOutputType(VolumeTypeOutput{})
 	pulumi.RegisterOutputType(AccountPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AccountPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ActiveDirectoryOutput{})
@@ -2721,16 +2123,12 @@ func init() {
 	pulumi.RegisterOutputType(MountTargetPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(PoolPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(PoolPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ResourceTagsOutput{})
-	pulumi.RegisterOutputType(ResourceTagsPtrOutput{})
-	pulumi.RegisterOutputType(ResourceTagsResponseOutput{})
-	pulumi.RegisterOutputType(ResourceTagsResponsePtrOutput{})
 	pulumi.RegisterOutputType(SnapshotPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(SnapshotPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(VolumePropertiesPropertiesOutput{})
-	pulumi.RegisterOutputType(VolumePropertiesPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(VolumePropertiesExportPolicyOutput{})
+	pulumi.RegisterOutputType(VolumePropertiesExportPolicyPtrOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(VolumePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(VolumePropertiesResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(VolumePropertiesResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(VolumePropertiesResponseExportPolicyOutput{})
+	pulumi.RegisterOutputType(VolumePropertiesResponseExportPolicyPtrOutput{})
 }

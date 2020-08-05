@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20160331.Outputs
         /// <summary>
         /// A key-value pair of shard keys to be applied for the request.
         /// </summary>
-        public readonly Outputs.ShardKeysResponseResult? ShardKey;
+        public readonly ImmutableDictionary<string, string>? ShardKey;
 
         [OutputConstructor]
         private MongoDBCollectionPropertiesResponseResult(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.DocumentDB.V20160331.Outputs
 
             ImmutableArray<Outputs.MongoIndexResponseResult> indexes,
 
-            Outputs.ShardKeysResponseResult? shardKey)
+            ImmutableDictionary<string, string>? shardKey)
         {
             Id = id;
             Indexes = indexes;

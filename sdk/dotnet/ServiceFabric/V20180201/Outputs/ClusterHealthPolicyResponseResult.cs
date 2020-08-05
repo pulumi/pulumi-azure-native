@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20180201.Outputs
         /// <summary>
         /// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
         /// </summary>
-        public readonly Outputs.ApplicationHealthPolicyMapResponseResult? ApplicationHealthPolicies;
+        public readonly ImmutableDictionary<string, Outputs.ApplicationHealthPolicyResponseResult>? ApplicationHealthPolicies;
         /// <summary>
         /// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
         /// 
@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.ServiceFabric.V20180201.Outputs
 
         [OutputConstructor]
         private ClusterHealthPolicyResponseResult(
-            Outputs.ApplicationHealthPolicyMapResponseResult? applicationHealthPolicies,
+            ImmutableDictionary<string, Outputs.ApplicationHealthPolicyResponseResult>? applicationHealthPolicies,
 
             int? maxPercentUnhealthyApplications,
 

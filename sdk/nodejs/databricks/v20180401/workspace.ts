@@ -87,7 +87,6 @@ export class Workspace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["authorizations"] = args ? args.authorizations : undefined;
-            inputs["createdBy"] = args ? args.createdBy : undefined;
             inputs["createdDateTime"] = args ? args.createdDateTime : undefined;
             inputs["location"] = args ? args.location : undefined;
             inputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
@@ -95,10 +94,8 @@ export class Workspace extends pulumi.CustomResource {
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             inputs["sku"] = args ? args.sku : undefined;
-            inputs["storageAccountIdentity"] = args ? args.storageAccountIdentity : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["uiDefinitionUri"] = args ? args.uiDefinitionUri : undefined;
-            inputs["updatedBy"] = args ? args.updatedBy : undefined;
             inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
@@ -121,10 +118,6 @@ export interface WorkspaceArgs {
      * The workspace provider authorizations.
      */
     readonly authorizations?: pulumi.Input<pulumi.Input<inputs.databricks.v20180401.WorkspaceProviderAuthorization>[]>;
-    /**
-     * Indicates the Object ID, PUID and Application ID of entity that created the workspace.
-     */
-    readonly createdBy?: pulumi.Input<inputs.databricks.v20180401.CreatedBy>;
     /**
      * Specifies the date and time when the workspace is created.
      */
@@ -154,10 +147,6 @@ export interface WorkspaceArgs {
      */
     readonly sku?: pulumi.Input<inputs.databricks.v20180401.Sku>;
     /**
-     * The details of Managed Identity of Storage Account
-     */
-    readonly storageAccountIdentity?: pulumi.Input<inputs.databricks.v20180401.ManagedIdentityConfiguration>;
-    /**
      * Resource tags.
      */
     readonly tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -165,8 +154,4 @@ export interface WorkspaceArgs {
      * The blob URI where the UI definition file is located.
      */
     readonly uiDefinitionUri?: pulumi.Input<string>;
-    /**
-     * Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
-     */
-    readonly updatedBy?: pulumi.Input<inputs.databricks.v20180401.CreatedBy>;
 }

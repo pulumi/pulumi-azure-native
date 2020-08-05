@@ -345,7 +345,6 @@ class WebAppSlot(pulumi.CustomResource):
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - Type of managed service identity.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
 
         The **site_config** object supports the following:
 

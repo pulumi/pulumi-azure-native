@@ -130,15 +130,12 @@ class RouteFilter(pulumi.CustomResource):
               * `location` (`pulumi.Input[str]`) - Resource location.
               * `peerings` (`pulumi.Input[list]`) - A collection of references to express route circuit peerings.
               * `rules` (`pulumi.Input[list]`) - Collection of RouteFilterRules contained within a route filter.
-                * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+                * `access` (`pulumi.Input[str]`) - The access type of the rule. Valid values are: 'Allow', 'Deny'
+                * `communities` (`pulumi.Input[list]`) - The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
+                * `id` (`pulumi.Input[str]`) - Resource ID.
                 * `location` (`pulumi.Input[str]`) - Resource location.
                 * `name` (`pulumi.Input[str]`) - The name of the resource that is unique within a resource group. This name can be used to access the resource.
-                * `properties` (`pulumi.Input[dict]`) - Route Filter Rule Resource
-                  * `access` (`pulumi.Input[str]`) - The access type of the rule. Valid values are: 'Allow', 'Deny'
-                  * `communities` (`pulumi.Input[list]`) - The collection for bgp community values to filter on. e.g. ['12076:5010','12076:5020']
-                  * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state of the resource. Possible values are: 'Updating', 'Deleting', 'Succeeded' and 'Failed'.
-                  * `route_filter_rule_type` (`pulumi.Input[str]`) - The rule type of the rule. Valid value is: 'Community'
-
+                * `route_filter_rule_type` (`pulumi.Input[str]`) - The rule type of the rule. Valid value is: 'Community'
                 * `tags` (`pulumi.Input[dict]`) - Resource tags.
 
               * `tags` (`pulumi.Input[dict]`) - Resource tags.

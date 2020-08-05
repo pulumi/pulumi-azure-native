@@ -40,5 +40,5 @@ type LookupClusterResult struct {
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
 	// The availability zones of the cluster.
-	Zones *ZonesResponse `pulumi:"zones"`
+	Zones []string `pulumi:"zones"`
 }

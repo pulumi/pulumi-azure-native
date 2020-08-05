@@ -52,20 +52,15 @@ class ReplicationFabric(pulumi.CustomResource):
     """
     Resource Type
     """
-    def __init__(__self__, resource_name, opts=None, name=None, properties=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, name=None, resource_group_name=None, resource_name_=None, __props__=None, __name__=None, __opts__=None):
         """
         Fabric definition.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of the ASR fabric.
-        :param pulumi.Input[dict] properties: Fabric creation input.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name_: The name of the recovery services vault.
-
-        The **properties** object supports the following:
-
-          * `custom_details` (`pulumi.Input[dict]`) - Fabric provider specific creation input.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -87,7 +82,6 @@ class ReplicationFabric(pulumi.CustomResource):
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            __props__['properties'] = properties
             if resource_group_name is None:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__['resource_group_name'] = resource_group_name
@@ -95,6 +89,7 @@ class ReplicationFabric(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_name_'")
             __props__['resource_name'] = resource_name_
             __props__['location'] = None
+            __props__['properties'] = None
             __props__['type'] = None
         super(ReplicationFabric, __self__).__init__(
             'azurerm:recoveryservices/v20160810:ReplicationFabric',

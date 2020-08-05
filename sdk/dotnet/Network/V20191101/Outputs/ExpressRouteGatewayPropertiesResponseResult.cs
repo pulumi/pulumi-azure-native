@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
         /// <summary>
         /// Configuration for auto scaling.
         /// </summary>
-        public readonly Outputs.ExpressRouteGatewayPropertiesResponsePropertiesResult? AutoScaleConfiguration;
+        public readonly Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationResult? AutoScaleConfiguration;
         /// <summary>
         /// List of ExpressRoute connections to the ExpressRoute gateway.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.Network.V20191101.Outputs
 
         [OutputConstructor]
         private ExpressRouteGatewayPropertiesResponseResult(
-            Outputs.ExpressRouteGatewayPropertiesResponsePropertiesResult? autoScaleConfiguration,
+            Outputs.ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationResult? autoScaleConfiguration,
 
             ImmutableArray<Outputs.ExpressRouteConnectionResponseResult> expressRouteConnections,
 

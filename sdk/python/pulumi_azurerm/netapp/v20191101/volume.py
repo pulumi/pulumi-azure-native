@@ -32,6 +32,15 @@ class Volume(pulumi.CustomResource):
           * `replication_schedule` (`str`) - Schedule
 
       * `export_policy` (`dict`) - Set of export policy rules
+        * `rules` (`list`) - Export policy rule
+          * `allowed_clients` (`str`) - Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
+          * `cifs` (`bool`) - Allows CIFS protocol
+          * `nfsv3` (`bool`) - Allows NFSv3 protocol
+          * `nfsv41` (`bool`) - Allows NFSv4.1 protocol
+          * `rule_index` (`float`) - Order index
+          * `unix_read_only` (`bool`) - Read only access
+          * `unix_read_write` (`bool`) - Read and write access
+
       * `file_system_id` (`str`) - Unique FileSystem Identifier.
       * `is_restoring` (`bool`) - Restoring
       * `mount_targets` (`list`) - List of mount targets
@@ -93,6 +102,17 @@ class Volume(pulumi.CustomResource):
             * `remote_volume_resource_id` (`pulumi.Input[str]`) - The resource ID of the remote volume.
             * `replication_id` (`pulumi.Input[str]`) - Id
             * `replication_schedule` (`pulumi.Input[str]`) - Schedule
+
+        The **export_policy** object supports the following:
+
+          * `rules` (`pulumi.Input[list]`) - Export policy rule
+            * `allowed_clients` (`pulumi.Input[str]`) - Client ingress specification as comma separated string with IPv4 CIDRs, IPv4 host addresses and host names
+            * `cifs` (`pulumi.Input[bool]`) - Allows CIFS protocol
+            * `nfsv3` (`pulumi.Input[bool]`) - Allows NFSv3 protocol
+            * `nfsv41` (`pulumi.Input[bool]`) - Allows NFSv4.1 protocol
+            * `rule_index` (`pulumi.Input[float]`) - Order index
+            * `unix_read_only` (`pulumi.Input[bool]`) - Read only access
+            * `unix_read_write` (`pulumi.Input[bool]`) - Read and write access
 
         The **mount_targets** object supports the following:
 

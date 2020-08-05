@@ -10,61 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Cloud shell console
-type ConsoleType struct {
-	// Cloud shell console properties.
-	Properties ConsolePropertiesResponse `pulumi:"properties"`
-}
-
-// ConsoleTypeInput is an input type that accepts ConsoleTypeArgs and ConsoleTypeOutput values.
-// You can construct a concrete instance of `ConsoleTypeInput` via:
-//
-//          ConsoleTypeArgs{...}
-type ConsoleTypeInput interface {
-	pulumi.Input
-
-	ToConsoleTypeOutput() ConsoleTypeOutput
-	ToConsoleTypeOutputWithContext(context.Context) ConsoleTypeOutput
-}
-
-// Cloud shell console
-type ConsoleTypeArgs struct {
-	// Cloud shell console properties.
-	Properties ConsolePropertiesResponseInput `pulumi:"properties"`
-}
-
-func (ConsoleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsoleType)(nil)).Elem()
-}
-
-func (i ConsoleTypeArgs) ToConsoleTypeOutput() ConsoleTypeOutput {
-	return i.ToConsoleTypeOutputWithContext(context.Background())
-}
-
-func (i ConsoleTypeArgs) ToConsoleTypeOutputWithContext(ctx context.Context) ConsoleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConsoleTypeOutput)
-}
-
-// Cloud shell console
-type ConsoleTypeOutput struct{ *pulumi.OutputState }
-
-func (ConsoleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsoleType)(nil)).Elem()
-}
-
-func (o ConsoleTypeOutput) ToConsoleTypeOutput() ConsoleTypeOutput {
-	return o
-}
-
-func (o ConsoleTypeOutput) ToConsoleTypeOutputWithContext(ctx context.Context) ConsoleTypeOutput {
-	return o
-}
-
-// Cloud shell console properties.
-func (o ConsoleTypeOutput) Properties() ConsolePropertiesResponseOutput {
-	return o.ApplyT(func(v ConsoleType) ConsolePropertiesResponse { return v.Properties }).(ConsolePropertiesResponseOutput)
-}
-
 // Cloud shell properties for creating a console.
 type ConsoleCreateProperties struct {
 	// The operating system type of the cloud shell.
@@ -407,61 +352,6 @@ func (o ConsolePropertiesResponsePtrOutput) Uri() pulumi.StringPtrOutput {
 		}
 		return &v.Uri
 	}).(pulumi.StringPtrOutput)
-}
-
-// Cloud shell console
-type ConsoleWithLocationType struct {
-	// Cloud shell console properties.
-	Properties ConsolePropertiesResponse `pulumi:"properties"`
-}
-
-// ConsoleWithLocationTypeInput is an input type that accepts ConsoleWithLocationTypeArgs and ConsoleWithLocationTypeOutput values.
-// You can construct a concrete instance of `ConsoleWithLocationTypeInput` via:
-//
-//          ConsoleWithLocationTypeArgs{...}
-type ConsoleWithLocationTypeInput interface {
-	pulumi.Input
-
-	ToConsoleWithLocationTypeOutput() ConsoleWithLocationTypeOutput
-	ToConsoleWithLocationTypeOutputWithContext(context.Context) ConsoleWithLocationTypeOutput
-}
-
-// Cloud shell console
-type ConsoleWithLocationTypeArgs struct {
-	// Cloud shell console properties.
-	Properties ConsolePropertiesResponseInput `pulumi:"properties"`
-}
-
-func (ConsoleWithLocationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsoleWithLocationType)(nil)).Elem()
-}
-
-func (i ConsoleWithLocationTypeArgs) ToConsoleWithLocationTypeOutput() ConsoleWithLocationTypeOutput {
-	return i.ToConsoleWithLocationTypeOutputWithContext(context.Background())
-}
-
-func (i ConsoleWithLocationTypeArgs) ToConsoleWithLocationTypeOutputWithContext(ctx context.Context) ConsoleWithLocationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConsoleWithLocationTypeOutput)
-}
-
-// Cloud shell console
-type ConsoleWithLocationTypeOutput struct{ *pulumi.OutputState }
-
-func (ConsoleWithLocationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConsoleWithLocationType)(nil)).Elem()
-}
-
-func (o ConsoleWithLocationTypeOutput) ToConsoleWithLocationTypeOutput() ConsoleWithLocationTypeOutput {
-	return o
-}
-
-func (o ConsoleWithLocationTypeOutput) ToConsoleWithLocationTypeOutputWithContext(ctx context.Context) ConsoleWithLocationTypeOutput {
-	return o
-}
-
-// Cloud shell console properties.
-func (o ConsoleWithLocationTypeOutput) Properties() ConsolePropertiesResponseOutput {
-	return o.ApplyT(func(v ConsoleWithLocationType) ConsolePropertiesResponse { return v.Properties }).(ConsolePropertiesResponseOutput)
 }
 
 // The storage profile of the user settings.
@@ -1534,123 +1424,11 @@ func (o UserPropertiesResponsePtrOutput) TerminalSettings() TerminalSettingsResp
 	}).(TerminalSettingsResponsePtrOutput)
 }
 
-// Response to get user settings
-type UserSettingsType struct {
-	// The cloud shell user settings properties.
-	Properties UserPropertiesResponse `pulumi:"properties"`
-}
-
-// UserSettingsTypeInput is an input type that accepts UserSettingsTypeArgs and UserSettingsTypeOutput values.
-// You can construct a concrete instance of `UserSettingsTypeInput` via:
-//
-//          UserSettingsTypeArgs{...}
-type UserSettingsTypeInput interface {
-	pulumi.Input
-
-	ToUserSettingsTypeOutput() UserSettingsTypeOutput
-	ToUserSettingsTypeOutputWithContext(context.Context) UserSettingsTypeOutput
-}
-
-// Response to get user settings
-type UserSettingsTypeArgs struct {
-	// The cloud shell user settings properties.
-	Properties UserPropertiesResponseInput `pulumi:"properties"`
-}
-
-func (UserSettingsTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSettingsType)(nil)).Elem()
-}
-
-func (i UserSettingsTypeArgs) ToUserSettingsTypeOutput() UserSettingsTypeOutput {
-	return i.ToUserSettingsTypeOutputWithContext(context.Background())
-}
-
-func (i UserSettingsTypeArgs) ToUserSettingsTypeOutputWithContext(ctx context.Context) UserSettingsTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsTypeOutput)
-}
-
-// Response to get user settings
-type UserSettingsTypeOutput struct{ *pulumi.OutputState }
-
-func (UserSettingsTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSettingsType)(nil)).Elem()
-}
-
-func (o UserSettingsTypeOutput) ToUserSettingsTypeOutput() UserSettingsTypeOutput {
-	return o
-}
-
-func (o UserSettingsTypeOutput) ToUserSettingsTypeOutputWithContext(ctx context.Context) UserSettingsTypeOutput {
-	return o
-}
-
-// The cloud shell user settings properties.
-func (o UserSettingsTypeOutput) Properties() UserPropertiesResponseOutput {
-	return o.ApplyT(func(v UserSettingsType) UserPropertiesResponse { return v.Properties }).(UserPropertiesResponseOutput)
-}
-
-// Response to get user settings
-type UserSettingsWithLocationType struct {
-	// The cloud shell user settings properties.
-	Properties UserPropertiesResponse `pulumi:"properties"`
-}
-
-// UserSettingsWithLocationTypeInput is an input type that accepts UserSettingsWithLocationTypeArgs and UserSettingsWithLocationTypeOutput values.
-// You can construct a concrete instance of `UserSettingsWithLocationTypeInput` via:
-//
-//          UserSettingsWithLocationTypeArgs{...}
-type UserSettingsWithLocationTypeInput interface {
-	pulumi.Input
-
-	ToUserSettingsWithLocationTypeOutput() UserSettingsWithLocationTypeOutput
-	ToUserSettingsWithLocationTypeOutputWithContext(context.Context) UserSettingsWithLocationTypeOutput
-}
-
-// Response to get user settings
-type UserSettingsWithLocationTypeArgs struct {
-	// The cloud shell user settings properties.
-	Properties UserPropertiesResponseInput `pulumi:"properties"`
-}
-
-func (UserSettingsWithLocationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSettingsWithLocationType)(nil)).Elem()
-}
-
-func (i UserSettingsWithLocationTypeArgs) ToUserSettingsWithLocationTypeOutput() UserSettingsWithLocationTypeOutput {
-	return i.ToUserSettingsWithLocationTypeOutputWithContext(context.Background())
-}
-
-func (i UserSettingsWithLocationTypeArgs) ToUserSettingsWithLocationTypeOutputWithContext(ctx context.Context) UserSettingsWithLocationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserSettingsWithLocationTypeOutput)
-}
-
-// Response to get user settings
-type UserSettingsWithLocationTypeOutput struct{ *pulumi.OutputState }
-
-func (UserSettingsWithLocationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserSettingsWithLocationType)(nil)).Elem()
-}
-
-func (o UserSettingsWithLocationTypeOutput) ToUserSettingsWithLocationTypeOutput() UserSettingsWithLocationTypeOutput {
-	return o
-}
-
-func (o UserSettingsWithLocationTypeOutput) ToUserSettingsWithLocationTypeOutputWithContext(ctx context.Context) UserSettingsWithLocationTypeOutput {
-	return o
-}
-
-// The cloud shell user settings properties.
-func (o UserSettingsWithLocationTypeOutput) Properties() UserPropertiesResponseOutput {
-	return o.ApplyT(func(v UserSettingsWithLocationType) UserPropertiesResponse { return v.Properties }).(UserPropertiesResponseOutput)
-}
-
 func init() {
-	pulumi.RegisterOutputType(ConsoleTypeOutput{})
 	pulumi.RegisterOutputType(ConsoleCreatePropertiesOutput{})
 	pulumi.RegisterOutputType(ConsoleCreatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConsolePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ConsolePropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(ConsoleWithLocationTypeOutput{})
 	pulumi.RegisterOutputType(StorageProfileOutput{})
 	pulumi.RegisterOutputType(StorageProfilePtrOutput{})
 	pulumi.RegisterOutputType(StorageProfileResponseOutput{})
@@ -1663,6 +1441,4 @@ func init() {
 	pulumi.RegisterOutputType(UserPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(UserPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(UserPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(UserSettingsTypeOutput{})
-	pulumi.RegisterOutputType(UserSettingsWithLocationTypeOutput{})
 }

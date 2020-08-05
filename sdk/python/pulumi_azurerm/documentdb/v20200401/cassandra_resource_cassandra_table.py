@@ -22,7 +22,29 @@ class CassandraResourceCassandraTable(pulumi.CustomResource):
     """
     The properties of an Azure Cosmos DB Cassandra table
       * `options` (`dict`)
+        * `autoscale_settings` (`dict`) - Specifies the Autoscale settings.
+          * `max_throughput` (`float`) - Represents maximum throughput, the resource can scale up to.
+
+        * `throughput` (`float`) - Value of the Cosmos DB resource throughput or autoscaleSettings. Use the ThroughputSetting resource when retrieving offer details.
+
       * `resource` (`dict`)
+        * `_etag` (`str`) - A system generated property representing the resource etag required for optimistic concurrency control.
+        * `_rid` (`str`) - A system generated property. A unique identifier.
+        * `_ts` (`dict`) - A system generated property that denotes the last updated timestamp of the resource.
+        * `analytical_storage_ttl` (`float`) - Analytical TTL.
+        * `default_ttl` (`float`) - Time to live of the Cosmos DB Cassandra table
+        * `id` (`str`) - Name of the Cosmos DB Cassandra table
+        * `schema` (`dict`) - Schema of the Cosmos DB Cassandra table
+          * `cluster_keys` (`list`) - List of cluster key.
+            * `name` (`str`) - Name of the Cosmos DB Cassandra table cluster key
+            * `order_by` (`str`) - Order of the Cosmos DB Cassandra table cluster key, only support "Asc" and "Desc"
+
+          * `columns` (`list`) - List of Cassandra table columns.
+            * `name` (`str`) - Name of the Cosmos DB Cassandra table column
+            * `type` (`str`) - Type of the Cosmos DB Cassandra table column
+
+          * `partition_keys` (`list`) - List of partition key.
+            * `name` (`str`) - Name of the Cosmos DB Cassandra table partition key
     """
     tags: pulumi.Output[dict]
     """

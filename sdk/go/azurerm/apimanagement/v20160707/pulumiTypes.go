@@ -273,115 +273,6 @@ func (o AdditionalRegionResponseArrayOutput) Index(i pulumi.IntInput) Additional
 	}).(AdditionalRegionResponseOutput)
 }
 
-// Description of an API Management service resource.
-type ApiManagementServiceType struct {
-	// ETag of the resource.
-	Etag *string `pulumi:"etag"`
-	// Datacenter location of the API Management service.
-	Location string `pulumi:"location"`
-	// Name of the API Management service.
-	Name string `pulumi:"name"`
-	// Properties of the API Management service.
-	Properties ApiManagementServicePropertiesResponse `pulumi:"properties"`
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesResponse `pulumi:"sku"`
-	// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type of the API Management service.
-	Type string `pulumi:"type"`
-}
-
-// ApiManagementServiceTypeInput is an input type that accepts ApiManagementServiceTypeArgs and ApiManagementServiceTypeOutput values.
-// You can construct a concrete instance of `ApiManagementServiceTypeInput` via:
-//
-//          ApiManagementServiceTypeArgs{...}
-type ApiManagementServiceTypeInput interface {
-	pulumi.Input
-
-	ToApiManagementServiceTypeOutput() ApiManagementServiceTypeOutput
-	ToApiManagementServiceTypeOutputWithContext(context.Context) ApiManagementServiceTypeOutput
-}
-
-// Description of an API Management service resource.
-type ApiManagementServiceTypeArgs struct {
-	// ETag of the resource.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Datacenter location of the API Management service.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Name of the API Management service.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Properties of the API Management service.
-	Properties ApiManagementServicePropertiesResponseInput `pulumi:"properties"`
-	// SKU properties of the API Management service.
-	Sku ApiManagementServiceSkuPropertiesResponseInput `pulumi:"sku"`
-	// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type of the API Management service.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ApiManagementServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiManagementServiceType)(nil)).Elem()
-}
-
-func (i ApiManagementServiceTypeArgs) ToApiManagementServiceTypeOutput() ApiManagementServiceTypeOutput {
-	return i.ToApiManagementServiceTypeOutputWithContext(context.Background())
-}
-
-func (i ApiManagementServiceTypeArgs) ToApiManagementServiceTypeOutputWithContext(ctx context.Context) ApiManagementServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiManagementServiceTypeOutput)
-}
-
-// Description of an API Management service resource.
-type ApiManagementServiceTypeOutput struct{ *pulumi.OutputState }
-
-func (ApiManagementServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiManagementServiceType)(nil)).Elem()
-}
-
-func (o ApiManagementServiceTypeOutput) ToApiManagementServiceTypeOutput() ApiManagementServiceTypeOutput {
-	return o
-}
-
-func (o ApiManagementServiceTypeOutput) ToApiManagementServiceTypeOutputWithContext(ctx context.Context) ApiManagementServiceTypeOutput {
-	return o
-}
-
-// ETag of the resource.
-func (o ApiManagementServiceTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiManagementServiceType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Datacenter location of the API Management service.
-func (o ApiManagementServiceTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ApiManagementServiceType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Name of the API Management service.
-func (o ApiManagementServiceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApiManagementServiceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Properties of the API Management service.
-func (o ApiManagementServiceTypeOutput) Properties() ApiManagementServicePropertiesResponseOutput {
-	return o.ApplyT(func(v ApiManagementServiceType) ApiManagementServicePropertiesResponse { return v.Properties }).(ApiManagementServicePropertiesResponseOutput)
-}
-
-// SKU properties of the API Management service.
-func (o ApiManagementServiceTypeOutput) Sku() ApiManagementServiceSkuPropertiesResponseOutput {
-	return o.ApplyT(func(v ApiManagementServiceType) ApiManagementServiceSkuPropertiesResponse { return v.Sku }).(ApiManagementServiceSkuPropertiesResponseOutput)
-}
-
-// API Management service tags. A maximum of 10 tags can be provided for a resource, and each tag must have a key no greater than 128 characters (and a value no greater than 256 characters).
-func (o ApiManagementServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApiManagementServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type of the API Management service.
-func (o ApiManagementServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ApiManagementServiceType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Properties of an API Management service resource description.
 type ApiManagementServicePropertiesResponse struct {
 	// Additional datacenter locations of the API Management service.
@@ -2591,7 +2482,6 @@ func init() {
 	pulumi.RegisterOutputType(AdditionalRegionArrayOutput{})
 	pulumi.RegisterOutputType(AdditionalRegionResponseOutput{})
 	pulumi.RegisterOutputType(AdditionalRegionResponseArrayOutput{})
-	pulumi.RegisterOutputType(ApiManagementServiceTypeOutput{})
 	pulumi.RegisterOutputType(ApiManagementServicePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ApiManagementServicePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ApiManagementServiceSkuPropertiesOutput{})

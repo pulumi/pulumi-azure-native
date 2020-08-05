@@ -111,39 +111,39 @@ class ExpressRouteCircuit(pulumi.CustomResource):
 
         The **authorizations** object supports the following:
 
+          * `authorization_key` (`pulumi.Input[str]`) - The authorization key.
+          * `authorization_use_status` (`pulumi.Input[str]`) - AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
           * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+          * `id` (`pulumi.Input[str]`) - Resource Identifier.
           * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `properties` (`pulumi.Input[dict]`)
-            * `authorization_key` (`pulumi.Input[str]`) - The authorization key.
-            * `authorization_use_status` (`pulumi.Input[str]`) - AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
-            * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+          * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
 
         The **peerings** object supports the following:
 
+          * `azure_asn` (`pulumi.Input[float]`) - The Azure ASN.
           * `etag` (`pulumi.Input[str]`) - A unique read-only string that changes whenever the resource is updated.
+          * `id` (`pulumi.Input[str]`) - Resource Identifier.
+          * `microsoft_peering_config` (`pulumi.Input[dict]`) - The Microsoft peering configuration.
+            * `advertised_public_prefixes` (`pulumi.Input[list]`) - The reference of AdvertisedPublicPrefixes.
+            * `advertised_public_prefixes_state` (`pulumi.Input[str]`) - AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
+            * `customer_asn` (`pulumi.Input[float]`) - The CustomerASN of the peering.
+            * `routing_registry_name` (`pulumi.Input[str]`) - The RoutingRegistryName of the configuration.
+
           * `name` (`pulumi.Input[str]`) - Gets name of the resource that is unique within a resource group. This name can be used to access the resource.
-          * `properties` (`pulumi.Input[dict]`)
-            * `azure_asn` (`pulumi.Input[float]`) - The Azure ASN.
-            * `microsoft_peering_config` (`pulumi.Input[dict]`) - The Microsoft peering configuration.
-              * `advertised_public_prefixes` (`pulumi.Input[list]`) - The reference of AdvertisedPublicPrefixes.
-              * `advertised_public_prefixes_state` (`pulumi.Input[str]`) - AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
-              * `customer_asn` (`pulumi.Input[float]`) - The CustomerASN of the peering.
-              * `routing_registry_name` (`pulumi.Input[str]`) - The RoutingRegistryName of the configuration.
+          * `peer_asn` (`pulumi.Input[float]`) - The peer ASN.
+          * `peering_type` (`pulumi.Input[str]`) - The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
+          * `primary_azure_port` (`pulumi.Input[str]`) - The primary port.
+          * `primary_peer_address_prefix` (`pulumi.Input[str]`) - The primary address prefix.
+          * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
+          * `secondary_azure_port` (`pulumi.Input[str]`) - The secondary port.
+          * `secondary_peer_address_prefix` (`pulumi.Input[str]`) - The secondary address prefix.
+          * `shared_key` (`pulumi.Input[str]`) - The shared key.
+          * `state` (`pulumi.Input[str]`) - The state of peering. Possible values are: 'Disabled' and 'Enabled'
+          * `stats` (`pulumi.Input[dict]`) - Gets peering stats.
+            * `bytes_in` (`pulumi.Input[float]`) - Gets BytesIn of the peering.
+            * `bytes_out` (`pulumi.Input[float]`) - Gets BytesOut of the peering.
 
-            * `peer_asn` (`pulumi.Input[float]`) - The peer ASN.
-            * `peering_type` (`pulumi.Input[str]`) - The PeeringType. Possible values are: 'AzurePublicPeering', 'AzurePrivatePeering', and 'MicrosoftPeering'.
-            * `primary_azure_port` (`pulumi.Input[str]`) - The primary port.
-            * `primary_peer_address_prefix` (`pulumi.Input[str]`) - The primary address prefix.
-            * `provisioning_state` (`pulumi.Input[str]`) - Gets the provisioning state of the public IP resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.
-            * `secondary_azure_port` (`pulumi.Input[str]`) - The secondary port.
-            * `secondary_peer_address_prefix` (`pulumi.Input[str]`) - The secondary address prefix.
-            * `shared_key` (`pulumi.Input[str]`) - The shared key.
-            * `state` (`pulumi.Input[str]`) - The state of peering. Possible values are: 'Disabled' and 'Enabled'
-            * `stats` (`pulumi.Input[dict]`) - Gets peering stats.
-              * `bytes_in` (`pulumi.Input[float]`) - Gets BytesIn of the peering.
-              * `bytes_out` (`pulumi.Input[float]`) - Gets BytesOut of the peering.
-
-            * `vlan_id` (`pulumi.Input[float]`) - The VLAN ID.
+          * `vlan_id` (`pulumi.Input[float]`) - The VLAN ID.
 
         The **service_provider_properties** object supports the following:
 

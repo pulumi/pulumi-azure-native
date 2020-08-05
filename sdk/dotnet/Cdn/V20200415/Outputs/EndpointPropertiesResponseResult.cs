@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Cdn.V20200415.Outputs
         /// <summary>
         /// A policy that specifies the delivery rules to be used for an endpoint.
         /// </summary>
-        public readonly Outputs.EndpointPropertiesUpdateParametersResponsePropertiesResult? DeliveryPolicy;
+        public readonly Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicyResult? DeliveryPolicy;
         /// <summary>
         /// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
         /// </summary>
@@ -88,7 +88,7 @@ namespace Pulumi.AzureRM.Cdn.V20200415.Outputs
         /// <summary>
         /// Defines the Web Application Firewall policy for the endpoint (if applicable)
         /// </summary>
-        public readonly Outputs.EndpointPropertiesUpdateParametersResponsePropertiesResult? WebApplicationFirewallPolicyLink;
+        public readonly Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? WebApplicationFirewallPolicyLink;
 
         [OutputConstructor]
         private EndpointPropertiesResponseResult(
@@ -96,7 +96,7 @@ namespace Pulumi.AzureRM.Cdn.V20200415.Outputs
 
             Outputs.ResourceReferenceResponseResult? defaultOriginGroup,
 
-            Outputs.EndpointPropertiesUpdateParametersResponsePropertiesResult? deliveryPolicy,
+            Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicyResult? deliveryPolicy,
 
             ImmutableArray<Outputs.GeoFilterResponseResult> geoFilters,
 
@@ -128,7 +128,7 @@ namespace Pulumi.AzureRM.Cdn.V20200415.Outputs
 
             ImmutableArray<Outputs.UrlSigningKeyResponseResult> urlSigningKeys,
 
-            Outputs.EndpointPropertiesUpdateParametersResponsePropertiesResult? webApplicationFirewallPolicyLink)
+            Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? webApplicationFirewallPolicyLink)
         {
             ContentTypesToCompress = contentTypesToCompress;
             DefaultOriginGroup = defaultOriginGroup;

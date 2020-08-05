@@ -56,7 +56,7 @@ class Cluster(pulumi.CustomResource):
     """
     The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
     """
-    zones: pulumi.Output[dict]
+    zones: pulumi.Output[list]
     """
     The availability zones of the cluster.
     """
@@ -76,7 +76,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[dict] tags: Resource tags.
         :param pulumi.Input[list] trusted_external_tenants: The cluster's external tenants.
         :param pulumi.Input[dict] virtual_network_configuration: Virtual network definition.
-        :param pulumi.Input[dict] zones: The availability zones of the cluster.
+        :param pulumi.Input[list] zones: The availability zones of the cluster.
 
         The **optimized_autoscale** object supports the following:
 

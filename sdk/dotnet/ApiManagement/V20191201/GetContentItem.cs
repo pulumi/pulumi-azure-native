@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         /// <summary>
         /// Properties of the content item.
         /// </summary>
-        public readonly Outputs.ContentItemContractPropertiesResponseResult Properties;
+        public readonly ImmutableDictionary<string, object> Properties;
         /// <summary>
         /// Resource type for API Management resource.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.AzureRM.ApiManagement.V20191201
         private GetContentItemResult(
             string name,
 
-            Outputs.ContentItemContractPropertiesResponseResult properties,
+            ImmutableDictionary<string, object> properties,
 
             string type)
         {

@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
         /// <summary>
         /// The Key Vault containing the SSL certificate
         /// </summary>
-        public readonly Outputs.KeyVaultCertificateSourceParametersResponsePropertiesResult? Vault;
+        public readonly Outputs.KeyVaultCertificateSourceParametersResponseVaultResult? Vault;
 
         [OutputConstructor]
         private KeyVaultCertificateSourceParametersResponseResult(
@@ -32,7 +32,7 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
 
             string? secretVersion,
 
-            Outputs.KeyVaultCertificateSourceParametersResponsePropertiesResult? vault)
+            Outputs.KeyVaultCertificateSourceParametersResponseVaultResult? vault)
         {
             SecretName = secretName;
             SecretVersion = secretVersion;

@@ -10,79 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-type CustomDomainType struct {
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The JSON object that contains the properties of the custom domain to create.
-	Properties CustomDomainPropertiesResponse `pulumi:"properties"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// CustomDomainTypeInput is an input type that accepts CustomDomainTypeArgs and CustomDomainTypeOutput values.
-// You can construct a concrete instance of `CustomDomainTypeInput` via:
-//
-//          CustomDomainTypeArgs{...}
-type CustomDomainTypeInput interface {
-	pulumi.Input
-
-	ToCustomDomainTypeOutput() CustomDomainTypeOutput
-	ToCustomDomainTypeOutputWithContext(context.Context) CustomDomainTypeOutput
-}
-
-// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-type CustomDomainTypeArgs struct {
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The JSON object that contains the properties of the custom domain to create.
-	Properties CustomDomainPropertiesResponseInput `pulumi:"properties"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (CustomDomainTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomainType)(nil)).Elem()
-}
-
-func (i CustomDomainTypeArgs) ToCustomDomainTypeOutput() CustomDomainTypeOutput {
-	return i.ToCustomDomainTypeOutputWithContext(context.Background())
-}
-
-func (i CustomDomainTypeArgs) ToCustomDomainTypeOutputWithContext(ctx context.Context) CustomDomainTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainTypeOutput)
-}
-
-// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-type CustomDomainTypeOutput struct{ *pulumi.OutputState }
-
-func (CustomDomainTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomainType)(nil)).Elem()
-}
-
-func (o CustomDomainTypeOutput) ToCustomDomainTypeOutput() CustomDomainTypeOutput {
-	return o
-}
-
-func (o CustomDomainTypeOutput) ToCustomDomainTypeOutputWithContext(ctx context.Context) CustomDomainTypeOutput {
-	return o
-}
-
-// Resource name.
-func (o CustomDomainTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomDomainType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The JSON object that contains the properties of the custom domain to create.
-func (o CustomDomainTypeOutput) Properties() CustomDomainPropertiesResponseOutput {
-	return o.ApplyT(func(v CustomDomainType) CustomDomainPropertiesResponse { return v.Properties }).(CustomDomainPropertiesResponseOutput)
-}
-
-// Resource type.
-func (o CustomDomainTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v CustomDomainType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The JSON object that contains the properties to secure a custom domain.
 type CustomDomainHttpsParametersResponse struct {
 	// Defines the source of the SSL certificate.
@@ -1567,103 +1494,12 @@ func (o DeliveryRuleResponseArrayOutput) Index(i pulumi.IntInput) DeliveryRuleRe
 	}).(DeliveryRuleResponseOutput)
 }
 
-// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
-type EndpointType struct {
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The JSON object that contains the properties required to create an endpoint.
-	Properties EndpointPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// EndpointTypeInput is an input type that accepts EndpointTypeArgs and EndpointTypeOutput values.
-// You can construct a concrete instance of `EndpointTypeInput` via:
-//
-//          EndpointTypeArgs{...}
-type EndpointTypeInput interface {
-	pulumi.Input
-
-	ToEndpointTypeOutput() EndpointTypeOutput
-	ToEndpointTypeOutputWithContext(context.Context) EndpointTypeOutput
-}
-
-// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
-type EndpointTypeArgs struct {
-	// Resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The JSON object that contains the properties required to create an endpoint.
-	Properties EndpointPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (EndpointTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointType)(nil)).Elem()
-}
-
-func (i EndpointTypeArgs) ToEndpointTypeOutput() EndpointTypeOutput {
-	return i.ToEndpointTypeOutputWithContext(context.Background())
-}
-
-func (i EndpointTypeArgs) ToEndpointTypeOutputWithContext(ctx context.Context) EndpointTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointTypeOutput)
-}
-
-// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
-type EndpointTypeOutput struct{ *pulumi.OutputState }
-
-func (EndpointTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointType)(nil)).Elem()
-}
-
-func (o EndpointTypeOutput) ToEndpointTypeOutput() EndpointTypeOutput {
-	return o
-}
-
-func (o EndpointTypeOutput) ToEndpointTypeOutputWithContext(ctx context.Context) EndpointTypeOutput {
-	return o
-}
-
-// Resource location.
-func (o EndpointTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name.
-func (o EndpointTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The JSON object that contains the properties required to create an endpoint.
-func (o EndpointTypeOutput) Properties() EndpointPropertiesResponseOutput {
-	return o.ApplyT(func(v EndpointType) EndpointPropertiesResponse { return v.Properties }).(EndpointPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o EndpointTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v EndpointType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o EndpointTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The JSON object that contains the properties required to create an endpoint.
 type EndpointPropertiesResponse struct {
 	// List of content types on which compression applies. The value should be a valid MIME type.
 	ContentTypesToCompress []string `pulumi:"contentTypesToCompress"`
 	// A policy that specifies the delivery rules to be used for an endpoint.
-	DeliveryPolicy *EndpointPropertiesUpdateParametersResponseProperties `pulumi:"deliveryPolicy"`
+	DeliveryPolicy *EndpointPropertiesUpdateParametersResponseDeliveryPolicy `pulumi:"deliveryPolicy"`
 	// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
 	GeoFilters []GeoFilterResponse `pulumi:"geoFilters"`
 	// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
@@ -1708,7 +1544,7 @@ type EndpointPropertiesResponseArgs struct {
 	// List of content types on which compression applies. The value should be a valid MIME type.
 	ContentTypesToCompress pulumi.StringArrayInput `pulumi:"contentTypesToCompress"`
 	// A policy that specifies the delivery rules to be used for an endpoint.
-	DeliveryPolicy EndpointPropertiesUpdateParametersResponsePropertiesPtrInput `pulumi:"deliveryPolicy"`
+	DeliveryPolicy EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrInput `pulumi:"deliveryPolicy"`
 	// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
 	GeoFilters GeoFilterResponseArrayInput `pulumi:"geoFilters"`
 	// The host name of the endpoint structured as {endpointName}.{DNSZone}, e.g. contoso.azureedge.net
@@ -1821,10 +1657,10 @@ func (o EndpointPropertiesResponseOutput) ContentTypesToCompress() pulumi.String
 }
 
 // A policy that specifies the delivery rules to be used for an endpoint.
-func (o EndpointPropertiesResponseOutput) DeliveryPolicy() EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesResponse) *EndpointPropertiesUpdateParametersResponseProperties {
+func (o EndpointPropertiesResponseOutput) DeliveryPolicy() EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
+	return o.ApplyT(func(v EndpointPropertiesResponse) *EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
 		return v.DeliveryPolicy
-	}).(EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput)
+	}).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput)
 }
 
 // List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
@@ -1921,13 +1757,13 @@ func (o EndpointPropertiesResponsePtrOutput) ContentTypesToCompress() pulumi.Str
 }
 
 // A policy that specifies the delivery rules to be used for an endpoint.
-func (o EndpointPropertiesResponsePtrOutput) DeliveryPolicy() EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesResponse) *EndpointPropertiesUpdateParametersResponseProperties {
+func (o EndpointPropertiesResponsePtrOutput) DeliveryPolicy() EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
+	return o.ApplyT(func(v *EndpointPropertiesResponse) *EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
 		if v == nil {
 			return nil
 		}
 		return v.DeliveryPolicy
-	}).(EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput)
+	}).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput)
 }
 
 // List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
@@ -2061,143 +1897,143 @@ func (o EndpointPropertiesResponsePtrOutput) ResourceState() pulumi.StringPtrOut
 }
 
 // A policy that specifies the delivery rules to be used for an endpoint.
-type EndpointPropertiesUpdateParametersProperties struct {
+type EndpointPropertiesUpdateParametersDeliveryPolicy struct {
 	// User-friendly description of the policy.
 	Description *string `pulumi:"description"`
 	// A list of the delivery rules.
 	Rules []DeliveryRule `pulumi:"rules"`
 }
 
-// EndpointPropertiesUpdateParametersPropertiesInput is an input type that accepts EndpointPropertiesUpdateParametersPropertiesArgs and EndpointPropertiesUpdateParametersPropertiesOutput values.
-// You can construct a concrete instance of `EndpointPropertiesUpdateParametersPropertiesInput` via:
+// EndpointPropertiesUpdateParametersDeliveryPolicyInput is an input type that accepts EndpointPropertiesUpdateParametersDeliveryPolicyArgs and EndpointPropertiesUpdateParametersDeliveryPolicyOutput values.
+// You can construct a concrete instance of `EndpointPropertiesUpdateParametersDeliveryPolicyInput` via:
 //
-//          EndpointPropertiesUpdateParametersPropertiesArgs{...}
-type EndpointPropertiesUpdateParametersPropertiesInput interface {
+//          EndpointPropertiesUpdateParametersDeliveryPolicyArgs{...}
+type EndpointPropertiesUpdateParametersDeliveryPolicyInput interface {
 	pulumi.Input
 
-	ToEndpointPropertiesUpdateParametersPropertiesOutput() EndpointPropertiesUpdateParametersPropertiesOutput
-	ToEndpointPropertiesUpdateParametersPropertiesOutputWithContext(context.Context) EndpointPropertiesUpdateParametersPropertiesOutput
+	ToEndpointPropertiesUpdateParametersDeliveryPolicyOutput() EndpointPropertiesUpdateParametersDeliveryPolicyOutput
+	ToEndpointPropertiesUpdateParametersDeliveryPolicyOutputWithContext(context.Context) EndpointPropertiesUpdateParametersDeliveryPolicyOutput
 }
 
 // A policy that specifies the delivery rules to be used for an endpoint.
-type EndpointPropertiesUpdateParametersPropertiesArgs struct {
+type EndpointPropertiesUpdateParametersDeliveryPolicyArgs struct {
 	// User-friendly description of the policy.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// A list of the delivery rules.
 	Rules DeliveryRuleArrayInput `pulumi:"rules"`
 }
 
-func (EndpointPropertiesUpdateParametersPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointPropertiesUpdateParametersProperties)(nil)).Elem()
+func (EndpointPropertiesUpdateParametersDeliveryPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPropertiesUpdateParametersDeliveryPolicy)(nil)).Elem()
 }
 
-func (i EndpointPropertiesUpdateParametersPropertiesArgs) ToEndpointPropertiesUpdateParametersPropertiesOutput() EndpointPropertiesUpdateParametersPropertiesOutput {
-	return i.ToEndpointPropertiesUpdateParametersPropertiesOutputWithContext(context.Background())
+func (i EndpointPropertiesUpdateParametersDeliveryPolicyArgs) ToEndpointPropertiesUpdateParametersDeliveryPolicyOutput() EndpointPropertiesUpdateParametersDeliveryPolicyOutput {
+	return i.ToEndpointPropertiesUpdateParametersDeliveryPolicyOutputWithContext(context.Background())
 }
 
-func (i EndpointPropertiesUpdateParametersPropertiesArgs) ToEndpointPropertiesUpdateParametersPropertiesOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersPropertiesOutput)
+func (i EndpointPropertiesUpdateParametersDeliveryPolicyArgs) ToEndpointPropertiesUpdateParametersDeliveryPolicyOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersDeliveryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersDeliveryPolicyOutput)
 }
 
-func (i EndpointPropertiesUpdateParametersPropertiesArgs) ToEndpointPropertiesUpdateParametersPropertiesPtrOutput() EndpointPropertiesUpdateParametersPropertiesPtrOutput {
-	return i.ToEndpointPropertiesUpdateParametersPropertiesPtrOutputWithContext(context.Background())
+func (i EndpointPropertiesUpdateParametersDeliveryPolicyArgs) ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput() EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput {
+	return i.ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutputWithContext(context.Background())
 }
 
-func (i EndpointPropertiesUpdateParametersPropertiesArgs) ToEndpointPropertiesUpdateParametersPropertiesPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersPropertiesOutput).ToEndpointPropertiesUpdateParametersPropertiesPtrOutputWithContext(ctx)
+func (i EndpointPropertiesUpdateParametersDeliveryPolicyArgs) ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersDeliveryPolicyOutput).ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutputWithContext(ctx)
 }
 
-// EndpointPropertiesUpdateParametersPropertiesPtrInput is an input type that accepts EndpointPropertiesUpdateParametersPropertiesArgs, EndpointPropertiesUpdateParametersPropertiesPtr and EndpointPropertiesUpdateParametersPropertiesPtrOutput values.
-// You can construct a concrete instance of `EndpointPropertiesUpdateParametersPropertiesPtrInput` via:
+// EndpointPropertiesUpdateParametersDeliveryPolicyPtrInput is an input type that accepts EndpointPropertiesUpdateParametersDeliveryPolicyArgs, EndpointPropertiesUpdateParametersDeliveryPolicyPtr and EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput values.
+// You can construct a concrete instance of `EndpointPropertiesUpdateParametersDeliveryPolicyPtrInput` via:
 //
-//          EndpointPropertiesUpdateParametersPropertiesArgs{...}
+//          EndpointPropertiesUpdateParametersDeliveryPolicyArgs{...}
 //
 //  or:
 //
 //          nil
-type EndpointPropertiesUpdateParametersPropertiesPtrInput interface {
+type EndpointPropertiesUpdateParametersDeliveryPolicyPtrInput interface {
 	pulumi.Input
 
-	ToEndpointPropertiesUpdateParametersPropertiesPtrOutput() EndpointPropertiesUpdateParametersPropertiesPtrOutput
-	ToEndpointPropertiesUpdateParametersPropertiesPtrOutputWithContext(context.Context) EndpointPropertiesUpdateParametersPropertiesPtrOutput
+	ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput() EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput
+	ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutputWithContext(context.Context) EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput
 }
 
-type endpointPropertiesUpdateParametersPropertiesPtrType EndpointPropertiesUpdateParametersPropertiesArgs
+type endpointPropertiesUpdateParametersDeliveryPolicyPtrType EndpointPropertiesUpdateParametersDeliveryPolicyArgs
 
-func EndpointPropertiesUpdateParametersPropertiesPtr(v *EndpointPropertiesUpdateParametersPropertiesArgs) EndpointPropertiesUpdateParametersPropertiesPtrInput {
-	return (*endpointPropertiesUpdateParametersPropertiesPtrType)(v)
+func EndpointPropertiesUpdateParametersDeliveryPolicyPtr(v *EndpointPropertiesUpdateParametersDeliveryPolicyArgs) EndpointPropertiesUpdateParametersDeliveryPolicyPtrInput {
+	return (*endpointPropertiesUpdateParametersDeliveryPolicyPtrType)(v)
 }
 
-func (*endpointPropertiesUpdateParametersPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointPropertiesUpdateParametersProperties)(nil)).Elem()
+func (*endpointPropertiesUpdateParametersDeliveryPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointPropertiesUpdateParametersDeliveryPolicy)(nil)).Elem()
 }
 
-func (i *endpointPropertiesUpdateParametersPropertiesPtrType) ToEndpointPropertiesUpdateParametersPropertiesPtrOutput() EndpointPropertiesUpdateParametersPropertiesPtrOutput {
-	return i.ToEndpointPropertiesUpdateParametersPropertiesPtrOutputWithContext(context.Background())
+func (i *endpointPropertiesUpdateParametersDeliveryPolicyPtrType) ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput() EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput {
+	return i.ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutputWithContext(context.Background())
 }
 
-func (i *endpointPropertiesUpdateParametersPropertiesPtrType) ToEndpointPropertiesUpdateParametersPropertiesPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersPropertiesPtrOutput)
+func (i *endpointPropertiesUpdateParametersDeliveryPolicyPtrType) ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput)
 }
 
 // A policy that specifies the delivery rules to be used for an endpoint.
-type EndpointPropertiesUpdateParametersPropertiesOutput struct{ *pulumi.OutputState }
+type EndpointPropertiesUpdateParametersDeliveryPolicyOutput struct{ *pulumi.OutputState }
 
-func (EndpointPropertiesUpdateParametersPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointPropertiesUpdateParametersProperties)(nil)).Elem()
+func (EndpointPropertiesUpdateParametersDeliveryPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPropertiesUpdateParametersDeliveryPolicy)(nil)).Elem()
 }
 
-func (o EndpointPropertiesUpdateParametersPropertiesOutput) ToEndpointPropertiesUpdateParametersPropertiesOutput() EndpointPropertiesUpdateParametersPropertiesOutput {
+func (o EndpointPropertiesUpdateParametersDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersDeliveryPolicyOutput() EndpointPropertiesUpdateParametersDeliveryPolicyOutput {
 	return o
 }
 
-func (o EndpointPropertiesUpdateParametersPropertiesOutput) ToEndpointPropertiesUpdateParametersPropertiesOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersPropertiesOutput {
+func (o EndpointPropertiesUpdateParametersDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersDeliveryPolicyOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersDeliveryPolicyOutput {
 	return o
 }
 
-func (o EndpointPropertiesUpdateParametersPropertiesOutput) ToEndpointPropertiesUpdateParametersPropertiesPtrOutput() EndpointPropertiesUpdateParametersPropertiesPtrOutput {
-	return o.ToEndpointPropertiesUpdateParametersPropertiesPtrOutputWithContext(context.Background())
+func (o EndpointPropertiesUpdateParametersDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput() EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput {
+	return o.ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutputWithContext(context.Background())
 }
 
-func (o EndpointPropertiesUpdateParametersPropertiesOutput) ToEndpointPropertiesUpdateParametersPropertiesPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersPropertiesPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesUpdateParametersProperties) *EndpointPropertiesUpdateParametersProperties {
+func (o EndpointPropertiesUpdateParametersDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput {
+	return o.ApplyT(func(v EndpointPropertiesUpdateParametersDeliveryPolicy) *EndpointPropertiesUpdateParametersDeliveryPolicy {
 		return &v
-	}).(EndpointPropertiesUpdateParametersPropertiesPtrOutput)
+	}).(EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput)
 }
 
 // User-friendly description of the policy.
-func (o EndpointPropertiesUpdateParametersPropertiesOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesUpdateParametersProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o EndpointPropertiesUpdateParametersDeliveryPolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPropertiesUpdateParametersDeliveryPolicy) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // A list of the delivery rules.
-func (o EndpointPropertiesUpdateParametersPropertiesOutput) Rules() DeliveryRuleArrayOutput {
-	return o.ApplyT(func(v EndpointPropertiesUpdateParametersProperties) []DeliveryRule { return v.Rules }).(DeliveryRuleArrayOutput)
+func (o EndpointPropertiesUpdateParametersDeliveryPolicyOutput) Rules() DeliveryRuleArrayOutput {
+	return o.ApplyT(func(v EndpointPropertiesUpdateParametersDeliveryPolicy) []DeliveryRule { return v.Rules }).(DeliveryRuleArrayOutput)
 }
 
-type EndpointPropertiesUpdateParametersPropertiesPtrOutput struct{ *pulumi.OutputState }
+type EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (EndpointPropertiesUpdateParametersPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointPropertiesUpdateParametersProperties)(nil)).Elem()
+func (EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointPropertiesUpdateParametersDeliveryPolicy)(nil)).Elem()
 }
 
-func (o EndpointPropertiesUpdateParametersPropertiesPtrOutput) ToEndpointPropertiesUpdateParametersPropertiesPtrOutput() EndpointPropertiesUpdateParametersPropertiesPtrOutput {
+func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput() EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput {
 	return o
 }
 
-func (o EndpointPropertiesUpdateParametersPropertiesPtrOutput) ToEndpointPropertiesUpdateParametersPropertiesPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersPropertiesPtrOutput {
+func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) ToEndpointPropertiesUpdateParametersDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput {
 	return o
 }
 
-func (o EndpointPropertiesUpdateParametersPropertiesPtrOutput) Elem() EndpointPropertiesUpdateParametersPropertiesOutput {
-	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersProperties) EndpointPropertiesUpdateParametersProperties {
+func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) Elem() EndpointPropertiesUpdateParametersDeliveryPolicyOutput {
+	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersDeliveryPolicy) EndpointPropertiesUpdateParametersDeliveryPolicy {
 		return *v
-	}).(EndpointPropertiesUpdateParametersPropertiesOutput)
+	}).(EndpointPropertiesUpdateParametersDeliveryPolicyOutput)
 }
 
 // User-friendly description of the policy.
-func (o EndpointPropertiesUpdateParametersPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersProperties) *string {
+func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersDeliveryPolicy) *string {
 		if v == nil {
 			return nil
 		}
@@ -2206,8 +2042,8 @@ func (o EndpointPropertiesUpdateParametersPropertiesPtrOutput) Description() pul
 }
 
 // A list of the delivery rules.
-func (o EndpointPropertiesUpdateParametersPropertiesPtrOutput) Rules() DeliveryRuleArrayOutput {
-	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersProperties) []DeliveryRule {
+func (o EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput) Rules() DeliveryRuleArrayOutput {
+	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersDeliveryPolicy) []DeliveryRule {
 		if v == nil {
 			return nil
 		}
@@ -2216,143 +2052,145 @@ func (o EndpointPropertiesUpdateParametersPropertiesPtrOutput) Rules() DeliveryR
 }
 
 // A policy that specifies the delivery rules to be used for an endpoint.
-type EndpointPropertiesUpdateParametersResponseProperties struct {
+type EndpointPropertiesUpdateParametersResponseDeliveryPolicy struct {
 	// User-friendly description of the policy.
 	Description *string `pulumi:"description"`
 	// A list of the delivery rules.
 	Rules []DeliveryRuleResponse `pulumi:"rules"`
 }
 
-// EndpointPropertiesUpdateParametersResponsePropertiesInput is an input type that accepts EndpointPropertiesUpdateParametersResponsePropertiesArgs and EndpointPropertiesUpdateParametersResponsePropertiesOutput values.
-// You can construct a concrete instance of `EndpointPropertiesUpdateParametersResponsePropertiesInput` via:
+// EndpointPropertiesUpdateParametersResponseDeliveryPolicyInput is an input type that accepts EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs and EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput values.
+// You can construct a concrete instance of `EndpointPropertiesUpdateParametersResponseDeliveryPolicyInput` via:
 //
-//          EndpointPropertiesUpdateParametersResponsePropertiesArgs{...}
-type EndpointPropertiesUpdateParametersResponsePropertiesInput interface {
+//          EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs{...}
+type EndpointPropertiesUpdateParametersResponseDeliveryPolicyInput interface {
 	pulumi.Input
 
-	ToEndpointPropertiesUpdateParametersResponsePropertiesOutput() EndpointPropertiesUpdateParametersResponsePropertiesOutput
-	ToEndpointPropertiesUpdateParametersResponsePropertiesOutputWithContext(context.Context) EndpointPropertiesUpdateParametersResponsePropertiesOutput
+	ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput() EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput
+	ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyOutputWithContext(context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput
 }
 
 // A policy that specifies the delivery rules to be used for an endpoint.
-type EndpointPropertiesUpdateParametersResponsePropertiesArgs struct {
+type EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs struct {
 	// User-friendly description of the policy.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// A list of the delivery rules.
 	Rules DeliveryRuleResponseArrayInput `pulumi:"rules"`
 }
 
-func (EndpointPropertiesUpdateParametersResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointPropertiesUpdateParametersResponseProperties)(nil)).Elem()
+func (EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPropertiesUpdateParametersResponseDeliveryPolicy)(nil)).Elem()
 }
 
-func (i EndpointPropertiesUpdateParametersResponsePropertiesArgs) ToEndpointPropertiesUpdateParametersResponsePropertiesOutput() EndpointPropertiesUpdateParametersResponsePropertiesOutput {
-	return i.ToEndpointPropertiesUpdateParametersResponsePropertiesOutputWithContext(context.Background())
+func (i EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput() EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput {
+	return i.ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyOutputWithContext(context.Background())
 }
 
-func (i EndpointPropertiesUpdateParametersResponsePropertiesArgs) ToEndpointPropertiesUpdateParametersResponsePropertiesOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersResponsePropertiesOutput)
+func (i EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput)
 }
 
-func (i EndpointPropertiesUpdateParametersResponsePropertiesArgs) ToEndpointPropertiesUpdateParametersResponsePropertiesPtrOutput() EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput {
-	return i.ToEndpointPropertiesUpdateParametersResponsePropertiesPtrOutputWithContext(context.Background())
+func (i EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput() EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
+	return i.ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(context.Background())
 }
 
-func (i EndpointPropertiesUpdateParametersResponsePropertiesArgs) ToEndpointPropertiesUpdateParametersResponsePropertiesPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersResponsePropertiesOutput).ToEndpointPropertiesUpdateParametersResponsePropertiesPtrOutputWithContext(ctx)
+func (i EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput).ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(ctx)
 }
 
-// EndpointPropertiesUpdateParametersResponsePropertiesPtrInput is an input type that accepts EndpointPropertiesUpdateParametersResponsePropertiesArgs, EndpointPropertiesUpdateParametersResponsePropertiesPtr and EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput values.
-// You can construct a concrete instance of `EndpointPropertiesUpdateParametersResponsePropertiesPtrInput` via:
+// EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrInput is an input type that accepts EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs, EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtr and EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput values.
+// You can construct a concrete instance of `EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrInput` via:
 //
-//          EndpointPropertiesUpdateParametersResponsePropertiesArgs{...}
+//          EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs{...}
 //
 //  or:
 //
 //          nil
-type EndpointPropertiesUpdateParametersResponsePropertiesPtrInput interface {
+type EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrInput interface {
 	pulumi.Input
 
-	ToEndpointPropertiesUpdateParametersResponsePropertiesPtrOutput() EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput
-	ToEndpointPropertiesUpdateParametersResponsePropertiesPtrOutputWithContext(context.Context) EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput
+	ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput() EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput
+	ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput
 }
 
-type endpointPropertiesUpdateParametersResponsePropertiesPtrType EndpointPropertiesUpdateParametersResponsePropertiesArgs
+type endpointPropertiesUpdateParametersResponseDeliveryPolicyPtrType EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs
 
-func EndpointPropertiesUpdateParametersResponsePropertiesPtr(v *EndpointPropertiesUpdateParametersResponsePropertiesArgs) EndpointPropertiesUpdateParametersResponsePropertiesPtrInput {
-	return (*endpointPropertiesUpdateParametersResponsePropertiesPtrType)(v)
+func EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtr(v *EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs) EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrInput {
+	return (*endpointPropertiesUpdateParametersResponseDeliveryPolicyPtrType)(v)
 }
 
-func (*endpointPropertiesUpdateParametersResponsePropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointPropertiesUpdateParametersResponseProperties)(nil)).Elem()
+func (*endpointPropertiesUpdateParametersResponseDeliveryPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointPropertiesUpdateParametersResponseDeliveryPolicy)(nil)).Elem()
 }
 
-func (i *endpointPropertiesUpdateParametersResponsePropertiesPtrType) ToEndpointPropertiesUpdateParametersResponsePropertiesPtrOutput() EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput {
-	return i.ToEndpointPropertiesUpdateParametersResponsePropertiesPtrOutputWithContext(context.Background())
+func (i *endpointPropertiesUpdateParametersResponseDeliveryPolicyPtrType) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput() EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
+	return i.ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(context.Background())
 }
 
-func (i *endpointPropertiesUpdateParametersResponsePropertiesPtrType) ToEndpointPropertiesUpdateParametersResponsePropertiesPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput)
+func (i *endpointPropertiesUpdateParametersResponseDeliveryPolicyPtrType) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput)
 }
 
 // A policy that specifies the delivery rules to be used for an endpoint.
-type EndpointPropertiesUpdateParametersResponsePropertiesOutput struct{ *pulumi.OutputState }
+type EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput struct{ *pulumi.OutputState }
 
-func (EndpointPropertiesUpdateParametersResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointPropertiesUpdateParametersResponseProperties)(nil)).Elem()
+func (EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointPropertiesUpdateParametersResponseDeliveryPolicy)(nil)).Elem()
 }
 
-func (o EndpointPropertiesUpdateParametersResponsePropertiesOutput) ToEndpointPropertiesUpdateParametersResponsePropertiesOutput() EndpointPropertiesUpdateParametersResponsePropertiesOutput {
+func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput() EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput {
 	return o
 }
 
-func (o EndpointPropertiesUpdateParametersResponsePropertiesOutput) ToEndpointPropertiesUpdateParametersResponsePropertiesOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponsePropertiesOutput {
+func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput {
 	return o
 }
 
-func (o EndpointPropertiesUpdateParametersResponsePropertiesOutput) ToEndpointPropertiesUpdateParametersResponsePropertiesPtrOutput() EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput {
-	return o.ToEndpointPropertiesUpdateParametersResponsePropertiesPtrOutputWithContext(context.Background())
+func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput() EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
+	return o.ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(context.Background())
 }
 
-func (o EndpointPropertiesUpdateParametersResponsePropertiesOutput) ToEndpointPropertiesUpdateParametersResponsePropertiesPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesUpdateParametersResponseProperties) *EndpointPropertiesUpdateParametersResponseProperties {
+func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
+	return o.ApplyT(func(v EndpointPropertiesUpdateParametersResponseDeliveryPolicy) *EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
 		return &v
-	}).(EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput)
+	}).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput)
 }
 
 // User-friendly description of the policy.
-func (o EndpointPropertiesUpdateParametersResponsePropertiesOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v EndpointPropertiesUpdateParametersResponseProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointPropertiesUpdateParametersResponseDeliveryPolicy) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // A list of the delivery rules.
-func (o EndpointPropertiesUpdateParametersResponsePropertiesOutput) Rules() DeliveryRuleResponseArrayOutput {
-	return o.ApplyT(func(v EndpointPropertiesUpdateParametersResponseProperties) []DeliveryRuleResponse { return v.Rules }).(DeliveryRuleResponseArrayOutput)
+func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput) Rules() DeliveryRuleResponseArrayOutput {
+	return o.ApplyT(func(v EndpointPropertiesUpdateParametersResponseDeliveryPolicy) []DeliveryRuleResponse {
+		return v.Rules
+	}).(DeliveryRuleResponseArrayOutput)
 }
 
-type EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput struct{ *pulumi.OutputState }
+type EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointPropertiesUpdateParametersResponseProperties)(nil)).Elem()
+func (EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointPropertiesUpdateParametersResponseDeliveryPolicy)(nil)).Elem()
 }
 
-func (o EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput) ToEndpointPropertiesUpdateParametersResponsePropertiesPtrOutput() EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput {
+func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput() EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
 	return o
 }
 
-func (o EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput) ToEndpointPropertiesUpdateParametersResponsePropertiesPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput {
+func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) ToEndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutputWithContext(ctx context.Context) EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput {
 	return o
 }
 
-func (o EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput) Elem() EndpointPropertiesUpdateParametersResponsePropertiesOutput {
-	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersResponseProperties) EndpointPropertiesUpdateParametersResponseProperties {
+func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) Elem() EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput {
+	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersResponseDeliveryPolicy) EndpointPropertiesUpdateParametersResponseDeliveryPolicy {
 		return *v
-	}).(EndpointPropertiesUpdateParametersResponsePropertiesOutput)
+	}).(EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput)
 }
 
 // User-friendly description of the policy.
-func (o EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersResponseProperties) *string {
+func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersResponseDeliveryPolicy) *string {
 		if v == nil {
 			return nil
 		}
@@ -2361,8 +2199,8 @@ func (o EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput) Descripti
 }
 
 // A list of the delivery rules.
-func (o EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput) Rules() DeliveryRuleResponseArrayOutput {
-	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersResponseProperties) []DeliveryRuleResponse {
+func (o EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput) Rules() DeliveryRuleResponseArrayOutput {
+	return o.ApplyT(func(v *EndpointPropertiesUpdateParametersResponseDeliveryPolicy) []DeliveryRuleResponse {
 		if v == nil {
 			return nil
 		}
@@ -2604,106 +2442,6 @@ func (o GeoFilterResponseArrayOutput) Index(i pulumi.IntInput) GeoFilterResponse
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GeoFilterResponse {
 		return vs[0].([]GeoFilterResponse)[vs[1].(int)]
 	}).(GeoFilterResponseOutput)
-}
-
-// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
-type ProfileType struct {
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The JSON object that contains the properties required to create a profile.
-	Properties ProfilePropertiesResponse `pulumi:"properties"`
-	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
-	Sku SkuResponse `pulumi:"sku"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ProfileTypeInput is an input type that accepts ProfileTypeArgs and ProfileTypeOutput values.
-// You can construct a concrete instance of `ProfileTypeInput` via:
-//
-//          ProfileTypeArgs{...}
-type ProfileTypeInput interface {
-	pulumi.Input
-
-	ToProfileTypeOutput() ProfileTypeOutput
-	ToProfileTypeOutputWithContext(context.Context) ProfileTypeOutput
-}
-
-// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
-type ProfileTypeArgs struct {
-	// Resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The JSON object that contains the properties required to create a profile.
-	Properties ProfilePropertiesResponseInput `pulumi:"properties"`
-	// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
-	Sku SkuResponseInput `pulumi:"sku"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ProfileTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileType)(nil)).Elem()
-}
-
-func (i ProfileTypeArgs) ToProfileTypeOutput() ProfileTypeOutput {
-	return i.ToProfileTypeOutputWithContext(context.Background())
-}
-
-func (i ProfileTypeArgs) ToProfileTypeOutputWithContext(ctx context.Context) ProfileTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileTypeOutput)
-}
-
-// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
-type ProfileTypeOutput struct{ *pulumi.OutputState }
-
-func (ProfileTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileType)(nil)).Elem()
-}
-
-func (o ProfileTypeOutput) ToProfileTypeOutput() ProfileTypeOutput {
-	return o
-}
-
-func (o ProfileTypeOutput) ToProfileTypeOutputWithContext(ctx context.Context) ProfileTypeOutput {
-	return o
-}
-
-// Resource location.
-func (o ProfileTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name.
-func (o ProfileTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The JSON object that contains the properties required to create a profile.
-func (o ProfileTypeOutput) Properties() ProfilePropertiesResponseOutput {
-	return o.ApplyT(func(v ProfileType) ProfilePropertiesResponse { return v.Properties }).(ProfilePropertiesResponseOutput)
-}
-
-// The pricing tier (defines a CDN provider, feature list and rate) of the CDN profile.
-func (o ProfileTypeOutput) Sku() SkuResponseOutput {
-	return o.ApplyT(func(v ProfileType) SkuResponse { return v.Sku }).(SkuResponseOutput)
-}
-
-// Resource tags.
-func (o ProfileTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ProfileType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o ProfileTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ProfileType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The JSON object that contains the properties required to create a profile.
@@ -3128,7 +2866,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(CustomDomainTypeOutput{})
 	pulumi.RegisterOutputType(CustomDomainHttpsParametersResponseOutput{})
 	pulumi.RegisterOutputType(CustomDomainHttpsParametersResponsePtrOutput{})
 	pulumi.RegisterOutputType(CustomDomainPropertiesResponseOutput{})
@@ -3151,18 +2888,16 @@ func init() {
 	pulumi.RegisterOutputType(DeliveryRuleConditionResponseArrayOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleResponseOutput{})
 	pulumi.RegisterOutputType(DeliveryRuleResponseArrayOutput{})
-	pulumi.RegisterOutputType(EndpointTypeOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(EndpointPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersPropertiesOutput{})
-	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersPropertiesPtrOutput{})
-	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersResponsePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersDeliveryPolicyOutput{})
+	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersDeliveryPolicyPtrOutput{})
+	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersResponseDeliveryPolicyOutput{})
+	pulumi.RegisterOutputType(EndpointPropertiesUpdateParametersResponseDeliveryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(GeoFilterOutput{})
 	pulumi.RegisterOutputType(GeoFilterArrayOutput{})
 	pulumi.RegisterOutputType(GeoFilterResponseOutput{})
 	pulumi.RegisterOutputType(GeoFilterResponseArrayOutput{})
-	pulumi.RegisterOutputType(ProfileTypeOutput{})
 	pulumi.RegisterOutputType(ProfilePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ProfilePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SkuOutput{})

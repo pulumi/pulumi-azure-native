@@ -54,7 +54,7 @@ export interface GetDedicatedCloudNodeResult {
     /**
      * Dedicated Cloud Nodes tags
      */
-    readonly tags?: outputs.vmwarecloudsimple.v20190401.TagsResponse;
+    readonly tags?: {[key: string]: string};
     /**
      * {resourceProviderNamespace}/{resourceType}
      */

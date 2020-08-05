@@ -1079,79 +1079,6 @@ func (o DetectorResponsePtrOutput) SupportedResourceTypes() pulumi.StringArrayOu
 	}).(pulumi.StringArrayOutput)
 }
 
-// The alert rule information
-type SmartDetectorAlertRuleType struct {
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The properties of the alert rule.
-	Properties AlertRulePropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// SmartDetectorAlertRuleTypeInput is an input type that accepts SmartDetectorAlertRuleTypeArgs and SmartDetectorAlertRuleTypeOutput values.
-// You can construct a concrete instance of `SmartDetectorAlertRuleTypeInput` via:
-//
-//          SmartDetectorAlertRuleTypeArgs{...}
-type SmartDetectorAlertRuleTypeInput interface {
-	pulumi.Input
-
-	ToSmartDetectorAlertRuleTypeOutput() SmartDetectorAlertRuleTypeOutput
-	ToSmartDetectorAlertRuleTypeOutputWithContext(context.Context) SmartDetectorAlertRuleTypeOutput
-}
-
-// The alert rule information
-type SmartDetectorAlertRuleTypeArgs struct {
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the alert rule.
-	Properties AlertRulePropertiesResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (SmartDetectorAlertRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmartDetectorAlertRuleType)(nil)).Elem()
-}
-
-func (i SmartDetectorAlertRuleTypeArgs) ToSmartDetectorAlertRuleTypeOutput() SmartDetectorAlertRuleTypeOutput {
-	return i.ToSmartDetectorAlertRuleTypeOutputWithContext(context.Background())
-}
-
-func (i SmartDetectorAlertRuleTypeArgs) ToSmartDetectorAlertRuleTypeOutputWithContext(ctx context.Context) SmartDetectorAlertRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SmartDetectorAlertRuleTypeOutput)
-}
-
-// The alert rule information
-type SmartDetectorAlertRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (SmartDetectorAlertRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SmartDetectorAlertRuleType)(nil)).Elem()
-}
-
-func (o SmartDetectorAlertRuleTypeOutput) ToSmartDetectorAlertRuleTypeOutput() SmartDetectorAlertRuleTypeOutput {
-	return o
-}
-
-func (o SmartDetectorAlertRuleTypeOutput) ToSmartDetectorAlertRuleTypeOutputWithContext(ctx context.Context) SmartDetectorAlertRuleTypeOutput {
-	return o
-}
-
-// The resource name.
-func (o SmartDetectorAlertRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v SmartDetectorAlertRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the alert rule.
-func (o SmartDetectorAlertRuleTypeOutput) Properties() AlertRulePropertiesResponseOutput {
-	return o.ApplyT(func(v SmartDetectorAlertRuleType) AlertRulePropertiesResponse { return v.Properties }).(AlertRulePropertiesResponseOutput)
-}
-
-// The resource type.
-func (o SmartDetectorAlertRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v SmartDetectorAlertRuleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Optional throttling information for the alert rule.
 type ThrottlingInformation struct {
 	// The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
@@ -1431,7 +1358,6 @@ func init() {
 	pulumi.RegisterOutputType(DetectorPtrOutput{})
 	pulumi.RegisterOutputType(DetectorResponseOutput{})
 	pulumi.RegisterOutputType(DetectorResponsePtrOutput{})
-	pulumi.RegisterOutputType(SmartDetectorAlertRuleTypeOutput{})
 	pulumi.RegisterOutputType(ThrottlingInformationOutput{})
 	pulumi.RegisterOutputType(ThrottlingInformationPtrOutput{})
 	pulumi.RegisterOutputType(ThrottlingInformationResponseOutput{})

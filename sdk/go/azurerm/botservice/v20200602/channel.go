@@ -120,7 +120,7 @@ type channelArgs struct {
 	// The name of the Channel resource.
 	Name string `pulumi:"name"`
 	// The set of properties specific to bot channel resource
-	Properties *ChannelDefinition `pulumi:"properties"`
+	Properties *ChannelType `pulumi:"properties"`
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the Bot resource.
@@ -142,7 +142,7 @@ type ChannelArgs struct {
 	// The name of the Channel resource.
 	Name pulumi.StringInput
 	// The set of properties specific to bot channel resource
-	Properties ChannelDefinitionPtrInput
+	Properties ChannelTypePtrInput
 	// The name of the Bot resource group in the user subscription.
 	ResourceGroupName pulumi.StringInput
 	// The name of the Bot resource.

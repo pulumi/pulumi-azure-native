@@ -85,7 +85,6 @@ export class AlertRule extends pulumi.CustomResource {
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            inputs["actions"] = args ? args.actions : undefined;
             inputs["condition"] = args ? args.condition : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["isEnabled"] = args ? args.isEnabled : undefined;
@@ -111,10 +110,6 @@ export class AlertRule extends pulumi.CustomResource {
  * The set of arguments for constructing a AlertRule resource.
  */
 export interface AlertRuleArgs {
-    /**
-     * the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
-     */
-    readonly actions?: pulumi.Input<pulumi.Input<inputs.insights.v20160301.RuleAction>[]>;
     /**
      * the condition that results in the alert rule being activated.
      */

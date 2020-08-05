@@ -27,6 +27,8 @@ class PrivateLinkService(pulumi.CustomResource):
     Properties of the private link service.
       * `alias` (`str`) - The alias of the private link service.
       * `auto_approval` (`dict`) - The auto-approval list of the private link service.
+        * `subscriptions` (`list`) - The list of subscriptions.
+
       * `enable_proxy_protocol` (`bool`) - Whether the private link service is enabled for proxy protocol or not.
       * `fqdns` (`list`) - The list of Fqdn.
       * `ip_configurations` (`list`) - An array of private link service IP configurations.
@@ -423,6 +425,7 @@ class PrivateLinkService(pulumi.CustomResource):
 
       * `provisioning_state` (`str`) - The provisioning state of the private link service resource.
       * `visibility` (`dict`) - The visibility list of the private link service.
+        * `subscriptions` (`list`) - The list of subscriptions.
     """
     tags: pulumi.Output[dict]
     """
@@ -449,6 +452,10 @@ class PrivateLinkService(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[dict] tags: Resource tags.
         :param pulumi.Input[dict] visibility: The visibility list of the private link service.
+
+        The **auto_approval** object supports the following:
+
+          * `subscriptions` (`pulumi.Input[list]`) - The list of subscriptions.
 
         The **ip_configurations** object supports the following:
 
@@ -568,6 +575,10 @@ class PrivateLinkService(pulumi.CustomResource):
           * `public_ip_prefix` (`pulumi.Input[dict]`) - The reference to the Public IP Prefix resource.
           * `subnet` (`pulumi.Input[dict]`) - The reference to the subnet resource.
           * `zones` (`pulumi.Input[list]`) - A list of availability zones denoting the IP allocated for the resource needs to come from.
+
+        The **visibility** object supports the following:
+
+          * `subscriptions` (`pulumi.Input[list]`) - The list of subscriptions.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

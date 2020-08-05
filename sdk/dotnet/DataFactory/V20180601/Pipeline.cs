@@ -129,7 +129,7 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         /// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         /// </summary>
         [Input("folder")]
-        public Input<Inputs.PipelinePropertiesArgs>? Folder { get; set; }
+        public Input<Inputs.PipelineFolderArgs>? Folder { get; set; }
 
         /// <summary>
         /// The pipeline name.
@@ -137,11 +137,17 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("parameters")]
+        private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;
+
         /// <summary>
         /// List of parameters for pipeline.
         /// </summary>
-        [Input("parameters")]
-        public Input<Inputs.ParameterDefinitionSpecificationArgs>? Parameters { get; set; }
+        public InputMap<Inputs.ParameterSpecificationArgs> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<Inputs.ParameterSpecificationArgs>());
+            set => _parameters = value;
+        }
 
         /// <summary>
         /// The resource group name.
@@ -161,11 +167,17 @@ namespace Pulumi.AzureRM.DataFactory.V20180601
             set => _runDimensions = value;
         }
 
+        [Input("variables")]
+        private InputMap<Inputs.VariableSpecificationArgs>? _variables;
+
         /// <summary>
         /// List of variables for pipeline.
         /// </summary>
-        [Input("variables")]
-        public Input<Inputs.VariableDefinitionSpecificationArgs>? Variables { get; set; }
+        public InputMap<Inputs.VariableSpecificationArgs> Variables
+        {
+            get => _variables ?? (_variables = new InputMap<Inputs.VariableSpecificationArgs>());
+            set => _variables = value;
+        }
 
         public PipelineArgs()
         {

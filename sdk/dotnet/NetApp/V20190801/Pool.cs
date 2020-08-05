@@ -36,7 +36,7 @@ namespace Pulumi.AzureRM.NetApp.V20190801
         /// Resource tags
         /// </summary>
         [Output("tags")]
-        public Output<Outputs.ResourceTagsResponseResult?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -125,11 +125,17 @@ namespace Pulumi.AzureRM.NetApp.V20190801
         [Input("size", required: true)]
         public Input<int> Size { get; set; } = null!;
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// Resource tags
         /// </summary>
-        [Input("tags")]
-        public Input<Inputs.ResourceTagsArgs>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public PoolArgs()
         {

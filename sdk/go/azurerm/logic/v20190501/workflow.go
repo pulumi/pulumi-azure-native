@@ -93,7 +93,7 @@ type workflowArgs struct {
 	// The access control configuration.
 	AccessControl *FlowAccessControlConfiguration `pulumi:"accessControl"`
 	// The definition.
-	Definition *Object `pulumi:"definition"`
+	Definition map[string]interface{} `pulumi:"definition"`
 	// The endpoints configuration.
 	EndpointsConfiguration *FlowEndpointsConfiguration `pulumi:"endpointsConfiguration"`
 	// The integration account.
@@ -119,7 +119,7 @@ type WorkflowArgs struct {
 	// The access control configuration.
 	AccessControl FlowAccessControlConfigurationPtrInput
 	// The definition.
-	Definition ObjectPtrInput
+	Definition pulumi.MapInput
 	// The endpoints configuration.
 	EndpointsConfiguration FlowEndpointsConfigurationPtrInput
 	// The integration account.

@@ -20,7 +20,7 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
         /// <summary>
         /// The metadata.
         /// </summary>
-        public readonly Outputs.ObjectResponseResult? Metadata;
+        public readonly ImmutableDictionary<string, object>? Metadata;
         /// <summary>
         /// The type.
         /// </summary>
@@ -28,17 +28,17 @@ namespace Pulumi.AzureRM.Logic.V20190501.Outputs
         /// <summary>
         /// The value.
         /// </summary>
-        public readonly Outputs.ObjectResponseResult? Value;
+        public readonly ImmutableDictionary<string, object>? Value;
 
         [OutputConstructor]
         private WorkflowParameterResponseResult(
             string? description,
 
-            Outputs.ObjectResponseResult? metadata,
+            ImmutableDictionary<string, object>? metadata,
 
             string? type,
 
-            Outputs.ObjectResponseResult? value)
+            ImmutableDictionary<string, object>? value)
         {
             Description = description;
             Metadata = metadata;

@@ -89,11 +89,17 @@ namespace Pulumi.AzureRM.Logic.V20190501
 
     public sealed class IntegrationAccountSessionArgs : Pulumi.ResourceArgs
     {
+        [Input("content")]
+        private InputMap<object>? _content;
+
         /// <summary>
         /// The session content.
         /// </summary>
-        [Input("content")]
-        public Input<Inputs.ObjectArgs>? Content { get; set; }
+        public InputMap<object> Content
+        {
+            get => _content ?? (_content = new InputMap<object>());
+            set => _content = value;
+        }
 
         /// <summary>
         /// The integration account name.

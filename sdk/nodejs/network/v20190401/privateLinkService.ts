@@ -113,7 +113,7 @@ export interface PrivateLinkServiceArgs {
     /**
      * The auto-approval list of the private link service.
      */
-    readonly autoApproval?: pulumi.Input<{[key: string]: any}>;
+    readonly autoApproval?: pulumi.Input<inputs.network.v20190401.PrivateLinkServicePropertiesAutoApproval>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -157,5 +157,5 @@ export interface PrivateLinkServiceArgs {
     /**
      * The visibility list of the private link service.
      */
-    readonly visibility?: pulumi.Input<{[key: string]: any}>;
+    readonly visibility?: pulumi.Input<inputs.network.v20190401.PrivateLinkServicePropertiesVisibility>;
 }

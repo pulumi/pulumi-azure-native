@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
         /// <summary>
         /// The key attributes.
         /// </summary>
-        public readonly Outputs.KeyVaultKeyResponsePropertiesResult? Attributes;
+        public readonly Outputs.KeyVaultKeyResponseAttributesResult? Attributes;
         /// <summary>
         /// The key id.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.Logic.V20160601.Outputs
 
         [OutputConstructor]
         private KeyVaultKeyResponseResult(
-            Outputs.KeyVaultKeyResponsePropertiesResult? attributes,
+            Outputs.KeyVaultKeyResponseAttributesResult? attributes,
 
             string? kid)
         {

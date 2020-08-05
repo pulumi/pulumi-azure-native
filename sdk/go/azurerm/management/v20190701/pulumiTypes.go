@@ -741,88 +741,6 @@ func (o DependencyResponseArrayOutput) Index(i pulumi.IntInput) DependencyRespon
 	}).(DependencyResponseOutput)
 }
 
-// Deployment information.
-type DeploymentAtManagementGroupScopeType struct {
-	// the location of the deployment.
-	Location *string `pulumi:"location"`
-	// The name of the deployment.
-	Name string `pulumi:"name"`
-	// Deployment properties.
-	Properties DeploymentPropertiesExtendedResponse `pulumi:"properties"`
-	// The type of the deployment.
-	Type string `pulumi:"type"`
-}
-
-// DeploymentAtManagementGroupScopeTypeInput is an input type that accepts DeploymentAtManagementGroupScopeTypeArgs and DeploymentAtManagementGroupScopeTypeOutput values.
-// You can construct a concrete instance of `DeploymentAtManagementGroupScopeTypeInput` via:
-//
-//          DeploymentAtManagementGroupScopeTypeArgs{...}
-type DeploymentAtManagementGroupScopeTypeInput interface {
-	pulumi.Input
-
-	ToDeploymentAtManagementGroupScopeTypeOutput() DeploymentAtManagementGroupScopeTypeOutput
-	ToDeploymentAtManagementGroupScopeTypeOutputWithContext(context.Context) DeploymentAtManagementGroupScopeTypeOutput
-}
-
-// Deployment information.
-type DeploymentAtManagementGroupScopeTypeArgs struct {
-	// the location of the deployment.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the deployment.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Deployment properties.
-	Properties DeploymentPropertiesExtendedResponseInput `pulumi:"properties"`
-	// The type of the deployment.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DeploymentAtManagementGroupScopeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtManagementGroupScopeType)(nil)).Elem()
-}
-
-func (i DeploymentAtManagementGroupScopeTypeArgs) ToDeploymentAtManagementGroupScopeTypeOutput() DeploymentAtManagementGroupScopeTypeOutput {
-	return i.ToDeploymentAtManagementGroupScopeTypeOutputWithContext(context.Background())
-}
-
-func (i DeploymentAtManagementGroupScopeTypeArgs) ToDeploymentAtManagementGroupScopeTypeOutputWithContext(ctx context.Context) DeploymentAtManagementGroupScopeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentAtManagementGroupScopeTypeOutput)
-}
-
-// Deployment information.
-type DeploymentAtManagementGroupScopeTypeOutput struct{ *pulumi.OutputState }
-
-func (DeploymentAtManagementGroupScopeTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentAtManagementGroupScopeType)(nil)).Elem()
-}
-
-func (o DeploymentAtManagementGroupScopeTypeOutput) ToDeploymentAtManagementGroupScopeTypeOutput() DeploymentAtManagementGroupScopeTypeOutput {
-	return o
-}
-
-func (o DeploymentAtManagementGroupScopeTypeOutput) ToDeploymentAtManagementGroupScopeTypeOutputWithContext(ctx context.Context) DeploymentAtManagementGroupScopeTypeOutput {
-	return o
-}
-
-// the location of the deployment.
-func (o DeploymentAtManagementGroupScopeTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentAtManagementGroupScopeType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the deployment.
-func (o DeploymentAtManagementGroupScopeTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentAtManagementGroupScopeType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Deployment properties.
-func (o DeploymentAtManagementGroupScopeTypeOutput) Properties() DeploymentPropertiesExtendedResponseOutput {
-	return o.ApplyT(func(v DeploymentAtManagementGroupScopeType) DeploymentPropertiesExtendedResponse { return v.Properties }).(DeploymentPropertiesExtendedResponseOutput)
-}
-
-// The type of the deployment.
-func (o DeploymentAtManagementGroupScopeTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DeploymentAtManagementGroupScopeType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Deployment properties.
 type DeploymentProperties struct {
 	// The debug setting of the deployment.
@@ -2685,7 +2603,6 @@ func init() {
 	pulumi.RegisterOutputType(DebugSettingResponsePtrOutput{})
 	pulumi.RegisterOutputType(DependencyResponseOutput{})
 	pulumi.RegisterOutputType(DependencyResponseArrayOutput{})
-	pulumi.RegisterOutputType(DeploymentAtManagementGroupScopeTypeOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentPropertiesExtendedResponseOutput{})

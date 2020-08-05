@@ -21,7 +21,7 @@ type Pool struct {
 	// Capacity pool properties
 	Properties PoolPropertiesResponseOutput `pulumi:"properties"`
 	// Resource tags
-	Tags ResourceTagsResponsePtrOutput `pulumi:"tags"`
+	Tags pulumi.MapOutput `pulumi:"tags"`
 	// Resource type
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -79,7 +79,7 @@ type poolState struct {
 	// Capacity pool properties
 	Properties *PoolPropertiesResponse `pulumi:"properties"`
 	// Resource tags
-	Tags *ResourceTagsResponse `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 	// Resource type
 	Type *string `pulumi:"type"`
 }
@@ -92,7 +92,7 @@ type PoolState struct {
 	// Capacity pool properties
 	Properties PoolPropertiesResponsePtrInput
 	// Resource tags
-	Tags ResourceTagsResponsePtrInput
+	Tags pulumi.MapInput
 	// Resource type
 	Type pulumi.StringPtrInput
 }
@@ -115,7 +115,7 @@ type poolArgs struct {
 	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
 	Size int `pulumi:"size"`
 	// Resource tags
-	Tags *ResourceTags `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Pool resource.
@@ -133,7 +133,7 @@ type PoolArgs struct {
 	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
 	Size pulumi.IntInput
 	// Resource tags
-	Tags ResourceTagsPtrInput
+	Tags pulumi.MapInput
 }
 
 func (PoolArgs) ElementType() reflect.Type {

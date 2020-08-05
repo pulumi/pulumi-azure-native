@@ -106,10 +106,10 @@ export interface AdaptiveApplicationControlArgs {
      * Name of an application control VM/server group
      */
     readonly name: pulumi.Input<string>;
-    readonly pathRecommendations?: pulumi.Input<inputs.security.v20200101.PathRecommendations>;
+    readonly pathRecommendations?: pulumi.Input<pulumi.Input<inputs.security.v20200101.PathRecommendation>[]>;
     /**
      * The protection mode of the collection/file types. Exe/Msi/Script are used for Windows, Executable is used for Linux.
      */
     readonly protectionMode?: pulumi.Input<inputs.security.v20200101.ProtectionMode>;
-    readonly vmRecommendations?: pulumi.Input<inputs.security.v20200101.VmRecommendations>;
+    readonly vmRecommendations?: pulumi.Input<pulumi.Input<inputs.security.v20200101.VmRecommendation>[]>;
 }

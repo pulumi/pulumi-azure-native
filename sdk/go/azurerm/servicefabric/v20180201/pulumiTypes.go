@@ -10,11 +10,43 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Defines a map that contains specific application delta health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationDeltaHealthPolicyMap struct {
+// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+type ApplicationDeltaHealthPolicy struct {
+	// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
+	DefaultServiceTypeDeltaHealthPolicy *ServiceTypeDeltaHealthPolicy `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
+	// The map with service type delta health policy per service type name. The map is empty by default.
+	ServiceTypeDeltaHealthPolicies map[string]ServiceTypeDeltaHealthPolicy `pulumi:"serviceTypeDeltaHealthPolicies"`
+}
+
+// ApplicationDeltaHealthPolicyInput is an input type that accepts ApplicationDeltaHealthPolicyArgs and ApplicationDeltaHealthPolicyOutput values.
+// You can construct a concrete instance of `ApplicationDeltaHealthPolicyInput` via:
+//
+//          ApplicationDeltaHealthPolicyArgs{...}
+type ApplicationDeltaHealthPolicyInput interface {
+	pulumi.Input
+
+	ToApplicationDeltaHealthPolicyOutput() ApplicationDeltaHealthPolicyOutput
+	ToApplicationDeltaHealthPolicyOutputWithContext(context.Context) ApplicationDeltaHealthPolicyOutput
+}
+
+// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+type ApplicationDeltaHealthPolicyArgs struct {
+	// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
+	DefaultServiceTypeDeltaHealthPolicy ServiceTypeDeltaHealthPolicyPtrInput `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
+	// The map with service type delta health policy per service type name. The map is empty by default.
+	ServiceTypeDeltaHealthPolicies ServiceTypeDeltaHealthPolicyMapInput `pulumi:"serviceTypeDeltaHealthPolicies"`
+}
+
+func (ApplicationDeltaHealthPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (i ApplicationDeltaHealthPolicyArgs) ToApplicationDeltaHealthPolicyOutput() ApplicationDeltaHealthPolicyOutput {
+	return i.ToApplicationDeltaHealthPolicyOutputWithContext(context.Background())
+}
+
+func (i ApplicationDeltaHealthPolicyArgs) ToApplicationDeltaHealthPolicyOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyOutput)
 }
 
 // ApplicationDeltaHealthPolicyMapInput is an input type that accepts ApplicationDeltaHealthPolicyMap and ApplicationDeltaHealthPolicyMapOutput values.
@@ -28,74 +60,53 @@ type ApplicationDeltaHealthPolicyMapInput interface {
 	ToApplicationDeltaHealthPolicyMapOutputWithContext(context.Context) ApplicationDeltaHealthPolicyMapOutput
 }
 
-// Defines a map that contains specific application delta health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationDeltaHealthPolicyMapArgs struct {
+type ApplicationDeltaHealthPolicyMap map[string]ApplicationDeltaHealthPolicyInput
+
+func (ApplicationDeltaHealthPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApplicationDeltaHealthPolicy)(nil)).Elem()
 }
 
-func (ApplicationDeltaHealthPolicyMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDeltaHealthPolicyMap)(nil)).Elem()
-}
-
-func (i ApplicationDeltaHealthPolicyMapArgs) ToApplicationDeltaHealthPolicyMapOutput() ApplicationDeltaHealthPolicyMapOutput {
+func (i ApplicationDeltaHealthPolicyMap) ToApplicationDeltaHealthPolicyMapOutput() ApplicationDeltaHealthPolicyMapOutput {
 	return i.ToApplicationDeltaHealthPolicyMapOutputWithContext(context.Background())
 }
 
-func (i ApplicationDeltaHealthPolicyMapArgs) ToApplicationDeltaHealthPolicyMapOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapOutput {
+func (i ApplicationDeltaHealthPolicyMap) ToApplicationDeltaHealthPolicyMapOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyMapOutput)
 }
 
-func (i ApplicationDeltaHealthPolicyMapArgs) ToApplicationDeltaHealthPolicyMapPtrOutput() ApplicationDeltaHealthPolicyMapPtrOutput {
-	return i.ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(context.Background())
+// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+type ApplicationDeltaHealthPolicyOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDeltaHealthPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDeltaHealthPolicy)(nil)).Elem()
 }
 
-func (i ApplicationDeltaHealthPolicyMapArgs) ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyMapOutput).ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(ctx)
+func (o ApplicationDeltaHealthPolicyOutput) ToApplicationDeltaHealthPolicyOutput() ApplicationDeltaHealthPolicyOutput {
+	return o
 }
 
-// ApplicationDeltaHealthPolicyMapPtrInput is an input type that accepts ApplicationDeltaHealthPolicyMapArgs, ApplicationDeltaHealthPolicyMapPtr and ApplicationDeltaHealthPolicyMapPtrOutput values.
-// You can construct a concrete instance of `ApplicationDeltaHealthPolicyMapPtrInput` via:
-//
-//          ApplicationDeltaHealthPolicyMapArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationDeltaHealthPolicyMapPtrInput interface {
-	pulumi.Input
-
-	ToApplicationDeltaHealthPolicyMapPtrOutput() ApplicationDeltaHealthPolicyMapPtrOutput
-	ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(context.Context) ApplicationDeltaHealthPolicyMapPtrOutput
+func (o ApplicationDeltaHealthPolicyOutput) ToApplicationDeltaHealthPolicyOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyOutput {
+	return o
 }
 
-type applicationDeltaHealthPolicyMapPtrType ApplicationDeltaHealthPolicyMapArgs
-
-func ApplicationDeltaHealthPolicyMapPtr(v *ApplicationDeltaHealthPolicyMapArgs) ApplicationDeltaHealthPolicyMapPtrInput {
-	return (*applicationDeltaHealthPolicyMapPtrType)(v)
+// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
+func (o ApplicationDeltaHealthPolicyOutput) DefaultServiceTypeDeltaHealthPolicy() ServiceTypeDeltaHealthPolicyPtrOutput {
+	return o.ApplyT(func(v ApplicationDeltaHealthPolicy) *ServiceTypeDeltaHealthPolicy {
+		return v.DefaultServiceTypeDeltaHealthPolicy
+	}).(ServiceTypeDeltaHealthPolicyPtrOutput)
 }
 
-func (*applicationDeltaHealthPolicyMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationDeltaHealthPolicyMap)(nil)).Elem()
+// The map with service type delta health policy per service type name. The map is empty by default.
+func (o ApplicationDeltaHealthPolicyOutput) ServiceTypeDeltaHealthPolicies() ServiceTypeDeltaHealthPolicyMapOutput {
+	return o.ApplyT(func(v ApplicationDeltaHealthPolicy) map[string]ServiceTypeDeltaHealthPolicy {
+		return v.ServiceTypeDeltaHealthPolicies
+	}).(ServiceTypeDeltaHealthPolicyMapOutput)
 }
 
-func (i *applicationDeltaHealthPolicyMapPtrType) ToApplicationDeltaHealthPolicyMapPtrOutput() ApplicationDeltaHealthPolicyMapPtrOutput {
-	return i.ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationDeltaHealthPolicyMapPtrType) ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyMapPtrOutput)
-}
-
-// Defines a map that contains specific application delta health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
 type ApplicationDeltaHealthPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ApplicationDeltaHealthPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDeltaHealthPolicyMap)(nil)).Elem()
+	return reflect.TypeOf((*map[string]ApplicationDeltaHealthPolicy)(nil)).Elem()
 }
 
 func (o ApplicationDeltaHealthPolicyMapOutput) ToApplicationDeltaHealthPolicyMapOutput() ApplicationDeltaHealthPolicyMapOutput {
@@ -106,163 +117,162 @@ func (o ApplicationDeltaHealthPolicyMapOutput) ToApplicationDeltaHealthPolicyMap
 	return o
 }
 
-func (o ApplicationDeltaHealthPolicyMapOutput) ToApplicationDeltaHealthPolicyMapPtrOutput() ApplicationDeltaHealthPolicyMapPtrOutput {
-	return o.ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(context.Background())
+func (o ApplicationDeltaHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) ApplicationDeltaHealthPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationDeltaHealthPolicy {
+		return vs[0].(map[string]ApplicationDeltaHealthPolicy)[vs[1].(string)]
+	}).(ApplicationDeltaHealthPolicyOutput)
 }
 
-func (o ApplicationDeltaHealthPolicyMapOutput) ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapPtrOutput {
-	return o.ApplyT(func(v ApplicationDeltaHealthPolicyMap) *ApplicationDeltaHealthPolicyMap {
-		return &v
-	}).(ApplicationDeltaHealthPolicyMapPtrOutput)
+// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+type ApplicationDeltaHealthPolicyResponse struct {
+	// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
+	DefaultServiceTypeDeltaHealthPolicy *ServiceTypeDeltaHealthPolicyResponse `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
+	// The map with service type delta health policy per service type name. The map is empty by default.
+	ServiceTypeDeltaHealthPolicies map[string]ServiceTypeDeltaHealthPolicyResponse `pulumi:"serviceTypeDeltaHealthPolicies"`
 }
 
-type ApplicationDeltaHealthPolicyMapPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationDeltaHealthPolicyMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationDeltaHealthPolicyMap)(nil)).Elem()
-}
-
-func (o ApplicationDeltaHealthPolicyMapPtrOutput) ToApplicationDeltaHealthPolicyMapPtrOutput() ApplicationDeltaHealthPolicyMapPtrOutput {
-	return o
-}
-
-func (o ApplicationDeltaHealthPolicyMapPtrOutput) ToApplicationDeltaHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapPtrOutput {
-	return o
-}
-
-func (o ApplicationDeltaHealthPolicyMapPtrOutput) Elem() ApplicationDeltaHealthPolicyMapOutput {
-	return o.ApplyT(func(v *ApplicationDeltaHealthPolicyMap) ApplicationDeltaHealthPolicyMap { return *v }).(ApplicationDeltaHealthPolicyMapOutput)
-}
-
-// Defines a map that contains specific application delta health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationDeltaHealthPolicyMapResponse struct {
-}
-
-// ApplicationDeltaHealthPolicyMapResponseInput is an input type that accepts ApplicationDeltaHealthPolicyMapResponseArgs and ApplicationDeltaHealthPolicyMapResponseOutput values.
-// You can construct a concrete instance of `ApplicationDeltaHealthPolicyMapResponseInput` via:
+// ApplicationDeltaHealthPolicyResponseInput is an input type that accepts ApplicationDeltaHealthPolicyResponseArgs and ApplicationDeltaHealthPolicyResponseOutput values.
+// You can construct a concrete instance of `ApplicationDeltaHealthPolicyResponseInput` via:
 //
-//          ApplicationDeltaHealthPolicyMapResponseArgs{...}
-type ApplicationDeltaHealthPolicyMapResponseInput interface {
+//          ApplicationDeltaHealthPolicyResponseArgs{...}
+type ApplicationDeltaHealthPolicyResponseInput interface {
 	pulumi.Input
 
-	ToApplicationDeltaHealthPolicyMapResponseOutput() ApplicationDeltaHealthPolicyMapResponseOutput
-	ToApplicationDeltaHealthPolicyMapResponseOutputWithContext(context.Context) ApplicationDeltaHealthPolicyMapResponseOutput
+	ToApplicationDeltaHealthPolicyResponseOutput() ApplicationDeltaHealthPolicyResponseOutput
+	ToApplicationDeltaHealthPolicyResponseOutputWithContext(context.Context) ApplicationDeltaHealthPolicyResponseOutput
 }
 
-// Defines a map that contains specific application delta health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationDeltaHealthPolicyMapResponseArgs struct {
+// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+type ApplicationDeltaHealthPolicyResponseArgs struct {
+	// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
+	DefaultServiceTypeDeltaHealthPolicy ServiceTypeDeltaHealthPolicyResponsePtrInput `pulumi:"defaultServiceTypeDeltaHealthPolicy"`
+	// The map with service type delta health policy per service type name. The map is empty by default.
+	ServiceTypeDeltaHealthPolicies ServiceTypeDeltaHealthPolicyResponseMapInput `pulumi:"serviceTypeDeltaHealthPolicies"`
 }
 
-func (ApplicationDeltaHealthPolicyMapResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDeltaHealthPolicyMapResponse)(nil)).Elem()
+func (ApplicationDeltaHealthPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDeltaHealthPolicyResponse)(nil)).Elem()
 }
 
-func (i ApplicationDeltaHealthPolicyMapResponseArgs) ToApplicationDeltaHealthPolicyMapResponseOutput() ApplicationDeltaHealthPolicyMapResponseOutput {
-	return i.ToApplicationDeltaHealthPolicyMapResponseOutputWithContext(context.Background())
+func (i ApplicationDeltaHealthPolicyResponseArgs) ToApplicationDeltaHealthPolicyResponseOutput() ApplicationDeltaHealthPolicyResponseOutput {
+	return i.ToApplicationDeltaHealthPolicyResponseOutputWithContext(context.Background())
 }
 
-func (i ApplicationDeltaHealthPolicyMapResponseArgs) ToApplicationDeltaHealthPolicyMapResponseOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyMapResponseOutput)
+func (i ApplicationDeltaHealthPolicyResponseArgs) ToApplicationDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyResponseOutput)
 }
 
-func (i ApplicationDeltaHealthPolicyMapResponseArgs) ToApplicationDeltaHealthPolicyMapResponsePtrOutput() ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return i.ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationDeltaHealthPolicyMapResponseArgs) ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyMapResponseOutput).ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(ctx)
-}
-
-// ApplicationDeltaHealthPolicyMapResponsePtrInput is an input type that accepts ApplicationDeltaHealthPolicyMapResponseArgs, ApplicationDeltaHealthPolicyMapResponsePtr and ApplicationDeltaHealthPolicyMapResponsePtrOutput values.
-// You can construct a concrete instance of `ApplicationDeltaHealthPolicyMapResponsePtrInput` via:
+// ApplicationDeltaHealthPolicyResponseMapInput is an input type that accepts ApplicationDeltaHealthPolicyResponseMap and ApplicationDeltaHealthPolicyResponseMapOutput values.
+// You can construct a concrete instance of `ApplicationDeltaHealthPolicyResponseMapInput` via:
 //
-//          ApplicationDeltaHealthPolicyMapResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationDeltaHealthPolicyMapResponsePtrInput interface {
+//          ApplicationDeltaHealthPolicyResponseMap{ "key": ApplicationDeltaHealthPolicyResponseArgs{...} }
+type ApplicationDeltaHealthPolicyResponseMapInput interface {
 	pulumi.Input
 
-	ToApplicationDeltaHealthPolicyMapResponsePtrOutput() ApplicationDeltaHealthPolicyMapResponsePtrOutput
-	ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(context.Context) ApplicationDeltaHealthPolicyMapResponsePtrOutput
+	ToApplicationDeltaHealthPolicyResponseMapOutput() ApplicationDeltaHealthPolicyResponseMapOutput
+	ToApplicationDeltaHealthPolicyResponseMapOutputWithContext(context.Context) ApplicationDeltaHealthPolicyResponseMapOutput
 }
 
-type applicationDeltaHealthPolicyMapResponsePtrType ApplicationDeltaHealthPolicyMapResponseArgs
+type ApplicationDeltaHealthPolicyResponseMap map[string]ApplicationDeltaHealthPolicyResponseInput
 
-func ApplicationDeltaHealthPolicyMapResponsePtr(v *ApplicationDeltaHealthPolicyMapResponseArgs) ApplicationDeltaHealthPolicyMapResponsePtrInput {
-	return (*applicationDeltaHealthPolicyMapResponsePtrType)(v)
+func (ApplicationDeltaHealthPolicyResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApplicationDeltaHealthPolicyResponse)(nil)).Elem()
 }
 
-func (*applicationDeltaHealthPolicyMapResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationDeltaHealthPolicyMapResponse)(nil)).Elem()
+func (i ApplicationDeltaHealthPolicyResponseMap) ToApplicationDeltaHealthPolicyResponseMapOutput() ApplicationDeltaHealthPolicyResponseMapOutput {
+	return i.ToApplicationDeltaHealthPolicyResponseMapOutputWithContext(context.Background())
 }
 
-func (i *applicationDeltaHealthPolicyMapResponsePtrType) ToApplicationDeltaHealthPolicyMapResponsePtrOutput() ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return i.ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(context.Background())
+func (i ApplicationDeltaHealthPolicyResponseMap) ToApplicationDeltaHealthPolicyResponseMapOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyResponseMapOutput)
 }
 
-func (i *applicationDeltaHealthPolicyMapResponsePtrType) ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDeltaHealthPolicyMapResponsePtrOutput)
+// Defines a delta health policy used to evaluate the health of an application or one of its child entities when upgrading the cluster.
+type ApplicationDeltaHealthPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDeltaHealthPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDeltaHealthPolicyResponse)(nil)).Elem()
 }
 
-// Defines a map that contains specific application delta health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationDeltaHealthPolicy used to evaluate the application health when upgrading the cluster.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationDeltaHealthPolicyMapResponseOutput struct{ *pulumi.OutputState }
-
-func (ApplicationDeltaHealthPolicyMapResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationDeltaHealthPolicyMapResponse)(nil)).Elem()
-}
-
-func (o ApplicationDeltaHealthPolicyMapResponseOutput) ToApplicationDeltaHealthPolicyMapResponseOutput() ApplicationDeltaHealthPolicyMapResponseOutput {
+func (o ApplicationDeltaHealthPolicyResponseOutput) ToApplicationDeltaHealthPolicyResponseOutput() ApplicationDeltaHealthPolicyResponseOutput {
 	return o
 }
 
-func (o ApplicationDeltaHealthPolicyMapResponseOutput) ToApplicationDeltaHealthPolicyMapResponseOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapResponseOutput {
+func (o ApplicationDeltaHealthPolicyResponseOutput) ToApplicationDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyResponseOutput {
 	return o
 }
 
-func (o ApplicationDeltaHealthPolicyMapResponseOutput) ToApplicationDeltaHealthPolicyMapResponsePtrOutput() ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return o.ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(context.Background())
+// The delta health policy used by default to evaluate the health of a service type when upgrading the cluster.
+func (o ApplicationDeltaHealthPolicyResponseOutput) DefaultServiceTypeDeltaHealthPolicy() ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationDeltaHealthPolicyResponse) *ServiceTypeDeltaHealthPolicyResponse {
+		return v.DefaultServiceTypeDeltaHealthPolicy
+	}).(ServiceTypeDeltaHealthPolicyResponsePtrOutput)
 }
 
-func (o ApplicationDeltaHealthPolicyMapResponseOutput) ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationDeltaHealthPolicyMapResponse) *ApplicationDeltaHealthPolicyMapResponse {
-		return &v
-	}).(ApplicationDeltaHealthPolicyMapResponsePtrOutput)
+// The map with service type delta health policy per service type name. The map is empty by default.
+func (o ApplicationDeltaHealthPolicyResponseOutput) ServiceTypeDeltaHealthPolicies() ServiceTypeDeltaHealthPolicyResponseMapOutput {
+	return o.ApplyT(func(v ApplicationDeltaHealthPolicyResponse) map[string]ServiceTypeDeltaHealthPolicyResponse {
+		return v.ServiceTypeDeltaHealthPolicies
+	}).(ServiceTypeDeltaHealthPolicyResponseMapOutput)
 }
 
-type ApplicationDeltaHealthPolicyMapResponsePtrOutput struct{ *pulumi.OutputState }
+type ApplicationDeltaHealthPolicyResponseMapOutput struct{ *pulumi.OutputState }
 
-func (ApplicationDeltaHealthPolicyMapResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationDeltaHealthPolicyMapResponse)(nil)).Elem()
+func (ApplicationDeltaHealthPolicyResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApplicationDeltaHealthPolicyResponse)(nil)).Elem()
 }
 
-func (o ApplicationDeltaHealthPolicyMapResponsePtrOutput) ToApplicationDeltaHealthPolicyMapResponsePtrOutput() ApplicationDeltaHealthPolicyMapResponsePtrOutput {
+func (o ApplicationDeltaHealthPolicyResponseMapOutput) ToApplicationDeltaHealthPolicyResponseMapOutput() ApplicationDeltaHealthPolicyResponseMapOutput {
 	return o
 }
 
-func (o ApplicationDeltaHealthPolicyMapResponsePtrOutput) ToApplicationDeltaHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyMapResponsePtrOutput {
+func (o ApplicationDeltaHealthPolicyResponseMapOutput) ToApplicationDeltaHealthPolicyResponseMapOutputWithContext(ctx context.Context) ApplicationDeltaHealthPolicyResponseMapOutput {
 	return o
 }
 
-func (o ApplicationDeltaHealthPolicyMapResponsePtrOutput) Elem() ApplicationDeltaHealthPolicyMapResponseOutput {
-	return o.ApplyT(func(v *ApplicationDeltaHealthPolicyMapResponse) ApplicationDeltaHealthPolicyMapResponse { return *v }).(ApplicationDeltaHealthPolicyMapResponseOutput)
+func (o ApplicationDeltaHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInput) ApplicationDeltaHealthPolicyResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationDeltaHealthPolicyResponse {
+		return vs[0].(map[string]ApplicationDeltaHealthPolicyResponse)[vs[1].(string)]
+	}).(ApplicationDeltaHealthPolicyResponseOutput)
 }
 
-// Defines a map that contains specific application health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationHealthPolicy used to evaluate the application health.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationHealthPolicyMap struct {
+// Defines a health policy used to evaluate the health of an application or one of its children entities.
+type ApplicationHealthPolicy struct {
+	// The health policy used by default to evaluate the health of a service type.
+	DefaultServiceTypeHealthPolicy *ServiceTypeHealthPolicy `pulumi:"defaultServiceTypeHealthPolicy"`
+	// The map with service type health policy per service type name. The map is empty by default.
+	ServiceTypeHealthPolicies map[string]ServiceTypeHealthPolicy `pulumi:"serviceTypeHealthPolicies"`
+}
+
+// ApplicationHealthPolicyInput is an input type that accepts ApplicationHealthPolicyArgs and ApplicationHealthPolicyOutput values.
+// You can construct a concrete instance of `ApplicationHealthPolicyInput` via:
+//
+//          ApplicationHealthPolicyArgs{...}
+type ApplicationHealthPolicyInput interface {
+	pulumi.Input
+
+	ToApplicationHealthPolicyOutput() ApplicationHealthPolicyOutput
+	ToApplicationHealthPolicyOutputWithContext(context.Context) ApplicationHealthPolicyOutput
+}
+
+// Defines a health policy used to evaluate the health of an application or one of its children entities.
+type ApplicationHealthPolicyArgs struct {
+	// The health policy used by default to evaluate the health of a service type.
+	DefaultServiceTypeHealthPolicy ServiceTypeHealthPolicyPtrInput `pulumi:"defaultServiceTypeHealthPolicy"`
+	// The map with service type health policy per service type name. The map is empty by default.
+	ServiceTypeHealthPolicies ServiceTypeHealthPolicyMapInput `pulumi:"serviceTypeHealthPolicies"`
+}
+
+func (ApplicationHealthPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationHealthPolicy)(nil)).Elem()
+}
+
+func (i ApplicationHealthPolicyArgs) ToApplicationHealthPolicyOutput() ApplicationHealthPolicyOutput {
+	return i.ToApplicationHealthPolicyOutputWithContext(context.Background())
+}
+
+func (i ApplicationHealthPolicyArgs) ToApplicationHealthPolicyOutputWithContext(ctx context.Context) ApplicationHealthPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyOutput)
 }
 
 // ApplicationHealthPolicyMapInput is an input type that accepts ApplicationHealthPolicyMap and ApplicationHealthPolicyMapOutput values.
@@ -276,74 +286,49 @@ type ApplicationHealthPolicyMapInput interface {
 	ToApplicationHealthPolicyMapOutputWithContext(context.Context) ApplicationHealthPolicyMapOutput
 }
 
-// Defines a map that contains specific application health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationHealthPolicy used to evaluate the application health.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationHealthPolicyMapArgs struct {
+type ApplicationHealthPolicyMap map[string]ApplicationHealthPolicyInput
+
+func (ApplicationHealthPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApplicationHealthPolicy)(nil)).Elem()
 }
 
-func (ApplicationHealthPolicyMapArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationHealthPolicyMap)(nil)).Elem()
-}
-
-func (i ApplicationHealthPolicyMapArgs) ToApplicationHealthPolicyMapOutput() ApplicationHealthPolicyMapOutput {
+func (i ApplicationHealthPolicyMap) ToApplicationHealthPolicyMapOutput() ApplicationHealthPolicyMapOutput {
 	return i.ToApplicationHealthPolicyMapOutputWithContext(context.Background())
 }
 
-func (i ApplicationHealthPolicyMapArgs) ToApplicationHealthPolicyMapOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapOutput {
+func (i ApplicationHealthPolicyMap) ToApplicationHealthPolicyMapOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyMapOutput)
 }
 
-func (i ApplicationHealthPolicyMapArgs) ToApplicationHealthPolicyMapPtrOutput() ApplicationHealthPolicyMapPtrOutput {
-	return i.ToApplicationHealthPolicyMapPtrOutputWithContext(context.Background())
+// Defines a health policy used to evaluate the health of an application or one of its children entities.
+type ApplicationHealthPolicyOutput struct{ *pulumi.OutputState }
+
+func (ApplicationHealthPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationHealthPolicy)(nil)).Elem()
 }
 
-func (i ApplicationHealthPolicyMapArgs) ToApplicationHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyMapOutput).ToApplicationHealthPolicyMapPtrOutputWithContext(ctx)
+func (o ApplicationHealthPolicyOutput) ToApplicationHealthPolicyOutput() ApplicationHealthPolicyOutput {
+	return o
 }
 
-// ApplicationHealthPolicyMapPtrInput is an input type that accepts ApplicationHealthPolicyMapArgs, ApplicationHealthPolicyMapPtr and ApplicationHealthPolicyMapPtrOutput values.
-// You can construct a concrete instance of `ApplicationHealthPolicyMapPtrInput` via:
-//
-//          ApplicationHealthPolicyMapArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationHealthPolicyMapPtrInput interface {
-	pulumi.Input
-
-	ToApplicationHealthPolicyMapPtrOutput() ApplicationHealthPolicyMapPtrOutput
-	ToApplicationHealthPolicyMapPtrOutputWithContext(context.Context) ApplicationHealthPolicyMapPtrOutput
+func (o ApplicationHealthPolicyOutput) ToApplicationHealthPolicyOutputWithContext(ctx context.Context) ApplicationHealthPolicyOutput {
+	return o
 }
 
-type applicationHealthPolicyMapPtrType ApplicationHealthPolicyMapArgs
-
-func ApplicationHealthPolicyMapPtr(v *ApplicationHealthPolicyMapArgs) ApplicationHealthPolicyMapPtrInput {
-	return (*applicationHealthPolicyMapPtrType)(v)
+// The health policy used by default to evaluate the health of a service type.
+func (o ApplicationHealthPolicyOutput) DefaultServiceTypeHealthPolicy() ServiceTypeHealthPolicyPtrOutput {
+	return o.ApplyT(func(v ApplicationHealthPolicy) *ServiceTypeHealthPolicy { return v.DefaultServiceTypeHealthPolicy }).(ServiceTypeHealthPolicyPtrOutput)
 }
 
-func (*applicationHealthPolicyMapPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationHealthPolicyMap)(nil)).Elem()
+// The map with service type health policy per service type name. The map is empty by default.
+func (o ApplicationHealthPolicyOutput) ServiceTypeHealthPolicies() ServiceTypeHealthPolicyMapOutput {
+	return o.ApplyT(func(v ApplicationHealthPolicy) map[string]ServiceTypeHealthPolicy { return v.ServiceTypeHealthPolicies }).(ServiceTypeHealthPolicyMapOutput)
 }
 
-func (i *applicationHealthPolicyMapPtrType) ToApplicationHealthPolicyMapPtrOutput() ApplicationHealthPolicyMapPtrOutput {
-	return i.ToApplicationHealthPolicyMapPtrOutputWithContext(context.Background())
-}
-
-func (i *applicationHealthPolicyMapPtrType) ToApplicationHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyMapPtrOutput)
-}
-
-// Defines a map that contains specific application health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationHealthPolicy used to evaluate the application health.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
 type ApplicationHealthPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ApplicationHealthPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationHealthPolicyMap)(nil)).Elem()
+	return reflect.TypeOf((*map[string]ApplicationHealthPolicy)(nil)).Elem()
 }
 
 func (o ApplicationHealthPolicyMapOutput) ToApplicationHealthPolicyMapOutput() ApplicationHealthPolicyMapOutput {
@@ -354,156 +339,123 @@ func (o ApplicationHealthPolicyMapOutput) ToApplicationHealthPolicyMapOutputWith
 	return o
 }
 
-func (o ApplicationHealthPolicyMapOutput) ToApplicationHealthPolicyMapPtrOutput() ApplicationHealthPolicyMapPtrOutput {
-	return o.ToApplicationHealthPolicyMapPtrOutputWithContext(context.Background())
+func (o ApplicationHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) ApplicationHealthPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationHealthPolicy {
+		return vs[0].(map[string]ApplicationHealthPolicy)[vs[1].(string)]
+	}).(ApplicationHealthPolicyOutput)
 }
 
-func (o ApplicationHealthPolicyMapOutput) ToApplicationHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapPtrOutput {
-	return o.ApplyT(func(v ApplicationHealthPolicyMap) *ApplicationHealthPolicyMap {
-		return &v
-	}).(ApplicationHealthPolicyMapPtrOutput)
+// Defines a health policy used to evaluate the health of an application or one of its children entities.
+type ApplicationHealthPolicyResponse struct {
+	// The health policy used by default to evaluate the health of a service type.
+	DefaultServiceTypeHealthPolicy *ServiceTypeHealthPolicyResponse `pulumi:"defaultServiceTypeHealthPolicy"`
+	// The map with service type health policy per service type name. The map is empty by default.
+	ServiceTypeHealthPolicies map[string]ServiceTypeHealthPolicyResponse `pulumi:"serviceTypeHealthPolicies"`
 }
 
-type ApplicationHealthPolicyMapPtrOutput struct{ *pulumi.OutputState }
-
-func (ApplicationHealthPolicyMapPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationHealthPolicyMap)(nil)).Elem()
-}
-
-func (o ApplicationHealthPolicyMapPtrOutput) ToApplicationHealthPolicyMapPtrOutput() ApplicationHealthPolicyMapPtrOutput {
-	return o
-}
-
-func (o ApplicationHealthPolicyMapPtrOutput) ToApplicationHealthPolicyMapPtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapPtrOutput {
-	return o
-}
-
-func (o ApplicationHealthPolicyMapPtrOutput) Elem() ApplicationHealthPolicyMapOutput {
-	return o.ApplyT(func(v *ApplicationHealthPolicyMap) ApplicationHealthPolicyMap { return *v }).(ApplicationHealthPolicyMapOutput)
-}
-
-// Defines a map that contains specific application health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationHealthPolicy used to evaluate the application health.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationHealthPolicyMapResponse struct {
-}
-
-// ApplicationHealthPolicyMapResponseInput is an input type that accepts ApplicationHealthPolicyMapResponseArgs and ApplicationHealthPolicyMapResponseOutput values.
-// You can construct a concrete instance of `ApplicationHealthPolicyMapResponseInput` via:
+// ApplicationHealthPolicyResponseInput is an input type that accepts ApplicationHealthPolicyResponseArgs and ApplicationHealthPolicyResponseOutput values.
+// You can construct a concrete instance of `ApplicationHealthPolicyResponseInput` via:
 //
-//          ApplicationHealthPolicyMapResponseArgs{...}
-type ApplicationHealthPolicyMapResponseInput interface {
+//          ApplicationHealthPolicyResponseArgs{...}
+type ApplicationHealthPolicyResponseInput interface {
 	pulumi.Input
 
-	ToApplicationHealthPolicyMapResponseOutput() ApplicationHealthPolicyMapResponseOutput
-	ToApplicationHealthPolicyMapResponseOutputWithContext(context.Context) ApplicationHealthPolicyMapResponseOutput
+	ToApplicationHealthPolicyResponseOutput() ApplicationHealthPolicyResponseOutput
+	ToApplicationHealthPolicyResponseOutputWithContext(context.Context) ApplicationHealthPolicyResponseOutput
 }
 
-// Defines a map that contains specific application health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationHealthPolicy used to evaluate the application health.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationHealthPolicyMapResponseArgs struct {
+// Defines a health policy used to evaluate the health of an application or one of its children entities.
+type ApplicationHealthPolicyResponseArgs struct {
+	// The health policy used by default to evaluate the health of a service type.
+	DefaultServiceTypeHealthPolicy ServiceTypeHealthPolicyResponsePtrInput `pulumi:"defaultServiceTypeHealthPolicy"`
+	// The map with service type health policy per service type name. The map is empty by default.
+	ServiceTypeHealthPolicies ServiceTypeHealthPolicyResponseMapInput `pulumi:"serviceTypeHealthPolicies"`
 }
 
-func (ApplicationHealthPolicyMapResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationHealthPolicyMapResponse)(nil)).Elem()
+func (ApplicationHealthPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationHealthPolicyResponse)(nil)).Elem()
 }
 
-func (i ApplicationHealthPolicyMapResponseArgs) ToApplicationHealthPolicyMapResponseOutput() ApplicationHealthPolicyMapResponseOutput {
-	return i.ToApplicationHealthPolicyMapResponseOutputWithContext(context.Background())
+func (i ApplicationHealthPolicyResponseArgs) ToApplicationHealthPolicyResponseOutput() ApplicationHealthPolicyResponseOutput {
+	return i.ToApplicationHealthPolicyResponseOutputWithContext(context.Background())
 }
 
-func (i ApplicationHealthPolicyMapResponseArgs) ToApplicationHealthPolicyMapResponseOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyMapResponseOutput)
+func (i ApplicationHealthPolicyResponseArgs) ToApplicationHealthPolicyResponseOutputWithContext(ctx context.Context) ApplicationHealthPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyResponseOutput)
 }
 
-func (i ApplicationHealthPolicyMapResponseArgs) ToApplicationHealthPolicyMapResponsePtrOutput() ApplicationHealthPolicyMapResponsePtrOutput {
-	return i.ToApplicationHealthPolicyMapResponsePtrOutputWithContext(context.Background())
-}
-
-func (i ApplicationHealthPolicyMapResponseArgs) ToApplicationHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyMapResponseOutput).ToApplicationHealthPolicyMapResponsePtrOutputWithContext(ctx)
-}
-
-// ApplicationHealthPolicyMapResponsePtrInput is an input type that accepts ApplicationHealthPolicyMapResponseArgs, ApplicationHealthPolicyMapResponsePtr and ApplicationHealthPolicyMapResponsePtrOutput values.
-// You can construct a concrete instance of `ApplicationHealthPolicyMapResponsePtrInput` via:
+// ApplicationHealthPolicyResponseMapInput is an input type that accepts ApplicationHealthPolicyResponseMap and ApplicationHealthPolicyResponseMapOutput values.
+// You can construct a concrete instance of `ApplicationHealthPolicyResponseMapInput` via:
 //
-//          ApplicationHealthPolicyMapResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type ApplicationHealthPolicyMapResponsePtrInput interface {
+//          ApplicationHealthPolicyResponseMap{ "key": ApplicationHealthPolicyResponseArgs{...} }
+type ApplicationHealthPolicyResponseMapInput interface {
 	pulumi.Input
 
-	ToApplicationHealthPolicyMapResponsePtrOutput() ApplicationHealthPolicyMapResponsePtrOutput
-	ToApplicationHealthPolicyMapResponsePtrOutputWithContext(context.Context) ApplicationHealthPolicyMapResponsePtrOutput
+	ToApplicationHealthPolicyResponseMapOutput() ApplicationHealthPolicyResponseMapOutput
+	ToApplicationHealthPolicyResponseMapOutputWithContext(context.Context) ApplicationHealthPolicyResponseMapOutput
 }
 
-type applicationHealthPolicyMapResponsePtrType ApplicationHealthPolicyMapResponseArgs
+type ApplicationHealthPolicyResponseMap map[string]ApplicationHealthPolicyResponseInput
 
-func ApplicationHealthPolicyMapResponsePtr(v *ApplicationHealthPolicyMapResponseArgs) ApplicationHealthPolicyMapResponsePtrInput {
-	return (*applicationHealthPolicyMapResponsePtrType)(v)
+func (ApplicationHealthPolicyResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApplicationHealthPolicyResponse)(nil)).Elem()
 }
 
-func (*applicationHealthPolicyMapResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationHealthPolicyMapResponse)(nil)).Elem()
+func (i ApplicationHealthPolicyResponseMap) ToApplicationHealthPolicyResponseMapOutput() ApplicationHealthPolicyResponseMapOutput {
+	return i.ToApplicationHealthPolicyResponseMapOutputWithContext(context.Background())
 }
 
-func (i *applicationHealthPolicyMapResponsePtrType) ToApplicationHealthPolicyMapResponsePtrOutput() ApplicationHealthPolicyMapResponsePtrOutput {
-	return i.ToApplicationHealthPolicyMapResponsePtrOutputWithContext(context.Background())
+func (i ApplicationHealthPolicyResponseMap) ToApplicationHealthPolicyResponseMapOutputWithContext(ctx context.Context) ApplicationHealthPolicyResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyResponseMapOutput)
 }
 
-func (i *applicationHealthPolicyMapResponsePtrType) ToApplicationHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationHealthPolicyMapResponsePtrOutput)
+// Defines a health policy used to evaluate the health of an application or one of its children entities.
+type ApplicationHealthPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (ApplicationHealthPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationHealthPolicyResponse)(nil)).Elem()
 }
 
-// Defines a map that contains specific application health policies for different applications.
-// Each entry specifies as key the application name and as value an ApplicationHealthPolicy used to evaluate the application health.
-// The application name should include the 'fabric:' URI scheme.
-// The map is empty by default.
-type ApplicationHealthPolicyMapResponseOutput struct{ *pulumi.OutputState }
-
-func (ApplicationHealthPolicyMapResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationHealthPolicyMapResponse)(nil)).Elem()
-}
-
-func (o ApplicationHealthPolicyMapResponseOutput) ToApplicationHealthPolicyMapResponseOutput() ApplicationHealthPolicyMapResponseOutput {
+func (o ApplicationHealthPolicyResponseOutput) ToApplicationHealthPolicyResponseOutput() ApplicationHealthPolicyResponseOutput {
 	return o
 }
 
-func (o ApplicationHealthPolicyMapResponseOutput) ToApplicationHealthPolicyMapResponseOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapResponseOutput {
+func (o ApplicationHealthPolicyResponseOutput) ToApplicationHealthPolicyResponseOutputWithContext(ctx context.Context) ApplicationHealthPolicyResponseOutput {
 	return o
 }
 
-func (o ApplicationHealthPolicyMapResponseOutput) ToApplicationHealthPolicyMapResponsePtrOutput() ApplicationHealthPolicyMapResponsePtrOutput {
-	return o.ToApplicationHealthPolicyMapResponsePtrOutputWithContext(context.Background())
+// The health policy used by default to evaluate the health of a service type.
+func (o ApplicationHealthPolicyResponseOutput) DefaultServiceTypeHealthPolicy() ServiceTypeHealthPolicyResponsePtrOutput {
+	return o.ApplyT(func(v ApplicationHealthPolicyResponse) *ServiceTypeHealthPolicyResponse {
+		return v.DefaultServiceTypeHealthPolicy
+	}).(ServiceTypeHealthPolicyResponsePtrOutput)
 }
 
-func (o ApplicationHealthPolicyMapResponseOutput) ToApplicationHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapResponsePtrOutput {
-	return o.ApplyT(func(v ApplicationHealthPolicyMapResponse) *ApplicationHealthPolicyMapResponse {
-		return &v
-	}).(ApplicationHealthPolicyMapResponsePtrOutput)
+// The map with service type health policy per service type name. The map is empty by default.
+func (o ApplicationHealthPolicyResponseOutput) ServiceTypeHealthPolicies() ServiceTypeHealthPolicyResponseMapOutput {
+	return o.ApplyT(func(v ApplicationHealthPolicyResponse) map[string]ServiceTypeHealthPolicyResponse {
+		return v.ServiceTypeHealthPolicies
+	}).(ServiceTypeHealthPolicyResponseMapOutput)
 }
 
-type ApplicationHealthPolicyMapResponsePtrOutput struct{ *pulumi.OutputState }
+type ApplicationHealthPolicyResponseMapOutput struct{ *pulumi.OutputState }
 
-func (ApplicationHealthPolicyMapResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ApplicationHealthPolicyMapResponse)(nil)).Elem()
+func (ApplicationHealthPolicyResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ApplicationHealthPolicyResponse)(nil)).Elem()
 }
 
-func (o ApplicationHealthPolicyMapResponsePtrOutput) ToApplicationHealthPolicyMapResponsePtrOutput() ApplicationHealthPolicyMapResponsePtrOutput {
+func (o ApplicationHealthPolicyResponseMapOutput) ToApplicationHealthPolicyResponseMapOutput() ApplicationHealthPolicyResponseMapOutput {
 	return o
 }
 
-func (o ApplicationHealthPolicyMapResponsePtrOutput) ToApplicationHealthPolicyMapResponsePtrOutputWithContext(ctx context.Context) ApplicationHealthPolicyMapResponsePtrOutput {
+func (o ApplicationHealthPolicyResponseMapOutput) ToApplicationHealthPolicyResponseMapOutputWithContext(ctx context.Context) ApplicationHealthPolicyResponseMapOutput {
 	return o
 }
 
-func (o ApplicationHealthPolicyMapResponsePtrOutput) Elem() ApplicationHealthPolicyMapResponseOutput {
-	return o.ApplyT(func(v *ApplicationHealthPolicyMapResponse) ApplicationHealthPolicyMapResponse { return *v }).(ApplicationHealthPolicyMapResponseOutput)
+func (o ApplicationHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInput) ApplicationHealthPolicyResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ApplicationHealthPolicyResponse {
+		return vs[0].(map[string]ApplicationHealthPolicyResponse)[vs[1].(string)]
+	}).(ApplicationHealthPolicyResponseOutput)
 }
 
 // The settings to enable AAD authentication on the cluster.
@@ -1648,101 +1600,10 @@ func (o ClientCertificateThumbprintResponseArrayOutput) Index(i pulumi.IntInput)
 	}).(ClientCertificateThumbprintResponseOutput)
 }
 
-// The cluster resource
-type ClusterType struct {
-	// Azure resource location.
-	Location string `pulumi:"location"`
-	// Azure resource name.
-	Name string `pulumi:"name"`
-	// The cluster resource properties
-	Properties ClusterPropertiesResponse `pulumi:"properties"`
-	// Azure resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Azure resource type.
-	Type string `pulumi:"type"`
-}
-
-// ClusterTypeInput is an input type that accepts ClusterTypeArgs and ClusterTypeOutput values.
-// You can construct a concrete instance of `ClusterTypeInput` via:
-//
-//          ClusterTypeArgs{...}
-type ClusterTypeInput interface {
-	pulumi.Input
-
-	ToClusterTypeOutput() ClusterTypeOutput
-	ToClusterTypeOutputWithContext(context.Context) ClusterTypeOutput
-}
-
-// The cluster resource
-type ClusterTypeArgs struct {
-	// Azure resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Azure resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The cluster resource properties
-	Properties ClusterPropertiesResponseInput `pulumi:"properties"`
-	// Azure resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Azure resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterType)(nil)).Elem()
-}
-
-func (i ClusterTypeArgs) ToClusterTypeOutput() ClusterTypeOutput {
-	return i.ToClusterTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterTypeArgs) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterTypeOutput)
-}
-
-// The cluster resource
-type ClusterTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterType)(nil)).Elem()
-}
-
-func (o ClusterTypeOutput) ToClusterTypeOutput() ClusterTypeOutput {
-	return o
-}
-
-func (o ClusterTypeOutput) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
-	return o
-}
-
-// Azure resource location.
-func (o ClusterTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Azure resource name.
-func (o ClusterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The cluster resource properties
-func (o ClusterTypeOutput) Properties() ClusterPropertiesResponseOutput {
-	return o.ApplyT(func(v ClusterType) ClusterPropertiesResponse { return v.Properties }).(ClusterPropertiesResponseOutput)
-}
-
-// Azure resource tags.
-func (o ClusterTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ClusterType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Azure resource type.
-func (o ClusterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 type ClusterHealthPolicy struct {
 	// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-	ApplicationHealthPolicies *ApplicationHealthPolicyMap `pulumi:"applicationHealthPolicies"`
+	ApplicationHealthPolicies map[string]ApplicationHealthPolicy `pulumi:"applicationHealthPolicies"`
 	// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
 	//
 	// The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
@@ -1775,7 +1636,7 @@ type ClusterHealthPolicyInput interface {
 // Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 type ClusterHealthPolicyArgs struct {
 	// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-	ApplicationHealthPolicies ApplicationHealthPolicyMapPtrInput `pulumi:"applicationHealthPolicies"`
+	ApplicationHealthPolicies ApplicationHealthPolicyMapInput `pulumi:"applicationHealthPolicies"`
 	// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
 	//
 	// The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
@@ -1873,8 +1734,8 @@ func (o ClusterHealthPolicyOutput) ToClusterHealthPolicyPtrOutputWithContext(ctx
 }
 
 // Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-func (o ClusterHealthPolicyOutput) ApplicationHealthPolicies() ApplicationHealthPolicyMapPtrOutput {
-	return o.ApplyT(func(v ClusterHealthPolicy) *ApplicationHealthPolicyMap { return v.ApplicationHealthPolicies }).(ApplicationHealthPolicyMapPtrOutput)
+func (o ClusterHealthPolicyOutput) ApplicationHealthPolicies() ApplicationHealthPolicyMapOutput {
+	return o.ApplyT(func(v ClusterHealthPolicy) map[string]ApplicationHealthPolicy { return v.ApplicationHealthPolicies }).(ApplicationHealthPolicyMapOutput)
 }
 
 // The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
@@ -1918,13 +1779,13 @@ func (o ClusterHealthPolicyPtrOutput) Elem() ClusterHealthPolicyOutput {
 }
 
 // Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-func (o ClusterHealthPolicyPtrOutput) ApplicationHealthPolicies() ApplicationHealthPolicyMapPtrOutput {
-	return o.ApplyT(func(v *ClusterHealthPolicy) *ApplicationHealthPolicyMap {
+func (o ClusterHealthPolicyPtrOutput) ApplicationHealthPolicies() ApplicationHealthPolicyMapOutput {
+	return o.ApplyT(func(v *ClusterHealthPolicy) map[string]ApplicationHealthPolicy {
 		if v == nil {
 			return nil
 		}
 		return v.ApplicationHealthPolicies
-	}).(ApplicationHealthPolicyMapPtrOutput)
+	}).(ApplicationHealthPolicyMapOutput)
 }
 
 // The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
@@ -1962,7 +1823,7 @@ func (o ClusterHealthPolicyPtrOutput) MaxPercentUnhealthyNodes() pulumi.IntPtrOu
 // Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 type ClusterHealthPolicyResponse struct {
 	// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-	ApplicationHealthPolicies *ApplicationHealthPolicyMapResponse `pulumi:"applicationHealthPolicies"`
+	ApplicationHealthPolicies map[string]ApplicationHealthPolicyResponse `pulumi:"applicationHealthPolicies"`
 	// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
 	//
 	// The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
@@ -1995,7 +1856,7 @@ type ClusterHealthPolicyResponseInput interface {
 // Defines a health policy used to evaluate the health of the cluster or of a cluster node.
 type ClusterHealthPolicyResponseArgs struct {
 	// Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-	ApplicationHealthPolicies ApplicationHealthPolicyMapResponsePtrInput `pulumi:"applicationHealthPolicies"`
+	ApplicationHealthPolicies ApplicationHealthPolicyResponseMapInput `pulumi:"applicationHealthPolicies"`
 	// The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
 	//
 	// The percentage represents the maximum tolerated percentage of applications that can be unhealthy before the cluster is considered in error.
@@ -2093,10 +1954,10 @@ func (o ClusterHealthPolicyResponseOutput) ToClusterHealthPolicyResponsePtrOutpu
 }
 
 // Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-func (o ClusterHealthPolicyResponseOutput) ApplicationHealthPolicies() ApplicationHealthPolicyMapResponsePtrOutput {
-	return o.ApplyT(func(v ClusterHealthPolicyResponse) *ApplicationHealthPolicyMapResponse {
+func (o ClusterHealthPolicyResponseOutput) ApplicationHealthPolicies() ApplicationHealthPolicyResponseMapOutput {
+	return o.ApplyT(func(v ClusterHealthPolicyResponse) map[string]ApplicationHealthPolicyResponse {
 		return v.ApplicationHealthPolicies
-	}).(ApplicationHealthPolicyMapResponsePtrOutput)
+	}).(ApplicationHealthPolicyResponseMapOutput)
 }
 
 // The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
@@ -2140,13 +2001,13 @@ func (o ClusterHealthPolicyResponsePtrOutput) Elem() ClusterHealthPolicyResponse
 }
 
 // Defines the application health policy map used to evaluate the health of an application or one of its children entities.
-func (o ClusterHealthPolicyResponsePtrOutput) ApplicationHealthPolicies() ApplicationHealthPolicyMapResponsePtrOutput {
-	return o.ApplyT(func(v *ClusterHealthPolicyResponse) *ApplicationHealthPolicyMapResponse {
+func (o ClusterHealthPolicyResponsePtrOutput) ApplicationHealthPolicies() ApplicationHealthPolicyResponseMapOutput {
+	return o.ApplyT(func(v *ClusterHealthPolicyResponse) map[string]ApplicationHealthPolicyResponse {
 		if v == nil {
 			return nil
 		}
 		return v.ApplicationHealthPolicies
-	}).(ApplicationHealthPolicyMapResponsePtrOutput)
+	}).(ApplicationHealthPolicyResponseMapOutput)
 }
 
 // The maximum allowed percentage of unhealthy applications before reporting an error. For example, to allow 10% of applications to be unhealthy, this value would be 10.
@@ -2807,7 +2668,7 @@ func (o ClusterPropertiesResponsePtrOutput) VmImage() pulumi.StringPtrOutput {
 // Describes the delta health policies for the cluster upgrade.
 type ClusterUpgradeDeltaHealthPolicy struct {
 	// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-	ApplicationDeltaHealthPolicies *ApplicationDeltaHealthPolicyMap `pulumi:"applicationDeltaHealthPolicies"`
+	ApplicationDeltaHealthPolicies map[string]ApplicationDeltaHealthPolicy `pulumi:"applicationDeltaHealthPolicies"`
 	// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
 	// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
 	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
@@ -2836,7 +2697,7 @@ type ClusterUpgradeDeltaHealthPolicyInput interface {
 // Describes the delta health policies for the cluster upgrade.
 type ClusterUpgradeDeltaHealthPolicyArgs struct {
 	// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-	ApplicationDeltaHealthPolicies ApplicationDeltaHealthPolicyMapPtrInput `pulumi:"applicationDeltaHealthPolicies"`
+	ApplicationDeltaHealthPolicies ApplicationDeltaHealthPolicyMapInput `pulumi:"applicationDeltaHealthPolicies"`
 	// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
 	// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
 	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
@@ -2930,10 +2791,10 @@ func (o ClusterUpgradeDeltaHealthPolicyOutput) ToClusterUpgradeDeltaHealthPolicy
 }
 
 // Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-func (o ClusterUpgradeDeltaHealthPolicyOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyMapPtrOutput {
-	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicy) *ApplicationDeltaHealthPolicyMap {
+func (o ClusterUpgradeDeltaHealthPolicyOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyMapOutput {
+	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicy) map[string]ApplicationDeltaHealthPolicy {
 		return v.ApplicationDeltaHealthPolicies
-	}).(ApplicationDeltaHealthPolicyMapPtrOutput)
+	}).(ApplicationDeltaHealthPolicyMapOutput)
 }
 
 // The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
@@ -2976,13 +2837,13 @@ func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) Elem() ClusterUpgradeDeltaHeal
 }
 
 // Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyMapPtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicy) *ApplicationDeltaHealthPolicyMap {
+func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyMapOutput {
+	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicy) map[string]ApplicationDeltaHealthPolicy {
 		if v == nil {
 			return nil
 		}
 		return v.ApplicationDeltaHealthPolicies
-	}).(ApplicationDeltaHealthPolicyMapPtrOutput)
+	}).(ApplicationDeltaHealthPolicyMapOutput)
 }
 
 // The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
@@ -3024,7 +2885,7 @@ func (o ClusterUpgradeDeltaHealthPolicyPtrOutput) MaxPercentUpgradeDomainDeltaUn
 // Describes the delta health policies for the cluster upgrade.
 type ClusterUpgradeDeltaHealthPolicyResponse struct {
 	// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-	ApplicationDeltaHealthPolicies *ApplicationDeltaHealthPolicyMapResponse `pulumi:"applicationDeltaHealthPolicies"`
+	ApplicationDeltaHealthPolicies map[string]ApplicationDeltaHealthPolicyResponse `pulumi:"applicationDeltaHealthPolicies"`
 	// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
 	// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
 	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
@@ -3053,7 +2914,7 @@ type ClusterUpgradeDeltaHealthPolicyResponseInput interface {
 // Describes the delta health policies for the cluster upgrade.
 type ClusterUpgradeDeltaHealthPolicyResponseArgs struct {
 	// Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-	ApplicationDeltaHealthPolicies ApplicationDeltaHealthPolicyMapResponsePtrInput `pulumi:"applicationDeltaHealthPolicies"`
+	ApplicationDeltaHealthPolicies ApplicationDeltaHealthPolicyResponseMapInput `pulumi:"applicationDeltaHealthPolicies"`
 	// The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
 	// The delta is measured between the state of the applications at the beginning of upgrade and the state of the applications at the time of the health evaluation.
 	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits. System services are not included in this.
@@ -3147,10 +3008,10 @@ func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ToClusterUpgradeDeltaHeal
 }
 
 // Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicyResponse) *ApplicationDeltaHealthPolicyMapResponse {
+func (o ClusterUpgradeDeltaHealthPolicyResponseOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyResponseMapOutput {
+	return o.ApplyT(func(v ClusterUpgradeDeltaHealthPolicyResponse) map[string]ApplicationDeltaHealthPolicyResponse {
 		return v.ApplicationDeltaHealthPolicies
-	}).(ApplicationDeltaHealthPolicyMapResponsePtrOutput)
+	}).(ApplicationDeltaHealthPolicyResponseMapOutput)
 }
 
 // The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
@@ -3195,13 +3056,13 @@ func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) Elem() ClusterUpgradeD
 }
 
 // Defines the application delta health policy map used to evaluate the health of an application or one of its child entities when upgrading the cluster.
-func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyMapResponsePtrOutput {
-	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicyResponse) *ApplicationDeltaHealthPolicyMapResponse {
+func (o ClusterUpgradeDeltaHealthPolicyResponsePtrOutput) ApplicationDeltaHealthPolicies() ApplicationDeltaHealthPolicyResponseMapOutput {
+	return o.ApplyT(func(v *ClusterUpgradeDeltaHealthPolicyResponse) map[string]ApplicationDeltaHealthPolicyResponse {
 		if v == nil {
 			return nil
 		}
 		return v.ApplicationDeltaHealthPolicies
-	}).(ApplicationDeltaHealthPolicyMapResponsePtrOutput)
+	}).(ApplicationDeltaHealthPolicyResponseMapOutput)
 }
 
 // The maximum allowed percentage of applications health degradation allowed during cluster upgrades.
@@ -3812,79 +3673,6 @@ func (o ClusterUpgradePolicyResponsePtrOutput) UpgradeTimeout() pulumi.StringPtr
 		}
 		return &v.UpgradeTimeout
 	}).(pulumi.StringPtrOutput)
-}
-
-// The detail of the Service Fabric runtime version result
-type ClusterVersionDetails struct {
-	// The Service Fabric runtime version of the cluster.
-	CodeVersion *string `pulumi:"codeVersion"`
-	// Indicates if this version is for Windows or Linux operating system.
-	Environment *string `pulumi:"environment"`
-	// The date of expiry of support of the version.
-	SupportExpiryUtc *string `pulumi:"supportExpiryUtc"`
-}
-
-// ClusterVersionDetailsInput is an input type that accepts ClusterVersionDetailsArgs and ClusterVersionDetailsOutput values.
-// You can construct a concrete instance of `ClusterVersionDetailsInput` via:
-//
-//          ClusterVersionDetailsArgs{...}
-type ClusterVersionDetailsInput interface {
-	pulumi.Input
-
-	ToClusterVersionDetailsOutput() ClusterVersionDetailsOutput
-	ToClusterVersionDetailsOutputWithContext(context.Context) ClusterVersionDetailsOutput
-}
-
-// The detail of the Service Fabric runtime version result
-type ClusterVersionDetailsArgs struct {
-	// The Service Fabric runtime version of the cluster.
-	CodeVersion pulumi.StringPtrInput `pulumi:"codeVersion"`
-	// Indicates if this version is for Windows or Linux operating system.
-	Environment pulumi.StringPtrInput `pulumi:"environment"`
-	// The date of expiry of support of the version.
-	SupportExpiryUtc pulumi.StringPtrInput `pulumi:"supportExpiryUtc"`
-}
-
-func (ClusterVersionDetailsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterVersionDetails)(nil)).Elem()
-}
-
-func (i ClusterVersionDetailsArgs) ToClusterVersionDetailsOutput() ClusterVersionDetailsOutput {
-	return i.ToClusterVersionDetailsOutputWithContext(context.Background())
-}
-
-func (i ClusterVersionDetailsArgs) ToClusterVersionDetailsOutputWithContext(ctx context.Context) ClusterVersionDetailsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterVersionDetailsOutput)
-}
-
-// The detail of the Service Fabric runtime version result
-type ClusterVersionDetailsOutput struct{ *pulumi.OutputState }
-
-func (ClusterVersionDetailsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterVersionDetails)(nil)).Elem()
-}
-
-func (o ClusterVersionDetailsOutput) ToClusterVersionDetailsOutput() ClusterVersionDetailsOutput {
-	return o
-}
-
-func (o ClusterVersionDetailsOutput) ToClusterVersionDetailsOutputWithContext(ctx context.Context) ClusterVersionDetailsOutput {
-	return o
-}
-
-// The Service Fabric runtime version of the cluster.
-func (o ClusterVersionDetailsOutput) CodeVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVersionDetails) *string { return v.CodeVersion }).(pulumi.StringPtrOutput)
-}
-
-// Indicates if this version is for Windows or Linux operating system.
-func (o ClusterVersionDetailsOutput) Environment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVersionDetails) *string { return v.Environment }).(pulumi.StringPtrOutput)
-}
-
-// The date of expiry of support of the version.
-func (o ClusterVersionDetailsOutput) SupportExpiryUtc() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterVersionDetails) *string { return v.SupportExpiryUtc }).(pulumi.StringPtrOutput)
 }
 
 // The detail of the Service Fabric runtime version result
@@ -5661,6 +5449,738 @@ func (o ServerCertificateCommonNamesResponsePtrOutput) X509StoreName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
+type ServiceTypeDeltaHealthPolicy struct {
+	// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+	// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+	MaxPercentDeltaUnhealthyServices *int `pulumi:"maxPercentDeltaUnhealthyServices"`
+}
+
+// ServiceTypeDeltaHealthPolicyInput is an input type that accepts ServiceTypeDeltaHealthPolicyArgs and ServiceTypeDeltaHealthPolicyOutput values.
+// You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyInput` via:
+//
+//          ServiceTypeDeltaHealthPolicyArgs{...}
+type ServiceTypeDeltaHealthPolicyInput interface {
+	pulumi.Input
+
+	ToServiceTypeDeltaHealthPolicyOutput() ServiceTypeDeltaHealthPolicyOutput
+	ToServiceTypeDeltaHealthPolicyOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyOutput
+}
+
+// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
+type ServiceTypeDeltaHealthPolicyArgs struct {
+	// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+	// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+	MaxPercentDeltaUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentDeltaUnhealthyServices"`
+}
+
+func (ServiceTypeDeltaHealthPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (i ServiceTypeDeltaHealthPolicyArgs) ToServiceTypeDeltaHealthPolicyOutput() ServiceTypeDeltaHealthPolicyOutput {
+	return i.ToServiceTypeDeltaHealthPolicyOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeDeltaHealthPolicyArgs) ToServiceTypeDeltaHealthPolicyOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyOutput)
+}
+
+func (i ServiceTypeDeltaHealthPolicyArgs) ToServiceTypeDeltaHealthPolicyPtrOutput() ServiceTypeDeltaHealthPolicyPtrOutput {
+	return i.ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeDeltaHealthPolicyArgs) ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyOutput).ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx)
+}
+
+// ServiceTypeDeltaHealthPolicyPtrInput is an input type that accepts ServiceTypeDeltaHealthPolicyArgs, ServiceTypeDeltaHealthPolicyPtr and ServiceTypeDeltaHealthPolicyPtrOutput values.
+// You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyPtrInput` via:
+//
+//          ServiceTypeDeltaHealthPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceTypeDeltaHealthPolicyPtrInput interface {
+	pulumi.Input
+
+	ToServiceTypeDeltaHealthPolicyPtrOutput() ServiceTypeDeltaHealthPolicyPtrOutput
+	ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyPtrOutput
+}
+
+type serviceTypeDeltaHealthPolicyPtrType ServiceTypeDeltaHealthPolicyArgs
+
+func ServiceTypeDeltaHealthPolicyPtr(v *ServiceTypeDeltaHealthPolicyArgs) ServiceTypeDeltaHealthPolicyPtrInput {
+	return (*serviceTypeDeltaHealthPolicyPtrType)(v)
+}
+
+func (*serviceTypeDeltaHealthPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (i *serviceTypeDeltaHealthPolicyPtrType) ToServiceTypeDeltaHealthPolicyPtrOutput() ServiceTypeDeltaHealthPolicyPtrOutput {
+	return i.ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceTypeDeltaHealthPolicyPtrType) ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyPtrOutput)
+}
+
+// ServiceTypeDeltaHealthPolicyMapInput is an input type that accepts ServiceTypeDeltaHealthPolicyMap and ServiceTypeDeltaHealthPolicyMapOutput values.
+// You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyMapInput` via:
+//
+//          ServiceTypeDeltaHealthPolicyMap{ "key": ServiceTypeDeltaHealthPolicyArgs{...} }
+type ServiceTypeDeltaHealthPolicyMapInput interface {
+	pulumi.Input
+
+	ToServiceTypeDeltaHealthPolicyMapOutput() ServiceTypeDeltaHealthPolicyMapOutput
+	ToServiceTypeDeltaHealthPolicyMapOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyMapOutput
+}
+
+type ServiceTypeDeltaHealthPolicyMap map[string]ServiceTypeDeltaHealthPolicyInput
+
+func (ServiceTypeDeltaHealthPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (i ServiceTypeDeltaHealthPolicyMap) ToServiceTypeDeltaHealthPolicyMapOutput() ServiceTypeDeltaHealthPolicyMapOutput {
+	return i.ToServiceTypeDeltaHealthPolicyMapOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeDeltaHealthPolicyMap) ToServiceTypeDeltaHealthPolicyMapOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyMapOutput)
+}
+
+// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
+type ServiceTypeDeltaHealthPolicyOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeDeltaHealthPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (o ServiceTypeDeltaHealthPolicyOutput) ToServiceTypeDeltaHealthPolicyOutput() ServiceTypeDeltaHealthPolicyOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyOutput) ToServiceTypeDeltaHealthPolicyOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyOutput) ToServiceTypeDeltaHealthPolicyPtrOutput() ServiceTypeDeltaHealthPolicyPtrOutput {
+	return o.ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceTypeDeltaHealthPolicyOutput) ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyPtrOutput {
+	return o.ApplyT(func(v ServiceTypeDeltaHealthPolicy) *ServiceTypeDeltaHealthPolicy {
+		return &v
+	}).(ServiceTypeDeltaHealthPolicyPtrOutput)
+}
+
+// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+func (o ServiceTypeDeltaHealthPolicyOutput) MaxPercentDeltaUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceTypeDeltaHealthPolicy) *int { return v.MaxPercentDeltaUnhealthyServices }).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeDeltaHealthPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeDeltaHealthPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (o ServiceTypeDeltaHealthPolicyPtrOutput) ToServiceTypeDeltaHealthPolicyPtrOutput() ServiceTypeDeltaHealthPolicyPtrOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyPtrOutput) ToServiceTypeDeltaHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyPtrOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyPtrOutput) Elem() ServiceTypeDeltaHealthPolicyOutput {
+	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicy) ServiceTypeDeltaHealthPolicy { return *v }).(ServiceTypeDeltaHealthPolicyOutput)
+}
+
+// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+func (o ServiceTypeDeltaHealthPolicyPtrOutput) MaxPercentDeltaUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPercentDeltaUnhealthyServices
+	}).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeDeltaHealthPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeDeltaHealthPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeDeltaHealthPolicy)(nil)).Elem()
+}
+
+func (o ServiceTypeDeltaHealthPolicyMapOutput) ToServiceTypeDeltaHealthPolicyMapOutput() ServiceTypeDeltaHealthPolicyMapOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyMapOutput) ToServiceTypeDeltaHealthPolicyMapOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyMapOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) ServiceTypeDeltaHealthPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceTypeDeltaHealthPolicy {
+		return vs[0].(map[string]ServiceTypeDeltaHealthPolicy)[vs[1].(string)]
+	}).(ServiceTypeDeltaHealthPolicyOutput)
+}
+
+// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
+type ServiceTypeDeltaHealthPolicyResponse struct {
+	// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+	// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+	MaxPercentDeltaUnhealthyServices *int `pulumi:"maxPercentDeltaUnhealthyServices"`
+}
+
+// ServiceTypeDeltaHealthPolicyResponseInput is an input type that accepts ServiceTypeDeltaHealthPolicyResponseArgs and ServiceTypeDeltaHealthPolicyResponseOutput values.
+// You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyResponseInput` via:
+//
+//          ServiceTypeDeltaHealthPolicyResponseArgs{...}
+type ServiceTypeDeltaHealthPolicyResponseInput interface {
+	pulumi.Input
+
+	ToServiceTypeDeltaHealthPolicyResponseOutput() ServiceTypeDeltaHealthPolicyResponseOutput
+	ToServiceTypeDeltaHealthPolicyResponseOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyResponseOutput
+}
+
+// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
+type ServiceTypeDeltaHealthPolicyResponseArgs struct {
+	// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+	// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+	// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+	MaxPercentDeltaUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentDeltaUnhealthyServices"`
+}
+
+func (ServiceTypeDeltaHealthPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
+}
+
+func (i ServiceTypeDeltaHealthPolicyResponseArgs) ToServiceTypeDeltaHealthPolicyResponseOutput() ServiceTypeDeltaHealthPolicyResponseOutput {
+	return i.ToServiceTypeDeltaHealthPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeDeltaHealthPolicyResponseArgs) ToServiceTypeDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyResponseOutput)
+}
+
+func (i ServiceTypeDeltaHealthPolicyResponseArgs) ToServiceTypeDeltaHealthPolicyResponsePtrOutput() ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return i.ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeDeltaHealthPolicyResponseArgs) ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyResponseOutput).ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceTypeDeltaHealthPolicyResponsePtrInput is an input type that accepts ServiceTypeDeltaHealthPolicyResponseArgs, ServiceTypeDeltaHealthPolicyResponsePtr and ServiceTypeDeltaHealthPolicyResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyResponsePtrInput` via:
+//
+//          ServiceTypeDeltaHealthPolicyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceTypeDeltaHealthPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceTypeDeltaHealthPolicyResponsePtrOutput() ServiceTypeDeltaHealthPolicyResponsePtrOutput
+	ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput
+}
+
+type serviceTypeDeltaHealthPolicyResponsePtrType ServiceTypeDeltaHealthPolicyResponseArgs
+
+func ServiceTypeDeltaHealthPolicyResponsePtr(v *ServiceTypeDeltaHealthPolicyResponseArgs) ServiceTypeDeltaHealthPolicyResponsePtrInput {
+	return (*serviceTypeDeltaHealthPolicyResponsePtrType)(v)
+}
+
+func (*serviceTypeDeltaHealthPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
+}
+
+func (i *serviceTypeDeltaHealthPolicyResponsePtrType) ToServiceTypeDeltaHealthPolicyResponsePtrOutput() ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return i.ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceTypeDeltaHealthPolicyResponsePtrType) ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyResponsePtrOutput)
+}
+
+// ServiceTypeDeltaHealthPolicyResponseMapInput is an input type that accepts ServiceTypeDeltaHealthPolicyResponseMap and ServiceTypeDeltaHealthPolicyResponseMapOutput values.
+// You can construct a concrete instance of `ServiceTypeDeltaHealthPolicyResponseMapInput` via:
+//
+//          ServiceTypeDeltaHealthPolicyResponseMap{ "key": ServiceTypeDeltaHealthPolicyResponseArgs{...} }
+type ServiceTypeDeltaHealthPolicyResponseMapInput interface {
+	pulumi.Input
+
+	ToServiceTypeDeltaHealthPolicyResponseMapOutput() ServiceTypeDeltaHealthPolicyResponseMapOutput
+	ToServiceTypeDeltaHealthPolicyResponseMapOutputWithContext(context.Context) ServiceTypeDeltaHealthPolicyResponseMapOutput
+}
+
+type ServiceTypeDeltaHealthPolicyResponseMap map[string]ServiceTypeDeltaHealthPolicyResponseInput
+
+func (ServiceTypeDeltaHealthPolicyResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
+}
+
+func (i ServiceTypeDeltaHealthPolicyResponseMap) ToServiceTypeDeltaHealthPolicyResponseMapOutput() ServiceTypeDeltaHealthPolicyResponseMapOutput {
+	return i.ToServiceTypeDeltaHealthPolicyResponseMapOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeDeltaHealthPolicyResponseMap) ToServiceTypeDeltaHealthPolicyResponseMapOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeDeltaHealthPolicyResponseMapOutput)
+}
+
+// Represents the delta health policy used to evaluate the health of services belonging to a service type when upgrading the cluster.
+type ServiceTypeDeltaHealthPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeDeltaHealthPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPolicyResponseOutput() ServiceTypeDeltaHealthPolicyResponseOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPolicyResponseOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponseOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPolicyResponsePtrOutput() ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return o.ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponseOutput) ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return o.ApplyT(func(v ServiceTypeDeltaHealthPolicyResponse) *ServiceTypeDeltaHealthPolicyResponse {
+		return &v
+	}).(ServiceTypeDeltaHealthPolicyResponsePtrOutput)
+}
+
+// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+func (o ServiceTypeDeltaHealthPolicyResponseOutput) MaxPercentDeltaUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceTypeDeltaHealthPolicyResponse) *int { return v.MaxPercentDeltaUnhealthyServices }).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeDeltaHealthPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeDeltaHealthPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponsePtrOutput) ToServiceTypeDeltaHealthPolicyResponsePtrOutput() ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponsePtrOutput) ToServiceTypeDeltaHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponsePtrOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponsePtrOutput) Elem() ServiceTypeDeltaHealthPolicyResponseOutput {
+	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicyResponse) ServiceTypeDeltaHealthPolicyResponse { return *v }).(ServiceTypeDeltaHealthPolicyResponseOutput)
+}
+
+// The maximum allowed percentage of services health degradation allowed during cluster upgrades.
+// The delta is measured between the state of the services at the beginning of upgrade and the state of the services at the time of the health evaluation.
+// The check is performed after every upgrade domain upgrade completion to make sure the global state of the cluster is within tolerated limits.
+func (o ServiceTypeDeltaHealthPolicyResponsePtrOutput) MaxPercentDeltaUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceTypeDeltaHealthPolicyResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPercentDeltaUnhealthyServices
+	}).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeDeltaHealthPolicyResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeDeltaHealthPolicyResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeDeltaHealthPolicyResponse)(nil)).Elem()
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponseMapOutput) ToServiceTypeDeltaHealthPolicyResponseMapOutput() ServiceTypeDeltaHealthPolicyResponseMapOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponseMapOutput) ToServiceTypeDeltaHealthPolicyResponseMapOutputWithContext(ctx context.Context) ServiceTypeDeltaHealthPolicyResponseMapOutput {
+	return o
+}
+
+func (o ServiceTypeDeltaHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInput) ServiceTypeDeltaHealthPolicyResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceTypeDeltaHealthPolicyResponse {
+		return vs[0].(map[string]ServiceTypeDeltaHealthPolicyResponse)[vs[1].(string)]
+	}).(ServiceTypeDeltaHealthPolicyResponseOutput)
+}
+
+// Represents the health policy used to evaluate the health of services belonging to a service type.
+type ServiceTypeHealthPolicy struct {
+	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+	MaxPercentUnhealthyServices *int `pulumi:"maxPercentUnhealthyServices"`
+}
+
+// ServiceTypeHealthPolicyInput is an input type that accepts ServiceTypeHealthPolicyArgs and ServiceTypeHealthPolicyOutput values.
+// You can construct a concrete instance of `ServiceTypeHealthPolicyInput` via:
+//
+//          ServiceTypeHealthPolicyArgs{...}
+type ServiceTypeHealthPolicyInput interface {
+	pulumi.Input
+
+	ToServiceTypeHealthPolicyOutput() ServiceTypeHealthPolicyOutput
+	ToServiceTypeHealthPolicyOutputWithContext(context.Context) ServiceTypeHealthPolicyOutput
+}
+
+// Represents the health policy used to evaluate the health of services belonging to a service type.
+type ServiceTypeHealthPolicyArgs struct {
+	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+	MaxPercentUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyServices"`
+}
+
+func (ServiceTypeHealthPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeHealthPolicy)(nil)).Elem()
+}
+
+func (i ServiceTypeHealthPolicyArgs) ToServiceTypeHealthPolicyOutput() ServiceTypeHealthPolicyOutput {
+	return i.ToServiceTypeHealthPolicyOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeHealthPolicyArgs) ToServiceTypeHealthPolicyOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyOutput)
+}
+
+func (i ServiceTypeHealthPolicyArgs) ToServiceTypeHealthPolicyPtrOutput() ServiceTypeHealthPolicyPtrOutput {
+	return i.ToServiceTypeHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeHealthPolicyArgs) ToServiceTypeHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyOutput).ToServiceTypeHealthPolicyPtrOutputWithContext(ctx)
+}
+
+// ServiceTypeHealthPolicyPtrInput is an input type that accepts ServiceTypeHealthPolicyArgs, ServiceTypeHealthPolicyPtr and ServiceTypeHealthPolicyPtrOutput values.
+// You can construct a concrete instance of `ServiceTypeHealthPolicyPtrInput` via:
+//
+//          ServiceTypeHealthPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceTypeHealthPolicyPtrInput interface {
+	pulumi.Input
+
+	ToServiceTypeHealthPolicyPtrOutput() ServiceTypeHealthPolicyPtrOutput
+	ToServiceTypeHealthPolicyPtrOutputWithContext(context.Context) ServiceTypeHealthPolicyPtrOutput
+}
+
+type serviceTypeHealthPolicyPtrType ServiceTypeHealthPolicyArgs
+
+func ServiceTypeHealthPolicyPtr(v *ServiceTypeHealthPolicyArgs) ServiceTypeHealthPolicyPtrInput {
+	return (*serviceTypeHealthPolicyPtrType)(v)
+}
+
+func (*serviceTypeHealthPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeHealthPolicy)(nil)).Elem()
+}
+
+func (i *serviceTypeHealthPolicyPtrType) ToServiceTypeHealthPolicyPtrOutput() ServiceTypeHealthPolicyPtrOutput {
+	return i.ToServiceTypeHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceTypeHealthPolicyPtrType) ToServiceTypeHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyPtrOutput)
+}
+
+// ServiceTypeHealthPolicyMapInput is an input type that accepts ServiceTypeHealthPolicyMap and ServiceTypeHealthPolicyMapOutput values.
+// You can construct a concrete instance of `ServiceTypeHealthPolicyMapInput` via:
+//
+//          ServiceTypeHealthPolicyMap{ "key": ServiceTypeHealthPolicyArgs{...} }
+type ServiceTypeHealthPolicyMapInput interface {
+	pulumi.Input
+
+	ToServiceTypeHealthPolicyMapOutput() ServiceTypeHealthPolicyMapOutput
+	ToServiceTypeHealthPolicyMapOutputWithContext(context.Context) ServiceTypeHealthPolicyMapOutput
+}
+
+type ServiceTypeHealthPolicyMap map[string]ServiceTypeHealthPolicyInput
+
+func (ServiceTypeHealthPolicyMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeHealthPolicy)(nil)).Elem()
+}
+
+func (i ServiceTypeHealthPolicyMap) ToServiceTypeHealthPolicyMapOutput() ServiceTypeHealthPolicyMapOutput {
+	return i.ToServiceTypeHealthPolicyMapOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeHealthPolicyMap) ToServiceTypeHealthPolicyMapOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyMapOutput)
+}
+
+// Represents the health policy used to evaluate the health of services belonging to a service type.
+type ServiceTypeHealthPolicyOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeHealthPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeHealthPolicy)(nil)).Elem()
+}
+
+func (o ServiceTypeHealthPolicyOutput) ToServiceTypeHealthPolicyOutput() ServiceTypeHealthPolicyOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyOutput) ToServiceTypeHealthPolicyOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyOutput) ToServiceTypeHealthPolicyPtrOutput() ServiceTypeHealthPolicyPtrOutput {
+	return o.ToServiceTypeHealthPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceTypeHealthPolicyOutput) ToServiceTypeHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyPtrOutput {
+	return o.ApplyT(func(v ServiceTypeHealthPolicy) *ServiceTypeHealthPolicy {
+		return &v
+	}).(ServiceTypeHealthPolicyPtrOutput)
+}
+
+// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+func (o ServiceTypeHealthPolicyOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceTypeHealthPolicy) *int { return v.MaxPercentUnhealthyServices }).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeHealthPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeHealthPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeHealthPolicy)(nil)).Elem()
+}
+
+func (o ServiceTypeHealthPolicyPtrOutput) ToServiceTypeHealthPolicyPtrOutput() ServiceTypeHealthPolicyPtrOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyPtrOutput) ToServiceTypeHealthPolicyPtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyPtrOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyPtrOutput) Elem() ServiceTypeHealthPolicyOutput {
+	return o.ApplyT(func(v *ServiceTypeHealthPolicy) ServiceTypeHealthPolicy { return *v }).(ServiceTypeHealthPolicyOutput)
+}
+
+// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+func (o ServiceTypeHealthPolicyPtrOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceTypeHealthPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPercentUnhealthyServices
+	}).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeHealthPolicyMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeHealthPolicyMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeHealthPolicy)(nil)).Elem()
+}
+
+func (o ServiceTypeHealthPolicyMapOutput) ToServiceTypeHealthPolicyMapOutput() ServiceTypeHealthPolicyMapOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyMapOutput) ToServiceTypeHealthPolicyMapOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyMapOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyMapOutput) MapIndex(k pulumi.StringInput) ServiceTypeHealthPolicyOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceTypeHealthPolicy {
+		return vs[0].(map[string]ServiceTypeHealthPolicy)[vs[1].(string)]
+	}).(ServiceTypeHealthPolicyOutput)
+}
+
+// Represents the health policy used to evaluate the health of services belonging to a service type.
+type ServiceTypeHealthPolicyResponse struct {
+	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+	MaxPercentUnhealthyServices *int `pulumi:"maxPercentUnhealthyServices"`
+}
+
+// ServiceTypeHealthPolicyResponseInput is an input type that accepts ServiceTypeHealthPolicyResponseArgs and ServiceTypeHealthPolicyResponseOutput values.
+// You can construct a concrete instance of `ServiceTypeHealthPolicyResponseInput` via:
+//
+//          ServiceTypeHealthPolicyResponseArgs{...}
+type ServiceTypeHealthPolicyResponseInput interface {
+	pulumi.Input
+
+	ToServiceTypeHealthPolicyResponseOutput() ServiceTypeHealthPolicyResponseOutput
+	ToServiceTypeHealthPolicyResponseOutputWithContext(context.Context) ServiceTypeHealthPolicyResponseOutput
+}
+
+// Represents the health policy used to evaluate the health of services belonging to a service type.
+type ServiceTypeHealthPolicyResponseArgs struct {
+	// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+	MaxPercentUnhealthyServices pulumi.IntPtrInput `pulumi:"maxPercentUnhealthyServices"`
+}
+
+func (ServiceTypeHealthPolicyResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeHealthPolicyResponse)(nil)).Elem()
+}
+
+func (i ServiceTypeHealthPolicyResponseArgs) ToServiceTypeHealthPolicyResponseOutput() ServiceTypeHealthPolicyResponseOutput {
+	return i.ToServiceTypeHealthPolicyResponseOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeHealthPolicyResponseArgs) ToServiceTypeHealthPolicyResponseOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyResponseOutput)
+}
+
+func (i ServiceTypeHealthPolicyResponseArgs) ToServiceTypeHealthPolicyResponsePtrOutput() ServiceTypeHealthPolicyResponsePtrOutput {
+	return i.ToServiceTypeHealthPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeHealthPolicyResponseArgs) ToServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyResponseOutput).ToServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx)
+}
+
+// ServiceTypeHealthPolicyResponsePtrInput is an input type that accepts ServiceTypeHealthPolicyResponseArgs, ServiceTypeHealthPolicyResponsePtr and ServiceTypeHealthPolicyResponsePtrOutput values.
+// You can construct a concrete instance of `ServiceTypeHealthPolicyResponsePtrInput` via:
+//
+//          ServiceTypeHealthPolicyResponseArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceTypeHealthPolicyResponsePtrInput interface {
+	pulumi.Input
+
+	ToServiceTypeHealthPolicyResponsePtrOutput() ServiceTypeHealthPolicyResponsePtrOutput
+	ToServiceTypeHealthPolicyResponsePtrOutputWithContext(context.Context) ServiceTypeHealthPolicyResponsePtrOutput
+}
+
+type serviceTypeHealthPolicyResponsePtrType ServiceTypeHealthPolicyResponseArgs
+
+func ServiceTypeHealthPolicyResponsePtr(v *ServiceTypeHealthPolicyResponseArgs) ServiceTypeHealthPolicyResponsePtrInput {
+	return (*serviceTypeHealthPolicyResponsePtrType)(v)
+}
+
+func (*serviceTypeHealthPolicyResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeHealthPolicyResponse)(nil)).Elem()
+}
+
+func (i *serviceTypeHealthPolicyResponsePtrType) ToServiceTypeHealthPolicyResponsePtrOutput() ServiceTypeHealthPolicyResponsePtrOutput {
+	return i.ToServiceTypeHealthPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceTypeHealthPolicyResponsePtrType) ToServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyResponsePtrOutput)
+}
+
+// ServiceTypeHealthPolicyResponseMapInput is an input type that accepts ServiceTypeHealthPolicyResponseMap and ServiceTypeHealthPolicyResponseMapOutput values.
+// You can construct a concrete instance of `ServiceTypeHealthPolicyResponseMapInput` via:
+//
+//          ServiceTypeHealthPolicyResponseMap{ "key": ServiceTypeHealthPolicyResponseArgs{...} }
+type ServiceTypeHealthPolicyResponseMapInput interface {
+	pulumi.Input
+
+	ToServiceTypeHealthPolicyResponseMapOutput() ServiceTypeHealthPolicyResponseMapOutput
+	ToServiceTypeHealthPolicyResponseMapOutputWithContext(context.Context) ServiceTypeHealthPolicyResponseMapOutput
+}
+
+type ServiceTypeHealthPolicyResponseMap map[string]ServiceTypeHealthPolicyResponseInput
+
+func (ServiceTypeHealthPolicyResponseMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeHealthPolicyResponse)(nil)).Elem()
+}
+
+func (i ServiceTypeHealthPolicyResponseMap) ToServiceTypeHealthPolicyResponseMapOutput() ServiceTypeHealthPolicyResponseMapOutput {
+	return i.ToServiceTypeHealthPolicyResponseMapOutputWithContext(context.Background())
+}
+
+func (i ServiceTypeHealthPolicyResponseMap) ToServiceTypeHealthPolicyResponseMapOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponseMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceTypeHealthPolicyResponseMapOutput)
+}
+
+// Represents the health policy used to evaluate the health of services belonging to a service type.
+type ServiceTypeHealthPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeHealthPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceTypeHealthPolicyResponse)(nil)).Elem()
+}
+
+func (o ServiceTypeHealthPolicyResponseOutput) ToServiceTypeHealthPolicyResponseOutput() ServiceTypeHealthPolicyResponseOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyResponseOutput) ToServiceTypeHealthPolicyResponseOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponseOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyResponseOutput) ToServiceTypeHealthPolicyResponsePtrOutput() ServiceTypeHealthPolicyResponsePtrOutput {
+	return o.ToServiceTypeHealthPolicyResponsePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceTypeHealthPolicyResponseOutput) ToServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponsePtrOutput {
+	return o.ApplyT(func(v ServiceTypeHealthPolicyResponse) *ServiceTypeHealthPolicyResponse {
+		return &v
+	}).(ServiceTypeHealthPolicyResponsePtrOutput)
+}
+
+// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+func (o ServiceTypeHealthPolicyResponseOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceTypeHealthPolicyResponse) *int { return v.MaxPercentUnhealthyServices }).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeHealthPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeHealthPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceTypeHealthPolicyResponse)(nil)).Elem()
+}
+
+func (o ServiceTypeHealthPolicyResponsePtrOutput) ToServiceTypeHealthPolicyResponsePtrOutput() ServiceTypeHealthPolicyResponsePtrOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyResponsePtrOutput) ToServiceTypeHealthPolicyResponsePtrOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponsePtrOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyResponsePtrOutput) Elem() ServiceTypeHealthPolicyResponseOutput {
+	return o.ApplyT(func(v *ServiceTypeHealthPolicyResponse) ServiceTypeHealthPolicyResponse { return *v }).(ServiceTypeHealthPolicyResponseOutput)
+}
+
+// The maximum percentage of services allowed to be unhealthy before your application is considered in error.
+func (o ServiceTypeHealthPolicyResponsePtrOutput) MaxPercentUnhealthyServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceTypeHealthPolicyResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPercentUnhealthyServices
+	}).(pulumi.IntPtrOutput)
+}
+
+type ServiceTypeHealthPolicyResponseMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceTypeHealthPolicyResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceTypeHealthPolicyResponse)(nil)).Elem()
+}
+
+func (o ServiceTypeHealthPolicyResponseMapOutput) ToServiceTypeHealthPolicyResponseMapOutput() ServiceTypeHealthPolicyResponseMapOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyResponseMapOutput) ToServiceTypeHealthPolicyResponseMapOutputWithContext(ctx context.Context) ServiceTypeHealthPolicyResponseMapOutput {
+	return o
+}
+
+func (o ServiceTypeHealthPolicyResponseMapOutput) MapIndex(k pulumi.StringInput) ServiceTypeHealthPolicyResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceTypeHealthPolicyResponse {
+		return vs[0].(map[string]ServiceTypeHealthPolicyResponse)[vs[1].(string)]
+	}).(ServiceTypeHealthPolicyResponseOutput)
+}
+
 // Describes a parameter in fabric settings of the cluster.
 type SettingsParameterDescription struct {
 	// The parameter name of fabric setting.
@@ -6098,14 +6618,14 @@ func (o SettingsSectionDescriptionResponseArrayOutput) Index(i pulumi.IntInput) 
 }
 
 func init() {
+	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyOutput{})
 	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyMapOutput{})
-	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyMapPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyMapResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyMapResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationDeltaHealthPolicyResponseMapOutput{})
+	pulumi.RegisterOutputType(ApplicationHealthPolicyOutput{})
 	pulumi.RegisterOutputType(ApplicationHealthPolicyMapOutput{})
-	pulumi.RegisterOutputType(ApplicationHealthPolicyMapPtrOutput{})
-	pulumi.RegisterOutputType(ApplicationHealthPolicyMapResponseOutput{})
-	pulumi.RegisterOutputType(ApplicationHealthPolicyMapResponsePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationHealthPolicyResponseOutput{})
+	pulumi.RegisterOutputType(ApplicationHealthPolicyResponseMapOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryPtrOutput{})
 	pulumi.RegisterOutputType(AzureActiveDirectoryResponseOutput{})
@@ -6122,7 +6642,6 @@ func init() {
 	pulumi.RegisterOutputType(ClientCertificateThumbprintArrayOutput{})
 	pulumi.RegisterOutputType(ClientCertificateThumbprintResponseOutput{})
 	pulumi.RegisterOutputType(ClientCertificateThumbprintResponseArrayOutput{})
-	pulumi.RegisterOutputType(ClusterTypeOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterHealthPolicyResponseOutput{})
@@ -6137,7 +6656,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyResponseOutput{})
 	pulumi.RegisterOutputType(ClusterUpgradePolicyResponsePtrOutput{})
-	pulumi.RegisterOutputType(ClusterVersionDetailsOutput{})
 	pulumi.RegisterOutputType(ClusterVersionDetailsResponseOutput{})
 	pulumi.RegisterOutputType(ClusterVersionDetailsResponseArrayOutput{})
 	pulumi.RegisterOutputType(DiagnosticsStorageAccountConfigOutput{})
@@ -6160,6 +6678,18 @@ func init() {
 	pulumi.RegisterOutputType(ServerCertificateCommonNamesPtrOutput{})
 	pulumi.RegisterOutputType(ServerCertificateCommonNamesResponseOutput{})
 	pulumi.RegisterOutputType(ServerCertificateCommonNamesResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyOutput{})
+	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyMapOutput{})
+	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyResponseOutput{})
+	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceTypeDeltaHealthPolicyResponseMapOutput{})
+	pulumi.RegisterOutputType(ServiceTypeHealthPolicyOutput{})
+	pulumi.RegisterOutputType(ServiceTypeHealthPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ServiceTypeHealthPolicyMapOutput{})
+	pulumi.RegisterOutputType(ServiceTypeHealthPolicyResponseOutput{})
+	pulumi.RegisterOutputType(ServiceTypeHealthPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(ServiceTypeHealthPolicyResponseMapOutput{})
 	pulumi.RegisterOutputType(SettingsParameterDescriptionOutput{})
 	pulumi.RegisterOutputType(SettingsParameterDescriptionArrayOutput{})
 	pulumi.RegisterOutputType(SettingsParameterDescriptionResponseOutput{})

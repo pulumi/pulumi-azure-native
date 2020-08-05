@@ -78,14 +78,14 @@ namespace Pulumi.AzureRM.Network.V20180301
     public sealed class EndpointArgs : Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
-        private InputList<Inputs.EndpointPropertiesPropertiesArgs>? _customHeaders;
+        private InputList<Inputs.EndpointPropertiesCustomHeadersArgs>? _customHeaders;
 
         /// <summary>
         /// List of custom headers.
         /// </summary>
-        public InputList<Inputs.EndpointPropertiesPropertiesArgs> CustomHeaders
+        public InputList<Inputs.EndpointPropertiesCustomHeadersArgs> CustomHeaders
         {
-            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.EndpointPropertiesPropertiesArgs>());
+            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.EndpointPropertiesCustomHeadersArgs>());
             set => _customHeaders = value;
         }
 

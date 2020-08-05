@@ -111,7 +111,7 @@ export interface IntegrationRuntimeArgs {
     /**
      * Integration runtime properties.
      */
-    readonly properties: pulumi.Input<inputs.datafactory.v20180601.IntegrationRuntimeDefinition>;
+    readonly properties: pulumi.Input<inputs.datafactory.v20180601.IntegrationRuntime>;
     /**
      * The resource group name.
      */

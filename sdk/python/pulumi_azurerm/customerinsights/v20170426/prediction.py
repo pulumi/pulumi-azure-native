@@ -29,6 +29,10 @@ class Prediction(pulumi.CustomResource):
       * `involved_kpi_types` (`list`) - KPI types involved in the prediction.
       * `involved_relationships` (`list`) - Relationships involved in the prediction.
       * `mappings` (`dict`) - Definition of the link mapping of prediction.
+        * `grade` (`str`) - The grade of the link mapping.
+        * `reason` (`str`) - The reason of the link mapping.
+        * `score` (`str`) - The score of the link mapping.
+
       * `negative_outcome_expression` (`str`) - Negative outcome expression.
       * `positive_outcome_expression` (`str`) - Positive outcome expression.
       * `prediction_name` (`str`) - Name of the prediction.
@@ -37,6 +41,10 @@ class Prediction(pulumi.CustomResource):
       * `scope_expression` (`str`) - Scope expression.
       * `score_label` (`str`) - Score label.
       * `system_generated_entities` (`dict`) - System generated entities.
+        * `generated_interaction_types` (`list`) - Generated interaction types.
+        * `generated_kpis` (`dict`) - Generated KPIs.
+        * `generated_links` (`list`) - Generated links.
+
       * `tenant_id` (`str`) - The hub name.
     """
     type: pulumi.Output[str]
@@ -71,6 +79,12 @@ class Prediction(pulumi.CustomResource):
           * `grade_name` (`pulumi.Input[str]`) - Name of the grade.
           * `max_score_threshold` (`pulumi.Input[float]`) - Maximum score threshold.
           * `min_score_threshold` (`pulumi.Input[float]`) - Minimum score threshold.
+
+        The **mappings** object supports the following:
+
+          * `grade` (`pulumi.Input[str]`) - The grade of the link mapping.
+          * `reason` (`pulumi.Input[str]`) - The reason of the link mapping.
+          * `score` (`pulumi.Input[str]`) - The score of the link mapping.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

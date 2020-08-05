@@ -21,12 +21,6 @@ namespace Pulumi.AzureRM.Logic.V20160601.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        /// <summary>
-        /// The reference to plan.
-        /// </summary>
-        [Input("plan")]
-        public Input<Inputs.ResourceReferenceArgs>? Plan { get; set; }
-
         public SkuArgs()
         {
         }

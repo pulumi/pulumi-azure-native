@@ -129,7 +129,7 @@ namespace Pulumi.AzureRM.RecoveryServices.V20190513
         /// ProtectedItemResource properties
         /// </summary>
         [Input("properties")]
-        public Input<Inputs.ProtectedItemDefinitionArgs>? Properties { get; set; }
+        public Input<Inputs.ProtectedItemArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

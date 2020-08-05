@@ -91,9 +91,7 @@ func (WorkflowState) ElementType() reflect.Type {
 
 type workflowArgs struct {
 	// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
-	Definition *Object `pulumi:"definition"`
-	// The integration account.
-	IntegrationAccount *ResourceReference `pulumi:"integrationAccount"`
+	Definition map[string]interface{} `pulumi:"definition"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The workflow name.
@@ -113,9 +111,7 @@ type workflowArgs struct {
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
 	// The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
-	Definition ObjectPtrInput
-	// The integration account.
-	IntegrationAccount ResourceReferencePtrInput
+	Definition pulumi.MapInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The workflow name.

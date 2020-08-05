@@ -36,7 +36,7 @@ type LookupVolumeResult struct {
 	// Volume properties
 	Properties VolumePropertiesResponse `pulumi:"properties"`
 	// Resource tags
-	Tags *ResourceTagsResponse `pulumi:"tags"`
+	Tags map[string]interface{} `pulumi:"tags"`
 	// Resource type
 	Type string `pulumi:"type"`
 }

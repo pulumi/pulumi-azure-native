@@ -11,70 +11,6 @@ import (
 )
 
 // The properties for a Media Services REST API endpoint.
-type ApiEndpoint struct {
-	// The Media Services REST endpoint.
-	Endpoint *string `pulumi:"endpoint"`
-	// The version of Media Services REST API.
-	MajorVersion *string `pulumi:"majorVersion"`
-}
-
-// ApiEndpointInput is an input type that accepts ApiEndpointArgs and ApiEndpointOutput values.
-// You can construct a concrete instance of `ApiEndpointInput` via:
-//
-//          ApiEndpointArgs{...}
-type ApiEndpointInput interface {
-	pulumi.Input
-
-	ToApiEndpointOutput() ApiEndpointOutput
-	ToApiEndpointOutputWithContext(context.Context) ApiEndpointOutput
-}
-
-// The properties for a Media Services REST API endpoint.
-type ApiEndpointArgs struct {
-	// The Media Services REST endpoint.
-	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	// The version of Media Services REST API.
-	MajorVersion pulumi.StringPtrInput `pulumi:"majorVersion"`
-}
-
-func (ApiEndpointArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiEndpoint)(nil)).Elem()
-}
-
-func (i ApiEndpointArgs) ToApiEndpointOutput() ApiEndpointOutput {
-	return i.ToApiEndpointOutputWithContext(context.Background())
-}
-
-func (i ApiEndpointArgs) ToApiEndpointOutputWithContext(ctx context.Context) ApiEndpointOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiEndpointOutput)
-}
-
-// The properties for a Media Services REST API endpoint.
-type ApiEndpointOutput struct{ *pulumi.OutputState }
-
-func (ApiEndpointOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiEndpoint)(nil)).Elem()
-}
-
-func (o ApiEndpointOutput) ToApiEndpointOutput() ApiEndpointOutput {
-	return o
-}
-
-func (o ApiEndpointOutput) ToApiEndpointOutputWithContext(ctx context.Context) ApiEndpointOutput {
-	return o
-}
-
-// The Media Services REST endpoint.
-func (o ApiEndpointOutput) Endpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiEndpoint) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
-}
-
-// The version of Media Services REST API.
-func (o ApiEndpointOutput) MajorVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiEndpoint) *string { return v.MajorVersion }).(pulumi.StringPtrOutput)
-}
-
-// The properties for a Media Services REST API endpoint.
 type ApiEndpointResponse struct {
 	// The Media Services REST endpoint.
 	Endpoint *string `pulumi:"endpoint"`
@@ -181,97 +117,6 @@ func (o ApiEndpointResponseArrayOutput) Index(i pulumi.IntInput) ApiEndpointResp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiEndpointResponse {
 		return vs[0].([]ApiEndpointResponse)[vs[1].(int)]
 	}).(ApiEndpointResponseOutput)
-}
-
-// The properties of a Media Service resource.
-type MediaServiceType struct {
-	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
-	Location *string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The additional properties of a Media Service resource.
-	Properties MediaServicePropertiesResponse `pulumi:"properties"`
-	// Tags to help categorize the resource in the Azure portal.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource
-	Type string `pulumi:"type"`
-}
-
-// MediaServiceTypeInput is an input type that accepts MediaServiceTypeArgs and MediaServiceTypeOutput values.
-// You can construct a concrete instance of `MediaServiceTypeInput` via:
-//
-//          MediaServiceTypeArgs{...}
-type MediaServiceTypeInput interface {
-	pulumi.Input
-
-	ToMediaServiceTypeOutput() MediaServiceTypeOutput
-	ToMediaServiceTypeOutputWithContext(context.Context) MediaServiceTypeOutput
-}
-
-// The properties of a Media Service resource.
-type MediaServiceTypeArgs struct {
-	// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The additional properties of a Media Service resource.
-	Properties MediaServicePropertiesResponseInput `pulumi:"properties"`
-	// Tags to help categorize the resource in the Azure portal.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (MediaServiceTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceType)(nil)).Elem()
-}
-
-func (i MediaServiceTypeArgs) ToMediaServiceTypeOutput() MediaServiceTypeOutput {
-	return i.ToMediaServiceTypeOutputWithContext(context.Background())
-}
-
-func (i MediaServiceTypeArgs) ToMediaServiceTypeOutputWithContext(ctx context.Context) MediaServiceTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceTypeOutput)
-}
-
-// The properties of a Media Service resource.
-type MediaServiceTypeOutput struct{ *pulumi.OutputState }
-
-func (MediaServiceTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MediaServiceType)(nil)).Elem()
-}
-
-func (o MediaServiceTypeOutput) ToMediaServiceTypeOutput() MediaServiceTypeOutput {
-	return o
-}
-
-func (o MediaServiceTypeOutput) ToMediaServiceTypeOutputWithContext(ctx context.Context) MediaServiceTypeOutput {
-	return o
-}
-
-// The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
-func (o MediaServiceTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v MediaServiceType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource.
-func (o MediaServiceTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The additional properties of a Media Service resource.
-func (o MediaServiceTypeOutput) Properties() MediaServicePropertiesResponseOutput {
-	return o.ApplyT(func(v MediaServiceType) MediaServicePropertiesResponse { return v.Properties }).(MediaServicePropertiesResponseOutput)
-}
-
-// Tags to help categorize the resource in the Azure portal.
-func (o MediaServiceTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v MediaServiceType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource
-func (o MediaServiceTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v MediaServiceType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The additional properties of a Media Service resource.
@@ -646,10 +491,8 @@ func (o StorageAccountResponseArrayOutput) Index(i pulumi.IntInput) StorageAccou
 }
 
 func init() {
-	pulumi.RegisterOutputType(ApiEndpointOutput{})
 	pulumi.RegisterOutputType(ApiEndpointResponseOutput{})
 	pulumi.RegisterOutputType(ApiEndpointResponseArrayOutput{})
-	pulumi.RegisterOutputType(MediaServiceTypeOutput{})
 	pulumi.RegisterOutputType(MediaServicePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(MediaServicePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(StorageAccountOutput{})

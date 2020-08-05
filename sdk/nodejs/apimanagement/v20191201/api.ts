@@ -213,5 +213,5 @@ export interface ApiArgs {
     /**
      * Criteria to limit import of WSDL to a subset of the document.
      */
-    readonly wsdlSelector?: pulumi.Input<inputs.apimanagement.v20191201.ApiCreateOrUpdatePropertiesProperties>;
+    readonly wsdlSelector?: pulumi.Input<inputs.apimanagement.v20191201.ApiCreateOrUpdatePropertiesWsdlSelector>;
 }

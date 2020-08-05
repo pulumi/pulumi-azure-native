@@ -44,7 +44,7 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
         /// <summary>
         /// Defines the Web Application Firewall policy for each host (if applicable)
         /// </summary>
-        public readonly Outputs.FrontendEndpointUpdateParametersResponsePropertiesResult? WebApplicationFirewallPolicyLink;
+        public readonly Outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? WebApplicationFirewallPolicyLink;
 
         [OutputConstructor]
         private FrontendEndpointPropertiesResponseResult(
@@ -62,7 +62,7 @@ namespace Pulumi.AzureRM.Network.V20190401.Outputs
 
             int? sessionAffinityTtlSeconds,
 
-            Outputs.FrontendEndpointUpdateParametersResponsePropertiesResult? webApplicationFirewallPolicyLink)
+            Outputs.FrontendEndpointUpdateParametersResponseWebApplicationFirewallPolicyLinkResult? webApplicationFirewallPolicyLink)
         {
             CustomHttpsConfiguration = customHttpsConfiguration;
             CustomHttpsProvisioningState = customHttpsProvisioningState;

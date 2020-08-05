@@ -51,7 +51,7 @@ export class Account extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<outputs.netapp.v20190601.ResourceTagsResponse | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Resource type
      */
@@ -121,5 +121,5 @@ export interface AccountArgs {
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<inputs.netapp.v20190601.ResourceTags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

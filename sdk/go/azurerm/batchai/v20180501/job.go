@@ -104,7 +104,7 @@ type jobArgs struct {
 	// Settings for CNTK (aka Microsoft Cognitive Toolkit) job.
 	CntkSettings *CNTKsettings `pulumi:"cntkSettings"`
 	// Constraints associated with the Job.
-	Constraints *JobBasePropertiesProperties `pulumi:"constraints"`
+	Constraints *JobBasePropertiesConstraints `pulumi:"constraints"`
 	// Docker container settings for the job. If not provided, the job will run directly on the node.
 	ContainerSettings *ContainerSettings `pulumi:"containerSettings"`
 	// Settings for custom MPI job.
@@ -158,7 +158,7 @@ type JobArgs struct {
 	// Settings for CNTK (aka Microsoft Cognitive Toolkit) job.
 	CntkSettings CNTKsettingsPtrInput
 	// Constraints associated with the Job.
-	Constraints JobBasePropertiesPropertiesPtrInput
+	Constraints JobBasePropertiesConstraintsPtrInput
 	// Docker container settings for the job. If not provided, the job will run directly on the node.
 	ContainerSettings ContainerSettingsPtrInput
 	// Settings for custom MPI job.

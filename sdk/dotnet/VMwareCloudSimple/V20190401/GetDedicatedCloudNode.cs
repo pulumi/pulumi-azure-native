@@ -58,7 +58,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
         /// <summary>
         /// Dedicated Cloud Nodes tags
         /// </summary>
-        public readonly Outputs.TagsResponseResult? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// {resourceProviderNamespace}/{resourceType}
         /// </summary>
@@ -74,7 +74,7 @@ namespace Pulumi.AzureRM.VMwareCloudSimple.V20190401
 
             Outputs.SkuResponseResult? sku,
 
-            Outputs.TagsResponseResult? tags,
+            ImmutableDictionary<string, string>? tags,
 
             string type)
         {

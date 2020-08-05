@@ -51,7 +51,7 @@ export class Pool extends pulumi.CustomResource {
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<outputs.netapp.v20190701.ResourceTagsResponse | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Resource type
      */
@@ -140,5 +140,5 @@ export interface PoolArgs {
     /**
      * Resource tags
      */
-    readonly tags?: pulumi.Input<inputs.netapp.v20190701.ResourceTags>;
+    readonly tags?: pulumi.Input<{[key: string]: any}>;
 }

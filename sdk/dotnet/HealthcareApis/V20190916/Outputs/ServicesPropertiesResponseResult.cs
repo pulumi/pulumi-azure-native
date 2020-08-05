@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.HealthcareApis.V20190916.Outputs
         /// <summary>
         /// The access policies of the service instance.
         /// </summary>
-        public readonly Outputs.ServiceAccessPoliciesInfoResponseResult? AccessPolicies;
+        public readonly ImmutableArray<Outputs.ServiceAccessPolicyEntryResponseResult> AccessPolicies;
         /// <summary>
         /// The authentication configuration for the service instance.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.AzureRM.HealthcareApis.V20190916.Outputs
 
         [OutputConstructor]
         private ServicesPropertiesResponseResult(
-            Outputs.ServiceAccessPoliciesInfoResponseResult? accessPolicies,
+            ImmutableArray<Outputs.ServiceAccessPolicyEntryResponseResult> accessPolicies,
 
             Outputs.ServiceAuthenticationConfigurationInfoResponseResult? authenticationConfiguration,
 

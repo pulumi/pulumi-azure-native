@@ -468,8 +468,6 @@ func (o ImageTemplateDistributorResponseArrayOutput) Index(i pulumi.IntInput) Im
 type ImageTemplateIdentity struct {
 	// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
 	Type *string `pulumi:"type"`
-	// The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]ImageTemplateIdentityProperties `pulumi:"userAssignedIdentities"`
 }
 
 // ImageTemplateIdentityInput is an input type that accepts ImageTemplateIdentityArgs and ImageTemplateIdentityOutput values.
@@ -487,8 +485,6 @@ type ImageTemplateIdentityInput interface {
 type ImageTemplateIdentityArgs struct {
 	// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities ImageTemplateIdentityPropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ImageTemplateIdentityArgs) ElementType() reflect.Type {
@@ -574,13 +570,6 @@ func (o ImageTemplateIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageTemplateIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ImageTemplateIdentityOutput) UserAssignedIdentities() ImageTemplateIdentityPropertiesMapOutput {
-	return o.ApplyT(func(v ImageTemplateIdentity) map[string]ImageTemplateIdentityProperties {
-		return v.UserAssignedIdentities
-	}).(ImageTemplateIdentityPropertiesMapOutput)
-}
-
 type ImageTemplateIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (ImageTemplateIdentityPtrOutput) ElementType() reflect.Type {
@@ -609,110 +598,12 @@ func (o ImageTemplateIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ImageTemplateIdentityPtrOutput) UserAssignedIdentities() ImageTemplateIdentityPropertiesMapOutput {
-	return o.ApplyT(func(v *ImageTemplateIdentity) map[string]ImageTemplateIdentityProperties {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(ImageTemplateIdentityPropertiesMapOutput)
-}
-
-type ImageTemplateIdentityProperties struct {
-}
-
-// ImageTemplateIdentityPropertiesInput is an input type that accepts ImageTemplateIdentityPropertiesArgs and ImageTemplateIdentityPropertiesOutput values.
-// You can construct a concrete instance of `ImageTemplateIdentityPropertiesInput` via:
-//
-//          ImageTemplateIdentityPropertiesArgs{...}
-type ImageTemplateIdentityPropertiesInput interface {
-	pulumi.Input
-
-	ToImageTemplateIdentityPropertiesOutput() ImageTemplateIdentityPropertiesOutput
-	ToImageTemplateIdentityPropertiesOutputWithContext(context.Context) ImageTemplateIdentityPropertiesOutput
-}
-
-type ImageTemplateIdentityPropertiesArgs struct {
-}
-
-func (ImageTemplateIdentityPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateIdentityProperties)(nil)).Elem()
-}
-
-func (i ImageTemplateIdentityPropertiesArgs) ToImageTemplateIdentityPropertiesOutput() ImageTemplateIdentityPropertiesOutput {
-	return i.ToImageTemplateIdentityPropertiesOutputWithContext(context.Background())
-}
-
-func (i ImageTemplateIdentityPropertiesArgs) ToImageTemplateIdentityPropertiesOutputWithContext(ctx context.Context) ImageTemplateIdentityPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateIdentityPropertiesOutput)
-}
-
-// ImageTemplateIdentityPropertiesMapInput is an input type that accepts ImageTemplateIdentityPropertiesMap and ImageTemplateIdentityPropertiesMapOutput values.
-// You can construct a concrete instance of `ImageTemplateIdentityPropertiesMapInput` via:
-//
-//          ImageTemplateIdentityPropertiesMap{ "key": ImageTemplateIdentityPropertiesArgs{...} }
-type ImageTemplateIdentityPropertiesMapInput interface {
-	pulumi.Input
-
-	ToImageTemplateIdentityPropertiesMapOutput() ImageTemplateIdentityPropertiesMapOutput
-	ToImageTemplateIdentityPropertiesMapOutputWithContext(context.Context) ImageTemplateIdentityPropertiesMapOutput
-}
-
-type ImageTemplateIdentityPropertiesMap map[string]ImageTemplateIdentityPropertiesInput
-
-func (ImageTemplateIdentityPropertiesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ImageTemplateIdentityProperties)(nil)).Elem()
-}
-
-func (i ImageTemplateIdentityPropertiesMap) ToImageTemplateIdentityPropertiesMapOutput() ImageTemplateIdentityPropertiesMapOutput {
-	return i.ToImageTemplateIdentityPropertiesMapOutputWithContext(context.Background())
-}
-
-func (i ImageTemplateIdentityPropertiesMap) ToImageTemplateIdentityPropertiesMapOutputWithContext(ctx context.Context) ImageTemplateIdentityPropertiesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateIdentityPropertiesMapOutput)
-}
-
-type ImageTemplateIdentityPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ImageTemplateIdentityPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateIdentityProperties)(nil)).Elem()
-}
-
-func (o ImageTemplateIdentityPropertiesOutput) ToImageTemplateIdentityPropertiesOutput() ImageTemplateIdentityPropertiesOutput {
-	return o
-}
-
-func (o ImageTemplateIdentityPropertiesOutput) ToImageTemplateIdentityPropertiesOutputWithContext(ctx context.Context) ImageTemplateIdentityPropertiesOutput {
-	return o
-}
-
-type ImageTemplateIdentityPropertiesMapOutput struct{ *pulumi.OutputState }
-
-func (ImageTemplateIdentityPropertiesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ImageTemplateIdentityProperties)(nil)).Elem()
-}
-
-func (o ImageTemplateIdentityPropertiesMapOutput) ToImageTemplateIdentityPropertiesMapOutput() ImageTemplateIdentityPropertiesMapOutput {
-	return o
-}
-
-func (o ImageTemplateIdentityPropertiesMapOutput) ToImageTemplateIdentityPropertiesMapOutputWithContext(ctx context.Context) ImageTemplateIdentityPropertiesMapOutput {
-	return o
-}
-
-func (o ImageTemplateIdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) ImageTemplateIdentityPropertiesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ImageTemplateIdentityProperties {
-		return vs[0].(map[string]ImageTemplateIdentityProperties)[vs[1].(string)]
-	}).(ImageTemplateIdentityPropertiesOutput)
-}
-
 // Identity for the image template.
 type ImageTemplateIdentityResponse struct {
 	// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]ImageTemplateIdentityResponseProperties `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]ImageTemplateIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
 // ImageTemplateIdentityResponseInput is an input type that accepts ImageTemplateIdentityResponseArgs and ImageTemplateIdentityResponseOutput values.
@@ -731,7 +622,7 @@ type ImageTemplateIdentityResponseArgs struct {
 	// The type of identity used for the image template. The type 'None' will remove any identities from the image template.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities ImageTemplateIdentityResponsePropertiesMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities ImageTemplateIdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ImageTemplateIdentityResponseArgs) ElementType() reflect.Type {
@@ -818,10 +709,10 @@ func (o ImageTemplateIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ImageTemplateIdentityResponseOutput) UserAssignedIdentities() ImageTemplateIdentityResponsePropertiesMapOutput {
-	return o.ApplyT(func(v ImageTemplateIdentityResponse) map[string]ImageTemplateIdentityResponseProperties {
+func (o ImageTemplateIdentityResponseOutput) UserAssignedIdentities() ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v ImageTemplateIdentityResponse) map[string]ImageTemplateIdentityResponseUserAssignedIdentities {
 		return v.UserAssignedIdentities
-	}).(ImageTemplateIdentityResponsePropertiesMapOutput)
+	}).(ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
 type ImageTemplateIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -853,210 +744,119 @@ func (o ImageTemplateIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the image template. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ImageTemplateIdentityResponsePtrOutput) UserAssignedIdentities() ImageTemplateIdentityResponsePropertiesMapOutput {
-	return o.ApplyT(func(v *ImageTemplateIdentityResponse) map[string]ImageTemplateIdentityResponseProperties {
+func (o ImageTemplateIdentityResponsePtrOutput) UserAssignedIdentities() ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v *ImageTemplateIdentityResponse) map[string]ImageTemplateIdentityResponseUserAssignedIdentities {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(ImageTemplateIdentityResponsePropertiesMapOutput)
+	}).(ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
-type ImageTemplateIdentityResponseProperties struct {
+type ImageTemplateIdentityResponseUserAssignedIdentities struct {
 	// The client id of user assigned identity.
 	ClientId string `pulumi:"clientId"`
 	// The principal id of user assigned identity.
 	PrincipalId string `pulumi:"principalId"`
 }
 
-// ImageTemplateIdentityResponsePropertiesInput is an input type that accepts ImageTemplateIdentityResponsePropertiesArgs and ImageTemplateIdentityResponsePropertiesOutput values.
-// You can construct a concrete instance of `ImageTemplateIdentityResponsePropertiesInput` via:
+// ImageTemplateIdentityResponseUserAssignedIdentitiesInput is an input type that accepts ImageTemplateIdentityResponseUserAssignedIdentitiesArgs and ImageTemplateIdentityResponseUserAssignedIdentitiesOutput values.
+// You can construct a concrete instance of `ImageTemplateIdentityResponseUserAssignedIdentitiesInput` via:
 //
-//          ImageTemplateIdentityResponsePropertiesArgs{...}
-type ImageTemplateIdentityResponsePropertiesInput interface {
+//          ImageTemplateIdentityResponseUserAssignedIdentitiesArgs{...}
+type ImageTemplateIdentityResponseUserAssignedIdentitiesInput interface {
 	pulumi.Input
 
-	ToImageTemplateIdentityResponsePropertiesOutput() ImageTemplateIdentityResponsePropertiesOutput
-	ToImageTemplateIdentityResponsePropertiesOutputWithContext(context.Context) ImageTemplateIdentityResponsePropertiesOutput
+	ToImageTemplateIdentityResponseUserAssignedIdentitiesOutput() ImageTemplateIdentityResponseUserAssignedIdentitiesOutput
+	ToImageTemplateIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Context) ImageTemplateIdentityResponseUserAssignedIdentitiesOutput
 }
 
-type ImageTemplateIdentityResponsePropertiesArgs struct {
+type ImageTemplateIdentityResponseUserAssignedIdentitiesArgs struct {
 	// The client id of user assigned identity.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The principal id of user assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
-func (ImageTemplateIdentityResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateIdentityResponseProperties)(nil)).Elem()
+func (ImageTemplateIdentityResponseUserAssignedIdentitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateIdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (i ImageTemplateIdentityResponsePropertiesArgs) ToImageTemplateIdentityResponsePropertiesOutput() ImageTemplateIdentityResponsePropertiesOutput {
-	return i.ToImageTemplateIdentityResponsePropertiesOutputWithContext(context.Background())
+func (i ImageTemplateIdentityResponseUserAssignedIdentitiesArgs) ToImageTemplateIdentityResponseUserAssignedIdentitiesOutput() ImageTemplateIdentityResponseUserAssignedIdentitiesOutput {
+	return i.ToImageTemplateIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Background())
 }
 
-func (i ImageTemplateIdentityResponsePropertiesArgs) ToImageTemplateIdentityResponsePropertiesOutputWithContext(ctx context.Context) ImageTemplateIdentityResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateIdentityResponsePropertiesOutput)
+func (i ImageTemplateIdentityResponseUserAssignedIdentitiesArgs) ToImageTemplateIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) ImageTemplateIdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateIdentityResponseUserAssignedIdentitiesOutput)
 }
 
-// ImageTemplateIdentityResponsePropertiesMapInput is an input type that accepts ImageTemplateIdentityResponsePropertiesMap and ImageTemplateIdentityResponsePropertiesMapOutput values.
-// You can construct a concrete instance of `ImageTemplateIdentityResponsePropertiesMapInput` via:
+// ImageTemplateIdentityResponseUserAssignedIdentitiesMapInput is an input type that accepts ImageTemplateIdentityResponseUserAssignedIdentitiesMap and ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput values.
+// You can construct a concrete instance of `ImageTemplateIdentityResponseUserAssignedIdentitiesMapInput` via:
 //
-//          ImageTemplateIdentityResponsePropertiesMap{ "key": ImageTemplateIdentityResponsePropertiesArgs{...} }
-type ImageTemplateIdentityResponsePropertiesMapInput interface {
+//          ImageTemplateIdentityResponseUserAssignedIdentitiesMap{ "key": ImageTemplateIdentityResponseUserAssignedIdentitiesArgs{...} }
+type ImageTemplateIdentityResponseUserAssignedIdentitiesMapInput interface {
 	pulumi.Input
 
-	ToImageTemplateIdentityResponsePropertiesMapOutput() ImageTemplateIdentityResponsePropertiesMapOutput
-	ToImageTemplateIdentityResponsePropertiesMapOutputWithContext(context.Context) ImageTemplateIdentityResponsePropertiesMapOutput
+	ToImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput() ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput
+	ToImageTemplateIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Context) ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput
 }
 
-type ImageTemplateIdentityResponsePropertiesMap map[string]ImageTemplateIdentityResponsePropertiesInput
+type ImageTemplateIdentityResponseUserAssignedIdentitiesMap map[string]ImageTemplateIdentityResponseUserAssignedIdentitiesInput
 
-func (ImageTemplateIdentityResponsePropertiesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ImageTemplateIdentityResponseProperties)(nil)).Elem()
+func (ImageTemplateIdentityResponseUserAssignedIdentitiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ImageTemplateIdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (i ImageTemplateIdentityResponsePropertiesMap) ToImageTemplateIdentityResponsePropertiesMapOutput() ImageTemplateIdentityResponsePropertiesMapOutput {
-	return i.ToImageTemplateIdentityResponsePropertiesMapOutputWithContext(context.Background())
+func (i ImageTemplateIdentityResponseUserAssignedIdentitiesMap) ToImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput() ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput {
+	return i.ToImageTemplateIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Background())
 }
 
-func (i ImageTemplateIdentityResponsePropertiesMap) ToImageTemplateIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) ImageTemplateIdentityResponsePropertiesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateIdentityResponsePropertiesMapOutput)
+func (i ImageTemplateIdentityResponseUserAssignedIdentitiesMap) ToImageTemplateIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
-type ImageTemplateIdentityResponsePropertiesOutput struct{ *pulumi.OutputState }
+type ImageTemplateIdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
 
-func (ImageTemplateIdentityResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateIdentityResponseProperties)(nil)).Elem()
+func (ImageTemplateIdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageTemplateIdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (o ImageTemplateIdentityResponsePropertiesOutput) ToImageTemplateIdentityResponsePropertiesOutput() ImageTemplateIdentityResponsePropertiesOutput {
+func (o ImageTemplateIdentityResponseUserAssignedIdentitiesOutput) ToImageTemplateIdentityResponseUserAssignedIdentitiesOutput() ImageTemplateIdentityResponseUserAssignedIdentitiesOutput {
 	return o
 }
 
-func (o ImageTemplateIdentityResponsePropertiesOutput) ToImageTemplateIdentityResponsePropertiesOutputWithContext(ctx context.Context) ImageTemplateIdentityResponsePropertiesOutput {
+func (o ImageTemplateIdentityResponseUserAssignedIdentitiesOutput) ToImageTemplateIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) ImageTemplateIdentityResponseUserAssignedIdentitiesOutput {
 	return o
 }
 
 // The client id of user assigned identity.
-func (o ImageTemplateIdentityResponsePropertiesOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageTemplateIdentityResponseProperties) string { return v.ClientId }).(pulumi.StringOutput)
+func (o ImageTemplateIdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateIdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
 // The principal id of user assigned identity.
-func (o ImageTemplateIdentityResponsePropertiesOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageTemplateIdentityResponseProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
+func (o ImageTemplateIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageTemplateIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-type ImageTemplateIdentityResponsePropertiesMapOutput struct{ *pulumi.OutputState }
+type ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
 
-func (ImageTemplateIdentityResponsePropertiesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ImageTemplateIdentityResponseProperties)(nil)).Elem()
+func (ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ImageTemplateIdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (o ImageTemplateIdentityResponsePropertiesMapOutput) ToImageTemplateIdentityResponsePropertiesMapOutput() ImageTemplateIdentityResponsePropertiesMapOutput {
+func (o ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput) ToImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput() ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput {
 	return o
 }
 
-func (o ImageTemplateIdentityResponsePropertiesMapOutput) ToImageTemplateIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) ImageTemplateIdentityResponsePropertiesMapOutput {
+func (o ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput) ToImageTemplateIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput {
 	return o
 }
 
-func (o ImageTemplateIdentityResponsePropertiesMapOutput) MapIndex(k pulumi.StringInput) ImageTemplateIdentityResponsePropertiesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ImageTemplateIdentityResponseProperties {
-		return vs[0].(map[string]ImageTemplateIdentityResponseProperties)[vs[1].(string)]
-	}).(ImageTemplateIdentityResponsePropertiesOutput)
-}
-
-// Describes the latest status of running an image template
-type ImageTemplateLastRunStatus struct {
-	// End time of the last run (UTC)
-	EndTime *string `pulumi:"endTime"`
-	// Verbose information about the last run state
-	Message *string `pulumi:"message"`
-	// State of the last run
-	RunState *string `pulumi:"runState"`
-	// Sub-state of the last run
-	RunSubState *string `pulumi:"runSubState"`
-	// Start time of the last run (UTC)
-	StartTime *string `pulumi:"startTime"`
-}
-
-// ImageTemplateLastRunStatusInput is an input type that accepts ImageTemplateLastRunStatusArgs and ImageTemplateLastRunStatusOutput values.
-// You can construct a concrete instance of `ImageTemplateLastRunStatusInput` via:
-//
-//          ImageTemplateLastRunStatusArgs{...}
-type ImageTemplateLastRunStatusInput interface {
-	pulumi.Input
-
-	ToImageTemplateLastRunStatusOutput() ImageTemplateLastRunStatusOutput
-	ToImageTemplateLastRunStatusOutputWithContext(context.Context) ImageTemplateLastRunStatusOutput
-}
-
-// Describes the latest status of running an image template
-type ImageTemplateLastRunStatusArgs struct {
-	// End time of the last run (UTC)
-	EndTime pulumi.StringPtrInput `pulumi:"endTime"`
-	// Verbose information about the last run state
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// State of the last run
-	RunState pulumi.StringPtrInput `pulumi:"runState"`
-	// Sub-state of the last run
-	RunSubState pulumi.StringPtrInput `pulumi:"runSubState"`
-	// Start time of the last run (UTC)
-	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
-}
-
-func (ImageTemplateLastRunStatusArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateLastRunStatus)(nil)).Elem()
-}
-
-func (i ImageTemplateLastRunStatusArgs) ToImageTemplateLastRunStatusOutput() ImageTemplateLastRunStatusOutput {
-	return i.ToImageTemplateLastRunStatusOutputWithContext(context.Background())
-}
-
-func (i ImageTemplateLastRunStatusArgs) ToImageTemplateLastRunStatusOutputWithContext(ctx context.Context) ImageTemplateLastRunStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageTemplateLastRunStatusOutput)
-}
-
-// Describes the latest status of running an image template
-type ImageTemplateLastRunStatusOutput struct{ *pulumi.OutputState }
-
-func (ImageTemplateLastRunStatusOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageTemplateLastRunStatus)(nil)).Elem()
-}
-
-func (o ImageTemplateLastRunStatusOutput) ToImageTemplateLastRunStatusOutput() ImageTemplateLastRunStatusOutput {
-	return o
-}
-
-func (o ImageTemplateLastRunStatusOutput) ToImageTemplateLastRunStatusOutputWithContext(ctx context.Context) ImageTemplateLastRunStatusOutput {
-	return o
-}
-
-// End time of the last run (UTC)
-func (o ImageTemplateLastRunStatusOutput) EndTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImageTemplateLastRunStatus) *string { return v.EndTime }).(pulumi.StringPtrOutput)
-}
-
-// Verbose information about the last run state
-func (o ImageTemplateLastRunStatusOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImageTemplateLastRunStatus) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-// State of the last run
-func (o ImageTemplateLastRunStatusOutput) RunState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImageTemplateLastRunStatus) *string { return v.RunState }).(pulumi.StringPtrOutput)
-}
-
-// Sub-state of the last run
-func (o ImageTemplateLastRunStatusOutput) RunSubState() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImageTemplateLastRunStatus) *string { return v.RunSubState }).(pulumi.StringPtrOutput)
-}
-
-// Start time of the last run (UTC)
-func (o ImageTemplateLastRunStatusOutput) StartTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ImageTemplateLastRunStatus) *string { return v.StartTime }).(pulumi.StringPtrOutput)
+func (o ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) ImageTemplateIdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ImageTemplateIdentityResponseUserAssignedIdentities {
+		return vs[0].(map[string]ImageTemplateIdentityResponseUserAssignedIdentities)[vs[1].(string)]
+	}).(ImageTemplateIdentityResponseUserAssignedIdentitiesOutput)
 }
 
 // Describes the latest status of running an image template
@@ -2149,70 +1949,6 @@ func (o ImageTemplateVmProfileResponsePtrOutput) VnetConfig() VirtualNetworkConf
 }
 
 // Describes the error happened when create or update an image template
-type ProvisioningError struct {
-	// Verbose error message about the provisioning failure
-	Message *string `pulumi:"message"`
-	// Error code of the provisioning failure
-	ProvisioningErrorCode *string `pulumi:"provisioningErrorCode"`
-}
-
-// ProvisioningErrorInput is an input type that accepts ProvisioningErrorArgs and ProvisioningErrorOutput values.
-// You can construct a concrete instance of `ProvisioningErrorInput` via:
-//
-//          ProvisioningErrorArgs{...}
-type ProvisioningErrorInput interface {
-	pulumi.Input
-
-	ToProvisioningErrorOutput() ProvisioningErrorOutput
-	ToProvisioningErrorOutputWithContext(context.Context) ProvisioningErrorOutput
-}
-
-// Describes the error happened when create or update an image template
-type ProvisioningErrorArgs struct {
-	// Verbose error message about the provisioning failure
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	// Error code of the provisioning failure
-	ProvisioningErrorCode pulumi.StringPtrInput `pulumi:"provisioningErrorCode"`
-}
-
-func (ProvisioningErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProvisioningError)(nil)).Elem()
-}
-
-func (i ProvisioningErrorArgs) ToProvisioningErrorOutput() ProvisioningErrorOutput {
-	return i.ToProvisioningErrorOutputWithContext(context.Background())
-}
-
-func (i ProvisioningErrorArgs) ToProvisioningErrorOutputWithContext(ctx context.Context) ProvisioningErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProvisioningErrorOutput)
-}
-
-// Describes the error happened when create or update an image template
-type ProvisioningErrorOutput struct{ *pulumi.OutputState }
-
-func (ProvisioningErrorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProvisioningError)(nil)).Elem()
-}
-
-func (o ProvisioningErrorOutput) ToProvisioningErrorOutput() ProvisioningErrorOutput {
-	return o
-}
-
-func (o ProvisioningErrorOutput) ToProvisioningErrorOutputWithContext(ctx context.Context) ProvisioningErrorOutput {
-	return o
-}
-
-// Verbose error message about the provisioning failure
-func (o ProvisioningErrorOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProvisioningError) *string { return v.Message }).(pulumi.StringPtrOutput)
-}
-
-// Error code of the provisioning failure
-func (o ProvisioningErrorOutput) ProvisioningErrorCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProvisioningError) *string { return v.ProvisioningErrorCode }).(pulumi.StringPtrOutput)
-}
-
-// Describes the error happened when create or update an image template
 type ProvisioningErrorResponse struct {
 	// Verbose error message about the provisioning failure
 	Message *string `pulumi:"message"`
@@ -2363,106 +2099,6 @@ func (o ProvisioningErrorResponsePtrOutput) ProvisioningErrorCode() pulumi.Strin
 		}
 		return v.ProvisioningErrorCode
 	}).(pulumi.StringPtrOutput)
-}
-
-// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-type VirtualMachineImageTemplateType struct {
-	// The identity of the image template, if configured.
-	Identity ImageTemplateIdentityResponse `pulumi:"identity"`
-	// Resource location
-	Location string `pulumi:"location"`
-	// Resource name
-	Name string `pulumi:"name"`
-	// The properties of the image template
-	Properties ImageTemplatePropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// VirtualMachineImageTemplateTypeInput is an input type that accepts VirtualMachineImageTemplateTypeArgs and VirtualMachineImageTemplateTypeOutput values.
-// You can construct a concrete instance of `VirtualMachineImageTemplateTypeInput` via:
-//
-//          VirtualMachineImageTemplateTypeArgs{...}
-type VirtualMachineImageTemplateTypeInput interface {
-	pulumi.Input
-
-	ToVirtualMachineImageTemplateTypeOutput() VirtualMachineImageTemplateTypeOutput
-	ToVirtualMachineImageTemplateTypeOutputWithContext(context.Context) VirtualMachineImageTemplateTypeOutput
-}
-
-// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-type VirtualMachineImageTemplateTypeArgs struct {
-	// The identity of the image template, if configured.
-	Identity ImageTemplateIdentityResponseInput `pulumi:"identity"`
-	// Resource location
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the image template
-	Properties ImageTemplatePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (VirtualMachineImageTemplateTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineImageTemplateType)(nil)).Elem()
-}
-
-func (i VirtualMachineImageTemplateTypeArgs) ToVirtualMachineImageTemplateTypeOutput() VirtualMachineImageTemplateTypeOutput {
-	return i.ToVirtualMachineImageTemplateTypeOutputWithContext(context.Background())
-}
-
-func (i VirtualMachineImageTemplateTypeArgs) ToVirtualMachineImageTemplateTypeOutputWithContext(ctx context.Context) VirtualMachineImageTemplateTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineImageTemplateTypeOutput)
-}
-
-// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
-type VirtualMachineImageTemplateTypeOutput struct{ *pulumi.OutputState }
-
-func (VirtualMachineImageTemplateTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualMachineImageTemplateType)(nil)).Elem()
-}
-
-func (o VirtualMachineImageTemplateTypeOutput) ToVirtualMachineImageTemplateTypeOutput() VirtualMachineImageTemplateTypeOutput {
-	return o
-}
-
-func (o VirtualMachineImageTemplateTypeOutput) ToVirtualMachineImageTemplateTypeOutputWithContext(ctx context.Context) VirtualMachineImageTemplateTypeOutput {
-	return o
-}
-
-// The identity of the image template, if configured.
-func (o VirtualMachineImageTemplateTypeOutput) Identity() ImageTemplateIdentityResponseOutput {
-	return o.ApplyT(func(v VirtualMachineImageTemplateType) ImageTemplateIdentityResponse { return v.Identity }).(ImageTemplateIdentityResponseOutput)
-}
-
-// Resource location
-func (o VirtualMachineImageTemplateTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineImageTemplateType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name
-func (o VirtualMachineImageTemplateTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineImageTemplateType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the image template
-func (o VirtualMachineImageTemplateTypeOutput) Properties() ImageTemplatePropertiesResponseOutput {
-	return o.ApplyT(func(v VirtualMachineImageTemplateType) ImageTemplatePropertiesResponse { return v.Properties }).(ImageTemplatePropertiesResponseOutput)
-}
-
-// Resource tags
-func (o VirtualMachineImageTemplateTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v VirtualMachineImageTemplateType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o VirtualMachineImageTemplateTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v VirtualMachineImageTemplateType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Virtual Network configuration.
@@ -2744,13 +2380,10 @@ func init() {
 	pulumi.RegisterOutputType(ImageTemplateDistributorResponseArrayOutput{})
 	pulumi.RegisterOutputType(ImageTemplateIdentityOutput{})
 	pulumi.RegisterOutputType(ImageTemplateIdentityPtrOutput{})
-	pulumi.RegisterOutputType(ImageTemplateIdentityPropertiesOutput{})
-	pulumi.RegisterOutputType(ImageTemplateIdentityPropertiesMapOutput{})
 	pulumi.RegisterOutputType(ImageTemplateIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ImageTemplateIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(ImageTemplateIdentityResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(ImageTemplateIdentityResponsePropertiesMapOutput{})
-	pulumi.RegisterOutputType(ImageTemplateLastRunStatusOutput{})
+	pulumi.RegisterOutputType(ImageTemplateIdentityResponseUserAssignedIdentitiesOutput{})
+	pulumi.RegisterOutputType(ImageTemplateIdentityResponseUserAssignedIdentitiesMapOutput{})
 	pulumi.RegisterOutputType(ImageTemplateLastRunStatusResponseOutput{})
 	pulumi.RegisterOutputType(ImageTemplateLastRunStatusResponsePtrOutput{})
 	pulumi.RegisterOutputType(ImageTemplatePropertiesResponseOutput{})
@@ -2763,10 +2396,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageTemplateVmProfilePtrOutput{})
 	pulumi.RegisterOutputType(ImageTemplateVmProfileResponseOutput{})
 	pulumi.RegisterOutputType(ImageTemplateVmProfileResponsePtrOutput{})
-	pulumi.RegisterOutputType(ProvisioningErrorOutput{})
 	pulumi.RegisterOutputType(ProvisioningErrorResponseOutput{})
 	pulumi.RegisterOutputType(ProvisioningErrorResponsePtrOutput{})
-	pulumi.RegisterOutputType(VirtualMachineImageTemplateTypeOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkConfigResponseOutput{})

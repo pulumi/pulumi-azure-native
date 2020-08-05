@@ -47,7 +47,7 @@ export class Group extends pulumi.CustomResource {
     /**
      * Properties of the group.
      */
-    public readonly properties!: pulumi.Output<outputs.migrate.v20191001.GroupPropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.migrate.v20191001.GroupPropertiesResponse>;
     /**
      * Type of the object = [Microsoft.Migrate/assessmentProjects/groups].
      */
@@ -72,17 +72,14 @@ export class Group extends pulumi.CustomResource {
             if (!args || args.projectName === undefined) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if (!args || args.properties === undefined) {
-                throw new Error("Missing required property 'properties'");
-            }
             if (!args || args.resourceGroupName === undefined) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             inputs["eTag"] = args ? args.eTag : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["projectName"] = args ? args.projectName : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
             inputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            inputs["properties"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts) {
@@ -112,10 +109,6 @@ export interface GroupArgs {
      * Name of the Azure Migrate project.
      */
     readonly projectName: pulumi.Input<string>;
-    /**
-     * Properties of the group.
-     */
-    readonly properties: pulumi.Input<inputs.migrate.v20191001.GroupProperties>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

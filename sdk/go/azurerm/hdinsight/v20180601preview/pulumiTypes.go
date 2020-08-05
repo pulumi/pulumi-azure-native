@@ -10,97 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The HDInsight cluster application
-type ApplicationType struct {
-	// The ETag for the application
-	Etag *string `pulumi:"etag"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of the application.
-	Properties ApplicationPropertiesResponse `pulumi:"properties"`
-	// The tags for the application.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// ApplicationTypeInput is an input type that accepts ApplicationTypeArgs and ApplicationTypeOutput values.
-// You can construct a concrete instance of `ApplicationTypeInput` via:
-//
-//          ApplicationTypeArgs{...}
-type ApplicationTypeInput interface {
-	pulumi.Input
-
-	ToApplicationTypeOutput() ApplicationTypeOutput
-	ToApplicationTypeOutputWithContext(context.Context) ApplicationTypeOutput
-}
-
-// The HDInsight cluster application
-type ApplicationTypeArgs struct {
-	// The ETag for the application
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the application.
-	Properties ApplicationPropertiesResponseInput `pulumi:"properties"`
-	// The tags for the application.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ApplicationTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
-}
-
-func (i ApplicationTypeArgs) ToApplicationTypeOutput() ApplicationTypeOutput {
-	return i.ToApplicationTypeOutputWithContext(context.Background())
-}
-
-func (i ApplicationTypeArgs) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTypeOutput)
-}
-
-// The HDInsight cluster application
-type ApplicationTypeOutput struct{ *pulumi.OutputState }
-
-func (ApplicationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationType)(nil)).Elem()
-}
-
-func (o ApplicationTypeOutput) ToApplicationTypeOutput() ApplicationTypeOutput {
-	return o
-}
-
-func (o ApplicationTypeOutput) ToApplicationTypeOutputWithContext(ctx context.Context) ApplicationTypeOutput {
-	return o
-}
-
-// The ETag for the application
-func (o ApplicationTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o ApplicationTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the application.
-func (o ApplicationTypeOutput) Properties() ApplicationPropertiesResponseOutput {
-	return o.ApplyT(func(v ApplicationType) ApplicationPropertiesResponse { return v.Properties }).(ApplicationPropertiesResponseOutput)
-}
-
-// The tags for the application.
-func (o ApplicationTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ApplicationType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o ApplicationTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Gets the application SSH endpoint
 type ApplicationGetEndpoint struct {
 	// The destination port to connect to.
@@ -2985,115 +2894,6 @@ func (o ClientGroupInfoResponsePtrOutput) GroupName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HDInsight cluster.
-type ClusterType struct {
-	// The ETag for the resource
-	Etag *string `pulumi:"etag"`
-	// The identity of the cluster, if configured.
-	Identity *ClusterIdentityResponse `pulumi:"identity"`
-	// The Azure Region where the resource lives
-	Location *string `pulumi:"location"`
-	// The name of the resource
-	Name string `pulumi:"name"`
-	// The properties of the cluster.
-	Properties ClusterGetPropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// ClusterTypeInput is an input type that accepts ClusterTypeArgs and ClusterTypeOutput values.
-// You can construct a concrete instance of `ClusterTypeInput` via:
-//
-//          ClusterTypeArgs{...}
-type ClusterTypeInput interface {
-	pulumi.Input
-
-	ToClusterTypeOutput() ClusterTypeOutput
-	ToClusterTypeOutputWithContext(context.Context) ClusterTypeOutput
-}
-
-// The HDInsight cluster.
-type ClusterTypeArgs struct {
-	// The ETag for the resource
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The identity of the cluster, if configured.
-	Identity ClusterIdentityResponsePtrInput `pulumi:"identity"`
-	// The Azure Region where the resource lives
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// The name of the resource
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the cluster.
-	Properties ClusterGetPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ClusterTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterType)(nil)).Elem()
-}
-
-func (i ClusterTypeArgs) ToClusterTypeOutput() ClusterTypeOutput {
-	return i.ToClusterTypeOutputWithContext(context.Background())
-}
-
-func (i ClusterTypeArgs) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterTypeOutput)
-}
-
-// The HDInsight cluster.
-type ClusterTypeOutput struct{ *pulumi.OutputState }
-
-func (ClusterTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterType)(nil)).Elem()
-}
-
-func (o ClusterTypeOutput) ToClusterTypeOutput() ClusterTypeOutput {
-	return o
-}
-
-func (o ClusterTypeOutput) ToClusterTypeOutputWithContext(ctx context.Context) ClusterTypeOutput {
-	return o
-}
-
-// The ETag for the resource
-func (o ClusterTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The identity of the cluster, if configured.
-func (o ClusterTypeOutput) Identity() ClusterIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ClusterType) *ClusterIdentityResponse { return v.Identity }).(ClusterIdentityResponsePtrOutput)
-}
-
-// The Azure Region where the resource lives
-func (o ClusterTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ClusterType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o ClusterTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the cluster.
-func (o ClusterTypeOutput) Properties() ClusterGetPropertiesResponseOutput {
-	return o.ApplyT(func(v ClusterType) ClusterGetPropertiesResponse { return v.Properties }).(ClusterGetPropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o ClusterTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ClusterType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o ClusterTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The cluster create parameters.
 type ClusterCreateProperties struct {
 	// The cluster definition.
@@ -4265,8 +4065,6 @@ func (o ClusterGetPropertiesResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 type ClusterIdentity struct {
 	// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 	Type *string `pulumi:"type"`
-	// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]ClusterIdentityProperties `pulumi:"userAssignedIdentities"`
 }
 
 // ClusterIdentityInput is an input type that accepts ClusterIdentityArgs and ClusterIdentityOutput values.
@@ -4284,8 +4082,6 @@ type ClusterIdentityInput interface {
 type ClusterIdentityArgs struct {
 	// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities ClusterIdentityPropertiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ClusterIdentityArgs) ElementType() reflect.Type {
@@ -4371,11 +4167,6 @@ func (o ClusterIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ClusterIdentityOutput) UserAssignedIdentities() ClusterIdentityPropertiesMapOutput {
-	return o.ApplyT(func(v ClusterIdentity) map[string]ClusterIdentityProperties { return v.UserAssignedIdentities }).(ClusterIdentityPropertiesMapOutput)
-}
-
 type ClusterIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterIdentityPtrOutput) ElementType() reflect.Type {
@@ -4404,104 +4195,6 @@ func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ClusterIdentityPtrOutput) UserAssignedIdentities() ClusterIdentityPropertiesMapOutput {
-	return o.ApplyT(func(v *ClusterIdentity) map[string]ClusterIdentityProperties {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(ClusterIdentityPropertiesMapOutput)
-}
-
-type ClusterIdentityProperties struct {
-}
-
-// ClusterIdentityPropertiesInput is an input type that accepts ClusterIdentityPropertiesArgs and ClusterIdentityPropertiesOutput values.
-// You can construct a concrete instance of `ClusterIdentityPropertiesInput` via:
-//
-//          ClusterIdentityPropertiesArgs{...}
-type ClusterIdentityPropertiesInput interface {
-	pulumi.Input
-
-	ToClusterIdentityPropertiesOutput() ClusterIdentityPropertiesOutput
-	ToClusterIdentityPropertiesOutputWithContext(context.Context) ClusterIdentityPropertiesOutput
-}
-
-type ClusterIdentityPropertiesArgs struct {
-}
-
-func (ClusterIdentityPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterIdentityProperties)(nil)).Elem()
-}
-
-func (i ClusterIdentityPropertiesArgs) ToClusterIdentityPropertiesOutput() ClusterIdentityPropertiesOutput {
-	return i.ToClusterIdentityPropertiesOutputWithContext(context.Background())
-}
-
-func (i ClusterIdentityPropertiesArgs) ToClusterIdentityPropertiesOutputWithContext(ctx context.Context) ClusterIdentityPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityPropertiesOutput)
-}
-
-// ClusterIdentityPropertiesMapInput is an input type that accepts ClusterIdentityPropertiesMap and ClusterIdentityPropertiesMapOutput values.
-// You can construct a concrete instance of `ClusterIdentityPropertiesMapInput` via:
-//
-//          ClusterIdentityPropertiesMap{ "key": ClusterIdentityPropertiesArgs{...} }
-type ClusterIdentityPropertiesMapInput interface {
-	pulumi.Input
-
-	ToClusterIdentityPropertiesMapOutput() ClusterIdentityPropertiesMapOutput
-	ToClusterIdentityPropertiesMapOutputWithContext(context.Context) ClusterIdentityPropertiesMapOutput
-}
-
-type ClusterIdentityPropertiesMap map[string]ClusterIdentityPropertiesInput
-
-func (ClusterIdentityPropertiesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ClusterIdentityProperties)(nil)).Elem()
-}
-
-func (i ClusterIdentityPropertiesMap) ToClusterIdentityPropertiesMapOutput() ClusterIdentityPropertiesMapOutput {
-	return i.ToClusterIdentityPropertiesMapOutputWithContext(context.Background())
-}
-
-func (i ClusterIdentityPropertiesMap) ToClusterIdentityPropertiesMapOutputWithContext(ctx context.Context) ClusterIdentityPropertiesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityPropertiesMapOutput)
-}
-
-type ClusterIdentityPropertiesOutput struct{ *pulumi.OutputState }
-
-func (ClusterIdentityPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterIdentityProperties)(nil)).Elem()
-}
-
-func (o ClusterIdentityPropertiesOutput) ToClusterIdentityPropertiesOutput() ClusterIdentityPropertiesOutput {
-	return o
-}
-
-func (o ClusterIdentityPropertiesOutput) ToClusterIdentityPropertiesOutputWithContext(ctx context.Context) ClusterIdentityPropertiesOutput {
-	return o
-}
-
-type ClusterIdentityPropertiesMapOutput struct{ *pulumi.OutputState }
-
-func (ClusterIdentityPropertiesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ClusterIdentityProperties)(nil)).Elem()
-}
-
-func (o ClusterIdentityPropertiesMapOutput) ToClusterIdentityPropertiesMapOutput() ClusterIdentityPropertiesMapOutput {
-	return o
-}
-
-func (o ClusterIdentityPropertiesMapOutput) ToClusterIdentityPropertiesMapOutputWithContext(ctx context.Context) ClusterIdentityPropertiesMapOutput {
-	return o
-}
-
-func (o ClusterIdentityPropertiesMapOutput) MapIndex(k pulumi.StringInput) ClusterIdentityPropertiesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClusterIdentityProperties {
-		return vs[0].(map[string]ClusterIdentityProperties)[vs[1].(string)]
-	}).(ClusterIdentityPropertiesOutput)
-}
-
 // Identity for the cluster.
 type ClusterIdentityResponse struct {
 	// The principal id of cluster identity. This property will only be provided for a system assigned identity.
@@ -4511,7 +4204,7 @@ type ClusterIdentityResponse struct {
 	// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 	Type *string `pulumi:"type"`
 	// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]ClusterIdentityResponseProperties `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities map[string]ClusterIdentityResponseUserAssignedIdentities `pulumi:"userAssignedIdentities"`
 }
 
 // ClusterIdentityResponseInput is an input type that accepts ClusterIdentityResponseArgs and ClusterIdentityResponseOutput values.
@@ -4534,7 +4227,7 @@ type ClusterIdentityResponseArgs struct {
 	// The type of identity used for the cluster. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 	// The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities ClusterIdentityResponsePropertiesMapInput `pulumi:"userAssignedIdentities"`
+	UserAssignedIdentities ClusterIdentityResponseUserAssignedIdentitiesMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ClusterIdentityResponseArgs) ElementType() reflect.Type {
@@ -4631,10 +4324,10 @@ func (o ClusterIdentityResponseOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ClusterIdentityResponseOutput) UserAssignedIdentities() ClusterIdentityResponsePropertiesMapOutput {
-	return o.ApplyT(func(v ClusterIdentityResponse) map[string]ClusterIdentityResponseProperties {
+func (o ClusterIdentityResponseOutput) UserAssignedIdentities() ClusterIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v ClusterIdentityResponse) map[string]ClusterIdentityResponseUserAssignedIdentities {
 		return v.UserAssignedIdentities
-	}).(ClusterIdentityResponsePropertiesMapOutput)
+	}).(ClusterIdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
 type ClusterIdentityResponsePtrOutput struct{ *pulumi.OutputState }
@@ -4686,119 +4379,119 @@ func (o ClusterIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 // The list of user identities associated with the cluster. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ClusterIdentityResponsePtrOutput) UserAssignedIdentities() ClusterIdentityResponsePropertiesMapOutput {
-	return o.ApplyT(func(v *ClusterIdentityResponse) map[string]ClusterIdentityResponseProperties {
+func (o ClusterIdentityResponsePtrOutput) UserAssignedIdentities() ClusterIdentityResponseUserAssignedIdentitiesMapOutput {
+	return o.ApplyT(func(v *ClusterIdentityResponse) map[string]ClusterIdentityResponseUserAssignedIdentities {
 		if v == nil {
 			return nil
 		}
 		return v.UserAssignedIdentities
-	}).(ClusterIdentityResponsePropertiesMapOutput)
+	}).(ClusterIdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
-type ClusterIdentityResponseProperties struct {
+type ClusterIdentityResponseUserAssignedIdentities struct {
 	// The client id of user assigned identity.
 	ClientId string `pulumi:"clientId"`
 	// The principal id of user assigned identity.
 	PrincipalId string `pulumi:"principalId"`
 }
 
-// ClusterIdentityResponsePropertiesInput is an input type that accepts ClusterIdentityResponsePropertiesArgs and ClusterIdentityResponsePropertiesOutput values.
-// You can construct a concrete instance of `ClusterIdentityResponsePropertiesInput` via:
+// ClusterIdentityResponseUserAssignedIdentitiesInput is an input type that accepts ClusterIdentityResponseUserAssignedIdentitiesArgs and ClusterIdentityResponseUserAssignedIdentitiesOutput values.
+// You can construct a concrete instance of `ClusterIdentityResponseUserAssignedIdentitiesInput` via:
 //
-//          ClusterIdentityResponsePropertiesArgs{...}
-type ClusterIdentityResponsePropertiesInput interface {
+//          ClusterIdentityResponseUserAssignedIdentitiesArgs{...}
+type ClusterIdentityResponseUserAssignedIdentitiesInput interface {
 	pulumi.Input
 
-	ToClusterIdentityResponsePropertiesOutput() ClusterIdentityResponsePropertiesOutput
-	ToClusterIdentityResponsePropertiesOutputWithContext(context.Context) ClusterIdentityResponsePropertiesOutput
+	ToClusterIdentityResponseUserAssignedIdentitiesOutput() ClusterIdentityResponseUserAssignedIdentitiesOutput
+	ToClusterIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Context) ClusterIdentityResponseUserAssignedIdentitiesOutput
 }
 
-type ClusterIdentityResponsePropertiesArgs struct {
+type ClusterIdentityResponseUserAssignedIdentitiesArgs struct {
 	// The client id of user assigned identity.
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The principal id of user assigned identity.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
 }
 
-func (ClusterIdentityResponsePropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterIdentityResponseProperties)(nil)).Elem()
+func (ClusterIdentityResponseUserAssignedIdentitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterIdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (i ClusterIdentityResponsePropertiesArgs) ToClusterIdentityResponsePropertiesOutput() ClusterIdentityResponsePropertiesOutput {
-	return i.ToClusterIdentityResponsePropertiesOutputWithContext(context.Background())
+func (i ClusterIdentityResponseUserAssignedIdentitiesArgs) ToClusterIdentityResponseUserAssignedIdentitiesOutput() ClusterIdentityResponseUserAssignedIdentitiesOutput {
+	return i.ToClusterIdentityResponseUserAssignedIdentitiesOutputWithContext(context.Background())
 }
 
-func (i ClusterIdentityResponsePropertiesArgs) ToClusterIdentityResponsePropertiesOutputWithContext(ctx context.Context) ClusterIdentityResponsePropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityResponsePropertiesOutput)
+func (i ClusterIdentityResponseUserAssignedIdentitiesArgs) ToClusterIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) ClusterIdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityResponseUserAssignedIdentitiesOutput)
 }
 
-// ClusterIdentityResponsePropertiesMapInput is an input type that accepts ClusterIdentityResponsePropertiesMap and ClusterIdentityResponsePropertiesMapOutput values.
-// You can construct a concrete instance of `ClusterIdentityResponsePropertiesMapInput` via:
+// ClusterIdentityResponseUserAssignedIdentitiesMapInput is an input type that accepts ClusterIdentityResponseUserAssignedIdentitiesMap and ClusterIdentityResponseUserAssignedIdentitiesMapOutput values.
+// You can construct a concrete instance of `ClusterIdentityResponseUserAssignedIdentitiesMapInput` via:
 //
-//          ClusterIdentityResponsePropertiesMap{ "key": ClusterIdentityResponsePropertiesArgs{...} }
-type ClusterIdentityResponsePropertiesMapInput interface {
+//          ClusterIdentityResponseUserAssignedIdentitiesMap{ "key": ClusterIdentityResponseUserAssignedIdentitiesArgs{...} }
+type ClusterIdentityResponseUserAssignedIdentitiesMapInput interface {
 	pulumi.Input
 
-	ToClusterIdentityResponsePropertiesMapOutput() ClusterIdentityResponsePropertiesMapOutput
-	ToClusterIdentityResponsePropertiesMapOutputWithContext(context.Context) ClusterIdentityResponsePropertiesMapOutput
+	ToClusterIdentityResponseUserAssignedIdentitiesMapOutput() ClusterIdentityResponseUserAssignedIdentitiesMapOutput
+	ToClusterIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Context) ClusterIdentityResponseUserAssignedIdentitiesMapOutput
 }
 
-type ClusterIdentityResponsePropertiesMap map[string]ClusterIdentityResponsePropertiesInput
+type ClusterIdentityResponseUserAssignedIdentitiesMap map[string]ClusterIdentityResponseUserAssignedIdentitiesInput
 
-func (ClusterIdentityResponsePropertiesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ClusterIdentityResponseProperties)(nil)).Elem()
+func (ClusterIdentityResponseUserAssignedIdentitiesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ClusterIdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (i ClusterIdentityResponsePropertiesMap) ToClusterIdentityResponsePropertiesMapOutput() ClusterIdentityResponsePropertiesMapOutput {
-	return i.ToClusterIdentityResponsePropertiesMapOutputWithContext(context.Background())
+func (i ClusterIdentityResponseUserAssignedIdentitiesMap) ToClusterIdentityResponseUserAssignedIdentitiesMapOutput() ClusterIdentityResponseUserAssignedIdentitiesMapOutput {
+	return i.ToClusterIdentityResponseUserAssignedIdentitiesMapOutputWithContext(context.Background())
 }
 
-func (i ClusterIdentityResponsePropertiesMap) ToClusterIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) ClusterIdentityResponsePropertiesMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityResponsePropertiesMapOutput)
+func (i ClusterIdentityResponseUserAssignedIdentitiesMap) ToClusterIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) ClusterIdentityResponseUserAssignedIdentitiesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityResponseUserAssignedIdentitiesMapOutput)
 }
 
-type ClusterIdentityResponsePropertiesOutput struct{ *pulumi.OutputState }
+type ClusterIdentityResponseUserAssignedIdentitiesOutput struct{ *pulumi.OutputState }
 
-func (ClusterIdentityResponsePropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterIdentityResponseProperties)(nil)).Elem()
+func (ClusterIdentityResponseUserAssignedIdentitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterIdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (o ClusterIdentityResponsePropertiesOutput) ToClusterIdentityResponsePropertiesOutput() ClusterIdentityResponsePropertiesOutput {
+func (o ClusterIdentityResponseUserAssignedIdentitiesOutput) ToClusterIdentityResponseUserAssignedIdentitiesOutput() ClusterIdentityResponseUserAssignedIdentitiesOutput {
 	return o
 }
 
-func (o ClusterIdentityResponsePropertiesOutput) ToClusterIdentityResponsePropertiesOutputWithContext(ctx context.Context) ClusterIdentityResponsePropertiesOutput {
+func (o ClusterIdentityResponseUserAssignedIdentitiesOutput) ToClusterIdentityResponseUserAssignedIdentitiesOutputWithContext(ctx context.Context) ClusterIdentityResponseUserAssignedIdentitiesOutput {
 	return o
 }
 
 // The client id of user assigned identity.
-func (o ClusterIdentityResponsePropertiesOutput) ClientId() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterIdentityResponseProperties) string { return v.ClientId }).(pulumi.StringOutput)
+func (o ClusterIdentityResponseUserAssignedIdentitiesOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterIdentityResponseUserAssignedIdentities) string { return v.ClientId }).(pulumi.StringOutput)
 }
 
 // The principal id of user assigned identity.
-func (o ClusterIdentityResponsePropertiesOutput) PrincipalId() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterIdentityResponseProperties) string { return v.PrincipalId }).(pulumi.StringOutput)
+func (o ClusterIdentityResponseUserAssignedIdentitiesOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterIdentityResponseUserAssignedIdentities) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-type ClusterIdentityResponsePropertiesMapOutput struct{ *pulumi.OutputState }
+type ClusterIdentityResponseUserAssignedIdentitiesMapOutput struct{ *pulumi.OutputState }
 
-func (ClusterIdentityResponsePropertiesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ClusterIdentityResponseProperties)(nil)).Elem()
+func (ClusterIdentityResponseUserAssignedIdentitiesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ClusterIdentityResponseUserAssignedIdentities)(nil)).Elem()
 }
 
-func (o ClusterIdentityResponsePropertiesMapOutput) ToClusterIdentityResponsePropertiesMapOutput() ClusterIdentityResponsePropertiesMapOutput {
+func (o ClusterIdentityResponseUserAssignedIdentitiesMapOutput) ToClusterIdentityResponseUserAssignedIdentitiesMapOutput() ClusterIdentityResponseUserAssignedIdentitiesMapOutput {
 	return o
 }
 
-func (o ClusterIdentityResponsePropertiesMapOutput) ToClusterIdentityResponsePropertiesMapOutputWithContext(ctx context.Context) ClusterIdentityResponsePropertiesMapOutput {
+func (o ClusterIdentityResponseUserAssignedIdentitiesMapOutput) ToClusterIdentityResponseUserAssignedIdentitiesMapOutputWithContext(ctx context.Context) ClusterIdentityResponseUserAssignedIdentitiesMapOutput {
 	return o
 }
 
-func (o ClusterIdentityResponsePropertiesMapOutput) MapIndex(k pulumi.StringInput) ClusterIdentityResponsePropertiesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClusterIdentityResponseProperties {
-		return vs[0].(map[string]ClusterIdentityResponseProperties)[vs[1].(string)]
-	}).(ClusterIdentityResponsePropertiesOutput)
+func (o ClusterIdentityResponseUserAssignedIdentitiesMapOutput) MapIndex(k pulumi.StringInput) ClusterIdentityResponseUserAssignedIdentitiesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ClusterIdentityResponseUserAssignedIdentities {
+		return vs[0].(map[string]ClusterIdentityResponseUserAssignedIdentities)[vs[1].(string)]
+	}).(ClusterIdentityResponseUserAssignedIdentitiesOutput)
 }
 
 // Describes the compute profile.
@@ -10386,7 +10079,6 @@ func (o VirtualNetworkProfileResponsePtrOutput) Subnet() pulumi.StringPtrOutput 
 }
 
 func init() {
-	pulumi.RegisterOutputType(ApplicationTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationGetEndpointOutput{})
 	pulumi.RegisterOutputType(ApplicationGetEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGetEndpointResponseOutput{})
@@ -10423,7 +10115,6 @@ func init() {
 	pulumi.RegisterOutputType(ClientGroupInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClientGroupInfoResponseOutput{})
 	pulumi.RegisterOutputType(ClientGroupInfoResponsePtrOutput{})
-	pulumi.RegisterOutputType(ClusterTypeOutput{})
 	pulumi.RegisterOutputType(ClusterCreatePropertiesOutput{})
 	pulumi.RegisterOutputType(ClusterCreatePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ClusterDefinitionOutput{})
@@ -10434,12 +10125,10 @@ func init() {
 	pulumi.RegisterOutputType(ClusterGetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityPtrOutput{})
-	pulumi.RegisterOutputType(ClusterIdentityPropertiesOutput{})
-	pulumi.RegisterOutputType(ClusterIdentityPropertiesMapOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityResponseOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(ClusterIdentityResponsePropertiesOutput{})
-	pulumi.RegisterOutputType(ClusterIdentityResponsePropertiesMapOutput{})
+	pulumi.RegisterOutputType(ClusterIdentityResponseUserAssignedIdentitiesOutput{})
+	pulumi.RegisterOutputType(ClusterIdentityResponseUserAssignedIdentitiesMapOutput{})
 	pulumi.RegisterOutputType(ComputeProfileOutput{})
 	pulumi.RegisterOutputType(ComputeProfilePtrOutput{})
 	pulumi.RegisterOutputType(ComputeProfileResponseOutput{})

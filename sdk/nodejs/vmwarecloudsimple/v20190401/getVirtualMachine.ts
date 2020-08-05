@@ -50,7 +50,7 @@ export interface GetVirtualMachineResult {
     /**
      * The list of tags
      */
-    readonly tags?: outputs.vmwarecloudsimple.v20190401.TagsResponse;
+    readonly tags?: {[key: string]: string};
     /**
      * {resourceProviderNamespace}/{resourceType}
      */

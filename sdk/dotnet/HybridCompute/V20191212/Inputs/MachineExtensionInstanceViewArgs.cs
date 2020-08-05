@@ -25,7 +25,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212.Inputs
         /// Instance view status.
         /// </summary>
         [Input("status")]
-        public Input<Inputs.MachineExtensionInstanceViewPropertiesArgs>? Status { get; set; }
+        public Input<Inputs.MachineExtensionInstanceViewStatusArgs>? Status { get; set; }
 
         /// <summary>
         /// Specifies the type of the extension; an example is "CustomScriptExtension".

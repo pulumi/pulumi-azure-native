@@ -138,12 +138,6 @@ namespace Pulumi.AzureRM.ContainerService.V20200601
         public Input<Inputs.ManagedClusterAPIServerAccessProfileArgs>? ApiServerAccessProfile { get; set; }
 
         /// <summary>
-        /// Parameters to be applied to the cluster-autoscaler when enabled
-        /// </summary>
-        [Input("autoScalerProfile")]
-        public Input<Inputs.ManagedClusterPropertiesPropertiesArgs>? AutoScalerProfile { get; set; }
-
-        /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.
         /// </summary>
         [Input("diskEncryptionSetID")]
@@ -174,14 +168,14 @@ namespace Pulumi.AzureRM.ContainerService.V20200601
         public Input<Inputs.ManagedClusterIdentityArgs>? Identity { get; set; }
 
         [Input("identityProfile")]
-        private InputMap<ImmutableDictionary<string, object>>? _identityProfile;
+        private InputMap<Inputs.ManagedClusterPropertiesIdentityProfileArgs>? _identityProfile;
 
         /// <summary>
         /// Identities associated with the cluster.
         /// </summary>
-        public InputMap<ImmutableDictionary<string, object>> IdentityProfile
+        public InputMap<Inputs.ManagedClusterPropertiesIdentityProfileArgs> IdentityProfile
         {
-            get => _identityProfile ?? (_identityProfile = new InputMap<ImmutableDictionary<string, object>>());
+            get => _identityProfile ?? (_identityProfile = new InputMap<Inputs.ManagedClusterPropertiesIdentityProfileArgs>());
             set => _identityProfile = value;
         }
 

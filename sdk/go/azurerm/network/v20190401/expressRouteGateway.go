@@ -100,7 +100,7 @@ func (ExpressRouteGatewayState) ElementType() reflect.Type {
 
 type expressRouteGatewayArgs struct {
 	// Configuration for auto scaling.
-	AutoScaleConfiguration *ExpressRouteGatewayPropertiesProperties `pulumi:"autoScaleConfiguration"`
+	AutoScaleConfiguration *ExpressRouteGatewayPropertiesAutoScaleConfiguration `pulumi:"autoScaleConfiguration"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -120,7 +120,7 @@ type expressRouteGatewayArgs struct {
 // The set of arguments for constructing a ExpressRouteGateway resource.
 type ExpressRouteGatewayArgs struct {
 	// Configuration for auto scaling.
-	AutoScaleConfiguration ExpressRouteGatewayPropertiesPropertiesPtrInput
+	AutoScaleConfiguration ExpressRouteGatewayPropertiesAutoScaleConfigurationPtrInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.

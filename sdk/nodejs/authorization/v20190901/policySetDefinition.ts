@@ -113,7 +113,7 @@ export interface PolicySetDefinitionArgs {
     /**
      * The policy set definition parameters that can be used in policy definition references.
      */
-    readonly parameters?: pulumi.Input<inputs.authorization.v20190901.ParameterDefinitions>;
+    readonly parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.v20190901.ParameterDefinitionsValue>}>;
     /**
      * The metadata describing groups of policy definition references within the policy set definition.
      */

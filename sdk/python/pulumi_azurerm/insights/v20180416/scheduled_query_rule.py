@@ -21,7 +21,6 @@ class ScheduledQueryRule(pulumi.CustomResource):
     properties: pulumi.Output[dict]
     """
     The rule properties of the resource.
-      * `action` (`dict`) - Action needs to be taken on rule execution.
       * `description` (`str`) - The description of the Log Search rule.
       * `enabled` (`str`) - The flag which indicates whether the Log Search rule is enabled. Value should be true or false
       * `last_updated_time` (`str`) - Last time the rule was updated in IS08601 format.
@@ -44,13 +43,12 @@ class ScheduledQueryRule(pulumi.CustomResource):
     """
     Azure resource type
     """
-    def __init__(__self__, resource_name, opts=None, action=None, description=None, enabled=None, location=None, name=None, resource_group_name=None, schedule=None, source=None, tags=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, description=None, enabled=None, location=None, name=None, resource_group_name=None, schedule=None, source=None, tags=None, __props__=None, __name__=None, __opts__=None):
         """
         The Log Search Rule resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] action: Action needs to be taken on rule execution.
         :param pulumi.Input[str] description: The description of the Log Search rule.
         :param pulumi.Input[str] enabled: The flag which indicates whether the Log Search rule is enabled. Value should be true or false
         :param pulumi.Input[str] location: Resource location
@@ -89,9 +87,6 @@ class ScheduledQueryRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if action is None:
-                raise TypeError("Missing required property 'action'")
-            __props__['action'] = action
             __props__['description'] = description
             __props__['enabled'] = enabled
             if location is None:

@@ -17,7 +17,7 @@ type ContentItem struct {
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of the content item.
-	Properties ContentItemContractPropertiesResponseOutput `pulumi:"properties"`
+	Properties pulumi.MapOutput `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -65,7 +65,7 @@ type contentItemState struct {
 	// Resource name.
 	Name *string `pulumi:"name"`
 	// Properties of the content item.
-	Properties *ContentItemContractPropertiesResponse `pulumi:"properties"`
+	Properties map[string]interface{} `pulumi:"properties"`
 	// Resource type for API Management resource.
 	Type *string `pulumi:"type"`
 }
@@ -74,7 +74,7 @@ type ContentItemState struct {
 	// Resource name.
 	Name pulumi.StringPtrInput
 	// Properties of the content item.
-	Properties ContentItemContractPropertiesResponsePtrInput
+	Properties pulumi.MapInput
 	// Resource type for API Management resource.
 	Type pulumi.StringPtrInput
 }

@@ -10,115 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-type ConfigurationStoreType struct {
-	// The managed identity information, if configured.
-	Identity *ResourceIdentityResponse `pulumi:"identity"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location string `pulumi:"location"`
-	// The name of the resource.
-	Name string `pulumi:"name"`
-	// The properties of a configuration store.
-	Properties ConfigurationStorePropertiesResponse `pulumi:"properties"`
-	// The sku of the configuration store.
-	Sku SkuResponse `pulumi:"sku"`
-	// The tags of the resource.
-	Tags map[string]string `pulumi:"tags"`
-	// The type of the resource.
-	Type string `pulumi:"type"`
-}
-
-// ConfigurationStoreTypeInput is an input type that accepts ConfigurationStoreTypeArgs and ConfigurationStoreTypeOutput values.
-// You can construct a concrete instance of `ConfigurationStoreTypeInput` via:
-//
-//          ConfigurationStoreTypeArgs{...}
-type ConfigurationStoreTypeInput interface {
-	pulumi.Input
-
-	ToConfigurationStoreTypeOutput() ConfigurationStoreTypeOutput
-	ToConfigurationStoreTypeOutputWithContext(context.Context) ConfigurationStoreTypeOutput
-}
-
-// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-type ConfigurationStoreTypeArgs struct {
-	// The managed identity information, if configured.
-	Identity ResourceIdentityResponsePtrInput `pulumi:"identity"`
-	// The location of the resource. This cannot be changed after the resource is created.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The name of the resource.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of a configuration store.
-	Properties ConfigurationStorePropertiesResponseInput `pulumi:"properties"`
-	// The sku of the configuration store.
-	Sku SkuResponseInput `pulumi:"sku"`
-	// The tags of the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The type of the resource.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ConfigurationStoreTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationStoreType)(nil)).Elem()
-}
-
-func (i ConfigurationStoreTypeArgs) ToConfigurationStoreTypeOutput() ConfigurationStoreTypeOutput {
-	return i.ToConfigurationStoreTypeOutputWithContext(context.Background())
-}
-
-func (i ConfigurationStoreTypeArgs) ToConfigurationStoreTypeOutputWithContext(ctx context.Context) ConfigurationStoreTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationStoreTypeOutput)
-}
-
-// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
-type ConfigurationStoreTypeOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationStoreTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationStoreType)(nil)).Elem()
-}
-
-func (o ConfigurationStoreTypeOutput) ToConfigurationStoreTypeOutput() ConfigurationStoreTypeOutput {
-	return o
-}
-
-func (o ConfigurationStoreTypeOutput) ToConfigurationStoreTypeOutputWithContext(ctx context.Context) ConfigurationStoreTypeOutput {
-	return o
-}
-
-// The managed identity information, if configured.
-func (o ConfigurationStoreTypeOutput) Identity() ResourceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v ConfigurationStoreType) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
-}
-
-// The location of the resource. This cannot be changed after the resource is created.
-func (o ConfigurationStoreTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationStoreType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The name of the resource.
-func (o ConfigurationStoreTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationStoreType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of a configuration store.
-func (o ConfigurationStoreTypeOutput) Properties() ConfigurationStorePropertiesResponseOutput {
-	return o.ApplyT(func(v ConfigurationStoreType) ConfigurationStorePropertiesResponse { return v.Properties }).(ConfigurationStorePropertiesResponseOutput)
-}
-
-// The sku of the configuration store.
-func (o ConfigurationStoreTypeOutput) Sku() SkuResponseOutput {
-	return o.ApplyT(func(v ConfigurationStoreType) SkuResponse { return v.Sku }).(SkuResponseOutput)
-}
-
-// The tags of the resource.
-func (o ConfigurationStoreTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ConfigurationStoreType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The type of the resource.
-func (o ConfigurationStoreTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationStoreType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The properties of a configuration store.
 type ConfigurationStorePropertiesResponse struct {
 	// The creation date of configuration store.
@@ -294,8 +185,6 @@ func (o ConfigurationStorePropertiesResponsePtrOutput) ProvisioningState() pulum
 type ResourceIdentity struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type *string `pulumi:"type"`
-	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities map[string]UserIdentity `pulumi:"userAssignedIdentities"`
 }
 
 // ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
@@ -312,8 +201,6 @@ type ResourceIdentityInput interface {
 type ResourceIdentityArgs struct {
 	// The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-	UserAssignedIdentities UserIdentityMapInput `pulumi:"userAssignedIdentities"`
 }
 
 func (ResourceIdentityArgs) ElementType() reflect.Type {
@@ -398,11 +285,6 @@ func (o ResourceIdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ResourceIdentity) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ResourceIdentityOutput) UserAssignedIdentities() UserIdentityMapOutput {
-	return o.ApplyT(func(v ResourceIdentity) map[string]UserIdentity { return v.UserAssignedIdentities }).(UserIdentityMapOutput)
-}
-
 type ResourceIdentityPtrOutput struct{ *pulumi.OutputState }
 
 func (ResourceIdentityPtrOutput) ElementType() reflect.Type {
@@ -429,16 +311,6 @@ func (o ResourceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-// The list of user-assigned identities associated with the resource. The user-assigned identity dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
-func (o ResourceIdentityPtrOutput) UserAssignedIdentities() UserIdentityMapOutput {
-	return o.ApplyT(func(v *ResourceIdentity) map[string]UserIdentity {
-		if v == nil {
-			return nil
-		}
-		return v.UserAssignedIdentities
-	}).(UserIdentityMapOutput)
 }
 
 type ResourceIdentityResponse struct {
@@ -897,94 +769,6 @@ func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type UserIdentity struct {
-}
-
-// UserIdentityInput is an input type that accepts UserIdentityArgs and UserIdentityOutput values.
-// You can construct a concrete instance of `UserIdentityInput` via:
-//
-//          UserIdentityArgs{...}
-type UserIdentityInput interface {
-	pulumi.Input
-
-	ToUserIdentityOutput() UserIdentityOutput
-	ToUserIdentityOutputWithContext(context.Context) UserIdentityOutput
-}
-
-type UserIdentityArgs struct {
-}
-
-func (UserIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserIdentity)(nil)).Elem()
-}
-
-func (i UserIdentityArgs) ToUserIdentityOutput() UserIdentityOutput {
-	return i.ToUserIdentityOutputWithContext(context.Background())
-}
-
-func (i UserIdentityArgs) ToUserIdentityOutputWithContext(ctx context.Context) UserIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityOutput)
-}
-
-// UserIdentityMapInput is an input type that accepts UserIdentityMap and UserIdentityMapOutput values.
-// You can construct a concrete instance of `UserIdentityMapInput` via:
-//
-//          UserIdentityMap{ "key": UserIdentityArgs{...} }
-type UserIdentityMapInput interface {
-	pulumi.Input
-
-	ToUserIdentityMapOutput() UserIdentityMapOutput
-	ToUserIdentityMapOutputWithContext(context.Context) UserIdentityMapOutput
-}
-
-type UserIdentityMap map[string]UserIdentityInput
-
-func (UserIdentityMap) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserIdentity)(nil)).Elem()
-}
-
-func (i UserIdentityMap) ToUserIdentityMapOutput() UserIdentityMapOutput {
-	return i.ToUserIdentityMapOutputWithContext(context.Background())
-}
-
-func (i UserIdentityMap) ToUserIdentityMapOutputWithContext(ctx context.Context) UserIdentityMapOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserIdentityMapOutput)
-}
-
-type UserIdentityOutput struct{ *pulumi.OutputState }
-
-func (UserIdentityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserIdentity)(nil)).Elem()
-}
-
-func (o UserIdentityOutput) ToUserIdentityOutput() UserIdentityOutput {
-	return o
-}
-
-func (o UserIdentityOutput) ToUserIdentityOutputWithContext(ctx context.Context) UserIdentityOutput {
-	return o
-}
-
-type UserIdentityMapOutput struct{ *pulumi.OutputState }
-
-func (UserIdentityMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserIdentity)(nil)).Elem()
-}
-
-func (o UserIdentityMapOutput) ToUserIdentityMapOutput() UserIdentityMapOutput {
-	return o
-}
-
-func (o UserIdentityMapOutput) ToUserIdentityMapOutputWithContext(ctx context.Context) UserIdentityMapOutput {
-	return o
-}
-
-func (o UserIdentityMapOutput) MapIndex(k pulumi.StringInput) UserIdentityOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserIdentity {
-		return vs[0].(map[string]UserIdentity)[vs[1].(string)]
-	}).(UserIdentityOutput)
-}
-
 type UserIdentityResponse struct {
 	// The client ID of the user-assigned identity.
 	ClientId string `pulumi:"clientId"`
@@ -1092,7 +876,6 @@ func (o UserIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserIdenti
 }
 
 func init() {
-	pulumi.RegisterOutputType(ConfigurationStoreTypeOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationStorePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResourceIdentityOutput{})
@@ -1103,8 +886,6 @@ func init() {
 	pulumi.RegisterOutputType(SkuPtrOutput{})
 	pulumi.RegisterOutputType(SkuResponseOutput{})
 	pulumi.RegisterOutputType(SkuResponsePtrOutput{})
-	pulumi.RegisterOutputType(UserIdentityOutput{})
-	pulumi.RegisterOutputType(UserIdentityMapOutput{})
 	pulumi.RegisterOutputType(UserIdentityResponseOutput{})
 	pulumi.RegisterOutputType(UserIdentityResponseMapOutput{})
 }

@@ -20,13 +20,13 @@ namespace Pulumi.AzureRM.StorageCache.V20200301.Outputs
         /// <summary>
         /// Describes a resource Id to source Key Vault.
         /// </summary>
-        public readonly Outputs.KeyVaultKeyReferenceResponsePropertiesResult SourceVault;
+        public readonly Outputs.KeyVaultKeyReferenceResponseSourceVaultResult SourceVault;
 
         [OutputConstructor]
         private KeyVaultKeyReferenceResponseResult(
             string keyUrl,
 
-            Outputs.KeyVaultKeyReferenceResponsePropertiesResult sourceVault)
+            Outputs.KeyVaultKeyReferenceResponseSourceVaultResult sourceVault)
         {
             KeyUrl = keyUrl;
             SourceVault = sourceVault;

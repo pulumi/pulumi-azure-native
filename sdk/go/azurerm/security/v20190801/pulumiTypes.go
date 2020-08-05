@@ -536,79 +536,6 @@ func (o DenylistCustomAlertRuleResponseArrayOutput) Index(i pulumi.IntInput) Den
 	}).(DenylistCustomAlertRuleResponseOutput)
 }
 
-// The device security group resource
-type DeviceSecurityGroupType struct {
-	// Resource name
-	Name string `pulumi:"name"`
-	// Device Security group data
-	Properties DeviceSecurityGroupPropertiesResponse `pulumi:"properties"`
-	// Resource type
-	Type string `pulumi:"type"`
-}
-
-// DeviceSecurityGroupTypeInput is an input type that accepts DeviceSecurityGroupTypeArgs and DeviceSecurityGroupTypeOutput values.
-// You can construct a concrete instance of `DeviceSecurityGroupTypeInput` via:
-//
-//          DeviceSecurityGroupTypeArgs{...}
-type DeviceSecurityGroupTypeInput interface {
-	pulumi.Input
-
-	ToDeviceSecurityGroupTypeOutput() DeviceSecurityGroupTypeOutput
-	ToDeviceSecurityGroupTypeOutputWithContext(context.Context) DeviceSecurityGroupTypeOutput
-}
-
-// The device security group resource
-type DeviceSecurityGroupTypeArgs struct {
-	// Resource name
-	Name pulumi.StringInput `pulumi:"name"`
-	// Device Security group data
-	Properties DeviceSecurityGroupPropertiesResponseInput `pulumi:"properties"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (DeviceSecurityGroupTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceSecurityGroupType)(nil)).Elem()
-}
-
-func (i DeviceSecurityGroupTypeArgs) ToDeviceSecurityGroupTypeOutput() DeviceSecurityGroupTypeOutput {
-	return i.ToDeviceSecurityGroupTypeOutputWithContext(context.Background())
-}
-
-func (i DeviceSecurityGroupTypeArgs) ToDeviceSecurityGroupTypeOutputWithContext(ctx context.Context) DeviceSecurityGroupTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceSecurityGroupTypeOutput)
-}
-
-// The device security group resource
-type DeviceSecurityGroupTypeOutput struct{ *pulumi.OutputState }
-
-func (DeviceSecurityGroupTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceSecurityGroupType)(nil)).Elem()
-}
-
-func (o DeviceSecurityGroupTypeOutput) ToDeviceSecurityGroupTypeOutput() DeviceSecurityGroupTypeOutput {
-	return o
-}
-
-func (o DeviceSecurityGroupTypeOutput) ToDeviceSecurityGroupTypeOutputWithContext(ctx context.Context) DeviceSecurityGroupTypeOutput {
-	return o
-}
-
-// Resource name
-func (o DeviceSecurityGroupTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DeviceSecurityGroupType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Device Security group data
-func (o DeviceSecurityGroupTypeOutput) Properties() DeviceSecurityGroupPropertiesResponseOutput {
-	return o.ApplyT(func(v DeviceSecurityGroupType) DeviceSecurityGroupPropertiesResponse { return v.Properties }).(DeviceSecurityGroupPropertiesResponseOutput)
-}
-
-// Resource type
-func (o DeviceSecurityGroupTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v DeviceSecurityGroupType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // describes properties of a security group.
 type DeviceSecurityGroupPropertiesResponse struct {
 	// The allow-list custom alert rules.
@@ -821,7 +748,7 @@ type IoTSecuritySolutionPropertiesResponse struct {
 	// IoT Hub resource IDs
 	IotHubs []string `pulumi:"iotHubs"`
 	// List of the configuration status for each recommendation type.
-	RecommendationsConfiguration *RecommendationConfigurationListResponse `pulumi:"recommendationsConfiguration"`
+	RecommendationsConfiguration []RecommendationConfigurationPropertiesResponse `pulumi:"recommendationsConfiguration"`
 	// Status of the IoT Security solution.
 	Status *string `pulumi:"status"`
 	// Unmasked IP address logging status
@@ -856,7 +783,7 @@ type IoTSecuritySolutionPropertiesResponseArgs struct {
 	// IoT Hub resource IDs
 	IotHubs pulumi.StringArrayInput `pulumi:"iotHubs"`
 	// List of the configuration status for each recommendation type.
-	RecommendationsConfiguration RecommendationConfigurationListResponsePtrInput `pulumi:"recommendationsConfiguration"`
+	RecommendationsConfiguration RecommendationConfigurationPropertiesResponseArrayInput `pulumi:"recommendationsConfiguration"`
 	// Status of the IoT Security solution.
 	Status pulumi.StringPtrInput `pulumi:"status"`
 	// Unmasked IP address logging status
@@ -971,10 +898,10 @@ func (o IoTSecuritySolutionPropertiesResponseOutput) IotHubs() pulumi.StringArra
 }
 
 // List of the configuration status for each recommendation type.
-func (o IoTSecuritySolutionPropertiesResponseOutput) RecommendationsConfiguration() RecommendationConfigurationListResponsePtrOutput {
-	return o.ApplyT(func(v IoTSecuritySolutionPropertiesResponse) *RecommendationConfigurationListResponse {
+func (o IoTSecuritySolutionPropertiesResponseOutput) RecommendationsConfiguration() RecommendationConfigurationPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v IoTSecuritySolutionPropertiesResponse) []RecommendationConfigurationPropertiesResponse {
 		return v.RecommendationsConfiguration
-	}).(RecommendationConfigurationListResponsePtrOutput)
+	}).(RecommendationConfigurationPropertiesResponseArrayOutput)
 }
 
 // Status of the IoT Security solution.
@@ -1068,13 +995,13 @@ func (o IoTSecuritySolutionPropertiesResponsePtrOutput) IotHubs() pulumi.StringA
 }
 
 // List of the configuration status for each recommendation type.
-func (o IoTSecuritySolutionPropertiesResponsePtrOutput) RecommendationsConfiguration() RecommendationConfigurationListResponsePtrOutput {
-	return o.ApplyT(func(v *IoTSecuritySolutionPropertiesResponse) *RecommendationConfigurationListResponse {
+func (o IoTSecuritySolutionPropertiesResponsePtrOutput) RecommendationsConfiguration() RecommendationConfigurationPropertiesResponseArrayOutput {
+	return o.ApplyT(func(v *IoTSecuritySolutionPropertiesResponse) []RecommendationConfigurationPropertiesResponse {
 		if v == nil {
 			return nil
 		}
 		return v.RecommendationsConfiguration
-	}).(RecommendationConfigurationListResponsePtrOutput)
+	}).(RecommendationConfigurationPropertiesResponseArrayOutput)
 }
 
 // Status of the IoT Security solution.
@@ -1117,325 +1044,228 @@ func (o IoTSecuritySolutionPropertiesResponsePtrOutput) Workspace() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// IoT Security solution configuration and resource information.
-type IotSecuritySolutionType struct {
-	// The resource location.
-	Location *string `pulumi:"location"`
-	// Resource name
+// The type of IoT Security recommendation.
+type RecommendationConfigurationProperties struct {
+	// The type of IoT Security recommendation.
+	RecommendationType string `pulumi:"recommendationType"`
+	// Recommendation status. When the recommendation status is disabled recommendations are not generated.
+	Status string `pulumi:"status"`
+}
+
+// RecommendationConfigurationPropertiesInput is an input type that accepts RecommendationConfigurationPropertiesArgs and RecommendationConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `RecommendationConfigurationPropertiesInput` via:
+//
+//          RecommendationConfigurationPropertiesArgs{...}
+type RecommendationConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToRecommendationConfigurationPropertiesOutput() RecommendationConfigurationPropertiesOutput
+	ToRecommendationConfigurationPropertiesOutputWithContext(context.Context) RecommendationConfigurationPropertiesOutput
+}
+
+// The type of IoT Security recommendation.
+type RecommendationConfigurationPropertiesArgs struct {
+	// The type of IoT Security recommendation.
+	RecommendationType pulumi.StringInput `pulumi:"recommendationType"`
+	// Recommendation status. When the recommendation status is disabled recommendations are not generated.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (RecommendationConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendationConfigurationProperties)(nil)).Elem()
+}
+
+func (i RecommendationConfigurationPropertiesArgs) ToRecommendationConfigurationPropertiesOutput() RecommendationConfigurationPropertiesOutput {
+	return i.ToRecommendationConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i RecommendationConfigurationPropertiesArgs) ToRecommendationConfigurationPropertiesOutputWithContext(ctx context.Context) RecommendationConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationPropertiesOutput)
+}
+
+// RecommendationConfigurationPropertiesArrayInput is an input type that accepts RecommendationConfigurationPropertiesArray and RecommendationConfigurationPropertiesArrayOutput values.
+// You can construct a concrete instance of `RecommendationConfigurationPropertiesArrayInput` via:
+//
+//          RecommendationConfigurationPropertiesArray{ RecommendationConfigurationPropertiesArgs{...} }
+type RecommendationConfigurationPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToRecommendationConfigurationPropertiesArrayOutput() RecommendationConfigurationPropertiesArrayOutput
+	ToRecommendationConfigurationPropertiesArrayOutputWithContext(context.Context) RecommendationConfigurationPropertiesArrayOutput
+}
+
+type RecommendationConfigurationPropertiesArray []RecommendationConfigurationPropertiesInput
+
+func (RecommendationConfigurationPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommendationConfigurationProperties)(nil)).Elem()
+}
+
+func (i RecommendationConfigurationPropertiesArray) ToRecommendationConfigurationPropertiesArrayOutput() RecommendationConfigurationPropertiesArrayOutput {
+	return i.ToRecommendationConfigurationPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i RecommendationConfigurationPropertiesArray) ToRecommendationConfigurationPropertiesArrayOutputWithContext(ctx context.Context) RecommendationConfigurationPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationPropertiesArrayOutput)
+}
+
+// The type of IoT Security recommendation.
+type RecommendationConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (RecommendationConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendationConfigurationProperties)(nil)).Elem()
+}
+
+func (o RecommendationConfigurationPropertiesOutput) ToRecommendationConfigurationPropertiesOutput() RecommendationConfigurationPropertiesOutput {
+	return o
+}
+
+func (o RecommendationConfigurationPropertiesOutput) ToRecommendationConfigurationPropertiesOutputWithContext(ctx context.Context) RecommendationConfigurationPropertiesOutput {
+	return o
+}
+
+// The type of IoT Security recommendation.
+func (o RecommendationConfigurationPropertiesOutput) RecommendationType() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendationConfigurationProperties) string { return v.RecommendationType }).(pulumi.StringOutput)
+}
+
+// Recommendation status. When the recommendation status is disabled recommendations are not generated.
+func (o RecommendationConfigurationPropertiesOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendationConfigurationProperties) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type RecommendationConfigurationPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (RecommendationConfigurationPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommendationConfigurationProperties)(nil)).Elem()
+}
+
+func (o RecommendationConfigurationPropertiesArrayOutput) ToRecommendationConfigurationPropertiesArrayOutput() RecommendationConfigurationPropertiesArrayOutput {
+	return o
+}
+
+func (o RecommendationConfigurationPropertiesArrayOutput) ToRecommendationConfigurationPropertiesArrayOutputWithContext(ctx context.Context) RecommendationConfigurationPropertiesArrayOutput {
+	return o
+}
+
+func (o RecommendationConfigurationPropertiesArrayOutput) Index(i pulumi.IntInput) RecommendationConfigurationPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecommendationConfigurationProperties {
+		return vs[0].([]RecommendationConfigurationProperties)[vs[1].(int)]
+	}).(RecommendationConfigurationPropertiesOutput)
+}
+
+// The type of IoT Security recommendation.
+type RecommendationConfigurationPropertiesResponse struct {
 	Name string `pulumi:"name"`
-	// Security Solution data
-	Properties IoTSecuritySolutionPropertiesResponse `pulumi:"properties"`
-	// Resource tags
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type
-	Type string `pulumi:"type"`
+	// The type of IoT Security recommendation.
+	RecommendationType string `pulumi:"recommendationType"`
+	// Recommendation status. When the recommendation status is disabled recommendations are not generated.
+	Status string `pulumi:"status"`
 }
 
-// IotSecuritySolutionTypeInput is an input type that accepts IotSecuritySolutionTypeArgs and IotSecuritySolutionTypeOutput values.
-// You can construct a concrete instance of `IotSecuritySolutionTypeInput` via:
+// RecommendationConfigurationPropertiesResponseInput is an input type that accepts RecommendationConfigurationPropertiesResponseArgs and RecommendationConfigurationPropertiesResponseOutput values.
+// You can construct a concrete instance of `RecommendationConfigurationPropertiesResponseInput` via:
 //
-//          IotSecuritySolutionTypeArgs{...}
-type IotSecuritySolutionTypeInput interface {
+//          RecommendationConfigurationPropertiesResponseArgs{...}
+type RecommendationConfigurationPropertiesResponseInput interface {
 	pulumi.Input
 
-	ToIotSecuritySolutionTypeOutput() IotSecuritySolutionTypeOutput
-	ToIotSecuritySolutionTypeOutputWithContext(context.Context) IotSecuritySolutionTypeOutput
+	ToRecommendationConfigurationPropertiesResponseOutput() RecommendationConfigurationPropertiesResponseOutput
+	ToRecommendationConfigurationPropertiesResponseOutputWithContext(context.Context) RecommendationConfigurationPropertiesResponseOutput
 }
 
-// IoT Security solution configuration and resource information.
-type IotSecuritySolutionTypeArgs struct {
-	// The resource location.
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Resource name
+// The type of IoT Security recommendation.
+type RecommendationConfigurationPropertiesResponseArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
-	// Security Solution data
-	Properties IoTSecuritySolutionPropertiesResponseInput `pulumi:"properties"`
-	// Resource tags
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type
-	Type pulumi.StringInput `pulumi:"type"`
+	// The type of IoT Security recommendation.
+	RecommendationType pulumi.StringInput `pulumi:"recommendationType"`
+	// Recommendation status. When the recommendation status is disabled recommendations are not generated.
+	Status pulumi.StringInput `pulumi:"status"`
 }
 
-func (IotSecuritySolutionTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotSecuritySolutionType)(nil)).Elem()
+func (RecommendationConfigurationPropertiesResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendationConfigurationPropertiesResponse)(nil)).Elem()
 }
 
-func (i IotSecuritySolutionTypeArgs) ToIotSecuritySolutionTypeOutput() IotSecuritySolutionTypeOutput {
-	return i.ToIotSecuritySolutionTypeOutputWithContext(context.Background())
+func (i RecommendationConfigurationPropertiesResponseArgs) ToRecommendationConfigurationPropertiesResponseOutput() RecommendationConfigurationPropertiesResponseOutput {
+	return i.ToRecommendationConfigurationPropertiesResponseOutputWithContext(context.Background())
 }
 
-func (i IotSecuritySolutionTypeArgs) ToIotSecuritySolutionTypeOutputWithContext(ctx context.Context) IotSecuritySolutionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IotSecuritySolutionTypeOutput)
+func (i RecommendationConfigurationPropertiesResponseArgs) ToRecommendationConfigurationPropertiesResponseOutputWithContext(ctx context.Context) RecommendationConfigurationPropertiesResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationPropertiesResponseOutput)
 }
 
-// IoT Security solution configuration and resource information.
-type IotSecuritySolutionTypeOutput struct{ *pulumi.OutputState }
-
-func (IotSecuritySolutionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IotSecuritySolutionType)(nil)).Elem()
-}
-
-func (o IotSecuritySolutionTypeOutput) ToIotSecuritySolutionTypeOutput() IotSecuritySolutionTypeOutput {
-	return o
-}
-
-func (o IotSecuritySolutionTypeOutput) ToIotSecuritySolutionTypeOutputWithContext(ctx context.Context) IotSecuritySolutionTypeOutput {
-	return o
-}
-
-// The resource location.
-func (o IotSecuritySolutionTypeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IotSecuritySolutionType) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
-// Resource name
-func (o IotSecuritySolutionTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v IotSecuritySolutionType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Security Solution data
-func (o IotSecuritySolutionTypeOutput) Properties() IoTSecuritySolutionPropertiesResponseOutput {
-	return o.ApplyT(func(v IotSecuritySolutionType) IoTSecuritySolutionPropertiesResponse { return v.Properties }).(IoTSecuritySolutionPropertiesResponseOutput)
-}
-
-// Resource tags
-func (o IotSecuritySolutionTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v IotSecuritySolutionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type
-func (o IotSecuritySolutionTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v IotSecuritySolutionType) string { return v.Type }).(pulumi.StringOutput)
-}
-
-// List of the configuration status for each recommendation type.
-type RecommendationConfigurationList struct {
-}
-
-// RecommendationConfigurationListInput is an input type that accepts RecommendationConfigurationListArgs and RecommendationConfigurationListOutput values.
-// You can construct a concrete instance of `RecommendationConfigurationListInput` via:
+// RecommendationConfigurationPropertiesResponseArrayInput is an input type that accepts RecommendationConfigurationPropertiesResponseArray and RecommendationConfigurationPropertiesResponseArrayOutput values.
+// You can construct a concrete instance of `RecommendationConfigurationPropertiesResponseArrayInput` via:
 //
-//          RecommendationConfigurationListArgs{...}
-type RecommendationConfigurationListInput interface {
+//          RecommendationConfigurationPropertiesResponseArray{ RecommendationConfigurationPropertiesResponseArgs{...} }
+type RecommendationConfigurationPropertiesResponseArrayInput interface {
 	pulumi.Input
 
-	ToRecommendationConfigurationListOutput() RecommendationConfigurationListOutput
-	ToRecommendationConfigurationListOutputWithContext(context.Context) RecommendationConfigurationListOutput
+	ToRecommendationConfigurationPropertiesResponseArrayOutput() RecommendationConfigurationPropertiesResponseArrayOutput
+	ToRecommendationConfigurationPropertiesResponseArrayOutputWithContext(context.Context) RecommendationConfigurationPropertiesResponseArrayOutput
 }
 
-// List of the configuration status for each recommendation type.
-type RecommendationConfigurationListArgs struct {
+type RecommendationConfigurationPropertiesResponseArray []RecommendationConfigurationPropertiesResponseInput
+
+func (RecommendationConfigurationPropertiesResponseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommendationConfigurationPropertiesResponse)(nil)).Elem()
 }
 
-func (RecommendationConfigurationListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecommendationConfigurationList)(nil)).Elem()
+func (i RecommendationConfigurationPropertiesResponseArray) ToRecommendationConfigurationPropertiesResponseArrayOutput() RecommendationConfigurationPropertiesResponseArrayOutput {
+	return i.ToRecommendationConfigurationPropertiesResponseArrayOutputWithContext(context.Background())
 }
 
-func (i RecommendationConfigurationListArgs) ToRecommendationConfigurationListOutput() RecommendationConfigurationListOutput {
-	return i.ToRecommendationConfigurationListOutputWithContext(context.Background())
+func (i RecommendationConfigurationPropertiesResponseArray) ToRecommendationConfigurationPropertiesResponseArrayOutputWithContext(ctx context.Context) RecommendationConfigurationPropertiesResponseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationPropertiesResponseArrayOutput)
 }
 
-func (i RecommendationConfigurationListArgs) ToRecommendationConfigurationListOutputWithContext(ctx context.Context) RecommendationConfigurationListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationListOutput)
+// The type of IoT Security recommendation.
+type RecommendationConfigurationPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (RecommendationConfigurationPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RecommendationConfigurationPropertiesResponse)(nil)).Elem()
 }
 
-func (i RecommendationConfigurationListArgs) ToRecommendationConfigurationListPtrOutput() RecommendationConfigurationListPtrOutput {
-	return i.ToRecommendationConfigurationListPtrOutputWithContext(context.Background())
-}
-
-func (i RecommendationConfigurationListArgs) ToRecommendationConfigurationListPtrOutputWithContext(ctx context.Context) RecommendationConfigurationListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationListOutput).ToRecommendationConfigurationListPtrOutputWithContext(ctx)
-}
-
-// RecommendationConfigurationListPtrInput is an input type that accepts RecommendationConfigurationListArgs, RecommendationConfigurationListPtr and RecommendationConfigurationListPtrOutput values.
-// You can construct a concrete instance of `RecommendationConfigurationListPtrInput` via:
-//
-//          RecommendationConfigurationListArgs{...}
-//
-//  or:
-//
-//          nil
-type RecommendationConfigurationListPtrInput interface {
-	pulumi.Input
-
-	ToRecommendationConfigurationListPtrOutput() RecommendationConfigurationListPtrOutput
-	ToRecommendationConfigurationListPtrOutputWithContext(context.Context) RecommendationConfigurationListPtrOutput
-}
-
-type recommendationConfigurationListPtrType RecommendationConfigurationListArgs
-
-func RecommendationConfigurationListPtr(v *RecommendationConfigurationListArgs) RecommendationConfigurationListPtrInput {
-	return (*recommendationConfigurationListPtrType)(v)
-}
-
-func (*recommendationConfigurationListPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecommendationConfigurationList)(nil)).Elem()
-}
-
-func (i *recommendationConfigurationListPtrType) ToRecommendationConfigurationListPtrOutput() RecommendationConfigurationListPtrOutput {
-	return i.ToRecommendationConfigurationListPtrOutputWithContext(context.Background())
-}
-
-func (i *recommendationConfigurationListPtrType) ToRecommendationConfigurationListPtrOutputWithContext(ctx context.Context) RecommendationConfigurationListPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationListPtrOutput)
-}
-
-// List of the configuration status for each recommendation type.
-type RecommendationConfigurationListOutput struct{ *pulumi.OutputState }
-
-func (RecommendationConfigurationListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecommendationConfigurationList)(nil)).Elem()
-}
-
-func (o RecommendationConfigurationListOutput) ToRecommendationConfigurationListOutput() RecommendationConfigurationListOutput {
+func (o RecommendationConfigurationPropertiesResponseOutput) ToRecommendationConfigurationPropertiesResponseOutput() RecommendationConfigurationPropertiesResponseOutput {
 	return o
 }
 
-func (o RecommendationConfigurationListOutput) ToRecommendationConfigurationListOutputWithContext(ctx context.Context) RecommendationConfigurationListOutput {
+func (o RecommendationConfigurationPropertiesResponseOutput) ToRecommendationConfigurationPropertiesResponseOutputWithContext(ctx context.Context) RecommendationConfigurationPropertiesResponseOutput {
 	return o
 }
 
-func (o RecommendationConfigurationListOutput) ToRecommendationConfigurationListPtrOutput() RecommendationConfigurationListPtrOutput {
-	return o.ToRecommendationConfigurationListPtrOutputWithContext(context.Background())
+func (o RecommendationConfigurationPropertiesResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendationConfigurationPropertiesResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o RecommendationConfigurationListOutput) ToRecommendationConfigurationListPtrOutputWithContext(ctx context.Context) RecommendationConfigurationListPtrOutput {
-	return o.ApplyT(func(v RecommendationConfigurationList) *RecommendationConfigurationList {
-		return &v
-	}).(RecommendationConfigurationListPtrOutput)
+// The type of IoT Security recommendation.
+func (o RecommendationConfigurationPropertiesResponseOutput) RecommendationType() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendationConfigurationPropertiesResponse) string { return v.RecommendationType }).(pulumi.StringOutput)
 }
 
-type RecommendationConfigurationListPtrOutput struct{ *pulumi.OutputState }
-
-func (RecommendationConfigurationListPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecommendationConfigurationList)(nil)).Elem()
+// Recommendation status. When the recommendation status is disabled recommendations are not generated.
+func (o RecommendationConfigurationPropertiesResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v RecommendationConfigurationPropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
-func (o RecommendationConfigurationListPtrOutput) ToRecommendationConfigurationListPtrOutput() RecommendationConfigurationListPtrOutput {
+type RecommendationConfigurationPropertiesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (RecommendationConfigurationPropertiesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RecommendationConfigurationPropertiesResponse)(nil)).Elem()
+}
+
+func (o RecommendationConfigurationPropertiesResponseArrayOutput) ToRecommendationConfigurationPropertiesResponseArrayOutput() RecommendationConfigurationPropertiesResponseArrayOutput {
 	return o
 }
 
-func (o RecommendationConfigurationListPtrOutput) ToRecommendationConfigurationListPtrOutputWithContext(ctx context.Context) RecommendationConfigurationListPtrOutput {
+func (o RecommendationConfigurationPropertiesResponseArrayOutput) ToRecommendationConfigurationPropertiesResponseArrayOutputWithContext(ctx context.Context) RecommendationConfigurationPropertiesResponseArrayOutput {
 	return o
 }
 
-func (o RecommendationConfigurationListPtrOutput) Elem() RecommendationConfigurationListOutput {
-	return o.ApplyT(func(v *RecommendationConfigurationList) RecommendationConfigurationList { return *v }).(RecommendationConfigurationListOutput)
-}
-
-// List of the configuration status for each recommendation type.
-type RecommendationConfigurationListResponse struct {
-}
-
-// RecommendationConfigurationListResponseInput is an input type that accepts RecommendationConfigurationListResponseArgs and RecommendationConfigurationListResponseOutput values.
-// You can construct a concrete instance of `RecommendationConfigurationListResponseInput` via:
-//
-//          RecommendationConfigurationListResponseArgs{...}
-type RecommendationConfigurationListResponseInput interface {
-	pulumi.Input
-
-	ToRecommendationConfigurationListResponseOutput() RecommendationConfigurationListResponseOutput
-	ToRecommendationConfigurationListResponseOutputWithContext(context.Context) RecommendationConfigurationListResponseOutput
-}
-
-// List of the configuration status for each recommendation type.
-type RecommendationConfigurationListResponseArgs struct {
-}
-
-func (RecommendationConfigurationListResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecommendationConfigurationListResponse)(nil)).Elem()
-}
-
-func (i RecommendationConfigurationListResponseArgs) ToRecommendationConfigurationListResponseOutput() RecommendationConfigurationListResponseOutput {
-	return i.ToRecommendationConfigurationListResponseOutputWithContext(context.Background())
-}
-
-func (i RecommendationConfigurationListResponseArgs) ToRecommendationConfigurationListResponseOutputWithContext(ctx context.Context) RecommendationConfigurationListResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationListResponseOutput)
-}
-
-func (i RecommendationConfigurationListResponseArgs) ToRecommendationConfigurationListResponsePtrOutput() RecommendationConfigurationListResponsePtrOutput {
-	return i.ToRecommendationConfigurationListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i RecommendationConfigurationListResponseArgs) ToRecommendationConfigurationListResponsePtrOutputWithContext(ctx context.Context) RecommendationConfigurationListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationListResponseOutput).ToRecommendationConfigurationListResponsePtrOutputWithContext(ctx)
-}
-
-// RecommendationConfigurationListResponsePtrInput is an input type that accepts RecommendationConfigurationListResponseArgs, RecommendationConfigurationListResponsePtr and RecommendationConfigurationListResponsePtrOutput values.
-// You can construct a concrete instance of `RecommendationConfigurationListResponsePtrInput` via:
-//
-//          RecommendationConfigurationListResponseArgs{...}
-//
-//  or:
-//
-//          nil
-type RecommendationConfigurationListResponsePtrInput interface {
-	pulumi.Input
-
-	ToRecommendationConfigurationListResponsePtrOutput() RecommendationConfigurationListResponsePtrOutput
-	ToRecommendationConfigurationListResponsePtrOutputWithContext(context.Context) RecommendationConfigurationListResponsePtrOutput
-}
-
-type recommendationConfigurationListResponsePtrType RecommendationConfigurationListResponseArgs
-
-func RecommendationConfigurationListResponsePtr(v *RecommendationConfigurationListResponseArgs) RecommendationConfigurationListResponsePtrInput {
-	return (*recommendationConfigurationListResponsePtrType)(v)
-}
-
-func (*recommendationConfigurationListResponsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecommendationConfigurationListResponse)(nil)).Elem()
-}
-
-func (i *recommendationConfigurationListResponsePtrType) ToRecommendationConfigurationListResponsePtrOutput() RecommendationConfigurationListResponsePtrOutput {
-	return i.ToRecommendationConfigurationListResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *recommendationConfigurationListResponsePtrType) ToRecommendationConfigurationListResponsePtrOutputWithContext(ctx context.Context) RecommendationConfigurationListResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecommendationConfigurationListResponsePtrOutput)
-}
-
-// List of the configuration status for each recommendation type.
-type RecommendationConfigurationListResponseOutput struct{ *pulumi.OutputState }
-
-func (RecommendationConfigurationListResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecommendationConfigurationListResponse)(nil)).Elem()
-}
-
-func (o RecommendationConfigurationListResponseOutput) ToRecommendationConfigurationListResponseOutput() RecommendationConfigurationListResponseOutput {
-	return o
-}
-
-func (o RecommendationConfigurationListResponseOutput) ToRecommendationConfigurationListResponseOutputWithContext(ctx context.Context) RecommendationConfigurationListResponseOutput {
-	return o
-}
-
-func (o RecommendationConfigurationListResponseOutput) ToRecommendationConfigurationListResponsePtrOutput() RecommendationConfigurationListResponsePtrOutput {
-	return o.ToRecommendationConfigurationListResponsePtrOutputWithContext(context.Background())
-}
-
-func (o RecommendationConfigurationListResponseOutput) ToRecommendationConfigurationListResponsePtrOutputWithContext(ctx context.Context) RecommendationConfigurationListResponsePtrOutput {
-	return o.ApplyT(func(v RecommendationConfigurationListResponse) *RecommendationConfigurationListResponse {
-		return &v
-	}).(RecommendationConfigurationListResponsePtrOutput)
-}
-
-type RecommendationConfigurationListResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (RecommendationConfigurationListResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecommendationConfigurationListResponse)(nil)).Elem()
-}
-
-func (o RecommendationConfigurationListResponsePtrOutput) ToRecommendationConfigurationListResponsePtrOutput() RecommendationConfigurationListResponsePtrOutput {
-	return o
-}
-
-func (o RecommendationConfigurationListResponsePtrOutput) ToRecommendationConfigurationListResponsePtrOutputWithContext(ctx context.Context) RecommendationConfigurationListResponsePtrOutput {
-	return o
-}
-
-func (o RecommendationConfigurationListResponsePtrOutput) Elem() RecommendationConfigurationListResponseOutput {
-	return o.ApplyT(func(v *RecommendationConfigurationListResponse) RecommendationConfigurationListResponse { return *v }).(RecommendationConfigurationListResponseOutput)
+func (o RecommendationConfigurationPropertiesResponseArrayOutput) Index(i pulumi.IntInput) RecommendationConfigurationPropertiesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RecommendationConfigurationPropertiesResponse {
+		return vs[0].([]RecommendationConfigurationPropertiesResponse)[vs[1].(int)]
+	}).(RecommendationConfigurationPropertiesResponseOutput)
 }
 
 // A custom alert rule that checks if a value (depends on the custom alert type) is within the given range.
@@ -2315,16 +2145,14 @@ func init() {
 	pulumi.RegisterOutputType(DenylistCustomAlertRuleArrayOutput{})
 	pulumi.RegisterOutputType(DenylistCustomAlertRuleResponseOutput{})
 	pulumi.RegisterOutputType(DenylistCustomAlertRuleResponseArrayOutput{})
-	pulumi.RegisterOutputType(DeviceSecurityGroupTypeOutput{})
 	pulumi.RegisterOutputType(DeviceSecurityGroupPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DeviceSecurityGroupPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(IoTSecuritySolutionPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(IoTSecuritySolutionPropertiesResponsePtrOutput{})
-	pulumi.RegisterOutputType(IotSecuritySolutionTypeOutput{})
-	pulumi.RegisterOutputType(RecommendationConfigurationListOutput{})
-	pulumi.RegisterOutputType(RecommendationConfigurationListPtrOutput{})
-	pulumi.RegisterOutputType(RecommendationConfigurationListResponseOutput{})
-	pulumi.RegisterOutputType(RecommendationConfigurationListResponsePtrOutput{})
+	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(RecommendationConfigurationPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(ThresholdCustomAlertRuleOutput{})
 	pulumi.RegisterOutputType(ThresholdCustomAlertRuleArrayOutput{})
 	pulumi.RegisterOutputType(ThresholdCustomAlertRuleResponseOutput{})

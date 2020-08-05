@@ -10,97 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
-type AccountType struct {
-	// The resource location.
-	Location string `pulumi:"location"`
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The properties defined by Data Lake Analytics all properties are specific to each resource provider.
-	Properties DataLakeAnalyticsAccountPropertiesResponse `pulumi:"properties"`
-	// The resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// AccountTypeInput is an input type that accepts AccountTypeArgs and AccountTypeOutput values.
-// You can construct a concrete instance of `AccountTypeInput` via:
-//
-//          AccountTypeArgs{...}
-type AccountTypeInput interface {
-	pulumi.Input
-
-	ToAccountTypeOutput() AccountTypeOutput
-	ToAccountTypeOutputWithContext(context.Context) AccountTypeOutput
-}
-
-// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
-type AccountTypeArgs struct {
-	// The resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties defined by Data Lake Analytics all properties are specific to each resource provider.
-	Properties DataLakeAnalyticsAccountPropertiesResponseInput `pulumi:"properties"`
-	// The resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (AccountTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountType)(nil)).Elem()
-}
-
-func (i AccountTypeArgs) ToAccountTypeOutput() AccountTypeOutput {
-	return i.ToAccountTypeOutputWithContext(context.Background())
-}
-
-func (i AccountTypeArgs) ToAccountTypeOutputWithContext(ctx context.Context) AccountTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountTypeOutput)
-}
-
-// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
-type AccountTypeOutput struct{ *pulumi.OutputState }
-
-func (AccountTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountType)(nil)).Elem()
-}
-
-func (o AccountTypeOutput) ToAccountTypeOutput() AccountTypeOutput {
-	return o
-}
-
-func (o AccountTypeOutput) ToAccountTypeOutputWithContext(ctx context.Context) AccountTypeOutput {
-	return o
-}
-
-// The resource location.
-func (o AccountTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// The resource name.
-func (o AccountTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties defined by Data Lake Analytics all properties are specific to each resource provider.
-func (o AccountTypeOutput) Properties() DataLakeAnalyticsAccountPropertiesResponseOutput {
-	return o.ApplyT(func(v AccountType) DataLakeAnalyticsAccountPropertiesResponse { return v.Properties }).(DataLakeAnalyticsAccountPropertiesResponseOutput)
-}
-
-// The resource tags.
-func (o AccountTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v AccountType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// The resource type.
-func (o AccountTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v AccountType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The parameters used to add a new Data Lake Store account while creating a new Data Lake Analytics account.
 type AddDataLakeStoreWithAccountParameters struct {
 	// The unique name of the Data Lake Store account to add.
@@ -326,79 +235,6 @@ func (o AddStorageAccountWithAccountParametersArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AddStorageAccountWithAccountParameters {
 		return vs[0].([]AddStorageAccountWithAccountParameters)[vs[1].(int)]
 	}).(AddStorageAccountWithAccountParametersOutput)
-}
-
-// Data Lake Analytics compute policy information.
-type ComputePolicyType struct {
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The compute policy properties.
-	Properties ComputePolicyPropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// ComputePolicyTypeInput is an input type that accepts ComputePolicyTypeArgs and ComputePolicyTypeOutput values.
-// You can construct a concrete instance of `ComputePolicyTypeInput` via:
-//
-//          ComputePolicyTypeArgs{...}
-type ComputePolicyTypeInput interface {
-	pulumi.Input
-
-	ToComputePolicyTypeOutput() ComputePolicyTypeOutput
-	ToComputePolicyTypeOutputWithContext(context.Context) ComputePolicyTypeOutput
-}
-
-// Data Lake Analytics compute policy information.
-type ComputePolicyTypeArgs struct {
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The compute policy properties.
-	Properties ComputePolicyPropertiesResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ComputePolicyTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputePolicyType)(nil)).Elem()
-}
-
-func (i ComputePolicyTypeArgs) ToComputePolicyTypeOutput() ComputePolicyTypeOutput {
-	return i.ToComputePolicyTypeOutputWithContext(context.Background())
-}
-
-func (i ComputePolicyTypeArgs) ToComputePolicyTypeOutputWithContext(ctx context.Context) ComputePolicyTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ComputePolicyTypeOutput)
-}
-
-// Data Lake Analytics compute policy information.
-type ComputePolicyTypeOutput struct{ *pulumi.OutputState }
-
-func (ComputePolicyTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ComputePolicyType)(nil)).Elem()
-}
-
-func (o ComputePolicyTypeOutput) ToComputePolicyTypeOutput() ComputePolicyTypeOutput {
-	return o
-}
-
-func (o ComputePolicyTypeOutput) ToComputePolicyTypeOutputWithContext(ctx context.Context) ComputePolicyTypeOutput {
-	return o
-}
-
-// The resource name.
-func (o ComputePolicyTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ComputePolicyType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The compute policy properties.
-func (o ComputePolicyTypeOutput) Properties() ComputePolicyPropertiesResponseOutput {
-	return o.ApplyT(func(v ComputePolicyType) ComputePolicyPropertiesResponse { return v.Properties }).(ComputePolicyPropertiesResponseOutput)
-}
-
-// The resource type.
-func (o ComputePolicyTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ComputePolicyType) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // The compute policy properties.
@@ -1696,79 +1532,6 @@ func (o DataLakeStoreAccountInformationResponseArrayOutput) Index(i pulumi.IntIn
 	}).(DataLakeStoreAccountInformationResponseOutput)
 }
 
-// Data Lake Analytics firewall rule information.
-type FirewallRuleType struct {
-	// The resource name.
-	Name string `pulumi:"name"`
-	// The firewall rule properties.
-	Properties FirewallRulePropertiesResponse `pulumi:"properties"`
-	// The resource type.
-	Type string `pulumi:"type"`
-}
-
-// FirewallRuleTypeInput is an input type that accepts FirewallRuleTypeArgs and FirewallRuleTypeOutput values.
-// You can construct a concrete instance of `FirewallRuleTypeInput` via:
-//
-//          FirewallRuleTypeArgs{...}
-type FirewallRuleTypeInput interface {
-	pulumi.Input
-
-	ToFirewallRuleTypeOutput() FirewallRuleTypeOutput
-	ToFirewallRuleTypeOutputWithContext(context.Context) FirewallRuleTypeOutput
-}
-
-// Data Lake Analytics firewall rule information.
-type FirewallRuleTypeArgs struct {
-	// The resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The firewall rule properties.
-	Properties FirewallRulePropertiesResponseInput `pulumi:"properties"`
-	// The resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (FirewallRuleTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleType)(nil)).Elem()
-}
-
-func (i FirewallRuleTypeArgs) ToFirewallRuleTypeOutput() FirewallRuleTypeOutput {
-	return i.ToFirewallRuleTypeOutputWithContext(context.Background())
-}
-
-func (i FirewallRuleTypeArgs) ToFirewallRuleTypeOutputWithContext(ctx context.Context) FirewallRuleTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallRuleTypeOutput)
-}
-
-// Data Lake Analytics firewall rule information.
-type FirewallRuleTypeOutput struct{ *pulumi.OutputState }
-
-func (FirewallRuleTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallRuleType)(nil)).Elem()
-}
-
-func (o FirewallRuleTypeOutput) ToFirewallRuleTypeOutput() FirewallRuleTypeOutput {
-	return o
-}
-
-func (o FirewallRuleTypeOutput) ToFirewallRuleTypeOutputWithContext(ctx context.Context) FirewallRuleTypeOutput {
-	return o
-}
-
-// The resource name.
-func (o FirewallRuleTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallRuleType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The firewall rule properties.
-func (o FirewallRuleTypeOutput) Properties() FirewallRulePropertiesResponseOutput {
-	return o.ApplyT(func(v FirewallRuleType) FirewallRulePropertiesResponse { return v.Properties }).(FirewallRulePropertiesResponseOutput)
-}
-
-// The resource type.
-func (o FirewallRuleTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v FirewallRuleType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // The firewall rule properties.
 type FirewallRulePropertiesResponse struct {
 	// The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
@@ -2334,12 +2097,10 @@ func (o StorageAccountInformationResponseArrayOutput) Index(i pulumi.IntInput) S
 }
 
 func init() {
-	pulumi.RegisterOutputType(AccountTypeOutput{})
 	pulumi.RegisterOutputType(AddDataLakeStoreWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(AddDataLakeStoreWithAccountParametersArrayOutput{})
 	pulumi.RegisterOutputType(AddStorageAccountWithAccountParametersOutput{})
 	pulumi.RegisterOutputType(AddStorageAccountWithAccountParametersArrayOutput{})
-	pulumi.RegisterOutputType(ComputePolicyTypeOutput{})
 	pulumi.RegisterOutputType(ComputePolicyPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ComputePolicyPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(ComputePolicyResponseOutput{})
@@ -2353,7 +2114,6 @@ func init() {
 	pulumi.RegisterOutputType(DataLakeStoreAccountInformationPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(DataLakeStoreAccountInformationResponseOutput{})
 	pulumi.RegisterOutputType(DataLakeStoreAccountInformationResponseArrayOutput{})
-	pulumi.RegisterOutputType(FirewallRuleTypeOutput{})
 	pulumi.RegisterOutputType(FirewallRulePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(FirewallRulePropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(FirewallRuleResponseOutput{})

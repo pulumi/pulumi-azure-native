@@ -30,10 +30,6 @@ namespace Pulumi.AzureRM.ContainerService.V20200201.Outputs
         /// </summary>
         public readonly Outputs.ManagedClusterAPIServerAccessProfileResponseResult? ApiServerAccessProfile;
         /// <summary>
-        /// Parameters to be applied to the cluster-autoscaler when enabled
-        /// </summary>
-        public readonly Outputs.ManagedClusterPropertiesResponsePropertiesResult? AutoScalerProfile;
-        /// <summary>
         /// ResourceId of the disk encryption set to use for enabling encryption at rest.
         /// </summary>
         public readonly string? DiskEncryptionSetID;
@@ -56,7 +52,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200201.Outputs
         /// <summary>
         /// Identities associated with the cluster.
         /// </summary>
-        public readonly ImmutableDictionary<string, ImmutableDictionary<string, object>>? IdentityProfile;
+        public readonly ImmutableDictionary<string, Outputs.ManagedClusterPropertiesResponseIdentityProfileResult>? IdentityProfile;
         /// <summary>
         /// Version of Kubernetes specified when creating the managed cluster.
         /// </summary>
@@ -104,8 +100,6 @@ namespace Pulumi.AzureRM.ContainerService.V20200201.Outputs
 
             Outputs.ManagedClusterAPIServerAccessProfileResponseResult? apiServerAccessProfile,
 
-            Outputs.ManagedClusterPropertiesResponsePropertiesResult? autoScalerProfile,
-
             string? diskEncryptionSetID,
 
             string? dnsPrefix,
@@ -116,7 +110,7 @@ namespace Pulumi.AzureRM.ContainerService.V20200201.Outputs
 
             string fqdn,
 
-            ImmutableDictionary<string, ImmutableDictionary<string, object>>? identityProfile,
+            ImmutableDictionary<string, Outputs.ManagedClusterPropertiesResponseIdentityProfileResult>? identityProfile,
 
             string? kubernetesVersion,
 
@@ -140,7 +134,6 @@ namespace Pulumi.AzureRM.ContainerService.V20200201.Outputs
             AddonProfiles = addonProfiles;
             AgentPoolProfiles = agentPoolProfiles;
             ApiServerAccessProfile = apiServerAccessProfile;
-            AutoScalerProfile = autoScalerProfile;
             DiskEncryptionSetID = diskEncryptionSetID;
             DnsPrefix = dnsPrefix;
             EnablePodSecurityPolicy = enablePodSecurityPolicy;

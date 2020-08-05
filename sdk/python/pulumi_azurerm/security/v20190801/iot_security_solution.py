@@ -26,7 +26,11 @@ class IotSecuritySolution(pulumi.CustomResource):
       * `display_name` (`str`) - Resource display name.
       * `export` (`list`) - List of additional options for exporting to workspace data.
       * `iot_hubs` (`list`) - IoT Hub resource IDs
-      * `recommendations_configuration` (`dict`) - List of the configuration status for each recommendation type.
+      * `recommendations_configuration` (`list`) - List of the configuration status for each recommendation type.
+        * `name` (`str`)
+        * `recommendation_type` (`str`) - The type of IoT Security recommendation.
+        * `status` (`str`) - Recommendation status. When the recommendation status is disabled recommendations are not generated.
+
       * `status` (`str`) - Status of the IoT Security solution.
       * `unmasked_ip_logging_status` (`str`) - Unmasked IP address logging status
       * `user_defined_resources` (`dict`) - Properties of the IoT Security solution's user defined resources.
@@ -55,13 +59,18 @@ class IotSecuritySolution(pulumi.CustomResource):
         :param pulumi.Input[list] iot_hubs: IoT Hub resource IDs
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] name: The name of the IoT Security solution.
-        :param pulumi.Input[dict] recommendations_configuration: List of the configuration status for each recommendation type.
+        :param pulumi.Input[list] recommendations_configuration: List of the configuration status for each recommendation type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[str] status: Status of the IoT Security solution.
         :param pulumi.Input[dict] tags: Resource tags
         :param pulumi.Input[str] unmasked_ip_logging_status: Unmasked IP address logging status
         :param pulumi.Input[dict] user_defined_resources: Properties of the IoT Security solution's user defined resources.
         :param pulumi.Input[str] workspace: Workspace resource ID
+
+        The **recommendations_configuration** object supports the following:
+
+          * `recommendation_type` (`pulumi.Input[str]`) - The type of IoT Security recommendation.
+          * `status` (`pulumi.Input[str]`) - Recommendation status. When the recommendation status is disabled recommendations are not generated.
 
         The **user_defined_resources** object supports the following:
 

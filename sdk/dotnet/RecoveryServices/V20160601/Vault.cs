@@ -132,12 +132,6 @@ namespace Pulumi.AzureRM.RecoveryServices.V20160601
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Properties of the vault.
-        /// </summary>
-        [Input("properties")]
-        public Input<Inputs.VaultPropertiesArgs>? Properties { get; set; }
-
-        /// <summary>
         /// The name of the resource group where the recovery services vault is present.
         /// </summary>
         [Input("resourceGroupName", required: true)]

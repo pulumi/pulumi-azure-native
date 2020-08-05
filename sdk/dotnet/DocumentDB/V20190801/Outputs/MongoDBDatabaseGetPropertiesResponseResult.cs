@@ -13,10 +13,10 @@ namespace Pulumi.AzureRM.DocumentDB.V20190801.Outputs
     [OutputType]
     public sealed class MongoDBDatabaseGetPropertiesResponseResult
     {
-        public readonly ImmutableDictionary<string, object>? Resource;
+        public readonly Outputs.MongoDBDatabaseGetPropertiesResponseResourceResult? Resource;
 
         [OutputConstructor]
-        private MongoDBDatabaseGetPropertiesResponseResult(ImmutableDictionary<string, object>? resource)
+        private MongoDBDatabaseGetPropertiesResponseResult(Outputs.MongoDBDatabaseGetPropertiesResponseResourceResult? resource)
         {
             Resource = resource;
         }

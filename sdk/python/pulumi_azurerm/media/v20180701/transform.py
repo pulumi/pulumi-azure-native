@@ -22,7 +22,6 @@ class Transform(pulumi.CustomResource):
       * `last_modified` (`str`) - The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.
       * `outputs` (`list`) - An array of one or more TransformOutputs that the Transform should generate.
         * `on_error` (`str`) - A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
-        * `preset` (`dict`) - Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
         * `relative_priority` (`str`) - Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
     """
     type: pulumi.Output[str]
@@ -44,7 +43,6 @@ class Transform(pulumi.CustomResource):
         The **outputs** object supports the following:
 
           * `on_error` (`pulumi.Input[str]`) - A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
-          * `preset` (`pulumi.Input[dict]`) - Preset that describes the operations that will be used to modify, transcode, or extract insights from the source file to generate the output.
           * `relative_priority` (`pulumi.Input[str]`) - Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
         """
         if __name__ is not None:

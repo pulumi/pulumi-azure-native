@@ -15,7 +15,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
     public partial class Machine : Pulumi.CustomResource
     {
         [Output("identity")]
-        public Output<ImmutableDictionary<string, object>?> Identity { get; private set; } = null!;
+        public Output<Outputs.MachineResponseIdentityResult?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -33,7 +33,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
         /// Hybrid Compute Machine properties
         /// </summary>
         [Output("properties")]
-        public Output<ImmutableDictionary<string, object>> Properties { get; private set; } = null!;
+        public Output<Outputs.MachineResponsePropertiesResult> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -111,12 +111,7 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
         }
 
         [Input("identity")]
-        private InputMap<object>? _identity;
-        public InputMap<object> Identity
-        {
-            get => _identity ?? (_identity = new InputMap<object>());
-            set => _identity = value;
-        }
+        public Input<Inputs.MachineIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -135,18 +130,6 @@ namespace Pulumi.AzureRM.HybridCompute.V20191212
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
-
-        [Input("osProfile")]
-        private InputMap<object>? _osProfile;
-
-        /// <summary>
-        /// Specifies the operating system settings for the hybrid machine.
-        /// </summary>
-        public InputMap<object> OsProfile
-        {
-            get => _osProfile ?? (_osProfile = new InputMap<object>());
-            set => _osProfile = value;
-        }
 
         /// <summary>
         /// The name of the resource group.

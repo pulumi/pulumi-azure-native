@@ -85,7 +85,7 @@ func (EndpointState) ElementType() reflect.Type {
 
 type endpointArgs struct {
 	// List of custom headers.
-	CustomHeaders []EndpointPropertiesProperties `pulumi:"customHeaders"`
+	CustomHeaders []EndpointPropertiesCustomHeaders `pulumi:"customHeaders"`
 	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
 	EndpointLocation *string `pulumi:"endpointLocation"`
 	// The monitoring status of the endpoint.
@@ -121,7 +121,7 @@ type endpointArgs struct {
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
 	// List of custom headers.
-	CustomHeaders EndpointPropertiesPropertiesArrayInput
+	CustomHeaders EndpointPropertiesCustomHeadersArrayInput
 	// Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
 	EndpointLocation pulumi.StringPtrInput
 	// The monitoring status of the endpoint.

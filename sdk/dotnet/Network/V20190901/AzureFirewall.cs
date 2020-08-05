@@ -101,11 +101,17 @@ namespace Pulumi.AzureRM.Network.V20190901
 
     public sealed class AzureFirewallArgs : Pulumi.ResourceArgs
     {
+        [Input("additionalProperties")]
+        private InputMap<string>? _additionalProperties;
+
         /// <summary>
         /// The additional properties used to further config this azure firewall.
         /// </summary>
-        [Input("additionalProperties")]
-        public Input<Inputs.AzureFirewallAdditionalPropertiesArgs>? AdditionalProperties { get; set; }
+        public InputMap<string> AdditionalProperties
+        {
+            get => _additionalProperties ?? (_additionalProperties = new InputMap<string>());
+            set => _additionalProperties = value;
+        }
 
         [Input("applicationRuleCollections")]
         private InputList<Inputs.AzureFirewallApplicationRuleCollectionArgs>? _applicationRuleCollections;

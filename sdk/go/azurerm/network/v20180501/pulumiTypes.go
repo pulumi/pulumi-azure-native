@@ -1532,88 +1532,6 @@ func (o PtrRecordResponseArrayOutput) Index(i pulumi.IntInput) PtrRecordResponse
 	}).(PtrRecordResponseOutput)
 }
 
-// Describes a DNS record set (a collection of DNS records with the same name and type).
-type RecordSetType struct {
-	// The etag of the record set.
-	Etag *string `pulumi:"etag"`
-	// The name of the record set.
-	Name string `pulumi:"name"`
-	// The properties of the record set.
-	Properties RecordSetPropertiesResponse `pulumi:"properties"`
-	// The type of the record set.
-	Type string `pulumi:"type"`
-}
-
-// RecordSetTypeInput is an input type that accepts RecordSetTypeArgs and RecordSetTypeOutput values.
-// You can construct a concrete instance of `RecordSetTypeInput` via:
-//
-//          RecordSetTypeArgs{...}
-type RecordSetTypeInput interface {
-	pulumi.Input
-
-	ToRecordSetTypeOutput() RecordSetTypeOutput
-	ToRecordSetTypeOutputWithContext(context.Context) RecordSetTypeOutput
-}
-
-// Describes a DNS record set (a collection of DNS records with the same name and type).
-type RecordSetTypeArgs struct {
-	// The etag of the record set.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// The name of the record set.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the record set.
-	Properties RecordSetPropertiesResponseInput `pulumi:"properties"`
-	// The type of the record set.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (RecordSetTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecordSetType)(nil)).Elem()
-}
-
-func (i RecordSetTypeArgs) ToRecordSetTypeOutput() RecordSetTypeOutput {
-	return i.ToRecordSetTypeOutputWithContext(context.Background())
-}
-
-func (i RecordSetTypeArgs) ToRecordSetTypeOutputWithContext(ctx context.Context) RecordSetTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecordSetTypeOutput)
-}
-
-// Describes a DNS record set (a collection of DNS records with the same name and type).
-type RecordSetTypeOutput struct{ *pulumi.OutputState }
-
-func (RecordSetTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RecordSetType)(nil)).Elem()
-}
-
-func (o RecordSetTypeOutput) ToRecordSetTypeOutput() RecordSetTypeOutput {
-	return o
-}
-
-func (o RecordSetTypeOutput) ToRecordSetTypeOutputWithContext(ctx context.Context) RecordSetTypeOutput {
-	return o
-}
-
-// The etag of the record set.
-func (o RecordSetTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v RecordSetType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// The name of the record set.
-func (o RecordSetTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v RecordSetType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the record set.
-func (o RecordSetTypeOutput) Properties() RecordSetPropertiesResponseOutput {
-	return o.ApplyT(func(v RecordSetType) RecordSetPropertiesResponse { return v.Properties }).(RecordSetPropertiesResponseOutput)
-}
-
-// The type of the record set.
-func (o RecordSetTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v RecordSetType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Represents the properties of the records in the record set.
 type RecordSetPropertiesResponse struct {
 	// The list of AAAA records in the record set.
@@ -3322,106 +3240,6 @@ func (o TxtRecordResponseArrayOutput) Index(i pulumi.IntInput) TxtRecordResponse
 	}).(TxtRecordResponseOutput)
 }
 
-// Describes a DNS zone.
-type ZoneType struct {
-	// The etag of the zone.
-	Etag *string `pulumi:"etag"`
-	// Resource location.
-	Location string `pulumi:"location"`
-	// Resource name.
-	Name string `pulumi:"name"`
-	// The properties of the zone.
-	Properties ZonePropertiesResponse `pulumi:"properties"`
-	// Resource tags.
-	Tags map[string]string `pulumi:"tags"`
-	// Resource type.
-	Type string `pulumi:"type"`
-}
-
-// ZoneTypeInput is an input type that accepts ZoneTypeArgs and ZoneTypeOutput values.
-// You can construct a concrete instance of `ZoneTypeInput` via:
-//
-//          ZoneTypeArgs{...}
-type ZoneTypeInput interface {
-	pulumi.Input
-
-	ToZoneTypeOutput() ZoneTypeOutput
-	ToZoneTypeOutputWithContext(context.Context) ZoneTypeOutput
-}
-
-// Describes a DNS zone.
-type ZoneTypeArgs struct {
-	// The etag of the zone.
-	Etag pulumi.StringPtrInput `pulumi:"etag"`
-	// Resource location.
-	Location pulumi.StringInput `pulumi:"location"`
-	// Resource name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The properties of the zone.
-	Properties ZonePropertiesResponseInput `pulumi:"properties"`
-	// Resource tags.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-	// Resource type.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (ZoneTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZoneType)(nil)).Elem()
-}
-
-func (i ZoneTypeArgs) ToZoneTypeOutput() ZoneTypeOutput {
-	return i.ToZoneTypeOutputWithContext(context.Background())
-}
-
-func (i ZoneTypeArgs) ToZoneTypeOutputWithContext(ctx context.Context) ZoneTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ZoneTypeOutput)
-}
-
-// Describes a DNS zone.
-type ZoneTypeOutput struct{ *pulumi.OutputState }
-
-func (ZoneTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ZoneType)(nil)).Elem()
-}
-
-func (o ZoneTypeOutput) ToZoneTypeOutput() ZoneTypeOutput {
-	return o
-}
-
-func (o ZoneTypeOutput) ToZoneTypeOutputWithContext(ctx context.Context) ZoneTypeOutput {
-	return o
-}
-
-// The etag of the zone.
-func (o ZoneTypeOutput) Etag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ZoneType) *string { return v.Etag }).(pulumi.StringPtrOutput)
-}
-
-// Resource location.
-func (o ZoneTypeOutput) Location() pulumi.StringOutput {
-	return o.ApplyT(func(v ZoneType) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Resource name.
-func (o ZoneTypeOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ZoneType) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The properties of the zone.
-func (o ZoneTypeOutput) Properties() ZonePropertiesResponseOutput {
-	return o.ApplyT(func(v ZoneType) ZonePropertiesResponse { return v.Properties }).(ZonePropertiesResponseOutput)
-}
-
-// Resource tags.
-func (o ZoneTypeOutput) Tags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v ZoneType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Resource type.
-func (o ZoneTypeOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v ZoneType) string { return v.Type }).(pulumi.StringOutput)
-}
-
 // Represents the properties of the zone.
 type ZonePropertiesResponse struct {
 	// The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
@@ -3680,7 +3498,6 @@ func init() {
 	pulumi.RegisterOutputType(PtrRecordArrayOutput{})
 	pulumi.RegisterOutputType(PtrRecordResponseOutput{})
 	pulumi.RegisterOutputType(PtrRecordResponseArrayOutput{})
-	pulumi.RegisterOutputType(RecordSetTypeOutput{})
 	pulumi.RegisterOutputType(RecordSetPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(RecordSetPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(SoaRecordOutput{})
@@ -3701,7 +3518,6 @@ func init() {
 	pulumi.RegisterOutputType(TxtRecordArrayOutput{})
 	pulumi.RegisterOutputType(TxtRecordResponseOutput{})
 	pulumi.RegisterOutputType(TxtRecordResponseArrayOutput{})
-	pulumi.RegisterOutputType(ZoneTypeOutput{})
 	pulumi.RegisterOutputType(ZonePropertiesResponseOutput{})
 	pulumi.RegisterOutputType(ZonePropertiesResponsePtrOutput{})
 }

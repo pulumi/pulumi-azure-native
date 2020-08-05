@@ -293,7 +293,6 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
         The **identity** object supports the following:
 
           * `type` (`pulumi.Input[str]`) - The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
-          * `user_assigned_identities` (`pulumi.Input[dict]`) - The list of user identities associated with the virtual machine scale set. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
 
         The **plan** object supports the following:
 
@@ -338,19 +337,15 @@ class VirtualMachineScaleSet(pulumi.CustomResource):
           * `eviction_policy` (`pulumi.Input[str]`) - Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
           * `extension_profile` (`pulumi.Input[dict]`) - Specifies a collection of settings for extensions installed on virtual machines in the scale set.
             * `extensions` (`pulumi.Input[list]`) - The virtual machine scale set child extension resources.
+              * `auto_upgrade_minor_version` (`pulumi.Input[bool]`) - Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+              * `force_update_tag` (`pulumi.Input[str]`) - If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
               * `name` (`pulumi.Input[str]`) - The name of the extension.
-              * `properties` (`pulumi.Input[dict]`) - Describes the properties of a Virtual Machine Scale Set Extension.
-                * `auto_upgrade_minor_version` (`pulumi.Input[bool]`) - Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
-                * `force_update_tag` (`pulumi.Input[str]`) - If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
-                * `protected_settings` (`pulumi.Input[dict]`) - The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
-                * `provision_after_extensions` (`pulumi.Input[list]`) - Collection of extension names after which this extension needs to be provisioned.
-                * `provisioning_state` (`pulumi.Input[str]`) - The provisioning state, which only appears in the response.
-                * `publisher` (`pulumi.Input[str]`) - The name of the extension handler publisher.
-                * `settings` (`pulumi.Input[dict]`) - Json formatted public settings for the extension.
-                * `type` (`pulumi.Input[str]`) - Specifies the type of the extension; an example is "CustomScriptExtension".
-                * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the script handler.
-
-              * `type` (`pulumi.Input[str]`) - Resource type
+              * `protected_settings` (`pulumi.Input[dict]`) - The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
+              * `provision_after_extensions` (`pulumi.Input[list]`) - Collection of extension names after which this extension needs to be provisioned.
+              * `publisher` (`pulumi.Input[str]`) - The name of the extension handler publisher.
+              * `settings` (`pulumi.Input[dict]`) - Json formatted public settings for the extension.
+              * `type` (`pulumi.Input[str]`) - Specifies the type of the extension; an example is "CustomScriptExtension".
+              * `type_handler_version` (`pulumi.Input[str]`) - Specifies the version of the script handler.
 
             * `extensions_time_budget` (`pulumi.Input[str]`) - Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). <br><br> Minimum api-version: 2020-06-01
 

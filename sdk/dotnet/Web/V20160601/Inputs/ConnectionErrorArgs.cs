@@ -39,11 +39,17 @@ namespace Pulumi.AzureRM.Web.V20160601.Inputs
         [Input("message")]
         public Input<string>? Message { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
         /// <summary>
         /// Resource tags
         /// </summary>
-        [Input("tags")]
-        public Input<Inputs.TagsDictionaryArgs>? Tags { get; set; }
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public ConnectionErrorArgs()
         {

@@ -113,7 +113,7 @@ type jobArgs struct {
 	// Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
 	CntkSettings *CNTKsettings `pulumi:"cntkSettings"`
 	// Constraints associated with the Job.
-	Constraints *JobBasePropertiesProperties `pulumi:"constraints"`
+	Constraints *JobBasePropertiesConstraints `pulumi:"constraints"`
 	// If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
 	ContainerSettings *ContainerSettings `pulumi:"containerSettings"`
 	// Specifies the settings for a custom tool kit job.
@@ -163,7 +163,7 @@ type JobArgs struct {
 	// Specifies the settings for CNTK (aka Microsoft Cognitive Toolkit) job.
 	CntkSettings CNTKsettingsPtrInput
 	// Constraints associated with the Job.
-	Constraints JobBasePropertiesPropertiesPtrInput
+	Constraints JobBasePropertiesConstraintsPtrInput
 	// If the container was downloaded as part of cluster setup then the same container image will be used. If not provided, the job will run on the VM.
 	ContainerSettings ContainerSettingsPtrInput
 	// Specifies the settings for a custom tool kit job.

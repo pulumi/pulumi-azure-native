@@ -11,61 +11,6 @@ import (
 )
 
 // Base class for all types of DMS command properties. If command is not supported by current client, this object is returned.
-type CommandProperties struct {
-	// Command type.
-	CommandType string `pulumi:"commandType"`
-}
-
-// CommandPropertiesInput is an input type that accepts CommandPropertiesArgs and CommandPropertiesOutput values.
-// You can construct a concrete instance of `CommandPropertiesInput` via:
-//
-//          CommandPropertiesArgs{...}
-type CommandPropertiesInput interface {
-	pulumi.Input
-
-	ToCommandPropertiesOutput() CommandPropertiesOutput
-	ToCommandPropertiesOutputWithContext(context.Context) CommandPropertiesOutput
-}
-
-// Base class for all types of DMS command properties. If command is not supported by current client, this object is returned.
-type CommandPropertiesArgs struct {
-	// Command type.
-	CommandType pulumi.StringInput `pulumi:"commandType"`
-}
-
-func (CommandPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommandProperties)(nil)).Elem()
-}
-
-func (i CommandPropertiesArgs) ToCommandPropertiesOutput() CommandPropertiesOutput {
-	return i.ToCommandPropertiesOutputWithContext(context.Background())
-}
-
-func (i CommandPropertiesArgs) ToCommandPropertiesOutputWithContext(ctx context.Context) CommandPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CommandPropertiesOutput)
-}
-
-// Base class for all types of DMS command properties. If command is not supported by current client, this object is returned.
-type CommandPropertiesOutput struct{ *pulumi.OutputState }
-
-func (CommandPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommandProperties)(nil)).Elem()
-}
-
-func (o CommandPropertiesOutput) ToCommandPropertiesOutput() CommandPropertiesOutput {
-	return o
-}
-
-func (o CommandPropertiesOutput) ToCommandPropertiesOutputWithContext(ctx context.Context) CommandPropertiesOutput {
-	return o
-}
-
-// Command type.
-func (o CommandPropertiesOutput) CommandType() pulumi.StringOutput {
-	return o.ApplyT(func(v CommandProperties) string { return v.CommandType }).(pulumi.StringOutput)
-}
-
-// Base class for all types of DMS command properties. If command is not supported by current client, this object is returned.
 type CommandPropertiesResponse struct {
 	// Command type.
 	CommandType string `pulumi:"commandType"`
@@ -657,52 +602,6 @@ func (o DatabaseInfoResponseArrayOutput) Index(i pulumi.IntInput) DatabaseInfoRe
 }
 
 // Error information in OData format.
-type ODataError struct {
-}
-
-// ODataErrorInput is an input type that accepts ODataErrorArgs and ODataErrorOutput values.
-// You can construct a concrete instance of `ODataErrorInput` via:
-//
-//          ODataErrorArgs{...}
-type ODataErrorInput interface {
-	pulumi.Input
-
-	ToODataErrorOutput() ODataErrorOutput
-	ToODataErrorOutputWithContext(context.Context) ODataErrorOutput
-}
-
-// Error information in OData format.
-type ODataErrorArgs struct {
-}
-
-func (ODataErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ODataError)(nil)).Elem()
-}
-
-func (i ODataErrorArgs) ToODataErrorOutput() ODataErrorOutput {
-	return i.ToODataErrorOutputWithContext(context.Background())
-}
-
-func (i ODataErrorArgs) ToODataErrorOutputWithContext(ctx context.Context) ODataErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ODataErrorOutput)
-}
-
-// Error information in OData format.
-type ODataErrorOutput struct{ *pulumi.OutputState }
-
-func (ODataErrorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ODataError)(nil)).Elem()
-}
-
-func (o ODataErrorOutput) ToODataErrorOutput() ODataErrorOutput {
-	return o
-}
-
-func (o ODataErrorOutput) ToODataErrorOutputWithContext(ctx context.Context) ODataErrorOutput {
-	return o
-}
-
-// Error information in OData format.
 type ODataErrorResponse struct {
 	// The machine-readable description of the error, such as 'InvalidRequest' or 'InternalServerError'
 	Code string `pulumi:"code"`
@@ -1249,7 +1148,6 @@ func (o ServiceSkuResponseOutput) Tier() pulumi.StringPtrOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(CommandPropertiesOutput{})
 	pulumi.RegisterOutputType(CommandPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(CommandPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(ConnectionInfoOutput{})
@@ -1259,7 +1157,6 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseInfoOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoResponseOutput{})
 	pulumi.RegisterOutputType(DatabaseInfoResponseArrayOutput{})
-	pulumi.RegisterOutputType(ODataErrorOutput{})
 	pulumi.RegisterOutputType(ODataErrorResponseOutput{})
 	pulumi.RegisterOutputType(ODataErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(ProjectPropertiesResponseOutput{})

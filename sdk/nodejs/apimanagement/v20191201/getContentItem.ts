@@ -52,7 +52,7 @@ export interface GetContentItemResult {
     /**
      * Properties of the content item.
      */
-    readonly properties: outputs.apimanagement.v20191201.ContentItemContractPropertiesResponse;
+    readonly properties: {[key: string]: any};
     /**
      * Resource type for API Management resource.
      */

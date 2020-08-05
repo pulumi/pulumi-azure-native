@@ -16,7 +16,7 @@ namespace Pulumi.AzureRM.ImportExport.V20161101.Outputs
         /// <summary>
         /// A list of the blobs to be exported.
         /// </summary>
-        public readonly Outputs.ExportResponsePropertiesResult? BlobList;
+        public readonly Outputs.ExportResponseBlobListResult? BlobList;
         /// <summary>
         /// The relative URI to the block blob that contains the list of blob paths or blob path prefixes as defined above, beginning with the container name. If the blob is in root container, the URI must begin with $root. 
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.AzureRM.ImportExport.V20161101.Outputs
 
         [OutputConstructor]
         private ExportResponseResult(
-            Outputs.ExportResponsePropertiesResult? blobList,
+            Outputs.ExportResponseBlobListResult? blobList,
 
             string? blobListblobPath)
         {

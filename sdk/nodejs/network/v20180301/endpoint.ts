@@ -110,7 +110,7 @@ export interface EndpointArgs {
     /**
      * List of custom headers.
      */
-    readonly customHeaders?: pulumi.Input<pulumi.Input<inputs.network.v20180301.EndpointPropertiesProperties>[]>;
+    readonly customHeaders?: pulumi.Input<pulumi.Input<inputs.network.v20180301.EndpointPropertiesCustomHeaders>[]>;
     /**
      * Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
      */

@@ -98,17 +98,17 @@ type pipelineArgs struct {
 	// The factory name.
 	FactoryName string `pulumi:"factoryName"`
 	// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-	Folder *PipelineProperties `pulumi:"folder"`
+	Folder *PipelineFolder `pulumi:"folder"`
 	// The pipeline name.
 	Name string `pulumi:"name"`
 	// List of parameters for pipeline.
-	Parameters *ParameterDefinitionSpecification `pulumi:"parameters"`
+	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// The resource group name.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Dimensions emitted by Pipeline.
 	RunDimensions map[string]map[string]interface{} `pulumi:"runDimensions"`
 	// List of variables for pipeline.
-	Variables *VariableDefinitionSpecification `pulumi:"variables"`
+	Variables map[string]VariableSpecification `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a Pipeline resource.
@@ -124,17 +124,17 @@ type PipelineArgs struct {
 	// The factory name.
 	FactoryName pulumi.StringInput
 	// The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
-	Folder PipelinePropertiesPtrInput
+	Folder PipelineFolderPtrInput
 	// The pipeline name.
 	Name pulumi.StringInput
 	// List of parameters for pipeline.
-	Parameters ParameterDefinitionSpecificationPtrInput
+	Parameters ParameterSpecificationMapInput
 	// The resource group name.
 	ResourceGroupName pulumi.StringInput
 	// Dimensions emitted by Pipeline.
 	RunDimensions pulumi.MapMapInput
 	// List of variables for pipeline.
-	Variables VariableDefinitionSpecificationPtrInput
+	Variables VariableSpecificationMapInput
 }
 
 func (PipelineArgs) ElementType() reflect.Type {
