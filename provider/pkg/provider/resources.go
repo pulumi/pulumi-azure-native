@@ -52,7 +52,7 @@ type AzureApiProperty struct {
 	SdkName string `json:"sdkName,omitempty"`
 	// The name of a container property that was "flattened" during SDK generation, i.e. an extra layer that exists
 	// in the API payload but does not exist in the SDK.
-	Container string `json:"flatten,omitempty"`
+	Container string `json:"container,omitempty"`
 }
 
 // AzureApiType represents the shape of an object property.
@@ -63,18 +63,20 @@ type AzureApiType struct {
 
 // AzureApiResource is a resource in Azure REST API.
 type AzureApiResource struct {
-	ApiVersion    string              `json:"apiVersion"`
-	Path          string              `json:"path"`
-	GetParameters []AzureApiParameter `json:"GET"`
-	PutParameters []AzureApiParameter `json:"PUT"`
+	ApiVersion    string                      `json:"apiVersion"`
+	Path          string                      `json:"path"`
+	GetParameters []AzureApiParameter         `json:"GET"`
+	PutParameters []AzureApiParameter         `json:"PUT"`
+	Response      map[string]AzureApiProperty `json:"response"`
 }
 
 // AzureApiInvoke is an invocation target (a function) in Azure REST API.
 type AzureApiInvoke struct {
-	ApiVersion     string              `json:"apiVersion"`
-	Path           string              `json:"path"`
-	GetParameters  []AzureApiParameter `json:"GET"`
-	PostParameters []AzureApiParameter `json:"POST"`
+	ApiVersion     string                      `json:"apiVersion"`
+	Path           string                      `json:"path"`
+	GetParameters  []AzureApiParameter         `json:"GET"`
+	PostParameters []AzureApiParameter         `json:"POST"`
+	Response       map[string]AzureApiProperty `json:"response"`
 }
 
 // AzureApiMetadata is a collection of all resources and functions in the Azure REST API surface.

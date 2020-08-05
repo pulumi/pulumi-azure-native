@@ -12,7 +12,7 @@ pulumi.runtime.setMocks({
     newResource: function(type: string, name: string, inputs: any): {id: string, state: any} {
         console.log(type);
         if (type === "azurerm:documentdb:DatabaseAccount") {
-            cosmosdbAccountLocations = inputs.properties.locations.map((l: any) => l.locationName);
+            cosmosdbAccountLocations = inputs.locations.map((l: any) => l.locationName);
             cosmosdbPrimaryLocation = inputs.location;
         }
 

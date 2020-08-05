@@ -142,6 +142,8 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 		return
 	}
 
+	gen.escapeCSharpNames(typeName, resourceResponse)
+
 	resourceSpec := pschema.ResourceSpec{
 		ObjectTypeSpec:  pschema.ObjectTypeSpec{
 			Description: resourceResponse.description,
@@ -191,6 +193,7 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 		Path:          key,
 		GetParameters: requestFunction.parameters,
 		PutParameters: resourceRequest.parameters,
+		Response:      resourceResponse.properties,
 	}
 	g.metadata.Resources[resourceTok] = r
 
@@ -198,6 +201,7 @@ func (g *packageGenerator) genResources(key string, path *spec.PathItem) {
 		ApiVersion:    g.swagger.Info.Version,
 		Path:          key,
 		GetParameters: requestFunction.parameters,
+		Response:      responseFunction.properties,
 	}
 	g.metadata.Invokes[functionTok] = f
 }
@@ -266,6 +270,7 @@ func (g *packageGenerator) genListFunctions(key string, path *spec.PathItem) {
 		ApiVersion:     g.swagger.Info.Version,
 		Path:           key,
 		PostParameters: request.parameters,
+		Response:       response.properties,
 	}
 	g.metadata.Invokes[functionTok] = f
 }
@@ -332,6 +337,20 @@ func (m *moduleGenerator) normalizeName(path string, requestProperties *paramete
 	}
 
 	return nil
+}
+
+func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *propertyBag) {
+	for name, spec := range resourceResponse.specs {
+		// C# doesn't allow properties to have the same name as its containing type.
+		if strings.Title(name) == typeName {
+			spec.Language = map[string]json.RawMessage{
+				"csharp": rawMessage(map[string]interface{}{
+					"name": fmt.Sprintf("%sValue", typeName),
+				}),
+			}
+			resourceResponse.specs[name] = spec
+		}
+	}
 }
 
 func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *openapi.ReferenceContext) (*parameterBag, error) {
@@ -480,7 +499,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 	for _, name := range names {
 		property := resolvedSchema.Properties[name]
 		sdkName := name
-		if clientName, ok := property.Extensions.GetString("x-ms-client-name"); ok && !isOutput {
+		if clientName, ok := property.Extensions.GetString("x-ms-client-name"); ok {
 			sdkName = firstToLower(clientName)
 		}
 		if !isLegalIdentifier(sdkName) {
@@ -489,7 +508,7 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 		}
 
 		// Flattened properties aren't modelled in the SDK explicitly: their sub-properties are merged directly to the parent.
-		if flatten, ok := property.Extensions.GetBool("x-ms-client-flatten"); ok && flatten && !isOutput {
+		if flatten, ok := property.Extensions.GetBool("x-ms-client-flatten"); ok && flatten {
 			resolvedProperty, err := resolvedSchema.ResolveSchema(&property)
 			if err != nil {
 				return nil, err
@@ -527,28 +546,21 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			continue
 		}
 
+		var apiProperty provider.AzureApiProperty
 		if isOutput {
-			result.specs[sdkName] = *propertySpec
 			if property.ReadOnly {
 				result.requiredSpecs.Add(sdkName)
 			}
-			result.properties[name] = provider.AzureApiProperty{}
-		} else {
-			result.specs[sdkName] = *propertySpec
-			var items *provider.AzureApiProperty
-			if propertySpec.Items != nil {
-				items = &provider.AzureApiProperty{
-					Type: propertySpec.Items.Type,
-					Ref:  propertySpec.Items.Ref,
-				}
+			apiProperty = provider.AzureApiProperty{
+				Ref: propertySpec.Ref,
 			}
+		} else {
 			resolvedProperty, err := resolvedSchema.ResolveSchema(&property)
 			if err != nil {
 				return nil, err
 			}
-			apiProperty := provider.AzureApiProperty{
+			apiProperty = provider.AzureApiProperty{
 				Type:      propertySpec.Type,
-				Items:     items,
 				Enum:      m.getEnumValues(&property),
 				Ref:       propertySpec.Ref,
 				Minimum:   resolvedProperty.Minimum,
@@ -557,11 +569,19 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 				MaxLength: resolvedProperty.MaxLength,
 				Pattern:   resolvedProperty.Pattern,
 			}
-			if sdkName != name {
-				apiProperty.SdkName = sdkName
-			}
-			result.properties[name] = apiProperty
 		}
+
+		if sdkName != name {
+			apiProperty.SdkName = sdkName
+		}
+		if propertySpec.Items != nil {
+			apiProperty.Items = &provider.AzureApiProperty{
+				Type: propertySpec.Items.Type,
+				Ref:  propertySpec.Items.Ref,
+			}
+		}
+		result.properties[name] = apiProperty
+		result.specs[sdkName] = *propertySpec
 	}
 
 	for _, s := range resolvedSchema.AllOf {
@@ -692,11 +712,9 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 				Required:    props.requiredSpecs.SortedValues(),
 			}
 
-			if !isOutput {
-				m.metadata.Types[tok] = provider.AzureApiType{
-					Properties:         props.properties,
-					RequiredProperties: props.requiredProperties.SortedValues(),
-				}
+			m.metadata.Types[tok] = provider.AzureApiType{
+				Properties:         props.properties,
+				RequiredProperties: props.requiredProperties.SortedValues(),
 			}
 		}
 	}
